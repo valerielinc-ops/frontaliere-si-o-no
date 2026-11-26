@@ -1,7 +1,7 @@
 {
   "key": "klinik-aadorf",
   "label": "Klinik Aadorf",
-  "generatedAt": "2026-11-26T09:17:25.067Z",
+  "generatedAt": "2026-11-26T21:21:00.648Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6628,
-  "avgDurationMs": 6628,
+  "durationMs": 6691,
+  "avgDurationMs": 6691,
   "durationHistory": [
-    6628
+    6691
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/41921d06-3a31-4c81-a961-7a46ba6e54b2/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:17:05.276Z",
+      "crawledAt": "2026-11-26T21:20:36.457Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -73,7 +73,7 @@
       },
       "streetAddress": "Fohrenbergstrasse 23",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:17:05.276Z",
+      "validThrough": "2026-12-26T21:20:36.457Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -96,7 +96,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/43a91a11-56cc-4055-95f3-531fd7653465/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:17:04.776Z",
+      "crawledAt": "2026-11-26T21:20:35.974Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -130,7 +130,7 @@
       },
       "streetAddress": "Fohrenbergstrasse 23",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T09:17:04.776Z",
+      "validThrough": "2027-02-08T21:20:35.974Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -153,7 +153,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/8216cfc3-8d7e-4f66-9b5b-979dd7655622/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:17:04.229Z",
+      "crawledAt": "2026-11-26T21:20:35.473Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       },
       "streetAddress": "Fohrenbergstrasse 23",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:17:04.229Z",
+      "validThrough": "2026-12-26T21:20:35.473Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -209,7 +209,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/81bb4cc3-0079-49a3-9e87-179919822f8f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:17:03.724Z",
+      "crawledAt": "2026-11-26T21:20:34.982Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       },
       "streetAddress": "Fohrenbergstrasse 23",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:17:03.724Z",
+      "validThrough": "2026-12-26T21:20:34.982Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -254,5 +254,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }
