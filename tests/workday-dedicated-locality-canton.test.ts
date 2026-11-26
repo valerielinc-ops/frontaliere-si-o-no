@@ -7,7 +7,6 @@ import { fetchAllArdianJobs } from '../scripts/lib/ardian-job-parser.mjs';
 import { fetchAllBossardJobs } from '../scripts/lib/bossard-job-parser.mjs';
 import { fetchAllKsbJobs } from '../scripts/lib/ksb-job-parser.mjs';
 import { fetchAllNovartisJobs } from '../scripts/lib/novartis-job-parser.mjs';
-import { fetchAllRitualsCosmeticsJobs } from '../scripts/lib/rituals-cosmetics-job-parser.mjs';
 import { fetchAllRocheJobs } from '../scripts/lib/roche-job-parser.mjs';
 import { fetchAllStrykerJobs } from '../scripts/lib/stryker-job-parser.mjs';
 import {
@@ -21,7 +20,7 @@ import { resolveSwissPostalCodePlace } from '../scripts/lib/swiss-locality-direc
  * Same class as the Workday factory fix (imerys / kone, 2026-10-02): the
  * commune gazetteer behind `inferSwissTargetCanton` lists today's BFS communes,
  * so a req placed in a LOCALITY — Rotkreuz (Risch ZG), Muri AG, Brüttisellen
- * (Wangen-Brüttisellen ZH), Bodio (Giornico TI) — had no canton and the nine
+ * (Wangen-Brüttisellen ZH), Bodio (Giornico TI) — had no canton and the eight
  * dedicated Workday parsers dropped it silently. They now share
  * `fetchWorkdaySwissCanton` / `resolveWorkdaySwissCanton`: the official
  * locality directory places the name, only on the req's own structured Swiss
@@ -29,7 +28,7 @@ import { resolveSwissPostalCodePlace } from '../scripts/lib/swiss-locality-direc
  *
  * Measured live 2026-10-02: novartis +1 (Medical Manager, `Rotkreuz
  * (Office-Based)` → ZG), ksb +1 (MPA Kinderarztpraxis, `Muri` → AG); the other
- * seven had no locality-only req on their Swiss boards that day. Abbott's 4
+ * six had no locality-only req on their Swiss boards that day. Abbott's 4
  * Zürich reqs carried a street address instead (`Technoparkstrass 1 CH 8005`):
  * they are placed by their postal code, under the same guarantees (see the
  * last describe block) — abbott 18 → 22 live.
@@ -57,7 +56,6 @@ const PARSERS = [
   { name: 'bossard', fetchAll: fetchAllBossardJobs },
   { name: 'ksb', fetchAll: fetchAllKsbJobs },
   { name: 'novartis', fetchAll: fetchAllNovartisJobs },
-  { name: 'rituals-cosmetics', fetchAll: fetchAllRitualsCosmeticsJobs },
   { name: 'roche', fetchAll: fetchAllRocheJobs },
   { name: 'stryker', fetchAll: fetchAllStrykerJobs },
 ] as const;

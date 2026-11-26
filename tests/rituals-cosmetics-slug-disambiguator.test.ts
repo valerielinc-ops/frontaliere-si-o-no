@@ -6,7 +6,7 @@ import {
 } from '../scripts/lib/rituals-cosmetics-job-parser.mjs';
 
 /**
- * Rituals runs several concurrent Workday reqs for the same role in the same
+ * Rituals runs several concurrent reqs for the same role in the same
  * city (live: R3932-R3935, four "Mitarbeiter Warenverräumung (m/w/d)" reqs at
  * Basel St Jakob Park). Without a per-req slug suffix they shared one route,
  * and the slice housekeeping archived all but one as within-slice duplicates
@@ -16,7 +16,7 @@ import {
  */
 
 const ORIGINAL_FETCH = global.fetch;
-const PUBLIC_BASE = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals';
+const PUBLIC_BASE = 'https://careers.rituals.com/de-CH/jobs';
 
 afterEach(() => {
   global.fetch = ORIGINAL_FETCH;
@@ -25,44 +25,24 @@ afterEach(() => {
 
 type Posting = { title: string; locationsText: string; path: string; reqId: string };
 
-const LONG_BODY = '<p>'
-  + 'Responsibilities and requirements of the role, described at length by the employer. '.repeat(5)
-  + '</p>';
-
-function json(payload: unknown, status = 200) {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  });
-}
+const LONG_BODY = 'Responsibilities and requirements of the role, described at length by the employer. '.repeat(5);
 
 function mockRitualsTenant(postings: Posting[]) {
+  const listingHtml = `<html><body><main>
+    ${postings.map((posting) => `<article><a href="${posting.path}">${posting.title}</a><span>Store • ${posting.locationsText} • 0-41 Stunden</span></article>`).join('\n')}
+  </main></body></html>`;
+  const detailHtml = (posting: Posting) => `<html><body><main>
+    <div>Store • ${posting.locationsText} • 0-41 Stunden</div>
+    <h1>${posting.title}</h1>
+    <div>${LONG_BODY}</div>
+    <h2>Mehr Shop-Karrieren</h2>
+    <form><input name="email"></form>
+  </main></body></html>`;
   global.fetch = vi.fn(async (url: any, init: any = {}) => {
     const href = String(url);
-    if (init?.method === 'POST' && href.endsWith('/jobs')) {
-      const body = JSON.parse(init.body || '{}');
-      if (body.offset > 0) return json({ total: postings.length, jobPostings: [] });
-      return json({
-        total: postings.length,
-        jobPostings: postings.map((posting) => ({
-          title: posting.title,
-          externalPath: posting.path,
-          locationsText: posting.locationsText,
-          postedOn: 'Posted Today',
-          bulletFields: posting.reqId ? [posting.reqId] : [],
-        })),
-      });
-    }
     const posting = postings.find((candidate) => href.endsWith(candidate.path));
-    if (posting) {
-      return json({
-        jobPostingInfo: {
-          title: posting.title,
-          location: posting.locationsText,
-          jobDescription: LONG_BODY,
-        },
-      });
-    }
+    if (posting) return new Response(detailHtml(posting), { status: 200, headers: { 'Content-Type': 'text/html' } });
+    if (href.startsWith(`${PUBLIC_BASE}/`)) return new Response(listingHtml, { status: 200, headers: { 'Content-Type': 'text/html' } });
     return new Response('', { status: 404 });
   }) as any;
 }
@@ -72,10 +52,10 @@ const LEGACY_SLUG = 'mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch';
 const posting = (reqId: string, store = 'Basel St Jakob Park'): Posting => ({
   title: TITLE,
   locationsText: store,
-  path: `/job/${store.replace(/\s+/g, '-')}/Mitarbeiter-Warenverrumung--m-w-d-_${reqId}`,
+  path: `/de-CH/jobs/mitarbeiter-warenverraumung-m-w-d/${reqId}/`,
   reqId,
 });
-const idOf = (p: Posting) => `rituals-cosmetics-${createHash('sha1').update(`${PUBLIC_BASE}${p.path}`).digest('hex').slice(0, 12)}`;
+const idOf = (p: Posting) => `rituals-cosmetics-${createHash('sha1').update(new URL(p.path, 'https://careers.rituals.com').href).digest('hex').slice(0, 12)}`;
 
 function quiet() {
   vi.spyOn(console, 'log').mockImplementation(() => {});
