@@ -2936,6 +2936,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'iniziativa-congedo-parentale-riuscita': { it: 'iniziativa-congedo-parentale-riuscita', en: 'parental-leave-initiative-succeeded', de: 'elterngeld-initiative-erfolgreich', fr: 'initiative-conge-parental-reussie' },
  'commissioni-divise-preventivo': { it: 'commissioni-divise-preventivo', en: 'divided-committees-federal-budget', de: 'geteilte-kommissionen-bundesbudget', fr: 'commissions-divisees-budget-federal' },
  'fiscalita-tre-livelli-svizzera': { it: 'fiscalita-tre-livelli-svizzera', en: 'swiss-three-level-taxation', de: 'schweizer-dreistufen-steuer', fr: 'fiscalite-trois-niveaux-suisse' },
+ 'consultazione-modifiche-oosg': { it: 'consultazione-modifiche-oosg', en: 'gas-ordinance-consultation', de: 'gasverordnung-konsultation', fr: 'consultation-ordonnance-gaz' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

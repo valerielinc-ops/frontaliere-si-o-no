@@ -87,7 +87,8 @@
       },
       "streetAddress": "Via Croce Campagna 2",
       "streetAddressSource": "zefix-registry",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.goline.ch/opportunities"
     }
   ]
 }

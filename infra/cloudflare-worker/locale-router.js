@@ -742,6 +742,8 @@ function publicOriginCacheOptions(ttl, negativeTtl = ttl) {
 }
 
 const SHARD_ORIGIN_FETCH_CF = publicOriginCacheOptions(ORIGIN_CACHE_TTL);
+const ARTICLE_SHARD_NEGATIVE_TTL = 60;
+const ARTICLE_SHARD_ORIGIN_FETCH_CF = publicOriginCacheOptions(ORIGIN_CACHE_TTL, ARTICLE_SHARD_NEGATIVE_TTL);
 
 // Cache-Control stamped on shard 404s. ~51k/day of shard traffic is crawlers
 // re-fetching DEAD job URLs from memory (old canton/slug variants, pruned
@@ -3742,13 +3744,16 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   const storagePaths = sectionShardPhysicalPaths(url.pathname, sectionRoute, fannedSections);
   const upstream = new URL(request.url);
   upstream.hostname = origin; // rewrite Host only; path + query preserved
+  const articleSection = sectionRoute?.section === 'articolifrontaliere'
+    || sectionRoute?.section === 'articolisvizzera';
+  const originCacheOptions = articleSection ? ARTICLE_SHARD_ORIGIN_FETCH_CF : SHARD_ORIGIN_FETCH_CF;
 
   let resp;
   try {
     for (let index = 0; index < storagePaths.length; index += 1) {
       upstream.pathname = storagePaths[index];
       resp = await fetchOriginWithRetry(upstream, request, {
-        ...SHARD_ORIGIN_FETCH_CF,
+        ...originCacheOptions,
       });
       if (resp.status !== 404 || index === storagePaths.length - 1) break;
     }
@@ -3829,7 +3834,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
         resp,
         upstream,
         request,
-        { ...SHARD_ORIGIN_FETCH_CF },
+        { ...originCacheOptions },
       ));
     } catch {
       const stale = await serveStaleOnError(url, 'origin-body');
@@ -3973,8 +3978,6 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     }
     // Localized body (see renderNotFoundPage). Fresh headers: the origin's
     // Content-Length/ETag describe the Italian 404.html, not this document.
-    const articleSection = sectionRoute?.section === 'articolifrontaliere'
-      || sectionRoute?.section === 'articolisvizzera';
     const negativeCacheControl = jobCanonMarkerUnavailable ? 'no-store'
       : articleSection ? CORPUS_NOT_FOUND_CACHE_CONTROL : NOT_FOUND_CACHE_CONTROL;
     const page = renderNotFoundPage(url.pathname, recoveryLocale, sectionRoute);

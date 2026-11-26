@@ -30752,6 +30752,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'consultazione-modifiche-oosg',
+    category: 'novita',
+    date: '2026-11-26T10:15:53.913Z',
+    image: '/images/blog/article-consultazione-modifiche-oosg.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
