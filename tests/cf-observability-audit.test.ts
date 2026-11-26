@@ -61,10 +61,10 @@ const completeJobCanonRetirementSnapshot = () => ({
 });
 
 describe('cf-observability-audit checks', () => {
-  it('accepts only finite intervals within the documented full-sampling tolerance', () => {
+  it('accepts only finite full-sampling intervals plus observed upward noise', () => {
     expect(isCloudflareFullSamplingInterval(1.0000109306076446)).toBe(true);
     expect(isCloudflareFullSamplingInterval(1)).toBe(true);
-    for (const interval of [null, Number.NaN, 0, 0.5, 1.001]) {
+    for (const interval of [null, Number.NaN, 0, 0.5, 0.999999, 0.99995, 1.001]) {
       expect(isCloudflareFullSamplingInterval(interval)).toBe(false);
     }
   });

@@ -57,14 +57,17 @@ const LOG_MESSAGE = '$metadata.message';
 const ORIGIN_FAILURE_MESSAGE_TOKEN = '"event":"origin_failure"';
 const JOB_CANON_V2_SUCCESS_MESSAGE_TOKEN = '"event":"job_canon_v2_success"';
 const JOB_CANON_V1_FALLBACK_MESSAGE_TOKEN = '"event":"job_canon_v1_fallback"';
-// Cloudflare aggregate sample intervals can drift slightly from the configured
-// full-sampling value. Accept at most 0.01% absolute deviation from 1.
-const FULL_SAMPLING_INTERVAL_TOLERANCE = 1e-4;
+// Cloudflare aggregate sample intervals can drift slightly above the configured
+// full-sampling value because of floating-point serialization. Values below 1
+// are partial samples and must remain blockers; accept only the observed
+// upward noise, capped at 0.002%.
+const FULL_SAMPLING_INTERVAL_MAX_NOISE = 2e-5;
 const filter = (key, operation, value, type = 'string') => ({ key, operation, value, type });
 
 export function isCloudflareFullSamplingInterval(interval) {
   return Number.isFinite(interval)
-    && Math.abs(interval - 1) <= FULL_SAMPLING_INTERVAL_TOLERANCE;
+    && interval >= 1
+    && interval <= 1 + FULL_SAMPLING_INTERVAL_MAX_NOISE;
 }
 
 function buildStructuredLogFilters(messageToken) {
