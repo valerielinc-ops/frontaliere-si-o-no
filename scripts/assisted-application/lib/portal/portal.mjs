@@ -6262,10 +6262,13 @@ export function formPostingMatch(formText, job = {}, {
   const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, successFactorsRoute)
     || sectionBindsRequisition;
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
+  // With an exact SuccessFactors requisition, employer names inside native
+  // questions do not identify the owner of the form. Headings still can.
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
-      : (headingConflict || (!boundPinpointApplication && namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
+      : (headingConflict || (!boundPinpointApplication && !successFactorsBound
+        && namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
