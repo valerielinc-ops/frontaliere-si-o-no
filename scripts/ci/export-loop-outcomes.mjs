@@ -1412,6 +1412,7 @@ export function buildL4OutcomeLedger({
   const contractBoundaryActive = contractEffectiveAtMs != null && now.getTime() >= contractEffectiveAtMs;
   let measuredDeliveryRows = 0;
   let legacyDeliveryRows = 0;
+  let legacyDeliveryRowsExcluded = 0;
   const legacyDeliverySentAtByEmail = new Map();
   let senderProvenDeliveries = 0;
   let senderProofMissing = 0;
@@ -1459,24 +1460,30 @@ export function buildL4OutcomeLedger({
     const email = child.parentId.toLowerCase();
     const alertId = String(first(data, ['campaign_id', 'campaignId']) || '').trim();
     const sentAt = toMillis(first(data, ['sent_at', 'sentAt']));
+    const beforeContractBoundary = contractBoundaryActive
+      && sentAt != null
+      && sentAt < contractEffectiveAtMs;
+    if (beforeContractBoundary) legacyDeliveryRows += 1;
+    const senderEvidence = readJobAlertSenderEvidence(data);
+    let consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
 
-    // Delivery rows written before the sender-side proof refresh are retained
-    // for diagnostics but are not evidence for the current cohort. Inferring
-    // their consent from mutable alert/subscriber state would turn an unknown
-    // history into a false positive. Keep their message ids and recipient
-    // windows reserved so their engagement cannot be reused by a newer row.
-    if (contractBoundaryActive && sentAt != null && sentAt < contractEffectiveAtMs) {
-      legacyDeliveryRows += 1;
+    // A pre-rollout row with an incomplete immutable proof is retained for
+    // diagnostics but is not evidence for the current cohort. Inferring its
+    // consent from mutable alert/subscriber state would turn unknown history
+    // into a false positive. Keep its recipient window reserved so engagement
+    // cannot be reused by a newer row.
+    const legacyProofIncomplete = beforeContractBoundary
+      && (!alertId || senderEvidence.status !== 'valid' || consentEvidence.status === 'missing');
+    if (legacyProofIncomplete) {
+      legacyDeliveryRowsExcluded += 1;
       if (!legacyDeliverySentAtByEmail.has(email)) legacyDeliverySentAtByEmail.set(email, []);
       legacyDeliverySentAtByEmail.get(email).push(sentAt);
       continue;
     }
     measuredDeliveryRows += 1;
     const key = buildAlertKey(email, alertId);
-    const senderEvidence = readJobAlertSenderEvidence(data);
     if (senderEvidence.status === 'valid') senderProvenDeliveries += 1;
     else senderProofMissing += 1;
-    let consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
     const knownAlert = knownAlertKeys.has(key);
     const currentConsent = currentConsentByAlertKey.get(key);
     let subscriberStopEvents = newsletterStopEvidence.bySubscriber.get(email) || [];
@@ -1718,10 +1725,11 @@ export function buildL4OutcomeLedger({
       deliveryRows: deliveryRowCount,
       measuredDeliveryRows,
       legacyDeliveryRows,
+      legacyDeliveryRowsExcluded,
       measurementBoundary: {
         effectiveAt: contractEffectiveAtMs == null ? null : new Date(contractEffectiveAtMs).toISOString(),
         active: contractBoundaryActive,
-        policy: 'pre-contract rows remain diagnostic and are excluded from the consented measurement cohort',
+        policy: 'pre-contract rows without complete immutable proof remain diagnostic and are excluded from the consented measurement cohort',
       },
       senderEvidence: 'ranking_delivery_id matches jer_job_alert_<24 hex>',
       senderProvenDeliveries,

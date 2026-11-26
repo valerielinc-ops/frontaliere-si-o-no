@@ -7,6 +7,6 @@ export const L4_DELIVERY_CONTRACT_VERSION = 1;
 export const L4_DELIVERY_CONSENT_WINDOW_MS = 20 * 60_000;
 
 // The sender-side refresh that makes the v1 proof enforceable shipped in
-// #20076. Rows sent before that rollout have no safe per-delivery consent
-// timestamp and must not be backfilled into the live measurement cohort.
+// #20076. Rows sent before that rollout may lack a safe per-delivery consent
+// proof; those unknown rows must not be backfilled into the live cohort.
 export const L4_DELIVERY_CONTRACT_EFFECTIVE_AT = '2026-11-26T12:54:57.000Z';
