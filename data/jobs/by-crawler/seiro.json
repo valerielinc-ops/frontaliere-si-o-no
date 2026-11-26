@@ -84,7 +84,8 @@
       "streetAddress": "Davos Platz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T09:52:59.751Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-allgemeine-innere-medizin-davos-4829-b"
     },
     {
       "id": "seiro-f06c76fe6cd4",
@@ -167,7 +168,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T09:52:59.750Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/hautarztin-hautarzt-dermatologie-privatklinik-zurich-3423-b"
     },
     {
       "id": "seiro-7b0ff0106123",
@@ -252,7 +254,8 @@
       "streetAddress": "Münchenstein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T09:52:59.750Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-radiologie-msk-diagnostik-2938-c"
     },
     {
       "id": "seiro-dc31644c6383",
@@ -329,7 +332,8 @@
       "streetAddress": "Rorschach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T09:52:59.749Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/facharztin-facharzt-psychiatrie-rorschach-2908-c"
     },
     {
       "id": "seiro-c027482453b5",
@@ -414,7 +418,8 @@
       "streetAddress": "Reichenburg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:52:59.748Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/leitende-arztin-leitender-arzt-hausarztmedizin-reichenburg-4379-b"
     },
     {
       "id": "seiro-e9011a18b899",
@@ -499,7 +504,8 @@
       "streetAddress": "Bubikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T09:52:59.747Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/facharztin-facharzt-hausarztmedizin-wolfhausen-zh-4378-b"
     },
     {
       "id": "seiro-900d45f1e9bc",
@@ -576,7 +582,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T09:52:59.746Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-medizinische-genetik-bern-3612-c"
     },
     {
       "id": "seiro-252075c4d832",
@@ -661,7 +668,8 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T09:52:59.743Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/facharztin-facharzt-hausarztmedizin-olten-4316-b"
     },
     {
       "id": "seiro-b9244b90579b",
@@ -744,7 +752,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:52:59.741Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/facharztin-facharzt-allgemeine-innere-medizin-telemedizin-zurich-3420-b"
     },
     {
       "id": "seiro-979a7626d86d",
@@ -821,7 +830,8 @@
       "streetAddress": "Muri",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T09:52:59.739Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-3550-c"
     },
     {
       "id": "seiro-8ebc338011fa",
@@ -907,7 +917,8 @@
       },
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
-      ]
+      ],
+      "sourceIdentity": "url:https://seiro.ch/jobs/leitende-arztin-leitender-arzt-angiologie-davos-gr-3548-c"
     },
     {
       "id": "seiro-0db8807ba0b6",
@@ -995,7 +1006,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:22:20.390Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-stationare-psychiatrie-langenthal-2940-c"
     },
     {
       "id": "seiro-f8cf87b18f09",
@@ -1082,7 +1094,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:22:20.390Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-3002-c"
     },
     {
       "id": "seiro-21307175a1e8",
@@ -1168,7 +1181,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:22:20.390Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-radiologie-brustbildgebung-zurich-2906-c"
     },
     {
       "id": "seiro-befbf5e88699",
@@ -1248,7 +1262,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:22:20.389Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://seiro.ch/jobs/leitende-arztin-arzt-alterspsychiatrie-st.-gallen-4123-c"
     },
     {
       "id": "seiro-6c19f671f97e",
@@ -1336,7 +1351,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:22:20.389Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-radiologie-basel-2939-c"
     },
     {
       "id": "seiro-90bebc52cd74",
@@ -1426,7 +1442,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:22:20.388Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-3642-a"
     },
     {
       "id": "seiro-19bec38bf13b",
@@ -1511,7 +1528,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:22:20.387Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://seiro.ch/jobs/oberarztin-oberarzt-psychiatrie-und-psychosomatik-prattigau-3099-c"
     },
     {
       "id": "seiro-0b96b9c45eb2",
@@ -1595,7 +1613,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:22:20.386Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://seiro.ch/jobs/leitende-arztin-leitender-arzt-hausarztmedizin-luzern-104-c"
     }
   ]
 }

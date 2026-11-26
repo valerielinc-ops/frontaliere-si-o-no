@@ -5,6 +5,10 @@
  * was never observed.  Keep the transport evidence small and source-shaped so
  * the prospector can pass it through the shared crawler template without ever
  * copying response bodies or unbounded request data into corpus summaries.
+ * `listingTerminalStatus` is kept separately because `httpStatuses` also
+ * contains per-vacancy detail responses, including expected stale-detail 404s.
+ * `listingCompletion` records the collector's source-level verdict so an
+ * accepted pagination-ending 404 is distinguishable from a failed listing.
  */
 
 const MAX_SEED_URLS = 20;
@@ -52,6 +56,8 @@ export function createCrawlerFetchReceipt(spec = {}) {
     phase: 'listing',
     pages: 0,
     httpStatuses: [],
+    listingTerminalStatus: null,
+    listingCompletion: null,
     proxiedBy: [],
     fetchOutcome: null,
     fetchDetail: null,
@@ -65,9 +71,10 @@ export function createCrawlerFetchReceipt(spec = {}) {
  * @param {Record<string, any>} receipt
  * @param {Record<string, any>} page
  * @param {string} [requestedUrl]
+ * @param {'listing'|'detail'|'supporting'} [phase]
  * @returns {Record<string, any>}
  */
-export function recordCrawlerFetchReceiptPage(receipt, page = {}, requestedUrl = '') {
+export function recordCrawlerFetchReceiptPage(receipt, page = {}, requestedUrl = '', phase = receipt?.phase) {
   if (!receipt || typeof receipt !== 'object') return receipt;
   receipt.pages = Number.isInteger(receipt.pages) && receipt.pages >= 0
     ? receipt.pages + 1
@@ -78,12 +85,14 @@ export function recordCrawlerFetchReceiptPage(receipt, page = {}, requestedUrl =
   if (proxiedBy && !receipt.proxiedBy.includes(proxiedBy)) {
     receipt.proxiedBy = [...receipt.proxiedBy, proxiedBy].slice(0, MAX_PROXY_NAMES);
   }
-  if (Number.isFinite(status) && status > 0 && receipt.httpStatuses.length < MAX_HTTP_STATUS_ENTRIES) {
-    receipt.httpStatuses.push({
+  if (Number.isFinite(status) && status > 0) {
+    const entry = {
       status: Math.trunc(status),
       ...(url ? { url } : {}),
       ...(proxiedBy ? { proxiedBy } : {}),
-    });
+    };
+    if (phase === 'listing') receipt.listingTerminalStatus = entry.status;
+    if (receipt.httpStatuses.length < MAX_HTTP_STATUS_ENTRIES) receipt.httpStatuses.push(entry);
   }
   return receipt;
 }
@@ -117,8 +126,8 @@ export function finalizeCrawlerFetchReceipt(receipt, metadata = {}, error = null
  */
 export function normalizeCrawlerFetchReceipt(receipt) {
   if (!receipt || typeof receipt !== 'object') return null;
-  const httpStatuses = Array.isArray(receipt.httpStatuses)
-    ? receipt.httpStatuses.flatMap((entry) => {
+  const normalizeStatuses = (entries) => Array.isArray(entries)
+    ? entries.flatMap((entry) => {
       const status = Number(entry?.status);
       if (!Number.isFinite(status) || status <= 0) return [];
       const url = safeHttpUrl(entry?.url);
@@ -130,6 +139,11 @@ export function normalizeCrawlerFetchReceipt(receipt) {
       }];
     }).slice(0, MAX_HTTP_STATUS_ENTRIES)
     : [];
+  const httpStatuses = normalizeStatuses(receipt.httpStatuses);
+  const terminalStatus = Number(receipt.listingTerminalStatus);
+  const listingTerminalStatus = Number.isInteger(terminalStatus) && terminalStatus > 0
+    ? terminalStatus
+    : null;
   const proxiedBy = [...new Set(
     (Array.isArray(receipt.proxiedBy) ? receipt.proxiedBy : [])
       .map((value) => boundedString(value, 80))
@@ -142,6 +156,8 @@ export function normalizeCrawlerFetchReceipt(receipt) {
     phase: normalizedPhase(receipt.phase),
     pages: Number.isInteger(pages) && pages >= 0 ? pages : 0,
     httpStatuses,
+    listingTerminalStatus,
+    listingCompletion: boundedString(receipt.listingCompletion, 40),
     proxiedBy,
     fetchOutcome: boundedString(receipt.fetchOutcome, 120),
     fetchDetail: boundedString(receipt.fetchDetail),

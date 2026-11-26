@@ -54,9 +54,10 @@ const USER_AGENT = '$workers.event.request.headers.user-agent';
 const REQUEST_COUNTRY = '$workers.event.request.cf.country';
 const EVENT_TYPE = '$metadata.type';
 const LOG_MESSAGE = '$metadata.message';
-const ORIGIN_FAILURE_MESSAGE_TOKEN = '"event":"origin_failure"';
-const JOB_CANON_V2_SUCCESS_MESSAGE_TOKEN = '"event":"job_canon_v2_success"';
-const JOB_CANON_V1_FALLBACK_MESSAGE_TOKEN = '"event":"job_canon_v1_fallback"';
+const STRUCTURED_EVENT = 'event';
+const ORIGIN_FAILURE_EVENT = 'origin_failure';
+const JOB_CANON_V2_SUCCESS_EVENT = 'job_canon_v2_success';
+const JOB_CANON_V1_FALLBACK_EVENT = 'job_canon_v1_fallback';
 // Cloudflare aggregate sample intervals can drift slightly above the configured
 // full-sampling value because of floating-point serialization. Values below 1
 // are partial samples and must remain blockers; accept only the observed
@@ -70,10 +71,17 @@ export function isCloudflareFullSamplingInterval(interval) {
     && interval <= 1 + FULL_SAMPLING_INTERVAL_MAX_NOISE;
 }
 
-function buildStructuredLogFilters(messageToken) {
+function buildStructuredLogFilters(eventName, legacyMessageToken) {
   return [
     filter(EVENT_TYPE, 'eq', 'cf-worker-log'),
-    filter(LOG_MESSAGE, 'includes', messageToken),
+    {
+      kind: 'group',
+      filterCombination: 'or',
+      filters: [
+        filter(STRUCTURED_EVENT, 'eq', eventName),
+        filter(LOG_MESSAGE, 'includes', legacyMessageToken),
+      ],
+    },
   ];
 }
 
@@ -85,21 +93,28 @@ export function buildBlockedUaFilters(ua) {
 }
 
 export function buildOriginFailureLogFilters() {
-  return buildStructuredLogFilters(ORIGIN_FAILURE_MESSAGE_TOKEN);
+  return buildStructuredLogFilters(ORIGIN_FAILURE_EVENT, '"event":"origin_failure"');
 }
 
 export function buildJobCanonV2SuccessLogFilters() {
-  return buildStructuredLogFilters(JOB_CANON_V2_SUCCESS_MESSAGE_TOKEN);
+  return buildStructuredLogFilters(JOB_CANON_V2_SUCCESS_EVENT, '"event":"job_canon_v2_success"');
 }
 
 export function buildJobCanonV1FallbackLogFilters() {
-  return buildStructuredLogFilters(JOB_CANON_V1_FALLBACK_MESSAGE_TOKEN);
+  return buildStructuredLogFilters(JOB_CANON_V1_FALLBACK_EVENT, '"event":"job_canon_v1_fallback"');
 }
 
 export function isOriginFailureLogEvent(event) {
-  return event?.$metadata?.type === 'cf-worker-log'
-    && typeof event.$metadata.message === 'string'
-    && event.$metadata.message.includes(ORIGIN_FAILURE_MESSAGE_TOKEN);
+  if (event?.$metadata?.type !== 'cf-worker-log') return false;
+  const structuredNames = [
+    event?.event,
+    typeof event?.source === 'object' && event.source !== null ? event.source.event : undefined,
+  ].filter((value) => typeof value === 'string');
+  if (structuredNames.length > 0) {
+    return structuredNames.every((value) => value === ORIGIN_FAILURE_EVENT);
+  }
+  return typeof event?.$metadata?.message === 'string'
+    && event.$metadata.message.includes('"event":"origin_failure"');
 }
 
 const share = (part, total) => (total > 0 ? part / total : 0);

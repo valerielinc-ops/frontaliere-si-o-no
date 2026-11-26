@@ -353,6 +353,7 @@ jobs:
         scripts/ci/lib/automation-risk-policy.mjs
         scripts/ci/lib/pr-delivery-evidence.mjs
         scripts/ci/claim-issue-in-flight.mjs
+        scripts/ci/check-issue-fix-dispatch.mjs
         .github/actions/claude-codex-fallback/action.yml
     steps:
       - name: Checkout
@@ -555,9 +556,39 @@ jobs:
           echo "Issue snapshot verificata prima delle capability: $actual"
           echo "verified=true" >> "$GITHUB_OUTPUT"
 
+      - name: Freeze issue-fix dispatch scope (zero-Claude, before capabilities)
+        id: dispatch_scope
+        if: steps.issue_snapshot.outputs.verified == 'true'
+        env:
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_FIX_SNAPSHOT_FILE: ${{ runner.temp }}/issue-fix-ctx/issue.json
+        # The daily item is selected from the already verified snapshot.  This
+        # step has no live GitHub fallback: an unreadable snapshot is a hard
+        # deny, and the next step verifies the event against this exact scope.
+        run: node scripts/ci/check-issue-fix-dispatch.mjs --select
+
+      - name: Reject stale issue-fix dispatch (zero-Claude, before capabilities)
+        id: stale_dispatch
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.dispatch_scope.outputs.scope_fingerprint != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_FIX_SNAPSHOT_FILE: ${{ runner.temp }}/issue-fix-ctx/issue.json
+          ISSUE_FIX_EVENT_PATH: ${{ github.event_path }}
+          DISPATCH_SCOPE_FINGERPRINT: ${{ steps.dispatch_scope.outputs.scope_fingerprint }}
+          DISPATCH_IS_DAILY: ${{ steps.dispatch_scope.outputs.is_daily_bucket }}
+          DISPATCH_ITEM_ID: ${{ steps.dispatch_scope.outputs.selected_item_id }}
+        # A duplicate/old label event must not reach the App mint, shared quota
+        # lease, in-progress mutex, or Codex.  Changed scope is requeued only
+        # after the label transition is proven; terminal scope removes routing
+        # and also exits before every capability-bearing step below.
+        run: node scripts/ci/check-issue-fix-dispatch.mjs --verify
+
       - name: Load issue group context (B19, frozen before capabilities)
         id: group
-        if: steps.issue_snapshot.outputs.verified == 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -668,7 +699,7 @@ jobs:
 
       - name: Validate issue group context and member risk (zero-Claude)
         id: group_context
-        if: steps.group.outputs.is_group == 'true'
+        if: steps.group.outputs.is_group == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -748,7 +779,7 @@ jobs:
       # semplicemente non compare fra i `permissions`. Chi ha bisogno della CAPACITÀ deve
       # quindi gatare su APP_TOKEN_WORKFLOWS, mai sulla presenza del token.
       - name: Mint GitHub App token (zero-Claude, pre-npm)
-        if: steps.issue_snapshot.outputs.verified == 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -763,7 +794,7 @@ jobs:
         # Gate sullo snapshot: senza, una issue chiusa prima dello snapshot
         # acquisirebbe un quota-floor lease che il rilascio (gated su
         # verified) non restituirebbe mai.
-        if: steps.issue_snapshot.outputs.verified == 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         # Il beacon è best-effort e resta telemetria: un guasto infra non deve
         # sopprimere il run, e la quota Claude non salta Codex.
         continue-on-error: true
@@ -795,7 +826,7 @@ jobs:
         run: node scripts/ci/check-quota-backoff.mjs
 
       - name: Enforce shared quota-floor lease (fail-closed)
-        if: always() && steps.issue_snapshot.outputs.verified == 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         env:
           QUOTA_FLOOR_ADMIT: ${{ steps.quota.outputs.quota_floor_admit }}
           QUOTA_FLOOR_REASON: ${{ steps.quota.outputs.quota_floor_reason }}
@@ -808,7 +839,7 @@ jobs:
           echo "Quota-floor lease issue-fix acquisito/verificato: ${QUOTA_FLOOR_REASON:-ok}."
 
       - name: Install dependencies
-        if: steps.quota.outputs.quota_floor_admit == 'true'
+        if: steps.quota.outputs.quota_floor_admit == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         run: npm ci
 
       # DECISIONE DEL PROPRIETARIO, 2026-08-24 (registro in DECISIONS.md): l'uso dei
@@ -830,7 +861,7 @@ jobs:
       # log. Un fixer che crede di avere le credenziali e non le ha spende un run
       # intero per scoprirlo al primo uso.
       - name: Firebase SA per Remote Config (decisione 2026-08-24)
-        if: always() && steps.issue_snapshot.outputs.verified == 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         continue-on-error: true
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -844,7 +875,7 @@ jobs:
 
       - name: Load secrets from Remote Config (decisione 2026-08-24)
         id: rc_env
-        if: always() && steps.issue_snapshot.outputs.verified == 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         continue-on-error: true
         run: |
           node scripts/load-rc-env.mjs
@@ -853,7 +884,7 @@ jobs:
 
       - name: Pre-flight — already-resolved gate (zero-Claude)
         id: preflight
-        if: always() && steps.issue_snapshot.outputs.verified == 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         # PROCEED-SAFE: a gate failure must NEVER strand the issue. The script is total
         # (catches its own throws → emits already_resolved=false), but continue-on-error is
         # belt-and-suspenders: any infra fault (node/npm) leaves the output unset → the
@@ -906,7 +937,7 @@ jobs:
         # FAIL-CLOSED: `mint-app-token.mjs` scrive APP_TOKEN_WORKFLOWS su OGNI cammino di
         # uscita, e una variabile non scritta è comunque `!= 'true'` → il guard gira. Non
         # esiste un modo di arrivare a «capacità concessa» senza che l'API l'abbia detto.
-        if: steps.issue_snapshot.outputs.verified == 'true' && env.APP_TOKEN_WORKFLOWS != 'true' && steps.preflight.outputs.already_resolved != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && env.APP_TOKEN_WORKFLOWS != 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true'
         # PROCEED-SAFE, same contract as `preflight` above: the script is total (catches
         # its own throws → emits workflows_blocked=false), continue-on-error is
         # belt-and-suspenders so an infra fault never strands the issue.
@@ -935,7 +966,7 @@ jobs:
 
       - name: Pre-flight — in-progress claim gate (zero-Claude, mutex)
         id: claim
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         # FAIL-CLOSED: the script emits `in_flight=true` on a GitHub/API/parse
         # fault. A runner failure is also allowed to fail this job rather than
         # letting an unreadable mutex reach the fixer.
@@ -960,13 +991,16 @@ jobs:
 
       - name: Determine fix tier
         id: tier
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
           IS_GROUP: ${{ steps.group.outputs.is_group }}
           APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
+          DISPATCH_IS_DAILY: ${{ steps.dispatch_scope.outputs.is_daily_bucket }}
+          DISPATCH_DAILY_KEY: ${{ steps.dispatch_scope.outputs.daily_key }}
+          DISPATCH_ITEM_ID: ${{ steps.dispatch_scope.outputs.selected_item_id }}
         # Tier high (gpt-6-luna, max-turns alti): issue funnel-critical — crawler/parser/
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
         # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
@@ -1141,26 +1175,11 @@ jobs:
           # it out of this YAML prevents a fourth shell rule from drifting away
           # from `isAggregate()` and makes API failure fail conservative.
           node scripts/ci/detect-aggregate.mjs
-          # Daily buckets are aggregates even when their current count is 1. The
-          # fixer must select exactly the first stable open FU item; it never receives
-          # permission to work the whole bucket or to group it with another issue.
-          if [ -s "$CTX_DIR/issue.json" ] && jq -e '.title | test("^follow-up\\(daily:")' "$CTX_DIR/issue.json" >/dev/null 2>&1; then
-            node --input-type=module - "$CTX_DIR/issue.json" >> "$GITHUB_OUTPUT" <<'NODE'
-          import fs from 'node:fs';
-          import { dailyBucketInfo, parseFollowupItems } from './scripts/ci/followup-resolution-match.mjs';
-          const issue = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
-          const info = dailyBucketInfo(issue.title || '');
-          const items = parseFollowupItems(issue.body || '');
-          const open = items.find((item) => item.id && item.state === 'open');
-          console.log('is_daily_bucket=true');
-          console.log(`daily_key=${info?.dailyKey || ''}`);
-          console.log(`selected_item_id=${open?.id || ''}`);
-          console.log(`is_aggregate=true`);
-          NODE
-          else
-            echo "is_daily_bucket=false" >> "$GITHUB_OUTPUT"
-            echo "selected_item_id=" >> "$GITHUB_OUTPUT"
-          fi
+          # Daily scope was selected and checked before any capability-bearing
+          # step. Copy the frozen outputs; never reselect from a live read here.
+          echo "is_daily_bucket=${DISPATCH_IS_DAILY:-false}" >> "$GITHUB_OUTPUT"
+          echo "daily_key=${DISPATCH_DAILY_KEY:-}" >> "$GITHUB_OUTPUT"
+          echo "selected_item_id=${DISPATCH_ITEM_ID:-}" >> "$GITHUB_OUTPUT"
           echo "Aggregate: is_aggregate=$(grep is_aggregate= "$GITHUB_OUTPUT" | tail -1)"
 
       # A daily bucket is a one-item circuit.  Without a stable selected ID the
@@ -1170,7 +1189,7 @@ jobs:
       # for the next deterministic retry.
       - name: Validate daily bucket item selection (fail closed)
         id: daily_item_guard
-        if: steps.tier.outputs.is_daily_bucket == 'true'
+        if: steps.tier.outputs.is_daily_bucket == 'true' && steps.stale_dispatch.outputs.proceed == 'true'
         env:
           DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}
         run: |
@@ -1187,7 +1206,7 @@ jobs:
 
       - name: Closing keyword for the PR body (zero-Claude)
         id: closing
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -1259,7 +1278,7 @@ jobs:
 
       - name: Compose PR body contract for the prompt (zero-Claude)
         id: body_contract
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # PERCHÉ QUESTA PROSA NON STA PIÙ NELLO SCALARE `prompt:`. Oltre un
         # certo peso GitHub accetta il file ma lo rende con `jobs: []`: il
         # fixer smette di girare senza un rosso. Il testo qui sotto è
@@ -1317,7 +1336,7 @@ jobs:
 
       - name: Check for resumable WIP branch (zero-Claude)
         id: resume
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Problem A (#4337, confermato via GitHub API + run log): prima di questo
         # fix commit+push+PR accadevano SOLO alla fine del flusso (dopo il gate
         # test) — se `--max-turns` si esauriva PRIMA, il container CI moriva e
@@ -1424,7 +1443,7 @@ jobs:
           echo "Checkpoint $BRANCH materializzato e workspace fidato verificato → resume da checkpoint WIP."
 
       - name: Configure git identity
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           # Capacita' di push verificata dal conio (contents+pull_requests),
           # non la sola presenza del token: vuoto → identita' GITHUB_TOKEN.
@@ -1479,7 +1498,7 @@ jobs:
           fi
 
       - name: Install deterministic PR body gate
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -1519,7 +1538,7 @@ jobs:
         # perdono la coda per girare.
         timeout-minutes: 120
         id: codex_fix
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Non far fallire il job sull'exit non-zero della CLI: lo step finale
         # `Classify outcome` decide il colore in base al LAVORO reale (PR aperta
         # per la issue), non al subtype della CLI. Un `error_max_turns` DOPO che
@@ -1641,7 +1660,7 @@ jobs:
 
       - name: Enforce F1/F7 output diff gate (before checkpoint/push)
         id: diff_gate
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           REPO: ${{ github.repository }}
           VISION_APPROVED: ${{ needs.risk_policy.outputs.vision_approved }}
@@ -1725,7 +1744,7 @@ jobs:
         # c'era lavoro da salvare). Best-effort in senso stretto: qualunque
         # fallimento è un warning, mai un job rosso — un salvataggio mancato non
         # deve trasformare un run terminato in un run fallito.
-        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1834,7 +1853,7 @@ jobs:
         # automatico sopra non apre PR e non passa di qui).
         #
         # Best-effort: un fallimento e' un warning, mai un job rosso.
-        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1907,7 +1926,7 @@ jobs:
         # Una sola snapshot bounded, condivisa da verifica best-effort, backstop
         # e classificatore. Un errore resta `unavailable`: non diventa una lista
         # vuota e non autorizza marker o falso-verde.
-        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -1941,7 +1960,7 @@ jobs:
         # una scrittura remota fallita. In quel caso il job non può classificare
         # un'assenza di PR come terminale legittimo: verifica il branch e fallisce
         # se la consegna non esiste.
-        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -1985,7 +2004,7 @@ jobs:
         # provenance label explicitly so downstream reviewer/fixer jobs do not
         # have to guess from the owner author alone. The local `/fix-issue`
         # command applies this label after its own PR creation.
-        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.claim.outputs.claim_acquired == 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.claim.outputs.claim_acquired == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
@@ -2020,7 +2039,7 @@ jobs:
         # conflitto finche' il recycle, dopo 24 h, la chiudeva e rimetteva in
         # coda la sua issue sorgente. La chiude qui il workflow, solo dopo una
         # delivery verificata la cui PR dichiara `Supersedes #N`.
-        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.claim.outputs.claim_acquired == 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.claim.outputs.claim_acquired == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
@@ -2075,7 +2094,7 @@ jobs:
         # an API error is not interpreted as no PR. Historical markers must not
         # suppress telemetry for this run. A hard cancellation may prevent this
         # post-step entirely, so this is best-effort and never promises a marker.
-        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -2153,7 +2172,7 @@ jobs:
       # il routing `agent:fix*` e applica `maybe-resolved` + marker; non chiude
       # mai. Evidenza assente o non verificabile → nessuna mutazione.
       - name: Route already-fixed to verification (zero-Claude)
-        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.group.outputs.is_group != 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.group.outputs.is_group != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -2168,7 +2187,7 @@ jobs:
       # non disponibili e conclusioni sconosciute; conserva invece no-op
       # success, skipped intenzionali e cancellazioni senza promettere marker.
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}

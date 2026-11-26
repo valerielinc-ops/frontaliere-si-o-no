@@ -54,6 +54,10 @@ inputs:
     description: "Optional plain basename of a response file to export from sandbox RUNNER_TEMP before cleanup (regular file, maximum 1 MiB)."
     required: false
     default: ""
+  response_artifact_dir:
+    description: "Optional single directory name under sandbox RUNNER_TEMP containing the declared response file."
+    required: false
+    default: ""
 
 outputs:
   execution_file:
@@ -352,6 +356,7 @@ runs:
       env:
         CODEX_ACTION_PATH: ${{ github.action_path }}
         CODEX_RESPONSE_ARTIFACT: ${{ inputs.response_artifact }}
+        CODEX_RESPONSE_ARTIFACT_DIR: ${{ inputs.response_artifact_dir }}
         TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
       run: |
         set -euo pipefail
@@ -379,7 +384,7 @@ runs:
         snapshot_file "$workspace_root/scripts/ci/claude-rate-limit-contract.mjs" "$snapshot_root/ci/claude-rate-limit-contract.mjs"
         snapshot_file "$workspace_root/scripts/lib/codex-fallback-contract.mjs" "$snapshot_root/lib/codex-fallback-contract.mjs"
         if [ -n "$CODEX_RESPONSE_ARTIFACT" ]; then
-          "$TRUSTED_NODE" "$snapshot_root/action/response-artifact.mjs" prepare "$CODEX_RESPONSE_ARTIFACT" "$runner_temp"
+          "$TRUSTED_NODE" "$snapshot_root/action/response-artifact.mjs" prepare "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "" "$CODEX_RESPONSE_ARTIFACT_DIR"
         fi
         printf 'runtime_root=%s\n' "$snapshot_root" >> "$GITHUB_OUTPUT"
 
@@ -535,6 +540,7 @@ runs:
         CODEX_EXEC_TIMEOUT_MINUTES: ${{ inputs.exec_timeout_minutes }}
         CODEX_COMMAND_TIMEOUT_SECONDS: ${{ inputs.command_timeout_seconds }}
         CODEX_RESPONSE_ARTIFACT: ${{ inputs.response_artifact }}
+        CODEX_RESPONSE_ARTIFACT_DIR: ${{ inputs.response_artifact_dir }}
         CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
       run: |
         set -euo pipefail
@@ -1419,7 +1425,7 @@ runs:
         # The model's RUNNER_TEMP remains confined to scratch. Export only the
         # trusted caller's declared response, including when Codex exits nonzero.
         if [ -n "$CODEX_RESPONSE_ARTIFACT" ]; then
-          "$node_realpath" "$codex_primary_runtime_root/action/response-artifact.mjs" export "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "$scratch_dir" || codex_status=1
+          "$node_realpath" "$codex_primary_runtime_root/action/response-artifact.mjs" export "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "$scratch_dir" "$CODEX_RESPONSE_ARTIFACT_DIR" || codex_status=1
         fi
         if ! restore_sanitized_git_config; then
           echo '::error::Codex primary cannot continue because Git configuration restoration failed.'

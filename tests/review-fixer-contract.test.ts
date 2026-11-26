@@ -296,7 +296,8 @@ describe('pr-redflag-fixer: il fixer vede i 🔴 aperti del gate e risponde per 
       }
       const temp = path.join(dir, 'tmp');
       mkdirSync(temp);
-      if (response !== null) writeFileSync(path.join(temp, 'redflag-response.md'), response);
+      mkdirSync(path.join(temp, 'redflag'));
+      if (response !== null) writeFileSync(path.join(temp, 'redflag', 'redflag-response.md'), response);
       const posted = path.join(dir, 'posted.md');
       const gh = writeFakeGh(dir, `prev=""; for a in "$@"; do [ "$prev" = --body-file ] && cp "$a" "${posted}"; prev="$a"; done`);
       const output = path.join(dir, 'out');

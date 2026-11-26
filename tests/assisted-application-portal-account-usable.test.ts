@@ -159,6 +159,106 @@ describe('an unverified SuccessFactors account on its sign-in page', () => {
     expect(clicks.at(-1)).toBe('create');
     expect(secondRun).toMatchObject({ handoff: 'account_verification' });
   });
+
+  it('re-verifies through Renvoyer when a marked-verified SuccessFactors account lands on an activation-link notice', async () => {
+    const values = new Map<string, string>();
+    const clicks: string[] = [];
+    let view: 'sign_in' | 'activation_notice' | 'activated' = 'sign_in';
+    const noticeUrl = `https://${SBB}/career?_s.crb=activation`;
+    const activationLink = `https://${SBB}/career?activate=fresh-token`;
+    const current = () => {
+      if (view === 'activation_notice') {
+        return {
+          url: noticeUrl,
+          fields: [],
+          buttons: [
+            { id: 'back', text: 'Retour à la liste des postes', disabled: false, frame: 0 },
+            { id: 'resend', text: 'Renvoyer', disabled: false, frame: 0 },
+          ],
+          links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false,
+          text: 'E-mail d’activation envoyé. Vous avez créé votre compte avec succès, mais il n’a pas encore été activé. Cliquez sur Renvoyer.',
+        };
+      }
+      if (view === 'activated') return { ...sbbForm, url: `https://${SBB}/portalcareer` };
+      return signIn(SBB, values);
+    };
+    const page: any = fakePage(SBB, current, (id) => {
+      clicks.push(id);
+      if (id === 'login') view = 'activation_notice';
+    }, values);
+    page.goto = vi.fn(async (target: string) => {
+      if (target === activationLink) view = 'activated';
+    });
+    const account = {
+      email: 'runner@example.test',
+      password: 'synthetic-password',
+      status: 'created',
+      createdAt: 500,
+      verifiedAt: 1000 as number | null,
+    };
+    const accounts = {
+      load: vi.fn(async () => ({ ...account })),
+      mark: vi.fn(async (_host: string, patch: Record<string, unknown>) => { Object.assign(account, patch); }),
+      verificationMessageIds: vi.fn(async () => ['in-old']),
+      waitForVerification: vi.fn(async () => ({ url: activationLink, code: '', messageId: 'in-fresh' })),
+      waitForAccountNotice: vi.fn(async () => null),
+    };
+    const result = await handleAuth({ page, snapshot: signIn(SBB, values) as any, ctx: { accounts } as any });
+    expect(clicks).toEqual(['login', 'resend']);
+    expect(accounts.waitForVerification).toHaveBeenCalledWith(expect.objectContaining({
+      host: SBB,
+      excludeMessageIds: ['in-old'],
+    }));
+    expect(page.goto).toHaveBeenCalledWith(activationLink, expect.any(Object));
+    expect(result).toMatchObject({ reopen: true });
+    expect(result).not.toHaveProperty('handoff');
+    expect(account.verifiedAt).toBeGreaterThan(1000);
+  });
+
+  it('also re-verifies when a marked-verified post-login sign_in page exposes a resend control without activation prose', async () => {
+    const values = new Map<string, string>();
+    const clicks: string[] = [];
+    let view: 'sign_in' | 'sign_in_resend' | 'activated' = 'sign_in';
+    const activationLink = `https://${SBB}/career?activate=resend-only`;
+    const current = () => {
+      if (view === 'activated') return { ...sbbForm, url: `https://${SBB}/portalcareer` };
+      const base = signIn(SBB, values);
+      if (view === 'sign_in_resend') {
+        return {
+          ...base,
+          buttons: [...base.buttons, { id: 'resend', text: 'Renvoyer', disabled: false, frame: 0 }],
+          text: 'Connexion',
+        };
+      }
+      return base;
+    };
+    const page: any = fakePage(SBB, current, (id) => {
+      clicks.push(id);
+      if (id === 'login') view = 'sign_in_resend';
+    }, values);
+    page.goto = vi.fn(async (target: string) => {
+      if (target === activationLink) view = 'activated';
+    });
+    const account = {
+      email: 'runner@example.test',
+      password: 'synthetic-password',
+      status: 'created',
+      createdAt: 500,
+      verifiedAt: 1000 as number | null,
+    };
+    const accounts = {
+      load: vi.fn(async () => ({ ...account })),
+      mark: vi.fn(async (_host: string, patch: Record<string, unknown>) => { Object.assign(account, patch); }),
+      verificationMessageIds: vi.fn(async () => ['in-old']),
+      waitForVerification: vi.fn(async () => ({ url: activationLink, code: '', messageId: 'in-fresh' })),
+      waitForAccountNotice: vi.fn(async () => null),
+    };
+    const result = await handleAuth({ page, snapshot: signIn(SBB, values) as any, ctx: { accounts } as any });
+    expect(clicks).toEqual(['login', 'resend']);
+    expect(result).toMatchObject({ reopen: true });
+    expect(result).not.toHaveProperty('handoff');
+    expect(account.verifiedAt).toBeGreaterThan(1000);
+  });
 });
 
 describe('a profile or registration confirmation of the order’s account', () => {

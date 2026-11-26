@@ -5,16 +5,34 @@ import { fileURLToPath } from 'node:url';
 
 export const MAX_RESPONSE_BYTES = 1024 * 1024;
 
-function destination(runnerTemp, filename) {
+function validateDirectory(directory) {
+  if (directory === undefined || directory === '') return '';
+  if (!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(directory)) {
+    throw new Error('Response artifact directory must be a plain basename.');
+  }
+  return directory;
+}
+
+function existingDirectory(root, directory) {
+  const safeDirectory = validateDirectory(directory);
+  const parent = safeDirectory ? path.join(root, safeDirectory) : root;
+  const stat = fs.lstatSync(parent);
+  if (!stat.isDirectory() || stat.isSymbolicLink()) {
+    throw new Error('Response artifact directory must be a real directory.');
+  }
+  return parent;
+}
+
+function destination(runnerTemp, filename, directory) {
   if (!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(filename || '')) {
     throw new Error('Response artifact must be a plain basename.');
   }
-  return path.join(fs.realpathSync(runnerTemp), filename);
+  return path.join(existingDirectory(fs.realpathSync(runnerTemp), directory), filename);
 }
 
 /** Called before the model starts; never allow an earlier response to be published. */
-export function prepareResponseArtifact({ runnerTemp, filename }) {
-  const target = destination(runnerTemp, filename);
+export function prepareResponseArtifact({ runnerTemp, filename, directory = '' }) {
+  const target = destination(runnerTemp, filename, directory);
   try {
     fs.unlinkSync(target); // Unlinks a stale symlink itself, never its target or a directory.
   } catch (error) {
@@ -23,13 +41,14 @@ export function prepareResponseArtifact({ runnerTemp, filename }) {
 }
 
 /** Export only the caller-declared regular file, before the ephemeral home is removed. */
-export function exportResponseArtifact({ runnerTemp, scratchRoot, filename }) {
-  const target = destination(runnerTemp, filename);
+export function exportResponseArtifact({ runnerTemp, scratchRoot, filename, directory = '' }) {
+  const target = destination(runnerTemp, filename, directory);
   const scratch = fs.lstatSync(scratchRoot);
   if (!scratch.isDirectory() || scratch.isSymbolicLink()) throw new Error('Invalid response scratch directory.');
+  const sourceDirectory = existingDirectory(scratchRoot, directory);
   let source;
   try {
-    source = fs.openSync(path.join(scratchRoot, filename), fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW | fs.constants.O_NONBLOCK);
+    source = fs.openSync(path.join(sourceDirectory, filename), fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW | fs.constants.O_NONBLOCK);
   } catch (error) {
     if (error.code === 'ENOENT') return { status: 'missing', bytes: 0 };
     throw error;
@@ -59,11 +78,11 @@ export function exportResponseArtifact({ runnerTemp, scratchRoot, filename }) {
 }
 
 if (process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const [mode, filename, runnerTemp, scratchRoot] = process.argv.slice(2);
+  const [mode, filename, runnerTemp, scratchRoot, directory = ''] = process.argv.slice(2);
   try {
-    if (mode === 'prepare') prepareResponseArtifact({ runnerTemp, filename });
+    if (mode === 'prepare') prepareResponseArtifact({ runnerTemp, filename, directory });
     else if (mode === 'export') {
-      const result = exportResponseArtifact({ runnerTemp, scratchRoot, filename });
+      const result = exportResponseArtifact({ runnerTemp, scratchRoot, filename, directory });
       console.log(`Codex response artifact: ${result.status} (${result.bytes} bytes).`);
     } else throw new Error('Unknown response artifact operation.');
   } catch (error) {
