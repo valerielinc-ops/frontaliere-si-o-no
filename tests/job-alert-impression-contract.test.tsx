@@ -335,6 +335,50 @@ describe('#13201 — direct one-tap acceptance precedes the create request', () 
   });
 });
 
+describe('#19744 — job-detail prompt separates intent from create outcome', () => {
+  const source = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf-8');
+
+  it('emits one accept before awaiting create and reports success only after resolution', () => {
+    const prompt = source('components/community/JobDetailAlertPrompt.tsx');
+    const start = prompt.indexOf('const handleAccept =');
+    const end = prompt.indexOf('}, [', start);
+    const handler = prompt.slice(start, end);
+    const accept = handler.indexOf('onAccepted();');
+    const create = handler.indexOf('await subscribe(');
+    const success = handler.indexOf("setStatus('success')");
+    const subscribed = handler.indexOf('onSubscribed?.(created)');
+
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    expect(handler.match(/onAccepted\(\);/g) ?? []).toHaveLength(1);
+    expect(accept).toBeGreaterThanOrEqual(0);
+    expect(create).toBeGreaterThan(accept);
+    expect(success).toBeGreaterThan(create);
+    expect(subscribed).toBeGreaterThan(success);
+    expect(handler).toContain("setStatus('error')");
+  });
+
+  it('keeps accept, success, created, and error on their matching callbacks', () => {
+    const board = source('components/community/JobBoard.tsx');
+    const start = board.indexOf('<JobDetailAlertPrompt');
+    const end = board.indexOf('/>', start);
+    const prompt = board.slice(start, end);
+    const acceptedStart = prompt.indexOf('onAccepted=');
+    const subscribedStart = prompt.indexOf('onSubscribed=');
+    const dismissedStart = prompt.indexOf('onDismissed=');
+    const accepted = prompt.slice(acceptedStart, subscribedStart);
+    const subscribed = prompt.slice(subscribedStart, dismissedStart);
+
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreater(start);
+    expect(accepted).toContain("Analytics.trackJobAlertCtaClick('job_detail_prompt', 'accept'");
+    expect(accepted).not.toContain('trackJobAlertCreated');
+    expect(subscribed).toContain("Analytics.trackJobAlertCtaClick('job_detail_prompt', 'success'");
+    expect(subscribed).toContain('Analytics.trackJobAlertCreated');
+    expect(prompt).toContain("Analytics.trackJobAlertCtaClick('job_detail_prompt', 'error'");
+  });
+});
+
 describe('#13202 — anonymous job-detail origin survives the form and auth replay', () => {
   it('keeps a dedicated origin and keyword through the single-shot handoff', () => {
     const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
