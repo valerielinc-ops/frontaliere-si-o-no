@@ -339,7 +339,7 @@ async function initAI() {
 // Models are still sorted by score at runtime, so the best performer leads.
 // IMPORTANT: keep these strings in sync with the canonical IDs in scripts/lib/ai-models.mjs.
 const NEWSLETTER_AI_CHAIN = [
-  'codex-cli/gpt-5.6-luna',     // Codex Luna Max — primary editorial lane
+  'codex-cli/gpt-6-luna',     // Codex Luna Max — primary editorial lane
   'gpt-4.1-nano',               // GitHub Models — proven workhorse in past sends
   // 'mistral/mistral-small-latest' tolto: Mistral e' in RETIRED_FREE_PROVIDERS
   // (HTTP 402 permanente dal 2026-09, vedi scripts/lib/ai-models.mjs).
