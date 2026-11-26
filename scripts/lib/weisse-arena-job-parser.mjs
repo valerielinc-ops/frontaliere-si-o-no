@@ -43,6 +43,7 @@ const DETAIL_BASE = 'https://www.weissearena.com/jobs/details.html';
 const PAGE_SIZE = 50;
 const LISTING_SNAPSHOT_MAX_ATTEMPTS = 3;
 const LISTING_SNAPSHOT_RETRY_DELAY_MS = 500;
+const DETAIL_ABSENCE_MAX_CONCURRENCY = 4;
 const PAGINATION_INCOMPLETE_ERROR_CODE = 'WEISSE_ARENA_PAGINATION_INCOMPLETE';
 const INVALID_LISTING_ENVELOPE_ERROR_CODE = 'WEISSE_ARENA_INVALID_ENVELOPE';
 const RETRYABLE_LISTING_SNAPSHOT_ERROR_CODES = new Set([
@@ -71,6 +72,61 @@ function firstNonEmptyNormalized(...values) {
     .filter((value) => typeof value === 'string')
     .map((value) => normalizeSpace(value))
     .find(Boolean) || '';
+}
+
+function createIncompleteSnapshotError(message) {
+  const error = new Error(message);
+  error.code = PAGINATION_INCOMPLETE_ERROR_CODE;
+  return error;
+}
+
+function normalizeTalentLinkJobId(value) {
+  const raw = typeof value === 'number' || typeof value === 'string'
+    ? String(value).trim()
+    : '';
+  if (!/^\d+$/.test(raw)) return '';
+  const parsed = Number(raw);
+  return Number.isSafeInteger(parsed) && parsed > 0 ? String(parsed) : '';
+}
+
+function existingTalentLinkJobId(job, index) {
+  if (!isWeisseArenaJob(job)) {
+    throw createIncompleteSnapshotError(
+      `Weisse Arena existing job ${index + 1} is outside the source ownership boundary; refusing to verify a shrink.`,
+    );
+  }
+
+  try {
+    const url = new URL(job?.url || '');
+    const host = url.hostname.toLowerCase();
+    const jobIds = url.searchParams.getAll('jobId');
+    const jobId = jobIds.length === 1 ? normalizeTalentLinkJobId(jobIds[0]) : '';
+    if (
+      url.protocol !== 'https:'
+      || (host !== 'weissearena.com' && host !== 'www.weissearena.com')
+      || url.pathname !== '/jobs/details.html'
+      || !jobId
+    ) {
+      throw new Error('invalid Weisse Arena detail URL');
+    }
+    return jobId;
+  } catch {
+    throw createIncompleteSnapshotError(
+      `Weisse Arena existing job ${index + 1} has no verifiable TalentLink jobId in its canonical URL; refusing to verify a shrink.`,
+    );
+  }
+}
+
+function listingTalentLinkJobId({ listing }, index) {
+  const rawIds = [listing?.jobFields?.id, listing?.id]
+    .filter((value) => value !== undefined && value !== null && String(value).trim() !== '');
+  const jobIds = rawIds.map(normalizeTalentLinkJobId);
+  if (jobIds.length === 0 || jobIds.some((jobId) => !jobId) || new Set(jobIds).size !== 1) {
+    throw createIncompleteSnapshotError(
+      `Weisse Arena listing row ${index + 1} has no single numeric TalentLink jobId; refusing to verify a shrink.`,
+    );
+  }
+  return jobIds[0];
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -187,13 +243,13 @@ export function parsePensum(pensum = '') {
 /**
  * Call the TalentLink REST API with proper auth headers.
  */
-async function callTalentLinkApi(url, body = null) {
+async function requestTalentLinkApi(url, body, readResponse) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const res = await fetch(url, {
+    const response = await fetch(url, {
       method: body ? 'POST' : 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -206,11 +262,114 @@ async function callTalentLinkApi(url, body = null) {
       signal: controller.signal,
       body: body ? JSON.stringify(body) : undefined,
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from TalentLink API`);
-    return await res.json();
+    return await readResponse(response);
   } finally {
     clearTimeout(timer);
   }
+}
+
+async function callTalentLinkApi(url, body = null) {
+  return requestTalentLinkApi(url, body, async (response) => {
+    if (!response.ok) throw new Error(`HTTP ${response.status} from TalentLink API`);
+    return response.json();
+  });
+}
+
+async function mapWithConcurrency(values, concurrency, mapper) {
+  const results = new Array(values.length);
+  let nextIndex = 0;
+  let stopped = false;
+
+  async function worker() {
+    while (!stopped && nextIndex < values.length) {
+      const index = nextIndex;
+      nextIndex += 1;
+      try {
+        results[index] = await mapper(values[index], index);
+      } catch (error) {
+        stopped = true;
+        throw error;
+      }
+    }
+  }
+
+  const workerCount = Math.min(concurrency, values.length);
+  await Promise.all(Array.from({ length: workerCount }, () => worker()));
+  return results;
+}
+
+async function verifyTalentLinkJobAbsence(jobId) {
+  const url = `${API_BASE}/${encodeURIComponent(jobId)}/details`;
+  let response;
+  let data;
+  try {
+    ({ response, data } = await requestTalentLinkApi(url, null, async (detailResponse) => ({
+      response: detailResponse,
+      data: await detailResponse.json(),
+    })));
+  } catch (error) {
+    throw createIncompleteSnapshotError(
+      `Weisse Arena could not verify whether TalentLink job ${jobId} still exists: ${error?.message || 'unknown detail error'}.`,
+    );
+  }
+
+  if (
+    response.status === 400
+    && data !== null
+    && typeof data === 'object'
+    && !Array.isArray(data)
+    && data.errorType === 'APPLICATION'
+    && data.errorCode === 'Bad Request'
+    && data.errorMsg === 'Stelle nicht gefunden'
+  ) {
+    return jobId;
+  }
+
+  if (response.status === 200 && response.ok) {
+    const detailJobId = normalizeTalentLinkJobId(data?.jobFields?.id);
+    if (detailJobId === jobId) {
+      throw createIncompleteSnapshotError(
+        `Weisse Arena listing omitted still-active TalentLink job ${jobId}; refusing to publish a partial snapshot.`,
+      );
+    }
+    throw createIncompleteSnapshotError(
+      `Weisse Arena detail response for job ${jobId} did not attest the same jobId; refusing to verify its absence.`,
+    );
+  }
+
+  throw createIncompleteSnapshotError(
+    `Weisse Arena detail response for job ${jobId} returned unrecognized status ${response.status}; refusing to verify its absence.`,
+  );
+}
+
+async function verifyExistingJobsAgainstListingSnapshot(snapshot, existingJobs) {
+  if (!Array.isArray(existingJobs) || existingJobs.length === 0) {
+    return { baselineJobIds: [], currentJobIds: [], absenceVerifiedJobIds: [] };
+  }
+
+  const baselineJobIds = existingJobs.map(existingTalentLinkJobId);
+  if (new Set(baselineJobIds).size !== baselineJobIds.length) {
+    throw createIncompleteSnapshotError(
+      'Weisse Arena existing slice contains duplicate TalentLink jobIds; refusing to verify a shrink.',
+    );
+  }
+
+  const currentJobIds = snapshot.listings.map(listingTalentLinkJobId);
+  if (new Set(currentJobIds).size !== currentJobIds.length) {
+    throw createIncompleteSnapshotError(
+      'Weisse Arena listing snapshot contains duplicate TalentLink jobIds; refusing to verify a shrink.',
+    );
+  }
+
+  const currentJobIdSet = new Set(currentJobIds);
+  const missingJobIds = baselineJobIds.filter((jobId) => !currentJobIdSet.has(jobId));
+  const absenceVerifiedJobIds = await mapWithConcurrency(
+    missingJobIds,
+    DETAIL_ABSENCE_MAX_CONCURRENCY,
+    verifyTalentLinkJobAbsence,
+  );
+
+  return { baselineJobIds, currentJobIds, absenceVerifiedJobIds };
 }
 
 /**
@@ -361,33 +520,29 @@ async function fetchJobListingsOnce() {
 async function fetchJobListings({ existingJobs = [] } = {}) {
   const minimumExistingCount = Array.isArray(existingJobs) ? existingJobs.length : 0;
   let lastError;
+  let lastListingCount = 0;
 
   for (let attempt = 1; attempt <= LISTING_SNAPSHOT_MAX_ATTEMPTS; attempt += 1) {
     try {
       const snapshot = await fetchJobListingsOnce();
-      const hasObservedOmittedTerminal = snapshot.sourceListingSnapshot.terminalJobsOmitted === true
-        && snapshot.sourceListingSnapshot.terminalJobsCount === 0;
-      if (snapshot.listings.length >= minimumExistingCount || hasObservedOmittedTerminal) {
-        return snapshot;
-      }
-
-      if (attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
-        const error = new Error(
-          `Weisse Arena listing snapshot remained incomplete after ${LISTING_SNAPSHOT_MAX_ATTEMPTS} attempts: `
-            + `fetched ${snapshot.listings.length}/${minimumExistingCount} jobs; refusing a partial crawl.`,
-        );
-        error.code = PAGINATION_INCOMPLETE_ERROR_CODE;
-        throw error;
-      }
-
-      console.warn(
-        `⚠️ Weisse Arena listing snapshot returned ${snapshot.listings.length}/${minimumExistingCount} jobs; `
-          + `retrying attempt ${attempt + 1}/${LISTING_SNAPSHOT_MAX_ATTEMPTS}`,
-      );
+      lastListingCount = snapshot.listings.length;
+      const absenceProof = await verifyExistingJobsAgainstListingSnapshot(snapshot, existingJobs);
+      snapshot.sourceListingSnapshot = {
+        ...snapshot.sourceListingSnapshot,
+        ...absenceProof,
+      };
+      return snapshot;
     } catch (error) {
       lastError = error;
       if (!RETRYABLE_LISTING_SNAPSHOT_ERROR_CODES.has(error?.code)
         || attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
+        if (error?.code === PAGINATION_INCOMPLETE_ERROR_CODE && attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
+          throw createIncompleteSnapshotError(
+            `Weisse Arena listing snapshot remained incomplete after ${LISTING_SNAPSHOT_MAX_ATTEMPTS} attempts: `
+              + `fetched ${lastListingCount}/${minimumExistingCount} baseline jobs, or observed different identities; `
+              + `${error.message} Refusing a partial crawl.`,
+          );
+        }
         throw error;
       }
 

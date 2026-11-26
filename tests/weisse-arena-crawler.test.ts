@@ -356,6 +356,18 @@ describe('TalentLink pagination completeness', () => {
     customFields: [],
   });
 
+  const existingJob = (id: number) => ({
+    id: `existing-${id}`,
+    companyKey: 'weisse-arena',
+    jobNumber: `WAG${String(id).padStart(5, '0')}`,
+    url: `https://www.weissearena.com/jobs/details.html?jobId=${id}`,
+  });
+
+  const detailJobId = (url: URL) => {
+    const match = url.pathname.match(/\/fo\/rest\/jobs\/(\d+)\/details$/);
+    return match ? Number(match[1]) : null;
+  };
+
   it('continues after a short page until an empty page proves completeness', async () => {
     const pages = new Map([
       [0, [listing(1, 'First role')]],
@@ -401,14 +413,18 @@ describe('TalentLink pagination completeness', () => {
 
   it('retries a short listing snapshot against the persisted baseline before publishing a shrink', async () => {
     const fullListings = Array.from({ length: 11 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
-    const existingJobs = Array.from({ length: 11 }, (_, index) => ({
-      id: `existing-${index + 1}`,
-      companyKey: 'weisse-arena',
-    }));
+    const existingJobs = Array.from({ length: 11 }, (_, index) => existingJob(index + 1));
     const requests: number[] = [];
 
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
-      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      const url = new URL(String(input));
+      const requestedDetailJobId = detailJobId(url);
+      if (requestedDetailJobId !== null) {
+        return new Response(JSON.stringify({ jobFields: { id: requestedDetailJobId } }), {
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      const offset = Number(url.searchParams.get('firstResult'));
       requests.push(offset);
 
       const response = requests.length <= 2
@@ -434,14 +450,18 @@ describe('TalentLink pagination completeness', () => {
 
   it('fails closed after three persistently short listing snapshots', async () => {
     const shortListings = Array.from({ length: 2 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
-    const existingJobs = Array.from({ length: 11 }, (_, index) => ({
-      id: `existing-${index + 1}`,
-      companyKey: 'weisse-arena',
-    }));
+    const existingJobs = Array.from({ length: 11 }, (_, index) => existingJob(index + 1));
     const requests: number[] = [];
 
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
-      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      const url = new URL(String(input));
+      const requestedDetailJobId = detailJobId(url);
+      if (requestedDetailJobId !== null) {
+        return new Response(JSON.stringify({ jobFields: { id: requestedDetailJobId } }), {
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      const offset = Number(url.searchParams.get('firstResult'));
       requests.push(offset);
       return new Response(JSON.stringify({
         globals: { jobsCount: 2 },
@@ -452,6 +472,91 @@ describe('TalentLink pagination completeness', () => {
     await expect(fetchAllWeisseArenaJobs({ existingJobs }))
       .rejects.toThrow(/snapshot remained incomplete after 3 attempts.*2\/11.*refusing a partial crawl/i);
     expect(requests).toEqual([0, 2, 0, 2, 0, 2]);
+  });
+
+  it('authorizes a two-page shrink only after the native detail endpoint proves the missing job absent', async () => {
+    const currentListings = Array.from({ length: 50 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
+    const existingJobs = Array.from({ length: 51 }, (_, index) => existingJob(index + 1));
+    const listingOffsets: number[] = [];
+    const detailRequests: number[] = [];
+
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = new URL(String(input));
+      const requestedDetailJobId = detailJobId(url);
+      if (requestedDetailJobId !== null) {
+        detailRequests.push(requestedDetailJobId);
+        return new Response(JSON.stringify({
+          errorType: 'APPLICATION',
+          errorCode: 'Bad Request',
+          errorMsg: 'Stelle nicht gefunden',
+        }), { status: 400, headers: { 'Content-Type': 'application/json' } });
+      }
+
+      const offset = Number(url.searchParams.get('firstResult'));
+      listingOffsets.push(offset);
+      const response = offset === 0
+        ? { globals: { jobsCount: 50 }, jobs: currentListings }
+        : { globals: { jobsCount: 0 } };
+      return new Response(JSON.stringify(response), { headers: { 'Content-Type': 'application/json' } });
+    }));
+
+    const jobs = await fetchAllWeisseArenaJobs({ existingJobs });
+
+    expect(jobs).toHaveLength(50);
+    expect(listingOffsets).toEqual([0, 50]);
+    expect(detailRequests).toEqual([51]);
+    expect(jobs.sourceListingSnapshot.absenceVerifiedJobIds).toEqual(['51']);
+  });
+
+  it.each([
+    {
+      name: 'the omitted job is still active',
+      detailResponse: () => new Response(JSON.stringify({ jobFields: { id: 51 } }), {
+        headers: { 'Content-Type': 'application/json' },
+      }),
+      expected: /omitted still-active TalentLink job 51/i,
+    },
+    {
+      name: 'the detail response identifies another job',
+      detailResponse: () => new Response(JSON.stringify({ jobFields: { id: 999 } }), {
+        headers: { 'Content-Type': 'application/json' },
+      }),
+      expected: /did not attest the same jobId/i,
+    },
+    {
+      name: 'the 400 envelope is not the source not-found proof',
+      detailResponse: () => new Response(JSON.stringify({
+        errorType: 'APPLICATION',
+        errorCode: 'Bad Request',
+        errorMsg: 'Temporary failure',
+      }), { status: 400, headers: { 'Content-Type': 'application/json' } }),
+      expected: /unrecognized status 400/i,
+    },
+  ])('rejects a two-page shrink when $name', async ({ detailResponse, expected }) => {
+    const currentListings = Array.from({ length: 50 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
+    const existingJobs = Array.from({ length: 51 }, (_, index) => existingJob(index + 1));
+    const listingOffsets: number[] = [];
+    const detailRequests: number[] = [];
+
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = new URL(String(input));
+      const requestedDetailJobId = detailJobId(url);
+      if (requestedDetailJobId !== null) {
+        detailRequests.push(requestedDetailJobId);
+        return detailResponse();
+      }
+
+      const offset = Number(url.searchParams.get('firstResult'));
+      listingOffsets.push(offset);
+      const response = offset === 0
+        ? { globals: { jobsCount: 50 }, jobs: currentListings }
+        : { globals: { jobsCount: 0 } };
+      return new Response(JSON.stringify(response), { headers: { 'Content-Type': 'application/json' } });
+    }));
+
+    await expect(fetchAllWeisseArenaJobs({ existingJobs })).rejects.toThrow(expected);
+    expect(listingOffsets).toEqual([0, 50, 0, 50, 0, 50]);
+    expect(detailRequests).toEqual([51, 51, 51]);
   });
 
   it('retries an invalid TalentLink envelope and publishes the next complete snapshot', async () => {
