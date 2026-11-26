@@ -23,6 +23,7 @@ const read = (p: string) => readFileSync(resolve(p), 'utf8');
 
 describe('rehydrate-locale-shards.sh — cross-job clone cache (issue #4881 defect C, extended)', () => {
   const script = read('scripts/lib/rehydrate-locale-shards.sh');
+  const tarMemberHelper = read('scripts/lib/rehydrate-tar-member.sh');
 
   it('streams the locale tar from the raw artifact ZIP instead of materializing it beside dist', () => {
     const resolveIdx = script.indexOf('gh api "repos/$repo/actions/runs/$artifact_run_id/artifacts?name=$artifact_name&per_page=100"');
@@ -34,7 +35,10 @@ describe('rehydrate-locale-shards.sh — cross-job clone cache (issue #4881 defe
     expect(script.slice(resolveIdx - 30, resolveIdx)).toContain('timeout 30');
     expect(script.slice(downloadIdx - 80, downloadIdx)).toContain('timeout 150 gh api');
     expect(script).toContain('select(.expired == false)');
-    expect(script).toContain('unzip -p "$dl/$locale_zip" "$locale_member" | tar -C dist -xf -');
+    expect(script).toContain('rehydrate-tar-member.sh');
+    expect(tarMemberHelper).toContain('tar -tf "$list_fifo"');
+    expect(tarMemberHelper).toContain('tar -C "$extract_dir" -xf "$extract_fifo"');
+    expect(tarMemberHelper).toContain('unzip -p "$zip_path" "$member" 2>/dev/null | tee "$list_fifo" > "$extract_fifo"');
     const liveCode = script.split('\n').filter((line) => !/^\s*#/.test(line)).join('\n');
     expect(liveCode).not.toContain('gh run download');
   });
@@ -143,7 +147,8 @@ describe('rehydrate-locale-shards.sh — cross-job clone cache (issue #4881 defe
   });
 
   it('accepts a streamed tar only after unzip reports a clean status', () => {
-    expect(script).toContain('if [ "${unzip_rc:-2}" -eq 0 ] && [ "${tar_rc:-2}" -eq 0 ]');
+    expect(script).toContain('if [ "${unzip_rc:-2}" -eq 0 ] && [ "${list_rc:-2}" -eq 0 ]');
+    expect(script).toContain('[ "${tee_rc:-2}" -eq 0 ] && [ "${tar_rc:-2}" -eq 0 ]');
     expect(script).not.toContain('"${unzip_rc:-2}" -le 1');
   });
 });

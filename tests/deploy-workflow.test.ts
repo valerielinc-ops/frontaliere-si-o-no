@@ -64,6 +64,7 @@ const REHYDRATE_SECTION_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydra
 // post-deploy-validate-dist.yml's inline copy (issue #4828) into one shared
 // script.
 const REHYDRATE_LOCALE_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrate-locale-shards.sh'), 'utf-8');
+const REHYDRATE_TAR_MEMBER_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/rehydrate-tar-member.sh'), 'utf-8');
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
 const AUDIT_ALL_REGISTRY_SRC = readFileSync(resolve(ROOT, 'scripts/audit-all.mjs'), 'utf-8');
@@ -772,9 +773,17 @@ describe('deploy.yml + audit-dist-from-run.yml — tar-pack rehydrate fast path 
     // dedupe) — the guarded invariant is unchanged, only its file moved.
     expect(REHYDRATE_LOCALE_SCRIPT).toContain('"repos/$repo/actions/runs/$artifact_run_id/artifacts?name=$artifact_name&per_page=100"');
     expect(REHYDRATE_LOCALE_SCRIPT).toContain('"repos/$repo/actions/artifacts/$artifact_id/zip"');
-    expect(REHYDRATE_LOCALE_SCRIPT).toContain('expected_n="$(unzip -p "$dl/$locale_zip" "$locale_member"');
-    expect(REHYDRATE_LOCALE_SCRIPT).toContain('unzip -p "$dl/$locale_zip" "$locale_member" | tar -C dist -xf -');
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('rehydrate-tar-member.sh');
+    expect(REHYDRATE_SECTION_SCRIPT).toContain('rehydrate-tar-member.sh');
+    expect(REHYDRATE_TAR_MEMBER_SCRIPT).toContain('tar -tf "$list_fifo"');
+    expect(REHYDRATE_TAR_MEMBER_SCRIPT).toContain('tar -C "$extract_dir" -xf "$extract_fifo"');
+    expect(REHYDRATE_TAR_MEMBER_SCRIPT).toContain('unzip -p "$zip_path" "$member" 2>/dev/null | tee "$list_fifo" > "$extract_fifo"');
+    expect(REHYDRATE_TAR_MEMBER_SCRIPT).toContain('pipeline_statuses=("${PIPESTATUS[@]}")');
+    expect(REHYDRATE_LOCALE_SCRIPT).not.toContain('expected_n="$(unzip -p');
+    expect(REHYDRATE_SECTION_SCRIPT).not.toContain('expected_n=$(unzip -p');
     expect(REHYDRATE_LOCALE_SCRIPT).toContain('"${unzip_rc:-2}" -eq 0');
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('"${list_rc:-2}" -eq 0');
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('"${tee_rc:-2}" -eq 0');
     expect(REHYDRATE_LOCALE_SCRIPT).toContain('"${tar_rc:-2}" -eq 0');
     const localeLiveCode = REHYDRATE_LOCALE_SCRIPT
       .split('\n')
@@ -782,21 +791,13 @@ describe('deploy.yml + audit-dist-from-run.yml — tar-pack rehydrate fast path 
       .join('\n');
     expect(localeLiveCode).not.toContain('gh run download');
     expect(REHYDRATE_LOCALE_SCRIPT, 'locale rehydrate loop missing completeness gate (expected_n/actual_n)').toMatch(
-      /if \[ "\$\{unzip_rc:-2\}" -eq 0 \][\s\S]*?\[ "\$actual_n" -eq "\$expected_n" \]/,
+      /if \[ "\$\{unzip_rc:-2\}" -eq 0 \] && \[ "\$\{list_rc:-2\}" -eq 0 \][\s\S]*?\[ "\$\{tee_rc:-2\}" -eq 0 \] && \[ "\$\{tar_rc:-2\}" -eq 0 \][\s\S]*?\[ "\$actual_n" -eq "\$expected_n" \]/,
     );
-    // The section loop no longer has a tar FILE (2026-10-01, deploy-publish
-    // run 36810296662 out of disk): both passes stream `$section-dist-$loc.tar`
-    // out of the batch zip. Same gate — listing first, exact count after —
-    // plus unzip's CRC verdict, which the two passes cannot replace: a corrupt
-    // stream is listed and extracted identically, so only the CRC tells.
-    const sectionRe = new RegExp(
-      `member="\\$section-dist-\\$loc\\.tar"[\\s\\S]*?` +
-      `expected_n=\\$\\(unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" 2>/dev/null \\| tar -tf - 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
-      `unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" \\| tar -C dist -xf -\\n[\\s\\S]*?` +
-      `unzip_rc="\\$\\{PIPESTATUS\\[0\\]\\}"[\\s\\S]*?` +
-      `if \\[ "\\\$\\{unzip_rc:-2\\}" -eq 0 \\] && \\[ -d "dist/\\$sub" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
+    expect(REHYDRATE_SECTION_SCRIPT).toContain('member="$section-dist-$loc.tar"');
+    expect(REHYDRATE_SECTION_SCRIPT).toContain('stream_tar_member "$dl/$BATCH_ZIP" "$member" dist');
+    expect(REHYDRATE_SECTION_SCRIPT, 'section rehydrate loop missing completeness gate (expected_n/actual_n/unzip_rc)').toMatch(
+      /if \[ "\$\{unzip_rc:-2\}" -eq 0 \] && \[ "\$\{list_rc:-2\}" -eq 0 \][\s\S]*?\[ "\$\{tee_rc:-2\}" -eq 0 \] && \[ "\$\{tar_rc:-2\}" -eq 0 \][\s\S]*?\[ "\$actual_n" -eq "\$expected_n" \]/,
     );
-    expect(REHYDRATE_SECTION_SCRIPT, 'section rehydrate loop missing completeness gate (expected_n/actual_n/unzip_rc)').toMatch(sectionRe);
     // The bare `if [ -d dist/$loc ]; then ... continue; fi` (no count check)
     // pattern from before the fix must not remain anywhere in the tar
     // extraction branches, in either file.

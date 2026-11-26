@@ -306,7 +306,8 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
   });
 
   it('accepts a streamed tar only after unzip reports a clean status', () => {
-    expect(script).toContain('if [ "${unzip_rc:-2}" -eq 0 ] && [ -d "dist/$sub" ]');
+    expect(script).toContain('if [ "${unzip_rc:-2}" -eq 0 ] && [ "${list_rc:-2}" -eq 0 ]');
+    expect(script).toContain('[ "${tee_rc:-2}" -eq 0 ] && [ "${tar_rc:-2}" -eq 0 ]');
     expect(script).not.toContain('"${unzip_rc:-2}" -le 1');
   });
 });
@@ -350,7 +351,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     const root = mkdtempSync(join(tmpdir(), 'rehydrate-zip-'));
     const lib = join(root, 'scripts', 'lib');
     mkdirSync(lib, { recursive: true });
-    for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh', 'ticino-tree-fanout.sh', 'rehydrate-provenance.sh']) {
+    for (const f of ['rehydrate-section-shards.sh', 'rehydrate-tar-member.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh', 'ticino-tree-fanout.sh', 'rehydrate-provenance.sh']) {
       copyFileSync(resolve('scripts/lib', f), join(lib, f));
     }
     const slugs: Record<string, Record<string, string>> = {};
