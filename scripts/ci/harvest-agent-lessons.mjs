@@ -254,13 +254,15 @@ function isMissingCanonicalTrailingSlash(text) {
 // #11297, #11281, #11206, #11126). One bucket summed them, so an emitter gate
 // could never bring the count down and the escalation re-fired on parser work.
 // Split by WHERE the finding is located, threshold unchanged: a finding whose
-// located paths are ALL crawler parsers counts in `structured-data-parser`.
-// The remaining emitter/mixed lexicon is not one rule: a BreadcrumbList URL,
-// a missing ItemList and a stale JobPosting cache have different repairs. Keep
-// that broad class report-only and give the mandatory JobPosting-field contract
-// its own precise rule bucket below. Everything else remains available to the
-// fingerprint safety net instead of making unrelated schema defects look like
-// one recurring rule.
+// located paths are ALL crawler parsers counts in `structured-data-parser` for
+// the report. The path is an area discriminator, not proof of one rule: the
+// parser contract ratchets several independent invariants (dates, body floor,
+// geography and aliases), while semantic parser findings such as title-root
+// selection, object coercion, stale fallbacks and DOM boundaries have different
+// repairs. Keep this area bucket report-only and give the mandatory
+// JobPosting-field contract its own precise rule bucket below. Everything else
+// remains available to the fingerprint safety net instead of making unrelated
+// parser defects look like one recurring rule (issue 20161, VISION D2).
 const STRUCTURED_DATA_RE = /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i;
 
 // I18N-naming is a precise failure class, not a translation-area lexicon.
@@ -299,7 +301,7 @@ const UNVALIDATED_CLAIM_RE =
 
 export const TAXONOMY = [
   { key: 'structured-data-parser', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'jobposting'],
-    escalation: 'rule', why: "predicato sulla posizione: tutti i path del finding sono parser del crawler (isCrawlerParserFinding), cioe' la classe che il gate dei parser misura" },
+    escalation: 'topic', why: "perimetro del parser, non regola unica: date, body, geografia e selezione semantica hanno invarianti e rimedi distinti; resta nel report (issue 20161, VISION D2)" },
   { key: 'structured-data-required-fields', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'mandatory fields', 'basesalary'],
     escalation: 'rule', why: "predicato sul contratto JobPosting: un campo obbligatorio o il blocco JobPosting manca, e il gate di completezza puo' misurare la stessa violazione" },
   { key: 'structured-data', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'basesalary'],
