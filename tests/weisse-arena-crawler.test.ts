@@ -624,6 +624,8 @@ describe('TalentLink pagination completeness', () => {
     );
     const completeProof = { ...snapshot, baselineJobIds: ids(1, 100), absenceVerifiedJobIds: ids(51, 100) };
     expect(check(snapshot)).toEqual([]);
+    expect(check({ ...snapshot, terminalJobsOmitted: false })).toEqual([]);
+    expect(check({ ...completeProof, terminalJobsOmitted: false }, existingJobs)).toBeNull();
     expect(check(snapshot, existingJobs)).toBeNull();
     expect(check(completeProof, existingJobs)).toEqual(existingJobs.slice(50).map((job) => ({
       job, reason: 'talentlink-detail-confirmed-absence', definitive: true,
@@ -687,6 +689,39 @@ describe('TalentLink pagination completeness', () => {
     await expect(fetchAllWeisseArenaJobs({ existingJobs })).rejects.toThrow(expected);
     expect(listingOffsets).toEqual([0, 50, 0, 50, 0, 50]);
     expect(detailRequests).toEqual([51, 51, 51, 51, 51, 51]);
+  });
+
+  it('rejects a proven omission when the terminal response has an explicit empty jobs array', async () => {
+    const existingJobs = [existingJob(1), existingJob(2)];
+    const requests: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = new URL(String(input));
+      const id = detailJobId(url);
+      if (id !== null) {
+        requests.push(`detail:${id}`);
+        return id === 1 ? Response.json({ jobFields: { id } }) : detailNotFound();
+      }
+      const offset = Number(url.searchParams.get('firstResult'));
+      requests.push(`listing:${offset}`);
+      return Response.json(offset === 0
+        ? { globals: { jobsCount: 1 }, jobs: [listing(1, 'First role')] }
+        : { globals: { jobsCount: 0 }, jobs: [] });
+    }));
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce(existingJobs);
+    const prepareExistingJobs = vi.fn();
+
+    await expect(runStandardCrawlerPipeline({
+      companyKey: WEISSE_ARENA_KEY,
+      companyLabel: WEISSE_ARENA_COMPANY_NAME,
+      fetchJobs: fetchAllWeisseArenaJobs,
+      isCompanyJob: isWeisseArenaJob,
+      prepareExistingJobs,
+    })).rejects.toThrow(/authoritative snapshot validator did not return true/i);
+    expect(requests).toEqual(['detail:1', 'detail:2', 'listing:0', 'listing:1', 'detail:2']);
+    expect(prepareExistingJobs).not.toHaveBeenCalled();
+    expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(existingJobs).toHaveLength(2);
   });
 
   it('archives and passes bracketed omissions to the guarded writer on an 11-to-3 crawl', async () => {

@@ -906,6 +906,7 @@ export function verifiedWeisseArenaOmissionProof({ companyKey, fetchMetadata, pa
     || actualBaseline.some((id) => !baselineSet.has(id))
     || actualCurrent.length !== currentJobIds.length
     || actualCurrent.some((id) => !currentSet.has(id))
+    || (omittedIds.length > 0 && (snapshot.terminalJobsOmitted !== true || terminalJobsCount !== 0))
     || omittedIds.length !== absentSet.size
     || omittedIds.some((id) => !absentSet.has(id))
   ) return null;
