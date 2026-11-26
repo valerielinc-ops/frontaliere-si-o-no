@@ -481,7 +481,9 @@ const MANUAL_SEO_CTR_FAMILIES = [
     id: 'farmacie',
     label: 'Farmacie (directory)',
     pathContains: '/farmacie/',
-    pathAliases: ['/en/pharmacies/', '/de/apotheken/', '/fr/pharmacies/'],
+    // Discovery strips `/en|de|fr/` before comparing segments, so aliases use
+    // the normalized localized roots, like the other prefix-kept families.
+    pathAliases: ['/pharmacies/', '/apotheken/'],
     kind: 'template',
     targetCtr: 0.03,
     monitored: true,

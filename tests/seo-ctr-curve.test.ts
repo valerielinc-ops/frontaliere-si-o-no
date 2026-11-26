@@ -341,10 +341,9 @@ describe('seo-ctr-curve (issue #4300)', () => {
         impressions90d: 50076,
       });
       expect(familyPathPrefixes(fam).sort()).toEqual([
-        '/de/apotheken/',
-        '/en/pharmacies/',
+        '/apotheken/',
         '/farmacie/',
-        '/fr/pharmacies/',
+        '/pharmacies/',
       ]);
 
       const rows = familyPathPrefixes(fam).map((prefix) => ({
