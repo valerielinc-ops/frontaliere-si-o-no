@@ -1,7 +1,7 @@
 {
   "crawlerKey": "arsante-clinique-de-carouge",
-  "assembledAt": "2026-11-25T21:24:10.530Z",
-  "runId": "45701316696",
+  "assembledAt": "2026-11-26T09:29:20.175Z",
+  "runId": "45789003328",
   "jobs": [
     {
       "id": "arsante-clinique-de-carouge-32da6f6e8dee",
@@ -34,7 +34,7 @@
       "url": "https://arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:25.164Z",
+      "crawledAt": "2026-11-26T09:29:13.549Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -77,9 +77,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:25.164Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-assistant-en-pediatrie-4"
+      "validThrough": "2026-12-26T09:29:13.549Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-fdb4b1bbe19a",
@@ -113,7 +112,7 @@
       "url": "https://arsante.ch/emploi/medecin-expert-18",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:24.402Z",
+      "crawledAt": "2026-11-26T09:29:12.794Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -160,9 +159,8 @@
       },
       "streetAddress": "Lancy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:24.402Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-expert-18"
+      "validThrough": "2026-12-26T09:29:12.794Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-6b5a4037b33c",
@@ -195,7 +193,7 @@
       "url": "https://arsante.ch/emploi/apprenti-e-assistant-e-medical-e-20",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:23.590Z",
+      "crawledAt": "2026-11-26T09:29:12.038Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -288,9 +286,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:23.590Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/apprenti-e-assistant-e-medical-e-20"
+      "validThrough": "2026-12-26T09:29:12.038Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-32c29b4d3f12",
@@ -324,7 +321,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:22.825Z",
+      "crawledAt": "2026-11-26T09:29:11.290Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -381,9 +378,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:22.825Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-interniste-generaliste-fmh-28"
+      "validThrough": "2026-12-26T09:29:11.290Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-8b41a33b6156",
@@ -417,7 +413,7 @@
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:22.056Z",
+      "crawledAt": "2026-11-26T09:29:10.518Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -501,9 +497,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:22.056Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-specialiste-fmh-72"
+      "validThrough": "2026-12-26T09:29:10.518Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-018ac2509b3e",
@@ -537,7 +532,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-73",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:21.324Z",
+      "crawledAt": "2026-11-26T09:29:09.754Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -601,9 +596,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:21.324Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-interniste-generaliste-73"
+      "validThrough": "2026-12-26T09:29:09.754Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-474f76316eeb",
@@ -637,7 +631,7 @@
       "url": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-74",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:20.575Z",
+      "crawledAt": "2026-11-26T09:29:08.972Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -695,9 +689,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:20.575Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-74"
+      "validThrough": "2026-12-26T09:29:08.972Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-326595ee1ef5",
@@ -730,7 +723,7 @@
       "url": "https://arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:19.847Z",
+      "crawledAt": "2026-11-26T09:29:08.206Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -793,9 +786,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:19.847Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83"
+      "validThrough": "2026-12-26T09:29:08.206Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-59e02485ff01",
@@ -829,7 +821,7 @@
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:19.074Z",
+      "crawledAt": "2026-11-26T09:29:07.441Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -872,9 +864,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:19.074Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90"
+      "validThrough": "2026-12-26T09:29:07.441Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-6d24d94f6092",
@@ -908,7 +899,7 @@
       "url": "https://arsante.ch/emploi/experts-medicaux-93",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:18.325Z",
+      "crawledAt": "2026-11-26T09:29:06.662Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -968,9 +959,8 @@
       },
       "streetAddress": "Lancy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:18.325Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/experts-medicaux-93"
+      "validThrough": "2026-12-26T09:29:06.662Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-913da87db7a1",
@@ -1003,7 +993,7 @@
       "url": "https://arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:17.584Z",
+      "crawledAt": "2026-11-26T09:29:05.905Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1065,9 +1055,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:17.584Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/psychologue-psychotherapeute-fsp-94"
+      "validThrough": "2026-12-26T09:29:05.905Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-bce6b7cb58d0",
@@ -1101,7 +1090,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:16.798Z",
+      "crawledAt": "2026-11-26T09:29:05.102Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1158,9 +1147,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:16.798Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/infirmier-ere-pediatrique-95"
+      "validThrough": "2026-12-26T09:29:05.102Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-88fc673ce8e0",
@@ -1193,7 +1181,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:16.042Z",
+      "crawledAt": "2026-11-26T09:29:04.330Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1236,9 +1224,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:16.042Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-medical-e-98"
+      "validThrough": "2026-12-26T09:29:04.330Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-413d1d3fa67f",
@@ -1271,7 +1258,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:15.301Z",
+      "crawledAt": "2026-11-26T09:29:03.570Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1323,9 +1310,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:15.301Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-medical-e-102"
+      "validThrough": "2026-12-26T09:29:03.570Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-47038fe78974",
@@ -1359,7 +1345,7 @@
       "url": "https://arsante.ch/emploi/pharmacien-ne-responsable-a-100-103",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:14.550Z",
+      "crawledAt": "2026-11-26T09:29:02.779Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1408,9 +1394,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:23:14.550Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/pharmacien-ne-responsable-a-100-103"
+      "validThrough": "2027-01-07T09:29:02.779Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-6c17f4d33df5",
@@ -1443,7 +1428,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-105",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:13.814Z",
+      "crawledAt": "2026-11-26T09:29:01.993Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1494,9 +1479,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:23:13.814Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/infirmier-ere-105"
+      "validThrough": "2027-01-19T09:29:01.993Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-b43de91cd6b5",
@@ -1529,7 +1513,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-a-70-106",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:13.063Z",
+      "crawledAt": "2026-11-26T09:29:01.186Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1580,9 +1564,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:23:13.063Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/infirmier-ere-a-70-106"
+      "validThrough": "2027-01-25T09:29:01.186Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-5233ef9f64aa",
@@ -1615,7 +1598,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-a-60-107",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:12.222Z",
+      "crawledAt": "2026-11-26T09:29:00.421Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1661,9 +1644,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:23:12.222Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-medical-e-a-60-107"
+      "validThrough": "2027-01-31T09:29:00.421Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-8938b5f9e5eb",
@@ -1696,7 +1678,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medicale-a-50-108",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:11.465Z",
+      "crawledAt": "2026-11-26T09:28:59.654Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1745,9 +1727,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:23:11.465Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-medicale-a-50-108"
+      "validThrough": "2027-01-31T09:28:59.654Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-7bc5078e606c",
@@ -1780,7 +1761,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-a-50-80-109",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:10.686Z",
+      "crawledAt": "2026-11-26T09:28:58.880Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1826,9 +1807,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:23:10.686Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-medical-e-a-50-80-109"
+      "validThrough": "2027-01-31T09:28:58.880Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-752618cd6a74",
@@ -1861,7 +1841,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-a-80-110",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:09.931Z",
+      "crawledAt": "2026-11-26T09:28:58.109Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1907,9 +1887,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:23:09.931Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-medical-e-a-80-110"
+      "validThrough": "2027-01-31T09:28:58.109Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-6af3e286786d",
@@ -1942,7 +1921,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-en-pharmacie-111",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:09.153Z",
+      "crawledAt": "2026-11-26T09:28:57.353Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1988,9 +1967,8 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:23:09.153Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-en-pharmacie-111"
+      "validThrough": "2027-01-31T09:28:57.353Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-85ed6b70d328",
@@ -2023,7 +2001,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-en-hematologie-112",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:08.383Z",
+      "crawledAt": "2026-11-26T09:28:56.592Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2072,9 +2050,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:23:08.383Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/infirmier-ere-en-hematologie-112"
+      "validThrough": "2027-02-01T09:28:56.592Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-b69d197eac1a",
@@ -2108,7 +2085,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-pour-le-service-de-cardiologie-80-113",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:07.609Z",
+      "crawledAt": "2026-11-26T09:28:55.830Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2157,9 +2134,8 @@
       },
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:23:07.609Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/infirmier-ere-pour-le-service-de-cardiologie-80-113"
+      "validThrough": "2027-02-21T09:28:55.830Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-e05938495580",
@@ -2180,12 +2156,12 @@
         "de": "Spezialist für Allgemeine Innere Medizin FMH",
         "fr": "Spécialiste en médecine interne générale FMH"
       },
-      "description": "Dans le cadre d'une reprise de patientèle au Centre Médical de Crissier, nous recherchons un médecin spécialiste en médecine interne générale FMH pour compléter notre équipe pluridisciplinaire. Situé au cœur de Square Santé , pôle médical du quartier Oassis à Crissier qui regroupe également la Clinique La Source et la Clinique de La Lignière, notre centre réunit des professionnels de santé dans un environnement moderne et intégré, avec laboratoire, salles de soins et services de réadaptation. Cette implantation favorise une prise en charge coordonnée, notamment pour les patients souffrant de pathologies chroniques. Nous offrons :\n• Un espace médical facile d’accès pour les patients avec un plateau technique complet sur place\n• La possibilité d’exercer en cabinet privé ou comme salarié·e\n• Un taux d’activité adaptable à votre projet professionnel\n• Des conditions de travail optimales au sein d’une équipe pluridisciplinaire favorisant les échanges et la collaboration Requis : Titre FMH et autorisation de facturer à la charge de l’AOS Nous serions ravi·es d’échanger avec vous sur ce projet.\n• Plus d’information sur le projet Square Santé : https://square-sante.ch\n• Plus d’informations sur le Centre Médical Arsanté Crissier : www.cmcrissier.ch",
+      "description": "Dans le cadre d'une reprise de patientèle au Centre Médical de Crissier, nous recherchons un médecin spécialiste en médecine interne générale FMH pour compléter notre équipe pluridisciplinaire. Situé au cœur de Square Santé , pôle médical du quartier Oassis à Crissier qui regroupe également la Clinique La Source et la Clinique de La Lignière, notre centre réunit des professionnels de santé dans un environnement moderne et intégré, avec laboratoire et salles de soins. Le centre est composé de médecins internistes, pédiatre, pneumologues et psychologue, travaillant dans un environnement spacieux et moderne. Le bâtiment bénéficie notamment d’un parking souterrain pour les patients. Nous offrons :\n• La possibilité d’exercer en cabinet privé\n• Un taux d’activité adaptable à votre projet professionnel\n• Des conditions de travail optimales au sein d’une équipe pluridisciplinaire favorisant les échanges et la collaboration Requis : Titre FMH et autorisation de facturer à la charge de l’AOS Nous serions ravi·es d’échanger avec vous sur ce projet. Plus d’informations sur le Centre Médical Arsanté Crissier : www.cmcrissier.ch",
       "descriptionByLocale": {
         "it": "Come parte di un paziente di recupero presso il Crissier Medical Centre, stiamo cercando uno specialista medico in medicina interna generale FMH per completare il nostro team multidisciplinare. Situato nel cuore di Piazza Santé, il centro medico del quartiere Oassis di Crissier, che comprende anche il Clinique La Source e il Clinique de La Lignière, il nostro centro riunisce professionisti sanitari in un ambiente moderno e integrato, con laboratori, sale di trattamento e servizi di riabilitazione. Questa struttura promuove cure coordinate, soprattutto per i pazienti con condizioni croniche. Offriamo:\n• Spazio medico facilmente accessibile per i pazienti con un vassoio tecnico completo in loco\n• La possibilità di praticare nella pratica privata o come dipendente\n• Un tasso di attività adattabile al tuo progetto professionale\n• Condizioni di lavoro ottimali all'interno di un team multidisciplinare che promuove scambi e collaborazione Richiesto: titolo FMH e autorizzazione per caricare l'AOS Saremo lieti di discutere questo progetto con voi.\n• Ulteriori informazioni sul progetto Square Santé: https://square-sante.ch\n• Maggiori informazioni sul Centre Médical Arsanté Crissier: www.cmcrissier.ch",
         "en": "As part of a patient recovery at the Crissier Medical Centre, we are looking for a medical specialist in general internal medicine FMH to complete our multidisciplinary team. Located in the heart of Square Santé , the medical center of the Oassis district in Crissier which also includes the Clinique La Source and the Clinique de La Lignière, our centre brings together health professionals in a modern and integrated environment, with laboratory, treatment rooms and rehabilitation services. This facility promotes coordinated care, especially for patients with chronic conditions. We offer:\n• Easily accessible medical space for patients with a complete technical tray on site\n• The possibility to practice in private practice or as an employee\n• An activity rate adaptable to your professional project\n• Optimal working conditions within a multidisciplinary team promoting exchanges and collaboration Required: FMH title and authorization to charge the AOS We would be pleased to discuss this project with you.\n• More information on the Square Santé project: https://square-sante.ch\n• More information about the Centre Médical Arsanté Crissier : www.cmcrissier.ch",
         "de": "Im Rahmen einer Patientenrettung im Crissier Medical Center suchen wir einen medizinischen Spezialisten für allgemeine Innere Medizin FMH, um unser multidisziplinäres Team zu vervollständigen. Im Herzen von Square Santé, dem medizinischen Zentrum des Stadtteils Oassis in Crissier, zu dem auch die Clinique La Source und die Clinique de La Lignière gehören, vereint unser Zentrum Gesundheitsexperten in einer modernen und integrierten Umgebung mit Labor, Behandlungsräumen und Rehabilitationsdiensten. Diese Einrichtung fördert die koordinierte Versorgung, insbesondere für Patienten mit chronischen Erkrankungen. Wir bieten:\n• Leicht zugänglicher medizinischer Raum für Patienten mit einem kompletten technischen Tray vor Ort\n• Die Möglichkeit, in der Privatpraxis oder als Angestellter zu üben\n• Eine Aktivitätsrate, die an Ihr professionelles Projekt angepasst werden kann\n• Optimale Arbeitsbedingungen innerhalb eines multidisziplinären Teams zur Förderung des Austauschs und der Zusammenarbeit Erforderlich: FMH-Titel und Genehmigung zur Erhebung der AOS Wir würden uns freuen, dieses Projekt mit Ihnen zu besprechen.\n• Weitere Informationen zum Projekt Square Santé: https://square-sante.ch\n• Weitere Informationen zum Centre Médical Arsanté Crissier : www.cmcrissier.ch",
-        "fr": "Dans le cadre d'une reprise de patientèle au Centre Médical de Crissier, nous recherchons un médecin spécialiste en médecine interne générale FMH pour compléter notre équipe pluridisciplinaire. Situé au cœur de Square Santé , pôle médical du quartier Oassis à Crissier qui regroupe également la Clinique La Source et la Clinique de La Lignière, notre centre réunit des professionnels de santé dans un environnement moderne et intégré, avec laboratoire, salles de soins et services de réadaptation. Cette implantation favorise une prise en charge coordonnée, notamment pour les patients souffrant de pathologies chroniques. Nous offrons :\n• Un espace médical facile d’accès pour les patients avec un plateau technique complet sur place\n• La possibilité d’exercer en cabinet privé ou comme salarié·e\n• Un taux d’activité adaptable à votre projet professionnel\n• Des conditions de travail optimales au sein d’une équipe pluridisciplinaire favorisant les échanges et la collaboration Requis : Titre FMH et autorisation de facturer à la charge de l’AOS Nous serions ravi·es d’échanger avec vous sur ce projet.\n• Plus d’information sur le projet Square Santé : https://square-sante.ch\n• Plus d’informations sur le Centre Médical Arsanté Crissier : www.cmcrissier.ch"
+        "fr": "Dans le cadre d'une reprise de patientèle au Centre Médical de Crissier, nous recherchons un médecin spécialiste en médecine interne générale FMH pour compléter notre équipe pluridisciplinaire. Situé au cœur de Square Santé , pôle médical du quartier Oassis à Crissier qui regroupe également la Clinique La Source et la Clinique de La Lignière, notre centre réunit des professionnels de santé dans un environnement moderne et intégré, avec laboratoire et salles de soins. Le centre est composé de médecins internistes, pédiatre, pneumologues et psychologue, travaillant dans un environnement spacieux et moderne. Le bâtiment bénéficie notamment d’un parking souterrain pour les patients. Nous offrons :\n• La possibilité d’exercer en cabinet privé\n• Un taux d’activité adaptable à votre projet professionnel\n• Des conditions de travail optimales au sein d’une équipe pluridisciplinaire favorisant les échanges et la collaboration Requis : Titre FMH et autorisation de facturer à la charge de l’AOS Nous serions ravi·es d’échanger avec vous sur ce projet. Plus d’informations sur le Centre Médical Arsanté Crissier : www.cmcrissier.ch"
       },
       "needsRetranslation": false,
       "location": "Carouge",
@@ -2193,7 +2169,7 @@
       "url": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-114",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:06.847Z",
+      "crawledAt": "2026-11-26T09:28:55.068Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2212,7 +2188,9 @@
       "applyUrl": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-114",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-25T09:20:55.386Z",
+      "previousSlugs": [
+        "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-carouge"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-carouge"
@@ -2224,9 +2202,7 @@
           "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-carouge"
         ]
       },
-      "previousSlugs": [
-        "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-carouge"
-      ],
+      "firstSeenAt": "2026-11-25T09:20:55.386Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -2242,9 +2218,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:23:06.847Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-114"
+      "validThrough": "2027-02-23T09:28:55.068Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-04e97e1c44f9",
@@ -2272,12 +2247,13 @@
         "de": "Wir suchen FMH-Spezialisten, die sich in einem nachbarschaftlichen medizinischen Zentrum, im Herzen eines dynamischen Tätigkeitsbereichs, engagieren möchten. Sie folgen Ihren Patienten mit der Möglichkeit, an der Tagesbetreuung des medizinischen Zentrums teilzunehmen. Es ist eine Möglichkeit, Ihre Praxis in einer anregenden Umgebung zu diversifizieren. Was wir bieten\n• Der Status Ihrer Wahl: Sie können als unabhängige Person oder als Angestellter ausüben.\n• Eine à la carte Aktivitätsrate, angepasst an Ihre beruflichen und persönlichen Projekte.\n• Ein schlüsselfertiges Framework: multidisziplinäre Räumlichkeiten und alle Werkzeuge, die für Qualitätsmedizin benötigt werden. Ein strukturiertes und innovatives Umfeld\n• Medizinische Gruppenzentren sind in das Arhealth-Netzwerk integriert und beteiligen sich an vernetzten Gesundheitsprojekten.\n• Eine gemeinsame computergestützte medizinische Datei, für die Überwachung und Kontinuität der Pflegeeinrichtungen.\n• Shared Services: Labor, Imaging, Pflegeteam, medizinische Spezialisten und Sanitäter.\n• Teilnahme an Qualitätskreisen und ethischen, klinischen und Bevölkerungsreflexionen. Dein Profil\n• Bezeichnung des FMH-Spezialisten\n• Interesse an einer Praxis, die in der Nachbarschaft verwurzelt ist, im Zusammenhang mit ihren Bewohnern und Akteuren\n• Möchten Sie zur Lebenswegmedizin beitragen, in einem engagierten Team",
         "fr": "Nous cherchons des médecins spécialistes FMH qui ont envie de s'impliquer dans un centre médical de quartier, au cœur d'une zone d'activité dynamique. Vous suivrez vos patient·es avec la possibilité de participer au service de garde du centre médical. C'est une façon de diversifier votre pratique dans un environnement stimulant. Ce que nous vous proposons\n• Le statut de votre choix : vous pouvez exercer comme indépendant·e ou comme salarié·e.\n• Un taux d'activité à la carte , adapté à vos projets professionnels et personnels.\n• Un cadre de travail clé en main : des locaux pluridisciplinaires et tous les outils nécessaires à une médecine de qualité. Un environnement structuré et innovant\n• Des centres médicaux de groupe intégrés au réseau Arsanté et engagés dans des projets de santé en réseau.\n• Un dossier médical informatisé commun, pour un suivi et une continuité des soins facilités.\n• Des services partagés : laboratoire, imagerie, équipe infirmière, médecins spécialistes et paramédicaux.\n• La participation aux cercles de qualité et à des réflexions éthiques, cliniques et populationnelles. Votre profil\n• Titre de spécialiste FMH\n• Intérêt pour une pratique ancrée dans le quartier, en lien avec ses habitant·es et ses acteurs\n• Envie de contribuer à une médecine centrée sur les parcours de vie, au sein d'une équipe engagée"
       },
+      "needsRetranslation": false,
       "location": "Carouge",
       "canton": "GE",
       "url": "https://arsante.ch/emploi/installation-en-cabinet-a-thonex-115",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:06.058Z",
+      "crawledAt": "2026-11-26T09:28:54.276Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2296,7 +2272,9 @@
       "applyUrl": "https://arsante.ch/emploi/installation-en-cabinet-a-thonex-115",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-25T09:20:54.443Z",
+      "previousSlugs": [
+        "installation-en-cabinet-a-thonex-arsante-clinique-de-carouge-carouge"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "installation-en-cabinet-a-thonex-arsante-clinique-de-carouge-carouge"
@@ -2305,9 +2283,7 @@
           "installation-en-cabinet-a-thonex-arsante-clinique-de-carouge-carouge"
         ]
       },
-      "previousSlugs": [
-        "installation-en-cabinet-a-thonex-arsante-clinique-de-carouge-carouge"
-      ],
+      "firstSeenAt": "2026-11-25T09:20:54.443Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -2323,9 +2299,8 @@
       },
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:23:06.058Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://arsante.ch/emploi/installation-en-cabinet-a-thonex-115"
+      "validThrough": "2027-02-23T09:28:54.276Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

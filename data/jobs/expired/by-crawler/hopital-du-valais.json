@@ -1,5 +1,68 @@
 [
   {
+    "id": "hopital-du-valais-cae1102e724b",
+    "slug": "fachmann-frau-gesundheit-cfc-hopital-du-valais-brig",
+    "title": "Fachmann/-frau Gesundheit EFZ",
+    "titleByLocale": {
+      "it": "Salute professionale EFZ",
+      "en": "Professional Health EFZ",
+      "de": "Fachmann/-frau Gesundheit EFZ",
+      "fr": "Santé professionnelle EFZ"
+    },
+    "company": "Hôpital du Valais",
+    "companyKey": "hopital-du-valais",
+    "location": "Brig",
+    "canton": "VS",
+    "addressLocality": "Brig",
+    "descriptionByLocale": {
+      "it": "L'ospedale Wallis offre per il centro ospedaliero Oberwallis a:\n\nApprendistato come esperto / donna Salute EFZ\n\nMissione:\n• Cura e cura dei pazienti\n\n• Assunzione di compiti domestici, amministrativi-logistici e medici-tecnici nella cura quotidiana\n\n• Effettuare attività infermieristiche e mediche sotto la responsabilità di un'infermiera qualificata\n\nProfilo:\n• Interessato all'assistenza sanitaria, alla cura e al lavoro con le persone\n\n• Aspetto gentile e rispettoso\n\n• Cura e responsabilità\n\n• Lavoro di squadra e affidabilità\n\nOfferta:\n• Variato e interessante lavoro quotidiano di una salute specializzata EFZ\n\n• Cura di professionisti dedicati ed esperti\n\n• Un team amichevole e disponibile che ti introduce e ti supporta nei tuoi compiti",
+      "en": "The hospital Wallis offers for the hospital center Oberwallis a:\n\nApprenticeship as an expert/woman Health EFZ\n\nMission:\n• Care and care of patients\n\n• Assumption of domestic, administrative-logistic and medical-technical tasks in everyday care\n\n• Carrying out nursing and medical activities under the responsibility of a qualified nurse\n\nProfile:\n• Interested in health care, care and working with people\n\n• Kind and Respectful Appearance\n\n• Care and responsibility\n\n• Teamwork and reliability\n\nOffer:\n• Varied and interesting everyday work of a specialist health EFZ\n\n• Care by dedicated and experienced professionals\n\n• A friendly, helpful team that introduces and supports you in your tasks",
+      "de": "Das Spital Wallis bietet für das Spitalzentrum Oberwallis eine:\n\nLehrstelle als Fachmann/-frau Gesundheit EFZ\n\nIhre Aufgaben:\n• Pflege und Betreuung von Patientinnen und Patienten\n\n• Übernahme hauswirtschaftlicher, administrativ-logistischer und medizinaltechnischer Aufgaben im Pflegealltag\n\n• Durchführung pflegerischer und medizinaltechnischer Tätigkeiten unter Verantwortung einer diplomierten Pflegefachperson\n\nIhr Profil:\n• Interesse am Gesundheitswesen, an Pflege und an der Arbeit mit Menschen\n\n• Freundliches und respektvolles Auftreten\n\n• Sorgfalt und Verantwortungsbewusstsein\n\n• Teamfähigkeit und Zuverlässigkeit\n\nWir bieten:\n• Abwechslungsreichen und interessanten Berufsalltag einer Fachfrau/Fachmann Gesundheit EFZ\n\n• Betreuung durch engagierte und erfahrene Fachpersonen\n\n• Ein freundliches, hilfsbereites Team, das dich in deine Aufgaben einführt und unterstützt",
+      "fr": "L'hôpital Wallis offre pour le centre hospitalier Oberwallis a:\n\nApprentissage en tant qu'expert/femme Santé EFZ\n\nMission :\n• Soins et soins aux patients\n\n• Assomption de tâches domestiques, administratives-logistiques et médicales-techniques dans les soins quotidiens\n\n• Mener des activités de soins infirmiers et médicaux sous la responsabilité d'une infirmière qualifiée\n\nProfil :\n• Intéressé par les soins de santé, les soins et le travail avec les gens\n\n• Apparence aimable et respectueuse\n\n• Soins et responsabilité\n\n• Travail d'équipe et fiabilité\n\nOffre:\n• Travail quotidien varié et intéressant d'un spécialiste de la santé EFZ\n\n• Soins dispensés par des professionnels dévoués et expérimentés\n\n• Une équipe amicale et serviable qui vous présente et vous accompagne dans vos tâches"
+    },
+    "slugByLocale": {
+      "it": "fachmann-frau-gesundheit-cfc-hopital-du-valais-brig",
+      "en": "professional-health-efz-hopital-du-valais-brig",
+      "de": "fachmann-frau-gesundheit-efz-hopital-du-valais-brig",
+      "fr": "sante-professionnelle-efz-hopital-du-valais-brig"
+    },
+    "sector": "Santé / Hôpital",
+    "expiredAt": "2026-11-26T09:27:01.101Z",
+    "previousSlugs": [
+      "fachmann-frau-gesundheit-efz-hopital-du-valais-brig"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachmann-frau-gesundheit-efz-hopital-du-valais-brig"
+      ],
+      "en": [
+        "fachmann-frau-gesundheit-efz-hopital-du-valais-brig"
+      ],
+      "fr": [
+        "fachmann-frau-gesundheit-efz-hopital-du-valais-brig"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachmann-frau-gesundheit-efz-hopital-du-valais-brig": "VS"
+      },
+      "en": {
+        "fachmann-frau-gesundheit-efz-hopital-du-valais-brig": "VS"
+      },
+      "fr": {
+        "fachmann-frau-gesundheit-efz-hopital-du-valais-brig": "VS"
+      }
+    },
+    "postalCode": "3900",
+    "streetAddress": "Brig",
+    "salaryMin": 51000,
+    "salaryMax": 94500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3bc394fb87158f54dbd6ebd30cbb35f1/atsann0004725/params/language/fr",
+    "firstSeenAt": "2026-07-31T11:43:36.139Z"
+  },
+  {
     "id": "hopital-du-valais-dc0529896434",
     "slug": "medico-a-primario-a-e-responsabile-di-reparto-di-pneumologia-80-100-hopital-du-valais-visp",
     "title": "Chefärztin/-arzt und Abteilungsleiter/in Pneumologie 80-100%",

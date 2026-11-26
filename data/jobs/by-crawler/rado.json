@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-11-25T21:29:17.306Z",
-  "runId": "45701316696",
+  "assembledAt": "2026-11-26T09:31:20.210Z",
+  "runId": "45789003328",
   "jobs": [
     {
       "id": "company-7ucqp9",
@@ -93,7 +93,8 @@
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:27:56.631Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ucqnj",
@@ -185,7 +186,8 @@
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:27:56.631Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ucq4q",
@@ -262,7 +264,8 @@
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:27:56.631Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

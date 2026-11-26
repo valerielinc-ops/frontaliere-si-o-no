@@ -43,6 +43,9 @@
       "de": [
         "vendeur-vendeuse-a-l-heure-denner-d57883b1",
         "vendeur-vendeuse-a-l-heure-denner"
+      ],
+      "fr": [
+        "vendeur-vendeuse-a-l-heure-denner-d57883b1"
       ]
     },
     "postalCode": "1920",
@@ -438,7 +441,10 @@
       "seller-denner-ag-ibach",
       "verkaufer-in-denner-ibach",
       "salesperson-denner-ibach",
-      "vendeur-denner-ag-ibach"
+      "vendeur-denner-ag-ibach",
+      "verkaufer-in-denner-w0gyz7",
+      "verkaufer-in-denner-ag-flims-dorf-2",
+      "verkaufer-in-denner-ag-flims-dorf-w0gyz7"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -457,7 +463,8 @@
         "verkaufer-in-denner-36-98e9e4c6",
         "verkaufer-in-denner-ag-bern-w68p5a",
         "verkaufer-in-denner-42a84740",
-        "verkaufer-in-denner-ag-ibach"
+        "verkaufer-in-denner-ag-ibach",
+        "verkaufer-in-denner-w0gyz7"
       ],
       "it": [
         "seller-denner-bern",
@@ -484,7 +491,9 @@
         "verkaufer-in-denner-sursee-6318dfbe",
         "verkaufer-in-denner-ag-bern-w68p5a",
         "verkaufer-in-denner-42a84740",
-        "venditore-denner-ag-ibach"
+        "venditore-denner-ag-ibach",
+        "verkaufer-in-denner-ag-flims-dorf-2",
+        "verkaufer-in-denner-ag-flims-dorf-w0gyz7"
       ],
       "en": [
         "verkaufer-in-denner",
@@ -504,7 +513,9 @@
         "verkaufer-in-denner-ag-bern-w68p5a",
         "seller-denner-ag-ibach",
         "verkaufer-in-denner-ibach",
-        "salesperson-denner-ibach"
+        "salesperson-denner-ibach",
+        "verkaufer-in-denner-ag-flims-dorf-w0gyz7",
+        "verkaufer-in-denner-w0gyz7"
       ],
       "fr": [
         "verkaufer-in-denner",
@@ -523,7 +534,9 @@
         "verkaufer-in-denner-sursee-6318dfbe",
         "verkaufer-in-denner-ag-bern-w68p5a",
         "vendeur-denner-ag-ibach",
-        "verkaufer-in-denner-ibach"
+        "verkaufer-in-denner-ibach",
+        "verkaufer-in-denner-ag-flims-dorf-w0gyz7",
+        "verkaufer-in-denner-w0gyz7"
       ]
     },
     "postalCode": "3004",
@@ -1370,7 +1383,24 @@
         "firstSeenAt": "2026-07-10T23:02:40.827Z",
         "title": "Verkäufer*in"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufer-in-denner-ag-flims-dorf-2": "GR",
+        "verkaufer-in-denner-ag-flims-dorf-w0gyz7": "GR"
+      },
+      "en": {
+        "verkaufer-in-denner-ag-flims-dorf-w0gyz7": "GR",
+        "verkaufer-in-denner-w0gyz7": "GR"
+      },
+      "de": {
+        "verkaufer-in-denner-w0gyz7": "GR"
+      },
+      "fr": {
+        "verkaufer-in-denner-ag-flims-dorf-w0gyz7": "GR",
+        "verkaufer-in-denner-w0gyz7": "GR"
+      }
+    }
   },
   {
     "slug": "vice-direttoredifiliale-denner-hochdorf",
@@ -1464,7 +1494,17 @@
       "stv-branch-manager-in-denner-einsiedeln",
       "gestore-ramo-denner-einsiedeln",
       "directeur-de-succursale-stv-denner-ag-rothenburg",
-      "directeur-de-succursale-stv-denner-ag-einsiedeln"
+      "directeur-de-succursale-stv-denner-ag-einsiedeln",
+      "gestore-ramo-denner-kreuzlingen",
+      "stv-filialleiter-in-denner-ag-kreuzlingen",
+      "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
+      "stv-branch-manager-in-denner-kreuzlingen",
+      "gestore-ramo-denner-wetzikon",
+      "stv-filialleiter-in-denner-ag-wetzikon",
+      "stv-filialleiter-in-denner-ag-wetzikon-58496d",
+      "stv-branch-manager-in-denner-wetzikon",
+      "directeur-de-succursale-stv-in-denner-kreuzlingen",
+      "directeur-de-succursale-stv-in-denner-wetzikon"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1506,7 +1546,15 @@
         "vice-direttore-di-filiale-in-formazione-denner-ag-oensingen",
         "stv-branch-manager-in-denner-ag-einsiedeln",
         "stv-branch-manager-in-denner-einsiedeln",
-        "gestore-ramo-denner-einsiedeln"
+        "gestore-ramo-denner-einsiedeln",
+        "gestore-ramo-denner-kreuzlingen",
+        "stv-filialleiter-in-denner-ag-kreuzlingen",
+        "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
+        "stv-branch-manager-in-denner-kreuzlingen",
+        "gestore-ramo-denner-wetzikon",
+        "stv-filialleiter-in-denner-ag-wetzikon",
+        "stv-filialleiter-in-denner-ag-wetzikon-58496d",
+        "stv-branch-manager-in-denner-wetzikon"
       ],
       "en": [
         "deputy-branch-manager-denner-hochdorf",
@@ -1523,7 +1571,11 @@
         "stv-branch-manager-in-denner-ag-rothenburg",
         "stv-filialleiter-in-denner-ag-rothenburg-228b88",
         "stv-branch-manager-in-denner-ag-einsiedeln",
-        "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n"
+        "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n",
+        "stv-branch-manager-in-denner-kreuzlingen",
+        "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
+        "stv-branch-manager-in-denner-wetzikon",
+        "stv-filialleiter-in-denner-ag-wetzikon-58496d"
       ],
       "de": [
         "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
@@ -1551,7 +1603,9 @@
         "stv-filialleiter-in-denner-e1abb2c2",
         "stv-filialleiter-in-denner-c446b0bb",
         "stv-filialleiter-in-denner-ag-rothenburg-228b88",
-        "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n"
+        "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n",
+        "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
+        "stv-filialleiter-in-denner-ag-wetzikon-58496d"
       ],
       "fr": [
         "directeur-de-succursale-stv-in-denner-ag-schaffhausen",
@@ -1569,7 +1623,11 @@
         "directeur-de-succursale-stv-denner-ag-rothenburg",
         "stv-filialleiter-in-denner-ag-rothenburg-228b88",
         "directeur-de-succursale-stv-denner-ag-einsiedeln",
-        "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n"
+        "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n",
+        "directeur-de-succursale-stv-in-denner-kreuzlingen",
+        "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb",
+        "directeur-de-succursale-stv-in-denner-wetzikon",
+        "stv-filialleiter-in-denner-ag-wetzikon-58496d"
       ]
     },
     "postalCode": "6280",
@@ -1966,7 +2024,35 @@
         "firstSeenAt": "2026-06-17T13:34:18.916Z",
         "title": "Stv. Filialleiter*in"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gestore-ramo-denner-kreuzlingen": "TG",
+        "stv-filialleiter-in-denner-ag-kreuzlingen": "TG",
+        "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb": "TG",
+        "stv-branch-manager-in-denner-kreuzlingen": "TG",
+        "gestore-ramo-denner-wetzikon": "ZH",
+        "stv-filialleiter-in-denner-ag-wetzikon": "ZH",
+        "stv-filialleiter-in-denner-ag-wetzikon-58496d": "ZH",
+        "stv-branch-manager-in-denner-wetzikon": "ZH"
+      },
+      "en": {
+        "stv-branch-manager-in-denner-kreuzlingen": "TG",
+        "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb": "TG",
+        "stv-branch-manager-in-denner-wetzikon": "ZH",
+        "stv-filialleiter-in-denner-ag-wetzikon-58496d": "ZH"
+      },
+      "de": {
+        "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb": "TG",
+        "stv-filialleiter-in-denner-ag-wetzikon-58496d": "ZH"
+      },
+      "fr": {
+        "directeur-de-succursale-stv-in-denner-kreuzlingen": "TG",
+        "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb": "TG",
+        "directeur-de-succursale-stv-in-denner-wetzikon": "ZH",
+        "stv-filialleiter-in-denner-ag-wetzikon-58496d": "ZH"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-vendite-con-paga-oraria-denner-emmenbrucke",
@@ -2058,7 +2144,12 @@
       "verkaufer-in-im-stundenlohn-denner-reinach-ag",
       "seller-in-retribuzione-oraria-denner-reinach-ag",
       "seller-in-the-hourly-wage-denner-ag-reinach-ag",
-      "vendeur-dans-le-salaire-horaire-denner-ag-reinach-ag"
+      "vendeur-dans-le-salaire-horaire-denner-ag-reinach-ag",
+      "addetto-a-alle-vendite-con-retribuzione-oraria-denner-kreuzlingen",
+      "verkaufer-in-im-stundenlohn-denner-kreuzlingen",
+      "salesperson-on-an-hourly-wage-denner-kreuzlingen",
+      "verkaufer-in-im-stundenlohn-denner-s9k4yu",
+      "vendeur-euse-remunere-e-a-l-heure-denner-kreuzlingen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2086,7 +2177,9 @@
         "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag",
         "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
         "verkaufer-in-im-stundenlohn-denner-reinach-ag",
-        "seller-in-retribuzione-oraria-denner-reinach-ag"
+        "seller-in-retribuzione-oraria-denner-reinach-ag",
+        "addetto-a-alle-vendite-con-retribuzione-oraria-denner-kreuzlingen",
+        "verkaufer-in-im-stundenlohn-denner-kreuzlingen"
       ],
       "en": [
         "verkaufer-in-im-stundenlohn-denner-ag-frauenfeld-b51nr4",
@@ -2104,7 +2197,9 @@
         "verkaufer-in-im-stundenlohn-denner-reiden",
         "verkaufer-in-im-stundenlohn-denner-bern",
         "seller-in-the-hourly-wage-denner-ag-reinach-ag",
-        "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun"
+        "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
+        "salesperson-on-an-hourly-wage-denner-kreuzlingen",
+        "verkaufer-in-im-stundenlohn-denner-kreuzlingen"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-frauenfeld",
@@ -2124,7 +2219,9 @@
         "verkaufer-in-im-stundenlohn-denner-laufen",
         "verkaufer-in-im-stundenlohn-denner-oftringen",
         "verkaufer-in-im-stundenlohn-denner-reiden",
-        "verkaufer-in-im-stundenlohn-denner-bern"
+        "verkaufer-in-im-stundenlohn-denner-bern",
+        "verkaufer-in-im-stundenlohn-denner-s9k4yu",
+        "verkaufer-in-im-stundenlohn-denner-kreuzlingen"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-ag-frauenfeld-b51nr4",
@@ -2142,7 +2239,9 @@
         "verkaufer-in-im-stundenlohn-denner-reiden",
         "verkaufer-in-im-stundenlohn-denner-bern",
         "vendeur-dans-le-salaire-horaire-denner-ag-reinach-ag",
-        "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun"
+        "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
+        "vendeur-euse-remunere-e-a-l-heure-denner-kreuzlingen",
+        "verkaufer-in-im-stundenlohn-denner-kreuzlingen"
       ]
     },
     "postalCode": "6020",
@@ -2894,7 +2993,25 @@
         "firstSeenAt": "2026-06-18T13:17:21.364Z",
         "title": "Verkäufer*in im Stundenlohn"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "addetto-a-alle-vendite-con-retribuzione-oraria-denner-kreuzlingen": "TG",
+        "verkaufer-in-im-stundenlohn-denner-kreuzlingen": "TG"
+      },
+      "en": {
+        "salesperson-on-an-hourly-wage-denner-kreuzlingen": "TG",
+        "verkaufer-in-im-stundenlohn-denner-kreuzlingen": "TG"
+      },
+      "de": {
+        "verkaufer-in-im-stundenlohn-denner-s9k4yu": "TG",
+        "verkaufer-in-im-stundenlohn-denner-kreuzlingen": "TG"
+      },
+      "fr": {
+        "vendeur-euse-remunere-e-a-l-heure-denner-kreuzlingen": "TG",
+        "verkaufer-in-im-stundenlohn-denner-kreuzlingen": "TG"
+      }
+    }
   },
   {
     "slug": "studente-denner-renens",
@@ -3809,6 +3926,9 @@
       "fr": [
         "betriebstechniker-in-schmitten-denner-5bb813bf",
         "betriebstechniker-in-schmitten-denner"
+      ],
+      "de": [
+        "betriebstechniker-in-schmitten-denner-5bb813bf"
       ]
     },
     "postalCode": "3185",
@@ -3922,8 +4042,8 @@
       "assistent-in-filialleitung-denner-745e09cf",
       "assistent-in-filialleitung-denner-9ae71978",
       "assistent-in-filialleitung-denner-319b6a69",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-5c703029"
+      "assistent-in-filialleitung-denner-5c703029",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5480,8 +5600,8 @@
       "assistant-in-branch-management-denner-ag-steinhausen",
       "assistent-in-filialleitung-denner-ag-steinhausen-cc1clp",
       "assistant-dans-la-gestion-des-succursales-denner-ag-steinhausen",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-11ba5605"
+      "assistent-in-filialleitung-denner-11ba5605",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -14431,8 +14551,8 @@
       "assistent-in-filialleitung-denner-3229b11d",
       "assistent-in-filialleitung-denner-5f07fc8a",
       "assistent-in-filialleitung-denner-ea941971",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-861abc6d"
+      "assistent-in-filialleitung-denner-861abc6d",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -25301,8 +25421,8 @@
       "assistent-in-filialleitung-denner-617af5b3",
       "assistent-in-filialleitung-denner-2-ba190422",
       "assistent-in-filialleitung-denner-2",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-7f9dd806"
+      "assistent-in-filialleitung-denner-7f9dd806",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -39093,8 +39213,8 @@
       "verkaufer-in-denner-beckenried",
       "verkaufer-in-denner-37",
       "verkaufer-in-denner-fullinsdorf",
-      "verkaufer-in-denner-27",
-      "verkaufer-in-denner-27-f15d020c"
+      "verkaufer-in-denner-27-f15d020c",
+      "verkaufer-in-denner-27"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -58267,8 +58387,8 @@
       "assistent-in-filialleitung-denner-5",
       "assistent-in-filialleitung-denner-4",
       "assistent-in-filialleitung-denner-8",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-ef7b76fe"
+      "assistent-in-filialleitung-denner-ef7b76fe",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -59844,8 +59964,8 @@
       "assistent-in-filialleitung-denner-zurich-82a2dd99",
       "assistent-in-filialleitung-denner-8",
       "assistent-in-filialleitung-denner-zurich",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-4e298197"
+      "assistent-in-filialleitung-denner-4e298197",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -60324,8 +60444,8 @@
       "assistent-in-filialleitung-denner-zurich-964577aa",
       "assistent-in-filialleitung-denner-8",
       "assistent-in-filialleitung-denner-zurich",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-56bc6ae1"
+      "assistent-in-filialleitung-denner-56bc6ae1",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -66328,8 +66448,8 @@
       "verkaufer-in-im-stundenlohn-denner-2",
       "verkaufer-in-im-stundenlohn-denner-therwil-559865b4",
       "verkaufer-in-im-stundenlohn-denner-therwil",
-      "verkaufer-in-im-stundenlohn-denner-stein-ag",
-      "verkaufer-in-im-stundenlohn-denner-stein-ag-d9bf28bd"
+      "verkaufer-in-im-stundenlohn-denner-stein-ag-d9bf28bd",
+      "verkaufer-in-im-stundenlohn-denner-stein-ag"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -68045,8 +68165,8 @@
       "assistent-in-filialleitung-denner-gossau-zh",
       "assistent-in-filialleitung-denner-8",
       "assistent-in-filialleitung-denner-i9fhcw",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-004be402"
+      "assistent-in-filialleitung-denner-004be402",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -76284,8 +76404,8 @@
       "assistent-in-filialleitung-denner-ag-rothenburg-14od2o",
       "assistant-in-branch-management-denner-ag-rothenburg",
       "assistant-dans-la-gestion-des-succursales-denner-ag-rothenburg",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-b5eb5918"
+      "assistent-in-filialleitung-denner-b5eb5918",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -77196,8 +77316,8 @@
       "assistent-in-filialleitung-denner-ag-rothenburg",
       "assistent-in-filialleitung-denner-ag-rothenburg-14od2o",
       "assistent-in-filialleitung-denner-f054c32f",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-b7d85ec5"
+      "assistent-in-filialleitung-denner-b7d85ec5",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -126989,8 +127109,8 @@
       "verkaufer-in-denner-2",
       "verkaufer-in-denner-frauenfeld",
       "verkaufer-in-denner-binningen",
-      "verkaufer-in-denner-aeschi-bei-spiez",
-      "verkaufer-in-denner-aeschi-bei-spiez-f5a635c4"
+      "verkaufer-in-denner-aeschi-bei-spiez-f5a635c4",
+      "verkaufer-in-denner-aeschi-bei-spiez"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -144095,8 +144215,8 @@
       "verkaufer-in-denner-12",
       "verkaufer-in-denner-winterthur",
       "vendeur-denner-ag-winterthur",
-      "verkaufer-in-denner-gossau-sg",
-      "verkaufer-in-denner-gossau-sg-1406d79b"
+      "verkaufer-in-denner-gossau-sg-1406d79b",
+      "verkaufer-in-denner-gossau-sg"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -198532,8 +198652,8 @@
       "assistente-nella-gestione-delle-branche-denner-ag-adliswil",
       "assistent-in-filialleitung-denner-ag-adliswil-9l4c73-4376202c",
       "assistant-dans-la-gestion-des-succursales-denner-ag-adliswil-8c798250",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-c7f5db34"
+      "assistent-in-filialleitung-denner-c7f5db34",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -214931,8 +215051,8 @@
       "assistent-in-filialleitung-denner-sga7us-1e34317b",
       "assistent-in-filialleitung-denner-sga7us-663472c8",
       "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-sga7us",
-      "assistent-in-filialleitung-denner-0f2e749d"
+      "assistent-in-filialleitung-denner-0f2e749d",
+      "assistent-in-filialleitung-denner-sga7us"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -226078,8 +226198,8 @@
       "assistent-in-filialleitung-denner-adliswil",
       "assistent-in-filialleitung-denner-sga7us-76cad501",
       "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-sga7us",
-      "assistent-in-filialleitung-denner-288a67cd"
+      "assistent-in-filialleitung-denner-288a67cd",
+      "assistent-in-filialleitung-denner-sga7us"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -273425,8 +273545,8 @@
       "assistent-in-filialleitung-denner-zurich",
       "assistent-in-filialleitung-denner-sga7us-30d33fec",
       "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-sga7us",
-      "assistent-in-filialleitung-denner-cf8a46cf"
+      "assistent-in-filialleitung-denner-cf8a46cf",
+      "assistent-in-filialleitung-denner-sga7us"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -277921,8 +278041,8 @@
       "assistant-to-branch-management-denner-arlesheim",
       "assistent-in-filialleitung-denner-arlesheim",
       "assistant-de-la-direction-de-succursale-denner-arlesheim",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-d8416c25"
+      "assistent-in-filialleitung-denner-d8416c25",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -310488,8 +310608,8 @@
       "assistent-in-filialleitung-denner-embrach",
       "assistant-in-branch-management-denner-embrach-d2fd9f",
       "assistant-dans-la-gestion-des-succursales-denner-embrach-d2fd9f",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-6d36f373"
+      "assistent-in-filialleitung-denner-6d36f373",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -310906,7 +311026,29 @@
       "assistent-in-filialleitung-denner-ag-bellach-7edga6",
       "assistent-in-filialleitung-denner-bellach",
       "assistant-in-branch-management-denner-bremgarten-ag",
-      "assistente-nella-gestione-delle-branche-denner-bellach"
+      "assistente-nella-gestione-delle-branche-denner-bellach",
+      "assistente-nella-gestione-delle-branche-denner-ag-buchs-sg",
+      "assistant-dans-la-gestion-des-succursales-denner-buchs-ag",
+      "assistant-in-branch-management-denner-buchs-ag",
+      "assistent-in-filialleitung-denner-buchs-ag",
+      "assistente-nella-gestione-delle-branche-denner-buchs-ag",
+      "assistente-nella-gestione-delle-branche-denner-buchs-sg",
+      "assistant-in-branch-management-denner-ag-buchs-sg",
+      "assistent-in-filialleitung-denner-buchs-sg",
+      "assistent-in-filialleitung-denner-ag-buchs-sg-97awiy",
+      "assistant-dans-la-gestion-des-succursales-denner-ag-buchs-sg",
+      "assistente-nella-gestione-delle-branche-denner-ag-pfaffokon-sz",
+      "assistant-in-branch-management-denner-ag-pfaffokon-sz",
+      "assistent-in-filialleitung-denner-pfaffokon-sz",
+      "assistent-in-filialleitung-denner-ag-pfaffokon-sz-6tikqy",
+      "assistant-dans-la-gestion-des-succursales-denner-ag-pfaffokon-sz",
+      "assistente-nella-gestione-delle-branche-denner-flims-dorf",
+      "assistant-in-branch-management-denner-flims-dorf",
+      "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+      "assistent-in-filialleitung-denner-flims-dorf",
+      "assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf",
+      "assistente-nella-direzione-della-filiale-denner-langwiesen",
+      "assistent-in-filialleitung-denner-langwiesen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -310921,16 +311063,41 @@
         "assistent-in-filialleitung-denner-ag-bellach-7edga6",
         "assistent-in-filialleitung-denner-bellach",
         "assistant-in-branch-management-denner-bremgarten-ag",
-        "assistente-nella-gestione-delle-branche-denner-bellach"
+        "assistente-nella-gestione-delle-branche-denner-bellach",
+        "assistente-nella-gestione-delle-branche-denner-ag-buchs-sg",
+        "assistant-dans-la-gestion-des-succursales-denner-buchs-ag",
+        "assistant-in-branch-management-denner-buchs-ag",
+        "assistent-in-filialleitung-denner-buchs-ag",
+        "assistente-nella-gestione-delle-branche-denner-buchs-ag",
+        "assistente-nella-gestione-delle-branche-denner-buchs-sg",
+        "assistente-nella-gestione-delle-branche-denner-ag-pfaffokon-sz",
+        "assistente-nella-gestione-delle-branche-denner-flims-dorf"
       ],
       "en": [
         "assistent-in-filialleitung-denner-ag-bellach-7edga6",
         "assistant-branch-manager-denner-ag-baar",
-        "assistent-in-filialleitung-denner-bellach"
+        "assistent-in-filialleitung-denner-bellach",
+        "assistant-in-branch-management-denner-ag-buchs-sg",
+        "assistent-in-filialleitung-denner-buchs-sg",
+        "assistant-in-branch-management-denner-ag-pfaffokon-sz",
+        "assistent-in-filialleitung-denner-pfaffokon-sz",
+        "assistant-in-branch-management-denner-flims-dorf",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "fr": [
         "assistent-in-filialleitung-denner-ag-bellach-7edga6",
-        "assistent-in-filialleitung-denner-bellach"
+        "assistent-in-filialleitung-denner-bellach",
+        "assistant-dans-la-gestion-des-succursales-denner-ag-buchs-sg",
+        "assistent-in-filialleitung-denner-buchs-sg",
+        "assistant-dans-la-gestion-des-succursales-denner-ag-pfaffokon-sz",
+        "assistent-in-filialleitung-denner-pfaffokon-sz",
+        "assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+      ],
+      "de": [
+        "assistent-in-filialleitung-denner-ag-buchs-sg-97awiy",
+        "assistent-in-filialleitung-denner-ag-pfaffokon-sz-6tikqy",
+        "assistent-in-filialleitung-denner-flims-dorf"
       ]
     },
     "postalCode": "4512",
@@ -310964,7 +311131,7 @@
       },
       {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0b388e0e-8ccb-4672-8072-4b6079e2be58",
-        "firstSeenAt": "2026-08-11T10:25:11.367Z",
+        "firstSeenAt": "2026-08-11T10:13:44.318Z",
         "title": "Assistent*in Filialleitung"
       },
       {
@@ -310978,8 +311145,13 @@
         "title": "Assistent*in Filialleitung"
       },
       {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/106cc3df-4f3c-4913-a578-b6d831ab56fe",
+        "firstSeenAt": "2026-07-06T13:36:19.306Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/1ab60c4d-aee1-4466-81c4-b26983efd488",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
+        "firstSeenAt": "2026-07-22T12:00:01.308Z",
         "title": "Assistent*in Filialleitung"
       },
       {
@@ -310990,6 +311162,11 @@
       {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/294dddee-0d96-47c5-8930-bf98ce2d1a71",
         "firstSeenAt": "2026-09-21T16:05:08.450Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2b54f255-e2a7-4412-b2d0-af7d85862ca6",
+        "firstSeenAt": "2026-07-03T21:51:50.858Z",
         "title": "Assistent*in Filialleitung"
       },
       {
@@ -311068,6 +311245,11 @@
         "title": "Assistent*in Filialleitung"
       },
       {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/4e603ac9-67a7-43d8-bf0f-5f01ffa6e0ec",
+        "firstSeenAt": "2026-05-28T22:51:49.071Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/52bec962-4621-486c-a8f9-e68852c99fb2",
         "firstSeenAt": "2026-06-17T13:34:18.916Z",
         "title": "Assistent*in Filialleitung"
@@ -311108,8 +311290,18 @@
         "title": "Assistent*in Filialleitung"
       },
       {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/629aa12d-1f41-4881-906f-04abeb951bca",
+        "firstSeenAt": "2026-06-11T12:31:03.024Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6977f05b-3481-4707-a144-aa467497b88d",
         "firstSeenAt": "2026-09-21T16:05:08.450Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6a5b6201-2dba-490b-bd6a-f4c777a124df",
+        "firstSeenAt": "2026-06-17T22:30:11.921Z",
         "title": "Assistent*in Filialleitung"
       },
       {
@@ -311118,8 +311310,23 @@
         "title": "Assistent*in Filialleitung"
       },
       {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6f8c35d1-ee84-430f-bbee-6323a68c859c",
+        "firstSeenAt": "2026-06-22T14:20:29.417Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/712c82e5-f9e0-4d4d-9282-b89ec084d8a9",
         "firstSeenAt": "2026-09-21T16:05:08.450Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/7d924e13-226b-4c08-b90d-bda35d4230b7",
+        "firstSeenAt": "2026-06-15T14:22:57.561Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/7d9c8809-31b8-4291-b93a-d439ca2b93b5",
+        "firstSeenAt": "2026-06-21T11:26:25.654Z",
         "title": "Assistent*in Filialleitung"
       },
       {
@@ -311158,8 +311365,13 @@
         "title": "Assistent*in Filialleitung"
       },
       {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/91f34d8f-f94b-4dc3-8ac3-3159b582b1e2",
+        "firstSeenAt": "2026-07-16T11:23:17.611Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/93d52b7f-8c9e-4b7d-9568-89f25edf572d",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
+        "firstSeenAt": "2026-07-21T11:29:34.982Z",
         "title": "Assistent*in Filialleitung"
       },
       {
@@ -311189,7 +311401,7 @@
       },
       {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bb0b004b-09e7-4107-a5f9-302544aa8884",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
+        "firstSeenAt": "2026-06-18T23:24:06.541Z",
         "title": "Assistent*in Filialleitung"
       },
       {
@@ -311200,6 +311412,11 @@
       {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bfe4d019-bdd4-4cb4-81bd-9ebdd905111b",
         "firstSeenAt": "2026-07-05T22:41:17.659Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c045ab0d-abe0-4ca5-bf51-043339335c7e",
+        "firstSeenAt": "2026-07-27T12:39:48.540Z",
         "title": "Assistent*in Filialleitung"
       },
       {
@@ -311263,6 +311480,11 @@
         "title": "Assistent*in Filialleitung"
       },
       {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/da838933-4732-4f1e-b8ef-67b422cae42a",
+        "firstSeenAt": "2026-05-28T22:51:49.071Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/db5bb911-72d7-41a0-b720-e52316c07905",
         "firstSeenAt": "2026-08-31T17:40:35.590Z",
         "title": "Assistent*in Filialleitung"
@@ -311278,18 +311500,53 @@
         "title": "Assistent*in Filialleitung"
       },
       {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e5d5290b-cb3d-4558-9126-83f9423ea1b3",
+        "firstSeenAt": "2026-06-17T13:34:18.916Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/eb7b2823-dfb6-430c-87dc-35334d68d565",
+        "firstSeenAt": "2026-05-26T22:40:30.774Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/eb89789c-2b66-4f5f-83ae-16ce29df6185",
         "firstSeenAt": "2026-09-21T16:05:08.450Z",
         "title": "Assistent*in Filialleitung"
       },
       {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/ebbde505-d2e5-4b59-82af-3663f4eaaf1f",
+        "firstSeenAt": "2026-07-13T12:28:24.211Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f30f0d50-90f4-456c-9b84-d65fbfda11e2",
+        "firstSeenAt": "2026-07-08T11:38:05.616Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f493ff38-d144-42d4-b49c-c313977b26b5",
+        "firstSeenAt": "2026-07-15T11:10:39.291Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f9226bb8-0c22-4730-8684-1df48bab82a2",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
+        "firstSeenAt": "2026-08-31T17:06:17.466Z",
         "title": "Assistent*in Filialleitung"
       },
       {
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/feebae8d-e3e7-4e37-b54b-ecc7d86c667d",
         "firstSeenAt": "2026-08-28T05:46:05.736Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/c045ab0d-abe0-4ca5-bf51-043339335c7e",
+        "firstSeenAt": "2026-07-27T12:39:48.540Z",
+        "title": "Assistent*in Filialleitung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/assistentin-filialleitung/863df5c2-dd99-4cba-b43e-500d05584e55",
+        "firstSeenAt": "2026-07-02T22:30:51.514Z",
         "title": "Assistent*in Filialleitung"
       }
     ]
@@ -326540,421 +326797,6 @@
     ]
   },
   {
-    "slug": "assistente-nella-gestione-delle-branche-denner-ag-buchs-sg",
-    "title": "Assistent*in Filialleitung",
-    "titleByLocale": {
-      "it": "Assistente* nella gestione delle branche",
-      "en": "Assistant* in branch management",
-      "de": "Assistent*in Filialleitung",
-      "fr": "Assistant* dans la gestion des succursales"
-    },
-    "company": "Denner",
-    "companyKey": "denner",
-    "location": "Buchs SG",
-    "addressLocality": "Buchs SG",
-    "descriptionByLocale": {
-      "it": "Vuoi assumerti ogni giorno la responsabilità di tanto in tanto? Non sei pronto per Stv? Qui puoi dimostrare quello che hai. Condividi le tue conoscenze. Guadagnare esperienza di leadership. E, naturalmente, un sacco di apprendimento. Denner. Questo è il nostro negozio.\n\n## Mansioni\n- Prestare particolare attenzione alla freschezza di frutta, verdura e pane e dire rifiuti alimentari con ordini lungimiranti la lotta\n- Ordinare prodotti freschi e, naturalmente, tutte le altre merci, accettare, controllare e riempire sugli scaffali del vostro negozio\n- Applica correttamente le specifiche nel layout del negozio\n- Assicurare ordine e pulizia nel negozio e nel magazzino\n- Deposito e contabilità\n- Come assistente, guida, promuovere e anticipare i dipendenti – e essere un esempio per loro\n\n## Requisiti\n- Idealmente, più di due anni di esperienza professionale: nel commercio al dettaglio (cibo)\n- Apprendistato professionale completo (EBA): nel commercio al dettaglio (cibo) o nella professione correlata sarebbe ideale\n- Gioia di prodotti freschi e idealmente già esperienza professionale con loro\n- Pronti a lavorare oltre “da nove a cinque” – e godere del tempo libero quando altri lavorano\n- Fisicamente in forma, alcuni colis sono fino a 10 libbre pesanti\n- Come tra le persone, una buona porzione di calore e un atteggiamento positivo\n- tedesco (molto buona conoscenza)\n\n## Cosa di friamo\n- Parte del Gruppo Migros: Forte marchio ancorato nel commercio al dettaglio sotto l'ombrello del Gruppo Migros\n- Lavoro sano: elevati standard nella sicurezza del lavoro, nell'ergonomia e nell'igiene.\n- congedo di maternità / congedo di paternità: 5 settimane più lunga baby break (19 settimane) per le madri al 100% salario. I padri godono della prole 4 settimane pagate.\n- Pagamenti equi: 13 salari mensili e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi.\n- Migros Bank: migliore corsa sugli interessi e le tasse dei vostri conti privati, di investimento o di ipoteca.\n- I dipendenti offrono: 10 per cento sul prossimo acquisto principale (due volte all'anno).\n- Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio.\n- Offerte per il tempo libero e culturale: vari sconti per noleggio auto, hotel, eventi e molte altre aree.\n- Promozione mirata: dalla lavastoviglie al milionario? Forse non esattamente, ma: Chi ha morso e talento, arriva rapidamente.\n\n## Contatto\n## Applicazione & Contatto Jasmine Diem Recruiter Vendita Svizzera orientale - LinkedIn ## Processo di reclutamento Rivediamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione sul progresso o il ritiro dal processo di reclutamento sarà comunicata telefonicamente o via e-mail. Durata fino al feedback: Fino a tre settimane Video personale o conversazione telefonica Conduciamo facoltativamente una conversazione telefonica o video personale per un gran numero di candidati. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte al prossimo round. Durata fino al feedback: fino a una settimana di test Un giorno di prova o mezza giornata offre l'opportunità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E al contrario, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane offrono emissione di contratti Dopo la nostra offerta di lavoro orale, i punti contrattuali più importanti sono verificati di nuovo. Dopo accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: Fino a tre settimane ## Nota per i fornitori di servizi del personale Per questa posizione consideriamo solo applicazioni dirette.",
-      "en": "Do you want to take on daily responsibility from time to time? Are you not ready for Stv? Here you can prove what you got. Share your knowledge. Gaining leadership experience. And of course, a lot of learning. Denner. This is our store.\n\n## Mansioni\n- You pay special attention to the freshness of fruits, vegetables and bread and say food waste with far-sighted orders the fight\n- Order fresh produce and of course all other goods, accept, check and fill on the shelves in your store\n- Correctly implement specifications in the store layout\n- Ensure order and cleanliness in the store and in the warehouse\n- Depository and accounting\n- As an assistant, guide, promote and advance employees – and be an example to them\n\n## Requirements\n- Ideally, more than two years of professional experience: in the retail trade (food)\n- Completed vocational apprenticeship (EBA): in the retail trade (food) or related profession would be ideal\n- Joy of fresh products and ideally already professional experience with them\n- Ready to work beyond “nine to five” – and enjoy free time when others work\n- Physically fit, some colis are up to 10 pounds heavy\n- Like among people, a good portion of warmth and a positive attitude\n- German (very good knowledge)\n\n## Cosa of friamo\n- Part of the Migros Group: Strong brand anchored in the retail trade under the Migros Group umbrella\n- Healthy work: High standards in occupational safety, ergonomics and hygiene.\n- Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers at 100% wage. Fathers enjoy the offspring 4 paid weeks.\n- Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for a few.\n- Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected.\n- Migros Bank: Better ride on interest and fees of your private, investment or mortgage accounts.\n- Employee offers: 10 percent on the next major purchase (twice a year).\n- Holidays: 6 weeks holidays for all and even more days for service anniversaries.\n- Leisure and cultural offers: Various discounts for car rentals, hotels, events and many more areas.\n- Targeted promotion: From dishwasher to millionaire? Maybe not exactly, but: Who has bite and talent, comes quickly.\n\n## Contatto\n## Application & Contact Jasmine Diem Recruiter Sale Eastern Switzerland - LinkedIn ## Recruitment process Pre-selection of applications We continuously review applications received, create a pre-selection and release them to the manager for viewing. The decision on progress or withdrawal from the recruitment process will be communicated by telephone or email. Duration until feedback: Up to three weeks Personal video or telephone conversation We optionally conduct a personal telephone or video conversation for a large number of applicants. This gives us the opportunity to get to know more candidates within a short time in order to invite suitable people for the next round. Duration until feedback: up to one week of test work A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And conversely, it gives us a chance to assess how well someone fits into the team. Duration until feedback: Up to three weeks offer & contract issuance After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personnel service providers For this position we only consider direct applications.",
-      "de": "Du möchtest ab und zu die Tagesverantwortung übernehmen? Bist aber noch nicht bereit für Stv.? Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden.\n\n## Mansioni\n- Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an\n- Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen\n- Vorgaben im Ladenlayout korrekt umsetzen\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Kasse bedienen und abrechnen\n- Als Assistent*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n\n## Contatto\n## Bewerbung & Kontakt Jasmine Diem Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "fr": "Voulez-vous assumer la responsabilité quotidienne de temps en temps? Tu n'es pas prêt pour Stv ? Ici vous pouvez prouver ce que vous avez. Partagez vos connaissances. Acquérir une expérience de leadership. Et bien sûr, beaucoup d'apprentissage. Denner. C'est notre magasin.\n\n## Mansioni\n- Vous prêtez une attention particulière à la fraîcheur des fruits, légumes et pain et dites gaspiller les aliments avec des ordres très clairvoyants le combat\n- Commander des produits frais et bien sûr toutes les autres marchandises, accepter, vérifier et remplir sur les étagères dans votre magasin\n- Implémenter correctement les spécifications dans la disposition du magasin\n- Assurer l'ordre et la propreté dans le magasin et dans l'entrepôt\n- Dépôt et comptabilité\n- En tant qu'assistant, guider, promouvoir et faire progresser les employés – et être un exemple pour eux\n\n## Exigences\n- Idéalement, plus de deux ans d'expérience professionnelle : dans le commerce de détail (alimentaire)\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe serait idéal\n- Joy des produits frais et idéalement déjà expérience professionnelle avec eux\n- Prête à travailler au-delà de l'unité de travail – et profiter du temps libre lorsque les autres travaillent\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Comme chez les gens, une bonne partie de la chaleur et une attitude positive\n- Allemand (très bonne connaissance)\n\n## Cosa de friamo\n- Partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros\n- Travail sain: Des normes élevées en matière de sécurité, d'ergonomie et d'hygiène au travail.\n- Congé de maternité / congé de paternité : 5 semaines de congé de maternité (19 semaines) pour les mères à 100% de salaire. Les pères apprécient la progéniture 4 semaines rémunérées.\n- Salaire équitable: 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns.\n- Abonnement mobile : porté au choix : Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Migros Bank: Mieux vaut rouler sur les intérêts et les frais de vos comptes privés, d'investissement ou hypothécaires.\n- Offre de l'employé: 10% sur le prochain achat majeur (deux fois par an).\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Loisirs et offres culturelles: Divers rabais pour la location de voitures, hôtels, événements et beaucoup plus de zones.\n- Promotion ciblée : du lave-vaisselle au millionnaire ? Peut-être pas exactement, mais: Qui a mordu et talent, vient rapidement.\n\n## Contatto\n## Demande et contact Jasmine Diem Recruter Vente Suisse orientale - LinkedIn ## Processus de recrutement Sélection préalable des demandes Nous examinons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision concernant l'avancement ou le retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines Vidéo personnelle ou conversation téléphonique Nous effectuons en option une conversation téléphonique ou vidéo personnelle pour un grand nombre de candidats. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'à la rétroaction : jusqu'à une semaine de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et inversement, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes."
-    },
-    "slugByLocale": {
-      "it": "assistente-nella-gestione-delle-branche-denner-ag-buchs-sg",
-      "en": "assistant-in-branch-management-denner-ag-buchs-sg",
-      "de": "assistent-in-filialleitung-denner-ag-buchs-sg-97awiy",
-      "fr": "assistant-dans-la-gestion-des-succursales-denner-ag-buchs-sg"
-    },
-    "sector": "",
-    "expiredAt": "2026-08-13T10:21:47.711Z",
-    "previousSlugs": [
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-buchs-sg",
-      "assistant-dans-la-gestion-des-succursales-denner-buchs-ag",
-      "assistant-in-branch-management-denner-bremgarten-ag",
-      "assistant-in-branch-management-denner-buchs-ag",
-      "assistent-in-filialleitung-denner-buchs-ag",
-      "assistente-nella-gestione-delle-branche-denner-buchs-ag",
-      "assistente-nella-gestione-delle-branche-denner-buchs-sg"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "assistent-in-filialleitung-denner",
-        "assistant-dans-la-gestion-des-succursales-denner-buchs-ag",
-        "assistant-in-branch-management-denner-bremgarten-ag",
-        "assistant-in-branch-management-denner-buchs-ag",
-        "assistent-in-filialleitung-denner-buchs-ag",
-        "assistente-nella-gestione-delle-branche-denner-buchs-ag",
-        "assistente-nella-gestione-delle-branche-denner-buchs-sg"
-      ],
-      "en": [
-        "assistent-in-filialleitung-denner-buchs-sg"
-      ],
-      "fr": [
-        "assistent-in-filialleitung-denner-buchs-sg"
-      ]
-    },
-    "postalCode": "9470",
-    "streetAddress": "Denner Buchs SG",
-    "salaryMin": 68500,
-    "salaryMax": 105000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/da838933-4732-4f1e-b8ef-67b422cae42a",
-    "firstSeenAt": "2026-05-28T22:51:49.071Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/03f55afb-d4bb-4f42-95a1-79f662b9be48",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/04665d6d-ffdf-498e-b19b-e65c9eb3e7bf",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/05958354-f3e8-4ab9-808a-5033a09ab81e",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0b388e0e-8ccb-4672-8072-4b6079e2be58",
-        "firstSeenAt": "2026-08-11T10:25:11.367Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0efd0b4c-8590-4588-84ba-0e9413c57b02",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0f26c96c-86e2-41b6-8f85-3323d3fb61bb",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/1ab60c4d-aee1-4466-81c4-b26983efd488",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2825c241-ff9f-41ea-88ad-f345f60ab3a4",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/294dddee-0d96-47c5-8930-bf98ce2d1a71",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2c3a067a-6797-41cb-9cb5-8320e8603b91",
-        "firstSeenAt": "2026-05-28T22:51:49.071Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3245ffd0-ba73-4cc4-b33a-155ff54a3d02",
-        "firstSeenAt": "2026-07-15T11:41:02.895Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3264b5ab-7e66-4cbf-9471-aa99ec72bffc",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/349c5529-b07b-4f7f-9141-ad8af6d9cadb",
-        "firstSeenAt": "2026-08-27T00:39:47.575Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/356b5b9a-06ed-4046-8947-a37c285976d4",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3716bce3-b3cc-4831-945b-29a04b17d9fd",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/37b86008-9e91-4aef-99b9-e43e6c535255",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3aea302a-00f5-4466-8eff-6adedc6d1fa0",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3b95ee54-cf00-42e5-9218-2ceae5c7ca72",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3cca0e2d-5a48-40c6-9c4d-ad811e4c3e9b",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3d6b0b84-66a6-41fe-8bfc-b151060d259b",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3d6ea38b-9e75-48cc-989a-882d6a8eb29b",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3f4e3315-11b3-41da-9342-ea356afeb112",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3fac24cc-045a-42e3-8776-46b766e03945",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/47b1bb23-fa5e-405f-ae7a-6b692dafc353",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/52bec962-4621-486c-a8f9-e68852c99fb2",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5678d0df-a9d7-4550-aba3-638e00776d9e",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/578a0300-8ca5-4553-9f48-628d9be0a708",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5a84df86-289e-4e51-9e25-3464ea3313f4",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5bf47137-0e82-43ff-a818-136eb9400a7e",
-        "firstSeenAt": "2026-07-10T10:32:43.492Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5ddeec7e-0dcf-43ee-b122-8909e1b93d0d",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5ecd1530-c0cc-47ba-850d-87537827c96d",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/60325208-2a40-458a-b627-b1c54949ae79",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6977f05b-3481-4707-a144-aa467497b88d",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6d111766-44d8-4b37-93c2-28976bfea799",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/712c82e5-f9e0-4d4d-9282-b89ec084d8a9",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/80722585-10e3-4685-8cf3-32a3aca56798",
-        "firstSeenAt": "2026-06-18T22:40:00.067Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/842ea5f8-afb6-475c-a16b-92c838f16916",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/8557d9c5-ced9-4e7f-81f2-888a080274b0",
-        "firstSeenAt": "2026-08-20T21:40:16.362Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/85c31e62-8f37-41a8-bc99-1d6063572fbb",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/87848795-a9f3-4ca5-b4e6-d0e29cbf4697",
-        "firstSeenAt": "2026-07-06T22:24:51.826Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/905ad735-7e64-4cf7-bb0a-122b57d27f74",
-        "firstSeenAt": "2026-06-18T23:24:06.541Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/91c67463-b9dd-429e-9bb5-340e715826f5",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/93d52b7f-8c9e-4b7d-9568-89f25edf572d",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/a364b6ad-8387-4966-87b8-ade396599df4",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/a9b7cbb2-992b-42ec-9d21-da8a38268642",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/ae352636-d2b1-4469-ad64-428324bcd246",
-        "firstSeenAt": "2026-06-16T13:14:26.124Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/b2220385-5f1f-4aa1-9c1d-1c4435acc10b",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/b93a8ace-3780-45d7-8647-57647fc3a61f",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bb0b004b-09e7-4107-a5f9-302544aa8884",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bd31fa1d-3369-423e-968c-1ea8e603f55b",
-        "firstSeenAt": "2026-06-05T11:44:46.349Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bfe4d019-bdd4-4cb4-81bd-9ebdd905111b",
-        "firstSeenAt": "2026-07-05T22:41:17.659Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c067d163-67d0-4a41-b0c1-3016b36c89a3",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c45cb966-9d7f-4cc9-bc6f-b2a87d0c4b97",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c6037c52-7469-40da-ac74-1ff87c1ccd53",
-        "firstSeenAt": "2026-06-05T21:56:21.006Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c8f651be-0757-41c5-8e77-fab28c80d0a2",
-        "firstSeenAt": "2026-06-29T14:19:58.281Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/cd5fcde7-d8cc-469b-b85b-182139cdaede",
-        "firstSeenAt": "2026-06-26T21:47:48.098Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/cec04391-3be2-4c40-98e7-1ea983ac6b6a",
-        "firstSeenAt": "2026-06-18T22:40:00.067Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d0d9db73-e859-454d-b5f9-14a2d274c78c",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d592dc90-1b51-4c5c-bea2-1815a8430746",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d65c684f-d30d-4b92-8eb4-00fda87beec4",
-        "firstSeenAt": "2026-06-02T12:52:44.150Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d6c83174-9419-4b3d-b9e1-e04f038b9174",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d862c6d2-0289-442a-9e73-03154fc9adbd",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d87cdfbe-b340-4f34-9240-1969a15bfe53",
-        "firstSeenAt": "2026-07-13T22:15:03.067Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/da838933-4732-4f1e-b8ef-67b422cae42a",
-        "firstSeenAt": "2026-05-28T22:51:49.071Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/db5bb911-72d7-41a0-b720-e52316c07905",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e28fba91-1973-4fc2-905e-706e1df98b2a",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e47536ec-c0b8-4a9e-aa05-94dcc93a7238",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/eb89789c-2b66-4f5f-83ae-16ce29df6185",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f9226bb8-0c22-4730-8684-1df48bab82a2",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/feebae8d-e3e7-4e37-b54b-ecc7d86c667d",
-        "firstSeenAt": "2026-08-28T05:46:05.736Z",
-        "title": "Assistent*in Filialleitung"
-      }
-    ]
-  },
-  {
     "slug": "stv-branch-manager-in-denner-effretikon",
     "title": "Stv. Filialleiter*in",
     "titleByLocale": {
@@ -327426,8 +327268,8 @@
     "expiredAt": "2026-08-13T10:21:46.548Z",
     "previousSlugs": [
       "assistent-in-filialleitung-denner-2",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-e08e9479"
+      "assistent-in-filialleitung-denner-e08e9479",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -332906,6 +332748,7 @@
         "verkaufer-in-denner-ag-wilderswil-a13ab729"
       ],
       "de": [
+        "verkaufer-in-denner-ag-wilderswil-a13ab729",
         "verkaufer-in-denner-ag-wilderswil"
       ]
     },
@@ -347926,8 +347769,8 @@
     "expiredAt": "2026-08-05T11:32:31.247Z",
     "previousSlugs": [
       "verkaufer-in-im-stundenlohn-denner",
-      "verkaufer-in-im-stundenlohn-denner-stein-ag",
-      "verkaufer-in-im-stundenlohn-denner-stein-ag-f9099df7"
+      "verkaufer-in-im-stundenlohn-denner-stein-ag-f9099df7",
+      "verkaufer-in-im-stundenlohn-denner-stein-ag"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -361074,8 +360917,8 @@
       }
     ],
     "previousSlugs": [
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-3fdbba37"
+      "assistent-in-filialleitung-denner-3fdbba37",
+      "assistent-in-filialleitung-denner"
     ]
   },
   {
@@ -366165,409 +366008,6 @@
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/stv-filialleiterin/e686aa94-e573-41cc-be8d-e29d71709cbe",
         "firstSeenAt": "2026-06-17T13:34:18.916Z",
         "title": "Stv. Filialleiter*in"
-      }
-    ]
-  },
-  {
-    "slug": "assistente-nella-gestione-delle-branche-denner-ag-pfaffokon-sz",
-    "title": "Assistent*in Filialleitung",
-    "titleByLocale": {
-      "it": "Assistente* nella gestione delle branche",
-      "en": "Assistant* in branch management",
-      "de": "Assistent*in Filialleitung",
-      "fr": "Assistant* dans la gestion des succursales"
-    },
-    "company": "Denner",
-    "companyKey": "denner",
-    "location": "Pfäffokon SZ",
-    "addressLocality": "Pfäffokon SZ",
-    "descriptionByLocale": {
-      "it": "Vuoi prenderti la responsabilità di tanto in tanto? Non sei pronto per Stv? Qui puoi dimostrare quello che hai. Condividi le tue conoscenze. Guadagnare esperienza di leadership. E, naturalmente, un sacco di apprendimento. Denner. Questo e' il nostro negozio.\n\n## Mansioni\n- Prestare particolare attenzione alla freschezza di frutta, verdura e pane e dire rifiuti alimentari con ordini lungimiranti la lotta\n- Ordina prodotti freschi e naturalmente tutte le altre merci, accetta, controlla e riempili sugli scaffali del tuo negozio\n- Specifiche di esecuzione correttamente nel layout del negozio\n- Assicurare ordine e pulizia nel negozio e nel magazzino\n- Deposito e contabilità\n- Come assistente, guida, promuovere e anticipare i dipendenti – e essere un esempio per loro\n\n## Requisiti\n- Idealmente più di due anni di esperienza professionale: nel commercio al dettaglio (cibo)\n- Apprendistato professionale completo (EBA): nel commercio al dettaglio (cibo) o nella professione correlata sarebbe ideale\n- Gioia di prodotti freschi e idealmente già esperienza professionale con loro\n- Pronti a lavorare oltre “da nove a cinque” – e godere del tempo libero quando altri lavorano\n- Fisicamente in forma, alcuni colis sono fino a 10 libbre pesanti\n- Come tra le persone, una buona porzione di calore e un atteggiamento positivo\n- tedesco (molto buona conoscenza)\n\n## Cosa di Friamo\n- Parte del Gruppo Migros: Forte marchio ancorato nel commercio al dettaglio sotto l'ombrello del Gruppo Migros\n- Lavoro sano: elevati standard nella sicurezza del lavoro, nell'ergonomia e nell'igiene.\n- congedo di maternità / congedo di paternità: 5 settimane più lunga baby break (19 settimane) per le madri al 100% salario. I padri godono la prole 4 settimane pagate.\n- Sconti equi: 13 salari mensili e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi.\n- Migros Bank: Meglio off con interessi e tasse sui vostri conti privati, di investimento o di ipoteca.\n- I dipendenti offrono: 10 per cento sul prossimo acquisto principale (due volte all'anno).\n- Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio.\n- Offerte per il tempo libero e culturale: Vari sconti per noleggio auto, hotel, eventi e molte altre aree.\n- Promozione mirata: dalla lavastoviglie al milionario? Forse non esattamente, ma: Chi ha morso e talento, arriva rapidamente.\n\n## Contatto\n## Applicazione & Contatto Steven Hirt Recruiter Vendite Svizzera Centrale - LinkedIn ## Processo di reclutamento Rivediamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione sul progresso o il ritiro dal processo di reclutamento sarà comunicata telefonicamente o via e-mail. Durata fino al feedback: Fino a tre settimane Video personale o conversazione telefonica Conduciamo facoltativamente una conversazione telefonica personale o video per un gran numero di candidati. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte per il prossimo round. Durata fino al feedback: fino a una settimana di test Un giorno di prova o mezza giornata offre la possibilità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane offrono emissione di contratti Dopo la nostra offerta di lavoro orale, i punti di contratto più importanti sono verificati di nuovo. Dopo l'accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi del personale Per questa posizione consideriamo solo applicazioni dirette.\n\n**Grado di occupazione: ** 80-100 %",
-      "en": "Do you want to take responsibility for the day from time to time? Are you not ready for Stv? Here you can prove what you got. Share your knowledge. Gaining leadership experience. And of course, a lot of learning. Denner. This is our store.\n\n## Mansioni\n- You pay special attention to the freshness of fruits, vegetables and bread and say food waste with far-sighted orders the fight\n- Order fresh produce and of course all other goods, accept, check and fill them on the shelves in your store\n- Implement specifications correctly in the store layout\n- Ensure order and cleanliness in the store and warehouse\n- Depository and accounting\n- As an assistant, guide, promote and advance employees – and be an example to them\n\n## Requirements\n- Ideally more than two years of professional experience: in the retail trade (food)\n- Completed vocational apprenticeship (EBA): in the retail trade (food) or related profession would be ideal\n- Joy of fresh products and ideally already professional experience with them\n- Ready to work beyond “nine to five” – and enjoy free time when others work\n- Physically fit, some colis are up to 10 pounds heavy\n- Like among people, a good portion of warmth and a positive attitude\n- German (very good knowledge)\n\n## Cosa of Friamo\n- Part of the Migros Group: Strong brand anchored in the retail trade under the Migros Group umbrella\n- Healthy work: High standards in occupational safety, ergonomics and hygiene.\n- Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers at 100% wage. Fathers enjoy the offspring 4 paid weeks.\n- Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for a few.\n- Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected.\n- Migros Bank: Better off with interest and fees on your private, investment or mortgage accounts.\n- Employee offers: 10 percent on the next major purchase (twice a year).\n- Holidays: 6 weeks holidays for all and even more days for service anniversaries.\n- Leisure and cultural offers: Various discounts for car rentals, hotels, events and many more areas.\n- Targeted promotion: From dishwasher to millionaire? Maybe not exactly, but: Who has bite and talent, comes quickly.\n\n## Contatto\n## Application & Contact Steven Hirt Recruiter Sales Central Switzerland - LinkedIn ## Recruitment process Pre-selection of applications We continuously review applications received, create a pre-selection and release them to the manager for viewing. The decision on progress or withdrawal from the recruitment process will be communicated by telephone or email. Duration until feedback: Up to three weeks Personal video or telephone conversation We optionally conduct a personal telephone or video conversation for a large number of applicants. This gives us the opportunity to get to know more candidates within a short time in order to invite suitable people for the next round. Duration until feedback: up to one week of test work A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And vice versa, it gives us a chance to assess how well someone fits into the team. Duration until feedback: Up to three weeks offer & contract issuance After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personnel service providers For this position we only consider direct applications.\n\n**Grado di occupazione:** 80-100 %",
-      "de": "Du möchtest ab und zu die Tagesverantwortung übernehmen? Bist aber noch nicht bereit für Stv.? Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden.\n\n## Mansioni\n- Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an\n- Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen\n- Vorgaben im Ladenlayout korrekt umsetzen\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Kasse bedienen und abrechnen\n- Als Assistent*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n\n## Contatto\n## Bewerbung & Kontakt Steven Hirt Recruiter Verkauf Zentralschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-      "fr": "Voulez-vous prendre la responsabilité de jour en jour? Tu n'es pas prêt pour Stv ? Ici vous pouvez prouver ce que vous avez. Partagez vos connaissances. Acquérir une expérience de leadership. Et bien sûr, beaucoup d'apprentissage. Denner. C'est notre magasin.\n\n## Mansioni\n- Vous prêtez une attention particulière à la fraîcheur des fruits, légumes et pain et dites gaspiller les aliments avec les ordres à la vue lointaine le combat\n- Commandez des produits frais et bien sûr toutes les autres marchandises, acceptez, vérifiez et remplissez les étagères dans votre magasin\n- Implémenter les spécifications correctement dans la disposition du magasin\n- Assurer l'ordre et la propreté dans le magasin et l'entrepôt\n- Dépôt et comptabilité\n- En tant qu'assistant, guider, promouvoir et faire progresser les employés – et être un exemple pour eux\n\n## Exigences\n- Idéalement plus de deux ans d'expérience professionnelle: dans le commerce de détail (alimentaire)\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe serait idéal\n- Joy des produits frais et idéalement déjà expérience professionnelle avec eux\n- Prête à travailler au-delà de l'unité de travail – et profiter du temps libre lorsque les autres travaillent\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Comme chez les gens, une bonne partie de la chaleur et une attitude positive\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros\n- Travail sain : Des normes élevées en matière de sécurité, d'ergonomie et d'hygiène au travail.\n- Congé de maternité / congé de paternité: 5 semaines de congé de maternité (19 semaines) pour les mères à 100% de salaire. Les pères apprécient la progéniture 4 semaines rémunérées.\n- Salaire équitable: 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns.\n- Abonnement mobile: Spoiled au choix: Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Migros Bank : Mieux vaut payer les intérêts et les frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offre de l'employé: 10% sur le prochain achat majeur (deux fois par an).\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Loisirs et offres culturelles: Divers rabais pour la location de voitures, hôtels, événements et bien d'autres zones.\n- Promotion ciblée : du lave-vaisselle au millionnaire ? Peut-être pas exactement, mais: Qui a mordu et talent, vient rapidement.\n\n## Contatto\n## Demande et contact Steven Hirt Recruter Sales Central Suisse - LinkedIn ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines Vidéo personnelle ou conversation téléphonique Nous effectuons en option une conversation téléphonique ou vidéo personnelle pour un grand nombre de candidats. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'à la rétroaction : jusqu'à une semaine de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 80-100 %"
-    },
-    "slugByLocale": {
-      "it": "assistente-nella-gestione-delle-branche-denner-ag-pfaffokon-sz",
-      "en": "assistant-in-branch-management-denner-ag-pfaffokon-sz",
-      "de": "assistent-in-filialleitung-denner-ag-pfaffokon-sz-6tikqy",
-      "fr": "assistant-dans-la-gestion-des-succursales-denner-ag-pfaffokon-sz"
-    },
-    "sector": "",
-    "expiredAt": "2026-07-26T22:05:03.812Z",
-    "previousSlugs": [
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-pfaffokon-sz"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "assistent-in-filialleitung-denner"
-      ],
-      "en": [
-        "assistent-in-filialleitung-denner-pfaffokon-sz"
-      ],
-      "fr": [
-        "assistent-in-filialleitung-denner-pfaffokon-sz"
-      ]
-    },
-    "postalCode": "8808",
-    "streetAddress": "Denner Pfäffokon SZ",
-    "salaryMin": 79000,
-    "salaryMax": 121500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/4e603ac9-67a7-43d8-bf0f-5f01ffa6e0ec",
-    "firstSeenAt": "2026-05-28T22:51:49.071Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/03f55afb-d4bb-4f42-95a1-79f662b9be48",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/04665d6d-ffdf-498e-b19b-e65c9eb3e7bf",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/05958354-f3e8-4ab9-808a-5033a09ab81e",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0b388e0e-8ccb-4672-8072-4b6079e2be58",
-        "firstSeenAt": "2026-08-11T10:25:11.367Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0efd0b4c-8590-4588-84ba-0e9413c57b02",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0f26c96c-86e2-41b6-8f85-3323d3fb61bb",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/1ab60c4d-aee1-4466-81c4-b26983efd488",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2825c241-ff9f-41ea-88ad-f345f60ab3a4",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/294dddee-0d96-47c5-8930-bf98ce2d1a71",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2c3a067a-6797-41cb-9cb5-8320e8603b91",
-        "firstSeenAt": "2026-05-28T22:51:49.071Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3245ffd0-ba73-4cc4-b33a-155ff54a3d02",
-        "firstSeenAt": "2026-07-15T11:41:02.895Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3264b5ab-7e66-4cbf-9471-aa99ec72bffc",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/349c5529-b07b-4f7f-9141-ad8af6d9cadb",
-        "firstSeenAt": "2026-08-27T00:39:47.575Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/356b5b9a-06ed-4046-8947-a37c285976d4",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3716bce3-b3cc-4831-945b-29a04b17d9fd",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/37b86008-9e91-4aef-99b9-e43e6c535255",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3aea302a-00f5-4466-8eff-6adedc6d1fa0",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3b95ee54-cf00-42e5-9218-2ceae5c7ca72",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3cca0e2d-5a48-40c6-9c4d-ad811e4c3e9b",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3d6b0b84-66a6-41fe-8bfc-b151060d259b",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3d6ea38b-9e75-48cc-989a-882d6a8eb29b",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3f4e3315-11b3-41da-9342-ea356afeb112",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3fac24cc-045a-42e3-8776-46b766e03945",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/47b1bb23-fa5e-405f-ae7a-6b692dafc353",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/4e603ac9-67a7-43d8-bf0f-5f01ffa6e0ec",
-        "firstSeenAt": "2026-05-28T22:51:49.071Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/52bec962-4621-486c-a8f9-e68852c99fb2",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5678d0df-a9d7-4550-aba3-638e00776d9e",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/578a0300-8ca5-4553-9f48-628d9be0a708",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5a84df86-289e-4e51-9e25-3464ea3313f4",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5bf47137-0e82-43ff-a818-136eb9400a7e",
-        "firstSeenAt": "2026-07-10T10:32:43.492Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5ddeec7e-0dcf-43ee-b122-8909e1b93d0d",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5ecd1530-c0cc-47ba-850d-87537827c96d",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/60325208-2a40-458a-b627-b1c54949ae79",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6977f05b-3481-4707-a144-aa467497b88d",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6d111766-44d8-4b37-93c2-28976bfea799",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/712c82e5-f9e0-4d4d-9282-b89ec084d8a9",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/80722585-10e3-4685-8cf3-32a3aca56798",
-        "firstSeenAt": "2026-06-18T22:40:00.067Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/842ea5f8-afb6-475c-a16b-92c838f16916",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/8557d9c5-ced9-4e7f-81f2-888a080274b0",
-        "firstSeenAt": "2026-08-20T21:40:16.362Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/85c31e62-8f37-41a8-bc99-1d6063572fbb",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/87848795-a9f3-4ca5-b4e6-d0e29cbf4697",
-        "firstSeenAt": "2026-07-06T22:24:51.826Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/905ad735-7e64-4cf7-bb0a-122b57d27f74",
-        "firstSeenAt": "2026-06-18T23:24:06.541Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/91c67463-b9dd-429e-9bb5-340e715826f5",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/93d52b7f-8c9e-4b7d-9568-89f25edf572d",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/a364b6ad-8387-4966-87b8-ade396599df4",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/a9b7cbb2-992b-42ec-9d21-da8a38268642",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/ae352636-d2b1-4469-ad64-428324bcd246",
-        "firstSeenAt": "2026-06-16T13:14:26.124Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/b2220385-5f1f-4aa1-9c1d-1c4435acc10b",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/b93a8ace-3780-45d7-8647-57647fc3a61f",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bb0b004b-09e7-4107-a5f9-302544aa8884",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bd31fa1d-3369-423e-968c-1ea8e603f55b",
-        "firstSeenAt": "2026-06-05T11:44:46.349Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bfe4d019-bdd4-4cb4-81bd-9ebdd905111b",
-        "firstSeenAt": "2026-07-05T22:41:17.659Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c067d163-67d0-4a41-b0c1-3016b36c89a3",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c45cb966-9d7f-4cc9-bc6f-b2a87d0c4b97",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c6037c52-7469-40da-ac74-1ff87c1ccd53",
-        "firstSeenAt": "2026-06-05T21:56:21.006Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c8f651be-0757-41c5-8e77-fab28c80d0a2",
-        "firstSeenAt": "2026-06-29T14:19:58.281Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/cd5fcde7-d8cc-469b-b85b-182139cdaede",
-        "firstSeenAt": "2026-06-26T21:47:48.098Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/cec04391-3be2-4c40-98e7-1ea983ac6b6a",
-        "firstSeenAt": "2026-06-18T22:40:00.067Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d0d9db73-e859-454d-b5f9-14a2d274c78c",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d592dc90-1b51-4c5c-bea2-1815a8430746",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d65c684f-d30d-4b92-8eb4-00fda87beec4",
-        "firstSeenAt": "2026-06-02T12:52:44.150Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d6c83174-9419-4b3d-b9e1-e04f038b9174",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d862c6d2-0289-442a-9e73-03154fc9adbd",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d87cdfbe-b340-4f34-9240-1969a15bfe53",
-        "firstSeenAt": "2026-07-13T22:15:03.067Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/db5bb911-72d7-41a0-b720-e52316c07905",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e28fba91-1973-4fc2-905e-706e1df98b2a",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e47536ec-c0b8-4a9e-aa05-94dcc93a7238",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/eb89789c-2b66-4f5f-83ae-16ce29df6185",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f9226bb8-0c22-4730-8684-1df48bab82a2",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/feebae8d-e3e7-4e37-b54b-ecc7d86c667d",
-        "firstSeenAt": "2026-08-28T05:46:05.736Z",
-        "title": "Assistent*in Filialleitung"
       }
     ]
   },
@@ -404625,8 +404065,8 @@
       }
     ],
     "previousSlugs": [
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-f5ccbada"
+      "assistent-in-filialleitung-denner-f5ccbada",
+      "assistent-in-filialleitung-denner"
     ]
   },
   {
@@ -437315,8 +436755,8 @@
     "expiredAt": "2026-06-24T11:10:08.410Z",
     "previousSlugs": [
       "assistente-nella-direzione-della-filiale-denner-biberist",
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-d468e0f8"
+      "assistent-in-filialleitung-denner-d468e0f8",
+      "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -437919,8 +437359,8 @@
       "verkaufer-in-im-stundenlohn-denner-a2eec25f",
       "verkaufer-in-im-stundenlohn-denner-e3bfc686",
       "verkaufer-in-im-stundenlohn-denner",
-      "verkaufer-in-im-stundenlohn-denner-frick",
-      "verkaufer-in-im-stundenlohn-denner-frick-6b780c5e"
+      "verkaufer-in-im-stundenlohn-denner-frick-6b780c5e",
+      "verkaufer-in-im-stundenlohn-denner-frick"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -438612,8 +438052,8 @@
       "verkaufer-in-im-stundenlohn-denner-0cea0b05",
       "verkaufer-in-im-stundenlohn-denner-ed9a7171",
       "verkaufer-in-im-stundenlohn-denner-8962b74f",
-      "verkaufer-in-im-stundenlohn-denner-frick",
-      "verkaufer-in-im-stundenlohn-denner-frick-9ef7557d"
+      "verkaufer-in-im-stundenlohn-denner-frick-9ef7557d",
+      "verkaufer-in-im-stundenlohn-denner-frick"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -444913,8 +444353,8 @@
       }
     ],
     "previousSlugs": [
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-2d9e69bc"
+      "assistent-in-filialleitung-denner-2d9e69bc",
+      "assistent-in-filialleitung-denner"
     ]
   },
   {
@@ -472645,6 +472085,12 @@
       ],
       "de": [
         "assistent-in-einkauf-food-denner-8f8b75b9"
+      ],
+      "en": [
+        "assistent-in-einkauf-food-denner-8f8b75b9"
+      ],
+      "fr": [
+        "assistent-in-einkauf-food-denner-8f8b75b9"
       ]
     },
     "postalCode": "8045",
@@ -474424,501 +473870,6 @@
         "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/studentin-als-ferienaushilfe/e396a509-4284-449a-8671-1891bd9a9175",
         "firstSeenAt": "2026-06-10T22:32:55.470Z",
         "title": "Student*in als Ferienaushilfe"
-      }
-    ]
-  },
-  {
-    "slug": "assistente-nella-gestione-delle-branche-denner-flims-dorf",
-    "title": "Assistent*in Filialleitung",
-    "titleByLocale": {
-      "it": "Assistente* nella gestione delle branche",
-      "en": "Assistant*in branch management",
-      "de": "Assistent*in Filialleitung",
-      "fr": "Assistant* dans la gestion de la succursale"
-    },
-    "company": "Denner",
-    "companyKey": "denner",
-    "location": "Flims Dorf",
-    "addressLocality": "Flims Dorf",
-    "descriptionByLocale": {
-      "it": "Vuoi assumerti la responsabilità per il giorno di tanto in tanto? Ma non sei pronto per Stv? Qui puoi dimostrare quello che pensi. Condividi le tue conoscenze. Raccogliere esperienze di leadership. E ovviamente molto da imparare. Denner. Questo è il nostro negozio. - No. Siete particolarmente consapevoli della freschezza di frutta, verdura e pane e dire rifiuti alimentari con ordini lungimiranti - ordinare prodotti freschi e, naturalmente, tutte le altre merci - accettare, controllare e riempire gli scaffali nel vostro negozio - implementare i requisiti correttamente nel layout del negozio - garantire ordine e pulizia nel negozio e nel magazzino - servire e pagare - come assistente - congedo di maternità / paternità: 5 settimane più lunga baby break (19 settimane) per madri e al 100%. I padri godono delle giovani 4 settimane pagate. - Equo salario: 13 salari mensili e aumenti salariali fissi per tutti invece di bonus per pochi. - Abbonamento telefonico mobile: La qualità della scelta: con Galaxus Mobile, Wingo o Sunrise già collegati da CHF 10.- così o giù di lì correttamente. - Migros Bank: Meglio guidare per interessi e tasse del tuo conto privato, investimento o mutuo. - I dipendenti offrono: 10 per cento al prossimo acquisto all'ingrosso (due volte all'anno). - Vacanze: 6 settimane di vacanza per tutti e per i giovani di servizio ancora più giorni. - Offerte per il tempo libero e culturale: vari sconti per le compagnie di noleggio auto, hotel, eventi e molte aree di più. - Promozione mirata: da una lavastoviglie a un milionario? Forse non etero, ma: Chiunque abbia morso e talento salirà velocemente. Applicazione Contatto Jasmine Diem Recruiter Vendi Ostschweiz - LinkedIn ## Processo di reclutamento Preselezione delle applicazioni In arrivo controlliamo continuamente, creiamo una preimpostazione e rilasciamo questo al gestore per la visualizzazione. La decisione di procedere o di ritirarsi dal processo di reclutamento è comunicata per telefono o per e-mail. Durata fino al feedback: Fino a tre settimane Video personale o conversazione telefonica Con un gran numero di candidati, avremo facoltativamente condurre una conversazione telefonica personale o video. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte per il prossimo round. Durata fino al feedback: Fino a una settimana A Schnuppertag o mezza giornata offre l'opportunità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, abbiamo la possibilità di valutare quanto sia buono qualcuno entrare nella squadra. Durata fino al feedback: fino a tre settimane di discussione specialistica In un'intervista specializzata, le conoscenze specifiche relative all'esecuzione del lavoro sono richieste dal responsabile e/o da un altro specialista e, al massimo, dal team. Se possibile, allora c'è tempo per conoscere il lavoro e la squadra meglio in conversazione gratuita. Durata fino al feedback: fino a tre settimane offrono e la mostra di contratto Dopo la nostra offerta di lavoro orale, i principali punti di contratto sono verificati di nuovo. Dopo accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: Fino a tre settimane ## Nota per i fornitori di servizi personali Per questo sito prendiamo esclusivamente in considerazione applicazioni dirette. Grado di occupazione: 60-80%",
-      "en": "You want to take responsibility for the day from time to time? But aren't ready for Stv? Here you can prove what you think. Share your knowledge. Collect leadership experiences. And of course a whole lot to learn. Denner. This is our store. - You are particularly aware of the freshness of fruits, vegetables and bread and say food waste with far-sighted orders - order fresh products and of course all other goods - accept, check and fill in the shelves in your store - implement requirements correctly in the store layout - ensure order and cleanliness in the store and in the warehouse - serve and pay off - as assistant - Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers and at 100% wage. Fathers enjoy the young 4 paid weeks. - Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for a few. - Mobile phone subscription: The quality of choice: with Galaxus Mobile, Wingo or Sunrise already connected from CHF 10.- so or so correctly. - Migros Bank: Better drive for interest and fees of your private, investment or mortgage account. - Employee offers: 10 percent to the next wholesale purchase (two times a year). - Holidays: 6 weeks holiday for all and for service youth even more days. - Leisure and cultural offers: various discounts for car rental companies, hotels, events and many areas more. - Targeted promotion: from a dishwasher to a millionaire? Maybe not straight, but: Whoever has bite and talent will get on fast. Contatto Application & Contact Jasmine Diem Recruiter Sell Ostschweiz - LinkedIn ## Recruitment process Preselection of applications Incoming applications we continuously check, create a preselection and release this to the manager for the view. The decision to proceed or withdraw from the recruitment process is communicated by phone or email. Duration until feedback: Up to three weeks Personal video or telephone conversation With a large number of applicants, we will optionally conduct a personal telephone or video conversation. This gives us the opportunity to get to know more candidates within a short time to invite suitable people for the next round. Duration until feedback: Up to one week A Schnuppertag or half-day gives the opportunity to get to know the future working environment and the team members better. And vice versa, we have a chance to assess how good someone fits into the team. Duration until feedback: Up to three weeks of specialist discussion In a specialist interview, specific knowledge relevant to the execution of the job is requested by the manager and/or another specialist and, at most, the team. If possible, then there is time to get to know the job and team better in free conversation. Duration until feedback: Up to three weeks offer & contract exhibition After our oral job offer, the main contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personal service providers For this site we exclusively take into account direct applications. Grado di occupazione: 60-80%",
-      "de": "Du möchtest ab und zu die Tagesverantwortung übernehmen? Bist aber noch nicht bereit für Stv.? Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden. ## Mansioni - Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an - Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen - Vorgaben im Ladenlayout korrekt umsetzen - Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen - Kasse bedienen und abrechnen - Als Assistent*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein ##\n• Requisiti - Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel) - Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal - Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit - Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten - Körperlich fit, manche Colis sind bis zu 10 Kilo schwer - Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung - Deutsch (sehr gute Kenntnisse) ##\n• Cosa offriamo - Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe - Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene. - Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen. - Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige. - Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden. - Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti. - Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr). - Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu. - Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr. - Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter. ## Contatto ## Bewerbung & Kontakt Jasmine Diem Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch In einem Fachgespräch werden spezifische für die Ausführung des Jobs relevante Kenntnisse durch die Führungsperson und/oder einer anderen Fachperson und allenfalls dem Team abgefragt. Wenn möglich gibt es danach Zeit den Arbeitsplatz und Team im freien Gespräch besser kennen zu lernen. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen. **Grado di occupazione:** 60-80%",
-      "fr": "Vous voulez prendre la responsabilité du jour de temps en temps ? Mais n'est-ce pas prêt pour Stv ? Ici vous pouvez prouver ce que vous pensez. Partagez vos connaissances. Recueillir des expériences de leadership. Et bien sûr beaucoup à apprendre. Denner. C'est notre magasin. - Oui. Vous êtes particulièrement conscient de la fraîcheur des fruits, des légumes et du pain et dites déchets alimentaires avec des commandes à clairvoyance - commander des produits frais et bien sûr tous les autres biens - accepter, vérifier et remplir les étagères dans votre magasin - mettre en œuvre les exigences correctement dans la disposition du magasin - assurer l'ordre et la propreté dans le magasin et dans l'entrepôt - servir et payer - en tant qu'assistant - Congé de maternité / congé de paternité: 5 semaines de pause bébé plus longue (19 semaines) pour les mères et à 100% salaire. Les pères apprécient les 4 jeunes semaines rémunérées. - Salaires équitables : 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns. - Abonnement téléphone mobile : la qualité de choix : avec Galaxus Mobile, Wingo ou Sunrise déjà connecté à partir de CHF 10.- donc correctement. - Migros Bank: Mieux conduire pour les intérêts et les frais de votre compte privé, d'investissement ou hypothécaire. - Offres de l'employé: 10 pour cent pour le prochain achat en gros (deux fois par an). - Vacances: 6 semaines de vacances pour tous et pour les jeunes de service encore plus de jours. - Loisirs et offres culturelles: diverses réductions pour les compagnies de location de voitures, les hôtels, les événements et beaucoup plus. - Promotion ciblée : d'un lave-vaisselle à un millionnaire ? Peut-être pas hétéro, mais: Celui qui a la morsure et le talent va se mettre rapidement. Contatto Application & Contact Jasmine Diem Recruiter Sell Ostschweiz - LinkedIn ## Processus de recrutement Présélection des candidatures Demandes entrantes que nous vérifions en permanence, créons une présélection et publions ceci au gestionnaire pour la vue. La décision de procéder ou de se retirer du processus de recrutement est communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines Vidéo personnelle ou conversation téléphonique Avec un grand nombre de candidats, nous effectuerons en option une conversation téléphonique personnelle ou vidéo. Cela nous donne l'occasion d'apprendre à connaître plus de candidats dans un court laps de temps pour inviter des personnes appropriées pour le prochain tour. Durée jusqu'à la rétroaction : Jusqu'à une semaine Un Schnuppertag ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, nous avons une chance d'évaluer à quel point quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à la rétroaction: Jusqu'à trois semaines de discussion spécialisée Lors d'un entretien avec un spécialiste, le gestionnaire et/ou un autre spécialiste et, au maximum, l'équipe demandent des connaissances spécifiques concernant l'exécution du travail. Si possible, alors il est temps de mieux connaître le travail et l'équipe dans la conversation libre. Durée jusqu'à retour d'information: Jusqu'à trois semaines d'offre & d'exposition de contrat Après notre offre orale, les principaux points de contrat sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services personnels Pour ce site, nous prenons exclusivement en compte les applications directes. Grado di occupationazione: 60-80%"
-    },
-    "slugByLocale": {
-      "it": "assistente-nella-gestione-delle-branche-denner-flims-dorf",
-      "en": "assistant-in-branch-management-denner-flims-dorf",
-      "de": "assistent-in-filialleitung-denner-flims-dorf",
-      "fr": "assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf"
-    },
-    "sector": "",
-    "expiredAt": "2026-05-28T12:22:28.806Z",
-    "previousSlugs": [
-      "assistent-in-filialleitung-denner",
-      "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
-      "assistente-nella-direzione-della-filiale-denner-langwiesen",
-      "assistent-in-filialleitung-denner-langwiesen"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "assistent-in-filialleitung-denner"
-      ],
-      "en": [
-        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
-      ],
-      "fr": [
-        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
-      ]
-    },
-    "postalCode": "7017",
-    "streetAddress": "Denner Flims Dorf",
-    "salaryMin": 59000,
-    "salaryMax": 90500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/eb7b2823-dfb6-430c-87dc-35334d68d565",
-    "firstSeenAt": "2026-05-26T22:40:30.774Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/03f55afb-d4bb-4f42-95a1-79f662b9be48",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/04665d6d-ffdf-498e-b19b-e65c9eb3e7bf",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/05958354-f3e8-4ab9-808a-5033a09ab81e",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/096e731c-4dd7-4854-9640-93b4400ce622",
-        "firstSeenAt": "2026-06-24T21:53:21.798Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0b388e0e-8ccb-4672-8072-4b6079e2be58",
-        "firstSeenAt": "2026-08-11T10:13:44.318Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0efd0b4c-8590-4588-84ba-0e9413c57b02",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/0f26c96c-86e2-41b6-8f85-3323d3fb61bb",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/106cc3df-4f3c-4913-a578-b6d831ab56fe",
-        "firstSeenAt": "2026-07-06T13:36:19.306Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/1ab60c4d-aee1-4466-81c4-b26983efd488",
-        "firstSeenAt": "2026-07-22T12:00:01.308Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2825c241-ff9f-41ea-88ad-f345f60ab3a4",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/294dddee-0d96-47c5-8930-bf98ce2d1a71",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2b54f255-e2a7-4412-b2d0-af7d85862ca6",
-        "firstSeenAt": "2026-07-03T21:51:50.858Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2c3a067a-6797-41cb-9cb5-8320e8603b91",
-        "firstSeenAt": "2026-05-28T22:51:49.071Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3245ffd0-ba73-4cc4-b33a-155ff54a3d02",
-        "firstSeenAt": "2026-07-15T11:41:02.895Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3264b5ab-7e66-4cbf-9471-aa99ec72bffc",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/349c5529-b07b-4f7f-9141-ad8af6d9cadb",
-        "firstSeenAt": "2026-08-27T00:39:47.575Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/356b5b9a-06ed-4046-8947-a37c285976d4",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3716bce3-b3cc-4831-945b-29a04b17d9fd",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/37b86008-9e91-4aef-99b9-e43e6c535255",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3aea302a-00f5-4466-8eff-6adedc6d1fa0",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3b95ee54-cf00-42e5-9218-2ceae5c7ca72",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3cca0e2d-5a48-40c6-9c4d-ad811e4c3e9b",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3d6b0b84-66a6-41fe-8bfc-b151060d259b",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3d6ea38b-9e75-48cc-989a-882d6a8eb29b",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3f4e3315-11b3-41da-9342-ea356afeb112",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3fac24cc-045a-42e3-8776-46b766e03945",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/47b1bb23-fa5e-405f-ae7a-6b692dafc353",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/4e603ac9-67a7-43d8-bf0f-5f01ffa6e0ec",
-        "firstSeenAt": "2026-06-29T22:14:09.696Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/52bec962-4621-486c-a8f9-e68852c99fb2",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5678d0df-a9d7-4550-aba3-638e00776d9e",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/578a0300-8ca5-4553-9f48-628d9be0a708",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5a84df86-289e-4e51-9e25-3464ea3313f4",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5bf47137-0e82-43ff-a818-136eb9400a7e",
-        "firstSeenAt": "2026-07-10T10:32:43.492Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5ddeec7e-0dcf-43ee-b122-8909e1b93d0d",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5ecd1530-c0cc-47ba-850d-87537827c96d",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/60325208-2a40-458a-b627-b1c54949ae79",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/629aa12d-1f41-4881-906f-04abeb951bca",
-        "firstSeenAt": "2026-06-11T12:31:03.024Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6977f05b-3481-4707-a144-aa467497b88d",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6a5b6201-2dba-490b-bd6a-f4c777a124df",
-        "firstSeenAt": "2026-06-17T22:30:11.921Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6d111766-44d8-4b37-93c2-28976bfea799",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/6f8c35d1-ee84-430f-bbee-6323a68c859c",
-        "firstSeenAt": "2026-06-22T14:20:29.417Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/712c82e5-f9e0-4d4d-9282-b89ec084d8a9",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/7d924e13-226b-4c08-b90d-bda35d4230b7",
-        "firstSeenAt": "2026-06-15T14:22:57.561Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/7d9c8809-31b8-4291-b93a-d439ca2b93b5",
-        "firstSeenAt": "2026-06-21T11:26:25.654Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/80722585-10e3-4685-8cf3-32a3aca56798",
-        "firstSeenAt": "2026-06-18T22:40:00.067Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/842ea5f8-afb6-475c-a16b-92c838f16916",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/8557d9c5-ced9-4e7f-81f2-888a080274b0",
-        "firstSeenAt": "2026-08-20T21:40:16.362Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/85c31e62-8f37-41a8-bc99-1d6063572fbb",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/87848795-a9f3-4ca5-b4e6-d0e29cbf4697",
-        "firstSeenAt": "2026-07-06T22:24:51.826Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/905ad735-7e64-4cf7-bb0a-122b57d27f74",
-        "firstSeenAt": "2026-06-18T23:24:06.541Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/91c67463-b9dd-429e-9bb5-340e715826f5",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/91f34d8f-f94b-4dc3-8ac3-3159b582b1e2",
-        "firstSeenAt": "2026-07-16T11:23:17.611Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/93d52b7f-8c9e-4b7d-9568-89f25edf572d",
-        "firstSeenAt": "2026-07-21T11:29:34.982Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/a364b6ad-8387-4966-87b8-ade396599df4",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/a9b7cbb2-992b-42ec-9d21-da8a38268642",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/ae352636-d2b1-4469-ad64-428324bcd246",
-        "firstSeenAt": "2026-06-16T13:14:26.124Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/b2220385-5f1f-4aa1-9c1d-1c4435acc10b",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/b93a8ace-3780-45d7-8647-57647fc3a61f",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bb0b004b-09e7-4107-a5f9-302544aa8884",
-        "firstSeenAt": "2026-06-18T23:24:06.541Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bd31fa1d-3369-423e-968c-1ea8e603f55b",
-        "firstSeenAt": "2026-06-05T11:44:46.349Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bfe4d019-bdd4-4cb4-81bd-9ebdd905111b",
-        "firstSeenAt": "2026-07-05T22:41:17.659Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c045ab0d-abe0-4ca5-bf51-043339335c7e",
-        "firstSeenAt": "2026-07-27T12:39:48.540Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c067d163-67d0-4a41-b0c1-3016b36c89a3",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c45cb966-9d7f-4cc9-bc6f-b2a87d0c4b97",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c6037c52-7469-40da-ac74-1ff87c1ccd53",
-        "firstSeenAt": "2026-06-05T21:56:21.006Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c8f651be-0757-41c5-8e77-fab28c80d0a2",
-        "firstSeenAt": "2026-06-29T14:19:58.281Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/cd5fcde7-d8cc-469b-b85b-182139cdaede",
-        "firstSeenAt": "2026-06-26T21:47:48.098Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/cec04391-3be2-4c40-98e7-1ea983ac6b6a",
-        "firstSeenAt": "2026-06-18T22:40:00.067Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d0d9db73-e859-454d-b5f9-14a2d274c78c",
-        "firstSeenAt": "2026-07-24T22:19:35.940Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d592dc90-1b51-4c5c-bea2-1815a8430746",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d65c684f-d30d-4b92-8eb4-00fda87beec4",
-        "firstSeenAt": "2026-06-02T12:52:44.150Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d6c83174-9419-4b3d-b9e1-e04f038b9174",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d862c6d2-0289-442a-9e73-03154fc9adbd",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d87cdfbe-b340-4f34-9240-1969a15bfe53",
-        "firstSeenAt": "2026-07-13T22:15:03.067Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/da838933-4732-4f1e-b8ef-67b422cae42a",
-        "firstSeenAt": "2026-07-07T12:13:37.688Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/db5bb911-72d7-41a0-b720-e52316c07905",
-        "firstSeenAt": "2026-08-31T17:40:35.590Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e28fba91-1973-4fc2-905e-706e1df98b2a",
-        "firstSeenAt": "2026-06-10T22:32:55.915Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e47536ec-c0b8-4a9e-aa05-94dcc93a7238",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e5d5290b-cb3d-4558-9126-83f9423ea1b3",
-        "firstSeenAt": "2026-06-17T13:34:18.916Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/eb7b2823-dfb6-430c-87dc-35334d68d565",
-        "firstSeenAt": "2026-05-26T22:40:30.774Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/eb89789c-2b66-4f5f-83ae-16ce29df6185",
-        "firstSeenAt": "2026-09-21T16:05:08.450Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/ebbde505-d2e5-4b59-82af-3663f4eaaf1f",
-        "firstSeenAt": "2026-07-13T12:28:24.211Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f30f0d50-90f4-456c-9b84-d65fbfda11e2",
-        "firstSeenAt": "2026-07-08T11:38:05.616Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f493ff38-d144-42d4-b49c-c313977b26b5",
-        "firstSeenAt": "2026-07-15T11:10:39.291Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f9226bb8-0c22-4730-8684-1df48bab82a2",
-        "firstSeenAt": "2026-08-31T17:06:17.466Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/feebae8d-e3e7-4e37-b54b-ecc7d86c667d",
-        "firstSeenAt": "2026-08-28T05:46:05.736Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/c045ab0d-abe0-4ca5-bf51-043339335c7e",
-        "firstSeenAt": "2026-07-27T12:39:48.540Z",
-        "title": "Assistent*in Filialleitung"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/assistentin-filialleitung/863df5c2-dd99-4cba-b43e-500d05584e55",
-        "firstSeenAt": "2026-07-02T22:30:51.514Z",
-        "title": "Assistent*in Filialleitung"
       }
     ]
   },
