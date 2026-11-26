@@ -579,7 +579,6 @@ jobs:
           }
           console.log(`Translation run clock initialized at ${startMs}.`);
           NODE
-
       - id: setup_claude_haiku_fallback
         if: inputs.skip_translate != true && inputs.dry_run != true
         uses: ./.github/actions/setup-claude-haiku-fallback
