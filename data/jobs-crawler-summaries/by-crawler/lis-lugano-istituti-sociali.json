@@ -1,7 +1,7 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-11-26T09:30:41.863Z",
+  "generatedAt": "2026-11-26T21:19:44.067Z",
   "total": 13,
   "discovered": 13,
   "parsed": 13,
@@ -11,10 +11,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 69010,
-  "avgDurationMs": 69010,
+  "durationMs": 62488,
+  "avgDurationMs": 62488,
   "durationHistory": [
-    69010
+    62488
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-11-26T09:29:34.967Z",
+      "crawledAt": "2026-11-26T21:18:40.758Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -91,7 +91,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-11-26T09:29:33.511Z",
+      "crawledAt": "2026-11-26T21:18:39.545Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -135,7 +135,7 @@
       "country": "CH",
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
-      "crawledAt": "2026-11-26T09:29:23.827Z",
+      "crawledAt": "2026-11-26T21:18:31.025Z",
       "datePosted": "2026-11-20",
       "postedDate": "2026-11-20",
       "postingDateSource": "reported",
@@ -165,6 +165,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "sourceIdentity": "url:https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -197,7 +198,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-11-26T09:29:40.744Z",
+      "crawledAt": "2026-11-26T21:18:45.643Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -249,7 +250,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-11-26T09:29:39.312Z",
+      "crawledAt": "2026-11-26T21:18:44.415Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -301,7 +302,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-11-26T09:29:37.842Z",
+      "crawledAt": "2026-11-26T21:18:43.211Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -353,7 +354,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-11-26T09:29:36.410Z",
+      "crawledAt": "2026-11-26T21:18:41.982Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -405,7 +406,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-11-26T09:29:32.084Z",
+      "crawledAt": "2026-11-26T21:18:38.322Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -457,7 +458,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-11-26T09:29:30.633Z",
+      "crawledAt": "2026-11-26T21:18:37.097Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -509,7 +510,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-11-26T09:29:29.197Z",
+      "crawledAt": "2026-11-26T21:18:35.900Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -561,7 +562,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-11-26T09:29:27.761Z",
+      "crawledAt": "2026-11-26T21:18:34.662Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -613,7 +614,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-11-26T09:29:26.313Z",
+      "crawledAt": "2026-11-26T21:18:33.457Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -665,7 +666,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-11-26T09:29:25.087Z",
+      "crawledAt": "2026-11-26T21:18:32.254Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -697,5 +698,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }
