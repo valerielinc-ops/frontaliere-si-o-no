@@ -3,6 +3,7 @@ import { fetchAllRecruitingapp2649Jobs } from '../scripts/lib/recruitingapp-2649
 import { fetchAllRecruitingapp2677Jobs } from '../scripts/lib/recruitingapp-2677-job-parser.mjs';
 import { extractApleonaDetailFields } from '../scripts/lib/apleona-schweiz-ag-job-parser.mjs';
 import { extractOpaccSoftwareAgDetailFields } from '../scripts/lib/opacc-software-ag-job-parser.mjs';
+import { extractBrefispersonalDetailFields } from '../scripts/lib/brefispersonal-job-parser.mjs';
 import {
   productionRuntimeOptionsFor,
   SOURCE_CRAWLER_ADAPTERS,
@@ -58,6 +59,8 @@ describe('prospector source-crawler adapters', () => {
       .toBe(extractApleonaDetailFields);
     expect(productionRuntimeOptionsFor({ companyKey: 'opacc-software-ag' })?.detailExtractor)
       .toBe(extractOpaccSoftwareAgDetailFields);
+    expect(productionRuntimeOptionsFor({ companyKey: 'brefispersonal' })?.detailExtractor)
+      .toBe(extractBrefispersonalDetailFields);
     expect(productionRuntimeOptionsFor({ companyKey: 'recruitingapp-2649' })).toBeNull();
     expect(productionRuntimeOptionsFor({ companyKey: 'recruitingapp-2677' })).toBeNull();
     expect(productionRuntimeOptionsFor({ companyKey: 'unrelated' })).toBeNull();
