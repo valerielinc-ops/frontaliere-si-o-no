@@ -48,6 +48,8 @@ import { parseSwisscomJobDescription, dropSwisscomFabricatedText } from './lib/s
 import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { fetchWorkdayJsonWithRetry, WorkdayRateLimitError } from './lib/ats-clients/workday-client.mjs';
+import { abortKindForFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
+import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -71,6 +73,24 @@ const SWISSCOM_COMPANY_HOST = 'swisscom.wd103.myworkdayjobs.com';
 const SWISSCOM_API_BASE = 'https://swisscom.wd103.myworkdayjobs.com/wday/cxs/swisscom/SwisscomExternalCareers';
 const SWISSCOM_PUBLIC_BASE = 'https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+
+function fetchOutcomeForError(error) {
+  const status = Number(error?.statusCode ?? error?.status);
+  if (error instanceof WorkdayRateLimitError || isRetryBudgetExhausted(error)) {
+    return 'exhausted_retry';
+  }
+  if (status === 401 || status === 403) return 'anti_bot_block';
+  if (status > 0) return 'feed_endpoint_unavailable';
+  return 'connection_error';
+}
+
+function recordFetchFailure(summaryCounts, error) {
+  if (!summaryCounts) return;
+  const outcome = fetchOutcomeForError(error);
+  summaryCounts.lastFetchOutcome = outcome;
+  summaryCounts.abortKind = abortKindForFetchOutcome(outcome)
+    ?? (outcome === 'feed_endpoint_unavailable' ? 'connection-level-fetch' : 'no-jobs-parsed');
+}
 
 // ─────────────────────────────────────────────────────────────
 // Helpers
@@ -144,7 +164,7 @@ function isSwissLocation(locText = '') {
 // Workday API
 // ─────────────────────────────────────────────────────────────
 
-async function fetchJson(url, options = {}) {
+async function fetchJson(url, options = {}, summaryCounts = null) {
   const { timeoutMs: configuredTimeoutMs, method = 'GET', body } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
@@ -156,6 +176,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
+    recordFetchFailure(summaryCounts, err);
     if (err instanceof WorkdayRateLimitError) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
@@ -171,12 +192,13 @@ async function fetchJson(url, options = {}) {
  * `length >= total` when total is 0 (that would drop every posting on pages 2+).
  * A page cap bounds the loop if a tenant never shortens.
  */
-async function listSwissJobs() {
+async function listSwissJobs(summaryCounts = null) {
   const allPostings = [];
   let offset = 0;
   const limit = 20;
   let total = 0;
   let pages = 0;
+  let observedListingPage = false;
   const MAX_PAGES = 100;
 
   while (true) {
@@ -190,12 +212,21 @@ async function listSwissJobs() {
     const data = await fetchJson(`${SWISSCOM_API_BASE}/jobs`, {
       method: 'POST',
       body,
-    });
+    }, summaryCounts);
 
     if (!data || !Array.isArray(data.jobPostings)) {
+      if (data && summaryCounts) {
+        summaryCounts.lastFetchOutcome = 'selector_miss';
+        summaryCounts.abortKind = 'no-jobs-parsed';
+      }
       if (offset === 0) console.warn('⚠️ Failed to fetch Workday listings.');
+      if (offset > 0) {
+        throw new Error(`Swisscom Workday pagination incomplete at offset ${offset}: response shape was not a job listing.`);
+      }
       break;
     }
+
+    observedListingPage = true;
 
     if (offset === 0) {
       total = data.total || 0;
@@ -227,6 +258,24 @@ async function listSwissJobs() {
   const relevantPostings = allPostings.filter(p =>
     isSwissLocation(p.locationsText || '') || isWorkdaySwissPlaceCandidate(p.locationsText || '')
   );
+
+  if (summaryCounts && observedListingPage) {
+    summaryCounts.discovered = allPostings.length;
+    summaryCounts.parsed = relevantPostings.length;
+    if (relevantPostings.length > 0) {
+      summaryCounts.lastFetchOutcome = 'ok';
+      summaryCounts.abortKind = null;
+    } else if (allPostings.length > 0) {
+      summaryCounts.lastFetchOutcome = 'filtered_empty';
+      summaryCounts.abortKind = null;
+    } else if (!summaryCounts.lastFetchOutcome) {
+      // A valid but empty Workday response is not enough to prove that the
+      // source is intentionally empty. Keep the prior slice and name the
+      // fail-closed zero so crawler-health does not report `unknown`.
+      summaryCounts.lastFetchOutcome = 'ok';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
+  }
 
   const tiCount = relevantPostings.filter(p => inferCanton(p.locationsText || '') === 'TI').length;
   const grCount = relevantPostings.filter(p => inferCanton(p.locationsText || '') === 'GR').length;
@@ -457,11 +506,11 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
 // Fetch and build all Swisscom Swiss-canton jobs
 // ─────────────────────────────────────────────────────────────
 
-async function fetchSwisscomJobs() {
+async function fetchSwisscomJobs(summaryCounts = null) {
   console.log(`🔍 Fetching Swisscom jobs from Workday API`);
   console.log(`   API: ${SWISSCOM_API_BASE}/jobs`);
 
-  const listings = await listSwissJobs();
+  const listings = await listSwissJobs(summaryCounts);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No Swiss-canton job listings found.');
     return [];
@@ -486,6 +535,13 @@ async function fetchSwisscomJobs() {
     jobs.push(job);
   }
 
+  if (summaryCounts) {
+    summaryCounts.parsed = jobs.length;
+    if (jobs.length === 0 && summaryCounts.lastFetchOutcome !== 'filtered_empty') {
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
+  }
   console.log(`\n📋 Total Swisscom Swiss-canton jobs discovered: ${jobs.length}`);
   return jobs;
 }
@@ -692,9 +748,38 @@ function cleanStoredJobsOnSoftExit() {
   });
 }
 
+function writeFilteredEmptySummary(summaryCounts) {
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: SWISSCOM_KEY,
+    label: SWISSCOM_COMPANY_NAME,
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: summaryCounts.discovered,
+    parsed: summaryCounts.parsed,
+    written: 0,
+    lastFetchOutcome: 'filtered_empty',
+    abortKind: null,
+    earlyExit: false,
+    exitCode: 0,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: [],
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(SWISSCOM_KEY, 'Swisscom');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(SWISSCOM_KEY, 'Swisscom', summaryCounts);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  Swisscom — Dedicated Crawler (CH-wide)');
@@ -705,7 +790,7 @@ async function main() {
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(SWISSCOM_KEY, DATA_JOBS).filter(isSwisscomJob))
 
   // Phase 1: Fetch Swiss jobs from Workday API
-  const discoveredJobs = await fetchSwisscomJobs();
+  const discoveredJobs = await fetchSwisscomJobs(summaryCounts);
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Swisscom Swiss-canton jobs discovered.');
@@ -714,6 +799,7 @@ async function main() {
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     await cleanStoredJobsOnSoftExit();
+    if (summaryCounts.lastFetchOutcome === 'filtered_empty') writeFilteredEmptySummary(summaryCounts);
     return;
   }
 
@@ -753,6 +839,10 @@ async function main() {
     label: 'Swisscom',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: summaryCounts.discovered,
+    parsed: summaryCounts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: summaryCounts.lastFetchOutcome,
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,

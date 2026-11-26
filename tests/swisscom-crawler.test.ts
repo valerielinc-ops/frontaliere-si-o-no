@@ -283,3 +283,19 @@ describe('buildSwisscomJob — a Swiss locality outside the BFS commune list', (
     expect(source).toContain("isSwissLocation(p.locationsText || '') || isWorkdaySwissPlaceCandidate(p.locationsText || '')");
   });
 });
+
+describe('Swisscom crawler health receipt', () => {
+  const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-swisscom-jobs.mjs'), 'utf8');
+
+  it('passes discovery counters to the exit guard and names fail-closed zero paths', () => {
+    expect(source).toContain("registerCrawlerSummaryGuard(SWISSCOM_KEY, 'Swisscom', summaryCounts);");
+    expect(source).toContain('summaryCounts.discovered = allPostings.length;');
+    expect(source).toContain('summaryCounts.parsed = relevantPostings.length;');
+    expect(source).toContain("summaryCounts.abortKind = 'no-jobs-parsed';");
+    expect(source).toContain("summaryCounts.lastFetchOutcome = 'selector_miss';");
+  });
+
+  it('does not publish a partial listing page after a later-page response failure', () => {
+    expect(source).toContain('Swisscom Workday pagination incomplete at offset ${offset}');
+  });
+});
