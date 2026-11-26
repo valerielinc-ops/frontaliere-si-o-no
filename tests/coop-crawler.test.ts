@@ -18,7 +18,8 @@ import {
 } from '../scripts/update-coop-jobs.mjs';
 import { countDuplicateListings, fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
 import { jobLocationRedundancy } from '../scripts/lib/job-location-display.mjs';
-import { fingerprintJob, mergeAndDeduplicate } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { fingerprintJob, mergeAndDeduplicate, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { archiveRemovedJobsToSlice, localeRouteKeys, readExpiredSlice } from '../scripts/lib/expired-jobs-archive.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
   extractJsonLd,
@@ -2345,5 +2346,50 @@ describe('Coop reposts without a street address (parser-quality audit #5253)', (
     expect(keeper.previousSlugsByLocale.it).toContain('disponent-coop-gossau');
     expect(keeper.previousSlugsByLocale.it).not.toContain(keeper.slug);
     expect(countDuplicateListings(kept, fingerprintsForCrawler(kept, 'title-aware'))).toBe(0);
+  });
+
+  it('archives a repost when the active record has no room for its route history', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'coop-route-history-overflow-'));
+    const slug = 'transportdisponent-in-coop-gossau';
+    const base = {
+      companyKey: 'coop-ticino', company: 'Coop', title: 'Transportdisponent:in', location: 'Gossau',
+      postalCode: '9200', streetAddress: 'Industriestrasse 109',
+      description: '- Arbeitsort: Coop, Industriestrasse 109, 9200 Gossau\n- Pensum: 100 %\n\n## Aufgaben\n- Touren planen',
+    };
+    const keeper = {
+      ...base, id: 'company-keeper', url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/keeper',
+      slug, slugByLocale: { it: slug, de: 'transportdisponent-in-gossau' },
+      previousSlugs: Array.from({ length: LEGACY_PREV_SLUGS_CAP }, (_, index) => `existing-route-${index}`),
+      previousSlugsByLocale: {},
+    };
+    const repost = {
+      ...base, id: 'company-repost', url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/repost',
+      slug, slugByLocale: { it: slug, de: 'transportdisponent-in-gossau-repost' },
+      previousSlugs: ['overflow-old-route'], previousSlugsByLocale: {},
+    };
+
+    try {
+      const { kept, collapsed } = collapseRepublishedCoopVacancies([keeper, repost], {
+        onRouteHistoryOverflow: (overflowJobs, activeJobs) => {
+          archiveRemovedJobsToSlice(overflowJobs, 'coop-ticino', { dir, activeJobs });
+        },
+      });
+      const archived = readExpiredSlice('coop-ticino', { dir });
+      const activeRoutes = new Set(kept.flatMap((job) => [...localeRouteKeys(job)]));
+      const archivedRoutes = new Set(archived.flatMap((job) => [...localeRouteKeys(job)]));
+      const servedRoutes = new Set([...activeRoutes, ...archivedRoutes]);
+
+      expect(collapsed).toEqual([{ url: repost.url, keptUrl: keeper.url }]);
+      expect(kept).toEqual([keeper]);
+      expect(keeper.previousSlugs).toHaveLength(LEGACY_PREV_SLUGS_CAP);
+      expect(keeper.previousSlugs).not.toContain('overflow-old-route');
+      expect(archived).toHaveLength(1);
+      expect(archived[0].previousSlugs).toContain('overflow-old-route');
+      expect(archivedRoutes.has(`de:transportdisponent-in-gossau-repost`)).toBe(true);
+      expect([...archivedRoutes].some((route) => activeRoutes.has(route))).toBe(false);
+      expect([...localeRouteKeys(repost)].every((route) => servedRoutes.has(route))).toBe(true);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });

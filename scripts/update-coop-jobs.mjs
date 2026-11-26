@@ -75,6 +75,7 @@ import { detectLanguage } from './lib/detect-language.mjs';
 import { holdSourceLang } from './lib/job-locale-utils.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { preferLocationEncodedCanton } from './lib/job-location-display.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
@@ -1148,9 +1149,11 @@ async function postProcessCoopJobs() {
   // for the reader: keep the earliest-seen record. The explicit source URL
   // set permits the no-address case only after a detail page cleared the
   // source-body gate; listing fallbacks remain conservative.
+  const routeHistoryOverflow = [];
   const { collapsed } = collapseRepublishedCoopVacancies(allJobs.filter(isCoopJob), {
     allowIdenticalSourcePostingsWithoutAddress: true,
     sourceBackedUrls,
+    onRouteHistoryOverflow: (overflowJobs) => routeHistoryOverflow.push(...overflowJobs),
   });
   if (collapsed.length > 0) {
     const collapsedUrls = new Set(collapsed.map(({ url }) => url));
@@ -1158,6 +1161,13 @@ async function postProcessCoopJobs() {
     allJobs.length = 0;
     allJobs.push(...kept);
     for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished Coop vacancy ${url} collapsed into ${keptUrl}`);
+  }
+  if (routeHistoryOverflow.length > 0) {
+    const archived = archiveRemovedJobsToSlice(routeHistoryOverflow, COOP_KEY, { activeJobs: allJobs });
+    console.warn(
+      `  📦 Coop repost history exceeded the active route cap; preserved ${routeHistoryOverflow.length} `
+        + `removed source record(s) in the expired-route archive (${archived} new archive row(s)).`,
+    );
   }
 
   if (repaired > 0 || dropped > 0 || reconciled > 0 || collapsed.length > 0) {
