@@ -19,15 +19,24 @@ const STEP = WORKFLOW.jobs['validate-live'].steps.find(
 );
 const HOME_URL = 'https://frontaliereticino.ch/';
 const SITEMAP_INDEX_URL = 'https://frontaliereticino.ch/sitemap.xml';
+const CONSENT_PURGE_URLS = [
+  'https://frontaliereticino.ch/cerca-lavoro-ticino/',
+  'https://origin-ticino-it.frontaliereticino.ch/cerca-lavoro-ticino/',
+  'https://frontaliereticino.ch/cerca-lavoro-zurigo/',
+  'https://origin-zurigo-it.frontaliereticino.ch/cerca-lavoro-zurigo/',
+];
+const EXPECTED_PURGE_URLS = [HOME_URL, SITEMAP_INDEX_URL, ...CONSENT_PURGE_URLS];
+const ZONE_ID = '435c32ec15993fe826d2bb5eb62d3d43';
 
-describe('post-deploy live sitemap index purge', () => {
-  it('targets the exact Pages home and sitemap index URLs within Cloudflare limits', () => {
+describe('post-deploy live exact-key purge', () => {
+  it('targets the Pages, sitemap, and consent-probe keys within Cloudflare limits', () => {
     const urls = String(STEP?.env?.PAGES_PURGE_URLS ?? '')
       .split(',')
       .map((url) => url.trim());
 
     expect(STEP).toBeTruthy();
-    expect(urls).toEqual([HOME_URL, SITEMAP_INDEX_URL]);
+    expect(urls).toEqual(EXPECTED_PURGE_URLS);
+    expect(STEP?.env?.CF_ZONE_ID).toBe(ZONE_ID);
     expect(urls.length).toBeLessThanOrEqual(MAX_TARGETED_FILES);
     expect(STEP?.run).toContain('node scripts/cf-purge-cache.mjs "--files=$purge_urls"');
   });
