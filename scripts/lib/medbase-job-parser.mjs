@@ -25,6 +25,7 @@ import { createWorkdaySwissParser } from './workday-swiss-job-parser-common.mjs'
 export const MEDBASE_KEY = 'medbase';
 export const MEDBASE_COMPANY_NAME = 'Medbase';
 export const MEDBASE_COMPANY_DOMAIN = 'medbase.ch';
+export const MEDBASE_BROWSER_PUBLIC_URL = 'https://wd502.myworkdaysite.com/de-CH/recruiting/medbase/Medbase_jobs/';
 
 const parser = createWorkdaySwissParser({
   companyKey: MEDBASE_KEY,
@@ -33,6 +34,10 @@ const parser = createWorkdaySwissParser({
   tenantHost: 'medbase.wd502.myworkdayjobs.com',
   sitePath: 'Medbase_jobs',
   careerUrl: 'https://jobs.medbase.ch/offene-stellen/',
+  // The API tenant and public Workday page use different hosts. Bootstrap the
+  // browser fallback on the public page so it can recover a transport-level
+  // CXS failure with the tenant's own cookies/configuration.
+  browserPublicUrl: MEDBASE_BROWSER_PUBLIC_URL,
   defaultCanton: 'ZH',
   defaultCity: 'Winterthur',
   defaultPostalCode: '8400',

@@ -241,6 +241,63 @@ describe('Workday JSON transport', () => {
     expect(launchStealthOrChromiumMock).not.toHaveBeenCalled();
   });
 
+  it('boots the Lonza fallback on its localized public Workday site', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+
+    const page = {
+      goto: vi.fn().mockResolvedValue({ status: () => 200 }),
+      evaluate: vi.fn().mockImplementation(async (_fn, args) => {
+        const url = String(args.requestUrl);
+        if (url.endsWith('/jobs')) {
+          return {
+            status: 200,
+            body: JSON.stringify({
+              total: 1,
+              jobPostings: [{
+                title: 'Process Engineer',
+                externalPath: '/job/Visp/Process_Engineer_R1',
+                locationsText: 'Visp, Switzerland',
+              }],
+            }),
+          };
+        }
+        return {
+          status: 200,
+          body: JSON.stringify({
+            jobPostingInfo: {
+              title: 'Process Engineer',
+              location: 'Visp, Switzerland',
+              jobDescription: 'Responsibilities include process improvement, careful documentation, cross-functional collaboration, reliable communication, and continuous quality work. The role supports production teams, coordinates technical activities, and contributes to a safe, structured, and inclusive workplace with professional development and modern facilities.',
+            },
+          }),
+        };
+      }),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    const context = {
+      newPage: vi.fn().mockResolvedValue(page),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    const browser = {
+      version: () => '140.0.0',
+      newContext: vi.fn().mockResolvedValue(context),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    launchStealthOrChromiumMock.mockResolvedValue(browser);
+
+    const jobs = await fetchAllLonzaJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ title: 'Process Engineer', canton: 'VS' });
+    expect(page.goto).toHaveBeenCalledWith(
+      'https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers',
+      expect.objectContaining({ waitUntil: 'domcontentloaded' }),
+    );
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
   it('uses the lazy default browser transport for a retry-exhausted 503 detail', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');

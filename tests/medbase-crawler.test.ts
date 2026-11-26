@@ -1,7 +1,26 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+
+const { launchStealthOrChromiumMock } = vi.hoisted(() => ({
+  launchStealthOrChromiumMock: vi.fn(),
+}));
+
+vi.mock('../scripts/lib/stealth-browser.mjs', () => ({
+  chromeUserAgent: () => 'Mozilla/5.0 Chrome/140.0.0.0',
+  isStealthBrowser: () => false,
+  launchStealthOrChromium: launchStealthOrChromiumMock,
+}));
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+  launchStealthOrChromiumMock.mockReset();
+});
+
 import {
   MEDBASE_KEY,
   MEDBASE_COMPANY_NAME,
+  MEDBASE_BROWSER_PUBLIC_URL,
+  fetchAllMedbaseJobs,
   isMedbaseJob,
   isTrustedDomain,
 } from '../scripts/lib/medbase-job-parser.mjs';
@@ -12,6 +31,9 @@ describe('Medbase crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(MEDBASE_KEY).toBe('medbase');
     expect(MEDBASE_COMPANY_NAME).toBe('Medbase');
+    expect(MEDBASE_BROWSER_PUBLIC_URL).toBe(
+      'https://wd502.myworkdaysite.com/de-CH/recruiting/medbase/Medbase_jobs/',
+    );
   });
 
   // ── isCompanyJob ──
@@ -128,6 +150,67 @@ describe('Medbase crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  describe('transport fallback', () => {
+    it('bootstraps the browser on Medbase public Workday site after a CXS transport failure', async () => {
+      vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+
+      const page = {
+        goto: vi.fn().mockResolvedValue({ status: () => 200 }),
+        evaluate: vi.fn().mockImplementation(async (_fn, args) => {
+          const url = String(args.requestUrl);
+          if (url.endsWith('/jobs')) {
+            return {
+              status: 200,
+              body: JSON.stringify({
+                total: 1,
+                jobPostings: [{
+                  title: 'Physiotherapeut:in',
+                  externalPath: '/job/Winterthur/Physiotherapeut-in_R1',
+                  locationsText: 'Winterthur',
+                }],
+              }),
+            };
+          }
+          if (url.endsWith('/sidebar')) return { status: 200, body: '[]' };
+          return {
+            status: 200,
+            body: JSON.stringify({
+              jobPostingInfo: {
+                location: 'Winterthur, Switzerland',
+                jobRequisitionLocation: {
+                  country: { alpha2Code: 'CH', descriptor: 'Switzerland' },
+                },
+                jobDescription: 'Responsibilities include patient care, clinical documentation, interdisciplinary teamwork, careful treatment planning, reliable communication with patients and colleagues, and a structured contribution to the Medbase team. You coordinate appointments, document treatment progress, participate in quality improvement, and explain next steps clearly to patients and families. We offer professional development, modern facilities, flexible working arrangements, a supportive working environment, and close collaboration with experienced specialists across the network.',
+              },
+            }),
+          };
+        }),
+        close: vi.fn().mockResolvedValue(undefined),
+      };
+      const context = {
+        newPage: vi.fn().mockResolvedValue(page),
+        close: vi.fn().mockResolvedValue(undefined),
+      };
+      const browser = {
+        version: () => '140.0.0',
+        newContext: vi.fn().mockResolvedValue(context),
+        close: vi.fn().mockResolvedValue(undefined),
+      };
+      launchStealthOrChromiumMock.mockResolvedValue(browser);
+
+      const jobs = await fetchAllMedbaseJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ title: 'Physiotherapeut:in', canton: 'ZH' });
+      expect(page.goto).toHaveBeenCalledWith(
+        MEDBASE_BROWSER_PUBLIC_URL,
+        expect.objectContaining({ waitUntil: 'domcontentloaded' }),
+      );
+      expect(browser.close).toHaveBeenCalledOnce();
     });
   });
 });

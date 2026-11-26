@@ -150,9 +150,15 @@ function workdayPublicUrlFromApiBase(apiBase) {
  * closes it after the Workday operation that uses it.
  *
  * @param {string} apiBase
+ * @param {{ publicUrl?: string }} [options] Optional public career-page URL
+ *   used to establish the same-origin browser session. The derived `en-US`
+ *   URL remains the default for tenants that use the standard locale path.
  * @returns {{request: (args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>, close: () => Promise<void>}}
  */
-export function createWorkdayBrowserJsonFallback(apiBase) {
+export function createWorkdayBrowserJsonFallback(apiBase, options = {}) {
+  const publicUrl = typeof options.publicUrl === 'string' && options.publicUrl.trim()
+    ? options.publicUrl.trim()
+    : workdayPublicUrlFromApiBase(apiBase);
   let sessionPromise;
   let closed = false;
 
@@ -177,7 +183,7 @@ export function createWorkdayBrowserJsonFallback(apiBase) {
             timezoneId: 'Europe/Zurich',
           });
       page = await context.newPage();
-      await page.goto(workdayPublicUrlFromApiBase(apiBase), {
+      await page.goto(publicUrl, {
         waitUntil: 'domcontentloaded',
         timeout: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || DEFAULT_TIMEOUT_MS,
       });
@@ -503,7 +509,7 @@ export function resetWorkdayImplicitRateLimitStateForTests() {
  * previous request is waiting out the tenant's Retry-After window.
  *
  * @param {string} apiBase
- * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object }} [options]
+ * @param {{ browserFallback?: Function|null, publicUrl?: string, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object }} [options]
  * @returns {{ request: (url: string, options?: object) => Promise<any>, close: () => Promise<void> }}
  */
 export function createWorkdayRequestContext(apiBase, options = {}) {
@@ -511,6 +517,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
 
   const {
     browserFallback: configuredBrowserFallback,
+    publicUrl,
     retryAfterCapMs = MAX_RETRY_AFTER_MS,
     fallbackCooldownMs = DEFAULT_RATE_LIMIT_COOLDOWN_MS,
     rateLimitCircuitThreshold = DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
@@ -525,7 +532,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
 
   const browserFallback = configuredBrowserFallback === undefined
     ? async (args) => {
-        browserSession ||= createWorkdayBrowserJsonFallback(apiBase);
+        browserSession ||= createWorkdayBrowserJsonFallback(apiBase, { publicUrl });
         return browserSession.request(args);
       }
     : configuredBrowserFallback;
@@ -646,6 +653,7 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
   // into partial output.
   const {
     browserFallback,
+    publicUrl,
     retryAfterCapMs,
     fallbackCooldownMs,
     rateLimitCircuitThreshold,
@@ -653,6 +661,7 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
   } = options;
   const requestContext = createWorkdayRequestContext(apiBase, {
     browserFallback,
+    publicUrl,
     retryAfterCapMs,
     fallbackCooldownMs,
     rateLimitCircuitThreshold,
@@ -748,6 +757,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
     userAgent = DEFAULT_USER_AGENT,
     minDelayMs = DEFAULT_MIN_DELAY_MS,
     timeoutMs = DEFAULT_TIMEOUT_MS,
+    publicUrl,
   } = options;
 
   const facets = appliedFacets
@@ -759,7 +769,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
   const endpoint = `${apiBase.replace(/\/+$/, '')}/jobs`;
   const requestContext = options.requestContext ?? null;
   const browserSession = !requestContext && options.browserFallback === undefined
-    ? createWorkdayBrowserJsonFallback(apiBase)
+    ? createWorkdayBrowserJsonFallback(apiBase, { publicUrl })
     : null;
   const browserFallback = !requestContext && options.browserFallback === undefined
     ? browserSession.request
@@ -886,11 +896,12 @@ export async function fetchWorkdayBoardSummary(apiBase, options = {}) {
     appliedFacets = {},
     userAgent = DEFAULT_USER_AGENT,
     timeoutMs = DEFAULT_TIMEOUT_MS,
+    publicUrl,
   } = options;
   const endpoint = `${apiBase.replace(/\/+$/, '')}/jobs`;
   const requestContext = options.requestContext ?? null;
   const browserSession = !requestContext && options.browserFallback === undefined
-    ? createWorkdayBrowserJsonFallback(apiBase)
+    ? createWorkdayBrowserJsonFallback(apiBase, { publicUrl })
     : null;
   const browserFallback = !requestContext && options.browserFallback === undefined
     ? browserSession.request
@@ -998,10 +1009,11 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
     timeoutMs = 15_000,
     userAgent = DEFAULT_USER_AGENT,
     retries,
+    publicUrl,
   } = options;
   const requestContext = options.requestContext ?? null;
   const browserSession = !requestContext && options.browserFallback === undefined
-    ? createWorkdayBrowserJsonFallback(apiBase)
+    ? createWorkdayBrowserJsonFallback(apiBase, { publicUrl })
     : null;
   const browserFallback = !requestContext && options.browserFallback === undefined
     ? browserSession.request
