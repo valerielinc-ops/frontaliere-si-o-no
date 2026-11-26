@@ -1,6 +1,6 @@
 [
   {
-    "slug": "cuocere-cucinare-psychiatrische-dienste-graubunden-cazis-cc6d4298",
+    "slug": "cuocere-cucinare-psychiatrische-dienste-graubunden-cazis",
     "title": "Köchin / Koch",
     "titleByLocale": {
       "it": "Cuocere / cucinare",
@@ -19,10 +19,10 @@
       "fr": "Votre environnement:\nLeur futur lieu de travail est une cuisine moderne supérieure, qui est responsable de la restauration de 150 repas pour patients et de 120 repas pour employés par emplacement.\n\nLeurs tâches:\n- Vous êtes habile et maîtrisez votre métier\n\n- Ils connaissent tous les domaines de la cuisine ainsi que les nouvelles techniques de cuisine et aiment travailler avec des événements et des banquets haut de gamme\n\n- Ils sont habitués à manipuler des produits frais de notre région et de prêter attention au respect de nos normes de haute qualité dans le domaine de la propreté et du sens de l'ordre.\n\n- Avec votre nature engagée et sincère, vous êtes un enrichissement pour l'entreprise et donc pour nos clients\n\nNotre profil d'exigence:\n- Vous êtes un chef qualifié / chef EFZ et avez déjà une expérience professionnelle\n\n- Ils se caractérisent par une grande résilience, flexibilité, engagement et créativité.\n\n- Ils sont fiables, doivent et ont une conscience du service prononcée et un haut niveau d'orientation de la clientèle\n\n- Vous êtes prêt, si nécessaire, également dans notre cuisine à l'emplacement de Klinik Waldhaus dans les missions de Chur\n\nNous vous offrons:\n- Une activité polyvalente et variée dans une opération animée\n\n- Vous pouvez apporter votre expérience dans différents domaines de l'industrie hôtelière\n\n- Vous travaillez dans un environnement social agréable\n\n- Vous bénéficiez de conditions de travail progressives (au-dessus des prestations sociales moyennes, crédits de vacances d'au moins 30 jours)\n\n- Vous avez la possibilité de suivre des cours de perfectionnement"
     },
     "slugByLocale": {
-      "it": "cuocere-cucinare-psychiatrische-dienste-graubunden-cazis-cc6d4298",
-      "en": "cook-cook-psychiatrische-dienste-graubunden-cazis-fa53a300",
+      "it": "cuocere-cucinare-psychiatrische-dienste-graubunden-cazis",
+      "en": "cook-cook-psychiatrische-dienste-graubunden-cazis",
       "de": "kochin-koch-pdgr-ch-81359cb3",
-      "fr": "cuisiniere-psychiatrische-dienste-graubunden-cazis-7c7e030c"
+      "fr": "cuisiniere-psychiatrische-dienste-graubunden-cazis"
     },
     "sector": "Sanità / Psichiatria",
     "expiredAt": "2026-11-20T21:43:55.398Z",
@@ -33,24 +33,35 @@
       "cooker-cooker-psychiatrische-dienste-graubunden-chur",
       "kochin-koch-pdgr-ch-9aa51078",
       "kochin-koch-psychiatrische-dienste-graubunden-chur",
-      "cuisiniere-cuisiniere-psychiatrische-dienste-graubunden-chur"
+      "cuisiniere-cuisiniere-psychiatrische-dienste-graubunden-chur",
+      "kochin-koch-pdgr-ch",
+      "cuocere-cucinare-psychiatrische-dienste-graubunden-cazis-cc6d4298",
+      "cook-cook-psychiatrische-dienste-graubunden-cazis-fa53a300",
+      "cuisiniere-psychiatrische-dienste-graubunden-cazis-7c7e030c"
     ],
     "previousSlugsByLocale": {
       "it": [
         "kochin-koch-pdgr-ch-81359cb3",
-        "fornello-cucina-psychiatrische-dienste-graubunden-chur"
+        "fornello-cucina-psychiatrische-dienste-graubunden-chur",
+        "kochin-koch-pdgr-ch",
+        "cuocere-cucinare-psychiatrische-dienste-graubunden-cazis-cc6d4298"
       ],
       "en": [
         "cooker-cooker-psychiatrische-dienste-graubunden-chur",
-        "kochin-koch-pdgr-ch-9aa51078"
+        "kochin-koch-pdgr-ch-9aa51078",
+        "kochin-koch-pdgr-ch",
+        "cook-cook-psychiatrische-dienste-graubunden-cazis-fa53a300"
       ],
       "de": [
         "kochin-koch-psychiatrische-dienste-graubunden-cazis",
-        "kochin-koch-psychiatrische-dienste-graubunden-chur"
+        "kochin-koch-psychiatrische-dienste-graubunden-chur",
+        "kochin-koch-pdgr-ch"
       ],
       "fr": [
         "cuisiniere-cuisiniere-psychiatrische-dienste-graubunden-chur",
-        "kochin-koch-pdgr-ch-9aa51078"
+        "kochin-koch-pdgr-ch-9aa51078",
+        "kochin-koch-pdgr-ch",
+        "cuisiniere-psychiatrische-dienste-graubunden-cazis-7c7e030c"
       ]
     },
     "postalCode": "7408",
@@ -59,7 +70,39 @@
     "salaryMax": 78000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://www.pdgr.ch/jobs/koechin-koch-2-11"
+    "sourceIdentity": "url:https://www.pdgr.ch/jobs/koechin-koch-2-11",
+    "firstSeenAt": "2026-11-25T09:25:41.583Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/koechin-koch-2-11",
+        "firstSeenAt": "2026-11-25T09:25:41.583Z",
+        "title": "Köchin / Koch"
+      },
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/koechin-koch-3-4",
+        "firstSeenAt": "2026-11-25T09:25:41.583Z",
+        "title": "Köchin / Koch"
+      },
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/koechin-koch-4",
+        "firstSeenAt": "2026-11-25T09:25:41.583Z",
+        "title": "Köchin / Koch"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kochin-koch-pdgr-ch": "GR"
+      },
+      "en": {
+        "kochin-koch-pdgr-ch": "GR"
+      },
+      "de": {
+        "kochin-koch-pdgr-ch": "GR"
+      },
+      "fr": {
+        "kochin-koch-pdgr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-cuoco-cuoco-ausiliario-psychiatrische-dienste-graubunden-cazis",
@@ -380,7 +423,6 @@
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-ed80d3a5",
         "oberarztin-oberarzt-pdgr-ch-t5ttp7",
-        "oberarztin-oberarzt-pdgr-ch-t5tufv",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
         "oberarztin-oberarzt-pdgr-ch-t5twns",
@@ -388,12 +430,10 @@
         "oberarztin-oberarzt-pdgr-ch-5xlho7",
         "oberarztin-oberarzt-pdgr-ch-t5ts7t",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol",
-        "oberarztin-oberarzt-pdgr-ch-fd9dc6d6"
+        "oberarztin-oberarzt-pdgr-ch-fd9dc6d6",
+        "oberarztin-oberarzt-pdgr-ch-t5tufv"
       ],
       "it": [
-        "oberarztin-oberarzt-pdgr-ch-t5tufv",
-        "oberarztin-oberarzt-pdgr-ch-3",
-        "oberarztin-oberarzt-pdgr-ch-4",
         "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur",
         "oberarztin-oberarzt-pdgr-ch-t5twns",
         "oberarztin-oberarzt-pdgr-ch-t5txek",
@@ -402,7 +442,10 @@
         "oberarztin-oberarzt-pdgr-ch-2",
         "oberarztin-oberarzt-pdgr-ch-t5ttp7",
         "oberarztin-oberarzt-pdgr-ch-fd9dc6d6",
-        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+        "oberarztin-oberarzt-pdgr-ch-t5tufv",
+        "oberarztin-oberarzt-pdgr-ch-3",
+        "oberarztin-oberarzt-pdgr-ch-4"
       ],
       "en": [
         "senior-physician-psychiatrische-dienste-graubunden-chur",
@@ -694,6 +737,25 @@
     ],
     "previousSlugsByLocale": {
       "it": [
+        "mitarbeiter-in-raumpflege-pdgr-ch-e68bdd96",
+        "mitarbeiter-in-raumpflege-pdgr-ch-20b61a17",
+        "mitarbeiter-in-raumpflege-pdgr-ch-210ba299",
+        "mitarbeiter-in-raumpflege-pdgr-ch-66dbefe5",
+        "mitarbeiter-in-raumpflege-pdgr-ch-e68eda87",
+        "mitarbeiter-in-raumpflege-pdgr-ch-6f507676",
+        "mitarbeiter-in-raumpflege-pdgr-ch-bef0cf6e",
+        "mitarbeiter-in-raumpflege-pdgr-ch-df1ea376",
+        "mitarbeiter-in-raumpflege-pdgr-ch-90900273",
+        "mitarbeiter-in-raumpflege-pdgr-ch-d741704e",
+        "mitarbeiter-in-raumpflege-pdgr-ch-0595fb97",
+        "mitarbeiter-in-raumpflege-pdgr-ch-e92c7659",
+        "mitarbeiter-in-raumpflege-pdgr-ch-857d1258",
+        "mitarbeiter-in-raumpflege-pdgr-ch-6e90ad3e",
+        "mitarbeiter-in-raumpflege-pdgr-ch-5b4eb106",
+        "mitarbeiter-in-raumpflege-pdgr-ch-dc9f6c12",
+        "mitarbeiter-in-raumpflege-pdgr-ch-15335a01",
+        "mitarbeiter-in-raumpflege-pdgr-ch-4dba3f8b",
+        "mitarbeiter-in-raumpflege-pdgr-ch",
         "mitarbeiter-in-raumpflege-pdgr-ch-ab39ba28",
         "mitarbeiter-in-raumpflege-pdgr-ch-dd829311",
         "mitarbeiter-in-raumpflege-pdgr-ch-3ff1f30d",
@@ -711,8 +773,6 @@
         "mitarbeiter-in-raumpflege-pdgr-ch-860d1db0",
         "mitarbeiter-in-raumpflege-pdgr-ch-bd60ace8",
         "mitarbeiter-in-raumpflege-pdgr-ch-30e138b7",
-        "mitarbeiter-in-raumpflege-pdgr-ch-2c629612",
-        "mitarbeiter-in-raumpflege-pdgr-ch",
         "mitarbeiter-in-raumpflege-pdgr-ch-a602589e",
         "mitarbeiter-in-raumpflege-pdgr-ch-e5fd50d0",
         "mitarbeiter-in-raumpflege-pdgr-ch-ded624d9",
@@ -736,7 +796,13 @@
         "mitarbeiter-in-raumpflege-pdgr-ch-735418aa",
         "mitarbeiter-in-raumpflege-pdgr-ch-b02cbd83",
         "mitarbeiter-in-raumpflege-pdgr-ch-a8ed1716",
-        "mitarbeiter-in-raumpflege-pdgr-ch-4c808883",
+        "mitarbeiter-in-raumpflege-pdgr-ch-4c808883"
+      ],
+      "en": [
+        "staff-room-maintenance-psychiatrische-dienste-graubunden-chur",
+        "mitarbeiter-in-raumpflege-pdgr-ch"
+      ],
+      "de": [
         "mitarbeiter-in-raumpflege-pdgr-ch-e68bdd96",
         "mitarbeiter-in-raumpflege-pdgr-ch-20b61a17",
         "mitarbeiter-in-raumpflege-pdgr-ch-210ba299",
@@ -754,13 +820,8 @@
         "mitarbeiter-in-raumpflege-pdgr-ch-5b4eb106",
         "mitarbeiter-in-raumpflege-pdgr-ch-dc9f6c12",
         "mitarbeiter-in-raumpflege-pdgr-ch-15335a01",
-        "mitarbeiter-in-raumpflege-pdgr-ch-4dba3f8b"
-      ],
-      "en": [
-        "staff-room-maintenance-psychiatrische-dienste-graubunden-chur",
-        "mitarbeiter-in-raumpflege-pdgr-ch"
-      ],
-      "de": [
+        "mitarbeiter-in-raumpflege-pdgr-ch-4dba3f8b",
+        "mitarbeiter-in-raumpflege-pdgr-ch",
         "mitarbeiter-in-raumpflege-pdgr-ch-ab39ba28",
         "mitarbeiter-in-raumpflege-pdgr-ch-dd829311",
         "mitarbeiter-in-raumpflege-pdgr-ch-3ff1f30d",
@@ -778,7 +839,6 @@
         "mitarbeiter-in-raumpflege-pdgr-ch-860d1db0",
         "mitarbeiter-in-raumpflege-pdgr-ch-bd60ace8",
         "mitarbeiter-in-raumpflege-pdgr-ch-30e138b7",
-        "mitarbeiter-in-raumpflege-pdgr-ch",
         "mitarbeiter-in-raumpflege-pdgr-ch-a602589e",
         "mitarbeiter-in-raumpflege-pdgr-ch-e5fd50d0",
         "mitarbeiter-in-raumpflege-pdgr-ch-ded624d9",
@@ -792,25 +852,7 @@
         "mitarbeiter-in-raumpflege-pdgr-ch-735418aa",
         "mitarbeiter-in-raumpflege-pdgr-ch-b02cbd83",
         "mitarbeiter-in-raumpflege-pdgr-ch-a8ed1716",
-        "mitarbeiter-in-raumpflege-pdgr-ch-4c808883",
-        "mitarbeiter-in-raumpflege-pdgr-ch-e68bdd96",
-        "mitarbeiter-in-raumpflege-pdgr-ch-20b61a17",
-        "mitarbeiter-in-raumpflege-pdgr-ch-210ba299",
-        "mitarbeiter-in-raumpflege-pdgr-ch-66dbefe5",
-        "mitarbeiter-in-raumpflege-pdgr-ch-e68eda87",
-        "mitarbeiter-in-raumpflege-pdgr-ch-6f507676",
-        "mitarbeiter-in-raumpflege-pdgr-ch-bef0cf6e",
-        "mitarbeiter-in-raumpflege-pdgr-ch-df1ea376",
-        "mitarbeiter-in-raumpflege-pdgr-ch-90900273",
-        "mitarbeiter-in-raumpflege-pdgr-ch-d741704e",
-        "mitarbeiter-in-raumpflege-pdgr-ch-0595fb97",
-        "mitarbeiter-in-raumpflege-pdgr-ch-e92c7659",
-        "mitarbeiter-in-raumpflege-pdgr-ch-857d1258",
-        "mitarbeiter-in-raumpflege-pdgr-ch-6e90ad3e",
-        "mitarbeiter-in-raumpflege-pdgr-ch-5b4eb106",
-        "mitarbeiter-in-raumpflege-pdgr-ch-dc9f6c12",
-        "mitarbeiter-in-raumpflege-pdgr-ch-15335a01",
-        "mitarbeiter-in-raumpflege-pdgr-ch-4dba3f8b"
+        "mitarbeiter-in-raumpflege-pdgr-ch-4c808883"
       ],
       "fr": [
         "entretien-des-locaux-du-personnel-psychiatrische-dienste-graubunden-chur",
@@ -851,7 +893,31 @@
         "firstSeenAt": "2026-10-03T09:23:38.984Z",
         "title": "Mitarbeiter/-in Raumpflege"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur": "GR",
+        "mitarbeiter-in-raumpflege-pdgr-ch": "GR",
+        "mitarbeiter-in-raumpflege-pdgr-ch-4c808883": "GR"
+      },
+      "en": {
+        "staff-room-maintenance-psychiatrische-dienste-graubunden-chur": "GR",
+        "mitarbeiter-in-raumpflege-pdgr-ch": "GR",
+        "mitarbeiter-in-raumpflege-pdgr-ch-4c808883": "GR",
+        "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur": "GR"
+      },
+      "de": {
+        "mitarbeiter-in-raumpflege-pdgr-ch": "GR",
+        "mitarbeiter-in-raumpflege-pdgr-ch-4c808883": "GR",
+        "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur": "GR"
+      },
+      "fr": {
+        "entretien-des-locaux-du-personnel-psychiatrische-dienste-graubunden-chur": "GR",
+        "mitarbeiter-in-raumpflege-pdgr-ch": "GR",
+        "mitarbeiter-in-raumpflege-pdgr-ch-4c808883": "GR",
+        "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-pulizie-psychiatrische-dienste-graubunden-cazis",
@@ -2367,7 +2433,108 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.pdgr.ch/jobs/lehrperson-schulische-heilpaedagogik-shp-2",
-    "firstSeenAt": "2026-09-03T13:43:54.452Z"
+    "firstSeenAt": "2026-09-03T13:43:54.452Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrperson-schulische-heilpadagogik-shp-pdgr-ch": "GR"
+      }
+    }
+  },
+  {
+    "slug": "dipl-pflegefachperson-hf-fh-pdgr-ch-dilxs8",
+    "title": "Dipl. Pflegefachperson HF/FH",
+    "titleByLocale": {
+      "it": "Dipl. Assistente Sanitaria HF/FH",
+      "en": "Dipl. Care professional HF/FH",
+      "de": "Dipl. Pflegefachperson HF/FH",
+      "fr": "Dipl. Auxiliaire de Santé HF/FH"
+    },
+    "company": "Psychiatrische Dienste Graubünden",
+    "companyKey": "pdgr",
+    "location": "Cazis",
+    "addressLocality": "Cazis",
+    "descriptionByLocale": {
+      "it": "I dintorni:\nLavorano in un team interprofessionale di medicina, cura, terapia e servizio sociale sulla stazione forense-psichiatrica chiusa Nova con 13 posti letto. Questo serve il trattamento psichiatrico e psicoterapeutico dei malati mentali in condizioni chiuse.\n\nI loro compiti:\n- Essi prendono il controllo del trattamento e la cura completa dei pazienti nell'area ospedaliera\n\n- Progettano la cura e il trattamento nella vita quotidiana dell'ospedale, secondo gli sviluppi e le tendenze della psichiatria\n\n- Hai una grande volontà di affrontare la psichiatria forense\n\n- Mantengono una cooperazione costruttiva con i dipendenti del servizio diurno e notturno e comunicano apertamente, individualmente e personalmente\n\n- È possibile assumere la funzione di formatore professionale\n\nIl nostro profilo di requisito:\n- Tu sei Dipl. Specialista infermieristico HF/FH o Dipl. Infermieristica professionale HF/FH\n\n- È altrettanto importante per voi quanto per noi trattare i nostri pazienti nel miglior modo medico e infermieristico, così come individualmente e personalmente.\n\n- Essi portano un alto grado di responsabilità, resistenza e flessibilità\n\n- Hanno un alto livello di social e auto-competenza e sono utilizzati per lavorare in modo indipendente\n\nVi offriamo:\n- Si assume un lavoro vario e responsabile in un team motivato e interdisciplinare\n\n- È possibile aiutare a modellare e implementare gli attuali approcci di trattamento e cura\n\n- Approfittate della nostra offerta di formazione interna e di ulteriore formazione – supportiamo anche le vostre esigenze di formazione esterna\n\n- Con modelli di lavoro part-time e vacanze non retribuite, un equilibrio ottimale della vita lavorativa",
+      "en": "Description - You work in an interdisciplinary team consisting of doctors, nurses, therapists, and social workers on the closed forensic-psychiatric station Nova with 13 beds - This station serves for the psychiatric and psychotherapeutic treatment of mentally ill criminals under closed conditions ## Your\n• Responsibilities - You assume the comprehensive nursing care and support of patients in the inpatient setting - You design the care and treatment in the hospital day-to-day, according to the developments and trends in psychiatry - You bring a high willingness to deal with forensic psychiatry - You maintain a constructive collaboration with the colleagues of the day and night shift and communicate openly, individually, and personally - There is the possibility to take on the function as a professional trainer ## Our\n• Requirements\n• Profile - You are Dipl. Nurse HF/FH - It is as important to you as to us to treat our patients both medically and nursing optimally as well as personally - You bring a high degree of responsibility, resilience, and flexibility - You have a high social and self-competence and are used to working independently ## What We Offer - You take on a varied and responsible task in a motivated, interdisciplinary team - You can shape and implement the current treatment and care approaches - Use our internal training and further education offer - we also support your external training goals - Part-time working models and unpaid leave for an optimal work-life balance",
+      "de": "Ihre Umgebung:\nSie arbeiten in einem interprofessionellen Team aus Medizin, Pflege, Therapie und Sozialdienst auf der geschlossenen forensisch-psychiatrischen Station Nova mit 13 Betten. Diese dient der psychiatrischen und psychotherapeutischen Behandlung von psychisch erkrankten Straftätern unter geschlossenen Rahmenbedingungen.\n\nIhre Aufgaben:\n- Sie übernehmen die umfassende pflegerische Behandlung und Betreuung von Patientinnen und Patienten im stationären Bereich\n\n- Sie gestalten die Betreuung und Behandlung im Klinikalltag, entsprechend den Entwicklungen und Trends in der Psychiatrie\n\n- Sie bringen hohe Bereitschaft mit, sich mit der forensischen Psychiatrie auseinanderzusetzen\n\n- Sie pflegen eine konstruktive Zusammenarbeit mit den Mitarbeitern des Tag- und Nachtdienst und kommunizieren offen, individuell und personenbezogen\n\n- Es besteht die Möglichkeit die Funktion als Berufsbildner/in zu übernehmen\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF/FH oder Dipl. Pflegefachmann HF/FH\n\n- Ihnen ist es genauso wichtig wie uns, unsere Patientinnen und Patienten sowohl medizinisch und pflegerisch bestens zu behandeln als auch individuell persönlich zu betreuen\n\n- Sie bringen ein hohes Mass an Verantwortungsbewusstsein, Belastbarkeit und Flexibilität mit\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz und sind es gewohnt, selbständig zu arbeiten\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interdisziplinären Team\n\n- Sie können die aktuellen Behandlungs- und Betreuungsansätze mitgestalten und umsetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen und unbezahlten Urlauben eine optimale Work-Life-Balance",
+      "fr": "Votre environnement:\nIls travaillent dans une équipe interprofessionnelle de médecine, de soins, de thérapie et de services sociaux sur la station médico-psychiatrique fermée Nova avec 13 lits. Cela sert le traitement psychiatrique et psychothérapeutique des délinquants souffrant de troubles mentaux en milieu fermé.\n\nLeurs tâches:\n- Ils prennent en charge le traitement et les soins infirmiers complets des patients hospitalisés\n\n- Ils conçoivent les soins et les traitements dans la vie quotidienne des hôpitaux, selon les développements et les tendances de la psychiatrie\n\n- Vous êtes très disposé à traiter la psychiatrie médico-légale.\n\n- Ils maintiennent une coopération constructive avec les employés du service de jour et de nuit et communiquent ouvertement, individuellement et personnellement\n\n- Il est possible d'assumer la fonction de formateur professionnel\n\nNotre profil d'exigence:\n- Vous êtes Dipl. Spécialiste des soins infirmiers HF/FH ou Dipl. Professionnels des soins infirmiers HF/FH\n\n- Il est tout aussi important pour vous que pour nous de traiter nos patients de la meilleure façon médicale et infirmière ainsi que individuellement et personnellement.\n\n- Ils apportent un haut degré de responsabilité, de résilience et de flexibilité\n\n- Ils ont un haut niveau de compétence sociale et d'auto-compétence et sont habitués à travailler indépendamment\n\nNous vous offrons:\n- Vous prenez un emploi varié et responsable dans une équipe motivée et interdisciplinaire\n\n- Vous pouvez aider à façonner et à mettre en œuvre les approches actuelles de traitement et de soins\n\n- Profitez de notre offre de formation interne et de formation continue – nous soutenons également vos besoins de formation externe\n\n- Avec des modèles de travail à temps partiel et des congés non payés, un équilibre optimal entre le travail et la vie personnelle"
+    },
+    "slugByLocale": {
+      "it": "dipl-assistente-sanitaria-hf-fh-psychiatrische-dienste-graubunden-cazis",
+      "en": "dipl-pflegefachperson-hf-fh-psychiatrische-dienste-graubunden-cazis",
+      "de": "dipl-pflegefachperson-hf-fh-pdgr-ch-dilxs8",
+      "fr": "dipl-auxiliaire-de-sante-hf-fh-psychiatrische-dienste-graubunden-cazis"
+    },
+    "sector": "Sanità / Psichiatria",
+    "expiredAt": "2026-10-07T21:32:21.925Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
+      "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
+      "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch",
+      "dipl-ing-pflegefachperson-hf-fh-psychiatrische-dienste-graubunden-cazis",
+      "dipl-pflegefachperson-hf-fh-pdgr-ch",
+      "dipl-professionista-hf-fh-psychiatrische-dienste-graubunden-cazis",
+      "dipl-care-professional-hf-fh-psychiatrische-dienste-graubunden-cazis",
+      "dipl-soins-professionnels-hf-fh-psychiatrische-dienste-graubunden-cazis"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "dipl-ing-pflegefachperson-hf-fh-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-fh-pdgr-ch"
+      ],
+      "it": [
+        "dipl-professionista-hf-fh-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-fh-pdgr-ch"
+      ],
+      "en": [
+        "dipl-care-professional-hf-fh-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-fh-pdgr-ch"
+      ],
+      "fr": [
+        "dipl-soins-professionnels-hf-fh-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-fh-pdgr-ch"
+      ]
+    },
+    "postalCode": "7408",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true,
+    "sourceIdentity": "url:https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed",
+    "firstSeenAt": "2026-04-14T10:28:30.371Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4-5",
+        "firstSeenAt": "2026-04-14T10:28:30.371Z",
+        "title": "Dipl. Pflegefachperson HF/FH"
+      },
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed",
+        "firstSeenAt": "2026-04-14T10:28:30.371Z",
+        "title": "Dipl. Pflegefachperson HF/FH"
+      },
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fh-7",
+        "firstSeenAt": "2026-04-14T10:28:30.371Z",
+        "title": "Dipl. Pflegefachperson HF/FH"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-professionista-hf-fh-psychiatrische-dienste-graubunden-cazis": "GR",
+        "dipl-pflegefachperson-hf-fh-pdgr-ch": "GR"
+      },
+      "en": {
+        "dipl-care-professional-hf-fh-psychiatrische-dienste-graubunden-cazis": "GR",
+        "dipl-pflegefachperson-hf-fh-pdgr-ch": "GR"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-fh-pdgr-ch": "GR"
+      },
+      "fr": {
+        "dipl-soins-professionnels-hf-fh-psychiatrische-dienste-graubunden-cazis": "GR",
+        "dipl-pflegefachperson-hf-fh-pdgr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "dipl-pflegefachperson-hf-pdgr-ch-cio6xw",
@@ -2444,7 +2611,6 @@
         "dipl-pflegefachperson-hf-pdgr-ch-wx9tq2"
       ],
       "it": [
-        "dipl-care-professional-hf-psychiatrische-dienste-graubunden-chur",
         "dipl-soins-professionnels-hf-psychiatrische-dienste-graubunden-chur",
         "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch",
         "dipl-infermiere-a-hf-psychiatrische-dienste-graubunden-thusis",
@@ -2461,14 +2627,15 @@
         "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-ilanz",
         "dipl-pflegefachperson-hf-pdgr-ch-wx9tq2",
         "dipl-pflegefachperson-hf-pdgr-ch-3",
-        "dipl-professionista-hf-psychiatrische-dienste-graubunden-chur"
+        "dipl-professionista-hf-psychiatrische-dienste-graubunden-chur",
+        "dipl-care-professional-hf-psychiatrische-dienste-graubunden-chur"
       ],
       "en": [
         "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-scuol",
         "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-chur",
-        "dipl-care-professional-hf-psychiatrische-dienste-graubunden-chur",
         "dipl-care-professional-hf-psychiatrische-dienste-graubunden-ilanz",
-        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-ilanz"
+        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-ilanz",
+        "dipl-care-professional-hf-psychiatrische-dienste-graubunden-chur"
       ],
       "fr": [
         "dipl-auxiliaire-de-sante-hf-psychiatrische-dienste-graubunden-scuol",
@@ -2520,6 +2687,141 @@
         "firstSeenAt": "2026-05-17T10:52:07.219Z",
         "title": "Dipl. Pflegefachperson HF"
       }
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-scuol": "GR",
+        "dipl-pflegefachperson-hf-pdgr-ch-2": "GR",
+        "dipl-pflegefachperson-hf-pdgr-ch": "GR",
+        "dipl-care-professional-hf-psychiatrische-dienste-graubunden-chur": "GR"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-scuol": "GR",
+        "dipl-care-professional-hf-psychiatrische-dienste-graubunden-chur": "GR",
+        "dipl-pflegefachperson-hf-pdgr-ch": "GR",
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-scuol": "GR",
+        "dipl-pflegefachperson-hf-pdgr-ch-2": "GR"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-pdgr-ch": "GR",
+        "dipl-care-professional-hf-psychiatrische-dienste-graubunden-chur": "GR",
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-scuol": "GR",
+        "dipl-pflegefachperson-hf-pdgr-ch-2": "GR"
+      },
+      "fr": {
+        "dipl-auxiliaire-de-sante-hf-psychiatrische-dienste-graubunden-scuol": "GR",
+        "dipl-care-professional-hf-psychiatrische-dienste-graubunden-chur": "GR",
+        "dipl-pflegefachperson-hf-pdgr-ch": "GR",
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-scuol": "GR",
+        "dipl-pflegefachperson-hf-pdgr-ch-2": "GR"
+      }
+    }
+  },
+  {
+    "slug": "assistenz-oder-fachpsychologe-in-pdgr-ch-cekz5c",
+    "title": "Assistenz- oder Fachpsychologe/-in",
+    "titleByLocale": {
+      "it": "Assistente o psicologo specializzato",
+      "en": "Assistant or specialist psychologist",
+      "de": "Assistenz- oder Fachpsychologe/-in",
+      "fr": "Assistant ou psychologue spécialisé"
+    },
+    "company": "Psychiatrische Dienste Graubünden",
+    "companyKey": "pdgr",
+    "location": "Ilanz",
+    "addressLocality": "Ilanz",
+    "descriptionByLocale": {
+      "it": "I dintorni:\nLavorano in un team interdisciplinare presso il Surselva Psychiatry Center di Ilanz e contribuiscono attivamente alla cura psichiatrica ambulatoriale della regione. Ci si può aspettare un ambiente di lavoro collegiale con una buona cooperazione e uno scambio professionale ravvicinato.\n\nI loro compiti:\n- Lavorano in gran parte indipendentemente nel nostro centro psichiatria Surselva a Ilanz\n\n- Sono in grado di utilizzare i metodi di test psicodiagnostici comunemente utilizzati nella psichiatria infantile e adolescente.\n\n- Oltre alle indagini e ai trattamenti psicoterapeutici, svolgono anche interventi di crisi.\n\nIl nostro profilo di requisito:\n- Hai completato una laurea in psicologia e hai già esperienza professionale nel campo della diagnosi e della psicoterapia nei bambini e negli adolescenti\n\n- Hai l'allenamento di psicoterapia con eidg. Riconoscimento completato o avanzato\n\n- Lavorano regolarmente con varie persone coinvolte nella famiglia, ad esempio insegnanti, assistenti sociali, advocacy giovanile, KESB ecc.\n\n- Hanno competenze approfondite nel campo della terapia del bambino e un alto livello di competenza sociale e di azione\n\n- Sono creativi, flessibili e comunicativi\n\n- Il linguaggio romanico è benefico\n\nVi offriamo:\n- Integrazione in un team interprofessionale esperto con una piacevole e solidale\n\nAtmosfera di lavoro\n\n- Condizioni di lavoro avanzate\n\n- Approfittate della nostra offerta di formazione interna e di formazione ulteriore – supportiamo anche la vostra offerta esterna\n\nRequisiti di formazione\n\n- Con modelli part-time e job sharing, orari di lavoro regolari e l'opportunità di congedo non pagato, creiamo un equilibrio ottimale della vita lavorativa",
+      "en": "Your surroundings:\nThey work in an interdisciplinary team at the Surselva Psychiatry Center in Ilanz and actively contribute to the region’s outpatient psychiatric care. You can expect a collegial working environment with good cooperation and close professional exchange.\n\nTheir tasks:\n- They work largely independently in our psychiatry center Surselva in Ilanz\n\n- They are able to use the psychodiagnostic test methods commonly used in child and adolescent psychiatry.\n\n- In addition to psychotherapeutic investigations and treatments, they also carry out crisis interventions.\n\nOur requirement profile:\n- You have completed a degree in psychology and already have professional experience in the field of diagnosis and psychotherapy in children and adolescents\n\n- You have the psychotherapy training with eidg. Recognition completed or in advanced education\n\n- They work regularly with various people involved in the family e.g. teachers, social workers, youth advocacy, KESB etc.\n\n- They have in-depth competences in the field of child therapy as well as a high level of social and action competence\n\n- They are creative, flexible and communicative\n\n- Romanesque language is beneficial\n\nWe offer you:\n- Integration into an experienced interprofessional team with a pleasant and supportive\n\nWorking atmosphere\n\n- Advanced working conditions\n\n- Take advantage of our internal training and further education offer – we also support your external\n\nTraining requirements\n\n- With part-time and job sharing models, regular working hours and the opportunity for unpaid leave, we create an optimal work-life balance",
+      "de": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie arbeiten weitgehend selbständig in unserem Psychiatrie-Zentrum Surselva in Ilanz\n\n- Sie sind in der Lage, die in der Kinder- und Jugendpsychiatrie gängigen psychodiagnostischen Testverfahren einzusetzen\n\n- Sie führen neben den psychotherapeutischen Abklärungen und Behandlungen auch Kriseninterventionen durch\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Psychologie und haben bereits berufliche Erfahrung im Bereich Diagnostik und Psychotherapie bei Kindern und Jugendlichen\n\n- Sie haben die Psychotherapieausbildung mit eidg. Anerkennung abgeschlossen oder befinden sich in fortgeschrittener Ausbildung\n\n- Sie arbeiten regelmässig mit verschiedenen involvierten Personen im Umfeld der Familie z.B. Lehrpersonen, Sozialarbeiter, Jugendanwaltschaft, KESB etc. zusammen\n\n- Sie verfügen über vertiefte Kompetenzen im Bereich Kindertherapie sowie über hohe Sozial- und Handlungskompetenz\n\n- Sie sind kreativ, flexibel und kommunikativ\n\n- Romanische Sprache von Vorteil\n\nWir bieten Ihnen:\n- Integration in ein erfahrenes interprofessionelles Team mit einer angenehmen und unterstützenden\n\nArbeitsatmosphäre\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen\n\nFortbildungsanliegen\n\n- Mit Teilzeit- und Jobsharing-Modellen, regelmässigen Arbeitszeiten sowie der Möglichkeit für unbezahlten Urlaub schaffen wir eine optimale Work-Life-Balance",
+      "fr": "Votre environnement:\nIls travaillent dans une équipe interdisciplinaire au Surselva Psychiatry Center à Ilanz et contribuent activement aux soins psychiatriques ambulatoires de la région. Vous pouvez vous attendre à un environnement de travail collégial avec une bonne coopération et un échange professionnel étroit.\n\nLeurs tâches:\n- Ils travaillent en grande partie indépendamment dans notre centre de psychiatrie Surselva à Ilanz\n\n- Ils sont capables d'utiliser les méthodes de test psychodiagnostiques couramment utilisées dans la psychiatrie des enfants et des adolescents.\n\n- En plus des enquêtes psychothérapeutiques et des traitements, ils effectuent également des interventions de crise.\n\nNotre profil d'exigence:\n- Vous avez obtenu un diplôme en psychologie et avez déjà une expérience professionnelle dans le domaine du diagnostic et de la psychothérapie chez les enfants et les adolescents\n\n- Vous avez la formation de psychothérapie avec eidg. Reconnaissance complète ou dans l'enseignement supérieur\n\n- Ils travaillent régulièrement avec diverses personnes impliquées dans la famille, par exemple les enseignants, les travailleurs sociaux, la défense des jeunes, le KESB, etc.\n\n- Ils ont des compétences approfondies dans le domaine de la thérapie infantile ainsi qu'un niveau élevé de compétence sociale et d'action\n\n- Ils sont créatifs, flexibles et communicatifs\n\n- La langue romane est bénéfique\n\nNous vous offrons:\n- Intégration dans une équipe interprofessionnelle expérimentée avec un agréable et solidaire\n\nAtmosphère de travail\n\n- Conditions de travail avancées\n\n- Profitez de notre offre de formation interne et de formation continue – nous soutenons également votre\n\nFormation requise\n\n- Avec des modèles de partage du temps partiel et de l'emploi, des horaires de travail réguliers et des possibilités de congé non rémunéré, nous créons un équilibre optimal entre le travail et la vie personnelle"
+    },
+    "slugByLocale": {
+      "it": "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-ilanz",
+      "en": "assistant-or-specialist-psychologist-psychiatrische-dienste-graubunden-ilanz",
+      "de": "assistenz-oder-fachpsychologe-in-pdgr-ch-cekz5c",
+      "fr": "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-ilanz"
+    },
+    "sector": "Sanità / Psichiatria",
+    "expiredAt": "2026-10-07T21:32:21.924Z",
+    "previousSlugs": [
+      "assistenz-oder-fachpsychologe-in-pdgr-ch-3",
+      "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
+      "assistenz-oder-fachpsychologe-in-pdgr-ch",
+      "assistente-fachpsychologo-psychiatrische-dienste-graubunden-samedan",
+      "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos",
+      "assistente-o-psicologo-clinico-psychiatrische-dienste-graubunden-chur",
+      "assistente-fachpsychologo-psychiatrische-dienste-graubunden-davos",
+      "assistenz-oder-fachpsychologe-in-pdgr-ch-2",
+      "assistant-fachpsychologist-psychiatrische-dienste-graubunden-samedan",
+      "assistant-or-clinical-psychologist-psychiatrische-dienste-graubunden-chur",
+      "assistant-fachpsychologist-psychiatrische-dienste-graubunden-davos",
+      "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan",
+      "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
+      "assistante-fachpsychologue-psychiatrische-dienste-graubunden-samedan",
+      "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-samedan",
+      "assistant-ou-psychologue-clinicien-psychiatrische-dienste-graubunden-chur",
+      "assistante-fachpsychologue-psychiatrische-dienste-graubunden-davos"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "assistenz-oder-fachpsychologe-in-pdgr-ch-3",
+        "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
+        "assistente-fachpsychologo-psychiatrische-dienste-graubunden-samedan",
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos",
+        "assistente-o-psicologo-clinico-psychiatrische-dienste-graubunden-chur",
+        "assistente-fachpsychologo-psychiatrische-dienste-graubunden-davos",
+        "assistenz-oder-fachpsychologe-in-pdgr-ch-2"
+      ],
+      "en": [
+        "assistant-fachpsychologist-psychiatrische-dienste-graubunden-samedan",
+        "assistant-or-clinical-psychologist-psychiatrische-dienste-graubunden-chur",
+        "assistant-fachpsychologist-psychiatrische-dienste-graubunden-davos"
+      ],
+      "de": [
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan",
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos"
+      ],
+      "fr": [
+        "assistante-fachpsychologue-psychiatrische-dienste-graubunden-samedan",
+        "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-samedan",
+        "assistant-ou-psychologue-clinicien-psychiatrische-dienste-graubunden-chur",
+        "assistante-fachpsychologue-psychiatrische-dienste-graubunden-davos"
+      ]
+    },
+    "postalCode": "7130",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true,
+    "sourceIdentity": "url:https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6",
+    "firstSeenAt": "2026-04-14T10:28:30.371Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6",
+        "firstSeenAt": "2026-04-14T10:28:30.371Z",
+        "title": "Assistenz- oder Fachpsychologe/-in"
+      },
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-3",
+        "firstSeenAt": "2026-09-23T23:50:45.137Z",
+        "title": "Assistenz- oder Fachpsychologe/in"
+      },
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-4-2",
+        "firstSeenAt": "2026-09-03T23:23:22.027Z",
+        "title": "Assistenz- oder Fachpsychologe/-in"
+      },
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6",
+        "firstSeenAt": "2026-04-14T10:28:30.371Z",
+        "title": "Assistenz- oder Fachpsychologe/in"
+      },
+      {
+        "sourceIdentity": "url:https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-7",
+        "firstSeenAt": "2026-09-23T23:50:45.137Z",
+        "title": "Assistenz- oder Fachpsychologe/in"
+      }
     ]
   },
   {
@@ -2542,31 +2844,48 @@
       "fr": "Description - Vous travaillerez sur la station psychiatrique fermée pour personnes âgées Viola avec 28 lits et ferez partie d'une équipe pluriprofessionnelle qui favorise une collaboration étroite entre les infirmiers, les médecins et les thérapies - Dans ce contexte, vous contribuerez de manière significative à la prise en charge et au traitement des personnes âgées souffrant de troubles mentaux ##\n• Vos responsabilités - Vous assurerez le service de nuit, en fournissant une prise en charge infirmière complète et un soutien aux patients dans le cadre hospitalier - Vous organiserez la prise en charge et le traitement de nuit, en ligne avec les développements et les tendances en psychiatrie - Vous réaliserez des interventions thérapeutiques et offrirez une prise en charge infirmière individuelle et durable - Vous cultiveriez une collaboration constructive avec les collègues du service de jour et de nuit, avec le médecin de nuit, et communiquerez de manière ouverte, individuelle et personnelle ## Notre profil de compétences - Vous êtes Dipl. Infirmier HF / Dipl. Infirmier HF, de préférence avec une expérience en soins psychiatriques et en soutien - Il est aussi important pour vous que pour nous de prendre soin de nos patients à la fois médicalement et infirmiers, ainsi que personnellement - Vous apportez un haut niveau de responsabilité, de résilience et de flexibilité - Vous disposez d'un haut niveau de compétence sociale et personnelle, êtes autonome et créatif ## Ce que nous offrons - Vous travaillerez dans une entreprise orientée vers l'avenir et innovante - Vous assumerez une tâche variée et responsable dans une équipe motivée et pluriprofessionnelle - Vous pouvez bénéficier de notre offre interne de formation et de développement - nous soutenons également vos objectifs de formation et de développement externes - Avec des modèles de temps partiel, 6 semaines de vacances et des congés non rémunérés, vous obtiendrez un équilibre optimal entre travail et vie personnelle"
     },
     "slugByLocale": {
-      "it": "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
-      "en": "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-chur",
+      "it": "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur-f0e96a8d",
+      "en": "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-chur-960d827b",
       "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-3392fd5b",
-      "fr": "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
+      "fr": "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur-aaa74408"
     },
     "sector": "Sanità / Psichiatria",
     "expiredAt": "2026-10-07T21:31:41.950Z",
     "previousSlugs": [
       "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-e11d1825",
       "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-b0b34255",
-      "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-efa4fd1e",
+      "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
+      "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-chur",
+      "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
     ],
     "previousSlugsByLocale": {
       "de": [
         "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-e11d1825",
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-efa4fd1e",
+        "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
+        "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-chur",
+        "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
       ],
       "it": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-efa4fd1e",
+        "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur-f0e96a8d",
+        "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-chur",
+        "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
       ],
       "en": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-b0b34255"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-b0b34255",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-efa4fd1e",
+        "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-chur-960d827b",
+        "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
+        "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
       ],
       "fr": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-b0b34255"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-b0b34255",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-efa4fd1e",
+        "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur-aaa74408",
+        "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
+        "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-chur"
       ]
     },
     "postalCode": "7000",
@@ -4867,36 +5186,40 @@
     "slugByLocale": {
       "it": "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-chur",
       "en": "dipl-nurse-hf-for-the-night-watch-psychiatrische-dienste-graubunden-chur",
-      "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+      "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-b0c62847",
       "fr": "dipl-infirmiere-hf-pour-la-veille-nocturne-psychiatrische-dienste-graubunden-chur"
     },
     "sector": "Sanità / Psichiatria",
     "expiredAt": "2026-09-24T09:45:34.540Z",
     "previousSlugs": [
-      "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
-      "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
       "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis",
       "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2",
       "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-cazis",
       "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
-      "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis"
+      "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis",
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-7a3ad2cf"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-b0c62847",
         "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis",
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-7a3ad2cf"
       ],
       "en": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
-        "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-cazis"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-7a3ad2cf",
+        "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-b0c62847"
       ],
       "fr": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
-        "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-7a3ad2cf",
+        "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-b0c62847"
       ],
       "de": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-b0c62847",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur-7a3ad2cf"
       ]
     },
     "postalCode": "7000",
@@ -5198,6 +5521,56 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.pdgr.ch/jobs/sporttherapeut-in-3"
+  },
+  {
+    "slug": "cuoco-a-afc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+    "title": "Köchin / Koch EFZ",
+    "titleByLocale": {
+      "it": "Köchin / Koch CFC",
+      "en": "Cook EFZ",
+      "de": "Köchin / Koch EFZ",
+      "fr": "Cook EFZ"
+    },
+    "company": "Psychiatrische Dienste Graubünden",
+    "companyKey": "pdgr",
+    "location": "Cazis",
+    "addressLocality": "Cazis",
+    "descriptionByLocale": {
+      "it": "Cook EFZ — Servizi Psichiatrici dei Grigioni (PDGR). Area: Apprendistato. Luogo di lavoro: Cazis (GR). Carico di lavoro: 100%. I Servizi Psichiatrici dei Grigioni (PDGR) sono il principale fornitore di assistenza psichiatrica nel cantone dei Grigioni, con sedi a Coira, Cazis e altri comuni. In quanto istituzione pubblica, offriamo una vasta gamma di servizi di ricovero, ambulatoriali e ambulatori in psichiatria per adulti, bambini e adolescenti, oltre che in medicina legale.\n• Offriamo condizioni di lavoro interessanti, un'ampia gamma di opportunità di formazione ulteriore e un team dedicato e interdisciplinare",
+      "en": "Cook EFZ — Psychiatric Services of the Grisons (PDGR). Area: Apprenticeship. Place of work: Cazis (GR). Workload: 100%. The Psychiatric Services of the Grisons (PDGR) is the leading provider of psychiatric care in the canton of Graubünden with locations in Chur, Cazis and other municipalities. As a public institution, we offer a wide range of inpatient, outpatient and day clinic services in adult, child and adolescent psychiatry as well as forensics.\n• We offer attractive employment conditions, a wide range of further training opportunities and a committed, interdisciplinary team",
+      "de": "Köchin / Koch EFZ — Psychiatrische Dienste Graubünden (PDGR). Bereich: Lehrstelle. Arbeitsort: Cazis (GR). Pensum: 100%. Die Psychiatrischen Dienste Graubünden (PDGR) sind der führende Anbieter psychiatrischer Versorgung im Kanton Graubünden mit Standorten in Chur, Cazis und weiteren Gemeinden. Als öffentlich-rechtliche Anstalt bieten wir ein breites Spektrum an stationären, ambulanten und tagesklinischen Leistungen in der Erwachsenen-, Kinder- und Jugendpsychiatrie sowie der Forensik.\n• Wir bieten attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und ein engagiertes, interdisziplinäres Team",
+      "fr": "Cook EFZ — Services psychiatriques des Grisons (PDGR). Domaine : Apprentissage. Lieu de travail : Cazis (GR). Charge de travail : 100 %. Les Services psychiatriques des Grisons (PDGR) sont le principal prestataire de soins psychiatriques dans le canton des Grisons, avec des sites à Coire, Cazis et dans d'autres communes. En tant qu'institution publique, nous proposons une large gamme de services en hospitalisation, ambulatoire et en clinique de jour en psychiatrie adulte, de l'enfant et de l'adolescent ainsi qu'en médecine légale.\n• Nous proposons des conditions d'emploi attractives, une large gamme d'opportunités de formation complémentaire et une équipe engagée et interdisciplinaire"
+    },
+    "slugByLocale": {
+      "it": "cuoco-a-afc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+      "en": "chef-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+      "de": "kochin-koch-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+      "fr": "cuisiniere-cuisinier-cfc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
+    },
+    "sector": "Sanità / Psichiatria",
+    "expiredAt": "2026-07-12T11:50:02.874Z",
+    "previousSlugs": [
+      "kochin-koch-efz-pdgr-ch",
+      "kochin-koch-cfc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+      "kochin-koch-cfc-psychiatrische-dienste-graubunden-cazis"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "kochin-koch-efz-pdgr-ch"
+      ],
+      "it": [
+        "kochin-koch-efz-pdgr-ch",
+        "kochin-koch-cfc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+        "kochin-koch-cfc-psychiatrische-dienste-graubunden-cazis"
+      ]
+    },
+    "postalCode": "7408",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.pdgr.ch/jobs/koechin-koch-3",
+    "firstSeenAt": "2026-07-29T22:40:25.836Z"
   },
   {
     "slug": "responsabile-controlling-psychiatrische-dienste-graubunden-chur",
@@ -5656,6 +6029,51 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "dipl-attivazione-in-psichiatria-psychiatrische-dienste-graubunden-chur",
+    "title": "Dipl. Aktivierungsfachperson HF",
+    "titleByLocale": {
+      "it": "Dipl. Attivazione in Psichiatria",
+      "en": "Dipl. Aktivierungsfachperson HF",
+      "de": "Dipl. Aktivierungsfachperson HF",
+      "fr": "Dipl. Activateur en Psychiatrie"
+    },
+    "company": "Psychiatrische Dienste Graubünden",
+    "companyKey": "pdgr",
+    "location": "Chur",
+    "addressLocality": "Chur",
+    "descriptionByLocale": {
+      "it": "Il tuo ambiente: Lavorerai nella stazione acutopsichiatrica aperta Maloja con 29 posti letto, specializzata in disturbi affettivi. Ti aspetta un team motivato e interprofessionale che supporta lo scambio professionale, la collaborazione e la formazione. | Le tue attività: Possiedi un alto grado di autonomia e applichi competenze creative, musicali e metodiche di attivazione terapeutica nel tuo lavoro. Organizzi attività di gruppo e ti orienti agli obiettivi terapeutici dei pazienti. Ti integri e collabori con strutture interne ed esterne. Mantieni una comunicazione aperta, individuale e personalizzata. | Il nostro profilo richiesto: Hai una formazione come Dipl. Attivazione in Psichiatria. Hai esperienze nella guida e nel supporto di persone con problemi psichici. Sei una personalità innovativa, creativa e autonomo. Ti piace lavorare in diversi team. | Cosa ti offriamo: Lavorerai in un'azienda orientata al futuro e innovativa. Assumerai un incarico vario e responsabile in un team motivato e interprofessionale. Approfitta del nostro programma di formazione interna – supportiamo anche i tuoi obiettivi di formazione esterna. Goditi un equilibrio ottimale tra lavoro e vita con modelli di lavoro part-time, minimo 6 settimane di ferie e vacanze non retribuite.",
+      "en": "Your environment: You will work on the open acute psychiatric ward Maloja with 29 beds, specialized in affective disorders. You will be part of a motivated, interdisciplinary team that supports professional exchange, collaboration, and training. | Your tasks: You possess a high degree of autonomy and bring creative, musical skills, and activation therapeutic methods into your work. You plan group activities and orient yourself to the treatment goals of the patients. You network and work with internal and external institutions. You maintain an open, individual, and person-centered communication. | Our requirements profile: You have completed training as a Dipl. Activation Specialist in Psychiatry. You have experience in guiding and supporting mentally ill people. You are an innovative, creative, and self-reliant personality. You enjoy working in various teams. | What we offer you: You will work in a future-oriented and innovative company. You will take on a varied and responsible task in a motivated, interdisciplinary team. Take advantage of our internal training program – we also support your external training goals. Enjoy an optimal work-life balance with part-time work models, min. 6 weeks of vacation, and unpaid leave.",
+      "de": "Ihre Umgebung: Sie arbeiten auf der offen geführten akutpsychiatrischen Station Maloja mit 29 Betten, spezialisiert auf affektive Störungen. Dabei erwartet Sie ein motiviertes, interprofessionelles Team, das fachlichen Aus-tausch, Zusammenarbeit und Weiterbildung aktiv unterstützt. | Ihre Aufgaben: • Sie besitzen ein hohes Mass an Eigenverantwortung und bringen kreative, musische Fähigkeiten sowie aktivierungstherapeutische Methoden in Ihre Arbeit ein • Sie planen Aktivitäten in der Gruppe und orientieren sich an den Behandlungszielen der Patientinnen und Patienten • Sie vernetzen sich und arbeiten mit internen und externen Stellen zusammen • Sie pflegen eine offene, individuelle und personenbezogene Kommunikation | Unser Anforderungsprofil: • Sie haben eine abgeschlossene Ausbildung als Dipl. Aktivierungsfachfrau HF / Dipl. Aktivierungsfachmann HF • Sie verfügen über Erfahrungen in der Anleitung und Begleitung psychisch kranker Menschen • Sie sind eine innovative, kreative und selbständig arbeitende Persönlichkeit • Es bereitet Ihnen Freude in verschiedenen Teams zu arbeiten | Wir bieten Ihnen: • Sie arbeiten in einem zukunftsorientierten und innovativen Unternehmen • Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team • Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fort- und Weiterbildungsanliegen • Mit Teilzeitarbeitsmodellen, mind. 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
+      "fr": "Votre environnement: Vous travaillerez sur la station psychiatrique ouverte Maloja avec 29 lits, spécialisée dans les troubles affectifs. Vous ferez partie d'une équipe motivée et pluridisciplinaire qui soutient l'échange professionnel, la collaboration et la formation. | Vos tâches: Vous possédez un haut degré d'autonomie et apportez des compétences créatives, musicales et des méthodes thérapeutiques d'activation dans votre travail. Vous planifiez des activités de groupe et vous orientez vers les objectifs de traitement des patients. Vous vous connectez et travaillez avec des institutions internes et externes. Vous maintenez une communication ouverte, individuelle et centrée sur la personne. | Notre profil de compétences: Vous avez une formation de Dipl. Activateur en Psychiatrie. Vous avez de l'expérience dans l'encadrement et le soutien de personnes souffrant de troubles mentaux. Vous êtes une personnalité innovante, créative et autonome. Vous aimez travailler dans différentes équipes. | Ce que nous vous offrons: Vous travaillerez dans une entreprise orientée vers l'avenir et innovante. Vous assumerez une tâche variée et responsable dans une équipe motivée et pluridisciplinaire. Profitez de notre programme de formation interne – nous soutenons également vos objectifs de formation externe. Profitez d'un équilibre optimal entre la vie professionnelle et la vie personnelle avec des modèles de travail à temps partiel, min. 6 semaines de vacances et des congés non rémunérés."
+    },
+    "slugByLocale": {
+      "it": "dipl-attivazione-in-psichiatria-psychiatrische-dienste-graubunden-chur",
+      "en": "dipl-aktivierungsfachperson-hf-psychiatrische-dienste-graubunden-chur",
+      "de": "dipl-aktivierungsfachperson-hf-pdgr-ch",
+      "fr": "dipl-activateur-en-psychiatrie-psychiatrische-dienste-graubunden-chur"
+    },
+    "sector": "Sanità / Psichiatria",
+    "expiredAt": "2026-04-29T22:24:30.175Z",
+    "previousSlugs": [
+      "dipl-aktivierungsfachperson-hf-pdgr-ch",
+      "dipl-benachrichtigungsfachperson-hf-psychiatrische-dienste-graubunden-chur"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-aktivierungsfachperson-hf-pdgr-ch"
+      ],
+      "de": [
+        "dipl-benachrichtigungsfachperson-hf-psychiatrische-dienste-graubunden-chur"
+      ]
+    },
+    "postalCode": "7000",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "dipl-attivazione-in-psichiatria-psychiatrische-dienste-graubunden-chur-87730b90",
     "title": "Dipl. Aktivierungsfachperson HF",
     "titleByLocale": {
@@ -5939,7 +6357,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis",
+    "slug": "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis-4d9f6fbc",
     "title": "Dipl. Pflegefachperson HF für die Nachtwache",
     "titleByLocale": {
       "it": "Dipl. Assistente infermieristico HF per il turno di notte",
@@ -5958,23 +6376,38 @@
       "fr": "Description Votre environnement: Les stations Cresta et Bernina se trouvent à la clinique Beverin à Cazis dans le même bâtiment. La station Cresta est une station de psychothérapie psychiatrique ouverte avec 16 lits, où des femmes et des hommes dans la deuxième partie de la vie (à partir de 55 ans) sont traités avec des crises de vie spécifiques à l'âge, des troubles dépressifs et d'autres maladies mentales. Sur la station d'urgence de psychiatrie de l'âge ouverte Bernina avec 16 lits, les patients sont traités psychiatiquement et psychothérapeutiquement dans un environnement thérapeutique structuré et protégé. ## Vos tâches - Vous prenez en charge les soins infirmiers complets et le soutien des patients dans le service stationnaire pendant le service de nuit - Vous concevez les soins et le traitement pendant la nuit, en fonction des développements et des tendances en psychiatrie - Vous effectuez des interventions thérapeutiques et offrez une qualité de soins infirmiers individuelle et durable - Vous maintenez une collaboration constructive avec les collègues du service de jour et de nuit, avec le médecin de nuit, et communiquez ouvertement, individuellement et personnellement - Vous travaillez de manière autonome pour les deux stations et coordonnez vos activités entre les stations - Si nécessaire, vous prenez en charge les gardes intensives ou de chaise et accompagnez les patients gravement malades et mourants dans le cadre de nos réglementations internes ## Notre profil de compétences - Vous êtes Dipl. Infirmier HF / Dipl. Infirmier HF, de préférence avec une expérience en soins infirmiers et accompagnement psychiatriques - Il est aussi important pour vous que pour nous de traiter nos patients de manière excellente à la fois médicalement et infirmièrement, ainsi que personnellement - Vous apportez un haut niveau de responsabilité, de résilience et de flexibilité - Vous avez une compétence sociale et de soi bien développée, travaillez de manière autonome et apportez de l'initiative ## Nous vous offrons - Vous travaillez dans une entreprise orientée vers l'avenir et innovante - Vous prenez en charge une tâche variée et responsable dans une équipe motivée et pluridisciplinaire - Utilisez notre offre interne de formation et de développement - nous soutenons également vos objectifs de formation et de développement externes - Avec des modèles de temps partiel, 6 semaines de vacances et des congés non rémunérés, un équilibre optimal travail-vie personnelle"
     },
     "slugByLocale": {
-      "it": "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis",
-      "en": "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-cazis",
-      "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
-      "fr": "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis"
+      "it": "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis-4d9f6fbc",
+      "en": "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-cazis-4f36d171",
+      "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis-ee9a8222",
+      "fr": "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis-358fe0eb"
     },
     "sector": "Sanità / Psichiatria",
     "expiredAt": "2026-04-13T11:05:56.627Z",
-    "previousSlugs": [
-      "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
-      "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2"
-    ],
     "previousSlugsByLocale": {
       "de": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-da4303f2",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis-21c2790f",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-8d65186e"
       ],
       "it": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2-9d1d545f",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-da4303f2",
+        "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis-b2ab1191",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2-755c4186",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-8d65186e"
+      ],
+      "en": [
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-da4303f2",
+        "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-cazis-a06d4089",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-8d65186e"
+      ],
+      "fr": [
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-da4303f2",
+        "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis-e89d93bb",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-8d65186e"
       ]
     },
     "postalCode": "7408",
@@ -6005,6 +6438,17 @@
         "firstSeenAt": "2026-04-14T10:28:30.371Z",
         "title": "Dipl. Pflegefachperson HF für die Nachtwache"
       }
+    ],
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-da4303f2",
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2",
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2-9d1d545f",
+      "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-cazis-b2ab1191",
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-2-755c4186",
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch-8d65186e",
+      "dipl-nurse-hf-for-night-shift-psychiatrische-dienste-graubunden-cazis-a06d4089",
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis-21c2790f",
+      "dipl-infirmier-hf-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-cazis-e89d93bb"
     ]
   },
   {

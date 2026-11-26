@@ -485,11 +485,22 @@ async function fetchJsonWithRetry(url, options = {}) {
 }
 
 const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 60_000;
-// Workday crawler groups run three or four workers. A shared 500ms start
-// interval keeps their aggregate Workday request rate at the existing
-// per-worker default (one request every two seconds) while preventing bursts.
+// Workday crawler groups run several detached workers on one runner. A shared
+// start interval keeps their aggregate request rate below the existing
+// per-worker default while preventing bursts at the tenant/egress boundary.
 const DEFAULT_EGRESS_MIN_DELAY_MS = 500;
 const EGRESS_LOCK_RETRY_MS = 50;
+
+function defaultWorkdayEgressStateDir() {
+  const runnerTemp = String(process.env.RUNNER_TEMP || '').trim();
+  // Unit tests and one-off local crawls do not share an egress with detached
+  // crawler workers. Restrict the implicit path to the generated crawler job;
+  // callers can still opt in explicitly with WORKDAY_EGRESS_STATE_DIR.
+  if (!runnerTemp || (!process.env.CRAWLER_GROUP_MAX_PARALLEL && !process.env.JOBS_SLICE_FILE)) {
+    return null;
+  }
+  return path.join(runnerTemp, 'crawler-generation', 'workday-egress');
+}
 
 function readWorkdayEgressState(statePath) {
   try {
@@ -547,13 +558,16 @@ async function withRunnerWorkdayEgress(operation, {
         return await operation();
       } catch (error) {
         const status = Number(error?.statusCode ?? error?.status);
-        // WorkdayRateLimitError is the local circuit's synthetic stop signal.
-        // Its original HTTP 429 has already recorded the shared cooldown.
-        if (status === 429 && !(error instanceof WorkdayRateLimitError)) {
-          const retryAfterMs = parseRetryAfterMs(
-            error?.retryAfter ?? error?.response?.headers?.get?.('retry-after'),
-            { capMs: retryAfterCapMs },
-          );
+        if (status === 429) {
+          // Persist both source 429s and terminal circuit errors. The latter
+          // carry the remaining in-process Retry-After window, which keeps
+          // another worker from immediately recreating the same burst.
+          const retryAfterMs = Number.isFinite(Number(error?.retryAfterMs))
+            ? Math.min(retryAfterCapMs, Math.max(0, Number(error.retryAfterMs)))
+            : parseRetryAfterMs(
+              error?.retryAfter ?? error?.response?.headers?.get?.('retry-after'),
+              { capMs: retryAfterCapMs },
+            );
           const cooldownMs = retryAfterMs === null
             ? Math.max(0, Number(fallbackCooldownMs) || 0)
             : retryAfterMs;
@@ -621,7 +635,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     retryAfterCapMs = MAX_RETRY_AFTER_MS,
     fallbackCooldownMs = DEFAULT_RATE_LIMIT_COOLDOWN_MS,
     rateLimitCircuitThreshold = DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
-    egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || null,
+    egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || defaultWorkdayEgressStateDir(),
     egressMinDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
   } = options;
   let browserSession = null;

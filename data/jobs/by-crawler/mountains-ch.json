@@ -99,7 +99,8 @@
       },
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-03T10:11:11.242Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources"
     },
     {
       "id": "mountains-ch-84dab299dc9e",
@@ -201,7 +202,8 @@
       },
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-03T10:11:11.233Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz"
     },
     {
       "id": "mountains-ch-e8130da12b54",
@@ -304,7 +306,8 @@
       },
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-03T10:11:11.226Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette"
     }
   ]
 }

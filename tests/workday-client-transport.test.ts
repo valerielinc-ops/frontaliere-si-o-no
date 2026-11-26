@@ -59,18 +59,18 @@ afterEach(() => {
 });
 
 describe('Workday JSON transport', () => {
-  it('shares the runner egress lock and Retry-After cooldown across processes', async () => {
+  it('shares the runner egress lock and Retry-After cooldown across concurrent processes', async () => {
     const egressStateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'workday-egress-test-'));
     const requestTimes: number[] = [];
-    let firstRequestResolve!: () => void;
-    const firstRequest = new Promise<void>((resolve) => { firstRequestResolve = resolve; });
+    const responseStatuses: number[] = [];
     const server = createServer((_request, response) => {
       requestTimes.push(Date.now());
       if (requestTimes.length === 1) {
+        responseStatuses.push(429);
         response.writeHead(429, { 'Retry-After': '1' }).end();
-        firstRequestResolve();
         return;
       }
+      responseStatuses.push(200);
       response.writeHead(200, { 'Content-Type': 'application/json' })
         .end(JSON.stringify({ ok: true }));
     });
@@ -104,14 +104,12 @@ describe('Workday JSON transport', () => {
       });
 
       const first = runClientProcess();
-      await firstRequest;
-      await first;
-      const secondStartedAt = Date.now();
-      await runClientProcess();
+      const second = runClientProcess();
+      await Promise.all([first, second]);
 
       expect(requestTimes).toHaveLength(2);
+      expect(responseStatuses).toEqual([429, 200]);
       expect(requestTimes[1] - requestTimes[0]).toBeGreaterThanOrEqual(900);
-      expect(Date.now() - secondStartedAt).toBeGreaterThanOrEqual(800);
     } finally {
       await new Promise<void>((resolve) => server.close(() => resolve()));
       fs.rmSync(egressStateDir, { recursive: true, force: true });
