@@ -262,5 +262,8 @@ describe('CV by e-mail reply', () => {
     expect(candidateNotesFrom(
       'El lun, 23 nov 2026, 8:35, Valerie · Frontaliere Ticino <\nvalerie@frontaliereticino.ch> escribió:\n> vecchio testo'
     )).toBe('');
+    expect(candidateNotesFrom(
+      'Le mie competenze\nX a écrit:\nnota'
+    )).toBe('Le mie competenze\nX a écrit:\nnota');
   });
 });

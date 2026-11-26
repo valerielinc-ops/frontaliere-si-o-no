@@ -58,6 +58,7 @@ function millis(value) {
 
 /** The reply without quoted history and signatures' long tails. */
 const QUOTE_HEADER_START_RE = /^(?:il giorno|am|le|on|el|em)\b/i;
+const QUOTE_HEADER_DATE_TOKEN_RE = /(?:\b(?:19|20)\d{2}\b|\b\d{1,2}[./-]\d{1,2}\b|\b\d{1,2}:\d{2}\b|\b(?:[012]?\d|3[01])\.?\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|gen|mag|giu|lug|ago|set|ott|dic|f[eé]v|avr|mai|juin|juil|ao[uû]|m[aä]r|okt|dez))/i;
 const QUOTE_HEADER_END_RE = /^(?:il giorno|am|le|on|el|em)\b.{0,240}(?:ha scritto|schrieb|a écrit|wrote|escribi[oó]|escreveu)\s*:?\s*$/iu;
 
 export function candidateNotesFrom(text) {
@@ -83,7 +84,7 @@ export function candidateNotesFrom(text) {
       lines.push(...pendingQuoteHeader);
       pendingQuoteHeader = [];
     }
-    if (QUOTE_HEADER_START_RE.test(trimmed) && trimmed.length <= 200) {
+    if (QUOTE_HEADER_START_RE.test(trimmed) && QUOTE_HEADER_DATE_TOKEN_RE.test(trimmed) && trimmed.length <= 200) {
       pendingQuoteHeader = [line];
       continue;
     }

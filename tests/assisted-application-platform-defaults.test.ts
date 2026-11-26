@@ -700,6 +700,7 @@ describe('birth-year fallback from experience and category B driving licence ded
     expect(platformPostalCountry('Rheinfelden', { postalCode: '4310' })).toBe('CH');
 
     expect(extractCvDatelinePlace('Mit freundlichen Grüssen\nKusterdingen, 15. November 2026\nMax Mustermann')).toBe('Kusterdingen');
+    expect(extractCvDatelinePlace('Paris, November 15, 2026')).toBe('Paris');
     expect(extractCvDatelinePlace('Employer address: Zurich\nTübingen, 12.10.2024')).toBe('Tübingen');
     expect(extractCvDatelinePlace('Employer office: Kusterdingen, 15. November 2026')).toBe('');
 

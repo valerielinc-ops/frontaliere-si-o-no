@@ -255,7 +255,7 @@ export function platformPostalCountry(town, { region = '', country = '', postalC
 }
 
 const DATELINE_MONTH_RE = '(?:januar|j[aä]nner|februar|m[aä]rz|april|mai|juni|juli|august|september|oktober|november|dezember|january|february|march|may|june|july|october|december|gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre|janvier|f[eé]vrier|mars|avril|juin|juillet|ao[uû]t|septembre|octobre|novembre|d[eé]cembre)';
-const CV_DATELINE_RE = new RegExp(`^\\s*([\\p{L}][\\p{L}\\s'’.-]{1,48}?),\\s*(?:(?:den|le|il)\\s+)?(?:\\d{1,2}\\.?\\s+${DATELINE_MONTH_RE}\\s+(?:19|20)\\d{2}|\\d{1,2}[./-]\\d{1,2}[./-](?:19|20)\\d{2})\\s*$`, 'iu');
+const CV_DATELINE_RE = new RegExp(`^\\s*([\\p{L}][\\p{L}\\s'’.-]{1,48}?),\\s*(?:(?:den|le|il)\\s+)?(?:\\d{1,2}\\.?\\s+${DATELINE_MONTH_RE}\\s+(?:19|20)\\d{2}|${DATELINE_MONTH_RE}\\s+\\d{1,2}(?:st|nd|rd|th)?,?\\s+(?:19|20)\\d{2}|\\d{1,2}[./-]\\d{1,2}[./-](?:19|20)\\d{2})\\s*$`, 'iu');
 const DATELINE_EXCLUDED_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|address|country|city|town))|job\s+(?:location|address|city|town)|office|headquarters|sede|datore\s+di\s+lavoro|born|nato|nata|geboren|n[ée]e?\s+le)\b/i;
 
 /** Extract an unambiguous city from standalone CV/cover-letter datelines (e.g. «Kusterdingen, 15. November 2026»). */
