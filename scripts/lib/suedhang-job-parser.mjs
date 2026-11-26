@@ -9,13 +9,18 @@
  * outpatient ambulatori in Bern, Biel, Burgdorf. Listed standalone in the
  * 2026-05 welches-spital inventory (BE, Psichiatria).
  *
- * The careers page is a WordPress site (suedhang.ch is a Tutto Bene Group
- * brand). No third-party ATS — every job is its own permalink under
- * /karriere/offene-stellen/{slug}/ with rich detail content. We scrape the
- * listing index, then fetch each detail page for the description.
+ * The public careers page currently redirects to an Abacus Job Portal, while
+ * older snapshots used WordPress permalinks under
+ * /karriere/offene-stellen/{slug}/. Keep both source shapes trusted so a
+ * platform migration does not turn a live listing into a no-jobs snapshot.
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import {
+  extractJobPostingsLd,
+  jobPostingAddress,
+  jobPostingDescriptionText,
+  selectJobPostingLd,
+} from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -36,7 +41,9 @@ export const SUEDHANG_COMPANY_NAME = 'Klinik Südhang';
 export const SUEDHANG_COMPANY_DOMAIN = 'suedhang.ch';
 
 const LISTING_URL = 'https://www.suedhang.ch/karriere/offene-stellen/';
-const DETAIL_URL_PREFIX = 'https://www.suedhang.ch/karriere/offene-stellen/';
+const ABACUS_PORTAL_URL = 'https://suedhang.jobportal.abaservices.ch/';
+const LEGACY_DETAIL_PATH_RE = /^\/karriere\/offene-stellen\/[^/#?]+\/?$/i;
+const ABACUS_DETAIL_PATH_RE = /^(?:\/[a-z]{2,3})?\/job-advertisement\/[^/?#]+(?:\/[^/?#]+)?\/?$/i;
 
 const POSTAL_CODE_BY_CITY = {
   kirchlindach: '3038',
@@ -66,14 +73,19 @@ export function isSuedhangJob(job) {
     key.startsWith('suedhang') ||
     company.includes('südhang') ||
     company.includes('suedhang') ||
-    url.includes('suedhang.ch')
+    url.includes('suedhang.ch') ||
+    url.includes('suedhang.jobportal.abaservices.ch')
   );
 }
 
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'suedhang.ch' || host.endsWith('.suedhang.ch');
+    return (
+      host === 'suedhang.ch' ||
+      host.endsWith('.suedhang.ch') ||
+      host === 'suedhang.jobportal.abaservices.ch'
+    );
   } catch {
     return false;
   }
@@ -81,17 +93,32 @@ export function isTrustedDomain(rawUrl = '') {
 
 /* ── Listing parser ────────────────────────────────────────── */
 
-function parseListing(html = '') {
+export function parseListing(html = '') {
   const out = [];
   const seen = new Set();
-  const re = /<a[^>]*href="(https:\/\/www\.suedhang\.ch\/karriere\/offene-stellen\/[^/"#]+\/)"[^>]*>([\s\S]*?)<\/a>/gi;
+  // The portal emits both absolute and relative links, with either quote
+  // style. Resolve them before validating host and path so a same-shaped
+  // external link cannot enter the crawl.
+  const re = /<a\b[^>]*\bhref\s*=\s*(["'])([^"'<>]+)\1[^>]*>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
-    const url = m[1];
+    const rawHref = decodeEntities(m[2].trim());
+    let parsedUrl;
+    try {
+      const baseUrl = /^(?:\/?\.?\/)?job-advertisement\//i.test(rawHref)
+        ? ABACUS_PORTAL_URL
+        : LISTING_URL;
+      parsedUrl = new URL(rawHref, baseUrl);
+    } catch {
+      continue;
+    }
+    if (parsedUrl.protocol !== 'https:' || !isTrustedDomain(parsedUrl.toString())) continue;
+    if (!LEGACY_DETAIL_PATH_RE.test(parsedUrl.pathname) && !ABACUS_DETAIL_PATH_RE.test(parsedUrl.pathname)) continue;
+    parsedUrl.hash = '';
+    const url = parsedUrl.toString();
     if (seen.has(url)) continue;
-    if (url.endsWith('/offene-stellen/')) continue;
     seen.add(url);
-    const text = normalizeSpace(decodeEntities(m[2].replace(/<[^>]+>/g, ' ')));
+    const text = normalizeSpace(decodeEntities(m[3].replace(/<[^>]+>/g, ' ')));
     if (!text || text.length < 3) continue;
     out.push({ url, titleHint: text });
   }
@@ -100,61 +127,88 @@ function parseListing(html = '') {
 
 /* ── Detail extraction ─────────────────────────────────────── */
 
-function extractDetail(html = '') {
-  if (!html) return { title: '', description: '', location: '', pensum: '' };
-  const noScripts = String(html)
+const DETAIL_SECTIONS = ['introduction', 'jobtitle', 'tasks', 'benefits', 'requirements', 'contact', 'closure'];
+
+export function extractDetail(html = '', expectedUrl = '', expectedTitle = '') {
+  if (!html) return { title: '', description: '', location: '', pensum: '', datePosted: '' };
+  const rawHtml = String(html);
+  const structuredPosting = selectJobPostingLd(extractJobPostingsLd(rawHtml), {
+    url: expectedUrl,
+    title: expectedTitle,
+  });
+  const structuredDescription = jobPostingDescriptionText(structuredPosting?.description || '');
+  const noScripts = rawHtml
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replace(/<style[\s\S]*?<\/style>/gi, '');
 
-  // Title from <h1> (or first h2 in main)
+  // Title from the visible heading, with the page's own JobPosting as a
+  // source-owned fallback when the portal renders its content client-side.
   let title = '';
   const h1 = noScripts.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   if (h1) title = normalizeSpace(decodeEntities(h1[1].replace(/<[^>]+>/g, ' ')));
+  if (!title) title = normalizeSpace(decodeEntities(structuredPosting?.title || ''));
 
-  // Suedhang uses Gutenberg WP blocks: <div class="content page-content">…</div>
-  // wraps the actual body. Slice from there to the next </footer> or the
-  // sibling </div> closing the page wrapper — but since the WP HTML has many
-  // nested divs, easier: take everything from the `content page-content` opener
-  // up to the start of the footer/page-footer.
   let body = noScripts;
   // The description is published only from a delimited container: with no
   // length cap, the whole-page fallback (kept for the Arbeitsort/pensum
   // lookups below) must not become the vacancy text.
   let bodyIsDelimited = false;
-  const startMatch = noScripts.match(/<div[^>]*class="content page-content"[^>]*>/i);
-  if (startMatch) {
-    const startIx = startMatch.index + startMatch[0].length;
-    // Find the next "footer-like" tag — sticky-footer / <footer> / sibling page block
-    const tail = noScripts.slice(startIx);
-    const cutMatch = tail.match(/<footer\b|<div[^>]*class="[^"]*(?:page-footer|site-footer|footer-wrap|cf-footer)/i);
-    body = cutMatch ? tail.slice(0, cutMatch.index) : tail;
-    bodyIsDelimited = Boolean(cutMatch);
+  const sectionParts = [];
+  for (const section of DETAIL_SECTIONS) {
+    const sectionRe = new RegExp(
+      `<div\\b[^>]*class="[^"]*\\b${section}\\b[^"]*"[^>]*>([\\s\\S]*?)<\\/div>`,
+      'gi',
+    );
+    let sectionMatch;
+    while ((sectionMatch = sectionRe.exec(noScripts)) !== null) {
+      const part = sectionMatch[1].trim();
+      if (part) sectionParts.push(part);
+    }
+  }
+  if (sectionParts.length > 0) {
+    body = sectionParts.join('\n\n');
+    bodyIsDelimited = true;
   } else {
-    const mainMatch = noScripts.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-      || noScripts.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
-      || noScripts.match(/<div[^>]*class="[^"]*(?:entry-content|content-wrap|page-content)[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/i);
-    body = mainMatch ? mainMatch[1] : noScripts;
-    bodyIsDelimited = Boolean(mainMatch);
+    // Legacy Suedhang pages use Gutenberg WP blocks: slice the content
+    // wrapper to the next footer-like sibling instead of publishing the
+    // whole page shell as the vacancy body.
+    const startMatch = noScripts.match(/<div[^>]*class="content page-content"[^>]*>/i);
+    if (startMatch) {
+      const startIx = startMatch.index + startMatch[0].length;
+      const tail = noScripts.slice(startIx);
+      const cutMatch = tail.match(/<footer\b|<div[^>]*class="[^"]*(?:page-footer|site-footer|footer-wrap|cf-footer)/i);
+      body = cutMatch ? tail.slice(0, cutMatch.index) : tail;
+      bodyIsDelimited = Boolean(cutMatch);
+    } else {
+      const mainMatch = noScripts.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+        || noScripts.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
+        || noScripts.match(/<div[^>]*class="[^"]*(?:entry-content|content-wrap|page-content)[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/i);
+      body = mainMatch ? mainMatch[1] : noScripts;
+      bodyIsDelimited = Boolean(mainMatch);
+    }
   }
 
   const text = normalizeSpace(htmlToText(body));
+  const locationText = text || structuredDescription;
 
   // Heuristic location + pensum from text (e.g. "Arbeitsort Klinik Südhang, Kirchlindach")
   let location = '';
-  const arbeitsortMatch = text.match(/Arbeitsort[: ]+([^.]{3,120}?)(?:\s+Beschäftigungsgrad|\s+Stellenantritt|\s+Pensum|\.|$)/i);
+  const arbeitsortMatch = locationText.match(/Arbeitsort[: ]+([^.]{3,120}?)(?:\s+Beschäftigungsgrad|\s+Stellenantritt|\s+Pensum|\.|$)/i);
   if (arbeitsortMatch) {
     location = normalizeSpace(arbeitsortMatch[1]).replace(/Klinik Südhang,?\s*/i, '').trim();
   }
+  if (!location) location = jobPostingAddress(structuredPosting).addressLocality;
 
   let pensum = '';
-  const pensumMatch = text.match(/Beschäftigungsgrad[: ]+([\d\s\-–%]{3,30})/i);
+  const pensumMatch = locationText.match(/Beschäftigungsgrad[: ]+([\d\s\-–%]{3,30})/i);
   if (pensumMatch) pensum = normalizeSpace(pensumMatch[1]);
 
   return {
     title,
-    description: bodyIsDelimited ? text : '',
+    description: bodyIsDelimited ? text : structuredDescription,
     location,
     pensum,
+    datePosted: structuredPosting?.datePosted || '',
   };
 }
 
@@ -206,7 +260,7 @@ export async function fetchAllSuedhangJobs() {
     }
     if (jobs.length > 0) await new Promise((r) => setTimeout(r, 350));
 
-    const detail = extractDetail(detailHtml);
+    const detail = extractDetail(detailHtml, tile.url, tile.titleHint);
     const title = normalizeSpace(detail.title || tile.titleHint);
     if (!title || title.length < 3) continue;
 
@@ -262,7 +316,7 @@ export async function fetchAllSuedhangJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      ...sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted),
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: tile.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
