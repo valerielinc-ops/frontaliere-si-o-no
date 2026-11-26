@@ -515,17 +515,25 @@ export async function fetchGa4PageViews({
     },
   });
   const pageViews = new Map();
+  let invalidRows = 0;
   for (const row of report.rows) {
     const path = row.dimensionValues?.[0]?.value || '';
-    const count = Number(row.metricValues?.[0]?.value || 0);
-    if (!path || !Number.isFinite(count) || count < 0) continue;
+    if (!path) continue;
+    const rawCount = row.metricValues?.[0]?.value;
+    const count = Number(rawCount);
+    if (rawCount === undefined || rawCount === null || String(rawCount).trim() === ''
+      || !Number.isFinite(count) || count < 0) {
+      invalidRows += 1;
+      continue;
+    }
     pageViews.set(path, count);
   }
   const metadata = report.metadata;
   const otherCount = report.rows
     .filter((row) => row.dimensionValues?.some((dimension) => dimension?.value === '(other)'))
     .reduce((sum, row) => sum + (Number(row.metricValues?.[0]?.value || 0) || 0), 0);
-  const incomplete = !report.complete
+  const incomplete = invalidRows > 0
+    || !report.complete
     || Boolean(metadata.dataLossFromOtherRow)
     || Boolean(metadata.subjectToThresholding)
     || Boolean(metadata.dataTruncationReasons?.length)
@@ -542,6 +550,7 @@ export async function fetchGa4PageViews({
       dataTruncationReasons: metadata.dataTruncationReasons || [],
       samplingMetadatas: metadata.samplingMetadatas || [],
       otherCount,
+      invalidRows,
       truncated: !report.complete,
     },
     enumerable: false,

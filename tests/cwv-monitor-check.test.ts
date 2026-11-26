@@ -252,6 +252,14 @@ describe('main() — GA4 is the only source (H9)', () => {
     return pageViews;
   }
 
+  function incompleteGa4PageViews() {
+    const pageViews = new Map();
+    Object.defineProperty(pageViews, 'coverage', {
+      value: { complete: false, invalidRows: 1, timeZone: 'Europe/Zurich' },
+    });
+    return pageViews;
+  }
+
   beforeEach(() => {
     vi.resetAllMocks();
     process.env.CWV_MONITOR_HISTORY_FILE = HISTORY;
@@ -354,6 +362,21 @@ describe('main() — GA4 is the only source (H9)', () => {
       checkLivenessImpl: async () => ALIVE,
       ga4FallbackImpl: async () => ga4Rows({ skip: [missingPath] }),
       ga4PageViewsImpl: async () => ga4PageViews({ [missingPath]: 1 }),
+    });
+
+    expect(result.status).toBe('source-unavailable');
+    expect(result.unavailablePages).toContain('traffico_chiasso_brogeda_oggi');
+    expect(loadHistory(HISTORY).pages.traffico_chiasso_brogeda_oggi.weeks.at(-1)).toMatchObject({
+      sourceUnavailable: 'no target observations in 7d window',
+    });
+  });
+
+  it('fails closed when the page-view report has an incomplete target row', async () => {
+    const missingPath = '/traffico-dogane/chiasso-brogeda/oggi/';
+    const result = await main({
+      checkLivenessImpl: async () => ALIVE,
+      ga4FallbackImpl: async () => ga4Rows({ skip: [missingPath] }),
+      ga4PageViewsImpl: async () => incompleteGa4PageViews(),
     });
 
     expect(result.status).toBe('source-unavailable');

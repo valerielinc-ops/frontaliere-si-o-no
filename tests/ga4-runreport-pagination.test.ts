@@ -174,6 +174,29 @@ describe('fetchGa4PageViews', () => {
     expect(pageViews.get('/quiet-page/')).toBe(0);
     expect(pageViews.coverage).toMatchObject({ complete: true, truncated: false });
   });
+
+  it('marks a target row with a missing screenPageViews value incomplete', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ rows: [{
+        dimensionValues: [{ value: '/quiet-page/' }],
+        metricValues: [],
+      }] }),
+      text: async () => '',
+    }));
+
+    const pageViews: any = await fetchGa4PageViews({
+      token: 't',
+      startDate: '2026-09-01',
+      endDate: '2026-09-07',
+      paths: ['/quiet-page/'],
+      fetchImpl,
+    });
+
+    expect(pageViews.get('/quiet-page/')).toBeUndefined();
+    expect(pageViews.coverage).toMatchObject({ complete: false, invalidRows: 1 });
+  });
 });
 
 // Fake della Data API che rispetta offset/limit (default GA4: 10000 righe).
