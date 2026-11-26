@@ -816,6 +816,108 @@ export function createCrawlerDetailSnapshotFailure(message, candidates, rejected
   return error;
 }
 
+function normalizeWeisseArenaJobNumber(value) {
+  const jobNumber = String(value ?? '').trim().toUpperCase();
+  return /^WAG\d+$/.test(jobNumber) ? jobNumber : '';
+}
+
+/**
+ * Validate the complete Weisse Arena listing receipt before the pipeline may
+ * use the existing authoritative-snapshot path for a non-empty batch.
+ */
+function getCompleteWeisseArenaListingSnapshot({ companyKey, fetchMetadata, parsedJobs }) {
+  if (companyKey !== 'weisse-arena' || !Array.isArray(parsedJobs)) return null;
+
+  const snapshot = fetchMetadata?.sourceListingSnapshot;
+  const listingIdentities = snapshot?.listingIdentities;
+  const processedIdentities = snapshot?.processedIdentities;
+  const listingJobNumbers = snapshot?.listingJobNumbers;
+  const processedJobNumbers = snapshot?.processedJobNumbers;
+  const listingCount = snapshot?.listingCount;
+  const minimumExpectedCount = snapshot?.minimumExpectedCount;
+  const terminalJobsCount = snapshot?.terminalJobsCount;
+
+  if (
+    snapshot?.source !== companyKey
+    || snapshot.complete !== true
+    || !Number.isSafeInteger(snapshot.pageCount)
+    || snapshot.pageCount < 1
+    || !Number.isSafeInteger(listingCount)
+    || listingCount < 0
+    || !Number.isSafeInteger(minimumExpectedCount)
+    || minimumExpectedCount < 0
+    || listingCount < minimumExpectedCount
+    || !Number.isSafeInteger(snapshot.terminalOffset)
+    || snapshot.terminalOffset !== listingCount
+    || !Number.isSafeInteger(terminalJobsCount)
+    || terminalJobsCount < 0
+    || typeof snapshot.terminalJobsOmitted !== 'boolean'
+    || (snapshot.terminalJobsOmitted && terminalJobsCount !== 0)
+    || !Array.isArray(listingIdentities)
+    || !Array.isArray(processedIdentities)
+    || !Array.isArray(listingJobNumbers)
+    || !Array.isArray(processedJobNumbers)
+    || snapshot.processedCount !== listingCount
+    || fetchMetadata.discoveredCount !== listingCount
+    || parsedJobs.length !== listingCount
+    || listingIdentities.length !== listingCount
+    || processedIdentities.length !== listingCount
+    || listingJobNumbers.length !== listingCount
+    || processedJobNumbers.length !== listingCount
+  ) return null;
+
+  const normalizedListingNumbers = listingJobNumbers.map(normalizeWeisseArenaJobNumber);
+  const normalizedProcessedNumbers = processedJobNumbers.map(normalizeWeisseArenaJobNumber);
+  const normalizedListingIdentities = listingIdentities.map(normalizeWeisseArenaJobNumber);
+  const normalizedProcessedIdentities = processedIdentities.map(normalizeWeisseArenaJobNumber);
+  const normalizedParsedNumbers = parsedJobs.map((job) => normalizeWeisseArenaJobNumber(job?.jobNumber));
+  if (
+    normalizedListingIdentities.some((identity, index) => !identity || identity !== normalizedListingNumbers[index])
+    || new Set(normalizedListingIdentities).size !== listingCount
+    || normalizedProcessedIdentities.some((identity, index) => identity !== normalizedListingIdentities[index])
+    || normalizedListingNumbers.some((jobNumber) => !jobNumber)
+    || new Set(normalizedListingNumbers).size !== listingCount
+    || normalizedProcessedNumbers.some((jobNumber, index) => jobNumber !== normalizedListingNumbers[index])
+    || normalizedParsedNumbers.some((jobNumber, index) => jobNumber !== normalizedListingNumbers[index])
+  ) return null;
+
+  return { currentJobNumbers: new Set(normalizedListingNumbers) };
+}
+
+/**
+ * Use an already-validated TalentLink listing as source proof for Weisse Arena
+ * shrink removals. Without the authoritative-snapshot verdict, the ordinary
+ * URL probe and central shrink guard remain the only path.
+ */
+function buildWeisseArenaListingHousekeepingProof({
+  companyKey,
+  verifiedSnapshot,
+  authoritativeSnapshotVerified,
+  removedJobs,
+  isCompanyJob,
+}) {
+  if (
+    companyKey !== 'weisse-arena'
+    || authoritativeSnapshotVerified !== true
+    || !verifiedSnapshot
+    || !Array.isArray(removedJobs)
+  ) return [];
+
+  const currentJobNumbers = verifiedSnapshot.currentJobNumbers;
+  return removedJobs
+    .filter((job) => {
+      if (typeof isCompanyJob === 'function' && !isCompanyJob(job)) return false;
+      if (typeof job?.url !== 'string' || !job.url.trim()) return false;
+      const jobNumber = normalizeWeisseArenaJobNumber(job?.jobNumber);
+      return Boolean(jobNumber && !currentJobNumbers.has(jobNumber));
+    })
+    .map((job) => ({
+      job,
+      reason: 'weisse-arena-complete-listing-absence',
+      definitive: true,
+    }));
+}
+
 // A source-specific parser may report how many otherwise-valid listings it
 // discarded because it could not derive a per-vacancy detail URL. Once that
 // loss exceeds 40% of the existing slice, keep the old slice: the ordinary
@@ -1058,6 +1160,12 @@ export async function runStandardCrawlerPipeline(config) {
     throw err;
   }
 
+  const completeWeisseArenaListingSnapshot = getCompleteWeisseArenaListingSnapshot({
+    companyKey,
+    fetchMetadata,
+    parsedJobs,
+  });
+
   if (Number.isFinite(fetchMetadata?.discoveredCount)) {
     counts.discovered = fetchMetadata.discoveredCount;
   }
@@ -1115,10 +1223,11 @@ export async function runStandardCrawlerPipeline(config) {
   }
 
   // Only a run with an explicit proof may retire every unmatched record
-  // immediately: a source-specific validator wired by the runner, or an empty
-  // batch the parser stamped as a source-proven zero. Validation runs before
-  // the zero-job soft exit and before any scratch/archive write, so a partial
-  // or degraded crawl fails closed with the existing slice untouched.
+  // immediately: a source-specific validator wired by the runner, the
+  // Weisse Arena complete-listing receipt checked through that same contract,
+  // or an empty batch the parser stamped as a source-proven zero. Validation
+  // runs before the zero-job soft exit and before any scratch/archive write, so
+  // a partial or degraded crawl fails closed with the existing slice untouched.
   const {
     authoritativeSnapshotVerified,
     authoritativeEmptySnapshot,
@@ -1126,7 +1235,16 @@ export async function runStandardCrawlerPipeline(config) {
   } = evaluateAuthoritativeSnapshot(
     parsedJobs,
     {
-      validateAuthoritativeSnapshot,
+      // Bind Weisse Arena's listing receipt to the existing proof gate. A
+      // missing or incomplete receipt therefore throws before merge, archive,
+      // or writer logic can observe a smaller batch.
+      validateAuthoritativeSnapshot: companyKey === 'weisse-arena'
+        ? (jobs) => (
+          jobs === parsedJobs
+          && completeWeisseArenaListingSnapshot !== null
+          && (!validateAuthoritativeSnapshot || validateAuthoritativeSnapshot(jobs) === true)
+        )
+        : validateAuthoritativeSnapshot,
       allowAuthoritativeEmptySnapshot,
       authoritativeSnapshotScope,
       companyLabel,
@@ -1417,32 +1535,45 @@ export async function runStandardCrawlerPipeline(config) {
     Array.isArray(parsedJobs) ? parsedJobs.filter(hasSourceBodyFailure) : [],
     sourceBodyMatchKey,
   );
+  const weisseArenaListingHousekeepingProof = buildWeisseArenaListingHousekeepingProof({
+    companyKey,
+    verifiedSnapshot: completeWeisseArenaListingSnapshot,
+    authoritativeSnapshotVerified,
+    removedJobs: diff.removedJobs,
+    isCompanyJob,
+  });
   const housekeepingProof = [
     ...(thinHousekeepingProof || []),
     ...(sourceFailureHousekeepingProof || []),
+    ...weisseArenaListingHousekeepingProof,
   ];
 
   // Evidence-gated write (#5016/#5017). Identical to writeJobsCrawlerSlice
-  // until the anti-shrink guard trips; then the disappearing jobs are probed
-  // at their own source URLs and the smaller slice is accepted ONLY if every
-  // one of them is provably gone. A degraded/blocked source still fails here
-  // exactly as before — the threshold is unchanged, the proof is the addition.
+  // until the anti-shrink guard trips; then every disappearing job needs
+  // definitive evidence, either from a validated source listing or its own
+  // source URL. A degraded/blocked source still fails here — the threshold is
+  // unchanged, and only the Weisse Arena listing receipt adds source evidence.
   await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, {
     isTargetJob: isCompanyJob,
     preserveExistingSlugs,
     ...(housekeepingProof.length > 0 ? { housekeepingProof } : {}),
-    ...(sourceFailureHousekeepingProof ? { verifyUnprovenHousekeeping: true } : {}),
+    ...(
+      sourceFailureHousekeepingProof || weisseArenaListingHousekeepingProof.length > 0
+        ? { verifyUnprovenHousekeeping: true }
+        : {}
+    ),
     // The source-specific validator has already proven that every attempted
     // detail became one rich, unique published row. If the central guard trips,
     // URL probes remain weaker for WordPress archives that keep retired detail
     // pages reachable with HTTP 200, but the validator is still useful evidence
     // for the guarded decision below.
     //
-    // A non-empty source proof describes the current listing, but does not prove
-    // that a sudden loss of previously published records is real. Keep the
-    // central anti-shrink guard active for non-empty snapshots; only an explicit
-    // authoritative zero may bypass it. This catches source/parser regressions
-    // such as a complete board collapsing to a handful of rows (#9398).
+    // Keep the central anti-shrink guard active for every non-empty snapshot.
+    // The Weisse Arena receipt above can prove specific absent IDs only through
+    // writeJobsCrawlerSliceVerified; it never skips that guard. Only an explicit
+    // authoritative zero may bypass it directly. This still catches source or
+    // parser regressions such as a complete board collapsing to a handful of
+    // rows (#9398).
     skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
   });
   writeSummaryCrawlerSlice({

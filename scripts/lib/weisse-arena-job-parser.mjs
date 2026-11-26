@@ -216,30 +216,26 @@ async function callTalentLinkApi(url, body = null) {
 /**
  * Fetch all job listings from the TalentLink API.
  * Uses the source-declared count as a minimum completeness boundary. TalentLink
- * can return a stale or short count, so reaching that count is not an
- * end-of-list signal; an empty page after the boundary is required.
+ * can return either a stable total or a count of jobs remaining at the current
+ * offset, and the count may be stale or short. Keep the largest count and
+ * expand the boundary with every observed row; an empty page after that
+ * boundary is required to prove the crawl is complete.
  */
 async function fetchJobListingsOnce() {
   const allJobs = [];
   const seenListingIds = new Set();
-  let declaredTotal = null;
+  let minimumExpectedCount = null;
   let offset = 0;
+  let pageCount = 0;
+  let terminalOffset = null;
+  let terminalJobsCount = null;
+  let terminalJobsOmitted = false;
 
   while (true) {
     console.log(`  📄 Fetching jobs at offset ${offset}...`);
     const url = `${API_BASE}?firstResult=${offset}&maxResults=${PAGE_SIZE}&sortBy=DPOSTINGSTART&sortOrder=desc`;
     const data = await callTalentLinkApi(url, { searchCriteria: {} });
-
-    if (!Array.isArray(data?.jobs)) {
-      const error = new Error('Weisse Arena source response did not expose a jobs array; refusing an unverified partial crawl.');
-      error.code = INVALID_LISTING_ENVELOPE_ERROR_CODE;
-      throw error;
-    }
-    const jobs = assertJsonListShape(data, {
-      key: 'jobs',
-      source: WEISSE_ARENA_KEY,
-      rowShapeOk: (row) => row && typeof row === 'object' && !Array.isArray(row),
-    });
+    pageCount += 1;
 
     const rawTotal = data?.globals?.jobsCount;
     const hasUsableRawTotal = (typeof rawTotal === 'number' && Number.isFinite(rawTotal))
@@ -253,22 +249,50 @@ async function fetchJobListingsOnce() {
         + 'refusing an unverified partial crawl.',
       );
     }
-    if (declaredTotal === null) {
-      declaredTotal = totalCount;
-    } else if (totalCount !== declaredTotal) {
-      throw new Error(
-        `Weisse Arena source changed its declared job count from ${declaredTotal} to ${totalCount} during pagination.`,
-      );
-    }
+    minimumExpectedCount = minimumExpectedCount === null
+      ? totalCount
+      : Math.max(minimumExpectedCount, totalCount);
 
-    if (jobs.length === 0) {
-      if (allJobs.length < declaredTotal) {
+    const hasJobsField = data !== null && typeof data === 'object'
+      && Object.prototype.hasOwnProperty.call(data, 'jobs');
+    let jobs;
+    if (Array.isArray(data?.jobs)) {
+      jobs = assertJsonListShape(data, {
+        key: 'jobs',
+        source: WEISSE_ARENA_KEY,
+        rowShapeOk: (row) => row && typeof row === 'object' && !Array.isArray(row),
+      });
+    } else if (!hasJobsField && rawTotal === 0 && allJobs.length === offset) {
+      // TalentLink returns { globals: { jobsCount: 0 } } at the terminal offset
+      // instead of an explicit jobs: [] array. Treat that shape as empty only
+      // when the offset accounts for every row already collected and the
+      // minimum completeness boundary has been reached.
+      if (allJobs.length < minimumExpectedCount) {
         const error = new Error(
-          `Weisse Arena pagination incomplete: fetched ${allJobs.length}/${declaredTotal} declared jobs before an empty page.`,
+          `Weisse Arena pagination incomplete: fetched ${allJobs.length}/${minimumExpectedCount} `
+            + 'minimum expected jobs before the terminal response omitted its jobs array.',
         );
         error.code = PAGINATION_INCOMPLETE_ERROR_CODE;
         throw error;
       }
+      jobs = [];
+    } else {
+      const error = new Error('Weisse Arena source did not expose a valid jobs array; refusing an unverified partial crawl.');
+      error.code = INVALID_LISTING_ENVELOPE_ERROR_CODE;
+      throw error;
+    }
+
+    if (jobs.length === 0) {
+      if (allJobs.length < minimumExpectedCount) {
+        const error = new Error(
+          `Weisse Arena pagination incomplete: fetched ${allJobs.length}/${minimumExpectedCount} minimum expected jobs before an empty page.`,
+        );
+        error.code = PAGINATION_INCOMPLETE_ERROR_CODE;
+        throw error;
+      }
+      terminalOffset = offset;
+      terminalJobsCount = totalCount;
+      terminalJobsOmitted = !hasJobsField;
       break;
     }
 
@@ -280,7 +304,8 @@ async function fetchJobListingsOnce() {
         );
       }
 
-      const identity = firstNonEmptyValue(fields.jobNumber, fields.id, listing.id);
+      const sourceJobNumber = firstNonEmptyValue(fields.jobNumber);
+      const identity = firstNonEmptyValue(sourceJobNumber, fields.id, listing.id);
       if (!identity) {
         throw new Error(
           `Weisse Arena listing row ${index + 1} at offset ${offset} has no stable identity; refusing a partial crawl.`,
@@ -300,8 +325,12 @@ async function fetchJobListingsOnce() {
         );
       }
 
-      allJobs.push({ listing, identity, title });
+      allJobs.push({ listing, identity, title, sourceJobNumber });
     }
+
+    // The counter can lag behind the rows already returned. Observed rows are
+    // authoritative evidence that the minimum boundary must expand.
+    minimumExpectedCount = Math.max(minimumExpectedCount, allJobs.length);
 
     // firstResult is a record offset, not a page number. Advance by what the
     // source actually returned so a provider-side short page cannot skip the
@@ -312,33 +341,29 @@ async function fetchJobListingsOnce() {
     await new Promise((r) => setTimeout(r, 500));
   }
 
-  return allJobs;
+  return {
+    listings: allJobs,
+    sourceListingSnapshot: {
+      source: WEISSE_ARENA_KEY,
+      complete: true,
+      pageCount,
+      minimumExpectedCount,
+      terminalOffset,
+      terminalJobsCount,
+      terminalJobsOmitted,
+      listingCount: allJobs.length,
+      listingIdentities: allJobs.map(({ identity }) => identity),
+      listingJobNumbers: allJobs.map(({ sourceJobNumber }) => sourceJobNumber),
+    },
+  };
 }
 
-async function fetchJobListings({ minimumExpectedCount = 0 } = {}) {
-  const expectedCount = Number.isSafeInteger(minimumExpectedCount) && minimumExpectedCount > 0
-    ? minimumExpectedCount
-    : 0;
+async function fetchJobListings() {
   let lastError;
 
   for (let attempt = 1; attempt <= LISTING_SNAPSHOT_MAX_ATTEMPTS; attempt += 1) {
     try {
-      const listings = await fetchJobListingsOnce();
-      if (expectedCount === 0 || listings.length >= expectedCount) {
-        return listings;
-      }
-
-      if (attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
-        throw new Error(
-          `Weisse Arena listing snapshot remained incomplete after ${LISTING_SNAPSHOT_MAX_ATTEMPTS} attempts: `
-            + `fetched ${listings.length}/${expectedCount} jobs; refusing a partial crawl.`,
-        );
-      }
-
-      console.warn(
-        `⚠️ Weisse Arena listing snapshot returned ${listings.length}/${expectedCount} jobs; `
-          + `retrying attempt ${attempt + 1}/${LISTING_SNAPSHOT_MAX_ATTEMPTS}`,
-      );
+      return await fetchJobListingsOnce();
     } catch (error) {
       lastError = error;
       if (!RETRYABLE_LISTING_SNAPSHOT_ERROR_CODES.has(error?.code)
@@ -401,25 +426,35 @@ export function buildDetailUrl(jobId, jobTitle = '') {
 
 /**
  * Fetch all Weisse Arena Gruppe jobs.
- * Returns an array of ParsedJob objects (source-locale only).
+ * Returns parsed source-locale jobs plus a complete listing snapshot receipt.
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllWeisseArenaJobs({ existingJobs = [] } = {}) {
+export async function fetchAllWeisseArenaJobs() {
   console.log(`🔍 Fetching Weisse Arena Gruppe jobs`);
   console.log(`   Source: ${DETAIL_BASE}\n`);
 
-  const minimumExpectedCount = Array.isArray(existingJobs) ? existingJobs.length : 0;
-  const listings = await fetchJobListings({ minimumExpectedCount });
+  const { listings, sourceListingSnapshot } = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned from TalentLink API.');
-    return [];
+    return {
+      jobs: [],
+      discoveredCount: 0,
+      sourceListingSnapshot: {
+        ...sourceListingSnapshot,
+        processedCount: 0,
+        processedIdentities: [],
+        processedJobNumbers: [],
+      },
+    };
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  const processedIdentities = [];
+  const processedJobNumbers = [];
 
   for (const { listing, identity, title } of listings) {
     const fields = listing.jobFields || {};
@@ -509,9 +544,31 @@ export async function fetchAllWeisseArenaJobs({ existingJobs = [] } = {}) {
     if (contractLabel) job.contractLabel = contractLabel;
 
     jobs.push(job);
+    processedIdentities.push(identity);
+    processedJobNumbers.push(jobNumber);
     console.log(`  ✅ ${title.substring(0, 55)} — ${department} (${pensumStr})`);
   }
 
+  if (
+    jobs.length !== listings.length
+    || sourceListingSnapshot.listingCount !== listings.length
+    || processedIdentities.length !== sourceListingSnapshot.listingIdentities.length
+    || processedJobNumbers.length !== sourceListingSnapshot.listingJobNumbers.length
+    || processedIdentities.some((identity, index) => identity !== sourceListingSnapshot.listingIdentities[index])
+    || processedJobNumbers.some((jobNumber, index) => jobNumber !== sourceListingSnapshot.listingJobNumbers[index])
+  ) {
+    throw new Error('Weisse Arena source listing snapshot did not process every unique API record; refusing to attest a complete crawl.');
+  }
+
   console.log(`\n📋 Total Weisse Arena Gruppe jobs discovered: ${jobs.length}`);
-  return jobs;
+  return {
+    jobs,
+    discoveredCount: listings.length,
+    sourceListingSnapshot: {
+      ...sourceListingSnapshot,
+      processedCount: jobs.length,
+      processedIdentities,
+      processedJobNumbers,
+    },
+  };
 }
