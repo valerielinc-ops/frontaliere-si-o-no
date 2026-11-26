@@ -557,6 +557,7 @@ const PROFILE_DATE_FIELD_PATTERNS = [
   [/^(?:start date|from|da|von|de|à)\s*[＊*]?$/iu, 'start'],
   [/^(?:end date|to|a|bis)\s*[＊*]?$/iu, 'end'],
 ];
+const PROFILE_ENDPOINT_OWNER_RE = /^(?:start|end)(?:date)?$/iu;
 
 function profileMatchText(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
@@ -684,7 +685,8 @@ function profileControlOwners(field, endpoint, values) {
   return [...new Set(values.map((value) => profileMatchText(value)).filter(Boolean))]
     .filter((value) => value !== normalizedLabel
       && !PROFILE_GENERIC_OWNER_RE.test(value)
-      && !(endpoint && PROFILE_DATE_FIELD_PATTERNS.some(([pattern]) => pattern.test(value))));
+      && !(endpoint && PROFILE_DATE_FIELD_PATTERNS.some(([pattern]) => pattern.test(value)))
+      && !(endpoint && PROFILE_ENDPOINT_OWNER_RE.test(value)));
 }
 
 /**
