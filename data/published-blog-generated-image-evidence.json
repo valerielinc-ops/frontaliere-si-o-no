@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "de88e07ad381998e1adf5d17bdfa114e2cae50cd",
+  "commit": "077172eb615e943d87c0f9f1d1b211f4d3c88dd0",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -53223,6 +53223,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic autumn Swiss lake illustration; no visible text, logos, people, or event-specific documentation."
+      }
+    },
+    "/images/blog/article-priorita-traffico-cinque-tratti.webp": {
+      "schema": 1,
+      "assetId": "article-priorita-traffico-cinque-tratti",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "d529bbf0be347e586ea9bfab354b223627e6aa08e8ef1f8f6381bde364066fa1",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "82d245f855923179b2f2aa1eba97de9136cf89e4752ebf03037cdea0f52f9110",
+      "bytes": 198058,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-26T12:58:13.236Z",
+      "verifiedAt": "2026-11-26T12:58:39.540Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-priorita-traffico-cinque-tratti.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic urban traffic illustration with no readable text, logos, recognizable people, or specific real event."
       }
     },
     "/images/places/lugano-view.webp": {
