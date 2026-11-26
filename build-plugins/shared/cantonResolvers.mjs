@@ -28,6 +28,16 @@ export const SECTION_LEGACY_TI = {
   fr: 'trouver-emploi-tessin', // cathedral-allow: canonical TI legacy section table (single source of truth)
 };
 
+/** Canonical SPA-prefixed roots for raw-Node and typed build-plugin consumers. */
+export const SECTION_LEGACY_TI_ROOT = Object.freeze(Object.fromEntries(
+  Object.entries(SECTION_LEGACY_TI).map(([loc, segment]) => [loc, `${loc === 'it' ? '' : `/${loc}`}/${segment}`]),
+));
+
+/** Canonical TI roots with the trailing slash used by href/path consumers. */
+export const SECTION_LEGACY_TI_PATH = Object.freeze(Object.fromEntries(
+  Object.entries(SECTION_LEGACY_TI_ROOT).map(([loc, root]) => [loc, `${root}/`]),
+));
+
 /** Clean city hubs still owned by the legacy Ticino route branch. */
 export const TI_LEGACY_CITY_HUB_SLUGS = Object.freeze([
   'lugano',
