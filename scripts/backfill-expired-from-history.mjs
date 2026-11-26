@@ -316,8 +316,13 @@ function processSlice(sliceFile) {
       bySlug.set(entry.slug, entry);
       recoveredFromHistory++;
     } else {
-      mergeExpiredRouteEvidence(previous, entry, `backfill-expired-from-history/${sliceFile}`);
-      mergeSourceIdentityHistory(previous, entry);
+      const routeEvidenceChanged = mergeExpiredRouteEvidence(
+        previous,
+        entry,
+        `backfill-expired-from-history/${sliceFile}`,
+      );
+      const sourceIdentityChanged = mergeSourceIdentityHistory(previous, entry);
+      if (routeEvidenceChanged || sourceIdentityChanged) recoveredFromHistory++;
     }
   }
 

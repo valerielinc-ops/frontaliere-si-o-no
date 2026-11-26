@@ -32,7 +32,11 @@ import {
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
-import { addPreviousSlugRoutesKeepAll, replaceSlugRouteEverywhere } from './slug-history-journal.mjs';
+import {
+  addPreviousSlugRoutesKeepAll,
+  addPreviousSlugToLegacyKeepAll,
+  replaceSlugRouteEverywhere,
+} from './slug-history-journal.mjs';
 import {
   archiveRecordNamesPosting,
   archiveRecordSourceIdentities,
@@ -667,6 +671,7 @@ export function mergeExpiredRouteEvidence(survivor, historical, source = 'expire
   transferSlugHistory(survivor, historical, source, {
     syncLegacy: false,
     skipSelfCanonical: true,
+    preserveAllExpiredRoutes: true,
   });
   const after = JSON.stringify({
     canton: survivor.canton,
@@ -1017,12 +1022,16 @@ export function archiveFilteredJobsToSlices(droppedRows, opts = {}) {
   return { added, skipped, byCrawler };
 }
 
-/** Preserve every route known by `removed` on `survivor`. */
+/**
+ * Preserve routes known by `removed` on `survivor`.
+ * `preserveAllExpiredRoutes` is used only by expired-record reconciliation;
+ * the default active/general path retains its locale and flat payload caps.
+ */
 export function transferSlugHistory(
   survivor,
   removed,
   source = 'reconcile-crawler-company-ownership',
-  { syncLegacy = true, skipSelfCanonical = false } = {},
+  { syncLegacy = true, skipSelfCanonical = false, preserveAllExpiredRoutes = false } = {},
 ) {
   validateSlugHistoryShape(survivor, 'survivor');
   validateSlugHistoryShape(removed, 'removed');
@@ -1051,6 +1060,36 @@ export function transferSlugHistory(
         || (locale === 'it' ? survivor.slug : '')
       : survivor.slugByLocale?.[locale];
     if (!slug || slug === activeSlug) return;
+    if (preserveAllExpiredRoutes) {
+      const flatLegacy = Array.isArray(survivor.previousSlugs)
+        && survivor.previousSlugs.includes(slug);
+      const hasSupportedLocaleAttribution = LOCALES.some((routeLocale) => (
+        survivor.previousSlugsByLocale?.[routeLocale]?.includes(slug)
+      ));
+      // Adding one locale bucket would mask an existing flat-only value from
+      // every locale in getPreviousSlugsForLocale. Materialize the already-
+      // served flat route in all locale buckets before preserving its new
+      // locale evidence, retaining the route union and the prior canton map.
+      const targetLocales = flatLegacy && !hasSupportedLocaleAttribution ? LOCALES : [locale];
+      for (const targetLocale of targetLocales) {
+        const before = new Set(survivor.previousSlugsByLocale?.[targetLocale] || []).size;
+        addPreviousSlugRoutesKeepAll(survivor, { [targetLocale]: [slug] }, {
+          source: `expired-jobs-archive.transferSlugHistory/${source}`,
+          cap: DEFAULT_PREV_SLUG_CAP,
+        });
+        const after = new Set(survivor.previousSlugsByLocale?.[targetLocale] || []).size;
+        if (after > before) transferred += 1;
+        const knownCanton = survivor.previousSlugCantonByLocale?.[targetLocale]?.[slug];
+        const targetCanton = targetLocale === locale
+          ? routeCanton
+          : resolveExpiredRouteCanton(removed, targetLocale, slug)
+            || resolveExpiredRouteCanton(survivor, targetLocale, slug);
+        if (targetCanton && !knownCanton) {
+          setExpiredRouteCanton(survivor, targetLocale, slug, targetCanton);
+        }
+      }
+      return;
+    }
     const before = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
     addPreviousSlugForLocale(
       survivor,
@@ -1085,15 +1124,41 @@ export function transferSlugHistory(
     (removed.previousSlugs || []).filter((slug) => slug && !attributed.has(slug)),
   );
   for (const slug of flatOnly) {
-    if (promotePreviousSlugToLegacy(
-      survivor,
-      slug,
-      undefined,
-      `${source}/flat-history`,
-    )) transferred += 1;
-    const routeCanton = resolveExpiredRouteCanton(removed, 'it', slug);
-    if (routeCanton) {
-      for (const locale of LOCALES) setExpiredRouteCanton(survivor, locale, slug, routeCanton);
+    if (preserveAllExpiredRoutes) {
+      // If the survivor already attributed this same slug to a locale, adding
+      // it only to the flat list would make getPreviousSlugsForLocale treat it
+      // as attributed and hide it from the other locale routes. Widen those
+      // existing entries explicitly while retaining their known attribution.
+      const alreadyAttributed = Object.values(survivor.previousSlugsByLocale || {})
+        .some((routes) => Array.isArray(routes) && routes.includes(slug));
+      if (alreadyAttributed) {
+        for (const locale of LOCALES) {
+          add(locale, slug, resolveExpiredRouteCanton(removed, locale, slug));
+        }
+      }
+      if (addPreviousSlugToLegacyKeepAll(survivor, slug, {
+        source: `expired-jobs-archive.transferSlugHistory/${source}/flat-history`,
+      })) transferred += 1;
+      for (const locale of LOCALES) {
+        // Keep an exact route-canton mapping already known by the survivor;
+        // otherwise carry the historical locale mapping or its top-level
+        // fallback for this locale-specific rendering of a flat legacy route.
+        const knownCanton = survivor.previousSlugCantonByLocale?.[locale]?.[slug];
+        const routeCanton = resolveExpiredRouteCanton(removed, locale, slug)
+          || resolveExpiredRouteCanton(survivor, locale, slug);
+        if (!knownCanton && routeCanton) setExpiredRouteCanton(survivor, locale, slug, routeCanton);
+      }
+    } else {
+      if (promotePreviousSlugToLegacy(
+        survivor,
+        slug,
+        undefined,
+        `${source}/flat-history`,
+      )) transferred += 1;
+      const routeCanton = resolveExpiredRouteCanton(removed, 'it', slug);
+      if (routeCanton) {
+        for (const locale of LOCALES) setExpiredRouteCanton(survivor, locale, slug, routeCanton);
+      }
     }
   }
 
@@ -1101,6 +1166,7 @@ export function transferSlugHistory(
   // evicted route to unattributed legacy history: that bucket remains capped,
   // while the old URL is still served (conservatively under every locale).
   for (const [locale, required] of requiredRoutes) {
+    if (preserveAllExpiredRoutes) continue;
     const served = new Set(getPreviousSlugsForLocale({
       ...survivor,
     }, locale));
