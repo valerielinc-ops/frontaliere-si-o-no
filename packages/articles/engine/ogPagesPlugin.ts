@@ -1157,33 +1157,27 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  de: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
  fr: ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
  };
- // Read the calendar parts straight out of the ISO string instead of routing
- // them through `new Date(...)` accessors.
- //
- // Why (bug fixed 2026-07-28, #4837): normalizeDateTime stamps bare dates as
- // `T00:00:00+01:00` — Swiss wall clock, which is the author's intent and is
- // also exactly what `datetime="${pubIso.split('T')[0]}"` publishes. But
- // `new Date(iso).getDate()` returns the day in the RUNNING PROCESS's zone, and
- // CI builds in UTC, where 2026-02-26T00:00:00+01:00 is 23:00 on the 25th.
- // Live evidence before this fix, on /articoli-frontaliere/confronto-assicurazioni-auto/:
- //   <time datetime="2026-02-26" itemprop="datePublished">25 febbraio 2026</time>
- // — machine-readable and human-visible dates disagreed by a day on ~142
- // articles (138 stamped T00:xx+01:00, 4 date-only). Parsing the string's own
- // fields makes byline, datetime attribute and JSON-LD agree by construction
- // and makes the renderer timezone-independent.
- const ISO_PARTS_RX = /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/;
+ // Preserve the editorial calendar day when the source has no reliable
+ // publication time, independently of the build process's time zone.
+ const ISO_PARTS_RX = /^(\d{4})-(\d{2})-(\d{2})/;
  const isoParts = (isoStr: string) => {
   const m = ISO_PARTS_RX.exec(isoStr || '');
   if (!m) return null;
   const monthIdx = Number(m[2]) - 1;
   if (monthIdx < 0 || monthIdx > 11) return null;
-  return { year: Number(m[1]), monthIdx, day: Number(m[3]), hh: m[4] ?? '00', mm: m[5] ?? '00' };
+  return { year: Number(m[1]), monthIdx, day: Number(m[3]) };
  };
- const formatHumanDateTime = (isoStr: string, locale: string): string => {
-  const p = isoParts(isoStr);
-  if (!p) return isoStr.split('T')[0];
-  const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[p.monthIdx];
-  return `${p.day} ${month} ${p.year}, ${p.hh}:${p.mm}`;
+ const publicationDateTimeFormatters = new Map<string, Intl.DateTimeFormat>();
+ const formatPublicationDateTime = (isoStr: string, locale: string): string => {
+  let formatter = publicationDateTimeFormatters.get(locale);
+  if (!formatter) {
+   formatter = new Intl.DateTimeFormat(locale, {
+    timeZone: 'Europe/Zurich', year: 'numeric', month: 'long', day: 'numeric',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZoneName: 'short',
+   });
+   publicationDateTimeFormatters.set(locale, formatter);
+  }
+  return formatter.format(new Date(isoStr));
  };
 
  // Date-only formatter for visible E-E-A-T byline (squirrelscan eeat/content-dates).
@@ -1207,7 +1201,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const pubDay = pubIso.split('T')[0];
  const modDay = modIso.split('T')[0];
  const parts: string[] = [];
- if (pubDay) parts.push(`${labels.published} <time datetime="${esc(pubDay)}" itemprop="datePublished">${esc(formatHumanDate(pubIso, locale))}</time>`);
+ if (pubDay) {
+  const hasPublicationTime = /T\d{2}:\d{2}.*(?:Z|[+-]\d{2}:\d{2})$/.test(datePubIso)
+   && Number.isFinite(Date.parse(pubIso));
+  const datetime = hasPublicationTime ? pubIso : pubDay;
+  const visible = hasPublicationTime ? formatPublicationDateTime(pubIso, locale) : formatHumanDate(pubIso, locale);
+  parts.push(`${labels.published} <time datetime="${esc(datetime)}" itemprop="datePublished">${esc(visible)}</time>`);
+ }
  if (modDay && modDay !== pubDay) {
  parts.push(`${labels.updated} <time datetime="${esc(modDay)}" itemprop="dateModified">${esc(formatHumanDate(modIso, locale))}</time>`);
  }
@@ -1845,7 +1845,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // date's event. Keep the same source values in JSON-LD, Open Graph and byline.
  const publishedDate = normalizeDateTime(en.datePub);
  const modifiedDate = normalizeDateTime(en.dateMod);
- const dateByline = buildDateByline(publishedDate, modifiedDate, locale);
+ const dateByline = buildDateByline(en.datePub, en.dateMod, locale);
 
  // Article-specific fields (datePublished, dateModified, articleBody, wordCount)
  // are not applicable to Event schema
