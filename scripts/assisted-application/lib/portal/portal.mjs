@@ -6265,7 +6265,7 @@ export function formPostingMatch(formText, job = {}, {
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
   // Only lines reproduced by a native field label are form questions.
   // Keep headings and other employer notices in the identity check.
-  const normalizeFieldLine = line => String(line || '').replace(/^\s*\*\s*/, '').replace(/\s+/g, ' ').trim();
+  const normalizeFieldLine = line => String(line || '').replace(/^\s*(?:[*＊]\s*|[•◦‣⁃·▪▫●○–—-]\s+)/u, '').replace(/\s+/g, ' ').trim();
   const nativeQuestionLines = successFactorsBound
     ? new Set(formFieldLabels.map(normalizeFieldLine).filter(Boolean))
     : new Set();

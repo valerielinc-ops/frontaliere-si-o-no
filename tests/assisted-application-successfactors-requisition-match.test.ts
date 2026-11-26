@@ -97,6 +97,11 @@ it('distinguishes native Coop questions from the employer heading', () => {
     '* ' + question,
   ].join('\n');
   expect(formPostingMatch(text, coop, opts)).toBe('match');
+  for (const marker of ['•', '-', '–', '＊']) {
+    const marked = text.replace('* ' + question, marker + ' ' + question);
+    expect(formPostingMatch(marked, coop, opts)).toBe('match');
+    expect(formPostingMatch(marked, coop, { ...opts, formFieldLabels: [] })).toBe('mismatch');
+  }
   expect(formPostingMatch(text, coop, { ...opts, formFieldLabels: [] })).toBe('mismatch');
   expect(formPostingMatch(text + '\nCoop Siemens AG', coop, opts)).toBe('mismatch');
   expect(formPostingMatch(text, coop, { ...opts, pageHeadings: ['Bewerbung bei Siemens AG'] })).toBe('mismatch');
