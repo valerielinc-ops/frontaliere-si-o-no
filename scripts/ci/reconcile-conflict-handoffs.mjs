@@ -129,10 +129,28 @@ const labelNames = (issue) => (issue?.labels || [])
   .map((label) => (typeof label === 'string' ? label : label?.name))
   .filter(Boolean);
 
-/** L'hand-off ha lavoro avviato: un claim del fixer o una PR che lo riapplica. Pura. */
+/**
+ * La PR aperta e' DI QUESTA issue: il suo branch `fix/issue-<n>` o una keyword
+ * di chiusura verso `<n>`. `Supersedes #origine` NON basta: nomina la PR di
+ * origine, quindi vale per ogni hand-off fratello. Pura.
+ */
+export function reapplyOwnedBy(openPrs, { issueNumber, originNumber }) {
+  return (openPrs || []).find((pr) => Number(pr?.number) !== Number(originNumber) && (
+    new RegExp(`(^|/)issue-${Number(issueNumber)}$`).test(String(pr?.headRefName || ''))
+    || declaresClosing(prText(pr), issueNumber)
+  )) || null;
+}
+
+/**
+ * L'hand-off ha lavoro avviato: un claim del fixer o una PR che e' sua
+ * (`reapplyOwnedBy`). Una PR con solo `Supersedes #origine` non rende occupati
+ * tutti i fratelli: il 2026-11-26 #20246 (branch fix/issue-20234, Closes #20234,
+ * Supersedes #20209) teneva occupata anche #20229, e i due duplicati di #20209
+ * non si riducevano a uno finche' la PR non veniva mergiata. Pura.
+ */
 export function handoffBusy(issue, originNumber, openPrs) {
   return labelNames(issue).includes(CLAIM_LABEL)
-    || reapplyInFlight(openPrs, { issueNumber: issue?.number, originNumber }) !== null;
+    || reapplyOwnedBy(openPrs, { issueNumber: issue?.number, originNumber }) !== null;
 }
 
 // Label con cui una issue e' in mano al fixer (subito o in coda).
