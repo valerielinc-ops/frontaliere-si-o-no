@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/96401527-53ac-44e5-ad05-96e24faaad59",
     "https://jobs.ems-group.com/offene-stellen/sachbearbeiter-in-berufsbildung-mit-berufsbildnerfunktion-kv/548330ce-6362-43ee-a3d1-37b0c0888506",
     "https://jobs.ems-group.com/offene-stellen/sachbearbeiter-einkauf-m-w-d/f3a43b5d-45c2-4760-a444-e5e2b6d2d4ad",
     "https://jobs.ems-group.com/offene-stellen/leiter-verkauf-schweiz-m-w-d/f1b651ad-a977-4c18-8829-5591ad6a7e2d",
@@ -18,10 +19,13 @@
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/c321ad51-e806-4927-9d95-a04f501ab489",
     "https://jobs.ems-group.com/offene-stellen/leiter-technik-m-w-d/534ea978-1424-465a-ae37-10b7dbfad33b",
     "https://jobs.ems-group.com/offene-stellen/kunststofftechnologe-fachrichtung-spritzgiessen-m-w-d/68cc6af6-9d67-4d58-8878-0ab9b83b1510",
-    "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/4a04c7df-2bee-41c3-81e2-3e6b2dd8e2f8",
-    "https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/4041c658-2eb0-4969-8a85-72d08ccf60da"
+    "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/4a04c7df-2bee-41c3-81e2-3e6b2dd8e2f8"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/96401527-53ac-44e5-ad05-96e24faaad59": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/sachbearbeiter-in-berufsbildung-mit-berufsbildnerfunktion-kv/548330ce-6362-43ee-a3d1-37b0c0888506": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -65,12 +69,8 @@
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/4a04c7df-2bee-41c3-81e2-3e6b2dd8e2f8": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
-    },
-    "https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/4041c658-2eb0-4969-8a85-72d08ccf60da": {
-      "company": "EMS-Chemie AG",
-      "companyDomain": "ems-group.com"
     }
   },
   "notes": "Career-portal HTML crawler tied to EMS-Chemie/EFTEC Swiss sites, centered on the Domat/Ems (GR) company seat; not a national employer search.",
-  "updatedAt": "2026-11-25T21:29:28.544Z"
+  "updatedAt": "2026-11-26T09:30:30.546Z"
 }

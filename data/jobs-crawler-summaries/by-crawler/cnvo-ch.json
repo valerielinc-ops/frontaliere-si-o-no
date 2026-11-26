@@ -1,7 +1,7 @@
 {
   "key": "cnvo-ch",
   "label": "CNVO SA",
-  "generatedAt": "2026-11-25T21:29:20.127Z",
+  "generatedAt": "2026-11-26T09:27:10.326Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -52,10 +52,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10164,
-  "avgDurationMs": 10164,
+  "durationMs": 9984,
+  "avgDurationMs": 9984,
   "durationHistory": [
-    10164
+    9984
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -73,7 +73,7 @@
       "url": "https://www.cnvo.ch/offres-demploi",
       "source": "CNVO SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:29:08.377Z",
+      "crawledAt": "2026-11-26T09:26:57.277Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
         "checkedAt": "2026-11-16T15:23:20.848Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T21:29:08.377Z",
+      "validThrough": "2027-02-14T09:26:57.277Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -121,5 +121,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }
