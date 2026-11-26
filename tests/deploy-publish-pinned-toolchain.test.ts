@@ -199,8 +199,8 @@ describe('publish contract version (F0.3)', () => {
     expect(checkPublishContractVersion({ publishContractVersion: 'x' }, { current }).verdict).toBe(CONTRACT_MISMATCH_VERDICT);
   });
 
-  it('admits receipts at N and at the legacy N-1 (no field) without a recovery request', () => {
-    for (const version of [undefined, 0, PUBLISH_CONTRACT_VERSION]) {
+  it('admits receipts at N and N-1 without a recovery request', () => {
+    for (const version of [PUBLISH_CONTRACT_VERSION - 1, PUBLISH_CONTRACT_VERSION]) {
       const resolved = plan({ it: version, en: version, de: version, fr: version });
       expect(resolved.allowed).toBe(true);
       expect(resolved.recoveryRequired).toBe(false);
@@ -223,7 +223,12 @@ describe('publish contract version (F0.3)', () => {
   });
 
   it('blocks the whole snapshot when a single locale speaks an unknown contract', () => {
-    const resolved = plan({ de: PUBLISH_CONTRACT_VERSION + 1 });
+    const resolved = plan({
+      it: PUBLISH_CONTRACT_VERSION,
+      en: PUBLISH_CONTRACT_VERSION,
+      de: PUBLISH_CONTRACT_VERSION + 1,
+      fr: PUBLISH_CONTRACT_VERSION,
+    });
     expect(resolved.allowed).toBe(false);
     expect(resolved.contractMismatchLocales).toEqual(['de']);
     expect(resolved.recoveryKind).toBe(CONTRACT_MISMATCH_VERDICT);

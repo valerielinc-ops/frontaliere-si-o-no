@@ -36,7 +36,7 @@ export const PROVENANCE_KIND = 'locale-publish-provenance';
  * `LEGACY_PUBLISH_CONTRACT_VERSION` (0), which is exactly `N-1` for the first
  * versioned toolchain.
  */
-export const PUBLISH_CONTRACT_VERSION = 1;
+export const PUBLISH_CONTRACT_VERSION = 2;
 export const LEGACY_PUBLISH_CONTRACT_VERSION = 0;
 export const CONTRACT_MISMATCH_VERDICT = 'contract-mismatch';
 
