@@ -620,7 +620,13 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     retryAfterCapMs = MAX_RETRY_AFTER_MS,
     fallbackCooldownMs = DEFAULT_RATE_LIMIT_COOLDOWN_MS,
     rateLimitCircuitThreshold = DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
-    egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || null,
+    // GitHub Actions exposes RUNNER_TEMP to every process in the job. Derive
+    // the shared path here so generated workflows do not need a size-costly
+    // bootstrap step; WORKDAY_EGRESS_STATE_DIR remains an explicit override.
+    egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR
+      || (process.env.RUNNER_TEMP
+        ? path.join(process.env.RUNNER_TEMP, 'crawler-generation', 'workday-egress')
+        : null),
     egressMinDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
   } = options;
   let browserSession = null;
