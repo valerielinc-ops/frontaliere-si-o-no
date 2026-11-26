@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-// These parsers share the Workday contract: the human-readable `contract`
+// These dedicated parsers share the employment contract: the human-readable `contract`
 // field must be derived from the same employmentType emitted for the listing.
 // Keep the sibling set explicit so a future parser copied from the old Abbott
 // shape cannot silently reintroduce `contract: 'full-time'` for part-time jobs.
@@ -18,7 +18,7 @@ const SIBLING_PARSERS = [
   'scripts/lib/stryker-job-parser.mjs',
 ];
 
-describe('Workday sibling employment contract mapping', () => {
+describe('dedicated crawler sibling employment contract mapping', () => {
   it('derives contract from the parser employmentType in every affected sibling', () => {
     for (const parserPath of SIBLING_PARSERS) {
       const source = readFileSync(resolve(__dirname, '..', parserPath), 'utf8');

@@ -5,7 +5,6 @@ import { fetchAllBossardJobs } from '../scripts/lib/bossard-job-parser.mjs';
 import { fetchAllNovartisJobs } from '../scripts/lib/novartis-job-parser.mjs';
 import { fetchAllRocheJobs } from '../scripts/lib/roche-job-parser.mjs';
 import { fetchAllStrykerJobs } from '../scripts/lib/stryker-job-parser.mjs';
-import { fetchAllRitualsCosmeticsJobs } from '../scripts/lib/rituals-cosmetics-job-parser.mjs';
 import { fetchAllEdmondDeRothschildJobs } from '../scripts/lib/edmond-de-rothschild-job-parser.mjs';
 
 /**
@@ -38,7 +37,6 @@ const WORKDAY_CASES = [
   { name: 'novartis', fetchAll: fetchAllNovartisJobs, swiss: 'Basel' },
   { name: 'roche', fetchAll: fetchAllRocheJobs, swiss: 'Basel' },
   { name: 'stryker', fetchAll: fetchAllStrykerJobs, swiss: 'Bern, Switzerland' },
-  { name: 'rituals-cosmetics', fetchAll: fetchAllRitualsCosmeticsJobs, swiss: 'Manor Winterthur' },
 ] as const;
 
 describe('dedicated Workday parsers — req without a vacancy body', () => {

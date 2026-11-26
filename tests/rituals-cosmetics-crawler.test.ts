@@ -2,10 +2,25 @@ import { describe, it, expect } from 'vitest';
 import {
   RITUALS_COSMETICS_KEY,
   RITUALS_COSMETICS_COMPANY_NAME,
+  RITUALS_COSMETICS_CAREER_URL,
+  fetchAllRitualsCosmeticsJobs,
   isRitualsCosmeticsJob,
   isTrustedDomain,
+  parseRitualsDetailPage,
+  parseRitualsListingPage,
 } from '../scripts/lib/rituals-cosmetics-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const DETAIL_URL = 'https://careers.rituals.com/de-CH/jobs/aushilfe-verkaufsberater-m-w-d/R3605/';
+const LISTING_HTML = `<main>
+  <article>
+    <h2>Aushilfe Verkaufsberater (m/w/d)</h2>
+    <a href="${DETAIL_URL}">Aushilfe Verkaufsberater (m/w/d)</a>
+    <span>Shop • Stans Einkaufscenter Länderpark • 0-41 Stunden</span>
+  </article>
+</main>`;
+const SOURCE_BODY = 'Responsibilities and requirements of the role, described at length by the employer. '.repeat(5);
+const daysAgo = (days: number) => new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
 
 describe('Rituals Cosmetics Switzerland crawler parser', () => {
   // ── Constants ──
@@ -30,6 +45,7 @@ describe('Rituals Cosmetics Switzerland crawler parser', () => {
 
     it('rejects unrelated jobs', () => {
       expect(isRitualsCosmeticsJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
+      expect(isRitualsCosmeticsJob({ companyKey: 'other-company', company: 'Other', url: 'https://notrituals.com/rituals.com/jobs' })).toBe(false);
     });
 
     it('handles null/undefined gracefully', () => {
@@ -49,6 +65,10 @@ describe('Rituals Cosmetics Switzerland crawler parser', () => {
       expect(isTrustedDomain('https://careers.rituals.com/job/456')).toBe(true);
     });
 
+    it('trusts the official Kaliber origin used by the branded careers site', () => {
+      expect(isTrustedDomain('https://rituals-careers-prd.kaliber.io/de-CH/jobs/role/R1/')).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });
@@ -56,6 +76,105 @@ describe('Rituals Cosmetics Switzerland crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('official careers source', () => {
+    it('parses the current server-rendered listing card and requisition id', () => {
+      expect(parseRitualsListingPage(LISTING_HTML)).toEqual([{
+        title: 'Aushilfe Verkaufsberater (m/w/d)',
+        url: DETAIL_URL,
+        jobReqId: 'R3605',
+        locationRaw: 'Stans Einkaufscenter Länderpark',
+        timeType: expect.stringContaining('0-41 Stunden'),
+      }]);
+    });
+
+    it('uses the vacancy body when JSON-LD is only a short summary', () => {
+      const datePosted = daysAgo(2);
+      const detailHtml = `<main>
+        <div>Stans Einkaufscenter Länderpark</div>
+        <h1>Aushilfe Verkaufsberater (m/w/d)</h1>
+        <div class="job-description"><p>${SOURCE_BODY}</p></div>
+        <h2>Mehr Shop-Karrieren</h2>
+        <form><p>Newsletter and application chrome</p></form>
+      </main>
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Aushilfe Verkaufsberater (m/w/d)',
+        description: 'Apply now',
+        datePosted,
+        employmentType: 'PART_TIME',
+        jobLocation: { address: { addressLocality: 'Stans' } },
+      })}</script>`;
+
+      const detail = parseRitualsDetailPage(detailHtml, {
+        title: 'Aushilfe Verkaufsberater (m/w/d)',
+        locationRaw: 'Stans Einkaufscenter Länderpark',
+      });
+      expect(detail).toMatchObject({
+        title: 'Aushilfe Verkaufsberater (m/w/d)',
+        description: expect.stringContaining('Responsibilities and requirements'),
+        location: 'Stans',
+        employmentType: 'PART_TIME',
+        datePosted,
+        postedDate: datePosted,
+        postingDateSource: 'reported',
+      });
+      expect(detail.description).not.toContain('Newsletter');
+    });
+
+    it('publishes official jobs and skips a detail without source body', async () => {
+      const fetchHtml = async (url: string) => {
+        if (url === RITUALS_COSMETICS_CAREER_URL) return LISTING_HTML;
+        if (url === DETAIL_URL) return `<main><h1>Aushilfe Verkaufsberater (m/w/d)</h1><p>Apply now</p></main>`;
+        throw new Error(`unexpected Rituals URL: ${url}`);
+      };
+
+      const jobs: any[] = await fetchAllRitualsCosmeticsJobs({ _fetchHtml: fetchHtml });
+
+      expect(jobs).toHaveLength(0);
+      expect((jobs as any).discoveredCount).toBe(1);
+    });
+
+    it('keeps the Schönbühl store in Bern instead of using the legal-seat canton', async () => {
+      const detailUrl = 'https://careers.rituals.com/de-CH/jobs/aushilfe-verkaufsberater-m-w-d/R3950/';
+      const listingHtml = `<main><article>
+        <h2>Aushilfe Verkaufsberater (m/w/d)</h2>
+        <a href="${detailUrl}">Aushilfe Verkaufsberater (m/w/d)</a>
+        <span>Shop • Schoenbuehl Shoppyland • 0-41 Stunden</span>
+      </article></main>`;
+      const detailHtml = `<main>
+        <h1>Aushilfe Verkaufsberater (m/w/d)</h1>
+        <div>Schoenbuehl Shoppyland</div>
+        <p>${SOURCE_BODY}</p>
+      </main>`;
+      const fetchHtml = async (url: string) => {
+        if (url === RITUALS_COSMETICS_CAREER_URL) return listingHtml;
+        if (url === detailUrl) return detailHtml;
+        throw new Error(`unexpected Rituals URL: ${url}`);
+      };
+
+      const [job]: any[] = await fetchAllRitualsCosmeticsJobs({ _fetchHtml: fetchHtml });
+
+      expect(job).toMatchObject({ canton: 'BE', jobReqId: 'R3950' });
+      expect(job.location.toLowerCase()).toContain('schoenbuehl');
+    });
+
+    it('fails closed when the next listing page cannot be fetched', async () => {
+      const listingHtml = `<main>${Array.from({ length: 20 }, (_, index) => `
+        <article><a href="https://careers.rituals.com/de-CH/jobs/role-${index}/R${index}/">Role ${index}</a>
+        <span>Shop • Stans • 0-41 Stunden</span></article>`).join('')}</main>`;
+      const fetchHtml = async (url: string) => {
+        if (url === RITUALS_COSMETICS_CAREER_URL) return listingHtml;
+        throw new Error(`listing page unavailable: ${url}`);
+      };
+
+      await expect(fetchAllRitualsCosmeticsJobs({ _fetchHtml: fetchHtml })).rejects.toMatchObject({
+        specListingFailure: true,
+        specDiscoveredCount: 20,
+      });
     });
   });
 

@@ -8,7 +8,6 @@ import { fetchAllStrykerJobs } from '../scripts/lib/stryker-job-parser.mjs';
 import { fetchAllArdianJobs } from '../scripts/lib/ardian-job-parser.mjs';
 import { fetchAllAlconJobs } from '../scripts/lib/alcon-job-parser.mjs';
 import { fetchAllNovartisJobs } from '../scripts/lib/novartis-job-parser.mjs';
-import { fetchAllRitualsCosmeticsJobs } from '../scripts/lib/rituals-cosmetics-job-parser.mjs';
 import { fetchAllKsbJobs } from '../scripts/lib/ksb-job-parser.mjs';
 import { fetchAllBossardJobs } from '../scripts/lib/bossard-job-parser.mjs';
 import { fetchWorkdayPrimarySwissLocation } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
@@ -243,7 +242,6 @@ const WORKDAY_ROLLUP_CASES = [
   { name: 'ardian', fetchAll: fetchAllArdianJobs, swiss: ['Zurich', 'Zurich'], rollupPrimary: ['Geneva, Switzerland', 'Geneva'], foreignPrimary: 'Paris, France' },
   { name: 'alcon', fetchAll: fetchAllAlconJobs, swiss: ['Geneva, Switzerland', 'Geneva'], rollupPrimary: ['Fribourg, Switzerland', 'Fribourg'], foreignPrimary: 'Fort Worth, Texas, United States of America' },
   { name: 'novartis', fetchAll: fetchAllNovartisJobs, swiss: ['Basel', 'Basel'], rollupPrimary: ['Rotkreuz, Switzerland', null], foreignPrimary: 'Hyderabad, India' },
-  { name: 'rituals-cosmetics', fetchAll: fetchAllRitualsCosmeticsJobs, swiss: ['Manor Winterthur', 'Winterthur'], rollupPrimary: ['Chur, Switzerland', 'Chur'], foreignPrimary: 'Amsterdam, Netherlands' },
   { name: 'ksb', fetchAll: fetchAllKsbJobs, swiss: ['Baden', 'Baden'], rollupPrimary: ['Brugg, Switzerland', 'Brugg'], foreignPrimary: 'Waldshut-Tiengen, Germany' },
   { name: 'bossard', fetchAll: fetchAllBossardJobs, swiss: ['Zug', 'Zug'], rollupPrimary: ['Zug, Switzerland', 'Zug'], foreignPrimary: 'Illerrieden, Germany' },
 ] as const;
@@ -276,15 +274,6 @@ describe('dedicated Workday parsers — an `N Locations` roll-up is placed by it
     }, 20_000);
   }
 
-  it('rituals-cosmetics: files the Schönbühl store under Bern, not under the Landquart legal seat', async () => {
-    mockWorkdayTenant([
-      { title: 'Sales Advisor', locationsText: 'Manor Schoenbuehl', path: '/job/Manor-Schoenbuehl/Sales-Advisor_JR1', primary: 'Manor Schoenbuehl' },
-    ]);
-
-    const jobs: any[] = await fetchAllRitualsCosmeticsJobs();
-
-    expect(geography(jobs)).toEqual([['Sales Advisor', 'Schoenbuehl', 'BE']]);
-  }, 20_000);
 });
 
 describe('fetchWorkdayPrimarySwissLocation', () => {

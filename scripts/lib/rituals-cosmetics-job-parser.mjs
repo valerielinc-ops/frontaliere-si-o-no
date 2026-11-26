@@ -99,14 +99,13 @@ export function isRitualsCosmeticsJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
+  const sourceUrl = String(job?.url || '');
 
   return (
     key === RITUALS_COSMETICS_KEY ||
     key.startsWith('rituals') ||
     company.includes('rituals') ||
-    url.includes('rituals.com') ||
-    url.includes(LEGACY_WORKDAY_HOST)
+    isTrustedDomain(sourceUrl)
   );
 }
 
@@ -234,7 +233,7 @@ export function parseRitualsListingPage(html = '', pageUrl = RITUALS_COSMETICS_C
     }
     if (!posting || seen.has(posting.url)) continue;
     const card = listingCardForLink(link);
-    const title = normalizeSpace(link.textContent || card?.querySelector('h2,h3,h4')?.textContent || '');
+    const title = normalizeSpace(card?.querySelector('h2,h3,h4')?.textContent || link.textContent || '');
     if (!title || title.length < 3) continue;
     seen.add(posting.url);
     rows.push({
@@ -273,18 +272,32 @@ async function fetchJobListings({ fetchHtmlImpl = fetchHtml } = {}) {
   let html = firstHtml;
   let total = null;
 
+  let complete = false;
   for (let page = 0; page < MAX_LISTING_PAGES; page += 1) {
     const rows = parseRitualsListingPage(html, pageUrl);
     total = total ?? extractListingTotal(html);
+    const before = listings.length;
     for (const row of rows) {
       if (seen.has(row.url)) continue;
       seen.add(row.url);
       listings.push(row);
     }
-    if (total != null && listings.length >= total) break;
-    if (rows.length < LISTING_PAGE_SIZE) break;
+    if (total != null && listings.length >= total) {
+      complete = true;
+      break;
+    }
+    if (rows.length < LISTING_PAGE_SIZE) {
+      complete = true;
+      break;
+    }
+    if (listings.length === before) {
+      throw listingFailure(
+        `Rituals careers listing pagination repeated page ${pageUrl}`,
+        listings.length,
+      );
+    }
 
-    const nextUrl = paginationUrl(firstUrl, listings.length);
+    const nextUrl = paginationUrl(firstUrl, (page + 1) * LISTING_PAGE_SIZE);
     try {
       html = await fetchHtmlImpl(nextUrl, {
         headers: { Accept: 'text/html,application/xhtml+xml' },
@@ -298,6 +311,13 @@ async function fetchJobListings({ fetchHtmlImpl = fetchHtml } = {}) {
         error,
       );
     }
+  }
+
+  if (!complete) {
+    throw listingFailure(
+      `Rituals careers listing exceeded the ${MAX_LISTING_PAGES}-page bound`,
+      listings.length,
+    );
   }
 
   if (listings.length > 0) {
@@ -390,7 +410,10 @@ export function parseRitualsDetailPage(html = '', listing = {}) {
   const posting = parseJobPostingJsonLd(document);
   const title = normalizeSpace(posting?.title || document.querySelector('main h1,h1')?.textContent || listing.title || '');
   const jsonDescription = posting?.description ? stripHtml(String(posting.description)) : '';
-  const description = normalizeDescriptionSpace(jsonDescription || extractDetailDescription(document));
+  const htmlDescription = extractDetailDescription(document);
+  const description = normalizeDescriptionSpace(
+    meetsSourceBodyFloor(jsonDescription) ? jsonDescription : htmlDescription,
+  );
   const location = detailLocation(document, listing, posting);
   const employmentType = Array.isArray(posting?.employmentType)
     ? posting.employmentType.join(' ')
@@ -487,7 +510,7 @@ export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [], _fetchHt
         `Rituals careers detail could not be read: ${publicUrl}`,
         { cause },
       );
-      error.specDetailDrop = { dropped: 1, candidates: listings.length };
+      error.specDetailDrop = { candidates: listings.length, gone: 0, rejected: 1 };
       error.specDiscoveredCount = listings.length;
       throw error;
     }
