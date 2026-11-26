@@ -1,13 +1,7 @@
+import { readAttr, scanMarkupStartTags } from './html-attr.mjs';
+
 export const GENERIC_IMAGE_PATH = '/og-image.png';
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
-
-function attrsFromTag(tag) {
-  const attrs = {};
-  for (const match of String(tag).matchAll(/([\w:-]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g)) {
-    attrs[String(match[1]).toLowerCase()] = match[2] ?? match[3] ?? '';
-  }
-  return attrs;
-}
 export function normalizeImagePath(value) {
   const raw = String(value ?? '').trim();
   if (!raw) return null;
@@ -26,9 +20,8 @@ export function declaredImageIsOwn(value) {
 }
 
 export function extractOgImage(html) {
-  for (const match of String(html ?? '').matchAll(/<meta\b[^>]*>/gi)) {
-    const attrs = attrsFromTag(match[0]);
-    if (String(attrs.property || '').toLowerCase() === 'og:image') return attrs.content || null;
+  for (const { raw } of scanMarkupStartTags(String(html ?? ''), 'meta')) {
+    if (readAttr(raw, 'property').toLowerCase() === 'og:image') return readAttr(raw, 'content') || null;
   }
   return null;
 }

@@ -96,6 +96,17 @@ describe('Facebook pharmacy discovery', () => {
     expect(JSON.stringify(result)).not.toContain('recensioni');
   });
 
+  it('does not establish identity from metadata-shaped script text', () => {
+    const fake = `<meta property="og:title" content="${pharmacy.name}">`
+      + `<meta property="og:description" content="${pharmacy.name} ${pharmacy.city} ${pharmacy.address}">`;
+
+    expect(extractFacebookPublicFacts(
+      `<script>const decoy = ${JSON.stringify(fake)};</script><p>Unrelated page</p>`,
+      pharmacy,
+      'https://www.facebook.com/unrelated',
+    )).toMatchObject({ matched: false, facts: {} });
+  });
+
   it('does not silently search pharmacies outside the explicit discovery allow-list', async () => {
     let calls = 0;
     const result = await discoverFacebookCandidates({

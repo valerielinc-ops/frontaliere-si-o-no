@@ -1,3 +1,8 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { spawn } from 'node:child_process';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const { launchStealthOrChromiumMock } = vi.hoisted(() => ({
@@ -53,6 +58,72 @@ afterEach(() => {
 });
 
 describe('Workday JSON transport', () => {
+  it('shares the runner egress lock and Retry-After cooldown across processes', async () => {
+    const egressStateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'workday-egress-test-'));
+    const requestLogPath = path.join(egressStateDir, 'requests.log');
+    fs.writeFileSync(requestLogPath, '');
+
+    try {
+      const apiBase = 'https://test.wd3.myworkdayjobs.com/wday/cxs/test/External';
+      const clientUrl = pathToFileURL(path.resolve('scripts/lib/ats-clients/workday-client.mjs')).href;
+      const runClientProcess = () => new Promise<void>((resolve, reject) => {
+        const script = `
+          import fs from 'node:fs';
+          import { fetchWorkdayJsonWithRetry } from ${JSON.stringify(clientUrl)};
+          globalThis.fetch = async () => {
+            const previous = fs.readFileSync(${JSON.stringify(requestLogPath)}, 'utf8');
+            fs.appendFileSync(${JSON.stringify(requestLogPath)}, String(Date.now()) + '\\n');
+            if (!previous) {
+              Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100);
+              return {
+                status: 429,
+                ok: false,
+                headers: { get: (name) => name.toLowerCase() === 'retry-after' ? '1' : null },
+                text: async () => '',
+              };
+            }
+            return {
+              status: 200,
+              ok: true,
+              headers: { get: () => null },
+              text: async () => JSON.stringify({ ok: true }),
+            };
+          };
+          try {
+            await fetchWorkdayJsonWithRetry(${JSON.stringify(apiBase)}, ${JSON.stringify(`${apiBase}/jobs`)}, {
+              retries: 0,
+              browserFallback: null,
+              egressStateDir: ${JSON.stringify(egressStateDir)},
+              egressMinDelayMs: 0,
+            });
+          } catch (error) {
+            if (error?.statusCode !== 429) throw error;
+          }
+        `;
+        const child = spawn(process.execPath, ['--input-type=module', '-e', script], { stdio: 'ignore' });
+        child.once('error', reject);
+        child.once('close', (code) => {
+          if (code === 0) resolve();
+          else reject(new Error(`Workday child process exited with ${code}`));
+        });
+      });
+
+      const first = runClientProcess();
+      const second = runClientProcess();
+      await Promise.all([first, second]);
+
+      const requestTimes = fs.readFileSync(requestLogPath, 'utf8')
+        .trim()
+        .split('\n')
+        .filter(Boolean)
+        .map(Number);
+      expect(requestTimes).toHaveLength(2);
+      expect(requestTimes[1] - requestTimes[0]).toBeGreaterThanOrEqual(900);
+    } finally {
+      fs.rmSync(egressStateDir, { recursive: true, force: true });
+    }
+  });
+
   it('retries a rate-limited JSON request before returning the listing', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
