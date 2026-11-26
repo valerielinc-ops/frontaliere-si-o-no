@@ -5,6 +5,8 @@ set -uo pipefail
 . "$(dirname "${BASH_SOURCE[0]}")/rehydrate-trunk-guard.sh"
 # shellcheck source=scripts/lib/rehydrate-provenance.sh
 . "$(dirname "${BASH_SOURCE[0]}")/rehydrate-provenance.sh"
+# shellcheck source=scripts/lib/rehydrate-tar-member.sh
+. "$(dirname "${BASH_SOURCE[0]}")/rehydrate-tar-member.sh"
 
 # Extracted from post-deploy-validate-dist.yml, which had this exact
 # function byte-for-byte duplicated across its 3 jobs (validate-dist-source,
@@ -121,21 +123,21 @@ rehydrate_locale() {
       # `tar -tf` lists what the archive itself claims to contain (empty
       # on a corrupt header); comparing that count to what actually landed
       # on disk after extraction catches a short read the old check missed.
-      # Both passes stream the member out of the artifact ZIP; the uncompressed
-      # locale tar never exists on disk beside the logical dist. Keep the
-      # listing pass fail-soft so a corrupt member reaches the clone/fail-closed
-      # path below instead of aborting before the accounting is recorded.
-      set +e
-      expected_n="$(unzip -p "$dl/$locale_zip" "$locale_member" 2>/dev/null \
-        | tar -tf - 2>/dev/null | { grep -vc '/$' || true; })"
-      set -e
-
-      set +e
-      unzip -p "$dl/$locale_zip" "$locale_member" | tar -C dist -xf -
-      pipeline_statuses=("${PIPESTATUS[@]}")
-      set -e
-      unzip_rc="${pipeline_statuses[0]:-2}"
-      tar_rc="${pipeline_statuses[1]:-2}"
+      # Stream the member once to both tar readers. The helper keeps the
+      # listing/extraction counts and unzip CRC verdict independent while
+      # avoiding a second full ZIP decompression pass on the hosted runner.
+      if ! stream_tar_member "$dl/$locale_zip" "$locale_member" dist; then
+        STREAM_TAR_EXPECTED_N=0
+        STREAM_TAR_LIST_RC=2
+        STREAM_TAR_UNZIP_RC=2
+        STREAM_TAR_TEE_RC=2
+        STREAM_TAR_EXTRACT_RC=2
+      fi
+      expected_n="$STREAM_TAR_EXPECTED_N"
+      list_rc="$STREAM_TAR_LIST_RC"
+      unzip_rc="$STREAM_TAR_UNZIP_RC"
+      tee_rc="$STREAM_TAR_TEE_RC"
+      tar_rc="$STREAM_TAR_EXTRACT_RC"
       rm -rf "$dl"
       actual_n=0
       if [ -d "dist/$loc" ]; then
@@ -153,7 +155,8 @@ rehydrate_locale() {
       # Info-ZIP uses status 1 for warnings, including CRC failures. The tar
       # stream and file counts can still agree, so only a clean unzip status
       # may accept the artifact.
-      if [ "${unzip_rc:-2}" -eq 0 ] && [ "${tar_rc:-2}" -eq 0 ] \
+      if [ "${unzip_rc:-2}" -eq 0 ] && [ "${list_rc:-2}" -eq 0 ] \
+          && [ "${tee_rc:-2}" -eq 0 ] && [ "${tar_rc:-2}" -eq 0 ] \
           && [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         rehydrate_provenance "$loc" artifact "locale-dist-$loc-$artifact_run_id"
