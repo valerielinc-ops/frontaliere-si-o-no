@@ -504,4 +504,43 @@ describe('PinpointHQ New Application title and route binding', () => {
       applyUrl: postingUrl,
     })).toBe('match');
   });
+
+  it('keeps Avature global member-firm disclaimers, question-mark prose breaks, and "Applying to" titles valid', () => {
+    const postingUrl = 'https://apply.example.ch/CHCareers/JobDetail/Manager-IT-Infrastructure/24124';
+    const applicationUrl = 'https://apply.example.ch/CHCareers/ApplicationMethods?tempJobid=24124';
+    const job = {
+      company: 'Deloitte',
+      title: 'Manager - IT Infrastructure Technology Strategy & Transformation',
+    };
+    const footer = [
+      'Want to know more about opportunities at Deloitte? Visit\u202fwww.apply.example.ch',
+      'Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), a UK private company limited by guarantee, its network of member firms, and their related entities.',
+      'Deloitte AG is a subsidiary of Deloitte LLP, the United Kingdom member firm of DTTL.',
+    ].join('\n');
+
+    expect(namesAnotherEmployer(`Applying to ${job.title}\n${footer}`, job)).toBe(false);
+    expect(formPostingMatch(`Applying to ${job.title}\nDeloitte\n${footer}`, job, {
+      postingMatched: true,
+      postingEntry: true,
+      applicationEntry: true,
+      applicationEntryUrl: applicationUrl,
+      pageUrl: applicationUrl,
+      postingUrl,
+      paidPostingUrl: postingUrl,
+      pageHeading: 'Deloitte',
+      pageHeadings: ['Deloitte'],
+      applyUrl: postingUrl,
+    })).toBe('match');
+
+    // Counterexamples must still reject conflicting second employers.
+    expect(namesAnotherEmployer(`Applying to ${job.title} | Other Consulting AG\n${footer}`, job)).toBe(true);
+    expect(namesAnotherEmployer('Deloitte Partners Other AG', job)).toBe(true);
+    expect(formPostingMatch(`Applying to ${job.title}\nOther Consulting AG`, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: applicationUrl,
+      postingUrl,
+      applyUrl: postingUrl,
+    })).toBe('mismatch');
+  });
 });

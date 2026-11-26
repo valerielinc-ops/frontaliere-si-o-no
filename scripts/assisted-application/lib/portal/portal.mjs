@@ -4844,7 +4844,7 @@ function verifiedDirectApplicationUrl(stageContext, currentUrl) {
 const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
 // Legal forms and short words name no company: "Ospedale ABC SA" is "ospedale abc",
 // "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
-const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
+const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'limited', 'inc', 'llc', 'llp', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
 const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
 const TALENTSOFT_HOST_RE = /(?:^|\.)talent-soft\.com$/i;
 
@@ -5055,7 +5055,7 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
 const FORM_VOCABULARY = new Set([
   // Pinpoint can put its save-later action and cookie control before the first
   // field; those labels describe the form surface, not another employer.
-  'application', 'applications', 'apply', 'save', 'later', 'cookies', 'remove', 'cancel', 'close', 'discard', 'delete', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'abbrechen', 'schliessen', 'annulla', 'chiudi', 'candidatura', 'candidature', 'candidati', 'postuler',
+  'application', 'applications', 'applying', 'apply', 'save', 'later', 'cookies', 'remove', 'cancel', 'close', 'discard', 'delete', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'abbrechen', 'schliessen', 'annulla', 'chiudi', 'candidatura', 'candidature', 'candidati', 'postuler',
   // Once a generic stage heading is removed, the first visible control labels
   // can become the page's first line. These labels describe form fields, not a
   // second employer («Vorname», «Nachname», «E-Mail-Adresse», «Weiter»).
@@ -5169,7 +5169,7 @@ const FILLER_WORDS = new Set([
 ]);
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
 // What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
-const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
+const PHRASE_END_RE = /[\n\r—–|·•:;,.!?()\/]|\s-\s/;
 const GENERIC_APPLICATION_HEADING_WORDS = new Set([
   'additional', 'applicant', 'application', 'background', 'candidate', 'certification', 'certifications', 'contact',
   'data', 'detail', 'details', 'disclosure', 'disclosures', 'document', 'documents', 'education', 'educational', 'employment',
@@ -5388,6 +5388,13 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
           wholeEnds.add(at - 1);
         }
       }
+    }
+    const networkDefinition = /\brefers\s+to\s+(?:one\s+or\s+more\s+of\s+)?/iu.exec(phrase);
+    if (networkDefinition) {
+      const prefixCount = normalizeWords(phrase.slice(0, networkDefinition.index)).split(' ').filter(Boolean).length;
+      const suffixOffset = normalizeWords(phrase.slice(0, networkDefinition.index + networkDefinition[0].length))
+        .split(' ').filter(Boolean).length;
+      if (prefixCount > 0 && wholeStarts.has(0) && wholeEnds.has(prefixCount - 1) && wholeStarts.has(suffixOffset)) continue;
     }
     for (const [index, word] of words.entries()) {
       if (!ours.has(word)) continue;
