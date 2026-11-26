@@ -91,9 +91,10 @@ vi.mock('../scripts/lib/ats-clients/playwright-runtime.mjs', () => {
 });
 
 // The parser tests exercise the Playwright/listing contract and pure job
-// helpers; JSON-LD extraction is not part of those scenarios. Mocking it also
-// keeps this scoped sparse-checkout test independent of the optional postal
-// snapshot used by the generic prospector extractor.
+// helpers. The structured-detail scenario returns one controlled exact
+// JobPosting record; mocking the extractor keeps this scoped sparse-checkout
+// test independent of the optional postal snapshot used by the generic
+// prospector extractor.
 vi.mock('../scripts/lib/prospector/extract.mjs', () => ({
   extractJsonLd: (_html: string, url: string) => runtimeState.scenario === 'structured-detail'
     ? [{
