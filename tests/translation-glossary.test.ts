@@ -1136,6 +1136,12 @@ describe('translation glossary — a placeholder used as link text', () => {
     expect(stripPlaceholderTokens(input)).toBe(input);
   });
 
+  it('keeps an over-cap unclosed Markdown destination opaque through its boundary', () => {
+    const destination = `/${'x'.repeat(512)}{COMPANY}`;
+    const input = `[%COMPANY%](${destination} dopo %COMPANY%`;
+    expect(stripPlaceholderTokens(input)).toBe(`[](${destination} dopo`);
+  });
+
   it('returns a label no placeholder touches identical, to the byte', () => {
     // Same review: a placeholder removed anywhere made every label of the
     // text lose the blanks at its edges.

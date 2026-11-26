@@ -952,7 +952,12 @@ function scanMarkdownLink(context, start, allowUnclosedDestination = false) {
       if (character === '<') return -1;
       cursor += 1;
     }
-    if (cursor >= limit && limit < lineEnd) return -1;
+    if (cursor >= limit && limit < lineEnd) {
+      if (!allowUnclosedDestination) return -1;
+      // The cap bounds delimiter parsing, but once a matching label is known,
+      // keep the destination opaque through its next whitespace boundary.
+      while (cursor < lineEnd && !isHorizontalWhitespace(text[cursor])) cursor += 1;
+    }
     destinationEnd = cursor;
   }
 
