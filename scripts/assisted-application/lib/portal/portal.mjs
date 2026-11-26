@@ -916,11 +916,14 @@ function isSuccessFactorsModuleRoute(url) {
   return Boolean(successFactorsModuleIdentity(url));
 }
 
+const SUCCESS_FACTORS_CAREER_PATHS = new Set(['/career', '/portalcareer', '/careers']);
+const SUCCESS_FACTORS_CONTINUATION_PATHS = new Set(['/portalcareer', '/careers']);
+
 function isSuccessFactorsCareerPath(value) {
   try {
     const url = new URL(String(value || ''));
     return isSuccessFactorsPortalUrl(url) && !url.username && !url.password && !url.hash
-      && ['/career', '/portalcareer'].includes(url.pathname.replace(/\/+$/, ''));
+      && SUCCESS_FACTORS_CAREER_PATHS.has(url.pathname.replace(/\/+$/, ''));
   } catch {
     return false;
   }
@@ -972,7 +975,7 @@ function isSuccessFactorsPortalCareerContinuation({ applyUrl, postingUrl, postin
     const source = successFactorsModuleIdentity(new URL(String(postingRouteProof?.applyUrl || '')));
     if (!source || postingRouteProof?.via !== 'successfactors'
       || !isSuccessFactorsCareerPath(current.href)
-      || current.pathname.replace(/\/+$/, '') !== '/portalcareer'
+      || !SUCCESS_FACTORS_CONTINUATION_PATHS.has(current.pathname.replace(/\/+$/, ''))
       || current.origin !== source.origin
       || !samePostingAddress(postingRouteProof.postingUrl, posting.href)) return false;
 
@@ -6340,10 +6343,10 @@ export function formPostingMatch(formText, job = {}, {
     && (direct === 'match' || (roleOnlyPostingBound && (postingEntry || Boolean(job.company))))) return 'mismatch';
   if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
-  // A verified `/portalcareer` continuation is already bound to the selected
-  // module. Its native controls can mention the employer (for example a Coop
-  // group-consent question) even when the tenant omits the role caption; the
-  // explicit heading/role conflict checks above still remain authoritative.
+  // A verified `/portalcareer` or `/careers` auth continuation is already bound
+  // to the selected module. Its native controls can mention the employer (for
+  // example a Coop group-consent question) even when the tenant omits the role
+  // caption; the explicit heading/role conflict checks above remain authoritative.
   if (successFactorsRouteBound && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });

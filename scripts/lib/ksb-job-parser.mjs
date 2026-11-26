@@ -145,6 +145,7 @@ async function fetchJobListings(browserFallback) {
     for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, {
       // KSB only operates in Switzerland — no location filter needed.
       maxPages: 100000,
+      publicUrl: WORKDAY_PUBLIC_BASE,
       ...(browserFallback ? { browserFallback } : {}),
     })) {
       const id = extractWorkdayJobIdentity(posting, {
