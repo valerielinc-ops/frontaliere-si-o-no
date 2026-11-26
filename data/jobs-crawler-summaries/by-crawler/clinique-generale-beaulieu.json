@@ -1,7 +1,7 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-11-26T09:51:14.088Z",
+  "generatedAt": "2026-11-26T21:30:38.366Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
@@ -15,63 +15,16 @@
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3614,
-  "avgDurationMs": 3614,
+  "durationMs": 3254,
+  "avgDurationMs": 3254,
   "durationHistory": [
-    3614
+    3254
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "clinique-generale-beaulieu-68278b541382",
-      "slug": "ostetrica-clinique-generale-beaulieu-geneve",
-      "company": "Clinique Générale-Beaulieu",
-      "companyKey": "clinique-generale-beaulieu",
-      "companyDomain": "swissmedical.net",
-      "title": "Sage-femme",
-      "needsRetranslation": false,
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154961499-sage-femme",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154961499-sage-femme",
-      "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:45:51.709Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1201",
-      "streetAddress": "Chemin de Beau-Soleil 20, 1206 Genève",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-12T09:06:43.190Z",
-      "postedDate": "2026-10-12T09:06:43.190Z",
-      "postingDateSource": "reported",
-      "firstSeenAt": "2026-05-26T14:07:25.919Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T21:45:51.709Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000154961499-sage-femme",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }
