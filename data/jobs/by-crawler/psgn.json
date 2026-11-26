@@ -861,9 +861,9 @@
       "slug": "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "it": "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-pfafers",
-        "en": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
+        "en": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-j1eidl",
         "de": "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
-        "fr": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        "fr": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-j1eidl"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -913,6 +913,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
           "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
         ]
       },
