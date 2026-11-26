@@ -4976,12 +4976,19 @@
       "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich-fdf89135",
       "medico-senior-80-100-clienia-ag-pfaffikon-zh-b6c6af14",
       "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich-b161faf4",
-      "medico-senior-80-100-clienia-ag-pfaffikon-zh",
       "primario-m-f-d-80-100-clienia-ag-pfaffikon-zh-4dfc6d3a",
       "medico-senior-m-f-d-80-100-clienia-ag-pfaffikon-122c7c82",
       "medico-senior-m-f-d-80-100-clienia-ag-pfaffikon-6948cef45b-fdb836af",
       "senior-physician-m-f-d-80-100-clienia-ag-pfaffikon-d9cffb4c",
-      "medecin-chef-m-f-j-80-100-clienia-ag-pfaffikon-02688b67"
+      "medecin-chef-m-f-j-80-100-clienia-ag-pfaffikon-02688b67",
+      "medico-senior-80-100-clienia-ag-pfaffikon-zh",
+      "senior-physician-m-f-d-80-100-clienia-ag-pfaffikon",
+      "medecin-chef-m-f-j-80-100-clienia-ag-pfaffikon",
+      "senior-physician-m-f-d-80-100-clienia-ag-pfaffikon-zh",
+      "medecin-chef-m-f-j-80-100-clienia-ag-pfaffikon-zh",
+      "primario-m-f-d-80-100-clienia-ag-pfaffikon-zh",
+      "medico-senior-m-f-d-80-100-clienia-ag-pfaffikon",
+      "medico-senior-m-f-d-80-100-clienia-ag-pfaffikon-6948cef45b"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5471,11 +5478,11 @@
         "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich-b161faf4",
         "medico-senior-m-f-d-80-100-clienia-ag-pfaffikon-122c7c82",
         "medico-senior-m-f-d-80-100-clienia-ag-pfaffikon-6948cef45b-fdb836af",
-        "medico-senior-80-100-clienia-ag-pfaffikon-zh",
         "senior-physician-m-f-d-80-100-clienia-ag-pfaffikon",
         "medecin-chef-m-f-j-80-100-clienia-ag-pfaffikon",
         "senior-physician-m-f-d-80-100-clienia-ag-pfaffikon-zh",
-        "medecin-chef-m-f-j-80-100-clienia-ag-pfaffikon-zh"
+        "medecin-chef-m-f-j-80-100-clienia-ag-pfaffikon-zh",
+        "medico-senior-80-100-clienia-ag-pfaffikon-zh"
       ],
       "en": [
         "senior-consultant-m-w-d-40-80-clienia-ag-pfaffikon-zh",
@@ -7937,6 +7944,8 @@
       "medecin-principal-80-100-clienia-ag-pfaffikon-zh-0fcd0a96",
       "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990-b07c977a",
       "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon-zh-d77f2917",
+      "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc",
+      "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc-83947df0",
       "senior-physician-80-100-clienia-ag-pfaffikon",
       "psychiatrist-in-charge-80-100-clienia-ag-pfaffikon-zh",
       "senior-physician-60-100-clienia-ag-pfaffikon",
@@ -7950,8 +7959,13 @@
       "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
       "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
       "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon-zh",
-      "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc",
-      "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc-83947df0"
+      "medecin-principal-80-100-clienia-ag-pfaffikon-zh",
+      "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
+      "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon-18ecf6d4",
+      "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-a643bcb0",
+      "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich-24930326",
+      "medecin-principal-80-100-clienia-ag-pfaffikon-zh-b3758507",
+      "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -8459,6 +8473,8 @@
         "medecin-principal-80-100-clienia-ag-pfaffikon-zh-0fcd0a96",
         "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
         "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon-zh",
+        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc-83947df0",
+        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon-18ecf6d4",
         "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
         "medecin-principal-80-100-clienia-ag-pfaffikon-zh",
         "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
@@ -8467,9 +8483,7 @@
         "oberarztin-arzt-80-100-clienia-ag-pfaffikon",
         "medecin-psychiatre-responsable-80-100-clienia-ag-pfaffikon-zh",
         "medecin-specialiste-principal-80-100-clienia-ag-pfaffikon",
-        "medecin-psychiatre-senior-medecin-psychiatre-senior-40-60-clienia-ag-pfaffikon-zh",
-        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc-83947df0",
-        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon-18ecf6d4"
+        "medecin-psychiatre-senior-medecin-psychiatre-senior-40-60-clienia-ag-pfaffikon-zh"
       ],
       "en": [
         "senior-physician-80-100-clienia-ag-pfaffikon-zh-d164f0",
@@ -9385,6 +9399,11 @@
         "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990-b07c977a",
         "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
         "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon-zh",
+        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc",
+        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-a643bcb0",
+        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich-24930326",
+        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon-18ecf6d4",
+        "medecin-principal-80-100-clienia-ag-pfaffikon-zh-b3758507",
         "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
         "oberarztin-arzt-80-100-clienia-ag-pfaffikon",
         "medecin-psychiatre-responsable-80-100-clienia-ag-pfaffikon-zh",
@@ -9392,12 +9411,7 @@
         "medecin-psychiatre-senior-medecin-psychiatre-senior-40-60-clienia-ag-pfaffikon-zh",
         "senior-physician-80-100-clienia-ag-pfaffikon",
         "psychiatrist-in-charge-80-100-clienia-ag-pfaffikon-zh",
-        "senior-physician-60-100-clienia-ag-pfaffikon",
-        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc",
-        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-a643bcb0",
-        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich-24930326",
-        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon-18ecf6d4",
-        "medecin-principal-80-100-clienia-ag-pfaffikon-zh-b3758507"
+        "senior-physician-60-100-clienia-ag-pfaffikon"
       ],
       "de": [
         "oberarztin-oberarzt-80-100-clienia-ag-zurich-65wkft",
@@ -10015,6 +10029,8 @@
         "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
         "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
         "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon-zh",
+        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc-83947df0",
+        "medecin-principal-80-100-clienia-ag-pfaffikon-zh-b3758507",
         "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon",
         "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
         "senior-physician-80-100-clienia-ag-pfaffikon",
@@ -10022,9 +10038,7 @@
         "medecin-psychiatre-responsable-80-100-clienia-ag-pfaffikon-zh",
         "medecin-specialiste-principal-80-100-clienia-ag-pfaffikon",
         "medecin-psychiatre-senior-medecin-psychiatre-senior-40-60-clienia-ag-pfaffikon-zh",
-        "oberarztin-arzt-80-100-clienia-ag-pfaffikon",
-        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc-83947df0",
-        "medecin-principal-80-100-clienia-ag-pfaffikon-zh-b3758507"
+        "oberarztin-arzt-80-100-clienia-ag-pfaffikon"
       ],
       "fr": [
         "medecin-principal-80-100-clienia-ag-pfaffikon-zh-d164f0",
@@ -10892,17 +10906,17 @@
         "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon-zh-d77f2917",
         "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
         "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
+        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc",
+        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-a643bcb0",
+        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich-24930326",
+        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon-18ecf6d4",
         "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon-zh",
         "senior-physician-80-100-clienia-ag-pfaffikon",
         "psychiatrist-in-charge-80-100-clienia-ag-pfaffikon-zh",
         "oberarztin-arzt-80-100-clienia-ag-pfaffikon",
         "medecin-psychiatre-responsable-80-100-clienia-ag-pfaffikon-zh",
         "medecin-specialiste-principal-80-100-clienia-ag-pfaffikon",
-        "medecin-psychiatre-senior-medecin-psychiatre-senior-40-60-clienia-ag-pfaffikon-zh",
-        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-r0txyc",
-        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich-a643bcb0",
-        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich-24930326",
-        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon-18ecf6d4"
+        "medecin-psychiatre-senior-medecin-psychiatre-senior-40-60-clienia-ag-pfaffikon-zh"
       ]
     },
     "postalCode": "8330",
@@ -14497,6 +14511,7 @@
         "specialist-for-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon-zh-df990beb",
         "specialist-for-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon-zh-f4432889",
         "specialist-for-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon-zh-4105457e",
+        "specialist-for-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon-zh-1056a65d",
         "specialist-for-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon-zh"
       ],
       "fr": [
@@ -16267,7 +16282,11 @@
       "leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-60-100-clienia-ag-zurich-b5e264b5",
       "psicoterapeuta-psicologica-principale-m-f-d-60-100-clienia-ag-pfaffikon-8460d698",
       "leading-psychological-psychotherapist-m-f-d-60-100-clienia-ag-pfaffikon-67fbb48e",
-      "psychotherapeute-psychologique-principal-m-f-j-60-100-clienia-ag-pfaffikon-46834f23"
+      "psychotherapeute-psychologique-principal-m-f-j-60-100-clienia-ag-pfaffikon-46834f23",
+      "leading-psychological-psychotherapist-m-f-d-60-100-clienia-ag-pfaffikon",
+      "psychotherapeute-psychologique-principal-m-f-j-60-100-clienia-ag-pfaffikon",
+      "leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-60-100-clienia-ag-zurich",
+      "psicoterapeuta-psicologica-principale-m-f-d-60-100-clienia-ag-pfaffikon"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -18323,8 +18342,6 @@
       "senior-consultant-psychiatrist-or-consultant-psychiatrist-in-acute-psychiatry-90-100-clienia-ag-pfaffikon",
       "senior-physician-and-deputy-chief-physician-m-f-d-80-100-clienia-ag-pfaffikon",
       "lead-doctor-or-senior-doctor-cadres-80-100-clienia-ag-pfaffikon-zh",
-      "senior-psychiatrist-40-60-clienia-ag-pfaffikon",
-      "psichiatra-responsabile-80-100-clienia-ag-pfaffikon",
       "oberarztin-oberarzt-80-100-clienia-ag-pfaffikon",
       "springer-oberarztin-oberarzt-40-60-clienia-ag-pfaffikon",
       "medecin-principal-80-100-clienia-ag-pfaffikon-zh-d164f0",
@@ -18381,7 +18398,9 @@
       "senior-physician-80-100-clienia-ag-pfaffikon-zh",
       "senior-physician-80-100-clienia-ag-pfaffikon-zh-58d907",
       "oberarztin-oberarzt-80-100-clienia-ag-pfaffikon-96c2416c",
-      "springer-oberarztin-oberarzt-40-60-clienia-ag-pfaffikon-902e0ca4"
+      "springer-oberarztin-oberarzt-40-60-clienia-ag-pfaffikon-902e0ca4",
+      "senior-psychiatrist-40-60-clienia-ag-pfaffikon",
+      "psichiatra-responsabile-80-100-clienia-ag-pfaffikon"
     ],
     "postalCode": "8330",
     "salaryCurrency": "CHF",
@@ -18530,8 +18549,6 @@
         "senior-consultant-psychiatrist-or-consultant-psychiatrist-in-acute-psychiatry-90-100-clienia-ag-pfaffikon",
         "senior-physician-and-deputy-chief-physician-m-f-d-80-100-clienia-ag-pfaffikon",
         "lead-doctor-or-senior-doctor-cadres-80-100-clienia-ag-pfaffikon-zh",
-        "senior-psychiatrist-40-60-clienia-ag-pfaffikon",
-        "psichiatra-responsabile-80-100-clienia-ag-pfaffikon",
         "oberarztin-oberarzt-80-100-clienia-ag-pfaffikon",
         "springer-oberarztin-oberarzt-40-60-clienia-ag-pfaffikon",
         "medecin-principal-80-100-clienia-ag-pfaffikon-zh-d164f0",
@@ -18543,7 +18560,9 @@
         "medecin-chef-60-100-clienia-ag-pfaffikon",
         "responsable-de-station-80-100-clienia-ag-pfaffikon-zh",
         "medecin-responsable-et-medecin-chef-adjoint-h-f-d-80-100-clienia-ag-pfaffikon",
-        "medecin-en-chef-ou-medecin-principal-cadres-80-100-clienia-ag-pfaffikon-zh"
+        "medecin-en-chef-ou-medecin-principal-cadres-80-100-clienia-ag-pfaffikon-zh",
+        "senior-psychiatrist-40-60-clienia-ag-pfaffikon",
+        "psichiatra-responsabile-80-100-clienia-ag-pfaffikon"
       ],
       "en": [
         "senior-physician-80-100-clienia-ag-pfaffikon-zh-d164f0-a0712a5e",
@@ -19643,7 +19662,9 @@
       "psychotherapeutin-psychotherapeuten-oder-psychologin-psychologen-m-w-d-40-100-clienia-ag-589e29c7",
       "psychotherapeute-40-100-clienia-ag-pfaffikon-2e7540eb",
       "psicoterapeuta-40-100-clienia-ag-pfaffikon-1f32b4d9",
-      "psychotherapeute-h-f-40-100-clienia-ag-pfaffikon-7941952e"
+      "psychotherapeute-h-f-40-100-clienia-ag-pfaffikon-7941952e",
+      "psychotherapist-or-psychologist-m-f-d-40-100-clienia-ag-pfaffikon-zh",
+      "psychotherapeutin-psychotherapeut-o-psychologin-psychologe-m-w-d-40-100-clienia-ag-pfaffikon"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -28880,7 +28901,8 @@
       "employee-restoration-80-clienia-ag-pfaffikon-zh",
       "retablissement-des-employes-80-clienia-ag-pfaffikon-zh",
       "employee-restoration-80-clienia-ag-pfaffikon-zh-c4a80f0a",
-      "retablissement-des-employes-80-clienia-ag-pfaffikon-zh-ed286fb8"
+      "retablissement-des-employes-80-clienia-ag-pfaffikon-zh-ed286fb8",
+      "mitarbeiterin-mitarbeiter-restauration-80-clienia-ag-zurich-4b64cc9a"
     ],
     "previousSlugsByLocale": {
       "it": [
