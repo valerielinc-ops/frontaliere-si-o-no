@@ -84,7 +84,8 @@
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:43:44.475Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://caisse-des-medecins.ch/job/test-automation-engineer-m-f"
     },
     {
       "id": "caisse-des-medecins-ch-04bfdad46a12",
@@ -167,7 +168,8 @@
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:43:44.471Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://caisse-des-medecins.ch/job/senior-software-engineer-m-w-100"
     },
     {
       "id": "caisse-des-medecins-ch-af2cb54f08ef",
@@ -236,7 +238,8 @@
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:43:44.467Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://caisse-des-medecins.ch/job/it-operations-support-h-f-a-100"
     },
     {
       "id": "caisse-des-medecins-ch-fa53d746aa83",
@@ -305,7 +308,8 @@
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:43:44.456Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://caisse-des-medecins.ch/job/dba-sybase-ms-sql-h-f-a-100"
     },
     {
       "id": "caisse-des-medecins-ch-d159d3edcedd",
@@ -388,7 +392,8 @@
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:43:44.449Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://caisse-des-medecins.ch/job/dba-postgresql-exploitation-h-f-100"
     }
   ]
 }
