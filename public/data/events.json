@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-26T00:32:00.223Z",
+  "generatedAt": "2026-11-26T02:44:38.522Z",
   "totalEvents": 18409,
   "events": [
     {
@@ -355099,7 +355099,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Vully Blues Festival è un evento musicale ricorrente. Si tiene al Vully Blues Club nel cantone di Friburgo.",
+      "descriptionByLocale": {
+        "it": "Il Vully Blues Festival è un evento musicale ricorrente. Si tiene al Vully Blues Club nel cantone di Friburgo.",
+        "en": "Vully Blues Festival is a recurring music event. It is held at Vully Blues Club in the canton of Fribourg.",
+        "de": "Das Vully Blues Festival ist eine wiederkehrende Musikveranstaltung. Es findet im Vully Blues Club im Kanton Freiburg statt.",
+        "fr": "Le Vully Blues Festival est un événement musical récurrent. Il se tient au Vully Blues Club, dans le canton de Fribourg."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:cares-comprendre-prevenir-violences-obstetricales",
@@ -497879,7 +497887,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente si svolge a Lugano ed è associato al LAC. L’Orchestra della Svizzera italiana è indicata come orchestra residente, mentre Alexander Malofeev figura tra gli interpreti.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente si svolge a Lugano ed è associato al LAC. L’Orchestra della Svizzera italiana è indicata come orchestra residente, mentre Alexander Malofeev figura tra gli interpreti.",
+        "en": "The recurring event takes place in Lugano and is associated with the LAC. The Orchestra della Svizzera italiana is identified as the resident orchestra, and Alexander Malofeev is listed as a performer.",
+        "de": "Die wiederkehrende Veranstaltung findet in Lugano statt und ist mit dem LAC verbunden. Das Orchestra della Svizzera italiana wird als Residenzorchester bezeichnet; Alexander Malofeev ist als Mitwirkender angegeben.",
+        "fr": "Ce rendez-vous récurrent se déroule à Lugano et est associé au LAC. L’Orchestra della Svizzera italiana y est présentée comme l’orchestre résident, avec Alexander Malofeev parmi les interprètes annoncés."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AXBrejm",
@@ -532544,7 +532560,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa lettura a Ginevra è dedicata a Jules Supervielle. Il programma presenta un racconto dell’autore legato al bue e all’asino della scena della Natività.",
+      "descriptionByLocale": {
+        "it": "Questa lettura a Ginevra è dedicata a Jules Supervielle. Il programma presenta un racconto dell’autore legato al bue e all’asino della scena della Natività.",
+        "en": "A reading in Geneva is devoted to Jules Supervielle. It presents one of his tales about the ox and the donkey in the nativity scene.",
+        "de": "Die Lesung in Genf widmet sich Jules Supervielle. Im Mittelpunkt steht eine Erzählung des Autors über den Ochsen und den Esel an der Krippe.",
+        "fr": "Cette lecture à Genève est consacrée à Jules Supervielle. Elle présente l’un de ses contes autour du bœuf et de l’âne de la crèche."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4a4d4d7eeaca41f5993cdb5ff1bcce68",
@@ -587826,7 +587850,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma presenta I Grey con un repertorio che affianca brani rock originali e cover. L’esibizione si svolge al Ristorante Hollywood Live Music di Lugano.",
+      "descriptionByLocale": {
+        "it": "Il programma presenta I Grey con un repertorio che affianca brani rock originali e cover. L’esibizione si svolge al Ristorante Hollywood Live Music di Lugano.",
+        "en": "The event features I Grey with a set combining original rock songs and covers. It takes place at Ristorante Hollywood Live Music in Lugano.",
+        "de": "Bei der Veranstaltung treten I Grey mit einer Mischung aus eigenen Rocksongs und Coverversionen auf. Austragungsort ist das Ristorante Hollywood Live Music in Lugano.",
+        "fr": "Le rendez-vous présente I Grey dans un répertoire réunissant des morceaux de rock originaux et des reprises. Il a lieu au Ristorante Hollywood Live Music, à Lugano."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Aue5bZr",
@@ -591628,7 +591660,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un concerto dedicato all’esplorazione di alcuni elementi della musica jazz, presentati separatamente. L’appuntamento si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "È un concerto dedicato all’esplorazione di alcuni elementi della musica jazz, presentati separatamente. L’appuntamento si svolge a Ginevra.",
+        "en": "This concert explores selected elements of jazz, presented as separate musical pieces. It takes place in Geneva.",
+        "de": "Das Konzert widmet sich ausgewählten Aspekten des Jazz, die in einzelnen musikalischen Teilen vorgestellt werden. Die Veranstaltung findet in Genf statt.",
+        "fr": "Ce concert explore certains éléments du jazz, présentés sous forme de pièces distinctes. Le rendez-vous a lieu à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:next-movement",
@@ -598700,7 +598740,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Lugano, pazienti e familiari possono confrontarsi con esperti ormai in pensione che hanno lavorato in ambito medico, psicologico, sociale o infermieristico. L’appuntamento all’Hotel Pestalozzi offre gratuitamente risposte alle domande e indicazioni sulle possibilità di trattamento, mentre nessuna cura viene eseguita sul posto.",
+      "descriptionByLocale": {
+        "it": "A Lugano, pazienti e familiari possono confrontarsi con esperti ormai in pensione che hanno lavorato in ambito medico, psicologico, sociale o infermieristico. L’appuntamento all’Hotel Pestalozzi offre gratuitamente risposte alle domande e indicazioni sulle possibilità di trattamento, mentre nessuna cura viene eseguita sul posto.",
+        "en": "In Lugano, patients and family members can speak with retired experts who have worked in medical, psychological, social-care or nursing fields. The meeting at Hotel Pestalozzi provides free guidance on health questions and possible treatment options; no treatment is carried out on site.",
+        "de": "Die Veranstaltung in Lugano richtet sich an Patientinnen, Patienten und Angehörige, die gesundheitliche Fragen mit pensionierten Fachpersonen besprechen möchten. Im Hotel Pestalozzi erhalten sie kostenlos Auskünfte und können Möglichkeiten einer Behandlung erörtern; Behandlungen finden dort nicht statt.",
+        "fr": "À Lugano, les patients et leurs proches peuvent échanger avec des professionnels retraités issus des domaines médical, psychologique, social et infirmier. La rencontre à l’Hôtel Pestalozzi fournit gratuitement des réponses aux questions de santé et des informations sur les options de traitement ; aucun traitement n’y est réalisé."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A9kP1HS",
@@ -599580,7 +599628,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto al Teatro sociale di Bellinzona riunisce Adilei e Trouveur valdotèn in un programma dedicato alla musica popolare. Adilei propone canti polifonici della tradizione georgiana, mentre il gruppo valdostano presenta repertorio alpino con fisarmonica diatonica, violino, ghironda, flauti e percussioni.",
+      "descriptionByLocale": {
+        "it": "Il concerto al Teatro sociale di Bellinzona riunisce Adilei e Trouveur valdotèn in un programma dedicato alla musica popolare. Adilei propone canti polifonici della tradizione georgiana, mentre il gruppo valdostano presenta repertorio alpino con fisarmonica diatonica, violino, ghironda, flauti e percussioni.",
+        "en": "The concert at Teatro sociale in Bellinzona brings together Adilei and Trouveur valdotèn around folk music from Georgia and the Alpine area. Adilei performs Georgian polyphonic singing, while the Valle d’Aosta ensemble draws on traditional repertoire with instruments such as diatonic accordion, violin, hurdy-gurdy, flutes and percussion.",
+        "de": "Im Teatro sociale in Bellinzona treffen Adilei und Trouveur valdotèn in einem Konzert mit Volksmusik aus Georgien und dem Alpenraum zusammen. Adilei steht für mehrstimmige georgische Gesänge; das Ensemble aus dem Aostatal pflegt alpines Repertoire und verwendet unter anderem diatonisches Akkordeon, Geige, Drehleier, Flöten und Schlaginstrumente.",
+        "fr": "Le concert au Teatro sociale de Bellinzone réunit Adilei et Trouveur valdotèn autour de musiques populaires géorgiennes et alpines. Adilei interprète des chants polyphoniques de Géorgie, tandis que l’ensemble valdôtain s’appuie sur un répertoire traditionnel et sur des instruments tels que l’accordéon diatonique, le violon, la vielle à roue, les flûtes et les percussions."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A1Wetup",
@@ -622769,7 +622825,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento a Rüti bei Riggisberg propone una cena di gala festiva con più portate. La serata comprende inoltre musica e champagne per celebrare il nuovo anno.",
+      "descriptionByLocale": {
+        "it": "L’evento a Rüti bei Riggisberg propone una cena di gala festiva con più portate. La serata comprende inoltre musica e champagne per celebrare il nuovo anno.",
+        "en": "The event in Rüti bei Riggisberg features a festive, multi-course gala dinner. Music and champagne are also part of the programme for the New Year celebration.",
+        "de": "Die Veranstaltung in Rüti bei Riggisberg umfasst ein festliches Gala-Dinner mit mehreren Gängen. Zum Programm gehören ausserdem Musik und Champagner für den Jahreswechsel.",
+        "fr": "L’événement à Rüti bei Riggisberg comprend un dîner de gala festif composé de plusieurs plats. La soirée propose également de la musique et du champagne pour célébrer le passage à la nouvelle année."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7666a692a2014beead003a2573beb477",
@@ -774718,7 +774782,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Jan Delay si esibisce con la band Disko No. 1 nell’ambito di STIMMEN 2027. L’evento appartiene alla categoria soul e prevede anche un supporto, con ritmi marcati, bassi e una sezione di fiati.",
+      "descriptionByLocale": {
+        "it": "Jan Delay si esibisce con la band Disko No. 1 nell’ambito di STIMMEN 2027. L’evento appartiene alla categoria soul e prevede anche un supporto, con ritmi marcati, bassi e una sezione di fiati.",
+        "en": "Jan Delay performs with Disko No. 1 as part of STIMMEN 2027. The event is classified as Soul, includes a support act and features driving rhythms, bass and a brass section.",
+        "de": "Jan Delay tritt gemeinsam mit Disko No. 1 im Rahmen von STIMMEN 2027 auf. Die als Soul-Veranstaltung geführte Aufführung umfasst außerdem einen Support-Act sowie treibende Rhythmen, Bass und eine Bläsersektion.",
+        "fr": "Jan Delay se produit avec Disko No. 1 dans le cadre de STIMMEN 2027. Classé dans la catégorie soul, le rendez-vous prévoit aussi une première partie et associe des rythmes soutenus, de la basse et une section de cuivres."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:64d21eac6e1948978793ebb757f14bca",
@@ -779796,7 +779868,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Baschi Openair è un appuntamento di musica pop in programma alla Mühle Hunziken di Rubigen, nel canton Berna. L’evento prevede la partecipazione di Baschi.",
+      "descriptionByLocale": {
+        "it": "Baschi Openair è un appuntamento di musica pop in programma alla Mühle Hunziken di Rubigen, nel canton Berna. L’evento prevede la partecipazione di Baschi.",
+        "en": "Baschi Openair is a pop music event at Mühle Hunziken in Rubigen, in the canton of Bern. Baschi is scheduled to perform as part of the event.",
+        "de": "Das Baschi Openair ist eine Popveranstaltung in der Mühle Hunziken in Rubigen im Kanton Bern. Baschi tritt im Rahmen des Anlasses auf.",
+        "fr": "Baschi Openair est un rendez-vous de musique pop à la Mühle Hunziken, à Rubigen, dans le canton de Berne. Baschi participe à cet événement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A29520112",
@@ -787138,7 +787218,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "«Oesch's die Dritten» è un appuntamento di intrattenimento popolare in programma alla Mühle Hunziken di Rubigen. La sede si trova nel canton Berna.",
+      "descriptionByLocale": {
+        "it": "«Oesch's die Dritten» è un appuntamento di intrattenimento popolare in programma alla Mühle Hunziken di Rubigen. La sede si trova nel canton Berna.",
+        "en": "“Oesch’s die Dritten” is a popular-entertainment event scheduled at Mühle Hunziken in Rubigen. The venue is in the canton of Bern.",
+        "de": "„Oesch’s die Dritten“ ist eine Veranstaltung aus dem Bereich volkstümliche Unterhaltung und findet in der Mühle Hunziken in Rubigen statt. Der Veranstaltungsort liegt im Kanton Bern.",
+        "fr": "« Oesch’s die Dritten » est un événement de divertissement populaire qui se déroule à la Mühle Hunziken, à Rubigen. Le lieu se trouve dans le canton de Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fcdab1dbbf0c44dfadeef8f544af1ae4",
@@ -787674,7 +787762,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di musica pop con Camel Power Club si svolge alla Mühle Hunziken di Rubigen. La manifestazione è prevista per il 7 ottobre 2027.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica pop con Camel Power Club si svolge alla Mühle Hunziken di Rubigen. La manifestazione è prevista per il 7 ottobre 2027.",
+        "en": "The event features Camel Power Club in a pop-music programme at Mühle Hunziken in Rubigen. It is scheduled for 7 October 2027.",
+        "de": "Der Popmusik-Anlass mit Camel Power Club findet in der Mühle Hunziken in Rubigen statt. Er ist für den 7. Oktober 2027 vorgesehen.",
+        "fr": "L’événement de musique pop avec Camel Power Club se déroule à la Mühle Hunziken, à Rubigen. Il est prévu le 7 octobre 2027."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AZK3iDU",
@@ -788243,7 +788339,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Luca Hänni è il protagonista di un evento di musica pop a Langenthal. L’appuntamento si tiene all’OldCapitol.",
+      "descriptionByLocale": {
+        "it": "Luca Hänni è il protagonista di un evento di musica pop a Langenthal. L’appuntamento si tiene all’OldCapitol.",
+        "en": "Luca Hänni is the featured performer at a pop music event in Langenthal. The event takes place at OldCapitol.",
+        "de": "Luca Hänni steht im Mittelpunkt einer Popveranstaltung in Langenthal. Der Anlass findet im OldCapitol statt.",
+        "fr": "Luca Hänni est l’artiste au centre d’un événement de musique pop à Langenthal. Le rendez-vous a lieu à l’OldCapitol."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A86ycFT",
@@ -789115,7 +789219,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un programma rock dedicato ai classici del genere. Si svolge al Club Vaudeville di Lindau, con Rockhits e Songs indicati tra gli interpreti.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un programma rock dedicato ai classici del genere. Si svolge al Club Vaudeville di Lindau, con Rockhits e Songs indicati tra gli interpreti.",
+        "en": "The event presents a rock programme dedicated to classics of the genre. It takes place at Club Vaudeville in Lindau, with Rockhits and Songs listed as performers.",
+        "de": "Die Veranstaltung bietet ein Rockprogramm zu Klassikern des Genres. Sie findet im Club Vaudeville in Lindau statt; als Mitwirkende sind Rockhits und Songs aufgeführt.",
+        "fr": "Le rendez-vous propose un programme de rock consacré aux classiques du genre. Il a lieu au Club Vaudeville, à Lindau, avec Rockhits et Songs indiqués comme interprètes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:93658",
@@ -790739,7 +790851,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Loredana e Kilian sono indicati come performer di un evento di musica pop. L’appuntamento si svolge al Volkshaus Zürich, a Zürich.",
+      "descriptionByLocale": {
+        "it": "Loredana e Kilian sono indicati come performer di un evento di musica pop. L’appuntamento si svolge al Volkshaus Zürich, a Zürich.",
+        "en": "Loredana and Kilian are listed as the performers for a pop music event. The event takes place at Volkshaus Zürich in Zürich.",
+        "de": "Loredana und Kilian sind als Mitwirkende einer Popveranstaltung aufgeführt. Die Veranstaltung findet im Volkshaus Zürich in Zürich statt.",
+        "fr": "Loredana et Kilian sont indiqués comme interprètes d’un événement de musique pop. Le rendez-vous se tient au Volkshaus Zürich, à Zürich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9dea84db277f49e4b2619bc5a2b64aee",
