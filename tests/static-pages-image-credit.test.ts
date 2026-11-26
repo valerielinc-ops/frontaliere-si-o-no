@@ -132,7 +132,7 @@ describe('the cover credit on the hand-written page (P14)', () => {
     typeof needle === 'string' ? SOURCE.includes(needle) : needle.test(SOURCE);
 
   it('reads the record of the page hero with the engine’s reader', () => {
-    expect(has(/createImageCreditReader\(fs,\s*np\.resolve\(rootDir,\s*'packages\/articles\/content\/image-credits'\)\)/),
+    expect(has(/createImageCreditReader\(\s*fs,\s*np\.resolve\(rootDir,\s*'packages\/articles\/content\/image-credits'\)/),
       'no reader over the synced records').toBe(true);
     expect(has(/const blogDetailCredit = blogDetailHeroSrc \? imageCredits\.get\(blogDetailHeroSrc\) : null;/),
       'the record is not the hero’s').toBe(true);

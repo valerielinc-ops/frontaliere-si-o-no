@@ -25,6 +25,7 @@ const COMMENT_RECEIVED_AT = new Date(NOW.getTime() - 60 * 60 * 1000);
 const MESSAGE_RECEIVED_AT = new Date(NOW.getTime() - 30 * 60 * 1000);
 const STORY_PUBLISHED_AT = new Date(NOW.getTime() + 15 * 60 * 1000);
 const LEGACY_SNAPSHOT_AT = new Date(NOW.getTime() - 24 * 60 * 60 * 1000);
+const PREEXISTING_TOPIC_RECEIVED_AT = new Date(NOW.getTime() - 10 * 24 * 60 * 60 * 1000);
 
 function response(body: unknown, status = 200) {
   return {
@@ -322,7 +323,7 @@ describe('Instagram community automation', () => {
       topicSignals: Array.from({ length: 10 }, (_, index) => ({
         key: instagramCommunityTopicSignalKey(`replay-comment-${index}`),
         category: 'permessi-amministrazione',
-        receivedAt: '2026-10-10T11:00:00.000Z',
+        receivedAt: PREEXISTING_TOPIC_RECEIVED_AT.toISOString(),
       })),
     }));
     const run = fakeInstagramFetch({ comments: [], messages: [] });
