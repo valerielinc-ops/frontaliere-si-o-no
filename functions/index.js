@@ -3630,7 +3630,7 @@ export const sweepAssistedApplicationAutomation = onSchedule(
         postingClosed: postingClosureForOrder,
         extractCandidateReply: (request) => codexStructured(request),
       });
-      if (summary.ticks || summary.redispatched || summary.portalRetries || summary.timedOut || summary.failed || summary.refunds || summary.receiptsReconciled || summary.employerWithdrawals) {
+      if (summary.ticks || summary.redispatched || summary.portalRetries || summary.timedOut || summary.failed || summary.refunds || summary.receiptsReconciled || summary.employerWithdrawals || summary.staleArchived) {
         console.log('[sweepAssistedApplicationAutomation]', summary);
       }
     } catch (error) {

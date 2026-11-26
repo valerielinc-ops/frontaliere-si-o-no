@@ -39,7 +39,7 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { photoFilesOf, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
 import { postalPacketReadiness } from './assistedApplicationPostalPacket.js';
-import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, employerWithdrawalPending, needsFactRepair, transition } from './assistedApplicationFlow.js';
+import { CANDIDATE_REMINDER_STATES, CANDIDATE_STALE_ARCHIVE_AFTER_MS, TERMINAL_STATES, candidateRequestTelemetryOf, employerWithdrawalPending, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import {
   EMPLOYER_WITHDRAWAL_REASON,
   EMPLOYER_WITHDRAWAL_SLOT_RELEASE,
@@ -376,6 +376,7 @@ function mirrorFields(flow) {
   return {
     automationState: flow.state,
     automationDueAt: computeDueAt(flow),
+    candidateStaleArchivedAt: flow.candidateStaleArchivedAt || null,
     automationUpdatedAt: FieldValue.serverTimestamp(),
   };
 }
@@ -946,6 +947,75 @@ export async function postingClosureForOrder({ db, orderId, order, fetchImpl = f
   return { closed: true, closure };
 }
 
+function orderTimestampMs(value) {
+  if (!value) return 0;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
+  if (typeof value.toMillis === 'function') return value.toMillis();
+  if (typeof value.toDate === 'function') return value.toDate().getTime();
+  if (typeof value._seconds === 'number') return value._seconds * 1000;
+  const parsed = Date.parse(String(value));
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+/**
+ * Archive paid orders stuck waiting on the candidate for more than 30 days
+ * (missing answers/documents on an active wait, or missing CV before the flow
+ * ever started). Clears automatically if the candidate replies or uploads.
+ */
+export async function sweepStaleCandidateOrders({ db, runEffect, nowMs = Date.now() } = {}) {
+  const [waitingSnap, cvMissingSnap] = await Promise.all([
+    db.collection(ASSISTED_APPLICATIONS_COLLECTION)
+      .where('automationState', 'in', [...CANDIDATE_REMINDER_STATES])
+      .limit(SWEEP_BATCH)
+      .get(),
+    db.collection(ASSISTED_APPLICATIONS_COLLECTION)
+      .where('submissionStatus', '==', 'awaiting_upload')
+      .limit(SWEEP_BATCH)
+      .get(),
+  ]);
+  let flowArchived = 0;
+  let cvArchived = 0;
+  let failed = 0;
+  const effectRunner = typeof runEffect === 'function' ? runEffect : async () => ({ ok: true });
+
+  for (const doc of waitingSnap.docs || []) {
+    try {
+      if (doc.data()?.candidateStaleArchivedAt) continue;
+      const result = await applyAutomationEvent({
+        db,
+        orderId: doc.id,
+        event: { type: 'candidate_stale_archive' },
+        actor: 'stale-archive-sweep',
+        runEffect: effectRunner,
+        nowMs,
+      });
+      if (result.ok) flowArchived += 1;
+    } catch (error) {
+      failed += 1;
+      console.error('[assistedApplicationAutomation] stale candidate flow archive failed', doc.id, error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  for (const doc of cvMissingSnap.docs || []) {
+    try {
+      const order = doc.data() || {};
+      if (order.paymentStatus !== 'paid' || order.cvStorageKey || order.automationState || order.candidateStaleArchivedAt) continue;
+      const paidMs = orderTimestampMs(order.paidAt);
+      if (!paidMs || nowMs - paidMs < CANDIDATE_STALE_ARCHIVE_AFTER_MS) continue;
+      await doc.ref.set({
+        candidateStaleArchivedAt: nowMs,
+        automationUpdatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+      cvArchived += 1;
+    } catch (error) {
+      failed += 1;
+      console.error('[assistedApplicationAutomation] stale missing-CV archive failed', doc.id, error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  return { flowArchived, cvArchived, total: flowArchived + cvArchived, failed };
+}
+
 /**
  * Every few minutes: fire due clocks and reminders, and re-dispatch (once) a
  * run that never reported back; a second silence hands the order to Valerie.
@@ -978,6 +1048,14 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
   } catch (error) {
     summary.failed += 1;
     console.error('[assistedApplicationAutomation] Swiss runner queue check failed', error instanceof Error ? error.message : String(error));
+  }
+  try {
+    const stale = await sweepStaleCandidateOrders({ db, runEffect, nowMs });
+    if (stale.total) summary.staleArchived = stale.total;
+    if (stale.failed) summary.failed += stale.failed;
+  } catch (error) {
+    summary.failed += 1;
+    console.error('[assistedApplicationAutomation] stale candidate archive sweep failed', error instanceof Error ? error.message : String(error));
   }
   // Automatic refunds that failed (closed ad): retried until they go through
   // or the effect gives up and alerts the owner.
