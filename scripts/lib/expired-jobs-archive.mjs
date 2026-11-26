@@ -753,6 +753,107 @@ export function mergeExpiredRouteEvidence(
 }
 
 /**
+ * Index an archive by source identity, so a writer can recognise a posting the
+ * archive already represents under ANOTHER slug (a rename, or the alias a
+ * collision repair moved it to). Shared by `archiveRemovedJobsToSlice` and the
+ * history backfill: a writer keyed by slug alone mints a second record for that
+ * posting, the next repair coins an alias for it, and the following run finds
+ * the original slug missing again.
+ *
+ * Every record the caller keeps must be `add`ed, a replaced one `remove`d, and
+ * every in-place merge wrapped in `update`.
+ *
+ * @param {object[]} records
+ * @param {{activeJobs?: object[], isAmbiguousIdentity?: (identity: string) => boolean}} [options]
+ *   `isAmbiguousIdentity` names identities that point at a page rather than one
+ *   posting (a bare listing URL); they never prove that two payloads are the same.
+ */
+export function createSameIdentityArchiveIndex(records, { activeJobs, isAmbiguousIdentity } = {}) {
+  const recordsBySourceIdentity = new Map(); // identity -> Set<record>, insertion order
+  const routeHolders = new Map();
+  const activeRouteKeys = new Set();
+  for (const activeJob of Array.isArray(activeJobs) ? activeJobs : []) {
+    for (const routeKey of localeRouteKeys(activeJob)) activeRouteKeys.add(routeKey);
+  }
+  const indexIdentities = (record) => {
+    for (const identity of archiveRecordSourceIdentities(record)) {
+      let owners = recordsBySourceIdentity.get(identity);
+      if (!owners) recordsBySourceIdentity.set(identity, owners = new Set());
+      owners.add(record);
+    }
+  };
+  const add = (record) => {
+    indexIdentities(record);
+    addRouteHolders(routeHolders, localeRouteKeys(record));
+  };
+  const remove = (record) => {
+    for (const identity of archiveRecordSourceIdentities(record)) {
+      const owners = recordsBySourceIdentity.get(identity);
+      if (!owners) continue;
+      owners.delete(record);
+      if (owners.size === 0) recordsBySourceIdentity.delete(identity);
+    }
+    syncRouteHolders(routeHolders, localeRouteKeys(record), new Set());
+  };
+  const update = (record, mutate) => {
+    const before = localeRouteKeys(record);
+    const result = mutate();
+    syncRouteHolders(routeHolders, before, localeRouteKeys(record));
+    indexIdentities(record); // it may have gained identities from a merged history
+    return result;
+  };
+  for (const record of records) add(record);
+
+  /**
+   * Same posting already archived under another slug: NEVER a second record. The
+   * existing record stays the owner of the posting; routes it no longer serves are
+   * merged into its history, so no URL stops resolving. A route counts as served when
+   *   - the record holds it, or
+   *   - the record holds one of its deterministic aliases (the repair already
+   *     moved it, and the idempotent repair will move it there again), or
+   *   - an active posting (when the caller knows them) or ANOTHER record of the
+   *     slice holds it.
+   *
+   * @returns {null | {record: object, changed: boolean}} `null` when no record
+   *   is proven to be this posting: the caller keeps `entry` as it did before.
+   */
+  const absorb = (entry) => {
+    const identity = entry?.sourceIdentity;
+    if (!identity || isAmbiguousIdentity?.(identity)) return null;
+    const record = recordsBySourceIdentity.get(identity)?.values().next().value;
+    if (!record) return null;
+    const held = localeRouteKeys(record);
+    const unserved = [...localeRouteKeys(entry)].filter((routeKey) => {
+      if (held.has(routeKey) || activeRouteKeys.has(routeKey)) return false;
+      if ((routeHolders.get(routeKey) || 0) > 0) return false; // held by another record (not this one: `held` is checked above)
+      return !holdsDeterministicAlias(record, routeKey, held);
+    });
+    if (unserved.length === 0) return { record, changed: false };
+    // Merge on a copy first: a route the record cannot represent must not be
+    // dropped with the payload, so the caller keeps `entry` instead. Only the
+    // two fields the merge writes are copied and adopted: every other field
+    // (descriptions included) is never cloned or reassigned here.
+    const routeFields = ['previousSlugsByLocale', 'previousSlugCantonByLocale'];
+    const candidate = { ...record };
+    for (const field of routeFields) {
+      if (record[field]) candidate[field] = structuredClone(record[field]);
+    }
+    mergeUnservedRoutesIntoRecord(candidate, unserved, entry);
+    const merged = localeRouteKeys(candidate);
+    if (!unserved.every((routeKey) => merged.has(routeKey))) return null;
+    // Adopt the checked copy: merging twice would journal twice.
+    update(record, () => {
+      for (const field of routeFields) {
+        if (candidate[field]) record[field] = candidate[field];
+      }
+    });
+    return { record, changed: true };
+  };
+
+  return { add, remove, update, absorb };
+}
+
+/**
  * Archive removed jobs to a per-crawler expired slice file.
  *
  * Merges with any existing entries by `slug`, keeping the most-recently
@@ -887,34 +988,7 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   // replacing) is indexed as it enters and a replaced record is un-indexed, so two
   // removed jobs of the SAME call with one source identity and different slugs also end
   // up in one record (the second one's routes are merged into the first).
-  const recordsBySourceIdentity = new Map(); // identity -> Set<record>, insertion order
-  const sliceRouteHolders = new Map();
-  const indexRecord = (record) => {
-    for (const identity of archiveRecordSourceIdentities(record)) {
-      let records = recordsBySourceIdentity.get(identity);
-      if (!records) recordsBySourceIdentity.set(identity, records = new Set());
-      records.add(record);
-    }
-    addRouteHolders(sliceRouteHolders, localeRouteKeys(record));
-  };
-  const unindexRecord = (record) => {
-    for (const identity of archiveRecordSourceIdentities(record)) {
-      const records = recordsBySourceIdentity.get(identity);
-      if (!records) continue;
-      records.delete(record);
-      if (records.size === 0) recordsBySourceIdentity.delete(identity);
-    }
-    syncRouteHolders(sliceRouteHolders, localeRouteKeys(record), new Set());
-  };
-  const recordOfSourceIdentity = (identity) => {
-    const records = identity ? recordsBySourceIdentity.get(identity) : undefined;
-    return records ? records.values().next().value : undefined;
-  };
-  for (const ej of existing) indexRecord(ej);
-  const activeRouteKeys = new Set();
-  for (const activeJob of Array.isArray(opts.activeJobs) ? opts.activeJobs : []) {
-    for (const routeKey of localeRouteKeys(activeJob)) activeRouteKeys.add(routeKey);
-  }
+  const identityIndex = createSameIdentityArchiveIndex(existing, { activeJobs: opts.activeJobs });
 
   let added = 0;
   let metadataChanged = false;
@@ -933,31 +1007,14 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     const prev = bySlug.get(entry.slug);
     if (!prev) {
       // Same posting already archived under another slug (its slug was moved to an
-      // alias by the collision repair): NEVER a second record. The existing record
-      // stays the owner of the posting; routes it no longer serves are merged into
-      // its history below, so no URL stops resolving. A route counts as served when
-      //   - the record holds it, or
-      //   - the record holds one of its deterministic aliases (the repair already
-      //     moved it, and the idempotent repair will move it there again), or
-      //   - an active posting (when the caller knows them) or ANOTHER record of the
-      //     slice holds it.
-      const sameRecord = recordOfSourceIdentity(entry.sourceIdentity);
-      if (sameRecord) {
-        const held = localeRouteKeys(sameRecord);
-        const unserved = [...localeRouteKeys(entry)].filter((routeKey) => {
-          if (held.has(routeKey) || activeRouteKeys.has(routeKey)) return false;
-          if ((sliceRouteHolders.get(routeKey) || 0) > 0) return false; // held by another record (not this one: `held` is checked above)
-          return !holdsDeterministicAlias(sameRecord, routeKey, held);
-        });
-        if (unserved.length === 0) continue;
-        if (mergeUnservedRoutesIntoRecord(sameRecord, unserved, entry)) {
-          addRouteHolders(sliceRouteHolders, unserved);
-          metadataChanged = true;
-          continue;
-        }
+      // alias by the collision repair): see createSameIdentityArchiveIndex.
+      const absorbed = identityIndex.absorb(entry);
+      if (absorbed) {
+        metadataChanged = absorbed.changed || metadataChanged;
+        continue;
       }
       bySlug.set(entry.slug, entry);
-      indexRecord(entry);
+      identityIndex.add(entry);
       added++;
     } else if (compareExpiredAt(entry.expiredAt, prev.expiredAt) >= 0) {
       let routeCapRefused = false;
@@ -974,10 +1031,10 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
         continue;
       }
       const previousMetadata = firstSeenMetadata(prev);
-      unindexRecord(prev); // the replaced record no longer owns its identities or routes
+      identityIndex.remove(prev); // the replaced record no longer owns its identities or routes
       bySlug.set(entry.slug, entry);
       const merged = mergeSourceIdentityHistory(entry, prev) || routeEvidenceMerged;
-      indexRecord(entry); // after the merge: it may now carry the old record's identity history
+      identityIndex.add(entry); // after the merge: it may now carry the old record's identity history
       // A newer payload may replace a legacy entry that has no metadata. The
       // merge itself is intentionally a no-op when there is only one source
       // identity, so compare the selected payload before returning below.
@@ -985,20 +1042,14 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
         || previousMetadata !== firstSeenMetadata(entry)
         || metadataChanged;
     } else {
-      const routeEvidenceMerged = mergeExpiredRouteEvidence(
-        prev,
-        entry,
-        `archive-removed-jobs-to-slice/${crawlerKey}`,
-      );
-      metadataChanged = mergeSourceIdentityHistory(prev, entry)
-        || routeEvidenceMerged
-        || metadataChanged;
-      // `prev` may have gained identities from `entry`'s history: keep the index in step.
-      for (const identity of archiveRecordSourceIdentities(prev)) {
-        let records = recordsBySourceIdentity.get(identity);
-        if (!records) recordsBySourceIdentity.set(identity, records = new Set());
-        records.add(prev);
-      }
+      metadataChanged = identityIndex.update(prev, () => {
+        const routeEvidenceMerged = mergeExpiredRouteEvidence(
+          prev,
+          entry,
+          `archive-removed-jobs-to-slice/${crawlerKey}`,
+        );
+        return mergeSourceIdentityHistory(prev, entry) || routeEvidenceMerged;
+      }) || metadataChanged;
     }
   }
 
