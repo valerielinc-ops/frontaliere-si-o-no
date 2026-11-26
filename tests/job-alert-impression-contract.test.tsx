@@ -370,7 +370,7 @@ describe('#19744 — job-detail prompt separates intent from create outcome', ()
     const subscribed = prompt.slice(subscribedStart, dismissedStart);
 
     expect(start).toBeGreaterThanOrEqual(0);
-    expect(end).toBeGreater(start);
+    expect(end).toBeGreaterThan(start);
     expect(accepted).toContain("Analytics.trackJobAlertCtaClick('job_detail_prompt', 'accept'");
     expect(accepted).not.toContain('trackJobAlertCreated');
     expect(subscribed).toContain("Analytics.trackJobAlertCtaClick('job_detail_prompt', 'success'");
