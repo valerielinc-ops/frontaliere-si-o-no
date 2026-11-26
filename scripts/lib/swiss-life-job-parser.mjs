@@ -160,6 +160,7 @@ async function fetchJson(url, options = {}, browserFallback) {
     timeoutMs: configuredTimeoutMs,
     method = 'GET',
     body,
+    throwOnError = false,
   } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
@@ -173,7 +174,7 @@ async function fetchJson(url, options = {}, browserFallback) {
       ...(browserFallback === undefined ? {} : { browserFallback }),
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (throwOnError || err instanceof WorkdayRateLimitError) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }
@@ -233,6 +234,7 @@ export async function fetchSwissListings({ browserFallback } = {}) {
         offset,
         searchText: '',
       }),
+      throwOnError: true,
     }, browserFallback);
 
     if (!data || !Array.isArray(data.jobPostings)) {

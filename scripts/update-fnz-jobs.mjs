@@ -167,7 +167,12 @@ function isTrustedDomain(rawUrl = '') {
 /* ── Workday API ───────────────────────────────────────────── */
 
 async function fetchJson(url, options = {}) {
-  const { timeoutMs: configuredTimeoutMs, method = 'GET', body } = options;
+  const {
+    timeoutMs: configuredTimeoutMs,
+    method = 'GET',
+    body,
+    throwOnError = false,
+  } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
     return await fetchWorkdayJsonWithRetry(FNZ_API_BASE, url, {
@@ -178,7 +183,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (throwOnError || err instanceof WorkdayRateLimitError) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }
@@ -218,6 +223,7 @@ async function listSwissJobs() {
     const data = await fetchJson(`${FNZ_API_BASE}/jobs`, {
       method: 'POST',
       body,
+      throwOnError: true,
     });
 
     const rawTotal = data?.total;
