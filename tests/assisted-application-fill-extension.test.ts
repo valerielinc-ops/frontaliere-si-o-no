@@ -367,6 +367,9 @@ describe('fill extension: patterns', () => {
       expect(`${name}: ${F[name].source}/${F[name].flags}`).toBe(`${name}: ${pattern.source}/${pattern.flags}`);
     }
     expect(F.SUBMIT_RE.test('Abschicken')).toBe(true);
+    expect(F.SUBMIT_RE.test('Postuler')).toBe(true);
+    expect(F.SUBMIT_RE.test('Postuler à cette offre')).toBe(true);
+    expect(F.SUBMIT_RE.test('Continuer à postuler')).toBe(false);
   });
 
   it('recognizes a plain Bewerbung einreichen final link', () => {
