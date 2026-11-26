@@ -50,6 +50,8 @@ import {
   bestVerdict,
   botFingerprintVerdict,
   classifyConsentProbe,
+  documentEvidence,
+  explainDocumentError,
   navigationErrorVerdict,
 } from './lib/consent-message-probe.mjs';
 
@@ -113,7 +115,7 @@ async function probeOnce(browser, userAgent, url) {
     page.on('request', (request) => {
       if (FC_REQUEST_RX.test(request.url())) fcRequested = true;
     });
-    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const pageDocument = documentEvidence(await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 }));
     // Some loaders arm on the first interaction; a real visitor moves the mouse.
     await page.mouse.move(320, 420).catch(() => {});
     const deadline = Date.now() + WAIT_MS;
@@ -128,7 +130,8 @@ async function probeOnce(browser, userAgent, url) {
       await page.waitForTimeout(500);
     }
     const calls = await page.evaluate(() => (window.__ftConsentProbe && window.__ftConsentProbe.calls) || []).catch(() => []);
-    return { ...classifyConsentProbe({ calls, fcRequested, dialogVisible }), calls, fcRequested, dialogVisible };
+    const verdict = explainDocumentError(classifyConsentProbe({ calls, fcRequested, dialogVisible }), pageDocument);
+    return { ...verdict, calls, fcRequested, dialogVisible, document: pageDocument };
   } finally {
     await context.close();
   }
@@ -165,7 +168,8 @@ async function main() {
         }
         if (attempts[attempts.length - 1].verdict === 'pass') break;
       }
-      results.push({ path, ...bestVerdict(attempts), attempts: attempts.length });
+      const attemptLog = attempts.map(({ reason, document }) => ({ reason, ...document }));
+      results.push({ path, ...bestVerdict(attempts), attempts: attempts.length, attemptLog });
     }
   } finally {
     await browser.close();
@@ -180,6 +184,11 @@ async function main() {
         .map((c) => `enum=${c.enumKeys ? c.offerwallType : 'empty'}→${c.decision ? `proceed(${c.decision.allow}${c.decision.types ? `,[${c.decision.types.join(',')}]` : ''})` : 'unanswered'}`)
         .join(' ');
       console.log(`[consent-probe] ${r.verdict.toUpperCase().padEnd(12)} ${r.path}  ${r.reason}  fc=${r.fcRequested} dialog=${r.dialogVisible} attempts=${r.attempts}  ${decisions}`);
+      // Every attempt's HTTP answer, also when a later attempt passed: an error
+      // cleared by the second attempt is still an error a visitor can get.
+      if (r.attemptLog?.some((a) => a.status !== 200)) {
+        console.log(`[consent-probe]   ${r.path} documents: ${r.attemptLog.map((a, i) => `#${i + 1} status=${a.status ?? 'none'} cf-ray=${a.cfRay ?? 'none'}${a.servedStale ? ` stale=${a.servedStale}` : ''} ${a.reason}`).join(' | ')}`);
+      }
       if (r.verdict === 'fail') console.log(`::error::[consent-probe] ${r.path}: ${r.detail}`);
       if (r.verdict === 'inconclusive') console.log(`::warning::[consent-probe] ${r.path}: ${r.detail}`);
     }
@@ -189,7 +198,7 @@ async function main() {
     audit: 'consent-message-live',
     passed: failed.length === 0,
     offenders: failed.map((r) => ({ path: r.path, feature: r.reason, metric: r.verdict })),
-    extra: { results: results.map(({ path, verdict, reason, fcRequested, dialogVisible, calls }) => ({ path, verdict, reason, fcRequested, dialogVisible, calls })) },
+    extra: { results: results.map(({ path, verdict, reason, fcRequested, dialogVisible, calls, attemptLog }) => ({ path, verdict, reason, fcRequested, dialogVisible, calls, attemptLog })) },
   });
 
   if (failed.length > 0) process.exit(1);

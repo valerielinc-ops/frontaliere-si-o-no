@@ -10512,7 +10512,18 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         && hasActivationPrompt
         && (!usesOtpAccountCreation(host) || !codeField(after)));
     if (needsPostSignInVerification) {
-      return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
+      const clearedStaleVerification = Boolean(account.verifiedAt);
+      if (clearedStaleVerification) {
+        account.verifiedAt = null;
+        if (typeof ctx.accounts.mark === 'function') {
+          await ctx.accounts.mark(host, { status: 'pending', verifiedAt: null });
+        }
+      }
+      const verification = await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after });
+      if (clearedStaleVerification && !verification?.handoff && typeof ctx.accounts.mark === 'function') {
+        await ctx.accounts.mark(host, { status: 'created' });
+      }
+      return { ...verification, pressed };
     }
     // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
     if (authPageKind(after) === 'create') return { ...accountHandoff('account_sign_in_failed', 'login_unobserved', 'login'), pressed };

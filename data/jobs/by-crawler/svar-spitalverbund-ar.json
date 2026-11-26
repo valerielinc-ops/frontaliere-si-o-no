@@ -88,7 +88,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-20T09:20:56.533Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4104201"
     },
     {
       "id": "svar-spitalverbund-ar-faaa90d05853",
@@ -175,7 +176,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:20:55.962Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097361"
     },
     {
       "id": "svar-spitalverbund-ar-4245e239babb",
@@ -259,7 +261,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:20:55.199Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4089111"
     },
     {
       "id": "svar-spitalverbund-ar-b3e1b19f2f93",
@@ -345,7 +348,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:20:54.498Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4090648"
     },
     {
       "id": "svar-spitalverbund-ar-6c2d510f704f",
@@ -432,7 +436,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:20:53.625Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4106625"
     },
     {
       "id": "svar-spitalverbund-ar-430c2542f854",
@@ -519,7 +524,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:52.871Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4106586"
     },
     {
       "id": "svar-spitalverbund-ar-033a0599cb5d",
@@ -604,7 +610,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T09:20:52.232Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4106999"
     },
     {
       "id": "svar-spitalverbund-ar-dc3b43efcd7f",
@@ -689,7 +696,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:20:51.559Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4107422"
     },
     {
       "id": "svar-spitalverbund-ar-65cc6050b602",
@@ -774,7 +782,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:20:51.002Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4107533"
     },
     {
       "id": "svar-spitalverbund-ar-64753ba88bb3",
@@ -854,7 +863,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:50.329Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-27T21:20:41.857Z"
+      "firstSeenAt": "2026-10-27T21:20:41.857Z",
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097284"
     },
     {
       "id": "svar-spitalverbund-ar-5dac55f9c1fa",
@@ -942,7 +952,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:20:43.335Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4102554"
     },
     {
       "id": "svar-spitalverbund-ar-2033b26f6300",
@@ -1030,7 +1041,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:23:04.048Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4102217"
     }
   ]
 }

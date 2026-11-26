@@ -23,6 +23,8 @@ import {
   bestVerdict,
   botFingerprintVerdict,
   classifyConsentProbe,
+  documentEvidence,
+  explainDocumentError,
   navigationErrorVerdict,
 } from '../scripts/lib/consent-message-probe.mjs';
 import { probeUrl } from '../scripts/probe-live-consent-message.mjs';
@@ -235,6 +237,48 @@ describe('botFingerprintVerdict', () => {
     expect(v!.detail).toContain('navigator.plugins is empty');
     expect(v!.detail).toContain('no window.chrome');
     expect(v!.detail).toContain('not a site regression');
+  });
+});
+
+describe('document HTTP evidence', () => {
+  const answer = (status: number, headers: Record<string, string> = {}) => ({ status: () => status, headers: () => headers });
+  const notRequested = classifyConsentProbe({ calls: [], fcRequested: false, dialogVisible: false });
+
+  it('keeps status, cf-ray and the stale marker of the document response', () => {
+    expect(documentEvidence(answer(503, { 'cf-ray': 'ray-1' }))).toEqual({ status: 503, cfRay: 'ray-1', servedStale: null });
+    expect(documentEvidence(answer(200, { 'x-served-stale': 'origin-503' })).servedStale).toBe('origin-503');
+    expect(documentEvidence(null)).toEqual({ status: null, cfRay: null, servedStale: null });
+  });
+
+  // Runs 45598180618 and 45758586117: the router answered 503 and the probe
+  // reported a page that never requested Funding Choices.
+  it('names the HTTP error and stays a fail', () => {
+    const verdict = explainDocumentError(notRequested, documentEvidence(answer(503, { 'cf-ray': 'ray-1' })));
+    expect(verdict.verdict).toBe('fail');
+    expect(verdict.reason).toBe('document_http_error');
+    expect(verdict.detail).toContain('HTTP 503');
+    expect(verdict.detail).toContain('ray-1');
+  });
+
+  it('leaves fc_not_requested on a page that answered 200 or has no response', () => {
+    expect(explainDocumentError(notRequested, { status: 200 })).toBe(notRequested);
+    expect(explainDocumentError(notRequested, { status: null })).toBe(notRequested);
+  });
+
+  it.each([
+    ['pass', 'consent_visible'],
+    ['inconclusive', 'no_message_offered'],
+    ['fail', 'blanket_suppression'],
+    ['fail', 'unanswered'],
+  ] as const)('never rewrites a %s %s', (outcome, reason) => {
+    const verdict = { verdict: outcome, reason, detail: 'x' };
+    expect(explainDocumentError(verdict, { status: 503 })).toBe(verdict);
+  });
+
+  it('is wired into every attempt of the live probe', () => {
+    expect(probeSrc).toContain("documentEvidence(await page.goto(url, { waitUntil: 'domcontentloaded'");
+    expect(probeSrc).toContain('explainDocumentError(classifyConsentProbe({ calls, fcRequested, dialogVisible }), pageDocument)');
+    expect(probeSrc).toContain('attemptLog');
   });
 });
 
