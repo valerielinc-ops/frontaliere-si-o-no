@@ -6,6 +6,7 @@ import {
   isThurklinikJob,
   isTrustedDomain,
   parseListing,
+  parseDetailPage,
   cleanThurklinikTitle,
   buildThurklinikDescription,
   THURKLINIK_FABRICATED_DESCRIPTION_RE,
@@ -21,6 +22,36 @@ const FIXTURE_HTML = `
   <a href="https://thurklinik.ch/wp-content/uploads/2026/03/Lagerungspflege-Springer-m_w_d-20-80_Thurklinik.pdf">Lagerungspflege &amp; Springer (m/w/d) 20-80%</a>
   <a href="https://thurklinik.ch/wp-content/uploads/2025/09/Spontanbewerbung-dipl.pdf">Spontanbewerbung: Dipl. Pflegefachperson HF (40 % – 80 %) / MO – FR</a>
 </div>
+`;
+
+const CURRENT_FIXTURE_HTML = `
+<main>
+  <a href="/stellen/">Stellen</a>
+  <a href="/stellen/belegaerztinnen-belegaerzte/">Belegärztinnen und Belegärzte gesucht</a>
+  <a href="https://thurklinik.ch/stellen/leitung-op-fachperson-operationstechnik/">Leitung OP: Dipl. Fachperson Operationstechnik HF oder TOA 60–100 %</a>
+  <a href="/stellen/spontanbewerbung-pflegefachperson-hf/">Dipl. Pflegefachperson HF, Montag bis Freitag 40–80 %</a>
+  <a href="https://other.example/stellen/unrelated/">Unrelated job</a>
+</main>
+`;
+
+const DETAIL_FIXTURE_HTML = `
+<html>
+  <body>
+    <header>Site header</header>
+    <main>
+      <nav class="breadcrumbs">Home / Stellen</nav>
+      <h1>Fachperson Operationstechnik HF oder TOA (20–80 %)</h1>
+      <div class="job-meta">20–80 % Niederuzwil SG Operationsbereich</div>
+      <div class="entry-content">
+        <p>Zur Verstärkung unseres OP-Teams suchen wir eine engagierte Fachperson mit Freude an interdisziplinärer Zusammenarbeit.</p>
+        <h2>Ihre Aufgaben</h2>
+        <ul><li>Instrumentation und Zudienung bei operativen Eingriffen</li><li>Umsetzung von Hygiene- und Qualitätsstandards</li></ul>
+      </div>
+      <a href="/stellen/">← Zurück zu allen Stellen</a>
+    </main>
+    <footer>Site footer</footer>
+  </body>
+</html>
 `;
 
 describe('Thurklinik crawler parser', () => {
@@ -71,11 +102,20 @@ describe('Thurklinik crawler parser', () => {
   });
 
   describe('parseListing', () => {
-    it('extracts every PDF anchor with its visible title', () => {
+    it('extracts legacy PDF anchors with their visible titles', () => {
       const rows = parseListing(FIXTURE_HTML);
       expect(rows.length).toBe(4);
       expect(rows[0].title).toMatch(/^Dipl\. Anästhesiepflegerin/);
       expect(rows[1].title).toBe('Facharzt*ärztin Gynäkologie');
+    });
+    it('extracts current detail links and rejects listing/non-Thurklinik paths', () => {
+      const rows = parseListing(CURRENT_FIXTURE_HTML);
+      expect(rows.map((row) => row.detailUrl)).toEqual([
+        'https://thurklinik.ch/stellen/belegaerztinnen-belegaerzte/',
+        'https://thurklinik.ch/stellen/leitung-op-fachperson-operationstechnik/',
+        'https://thurklinik.ch/stellen/spontanbewerbung-pflegefachperson-hf/',
+      ]);
+      expect(rows.filter((row) => row.isSpontaneous)).toHaveLength(1);
     });
     it('flags Spontanbewerbung anchors via isSpontaneous', () => {
       const rows = parseListing(FIXTURE_HTML);
@@ -99,6 +139,24 @@ describe('Thurklinik crawler parser', () => {
     });
   });
 
+  describe('parseDetailPage', () => {
+    it('keeps the vacancy body and excludes page chrome', () => {
+      const detail = parseDetailPage(DETAIL_FIXTURE_HTML);
+      expect(detail.title).toBe('Fachperson Operationstechnik HF oder TOA (20–80 %)');
+      expect(detail.description).toContain('Zur Verstärkung unseres OP-Teams');
+      expect(detail.description).toContain('• Instrumentation und Zudienung');
+      expect(detail.description).not.toContain('Site header');
+      expect(detail.description).not.toContain('Site footer');
+      expect(detail.description).not.toContain('Zurück zu allen Stellen');
+    });
+    it('fails closed when the page has no semantic vacancy root', () => {
+      expect(parseDetailPage('<body><h1>Stelle</h1><p>Navigation only</p></body>')).toEqual({
+        title: 'Stelle',
+        description: '',
+      });
+    });
+  });
+
   describe('buildThurklinikDescription', () => {
     // Only the PDF's own text (#5253): no intro on the clinic, no "Stelle:"
     // line, no "Quelle (PDF)" / "Karriereseite" / "Spital:" footer.
@@ -112,6 +170,12 @@ describe('Thurklinik crawler parser', () => {
     });
     it('writes no description of its own when the PDF text is empty', () => {
       expect(buildThurklinikDescription({ pdfText: '' })).toBe('');
+    });
+    it('normalizes source text from the current HTML detail page', () => {
+      const detailText = 'Aufgaben: OP-Assistenz. '.repeat(15);
+      expect(buildThurklinikDescription({ detailText })).toBe(
+        buildPdfBackedDescription({ pdfText: detailText }),
+      );
     });
     it('caps output length below 7000 chars', () => {
       const out = buildThurklinikDescription({
