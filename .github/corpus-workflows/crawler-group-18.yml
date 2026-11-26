@@ -1,28 +1,28 @@
 # AUTO-GENERATED.
-# - functions/src/githubApiHeaders.js
-# - scripts/crawler-group-generation-finalizer.mjs
-# - scripts/lib/accumulator-byte-floor-guard.mjs
-# - scripts/lib/atomic-write-json.mjs
-# - scripts/lib/canonical-json-digest.mjs
-# - scripts/lib/crawler-generation-contract.mjs
-# - scripts/lib/crawler-generation-group-ids.mjs
-# - scripts/lib/crawler-generation-ledger.mjs
-# - scripts/lib/crawler-generation-receipt.mjs
-# - scripts/lib/crawler-generation-token.mjs
-# - scripts/lib/crawler-grace-policy.mjs
-# - scripts/lib/crawler-location-config.mjs
-# - scripts/lib/crawler-slice-integrity.mjs
-# - scripts/lib/detail-failure-reuse-policy.mjs
-# - scripts/lib/global-data-pipeline-lease.mjs
-# - scripts/lib/job-identity.mjs
-# - scripts/lib/job-match-key.mjs
-# - scripts/lib/job-url-key.mjs
-# - scripts/lib/locale-map-diff.mjs
-# - scripts/lib/prospector/country-inventory.mjs
-# - scripts/lib/slug-history-journal.mjs
-# - scripts/lib/slug-preservation-guard.mjs
-# - scripts/lib/stable-stringify.mjs
-# - scripts/lib/target-swiss-locations.mjs
+#functions/src/githubApiHeaders.js
+#scripts/crawler-group-generation-finalizer.mjs
+#scripts/lib/accumulator-byte-floor-guard.mjs
+#scripts/lib/atomic-write-json.mjs
+#scripts/lib/canonical-json-digest.mjs
+#scripts/lib/crawler-generation-contract.mjs
+#scripts/lib/crawler-generation-group-ids.mjs
+#scripts/lib/crawler-generation-ledger.mjs
+#scripts/lib/crawler-generation-receipt.mjs
+#scripts/lib/crawler-generation-token.mjs
+#scripts/lib/crawler-grace-policy.mjs
+#scripts/lib/crawler-location-config.mjs
+#scripts/lib/crawler-slice-integrity.mjs
+#scripts/lib/detail-failure-reuse-policy.mjs
+#scripts/lib/global-data-pipeline-lease.mjs
+#scripts/lib/job-identity.mjs
+#scripts/lib/job-match-key.mjs
+#scripts/lib/job-url-key.mjs
+#scripts/lib/locale-map-diff.mjs
+#scripts/lib/prospector/country-inventory.mjs
+#scripts/lib/slug-history-journal.mjs
+#scripts/lib/slug-preservation-guard.mjs
+#scripts/lib/stable-stringify.mjs
+#scripts/lib/target-swiss-locations.mjs
 name: Crawler Group 18 (sparse cross-repo execution)
 run-name: crawler-generation-${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}-group-18
 on:
@@ -298,7 +298,6 @@ jobs:
           priority: "2"
       - name: Launch tertianum
         id: crawler-launch-tertianum
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -311,6 +310,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: tertianum
           JOBS_SLICE_FILE: data/jobs/by-crawler/tertianum.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -498,7 +498,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch etat-de-vaud
         id: crawler-launch-etat-de-vaud
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -511,6 +510,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: etat-de-vaud
           JOBS_SLICE_FILE: data/jobs/by-crawler/etat-de-vaud.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -698,7 +698,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch rheinmetall-air-defence
         id: crawler-launch-rheinmetall-air-defence
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -711,6 +710,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: rheinmetall-air-defence
           JOBS_SLICE_FILE: data/jobs/by-crawler/rheinmetall-air-defence.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -898,7 +898,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch trumpf
         id: crawler-launch-trumpf
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -911,6 +910,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: trumpf-schweiz
           JOBS_SLICE_FILE: data/jobs/by-crawler/trumpf-schweiz.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -1098,7 +1098,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch sfs-group
         id: crawler-launch-sfs-group
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1111,6 +1110,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: sfs-group
           JOBS_SLICE_FILE: data/jobs/by-crawler/sfs-group.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -1298,7 +1298,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch usi
         id: crawler-launch-usi
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1311,6 +1310,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: usi-universita-della-svizzera-italiana
           JOBS_SLICE_FILE: data/jobs/by-crawler/usi-universita-della-svizzera-italiana.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -1498,7 +1498,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch ksml
         id: crawler-launch-ksml
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1511,6 +1510,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: ksml
           JOBS_SLICE_FILE: data/jobs/by-crawler/ksml.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -1698,7 +1698,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch spital-lachen
         id: crawler-launch-spital-lachen
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1711,6 +1710,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: spital-lachen
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-lachen.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -1898,7 +1898,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch kanton-zuerich
         id: crawler-launch-kanton-zuerich
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1911,6 +1910,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: kanton-zuerich
           JOBS_SLICE_FILE: data/jobs/by-crawler/kanton-zuerich.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -2098,7 +2098,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch zuger-kantonsspital
         id: crawler-launch-zuger-kantonsspital
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2111,6 +2110,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: zuger-kantonsspital
           JOBS_SLICE_FILE: data/jobs/by-crawler/zuger-kantonsspital.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -2298,7 +2298,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch sicpa
         id: crawler-launch-sicpa
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2311,6 +2310,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: sicpa
           JOBS_SLICE_FILE: data/jobs/by-crawler/sicpa.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -2498,7 +2498,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch hofweissbad
         id: crawler-launch-hofweissbad
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2511,6 +2510,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: hofweissbad
           JOBS_SLICE_FILE: data/jobs/by-crawler/hofweissbad.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -2698,7 +2698,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch tinext
         id: crawler-launch-tinext
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2711,6 +2710,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: tinext
           JOBS_SLICE_FILE: data/jobs/by-crawler/tinext.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -2898,7 +2898,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch apleona-schweiz-ag
         id: crawler-launch-apleona-schweiz-ag
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2911,6 +2910,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: apleona-schweiz-ag
           JOBS_SLICE_FILE: data/jobs/by-crawler/apleona-schweiz-ag.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -3139,7 +3139,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch pkb-private-bank
         id: crawler-launch-pkb-private-bank
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3152,6 +3151,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: pkb-private-bank
           JOBS_SLICE_FILE: data/jobs/by-crawler/pkb-private-bank.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -3339,7 +3339,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch klinik-schloss-mammern
         id: crawler-launch-klinik-schloss-mammern
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3352,6 +3351,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: klinik-schloss-mammern
           JOBS_SLICE_FILE: data/jobs/by-crawler/klinik-schloss-mammern.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -3539,7 +3539,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch zermatt-bergbahnen
         id: crawler-launch-zermatt-bergbahnen
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3552,6 +3551,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: zermatt-bergbahnen
           JOBS_SLICE_FILE: data/jobs/by-crawler/zermatt-bergbahnen.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -3739,7 +3739,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch etat-de-fribourg
         id: crawler-launch-etat-de-fribourg
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3752,6 +3751,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: etat-de-fribourg
           JOBS_SLICE_FILE: data/jobs/by-crawler/etat-de-fribourg.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -3939,7 +3939,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch huber-suhner
         id: crawler-launch-huber-suhner
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3952,6 +3951,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: huber-suhner
           JOBS_SLICE_FILE: data/jobs/by-crawler/huber-suhner.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -4139,7 +4139,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch canton-valais
         id: crawler-launch-canton-valais
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4152,6 +4151,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: canton-valais
           JOBS_SLICE_FILE: data/jobs/by-crawler/canton-valais.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -4339,7 +4339,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch constellium
         id: crawler-launch-constellium
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4352,6 +4351,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: constellium
           JOBS_SLICE_FILE: data/jobs/by-crawler/constellium.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -4539,7 +4539,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch empa
         id: crawler-launch-empa
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4552,6 +4551,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: empa
           JOBS_SLICE_FILE: data/jobs/by-crawler/empa.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -4739,7 +4739,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch kantonsspital-uri
         id: crawler-launch-kantonsspital-uri
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4752,6 +4751,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: kantonsspital-uri
           JOBS_SLICE_FILE: data/jobs/by-crawler/kantonsspital-uri.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -4939,7 +4939,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch bobst
         id: crawler-launch-bobst
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4952,6 +4951,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: bobst
           JOBS_SLICE_FILE: data/jobs/by-crawler/bobst.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -5139,7 +5139,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch baloise
         id: crawler-launch-baloise
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5152,6 +5151,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: baloise
           JOBS_SLICE_FILE: data/jobs/by-crawler/baloise.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -5339,7 +5339,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch etavis
         id: crawler-launch-etavis
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5352,6 +5351,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: etavis
           JOBS_SLICE_FILE: data/jobs/by-crawler/etavis.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -5539,7 +5539,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch amina-bank
         id: crawler-launch-amina-bank
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5552,6 +5551,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: amina-bank
           JOBS_SLICE_FILE: data/jobs/by-crawler/amina-bank.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -5739,7 +5739,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch opus-personal
         id: crawler-launch-opus-personal
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5752,6 +5751,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: opus-personal
           JOBS_SLICE_FILE: data/jobs/by-crawler/opus-personal.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -5939,7 +5939,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch rohrer-gartenbau-und-hauswartungen
         id: crawler-launch-rohrer-gartenbau-und-hauswartungen
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5952,6 +5951,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: rohrer-gartenbau-und-hauswartungen
           JOBS_SLICE_FILE: data/jobs/by-crawler/rohrer-gartenbau-und-hauswartungen.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -6139,7 +6139,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch wokin
         id: crawler-launch-wokin
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -6152,6 +6151,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: wokin
           JOBS_SLICE_FILE: data/jobs/by-crawler/wokin.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"
@@ -6339,7 +6339,6 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch protectas
         id: crawler-launch-protectas
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -6352,6 +6351,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: protectas
           JOBS_SLICE_FILE: data/jobs/by-crawler/protectas.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-18"

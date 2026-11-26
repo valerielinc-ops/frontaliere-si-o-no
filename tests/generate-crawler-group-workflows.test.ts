@@ -2725,11 +2725,14 @@ describe('cross-repo crawler execution artifacts', () => {
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('limita lo stato egress Workday ai soli crawler-launch step env', () => {
-    const { contract, outDir } = generateArtifacts();
+    const contract = JSON.parse(fs.readFileSync(
+      path.join(repoRoot, '.github/corpus-workflows/contract.json'),
+      'utf8',
+    ));
     const expectedStateDir = '${{ runner.temp }}/crawler-generation/workday-egress';
     const artifactPaths = contract.artifacts
       .filter((artifact: any) => /^crawler-group-\d+\.yml$/.test(artifact.file))
-      .map((artifact: any) => path.join(outDir, artifact.file));
+      .map((artifact: any) => path.join(repoRoot, '.github/corpus-workflows', artifact.file));
     const logicPaths = Array.from({ length: GROUP_COUNT }, (_, index) => path.join(
       repoRoot,
       `.github/workflows/crawler-group-${String(index + 1).padStart(2, '0')}-logic.yml`,
