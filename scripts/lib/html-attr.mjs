@@ -125,11 +125,11 @@ export function scanHtmlTags(html = '') {
       const char = source[i];
       if (quote) {
         if (char === quote) quote = '';
-        else if (char === '<') {
+        else if (char === '<' && shouldRecoverAtNestedTag(source, i, quote)) {
           // Browsers abandon a malformed start tag when a new element begins.
-          // Recover at that delimiter even when the author forgot to close an
-          // attribute quote; otherwise the valid following JobPosting can be
-          // swallowed until an unrelated quote much later in the document.
+          // Recover at that delimiter when the author forgot to close an
+          // attribute quote; a real quoted value can itself contain a literal
+          // tag-shaped string and must not be split at that delimiter.
           recovery = i;
           break;
         }
@@ -190,6 +190,37 @@ function findTagEnd(source, start) {
     if (char === '>') return index + 1;
   }
   return -1;
+}
+
+/**
+ * A `<` inside a quoted attribute is normally literal content. The recovery
+ * path is only for the malformed-tag case where the apparent next element
+ * reuses the still-open attribute quote, as in `title="broken <a href="...`.
+ * A tag-shaped value using the other quote style (for example a single-
+ * quoted `data-template='<meta ...>'`) must remain part of the attribute.
+ *
+ * @param {string} source
+ * @param {number} start
+ * @param {string} quote
+ * @returns {boolean}
+ */
+function shouldRecoverAtNestedTag(source, start, quote) {
+  const end = findTagEnd(source, start);
+  if (end === -1) return false;
+  const candidate = source.slice(start, end);
+  if (!/^<[a-z][a-z0-9:-]*(?:\s|\/?>)/i.test(candidate)) return false;
+
+  let candidateQuote = '';
+  for (let index = 1; index < candidate.length; index += 1) {
+    const char = candidate[index];
+    if (candidateQuote) {
+      if (char === candidateQuote) candidateQuote = '';
+      continue;
+    }
+    if (char === quote) return true;
+    if (char === '"' || char === "'") candidateQuote = char;
+  }
+  return false;
 }
 
 /**
@@ -445,7 +476,7 @@ export function readAllAttr(html = '', name = '') {
  */
 export function readMetaContent(html = '', key = '') {
   const target = String(key).toLowerCase();
-  const tag = scanStartTags(html, 'meta').find(({ raw }) => {
+  const tag = scanMarkupStartTags(html, 'meta').find(({ raw }) => {
     const declaredKeys = [readAttr(raw, 'property'), readAttr(raw, 'name')];
     return declaredKeys.some((declaredKey) => declaredKey.toLowerCase() === target);
   });

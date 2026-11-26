@@ -52,6 +52,16 @@ import { parseJobBlocks as parseUsiJobBlocks } from '../scripts/update-usi-jobs.
 import { parseJobLinks as parseZegnaJobLinks } from '../scripts/update-zegna-jobs.mjs';
 
 describe('scanMarkupStartTags — comment and raw-text boundaries', () => {
+  it('does not treat a tag-shaped value inside an attribute as live markup', () => {
+    const tags = scanMarkupStartTags(
+      `<div data-template='<meta name="robots" content="noindex">'></div>` +
+      '<meta name="robots" content="index,follow">',
+      'meta',
+    );
+    expect(tags).toHaveLength(1);
+    expect(tags[0].raw).toContain('index,follow');
+  });
+
   it('keeps live metadata after a raw-text block containing a comment marker', () => {
     const tags = scanMarkupStartTags(
       `<script>const marker = '<!--';</script><meta name="robots" content="noindex">`,
@@ -306,6 +316,14 @@ describe('readMetaContent — quote balanced', () => {
   it('ignores property-shaped text inside another meta attribute value', () => {
     const html = `<meta data-template="property='og:title' content='decoy'" property="og:description" content="wrong">`
       + `<meta content="Titolo reale" property="OG:TITLE">`;
+    expect(readMetaContent(html, 'og:title')).toBe('Titolo reale');
+  });
+
+  it('ignores meta-shaped text inside attributes and raw-text elements', () => {
+    const decoy = '<meta property="og:title" content="Titolo falso">';
+    const html = `<div data-template='${decoy}'></div>`
+      + `<script>const fake = ${JSON.stringify(decoy)};</script>`
+      + '<meta property="og:title" content="Titolo reale">';
     expect(readMetaContent(html, 'og:title')).toBe('Titolo reale');
   });
 

@@ -1,5 +1,6 @@
 import { BASE_URL } from '../constants';
 import { clampMetaDescription } from './titleSuffix';
+import { readAttr, scanMarkupStartTags } from '../../scripts/lib/html-attr.mjs';
 
 export interface TwitterCardMetaOptions {
   title: string;
@@ -18,12 +19,9 @@ function escapeMetaAttribute(value: string): string {
 }
 
 function hasMetaName(html: string, name: string): boolean {
-  const tags: string[] = html.match(/<meta\b[^>]*>/gi) ?? [];
-  return tags.some((tag) => {
-    const match = tag.match(/\bname\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s/>]+))/i);
-    return [match?.[1], match?.[2], match?.[3]]
-      .some((value) => value?.toLowerCase() === name.toLowerCase());
-  });
+  const target = name.toLowerCase();
+  return scanMarkupStartTags(html, 'meta')
+    .some(({ raw }) => readAttr(raw, 'name').toLowerCase() === target);
 }
 
 function absoluteCardImage(image?: string): string {

@@ -18,6 +18,7 @@ import { politeFetch } from './polite-fetch.mjs';
 import { registrableDomain } from './registrable.mjs';
 import { decodeEntities } from './entities.mjs';
 import { jsonLdBlocks, textOf } from './extract.mjs';
+import { readAttr, scanMarkupStartTags } from '../html-attr.mjs';
 import { NON_PLATFORM_HOSTS } from './config.mjs';
 import { createSpecUrlPolicy, resolveProspectorFetch } from './public-fetch-policy.mjs';
 import {
@@ -184,13 +185,11 @@ function escapeRegExp(value) {
 function pageMetaIdentityText(html) {
   const values = [];
   const source = String(html || '');
-  for (const match of source.matchAll(/<meta\b[^>]*>/gi)) {
-    const tag = match[0];
-    const attributes = Object.fromEntries([...tag.matchAll(/([a-z:-]+)\s*=\s*["']([^"']*)["']/gi)]
-      .map((entry) => [entry[1].toLowerCase(), decodeEntities(entry[2])]));
-    const key = String(attributes.name || attributes.property || '').toLowerCase();
-    if (['og:title', 'og:site_name'].includes(key) && attributes.content) {
-      values.push(attributes.content);
+  for (const { raw: tag } of scanMarkupStartTags(source, 'meta')) {
+    const key = readAttr(tag, ['name', 'property']).toLowerCase();
+    const content = decodeEntities(readAttr(tag, 'content'));
+    if (['og:title', 'og:site_name'].includes(key) && content) {
+      values.push(content);
     }
   }
   return values.join(' ');
