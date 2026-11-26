@@ -907,6 +907,49 @@ describe('issue #6759 reconciliation', () => {
     expect(() => assertNoDuplicateRoutesWithin(result.jobs, 'cap-refused archive')).not.toThrow();
   });
 
+  it('repairs a cap-refused archive collision when both rows name the same posting', () => {
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+    const sharedSourceIdentity = 'source:same-posting';
+    const deep = (slug: string, expiredDaysAgo: number) => ({
+      companyKey: 'canonical',
+      slug,
+      expiredAt: daysAgo(expiredDaysAgo),
+      slugByLocale: { it: slug },
+      previousSlugs: [
+        'shared-history-route',
+        ...Array.from({ length: 79 }, (_, index) => `${slug}-history-${index}`),
+      ],
+      previousSlugsByLocale: {},
+      sourceIdentity: sharedSourceIdentity,
+    });
+    const canonical = deep('canonical-newer', 10);
+    const retired = deep('retired-older', 20);
+    const beforeRoutes = new Set([
+      ...localeRouteKeys(canonical),
+      ...localeRouteKeys(retired),
+    ]);
+
+    const result = mergeRetiredCrawlerArchive([canonical], [retired], 'canonical');
+    const afterRoutes = new Set(result.jobs.flatMap((entry) => [...localeRouteKeys(entry)]));
+
+    expect(result.capRefused).toBe(1);
+    expect(result.repairedRoutes).toBeGreaterThan(0);
+    expect(result.jobs).toHaveLength(2);
+    expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
+    expect(() => assertNoDuplicateRoutesWithin(result.jobs, 'shared-identity cap-refused archive')).not.toThrow();
+
+    const writerResult = collapseDuplicateRouteEntries([
+      deep('writer-newer', 10),
+      deep('writer-older', 20),
+    ], { source: 'shared-identity-cap-refused-writer' });
+    expect(writerResult.capRefused).toBe(1);
+    expect(writerResult.repairedRoutes).toBeGreaterThan(0);
+    expect(() => assertNoDuplicateRoutesWithin(
+      writerResult.entries,
+      'shared-identity cap-refused writer',
+    )).not.toThrow();
+  });
+
   it('collapses matching aliases while preserving active and historical routes', () => {
     const canonical = job('canonical', '1', 'canonical-slug');
     const retired = job('retired', '1', 'retired-slug');

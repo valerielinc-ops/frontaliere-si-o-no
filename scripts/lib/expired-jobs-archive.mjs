@@ -476,11 +476,16 @@ function rawRouteFromLocaleKey(routeKey) {
  * owns is reused, never replaced by a new one).
  *
  * @param {object[]} entries
- * @param {{source?: string, repairUnprovenCollisions?: boolean, sourceIdentityOnly?: boolean}} [options]
+ * @param {{source?: string, repairUnprovenCollisions?: boolean, repairSharedIdentityCollisions?: boolean, sourceIdentityOnly?: boolean}} [options]
  * `repairUnprovenCollisions` is reserved for an ownership reconciliation
  * boundary that has already refused a lossy history merge. It keeps the
  * records separate and repairs only the duplicate route; the default remains
  * fail-closed for ambiguous archive identity in the general writers.
+ * `repairSharedIdentityCollisions` is reserved for the same cap-refused
+ * boundary when both records declare the same posting. The merge was already
+ * attempted and could not preserve the full route union, so one deterministic
+ * alias is still required to leave the route uniquely owned without dropping
+ * either record.
  * `sourceIdentityOnly` is for archive ownership reconciliation: raw `id` and
  * `url` fields can differ between crawler slices that carry the same historic
  * alias, so only persisted `sourceIdentity` provenance can preempt that merge.
@@ -491,6 +496,7 @@ export function repairExpiredRoutesWithinArchive(
   {
     source = 'expired-jobs-archive.repairExpiredRoutesWithinArchive',
     repairUnprovenCollisions = false,
+    repairSharedIdentityCollisions = false,
     sourceIdentityOnly = false,
   } = {},
 ) {
@@ -532,7 +538,8 @@ export function repairExpiredRoutesWithinArchive(
             ? hasExplicitlySharedDeclaredSourceIdentity(entry, owner)
             : hasExplicitlySharedArchiveIdentity(entry, owner)
         ));
-        if ((!hasProvenSharedIdentity && repairUnprovenCollisions)
+        if ((repairUnprovenCollisions && !hasProvenSharedIdentity)
+          || (repairSharedIdentityCollisions && hasProvenSharedIdentity)
           || routeOwners.every((owner) => explicitlyDifferent(entry, owner))) {
           conflictingRouteKeys.push(routeKey);
         }
@@ -1317,10 +1324,13 @@ function compareArchiveEntries(a, b) {
  * route union. Two histories can be too deep to fit the legacy previousSlugs
  * cap, and `promotePreviousSlugToLegacy` correctly refuses to drop the
  * overflow; measured on 2026-09-05, 9 of the 547 committed slices hit that
- * wall. Such a component is left exactly as it was: a duplicated route is an
- * ambiguity, a lost route is a 404 on an indexed URL, and this runs inside the
- * crawler cron where a throw would abort the whole archival step. The residual
- * duplicates stay visible to `assertNoDuplicateRoutesWithin`.
+ * wall. A cap-refused component with a proven shared source identity is not
+ * ambiguous: keep both payloads but move the duplicate route to its
+ * deterministic alias. An identity-less or otherwise unproven component is
+ * left exactly as it was: a duplicated route is an ambiguity, a lost route is
+ * a 404 on an indexed URL, and this runs inside the crawler cron where a throw
+ * would abort the whole archival step. Those residual duplicates stay visible
+ * to `assertNoDuplicateRoutesWithin`.
  *
  * A component never mixes an entry that NAMES its source posting (url,
  * `sourceIdentity` or the `sourceIdentityHistory` an earlier merge left) with
@@ -1568,7 +1578,15 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
     // the survivor. Repair the post-collapse state before deciding that the
     // archive reached a fixed point; otherwise the first writer pass can
     // persist a slice that a second read immediately changes again.
-    const postCollapseRepair = repairExpiredRoutesWithinArchive(result.entries, options);
+    const postCollapseRepair = repairExpiredRoutesWithinArchive(result.entries, {
+      ...options,
+      // A cap refusal is non-destructive only while the component remains
+      // route-unique. Shared source identity normally permits a merge, but
+      // when that merge is refused the residual duplicate needs the same
+      // deterministic alias fallback as every other proven collision.
+      repairSharedIdentityCollisions: options.repairSharedIdentityCollisions === true
+        || result.capRefused > 0,
+    });
     repairedRoutes += postCollapseRepair.repairedRoutes;
     if (repairDetails.length < 20) {
       repairDetails.push(...postCollapseRepair.details.slice(0, 20 - repairDetails.length));

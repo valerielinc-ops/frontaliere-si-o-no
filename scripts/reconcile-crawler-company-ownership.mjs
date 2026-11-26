@@ -297,6 +297,12 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
   const finalRouteRepair = repairExpiredRoutesWithinArchive(out, {
     source: `${canonicalKey}.archive-route-repair-final`,
     repairUnprovenCollisions: true,
+    // A shared source identity normally means the records should merge. If
+    // the legacy-history cap refused that merge, the route still needs one
+    // owner; retain both records and move only the duplicate to its
+    // deterministic alias instead of leaving the reconciler's invariant
+    // false.
+    repairSharedIdentityCollisions: capRefused > 0,
   });
   repairedRoutes += finalRouteRepair.repairedRoutes;
 
