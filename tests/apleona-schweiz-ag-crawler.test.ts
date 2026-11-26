@@ -165,6 +165,17 @@ describe('Apleona Schweiz AG crawler parser', () => {
       expect(detail.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(50);
     });
 
+    it('uses semantic heading boundaries when the skin has no section wrapper', () => {
+      const detail = extractApleonaDetailFields(
+        fixture('detail-semantic-heading-blocks.html'),
+      );
+      expect(detail.description).toContain('Aufgaben\nDu übernimmst Verantwortung');
+      expect(detail.description).toContain('Anforderungen\n• Studium oder Weiterbildung');
+      expect(detail.description).not.toContain('Als Apleona Schweiz AG bieten wir');
+      expect(detail.description).not.toContain('Recruiting Kontakt und Personaldienstleister');
+      expect(detail.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(50);
+    });
+
     it('rejects a canton suffix that fails independent verification without leaking the raw string', () => {
       const detail = extractApleonaDetailFields(
         fixture('detail-canton-mismatch.html'),

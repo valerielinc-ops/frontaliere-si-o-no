@@ -75,6 +75,41 @@ function structuredElementText(element) {
     .join('\n');
 }
 
+function headingLevel(element) {
+  const tagMatch = /^H([1-6])$/i.exec(String(element?.tagName || ''));
+  if (tagMatch) return Number(tagMatch[1]);
+  const ariaLevel = Number(element?.getAttribute?.('aria-level'));
+  return Number.isInteger(ariaLevel) && ariaLevel > 0 ? ariaLevel : null;
+}
+
+/**
+ * Read the content between one semantic vacancy heading and the next heading
+ * at the same or a higher level. Newer Apleona skins keep these headings but
+ * no longer wrap each block in the `section`/`showblock` containers handled
+ * above; the next heading is the remaining source-owned boundary, while
+ * contact/company headings stop the range before page chrome is included.
+ */
+function semanticHeadingBody(heading, scope) {
+  const level = headingLevel(heading);
+  if (!level) return null;
+
+  const headings = [...scope.querySelectorAll(
+    'h1, h2, h3, h4, h5, h6, [role="heading"]',
+  )];
+  const headingIndex = headings.indexOf(heading);
+  if (headingIndex < 0) return null;
+  const boundary = headings.slice(headingIndex + 1).find((candidate) => {
+    const candidateLevel = headingLevel(candidate);
+    return candidateLevel !== null && candidateLevel <= level;
+  });
+  if (!boundary) return null;
+
+  const range = heading.ownerDocument.createRange();
+  range.setStartAfter(heading);
+  range.setEndBefore(boundary);
+  return range.cloneContents();
+}
+
 /**
  * @param {string} location
  * @returns {{ rejected: true } | { location: string, addressLocality: string, addressRegion: string, addressCountry: string, postalCode: string, streetAddress: string } | null}
@@ -163,7 +198,8 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
 
     // The same tenant currently serves a second Apleona-owned skin where the
     // vacancy sections are either plain `<section><div class="container"><h2>...`
-    // blocks or Umantis `showblock`/`customdatablock` pairs.
+    // blocks, Umantis `showblock`/`customdatablock` pairs, or semantic headings
+    // without a section wrapper.
     // Heading identity is the boundary: generic company/contact sections are
     // intentionally excluded even when they are longer. The heading pattern is
     // German-only because the spec pins the seed to `lang=ger` and declares
@@ -218,6 +254,24 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
           }
         }
       }
+
+      if (!hasVacancySpecificSection) {
+        // A semantic heading is source-owned only inside the explicit vacancy
+        // content container. A document-wide sweep would reinterpret generic
+        // Umantis page content as an Apleona vacancy and bypass the tenant's
+        // deliberate empty verdict.
+        const semanticScope = document.querySelector('.job-content');
+        if (semanticScope) {
+          for (const headingElement of semanticScope.querySelectorAll(
+            'h1, h2, h3, h4, h5, h6, [role="heading"]',
+          )) {
+            const heading = normalizeSpace(headingElement.textContent || '');
+            if (!APLEONA_SECOND_SKIN_HEADING_RX.test(heading)) continue;
+            appendSecondSkinSection(heading, semanticHeadingBody(headingElement, semanticScope));
+          }
+        }
+      }
+
       if (descriptionBlocks.length === 0 && unmatchedHeadings.length > 0) {
         console.warn(
           `  ⚠️ Apleona second-skin fallback found heading(s) not matching the German vacancy `
