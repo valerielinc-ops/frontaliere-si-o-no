@@ -79,6 +79,8 @@ export const BOT_AUDIT_LIVE_DATA_ROOTS = Object.freeze([
   'data/fb-posted-articles.json',
   'data/fb-posted-events.json',
   'data/fb-posted-jobs.json',
+  // The weekly funnel metrics snapshot appends this runtime history.
+  'data/funnel-metrics-history.json',
   'data/gsc-top-marquee-candidates.json',
   'data/health-premiums-eu/2026.json',
   'data/health-premiums.json',
