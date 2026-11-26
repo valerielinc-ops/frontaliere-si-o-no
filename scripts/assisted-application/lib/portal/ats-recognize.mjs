@@ -1113,10 +1113,16 @@ function matchesPostingLink(value, text, job = {}) {
   return title.length >= 8 && normalized(`${url.pathname} ${text}`).includes(title);
 }
 
+export const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
+
 function sameHostSearchUrl(pageUrl, job = {}) {
   try {
     const current = new URL(pageUrl);
     if (current.protocol !== 'https:') return '';
+    // SuccessFactors tenant shells do not expose a shared `/search` route.
+    // A generic URL here sends the recovery agent to a confirmed 404 instead
+    // of back to the source-backed application module.
+    if (SUCCESS_FACTORS_HOST_RE.test(current.hostname)) return '';
     const search = new URL('/search', current.origin);
     const query = [job.requirementId || job.reqId || job.jobId, job.title].filter(Boolean).join(' ');
     if (!query) return '';

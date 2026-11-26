@@ -66,6 +66,7 @@ import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFo
 import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayBareLocaleFallbackUrl, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
 import { POSTING_BINDING_STATUS, resolvePostingBinding } from './posting-binding.mjs';
 import { installPortalReplayFence } from './replay-fence.mjs';
+import { SUCCESS_FACTORS_HOST_RE } from './ats-recognize.mjs';
 
 function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryProven = false) {
   if (!isWorkdayTenantUrl(applyUrl)) return false;
@@ -6136,6 +6137,8 @@ export function formPostingMatch(formText, job = {}, {
   );
   const umantisPairPostingUrl = umantisFormPostingUrl(formApplicationUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
+  const successFactorsRouteBound = postingRouteProof?.via === 'successfactors'
+    && bound && isSuccessFactorsCareerPath(pageUrl);
   const brassRingRouteAddress = formPostingUrl || postingUrl || applyUrl;
   const brassRingRouteExpected = sameBrassRingPostingAddress(applyUrl, brassRingRouteAddress);
   const brassRingRouteBound = brassRingRouteExpected && sameBrassRingPostingAddress(pageUrl, brassRingRouteAddress);
@@ -6236,12 +6239,13 @@ export function formPostingMatch(formText, job = {}, {
     // SuccessFactors can render an icon-font suffix in body innerText.
     .replace(/(?:\s*\p{Co})+\s*$/u, '')
     .replace(/\s+/g, ' ').trim();
-  const nativeQuestionLines = successFactorsBound
+  const nativeQuestionLines = (successFactorsBound || successFactorsRouteBound)
     ? new Set(formFieldLabels.map(normalizeFieldLine).filter(Boolean))
     : new Set();
   const withoutNativeQuestionLines = text => nativeQuestionLines.size
     ? String(text || '').split(/\r?\n/).filter(line => !nativeQuestionLines.has(normalizeFieldLine(line))).join('\n')
     : text;
+  const employerTextWithoutNativeQuestionLines = withoutNativeQuestionLines(employerText);
   const direct = postingMatch(withoutNativeQuestionLines(postingEvidenceText), job, pageUrl);
   const rawDirect = postingMatch(withoutNativeQuestionLines(formText), job, pageUrl);
   const formTitleLine = genericOnlyTitleLine ? '' : stripGenericStageTitleSegments(rawFormTitleLine);
@@ -6280,7 +6284,7 @@ export function formPostingMatch(formText, job = {}, {
     && (trustedUmantisApplication
       ? umantisHeadingConflict
       : (headingConflict || (!boundPinpointApplication
-        && namesAnotherEmployer(withoutNativeQuestionLines(employerText), job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
+        && namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
@@ -6351,7 +6355,7 @@ export function formPostingMatch(formText, job = {}, {
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
   // A conflicting employer identity on the form: no fallback to the role.
   if (successFactorsBound) return 'match';
-  if (namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound })
+  if (namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound })
     || (/\bhttps?:\/\//iu.test(formText)
       && !formTextMentionsEmployerHost(formText, job)
       && namesAnotherEmployer(formText, job, { allowPostingLocation: postingLocationBound }))) return 'mismatch';
@@ -6559,7 +6563,6 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   return Boolean(findButton(snapshot.buttons || [], NEXT_RE, { includeDisabled: true })
     && hasIdentity && hasApplicantDetails && hasCv && (hasCoverLetter || hasSupportingDocument));
 }
-const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
 const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
 

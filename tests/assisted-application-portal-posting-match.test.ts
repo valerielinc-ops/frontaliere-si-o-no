@@ -94,6 +94,58 @@ describe('application form posting identity', () => {
     })).toBe('match');
   });
 
+  it('binds a SuccessFactors Coop form when native questions are the only employer text', () => {
+    const postingUrl = 'https://jobs.coopjobs.ch/offene-stellen/macellaia/example-posting';
+    const applyUrl = 'https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=171248';
+    const proof = { via: 'successfactors', applyUrl, postingUrl };
+    const pageUrl = 'https://career2.successfactors.eu/portalcareer';
+    const fields = [
+      'Lingua',
+      '* Appellativo',
+      '* Nome',
+      '* Cognome',
+      '* Prefisso internazionale',
+      '* Telefono',
+      '* Ricevere avvisi tramite SMS',
+      '* Indirizzo e-mail',
+      '* Via e numero civico',
+      "* Numero d'avviamento postale",
+      '* Località',
+      '* Paese',
+      '* Acconsento alla trasmissione dei miei dati ad aziende all’interno del Gruppo Coop al fine dello svolgimento dell’iter',
+      '* Sono già collaboratore/trice presso il Gruppo Coop',
+      '* Questa domanda proviene da un collocatore di personale?',
+      'Data di nascita',
+      '* Hai una formazione come macellaio/macellaia o come panettiera/panettiere o hai già lavorato in questo settore?',
+      '* Risiedi in Svizzera, o sei in possesso di un regolare permesso di lavoro?',
+    ];
+    const form = [
+      'Opzioni',
+      'Esplodi tutte le sezioni',
+      'Comprimi tutte le sezioni',
+      'I miei documenti',
+      'Informazioni profilo',
+      'Informazioni specifiche del lavoro',
+      'Visualizza profilo',
+      'Salva',
+      'Candidati',
+      ...fields,
+    ].join('\n');
+
+    expect(formPostingMatch(form, {
+      title: 'Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)',
+      company: 'Coop Genossenschaft',
+    }, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl,
+      postingUrl,
+      postingRouteProof: proof,
+      applyUrl,
+      formFieldLabels: fields,
+    })).toBe('match');
+  });
+
   it('accepts the Kanton St. Gallen Application/New form with its full ATS title and Weiter control', () => {
     const postingUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Description/1';
     const applicationUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1';
