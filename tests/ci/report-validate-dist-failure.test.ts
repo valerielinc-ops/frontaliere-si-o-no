@@ -751,6 +751,33 @@ describe('freschezza della build validata (LC-09)', () => {
       expect(create[create.indexOf('--body') + 1]).toContain('VALIDATED_BUILD: sha=' + STALE_REF + ' main_ahead=14 newer_build=true');
     });
 
+    it('conserva i gate di ogni job fallito prima del cap degli excerpt', async () => {
+      const gates = Array.from({ length: 4 }, (_, i) => `gate:failed-job-${i + 1}`);
+      const allJobs: Route = (a) => (a[0] === 'api' && /\/actions\/runs\/37120000000\/jobs/.test(a[1])
+        ? JSON.stringify({ jobs: gates.map((gate, i) => ({
+            id: i + 1,
+            name: `validate-dist / ${gate}`,
+            conclusion: 'failure',
+            html_url: `url-${i + 1}`,
+            steps: [],
+          })) })
+        : undefined);
+      const allLogs: Route = (a) => {
+        const match = a[0] === 'api' && a[1].match(/\/actions\/jobs\/(\d+)\/logs$/);
+        if (!match) return undefined;
+        const gate = gates[Number(match[1]) - 1];
+        return `2026-10-03T13:30:00.0000000Z ❌ FAIL  ${gate}  12.00 rc=1\n`;
+      };
+      routeGh(allJobs, allLogs, mainHead, compareAhead(14), deployRun, deployRuns(REAL_ROWS), openIssues([]), created);
+
+      await reportDist({ dryRun: false });
+
+      const createdTitles = ghCalls()
+        .filter((a) => a[0] === 'issue' && a[1] === 'create')
+        .map((a) => a[a.indexOf('--title') + 1]);
+      expect(createdTitles).toEqual(gates.map(titleForGate));
+    });
+
     it('ricorrenza su issue già aperta e instradata → solo commento, nessun parcheggio', async () => {
       const open = [{ number: 11000, title: HREFLANG_TITLE, url: 'u', state: 'OPEN', labels: [{ name: 'agent:fix-queued' }] }];
       routeGh(jobs, log, mainHead, compareAhead(14), deployRun, deployRuns(REAL_ROWS), openIssues(open), created);
