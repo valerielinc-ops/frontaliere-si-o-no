@@ -91,6 +91,35 @@ const HUB_FILTERS = readPushPaths(HUB_WORKFLOW).map((glob) => ({ glob, re: globT
 const isCovered = (rel: string) => FILTERS.some(({ re }) => re.test(rel));
 const isHubCovered = (rel: string) => HUB_FILTERS.some(({ re }) => re.test(rel));
 
+function expectStaleDeployRearm(workflow: any, surface: string) {
+  const rearm = workflow?.jobs?.['rearm-stale-deploy'];
+  expect(rearm, `${surface} has no stale-deploy rearm job`).toBeTruthy();
+  expect(rearm?.if).toContain("needs.plan.result == 'success'");
+  expect(rearm?.if).toContain("needs.plan.outputs.deferred == 'true'");
+  expect(rearm?.['timeout-minutes']).toBe(5);
+  expect(rearm?.permissions).toMatchObject({
+    contents: 'read',
+    actions: 'read',
+    statuses: 'write',
+  });
+
+  const checkout = rearm?.steps?.find((step: { name?: string }) => step.name === 'Checkout deploy re-arm helper');
+  expect(String(checkout?.with?.['sparse-checkout'])).toContain('/scripts/ci/deploy-rearm-request.mjs');
+  expect(String(checkout?.with?.['sparse-checkout'])).toContain('/scripts/lib/is-invoked-directly.mjs');
+
+  const node = rearm?.steps?.find((step: { name?: string }) => step.name === 'Setup Node.js');
+  expect(node?.with?.['node-version']).toBe(22);
+
+  const queue = rearm?.steps?.find(
+    (step: { name?: string }) => step.name === `Queue current-main deploy after stale ${surface} deferral`,
+  );
+  expect(queue?.env?.GH_TOKEN).toBe('${{ github.token }}');
+  expect(String(queue?.run ?? '')).toContain('node scripts/ci/deploy-rearm-request.mjs');
+  expect(String(queue?.run ?? '')).toContain('--reason article-surface-rerender-stale-deploy');
+  expect(String(queue?.run ?? '')).toContain('--source-run-id "$SOURCE_RUN_ID"');
+  expect(String(queue?.run ?? '')).toContain('--source-sha "$SOURCE_SHA"');
+}
+
 // Tracked-file lookups go through git, not the disk: an agent worktree is a
 // sparse checkout without `data/`, and `data/authors.ts` is a render input.
 function isTracked(rel: string): boolean {
@@ -369,6 +398,10 @@ describe('rerender-article-hubs deployment ordering', () => {
     expect(summary?.env?.SHELL_ASSET_DEFERRED).toContain('steps.ensure_shell_assets.outputs.deferred');
     expect(String(summary?.run ?? '')).toContain('shell asset gate deferred');
   });
+
+  it('re-arms one bounded current-main deploy after a stale deferral', () => {
+    expectStaleDeployRearm(workflow, 'hub');
+  });
 });
 
 describe('rerender-article-corpus deployment ordering', () => {
@@ -403,5 +436,9 @@ describe('rerender-article-corpus deployment ordering', () => {
     expect(run).toContain('$PUBLISHED_DEPLOY_HEAD_SHA');
     expect(run).toContain("echo 'deferred=true' >> \"$GITHUB_OUTPUT\"");
     expect(run).toContain("echo 'sections=[\"frontaliere\",\"svizzera\"]' >> \"$GITHUB_OUTPUT\"");
+  });
+
+  it('re-arms one bounded current-main deploy after a stale deferral', () => {
+    expectStaleDeployRearm(workflow, 'corpus');
   });
 });

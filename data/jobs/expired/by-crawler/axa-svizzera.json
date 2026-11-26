@@ -17068,21 +17068,32 @@
     "previousSlugs": [
       "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-gtxp48",
       "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-08jcxj",
-      "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-svizzera-luzern"
+      "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-svizzera-luzern",
+      "consulente-previdenziale-per-l-agenzia-generale-previdenza-e-patrimonio-lucerna-axa-svizzera-luzern",
+      "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-3ywafo",
+      "pension-advisor-for-the-general-agency-for-pensions-assets-lucerne-axa-svizzera-luzern",
+      "conseiller-en-retraite-pour-l-agence-generale-des-pensions-et-des-actifs-de-lucerne-axa-svizzera-luzern"
     ],
     "previousSlugsByLocale": {
       "it": [
         "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-gtxp48",
-        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-08jcxj"
+        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-08jcxj",
+        "consulente-previdenziale-per-l-agenzia-generale-previdenza-e-patrimonio-lucerna-axa-svizzera-luzern",
+        "pension-consultant-for-the-general-agency-vorsorge-vermogens-lucerne-axa-svizzera-luzern",
+        "conseiller-en-pensions-pour-l-agence-generale-vorsorge-vermogens-lucerne-axa-svizzera-luzern",
+        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-3ywafo"
       ],
       "de": [
-        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-gtxp48"
+        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-gtxp48",
+        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-3ywafo"
       ],
       "en": [
-        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-svizzera-luzern"
+        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-svizzera-luzern",
+        "pension-advisor-for-the-general-agency-for-pensions-assets-lucerne-axa-svizzera-luzern"
       ],
       "fr": [
-        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-svizzera-luzern"
+        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-svizzera-luzern",
+        "conseiller-en-retraite-pour-l-agence-generale-des-pensions-et-des-actifs-de-lucerne-axa-svizzera-luzern"
       ]
     },
     "postalCode": "6003",
@@ -17103,7 +17114,24 @@
         "firstSeenAt": "2026-06-10T22:13:21.437Z",
         "title": "Vorsorgeberater:in für die Generalagentur Vorsorge & Vermögen Luzern"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "consulente-previdenziale-per-l-agenzia-generale-previdenza-e-patrimonio-lucerna-axa-svizzera-luzern": "LU",
+        "pension-consultant-for-the-general-agency-vorsorge-vermogens-lucerne-axa-svizzera-luzern": "LU",
+        "conseiller-en-pensions-pour-l-agence-generale-vorsorge-vermogens-lucerne-axa-svizzera-luzern": "LU",
+        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-3ywafo": "LU"
+      },
+      "en": {
+        "pension-advisor-for-the-general-agency-for-pensions-assets-lucerne-axa-svizzera-luzern": "LU"
+      },
+      "de": {
+        "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-luzern-axa-luzern-3ywafo": "LU"
+      },
+      "fr": {
+        "conseiller-en-retraite-pour-l-agence-generale-des-pensions-et-des-actifs-de-lucerne-axa-svizzera-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "vorsorgeberater-in-per-la-agenzia-generale-previdenza-patrimonio-winterthur-axa-svizzera-winterthur",

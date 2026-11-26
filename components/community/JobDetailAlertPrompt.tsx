@@ -30,8 +30,10 @@ export interface JobDetailAlertPromptProps {
   cantonCode?: string | null;
   /** Called once the toast should disappear (any reason). */
   onClose: () => void;
-  /** Called when the user clicks "Sì, attiva" and the create succeeds. */
+  /** Called when the user clicks "Sì, attiva", before the create starts. */
   onAccepted: () => void;
+  /** Called after the alert has been created successfully. */
+  onSubscribed?: (created: Awaited<ReturnType<typeof subscribeJobAlertOneTap>>) => void;
   /** Called when the user dismisses (✕ or "Non ora", incl. failed-accept fallthrough). */
   onDismissed: () => void;
   /** Called when subscribe throws. */
@@ -66,6 +68,7 @@ export default function JobDetailAlertPrompt({
   cantonCode,
   onClose,
   onAccepted,
+  onSubscribed,
   onDismissed,
   onErrored,
   onManage,
@@ -77,7 +80,10 @@ export default function JobDetailAlertPrompt({
   const handleAccept = useCallback(async () => {
     setStatus('submitting');
     try {
-      await subscribe(
+      // Record the user's intent before waiting for Firestore. Telemetry must
+      // not prevent the requested alert from being created.
+      try { onAccepted(); } catch { /* best-effort analytics */ }
+      const created = await subscribe(
         userId,
         email,
         category,
@@ -100,12 +106,14 @@ export default function JobDetailAlertPrompt({
         },
       );
       setStatus('success');
-      onAccepted();
+      // A resolved create is the only path that may report success or update
+      // the caller's successful-creation bookkeeping.
+      try { onSubscribed?.(created); } catch { /* best-effort analytics */ }
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [category, email, locale, onAccepted, onErrored, subscribe, userId, sourceJobSlug, sourceJobUrl, sourceJobTitle, cantonCode]);
+  }, [category, email, locale, onAccepted, onErrored, onSubscribed, subscribe, userId, sourceJobSlug, sourceJobUrl, sourceJobTitle, cantonCode]);
 
   const handleDismiss = useCallback(() => {
     onDismissed();

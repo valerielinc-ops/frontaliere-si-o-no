@@ -1,7 +1,7 @@
 {
   "crawlerKey": "christinavassalli",
-  "assembledAt": "2026-11-25T21:49:28.962Z",
-  "runId": "45704183777",
+  "assembledAt": "2026-11-26T09:54:59.104Z",
+  "runId": "45791833064",
   "jobs": [
     {
       "id": "christinavassalli-071b4a3c9bc3",
@@ -34,7 +34,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-40-wollerau/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:49:23.257Z",
+      "crawledAt": "2026-11-26T09:54:53.448Z",
       "addressLocality": "Wollerau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -85,9 +85,8 @@
       },
       "firstSeenAt": "2026-11-19T21:45:13.248Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:49:23.257Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://christinavassalli.ch/job/telefonistin-40-wollerau"
+      "validThrough": "2026-12-26T09:54:53.448Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "christinavassalli-f4a3dfebcfcb",
@@ -120,7 +119,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-20-40-zuerich/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:49:23.255Z",
+      "crawledAt": "2026-11-26T09:54:53.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -174,9 +173,8 @@
       },
       "firstSeenAt": "2026-09-26T14:25:57.444Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:49:23.255Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://christinavassalli.ch/job/telefonistin-20-40-zuerich"
+      "validThrough": "2026-12-26T09:54:53.447Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

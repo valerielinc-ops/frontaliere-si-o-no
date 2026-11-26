@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fixit-ch",
-  "assembledAt": "2026-11-25T21:20:51.175Z",
-  "runId": "45702511722",
+  "assembledAt": "2026-11-26T09:40:16.599Z",
+  "runId": "45790156666",
   "jobs": [
     {
       "id": "fixit-ch-40a937f69a04",
@@ -34,7 +34,7 @@
       "url": "https://www.fixit.ch/karriere/jobs/position/verkaufsberatung-im-aussendienst-mw",
       "source": "Fixit AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:43.909Z",
+      "crawledAt": "2026-11-26T09:40:10.533Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:20:43.909Z",
+      "validThrough": "2027-02-09T09:40:10.533Z",
       "validThroughSource": "last-observed-window"
     }
   ]

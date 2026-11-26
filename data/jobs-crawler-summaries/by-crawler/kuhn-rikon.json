@@ -1,7 +1,7 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-11-25T21:21:50.420Z",
+  "generatedAt": "2026-11-26T09:38:52.931Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6707,
-  "avgDurationMs": 6707,
+  "durationMs": 6129,
+  "avgDurationMs": 6129,
   "durationHistory": [
-    6707
+    6129
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:33.179Z",
+      "crawledAt": "2026-11-26T09:38:39.443Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -65,7 +65,7 @@
       "salaryMax": 84000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:21:33.179Z",
+      "validThrough": "2026-12-26T09:38:39.443Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -88,7 +88,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:32.741Z",
+      "crawledAt": "2026-11-26T09:38:38.984Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -113,7 +113,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:21:32.741Z",
+      "validThrough": "2026-12-26T09:38:38.984Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -135,7 +135,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:32.164Z",
+      "crawledAt": "2026-11-26T09:38:38.347Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -160,7 +160,7 @@
       "salaryMax": 102500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:21:32.164Z",
+      "validThrough": "2026-12-26T09:38:38.347Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -183,7 +183,7 @@
       "url": "https://my.jobalino.ch/job/e4d6d5c22448bf0488f22b458dfc3c7b/verkaufsberater-in-im-store-luzern-m-w_9104",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:31.711Z",
+      "crawledAt": "2026-11-26T09:38:37.876Z",
       "addressLocality": "Luzern",
       "streetAddress": "Weinmarkt 9",
       "postalCode": "6003",
@@ -209,7 +209,7 @@
       "salaryMax": 60800,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:31.711Z",
+      "validThrough": "2027-02-09T09:38:37.876Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -232,7 +232,7 @@
       "url": "https://my.jobalino.ch/job/c61e58abe5e399c34a90717c1135565a/leiter-in-kunden-und-verkaufsinnendienst",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:31.254Z",
+      "crawledAt": "2026-11-26T09:38:37.419Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -258,7 +258,7 @@
       "salaryMax": 180000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:21:31.254Z",
+      "validThrough": "2027-02-22T09:38:37.419Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -269,5 +269,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }

@@ -17,7 +17,10 @@ const NOT_SUBMITTED_APPLICATION_RE = new RegExp([
   String.raw`\bcandidature\b.{0,120}\bn['’](?:a pas été|est pas)(?=$|[^\p{L}\p{N}]).{0,60}\b(?:envoyée|soumise|transmise|terminée)(?=$|[^\p{L}\p{N}])`,
 ].join('|'), 'iu');
 const INCOMPLETE_APPLICATION_RE = new RegExp([
-  String.raw`\b(?:continue|resume|proceed|complete|finish)(?:\s+(?:your|the|this|my|a|an|with|to|and|filling|out|online|job|current|next|rest|application|process)){0,8}\s+\b(?:application|candidature|bewerbung)\b`,
+  String.raw`\b(?:continue|resume|proceed|finish)(?:\s+(?:your|the|this|my|a|an|with|to|and|filling|out|online|job|current|next|rest|application|process)){0,8}\s+\b(?:application|candidature|bewerbung)\b`,
+  // "complete" before "application" is often adjectival ("submit a complete
+  // application"); require a verb object/determiner and reject preceded "a/an".
+  String.raw`(?<!\b(?:a|an|one|your|our|their|his|her|the|this|my|such)\s+)\bcomplete(?:\s+(?:your|the|this|my|a|an|with|to|and|filling|out|online|job|current|next|rest|application|process)){1,8}\s+\b(?:application|candidature|bewerbung)\b`,
   String.raw`\b(?:incomplete|unfinished)\s+(?:job\s+)?application\b`,
   String.raw`\bapplication\b.{0,120}\b(?:incomplete|unfinished|not (?:yet )?(?:complete|finished|submitted|sent)|has not been (?:completed|submitted|sent)|still (?:needs|requires) completion|to be completed|to complete)\b`,
   String.raw`\bbewerbung\b.{0,120}\b(?:unvollständig(?:e|en)?|nicht (?:vollständig|abgeschlossen|eingereicht|gesendet|fertig)|noch nicht (?:abgeschlossen|eingereicht|vollständig|fertig)|fortsetzen|vervollständigen)\b`,
@@ -403,10 +406,11 @@ function trustedPortalTransport(url) {
 }
 
 /** Only explicit posting keys bind a route. Account IDs/application IDs are not job IDs. */
+const PORTAL_JOB_KEY_PARAM_RE = /^(?:jobid|job_id|tempjobid|temp_job_id|requisitionid|requisition_id|postingid)$/i;
 export function portalJobKey(value, protocol = null) {
   const url = parsed(value);
   if (!url) return null;
-  const entries = [...url.searchParams.entries()].filter(([key]) => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key));
+  const entries = [...url.searchParams.entries()].filter(([key]) => PORTAL_JOB_KEY_PARAM_RE.test(key));
   if (entries.length > 1 || (entries.length === 1 && !/^[a-z0-9_-]{1,100}$/i.test(entries[0][1]))) return null;
   const quotedPathKey = avaturePostingJobKey(value, protocol);
   if (quotedPathKey && entries.length === 1 && entries[0][1] !== quotedPathKey) return null;
@@ -415,7 +419,7 @@ export function portalJobKey(value, protocol = null) {
 
 function invalidPostingKey(value, protocol = null) {
   const url = parsed(value);
-  return url && [...url.searchParams.keys()].some(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))
+  return url && [...url.searchParams.keys()].some(key => PORTAL_JOB_KEY_PARAM_RE.test(key))
     && !portalJobKey(value, protocol);
 }
 
@@ -626,7 +630,7 @@ export function applicationStage(snapshot, {
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)
     && !parsed(button.href)?.hash
-    && [...parsed(button.href).searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))
+    && [...parsed(button.href).searchParams.keys()].every(key => PORTAL_JOB_KEY_PARAM_RE.test(key))
     && button.href !== url);
   if (pending && links.length === 1 && !(snapshot?.fields || []).some(field => !field.disabled && !['hidden', 'submit', 'button'].includes(field.inputType))) return { kind: 'review_navigation', control: links[0], destination: links[0].href };
   if (pending) return { kind: 'unknown_apply', prefinal: true };

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bodmerfischer-ch",
-  "assembledAt": "2026-11-25T21:41:37.642Z",
-  "runId": "45704355338",
+  "assembledAt": "2026-11-26T10:09:40.561Z",
+  "runId": "45791999505",
   "jobs": [
     {
       "id": "bodmerfischer-ch-8a1e27b647b5",
@@ -34,7 +34,7 @@
       "url": "https://weblaw.ch/produkte/lawjobs?lawjobParam=db76ba73-4928-4f0c-9116-fb8802df27e2",
       "source": "BodmerFischer AG – Rechtsanwälte Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:41:26.862Z",
+      "crawledAt": "2026-11-26T10:09:25.092Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,9 +83,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:41:26.862Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://weblaw.ch/produkte/lawjobs?lawjobparam=db76ba73-4928-4f0c-9116-fb8802df27e2"
+      "validThrough": "2026-12-26T10:09:25.092Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

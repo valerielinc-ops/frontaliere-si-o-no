@@ -259,35 +259,39 @@
     "slugByLocale": {
       "it": "postauto-autista-postauto-ag-sarnen",
       "en": "postauto-driver-postauto-ag-sarnen",
-      "de": "postauto-chauffeur-in-postauto-sarnen",
+      "de": "postauto-chauffeur-in-postauto-sarnen-e707a5f2",
       "fr": "chauffeur-postauto-in-postauto-ag-sarnen"
     },
     "sector": "Trasporti pubblici / Autobus",
     "expiredAt": "2026-11-13T21:50:33.683Z",
     "previousSlugs": [
-      "postauto-chauffeur-in-postauto-sarnen",
       "postauto-autista-postauto-ag-bad-ragaz",
       "postauto-chauffeur-in-postauto-bad-ragaz",
       "postauto-chauffeur-in-post",
-      "postcar-chauffeur-postauto-ag-bad-ragaz"
+      "postcar-chauffeur-postauto-ag-bad-ragaz",
+      "postauto-chauffeur-in-postauto-sarnen"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "postauto-chauffeur-in-postauto-sarnen",
+        "postauto-chauffeur-in-postauto-sarnen-e707a5f2",
         "postauto-autista-postauto-ag-bad-ragaz",
         "postauto-chauffeur-in-postauto-bad-ragaz",
-        "postauto-chauffeur-in-post"
+        "postauto-chauffeur-in-post",
+        "postauto-chauffeur-in-postauto-sarnen"
       ],
       "en": [
         "postcar-chauffeur-postauto-ag-bad-ragaz",
         "postauto-chauffeur-in-post",
+        "postauto-chauffeur-in-postauto-sarnen-e707a5f2",
         "postauto-chauffeur-in-postauto-sarnen"
       ],
       "de": [
-        "postauto-chauffeur-in-postauto-bad-ragaz"
+        "postauto-chauffeur-in-postauto-bad-ragaz",
+        "postauto-chauffeur-in-postauto-sarnen-e707a5f2"
       ],
       "fr": [
-        "postauto-chauffeur-in-post"
+        "postauto-chauffeur-in-post",
+        "postauto-chauffeur-in-postauto-sarnen-e707a5f2"
       ]
     },
     "postalCode": "6060",
@@ -689,7 +693,7 @@
     },
     "slugByLocale": {
       "it": "autista-postauto-postauto-ag-reichenburg",
-      "en": "postauto-driver-postauto-ag-reichenburg",
+      "en": "postauto-driver-postauto-ag-reichenburg-f9e0f17d",
       "de": "postauto-fahrer-in-postauto-reichenburg-da847804",
       "fr": "conducteur-rice-postauto-postauto-ag-reichenburg"
     },
@@ -713,7 +717,8 @@
       "pilote-postbus-in-postauto-ag-reichenburg",
       "pilote-postbus-in-postauto-reichenburg",
       "pilote-postbus-in-postauto-appenzell",
-      "postauto-fahrer-in-postauto-reichenburg"
+      "postauto-fahrer-in-postauto-reichenburg",
+      "postauto-driver-postauto-ag-reichenburg"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -731,16 +736,18 @@
         "postauto-fahrer-in-postauto-reichenburg"
       ],
       "en": [
-        "postauto-fahrer-in-postauto-reichenburg",
+        "postauto-fahrer-in-postauto-reichenburg-da847804",
         "postbus-drivers-postauto-ag-ilanz",
         "postbus-driver-in-postauto-ilanz",
         "postauto-fahrer-in-post",
         "postauto-fahrer-in-postauto-ilanz",
         "postbus-driver-in-postauto-reichenburg",
-        "postbus-driver-in-postauto-appenzell"
+        "postbus-driver-in-postauto-appenzell",
+        "postauto-fahrer-in-postauto-reichenburg",
+        "postauto-driver-postauto-ag-reichenburg"
       ],
       "fr": [
-        "postauto-fahrer-in-postauto-reichenburg",
+        "postauto-fahrer-in-postauto-reichenburg-da847804",
         "pilotes-postbus-postauto-ag-ilanz",
         "postauto-fahrer-in-postauto-ilanz",
         "pilote-postbus-in-postauto-ilanz",
@@ -748,7 +755,8 @@
         "pilote-postbus-in-postauto-ag-ilanz",
         "pilote-postbus-in-postauto-ag-reichenburg",
         "pilote-postbus-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-appenzell"
+        "pilote-postbus-in-postauto-appenzell",
+        "postauto-fahrer-in-postauto-reichenburg"
       ],
       "de": [
         "postauto-fahrer-in-postauto-ilanz",
@@ -2149,9 +2157,12 @@
       "ticket-inspector-and-customer-service-advisor-postauto-ag-brugg-ag",
       "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag",
       "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
+      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern-be0b5b17",
       "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
       "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
-      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern-be0b5b17"
+      "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4",
+      "ticket-inspector-and-customer-service-postauto-ag-interlaken",
+      "controleur-de-billets-et-conseil-client-postauto-ag-interlaken"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2860,6 +2871,8 @@
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
         "ticket-inspector-and-customer-service-advisor-postauto-ag-brugg-ag",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4",
+        "ticket-inspector-and-customer-service-postauto-ag-interlaken",
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
       ],
       "fr": [
@@ -3029,6 +3042,8 @@
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
         "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4",
+        "controleur-de-billets-et-conseil-client-postauto-ag-interlaken",
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
       ],
       "de": [
@@ -3332,7 +3347,15 @@
         "firstSeenAt": "2026-09-02T13:45:16.905Z",
         "title": "Ticketkontrolleur:in und Kundenberatung"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "en": {
+        "ticket-inspector-and-customer-service-postauto-ag-interlaken": "BE"
+      },
+      "fr": {
+        "controleur-de-billets-et-conseil-client-postauto-ag-interlaken": "BE"
+      }
+    }
   },
   {
     "slug": "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne",
