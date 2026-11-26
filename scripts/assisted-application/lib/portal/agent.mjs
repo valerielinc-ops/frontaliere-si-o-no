@@ -788,19 +788,36 @@ async function chooseOption(page, locator, info, value, question = '') {
 
 // Returns how many files it set (the record of what left, submit.mjs).
 async function upload(page, locator, info, paths) {
-  if (info.tag === 'input' && info.inputType === 'file') {
-    const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
+  const applyFileInput = async (inputLocator) => {
+    const multiple = paths.length > 1 && await inputLocator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
     const selected = multiple ? paths : [paths[0]];
-    const receipt = await chooseFiles(page, locator, multiple ? selected : selected[0]);
-    if (!await uploadReceipt(page, locator, selected, { acceptedResponse: receipt.accepted })) throw new Error('upload_not_confirmed');
+    const receipt = await chooseFiles(page, inputLocator, multiple ? selected : selected[0]);
+    if (!await uploadReceipt(page, inputLocator, selected, { acceptedResponse: receipt.accepted })) throw new Error('upload_not_confirmed');
     return selected.length;
+  };
+  if (info.tag === 'input' && info.inputType === 'file') {
+    return applyFileInput(locator);
   }
+  const dialogFileSelector = '[role="dialog"] input[type="file"], dialog input[type="file"], [aria-modal="true"] input[type="file"]';
+  const dialogCountBefore = typeof page.locator === 'function'
+    ? await page.locator(dialogFileSelector).count().catch(() => 0)
+    : 0;
   // An upload button opens the browser's file chooser. The wait never
   // outlives the action: a failed click leaves no rejection behind.
   const chooser = page.waitForEvent('filechooser', { timeout: 8000 }).catch(() => null);
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
   const opened = await chooser;
-  if (!opened) throw new Error('no_file_chooser');
+  if (!opened) {
+    // Some UI frameworks (SuccessFactors UI5) open a source-picker modal with a
+    // single file input ("Charger depuis l'appareil") instead of a native OS chooser.
+    if (dialogCountBefore === 0 && typeof page.locator === 'function') {
+      const dialogInputs = page.locator(dialogFileSelector);
+      if (await dialogInputs.count().catch(() => 0) === 1) {
+        return applyFileInput(dialogInputs.first());
+      }
+    }
+    throw new Error('no_file_chooser');
+  }
   const selected = opened.isMultiple() ? paths : [paths[0]];
   const receipt = await chooseChooserFiles(page, opened, selected.length > 1 ? selected : selected[0]);
   if (!await uploadReceipt(page, await opened.element(), selected, { acceptedResponse: receipt.accepted })) throw new Error('upload_not_confirmed');

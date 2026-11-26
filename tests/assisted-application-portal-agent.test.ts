@@ -1269,4 +1269,48 @@ describe('portal agentic fallback: the candidate’s Swiss status and nationalit
     const other = guardAgentStep(turn('ACT', [act({ ref: 'e8', action: 'select', value: 'Deutschland', question, answer: 'Deutschland', source: 'profile' })]), candidate({ nationality: 'italiana' }));
     expect(other.status).toBe('NEEDS_CANDIDATE');
   });
+
+  it('uploads into a single file input revealed inside an opened dialog when no native chooser fires', async () => {
+    let dialogOpen = false;
+    let uploadedFiles: string[] = [];
+    const triggerLocator = {
+      evaluate: async () => ({
+        tag: 'button', name: 'Charger un CV', inputType: '', disabled: false,
+        readOnly: false, inForm: true, leaves: false, button: true, value: '', href: '', options: [],
+      }),
+      click: async () => { dialogOpen = true; },
+    };
+    const dialogInputLocator = {
+      count: async () => (dialogOpen ? 1 : 0),
+      first: () => dialogInputLocator,
+      evaluate: async (fn: any) => fn({
+        multiple: false,
+        value: uploadedFiles[0] ? 'C:\\fakepath\\CV.pdf' : '',
+        files: uploadedFiles.map(() => ({ name: 'CV.pdf', size: 128 })),
+        closest: () => ({ textContent: uploadedFiles[0] ? 'CV.pdf' : '' }),
+      }),
+      setInputFiles: async (files: string | string[]) => {
+        uploadedFiles = Array.isArray(files) ? files : [files];
+      },
+      inputValue: async () => (uploadedFiles[0] ? 'C:\\fakepath\\CV.pdf' : ''),
+    };
+    const page = {
+      url: () => 'https://career55.sapsf.eu/portalcareer',
+      on: () => {},
+      off: () => {},
+      waitForEvent: async () => null,
+      waitForTimeout: async () => {},
+      getByText: () => ({ first: () => ({ isVisible: async () => true }) }),
+      locator: (selector: string) => {
+        if (selector.includes('input[type="file"]')) return dialogInputLocator;
+        if (selector.startsWith('aria-ref=')) return triggerLocator;
+        return { allInnerTexts: async () => [], count: async () => 0 };
+      },
+    };
+    const result = await runAction(page as any, act({ ref: 'e76', action: 'upload', document: 'cv', question: 'CV' }), {
+      cv: '/tmp/CV.pdf',
+    });
+    expect(result).toEqual({ ok: true, files: 1 });
+    expect(uploadedFiles).toEqual(['/tmp/CV.pdf']);
+  });
 });
