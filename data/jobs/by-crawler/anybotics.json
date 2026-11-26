@@ -1,7 +1,7 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-11-25T21:25:52.127Z",
-  "runId": "45700986462",
+  "assembledAt": "2026-11-26T09:19:35.045Z",
+  "runId": "45788679442",
   "jobs": [
     {
       "id": "anybotics-702b013708b6",
@@ -34,7 +34,7 @@
       "url": "https://jobs.lever.co/anybotics/dfae4234-0ca9-4ea9-85ff-7d1ec557540b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:45.166Z",
+      "crawledAt": "2026-11-26T09:18:49.296Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,9 +77,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:25:45.166Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/dfae4234-0ca9-4ea9-85ff-7d1ec557540b"
+      "validThrough": "2026-12-28T09:18:49.296Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-472a1d92eda0",
@@ -112,7 +111,7 @@
       "url": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:44.764Z",
+      "crawledAt": "2026-11-26T09:18:48.806Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -155,9 +154,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:44.764Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0"
+      "validThrough": "2026-12-26T09:18:48.806Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-c31b9bb9e207",
@@ -190,7 +188,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:44.381Z",
+      "crawledAt": "2026-11-26T09:18:48.380Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -233,42 +231,41 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:44.381Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2"
+      "validThrough": "2026-12-26T09:18:48.380Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-896bf8fdbb13",
-      "slug": "senior-procurement-specialist-anybotics-ch",
+      "slug": "senior-procurement-specialista-anybotics-zurich",
       "slugByLocale": {
+        "it": "senior-procurement-specialista-anybotics-zurich",
         "en": "senior-procurement-specialist-anybotics-ch",
-        "it": "senior-procurement-specialist-anybotics-ch",
-        "de": "senior-procurement-specialist-anybotics-ch",
-        "fr": "senior-procurement-specialist-anybotics-ch"
+        "de": "senior-procurement-spezialist-anybotics-zurich",
+        "fr": "senior-procurement-specialiste-anybotics-zurich"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
       "companyDomain": "anybotics.com",
       "title": "Senior Procurement Specialist",
       "titleByLocale": {
-        "en": "Senior Procurement Specialist",
         "it": "Senior Procurement Specialista",
+        "en": "Senior Procurement Specialist",
         "de": "Senior Procurement Spezialist",
         "fr": "Senior Procurement Spécialiste"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAt ANYbotics, we build autonomous, end-to-end robotic solutions that automate routine industrial inspections in complex and hazardous environments. As a Senior Procurement Specialist , you will play a pivotal, high-ownership role in shaping the supply chain foundation for our next-generation robotics platform.\n\nOperating at the intersection of strategic sourcing and industrialization, you will drive critical procurement activities from early prototype phases straight through to full production ramp-up. You won't just be managing transactional purchase orders—you will build scalable procurement processes from scratch, secure high-performing global supplier networks, and directly influence the cost, quality, and delivery of cutting-edge robotic hardware.\n\nThe Market & Our Technology\n\nIndustrial facilities present some of the world's most severe operating conditions. Our autonomous quadrupedal platforms navigate multi-story plants, stairs, and hazardous areas—delivering continuous operational insight without human risk. Bringing a next-generation, high-complexity mechatronic product like ANYmal from concept to serial production demands a resilient, agile, and cost-effective supply chain. Sourcing high-precision mechanical parts, advanced electronics, and specialized electromechanical systems requires a strategic procurement leader who thrives in fast-paced hardware environments.\n\nYour Impact\n\n•\n Establish and execute the end-to-end procurement strategy for the new ANYmal project across both prototype and production phases\n\n•\n Secure critical suppliers and manage complex global sourcing networks across Europe and Asia\n\n•\n Lead high-stakes RFQs, contract negotiations, and cost-optimization initiatives to meet ambitious target costs and timelines\n\n•\n Identify, assess, and proactively mitigate single-source and supply chain risks for high-criticality components\n\n•\n Drive supplier qualification, capacity planning, and onboarding in close alignment with industrialization roadmaps\n\n•\n Partner cross-functionally with Engineering, Operations, Quality, and Supply Chain teams to ensure seamless NPI transition\n\nYour Profile\n\n•\n 10+ years of hands-on experience in procurement, strategic sourcing, and supplier management within a complex industrial or hardware environment (robotics, automotive, aerospace, electronics, or industrial automation)\n\n•\n Proven track record of managing procurement activities throughout the entire product lifecycle—from early-stage NPI prototypes to serial production ramp-up\n\n•\n Deep expertise in sourcing custom mechanical, electrical, and complex electromechanical components\n\n•\n Strong mastery of strategic sourcing, contract negotiations, supplier agreements, and long-term commercial terms\n\n•\n Demonstrated ability to build supplier networks and procurement processes from the ground up in fast-growing or dynamic hardware organizations\n\n•\n Experience working effectively with international supplier bases, particularly across Europe and Asia\n\n•\n Collaborative approach with strong experience influencing and partnering with cross-functional Engineering, Quality, and Operations teams\n\n•\n Business fluency in English\n\nBonus Points\n\n•\n Deep domain knowledge in sourcing specialized robotic hardware such as electronics, PCBAs, high-density batteries, motors, or drives\n\n•\n Fluency in German for local supplier communication\n\n•\n Background in low-to-medium volume, high-complexity hardware manufacturing environments\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
       "descriptionByLocale": {
+        "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia.\n\nL'opportunità\n\nIn ANYbotics, costruiamo soluzioni robotiche autonome e end-to-end che automatizzano le ispezioni industriali di routine in ambienti complessi e pericolosi. In qualità di Senior Procurement Specialist , si svolgerà un ruolo cardine e di alto livello nel modellare la base della supply chain per la nostra piattaforma robotica di nuova generazione.\n\nOperando all'incrocio di sourcing strategico e industrializzazione, guiderete le attività di approvvigionamento critico dalle prime fasi del prototipo fino alla completa espansione della produzione. Non sarà solo la gestione degli ordini di acquisto transazionali - si costruirà processi di approvvigionamento scalabile da zero, sicuro reti di fornitori globali ad alta prestazione, e direttamente influenzare il costo, la qualità e la consegna di hardware robotico all'avanguardia.\n\nIl mercato e la nostra tecnologia\n\nLe strutture industriali presentano alcune delle condizioni operative più severe del mondo. Le nostre piattaforme quadrupede autonome navigano in impianti a più piani, scale e aree pericolose, con una visione operativa continua senza rischi umani. Portare un prodotto meccatronico di nuova generazione, ad alta complessità come ANYmal dal concetto alla produzione seriale richiede una catena di fornitura resiliente, agile e conveniente. Sourcing parti meccaniche ad alta precisione, elettronica avanzata e sistemi elettromeccanici specializzati richiede un leader di approvvigionamento strategico che prospera in ambienti hardware veloci.\n\nIl tuo impatto\n\n•\nStabilire ed eseguire la strategia di approvvigionamento end-to-end per il nuovo progetto ANYmal in entrambe le fasi di prototipo e produzione\n\n•\nFornitori critici sicuri e gestire complesse reti di approvvigionamento globale in Europa e Asia\n\n•\nCondurre le RFQ, i negoziati contrattuali e le iniziative di ottimizzazione dei costi per soddisfare i costi e le tempistiche ambiziosi\n\n•\nIdentificare, valutare e mitigare proattivamente i rischi della catena di fornitura e delle singole risorse per componenti ad alta criticità\n\n•\nQualifica del fornitore del motore, pianificazione della capacità e onboarding in stretto allineamento con le roadmap di industrializzazione\n\n•\nPartner cross-funzionale con i team Engineering, Operations, Quality e Supply Chain per garantire una transizione senza interruzioni NPI\n\nIl tuo profilo\n\n•\n10+ anni di esperienza pratica nell'approvvigionamento, nell'approvvigionamento strategico e nella gestione dei fornitori all'interno di un complesso ambiente industriale o hardware (robotica, automotive, aerospaziale, elettronica o automazione industriale)\n\n•\nProvato record di gestione delle attività di approvvigionamento in tutto il ciclo di vita del prodotto, dai prototipi NPI di fase iniziale alla rampa di produzione seriale\n\n•\nProfonda competenza nell'approvvigionamento di componenti elettromeccanici, elettrici e complessi\n\n•\nForte padronanza di approvvigionamento strategico, trattative contrattuali, accordi di fornitori e termini commerciali a lungo termine\n\n•\nCapacità dimostrata di costruire reti di fornitori e processi di approvvigionamento da zero in organizzazioni hardware in rapida crescita o dinamiche\n\n•\nEsperienza di lavoro efficace con basi di fornitori internazionali, in particolare in Europa e Asia\n\n•\nApproccio collaborativo con una forte esperienza che influenza e collabora con i team di Ingegneria, Qualità e Operazioni\n\n•\nFluency aziendale in inglese\n\nPunti bonus\n\n•\nConoscenze di dominio profondo nel sourcing hardware robotico specializzato come elettronica, PCBA, batterie ad alta densità, motori o unità\n\n•\nFluency in tedesco per la comunicazione dei fornitori locali\n\n•\nSfondo in ambienti di produzione hardware ad alta complessità a basso volume medio\n\nVi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un piano di azionariato dipendente attraente e un lavoro nella città di Zurigo.\n\nPolitica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
         "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAt ANYbotics, we build autonomous, end-to-end robotic solutions that automate routine industrial inspections in complex and hazardous environments. As a Senior Procurement Specialist , you will play a pivotal, high-ownership role in shaping the supply chain foundation for our next-generation robotics platform.\n\nOperating at the intersection of strategic sourcing and industrialization, you will drive critical procurement activities from early prototype phases straight through to full production ramp-up. You won't just be managing transactional purchase orders—you will build scalable procurement processes from scratch, secure high-performing global supplier networks, and directly influence the cost, quality, and delivery of cutting-edge robotic hardware.\n\nThe Market & Our Technology\n\nIndustrial facilities present some of the world's most severe operating conditions. Our autonomous quadrupedal platforms navigate multi-story plants, stairs, and hazardous areas—delivering continuous operational insight without human risk. Bringing a next-generation, high-complexity mechatronic product like ANYmal from concept to serial production demands a resilient, agile, and cost-effective supply chain. Sourcing high-precision mechanical parts, advanced electronics, and specialized electromechanical systems requires a strategic procurement leader who thrives in fast-paced hardware environments.\n\nYour Impact\n\n•\n Establish and execute the end-to-end procurement strategy for the new ANYmal project across both prototype and production phases\n\n•\n Secure critical suppliers and manage complex global sourcing networks across Europe and Asia\n\n•\n Lead high-stakes RFQs, contract negotiations, and cost-optimization initiatives to meet ambitious target costs and timelines\n\n•\n Identify, assess, and proactively mitigate single-source and supply chain risks for high-criticality components\n\n•\n Drive supplier qualification, capacity planning, and onboarding in close alignment with industrialization roadmaps\n\n•\n Partner cross-functionally with Engineering, Operations, Quality, and Supply Chain teams to ensure seamless NPI transition\n\nYour Profile\n\n•\n 10+ years of hands-on experience in procurement, strategic sourcing, and supplier management within a complex industrial or hardware environment (robotics, automotive, aerospace, electronics, or industrial automation)\n\n•\n Proven track record of managing procurement activities throughout the entire product lifecycle—from early-stage NPI prototypes to serial production ramp-up\n\n•\n Deep expertise in sourcing custom mechanical, electrical, and complex electromechanical components\n\n•\n Strong mastery of strategic sourcing, contract negotiations, supplier agreements, and long-term commercial terms\n\n•\n Demonstrated ability to build supplier networks and procurement processes from the ground up in fast-growing or dynamic hardware organizations\n\n•\n Experience working effectively with international supplier bases, particularly across Europe and Asia\n\n•\n Collaborative approach with strong experience influencing and partnering with cross-functional Engineering, Quality, and Operations teams\n\n•\n Business fluency in English\n\nBonus Points\n\n•\n Deep domain knowledge in sourcing specialized robotic hardware such as electronics, PCBAs, high-density batteries, motors, or drives\n\n•\n Fluency in German for local supplier communication\n\n•\n Background in low-to-medium volume, high-complexity hardware manufacturing environments\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
-        "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia.\n\nL'opportunità\n\nIn ANYbotics, costruiamo soluzioni robotiche autonome e end-to-end che automatizzano le ispezioni industriali di routine in ambienti complessi e pericolosi. In qualità di Senior Procurement Specialist , si svolgerà un ruolo cardine e di alto livello nel modellare la base della supply chain per la nostra piattaforma robotica di nuova generazione.\n\nOperando all'incrocio di sourcing strategico e industrializzazione, guiderete le attività di approvvigionamento critico dalle prime fasi del prototipo fino alla completa espansione della produzione. Non sarà solo la gestione degli ordini di acquisto transazionali - si costruirà processi di approvvigionamento scalabile da zero, sicuro reti di fornitori globali ad alta prestazione, e direttamente influenzare il costo, la qualità e la consegna di hardware robotico all'avanguardia.\n\nIl mercato e la nostra tecnologia\n\nLe strutture industriali presentano alcune delle condizioni operative più severe del mondo. Le nostre piattaforme quadrupede autonome navigano in impianti a più piani, scale e aree pericolose, con una visione operativa continua senza rischi umani. Portare un prodotto meccatronico di nuova generazione, ad alta complessità come ANYmal dal concetto alla produzione seriale richiede una catena di fornitura resiliente, agile e conveniente. Sourcing parti meccaniche ad alta precisione, elettronica avanzata e sistemi elettromeccanici specializzati richiede un leader di approvvigionamento strategico che prospera in ambienti hardware veloci.\n\nIl tuo impatto\n\n•\n Stabilire ed eseguire la strategia di approvvigionamento end-to-end per il nuovo progetto ANYmal in entrambe le fasi di prototipo e produzione\n\n•\n Fornitori critici sicuri e gestire complesse reti di approvvigionamento globale in Europa e Asia\n\n•\n Condurre le RFQ, i negoziati contrattuali e le iniziative di ottimizzazione dei costi per soddisfare i costi e le tempistiche ambiziosi\n\n•\n Identificare, valutare e mitigare proattivamente i rischi della catena di fornitura e delle singole risorse per componenti ad alta criticità\n\n•\n Qualifica del fornitore del motore, pianificazione della capacità e onboarding in stretto allineamento con le roadmap di industrializzazione\n\n•\n Partner cross-funzionale con i team Engineering, Operations, Quality e Supply Chain per garantire una transizione senza interruzioni NPI\n\nIl tuo profilo\n\n•\n 10+ anni di esperienza pratica nell'approvvigionamento, nell'approvvigionamento strategico e nella gestione dei fornitori all'interno di un complesso ambiente industriale o hardware (robotica, automotive, aerospaziale, elettronica o automazione industriale)\n\n•\n Provato record di gestione delle attività di approvvigionamento in tutto il ciclo di vita del prodotto, dai prototipi NPI di fase iniziale alla rampa di produzione seriale\n\n•\n Profonda competenza nell'approvvigionamento di componenti elettromeccanici, elettrici e complessi\n\n•\n Forte padronanza di approvvigionamento strategico, trattative contrattuali, accordi di fornitori e termini commerciali a lungo termine\n\n•\n Capacità dimostrata di costruire reti di fornitori e processi di approvvigionamento da zero in organizzazioni hardware in rapida crescita o dinamiche\n\n•\n Esperienza di lavoro efficace con basi di fornitori internazionali, in particolare in Europa e Asia\n\n•\n Approccio collaborativo con una forte esperienza che influenza e collabora con i team di Ingegneria, Qualità e Operazioni\n\n•\n Fluency aziendale in inglese\n\nPunti bonus\n\n•\n Conoscenze di dominio profondo nel sourcing hardware robotico specializzato come elettronica, PCBA, batterie ad alta densità, motori o unità\n\n•\n Fluency in tedesco per la comunicazione dei fornitori locali\n\n•\n Sfondo in ambienti di produzione hardware ad alta complessità a basso volume medio\n\nVi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un piano di azionariato dipendente attraente e un lavoro nella città di Zurigo.\n\nPolitica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
-        "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie.\n\nDie Chance\n\nBei ANYbotics bauen wir autonome End-to-End-Roboterlösungen, die routinemäßige industrielle Inspektionen in komplexen und gefährlichen Umgebungen automatisieren. Als Senior Procurement Specialist spielen Sie eine zentrale, inhabernahe Rolle bei der Gestaltung der Lieferkettengrundlage für unsere Robotikplattform der nächsten Generation.\n\nAn der Schnittstelle von strategischer Beschaffung und Industrialisierung treiben Sie wichtige Beschaffungsaktivitäten von frühen Prototypenphasen bis hin zum Anlauf der Vollproduktion voran. Sie verwalten nicht nur transaktionale Bestellungen – Sie erstellen skalierbare Beschaffungsprozesse von Grund auf neu, sichern leistungsstarke globale Lieferantennetzwerke und beeinflussen direkt Kosten, Qualität und Lieferung von modernster Roboterhardware.\n\nDer Markt & unsere Technologie\n\nIndustrieanlagen stellen einige der schwersten Betriebsbedingungen der Welt dar. Unsere autonomen Quadrupedal-Plattformen navigieren durch mehrstöckige Anlagen, Treppen und gefährliche Bereiche und liefern kontinuierliche operative Einblicke ohne menschliches Risiko. Ein hochkomplexes mechatronisches Produkt der nächsten Generation wie ANYmal vom Konzept zur Serienproduktion zu bringen, erfordert eine belastbare, agile und kostengünstige Lieferkette. Die Beschaffung hochpräziser mechanischer Teile, fortschrittlicher Elektronik und spezialisierter elektromechanischer Systeme erfordert einen strategischen Beschaffungsführer, der in schnelllebigen Hardwareumgebungen erfolgreich ist.\n\nIhre Wirkung\n\n•\n Etablierung und Umsetzung der End-to-End-Beschaffungsstrategie für das neue ANYmal-Projekt sowohl in der Prototyp- als auch in der Produktionsphase\n\n•\n Sicherung kritischer Lieferanten und Verwaltung komplexer globaler Sourcing-Netzwerke in Europa und Asien\n\n•\n Führen Sie High-Stakes-RFQs, Vertragsverhandlungen und Kostenoptimierungsinitiativen, um ehrgeizige Zielkosten und Zeitpläne zu erreichen\n\n•\n Identifizierung, Bewertung und proaktive Minderung von Single-Source- und Supply-Chain-Risiken für hochkritische Komponenten\n\n•\n Qualifizierung von Lieferanten, Kapazitätsplanung und Onboarding in enger Abstimmung mit den Industrialisierungs-Roadmaps\n\n•\n Partner funktionsübergreifend mit Engineering-, Operations-, Qualitäts- und Supply Chain-Teams, um einen nahtlosen NPI-Übergang zu gewährleisten\n\nIhr Profil\n\n•\n 10+ Jahre praktische Erfahrung in Beschaffung, strategischem Sourcing und Lieferantenmanagement in einer komplexen Industrie- oder Hardwareumgebung (Robotik, Automobil, Luft- und Raumfahrt, Elektronik oder industrielle Automatisierung)\n\n•\n Bewährte Erfolgsbilanz bei der Verwaltung von Beschaffungsaktivitäten während des gesamten Produktlebenszyklus - von frühen NPI-Prototypen bis hin zur Serienproduktion\n\n•\n Tiefe Expertise in der Beschaffung kundenspezifischer mechanischer, elektrischer und komplexer elektromechanischer Komponenten\n\n•\n Starke Beherrschung von strategischer Beschaffung, Vertragsverhandlungen, Lieferantenvereinbarungen und langfristigen Geschäftsbedingungen\n\n•\n Demonstrierte Fähigkeit, Lieferantennetzwerke und Beschaffungsprozesse von Grund auf in schnell wachsenden oder dynamischen Hardware-Organisationen aufzubauen\n\n•\n Erfahrung in der effektiven Zusammenarbeit mit internationalen Lieferantenbasen, insbesondere in Europa und Asien\n\n•\n Kollaborativer Ansatz mit starker Erfahrung bei der Beeinflussung und Partnerschaft mit funktionsübergreifenden Engineering-, Qualitäts- und Operations-Teams\n\n•\n Business fließend in Englisch\n\nBonuspunkte\n\n•\n Tiefes Fachwissen in der Beschaffung von spezialisierter Roboterhardware wie Elektronik, PCBAs, Batterien mit hoher Dichte, Motoren oder Antrieben\n\n•\n Deutsch fließend für die lokale Lieferantenkommunikation\n\n•\n Hintergrund in Hardware-Fertigungsumgebungen mit geringem bis mittlerem Volumen und hoher Komplexität\n\nWir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich.\n\nAgenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
-        "fr": "Anybotics est une société technologique en croissance rapide qui se consacre à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe.\n\nL'opportunité\n\nChez Anybotics, nous construisons des solutions robotiques de bout en bout autonomes qui automatisent les inspections industrielles de routine dans des environnements complexes et dangereux. En tant que spécialiste principal de l'approvisionnement, vous jouerez un rôle de premier plan dans l'établissement de la chaîne d'approvisionnement de notre plateforme robotique de nouvelle génération.\n\nFonctionnant à l'intersection de l'approvisionnement stratégique et de l'industrialisation, vous dirigerez les activités d'approvisionnement critiques des premières phases de prototype directement jusqu'à la mise en service complète de la production. Vous ne vous contenterez pas de gérer les bons de commande transactionnels – vous allez construire des processus d'approvisionnement évolutives à partir de zéro, sécuriser des réseaux de fournisseurs mondiaux performants, et influencer directement le coût, la qualité et la livraison de matériel robotique de pointe.\n\nLe marché et notre technologie\n\nLes installations industrielles présentent certaines des conditions d'exploitation les plus graves au monde. Nos plates-formes quadrupèdes autonomes naviguent dans des usines, des escaliers et des zones dangereuses à plusieurs étages. Apporter un produit mécatronique à haute complexité de nouvelle génération comme Anymal de concept à série demande une chaîne d'approvisionnement robuste, agile et rentable. Pour assainir les pièces mécaniques de haute précision, l'électronique avancée et les systèmes électromécaniques spécialisés, il faut un leader stratégique de l'approvisionnement qui prospère dans des environnements matériels rapides.\n\nVotre impact\n\n•\n Établir et exécuter la stratégie d'approvisionnement de bout en bout pour le nouveau projet Anymal au cours des phases de prototype et de production\n\n•\n Sécuriser les fournisseurs essentiels et gérer les réseaux mondiaux complexes d'approvisionnement en Europe et en Asie\n\n•\n Diriger les QDP à haut rendement, les négociations contractuelles et les initiatives d'optimisation des coûts pour respecter des coûts et des échéances ambitieux\n\n•\n Identifier, évaluer et atténuer de façon proactive les risques liés aux sources uniques et à la chaîne d'approvisionnement pour les composantes à haute criticité\n\n•\n Conduire la qualification des fournisseurs, la planification des capacités et l'embarquement en étroite harmonie avec les feuilles de route de l'industrialisation\n\n•\n Partenaire interfonctionnel avec les équipes de l'ingénierie, des opérations, de la qualité et de la chaîne d'approvisionnement pour assurer une transition sans faille de l'IPN\n\nVotre profil\n\n•\n 10+ ans d'expérience pratique dans l'approvisionnement, l'approvisionnement stratégique et la gestion des fournisseurs dans un environnement industriel ou matériel complexe (robotique, automobile, aérospatiale, électronique ou automatisation industrielle)\n\n•\n Expérience éprouvée de la gestion des activités d'approvisionnement tout au long du cycle de vie du produit — des prototypes d'IPN en phase initiale à la mise en service de la production en série\n\n•\n Une expertise approfondie dans l'approvisionnement de composants mécaniques, électriques et électromécaniques complexes\n\n•\n Forte maîtrise de l'approvisionnement stratégique, des négociations contractuelles, des accords avec les fournisseurs et des conditions commerciales à long terme\n\n•\n Capacité démontrée de construire des réseaux de fournisseurs et des processus d'approvisionnement à partir du terrain dans des organisations matérielles dynamiques ou à croissance rapide\n\n•\n Expérience de travail efficace avec les fournisseurs internationaux, en particulier en Europe et en Asie\n\n•\n Approche collaborative avec une solide expérience influençant et en partenariat avec des équipes interfonctionnelles d'ingénierie, de qualité et d'exploitation\n\n•\n Maîtrise des affaires en anglais\n\nPoints bonus\n\n•\n Connaissance approfondie du domaine dans l'approvisionnement en matériel robotique spécialisé comme l'électronique, PCBA, batteries haute densité, moteurs ou moteurs\n\n•\n Fluidité en allemand pour la communication avec les fournisseurs locaux\n\n•\n Contexte dans des environnements de fabrication de matériel à volume faible à moyen, haute complexité\n\nNous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en pleine croissance et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich.\n\nPolitique de l'Agence : Nous ne sommes pas actuellement en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme des divulgations publiques et des biens d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
+        "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie.\n\nDie Chance\n\nBei ANYbotics bauen wir autonome End-to-End-Roboterlösungen, die routinemäßige industrielle Inspektionen in komplexen und gefährlichen Umgebungen automatisieren. Als Senior Procurement Specialist spielen Sie eine zentrale, inhabernahe Rolle bei der Gestaltung der Lieferkettengrundlage für unsere Robotikplattform der nächsten Generation.\n\nAn der Schnittstelle von strategischer Beschaffung und Industrialisierung treiben Sie wichtige Beschaffungsaktivitäten von frühen Prototypenphasen bis hin zum Anlauf der Vollproduktion voran. Sie verwalten nicht nur transaktionale Bestellungen – Sie erstellen skalierbare Beschaffungsprozesse von Grund auf neu, sichern leistungsstarke globale Lieferantennetzwerke und beeinflussen direkt Kosten, Qualität und Lieferung von modernster Roboterhardware.\n\nDer Markt & unsere Technologie\n\nIndustrieanlagen stellen einige der schwersten Betriebsbedingungen der Welt dar. Unsere autonomen Quadrupedal-Plattformen navigieren durch mehrstöckige Anlagen, Treppen und gefährliche Bereiche und liefern kontinuierliche operative Einblicke ohne menschliches Risiko. Ein hochkomplexes mechatronisches Produkt der nächsten Generation wie ANYmal vom Konzept zur Serienproduktion zu bringen, erfordert eine belastbare, agile und kostengünstige Lieferkette. Die Beschaffung hochpräziser mechanischer Teile, fortschrittlicher Elektronik und spezialisierter elektromechanischer Systeme erfordert einen strategischen Beschaffungsführer, der in schnelllebigen Hardwareumgebungen erfolgreich ist.\n\nIhre Wirkung\n\n•\nEtablierung und Umsetzung der End-to-End-Beschaffungsstrategie für das neue ANYmal-Projekt sowohl in der Prototyp- als auch in der Produktionsphase\n\n•\nSicherung kritischer Lieferanten und Verwaltung komplexer globaler Sourcing-Netzwerke in Europa und Asien\n\n•\nFühren Sie High-Stakes-RFQs, Vertragsverhandlungen und Kostenoptimierungsinitiativen, um ehrgeizige Zielkosten und Zeitpläne zu erreichen\n\n•\nIdentifizierung, Bewertung und proaktive Minderung von Single-Source- und Supply-Chain-Risiken für hochkritische Komponenten\n\n•\nQualifizierung von Lieferanten, Kapazitätsplanung und Onboarding in enger Abstimmung mit den Industrialisierungs-Roadmaps\n\n•\nPartner funktionsübergreifend mit Engineering-, Operations-, Qualitäts- und Supply Chain-Teams, um einen nahtlosen NPI-Übergang zu gewährleisten\n\nIhr Profil\n\n•\n10+ Jahre praktische Erfahrung in Beschaffung, strategischem Sourcing und Lieferantenmanagement in einer komplexen Industrie- oder Hardwareumgebung (Robotik, Automobil, Luft- und Raumfahrt, Elektronik oder industrielle Automatisierung)\n\n•\nBewährte Erfolgsbilanz bei der Verwaltung von Beschaffungsaktivitäten während des gesamten Produktlebenszyklus - von frühen NPI-Prototypen bis hin zur Serienproduktion\n\n•\nTiefe Expertise in der Beschaffung kundenspezifischer mechanischer, elektrischer und komplexer elektromechanischer Komponenten\n\n•\nStarke Beherrschung von strategischer Beschaffung, Vertragsverhandlungen, Lieferantenvereinbarungen und langfristigen Geschäftsbedingungen\n\n•\nDemonstrierte Fähigkeit, Lieferantennetzwerke und Beschaffungsprozesse von Grund auf in schnell wachsenden oder dynamischen Hardware-Organisationen aufzubauen\n\n•\nErfahrung in der effektiven Zusammenarbeit mit internationalen Lieferantenbasen, insbesondere in Europa und Asien\n\n•\nKollaborativer Ansatz mit starker Erfahrung bei der Beeinflussung und Partnerschaft mit funktionsübergreifenden Engineering-, Qualitäts- und Operations-Teams\n\n•\nBusiness fließend in Englisch\n\nBonuspunkte\n\n•\nTiefes Fachwissen in der Beschaffung von spezialisierter Roboterhardware wie Elektronik, PCBAs, Batterien mit hoher Dichte, Motoren oder Antrieben\n\n•\nDeutsch fließend für die lokale Lieferantenkommunikation\n\n•\nHintergrund in Hardware-Fertigungsumgebungen mit geringem bis mittlerem Volumen und hoher Komplexität\n\nWir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich.\n\nAgenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
+        "fr": "Anybotics est une société technologique en croissance rapide qui se consacre à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe.\n\nL'opportunité\n\nChez Anybotics, nous construisons des solutions robotiques de bout en bout autonomes qui automatisent les inspections industrielles de routine dans des environnements complexes et dangereux. En tant que spécialiste principal de l'approvisionnement, vous jouerez un rôle de premier plan dans l'établissement de la chaîne d'approvisionnement de notre plateforme robotique de nouvelle génération.\n\nFonctionnant à l'intersection de l'approvisionnement stratégique et de l'industrialisation, vous dirigerez les activités d'approvisionnement critiques des premières phases de prototype directement jusqu'à la mise en service complète de la production. Vous ne vous contenterez pas de gérer les bons de commande transactionnels – vous allez construire des processus d'approvisionnement évolutives à partir de zéro, sécuriser des réseaux de fournisseurs mondiaux performants, et influencer directement le coût, la qualité et la livraison de matériel robotique de pointe.\n\nLe marché et notre technologie\n\nLes installations industrielles présentent certaines des conditions d'exploitation les plus graves au monde. Nos plates-formes quadrupèdes autonomes naviguent dans des usines, des escaliers et des zones dangereuses à plusieurs étages. Apporter un produit mécatronique à haute complexité de nouvelle génération comme Anymal de concept à série demande une chaîne d'approvisionnement robuste, agile et rentable. Pour assainir les pièces mécaniques de haute précision, l'électronique avancée et les systèmes électromécaniques spécialisés, il faut un leader stratégique de l'approvisionnement qui prospère dans des environnements matériels rapides.\n\nVotre impact\n\n•\nÉtablir et exécuter la stratégie d'approvisionnement de bout en bout pour le nouveau projet Anymal au cours des phases de prototype et de production\n\n•\nSécuriser les fournisseurs essentiels et gérer les réseaux mondiaux complexes d'approvisionnement en Europe et en Asie\n\n•\nDiriger les QDP à haut rendement, les négociations contractuelles et les initiatives d'optimisation des coûts pour respecter des coûts et des échéances ambitieux\n\n•\nIdentifier, évaluer et atténuer de façon proactive les risques liés aux sources uniques et à la chaîne d'approvisionnement pour les composantes à haute criticité\n\n•\nConduire la qualification des fournisseurs, la planification des capacités et l'embarquement en étroite harmonie avec les feuilles de route de l'industrialisation\n\n•\nPartenaire interfonctionnel avec les équipes de l'ingénierie, des opérations, de la qualité et de la chaîne d'approvisionnement pour assurer une transition sans faille de l'IPN\n\nVotre profil\n\n•\n10+ ans d'expérience pratique dans l'approvisionnement, l'approvisionnement stratégique et la gestion des fournisseurs dans un environnement industriel ou matériel complexe (robotique, automobile, aérospatiale, électronique ou automatisation industrielle)\n\n•\nExpérience éprouvée de la gestion des activités d'approvisionnement tout au long du cycle de vie du produit — des prototypes d'IPN en phase initiale à la mise en service de la production en série\n\n•\nUne expertise approfondie dans l'approvisionnement de composants mécaniques, électriques et électromécaniques complexes\n\n•\nForte maîtrise de l'approvisionnement stratégique, des négociations contractuelles, des accords avec les fournisseurs et des conditions commerciales à long terme\n\n•\nCapacité démontrée de construire des réseaux de fournisseurs et des processus d'approvisionnement à partir du terrain dans des organisations matérielles dynamiques ou à croissance rapide\n\n•\nExpérience de travail efficace avec les fournisseurs internationaux, en particulier en Europe et en Asie\n\n•\nApproche collaborative avec une solide expérience influençant et en partenariat avec des équipes interfonctionnelles d'ingénierie, de qualité et d'exploitation\n\n•\nMaîtrise des affaires en anglais\n\nPoints bonus\n\n•\nConnaissance approfondie du domaine dans l'approvisionnement en matériel robotique spécialisé comme l'électronique, PCBA, batteries haute densité, moteurs ou moteurs\n\n•\nFluidité en allemand pour la communication avec les fournisseurs locaux\n\n•\nContexte dans des environnements de fabrication de matériel à volume faible à moyen, haute complexité\n\nNous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en pleine croissance et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich.\n\nPolitique de l'Agence : Nous ne sommes pas actuellement en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme des divulgations publiques et des biens d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
       },
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:43.995Z",
+      "crawledAt": "2026-11-26T09:18:47.968Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,9 +281,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-24T11:13:08.609Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-procurement-specialist-anybotics-ch"
+        ],
+        "de": [
+          "senior-procurement-specialist-anybotics-ch"
+        ],
+        "fr": [
+          "senior-procurement-specialist-anybotics-ch"
+        ]
       },
+      "previousSlugs": [
+        "senior-procurement-specialist-anybotics-ch"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -304,10 +314,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:43.995Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-24T11:13:08.609Z",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1"
+      "validThrough": "2026-12-26T09:18:47.968Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-0d831f9b484a",
@@ -340,7 +348,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:43.574Z",
+      "crawledAt": "2026-11-26T09:18:46.934Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -383,9 +391,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:43.574Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1"
+      "validThrough": "2026-12-26T09:18:46.934Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-29b6d719d330",
@@ -418,7 +425,7 @@
       "url": "https://jobs.lever.co/anybotics/9cf13987-8abc-4678-a0f0-c524dcf08c3e",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:43.177Z",
+      "crawledAt": "2026-11-26T09:18:46.460Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -467,9 +474,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:25:43.177Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/9cf13987-8abc-4678-a0f0-c524dcf08c3e"
+      "validThrough": "2027-02-04T09:18:46.460Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-1e66c8a83618",
@@ -502,7 +508,7 @@
       "url": "https://jobs.lever.co/anybotics/430256dc-e9b8-4673-8ec4-b48b16cee5eb",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:42.646Z",
+      "crawledAt": "2026-11-26T09:18:46.040Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -551,9 +557,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:25:42.646Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/430256dc-e9b8-4673-8ec4-b48b16cee5eb"
+      "validThrough": "2027-02-14T09:18:46.040Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-c9a3ed6ee0f2",
@@ -586,7 +591,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:41.752Z",
+      "crawledAt": "2026-11-26T09:18:44.687Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -629,9 +634,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:41.752Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d"
+      "validThrough": "2026-12-26T09:18:44.687Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-9f3fd35c998c",
@@ -664,7 +668,7 @@
       "url": "https://jobs.lever.co/anybotics/9498fa1c-791c-472f-9a01-6d144713d498",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:41.316Z",
+      "crawledAt": "2026-11-26T09:18:44.239Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -714,9 +718,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:25:41.316Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/9498fa1c-791c-472f-9a01-6d144713d498"
+      "validThrough": "2027-02-01T09:18:44.239Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-262149a19b82",
@@ -749,7 +752,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:40.932Z",
+      "crawledAt": "2026-11-26T09:18:36.916Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -792,9 +795,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:40.932Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d"
+      "validThrough": "2026-12-26T09:18:36.916Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-1d785a1b0b91",
@@ -827,7 +829,7 @@
       "url": "https://jobs.lever.co/anybotics/d5b4a438-2d8f-4964-8adf-21bd697f5338",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:40.526Z",
+      "crawledAt": "2026-11-26T09:18:36.486Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -876,9 +878,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:25:40.526Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/d5b4a438-2d8f-4964-8adf-21bd697f5338"
+      "validThrough": "2027-02-22T09:18:36.486Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-4743d1cfd1f3",
@@ -911,7 +912,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:40.031Z",
+      "crawledAt": "2026-11-26T09:18:27.385Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -958,9 +959,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:40.031Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784"
+      "validThrough": "2026-12-26T09:18:27.385Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-04000cf4bb65",
@@ -993,7 +993,7 @@
       "url": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:39.634Z",
+      "crawledAt": "2026-11-26T09:18:26.951Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1036,9 +1036,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:39.634Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4"
+      "validThrough": "2026-12-26T09:18:26.951Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-9d7ea3991613",
@@ -1071,7 +1070,7 @@
       "url": "https://jobs.lever.co/anybotics/9d34ce1f-0dae-4cf3-85b0-d231dfb4851b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:34.831Z",
+      "crawledAt": "2026-11-26T09:18:26.042Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1120,9 +1119,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:34.831Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/9d34ce1f-0dae-4cf3-85b0-d231dfb4851b"
+      "validThrough": "2026-12-26T09:18:26.042Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-5839d064a74b",
@@ -1155,7 +1153,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:34.425Z",
+      "crawledAt": "2026-11-26T09:18:25.598Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1199,9 +1197,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:34.425Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a"
+      "validThrough": "2026-12-26T09:18:25.598Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-3f2f1510f128",
@@ -1234,7 +1231,7 @@
       "url": "https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:34.013Z",
+      "crawledAt": "2026-11-26T09:18:20.198Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1277,42 +1274,41 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:34.013Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027"
+      "validThrough": "2026-12-26T09:18:20.198Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-3991b2593ad8",
-      "slug": "head-of-design-anybotics-ch",
+      "slug": "responsabile-design-anybotics-zurich",
       "slugByLocale": {
+        "it": "responsabile-design-anybotics-zurich",
         "en": "head-of-design-anybotics-ch",
-        "it": "head-of-design-anybotics-ch",
-        "de": "head-of-design-anybotics-ch",
-        "fr": "head-of-design-anybotics-ch"
+        "de": "leiter-design-anybotics-zurich",
+        "fr": "responsable-design-anybotics-zurich"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
       "companyDomain": "anybotics.com",
       "title": "Head of Design",
       "titleByLocale": {
-        "en": "Head of Design",
         "it": "Responsabile Design",
+        "en": "Head of Design",
         "de": "Leiter Design",
         "fr": "Responsable Design"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs Head of Design, you will shape how people understand, direct and work with autonomous robots in some of the world’s most demanding industrial environments.\n\nThis is not a conventional software design leadership role. Our products combine mobile robotics, operator interfaces, autonomous behaviour, inspection workflows and complex 3D data to support the people who plan, perform and act on industrial inspections. There are still few established design patterns for bringing these elements together into one intuitive, trusted experience. You will help create them.\n\nToday, our design capability spans UX/UI, product design, industrial design and future concept development across several teams. You will bring these disciplines together, establish a coherent design direction across the full product ecosystem and remain hands-on in solving the hardest design challenges.\n\nYou will work closely with Product, Engineering, Advanced Technology and our customer-facing teams. You will also spend time with customers and users in the industrial environments where our robots operate, ensuring that the experiences we pioneer solve real problems for the people who rely on them.\n\nYour Impact\n\n•\n Lead and develop a multidisciplinary design team, setting clear goals, raising the quality bar and creating the conditions for strong designers to do their best work.\n\n•\n Build understanding of the value of design across the organisation and strengthen the partnership between Product, Design and Engineering.\n\n•\n Define a unified design vision across the physical robot, digital products, spatial interfaces and the end-to-end customer experience.\n\n•\n Establish shared design principles, processes and ways of working from early discovery and concept development through to detailed delivery and validation.\n\n•\n Lead discovery and delivery for priority roadmap initiatives, particularly where users interact with robots, autonomous behaviour, 3D environments and spatial information.\n\n•\n Build a deeper understanding of our users through field research, personas, end-to-end journeys, validation and a shared customer-knowledge base.\n\n•\n Make AI practical within the design organisation, improving how the team explores ideas, prototypes, validates decisions and delivers products.\n\nYour Profile\n\n•\n\n•\n You have led and developed designers, including setting goals, giving feedback, coaching performance and making clear decisions when consensus is not enough.\n\n•\n You have strong hands-on design experience across complex physical and digital products and can credibly lead across UX/UI, product design, industrial design and human-machine interaction.\n\n•\n You have designed products involving 3D or spatial interaction, such as robotics, simulation, digital twins, reality capture, spatial computing or other systems where users interact with a three-dimensional environment.\n\n•\n You understand complex B2B products with multiple user and stakeholder groups and can turn customer research into clear product and design priorities.\n\n•\n You have built or materially improved a design practice, introducing the right level of structure while remaining pragmatic, hands-on and comfortable operating in ambiguity.\n\nThis role can be based in Zurich or Barcelona. Regular travel to Zurich and to industrial customer sites will be required, particularly during the first six months, because direct exposure to our robots, teams and users is essential to succeeding in the role.\n\nBonus Points\n\n•\n Experience designing robotics, autonomous systems, industrial technology, digital twins, reality-capture or architecture and construction products.\n\n•\n Experience in game UX, XR, simulation or another field involving intuitive navigation of dynamic 3D environments.\n\n•\n Experience conducting research with operators or professionals working in industrial, field-based or safety-critical settings.\n\n•\n Experience growing a small design function and hiring complementary design disciplines.\n\n•\n Experience using AI to transform design workflows or designing AI-enabled and embodied-AI product experiences.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
       "descriptionByLocale": {
+        "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia.\n\nL'opportunità\n\nIn qualità di Responsabile del Design, si forma come le persone capiscono, diretto e lavorano con robot autonomi in alcuni degli ambienti industriali più esigenti del mondo.\n\nQuesto non è un ruolo di leadership di progettazione di software convenzionale. I nostri prodotti combinano robotica mobile, interfacce operatore, comportamento autonomo, flussi di lavoro di ispezione e dati 3D complessi per supportare le persone che pianificano, eseguono e agiscono su ispezioni industriali. Ci sono ancora pochi modelli di design consolidati per riunire questi elementi in un'esperienza intuitiva e affidabile. Ti aiuterà a crearli.\n\nOggi, la nostra capacità di progettazione si estende su UX/UI, progettazione di prodotti, progettazione industriale e sviluppo futuro concept in diverse squadre. Porterai insieme queste discipline, stabilirai una direzione di progettazione coerente in tutto l'ecosistema completo del prodotto e resterai in grado di risolvere le sfide più difficili del design.\n\nPotrai lavorare a stretto contatto con Prodotto, Ingegneria, Tecnologia avanzata e i nostri team di clienti. Potrai anche trascorrere del tempo con i clienti e gli utenti negli ambienti industriali in cui i nostri robot operano, assicurando che le esperienze che pionieri risolvere problemi reali per le persone che si affidano a loro.\n\nIl tuo impatto\n\n•\nGuidare e sviluppare un team di design multidisciplinare, stabilire obiettivi chiari, alzare la barra di qualità e creare le condizioni per i progettisti forti per fare il loro lavoro migliore.\n\n•\nCostruire la comprensione del valore del design in tutta l'organizzazione e rafforzare la partnership tra Prodotto, Design e Ingegneria.\n\n•\nDefinire una visione di progettazione unificata attraverso il robot fisico, prodotti digitali, interfacce spaziali e l'esperienza cliente end-to-end.\n\n•\nStabilire principi di progettazione, processi e modi di lavorare dalla prima scoperta e sviluppo del concetto attraverso la consegna dettagliata e la convalida.\n\n•\nGuida alla scoperta e alla consegna di iniziative prioritarie di roadmap, in particolare quando gli utenti interagiscono con robot, comportamento autonomo, ambienti 3D e informazioni spaziali.\n\n•\nCostruire una comprensione più profonda dei nostri utenti attraverso la ricerca sul campo, le persone, i viaggi end-to-end, la convalida e una base di conoscenza del cliente condivisa.\n\n•\nRendere l'IA pratica all'interno dell'organizzazione di progettazione, migliorando come il team esplora idee, prototipi, convalida decisioni e consegna prodotti.\n\nIl tuo profilo\n\n•\n\n•\nHai guidato e sviluppato progettisti, tra cui stabilire obiettivi, dare feedback, coaching performance e prendere decisioni chiare quando il consenso non è sufficiente.\n\n•\nHai una forte esperienza di progettazione pratica attraverso prodotti fisici e digitali complessi e può condurre credibilmente attraverso UX/UI, product design, industrial design e interazione uomo-macchina.\n\n•\nHai progettato prodotti che coinvolgono l'interazione 3D o spaziale, come la robotica, la simulazione, i gemelli digitali, la cattura della realtà, l'informatica spaziale o altri sistemi in cui gli utenti interagiscono con un ambiente tridimensionale.\n\n•\nCapite i prodotti B2B complessi con più gruppi di utenti e stakeholder e potete trasformare la ricerca dei clienti in chiare priorità di prodotto e progettazione.\n\n•\nHai costruito o migliorato materialmente una pratica progettuale, introducendo il giusto livello di struttura pur rimanendo pragmatico, pratico e confortevole operativo in ambiguità.\n\nQuesto ruolo può essere basato a Zurigo o Barcellona. Sarà richiesto un viaggio regolare a Zurigo e ai siti dei clienti industriali, in particolare nei primi sei mesi, perché l'esposizione diretta ai nostri robot, team e utenti è essenziale per avere successo nel ruolo.\n\nPunti bonus\n\n•\nEsperienza di progettazione robotica, sistemi autonomi, tecnologia industriale, gemelli digitali, realtÃ-capture o architettura e prodotti di costruzione.\n\n•\nEsperienza nel gioco UX, XR, simulazione o un altro campo che coinvolge la navigazione intuitiva di ambienti 3D dinamici.\n\n•\nEsperienza di condurre ricerche con operatori o professionisti che lavorano in ambienti industriali, basati sul campo o critici per la sicurezza.\n\n•\nSperimentare una piccola funzione progettuale e assumere discipline di design complementari.\n\n•\nEsperienza utilizzando AI per trasformare i flussi di lavoro di progettazione o progettare esperienze di prodotto AI-enabled e incorporato-AI.\n\nVi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un piano di azionariato dipendente attraente e un lavoro nella città di Zurigo.\n\nPolitica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
         "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs Head of Design, you will shape how people understand, direct and work with autonomous robots in some of the world’s most demanding industrial environments.\n\nThis is not a conventional software design leadership role. Our products combine mobile robotics, operator interfaces, autonomous behaviour, inspection workflows and complex 3D data to support the people who plan, perform and act on industrial inspections. There are still few established design patterns for bringing these elements together into one intuitive, trusted experience. You will help create them.\n\nToday, our design capability spans UX/UI, product design, industrial design and future concept development across several teams. You will bring these disciplines together, establish a coherent design direction across the full product ecosystem and remain hands-on in solving the hardest design challenges.\n\nYou will work closely with Product, Engineering, Advanced Technology and our customer-facing teams. You will also spend time with customers and users in the industrial environments where our robots operate, ensuring that the experiences we pioneer solve real problems for the people who rely on them.\n\nYour Impact\n\n•\n Lead and develop a multidisciplinary design team, setting clear goals, raising the quality bar and creating the conditions for strong designers to do their best work.\n\n•\n Build understanding of the value of design across the organisation and strengthen the partnership between Product, Design and Engineering.\n\n•\n Define a unified design vision across the physical robot, digital products, spatial interfaces and the end-to-end customer experience.\n\n•\n Establish shared design principles, processes and ways of working from early discovery and concept development through to detailed delivery and validation.\n\n•\n Lead discovery and delivery for priority roadmap initiatives, particularly where users interact with robots, autonomous behaviour, 3D environments and spatial information.\n\n•\n Build a deeper understanding of our users through field research, personas, end-to-end journeys, validation and a shared customer-knowledge base.\n\n•\n Make AI practical within the design organisation, improving how the team explores ideas, prototypes, validates decisions and delivers products.\n\nYour Profile\n\n•\n\n•\n You have led and developed designers, including setting goals, giving feedback, coaching performance and making clear decisions when consensus is not enough.\n\n•\n You have strong hands-on design experience across complex physical and digital products and can credibly lead across UX/UI, product design, industrial design and human-machine interaction.\n\n•\n You have designed products involving 3D or spatial interaction, such as robotics, simulation, digital twins, reality capture, spatial computing or other systems where users interact with a three-dimensional environment.\n\n•\n You understand complex B2B products with multiple user and stakeholder groups and can turn customer research into clear product and design priorities.\n\n•\n You have built or materially improved a design practice, introducing the right level of structure while remaining pragmatic, hands-on and comfortable operating in ambiguity.\n\nThis role can be based in Zurich or Barcelona. Regular travel to Zurich and to industrial customer sites will be required, particularly during the first six months, because direct exposure to our robots, teams and users is essential to succeeding in the role.\n\nBonus Points\n\n•\n Experience designing robotics, autonomous systems, industrial technology, digital twins, reality-capture or architecture and construction products.\n\n•\n Experience in game UX, XR, simulation or another field involving intuitive navigation of dynamic 3D environments.\n\n•\n Experience conducting research with operators or professionals working in industrial, field-based or safety-critical settings.\n\n•\n Experience growing a small design function and hiring complementary design disciplines.\n\n•\n Experience using AI to transform design workflows or designing AI-enabled and embodied-AI product experiences.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
-        "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia.\n\nL'opportunità\n\nIn qualità di Responsabile del Design, si forma come le persone capiscono, diretto e lavorano con robot autonomi in alcuni degli ambienti industriali più esigenti del mondo.\n\nQuesto non è un ruolo di leadership di progettazione di software convenzionale. I nostri prodotti combinano robotica mobile, interfacce operatore, comportamento autonomo, flussi di lavoro di ispezione e dati 3D complessi per supportare le persone che pianificano, eseguono e agiscono su ispezioni industriali. Ci sono ancora pochi modelli di design consolidati per riunire questi elementi in un'esperienza intuitiva e affidabile. Ti aiuterà a crearli.\n\nOggi, la nostra capacità di progettazione si estende su UX/UI, progettazione di prodotti, progettazione industriale e sviluppo futuro concept in diverse squadre. Porterai insieme queste discipline, stabilirai una direzione di progettazione coerente in tutto l'ecosistema completo del prodotto e resterai in grado di risolvere le sfide più difficili del design.\n\nPotrai lavorare a stretto contatto con Prodotto, Ingegneria, Tecnologia avanzata e i nostri team di clienti. Potrai anche trascorrere del tempo con i clienti e gli utenti negli ambienti industriali in cui i nostri robot operano, assicurando che le esperienze che pionieri risolvere problemi reali per le persone che si affidano a loro.\n\nIl tuo impatto\n\n•\n Guidare e sviluppare un team di design multidisciplinare, stabilire obiettivi chiari, alzare la barra di qualità e creare le condizioni per i progettisti forti per fare il loro lavoro migliore.\n\n•\n Costruire la comprensione del valore del design in tutta l'organizzazione e rafforzare la partnership tra Prodotto, Design e Ingegneria.\n\n•\n Definire una visione di progettazione unificata attraverso il robot fisico, prodotti digitali, interfacce spaziali e l'esperienza cliente end-to-end.\n\n•\n Stabilire principi di progettazione, processi e modi di lavorare dalla prima scoperta e sviluppo del concetto attraverso la consegna dettagliata e la convalida.\n\n•\n Guida alla scoperta e alla consegna di iniziative prioritarie di roadmap, in particolare quando gli utenti interagiscono con robot, comportamento autonomo, ambienti 3D e informazioni spaziali.\n\n•\n Costruire una comprensione più profonda dei nostri utenti attraverso la ricerca sul campo, le persone, i viaggi end-to-end, la convalida e una base di conoscenza del cliente condivisa.\n\n•\n Rendere l'IA pratica all'interno dell'organizzazione di progettazione, migliorando come il team esplora idee, prototipi, convalida decisioni e consegna prodotti.\n\nIl tuo profilo\n\n•\n\n•\n Hai guidato e sviluppato progettisti, tra cui stabilire obiettivi, dare feedback, coaching performance e prendere decisioni chiare quando il consenso non è sufficiente.\n\n•\n Hai una forte esperienza di progettazione pratica attraverso prodotti fisici e digitali complessi e può condurre credibilmente attraverso UX/UI, product design, industrial design e interazione uomo-macchina.\n\n•\n Hai progettato prodotti che coinvolgono l'interazione 3D o spaziale, come la robotica, la simulazione, i gemelli digitali, la cattura della realtà, l'informatica spaziale o altri sistemi in cui gli utenti interagiscono con un ambiente tridimensionale.\n\n•\n Capite i prodotti B2B complessi con più gruppi di utenti e stakeholder e potete trasformare la ricerca dei clienti in chiare priorità di prodotto e progettazione.\n\n•\n Hai costruito o migliorato materialmente una pratica progettuale, introducendo il giusto livello di struttura pur rimanendo pragmatico, pratico e confortevole operativo in ambiguità.\n\nQuesto ruolo può essere basato a Zurigo o Barcellona. Sarà richiesto un viaggio regolare a Zurigo e ai siti dei clienti industriali, in particolare nei primi sei mesi, perché l'esposizione diretta ai nostri robot, team e utenti è essenziale per avere successo nel ruolo.\n\nPunti bonus\n\n•\n Esperienza di progettazione robotica, sistemi autonomi, tecnologia industriale, gemelli digitali, realtÃ-capture o architettura e prodotti di costruzione.\n\n•\n Esperienza nel gioco UX, XR, simulazione o un altro campo che coinvolge la navigazione intuitiva di ambienti 3D dinamici.\n\n•\n Esperienza di condurre ricerche con operatori o professionisti che lavorano in ambienti industriali, basati sul campo o critici per la sicurezza.\n\n•\n Sperimentare una piccola funzione progettuale e assumere discipline di design complementari.\n\n•\n Esperienza utilizzando AI per trasformare i flussi di lavoro di progettazione o progettare esperienze di prodotto AI-enabled e incorporato-AI.\n\nVi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un piano di azionariato dipendente attraente e un lavoro nella città di Zurigo.\n\nPolitica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
-        "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie.\n\nDie Chance\n\nAls Head of Design gestalten Sie, wie Menschen autonome Roboter in einigen der anspruchsvollsten Industrieumgebungen der Welt verstehen, lenken und arbeiten.\n\nDies ist keine herkömmliche Software-Design-Führungsrolle. Unsere Produkte kombinieren mobile Robotik, Bedienerschnittstellen, autonomes Verhalten, Inspektionsworkflows und komplexe 3D-Daten, um die Menschen zu unterstützen, die industrielle Inspektionen planen, durchführen und durchführen. Es gibt immer noch wenige etablierte Designmuster, um diese Elemente in einer intuitiven, vertrauenswürdigen Erfahrung zusammenzubringen. Du wirst ihnen helfen, sie zu erschaffen.\n\nHeute umfasst unsere Designfähigkeit UX / UI, Produktdesign, Industriedesign und zukünftige Konzeptentwicklung in mehreren Teams. Sie bringen diese Disziplinen zusammen, etablieren eine kohärente Designrichtung im gesamten Produktökosystem und bleiben bei der Lösung der schwierigsten Designherausforderungen praxisnah.\n\nSie arbeiten eng mit Product, Engineering, Advanced Technology und unseren kundenorientierten Teams zusammen. Sie werden auch Zeit mit Kunden und Benutzern in den industriellen Umgebungen verbringen, in denen unsere Roboter arbeiten, um sicherzustellen, dass die Erfahrungen, die wir als Pionier machen, echte Probleme für die Menschen lösen, die sich auf sie verlassen.\n\nIhre Wirkung\n\n•\n Führen und entwickeln Sie ein multidisziplinäres Designteam, setzen Sie klare Ziele, erhöhen Sie die Qualitätsmaßstäbe und schaffen Sie die Bedingungen für starke Designer, um ihre beste Arbeit zu leisten.\n\n•\n Aufbau eines Verständnisses des Wertes von Design im gesamten Unternehmen und Stärkung der Partnerschaft zwischen Produkt, Design und Engineering.\n\n•\n Definieren Sie eine einheitliche Designvision für den physischen Roboter, digitale Produkte, räumliche Schnittstellen und das End-to-End-Kundenerlebnis.\n\n•\n Etablieren Sie gemeinsame Designprinzipien, Prozesse und Arbeitsweisen von der frühen Entdeckung und Konzeptentwicklung bis hin zur detaillierten Lieferung und Validierung.\n\n•\n Führen Sie die Entdeckung und Bereitstellung von vorrangigen Roadmap-Initiativen, insbesondere wenn Benutzer mit Robotern, autonomem Verhalten, 3D-Umgebungen und räumlichen Informationen interagieren.\n\n•\n Bauen Sie ein tieferes Verständnis unserer Benutzer durch Feldforschung, Personas, End-to-End-Reisen, Validierung und eine gemeinsame Kundenwissensbasis auf.\n\n•\n Machen Sie KI in der Designorganisation praktisch und verbessern Sie, wie das Team Ideen erforscht, Prototypen entwickelt, Entscheidungen validiert und Produkte liefert.\n\nIhr Profil\n\n•\n\n•\n Sie haben Designer geleitet und entwickelt, einschließlich der Festlegung von Zielen, Feedback, Coaching-Leistung und klare Entscheidungen, wenn Konsens nicht genug ist.\n\n•\n Sie verfügen über fundierte praktische Designerfahrung in komplexen physischen und digitalen Produkten und können glaubwürdig über UX / UI, Produktdesign, Industriedesign und Mensch-Maschine-Interaktion führen.\n\n•\n Sie haben Produkte mit 3D- oder räumlicher Interaktion entwickelt, wie Robotik, Simulation, digitale Zwillinge, Realitätserfassung, räumliches Computing oder andere Systeme, bei denen Benutzer mit einer dreidimensionalen Umgebung interagieren.\n\n•\n Sie verstehen komplexe B2B-Produkte mit mehreren Benutzer- und Stakeholdergruppen und können die Kundenrecherche in klare Produkt- und Designprioritäten umwandeln.\n\n•\n Sie haben eine Designpraxis aufgebaut oder wesentlich verbessert, indem Sie das richtige Strukturniveau eingeführt haben und gleichzeitig pragmatisch, praktisch und komfortabel in Mehrdeutigkeit arbeiten.\n\nDiese Rolle kann in Zürich oder Barcelona angesiedelt sein. Gerade in den ersten sechs Monaten sind regelmäßige Reisen nach Zürich und zu industriellen Kundenstandorten erforderlich, denn für den Erfolg in der Rolle ist eine direkte Kontaktaufnahme mit unseren Robotern, Teams und Anwendern unerlässlich.\n\nBonuspunkte\n\n•\n Erleben Sie das Entwerfen von Robotik, autonomen Systemen, Industrietechnologie, digitalen Zwillingen, Reality-Capture oder Architektur- und Bauprodukten.\n\n•\n Erfahrung im Spiel UX, XR, Simulation oder einem anderen Feld mit intuitiver Navigation von dynamischen 3D-Umgebungen.\n\n•\n Erfahrung in der Durchführung von Forschung mit Betreibern oder Fachleuten, die in industriellen, feldbasierten oder sicherheitskritischen Umgebungen arbeiten.\n\n•\n Erleben Sie eine kleine Designfunktion und die Einstellung komplementärer Designdisziplinen.\n\n•\n Erfahrung mit KI, um Design-Workflows zu transformieren oder KI-fähige und verkörperte KI-Produkterlebnisse zu entwerfen.\n\nWir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich.\n\nAgenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
-        "fr": "Anybotics est une société technologique en croissance rapide qui se consacre à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe.\n\nL'opportunité\n\nEn tant que Chef du Design, vous façonnerez comment les gens comprennent, dirigent et travaillent avec des robots autonomes dans certains des environnements industriels les plus exigeants du monde.\n\nIl ne s'agit pas d'un rôle de chef de file conventionnel en matière de conception de logiciels. Nos produits combinent robotique mobile, interfaces opérateur, comportement autonome, flux de travail d'inspection et données 3D complexes pour soutenir les personnes qui planifient, effectuent et agissent sur les inspections industrielles. Il y a encore peu de modèles de conception établis pour rassembler ces éléments en une expérience intuitive et fiable. Vous les aiderez à les créer.\n\nAujourd'hui, notre capacité de conception s'étend à UX/UI, la conception de produits, la conception industrielle et le développement futur de concepts dans plusieurs équipes. Vous rassemblerez ces disciplines, établirez une direction de conception cohérente dans l'ensemble de l'écosystème des produits et resterez pratique pour résoudre les défis de conception les plus difficiles.\n\nVous travaillerez en étroite collaboration avec Product, Engineering, Advanced Technology et nos équipes clientes. Vous passerez également du temps avec les clients et les utilisateurs dans les environnements industriels où nos robots fonctionnent, en veillant à ce que les expériences que nous préparons résolvent de vrais problèmes pour les personnes qui comptent sur eux.\n\nVotre impact\n\n•\n Diriger et développer une équipe de conception multidisciplinaire, fixer des objectifs clairs, élever la barre de qualité et créer les conditions pour les concepteurs forts pour faire leur meilleur travail.\n\n•\n Développer la compréhension de la valeur de la conception dans l'ensemble de l'organisation et renforcer le partenariat entre le produit, la conception et l'ingénierie.\n\n•\n Définir une vision de conception unifiée à travers le robot physique, les produits numériques, les interfaces spatiales et l'expérience client de bout en bout.\n\n•\n Établir des principes, des processus et des façons de travailler communs, depuis la découverte précoce et l'élaboration de concepts jusqu'à la prestation et la validation détaillées.\n\n•\n Diriger la découverte et l'exécution d'initiatives prioritaires de feuille de route, en particulier lorsque les utilisateurs interagissent avec les robots, les comportements autonomes, les environnements 3D et l'information spatiale.\n\n•\n Développer une meilleure compréhension de nos utilisateurs par la recherche sur le terrain, les personas, les trajets de bout en bout, la validation et une base de connaissances partagée avec les clients.\n\n•\n Rendre l'IA pratique au sein de l'organisation de conception, améliorer la façon dont l'équipe explore les idées, les prototypes, valide les décisions et livre des produits.\n\nVotre profil\n\n•\n\n•\n Vous avez dirigé et développé des concepteurs, y compris l'établissement d'objectifs, la rétroaction, la performance d'encadrement et la prise de décisions claires lorsque le consensus ne suffit pas.\n\n•\n Vous avez une solide expérience pratique de la conception à travers des produits physiques et numériques complexes et vous pouvez mener de façon crédible à travers UX/UI, conception de produits, conception industrielle et interaction homme-machine.\n\n•\n Vous avez conçu des produits impliquant une interaction 3D ou spatiale, tels que la robotique, la simulation, les jumeaux numériques, la capture de la réalité, l'informatique spatiale ou d'autres systèmes où les utilisateurs interagissent avec un environnement tridimensionnel.\n\n•\n Vous comprenez les produits complexes B2B avec de multiples groupes d'utilisateurs et d'intervenants et pouvez transformer la recherche client en priorités claires de produit et de conception.\n\n•\n Vous avez construit ou amélioré matériellement une pratique de conception, introduisant le bon niveau de structure tout en restant pragmatique, pratique et confortable fonctionnant dans l'ambiguïté.\n\nCe rôle peut être basé à Zurich ou Barcelone. Un voyage régulier à Zurich et sur les sites de clients industriels sera nécessaire, en particulier au cours des six premiers mois, parce que l'exposition directe à nos robots, équipes et utilisateurs est essentielle pour réussir dans ce rôle.\n\nPoints bonus\n\n•\n Expérience de conception robotique, systèmes autonomes, technologie industrielle, jumelles numériques, réalité-capture ou architecture et produits de construction.\n\n•\n Expérience dans le jeu UX, XR, simulation ou un autre domaine impliquant la navigation intuitive d'environnements 3D dynamiques.\n\n•\n Expérience en recherche avec des opérateurs ou des professionnels travaillant dans des environnements industriels, basés sur le terrain ou critiques pour la sécurité.\n\n•\n Expérimentez la croissance d'une petite fonction de conception et l'embauche de disciplines de conception complémentaires.\n\n•\n Expérience de l'utilisation de l'IA pour transformer des workflows de conception ou concevoir des expériences de produits de l'IA.\n\nNous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en pleine croissance et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich.\n\nPolitique de l'Agence : Nous ne sommes pas actuellement en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme des divulgations publiques et des biens d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
+        "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie.\n\nDie Chance\n\nAls Head of Design gestalten Sie, wie Menschen autonome Roboter in einigen der anspruchsvollsten Industrieumgebungen der Welt verstehen, lenken und arbeiten.\n\nDies ist keine herkömmliche Software-Design-Führungsrolle. Unsere Produkte kombinieren mobile Robotik, Bedienerschnittstellen, autonomes Verhalten, Inspektionsworkflows und komplexe 3D-Daten, um die Menschen zu unterstützen, die industrielle Inspektionen planen, durchführen und durchführen. Es gibt immer noch wenige etablierte Designmuster, um diese Elemente in einer intuitiven, vertrauenswürdigen Erfahrung zusammenzubringen. Du wirst ihnen helfen, sie zu erschaffen.\n\nHeute umfasst unsere Designfähigkeit UX / UI, Produktdesign, Industriedesign und zukünftige Konzeptentwicklung in mehreren Teams. Sie bringen diese Disziplinen zusammen, etablieren eine kohärente Designrichtung im gesamten Produktökosystem und bleiben bei der Lösung der schwierigsten Designherausforderungen praxisnah.\n\nSie arbeiten eng mit Product, Engineering, Advanced Technology und unseren kundenorientierten Teams zusammen. Sie werden auch Zeit mit Kunden und Benutzern in den industriellen Umgebungen verbringen, in denen unsere Roboter arbeiten, um sicherzustellen, dass die Erfahrungen, die wir als Pionier machen, echte Probleme für die Menschen lösen, die sich auf sie verlassen.\n\nIhre Wirkung\n\n•\nFühren und entwickeln Sie ein multidisziplinäres Designteam, setzen Sie klare Ziele, erhöhen Sie die Qualitätsmaßstäbe und schaffen Sie die Bedingungen für starke Designer, um ihre beste Arbeit zu leisten.\n\n•\nAufbau eines Verständnisses des Wertes von Design im gesamten Unternehmen und Stärkung der Partnerschaft zwischen Produkt, Design und Engineering.\n\n•\nDefinieren Sie eine einheitliche Designvision für den physischen Roboter, digitale Produkte, räumliche Schnittstellen und das End-to-End-Kundenerlebnis.\n\n•\nEtablieren Sie gemeinsame Designprinzipien, Prozesse und Arbeitsweisen von der frühen Entdeckung und Konzeptentwicklung bis hin zur detaillierten Lieferung und Validierung.\n\n•\nFühren Sie die Entdeckung und Bereitstellung von vorrangigen Roadmap-Initiativen, insbesondere wenn Benutzer mit Robotern, autonomem Verhalten, 3D-Umgebungen und räumlichen Informationen interagieren.\n\n•\nBauen Sie ein tieferes Verständnis unserer Benutzer durch Feldforschung, Personas, End-to-End-Reisen, Validierung und eine gemeinsame Kundenwissensbasis auf.\n\n•\nMachen Sie KI in der Designorganisation praktisch und verbessern Sie, wie das Team Ideen erforscht, Prototypen entwickelt, Entscheidungen validiert und Produkte liefert.\n\nIhr Profil\n\n•\n\n•\nSie haben Designer geleitet und entwickelt, einschließlich der Festlegung von Zielen, Feedback, Coaching-Leistung und klare Entscheidungen, wenn Konsens nicht genug ist.\n\n•\nSie verfügen über fundierte praktische Designerfahrung in komplexen physischen und digitalen Produkten und können glaubwürdig über UX / UI, Produktdesign, Industriedesign und Mensch-Maschine-Interaktion führen.\n\n•\nSie haben Produkte mit 3D- oder räumlicher Interaktion entwickelt, wie Robotik, Simulation, digitale Zwillinge, Realitätserfassung, räumliches Computing oder andere Systeme, bei denen Benutzer mit einer dreidimensionalen Umgebung interagieren.\n\n•\nSie verstehen komplexe B2B-Produkte mit mehreren Benutzer- und Stakeholdergruppen und können die Kundenrecherche in klare Produkt- und Designprioritäten umwandeln.\n\n•\nSie haben eine Designpraxis aufgebaut oder wesentlich verbessert, indem Sie das richtige Strukturniveau eingeführt haben und gleichzeitig pragmatisch, praktisch und komfortabel in Mehrdeutigkeit arbeiten.\n\nDiese Rolle kann in Zürich oder Barcelona angesiedelt sein. Gerade in den ersten sechs Monaten sind regelmäßige Reisen nach Zürich und zu industriellen Kundenstandorten erforderlich, denn für den Erfolg in der Rolle ist eine direkte Kontaktaufnahme mit unseren Robotern, Teams und Anwendern unerlässlich.\n\nBonuspunkte\n\n•\nErleben Sie das Entwerfen von Robotik, autonomen Systemen, Industrietechnologie, digitalen Zwillingen, Reality-Capture oder Architektur- und Bauprodukten.\n\n•\nErfahrung im Spiel UX, XR, Simulation oder einem anderen Feld mit intuitiver Navigation von dynamischen 3D-Umgebungen.\n\n•\nErfahrung in der Durchführung von Forschung mit Betreibern oder Fachleuten, die in industriellen, feldbasierten oder sicherheitskritischen Umgebungen arbeiten.\n\n•\nErleben Sie eine kleine Designfunktion und die Einstellung komplementärer Designdisziplinen.\n\n•\nErfahrung mit KI, um Design-Workflows zu transformieren oder KI-fähige und verkörperte KI-Produkterlebnisse zu entwerfen.\n\nWir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich.\n\nAgenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
+        "fr": "Anybotics est une société technologique en croissance rapide qui se consacre à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe.\n\nL'opportunité\n\nEn tant que Chef du Design, vous façonnerez comment les gens comprennent, dirigent et travaillent avec des robots autonomes dans certains des environnements industriels les plus exigeants du monde.\n\nIl ne s'agit pas d'un rôle de chef de file conventionnel en matière de conception de logiciels. Nos produits combinent robotique mobile, interfaces opérateur, comportement autonome, flux de travail d'inspection et données 3D complexes pour soutenir les personnes qui planifient, effectuent et agissent sur les inspections industrielles. Il y a encore peu de modèles de conception établis pour rassembler ces éléments en une expérience intuitive et fiable. Vous les aiderez à les créer.\n\nAujourd'hui, notre capacité de conception s'étend à UX/UI, la conception de produits, la conception industrielle et le développement futur de concepts dans plusieurs équipes. Vous rassemblerez ces disciplines, établirez une direction de conception cohérente dans l'ensemble de l'écosystème des produits et resterez pratique pour résoudre les défis de conception les plus difficiles.\n\nVous travaillerez en étroite collaboration avec Product, Engineering, Advanced Technology et nos équipes clientes. Vous passerez également du temps avec les clients et les utilisateurs dans les environnements industriels où nos robots fonctionnent, en veillant à ce que les expériences que nous préparons résolvent de vrais problèmes pour les personnes qui comptent sur eux.\n\nVotre impact\n\n•\nDiriger et développer une équipe de conception multidisciplinaire, fixer des objectifs clairs, élever la barre de qualité et créer les conditions pour les concepteurs forts pour faire leur meilleur travail.\n\n•\nDévelopper la compréhension de la valeur de la conception dans l'ensemble de l'organisation et renforcer le partenariat entre le produit, la conception et l'ingénierie.\n\n•\nDéfinir une vision de conception unifiée à travers le robot physique, les produits numériques, les interfaces spatiales et l'expérience client de bout en bout.\n\n•\nÉtablir des principes, des processus et des façons de travailler communs, depuis la découverte précoce et l'élaboration de concepts jusqu'à la prestation et la validation détaillées.\n\n•\nDiriger la découverte et l'exécution d'initiatives prioritaires de feuille de route, en particulier lorsque les utilisateurs interagissent avec les robots, les comportements autonomes, les environnements 3D et l'information spatiale.\n\n•\nDévelopper une meilleure compréhension de nos utilisateurs par la recherche sur le terrain, les personas, les trajets de bout en bout, la validation et une base de connaissances partagée avec les clients.\n\n•\nRendre l'IA pratique au sein de l'organisation de conception, améliorer la façon dont l'équipe explore les idées, les prototypes, valide les décisions et livre des produits.\n\nVotre profil\n\n•\n\n•\nVous avez dirigé et développé des concepteurs, y compris l'établissement d'objectifs, la rétroaction, la performance d'encadrement et la prise de décisions claires lorsque le consensus ne suffit pas.\n\n•\nVous avez une solide expérience pratique de la conception à travers des produits physiques et numériques complexes et vous pouvez mener de façon crédible à travers UX/UI, conception de produits, conception industrielle et interaction homme-machine.\n\n•\nVous avez conçu des produits impliquant une interaction 3D ou spatiale, tels que la robotique, la simulation, les jumeaux numériques, la capture de la réalité, l'informatique spatiale ou d'autres systèmes où les utilisateurs interagissent avec un environnement tridimensionnel.\n\n•\nVous comprenez les produits complexes B2B avec de multiples groupes d'utilisateurs et d'intervenants et pouvez transformer la recherche client en priorités claires de produit et de conception.\n\n•\nVous avez construit ou amélioré matériellement une pratique de conception, introduisant le bon niveau de structure tout en restant pragmatique, pratique et confortable fonctionnant dans l'ambiguïté.\n\nCe rôle peut être basé à Zurich ou Barcelone. Un voyage régulier à Zurich et sur les sites de clients industriels sera nécessaire, en particulier au cours des six premiers mois, parce que l'exposition directe à nos robots, équipes et utilisateurs est essentielle pour réussir dans ce rôle.\n\nPoints bonus\n\n•\nExpérience de conception robotique, systèmes autonomes, technologie industrielle, jumelles numériques, réalité-capture ou architecture et produits de construction.\n\n•\nExpérience dans le jeu UX, XR, simulation ou un autre domaine impliquant la navigation intuitive d'environnements 3D dynamiques.\n\n•\nExpérience en recherche avec des opérateurs ou des professionnels travaillant dans des environnements industriels, basés sur le terrain ou critiques pour la sécurité.\n\n•\nExpérimentez la croissance d'une petite fonction de conception et l'embauche de disciplines de conception complémentaires.\n\n•\nExpérience de l'utilisation de l'IA pour transformer des workflows de conception ou concevoir des expériences de produits de l'IA.\n\nNous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en pleine croissance et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich.\n\nPolitique de l'Agence : Nous ne sommes pas actuellement en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme des divulgations publiques et des biens d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
       },
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://jobs.lever.co/anybotics/9236afb8-8439-4dee-98e9-9a2fe7e5dbcd",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:33.475Z",
+      "crawledAt": "2026-11-26T09:18:19.756Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1328,10 +1324,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.lever.co/anybotics/9236afb8-8439-4dee-98e9-9a2fe7e5dbcd",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-25T21:25:33.475Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-design-anybotics-ch"
+        ],
+        "de": [
+          "head-of-design-anybotics-ch"
+        ],
+        "fr": [
+          "head-of-design-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-design-anybotics-ch"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1349,10 +1358,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:25:33.475Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-25T21:25:33.475Z",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/9236afb8-8439-4dee-98e9-9a2fe7e5dbcd"
+      "validThrough": "2027-02-23T09:18:19.756Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-a9bacb55e99e",
@@ -1385,7 +1392,7 @@
       "url": "https://jobs.lever.co/anybotics/df94dc1d-e83d-4008-a6ee-46c7a54d5572",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:28.991Z",
+      "crawledAt": "2026-11-26T09:18:19.327Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1430,9 +1437,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich, Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:25:28.991Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/df94dc1d-e83d-4008-a6ee-46c7a54d5572"
+      "validThrough": "2026-12-26T09:18:19.327Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-d8fa1546e575",
@@ -1465,7 +1471,7 @@
       "url": "https://jobs.lever.co/anybotics/ea142002-be6c-4832-95ec-85687b0b90e8",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:28.583Z",
+      "crawledAt": "2026-11-26T09:18:18.861Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1514,9 +1520,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:25:28.583Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/ea142002-be6c-4832-95ec-85687b0b90e8"
+      "validThrough": "2027-01-11T09:18:18.861Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "anybotics-d4049277a654",
@@ -1549,7 +1554,7 @@
       "url": "https://jobs.lever.co/anybotics/a9b799c5-61d9-41a2-a093-9529edcd9bd4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:25:16.086Z",
+      "crawledAt": "2026-11-26T09:18:18.409Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1598,9 +1603,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:25:16.086Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.lever.co/anybotics/a9b799c5-61d9-41a2-a093-9529edcd9bd4"
+      "validThrough": "2027-02-10T09:18:18.409Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

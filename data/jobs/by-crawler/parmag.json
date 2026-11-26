@@ -1,7 +1,7 @@
 {
   "crawlerKey": "parmag",
-  "assembledAt": "2026-11-25T21:21:48.324Z",
-  "runId": "45700986462",
+  "assembledAt": "2026-11-26T09:19:57.093Z",
+  "runId": "45788679442",
   "jobs": [
     {
       "id": "parmag-da6a774782e1",
@@ -34,7 +34,7 @@
       "url": "https://parmag.ch/stellen/303?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.427Z",
+      "crawledAt": "2026-11-26T09:19:48.045Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.427Z",
+      "validThrough": "2026-12-26T09:19:48.045Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://parmag.ch/stellen/311?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.426Z",
+      "crawledAt": "2026-11-26T09:19:48.043Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "postalCode": "3001",
       "streetAddress": "Region Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.426Z",
+      "validThrough": "2026-12-26T09:19:48.043Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -199,7 +199,7 @@
       "url": "https://parmag.ch/stellen/317?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.425Z",
+      "crawledAt": "2026-11-26T09:19:48.042Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "postalCode": "8001",
       "streetAddress": "Bern oder Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.425Z",
+      "validThrough": "2026-12-26T09:19:48.042Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -279,7 +279,7 @@
       "url": "https://parmag.ch/stellen/322?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.424Z",
+      "crawledAt": "2026-11-26T09:19:48.040Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -333,7 +333,7 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.424Z",
+      "validThrough": "2026-12-26T09:19:48.040Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -367,7 +367,7 @@
       "url": "https://parmag.ch/stellen/345?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.423Z",
+      "crawledAt": "2026-11-26T09:19:48.039Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -410,84 +410,7 @@
       "postalCode": "3001",
       "streetAddress": "Region Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.423Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "parmag-afb4b7b3e641",
-      "slug": "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen",
-      "slugByLocale": {
-        "it": "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen",
-        "en": "java-architect-all-gender-parmag-ag-bern-ittigen",
-        "de": "java-architekt-all-gender-bern-ittigen-parmag-ch",
-        "fr": "java-architekt-tous-les-sexes-parmag-ag-bern-ittigen"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "JAVA ARCHITEKT (all gender)",
-      "titleByLocale": {
-        "it": "JAVA ARCHITEKT (tutti i sessi)",
-        "en": "JAVA ARCHITECT (all gender)",
-        "de": "JAVA ARCHITEKT (all gender)",
-        "fr": "JAVA ARCHITEKT (tous les sexes)"
-      },
-      "description": "Verteilt, vernetzt, verfügbar!\nUnsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.\nIhre Herausforderung:\n- Design und Architektur von webbasierten Software-Applikationen zur Überwachung, Konfiguration und Wartung von Telekomsystemen\n- Vorgabe und Verantwortung betr. der technischen Anforderungen in Software-Entwicklungsprojekten\n- Interdisziplinäre Zusammenarbeit mit verschiedenen Teams\n- Interaktion mit internen und externen Kunden betr. Anforderungs- und Fehleranalysen\nIhre Kompetenz:\n- Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst\n- Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer\n- Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung\n- Mehrere Jahre Erfahrung in der Software-Entwicklung und -Architektur mit Java und ev. mit Spring & REST\n- Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil\n- Wenn du zudem Linux- und Cyber-Security-Kenntnisse mitbringst ist das ideal\n- Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut\nUnser Angebot:\nEs werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit\nattraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum.\nSende mir noch heute deine Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch@parmag.ch",
-      "descriptionByLocale": {
-        "it": "Distribuito, in rete, disponibile!\nIl nostro cliente è Kontron Transportation Schweiz AG, i cui prodotti portano connettività mobile a gallerie, treni ed edifici. Con la nostra piattaforma software di controllo e funzionamento basata su cloud, permettiamo ai clienti di gestire da remoto tramite clic del mouse.\nLa tua sfida:\n- Progettazione e architettura di applicazioni software web-based per il monitoraggio, la configurazione e la manutenzione di sistemi di telecomunicazione\n- Responsabilità e responsabilità Requisiti tecnici nei progetti di sviluppo software\n- Collaborazione interdisciplinare con diversi team\n- Interazione con scommettitore di clienti interno ed esterno. Requisiti e analisi degli errori\nLa vostra competenza:\n- Buon analista, metodo, comprensione rapida e responsabile\n- Giocatore di squadra indipendente, impegnato, cooperativo, orientato alla soluzione e flessibile\n- Studi informatici completi (HF/FH/Uni) o formazione comparabile\n- Diversi anni di esperienza nello sviluppo del software e nell'architettura con Java ev. con Spring & REST\n- L'esperienza frontend (angolare, JavaScript, HTML, CSS, Typescript) è un vantaggio\n- Se hai anche competenze di sicurezza Linux e informatica, questo è l'ideale\n- tedesco, mündl. e schriftl. molto buono; inglese, orale e scritto. Bene.\nLa nostra offerta:\nAvrete un lavoro emozionante in una società orientata al futuro con\ncondizioni di lavoro interessanti e orari di lavoro flessibili. Le strutture piatte e il buon spirito di squadra danno spazio alle proprie idee, responsabilità personale e portata d'azione.\nInviami i tuoi documenti (CV, diplomi, certificati) oggi a patrick.brayenovitch@parmag.ch",
-        "en": "Distributed, networked, available!\nOur client is Kontron Transportation Schweiz AG, whose products bring mobile connectivity to tunnels, trains and buildings. With our cloud-based control and operating software platform, we enable customers to remotely manage by mouse click.\nYour challenge:\n- Design and architecture of web-based software applications for monitoring, configuration and maintenance of telecom systems\n- Responsibility and Responsibility Technical requirements in software development projects\n- Interdisciplinary collaboration with different teams\n- Interaction with internal and external customers betr. Requirements and error analysis\nYour competence:\n- Good analyst, methodical, quick comprehension and responsible\n- Independent, committed, cooperative, solution-oriented and flexible team player\n- Completed computer science studies (HF/FH/Uni) or comparable training\n- Several years of experience in software development and architecture with Java and ev. with Spring & REST\n- Frontend experience (Angular, JavaScript, HTML, CSS, Typescript) is an advantage\n- If you also have Linux and cyber security skills, this is ideal\n- German, mündl. and schriftl. very good; English, oral and written. Good\nOur offer:\nYou will have an exciting job in a future-oriented company with\nattractive employment conditions and flexible working hours. The flat structures and the good team spirit give space for your own ideas, personal responsibility and scope for action.\nSend me your documents (CV, diplomas, certificates) today to patrick.brayenovitch@parmag.ch",
-        "de": "Verteilt, vernetzt, verfügbar!\nUnsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.\nIhre Herausforderung:\n- Design und Architektur von webbasierten Software-Applikationen zur Überwachung, Konfiguration und Wartung von Telekomsystemen\n- Vorgabe und Verantwortung betr. der technischen Anforderungen in Software-Entwicklungsprojekten\n- Interdisziplinäre Zusammenarbeit mit verschiedenen Teams\n- Interaktion mit internen und externen Kunden betr. Anforderungs- und Fehleranalysen\nIhre Kompetenz:\n- Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst\n- Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer\n- Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung\n- Mehrere Jahre Erfahrung in der Software-Entwicklung und -Architektur mit Java und ev. mit Spring & REST\n- Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil\n- Wenn du zudem Linux- und Cyber-Security-Kenntnisse mitbringst ist das ideal\n- Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut\nUnser Angebot:\nEs werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit\nattraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum.\nSende mir noch heute deine Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch@parmag.ch",
-        "fr": "Distribué, réseauté, disponible!\nNotre client est Kontron Transportation Schweiz AG, dont les produits apportent la connectivité mobile aux tunnels, trains et bâtiments. Avec notre plate-forme logicielle de contrôle et d'exploitation basée sur le cloud, nous permettons aux clients de gérer à distance par clic de souris.\nVotre défi :\n- Conception et architecture d'applications logicielles en ligne pour la surveillance, la configuration et la maintenance des systèmes de télécommunications\n- Responsabilité et responsabilité Exigences techniques dans les projets de développement de logiciels\n- Collaboration interdisciplinaire avec différentes équipes\n- Interaction avec les clients internes et externes Exigences et analyse des erreurs\nVotre compétence :\n- Bon analyste, méthodique, compréhension rapide et responsable\n- Joueur d'équipe indépendant, engagé, coopératif, orienté vers la solution et flexible\n- Études informatiques terminées (HF/FH/Uni) ou formation comparable\n- Plusieurs années d'expérience dans le développement logiciel et l'architecture avec Java et ev. avec Spring & REST\n- Expérience Frontend (Angulaire, JavaScript, HTML, CSS, Typescript) est un avantage\n- Si vous avez aussi des compétences Linux et cybersécurité, c'est idéal\n- Allemand, mündl. et schriftl. très bien; anglais, oral et écrit. Bonne\nNotre offre :\nVous aurez un travail passionnant dans une entreprise orientée vers l'avenir avec\ndes conditions d'emploi attrayantes et des horaires de travail flexibles. Les structures plates et le bon esprit d'équipe laissent place à vos propres idées, à vos responsabilités personnelles et à vos possibilités d'action.\nEnvoyez-moi vos documents (CV, diplômes, certificats) aujourd'hui à patrick.brayenovitch@parmag.ch"
-      },
-      "location": "Bern / Ittigen",
-      "canton": "BE",
-      "url": "https://parmag.ch/stellen/353?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.422Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/353?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "java-architekt-all-gender-bern-ittigen-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "java-architekt-all-gender-bern-ittigen-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:38:58.310Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.422Z",
+      "validThrough": "2026-12-26T09:19:48.039Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -521,7 +444,7 @@
       "url": "https://parmag.ch/stellen/352?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.422Z",
+      "crawledAt": "2026-11-26T09:19:48.038Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -564,7 +487,84 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.422Z",
+      "validThrough": "2026-12-26T09:19:48.038Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "parmag-afb4b7b3e641",
+      "slug": "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen",
+      "slugByLocale": {
+        "it": "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen",
+        "en": "java-architect-all-gender-parmag-ag-bern-ittigen",
+        "de": "java-architekt-all-gender-bern-ittigen-parmag-ch",
+        "fr": "java-architekt-tous-les-sexes-parmag-ag-bern-ittigen"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "JAVA ARCHITEKT (all gender)",
+      "titleByLocale": {
+        "it": "JAVA ARCHITEKT (tutti i sessi)",
+        "en": "JAVA ARCHITECT (all gender)",
+        "de": "JAVA ARCHITEKT (all gender)",
+        "fr": "JAVA ARCHITEKT (tous les sexes)"
+      },
+      "description": "Verteilt, vernetzt, verfügbar!\nUnsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.\nIhre Herausforderung:\n- Design und Architektur von webbasierten Software-Applikationen zur Überwachung, Konfiguration und Wartung von Telekomsystemen\n- Vorgabe und Verantwortung betr. der technischen Anforderungen in Software-Entwicklungsprojekten\n- Interdisziplinäre Zusammenarbeit mit verschiedenen Teams\n- Interaktion mit internen und externen Kunden betr. Anforderungs- und Fehleranalysen\nIhre Kompetenz:\n- Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst\n- Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer\n- Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung\n- Mehrere Jahre Erfahrung in der Software-Entwicklung und -Architektur mit Java und ev. mit Spring & REST\n- Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil\n- Wenn du zudem Linux- und Cyber-Security-Kenntnisse mitbringst ist das ideal\n- Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut\nUnser Angebot:\nEs werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit\nattraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum.\nSende mir noch heute deine Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch@parmag.ch",
+      "descriptionByLocale": {
+        "it": "Distribuito, in rete, disponibile!\nIl nostro cliente è Kontron Transportation Schweiz AG, i cui prodotti portano connettività mobile a gallerie, treni ed edifici. Con la nostra piattaforma software di controllo e funzionamento basata su cloud, permettiamo ai clienti di gestire da remoto tramite clic del mouse.\nLa tua sfida:\n- Progettazione e architettura di applicazioni software web-based per il monitoraggio, la configurazione e la manutenzione di sistemi di telecomunicazione\n- Responsabilità e responsabilità Requisiti tecnici nei progetti di sviluppo software\n- Collaborazione interdisciplinare con diversi team\n- Interazione con scommettitore di clienti interno ed esterno. Requisiti e analisi degli errori\nLa vostra competenza:\n- Buon analista, metodo, comprensione rapida e responsabile\n- Giocatore di squadra indipendente, impegnato, cooperativo, orientato alla soluzione e flessibile\n- Studi informatici completi (HF/FH/Uni) o formazione comparabile\n- Diversi anni di esperienza nello sviluppo del software e nell'architettura con Java ev. con Spring & REST\n- L'esperienza frontend (angolare, JavaScript, HTML, CSS, Typescript) è un vantaggio\n- Se hai anche competenze di sicurezza Linux e informatica, questo è l'ideale\n- tedesco, mündl. e schriftl. molto buono; inglese, orale e scritto. Bene.\nLa nostra offerta:\nAvrete un lavoro emozionante in una società orientata al futuro con\ncondizioni di lavoro interessanti e orari di lavoro flessibili. Le strutture piatte e il buon spirito di squadra danno spazio alle proprie idee, responsabilità personale e portata d'azione.\nInviami i tuoi documenti (CV, diplomi, certificati) oggi a patrick.brayenovitch@parmag.ch",
+        "en": "Distributed, networked, available!\nOur client is Kontron Transportation Schweiz AG, whose products bring mobile connectivity to tunnels, trains and buildings. With our cloud-based control and operating software platform, we enable customers to remotely manage by mouse click.\nYour challenge:\n- Design and architecture of web-based software applications for monitoring, configuration and maintenance of telecom systems\n- Responsibility and Responsibility Technical requirements in software development projects\n- Interdisciplinary collaboration with different teams\n- Interaction with internal and external customers betr. Requirements and error analysis\nYour competence:\n- Good analyst, methodical, quick comprehension and responsible\n- Independent, committed, cooperative, solution-oriented and flexible team player\n- Completed computer science studies (HF/FH/Uni) or comparable training\n- Several years of experience in software development and architecture with Java and ev. with Spring & REST\n- Frontend experience (Angular, JavaScript, HTML, CSS, Typescript) is an advantage\n- If you also have Linux and cyber security skills, this is ideal\n- German, mündl. and schriftl. very good; English, oral and written. Good\nOur offer:\nYou will have an exciting job in a future-oriented company with\nattractive employment conditions and flexible working hours. The flat structures and the good team spirit give space for your own ideas, personal responsibility and scope for action.\nSend me your documents (CV, diplomas, certificates) today to patrick.brayenovitch@parmag.ch",
+        "de": "Verteilt, vernetzt, verfügbar!\nUnsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.\nIhre Herausforderung:\n- Design und Architektur von webbasierten Software-Applikationen zur Überwachung, Konfiguration und Wartung von Telekomsystemen\n- Vorgabe und Verantwortung betr. der technischen Anforderungen in Software-Entwicklungsprojekten\n- Interdisziplinäre Zusammenarbeit mit verschiedenen Teams\n- Interaktion mit internen und externen Kunden betr. Anforderungs- und Fehleranalysen\nIhre Kompetenz:\n- Guter Analytiker, methodisch, rasche Auffassungsgabe und verantwortungsbewusst\n- Selbstständiger, engagierter, kooperativer, lösungsorientierter und flexibler Teamplayer\n- Abgeschlossenes Informatik-Studium (HF/FH/Uni) oder vergleichbare Ausbildung\n- Mehrere Jahre Erfahrung in der Software-Entwicklung und -Architektur mit Java und ev. mit Spring & REST\n- Frontend-Erfahrung (Angular, JavaScript, HTML, CSS, Typescript) ist von Vorteil\n- Wenn du zudem Linux- und Cyber-Security-Kenntnisse mitbringst ist das ideal\n- Deutsch, mündl. und schriftl. sehr gut; Englisch, mündl. und schriftl. gut\nUnser Angebot:\nEs werden dir eine spannende Tätigkeit in einem zukunftsorientierten Unternehmen mit\nattraktiven Anstellungsbedingungen und flexiblen Arbeitszeiten geboten. Die flachen Strukturen und der gute Teamspirit geben Platz für eigene Ideen, Eigenverantwortung und Handlungsspielraum.\nSende mir noch heute deine Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch@parmag.ch",
+        "fr": "Distribué, réseauté, disponible!\nNotre client est Kontron Transportation Schweiz AG, dont les produits apportent la connectivité mobile aux tunnels, trains et bâtiments. Avec notre plate-forme logicielle de contrôle et d'exploitation basée sur le cloud, nous permettons aux clients de gérer à distance par clic de souris.\nVotre défi :\n- Conception et architecture d'applications logicielles en ligne pour la surveillance, la configuration et la maintenance des systèmes de télécommunications\n- Responsabilité et responsabilité Exigences techniques dans les projets de développement de logiciels\n- Collaboration interdisciplinaire avec différentes équipes\n- Interaction avec les clients internes et externes Exigences et analyse des erreurs\nVotre compétence :\n- Bon analyste, méthodique, compréhension rapide et responsable\n- Joueur d'équipe indépendant, engagé, coopératif, orienté vers la solution et flexible\n- Études informatiques terminées (HF/FH/Uni) ou formation comparable\n- Plusieurs années d'expérience dans le développement logiciel et l'architecture avec Java et ev. avec Spring & REST\n- Expérience Frontend (Angulaire, JavaScript, HTML, CSS, Typescript) est un avantage\n- Si vous avez aussi des compétences Linux et cybersécurité, c'est idéal\n- Allemand, mündl. et schriftl. très bien; anglais, oral et écrit. Bonne\nNotre offre :\nVous aurez un travail passionnant dans une entreprise orientée vers l'avenir avec\ndes conditions d'emploi attrayantes et des horaires de travail flexibles. Les structures plates et le bon esprit d'équipe laissent place à vos propres idées, à vos responsabilités personnelles et à vos possibilités d'action.\nEnvoyez-moi vos documents (CV, diplômes, certificats) aujourd'hui à patrick.brayenovitch@parmag.ch"
+      },
+      "location": "Bern / Ittigen",
+      "canton": "BE",
+      "url": "https://parmag.ch/stellen/353?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:19:48.037Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/353?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "java-architekt-all-gender-bern-ittigen-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "java-architekt-all-gender-bern-ittigen-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:38:58.310Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:19:48.037Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -598,7 +598,7 @@
       "url": "https://parmag.ch/stellen/360?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.420Z",
+      "crawledAt": "2026-11-26T09:19:48.036Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -644,7 +644,7 @@
       "postalCode": "8001",
       "streetAddress": "Bern oder Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.420Z",
+      "validThrough": "2026-12-26T09:19:48.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -678,7 +678,7 @@
       "url": "https://parmag.ch/stellen/365?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.419Z",
+      "crawledAt": "2026-11-26T09:19:48.034Z",
       "addressLocality": "Region Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -721,7 +721,7 @@
       "postalCode": "8001",
       "streetAddress": "Region Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.419Z",
+      "validThrough": "2026-12-26T09:19:48.034Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -755,7 +755,7 @@
       "url": "https://parmag.ch/stellen/370?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.417Z",
+      "crawledAt": "2026-11-26T09:19:48.033Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -802,7 +802,7 @@
       "postalCode": "3001",
       "streetAddress": "Region Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.417Z",
+      "validThrough": "2026-12-26T09:19:48.033Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -836,7 +836,7 @@
       "url": "https://parmag.ch/stellen/371?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.416Z",
+      "crawledAt": "2026-11-26T09:19:48.032Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -882,7 +882,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich oder Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.416Z",
+      "validThrough": "2026-12-26T09:19:48.032Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -916,7 +916,7 @@
       "url": "https://parmag.ch/stellen/373?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.415Z",
+      "crawledAt": "2026-11-26T09:19:48.031Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -962,7 +962,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich oder Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.415Z",
+      "validThrough": "2026-12-26T09:19:48.031Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -996,7 +996,7 @@
       "url": "https://parmag.ch/stellen/377?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.413Z",
+      "crawledAt": "2026-11-26T09:19:48.029Z",
       "addressLocality": "Stadt Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1050,7 +1050,7 @@
       "postalCode": "8001",
       "streetAddress": "Stadt Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.413Z",
+      "validThrough": "2026-12-26T09:19:48.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1084,7 +1084,7 @@
       "url": "https://parmag.ch/stellen/384?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.411Z",
+      "crawledAt": "2026-11-26T09:19:48.027Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1127,7 +1127,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.411Z",
+      "validThrough": "2026-12-26T09:19:48.027Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1161,7 +1161,7 @@
       "url": "https://parmag.ch/stellen/385?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.410Z",
+      "crawledAt": "2026-11-26T09:19:48.023Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1204,7 +1204,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.410Z",
+      "validThrough": "2026-12-26T09:19:48.023Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1238,7 +1238,7 @@
       "url": "https://parmag.ch/stellen/386?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.408Z",
+      "crawledAt": "2026-11-26T09:19:48.017Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1291,7 +1291,7 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.408Z",
+      "validThrough": "2026-12-26T09:19:48.017Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1325,7 +1325,7 @@
       "url": "https://parmag.ch/stellen/387?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:41.405Z",
+      "crawledAt": "2026-11-26T09:19:48.011Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1379,7 +1379,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:21:41.405Z",
+      "validThrough": "2026-12-26T09:19:48.011Z",
       "validThroughSource": "last-observed-window"
     }
   ]

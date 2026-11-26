@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cereneo",
-  "assembledAt": "2026-11-25T21:24:03.052Z",
-  "runId": "45700986462",
+  "assembledAt": "2026-11-26T09:14:48.450Z",
+  "runId": "45788679442",
   "jobs": [
     {
       "id": "cereneo-564e2e0ef626",
@@ -35,7 +35,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/7acfb3a4-f47c-4bbe-be39-d49310a1a2dc/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:54.468Z",
+      "crawledAt": "2026-11-26T09:14:40.969Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -86,9 +86,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:23:54.468Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/7acfb3a4-f47c-4bbe-be39-d49310a1a2dc/detail?lang=de"
+      "validThrough": "2027-02-08T09:14:40.969Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-fff8ea24c29c",
@@ -122,7 +121,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/72f97d28-0cf9-40a7-a6f5-d2dcf5de31c0/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:53.961Z",
+      "crawledAt": "2026-11-26T09:14:40.433Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -167,9 +166,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:23:53.961Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/72f97d28-0cf9-40a7-a6f5-d2dcf5de31c0/detail?lang=de"
+      "validThrough": "2027-01-04T09:14:40.433Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-110489f067b7",
@@ -203,7 +201,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/36b90089-e903-4c1a-9b85-4434fd0b44f6/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:53.464Z",
+      "crawledAt": "2026-11-26T09:14:39.924Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -251,9 +249,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:53.464Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/36b90089-e903-4c1a-9b85-4434fd0b44f6/detail?lang=de"
+      "validThrough": "2026-12-26T09:14:39.924Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-8d0a9725b745",
@@ -287,7 +284,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/c8705b31-bcaf-4258-90d1-e1f7dd6487b3/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:52.952Z",
+      "crawledAt": "2026-11-26T09:14:39.389Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -365,9 +362,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:52.952Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/c8705b31-bcaf-4258-90d1-e1f7dd6487b3/detail?lang=de"
+      "validThrough": "2026-12-26T09:14:39.389Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-de29cc742f22",
@@ -401,7 +397,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/d3f62f11-9c8d-4c27-82d1-948762cd4186/detail?lang=EN",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:23:52.470Z",
+      "crawledAt": "2026-11-26T09:14:38.875Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -450,9 +446,8 @@
       },
       "streetAddress": "Vitznau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:23:52.470Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/d3f62f11-9c8d-4c27-82d1-948762cd4186/detail?lang=en"
+      "validThrough": "2027-02-01T09:14:38.875Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-85af38f679da",
@@ -486,7 +481,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/27d1f7fd-3c30-4ffb-b629-1de325218037/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:51.971Z",
+      "crawledAt": "2026-11-26T09:14:38.340Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -532,9 +527,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:23:51.971Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/27d1f7fd-3c30-4ffb-b629-1de325218037/detail?lang=de"
+      "validThrough": "2027-02-02T09:14:38.340Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-00183027773a",
@@ -568,7 +562,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/2ab39b3a-b5a1-442c-80b6-187c84fa0a4b/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:51.477Z",
+      "crawledAt": "2026-11-26T09:14:37.827Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -617,91 +611,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:23:51.477Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/2ab39b3a-b5a1-442c-80b6-187c84fa0a4b/detail?lang=de"
-    },
-    {
-      "id": "cereneo-cc06eccccbe9",
-      "slug": "terapeuta-fisica-o-terapista-professionale-80-100-cereneo-weggis",
-      "slugByLocale": {
-        "it": "terapeuta-fisica-o-terapista-professionale-80-100-cereneo-weggis",
-        "en": "physiotherapist-in-or-occupational-therapist-in-80-100-cereneo-weggis",
-        "de": "physiotherapeut-in-oder-ergotherapeut-in-80-100-cereneo-weggis",
-        "fr": "physiotherapeute-en-ou-ergotherapeute-en-80-100-cereneo-weggis"
-      },
-      "company": "Cereneo",
-      "companyKey": "cereneo",
-      "companyDomain": "cereneo.ch",
-      "title": "Physiotherapeut:in oder Ergotherapeut:in",
-      "titleByLocale": {
-        "it": "terapeuta fisica o terapista professionale 80-100 %",
-        "en": "Physical therapist or occupational therapist 80-100 %",
-        "de": "Physiotherapeut:in oder Ergotherapeut:in",
-        "fr": "Physiothérapeute ou ergothérapeute 80-100 %"
-      },
-      "description": "Als eine der weltweit führenden Kliniken entwickeln wir ein individualisiertes Behandlungsprogramm, mit dem Ziel, unseren Patient:innen ein höchstmögliches Mass an Selbstständigkeit und freier Lebensgestaltung zu ermöglichen und dadurch ihre Lebensqualität zu optimieren. Wir richten uns sowohl an Patient:innen aus dem Schweizer Kassensystem als auch an internationale Patient:innen.\ncereneo bietet hochspezialisierte Rehabilitationsprogramme für Menschen mit neurologischen Erkrankungen und Verletzungen an, darunter Schlaganfall, Hirnverletzungen, neurodegenerative Erkrankungen wie Parkinson, Multiple Sklerose und viele andere neurologische Störungen.\n\nDeine Aufgaben:\nDu bringst deine fachlichen Kenntnisse und Erfahrungen in den Rehabilitationsalltag ein und unterstützt unsere Patientinnen und Patienten mit individuell abgestimmten Therapiekonzepten auf ihrem Weg der Genesung. Dabei:\n• führst du selbstständig Einzel- und Gruppentherapien durch und gestaltest individuelle Therapie- und Trainingsprogramme\n• wählst du passende, bedarfsgerechte Hilfsmittel aus und integrierst diese gezielt in die Therapie\n• setzt du je nach Fachbereich geeignete therapeutische Methoden, ADL-Trainings und moderne Technologien ein\n• arbeitest du eng mit anderen Therapiedisziplinen, der Pflege und weiteren Fachbereichen zusammen\n• dokumentierst du deine Leistungen vollständig und stellst eine tarifkonforme Leistungserfassung sicher\n• wirkst du aktiv an der Weiterentwicklung unserer therapeutischen Angebote und internen Abläufe mit\n\nWas solltest du mitbringen?\nUnser Erfolg ist nur mit hochqualifizierten und motivierten Mitarbeitenden auf allen Ebenen möglich. Deshalb stehen bei uns Offenheit, Eigeninitiative und Fairness an oberster Stelle.\nDas entspricht auch deiner Einstellung zur Arbeit? Dann bringst du idealerweise Folgendes mit:\n• Abschluss in Physiotherapie oder Ergotherapie mit SRK-Anerkennung bzw. Anerkennungsfähigkeit in der Schweiz\n• abgeschlossene Weiterbildung im neurologischen Bereich\n• fundierte Kenntnisse und Berufserfahrung in der neurologischen Rehabilitation\n• Kenntnisse im ADL-Training\n• Interesse und Bereitschaft, neue Technologien in der Therapie einzusetzen\n• Interesse an der fachlichen und persönlichen Weiterentwicklung in diesem Bereich\n• Freude an der interdisziplinären Zusammenarbeit\n• teamfähige, selbstständige und freundliche Persönlichkeit\n• offene und wertschätzende Kommunikation mit Patientinnen und Patienten sowie Kolleginnen und Kollegen\n• strukturierte und eigenverantwortliche Arbeitsweise\n• Sehr gute Deutsch- und Englisch Kenntnisse in Wort und Schrift\n\nWir bieten:\nWir bieten dir ein modernes und professionelles Arbeitsumfeld, attraktive Anstellungsbedingungen sowie vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln.\n• Attraktiver Arbeitsort: Moderne Infrastruktur an einzigartiger Lage mit Blick auf Vierwaldstättersee, Pilatus und Rigi.\n• Weiterbildung und Entwicklung: Individuelle Möglichkeiten zur fachlichen und persönlichen Weiterbildung und Entwicklung.\n• Attraktive Sozialleistungen: Übernahme der NBU-Prämie sowie ein Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen.\n• Mobilität: Kostenlose Parkplätze und E-Ladestationen sowie ein Beitrag an den öffentlichen Verkehr. Zusätzlich profitieren Mitarbeitende mit der AVIA-Tankkarte von 5 Rappen Rabatt pro Liter Treibstoff und einem kostenlosen Pannendienst in ganz Europa.\n• Verpflegung: Lunch-Check mit 50 % Arbeitgeberbeteiligung sowie kostenlos Kaffee, Tee, Wasser und Früchte.\n• Familienfreundlichkeit: Vergünstigte Konditionen bei unserer angeschlossenen Kindertagesstätte.\n• Gesundheit und Fitness: Kostenlose Mitbenutzung der vorhandenen Fitnessgeräte.\n• Freizeit und Kultur: Verschiedene Mitarbeitendenvergünstigungen sowie attraktive Freizeitangebote, darunter kostenlose Pilatuskarten, Eintrittsmöglichkeiten für den Tierpark Goldau und den Schweizer Museumspass mit Zugang zu über 500 Museen in der Schweiz.\nUnsere Kultur – das verbindet uns\nExzellenz, Herzlichkeit, Motivation, Teamarbeit und Innovation sind für uns mehr als nur Werte. Wir verbinden neueste wissenschaftliche Erkenntnisse mit erstklassigem Service, begegnen unseren Patient:innen und einander mit Herzlichkeit und entwickeln gemeinsam neue Wege in der neurologischen Rehabilitation.\nWenn du eine offene und engagierte Persönlichkeit bist, gerne interdisziplinär arbeitest und dich kontinuierlich weiterentwickeln möchtest, freuen wir uns darauf, dich kennenzulernen.\nWerde Teil unseres Teams und gestalte mit uns die Zukunft der neurologischen Rehabilitation.\n\nStandort: cereneo Schweiz AG - Weggis\n\nEintritt: ab sofort\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Schweiz.",
-      "descriptionByLocale": {
-        "it": "Come una delle cliniche leader del mondo, sviluppiamo un programma di trattamento individualizzato con l'obiettivo di consentire ai nostri pazienti di godere del più alto grado di indipendenza e libertà di vita, ottimizzando così la loro qualità di vita. Ci occupiamo sia dei pazienti del sistema di cassa svizzero che dei pazienti internazionali.\ncereneo offre programmi di riabilitazione altamente specializzati per le persone con malattie neurologiche e lesioni, tra cui ictus, lesioni cerebrali, malattie neurodegenerative come Parkinson, sclerosi multipla e molti altri disturbi neurologici.\n\nI vostri compiti:\nPorti la tua conoscenza professionale e la tua esperienza nella riabilitazione quotidiana e supporti i nostri pazienti con concetti terapeutici coordinati individualmente sulla loro strada per il recupero. Dove:\n• eseguire autonomamente terapie individuali e di gruppo e progettare programmi di terapia individuale e formazione\n• selezionare strumenti adatti e basati sulle esigenze e integrarli specificamente nella terapia\n• utilizzare i metodi terapeutici appropriati, la formazione ADL e le tecnologie moderne, a seconda dell'area tematica\n• lavorare a stretto contatto con altre discipline terapeutiche, la cura e altre aree specializzate\n• documentare completamente i tuoi servizi e garantire una registrazione delle prestazioni conforme alle tariffe\n• contribuire attivamente all'ulteriore sviluppo delle nostre offerte terapeutiche e dei processi interni\n\nCosa porti?\nIl nostro successo è possibile solo con dipendenti altamente qualificati e motivati a tutti i livelli. Ecco perché l'apertura, l'iniziativa e l'equità sono la nostra priorità.\nQuesto riflette il vostro atteggiamento verso il lavoro? Quindi idealmente portare il seguente:\n• laurea in fisioterapia o terapia professionale con riconoscimento SRK o idoneità al riconoscimento in Svizzera\n• Formazione completa nel campo neurologico\n• conoscenza del suono e esperienza professionale nella riabilitazione neurologica\n• Conoscenza della formazione ADL\n• Interessi e volontà di utilizzare nuove tecnologie in terapia\n• Interessi di sviluppo professionale e personale in questo settore\n• Sfruttamento della cooperazione interdisciplinare\n• Team capace, personalità indipendente e amichevole\n• Comunicazione aperta e apprezzativa con pazienti e colleghi\n• Metodo di lavoro strutturato e responsabile\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nOffriamo:\nVi offriamo un ambiente di lavoro moderno e professionale, condizioni di lavoro attraenti e una vasta gamma di opportunità per svilupparsi personalmente e professionalmente.\n• Luogo di lavoro attraente: infrastrutture moderne in una posizione unica con vista sul lago Vierwaldstättersee, Pilatus e Rigi.\n• Ulteriore istruzione e sviluppo: opportunità individuali per l'istruzione e lo sviluppo professionali e personali.\n• Prestazioni sociali interessanti: l’acquisizione del premio NBU e la quota del datore di lavoro del 60% dei contributi dei fondi pensione.\n• Mobilità: parcheggio gratuito e stazioni di e-charging e un contributo ai trasporti pubblici. Inoltre, i dipendenti beneficiano della carta di carburante AVIA di 5 centimetri di sconto per litro di carburante e di un servizio stradale gratuito in tutta Europa.\n• Cibo: controllo pranzo con 50% di partecipazione del datore di lavoro e caffè gratuito, tè, acqua e frutta.\n• Ampiezza familiare: condizioni scontate presso il nostro centro diurno collegato.\n• Salute e fitness: condivisione gratuita delle attrezzature fitness esistenti.\n• Tempo libero e cultura: diversi vantaggi per i dipendenti e interessanti offerte per il tempo libero, tra cui i biglietti Pilato gratuiti, l'ingresso al Tierpark Goldau e il Museum Pass svizzero con accesso a oltre 500 musei in Svizzera.\nLa nostra cultura – che ci collega\nEccellenza, calore, motivazione, lavoro di squadra e innovazione sono più che semplici valori per noi. Uniamo le ultime scoperte scientifiche con il servizio di prima classe, incontriamo i nostri pazienti e gli uni con calore e sviluppiamo nuovi modi di riabilitazione neurologica insieme.\nSe sei una persona aperta e impegnata, vorrebbe lavorare interdisciplinare e sviluppare continuamente, non vediamo l'ora di conoscerti.\nDiventa parte del nostro team e modella il futuro della riabilitazione neurologica con noi.\n\nPosizione: cereneo Schweiz AG - Weggis\n\nEntrata: da ora in poi\n\nCereneo — Centro di neurologia e riabilitazione, Weggis (LU), Svizzera.",
-        "en": "As one of the world’s leading clinics, we develop an individualized treatment program with the aim of enabling our patients to enjoy the highest possible degree of independence and freedom of life, thereby optimizing their quality of life. We address both patients from the Swiss cash system and international patients.\ncereneo offers highly specialized rehabilitation programs for people with neurological diseases and injuries, including stroke, brain injury, neurodegenerative diseases such as Parkinson’s, multiple sclerosis and many other neurological disorders.\n\nYour tasks:\nYou bring your professional knowledge and experience to the rehabilitation everyday life and support our patients with individually coordinated therapy concepts on their way to recovery. Where:\n• independently carry out individual and group therapies and design individual therapy and training programs\n• select suitable, needs-based tools and integrate them specifically into the therapy\n• use appropriate therapeutic methods, ADL training and modern technologies, depending on the subject area\n• work closely with other therapeutic disciplines, care and other specialist areas\n• document your services completely and ensure a tariff-compliant performance recording\n• actively contribute to the further development of our therapeutic offerings and internal processes\n\nWhat should you bring?\nOur success is only possible with highly qualified and motivated employees at all levels. That is why openness, initiative and fairness are our top priority.\nDoes that reflect your attitude towards work? Then you ideally bring the following:\n• degree in physiotherapy or occupational therapy with SRK recognition or Eligibility for recognition in Switzerland\n• Completed training in the neurological field\n• sound knowledge and professional experience in neurological rehabilitation\n• Knowledge of ADL training\n• Interest and willingness to use new technologies in therapy\n• Interest in professional and personal development in this area\n• Enjoyment of interdisciplinary cooperation\n• Team capable, independent and friendly personality\n• Open and appreciative communication with patients and colleagues\n• Structured and self-responsible working method\n• Very good knowledge of German and English in word and writing\n\nWe offer:\nWe offer you a modern and professional working environment, attractive employment conditions and a wide range of opportunities to develop yourself personally and professionally.\n• Attractive place of work: Modern infrastructure in a unique location with a view of Lake Vierwaldstättersee, Pilatus and Rigi.\n• Further education and development: Individual opportunities for professional and personal education and development.\n• Attractive social benefits: takeover of the NBU premium and an employer’s share of 60% of pension fund contributions.\n• Mobility: Free parking and e-charging stations and a contribution to public transport. In addition, employees benefit from the AVIA fuel card of 5 centimeters discount per litre of fuel and a free roadside service throughout Europe.\n• Food: Lunch check with 50% employer participation and free coffee, tea, water and fruit.\n• Family friendliness: discounted conditions at our connected daycare center.\n• Health and Fitness: Free sharing of existing fitness equipment.\n• Leisure and culture: Various employee benefits as well as attractive leisure offers, including free Pilate tickets, entrance to the Tierpark Goldau and the Swiss Museum Pass with access to over 500 museums in Switzerland.\nOur culture – that connects us\nExcellence, warmth, motivation, teamwork and innovation are more than just values for us. We combine the latest scientific findings with first-class service, meet our patients and each other with warmth and develop new ways in neurological rehabilitation together.\nIf you are an open and committed person, would like to work interdisciplinary and continuously develop, we look forward to getting to know you.\nBecome part of our team and shape the future of neurological rehabilitation with us.\n\nLocation: cereneo Schweiz AG - Weggis\n\nEntrance: from now on\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Switzerland.",
-        "de": "Als eine der weltweit führenden Kliniken entwickeln wir ein individualisiertes Behandlungsprogramm, mit dem Ziel, unseren Patient:innen ein höchstmögliches Mass an Selbstständigkeit und freier Lebensgestaltung zu ermöglichen und dadurch ihre Lebensqualität zu optimieren. Wir richten uns sowohl an Patient:innen aus dem Schweizer Kassensystem als auch an internationale Patient:innen.\ncereneo bietet hochspezialisierte Rehabilitationsprogramme für Menschen mit neurologischen Erkrankungen und Verletzungen an, darunter Schlaganfall, Hirnverletzungen, neurodegenerative Erkrankungen wie Parkinson, Multiple Sklerose und viele andere neurologische Störungen.\n\nDeine Aufgaben:\nDu bringst deine fachlichen Kenntnisse und Erfahrungen in den Rehabilitationsalltag ein und unterstützt unsere Patientinnen und Patienten mit individuell abgestimmten Therapiekonzepten auf ihrem Weg der Genesung. Dabei:\n• führst du selbstständig Einzel- und Gruppentherapien durch und gestaltest individuelle Therapie- und Trainingsprogramme\n• wählst du passende, bedarfsgerechte Hilfsmittel aus und integrierst diese gezielt in die Therapie\n• setzt du je nach Fachbereich geeignete therapeutische Methoden, ADL-Trainings und moderne Technologien ein\n• arbeitest du eng mit anderen Therapiedisziplinen, der Pflege und weiteren Fachbereichen zusammen\n• dokumentierst du deine Leistungen vollständig und stellst eine tarifkonforme Leistungserfassung sicher\n• wirkst du aktiv an der Weiterentwicklung unserer therapeutischen Angebote und internen Abläufe mit\n\nWas solltest du mitbringen?\nUnser Erfolg ist nur mit hochqualifizierten und motivierten Mitarbeitenden auf allen Ebenen möglich. Deshalb stehen bei uns Offenheit, Eigeninitiative und Fairness an oberster Stelle.\nDas entspricht auch deiner Einstellung zur Arbeit? Dann bringst du idealerweise Folgendes mit:\n• Abschluss in Physiotherapie oder Ergotherapie mit SRK-Anerkennung bzw. Anerkennungsfähigkeit in der Schweiz\n• abgeschlossene Weiterbildung im neurologischen Bereich\n• fundierte Kenntnisse und Berufserfahrung in der neurologischen Rehabilitation\n• Kenntnisse im ADL-Training\n• Interesse und Bereitschaft, neue Technologien in der Therapie einzusetzen\n• Interesse an der fachlichen und persönlichen Weiterentwicklung in diesem Bereich\n• Freude an der interdisziplinären Zusammenarbeit\n• teamfähige, selbstständige und freundliche Persönlichkeit\n• offene und wertschätzende Kommunikation mit Patientinnen und Patienten sowie Kolleginnen und Kollegen\n• strukturierte und eigenverantwortliche Arbeitsweise\n• Sehr gute Deutsch- und Englisch Kenntnisse in Wort und Schrift\n\nWir bieten:\nWir bieten dir ein modernes und professionelles Arbeitsumfeld, attraktive Anstellungsbedingungen sowie vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln.\n• Attraktiver Arbeitsort: Moderne Infrastruktur an einzigartiger Lage mit Blick auf Vierwaldstättersee, Pilatus und Rigi.\n• Weiterbildung und Entwicklung: Individuelle Möglichkeiten zur fachlichen und persönlichen Weiterbildung und Entwicklung.\n• Attraktive Sozialleistungen: Übernahme der NBU-Prämie sowie ein Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen.\n• Mobilität: Kostenlose Parkplätze und E-Ladestationen sowie ein Beitrag an den öffentlichen Verkehr. Zusätzlich profitieren Mitarbeitende mit der AVIA-Tankkarte von 5 Rappen Rabatt pro Liter Treibstoff und einem kostenlosen Pannendienst in ganz Europa.\n• Verpflegung: Lunch-Check mit 50 % Arbeitgeberbeteiligung sowie kostenlos Kaffee, Tee, Wasser und Früchte.\n• Familienfreundlichkeit: Vergünstigte Konditionen bei unserer angeschlossenen Kindertagesstätte.\n• Gesundheit und Fitness: Kostenlose Mitbenutzung der vorhandenen Fitnessgeräte.\n• Freizeit und Kultur: Verschiedene Mitarbeitendenvergünstigungen sowie attraktive Freizeitangebote, darunter kostenlose Pilatuskarten, Eintrittsmöglichkeiten für den Tierpark Goldau und den Schweizer Museumspass mit Zugang zu über 500 Museen in der Schweiz.\nUnsere Kultur – das verbindet uns\nExzellenz, Herzlichkeit, Motivation, Teamarbeit und Innovation sind für uns mehr als nur Werte. Wir verbinden neueste wissenschaftliche Erkenntnisse mit erstklassigem Service, begegnen unseren Patient:innen und einander mit Herzlichkeit und entwickeln gemeinsam neue Wege in der neurologischen Rehabilitation.\nWenn du eine offene und engagierte Persönlichkeit bist, gerne interdisziplinär arbeitest und dich kontinuierlich weiterentwickeln möchtest, freuen wir uns darauf, dich kennenzulernen.\nWerde Teil unseres Teams und gestalte mit uns die Zukunft der neurologischen Rehabilitation.\n\nStandort: cereneo Schweiz AG - Weggis\n\nEintritt: ab sofort\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Schweiz.",
-        "fr": "En tant que l'une des plus grandes cliniques du monde, nous développons un programme de traitement individualisé dans le but de permettre à nos patients de jouir du plus haut degré d'indépendance et de liberté de vie possible, optimisant ainsi leur qualité de vie. Nous nous adressons aussi bien aux patients du système de caisse suisse qu'aux patients internationaux.\nCereneo offre des programmes de réadaptation hautement spécialisés pour les personnes atteintes de maladies neurologiques et de blessures, y compris les accidents vasculaires cérébraux, les lésions cérébrales, les maladies neurodégénératives telles que Parkinson, la sclérose en plaques et de nombreux autres troubles neurologiques.\n\nVos tâches:\nVous apportez vos connaissances et votre expérience professionnelles dans la vie quotidienne de réadaptation et soutenez nos patients avec des concepts de thérapie individuellement coordonnés sur leur chemin vers la récupération. où:\n• exécuter indépendamment des thérapies individuelles et de groupe et concevoir des programmes de thérapie individuelle et de formation\n• sélectionner des outils adaptés et adaptés aux besoins et les intégrer spécifiquement à la thérapie\n• utiliser les méthodes thérapeutiques appropriées, la formation ADL et les technologies modernes, selon le domaine d'activité\n• travailler en étroite collaboration avec d'autres disciplines thérapeutiques, soins et autres domaines spécialisés\n• documenter complètement vos services et assurer un enregistrement de performance conforme au tarif\n• contribuer activement au développement de nos offres thérapeutiques et de nos processus internes\n\nQue devriez-vous apporter ?\nNotre succès n'est possible qu'avec des employés hautement qualifiés et motivés à tous les niveaux. C'est pourquoi l'ouverture, l'initiative et l'équité sont notre priorité absolue.\nCela reflète - t - il votre attitude à l'égard du travail? Ensuite, vous apportez idéalement ce qui suit:\n• Diplôme en physiothérapie ou en ergothérapie avec reconnaissance SRK ou Admissibilité à la reconnaissance en Suisse\n• Formation complète dans le domaine neurologique\n• une bonne connaissance et une expérience professionnelle en réadaptation neurologique\n• Connaissance de la formation ADL\n• Intérêt et volonté d'utiliser les nouvelles technologies en thérapie\n• Intérêt pour le développement professionnel et personnel dans ce domaine\n• Profitez de la coopération interdisciplinaire\n• Personnalité capable, indépendante et amicale\n• Communication ouverte et appréciée avec les patients et les collègues\n• Méthode de travail structurée et autoresponsable\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nNous offrons:\nNous vous offrons un environnement de travail moderne et professionnel, des conditions d'emploi attrayantes et un large éventail d'opportunités pour vous développer personnellement et professionnellement.\n• Lieu de travail attrayant: Infrastructure moderne dans un emplacement unique avec vue sur le lac Vierwaldstättersee, Pilatus et Rigi.\n• Formation et perfectionnement professionnels: possibilités individuelles de formation et de perfectionnement professionnels et personnels.\n• Prestations sociales attractives: prise en charge de la prime de la NBU et d'une part patronale de 60% des cotisations des fonds de pension.\n• Mobilité: Stations de stationnement et de recharge gratuites et contribution aux transports en commun. En outre, les employés bénéficient de la carte de carburant AVIA de 5 centimètres de réduction par litre de carburant et d'un service routier gratuit dans toute l'Europe.\n• Nourriture: Lunch check avec 50% de participation de l'employeur et café gratuit, thé, eau et fruits.\n• Amabilité de la famille : conditions à prix réduit dans notre garderie connectée.\n• Santé et fitness: Partage gratuit des équipements de fitness existants.\n• Loisirs et culture: Divers avantages pour les employés ainsi que des offres de loisirs attrayantes, y compris des billets Pilate gratuits, l'entrée au Tierpark Goldau et le Swiss Museum Pass avec accès à plus de 500 musées en Suisse.\nNotre culture – qui nous relie\nL'excellence, la chaleur, la motivation, le travail d'équipe et l'innovation ne sont pas seulement des valeurs pour nous. Nous combinons les dernières découvertes scientifiques avec un service de première classe, rencontrons nos patients et les uns les autres avec chaleur et développons ensemble de nouvelles voies de réadaptation neurologique.\nSi vous êtes une personne ouverte et engagée, aimerait travailler interdisciplinaire et se développer continuellement, nous avons hâte de vous connaître.\nFaites partie de notre équipe et façonnez l'avenir de la réadaptation neurologique avec nous.\n\nLieu: cereneo Schweiz AG - Weggis\n\nEntrée : désormais\n\nCereneo — Centre de neurologie et de réadaptation, Weggis (LU), Suisse."
-      },
-      "location": "Weggis",
-      "canton": "LU",
-      "url": "https://jobs.dualoo.com/portal/muy5swcr/4dffd14f-970c-45c3-afbb-e142e3f0447b/detail?lang=DE",
-      "source": "Cereneo Dedicated Parser (Dualoo)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:50.955Z",
-      "addressLocality": "Weggis",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6353",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T07:31:59Z",
-      "postedDate": "2026-09-25T07:31:59Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.dualoo.com/portal/muy5swcr/4dffd14f-970c-45c3-afbb-e142e3f0447b/detail?lang=DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "physiotherapeut-in-o-ergotherapeut-in-80-100-cereneo-weggis",
-        "physiotherapeut-in-oder-ergotherapeut-in-80-100-cereneo-weggis",
-        "physiotherapeut-in-oder-ergotherapeut-in-cereneo-weggis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "physiotherapeut-in-o-ergotherapeut-in-80-100-cereneo-weggis",
-          "physiotherapeut-in-oder-ergotherapeut-in-80-100-cereneo-weggis",
-          "physiotherapeut-in-oder-ergotherapeut-in-cereneo-weggis"
-        ]
-      },
-      "firstSeenAt": "2026-08-26T09:56:09.847Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Weggis",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:50.955Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/4dffd14f-970c-45c3-afbb-e142e3f0447b/detail?lang=de"
+      "validThrough": "2027-02-09T09:14:37.827Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-3cced39b4e47",
@@ -735,7 +646,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/ffaa9e26-ec92-47f3-8a57-fc99775590cc/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:50.457Z",
+      "crawledAt": "2026-11-26T09:14:37.314Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -784,9 +695,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:50.457Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/ffaa9e26-ec92-47f3-8a57-fc99775590cc/detail?lang=de"
+      "validThrough": "2026-12-26T09:14:37.314Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-7af788f95338",
@@ -820,7 +730,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/b303bafb-11ef-4528-8d6d-c499c28e527d/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:49.572Z",
+      "crawledAt": "2026-11-26T09:14:36.777Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -905,9 +815,8 @@
       },
       "streetAddress": "Vitznau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:49.572Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/b303bafb-11ef-4528-8d6d-c499c28e527d/detail?lang=de"
+      "validThrough": "2026-12-26T09:14:36.777Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-ae705dc67e72",
@@ -941,7 +850,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/8fd59027-87ef-462f-943a-12eb7e93508a/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:49.080Z",
+      "crawledAt": "2026-11-26T09:14:36.241Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -990,9 +899,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:23:49.080Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/8fd59027-87ef-462f-943a-12eb7e93508a/detail?lang=de"
+      "validThrough": "2027-01-21T09:14:36.241Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-de822d4c0614",
@@ -1026,7 +934,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/d77dfdbc-8360-433d-9264-5605bf7899cc/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:48.591Z",
+      "crawledAt": "2026-11-26T09:14:35.730Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1110,9 +1018,8 @@
       },
       "streetAddress": "Vitznau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:48.591Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/d77dfdbc-8360-433d-9264-5605bf7899cc/detail?lang=de"
+      "validThrough": "2026-12-26T09:14:35.730Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-4e8c959017d6",
@@ -1146,7 +1053,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/18f4dfef-73bb-4877-afae-b5209428c208/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:48.100Z",
+      "crawledAt": "2026-11-26T09:14:35.207Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1213,9 +1120,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:48.100Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/18f4dfef-73bb-4877-afae-b5209428c208/detail?lang=de"
+      "validThrough": "2026-12-26T09:14:35.207Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-d5f4dff1919e",
@@ -1249,7 +1155,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/657510bb-8bfc-4558-99cc-495a2c449964/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:47.602Z",
+      "crawledAt": "2026-11-26T09:14:34.697Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1292,9 +1198,8 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:23:47.602Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/657510bb-8bfc-4558-99cc-495a2c449964/detail?lang=de"
+      "validThrough": "2027-01-22T09:14:34.697Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cereneo-a3846ad74e7a",
@@ -1328,7 +1233,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/1ed80bac-4c09-40c7-8cf2-a6a602a2c844/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:47.104Z",
+      "crawledAt": "2026-11-26T09:14:34.155Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1388,48 +1293,46 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:23:47.104Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/1ed80bac-4c09-40c7-8cf2-a6a602a2c844/detail?lang=de"
+      "validThrough": "2026-12-26T09:14:34.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
-      "id": "cereneo-1a200435b981",
-      "slug": "fisioterapista-o-terapista-del-lavoro-cereneo-vitznau",
+      "id": "cereneo-cc06eccccbe9",
+      "slug": "terapeuta-fisica-o-terapista-professionale-80-100-cereneo-weggis",
       "slugByLocale": {
-        "it": "fisioterapista-o-terapista-del-lavoro-cereneo-vitznau",
-        "en": "physiotherapist-or-occupational-therapist-cereneo-vitznau",
-        "de": "physiotherapeut-oder-ergotherapeut-cereneo-vitznau",
-        "fr": "physiotherapeute-ou-therapeute-professionnel-cereneo-vitznau"
+        "it": "terapeuta-fisica-o-terapista-professionale-80-100-cereneo-weggis",
+        "en": "physiotherapist-in-or-occupational-therapist-in-80-100-cereneo-weggis",
+        "de": "physiotherapeut-in-oder-ergotherapeut-in-80-100-cereneo-weggis",
+        "fr": "physiotherapeute-en-ou-ergotherapeute-en-80-100-cereneo-weggis"
       },
       "company": "Cereneo",
       "companyKey": "cereneo",
       "companyDomain": "cereneo.ch",
-      "title": "Physiotherapist or Occupational Therapist",
+      "title": "Physiotherapeut:in oder Ergotherapeut:in",
       "titleByLocale": {
-        "it": "Fisioterapista o terapista del lavoro",
-        "en": "Physiotherapist or Occupational Therapist",
-        "de": "Physiotherapeut oder Ergotherapeut",
-        "fr": "Physiothérapeute ou thérapeute professionnel"
+        "it": "terapeuta fisica o terapista professionale 80-100 %",
+        "en": "Physical therapist or occupational therapist 80-100 %",
+        "de": "Physiotherapeut:in oder Ergotherapeut:in",
+        "fr": "Physiothérapeute ou ergothérapeute 80-100 %"
       },
-      "description": "cereneo is a Swiss clinic specializing in neurorehabilitation, offering innovative and personalized treatments for patients recovering from stroke, living with Parkinson's disease, traumatic brain injuries, and other neurological conditions. At cereneo rehabilitation clinics, we create individualized treatment programs aimed at restoring the highest level of independence and enhancing our patients' quality of life.\nWe are currently seeking a Physiotherapist or Occupational Therapist for our international projects, who is passionate about working in this field. You will begin your journey in Switzerland with training and become part of an interdisciplinary team. After a training period of 6 to 12 months, you will define your path to stay in Switzerland, move to Dubai.\n\nYour new Role:\nAs part of an interdisciplinary team, you will bring your expertise and knowledge into the rehabilitation routine. You will assist the client's recovery through individually tailored therapy concepts. This involves being receptive and unbiased towards the diverse needs of the client and being willing to work in an international interdisciplinary treatment team. Your responsibilities will include independently conducting individual therapies, creating personalized therapy and training programs, and selecting suitable aids according to the patient's needs.\n\nYour Profile:\nOur success is based on highly qualified and motivated staff at all levels. Therefore, we value openness, initiative, and flexibility. Ideally, you have:\n• A degree in physiotherapy or occupational therapy\n• Professional experience in neurorehabilitation or a related field\n• Interest in interdisciplinary collaboration in an international environment\n• Openness and empathy\n• Willingness to work in Saudi Arabia and adapt to new cultural circumstances\n• Very good English language skills; knowledge of Arabic is advantageous\n\nWhat we offer:\nWe offer a modern and professional working environment, attractive employment conditions, and a wide range of opportunities for both personal and professional development:\n• A challenging and diverse role in an international setting\n• The opportunity to significantly improve our patients' quality of life\n• Comprehensive support for onboarding and integration on-site\nOur Culture – What Unites Us\nExcellence, Compassion, Motivation, Teamwork and Innovation are more than just values to us. We combine the latest scientific research with first-class service, treat our patients and one another with genuine care and respect, and work together to develop new approaches in neurological rehabilitation.\nIf you are an open-minded and committed professional who enjoys working in an interdisciplinary environment and is eager to continuously develop your skills, we look forward to getting to know you.\nJoin our team and help us shape the future of neurological rehabilitation.\n\nStandort: cereneo Schweiz AG - Vitznau\n\nEintritt: per arrangement\n\nCereneo — Centre for Neurology & Rehabilitation, Vitznau (LU), Schweiz.",
+      "description": "Als eine der weltweit führenden Kliniken entwickeln wir ein individualisiertes Behandlungsprogramm, mit dem Ziel, unseren Patient:innen ein höchstmögliches Mass an Selbstständigkeit und freier Lebensgestaltung zu ermöglichen und dadurch ihre Lebensqualität zu optimieren. Wir richten uns sowohl an Patient:innen aus dem Schweizer Kassensystem als auch an internationale Patient:innen.\ncereneo bietet hochspezialisierte Rehabilitationsprogramme für Menschen mit neurologischen Erkrankungen und Verletzungen an, darunter Schlaganfall, Hirnverletzungen, neurodegenerative Erkrankungen wie Parkinson, Multiple Sklerose und viele andere neurologische Störungen.\n\nDeine Aufgaben:\nDu bringst deine fachlichen Kenntnisse und Erfahrungen in den Rehabilitationsalltag ein und unterstützt unsere Patientinnen und Patienten mit individuell abgestimmten Therapiekonzepten auf ihrem Weg der Genesung. Dabei:\n• führst du selbstständig Einzel- und Gruppentherapien durch und gestaltest individuelle Therapie- und Trainingsprogramme\n• wählst du passende, bedarfsgerechte Hilfsmittel aus und integrierst diese gezielt in die Therapie\n• setzt du je nach Fachbereich geeignete therapeutische Methoden, ADL-Trainings und moderne Technologien ein\n• arbeitest du eng mit anderen Therapiedisziplinen, der Pflege und weiteren Fachbereichen zusammen\n• dokumentierst du deine Leistungen vollständig und stellst eine tarifkonforme Leistungserfassung sicher\n• wirkst du aktiv an der Weiterentwicklung unserer therapeutischen Angebote und internen Abläufe mit\n\nWas solltest du mitbringen?\nUnser Erfolg ist nur mit hochqualifizierten und motivierten Mitarbeitenden auf allen Ebenen möglich. Deshalb stehen bei uns Offenheit, Eigeninitiative und Fairness an oberster Stelle.\nDas entspricht auch deiner Einstellung zur Arbeit? Dann bringst du idealerweise Folgendes mit:\n• Abschluss in Physiotherapie oder Ergotherapie mit SRK-Anerkennung bzw. Anerkennungsfähigkeit in der Schweiz\n• abgeschlossene Weiterbildung im neurologischen Bereich\n• fundierte Kenntnisse und Berufserfahrung in der neurologischen Rehabilitation\n• Kenntnisse im ADL-Training\n• Interesse und Bereitschaft, neue Technologien in der Therapie einzusetzen\n• Interesse an der fachlichen und persönlichen Weiterentwicklung in diesem Bereich\n• Freude an der interdisziplinären Zusammenarbeit\n• teamfähige, selbstständige und freundliche Persönlichkeit\n• offene und wertschätzende Kommunikation mit Patientinnen und Patienten sowie Kolleginnen und Kollegen\n• strukturierte und eigenverantwortliche Arbeitsweise\n• Sehr gute Deutsch- und Englisch Kenntnisse in Wort und Schrift\n\nWir bieten:\nWir bieten dir ein modernes und professionelles Arbeitsumfeld, attraktive Anstellungsbedingungen sowie vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln.\n• Attraktiver Arbeitsort: Moderne Infrastruktur an einzigartiger Lage mit Blick auf Vierwaldstättersee, Pilatus und Rigi.\n• Weiterbildung und Entwicklung: Individuelle Möglichkeiten zur fachlichen und persönlichen Weiterbildung und Entwicklung.\n• Attraktive Sozialleistungen: Übernahme der NBU-Prämie sowie ein Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen.\n• Mobilität: Kostenlose Parkplätze und E-Ladestationen sowie ein Beitrag an den öffentlichen Verkehr. Zusätzlich profitieren Mitarbeitende mit der AVIA-Tankkarte von 5 Rappen Rabatt pro Liter Treibstoff und einem kostenlosen Pannendienst in ganz Europa.\n• Verpflegung: Lunch-Check mit 50 % Arbeitgeberbeteiligung sowie kostenlos Kaffee, Tee, Wasser und Früchte.\n• Familienfreundlichkeit: Vergünstigte Konditionen bei unserer angeschlossenen Kindertagesstätte.\n• Gesundheit und Fitness: Kostenlose Mitbenutzung der vorhandenen Fitnessgeräte.\n• Freizeit und Kultur: Verschiedene Mitarbeitendenvergünstigungen sowie attraktive Freizeitangebote, darunter kostenlose Pilatuskarten, Eintrittsmöglichkeiten für den Tierpark Goldau und den Schweizer Museumspass mit Zugang zu über 500 Museen in der Schweiz.\nUnsere Kultur – das verbindet uns\nExzellenz, Herzlichkeit, Motivation, Teamarbeit und Innovation sind für uns mehr als nur Werte. Wir verbinden neueste wissenschaftliche Erkenntnisse mit erstklassigem Service, begegnen unseren Patient:innen und einander mit Herzlichkeit und entwickeln gemeinsam neue Wege in der neurologischen Rehabilitation.\nWenn du eine offene und engagierte Persönlichkeit bist, gerne interdisziplinär arbeitest und dich kontinuierlich weiterentwickeln möchtest, freuen wir uns darauf, dich kennenzulernen.\nWerde Teil unseres Teams und gestalte mit uns die Zukunft der neurologischen Rehabilitation.\n\nStandort: cereneo Schweiz AG - Weggis\n\nEintritt: ab sofort\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Schweiz.",
       "descriptionByLocale": {
-        "it": "cereneo è una clinica svizzera specializzata nella neuroriabilitazione, offrendo trattamenti innovativi e personalizzati per i pazienti che recuperano dall'ictus, vivendo con la malattia di Parkinson, lesioni cerebrali traumatiche e altre condizioni neurologiche. In cliniche di riabilitazione cereneo, creiamo programmi di trattamento individualizzati volti a ripristinare il più alto livello di indipendenza e migliorare la qualità della vita dei nostri pazienti.\nSiamo attualmente alla ricerca di un fisioterapista o di un terapista del lavoro per i nostri progetti internazionali, che è appassionato di lavorare in questo campo. Inizierete il vostro viaggio in Svizzera con la formazione e diventerete parte di un team interdisciplinare. Dopo un periodo di formazione da 6 a 12 mesi, definirete il vostro percorso di soggiorno in Svizzera, trasferirvi a Dubai.\n\nIl tuo nuovo ruolo:\nCome parte di un team interdisciplinare, porterai la tua esperienza e la tua conoscenza nella routine di riabilitazione. Aiuterai il recupero del cliente attraverso concetti di terapia personalizzati. Questo comporta essere ricettivo e imparziale verso le diverse esigenze del cliente e essere disposto a lavorare in un team internazionale di trattamento interdisciplinare. Le tue responsabilità includono la conduzione indipendente di terapie individuali, la creazione di programmi personalizzati di terapia e formazione, e la selezione di aiuti adatti secondo le esigenze del paziente.\n\nIl tuo profilo:\nIl nostro successo si basa su personale altamente qualificato e motivato a tutti i livelli. Pertanto, apprezziamo l'apertura, l'iniziativa e la flessibilità. Idealmente, avete:\n• Una laurea in fisioterapia o terapia professionale\n• Esperienza professionale nella neuroriabilitazione o in un campo correlato\n• Interessi di collaborazione interdisciplinare in un ambiente internazionale\n• Apertura ed empatia\n• Volontà a lavorare in Arabia Saudita e adattarsi a nuove circostanze culturali\n• Molto buone abilità di lingua inglese; la conoscenza dell'arabo è vantaggiosa\n\nCosa offriamo:\nOffriamo un ambiente di lavoro moderno e professionale, condizioni di lavoro attraenti, e una vasta gamma di opportunità per lo sviluppo personale e professionale:\n• Un ruolo impegnativo e diversificato in un contesto internazionale\n• L'opportunità di migliorare significativamente la qualità della vita dei nostri pazienti\n• Supporto completo per il bordo e l'integrazione in loco\nLa nostra cultura – cosa ci unisce\nEccellenza, Compassione, Motivazione, Lavoro di squadra e Innovazione sono più che semplici valori per noi. Uniamo l'ultima ricerca scientifica con il servizio di prima classe, trattiamo i nostri pazienti e gli uni con genuina cura e rispetto, e lavoriamo insieme per sviluppare nuovi approcci nella riabilitazione neurologica.\nSe sei un professionista open-minded e impegnato che ama lavorare in un ambiente interdisciplinare ed è desideroso di sviluppare continuamente le tue abilità, non vediamo l'ora di conoscerti.\nUnisciti al nostro team e aiutaci a plasmare il futuro della riabilitazione neurologica.\n\nStandort: cereneo Schweiz AG - Vitznau\n\nEintritt: per accordo\n\nCereneo — Centro di neurologia e riabilitazione, Vitznau (LU), Schweiz.",
-        "en": "cereneo is a Swiss clinic specializing in neurorehabilitation, offering innovative and personalized treatments for patients recovering from stroke, living with Parkinson's disease, traumatic brain injuries, and other neurological conditions. At cereneo rehabilitation clinics, we create individualized treatment programs aimed at restoring the highest level of independence and enhancing our patients' quality of life.\nWe are currently seeking a Physiotherapist or Occupational Therapist for our international projects, who is passionate about working in this field. You will begin your journey in Switzerland with training and become part of an interdisciplinary team. After a training period of 6 to 12 months, you will define your path to stay in Switzerland, move to Dubai.\n\nYour new Role:\nAs part of an interdisciplinary team, you will bring your expertise and knowledge into the rehabilitation routine. You will assist the client's recovery through individually tailored therapy concepts. This involves being receptive and unbiased towards the diverse needs of the client and being willing to work in an international interdisciplinary treatment team. Your responsibilities will include independently conducting individual therapies, creating personalized therapy and training programs, and selecting suitable aids according to the patient's needs.\n\nYour Profile:\nOur success is based on highly qualified and motivated staff at all levels. Therefore, we value openness, initiative, and flexibility. Ideally, you have:\n• A degree in physiotherapy or occupational therapy\n• Professional experience in neurorehabilitation or a related field\n• Interest in interdisciplinary collaboration in an international environment\n• Openness and empathy\n• Willingness to work in Saudi Arabia and adapt to new cultural circumstances\n• Very good English language skills; knowledge of Arabic is advantageous\n\nWhat we offer:\nWe offer a modern and professional working environment, attractive employment conditions, and a wide range of opportunities for both personal and professional development:\n• A challenging and diverse role in an international setting\n• The opportunity to significantly improve our patients' quality of life\n• Comprehensive support for onboarding and integration on-site\nOur Culture – What Unites Us\nExcellence, Compassion, Motivation, Teamwork and Innovation are more than just values to us. We combine the latest scientific research with first-class service, treat our patients and one another with genuine care and respect, and work together to develop new approaches in neurological rehabilitation.\nIf you are an open-minded and committed professional who enjoys working in an interdisciplinary environment and is eager to continuously develop your skills, we look forward to getting to know you.\nJoin our team and help us shape the future of neurological rehabilitation.\n\nStandort: cereneo Schweiz AG - Vitznau\n\nEintritt: per arrangement\n\nCereneo — Centre for Neurology & Rehabilitation, Vitznau (LU), Schweiz.",
-        "de": "cereneo ist eine Schweizer Klinik, die auf Neurorehabilitation spezialisiert ist und innovative und personalisierte Behandlungen für Patienten anbietet, die sich von Schlaganfall erholen, mit Parkinson-Krankheit, traumatischen Hirnverletzungen und anderen neurologischen Erkrankungen leben. In cereneo Rehabilitationskliniken erstellen wir individuelle Behandlungsprogramme, die darauf abzielen, ein Höchstmaß an Unabhängigkeit wiederherzustellen und die Lebensqualität unserer Patienten zu verbessern.\nWir suchen derzeit einen Physiotherapeuten oder Ergotherapeuten für unsere internationalen Projekte, der sich leidenschaftlich für die Arbeit in diesem Bereich einsetzt. Sie beginnen Ihre Reise in der Schweiz mit einer Ausbildung und werden Teil eines interdisziplinären Teams. Nach einer Ausbildungszeit von 6 bis 12 Monaten definieren Sie Ihren Weg, um in der Schweiz zu bleiben, nach Dubai zu ziehen.\n\nDeine neue Rolle:\nAls Teil eines interdisziplinären Teams bringen Sie Ihre Expertise und Ihr Wissen in die Rehabilitationsroutine ein. Sie unterstützen die Genesung des Klienten durch individuell zugeschnittene Therapiekonzepte. Dies bedeutet, empfänglich und unvoreingenommen gegenüber den unterschiedlichen Bedürfnissen des Kunden zu sein und bereit zu sein, in einem internationalen interdisziplinären Behandlungsteam zu arbeiten. Ihre Aufgaben umfassen die unabhängige Durchführung individueller Therapien, die Erstellung personalisierter Therapie- und Trainingsprogramme und die Auswahl geeigneter Hilfsmittel nach den Bedürfnissen des Patienten.\n\nIhr Profil:\nUnser Erfolg basiert auf hochqualifizierten und motivierten Mitarbeitern auf allen Ebenen. Daher legen wir Wert auf Offenheit, Initiative und Flexibilität. Idealerweise haben Sie:\n• Ein Abschluss in Physiotherapie oder Ergotherapie\n• Berufserfahrung in Neurorehabilitation oder einem verwandten Bereich\n• Interesse an interdisziplinärer Zusammenarbeit im internationalen Umfeld\n• Offenheit und Empathie\n• Bereitschaft, in Saudi-Arabien zu arbeiten und sich an neue kulturelle Gegebenheiten anzupassen\n• Sehr gute Englischkenntnisse; Arabischkenntnisse sind vorteilhaft\n\nWas wir anbieten:\nWir bieten ein modernes und professionelles Arbeitsumfeld, attraktive Beschäftigungsbedingungen und vielfältige Möglichkeiten zur persönlichen und beruflichen Entwicklung:\n• Eine herausfordernde und vielfältige Rolle in einem internationalen Umfeld\n• Die Möglichkeit, die Lebensqualität unserer Patienten deutlich zu verbessern\n• Umfassende Unterstützung für Onboarding und Integration vor Ort\nUnsere Kultur – Was uns verbindet\nExzellenz, Mitgefühl, Motivation, Teamwork und Innovation sind für uns mehr als nur Werte. Wir verbinden neueste wissenschaftliche Forschung mit erstklassigem Service, behandeln unsere Patienten und einander mit echter Sorgfalt und Respekt und entwickeln gemeinsam neue Ansätze in der neurologischen Rehabilitation.\nWenn Sie ein aufgeschlossener und engagierter Fachmann sind, der gerne in einem interdisziplinären Umfeld arbeitet und Ihre Fähigkeiten kontinuierlich weiterentwickeln möchte, freuen wir uns darauf, Sie kennenzulernen.\nSchließen Sie sich unserem Team an und helfen Sie uns, die Zukunft der neurologischen Rehabilitation zu gestalten.\n\nStandort: cereneo Schweiz AG - Vitznau\n\nEintritt: pro Arrangement\n\nCereneo — Centre for Neurology & Rehabilitation, Vitznau (LU), Schweiz.",
-        "fr": "Cereneo est une clinique suisse spécialisée dans la neuroréadaptation, offrant des traitements innovants et personnalisés aux patients se rétablissant d'un accident vasculaire cérébral, vivant avec la maladie de Parkinson, des lésions cérébrales traumatiques et d'autres affections neurologiques. Dans les cliniques de réadaptation cereneo, nous créons des programmes de traitement individualisés visant à rétablir le plus haut niveau d'indépendance et à améliorer la qualité de vie de nos patients.\nNous recherchons actuellement un physiothérapeute ou thérapeute professionnel pour nos projets internationaux, passionnés par le travail dans ce domaine. Vous commencerez votre voyage en Suisse avec une formation et vous ferez partie d'une équipe interdisciplinaire. Après une période de formation de 6 à 12 mois, vous définirez votre chemin pour rester en Suisse, déménager à Dubaï.\n\nVotre nouveau rôle :\nDans le cadre d'une équipe interdisciplinaire, vous apporterez votre expertise et vos connaissances à la routine de réadaptation. Vous aiderez le client à se rétablir grâce à des concepts thérapeutiques personnalisés. Cela implique d'être réceptif et impartial face aux divers besoins du client et d'être prêt à travailler dans une équipe interdisciplinaire internationale de traitement. Vos responsabilités comprendront la conduite indépendante de thérapies individuelles, la création de programmes personnalisés de thérapie et de formation, et la sélection d'aides appropriées en fonction des besoins du patient.\n\nVotre profil:\nNotre succès repose sur un personnel hautement qualifié et motivé à tous les niveaux. Par conséquent, nous apprécions l'ouverture, l'initiative et la flexibilité. Idéalement, vous avez :\n• Diplôme de physiothérapie ou d'ergothérapie\n• Expérience professionnelle en neuroréhabilitation ou dans un domaine connexe\n• Intérêt pour la collaboration interdisciplinaire dans un environnement international\n• Ouverture et empathie\n• Volonté de travailler en Arabie saoudite et de s'adapter aux nouvelles circonstances culturelles\n• Très bonne maîtrise de l'anglais; la connaissance de l'arabe est avantageuse\n\nCe que nous offrons:\nNous offrons un environnement de travail moderne et professionnel, des conditions d'emploi attrayantes et un large éventail de possibilités de perfectionnement personnel et professionnel :\n• Un rôle stimulant et diversifié dans un contexte international\n• La possibilité d'améliorer considérablement la qualité de vie de nos patients\n• Soutien global à l'embarquement et à l'intégration sur place\nNotre culture – Ce qui nous unit\nExcellence, compassion, motivation, travail d'équipe et innovation ne sont pas seulement des valeurs pour nous. Nous combinons la recherche scientifique la plus récente avec un service de première classe, nous traitons nos patients les uns les autres avec un véritable soin et respect, et nous travaillons ensemble pour développer de nouvelles approches en réadaptation neurologique.\nSi vous êtes un professionnel ouvert d'esprit et engagé qui aime travailler dans un environnement interdisciplinaire et est désireux de développer continuellement vos compétences, nous sommes impatients de vous connaître.\nRejoignez notre équipe et aidez-nous à façonner l'avenir de la réadaptation neurologique.\n\nStandort: cereneo Schweiz AG - Vitznau\n\nEintérim: par arrangement\n\nCereneo — Centre de neurologie et de réadaptation, Vitznau (LU), Schweiz."
+        "it": "Come una delle cliniche leader del mondo, sviluppiamo un programma di trattamento individualizzato con l'obiettivo di consentire ai nostri pazienti di godere del più alto grado di indipendenza e libertà di vita, ottimizzando così la loro qualità di vita. Ci occupiamo sia dei pazienti del sistema di cassa svizzero che dei pazienti internazionali.\ncereneo offre programmi di riabilitazione altamente specializzati per le persone con malattie neurologiche e lesioni, tra cui ictus, lesioni cerebrali, malattie neurodegenerative come Parkinson, sclerosi multipla e molti altri disturbi neurologici.\n\nI vostri compiti:\nPorti la tua conoscenza professionale e la tua esperienza nella riabilitazione quotidiana e supporti i nostri pazienti con concetti terapeutici coordinati individualmente sulla loro strada per il recupero. Dove:\n• eseguire autonomamente terapie individuali e di gruppo e progettare programmi di terapia individuale e formazione\n• selezionare strumenti adatti e basati sulle esigenze e integrarli specificamente nella terapia\n• utilizzare i metodi terapeutici appropriati, la formazione ADL e le tecnologie moderne, a seconda dell'area tematica\n• lavorare a stretto contatto con altre discipline terapeutiche, la cura e altre aree specializzate\n• documentare completamente i tuoi servizi e garantire una registrazione delle prestazioni conforme alle tariffe\n• contribuire attivamente all'ulteriore sviluppo delle nostre offerte terapeutiche e dei processi interni\n\nCosa porti?\nIl nostro successo è possibile solo con dipendenti altamente qualificati e motivati a tutti i livelli. Ecco perché l'apertura, l'iniziativa e l'equità sono la nostra priorità.\nQuesto riflette il vostro atteggiamento verso il lavoro? Quindi idealmente portare il seguente:\n• laurea in fisioterapia o terapia professionale con riconoscimento SRK o idoneità al riconoscimento in Svizzera\n• Formazione completa nel campo neurologico\n• conoscenza del suono e esperienza professionale nella riabilitazione neurologica\n• Conoscenza della formazione ADL\n• Interessi e volontà di utilizzare nuove tecnologie in terapia\n• Interessi di sviluppo professionale e personale in questo settore\n• Sfruttamento della cooperazione interdisciplinare\n• Team capace, personalità indipendente e amichevole\n• Comunicazione aperta e apprezzativa con pazienti e colleghi\n• Metodo di lavoro strutturato e responsabile\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nOffriamo:\nVi offriamo un ambiente di lavoro moderno e professionale, condizioni di lavoro attraenti e una vasta gamma di opportunità per svilupparsi personalmente e professionalmente.\n• Luogo di lavoro attraente: infrastrutture moderne in una posizione unica con vista sul lago Vierwaldstättersee, Pilatus e Rigi.\n• Ulteriore istruzione e sviluppo: opportunità individuali per l'istruzione e lo sviluppo professionali e personali.\n• Prestazioni sociali interessanti: l’acquisizione del premio NBU e la quota del datore di lavoro del 60% dei contributi dei fondi pensione.\n• Mobilità: parcheggio gratuito e stazioni di e-charging e un contributo ai trasporti pubblici. Inoltre, i dipendenti beneficiano della carta di carburante AVIA di 5 centimetri di sconto per litro di carburante e di un servizio stradale gratuito in tutta Europa.\n• Cibo: controllo pranzo con 50% di partecipazione del datore di lavoro e caffè gratuito, tè, acqua e frutta.\n• Ampiezza familiare: condizioni scontate presso il nostro centro diurno collegato.\n• Salute e fitness: condivisione gratuita delle attrezzature fitness esistenti.\n• Tempo libero e cultura: diversi vantaggi per i dipendenti e interessanti offerte per il tempo libero, tra cui i biglietti Pilato gratuiti, l'ingresso al Tierpark Goldau e il Museum Pass svizzero con accesso a oltre 500 musei in Svizzera.\nLa nostra cultura – che ci collega\nEccellenza, calore, motivazione, lavoro di squadra e innovazione sono più che semplici valori per noi. Uniamo le ultime scoperte scientifiche con il servizio di prima classe, incontriamo i nostri pazienti e gli uni con calore e sviluppiamo nuovi modi di riabilitazione neurologica insieme.\nSe sei una persona aperta e impegnata, vorrebbe lavorare interdisciplinare e sviluppare continuamente, non vediamo l'ora di conoscerti.\nDiventa parte del nostro team e modella il futuro della riabilitazione neurologica con noi.\n\nPosizione: cereneo Schweiz AG - Weggis\n\nEntrata: da ora in poi\n\nCereneo — Centro di neurologia e riabilitazione, Weggis (LU), Svizzera.",
+        "en": "As one of the world’s leading clinics, we develop an individualized treatment program with the aim of enabling our patients to enjoy the highest possible degree of independence and freedom of life, thereby optimizing their quality of life. We address both patients from the Swiss cash system and international patients.\ncereneo offers highly specialized rehabilitation programs for people with neurological diseases and injuries, including stroke, brain injury, neurodegenerative diseases such as Parkinson’s, multiple sclerosis and many other neurological disorders.\n\nYour tasks:\nYou bring your professional knowledge and experience to the rehabilitation everyday life and support our patients with individually coordinated therapy concepts on their way to recovery. Where:\n• independently carry out individual and group therapies and design individual therapy and training programs\n• select suitable, needs-based tools and integrate them specifically into the therapy\n• use appropriate therapeutic methods, ADL training and modern technologies, depending on the subject area\n• work closely with other therapeutic disciplines, care and other specialist areas\n• document your services completely and ensure a tariff-compliant performance recording\n• actively contribute to the further development of our therapeutic offerings and internal processes\n\nWhat should you bring?\nOur success is only possible with highly qualified and motivated employees at all levels. That is why openness, initiative and fairness are our top priority.\nDoes that reflect your attitude towards work? Then you ideally bring the following:\n• degree in physiotherapy or occupational therapy with SRK recognition or Eligibility for recognition in Switzerland\n• Completed training in the neurological field\n• sound knowledge and professional experience in neurological rehabilitation\n• Knowledge of ADL training\n• Interest and willingness to use new technologies in therapy\n• Interest in professional and personal development in this area\n• Enjoyment of interdisciplinary cooperation\n• Team capable, independent and friendly personality\n• Open and appreciative communication with patients and colleagues\n• Structured and self-responsible working method\n• Very good knowledge of German and English in word and writing\n\nWe offer:\nWe offer you a modern and professional working environment, attractive employment conditions and a wide range of opportunities to develop yourself personally and professionally.\n• Attractive place of work: Modern infrastructure in a unique location with a view of Lake Vierwaldstättersee, Pilatus and Rigi.\n• Further education and development: Individual opportunities for professional and personal education and development.\n• Attractive social benefits: takeover of the NBU premium and an employer’s share of 60% of pension fund contributions.\n• Mobility: Free parking and e-charging stations and a contribution to public transport. In addition, employees benefit from the AVIA fuel card of 5 centimeters discount per litre of fuel and a free roadside service throughout Europe.\n• Food: Lunch check with 50% employer participation and free coffee, tea, water and fruit.\n• Family friendliness: discounted conditions at our connected daycare center.\n• Health and Fitness: Free sharing of existing fitness equipment.\n• Leisure and culture: Various employee benefits as well as attractive leisure offers, including free Pilate tickets, entrance to the Tierpark Goldau and the Swiss Museum Pass with access to over 500 museums in Switzerland.\nOur culture – that connects us\nExcellence, warmth, motivation, teamwork and innovation are more than just values for us. We combine the latest scientific findings with first-class service, meet our patients and each other with warmth and develop new ways in neurological rehabilitation together.\nIf you are an open and committed person, would like to work interdisciplinary and continuously develop, we look forward to getting to know you.\nBecome part of our team and shape the future of neurological rehabilitation with us.\n\nLocation: cereneo Schweiz AG - Weggis\n\nEntrance: from now on\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Switzerland.",
+        "de": "Als eine der weltweit führenden Kliniken entwickeln wir ein individualisiertes Behandlungsprogramm, mit dem Ziel, unseren Patient:innen ein höchstmögliches Mass an Selbstständigkeit und freier Lebensgestaltung zu ermöglichen und dadurch ihre Lebensqualität zu optimieren. Wir richten uns sowohl an Patient:innen aus dem Schweizer Kassensystem als auch an internationale Patient:innen.\ncereneo bietet hochspezialisierte Rehabilitationsprogramme für Menschen mit neurologischen Erkrankungen und Verletzungen an, darunter Schlaganfall, Hirnverletzungen, neurodegenerative Erkrankungen wie Parkinson, Multiple Sklerose und viele andere neurologische Störungen.\n\nDeine Aufgaben:\nDu bringst deine fachlichen Kenntnisse und Erfahrungen in den Rehabilitationsalltag ein und unterstützt unsere Patientinnen und Patienten mit individuell abgestimmten Therapiekonzepten auf ihrem Weg der Genesung. Dabei:\n• führst du selbstständig Einzel- und Gruppentherapien durch und gestaltest individuelle Therapie- und Trainingsprogramme\n• wählst du passende, bedarfsgerechte Hilfsmittel aus und integrierst diese gezielt in die Therapie\n• setzt du je nach Fachbereich geeignete therapeutische Methoden, ADL-Trainings und moderne Technologien ein\n• arbeitest du eng mit anderen Therapiedisziplinen, der Pflege und weiteren Fachbereichen zusammen\n• dokumentierst du deine Leistungen vollständig und stellst eine tarifkonforme Leistungserfassung sicher\n• wirkst du aktiv an der Weiterentwicklung unserer therapeutischen Angebote und internen Abläufe mit\n\nWas solltest du mitbringen?\nUnser Erfolg ist nur mit hochqualifizierten und motivierten Mitarbeitenden auf allen Ebenen möglich. Deshalb stehen bei uns Offenheit, Eigeninitiative und Fairness an oberster Stelle.\nDas entspricht auch deiner Einstellung zur Arbeit? Dann bringst du idealerweise Folgendes mit:\n• Abschluss in Physiotherapie oder Ergotherapie mit SRK-Anerkennung bzw. Anerkennungsfähigkeit in der Schweiz\n• abgeschlossene Weiterbildung im neurologischen Bereich\n• fundierte Kenntnisse und Berufserfahrung in der neurologischen Rehabilitation\n• Kenntnisse im ADL-Training\n• Interesse und Bereitschaft, neue Technologien in der Therapie einzusetzen\n• Interesse an der fachlichen und persönlichen Weiterentwicklung in diesem Bereich\n• Freude an der interdisziplinären Zusammenarbeit\n• teamfähige, selbstständige und freundliche Persönlichkeit\n• offene und wertschätzende Kommunikation mit Patientinnen und Patienten sowie Kolleginnen und Kollegen\n• strukturierte und eigenverantwortliche Arbeitsweise\n• Sehr gute Deutsch- und Englisch Kenntnisse in Wort und Schrift\n\nWir bieten:\nWir bieten dir ein modernes und professionelles Arbeitsumfeld, attraktive Anstellungsbedingungen sowie vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln.\n• Attraktiver Arbeitsort: Moderne Infrastruktur an einzigartiger Lage mit Blick auf Vierwaldstättersee, Pilatus und Rigi.\n• Weiterbildung und Entwicklung: Individuelle Möglichkeiten zur fachlichen und persönlichen Weiterbildung und Entwicklung.\n• Attraktive Sozialleistungen: Übernahme der NBU-Prämie sowie ein Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen.\n• Mobilität: Kostenlose Parkplätze und E-Ladestationen sowie ein Beitrag an den öffentlichen Verkehr. Zusätzlich profitieren Mitarbeitende mit der AVIA-Tankkarte von 5 Rappen Rabatt pro Liter Treibstoff und einem kostenlosen Pannendienst in ganz Europa.\n• Verpflegung: Lunch-Check mit 50 % Arbeitgeberbeteiligung sowie kostenlos Kaffee, Tee, Wasser und Früchte.\n• Familienfreundlichkeit: Vergünstigte Konditionen bei unserer angeschlossenen Kindertagesstätte.\n• Gesundheit und Fitness: Kostenlose Mitbenutzung der vorhandenen Fitnessgeräte.\n• Freizeit und Kultur: Verschiedene Mitarbeitendenvergünstigungen sowie attraktive Freizeitangebote, darunter kostenlose Pilatuskarten, Eintrittsmöglichkeiten für den Tierpark Goldau und den Schweizer Museumspass mit Zugang zu über 500 Museen in der Schweiz.\nUnsere Kultur – das verbindet uns\nExzellenz, Herzlichkeit, Motivation, Teamarbeit und Innovation sind für uns mehr als nur Werte. Wir verbinden neueste wissenschaftliche Erkenntnisse mit erstklassigem Service, begegnen unseren Patient:innen und einander mit Herzlichkeit und entwickeln gemeinsam neue Wege in der neurologischen Rehabilitation.\nWenn du eine offene und engagierte Persönlichkeit bist, gerne interdisziplinär arbeitest und dich kontinuierlich weiterentwickeln möchtest, freuen wir uns darauf, dich kennenzulernen.\nWerde Teil unseres Teams und gestalte mit uns die Zukunft der neurologischen Rehabilitation.\n\nStandort: cereneo Schweiz AG - Weggis\n\nEintritt: ab sofort\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Schweiz.",
+        "fr": "En tant que l'une des plus grandes cliniques du monde, nous développons un programme de traitement individualisé dans le but de permettre à nos patients de jouir du plus haut degré d'indépendance et de liberté de vie possible, optimisant ainsi leur qualité de vie. Nous nous adressons aussi bien aux patients du système de caisse suisse qu'aux patients internationaux.\nCereneo offre des programmes de réadaptation hautement spécialisés pour les personnes atteintes de maladies neurologiques et de blessures, y compris les accidents vasculaires cérébraux, les lésions cérébrales, les maladies neurodégénératives telles que Parkinson, la sclérose en plaques et de nombreux autres troubles neurologiques.\n\nVos tâches:\nVous apportez vos connaissances et votre expérience professionnelles dans la vie quotidienne de réadaptation et soutenez nos patients avec des concepts de thérapie individuellement coordonnés sur leur chemin vers la récupération. où:\n• exécuter indépendamment des thérapies individuelles et de groupe et concevoir des programmes de thérapie individuelle et de formation\n• sélectionner des outils adaptés et adaptés aux besoins et les intégrer spécifiquement à la thérapie\n• utiliser les méthodes thérapeutiques appropriées, la formation ADL et les technologies modernes, selon le domaine d'activité\n• travailler en étroite collaboration avec d'autres disciplines thérapeutiques, soins et autres domaines spécialisés\n• documenter complètement vos services et assurer un enregistrement de performance conforme au tarif\n• contribuer activement au développement de nos offres thérapeutiques et de nos processus internes\n\nQue devriez-vous apporter ?\nNotre succès n'est possible qu'avec des employés hautement qualifiés et motivés à tous les niveaux. C'est pourquoi l'ouverture, l'initiative et l'équité sont notre priorité absolue.\nCela reflète - t - il votre attitude à l'égard du travail? Ensuite, vous apportez idéalement ce qui suit:\n• Diplôme en physiothérapie ou en ergothérapie avec reconnaissance SRK ou Admissibilité à la reconnaissance en Suisse\n• Formation complète dans le domaine neurologique\n• une bonne connaissance et une expérience professionnelle en réadaptation neurologique\n• Connaissance de la formation ADL\n• Intérêt et volonté d'utiliser les nouvelles technologies en thérapie\n• Intérêt pour le développement professionnel et personnel dans ce domaine\n• Profitez de la coopération interdisciplinaire\n• Personnalité capable, indépendante et amicale\n• Communication ouverte et appréciée avec les patients et les collègues\n• Méthode de travail structurée et autoresponsable\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nNous offrons:\nNous vous offrons un environnement de travail moderne et professionnel, des conditions d'emploi attrayantes et un large éventail d'opportunités pour vous développer personnellement et professionnellement.\n• Lieu de travail attrayant: Infrastructure moderne dans un emplacement unique avec vue sur le lac Vierwaldstättersee, Pilatus et Rigi.\n• Formation et perfectionnement professionnels: possibilités individuelles de formation et de perfectionnement professionnels et personnels.\n• Prestations sociales attractives: prise en charge de la prime de la NBU et d'une part patronale de 60% des cotisations des fonds de pension.\n• Mobilité: Stations de stationnement et de recharge gratuites et contribution aux transports en commun. En outre, les employés bénéficient de la carte de carburant AVIA de 5 centimètres de réduction par litre de carburant et d'un service routier gratuit dans toute l'Europe.\n• Nourriture: Lunch check avec 50% de participation de l'employeur et café gratuit, thé, eau et fruits.\n• Amabilité de la famille : conditions à prix réduit dans notre garderie connectée.\n• Santé et fitness: Partage gratuit des équipements de fitness existants.\n• Loisirs et culture: Divers avantages pour les employés ainsi que des offres de loisirs attrayantes, y compris des billets Pilate gratuits, l'entrée au Tierpark Goldau et le Swiss Museum Pass avec accès à plus de 500 musées en Suisse.\nNotre culture – qui nous relie\nL'excellence, la chaleur, la motivation, le travail d'équipe et l'innovation ne sont pas seulement des valeurs pour nous. Nous combinons les dernières découvertes scientifiques avec un service de première classe, rencontrons nos patients et les uns les autres avec chaleur et développons ensemble de nouvelles voies de réadaptation neurologique.\nSi vous êtes une personne ouverte et engagée, aimerait travailler interdisciplinaire et se développer continuellement, nous avons hâte de vous connaître.\nFaites partie de notre équipe et façonnez l'avenir de la réadaptation neurologique avec nous.\n\nLieu: cereneo Schweiz AG - Weggis\n\nEntrée : désormais\n\nCereneo — Centre de neurologie et de réadaptation, Weggis (LU), Suisse."
       },
-      "needsRetranslation": false,
-      "location": "Vitznau",
+      "location": "Weggis",
       "canton": "LU",
-      "url": "https://jobs.dualoo.com/portal/muy5swcr/8b74d525-28e8-4483-8f2a-fffebf765fe3/detail?lang=EN",
+      "url": "https://jobs.dualoo.com/portal/muy5swcr/4dffd14f-970c-45c3-afbb-e142e3f0447b/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:19:01.246Z",
-      "addressLocality": "Vitznau",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:23:50.955Z",
+      "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6354",
+      "postalCode": "6353",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -1437,27 +1340,25 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-11-02T17:35:15Z",
-      "postedDate": "2026-11-02T17:35:15Z",
+      "datePosted": "2026-09-25T07:31:59Z",
+      "postedDate": "2026-09-25T07:31:59Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.dualoo.com/portal/muy5swcr/8b74d525-28e8-4483-8f2a-fffebf765fe3/detail?lang=EN",
+      "applyUrl": "https://jobs.dualoo.com/portal/muy5swcr/4dffd14f-970c-45c3-afbb-e142e3f0447b/detail?lang=DE",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapist-or-occupational-therapist-cereneo-vitznau"
+        "physiotherapeut-in-o-ergotherapeut-in-80-100-cereneo-weggis",
+        "physiotherapeut-in-oder-ergotherapeut-in-80-100-cereneo-weggis",
+        "physiotherapeut-in-oder-ergotherapeut-in-cereneo-weggis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapist-or-occupational-therapist-cereneo-vitznau"
-        ],
-        "de": [
-          "physiotherapist-or-occupational-therapist-cereneo-vitznau"
-        ],
-        "fr": [
-          "physiotherapist-or-occupational-therapist-cereneo-vitznau"
+          "physiotherapeut-in-o-ergotherapeut-in-80-100-cereneo-weggis",
+          "physiotherapeut-in-oder-ergotherapeut-in-80-100-cereneo-weggis",
+          "physiotherapeut-in-oder-ergotherapeut-in-cereneo-weggis"
         ]
       },
-      "firstSeenAt": "2026-11-02T21:28:15.699Z",
+      "firstSeenAt": "2026-08-26T09:56:09.847Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1471,12 +1372,12 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Vitznau",
+      "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:19:01.246Z",
+      "validThrough": "2026-12-25T21:23:50.955Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/8b74d525-28e8-4483-8f2a-fffebf765fe3/detail?lang=en"
+      "sourceIdentity": "url:https://jobs.dualoo.com/portal/muy5swcr/4dffd14f-970c-45c3-afbb-e142e3f0447b/detail?lang=de",
+      "crawlerMissStreak": 1
     }
   ]
 }

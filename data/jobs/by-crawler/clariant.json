@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clariant",
-  "assembledAt": "2026-11-25T21:22:12.266Z",
-  "runId": "45700986462",
+  "assembledAt": "2026-11-26T09:19:08.782Z",
+  "runId": "45788679442",
   "jobs": [
     {
       "id": "clariant-54bb0ed27fcc",
@@ -34,7 +34,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Head-of-ESHA-&-IGSM/1450668933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:22:04.233Z",
+      "crawledAt": "2026-11-26T09:18:59.452Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -85,9 +85,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:22:04.233Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.clariant.com/job/pratteln-head-of-esha-&-igsm/1450668933"
+      "validThrough": "2026-12-26T09:18:59.452Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clariant-fd13d13ad625",
@@ -120,7 +119,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Head-of-Supplier-Innovation-&-Sustainability/1460539133/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:22:03.592Z",
+      "crawledAt": "2026-11-26T09:18:58.815Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -155,9 +154,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-09T21:22:03.592Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.clariant.com/job/pratteln-head-of-supplier-innovation-&-sustainability/1460539133"
+      "validThrough": "2027-01-09T09:18:58.815Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
