@@ -249,7 +249,7 @@ IDs da usare nell'ordine: ${items.map(i => `"${i.id}"`).join(', ')}`;
   try {
     const raw = await callLLM(
       [{ role: 'user', content: prompt }],
-      { model: 'codex-cli/gpt-5.6-luna', maxTokens: 4000, temperature: 0.3 }
+      { model: 'codex-cli/gpt-6-luna', maxTokens: 4000, temperature: 0.3 }
     );
     if (!raw) throw new Error('Empty LLM response');
 

@@ -129,7 +129,7 @@ describe('event description publication policy', () => {
     expect(isDescriptionSupportedByEventFacts(description, event)).toBe(expected);
   });
 
-  it('keeps a v1 cache entry valid across the prompt-only policy upgrade', () => {
+  it('keeps a v1 cache entry valid across the prompt and model upgrades', () => {
     const hash = sourceDescriptionHash(EVENT)!;
     const entry = {
       id: EVENT.id,
@@ -145,7 +145,10 @@ describe('event description publication policy', () => {
       promptVersion: 'event-description-rewrite-v1',
       rewrittenAt: '2026-10-06T08:00:00.000Z',
     };
-    expect(isValidRewriteCacheEntry(entry, { id: EVENT.id, sourceHash: hash })).toBe(true);
+    const expected = { id: EVENT.id, sourceHash: hash };
+    expect(isValidRewriteCacheEntry(entry, expected)).toBe(true);
+    expect(isValidRewriteCacheEntry({ ...entry, model: 'gpt-5.6-luna' }, expected)).toBe(true);
+    expect(isValidRewriteCacheEntry({ ...entry, model: 'unrecognized-model' }, expected)).toBe(false);
   });
 
   it('removes description-derived translation entries but keeps title translations', () => {

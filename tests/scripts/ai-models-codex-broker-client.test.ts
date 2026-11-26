@@ -241,7 +241,7 @@ describe('client del broker Codex', () => {
     expect(log()).toMatch(/broker non raggiungibile \(ENOENT\)/);
     expect(log()).toMatch(/guasto di trasporto, score invariato/);
     expect(isModelAvailable(CODEX)).toBe(false);
-    await expect(callCodex()).rejects.toThrow(/codex-cli\/gpt-5\.6-luna: skipped — Codex auth broker temporarily unavailable \(socket gone for this job\)/);
+    await expect(callCodex()).rejects.toThrow(`${CODEX}: skipped — Codex auth broker temporarily unavailable (socket gone for this job)`);
     expect(codexScore()).toBe(0);
 
     // Un socket diverso non riapre la lane nello stesso run.

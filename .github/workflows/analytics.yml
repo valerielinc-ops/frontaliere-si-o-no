@@ -91,7 +91,7 @@ jobs:
           # always pass: ai-models.mjs only opens the broker when its gate is
           # enabled.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+          AI_MODELS_PREFER: codex-cli/gpt-6-luna
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_DAYS: ${{ inputs.days || '30' }}
           INPUT_SECTIONS: ${{ inputs.sections || 'all' }}

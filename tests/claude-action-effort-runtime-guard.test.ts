@@ -16,7 +16,7 @@ describe('tests workflow — Codex Luna Max is fixed at runtime', () => {
 
     expect(review, `missing Codex review step in ${WORKFLOW}`).toBeTruthy();
     expect(action).toContain('name: "Codex Luna Max primary"');
-    expect(action).toContain('--model gpt-5.6-luna');
+    expect(action).toContain('--model gpt-6-luna');
     expect(action).toContain('-c "model_reasoning_effort=$codex_reasoning_effort"');
     expect(steps.some((step: any) => step.id === 'claude_effort')).toBe(false);
     expect(action).not.toContain('claude --effort');

@@ -6,7 +6,7 @@
  */
 
 /** Modello e reasoning effort vincolanti per l'esecuzione di fallback. */
-export const CODEX_FALLBACK_MODEL = 'gpt-5.6-luna';
+export const CODEX_FALLBACK_MODEL = 'gpt-6-luna';
 export const CODEX_FALLBACK_EFFORT = 'max';
 
 /**

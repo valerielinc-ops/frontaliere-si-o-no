@@ -61,7 +61,7 @@ export {
 };
 
 export const CODEX_IMAGE_MODEL = 'gpt-image-2';
-export const CODEX_IMAGE_EXECUTOR_MODEL = process.env.CODEX_IMAGE_EXECUTOR_MODEL || 'gpt-5.6-luna';
+export const CODEX_IMAGE_EXECUTOR_MODEL = process.env.CODEX_IMAGE_EXECUTOR_MODEL || 'gpt-6-luna';
 export const FAL_IMAGE_MODEL = 'fal-ai/flux/schnell';
 export const TOGETHER_IMAGE_MODEL = 'black-forest-labs/FLUX.1-schnell-Free';
 export const POLLINATIONS_IMAGE_MODEL = 'flux';

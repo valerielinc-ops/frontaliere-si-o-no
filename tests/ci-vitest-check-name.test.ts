@@ -3,6 +3,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
+import { CODEX_FALLBACK_MODEL } from '../scripts/lib/codex-fallback-contract.mjs';
 import {
   VITEST_CHECK_NAME,
   VITEST_EXECUTION_JOB_NAME,
@@ -557,8 +558,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(prefetch.run).not.toContain('gh pr diff');
     expect(TESTS_YML).toContain('review-code-files.txt');
     expect(TESTS_YML).toContain('delta-files.txt');
-    expect(TESTS_YML).toContain('set_tier incremental-high gpt-5.6-luna 35');
-    expect(TESTS_YML).toContain('set_tier incremental gpt-5.6-luna 35');
+    expect(TESTS_YML).toContain(`set_tier incremental-high ${CODEX_FALLBACK_MODEL} 35`);
+    expect(TESTS_YML).toContain(`set_tier incremental ${CODEX_FALLBACK_MODEL} 35`);
     expect(TESTS_YML).toContain('Read `REVIEW.md` first');
   });
 

@@ -129,10 +129,15 @@ for (const marker of sourceMarkers) {
   }
 }
 
+const modelDeclaration = /^const CODEX_MODEL = '(?:gpt-5\.6-luna|gpt-6-luna)';$/m;
+if (!modelDeclaration.test(target.text)) {
+  fail('unexpected corpus broker model declaration');
+  process.exit(1);
+}
+
 const legacyTargetShape = target.text.includes("function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {");
 if (legacyTargetShape) {
   for (const marker of [
-    "const CODEX_MODEL = 'gpt-5.6-luna';",
     "const CODEX_EFFORT = 'max';",
     "const CODEX_PROFILE = 'claude-haiku-fallback';",
     'const DEFAULT_MAX_REQUESTS = 1;',
@@ -163,7 +168,6 @@ if (legacyTargetShape) {
 }
 
 const legacyContractMarkers = [
-  "const CODEX_MODEL = 'gpt-5.6-luna';",
   "const CODEX_EFFORT = 'max';",
   "const CODEX_PROFILE = 'claude-haiku-fallback';",
   'const DEFAULT_MAX_REQUESTS = 1;',

@@ -441,7 +441,7 @@ jobs:
           ALLOW_SIDE_EFFECT: 'true'
           EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+          AI_MODELS_PREFER: codex-cli/gpt-6-luna
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then

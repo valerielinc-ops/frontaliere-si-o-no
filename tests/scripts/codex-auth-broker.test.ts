@@ -61,7 +61,7 @@ function request(socketPath: string, payload: unknown) {
   });
 }
 
-function writeFakeCodex(root: string, version = '0.153.4') {
+function writeFakeCodex(root: string, version = '0.172.0') {
   const fake = path.join(root, 'fake-codex.mjs');
   fs.writeFileSync(fake, `#!/usr/bin/env node
     import fs from 'node:fs';
@@ -80,7 +80,7 @@ function writeFakeCodex(root: string, version = '0.153.4') {
   return fake;
 }
 
-function writeImageOnlyCodex(root: string, version = '0.153.4') {
+function writeImageOnlyCodex(root: string, version = '0.172.0') {
   const fake = path.join(root, 'image-only-codex.mjs');
   fs.writeFileSync(fake, `#!/usr/bin/env node
     import fs from 'node:fs';
@@ -108,7 +108,7 @@ function writeHangingCodex(root: string, { descendant = false } = {}) {
     import path from 'node:path';
     import { spawn } from 'node:child_process';
     if (process.argv.includes('--version')) {
-      console.log('OpenAI Codex v0.153.4');
+      console.log('OpenAI Codex v0.172.0');
       process.exit(0);
     }
     const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
@@ -317,7 +317,7 @@ describe('Codex auth broker runtime contract', () => {
     expect(fs.existsSync(socketPath)).toBe(false);
   });
 
-  it('rejects an attested Codex path when its reported version is not 0.153.4', async () => {
+  it('rejects an attested Codex path when its reported version is not 0.172.0', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
     fs.chmodSync(root, 0o700);
     roots.push(root);
@@ -491,7 +491,7 @@ describe('Codex auth broker runtime contract', () => {
       import fs from 'node:fs';
       import path from 'node:path';
       if (process.argv.includes('--version')) {
-        console.log('OpenAI Codex v0.153.4');
+        console.log('OpenAI Codex v0.172.0');
         process.exit(0);
       }
       const args = process.argv.slice(2);
@@ -561,7 +561,7 @@ describe('Codex auth broker runtime contract', () => {
     const token = `eyJ${'a'.repeat(40)}.${'b'.repeat(40)}.${'c'.repeat(40)}`;
     fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
       if (process.argv.includes('--version')) {
-        console.log('OpenAI Codex v0.153.4');
+        console.log('OpenAI Codex v0.172.0');
         process.exit(0);
       }
       process.stdin.resume();
@@ -798,7 +798,7 @@ describe('Codex auth broker runtime contract', () => {
       import path from 'node:path';
       const args = process.argv.slice(2);
       if (args.includes('--version')) {
-        console.log('OpenAI Codex v0.153.4');
+        console.log('OpenAI Codex v0.172.0');
         process.exit(0);
       }
       const output = args[args.indexOf('--output-last-message') + 1];
@@ -868,7 +868,7 @@ describe('Codex auth broker runtime contract', () => {
     const fakeCodex = path.join(prefix, 'failing-codex.mjs');
     fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
       if (process.argv.includes('--version')) {
-        console.log('OpenAI Codex v0.153.4');
+        console.log('OpenAI Codex v0.172.0');
         process.exit(0);
       }
       process.stdin.resume();
@@ -914,7 +914,7 @@ describe('Codex auth broker runtime contract', () => {
       import path from 'node:path';
       const args = process.argv.slice(2);
       if (args.includes('--version')) {
-        console.log('OpenAI Codex v0.153.4');
+        console.log('OpenAI Codex v0.172.0');
         process.exit(0);
       }
       const output = args[args.indexOf('--output-last-message') + 1];
@@ -991,7 +991,7 @@ describe('Codex auth broker runtime contract', () => {
     fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
       import fs from 'node:fs';
       if (process.argv.includes('--version')) {
-        console.log('OpenAI Codex v0.153.4');
+        console.log('OpenAI Codex v0.172.0');
         process.exit(0);
       }
       const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
@@ -1025,7 +1025,7 @@ function writeSleepingCodex(root: string) {
   fs.writeFileSync(fake, `#!/usr/bin/env node
     import fs from 'node:fs';
     if (process.argv.includes('--version')) {
-      console.log('OpenAI Codex v0.153.4');
+      console.log('OpenAI Codex v0.172.0');
       process.exit(0);
     }
     const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
@@ -1080,7 +1080,7 @@ function writeArgvCodex(root: string) {
   fs.writeFileSync(fake, `#!/usr/bin/env node
     import fs from 'node:fs';
     if (process.argv.includes('--version')) {
-      console.log('OpenAI Codex v0.153.4');
+      console.log('OpenAI Codex v0.172.0');
       process.exit(0);
     }
     const argv = process.argv.slice(2);

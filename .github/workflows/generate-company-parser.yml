@@ -111,7 +111,7 @@ jobs:
           # always pass: ai-models.mjs only opens the broker when its gate is
           # enabled.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+          AI_MODELS_PREFER: codex-cli/gpt-6-luna
         run: node scripts/generate-company-parser.mjs
 
       - name: Check for changes
@@ -136,7 +136,7 @@ jobs:
           # --regenerate-cmd below re-invokes generate-company-parser.mjs on
           # rebase-conflict retry — same auth needed as the step above.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+          AI_MODELS_PREFER: codex-cli/gpt-6-luna
         run: |
           node scripts/ci/validate-generated-data.mjs \
             --kind parser-proposals \
