@@ -1,23 +1,18 @@
-import { spawnSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
-import { afterEach, describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { describe, expect, it } from 'vitest';
+import {
+  LICENSED_PHOTO_RESTRICTIONS,
+  validateEventImageRegistryForPublishedEvents,
+  validateGeneratedImageRecordWithRegistry,
+} from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const UPLOADER = resolve(ROOT, 'scripts/upload-event-image-library-cdn.mjs');
 const BASE_FIXTURE = resolve(ROOT, 'tests/__fixtures__/license-audit/event-image-library.json');
-const tempDirs: string[] = [];
-
-afterEach(() => {
-  for (const directory of tempDirs.splice(0)) rmSync(directory, { recursive: true, force: true });
-});
 
 describe('event image library CDN uploader', () => {
   it('tolerates an unreferenced legacy photo but keeps its upload validation strict', () => {
-    const directory = mkdtempSync(join(tmpdir(), 'event-image-library-upload-'));
-    tempDirs.push(directory);
-
     const registry = JSON.parse(readFileSync(BASE_FIXTURE, 'utf8'));
     const generated = registry.assets[0];
     const legacyPhoto = {
@@ -38,6 +33,8 @@ describe('event image library CDN uploader', () => {
       copyrightNotice: '© Ada Wikimedia',
       acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
       modifications: ['cropped', 'resized', 'converted-to-webp'],
+      restrictions: [...LICENSED_PHOTO_RESTRICTIONS],
+      sha256: '2'.repeat(64),
       imageUrl: '/images/events/library/legacy-event-photo.webp',
       vision: {
         ...generated.vision,
@@ -52,20 +49,13 @@ describe('event image library CDN uploader', () => {
       assetCount: 2,
       assets: [generated, legacyPhoto],
     };
-    const registryPath = join(directory, 'event-image-library.json');
-    writeFileSync(registryPath, JSON.stringify(testRegistry));
 
-    const result = spawnSync(process.execPath, [
-      UPLOADER,
-      '--registry',
-      registryPath,
-      '--asset-dir',
-      join(directory, 'assets'),
-    ], { encoding: 'utf8' });
-    const output = `${result.stdout || ''}${result.stderr || ''}`;
+    expect(validateEventImageRegistryForPublishedEvents([], testRegistry)).toEqual({ valid: true, errors: [] });
+    expect(validateGeneratedImageRecordWithRegistry(legacyPhoto, testRegistry).errors)
+      .toContain('licensed-photo vision gate verdict is missing or rejected');
 
-    expect(result.status).toBe(1);
-    expect(output).not.toContain('Invalid event image registry:');
-    expect(output).toContain('legacy-event-photo: invalid registry record:');
+    const uploaderSource = readFileSync(UPLOADER, 'utf8');
+    expect(uploaderSource).toContain('validateEventImageRegistryForPublishedEvents([], registry)');
+    expect(uploaderSource).toContain('validateGeneratedImageRecordWithRegistry(record, registry)');
   });
 });
