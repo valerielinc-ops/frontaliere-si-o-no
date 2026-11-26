@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       max_jobs:
-        description: Max jobs for the cascade. Wall-clock-bound, not quota-bound — its 30min cascade window stops it first.
+        description: Max jobs for the cascade. Wall-clock-bound, not quota-bound — its queue-aware deadline stops it first.
         type: string
         default: "900"
       mopup_max_jobs:
@@ -711,6 +711,7 @@ jobs:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '9000000' }}
           JOBS_CASCADE_WINDOW_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '0' || '1800000' }}
+          JOBS_CASCADE_PER_COMPANY_BUDGET_MS: "900000"
           AZURE_TRANSLATOR_KEY: ""
           AZURE_TRANSLATOR_KEY_2: ""
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}

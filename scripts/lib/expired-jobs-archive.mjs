@@ -42,6 +42,11 @@ import {
 import { isHeldFromPublication } from './translation-publication-hold.mjs';
 import { assertByteSizeCeiling } from './assert-file-size-ceiling.mjs';
 import { readExpiredSliceRows, readExpiredSliceShards, writeExpiredSliceRows } from './expired-slice-store.mjs';
+import {
+  moveExpiredRouteCanton,
+  resolveExpiredRouteCanton,
+  setExpiredRouteCanton,
+} from './expired-route-canton.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -67,6 +72,7 @@ export function buildExpiredEntry(job) {
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
+    canton: job.canton || undefined,
     addressLocality: job.addressLocality || '',
     descriptionByLocale: job.descriptionByLocale || {},
     slugByLocale: job.slugByLocale || {},
@@ -81,6 +87,12 @@ export function buildExpiredEntry(job) {
       typeof job.previousSlugsByLocale === 'object' &&
       Object.keys(job.previousSlugsByLocale).length > 0
         ? JSON.parse(JSON.stringify(job.previousSlugsByLocale))
+        : undefined,
+    previousSlugCantonByLocale:
+      job.previousSlugCantonByLocale &&
+      typeof job.previousSlugCantonByLocale === 'object' &&
+      Object.keys(job.previousSlugCantonByLocale).length > 0
+        ? JSON.parse(JSON.stringify(job.previousSlugCantonByLocale))
         : undefined,
     postalCode: job.postalCode || '',
     streetAddress: job.streetAddress || '',
@@ -101,6 +113,7 @@ export function buildExpiredEntry(job) {
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
   if (!entry.salaryMax) delete entry.salaryMax;
+  if (!entry.canton) delete entry.canton;
   if (!entry.id) delete entry.id;
   if (entry.dedupArchive !== true) delete entry.dedupArchive;
   if (!entry.sourceIdentity) delete entry.sourceIdentity;
@@ -379,6 +392,7 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
           locale,
           cap: DEFAULT_PREV_SLUG_CAP,
         })) continue;
+        moveExpiredRouteCanton(expiredJob, locale, route, replacement);
         progressed = true;
         changed += 1;
         repairedRoutes += 1;
@@ -535,6 +549,7 @@ export function repairExpiredRoutesWithinArchive(
           locale,
           cap: DEFAULT_PREV_SLUG_CAP,
         })) continue;
+        moveExpiredRouteCanton(entry, locale, route, replacement);
 
         progressed = true;
         changed += 1;
@@ -615,6 +630,51 @@ export function mergeSourceIdentityHistory(survivor, removed) {
     sourceIdentity: survivor.sourceIdentity,
     firstSeenAt: survivor.firstSeenAt,
     sourceIdentityHistory: survivor.sourceIdentityHistory,
+  });
+  return before !== after;
+}
+
+/**
+ * Preserve route evidence when a historical archive payload is merged into a
+ * newer record for the same canonical slug. The newer payload remains the
+ * content winner, but its locale map/history must not erase routes that were
+ * actually served by the older payload. Canton is part of the public route;
+ * fill it only when the newer record has no value, never overwrite a newer
+ * explicit context.
+ *
+ * @returns {boolean} whether route evidence or context changed
+ */
+export function mergeExpiredRouteEvidence(survivor, historical, source = 'expired-route-evidence') {
+  if (!survivor || typeof survivor !== 'object' || !historical || typeof historical !== 'object') {
+    return false;
+  }
+  validateSlugHistoryShape(survivor, 'survivor');
+  validateSlugHistoryShape(historical, 'removed');
+  const before = JSON.stringify({
+    canton: survivor.canton,
+    location: survivor.location,
+    slugByLocale: survivor.slugByLocale,
+    previousSlugs: survivor.previousSlugs,
+    previousSlugsByLocale: survivor.previousSlugsByLocale,
+    previousSlugCantonByLocale: survivor.previousSlugCantonByLocale,
+  });
+  if (!survivor.canton && historical.canton) survivor.canton = historical.canton;
+  if (!survivor.location && historical.location) survivor.location = historical.location;
+  // The archive merge already carries locale-attributed evidence in its
+  // exact buckets. Do not flatten those values into legacy history a second
+  // time: that changes the persisted representation on the next identical
+  // crawl even though no route changed.
+  transferSlugHistory(survivor, historical, source, {
+    syncLegacy: false,
+    skipSelfCanonical: true,
+  });
+  const after = JSON.stringify({
+    canton: survivor.canton,
+    location: survivor.location,
+    slugByLocale: survivor.slugByLocale,
+    previousSlugs: survivor.previousSlugs,
+    previousSlugsByLocale: survivor.previousSlugsByLocale,
+    previousSlugCantonByLocale: survivor.previousSlugCantonByLocale,
   });
   return before !== after;
 }
@@ -701,7 +761,7 @@ function holdsDeterministicAlias(record, routeKey, heldKeys = localeRouteKeys(re
  *
  * @returns {boolean} whether the routes were merged
  */
-function mergeUnservedRoutesIntoRecord(record, routeKeys) {
+function mergeUnservedRoutesIntoRecord(record, routeKeys, sourceRecord) {
   const byLocale = {};
   for (const routeKey of routeKeys) {
     const locale = localeFromRouteKey(routeKey);
@@ -711,6 +771,12 @@ function mergeUnservedRoutesIntoRecord(record, routeKeys) {
     source: 'expired-jobs-archive.archiveRemovedJobsToSlice/same-identity',
     cap: DEFAULT_PREV_SLUG_CAP,
   });
+  for (const routeKey of routeKeys) {
+    const locale = localeFromRouteKey(routeKey);
+    const slug = rawRouteFromLocaleKey(routeKey);
+    const canton = resolveExpiredRouteCanton(sourceRecord, locale, slug);
+    if (canton) setExpiredRouteCanton(record, locale, slug, canton);
+  }
   return true;
 }
 
@@ -811,7 +877,7 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
           return !holdsDeterministicAlias(sameRecord, routeKey, held);
         });
         if (unserved.length === 0) continue;
-        if (mergeUnservedRoutesIntoRecord(sameRecord, unserved)) {
+        if (mergeUnservedRoutesIntoRecord(sameRecord, unserved, entry)) {
           addRouteHolders(sliceRouteHolders, unserved);
           metadataChanged = true;
           continue;
@@ -824,7 +890,12 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
       const previousMetadata = firstSeenMetadata(prev);
       unindexRecord(prev); // the replaced record no longer owns its identities or routes
       bySlug.set(entry.slug, entry);
-      const merged = mergeSourceIdentityHistory(entry, prev);
+      const routeEvidenceMerged = mergeExpiredRouteEvidence(
+        entry,
+        prev,
+        `archive-removed-jobs-to-slice/${crawlerKey}`,
+      );
+      const merged = mergeSourceIdentityHistory(entry, prev) || routeEvidenceMerged;
       indexRecord(entry); // after the merge: it may now carry the old record's identity history
       // A newer payload may replace a legacy entry that has no metadata. The
       // merge itself is intentionally a no-op when there is only one source
@@ -833,7 +904,14 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
         || previousMetadata !== firstSeenMetadata(entry)
         || metadataChanged;
     } else {
-      metadataChanged = mergeSourceIdentityHistory(prev, entry) || metadataChanged;
+      const routeEvidenceMerged = mergeExpiredRouteEvidence(
+        prev,
+        entry,
+        `archive-removed-jobs-to-slice/${crawlerKey}`,
+      );
+      metadataChanged = mergeSourceIdentityHistory(prev, entry)
+        || routeEvidenceMerged
+        || metadataChanged;
       // `prev` may have gained identities from `entry`'s history: keep the index in step.
       for (const identity of archiveRecordSourceIdentities(prev)) {
         let records = recordsBySourceIdentity.get(identity);
@@ -940,32 +1018,39 @@ export function archiveFilteredJobsToSlices(droppedRows, opts = {}) {
 }
 
 /** Preserve every route known by `removed` on `survivor`. */
-export function transferSlugHistory(survivor, removed, source = 'reconcile-crawler-company-ownership') {
-  if (removed?.previousSlugs != null && !Array.isArray(removed.previousSlugs)) {
-    throw new TypeError('transferSlugHistory: removed.previousSlugs must be an array');
-  }
-  if (removed?.previousSlugsByLocale != null) {
-    if (typeof removed.previousSlugsByLocale !== 'object' || Array.isArray(removed.previousSlugsByLocale)) {
-      throw new TypeError('transferSlugHistory: removed.previousSlugsByLocale must be an object');
-    }
-    for (const [locale, slugs] of Object.entries(removed.previousSlugsByLocale)) {
-      if (!Array.isArray(slugs)) {
-        throw new TypeError(`transferSlugHistory: removed.previousSlugsByLocale.${locale} must be an array`);
-      }
-    }
-  }
+export function transferSlugHistory(
+  survivor,
+  removed,
+  source = 'reconcile-crawler-company-ownership',
+  { syncLegacy = true, skipSelfCanonical = false } = {},
+) {
+  validateSlugHistoryShape(survivor, 'survivor');
+  validateSlugHistoryShape(removed, 'removed');
   let transferred = 0;
-  const requiredRoutes = new Map(LOCALES.map((locale) => [
-    locale,
-    new Set([
+  const requiredRoutes = new Map();
+  const requiredRouteCantons = new Map();
+  for (const locale of LOCALES) {
+    const required = new Set([
       ...getPreviousSlugsForLocale(survivor, locale),
       ...getPreviousSlugsForLocale(removed, locale),
       ...(removed.slugByLocale?.[locale] ? [removed.slugByLocale[locale]] : []),
       ...(locale === 'it' && removed.slug ? [removed.slug] : []),
-    ]),
-  ]));
-  const add = (locale, slug) => {
-    if (!slug || slug === survivor.slugByLocale?.[locale]) return;
+    ]);
+    requiredRoutes.set(locale, required);
+    const cantons = new Map();
+    for (const slug of required) {
+      const canton = resolveExpiredRouteCanton(removed, locale, slug)
+        || resolveExpiredRouteCanton(survivor, locale, slug);
+      if (canton) cantons.set(slug, canton);
+    }
+    requiredRouteCantons.set(locale, cantons);
+  }
+  const add = (locale, slug, routeCanton = resolveExpiredRouteCanton(removed, locale, slug)) => {
+    const activeSlug = skipSelfCanonical
+      ? survivor.slugByLocale?.[locale]
+        || (locale === 'it' ? survivor.slug : '')
+      : survivor.slugByLocale?.[locale];
+    if (!slug || slug === activeSlug) return;
     const before = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
     addPreviousSlugForLocale(
       survivor,
@@ -973,16 +1058,20 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
       slug,
       DEFAULT_PREV_SLUG_CAP,
       source,
+      { syncLegacy },
     );
     const after = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
     if (after > before) transferred += 1;
+    if (routeCanton) setExpiredRouteCanton(survivor, locale, slug, routeCanton);
   };
 
   for (const locale of LOCALES) {
     add(locale, removed.slugByLocale?.[locale]);
-    for (const slug of removed.previousSlugsByLocale?.[locale] || []) add(locale, slug);
+    for (const slug of removed.previousSlugsByLocale?.[locale] || []) {
+      add(locale, slug, resolveExpiredRouteCanton(removed, locale, slug));
+    }
   }
-  add('it', removed.slug);
+  add('it', removed.slug, resolveExpiredRouteCanton(removed, 'it', removed.slug));
 
   // A flat-only legacy slug has no locale provenance. The SEO bridge contract
   // deliberately serves it under every locale prefix. Attributing it to `it`
@@ -1002,6 +1091,10 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
       undefined,
       `${source}/flat-history`,
     )) transferred += 1;
+    const routeCanton = resolveExpiredRouteCanton(removed, 'it', slug);
+    if (routeCanton) {
+      for (const locale of LOCALES) setExpiredRouteCanton(survivor, locale, slug, routeCanton);
+    }
   }
 
   // Merging two histories can overflow a 20-entry locale bucket. Promote an
@@ -1021,11 +1114,52 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
         undefined,
         `${source}/cap-overflow`,
       );
+      const routeCanton = requiredRouteCantons.get(locale)?.get(slug);
+      if (routeCanton) {
+        for (const routeLocale of LOCALES) {
+          setExpiredRouteCanton(survivor, routeLocale, slug, routeCanton);
+        }
+      }
       served.add(slug);
       transferred += 1;
     }
   }
   return transferred;
+}
+
+function validateSlugHistoryShape(record, label) {
+  if (!record || typeof record !== 'object' || Array.isArray(record)) {
+    throw new TypeError(`transferSlugHistory: ${label} must be an object`);
+  }
+  if (record.previousSlugs != null && !Array.isArray(record.previousSlugs)) {
+    throw new TypeError(`transferSlugHistory: ${label}.previousSlugs must be an array`);
+  }
+  if (record.previousSlugsByLocale != null) {
+    if (typeof record.previousSlugsByLocale !== 'object' || Array.isArray(record.previousSlugsByLocale)) {
+      throw new TypeError(`transferSlugHistory: ${label}.previousSlugsByLocale must be an object`);
+    }
+    for (const [locale, slugs] of Object.entries(record.previousSlugsByLocale)) {
+      if (!Array.isArray(slugs)) {
+        throw new TypeError(`transferSlugHistory: ${label}.previousSlugsByLocale.${locale} must be an array`);
+      }
+    }
+  }
+  if (record.previousSlugCantonByLocale != null) {
+    if (typeof record.previousSlugCantonByLocale !== 'object'
+      || Array.isArray(record.previousSlugCantonByLocale)) {
+      throw new TypeError(`transferSlugHistory: ${label}.previousSlugCantonByLocale must be an object`);
+    }
+    for (const [locale, bySlug] of Object.entries(record.previousSlugCantonByLocale)) {
+      if (!bySlug || typeof bySlug !== 'object' || Array.isArray(bySlug)) {
+        throw new TypeError(`transferSlugHistory: ${label}.previousSlugCantonByLocale.${locale} must be an object`);
+      }
+      for (const [slug, canton] of Object.entries(bySlug)) {
+        if (typeof slug !== 'string' || typeof canton !== 'string' || !canton.trim()) {
+          throw new TypeError(`transferSlugHistory: ${label}.previousSlugCantonByLocale.${locale} must map slugs to canton strings`);
+        }
+      }
+    }
+  }
 }
 
 const compareCodeUnits = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
@@ -1051,6 +1185,10 @@ function compareArchiveEntries(a, b) {
     || compareCodeUnits(
       stableSerialize(a?.previousSlugsByLocale),
       stableSerialize(b?.previousSlugsByLocale),
+    )
+    || compareCodeUnits(
+      stableSerialize(a?.previousSlugCantonByLocale),
+      stableSerialize(b?.previousSlugCantonByLocale),
     )
     || compareCodeUnits(stableSerialize(a?.previousSlugs), stableSerialize(b?.previousSlugs));
 }

@@ -1,24 +1,24 @@
 {
   "key": "hugo-boss",
   "label": "Hugo Boss",
-  "generatedAt": "2026-11-25T09:51:25.886Z",
+  "generatedAt": "2026-11-25T21:49:40.217Z",
   "total": 1,
-  "discovered": 753,
+  "discovered": 752,
   "parsed": 1,
   "written": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25270,
-  "avgDurationMs": 25270,
+  "durationMs": 6557,
+  "avgDurationMs": 6557,
   "durationHistory": [
-    25270
+    6557
   ],
   "coverage": "complete",
   "terminationReason": null,
-  "sourceRecordsSeen": 753,
-  "sourceTotalHits": 753,
+  "sourceRecordsSeen": 752,
+  "sourceTotalHits": 752,
   "authoritativeSnapshotVerified": true,
   "newJobs": [],
   "updatedJobs": [
@@ -47,10 +47,10 @@
       "experienceLevel": "SENIOR",
       "sector": "Moda / Lusso",
       "firstSeenAt": "2026-10-17T09:51:52.899Z",
-      "crawledAt": "2026-11-25T09:51:13.568Z",
+      "crawledAt": "2026-11-25T21:49:24.887Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-16T09:51:13.568Z",
+      "validThrough": "2027-01-15T21:49:24.887Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -67,5 +67,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

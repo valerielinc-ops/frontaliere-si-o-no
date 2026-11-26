@@ -1,7 +1,7 @@
 {
   "key": "mistral-ai",
   "label": "Mistral AI",
-  "generatedAt": "2026-11-25T09:42:53.630Z",
+  "generatedAt": "2026-11-25T21:52:53.857Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3021,
-  "avgDurationMs": 3021,
+  "durationMs": 3276,
+  "avgDurationMs": 3276,
   "durationHistory": [
-    3021
+    3276
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/19026237-fb3d-480d-a1a3-27204bcb154a",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T09:42:37.397Z",
+      "crawledAt": "2026-11-25T21:52:34.965Z",
       "addressLocality": "Zurich | Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +60,7 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:42:37.397Z",
+      "validThrough": "2027-01-27T21:52:34.965Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T09:42:37.394Z",
+      "crawledAt": "2026-11-25T21:52:34.962Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,7 +105,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:42:37.394Z",
+      "validThrough": "2026-12-25T21:52:34.962Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -116,5 +116,5 @@
       }
     }
   ],
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

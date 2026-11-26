@@ -690,13 +690,12 @@
     "slugByLocale": {
       "it": "autista-postauto-postauto-ag-reichenburg",
       "en": "postauto-driver-postauto-ag-reichenburg",
-      "de": "postauto-fahrer-in-postauto-reichenburg",
+      "de": "postauto-fahrer-in-postauto-reichenburg-da847804",
       "fr": "conducteur-rice-postauto-postauto-ag-reichenburg"
     },
     "sector": "Trasporti pubblici / Autobus",
     "expiredAt": "2026-11-05T09:36:51.385Z",
     "previousSlugs": [
-      "postauto-fahrer-in-postauto-reichenburg",
       "postbus-driver-in-postauto-ag-ilanz",
       "postauto-fahrer-in-postauto-ilanz",
       "postbus-driver-in-postauto-ilanz",
@@ -713,11 +712,12 @@
       "pilote-postbus-in-postauto-ag-ilanz",
       "pilote-postbus-in-postauto-ag-reichenburg",
       "pilote-postbus-in-postauto-reichenburg",
-      "pilote-postbus-in-postauto-appenzell"
+      "pilote-postbus-in-postauto-appenzell",
+      "postauto-fahrer-in-postauto-reichenburg"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "postauto-fahrer-in-postauto-reichenburg",
+        "postauto-fahrer-in-postauto-reichenburg-da847804",
         "postbus-driver-in-postauto-ag-ilanz",
         "postauto-fahrer-in-postauto-ilanz",
         "postbus-driver-in-postauto-ilanz",
@@ -727,7 +727,8 @@
         "postbus-driver-in-postauto-appenzell",
         "postauto-fahrer-in-postauto-appenzell",
         "pilote-postbus-in-postauto-ag-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell"
+        "postbus-driver-in-postauto-ag-appenzell",
+        "postauto-fahrer-in-postauto-reichenburg"
       ],
       "en": [
         "postauto-fahrer-in-postauto-reichenburg",
@@ -751,7 +752,8 @@
       ],
       "de": [
         "postauto-fahrer-in-postauto-ilanz",
-        "postauto-fahrer-in-postauto-appenzell"
+        "postauto-fahrer-in-postauto-appenzell",
+        "postauto-fahrer-in-postauto-reichenburg-da847804"
       ]
     },
     "postalCode": "8864",
@@ -1616,7 +1618,6 @@
       "controleur-de-billetterie-in-et-conseil-client-postauto-chur",
       "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
       "biglietteria-in-e-consulenza-clienti-postauto-chur",
-      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
       "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag-521626cc",
       "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag",
       "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag-3e13143d",
@@ -2147,8 +2148,10 @@
       "controllore-trice-dei-biglietti-e-consulenza-alla-clientela-postauto-ag-brugg-ag",
       "ticket-inspector-and-customer-service-advisor-postauto-ag-brugg-ag",
       "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag",
+      "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
+      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
       "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
-      "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89"
+      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern-be0b5b17"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2161,7 +2164,7 @@
         "controleur-de-billetterie-in-et-conseil-client-postauto-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
         "biglietteria-in-e-consulenza-clienti-postauto-chur",
-        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern-be0b5b17",
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag-521626cc",
         "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag",
@@ -2687,13 +2690,13 @@
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag",
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
         "controllore-trice-dei-biglietti-e-consulenza-alla-clientela-postauto-ag-brugg-ag",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
       ],
       "en": [
         "ticket-controller-in-and-customer-advice-postauto-chur",
         "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
         "ticket-controller-in-and-customer-advice-postauto-ag-bern",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
         "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag",
         "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken-43d18b44",
@@ -2855,13 +2858,14 @@
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken-3da8eeea",
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
-        "ticket-inspector-and-customer-service-advisor-postauto-ag-brugg-ag"
+        "ticket-inspector-and-customer-service-advisor-postauto-ag-brugg-ag",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
       ],
       "fr": [
         "controleur-de-billetterie-en-et-conseil-client-postauto-chur",
         "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken",
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken-43d18b44",
@@ -3023,7 +3027,9 @@
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken-3da8eeea",
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
-        "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag"
+        "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
       ],
       "de": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
@@ -3290,6 +3296,7 @@
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag-a92ada98",
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
       ]
     },
@@ -4385,7 +4392,7 @@
     "firstSeenAt": "2026-08-20T21:39:58.447Z"
   },
   {
-    "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
+    "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern-f2dd3ff6",
     "title": "Ticketkontrolleur:in und Kundenberatung",
     "titleByLocale": {
       "it": "Biglietteria e consulenza clienti",
@@ -4404,7 +4411,7 @@
       "fr": "Vous aimez voyager et apprécier le contact direct avec les passagers? Ensuite, vous avez raison avec nous, car avec vous nos passagers font l'expérience d'un service de première classe et de conseils professionnels sur chaque kilomètre!\n\nTu peux le faire.\n\n- Avec votre équipe, vous assurez des contrôles de billets professionnels et contribuez ainsi de façon importante à l'obtention de revenus.\n\n- Du lundi au dimanche, vous serez sur nos lignes régionales variées.\n\n- Vous conseillez nos passagers avec compétence et courtoisie sur les questions de tarif et de calendrier et créez des expériences positives pour nos clients.\n\n- Vous assumez également des tâches spéciales telles que les enquêtes structurelles ou la prévention de la fraude.\n\nApporte ça avec toi.\n\n- Vous avez suivi une formation de base et avez le permis de conduire de catégorie B.\n\n- Grâce à votre nature orientée vers la solution, vous pouvez argumenter habilement et rester souverain et calme même dans des situations agitées.\n\n- Vous appréciez le contact quotidien avec le client et profitez de la variété que les horaires irréguliers (y compris le dimanche et les jours fériés) apportent avec eux.\n\n- Votre très bonne connaissance de l'allemand ainsi que la bonne connaissance du français et de l'anglais en paroles et en écriture et une utilisation expérimentée des appareils numériques complètent votre profil."
     },
     "slugByLocale": {
-      "it": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
+      "it": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern-f2dd3ff6",
       "en": "ticket-controller-in-and-customer-advice-postauto-ag-bern",
       "de": "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4",
       "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern"
@@ -4421,7 +4428,7 @@
       "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
       "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
       "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken",
-      "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
+      "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4432,21 +4439,21 @@
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag",
         "ticketkontrolleur-in-und-kundenberatung-post",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
+        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
       ],
       "en": [
-        "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
         "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag",
         "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
       ],
       "de": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4"
       ],
       "fr": [
-        "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken",
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"

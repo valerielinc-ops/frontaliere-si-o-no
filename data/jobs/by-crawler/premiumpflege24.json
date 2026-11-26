@@ -1,7 +1,7 @@
 {
   "crawlerKey": "premiumpflege24",
-  "assembledAt": "2026-11-25T09:56:27.523Z",
-  "runId": "45585358485",
+  "assembledAt": "2026-11-25T21:46:15.137Z",
+  "runId": "45704183777",
   "jobs": [
     {
       "id": "premiumpflege24-7a7d139b5aeb",
@@ -34,7 +34,7 @@
       "url": "https://premiumpflege24.ch/job-registrierung/",
       "source": "PremiumPflege24 GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:56:19.017Z",
+      "crawledAt": "2026-11-25T21:46:08.883Z",
       "addressLocality": "Schweiz",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "firstSeenAt": "2026-09-26T14:26:12.841Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:56:19.017Z",
+      "validThrough": "2026-12-25T21:46:08.883Z",
       "validThroughSource": "last-observed-window"
     }
   ]

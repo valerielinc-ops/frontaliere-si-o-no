@@ -243,18 +243,45 @@ const plannerProposing = async ({ prompt }: any) => {
   };
 };
 const plannerSilent = async () => ({ actions: [], missingRequired: [] });
+const plannerLocalizing = async ({ prompt }: any) => {
+  const text = String(prompt || '');
+  if (text.includes('You localize questions from an online job application')) {
+    const start = text.lastIndexOf('\n\n{');
+    const end = text.indexOf('\n\nReturn exactly one JSON object', start);
+    const payload = JSON.parse(text.slice(start + 2, end));
+    return {
+      questions: (payload.questions || []).map((item: any) => {
+        const applicationOptions = Array.isArray(item.applicationOptions) ? item.applicationOptions : [];
+        return {
+          id: item.id,
+          sourceLocale: 'en',
+          question: `Localized: ${item.question}`,
+          why: 'Il portale richiede il Paese di residenza.',
+          options: applicationOptions,
+          optionMap: applicationOptions.map((option: string) => ({ candidate: option, application: option })),
+        };
+      }),
+    };
+  }
+  return { actions: [], missingRequired: [] };
+};
 
-async function register(codex: (input: any) => Promise<any>, markup = SF_REGISTRATION, url = 'https://career55.sapsf.eu/career') {
+async function register(codex: (input: any) => Promise<any>, markup = SF_REGISTRATION, url = 'https://career55.sapsf.eu/career', candidate = sfCandidate(), { wireNotice = true, candidateLocale = 'en' } = {}) {
   const fixture = fakePage([markup], { url });
   const seen = wireSuccessFactors(fixture);
+  if (!wireNotice) {
+    fixture.element('notice').addEventListener('click', (event: any) => {
+      event.stopImmediatePropagation?.();
+    }, true);
+  }
   const { page } = fixture;
   const context: any = { on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page, close: async () => {}, waitForEvent: async () => null, addInitScript: async () => {} };
   page.context = () => context;
   const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
   const accounts: string[] = [];
   const result = await submitViaPortal({
-    applyUrl: page.url(), job: { title: 'Synthetic role', company: 'Example SpA' }, language: 'en', candidateLocale: 'en',
-    candidate: sfCandidate(), files: {}, skipPostingCheck: true, maxSteps: 1, codex, launch: async () => browser,
+    applyUrl: page.url(), job: { title: 'Synthetic role', company: 'Example SpA' }, language: 'en', candidateLocale,
+    candidate, files: {}, skipPostingCheck: true, maxSteps: 1, codex, launch: async () => browser,
     accounts: {
       load: async () => null,
       save: async () => { accounts.push('save'); },
@@ -262,7 +289,7 @@ async function register(codex: (input: any) => Promise<any>, markup = SF_REGISTR
       discard: async (_host: string, reason: string) => { accounts.push(`discard:${reason}`); },
     },
   });
-  return { auth: result.evidence.steps[0]?.auth, reason: result.event.reason, seen, accounts };
+  return { auth: result.evidence.steps[0]?.auth, eventType: result.event.type, reason: result.event.reason, questions: result.event.questions, seen, accounts };
 }
 
 describe('SuccessFactors registration: country, retyped e-mail, then the privacy statement', () => {
@@ -277,6 +304,53 @@ describe('SuccessFactors registration: country, retyped e-mail, then the privacy
       expect(seen.sent.password).toBe(seen.sent.passwordRepeat);
       expect(accounts).toEqual(['save', 'mark:created']);
     });
+
+  it('asks for the residence country instead of failing with privacy_not_accepted when an unplaced town leaves country empty', async () => {
+    const profile = { address: { city: 'zzzzzzzzzzzzzz', country: '' }, location: 'zzzzzzzzzzzzzz' };
+    const facts = platformCandidateFacts({
+      order: { candidateFacts: { workPermit: 'none', passport: 'eu_efta', nationality: 'tedesca' } },
+      profile,
+      identity: { firstName: 'Ada' },
+      locale: 'it',
+      seed: 'synthetic',
+    });
+    expect(facts.address.country).toBe('');
+    const candidate = candidateForForm({
+      identity: { name: 'Ada Esempio', firstName: 'Ada', lastName: 'Esempio', email: EMAIL, phone: '' },
+      profile,
+      platformFacts: facts,
+      language: 'en',
+    });
+    const { auth, eventType, reason, questions, seen, accounts } = await register(
+      plannerLocalizing,
+      SF_REGISTRATION,
+      'https://career2.successfactors.eu/career',
+      candidate,
+      { candidateLocale: 'it' },
+    );
+    expect(eventType).toBe('submit_needs_candidate');
+    expect(reason).not.toBe('privacy_not_accepted');
+    expect(auth).toMatchObject({ outcome: 'questions', privacy: 'unavailable' });
+    expect(questions).toEqual(expect.arrayContaining([
+      expect.objectContaining({ applicationQuestion: 'Country/Region of Residence:*' }),
+    ]));
+    expect(seen).toMatchObject({ opened: 0, ctaClicks: 0, created: 0 });
+    expect(accounts).toEqual([]);
+  });
+
+  it('keeps returning privacy_not_accepted when the country is known and the privacy modal still does not open', async () => {
+    const { auth, reason, seen, accounts } = await register(
+      plannerSilent,
+      SF_REGISTRATION,
+      'https://career2.successfactors.eu/career',
+      sfCandidate(),
+      { wireNotice: false },
+    );
+    expect(reason).toBe('privacy_not_accepted');
+    expect(auth).toMatchObject({ outcome: 'privacy_not_accepted', privacy: 'unavailable' });
+    expect(seen).toMatchObject({ opened: 0, ctaClicks: 0, created: 0 });
+    expect(accounts).toEqual([]);
+  });
 
   it('handles the Italian career2 account surface reported by portal-stop #19634', async () => {
     const { auth, reason, seen, accounts } = await register(

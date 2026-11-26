@@ -123,6 +123,7 @@ import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
 import { createExpiredArchivePublicationEvidence } from './shared/expiredArchivePublicationEvidence.mjs';
+import { resolveExpiredRouteCanton } from '../scripts/lib/expired-route-canton.mjs';
 import {
  isEdgeServedExpiredJob,
  isExpiredJobGa4EvidenceUsable,
@@ -15477,22 +15478,28 @@ ${staticAnalyticsHtml}
  // the same winner, even though only one shard writes each locale's HTML.
  for (let expiredSlugIndex = 0; expiredSlugIndex < expiredSlugs.length; expiredSlugIndex++) {
  const slug = expiredSlugs[expiredSlugIndex];
+ const expiredRouteOwner = expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug);
  const trackedPaths = tracking[slug];
- let paths = trackedPaths;
+ const routeAwarePaths = { ...trackedPaths };
+ for (const locale of localeList) {
+  const routeCanton = resolveExpiredRouteCanton(expiredRouteOwner, locale, slug);
+  if (routeCanton) routeAwarePaths[locale] = buildCanonicalJobDetailPath(locale, routeCanton, slug);
+ }
+ let paths = routeAwarePaths;
  let resolvedPaths: Record<string, string> | undefined;
  for (const locale of localeList) {
-  const trackedPath = trackedPaths[locale];
+  const trackedPath = routeAwarePaths[locale];
   if (!trackedPath) continue;
   const pathResolution = resolveExpiredPathForEmission(locale, trackedPath, slug);
   if (pathResolution.kind === 'skip') {
    if (pathResolution.reason === 'active-slug') expiredSkippedActiveSlug++;
-   if (!resolvedPaths) resolvedPaths = { ...trackedPaths };
+   if (!resolvedPaths) resolvedPaths = { ...routeAwarePaths };
    delete resolvedPaths[locale];
    continue;
   }
   if (pathResolution.canonicalizedLegacySection) {
    expiredLegacySectionCanonicalized++;
-   if (!resolvedPaths) resolvedPaths = { ...trackedPaths };
+   if (!resolvedPaths) resolvedPaths = { ...routeAwarePaths };
    resolvedPaths[locale] = pathResolution.path;
   }
  }
@@ -15503,7 +15510,7 @@ ${staticAnalyticsHtml}
   continue;
  }
  const expiredArchiveOverflowOwned = !expiredBySlug.has(slug) && expiredSliceOverflow.has(slug);
- const ejData = expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug);
+ const ejData = expiredRouteOwner;
 
  // For orphan slugs with no ejData, extract info from the slug itself
  const slugInfo = !ejData?.title ? extractInfoFromSlug(slug) : null;
@@ -16675,7 +16682,10 @@ ${staticAnalyticsHtml}
  // not let a job bridge occupy `/azienda-*` and produce a page without the
  // company-hub canonical contract (issue #2976).
  if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
- const trackedPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ const routeCanton = resolveExpiredRouteCanton(ej, baseLocale, foreignSlug);
+ const trackedPath = routeCanton
+  ? buildCanonicalJobDetailPath(baseLocale, routeCanton, foreignSlug)
+  : `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
  const pathResolution = resolveExpiredPathForEmission(baseLocale, trackedPath, foreignSlug);
  if (pathResolution.kind === 'skip') continue;
  const relPath = pathResolution.path;

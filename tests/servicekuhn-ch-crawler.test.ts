@@ -6,8 +6,19 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/servicekuhn-ch-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { loadSpec, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('servicekuhn crawler parser', () => {
+  it('accepts vacancy detail children while excluding the jobs landing page', () => {
+    const spec = loadSpec(SERVICEKUHN_CH_KEY);
+    const detailTemplate = templateToRegex(spec.detailTemplate);
+
+    expect(spec.detailTemplate).toBe('/jobs/*');
+    expect(detailTemplate.test('/jobs/')).toBe(false);
+    expect(detailTemplate.test('/jobs/automobil-mechatroniker/')).toBe(true);
+    expect(detailTemplate.test('/jobs/automobil-diagnostiker/')).toBe(true);
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(SERVICEKUHN_CH_KEY).toBe('servicekuhn-ch');

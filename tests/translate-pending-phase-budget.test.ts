@@ -15,7 +15,8 @@ import { decideRepairLane } from '../scripts/translate-repair-lane-gate.mjs';
  * translated 0 jobs while Azure answered "ok", 2c ran to the 210min envelope
  * and the Phase 2d/2e gate, at 212min, skipped the title lane. The budget is
  * now: 2a 75min (titles first), 2a.2 title residue to the free cascade 25min,
- * 2b a 30min window under a 150min ceiling, 2c up to 170min, 2d/2e after.
+ * 2b a 30min minimum window that scales with its queue under a 150min ceiling,
+ * 2c up to 170min, 2d/2e after.
  */
 
 const MIN = 60_000;
@@ -98,7 +99,7 @@ describe.each(TARGETS)('translate-pending phase budget (%s)', (rel) => {
     expect(timeoutMs - envelopeMs).toBe(140 * MIN);
   });
 
-  it('gives the cascade its full window when Argos and the title residue use all of theirs', () => {
+  it('gives the cascade its full minimum window when Argos and the title residue use all of theirs', () => {
     expect(bulkMs).toBe(75 * MIN);
     expect(titlesWindowMs).toBe(25 * MIN);
     expect(cascadeWindowMs).toBe(30 * MIN);
@@ -161,6 +162,14 @@ describe.each(TARGETS)('translate-pending phase budget (%s)', (rel) => {
   });
 });
 
+describe('effective translate-pending cascade budget', () => {
+  it('declares the same per-company budget used by the queue-aware runtime', () => {
+    const { byName } = load('.github/workflows/translate-pending-logic.yml');
+    const cascade = byName(/^Phase 2b:/).step;
+    expect(Number(cascade.env?.JOBS_CASCADE_PER_COMPANY_BUDGET_MS)).toBe(15 * MIN);
+  });
+});
+
 describe('relocalize-pending-jobs honours JOBS_CASCADE_WINDOW_MS', () => {
   function budgetMinutes(env: Record<string, string>, elapsedMin: number[]) {
     const runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'cascade-window-'));
@@ -189,5 +198,38 @@ console.log(JSON.stringify(${JSON.stringify(elapsedMin)}.map((e) => Math.round(m
   it('without a window keeps the run-wide deadline (Argos disabled)', () => {
     expect(budgetMinutes({ JOBS_CASCADE_DEADLINE_MS: '9000000', JOBS_CASCADE_WINDOW_MS: '0' }, [110, 135, 141]))
       .toEqual([15, 15, 9]);
+  });
+
+  it('scales a 160-company queue to the ceiling while preserving the mop-up gap', async () => {
+    const { cascadeQueueDeadlineMs } = await import('../scripts/relocalize-pending-jobs.mjs');
+    const deadlineMs = cascadeQueueDeadlineMs({
+      deadlineMs: 150 * MIN,
+      windowMs: 30 * MIN,
+      elapsedAtStartMs: 110 * MIN,
+      companyCount: 160,
+      perCompanyMs: 15 * MIN,
+    });
+
+    expect(deadlineMs).toBe(150 * MIN);
+    expect(deadlineMs - 110 * MIN).toBe(40 * MIN);
+    expect(170 * MIN - deadlineMs).toBe(20 * MIN);
+  });
+
+  it('keeps the minimum window for a short queue and the legacy ceiling without a window', async () => {
+    const { cascadeQueueDeadlineMs } = await import('../scripts/relocalize-pending-jobs.mjs');
+    expect(cascadeQueueDeadlineMs({
+      deadlineMs: 150 * MIN,
+      windowMs: 30 * MIN,
+      elapsedAtStartMs: 110 * MIN,
+      companyCount: 1,
+      perCompanyMs: 15 * MIN,
+    })).toBe(140 * MIN);
+    expect(cascadeQueueDeadlineMs({
+      deadlineMs: 250 * MIN,
+      windowMs: 0,
+      elapsedAtStartMs: 110 * MIN,
+      companyCount: 160,
+      perCompanyMs: 15 * MIN,
+    })).toBe(250 * MIN);
   });
 }, 300_000);

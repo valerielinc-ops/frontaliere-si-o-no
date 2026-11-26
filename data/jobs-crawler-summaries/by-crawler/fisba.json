@@ -1,7 +1,7 @@
 {
   "key": "fisba",
   "label": "FISBA AG",
-  "generatedAt": "2026-11-25T09:56:10.225Z",
+  "generatedAt": "2026-11-25T21:46:55.656Z",
   "total": 6,
   "discovered": 7,
   "parsed": 6,
@@ -55,13 +55,13 @@
         "url": "https://fisba.com/en/jobs/einkaufer-mw-100"
       },
       {
-        "status": 403,
-        "url": "https://fisba.com/en/jobs/spontaneous-unsolicited-application"
-      },
-      {
         "status": 200,
         "url": "https://fisba.com/en/jobs/einkaufer-mw-100",
         "proxiedBy": "jina"
+      },
+      {
+        "status": 403,
+        "url": "https://fisba.com/en/jobs/spontaneous-unsolicited-application"
       },
       {
         "status": 200,
@@ -106,10 +106,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 13822,
-  "avgDurationMs": 13822,
+  "durationMs": 12509,
+  "avgDurationMs": 12509,
   "durationHistory": [
-    13822
+    12509
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -127,7 +127,7 @@
       "url": "https://fisba.com/en/jobs/lernender-mechanikpraktikerin-eba-werkstoff-glas-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:55:50.394Z",
+      "crawledAt": "2026-11-25T21:46:39.126Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:55:50.394Z",
+      "validThrough": "2026-12-25T21:46:39.126Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:55:50.393Z",
+      "crawledAt": "2026-11-25T21:46:39.125Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -195,57 +195,12 @@
       "salarySource": "estimated",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:55:50.393Z",
+      "validThrough": "2026-12-25T21:46:39.125Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "fisba-f7f790a8715d",
-      "slug": "compratore-m-f-100-fisba-ag-st-gallen",
-      "company": "FISBA AG",
-      "companyKey": "fisba",
-      "companyDomain": "fisba.com",
-      "title": "Einkäufer (m/w) 100%",
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://fisba.com/en/jobs/einkaufer-mw-100",
-      "source": "FISBA AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:55:50.389Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9000",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-21",
-      "postedDate": "2026-10-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://fisba.com/en/jobs/einkaufer-mw-100",
-      "firstSeenAt": "2026-10-22T09:45:41.621Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "streetAddress": "St. Gallen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:55:50.389Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -262,7 +217,7 @@
       "url": "https://fisba.com/en/jobs/betriebsmechaniker-instandhaltungsmechaniker-mw",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:55:50.388Z",
+      "crawledAt": "2026-11-25T21:46:39.124Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -285,7 +240,52 @@
       "salarySource": "estimated",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:55:50.388Z",
+      "validThrough": "2027-01-24T21:46:39.124Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "fisba-f7f790a8715d",
+      "slug": "compratore-m-f-100-fisba-ag-st-gallen",
+      "company": "FISBA AG",
+      "companyKey": "fisba",
+      "companyDomain": "fisba.com",
+      "title": "Einkäufer (m/w) 100%",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://fisba.com/en/jobs/einkaufer-mw-100",
+      "source": "FISBA AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:46:39.124Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9000",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://fisba.com/en/jobs/einkaufer-mw-100",
+      "firstSeenAt": "2026-10-22T09:45:41.621Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T21:46:39.124Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -307,7 +307,7 @@
       "url": "https://fisba.com/en/jobs/operator-beschichtung-mw-100",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:55:50.386Z",
+      "crawledAt": "2026-11-25T21:46:39.123Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -330,7 +330,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:55:50.386Z",
+      "validThrough": "2027-02-15T21:46:39.123Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -352,7 +352,7 @@
       "url": "https://fisba.com/en/jobs/projektleiter-fur-optische-systeme-mw",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:55:50.382Z",
+      "crawledAt": "2026-11-25T21:46:39.121Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -375,7 +375,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:55:50.382Z",
+      "validThrough": "2027-02-18T21:46:39.121Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -386,5 +386,5 @@
       }
     }
   ],
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

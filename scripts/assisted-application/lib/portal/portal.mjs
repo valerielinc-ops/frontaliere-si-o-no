@@ -1030,6 +1030,30 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
   }
 }
 
+/**
+ * Derive SuccessFactors route provenance when the resolved application channel
+ * reached a SuccessFactors module or Talent Community route directly or through
+ * a verified Prospective ATS redirect (`via: 'prospective'`).
+ */
+export function successFactorsPostingRouteProof(channel = {}, fallbackPostingUrl = '') {
+  const via = String(channel?.via || '').trim();
+  const applyUrl = String(channel?.applyUrl || '').trim();
+  const postingUrl = String(channel?.postingUrl || fallbackPostingUrl || '').trim();
+  if (!applyUrl) return null;
+  if (via === 'successfactors') return { via: 'successfactors', applyUrl, postingUrl };
+  if (via !== 'prospective' || !postingUrl) return null;
+  try {
+    const parsed = new URL(applyUrl);
+    if (isSuccessFactorsModuleRoute(parsed)
+      || (isSuccessFactorsPortalUrl(parsed) && /^\/talentcommunity\/apply\/[^/]+\/?$/i.test(parsed.pathname))) {
+      return { via: 'successfactors', applyUrl, postingUrl };
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
 const LOCALE_PATH_SEGMENT_RE = /^(?:it|en|de|fr)(?:-[a-z]{2})?$/i;
 
 /**
@@ -6081,6 +6105,7 @@ export function formPostingMatch(formText, job = {}, {
   paidPostingUrl = '',
   pageHeading = '',
   pageHeadings = undefined,
+  formSections = [],
   postingRouteProof = null,
   applyUrl = '',
 } = {}) {
@@ -6226,7 +6251,16 @@ export function formPostingMatch(formText, job = {}, {
   if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });
-  const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, { pageUrl, applyUrl });
+  const successFactorsRoute = { pageUrl, applyUrl };
+  const requisitionSections = [...new Set(formSections.map(section => String(section || '').trim()))]
+    .filter(section => /\(\s*\d{1,20}\s*\)$/.test(section));
+  // Native application groups can expose their title through aria-labelledby
+  // without a standalone line in the body text or an H1.
+  const sectionBindsRequisition = requisitionSections.length === 1
+    && roleHeading !== 'mismatch'
+    && successFactorsRequisitionShown(requisitionSections[0], job, successFactorsRoute);
+  const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, successFactorsRoute)
+    || sectionBindsRequisition;
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
@@ -10634,6 +10668,38 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     await parkRegistrationCredential(authStop);
     return noted({ handoff: 'portal_needs_candidate', authStop });
   };
+  const missingRegistrationHandoff = async (snapshotForQuestions, planForQuestions, { onlyQuestionBatch = false } = {}) => {
+    const fields = (snapshotForQuestions?.fields || []).filter((field) => field.inputType !== 'password');
+    const requirements = portalRequirementsFromMissingRequired(fields, planForQuestions.missingRequired, {
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+    });
+    if (!onlyQuestionBatch) {
+      if (requirements.unreadableFields?.length) {
+        await parkRegistrationCredential('privacy_question_unreadable');
+        return noted({ handoff: 'question_label_unreadable' });
+      }
+      const missingRequiredFieldIds = new Set((planForQuestions.missingRequired || []).map((item) => item.fieldId).filter(Boolean));
+      const unhandledRequiredFiles = fields.filter((field) =>
+        (field.required === true || field.invalid === true || missingRequiredFieldIds.has(field.id))
+        && (field.kind === 'file' || field.inputType === 'file')
+        && !uploadIsSatisfied(field)
+        && !planForQuestions.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
+      if (unhandledRequiredFiles.length) {
+        await parkRegistrationCredential('privacy_required_file_unhandled');
+        return noted({ handoff: 'portal_required_file_unhandled' });
+      }
+    }
+    const request = await portalRequirementsForCandidate(requirements, {
+      candidateLocale: ctx.candidateLocale,
+      applicationLocale: ctx.language,
+      codex: ctx.codex,
+      log: ctx.log,
+    });
+    if (!request) return null;
+    await parkRegistrationCredential('privacy_question_missing');
+    return noted(request);
+  };
   while (true) {
     const plannedActions = registrationPlan.actions.filter((action) => !registrationActionSatisfied(
       registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
@@ -10654,6 +10720,14 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted' });
     if (preflight.privacy !== 'none') privacy = preflight.privacy;
     if (preflight.blocked) {
+      // A blocked statement (for instance SuccessFactors gating the privacy dialog
+      // on a still-empty residence country) is a candidate question when a required
+      // registration field cannot be answered without asking the applicant.
+      const blockedSnapshot = preflight.filled?.fields?.length
+        ? accountRegistrationSnapshot(preflight.filled)
+        : registrationSnapshot;
+      const blockedHandoff = await missingRegistrationHandoff(blockedSnapshot, registrationPlan, { onlyQuestionBatch: true });
+      if (blockedHandoff) return blockedHandoff;
       // Nothing was pressed, so no account came of this: as with no button, a
       // retry keeps the same unverified account's encrypted password.
       if (!retryingUnverifiedAccount && credentialSaved) await ctx.accounts.discard(host, 'privacy_not_accepted');
@@ -10690,36 +10764,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, {
-      candidate,
-      candidateLocale: ctx.candidateLocale,
-    });
-    if (stableRequirements.unreadableFields?.length) {
-      await parkRegistrationCredential('privacy_question_unreadable');
-      return noted({ handoff: 'question_label_unreadable' });
-    }
-    const missingRequiredFieldIds = new Set((stablePlan.missingRequired || []).map((item) => item.fieldId).filter(Boolean));
-    const unhandledRequiredFiles = stableRegistrationSnapshot.fields.filter((field) =>
-      (field.required === true || field.invalid === true || missingRequiredFieldIds.has(field.id))
-      && (field.kind === 'file' || field.inputType === 'file')
-      && !uploadIsSatisfied(field)
-      && !stablePlan.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
-    if (unhandledRequiredFiles.length) {
-      await parkRegistrationCredential('privacy_required_file_unhandled');
-      return noted({ handoff: 'portal_required_file_unhandled' });
-    }
     // Emit the hard-question batch only from this stable post-privacy plan;
     // the first registration plan may not include fields revealed by the notice.
-    const stableRequest = await portalRequirementsForCandidate(stableRequirements, {
-      candidateLocale: ctx.candidateLocale,
-      applicationLocale: ctx.language,
-      codex: ctx.codex,
-      log: ctx.log,
-    });
-    if (stableRequest) {
-      await parkRegistrationCredential('privacy_question_missing');
-      return noted(stableRequest);
-    }
+    const stableHandoff = await missingRegistrationHandoff(stableRegistrationSnapshot, stablePlan);
+    if (stableHandoff) return stableHandoff;
     const newlyRequiredActions = stablePlan.actions.filter((action) => !registrationActionSatisfied(
       stableRegistrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
     ));
@@ -12576,7 +12624,7 @@ export async function submitViaPortal(ctx) {
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
-    const formMatch = async () => {
+    const formMatch = async (current = snapshot) => {
       const pageUrl = page.url();
       const pageHeadings = await postingMainHeadings(page);
       const pageHeading = Array.isArray(pageHeadings) && pageHeadings.length === 1 ? pageHeadings[0] : '';
@@ -12603,6 +12651,7 @@ export async function submitViaPortal(ctx) {
         paidPostingUrl: ctx.postingUrl || '',
         pageHeading,
         pageHeadings,
+        formSections: current.fields.map(field => field.section),
         postingRouteProof: ctx.postingRouteProof,
         applyUrl: ctx.applyUrl,
       });
@@ -14305,7 +14354,7 @@ export async function submitViaPortal(ctx) {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
         ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
       });
-      const finalMatch = await formMatch();
+      const finalMatch = await formMatch(after);
       const expectedJobKey = portalJobKey(ctx.applyUrl, sourceProtocol);
       const currentJobKey = portalJobKey(page.url(), sourceProtocol);
       const workdayBound = !isWorkdayTenantUrl(ctx.applyUrl) || isWorkdayJobRouteBound(page.url(), ctx.applyUrl);

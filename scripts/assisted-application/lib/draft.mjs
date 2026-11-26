@@ -85,7 +85,7 @@ import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, mergeRequiredDocuments, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
-import { candidateForForm, portalQuestionKey, portalReaderErrorClass, postingAddressForPortal } from './portal/portal.mjs';
+import { candidateForForm, portalQuestionKey, portalReaderErrorClass, postingAddressForPortal, successFactorsPostingRouteProof } from './portal/portal.mjs';
 import { compactApplicationContract } from './portal/application-contract.mjs';
 import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
@@ -515,18 +515,13 @@ export async function buildDraft(ctx) {
     try {
       // The pre-read is an optimisation of the first review, never a gate on
       // the draft: a reader that throws is recorded like one that hands off.
+      const routeProof = successFactorsPostingRouteProof(channel, posting.postingUrl || order.jobUrl || '');
       portalResult = await Promise.resolve().then(() => readPortal({
         channelType: channel.type,
         applyUrl: channel.applyUrl,
         postingUrl: portalPostingUrl,
         job: portalJob,
-        ...(channel.via === 'successfactors' ? {
-          postingRouteProof: {
-            via: 'successfactors',
-            applyUrl: channel.applyUrl,
-            postingUrl: posting.postingUrl || order.jobUrl || '',
-          },
-        } : {}),
+        ...(routeProof ? { postingRouteProof: routeProof } : {}),
         language,
         candidateLocale: locale,
         candidate: candidateForForm({

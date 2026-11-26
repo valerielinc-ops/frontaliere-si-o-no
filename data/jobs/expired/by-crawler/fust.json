@@ -524,12 +524,12 @@
       "assistant-a-l-assemblage-pour-la-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-dubendorf",
       "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen-e3eab915",
       "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen-c6cd2e45",
-      "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen",
-      "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen",
       "assistente-al-montaggio-per-la-consegna-a-domicilio-di-elettrodomestici-fust-oberburen",
       "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen",
       "assembly-assistant-for-home-delivery-of-household-electrical-appliances-fust-oberburen",
-      "assistant-e-de-montage-pour-la-livraison-a-domicile-d-appareils-electromenagers-fust-oberburen"
+      "assistant-e-de-montage-pour-la-livraison-a-domicile-d-appareils-electromenagers-fust-oberburen",
+      "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen",
+      "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -8020,21 +8020,26 @@
     },
     "slugByLocale": {
       "it": "proprietario-del-prodotto-fust-oberburen",
-      "en": "product-owner-fust-oberburen",
-      "de": "product-owner-fust-oberburen",
+      "en": "product-owner-fust-oberburen-24d7379b",
+      "de": "product-owner-fust-oberburen-24d7379b",
       "fr": "proprietaire-du-produit-fust-oberburen"
     },
     "sector": "",
     "expiredAt": "2026-10-15T21:39:43.062Z",
-    "previousSlugs": [
-      "product-owner-fust-oberburen"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "product-owner-fust-oberburen-24d7379b",
         "product-owner-fust-oberburen"
       ],
       "fr": [
+        "product-owner-fust-oberburen-24d7379b",
         "product-owner-fust-oberburen"
+      ],
+      "en": [
+        "product-owner-fust-oberburen-24d7379b"
+      ],
+      "de": [
+        "product-owner-fust-oberburen-24d7379b"
       ]
     },
     "postalCode": "9245",
@@ -8044,7 +8049,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.fust.ch/offene-stellen/product-owner/28e0a80f-677f-41a2-a5e2-409663582055",
-    "firstSeenAt": "2026-09-21T16:17:43.102Z"
+    "firstSeenAt": "2026-09-21T16:17:43.102Z",
+    "previousSlugs": [
+      "product-owner-fust-oberburen"
+    ]
   },
   {
     "slug": "servicetechniker-in-professional-solutions-fust-oberburen",
@@ -9939,7 +9947,9 @@
       "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-hinwil-ae0bafe7",
       "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil-240733cd",
       "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-hinwil",
-      "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil"
+      "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil",
+      "retail-specialist-efz-designing-shopping-experiences-fust-hinwil",
+      "specialiste-du-commerce-de-detail-cfc-conception-d-experiences-d-achat-fust-hinwil"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -9955,11 +9965,13 @@
       ],
       "en": [
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-hinwil",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil",
+        "retail-specialist-efz-designing-shopping-experiences-fust-hinwil"
       ],
       "fr": [
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-hinwil",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-hinwil",
+        "specialiste-du-commerce-de-detail-cfc-conception-d-experiences-d-achat-fust-hinwil"
       ]
     },
     "salaryMin": 113000,
@@ -10220,7 +10232,9 @@
       "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-volketswil-f997525f",
       "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil-867d5872",
       "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-volketswil",
-      "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil"
+      "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil",
+      "retail-specialist-efz-designing-shopping-experiences-fust-volketswil",
+      "specialiste-du-commerce-de-detail-cfc-conception-d-experiences-d-achat-fust-volketswil"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -10236,11 +10250,13 @@
       ],
       "en": [
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-volketswil",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil",
+        "retail-specialist-efz-designing-shopping-experiences-fust-volketswil"
       ],
       "fr": [
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-volketswil",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-volketswil",
+        "specialiste-du-commerce-de-detail-cfc-conception-d-experiences-d-achat-fust-volketswil"
       ]
     },
     "salaryMin": 113000,
