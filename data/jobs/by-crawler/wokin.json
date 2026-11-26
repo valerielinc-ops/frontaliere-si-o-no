@@ -99,7 +99,8 @@
       },
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-14T09:54:30.170Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://wokin.ch/stellen"
     }
   ]
 }
