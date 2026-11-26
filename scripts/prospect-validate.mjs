@@ -62,6 +62,7 @@ import {
   promotionQueueFailures,
 } from './lib/prospector/promotion-gate.mjs';
 import { loadCoverage, tenantHostOwner } from './lib/prospector/coverage.mjs';
+import { loadSourceHostOwnership } from './lib/crawler-source-hosts.mjs';
 import {
   alignCandidateQualityContractVersion,
   CURRENT_QUALITY_CONTRACT_VERSION,
@@ -274,6 +275,7 @@ specs = specs.filter((s) => {
 const scheduledAt = new Date();
 const PRODUCTION_AUDIT_LIMIT = 5;
 const coverage = loadCoverage(ROOT);
+const ownership = loadSourceHostOwnership(ROOT, { urls: true });
 const productionAuditCandidates = [];
 const regularSpecs = [];
 for (const spec of specs) {
