@@ -8014,8 +8014,7 @@
       "cqv-engineer-qualification-validation-engineer-80-100-m-f-d-lonza-ch-84a792c1",
       "cqv-engineer-qualification-validation-engineer-80-100-m-f-d-lonza-ch-3055382d",
       "cqv-engineer-qualification-validation-engineer-80-100-m-f-d-lonza-ch-7240b87c",
-      "cqv-engineer-qualification-validation-engineer-80-100-m-f-d-lonza-ch",
-      "cqv-engineer-qualification-validation-engineer-80-100-m-f-d-lonza-ch-ce883691"
+      "cqv-engineer-qualification-validation-engineer-80-100-m-f-d-lonza-ch"
     ],
     "sourceIdentityHistory": [
       {
@@ -9362,7 +9361,6 @@
     "sector": "Farmaceutica / Biotecnologia",
     "expiredAt": "2026-10-04T09:18:59.215Z",
     "previousSlugs": [
-      "biotechnologist-m-f-d-lonza-ch",
       "biotechnologist-m-f-d-lonza-ch-2",
       "biotechnologist-m-w-d-lonza-ch-j4go5d",
       "biotechnologist-m-f-d-lonza-ch-j4go5d",
@@ -19544,7 +19542,6 @@
     "sector": "Farmaceutica / Biotecnologia",
     "expiredAt": "2026-07-06T14:10:50.662Z",
     "previousSlugs": [
-      "anlagen-und-apparatebau-rohrbau-80-100-m-f-d-lonza-ch",
       "anlagen-e-apparatebau-rohrbau-80-100-m-w-d-lonza-ch",
       "anlagen-e-apparatebauer-rohrbau-cfc-80-100-m-w-d-lonza-ch-1ywvbg",
       "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch",
@@ -26612,10 +26609,7 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugsByLocale": {
-      "it": []
-    }
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "operator-biotechnologist-f-m-d-lonza-ch",
@@ -26679,9 +26673,6 @@
     "salaryMin": 55500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugsByLocale": {
-      "it": []
-    }
+    "salaryPeriod": "YEAR"
   }
 ]
