@@ -43,7 +43,6 @@ const DETAIL_BASE = 'https://www.weissearena.com/jobs/details.html';
 const PAGE_SIZE = 50;
 const LISTING_SNAPSHOT_MAX_ATTEMPTS = 3;
 const LISTING_SNAPSHOT_RETRY_DELAY_MS = 500;
-const DETAIL_ABSENCE_MAX_CONCURRENCY = 4;
 const PAGINATION_INCOMPLETE_ERROR_CODE = 'WEISSE_ARENA_PAGINATION_INCOMPLETE';
 const INVALID_LISTING_ENVELOPE_ERROR_CODE = 'WEISSE_ARENA_INVALID_ENVELOPE';
 const RETRYABLE_LISTING_SNAPSHOT_ERROR_CODES = new Set([
@@ -275,32 +274,10 @@ async function callTalentLinkApi(url, body = null) {
   });
 }
 
-async function mapWithConcurrency(values, concurrency, mapper) {
-  const results = new Array(values.length);
-  let nextIndex = 0;
-  let stopped = false;
-  let firstError;
-
-  async function worker() {
-    while (!stopped && nextIndex < values.length) {
-      const index = nextIndex;
-      nextIndex += 1;
-      try {
-        results[index] = await mapper(values[index], index);
-      } catch (error) {
-        stopped = true;
-        firstError ??= error;
-      }
-    }
-  }
-
-  const workerCount = Math.min(concurrency, values.length);
-  await Promise.all(Array.from({ length: workerCount }, () => worker()));
-  if (firstError !== undefined) throw firstError;
-  return results;
-}
-
-async function verifyTalentLinkJobAbsence(jobId) {
+// Probe one omitted ID for diagnostics. A later detail error describes only
+// the individual request; TalentLink's offset endpoint supplies no documented
+// cross-page snapshot revision that would permit publishing a shrink.
+async function rejectUnprovenTalentLinkOmission(jobId) {
   const url = `${API_BASE}/${encodeURIComponent(jobId)}/details`;
   let response;
   let data;
@@ -324,7 +301,9 @@ async function verifyTalentLinkJobAbsence(jobId) {
     && data.errorCode === 'Bad Request'
     && data.errorMsg === 'Stelle nicht gefunden'
   ) {
-    return jobId;
+    throw createIncompleteSnapshotError(
+      `Weisse Arena detail reported TalentLink job ${jobId} not found, but the listing has no verified source snapshot version.`,
+    );
   }
 
   if (response.status === 200 && response.ok) {
@@ -344,7 +323,7 @@ async function verifyTalentLinkJobAbsence(jobId) {
   );
 }
 
-async function verifyExistingJobsAgainstListingSnapshot(snapshot, existingJobs) {
+async function verifyExistingJobsAgainstListingObservation(snapshot, existingJobs) {
   const baselineJobIds = (Array.isArray(existingJobs) ? existingJobs : []).map(existingTalentLinkJobId);
   if (new Set(baselineJobIds).size !== baselineJobIds.length) {
     throw createIncompleteSnapshotError(
@@ -360,23 +339,17 @@ async function verifyExistingJobsAgainstListingSnapshot(snapshot, existingJobs) 
   }
 
   const currentJobIdSet = new Set(currentJobIds);
-  const missingJobIds = baselineJobIds.filter((jobId) => !currentJobIdSet.has(jobId));
-  const absenceVerifiedJobIds = await mapWithConcurrency(
-    missingJobIds,
-    DETAIL_ABSENCE_MAX_CONCURRENCY,
-    verifyTalentLinkJobAbsence,
-  );
+  const missingJobId = baselineJobIds.find((jobId) => !currentJobIdSet.has(jobId));
+  if (missingJobId) await rejectUnprovenTalentLinkOmission(missingJobId);
 
-  return { baselineJobIds, currentJobIds, absenceVerifiedJobIds };
+  return { baselineJobIds, currentJobIds };
 }
 
 /**
- * Fetch all job listings from the TalentLink API.
- * Uses the source-declared count as a minimum completeness boundary. TalentLink
- * can return either a stable total or a count of jobs remaining at the current
- * offset, and the count may be stale or short. Keep the largest count and
- * expand the boundary with every observed row; an empty page after that
- * boundary is required to prove the crawl is complete.
+ * Observe listings from the TalentLink API. Its count can be a total or an
+ * offset-relative remainder, and it may be stale. Require an empty page after
+ * the largest observed count, while keeping the result non-authoritative:
+ * offset responses can come from different versions of the source.
  */
 async function fetchJobListingsOnce() {
   const allJobs = [];
@@ -492,8 +465,8 @@ async function fetchJobListingsOnce() {
     // firstResult is a record offset, not a page number. Advance by what the
     // source actually returned so a provider-side short page cannot skip the
     // records that follow it. Do not stop when the declared count is reached:
-    // the source can under-report that count, and only an empty page after the
-    // boundary proves that there are no more listings to read.
+    // the source can under-report that count. Use the empty page as the end
+    // of the observation.
     offset += jobs.length;
     await new Promise((r) => setTimeout(r, 500));
   }
@@ -502,7 +475,7 @@ async function fetchJobListingsOnce() {
     listings: allJobs,
     sourceListingSnapshot: {
       source: WEISSE_ARENA_KEY,
-      complete: true,
+      coverage: 'observed',
       pageCount,
       minimumExpectedCount,
       terminalOffset,
@@ -524,10 +497,10 @@ async function fetchJobListings({ existingJobs = [] } = {}) {
     try {
       const snapshot = await fetchJobListingsOnce();
       lastListingCount = snapshot.listings.length;
-      const absenceProof = await verifyExistingJobsAgainstListingSnapshot(snapshot, existingJobs);
+      const observedIdProof = await verifyExistingJobsAgainstListingObservation(snapshot, existingJobs);
       snapshot.sourceListingSnapshot = {
         ...snapshot.sourceListingSnapshot,
-        ...absenceProof,
+        ...observedIdProof,
       };
       return snapshot;
     } catch (error) {

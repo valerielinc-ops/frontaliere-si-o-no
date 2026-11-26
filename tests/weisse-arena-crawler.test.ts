@@ -25,7 +25,22 @@ import {
   parsePensum,
   buildDetailUrl,
 } from '../scripts/lib/weisse-arena-job-parser.mjs';
-import { getCompleteWeisseArenaListingSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  hasVerifiedWeisseArenaListingObservation,
+  runStandardCrawlerPipeline,
+  slugify,
+} from '../scripts/lib/crawler-template.mjs';
+
+const mocks = vi.hoisted(() => ({
+  readExistingCrawlerJobs: vi.fn(),
+  writeJobsCrawlerSliceVerified: vi.fn(),
+}));
+
+vi.mock('../scripts/assemble-jobs-dataset.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/assemble-jobs-dataset.mjs')>()),
+  ...mocks,
+  registerCrawlerSummaryGuard: vi.fn(),
+}));
 
 afterEach(() => vi.unstubAllGlobals());
 
@@ -368,7 +383,7 @@ describe('TalentLink pagination completeness', () => {
     return match ? Number(match[1]) : null;
   };
 
-  it('continues after a short page until an empty page proves completeness', async () => {
+  it('continues after a short page until an empty page ends the observation', async () => {
     const pages = new Map([
       [0, [listing(1, 'First role')]],
       [1, [listing(2, 'Second role'), listing(3, 'Third role')]],
@@ -388,6 +403,7 @@ describe('TalentLink pagination completeness', () => {
     expect(offsets).toEqual([0, 1, 3]);
     expect(jobs).toHaveLength(3);
     expect(jobs.map(({ title }) => title)).toEqual(['First role', 'Second role', 'Third role']);
+    expect(jobs.sourceListingSnapshot).toMatchObject({ coverage: 'observed', pageCount: 3 });
   });
 
   it('continues past an underreported globals.jobsCount', async () => {
@@ -411,7 +427,7 @@ describe('TalentLink pagination completeness', () => {
     expect(jobs.map(({ title }) => title)).toEqual(['First role', 'Second role', 'Third role']);
   });
 
-  it('retries a short listing snapshot against the persisted baseline before publishing a shrink', async () => {
+  it('retries a short listing until every persisted ID appears in the observation', async () => {
     const fullListings = Array.from({ length: 11 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
     const existingJobs = Array.from({ length: 11 }, (_, index) => existingJob(index + 1));
     const requests: number[] = [];
@@ -495,64 +511,91 @@ describe('TalentLink pagination completeness', () => {
     expect(existingJobs).toHaveLength(100);
   });
 
-  it('requires receipt absence evidence bound to the actual prior and parsed IDs', () => {
+  it.each([
+    { label: 'absent', firstEtag: '', terminalEtag: '' },
+    { label: 'equal', firstEtag: '"a"', terminalEtag: '"a"' },
+    { label: 'different', firstEtag: '"a"', terminalEtag: '"b"' },
+  ])('rejects a mutated offset crawl with $label ETags even if the omitted job now returns not found', async ({ firstEtag, terminalEtag }) => {
+    const page = Array.from({ length: 50 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
+    const existingJobs = Array.from({ length: 100 }, (_, index) => existingJob(index + 1));
+    const offsets: number[] = [];
+    const detailRequests: number[] = [];
+    let sourceMutated = false;
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = new URL(String(input));
+      const id = detailJobId(url);
+      if (id !== null) {
+        detailRequests.push(id);
+        return sourceMutated
+          ? new Response(JSON.stringify({ errorType: 'APPLICATION', errorCode: 'Bad Request', errorMsg: 'Stelle nicht gefunden' }), {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+          })
+          : Response.json({ jobFields: { id } });
+      }
+
+      const offset = Number(url.searchParams.get('firstResult'));
+      offsets.push(offset);
+      if (offset === 0) {
+        sourceMutated = false;
+        return Response.json({ globals: { jobsCount: 50 }, jobs: page }, {
+          headers: firstEtag ? { ETag: firstEtag } : undefined,
+        });
+      }
+      sourceMutated = true;
+      return Response.json({ globals: { jobsCount: 0 } }, {
+        headers: terminalEtag ? { ETag: terminalEtag } : undefined,
+      });
+    }));
+
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce(existingJobs);
+    const prepareExistingJobs = vi.fn(() => {
+      throw new Error('unversioned omission reached the merge stage');
+    });
+    await expect(runStandardCrawlerPipeline({
+      companyKey: WEISSE_ARENA_KEY,
+      companyLabel: WEISSE_ARENA_COMPANY_NAME,
+      fetchJobs: fetchAllWeisseArenaJobs,
+      isCompanyJob: isWeisseArenaJob,
+      prepareExistingJobs,
+    })).rejects.toThrow(
+      /snapshot remained incomplete.*job 51 not found.*no verified source snapshot version/i,
+    );
+    expect(prepareExistingJobs).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
+    expect(offsets).toEqual([0, 50, 0, 50, 0, 50]);
+    expect(detailRequests).toEqual([51, 51, 51]);
+    expect(existingJobs.map(({ url }) => new URL(url).searchParams.get('jobId')))
+      .toEqual(Array.from({ length: 100 }, (_, index) => String(index + 1)));
+  });
+
+  it('accepts only an observed receipt with every actual baseline ID present', () => {
     const existingJobs = Array.from({ length: 100 }, (_, index) => existingJob(index + 1));
     const parsedJobs = existingJobs.slice(0, 50);
     const numbers = parsedJobs.map((job) => job.jobNumber);
     const ids = (start: number, end: number) => Array.from({ length: end - start + 1 }, (_, index) => String(start + index));
     const snapshot = {
-      source: 'weisse-arena', complete: true, pageCount: 2, listingCount: 50,
+      source: 'weisse-arena', coverage: 'observed', pageCount: 2, listingCount: 50,
       minimumExpectedCount: 50, terminalOffset: 50, terminalJobsCount: 0, terminalJobsOmitted: true,
       listingIdentities: numbers, processedIdentities: numbers, listingJobNumbers: numbers,
       processedJobNumbers: numbers, processedCount: 50,
-      baselineJobIds: ids(1, 100), currentJobIds: ids(1, 50), absenceVerifiedJobIds: ids(51, 100),
+      baselineJobIds: ids(1, 50), currentJobIds: ids(1, 50),
     };
-    const check = (receipt: Record<string, unknown>) => getCompleteWeisseArenaListingSnapshot({
-      companyKey: 'weisse-arena', fetchMetadata: { discoveredCount: 50, sourceListingSnapshot: receipt },
-      parsedJobs, existingJobs,
-    });
-    expect(check(snapshot)).not.toBeNull();
-    expect(check({ ...snapshot, absenceVerifiedJobIds: undefined })).toBeNull();
-    expect(check({ ...snapshot, absenceVerifiedJobIds: ids(51, 99) })).toBeNull();
-    expect(check({ ...snapshot, baselineJobIds: ids(1, 99), absenceVerifiedJobIds: ids(51, 99) })).toBeNull();
-    expect(check({ ...snapshot, currentJobIds: ids(2, 51), absenceVerifiedJobIds: ids(52, 100) })).toBeNull();
-    expect(check({ ...snapshot, absenceVerifiedJobIds: [...ids(51, 100), '100'] })).toBeNull();
-    expect(check({ ...snapshot, absenceVerifiedJobIds: [...ids(51, 100), '101'] })).toBeNull();
-    expect(check({ ...snapshot, absenceVerifiedJobIds: [...ids(51, 99), '0100'] })).toBeNull();
-  });
-
-  it('authorizes a two-page shrink only after the native detail endpoint proves the missing job absent', async () => {
-    const currentListings = Array.from({ length: 50 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
-    const existingJobs = Array.from({ length: 51 }, (_, index) => existingJob(index + 1));
-    const listingOffsets: number[] = [];
-    const detailRequests: number[] = [];
-
-    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
-      const url = new URL(String(input));
-      const requestedDetailJobId = detailJobId(url);
-      if (requestedDetailJobId !== null) {
-        detailRequests.push(requestedDetailJobId);
-        return new Response(JSON.stringify({
-          errorType: 'APPLICATION',
-          errorCode: 'Bad Request',
-          errorMsg: 'Stelle nicht gefunden',
-        }), { status: 400, headers: { 'Content-Type': 'application/json' } });
-      }
-
-      const offset = Number(url.searchParams.get('firstResult'));
-      listingOffsets.push(offset);
-      const response = offset === 0
-        ? { globals: { jobsCount: 50 }, jobs: currentListings }
-        : { globals: { jobsCount: 0 } };
-      return new Response(JSON.stringify(response), { headers: { 'Content-Type': 'application/json' } });
-    }));
-
-    const jobs = await fetchAllWeisseArenaJobs({ existingJobs });
-
-    expect(jobs).toHaveLength(50);
-    expect(listingOffsets).toEqual([0, 50]);
-    expect(detailRequests).toEqual([51]);
-    expect(jobs.sourceListingSnapshot.absenceVerifiedJobIds).toEqual(['51']);
+    const check = (receipt: Record<string, unknown>, prior = existingJobs.slice(0, 50)) => (
+      hasVerifiedWeisseArenaListingObservation({
+        companyKey: 'weisse-arena',
+        fetchMetadata: { discoveredCount: 50, sourceListingSnapshot: receipt },
+        parsedJobs,
+        existingJobs: prior,
+      })
+    );
+    expect(check(snapshot)).toBe(true);
+    expect(check(snapshot, existingJobs)).toBe(false);
+    expect(check({ ...snapshot, baselineJobIds: ids(1, 100), absenceVerifiedJobIds: ids(51, 100) }, existingJobs)).toBe(false);
+    expect(check({ ...snapshot, coverage: undefined, complete: true })).toBe(false);
+    expect(check({ ...snapshot, currentJobIds: ids(2, 51) })).toBe(false);
+    expect(check({ ...snapshot, currentJobIds: [...ids(1, 49), '49'] })).toBe(false);
+    expect(check({ ...snapshot, currentJobIds: [...ids(1, 49), '050'] })).toBe(false);
   });
 
   it.each([
