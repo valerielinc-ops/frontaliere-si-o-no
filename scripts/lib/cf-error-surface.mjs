@@ -22,6 +22,7 @@
  */
 
 import { PUBLIC_CONFIG_PATH } from '../../services/publicConfigConstants.mjs';
+import { SECTION_ROUTES } from '../../infra/cloudflare-worker/locale-router.js';
 
 /** R2 CDN host. Also used by cf-5xx-snapshot.mjs for per-surface reporting. */
 export const CDN_HOST = 'cdn.frontaliereticino.ch';
@@ -37,13 +38,34 @@ export const GH_NANAKO_TUNNEL_HOST = 'gh-nanako.frontaliereticino.ch';
 export const GH_NANAKO_AGENTI_TUNNEL_HOST = 'gh-nanako-agenti.frontaliereticino.ch';
 
 /**
- * Path prefixes served by the `frontaliere-locale-router` Worker to the per-locale Pages
- * shards. Same list as the `locale-shard-failover-cache` expression in
- * cf-locale-failover-setup.mjs — a locale added there must be added here.
+ * Generic locale prefixes served by the `frontaliere-locale-router` Worker to the per-locale
+ * Pages shards. Section routes are more specific and live in `SECTION_SHARD_PREFIXES` below;
+ * keeping this fallback preserves the `/en|/de|/fr` root contract without guessing that every
+ * localized path belongs to the same kind of origin.
  */
 export const LOCALE_SHARD_PREFIXES = ['/en/', '/de/', '/fr/'];
 /** Exact shard root paths, from the expression of that same rule. */
 export const LOCALE_SHARD_EXACT = new Set(['/en', '/de', '/fr', '/en.html', '/de.html', '/fr.html']);
+
+/**
+ * Section prefixes that the Worker sends to a per-locale Pages shard.
+ *
+ * This is derived from the Worker's dispatch table rather than copied here. In particular,
+ * `/articoli-frontaliere/` is an IT section route even though it has no `/en|/de|/fr` prefix;
+ * omitting that route silently misattributes its 5xx responses to the apex Pages origin.
+ */
+export const SECTION_SHARD_PREFIXES = Object.freeze(
+  [...new Set(SECTION_ROUTES.map((route) => route.prefix))],
+);
+
+/** Mirror `matchSection()`'s boundary rules for the observability taxonomy. */
+export function isSectionShardPath(pathname) {
+  return SECTION_SHARD_PREFIXES.some(
+    (prefix) => pathname === prefix
+      || pathname === `${prefix}.html`
+      || pathname.startsWith(`${prefix}/`),
+  );
+}
 
 /**
  * The surfaces. `origin` is the field that matters for diagnosis: it says WHO failed to
@@ -139,6 +161,7 @@ export function classifySurface(row) {
   const path = row?.path == null ? null : String(row.path);
   if (path === '' || path === null) return 'apex-unknown';
   if (path === PUBLIC_CONFIG_PATH) return 'worker-public-config';
+  if (isSectionShardPath(path)) return 'worker-shard';
   if (LOCALE_SHARD_EXACT.has(path)) return 'worker-shard';
   if (LOCALE_SHARD_PREFIXES.some((p) => path.startsWith(p))) return 'worker-shard';
   return 'apex-pages';
