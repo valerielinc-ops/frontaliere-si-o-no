@@ -126,7 +126,7 @@ it.each([
           expect(article[key]).toBe(value);
           expect(html).toContain(`<meta property="${property}" content="${value}">`);
           expect(byline).toContain(`itemprop="${key}"`);
-          expect(byline).toContain(`datetime="${value.slice(0,10)}"`);
+          expect(byline).toContain(`datetime="${key === 'datePublished' ? value : value.slice(0, 10)}"`);
         } else {
           expect(article).not.toHaveProperty(key);
           expect(html).not.toContain(`property="${property}"`);

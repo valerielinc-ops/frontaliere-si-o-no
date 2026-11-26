@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { stripAmbiguousPrePublicationUpdates } from '../scripts/lib/article-registry-date-coherence.mjs';
+import { applyPublishedArticleUpdates, stripAmbiguousPrePublicationUpdates } from '../scripts/lib/article-registry-date-coherence.mjs';
 
 const PULL_SOURCE = fs.readFileSync(
   path.resolve(__dirname, '../scripts/pull-articles-corpus.mjs'),
@@ -60,6 +60,17 @@ const RAW_ARTICLES = [...RAW_ARTICLES_CHUNK_01];
 
     expect(result.removedIds).toEqual(['ambiguous']);
     expect(result.source).toContain("metadata: { date: '2026-10-31T01:00:00.000Z', updatedAt: '2026-10-31' }");
+  });
+
+  it('preserves an unknown publication date shared by the corpus and API', () => {
+    const source = "const RAW_ARTICLES = [{ id: 'historical', date: '' }];";
+    expect(applyPublishedArticleUpdates(source, [{ id: 'historical', date: '' }])).toEqual({
+      source, updatedIds: [],
+    });
+    expect(() => applyPublishedArticleUpdates(source, [{ id: 'historical', date: 'unknown' }]))
+      .toThrow('invalid published date');
+    expect(() => applyPublishedArticleUpdates(source, [{ id: 'historical', date: new Date().toISOString() }]))
+      .toThrow('disagrees with pinned API');
   });
 
   it('wires the projection after the mirror so both configured registries are covered', () => {

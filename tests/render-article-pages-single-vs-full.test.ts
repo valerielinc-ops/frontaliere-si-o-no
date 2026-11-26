@@ -230,20 +230,19 @@ describe('renderArticlePages — batched onlyArticleIds render equals full-secti
 // zone — and CI builds in UTC, where that instant is 23:00 the previous day.
 // Production before the fix, on /articoli-frontaliere/confronto-assicurazioni-auto/:
 //   <time datetime="2026-02-26" itemprop="datePublished">25 febbraio 2026</time>
-// Google reads the attribute, the reader reads the text, and they disagreed by a
-// day on ~142 articles. This asserts they agree, for an article that actually
-// sits in the midnight-CET window where the bug bit.
+// The visible date uses Swiss local time, while datetime and JSON-LD
+// retain the source timestamp.
 describe('article byline date agrees with its own datetime attribute', () => {
   const MONTHS_IT = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
 
-  it('renders the same calendar day in the attribute and in the visible text', async () => {
+  it('renders a zoned timestamp and shows the local publication time', async () => {
     const outDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-date-'));
     try {
       const res = await renderArticlePages({
         rootDir,
         distDir: outDir,
         section: 'svizzera',
-        onlyArticleId: 'costo-vita-svizzera-2026', // datePublished sits in the T00:xx+01:00 window
+        onlyArticleId: 'berna-non-vuole-creare-attriti-con-litalia', // Source timestamp is UTC during Swiss summer time
       });
       expect(res.entries).toHaveLength(1);
 
@@ -252,9 +251,11 @@ describe('article byline date agrees with its own datetime attribute', () => {
       expect(m, 'no datePublished <time> element found in the rendered article').not.toBeNull();
 
       const [, attr, visible] = m!;
+      expect(attr).toContain('T');
+      expect(html).toContain(`"datePublished":"${attr}"`);
       const [yearStr, monthStr, dayStr] = attr.split('T')[0].split('-');
-      const expected = `${Number(dayStr)} ${MONTHS_IT[Number(monthStr) - 1]} ${Number(yearStr)}`;
-      expect(visible.trim()).toBe(expected);
+      expect(visible).toContain(`${Number(dayStr)} ${MONTHS_IT[Number(monthStr) - 1]} ${Number(yearStr)}`);
+      expect(visible).toMatch(/\b22:38\b/);
     } finally {
       fs.rmSync(outDir, { recursive: true, force: true });
     }
