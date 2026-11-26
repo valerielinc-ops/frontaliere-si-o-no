@@ -53,8 +53,8 @@ function expectBudget(step: Step) {
   // dal budget di tempo e dal nuovo budget di caratteri; la variabile di
   // repository FREE_TRANSLATE_CODEX_MAX_CALLS resta il rollback immediato.
   expect(calls, step.name).toBe(350);
-  // Descrizioni (2b, 2e): 25 righe per richiesta, misurate con Codex Luna Max
-  // reale l'8 ottobre 2026; titoli (2a.2, 2d): 10.
+  // Descrizioni (prepass, 2b, 2e): 25 righe per richiesta, misurate con Codex
+  // Luna Max reale l'8 ottobre 2026; titoli (2a.2, 2d): 10.
   const isDescriptionRepair = /Phase 2[be]:/.test(String(step.name)) || step.name === STALE_PREPASS;
   expect(step.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS, step.name).toBe(isDescriptionRepair ? '25' : '10');
   expect(step.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS, step.name).toBe('3000');
