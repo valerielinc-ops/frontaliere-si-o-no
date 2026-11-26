@@ -421,7 +421,9 @@ describe('one code verdict and metadata-triggered review recovery', () => {
   });
 
   it('accepts only a tests pull_request run on the current PR branch', async () => {
-    expect(await runRecovery({ runEvent: 'push' })).toEqual({ reruns: [], dispatches: [] });
+    for (const runEvent of ['push', 'workflow_dispatch']) {
+      expect(await runRecovery({ runEvent })).toEqual({ reruns: [], dispatches: [] });
+    }
     expect(await runRecovery({ runBranch: 'another-branch' })).toEqual({ reruns: [], dispatches: [] });
     expect(await runRecovery({ runPath: '.github/workflows/other.yml' })).toEqual({ reruns: [], dispatches: [] });
   });
