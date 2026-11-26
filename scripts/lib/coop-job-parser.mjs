@@ -537,7 +537,8 @@ export function composeCoopFamilyDescription(markdown = '', page = null) {
  * Two reposts of one ad usually share their freshly built slug (same title,
  * same place): a slug the keeper already serves is not a route to bridge, and
  * handing it to `transferSlugHistory` would record the keeper's own URL as its
- * previous slug.
+ * previous slug. A legacy-route cap refusal leaves both live records separate:
+ * the duplicate cannot be removed unless every indexed route can be bridged.
  */
 function absorbRepublishedRoutes(keeper, removed) {
   const active = new Set([keeper?.slug, ...Object.values(keeper?.slugByLocale || {})].filter(Boolean));
@@ -701,6 +702,14 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
     if (keeper && keeper !== job) {
       const routeTransfer = absorbRepublishedRoutes(keeper, job);
       if (routeTransfer.capRefusal) {
+        // Callers that can archive the overflow keep the duplicate's routes
+        // in a separate expired record. Without that sink, leave both live
+        // records in place instead of dropping a page or throwing after the
+        // keeper's history has been left unchanged.
+        if (typeof onRouteHistoryOverflow !== 'function') {
+          kept.push(job);
+          continue;
+        }
         firstRouteCapRefusal ||= routeTransfer.capRefusal;
         routeHistoryOverflow.push(job);
       }
