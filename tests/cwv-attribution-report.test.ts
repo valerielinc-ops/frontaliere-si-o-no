@@ -309,7 +309,7 @@ describe('report', () => {
   });
 
   it('does not apply the valued INP gap guard to a CLS-only non-good window', async () => {
-    const { code, err, gh } = await run(
+    const { code, err, gh, out } = await run(
       ['--dry-run'],
       {
         ...FULL,
@@ -321,6 +321,7 @@ describe('report', () => {
     );
     expect(code).toBe(0);
     expect(err).not.toContain(VALUED_ATTRIBUTION_GAP_FAILURE_TITLE);
+    expect(out).toContain('_Nessun evento di attribuzione INP con valore e device nella finestra._');
     expect(gh).not.toHaveBeenCalled();
   });
 
