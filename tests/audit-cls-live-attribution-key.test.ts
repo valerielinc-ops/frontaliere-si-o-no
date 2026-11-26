@@ -197,6 +197,19 @@ describe('PSI response streams', () => {
     expect(attempts).toBe(3);
   });
 
+  it('non ritenta un 400 generico con payload non riconosciuto', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      return { ok: false, status: 400, text: async () => 'bad request' };
+    };
+
+    await expect(
+      runPsiRequest('https://example.test', 'mobile', '', fetchImpl, async () => {}),
+    ).rejects.toThrow('PSI 400');
+    expect(attempts).toBe(1);
+  });
+
   it('survives repeated terminated response bodies within the bounded retry budget', async () => {
     let attempts = 0;
     const fetchImpl = async () => {
