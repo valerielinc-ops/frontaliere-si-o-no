@@ -47,6 +47,15 @@ describe('meta-description-extract — quote-agnostic reader', () => {
         .toBe('Frontaliere');
     });
 
+    it('ignores metadata-shaped text outside live tags', () => {
+      const html = page(
+        '<div data-template=\'<meta name="description" content="fake">\'>'
+        + '</div><script>const fake = \'<meta name="description" content="fake-script">\';</script>'
+        + '<meta name="description" content="' + DESC + '">',
+      );
+      expect(extractMetaDescriptionRaw(html)).toBe(DESC);
+    });
+
     it('reads mixed quoting (unquoted name, single-quoted content)', () => {
       expect(extractMetaDescription(page(`<meta name=description content='${DESC}'>`))).toBe(DESC);
     });

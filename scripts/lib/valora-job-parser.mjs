@@ -54,6 +54,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { readMetaContent } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -403,8 +404,7 @@ async function fetchJobDetail(url) {
     return null;
   }
 
-  const titleMatch = html.match(/<meta name="title" content="([^"]*)"/i);
-  const rawTitle = titleMatch ? titleMatch[1] : '';
+  const rawTitle = readMetaContent(html, 'title');
   // Title meta reads "Job Title • Brand Name" — keep the job title only.
   const title = normalizeSpace((rawTitle.split('•')[0] || ''));
 

@@ -24,6 +24,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
+import { readMetaContent } from './html-attr.mjs';
 import {
   canonicalSwissCityName,
   inferAnyCanton,
@@ -402,9 +403,8 @@ export function parsePradaDetailHtml(html) {
   // SuccessFactors detail pages are often 100% JS-rendered.
   // Fallback to og:description or meta description which ARE server-rendered.
   if (!description || description.length < 30) {
-    const ogDescMatch = html.match(/<meta\s+property="[^"]*og:description[^"]*"\s+content="([^"]*)"/i)
-      || html.match(/<meta\s+content="([^"]*)"\s+property="[^"]*og:description[^"]*"/i);
-    if (ogDescMatch) description = normalizeSpace(ogDescMatch[1]);
+    const ogDescription = readMetaContent(html, 'og:description');
+    if (ogDescription) description = normalizeSpace(ogDescription);
   }
   if (!description || description.length < 30) {
     const metaRaw = extractMetaDescriptionRaw(html);

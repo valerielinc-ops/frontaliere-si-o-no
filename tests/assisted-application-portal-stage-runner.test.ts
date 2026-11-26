@@ -97,6 +97,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
     codex, launch: async () => browser, onBeforeSubmit: guard,
     onPortalNavigationDiagnostic: options.onPortalNavigationDiagnostic,
+    ...(Object.prototype.hasOwnProperty.call(options, 'maxRuntimeMs') ? { maxRuntimeMs: options.maxRuntimeMs } : {}),
     ...(options.portalReplay === true ? {
       portalReplay: true,
       portalReplayFenceInstalled: options.portalReplayFenceInstalled === true,
@@ -111,6 +112,16 @@ beforeEach(() => {
   vi.clearAllMocks();
 });
 describe('runner final guard across three application stages', () => {
+  it('hands off when the portal runtime budget expires before the job timeout', async () => {
+    const f = fixture(profile, null, review, null, { maxRuntimeMs: 1 });
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_needs_candidate' });
+    expect(result.evidence.runtimeBudget).toMatchObject({ maxRuntimeMs: 1 });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('navigates profile → review without a click claim, guards the final Apply once, then confirms this job receipt', async () => {
     const f = fixture();
     const result = await f.run();

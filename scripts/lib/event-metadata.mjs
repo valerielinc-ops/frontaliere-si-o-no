@@ -1,5 +1,6 @@
 import { cleanEventText, parsePriceText, withEventPriceSource } from './events-utils.mjs';
 import { normalizeSchemaOrgDateTime, normalizeSchemaOrgItemAvailability } from './schema-org-values.mjs';
+import { scanMarkupStartTags } from './html-attr.mjs';
 
 /**
  * Small normalizers for optional schema.org Event metadata.
@@ -621,8 +622,7 @@ function htmlAttribute(tag, name) {
 /** Read a source page's event image without trusting arbitrary body images. */
 export function firstEventImageUrlFromHtml(html, baseUrl) {
   if (typeof html !== 'string' || !html) return undefined;
-  const tags = html.match(/<meta\b[^>]*>/gi) || [];
-  for (const tag of tags) {
+  for (const { raw: tag } of scanMarkupStartTags(html, 'meta')) {
     const property = htmlAttribute(tag, 'property') || htmlAttribute(tag, 'name');
     if (!/^(?:og:image|twitter:image(?::src)?)$/i.test(property || '')) continue;
     const image = firstEventImageUrl(htmlAttribute(tag, 'content'), baseUrl);

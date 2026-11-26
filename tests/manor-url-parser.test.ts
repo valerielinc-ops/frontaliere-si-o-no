@@ -156,6 +156,14 @@ describe('Manor jobs2web URL and title parsing', () => {
     expect(parseJobPage(page, BIEL_URL).title).toBe('Senior Verkäufer*in 60%');
   });
 
+  it('ignores metadata-shaped text outside live tags', () => {
+    const fake = '<meta property="og:title" content="Fake title | Manor">';
+    const page = `<div data-template='${fake}'></div><script>const decoy = ${JSON.stringify(fake)};</script>`
+      + '<meta property="og:title" content="Senior Verkäufer*in 60% | Manor">';
+
+    expect(parseJobPage(page, BIEL_URL).title).toBe('Senior Verkäufer*in 60%');
+  });
+
   it('keeps the legacy itemprop title fallback for older templates', () => {
     const page = '<div itemprop="title">Senior Verkäufer*in 60%</div>';
 

@@ -51,7 +51,7 @@ describe('retry-code-check-after-body-edit: solo completion di pull_request', ()
   });
 
   it('scarta in script ogni completion su una HEAD superata, senza retry', () => {
-    expect(text).toContain('pr.head.sha !== run.head_sha) continue;');
+    expect(text).toContain('pr.head.sha !== run.head_sha || pr.head.ref !== run.head_branch) continue;');
   });
 });
 

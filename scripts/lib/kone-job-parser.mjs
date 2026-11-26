@@ -27,6 +27,7 @@ export const KONE_COMPANY_DOMAIN = 'kone.com';
 
 export const KONE_WORKDAY_TENANT_HOST = 'kone.wd3.myworkdayjobs.com';
 export const KONE_WORKDAY_SITE = 'Careers';
+export const KONE_WORKDAY_PUBLIC_URL = `https://${KONE_WORKDAY_TENANT_HOST}/de-DE/${KONE_WORKDAY_SITE}/`;
 
 const HQ = getCompanyDefaults(KONE_KEY);
 
@@ -37,6 +38,10 @@ const parser = createWorkdaySwissParser({
   tenantHost: KONE_WORKDAY_TENANT_HOST,
   sitePath: KONE_WORKDAY_SITE,
   careerUrl: 'https://www.kone.ch/de/unternehmen/karriere/',
+  // KONE's public Workday board is German. Use it as the same-origin browser
+  // bootstrap when the direct CXS request fails at the transport boundary;
+  // the factory's derived /en-US/ path is not KONE's public career route.
+  browserPublicUrl: KONE_WORKDAY_PUBLIC_URL,
   defaultCanton: HQ?.canton || 'LU',
   defaultCity: HQ?.city || 'Luzern',
   defaultPostalCode: HQ?.postalCode || '',

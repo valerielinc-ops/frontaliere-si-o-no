@@ -164,6 +164,9 @@ jobs:
           ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
           # Candidate-free proof used to close stale portal-stop issues after a pass.
           ASSISTED_APPLICATION_PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
+        # submitViaPortal hands off after 90 minutes; keep this independent
+        # ceiling below the 120-minute job limit if a regression bypasses it.
+        timeout-minutes: 100
         # Keep browser selection explicit and opt-in. The runner may click one
         # managed Turnstile checkbox; an unsuccessful check is handed off,
         # never solved with a token or extension. If CloakBrowser is
