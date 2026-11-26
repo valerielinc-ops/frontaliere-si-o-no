@@ -253,6 +253,17 @@ export function compactShiftItems(audit, limit = 5) {
   }));
 }
 
+/**
+ * What the log shows when NO_FCP outlives its budget. It keeps the `PSI 400`
+ * prefix, so `isInconclusivePsiError` stays false and the gate stays red, and it
+ * stays within the 200 characters the per-target log line prints.
+ */
+function noFcpPersistedMessage(url, strategy, attempts) {
+  const path = new URL(url).pathname;
+  return `PSI 400 NO_FCP after ${attempts} attempts, ${path} (${strategy}): `
+    + 'no CLS measured, gate stays red. Check that the page paints.';
+}
+
 export async function runPsiRequest(url, strategy, apiKey = '', fetchImpl = fetch, sleepImpl = sleep) {
   const params = new URLSearchParams({ url, strategy, category: 'performance' });
   if (apiKey) params.set('key', apiKey);
@@ -299,11 +310,16 @@ export async function runPsiRequest(url, strategy, apiKey = '', fetchImpl = fetc
     const isTransient5xx = r.status >= 500 && r.status < 600;
     const isRetryableNoFcp = isRetryableNoFcpResponse(r.status, body);
     lastError = new Error(`PSI ${r.status} for ${url} (${strategy}): ${body.slice(0, 200)}`);
-    if ((!isTransient5xx && !isRetryableNoFcp)
-      || attempt >= (isRetryableNoFcp ? PSI_NO_FCP_MAX_ATTEMPTS : PSI_MAX_ATTEMPTS)) {
+    if (isRetryableNoFcp && attempt >= PSI_NO_FCP_MAX_ATTEMPTS) {
+      throw new Error(noFcpPersistedMessage(url, strategy, attempt), { cause: lastError });
+    }
+    if ((!isTransient5xx && !isRetryableNoFcp) || attempt >= PSI_MAX_ATTEMPTS) {
       throw lastError;
     }
-    await sleepImpl(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
+    const waitMs = PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1);
+    // stderr, so `--json` output stays parseable.
+    console.error(`PSI ${isRetryableNoFcp ? 'NO_FCP' : `HTTP ${r.status}`} on attempt ${attempt} (${strategy}, ${url}): retrying in ${waitMs}ms`);
+    await sleepImpl(waitMs);
   }
   // Defensive — unreachable, the loop always either returns or throws.
   throw lastError || new Error(`PSI failed after ${PSI_MAX_ATTEMPTS} attempts for ${url} (${strategy})`);

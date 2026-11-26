@@ -242,16 +242,27 @@ describe('plate-auction ingest resilience', () => {
     });
     const previousCatalogue = Array.from({ length: 23 }, (_unused, index) => row(`ge-old-${index}`, index + 1, '2026-11-10T14:00:00.000Z'));
     const currentCatalogue = Array.from({ length: 23 }, (_unused, index) => row(`ge-new-${index}`, index + 101, geNow.toISOString()));
-    const snapshot = await collectPlateAuctions({
-      selectedCantons: ['ge'],
-      fetchers: { ge: async () => currentCatalogue },
-      previous: {
-        generatedAt: '2026-11-10T14:00:00.000Z',
-        sources: { ge: { lastSuccessAt: '2026-11-10T14:00:00.000Z' } },
-        auctions: previousCatalogue,
-      },
-      now: geNow,
-    });
+    // GE è `blocked` fuori sessione: apro la sessione di novembre 2026 solo qui,
+    // con `now` fisso, e rimetto la voce com'era (indipendente dall'orologio).
+    const geEntry = registry.sources.ge as Record<string, unknown>;
+    const geBefore = { ...geEntry };
+    Object.assign(geEntry, { status: 'active', activeUntil: '2026-11-26T10:00:00.000Z' });
+    let snapshot;
+    try {
+      snapshot = await collectPlateAuctions({
+        selectedCantons: ['ge'],
+        fetchers: { ge: async () => currentCatalogue },
+        previous: {
+          generatedAt: '2026-11-10T14:00:00.000Z',
+          sources: { ge: { lastSuccessAt: '2026-11-10T14:00:00.000Z' } },
+          auctions: previousCatalogue,
+        },
+        now: geNow,
+      });
+    } finally {
+      for (const k of Object.keys(geEntry)) delete geEntry[k];
+      Object.assign(geEntry, geBefore);
+    }
 
     expect(snapshot.sources.ge).toMatchObject({ status: 'active', rowCount: 46 });
     expect(snapshot.sources.ge).not.toHaveProperty('errorCode');

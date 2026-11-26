@@ -315,11 +315,13 @@ describe('seo-health-loop.mjs: il verdetto che il workflow legge', () => {
 
 const OPEN_STEP = 'Open one issue per degraded plate-auction source (dedup, zero-Claude)';
 const RESOLVE_STEP = 'Resolve issues of plate-auction sources that are healthy again';
-const sourceRegistryAsOf = new Date();
-const SOURCES = Object.fromEntries(Object.entries(registry.sources).map(([key, source]) => [
-  key,
-  resolvePlateAuctionSource(source, sourceRegistryAsOf),
-])) as Record<string, Record<string, unknown>>;
+// check-health.mjs risolve le fonti a sessione finita con l'orologio vero
+// (resolvePlateAuctionSource): le fixture usano lo stesso risolutore, così una
+// `activeUntil` che scade a calendario non cambia l'insieme delle fonti attive.
+const SOURCES = Object.fromEntries(
+  Object.entries(registry.sources as Record<string, Record<string, unknown>>)
+    .map(([key, source]) => [key, resolvePlateAuctionSource(source, new Date()) as Record<string, unknown>]),
+);
 
 /** Uno snapshot che il gate accetta, costruito dal registro (come in plate-auction-ingest.test.ts). */
 function healthySnapshot() {
@@ -436,6 +438,12 @@ describe('aste targhe: una issue per fonte degradata, chiusa al rientro', () => 
   it('le fonti attive esistono (precondizione delle fixture)', () => {
     expect(activeKeys.length).toBeGreaterThan(1);
     expect(activeKeys).toContain('be');
+  });
+
+  it('una fonte con activeUntil scaduta non conta tra le attive (indipendente dall orologio)', () => {
+    const expired = resolvePlateAuctionSource({ status: 'active', activeUntil: '2020-01-01T00:00:00.000Z' }, new Date());
+    expect(expired.status).toBe('blocked');
+    expect(activeKeys.every((k) => resolvePlateAuctionSource(registry.sources[k as keyof typeof registry.sources], new Date()).status === 'active')).toBe(true);
   });
 
   it('una fonte in errore in UNA run → una issue col nome della fonte, alla prima run', () => {

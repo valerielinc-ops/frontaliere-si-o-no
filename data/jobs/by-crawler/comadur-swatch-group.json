@@ -1,7 +1,7 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-11-26T09:30:57.992Z",
-  "runId": "45789003328",
+  "assembledAt": "2026-11-26T21:24:14.021Z",
+  "runId": "45895871343",
   "jobs": [
     {
       "id": "company-7ucqq9",
@@ -24,7 +24,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-25T21:27:56.631Z",
+      "crawledAt": "2026-11-26T21:23:40.152Z",
       "firstSeenAt": "2026-11-24T21:23:06.116Z",
       "titleByLocale": {
         "it": "Dipendenti/autoprotezioni(M/F) mech/industria",
@@ -77,10 +77,9 @@
       "addressRegion": "BE",
       "streetAddress": "Gwatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:27:56.631Z",
+      "validThrough": "2027-02-22T21:23:40.152Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34636",
-      "crawlerMissStreak": 1
+      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34636"
     }
   ]
 }

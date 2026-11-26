@@ -1,7 +1,7 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-11-26T09:19:44.751Z",
-  "runId": "45788845587",
+  "assembledAt": "2026-11-26T21:15:37.575Z",
+  "runId": "45895741910",
   "jobs": [
     {
       "id": "vaxcyte-dfe11ab55bc0",
@@ -34,7 +34,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:19:36.087Z",
+      "crawledAt": "2026-11-26T21:15:26.308Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -88,8 +88,9 @@
       },
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:19:36.087Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-03T21:15:26.308Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008"
     },
     {
       "id": "vaxcyte-31f5fba6f298",
@@ -122,7 +123,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008?gh_jid=5481965008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:19:36.071Z",
+      "crawledAt": "2026-11-26T21:15:26.284Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -177,8 +178,9 @@
       },
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:19:36.071Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-17T21:15:26.284Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5481965008?gh_jid=5481965008"
     },
     {
       "id": "vaxcyte-44aff7c349e6",
@@ -211,7 +213,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:19:36.030Z",
+      "crawledAt": "2026-11-26T21:15:26.219Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -265,8 +267,9 @@
       },
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:19:36.030Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-26T21:15:26.219Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008"
     }
   ]
 }

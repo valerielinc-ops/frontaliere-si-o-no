@@ -353,6 +353,7 @@ jobs:
         scripts/ci/lib/automation-risk-policy.mjs
         scripts/ci/lib/pr-delivery-evidence.mjs
         scripts/ci/claim-issue-in-flight.mjs
+        scripts/ci/repair-point-lease.mjs
         scripts/ci/check-issue-fix-dispatch.mjs
         .github/actions/claude-codex-fallback/action.yml
     steps:
@@ -964,6 +965,19 @@ jobs:
         #      only, no marker → proceeds, normal fixer runs unchanged).
         run: node scripts/ci/check-workflows-scope.mjs
 
+      - name: Pre-flight — repair-point lease (zero-LLM, fail-open)
+        id: repair_lease
+        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # Un punto di riparazione, un fixer: path in una PR del ciclo o nel claim di un altro
+        # fixer -> issue in `agent:fix-queued` (marker idempotente), niente agente. Vedi il
+        # docblock di scripts/ci/repair-point-lease.mjs.
+        run: node scripts/ci/repair-point-lease.mjs
+
       - name: Pre-flight — in-progress claim gate (zero-Claude, mutex)
         id: claim
         if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
@@ -976,6 +990,7 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           CLAIM_ACTION: acquire
           CLAIM_OWNER: remote
+          REPAIR_POINT_BLOCKED: ${{ steps.repair_lease.outputs.repair_point_blocked }}
         # STRUCTURAL fix per #4788/#4793: due sessioni (una interattiva locale, una questo
         # fixer autonomo) hanno lavorato la STESSA issue in parallelo → due PR competitive,
         # merge in conflitto. L'unica difesa esistente era un controllo prompt-level DENTRO
@@ -987,7 +1002,13 @@ jobs:
         # sessione l'ha presa per prima → skip totale, zero quota Max OAuth. Simmetrico alla
         # convenzione lato locale (`/fix-issue`, ISSUES.md "Fix flow"): chi reclama prima
         # vince, l'altro vede la label e si ferma prima di spendere turni.
-        run: node scripts/ci/claim-issue-in-flight.mjs
+        run: |
+          if [ "${REPAIR_POINT_BLOCKED:-}" = "true" ]; then
+            # Lease negata: stessi output di un claim occupato, cosi' ogni step a valle salta.
+            printf 'in_flight=true\nclaim_acquired=false\nclaim_owner=repair-point\nclaim_error=false\n' >> "$GITHUB_OUTPUT"
+          else
+            node scripts/ci/claim-issue-in-flight.mjs
+          fi
 
       - name: Determine fix tier
         id: tier

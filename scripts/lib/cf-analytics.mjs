@@ -161,6 +161,70 @@ async function fetchJsonWithDeadline(url, init, fetchImpl, timeoutMs) {
   }
 }
 
+/** An Error that keeps the HTTP status, so retry logic never parses messages. */
+export function cfHttpError(message, status) {
+  const error = new Error(message);
+  if (Number.isInteger(status)) error.status = status;
+  return error;
+}
+
+/**
+ * Only failures that say nothing about the request itself: HTTP 429/5xx, our
+ * request deadlines, and undici's network errors. 401/403, every other HTTP
+ * answer and unknown errors (including an invalid header value) are final.
+ */
+export function isTransientCfError(error) {
+  if (Number.isInteger(error?.status)) return error.status === 429 || (error.status >= 500 && error.status <= 599);
+  if (error?.name === 'TimeoutError') return true;
+  return error?.name === 'TypeError' && (error.message === 'fetch failed' || error.message === 'terminated');
+}
+
+/**
+ * The real failure text (plus the network cause), safe for a log: one line, with
+ * the token removed. undici quotes the whole header value in its "invalid header
+ * value" TypeError, so an unredacted message can print the credential.
+ */
+export function describeCfError(error, token) {
+  const cause = error?.cause;
+  const causeText = cause ? [cause.code, cause.message].filter(Boolean).join(' ') : '';
+  let text = `${error?.message || String(error)}${causeText ? ` (cause: ${causeText})` : ''}`;
+  text = text.replace(/Bearer\s+[^"'\s]+/g, 'Bearer [redacted]');
+  for (const secret of [token, token?.trim()]) {
+    if (secret) text = text.split(secret).join('[redacted]');
+  }
+  return text.replace(/\s+/g, ' ').trim();
+}
+
+export const CF_RETRY_ATTEMPTS = 3;
+const CF_RETRY_BASE_MS = 1000;
+
+/**
+ * Run an idempotent Cloudflare call with bounded exponential backoff (1s, 2s).
+ * Non-transient errors, and the last transient one, are rethrown unchanged.
+ */
+export async function withCfRetry(
+  operation,
+  {
+    label = 'Cloudflare request',
+    token,
+    attempts = CF_RETRY_ATTEMPTS,
+    baseMs = CF_RETRY_BASE_MS,
+    sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+    log = console.warn,
+  } = {},
+) {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await operation();
+    } catch (error) {
+      if (!isTransientCfError(error) || attempt >= attempts) throw error;
+      const waitMs = baseMs * 2 ** (attempt - 1);
+      log(`${label}: transient failure on attempt ${attempt}/${attempts}, retrying in ${waitMs}ms: ${describeCfError(error, token)}`);
+      await sleepImpl(waitMs);
+    }
+  }
+}
+
 /**
  * Resolve a zone id from its name (or return the override if provided).
  * @param {typeof fetch} [fetchImpl=fetch] network implementation
@@ -181,13 +245,15 @@ export async function resolveZoneId(
   );
   const httpStatus = Number.isInteger(res?.status) ? `HTTP ${res.status}` : 'HTTP status sconosciuto';
   if (!json) {
-    throw new Error(`Cloudflare zone lookup returned non-JSON (${httpStatus}).`);
+    throw cfHttpError(`Cloudflare zone lookup returned non-JSON (${httpStatus}).`, res?.status);
   }
   if (!json || !json.success || !json.result?.length) {
     const apiErrors = Array.isArray(json.errors) && json.errors.length > 0
       ? `: ${json.errors.map((error) => error?.message || JSON.stringify(error)).join('; ')}`
       : '';
-    throw new Error(`Could not resolve Cloudflare zone id for ${zoneName} (${httpStatus}; check token scope${apiErrors}).`);
+    // 429/5xx say nothing about the token: do not send the reader to its scope.
+    const hint = isTransientCfError({ status: res?.status }) ? '' : '; check token scope';
+    throw cfHttpError(`Could not resolve Cloudflare zone id for ${zoneName} (${httpStatus}${hint}${apiErrors}).`, res?.status);
   }
   return json.result[0].id;
 }

@@ -72,7 +72,7 @@ describe('plate-auction sources registry schema', () => {
     expect(Object.entries(registry.sources)
       .filter(([, entry]) => entry.status === 'active')
       .map(([key]) => key)
-      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'ge', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
+      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
   });
 
   it('never activates a source that has no fetcher, and never leaves a fetcher unbacked', async () => {
@@ -106,9 +106,11 @@ describe('plate-auction sources registry schema', () => {
     expect(FR_ECARI_CATALOGUE_URL).toBe('https://appls.ocn.ch/ecari-auction?locale=fr_ch');
     expect(registry.sources.fr.officialUrl).toBe(FR_ECARI_CATALOGUE_URL);
     expect(registry.sources.ne.status).toBe('blocked');
-    // GE: attivo solo per la sessione OCV corrente; Ricardo resta solo un link.
-    expect(registry.sources.ge.status).toBe('active');
-    expect(registry.sources.ge.activeUntil).toBe('2026-11-26T10:00:00.000Z');
+    // GE: bloccato fuori sessione (la sessione OCV di novembre 2026 e' finita il
+    // 2026-11-26T10:00Z); si riattiva con un activeUntil alla prossima lista.
+    // Ricardo resta solo un link.
+    expect(registry.sources.ge.status).toBe('blocked');
+    expect(registry.sources.ge).not.toHaveProperty('activeUntil');
     expect(registry.sources.ge.officialUrl).toBe('https://www.ge.ch/plaques/vente-aux-encheres-plaques');
     expect(registry.sources.ju.status).toBe('blocked');
     expect(registry.sources.ai.status).toBe('active');
@@ -123,9 +125,19 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.zg.status).toBe('no-public-auction');
   });
 
-  it('blocks GE at the inclusive end of its finite session', () => {
-    expect(resolvePlateAuctionSourceStatus(registry.sources.ge, new Date('2026-11-26T09:59:59.999Z'))).toBe('active');
-    expect(resolvePlateAuctionSourceStatus(registry.sources.ge, new Date('2026-11-26T10:00:00.000Z'))).toBe('blocked');
+  it('blocks a finite-session source at the inclusive end of its session', () => {
+    // Fixture propria: non dipende dalla voce viva (GE e' bloccato fuori sessione).
+    const session = { status: 'active', activeUntil: '2026-11-26T10:00:00.000Z' };
+    expect(resolvePlateAuctionSourceStatus(session, new Date('2026-11-26T09:59:59.999Z'))).toBe('active');
+    expect(resolvePlateAuctionSourceStatus(session, new Date('2026-11-26T10:00:00.000Z'))).toBe('blocked');
+  });
+
+  it('never leaves an expired activeUntil on an active source in the live registry', () => {
+    const now = new Date();
+    const expired = Object.entries(registry.sources)
+      .filter(([, entry]) => entry.status === 'active' && resolvePlateAuctionSourceStatus(entry, now) !== 'active')
+      .map(([key]) => key);
+    expect(expired).toEqual([]);
   });
 
   it('keeps current and historical rows aligned with canonical audited sources', () => {

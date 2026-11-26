@@ -708,6 +708,127 @@ describe('automatic section tree fan-out policy', () => {
     expect(await coldFailure.sections()).toEqual(new Set(SECTION_TREE_FANOUT_SECTIONS));
   });
 
+  it('does not share an in-flight registry fetch across request contexts', async () => {
+    const resolvers: Array<(response: Response) => void> = [];
+    let calls = 0;
+    const reader = createSectionTreeLayoutReader({
+      url: 'https://cdn.example/edge/section-tree-layout.json',
+      fetchImpl: () => new Promise((resolve) => {
+        calls += 1;
+        resolvers.push(resolve);
+      }),
+    });
+
+    const first = reader.sections();
+    const second = reader.sections();
+    expect(calls).toBe(2);
+    expect(resolvers).toHaveLength(2);
+    resolvers[0](new Response(JSON.stringify({ version: 1, sections: {} }), { status: 200 }));
+    resolvers[1](new Response(JSON.stringify({
+      version: 1,
+      sections: {
+        lucerna: {
+          layout: 'hash-v1',
+          since: '2026-11-12T00:00:00.000Z',
+          reason: { locale: 'de', pct: 44.2 },
+        },
+      },
+    }), { status: 200 }));
+
+    expect(await first).toEqual(new Set(SECTION_TREE_FANOUT_SECTIONS));
+    expect(await second).toEqual(new Set([...SECTION_TREE_FANOUT_SECTIONS, 'lucerna']));
+  });
+
+  it('keeps the newer layout and its full TTL when refreshes finish out of order', async () => {
+    let currentTime = 1_000;
+    let calls = 0;
+    const resolvers: Array<(response: Response) => void> = [];
+    const reader = createSectionTreeLayoutReader({
+      url: 'https://cdn.example/edge/section-tree-layout.json',
+      now: () => currentTime,
+      cacheTtlMs: 100,
+      fetchImpl: () => new Promise((resolve) => {
+        calls += 1;
+        resolvers.push(resolve);
+      }),
+    });
+    const older = reader.sections();
+    const newer = reader.sections();
+    expect(calls).toBe(2);
+
+    currentTime = 2_000;
+    resolvers[1](new Response(JSON.stringify({
+      version: 1,
+      sections: {
+        lucerna: {
+          layout: 'hash-v1',
+          since: '2026-11-12T00:00:00.000Z',
+          reason: { locale: 'de', pct: 44.2 },
+        },
+      },
+    }), { status: 200 }));
+    const expected = new Set([...SECTION_TREE_FANOUT_SECTIONS, 'lucerna']);
+    await expect(newer).resolves.toEqual(expected);
+
+    currentTime = 2_050;
+    resolvers[0](new Response(JSON.stringify({ version: 1, sections: {} }), { status: 200 }));
+    await expect(older).resolves.toEqual(expected);
+
+    currentTime = 2_100;
+    const afterNewerTtl = reader.sections();
+    expect(calls).toBe(3);
+    resolvers[2](new Response(JSON.stringify({
+      version: 1,
+      sections: {
+        lucerna: {
+          layout: 'hash-v1',
+          since: '2026-11-12T00:00:00.000Z',
+          reason: { locale: 'de', pct: 44.2 },
+        },
+      },
+    }), { status: 200 }));
+    await expect(afterNewerTtl).resolves.toEqual(expected);
+  });
+
+  it.each([404, 500])('lets an older valid layout seed the cache after a newer HTTP %s', async (status) => {
+    let currentTime = 1_000;
+    let calls = 0;
+    const resolvers: Array<(response: Response) => void> = [];
+    const reader = createSectionTreeLayoutReader({
+      url: 'https://cdn.example/edge/section-tree-layout.json',
+      now: () => currentTime,
+      cacheTtlMs: 100,
+      retryMs: 30,
+      fetchImpl: () => new Promise((resolve) => {
+        calls += 1;
+        resolvers.push(resolve);
+      }),
+    });
+    const older = reader.sections();
+    const newer = reader.sections();
+    expect(calls).toBe(2);
+
+    currentTime = 2_000;
+    resolvers[1](new Response('unavailable', { status }));
+    await expect(newer).resolves.toEqual(new Set(SECTION_TREE_FANOUT_SECTIONS));
+
+    currentTime = 2_050;
+    resolvers[0](new Response(JSON.stringify({
+      version: 1,
+      sections: {
+        lucerna: {
+          layout: 'hash-v1',
+          since: '2026-11-12T00:00:00.000Z',
+          reason: { locale: 'de', pct: 44.2 },
+        },
+      },
+    }), { status: 200 }));
+    const expected = new Set([...SECTION_TREE_FANOUT_SECTIONS, 'lucerna']);
+    await expect(older).resolves.toEqual(expected);
+    await expect(reader.sections()).resolves.toEqual(expected);
+    expect(calls).toBe(2);
+  });
+
   it('strict registry reads accept a missing registry but reject a fetch failure without a last good value', async () => {
     const missing = createSectionTreeLayoutReader({
       url: 'https://cdn.example/edge/section-tree-layout.json',

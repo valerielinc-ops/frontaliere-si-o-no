@@ -28,7 +28,6 @@ import {
   fetchLuFixedPrice,
   fetchUrFixedPrice,
 } from './connectors/fixed-price.mjs';
-import { fetchGePlateAuctions } from './connectors/ge.mjs';
 import { resolvePlateAuctionSource } from '../../functions/src/plateAuctionSourceRegistry.js';
 import {
   checkPlateAuctionQuality,
@@ -56,9 +55,11 @@ export const FETCHERS = {
   // CI: le righe arrivano dal relay della Cloud Function di Zurigo quando la
   // fetch ufficiale del runner fallisce (connectors/api-relay.mjs), come per SZ.
   fr: () => fetchExpandedEcari('fr'),
-  // GE uses the official OCV PDF for the current session; Ricardo remains a
-  // link only and is never fetched by the connector.
-  ge: fetchGePlateAuctions,
+  // GE has the connector (connectors/ge.mjs) but no fetcher while it is
+  // `blocked` between OCV sessions: check-health.mjs fails a fetcher that the
+  // registry does not call `active`. To open a session: registry `active` with
+  // `activeUntil` in both copies, plus `ge: fetchGePlateAuctions` here; to close
+  // it, undo both (see the GE notes in the registry).
   gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
   lu: fetchLuFixedPrice,

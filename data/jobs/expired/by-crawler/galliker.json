@@ -280,7 +280,6 @@
     "expiredAt": "2026-11-24T09:20:56.588Z",
     "previousSlugs": [
       "felgenlackierer-a-galliker-altishofen",
-      "betriebselektriker-a-galliker-altishofen",
       "electriciens-d-affaires-a-galliker-transport-ag-altishofen",
       "business-electricians-a-galliker-transport-ag-altishofen-effed0",
       "electriciens-d-affaires-a-galliker-transport-ag-altishofen-effed0",
@@ -293,7 +292,6 @@
       "felgenlackierer-a-galliker-transport-ag-altishofen-cad5ae",
       "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
       "felgenlackierer-a-galliker-transport-ag-altishofen",
-      "fahrzeugschlosser-a-galliker-altishofen",
       "installatore-di-veicoli-a-galliker-transport-ag-altishofen",
       "vehicle-closer-a-galliker-transport-ag-altishofen",
       "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
@@ -302,7 +300,6 @@
       "peintres-a-roues-a-galliker-transport-ag-altishofen",
       "artiste-peintre-a-galliker-transport-ag-altishofen",
       "vehicule-plus-pres-a-galliker-transport-ag-altishofen",
-      "betriebselektriker-a-galliker-transport-ag-altishofen",
       "valutatore-del-veicolo-a-galliker-transport-ag-altishofen",
       "vehicle-evaluator-a-galliker-transport-ag-altishofen",
       "fahrzeugbewerter-a-galliker-altishofen",
@@ -320,7 +317,13 @@
       "fahrzeugschlosser-a-galliker-altishofen-119edeb2",
       "vehicle-closer-a-galliker-transport-ag-altishofen-7d32c506",
       "elettricisti-commerciali-a-galliker-transport-ag-altishofen-483722af",
-      "betriebselektriker-a-galliker-transport-ag-altishofen-fa096c22"
+      "betriebselektriker-a-galliker-transport-ag-altishofen-fa096c22",
+      "betriebselektriker-a-galliker-altishofen",
+      "fahrzeugschlosser-a-galliker-altishofen",
+      "betriebselektriker-a-galliker-transport-ag-altishofen",
+      "fahrzeugschlosser-a-galliker-altishofen-c1810934",
+      "betriebselektriker-a-galliker-altishofen-efb3a6a9",
+      "betriebselektriker-a-galliker-transport-ag-altishofen-ca43a856"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -330,29 +333,43 @@
         "felgenlackierer-a-galliker-transport-ag-altishofen-cad5ae",
         "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
         "felgenlackierer-a-galliker-transport-ag-altishofen",
-        "fahrzeugschlosser-a-galliker-altishofen",
+        "fahrzeugschlosser-a-galliker-altishofen-c1810934",
         "installatore-di-veicoli-a-galliker-transport-ag-altishofen",
         "vehicle-closer-a-galliker-transport-ag-altishofen",
         "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
         "rim-pittore-a-galliker-transport-ag-altishofen-5a3090",
         "vehicule-plus-pres-a-galliker-transport-ag-altishofen",
         "felgenlackierer-a-galliker-altishofen",
-        "betriebselektriker-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-altishofen-efb3a6a9",
         "electriciens-d-affaires-a-galliker-transport-ag-altishofen",
         "business-electricians-a-galliker-transport-ag-altishofen-effed0",
         "electriciens-d-affaires-a-galliker-transport-ag-altishofen-effed0",
         "elettricista-di-impianto-a-galliker-transport-ag-altishofen",
         "business-electricians-a-galliker-transport-ag-altishofen-184263",
-        "betriebselektriker-a-galliker-transport-ag-altishofen-dle81n"
+        "betriebselektriker-a-galliker-transport-ag-altishofen-dle81n",
+        "betriebselektriker-a-galliker-transport-ag-altishofen-ca43a856",
+        "fahrzeugschlosser-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-altishofen"
       ],
       "en": [
         "felgenlackierer-a-galliker-transport-ag-altishofen",
-        "rim-painter-a-galliker-transport-ag-altishofen-5a3090"
+        "rim-painter-a-galliker-transport-ag-altishofen-5a3090",
+        "fahrzeugschlosser-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-transport-ag-altishofen-ca43a856"
       ],
       "fr": [
         "felgenlackierer-a-galliker-transport-ag-altishofen",
         "peintres-a-roues-a-galliker-transport-ag-altishofen",
-        "artiste-peintre-a-galliker-transport-ag-altishofen"
+        "artiste-peintre-a-galliker-transport-ag-altishofen",
+        "fahrzeugschlosser-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-transport-ag-altishofen-ca43a856"
+      ],
+      "de": [
+        "fahrzeugschlosser-a-galliker-altishofen-c1810934",
+        "betriebselektriker-a-galliker-altishofen-efb3a6a9",
+        "betriebselektriker-a-galliker-transport-ag-altishofen"
       ]
     },
     "postalCode": "6246",
@@ -384,7 +401,24 @@
         "firstSeenAt": "2026-09-23T23:38:05.636Z",
         "title": "Felgenlackierer (a)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fahrzeugschlosser-a-galliker-altishofen-c1810934": "LU",
+        "betriebselektriker-a-galliker-altishofen-efb3a6a9": "LU",
+        "betriebselektriker-a-galliker-transport-ag-altishofen-ca43a856": "LU"
+      },
+      "en": {
+        "betriebselektriker-a-galliker-transport-ag-altishofen-ca43a856": "LU"
+      },
+      "fr": {
+        "betriebselektriker-a-galliker-transport-ag-altishofen-ca43a856": "LU"
+      },
+      "de": {
+        "fahrzeugschlosser-a-galliker-altishofen-c1810934": "LU",
+        "betriebselektriker-a-galliker-altishofen-efb3a6a9": "LU"
+      }
+    }
   },
   {
     "id": "galliker-d3558fe16b34",
@@ -1004,7 +1038,6 @@
       "elettricisti-commerciali-a-galliker-transport-ag-altishofen-bfb16111",
       "betriebselektriker-a-galliker-altishofen-850c8dcd",
       "betriebselektriker-a-galliker-transport-ag-altishofen-43f1e615",
-      "betriebselektriker-a-galliker-altishofen",
       "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
@@ -1045,7 +1078,6 @@
         "betriebselektriker-a-galliker-transport-ag-altishofen-c0de0baa"
       ],
       "en": [
-        "betriebselektriker-a-galliker-altishofen",
         "electriciens-d-affaires-a-galliker-transport-ag-altishofen-8ecec403",
         "business-electricians-a-galliker-transport-ag-altishofen",
         "betriebselektriker-a-galliker-transport-ag-altishofen-2510ab7e",
@@ -1057,7 +1089,6 @@
         "betriebselektriker-a-galliker-transport-ag-altishofen-c0de0baa"
       ],
       "fr": [
-        "betriebselektriker-a-galliker-altishofen",
         "business-electricians-a-galliker-transport-ag-altishofen-c6d8d8ae",
         "betriebselektriker-a-galliker-transport-ag-altishofen-a856b133",
         "electriciens-d-affaires-a-galliker-transport-ag-altishofen-b2fc71fb",
@@ -1135,9 +1166,9 @@
       },
       "en": {
         "business-electricians-a-galliker-transport-ag-altishofen": "LU",
-        "betriebselektriker-a-galliker-altishofen": "LU",
         "betriebselektriker-a-galliker-transport-ag-altishofen-43f1e615": "LU",
-        "betriebselektriker-a-galliker-transport-ag-altishofen-c0de0baa": "LU"
+        "betriebselektriker-a-galliker-transport-ag-altishofen-c0de0baa": "LU",
+        "betriebselektriker-a-galliker-altishofen-0c2779ca": "LU"
       },
       "de": {
         "betriebselektriker-a-galliker-transport-ag-altishofen-d0eyka": "LU",
@@ -1147,9 +1178,9 @@
       },
       "fr": {
         "electriciens-d-affaires-a-galliker-transport-ag-altishofen": "LU",
-        "betriebselektriker-a-galliker-altishofen": "LU",
         "betriebselektriker-a-galliker-transport-ag-altishofen-43f1e615": "LU",
-        "betriebselektriker-a-galliker-transport-ag-altishofen-c0de0baa": "LU"
+        "betriebselektriker-a-galliker-transport-ag-altishofen-c0de0baa": "LU",
+        "betriebselektriker-a-galliker-altishofen-0c2779ca": "LU"
       }
     }
   },
@@ -1271,16 +1302,14 @@
     },
     "slugByLocale": {
       "it": "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen-48196ecadc",
-      "en": "building-technology-employees-galliker-transport-ag-altishofen",
-      "de": "mitarbeiter-gebaudetechnik-galliker-altishofen",
-      "fr": "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen"
+      "en": "building-technology-employees-galliker-transport-ag-altishofen-c8ace1f1",
+      "de": "mitarbeiter-gebaudetechnik-galliker-altishofen-7bb0c446",
+      "fr": "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-fea2088d"
     },
     "sector": "Logistica / Trasporti",
     "expiredAt": "2026-11-18T21:16:29.413Z",
     "previousSlugs": [
-      "mitarbeiter-gebaudetechnik-galliker-altishofen",
       "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen",
-      "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen",
       "building-technology-employees-galliker-transport-ag-altishofen-94e001a3",
       "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-3bf9a9f3",
       "mitarbeiter-gebaudetechnik-galliker-altishofen-00958e3f",
@@ -1354,13 +1383,18 @@
       "building-technology-employees-galliker-transport-ag-altishofen-efb22e06",
       "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-aa2df92b",
       "mitarbeiter-gebaudetechnik-galliker-altishofen-ce157c3d",
-      "building-technology-employees-galliker-transport-ag-altishofen-d06111b7"
+      "building-technology-employees-galliker-transport-ag-altishofen-d06111b7",
+      "mitarbeiter-gebaudetechnik-galliker-altishofen",
+      "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen",
+      "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen-fc222c91",
+      "building-technology-employees-galliker-transport-ag-altishofen",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiter-gebaudetechnik-galliker-altishofen",
+        "mitarbeiter-gebaudetechnik-galliker-altishofen-7bb0c446",
         "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen",
-        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen",
+        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen-fc222c91",
         "building-technology-employees-galliker-transport-ag-altishofen-94e001a3",
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-3bf9a9f3",
         "mitarbeiter-gebaudetechnik-galliker-altishofen-00958e3f",
@@ -1377,20 +1411,28 @@
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-a8aa5040",
         "mitarbeiter-gebaudetechnik-galliker-altishofen-235f910e",
         "building-technology-employees-galliker-transport-ag-altishofen-95d8e4da",
-        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-f71885b6"
+        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-f71885b6",
+        "mitarbeiter-gebaudetechnik-galliker-altishofen",
+        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen"
       ],
       "en": [
         "mitarbeiter-gebaudetechnik-galliker-altishofen",
         "building-technology-employees-galliker-transport-ag-altishofen-102eee",
-        "building-technology-employees-galliker-transport-ag-altishofen-c82262fe"
+        "building-technology-employees-galliker-transport-ag-altishofen-c82262fe",
+        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen",
+        "building-technology-employees-galliker-transport-ag-altishofen"
       ],
       "fr": [
         "mitarbeiter-gebaudetechnik-galliker-altishofen",
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-102eee",
-        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-de83a4ef"
+        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-de83a4ef",
+        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen",
+        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen"
       ],
       "de": [
-        "mitarbeiter-gebaudetechnik-galliker-altishofen-c3a48f43"
+        "mitarbeiter-gebaudetechnik-galliker-altishofen-c3a48f43",
+        "mitarbeiter-gebaudetechnik-galliker-altishofen-7bb0c446",
+        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen"
       ]
     },
     "postalCode": "6246",
@@ -1400,7 +1442,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/878019/0416/pub/12/index.html",
-    "firstSeenAt": "2026-09-23T23:38:07.960Z"
+    "firstSeenAt": "2026-09-23T23:38:07.960Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-gebaudetechnik-galliker-altishofen-7bb0c446": "LU",
+        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen-fc222c91": "LU"
+      },
+      "en": {
+        "building-technology-employees-galliker-transport-ag-altishofen-c8ace1f1": "LU"
+      },
+      "de": {
+        "mitarbeiter-gebaudetechnik-galliker-altishofen-7bb0c446": "LU"
+      },
+      "fr": {
+        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-fea2088d": "LU"
+      }
+    }
   },
   {
     "id": "galliker-35409cba24dc",
@@ -1723,16 +1780,14 @@
     },
     "slugByLocale": {
       "it": "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-f517409b01",
-      "en": "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen",
-      "de": "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
-      "fr": "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen"
+      "en": "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-b4f2b805",
+      "de": "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-560ad565",
+      "fr": "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen-aed92918"
     },
     "sector": "Logistica / Trasporti",
     "expiredAt": "2026-11-18T21:16:26.831Z",
     "previousSlugs": [
-      "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
       "junior-projektleiter-bau-e-unterhalt-galliker-transport-ag-altishofen",
-      "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen",
       "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-409bc803",
       "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-5f451e25",
       "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-3033ceb2",
@@ -1806,13 +1861,18 @@
       "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-db43b50c",
       "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-30fbf9db",
       "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-831af1c8",
-      "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-2ca4324a"
+      "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-2ca4324a",
+      "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
+      "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen",
+      "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-741a50d2",
+      "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen",
+      "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
+        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-560ad565",
         "junior-projektleiter-bau-e-unterhalt-galliker-transport-ag-altishofen",
-        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen",
+        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-741a50d2",
         "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-409bc803",
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-5f451e25",
         "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-3033ceb2",
@@ -1829,18 +1889,26 @@
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-b3ad710b",
         "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-c0a658e9",
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-1cd129e6",
-        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-6cd99649"
+        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-6cd99649",
+        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
+        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen"
       ],
       "en": [
         "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
-        "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-08df2ca7"
+        "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-08df2ca7",
+        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen",
+        "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen"
       ],
       "fr": [
         "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
-        "chef-de-projet-junior-construction-et-entretien-galliker-transport-ag-altishofen"
+        "chef-de-projet-junior-construction-et-entretien-galliker-transport-ag-altishofen",
+        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen",
+        "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen"
       ],
       "de": [
-        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-3e4211e9"
+        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-3e4211e9",
+        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-560ad565",
+        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen"
       ]
     },
     "postalCode": "6246",
@@ -1850,7 +1918,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/878019/0414/pub/11/index.html",
-    "firstSeenAt": "2026-09-23T23:38:06.413Z"
+    "firstSeenAt": "2026-09-23T23:38:06.413Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-560ad565": "LU",
+        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-741a50d2": "LU"
+      },
+      "en": {
+        "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-b4f2b805": "LU"
+      },
+      "de": {
+        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-560ad565": "LU"
+      },
+      "fr": {
+        "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen-aed92918": "LU"
+      }
+    }
   },
   {
     "id": "galliker-1a46e75f7f16",
@@ -1875,41 +1958,60 @@
     },
     "slugByLocale": {
       "it": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-a39b7a3ac7",
-      "en": "vehicle-closer-a-galliker-transport-ag-altishofen",
-      "de": "fahrzeugschlosser-a-galliker-altishofen",
-      "fr": "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen"
+      "en": "vehicle-closer-a-galliker-transport-ag-altishofen-33fb4627",
+      "de": "fahrzeugschlosser-a-galliker-altishofen-17bd8623",
+      "fr": "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen-a9ada46f"
     },
     "sector": "Logistica / Trasporti",
     "expiredAt": "2026-11-18T21:16:26.443Z",
     "previousSlugs": [
-      "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
       "fahrzeugschlosser-a-galliker-altishofen-17bd8623",
       "fahrzeugschlosser-a-galliker-transport-ag-altishofen-8ed3d430",
-      "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
+      "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
+      "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
+      "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-3b24ddf8",
+      "vehicle-closer-a-galliker-transport-ag-altishofen",
+      "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
       "it": [
         "fahrzeugschlosser-a-galliker-altishofen-17bd8623",
         "fahrzeugschlosser-a-galliker-transport-ag-altishofen-8ed3d430",
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-3b24ddf8",
         "veicolo-piu-vicino-a-galliker-transport-ag-altishofen"
       ],
       "en": [
         "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
-        "fahrzeugschlosser-a-galliker-altishofen"
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
+        "vehicle-closer-a-galliker-transport-ag-altishofen"
       ],
       "fr": [
         "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
-        "fahrzeugschlosser-a-galliker-altishofen"
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
+        "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen"
       ],
       "de": [
-        "fahrzeugschlosser-a-galliker-altishofen",
-        "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
+        "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
+        "fahrzeugschlosser-a-galliker-altishofen"
       ]
     },
     "previousSlugCantonByLocale": {
       "it": {
         "fahrzeugschlosser-a-galliker-altishofen-17bd8623": "LU",
-        "fahrzeugschlosser-a-galliker-transport-ag-altishofen-8ed3d430": "LU"
+        "fahrzeugschlosser-a-galliker-transport-ag-altishofen-8ed3d430": "LU",
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-3b24ddf8": "LU"
+      },
+      "en": {
+        "vehicle-closer-a-galliker-transport-ag-altishofen-33fb4627": "LU",
+        "fahrzeugschlosser-a-galliker-altishofen-17bd8623": "LU"
+      },
+      "de": {
+        "fahrzeugschlosser-a-galliker-altishofen-17bd8623": "LU"
+      },
+      "fr": {
+        "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen-a9ada46f": "LU",
+        "fahrzeugschlosser-a-galliker-altishofen-17bd8623": "LU"
       }
     },
     "postalCode": "6246",
@@ -2201,46 +2303,59 @@
     },
     "slugByLocale": {
       "it": "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen-0b25582ecd",
-      "en": "truck-cleaner-10-30-a-galliker-transport-ag-altishofen",
-      "de": "lastwagenreiniger-10-30-a-galliker-altishofen",
-      "fr": "nettoyeur-de-camions-10-30-a-galliker-transport-ag-altishofen"
+      "en": "truck-cleaner-10-30-a-galliker-transport-ag-altishofen-e61d321b",
+      "de": "lastwagenreiniger-10-30-a-galliker-altishofen-c36cb6da",
+      "fr": "nettoyeur-de-camions-10-30-a-galliker-transport-ag-altishofen-0602990f"
     },
     "sector": "Logistica / Trasporti",
     "expiredAt": "2026-11-18T21:16:24.886Z",
     "previousSlugs": [
-      "lastwagenreiniger-10-30-a-galliker-altishofen",
-      "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen",
       "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen",
       "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen-384633ea7b",
       "lastwagenreiniger-10-30-a-galliker-altishofen-3cf6c129",
       "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen-ee136e7a",
       "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen-9631c990",
       "truck-cleaner-10-30-a-galliker-transport-ag-altishofen-3cd55101",
-      "nettoyeur-de-camions-10-30-a-galliker-transport-ag-altishofen-d9de91da"
+      "nettoyeur-de-camions-10-30-a-galliker-transport-ag-altishofen-d9de91da",
+      "lastwagenreiniger-10-30-a-galliker-altishofen",
+      "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen",
+      "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen-20452e0f",
+      "truck-cleaner-10-30-a-galliker-transport-ag-altishofen",
+      "nettoyeur-de-camions-10-30-a-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "lastwagenreiniger-10-30-a-galliker-altishofen",
-        "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen",
+        "lastwagenreiniger-10-30-a-galliker-altishofen-c36cb6da",
+        "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen-20452e0f",
         "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen-384633ea7b",
         "lastwagenreiniger-10-30-a-galliker-altishofen-3cf6c129",
         "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen-ee136e7a",
         "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen-9631c990",
-        "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen"
+        "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen",
+        "lastwagenreiniger-10-30-a-galliker-altishofen",
+        "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen"
       ],
       "de": [
         "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen",
-        "lastwagenreiniger-10-30-a-galliker-altishofen-3cf6c129"
+        "lastwagenreiniger-10-30-a-galliker-altishofen-3cf6c129",
+        "lastwagenreiniger-10-30-a-galliker-altishofen-c36cb6da",
+        "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen"
       ],
       "en": [
         "truck-cleaner-10-30-a-galliker-transport-ag-altishofen-3cd55101",
         "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen-ee136e7a",
-        "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen"
+        "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen",
+        "lastwagenreiniger-10-30-a-galliker-altishofen",
+        "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen",
+        "truck-cleaner-10-30-a-galliker-transport-ag-altishofen"
       ],
       "fr": [
         "nettoyeur-de-camions-10-30-a-galliker-transport-ag-altishofen-d9de91da",
         "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen-ee136e7a",
-        "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen"
+        "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen",
+        "lastwagenreiniger-10-30-a-galliker-altishofen",
+        "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen",
+        "nettoyeur-de-camions-10-30-a-galliker-transport-ag-altishofen"
       ]
     },
     "postalCode": "6246",
@@ -2262,7 +2377,22 @@
         "firstSeenAt": "2026-11-05T09:16:42.422Z",
         "title": "Lastwagenreiniger 10-30% (a)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lastwagenreiniger-10-30-a-galliker-altishofen-c36cb6da": "LU",
+        "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen-20452e0f": "LU"
+      },
+      "en": {
+        "truck-cleaner-10-30-a-galliker-transport-ag-altishofen-e61d321b": "LU"
+      },
+      "de": {
+        "lastwagenreiniger-10-30-a-galliker-altishofen-c36cb6da": "LU"
+      },
+      "fr": {
+        "nettoyeur-de-camions-10-30-a-galliker-transport-ag-altishofen-0602990f": "LU"
+      }
+    }
   },
   {
     "id": "galliker-b29101210b9f",
@@ -3166,7 +3296,13 @@
       "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen-a458a0cbd7-8ee1038e",
       "commercial-vehicle-mechanic-career-changer-a-galliker-transport-ag-altishofen-9ea075a1",
       "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen-qakr5t-cc1f13b2",
-      "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen-0bf38105"
+      "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen-0bf38105",
+      "automobile-specialiste-nf-entree-laterale-a-galliker-transport-ag-altishofen",
+      "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen-a458a0cbd7",
+      "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen-qakr5t",
+      "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen",
+      "automotive-specialist-nf-lateral-entrant-a-galliker-transport-ag-altishofen",
+      "commercial-vehicle-mechanic-career-changer-a-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3618,7 +3754,10 @@
       "gestionnaire-de-projet-subalterne-technologie-du-batiment-a-galliker-transport-ag-altishofen-8d55a790",
       "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-880c6402",
       "junior-projektleiter-gebaudetechnik-a-galliker-altishofen-c78e79dd",
-      "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-f40ee944b9-a202b6a7"
+      "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-f40ee944b9-a202b6a7",
+      "gestionnaire-de-projet-subalterne-technologie-du-batiment-a-galliker-transport-ag-altishofen",
+      "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-f40ee944b9",
+      "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4072,8 +4211,7 @@
       "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-1cd129e6",
       "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-c0a658e9",
       "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-6cd99649",
-      "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-f517409b01",
-      "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen"
+      "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-f517409b01"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4232,8 +4370,7 @@
         "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-204a2d9b-362b1143",
         "junior-project-manager-costruzione-e-manutenzione-galliker-transport-ag-altishofen-9b89149b1b-53f321de",
         "junior-project-manager-costruzione-e-manutenzione-galliker-transport-ag-altishofen-480dba56",
-        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-f517409b01",
-        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen"
+        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen-f517409b01"
       ],
       "de": [
         "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-20a7042c-bcf8cfb5",
@@ -4310,8 +4447,7 @@
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-289ae7f2",
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-e4a48a67",
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-b3ad710b",
-        "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-1cd129e6",
-        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen"
+        "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-1cd129e6"
       ],
       "fr": [
         "junior-projektleiter-bau-und-unterhalt-galliker-altishofen-3e4211e9",
@@ -4389,8 +4525,7 @@
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-289ae7f2",
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-e4a48a67",
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-b3ad710b",
-        "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-1cd129e6",
-        "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen"
+        "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-1cd129e6"
       ]
     },
     "postalCode": "6246",
@@ -5584,7 +5719,11 @@
       "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-324ccae8",
       "fahrzeugschlosser-a-galliker-altishofen-bd638b76",
       "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-a39b7a3ac7-01951724",
-      "fahrzeugschlosser-a-galliker-transport-ag-altishofen-f22dda58"
+      "fahrzeugschlosser-a-galliker-transport-ag-altishofen-f22dda58",
+      "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-a39b7a3ac7",
+      "vehicle-closer-a-galliker-transport-ag-altishofen-e2d4b769",
+      "vehicle-closer-a-galliker-transport-ag-altishofen",
+      "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-208c5d43"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5707,7 +5846,7 @@
         "fahrzeugschlosser-a-galliker-transport-ag-altishofen-58928943"
       ],
       "en": [
-        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-208c5d43",
         "vehicle-closer-a-galliker-transport-ag-altishofen-5714326b",
         "vehicle-closer-a-galliker-transport-ag-altishofen-69664068",
         "vehicle-closer-a-galliker-transport-ag-altishofen-21ef5653",
@@ -5752,7 +5891,7 @@
       "de": [
         "fahrzeugschlosser-a-galliker-altishofen-609453d9",
         "fahrzeugschlosser-a-galliker-altishofen-030b0f1b",
-        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-208c5d43",
         "fahrzeugschlosser-a-galliker-altishofen-b3d6c9c4",
         "vehicle-closer-a-galliker-transport-ag-altishofen-66b03abd",
         "fahrzeugschlosser-a-galliker-altishofen-0ece538b",
@@ -5795,7 +5934,7 @@
         "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-a39b7a3ac7"
       ],
       "fr": [
-        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-208c5d43",
         "vehicle-closer-a-galliker-transport-ag-altishofen-66b03abd",
         "fahrzeugschlosser-a-galliker-altishofen-bd638b76",
         "vehicle-closer-a-galliker-transport-ag-altishofen",
@@ -6346,7 +6485,6 @@
       "betriebselektriker-a-galliker-altishofen-110db6ad",
       "betriebselektriker-a-galliker-transport-ag-altishofen-01fbd0bd",
       "betriebselektriker-a-galliker-transport-ag-altishofen-a856b133",
-      "betriebselektriker-a-galliker-altishofen",
       "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
@@ -6363,12 +6501,12 @@
       ],
       "en": [
         "betriebselektriker-a-galliker-transport-ag-altishofen-6ccd6d0b",
-        "betriebselektriker-a-galliker-altishofen",
         "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
         "electriciens-d-affaires-a-galliker-transport-ag-altishofen-9e295020",
         "betriebselektriker-a-galliker-transport-ag-altishofen-a856b133",
         "business-electricians-a-galliker-transport-ag-altishofen",
-        "electriciens-d-affaires-a-galliker-transport-ag-altishofen"
+        "electriciens-d-affaires-a-galliker-transport-ag-altishofen",
+        "betriebselektriker-a-galliker-altishofen-d3494fc0"
       ],
       "de": [
         "betriebselektriker-a-galliker-transport-ag-altishofen-7be96c96",
@@ -6381,14 +6519,14 @@
         "betriebselektriker-a-galliker-transport-ag-altishofen-a856b133"
       ],
       "fr": [
-        "betriebselektriker-a-galliker-altishofen",
         "betriebselektriker-a-galliker-transport-ag-altishofen-7be96c96",
         "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
         "business-electricians-a-galliker-transport-ag-altishofen-a00d3232",
         "electriciens-d-affaires-a-galliker-transport-ag-altishofen-8ecec403",
         "business-electricians-a-galliker-transport-ag-altishofen",
         "electriciens-d-affaires-a-galliker-transport-ag-altishofen",
-        "betriebselektriker-a-galliker-transport-ag-altishofen-01fbd0bd"
+        "betriebselektriker-a-galliker-transport-ag-altishofen-01fbd0bd",
+        "betriebselektriker-a-galliker-altishofen-d3494fc0"
       ]
     },
     "postalCode": "6246",
@@ -7371,7 +7509,26 @@
       "rim-painter-a-galliker-transport-ag-altishofen-5a3090-2fe18df6",
       "peintre-a-galliker-transport-ag-altishofen-a2f358c0",
       "peintres-a-roues-a-galliker-transport-ag-altishofen-cef16a51",
-      "artiste-peintre-a-galliker-transport-ag-altishofen-c92425eb"
+      "artiste-peintre-a-galliker-transport-ag-altishofen-c92425eb",
+      "rim-painter-a-galliker-transport-ag-altishofen",
+      "peintres-a-roues-a-galliker-transport-ag-altishofen",
+      "artiste-peintre-a-galliker-transport-ag-altishofen",
+      "rim-painter-a-galliker-transport-ag-altishofen-5a3090",
+      "peintre-a-galliker-transport-ag-altishofen",
+      "felgenlackierer-a-galliker-transport-ag-altishofen-cad5ae",
+      "rim-pittore-a-galliker-transport-ag-altishofen",
+      "installatore-di-veicoli-a-galliker-transport-ag-altishofen",
+      "felgenlackierer-a-galliker-altishofen",
+      "vehicule-plus-pres-a-galliker-transport-ag-altishofen",
+      "elettricisti-commerciali-a-galliker-transport-ag-altishofen-fe0891",
+      "betriebselektriker-a-galliker-transport-ag-altishofen-jzyamw",
+      "rim-pittore-a-galliker-transport-ag-altishofen-5a3090",
+      "business-electricians-a-galliker-transport-ag-altishofen-effed0",
+      "electriciens-d-affaires-a-galliker-transport-ag-altishofen-effed0",
+      "elettricista-di-impianto-a-galliker-transport-ag-altishofen",
+      "business-electricians-a-galliker-transport-ag-altishofen-184263",
+      "betriebselektriker-a-galliker-transport-ag-altishofen-dle81n",
+      "felgenlackierer-a-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -9941,7 +10098,8 @@
       "fahrzeugbewerter-a-galliker-altishofen-a40c4972",
       "evaluateur-du-vehicule-a-galliker-transport-ag-altishofen-d290bc36",
       "fahrzeugbewerter-a-galliker-transport-ag-altishofen-88f4b404",
-      "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen-8cf367a2"
+      "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen-8cf367a2",
+      "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -10201,7 +10359,10 @@
       "fahrzeugschlosser-a-galliker-altishofen-08182b25",
       "vehicle-closer-a-galliker-transport-ag-altishofen-5cfb4c-131bb758",
       "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen-724ce3bb",
-      "vehicule-plus-pres-a-galliker-transport-ag-altishofen-86f8ca9a"
+      "vehicule-plus-pres-a-galliker-transport-ag-altishofen-86f8ca9a",
+      "vehicle-closer-a-galliker-transport-ag-altishofen-5cfb4c",
+      "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-5cfb4c",
+      "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-d9f0876e72"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -10650,7 +10811,25 @@
       "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-aa2df92b-af82bb84",
       "building-technology-employees-galliker-transport-ag-altishofen-d06111b7-707d8bc7",
       "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen-a3fb5c44",
-      "mitarbeiter-gebaudetechnik-galliker-altishofen-3c75955e-1a3fcaa2"
+      "mitarbeiter-gebaudetechnik-galliker-altishofen-3c75955e-1a3fcaa2",
+      "building-technology-employees-galliker-transport-ag-altishofen",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen",
+      "building-technology-employees-galliker-transport-ag-altishofen-102eee",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-102eee",
+      "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen",
+      "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen-48196ecadc",
+      "building-technology-employees-galliker-transport-ag-altishofen-94e001a3",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-3bf9a9f3",
+      "building-technology-employees-galliker-transport-ag-altishofen-6ab9c394",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-6ca52d03",
+      "building-technology-employees-galliker-transport-ag-altishofen-f1c7cd40",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-64389169",
+      "building-technology-employees-galliker-transport-ag-altishofen-117fd482",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-565a3320",
+      "building-technology-employees-galliker-transport-ag-altishofen-703b3b7c",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-a8aa5040",
+      "building-technology-employees-galliker-transport-ag-altishofen-95d8e4da",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-f71885b6"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -10779,8 +10958,7 @@
         "building-technology-employees-galliker-transport-ag-altishofen-c591d71c-62420aeb",
         "building-technology-employees-galliker-transport-ag-altishofen-0fc6739d-1a618795",
         "building-technology-employees-galliker-transport-ag-altishofen-efb22e06-907f6d79",
-        "building-technology-employees-galliker-transport-ag-altishofen-d06111b7-707d8bc7",
-        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen"
+        "building-technology-employees-galliker-transport-ag-altishofen-d06111b7-707d8bc7"
       ],
       "de": [
         "mitarbeiter-gebaudetechnik-galliker-altishofen-f6c95316",
@@ -10840,7 +11018,6 @@
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-a8aa5040",
         "building-technology-employees-galliker-transport-ag-altishofen-95d8e4da",
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-f71885b6",
-        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen",
         "mitarbeiter-gebaudetechnik-galliker-altishofen-3c75955e-1a3fcaa2"
       ],
       "fr": [
@@ -10902,8 +11079,7 @@
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-5a1221f8-6b4aa131",
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-32b7ece8-7d82cdf9",
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-b8e93a20-0ddb3378",
-        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-aa2df92b-af82bb84",
-        "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen"
+        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-aa2df92b-af82bb84"
       ]
     },
     "postalCode": "6246",
@@ -11746,7 +11922,14 @@
       "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-565a3320-22cfb567",
       "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-a8aa5040-d7617f26",
       "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-f71885b6-8eef8b06",
-      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-36c5d54b"
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-36c5d54b",
+      "building-technology-employees-galliker-transport-ag-altishofen-c82262fe",
+      "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-de83a4ef",
+      "mitarbeiter-gebaudetechnik-galliker-altishofen-00958e3f",
+      "mitarbeiter-gebaudetechnik-galliker-altishofen-13ccc48a",
+      "mitarbeiter-gebaudetechnik-galliker-altishofen-f1a51dde",
+      "mitarbeiter-gebaudetechnik-galliker-altishofen-4798a30a",
+      "mitarbeiter-gebaudetechnik-galliker-altishofen-235f910e"
     ],
     "sourceIdentityHistory": [
       {
@@ -12484,7 +12667,8 @@
       "betriebselektriker-a-galliker-altishofen-c0d77f69",
       "betriebselektriker-a-galliker-transport-ag-altishofen-08602166",
       "elettricisti-commerciali-a-galliker-transport-ag-altishofen-8e589bba",
-      "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
+      "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
+      "betriebselektriker-a-galliker-altishofen-110db6ad"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -12494,13 +12678,13 @@
       ],
       "en": [
         "business-electricians-a-galliker-transport-ag-altishofen",
-        "betriebselektriker-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-altishofen-110db6ad",
         "betriebselektriker-a-galliker-transport-ag-altishofen-5ff686ac",
         "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
       ],
       "fr": [
         "betriebselektriker-a-galliker-transport-ag-altishofen-08602166",
-        "betriebselektriker-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-altishofen-110db6ad",
         "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
       ],
       "de": [
@@ -12597,7 +12781,9 @@
       "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-08df2ca7",
       "junior-project-manager-costruzione-e-manutenzione-galliker-transport-ag-altishofen-5061da53",
       "junior-project-manager-costruzione-e-manutenzione-galliker-transport-ag-altishofen-330687d8",
-      "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen-cf555927"
+      "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen-cf555927",
+      "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen",
+      "junior-projektleiter-bau-e-unterhalt-galliker-transport-ag-altishofen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -13275,7 +13461,8 @@
       "betriebselektriker-a-galliker-altishofen-d3494fc0",
       "betriebselektriker-a-galliker-transport-ag-altishofen-d1974393",
       "elettricisti-commerciali-a-galliker-transport-ag-altishofen-30c39243",
-      "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
+      "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
+      "betriebselektriker-a-galliker-altishofen-c0d77f69"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -13287,12 +13474,12 @@
         "betriebselektriker-a-galliker-transport-ag-altishofen-qeid85",
         "business-electricians-a-galliker-transport-ag-altishofen",
         "betriebselektriker-a-galliker-transport-ag-altishofen-af7b1bd2",
-        "betriebselektriker-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-altishofen-c0d77f69",
         "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
       ],
       "fr": [
         "betriebselektriker-a-galliker-transport-ag-altishofen-d1974393",
-        "betriebselektriker-a-galliker-altishofen",
+        "betriebselektriker-a-galliker-altishofen-c0d77f69",
         "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
       ],
       "de": [

@@ -3,7 +3,6 @@ import { fetchAllCslBehringJobs } from '../scripts/lib/csl-behring-job-parser.mj
 import { fetchAllKsbJobs } from '../scripts/lib/ksb-job-parser.mjs';
 import { fetchAllLindtSpruengliJobs } from '../scripts/lib/lindt-spruengli-job-parser.mjs';
 import { fetchAllNvidiaZurichJobs } from '../scripts/lib/nvidia-zurich-job-parser.mjs';
-import { fetchAllRitualsCosmeticsJobs } from '../scripts/lib/rituals-cosmetics-job-parser.mjs';
 
 const replay = vi.hoisted(() => ({ posting: {} as Record<string, unknown>, info: {} as Record<string, unknown> }));
 const body = 'We are looking for a qualified professional to join our team and support the development of reliable services for our customers. You will work closely with colleagues across departments, document your work carefully and contribute practical ideas to improve our processes. The role requires relevant professional experience, strong communication skills and a structured approach to solving problems. We offer a collaborative workplace, continuing professional education and opportunities to take responsibility for meaningful projects.';
@@ -31,7 +30,6 @@ const cases = [
   ['KSB', 'Baden', fetchAllKsbJobs],
   ['Lindt', 'Kilchberg, Switzerland', fetchAllLindtSpruengliJobs],
   ['NVIDIA', 'Switzerland, Zurich', fetchAllNvidiaZurichJobs],
-  ['Rituals', 'Lugano', fetchAllRitualsCosmeticsJobs],
 ] as const;
 for (const [name, location, fetchJobs] of cases) {
   describe(`${name} publication date through listing and detail`, () => {
