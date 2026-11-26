@@ -1312,9 +1312,9 @@ function jobCanonShardKey(slug) {
   return sk;
 }
 
-// The v1 live corpus was 238,512,449 bytes (2026-11-13): 256 buckets produced
-// a 970,410-byte maximum and 932,070-byte median. With 4096 buckets the live
-// maximum was 72,180 bytes and the median 58,221 bytes, inside both v2 limits.
+// The v1 live corpus was measured before the hash migration; 4096 buckets
+// remove its prefix skew and keep individual lookup payloads operationally
+// manageable. Shard bytes are reported as manifest telemetry, not a hard cap.
 const JOB_CANON_V2_SHARD_COUNT = 4096;
 let jobCanonV2SuccessLogDay = null;
 
