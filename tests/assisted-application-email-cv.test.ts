@@ -266,4 +266,92 @@ describe('CV by e-mail reply', () => {
       'Le mie competenze\nX a écrit:\nnota'
     )).toBe('Le mie competenze\nX a écrit:\nnota');
   });
+
+  it('converts JPEG and multi-page raster image CVs to PDF while skipping small signature icons', async () => {
+    const sharp = (await import('sharp')).default;
+    const { PDFDocument } = await import('pdf-lib');
+    const { detectCvImageType } = await import('../functions/src/lib/imageCvToPdf.js');
+
+    const jpegPage = await sharp({
+      create: { width: 600, height: 850, channels: 3, background: { r: 245, g: 245, b: 245 } },
+    }).jpeg({ quality: 85 }).toBuffer();
+    const pngPage = await sharp({
+      create: { width: 600, height: 850, channels: 4, background: { r: 255, g: 255, b: 255, alpha: 0.5 } },
+    }).png().toBuffer();
+    const tinyIcon = await sharp({
+      create: { width: 80, height: 80, channels: 3, background: { r: 0, g: 120, b: 200 } },
+    }).png().toBuffer();
+
+    expect(detectCvImageType(jpegPage.subarray(0, 16))).toBe('jpeg');
+    expect(detectCvImageType(pngPage.subarray(0, 16))).toBe('png');
+    expect(detectCvImageType(Buffer.from('not-an-image'))).toBeNull();
+
+    const boundary = 'b_img_cv';
+    const mime = Buffer.from([
+      'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=gmail.com; spf=pass smtp.mailfrom=maria.rossi@gmail.com',
+      'From: Maria Rossi <maria.rossi@gmail.com>',
+      'Message-ID: <img-cv-1@mail.gmail.com>',
+      'Subject: Re: La tua candidatura',
+      'MIME-Version: 1.0',
+      `Content-Type: multipart/mixed; boundary="${boundary}"`,
+      '',
+      `--${boundary}`,
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      'Allego il mio CV in formato foto.',
+      `--${boundary}`,
+      'Content-Type: image/png; name="sig.png"',
+      'Content-Disposition: inline; filename="sig.png"',
+      'Content-Transfer-Encoding: base64',
+      '',
+      tinyIcon.toString('base64'),
+      `--${boundary}`,
+      'Content-Type: image/jpeg; name="CVFoto.jpg"',
+      'Content-Disposition: attachment; filename="CVFoto.jpg"',
+      'Content-Transfer-Encoding: base64',
+      '',
+      jpegPage.toString('base64').replace(/(.{76})/g, '$1\r\n'),
+      `--${boundary}`,
+      'Content-Type: image/png; name="CVPagina2.png"',
+      'Content-Disposition: attachment; filename="CVPagina2.png"',
+      'Content-Transfer-Encoding: base64',
+      '',
+      pngPage.toString('base64').replace(/(.{76})/g, '$1\r\n'),
+      `--${boundary}--`,
+      '',
+    ].join('\r\n'));
+
+    const database = store();
+    const bucket = fakeBucket();
+    const result = await handleAssistedApplicationEmailCv(request(mime), { db: database.db, bucket, secret: SECRET });
+    expect(result.status).toBe(200);
+    expect(result.body).toEqual({ ok: true, matched: true, cv: 'stored', reply: 'queued' });
+    const [storedKey, stored] = [...bucket.files.entries()][0];
+    expect(storedKey).toMatch(/CVFoto\.pdf$/);
+    expect(stored.subarray(0, 5).toString('utf8')).toBe('%PDF-');
+    const loadedPdf = await PDFDocument.load(stored);
+    expect(loadedPdf.getPageCount()).toBe(2);
+    expect(database.read(BASE)?.cvFileName).toBe('CVFoto.pdf');
+    const eventKeys = database.list(`${BASE}/events/`);
+    expect(eventKeys).toHaveLength(1);
+    expect(database.read(eventKeys[0])).toMatchObject({
+      eventType: 'materials_received_by_email',
+      detectedType: 'pdf',
+      convertedFrom: 'jpeg',
+      pageCount: 2,
+    });
+  });
+
+  it('normalizes raster image uploads via normalizeUploadedCvBuffer for admin/owner uploads', async () => {
+    const sharp = (await import('sharp')).default;
+    const { normalizeUploadedCvBuffer } = await import('../functions/src/lib/imageCvToPdf.js');
+    const jpeg = await sharp({
+      create: { width: 500, height: 700, channels: 3, background: { r: 255, g: 255, b: 255 } },
+    }).jpeg({ quality: 80 }).toBuffer();
+    const normalized = await normalizeUploadedCvBuffer(jpeg);
+    expect(normalized).not.toBeNull();
+    expect(normalized?.type).toBe('pdf');
+    expect(normalized?.convertedFrom).toBe('jpeg');
+    expect(normalized?.buffer.subarray(0, 5).toString('utf8')).toBe('%PDF-');
+  });
 });

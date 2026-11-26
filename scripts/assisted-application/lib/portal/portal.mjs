@@ -3330,8 +3330,18 @@ async function clickUniqueNamedControlAfterTimeout(frame, button) {
   }
 }
 
+async function dismissLateCookieConsentOverlay(page) {
+  if (typeof page?.frames !== 'function') return false;
+  const cookieSnapshot = await cookiePageSnapshot(page);
+  if (!cookieSnapshot) return false;
+  const result = await resolveCookieConsent(page, cookieSnapshot);
+  if (result.status !== 'dismissed') return false;
+  if (typeof page.waitForTimeout === 'function') await page.waitForTimeout(300);
+  return true;
+}
+
 /** Presses a control from a snapshot; recovery must preserve the control's click handler. */
-export async function clickButton(page, button) {
+export async function clickButton(page, button, { allowCookieRecovery = true } = {}) {
   const frameNumber = Number(button.frame) || 0;
   const frames = typeof page.frames === 'function' ? page.frames() : [];
   const frame = frames[frameNumber]
@@ -3346,8 +3356,9 @@ export async function clickButton(page, button) {
     // the form's and open a dialog over the form (dry run of 2026-10-07). A role retry needs a unique match
     // inside the same form or dialog; without a verified scope, nothing else is pressed in its place.
     if (!isPreDispatchLocatorClickFailure(error)) throw error;
-    if (!button.text) throw unresolvedPreDispatchControlClick();
-    const again = await sameControl(page, button);
+    const cookieDismissed = allowCookieRecovery ? await dismissLateCookieConsentOverlay(page) : false;
+    if (!button.text && !cookieDismissed) throw unresolvedPreDispatchControlClick();
+    const again = button.text ? await sameControl(page, button) : null;
     if (again) {
       const retryFrames = typeof page.frames === 'function' ? page.frames() : [];
       const retryFrameNumber = Number(again.frame) || 0;
@@ -3362,6 +3373,14 @@ export async function clickButton(page, button) {
         const recovered = await clickUniqueNamedControlAfterTimeout(retryFrame, again);
         if (recovered) return recovered;
         throw unresolvedPreDispatchControlClick();
+      }
+    }
+    if (cookieDismissed && button.id) {
+      try {
+        await frame.locator(`[data-aa-id="${button.id}"]`).first().click({ timeout: 6_000 });
+        return 'id';
+      } catch (retryError) {
+        if (!isPreDispatchLocatorClickFailure(retryError)) throw retryError;
       }
     }
     const recovered = await clickUniqueNamedControlAfterTimeout(frame, button);
@@ -3914,7 +3933,7 @@ async function clickCookieChoice(page, snapshot, button, { openedBy = null } = {
   const origin = pageOrigin(page);
   if (COOKIE_SAVE_RE.test(cookieControlLabel(button))) await withdrawOptionalCookieToggles(page, button);
   try {
-    await clickButton(page, button);
+    await clickButton(page, button, { allowCookieRecovery: false });
   } catch {
     return { status: 'unresolved', snapshot };
   }
@@ -4106,7 +4125,7 @@ export async function dismissCookieBanner(page, snapshot) {
   if (preferences) {
     const origin = pageOrigin(page);
     try {
-      await clickButton(page, preferences);
+      await clickButton(page, preferences, { allowCookieRecovery: false });
     } catch {
       return { status: 'unresolved', snapshot };
     }
@@ -12765,6 +12784,22 @@ export async function submitViaPortal(ctx) {
       }
       return result;
     };
+    const handleAuthControlClickError = async (error, authSnapshot = snapshot) => {
+      // A control of the account page that could not be pressed or typed into (covered by a dialog,
+      // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
+      // and, read as a timeout, the run was started again twice; the owner gets the page instead.
+      const controlClickFailure = /^locator\./.test(String(error?.message || ''))
+        || error?.code === 'portal_control_click_unresolved';
+      if (!controlClickFailure) return null;
+      evidence.steps.at(-1).auth = { kind: authPageKind(authSnapshot), outcome: 'control_error' };
+      // A registration whose password was stored and whose button then could not be pressed: whether the
+      // account exists is not known. Left `pending`, the next run would sign in, fail and stop there;
+      // as `unanswered` it signs in and, when that fails, creates the account.
+      const authHost = new URL(page.url()).hostname;
+      const stored = await ctx.accounts.load(authHost).catch(() => null);
+      if (stored?.status === 'pending') await ctx.accounts.mark(authHost, { status: 'unanswered' }).catch(() => {});
+      return await handoff('account', { accountFailure: accountFailure('locator_control_error', accountStageFor(authSnapshot)) });
+    };
     const refreshApplicationEntryAfterTransition = async (sourceUrl, current = snapshot, { requireSignedInForm = false } = {}) => {
       const preSettleUrl = page.url();
       if (!applicationEntryUrl || !preSettleUrl) return;
@@ -13386,11 +13421,18 @@ export async function submitViaPortal(ctx) {
           }) };
         }
         const authSourceUrl = page.url();
-        const auth = otpAccount
-          ? await verifyAccount({
-            page, host: otpAccount.host, sinceMs: otpAccount.account.createdAt || 0, ctx, snapshot: authSnapshot,
-          })
-          : await handleAuth({ page, snapshot: authSnapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts, recoveryAttempts });
+        let auth;
+        try {
+          auth = otpAccount
+            ? await verifyAccount({
+              page, host: otpAccount.host, sinceMs: otpAccount.account.createdAt || 0, ctx, snapshot: authSnapshot,
+            })
+            : await handleAuth({ page, snapshot: authSnapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts, recoveryAttempts });
+        } catch (error) {
+          const authControlHandoff = await handleAuthControlClickError(error, authSnapshot);
+          if (authControlHandoff) return { result: authControlHandoff };
+          throw error;
+        }
         const nextAuthSnapshot = auth.handoff
           ? auth.snapshot
           : auth.snapshot || await extractFields(page, NAVIGATION);
@@ -13683,20 +13725,9 @@ export async function submitViaPortal(ctx) {
             }
           }
         } catch (error) {
-          // A control of the account page that could not be pressed or typed into (covered by a dialog,
-          // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
-          // and, read as a timeout, the run was started again twice; the owner gets the page instead.
-          const controlClickFailure = /^locator\./.test(String(error?.message || ''))
-            || error?.code === 'portal_control_click_unresolved';
-          if (!controlClickFailure) throw error;
-          evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'control_error' };
-          // A registration whose password was stored and whose button then could not be pressed: whether the
-          // account exists is not known. Left `pending`, the next run would sign in, fail and stop there;
-          // as `unanswered` it signs in and, when that fails, creates the account.
-          const authHost = new URL(page.url()).hostname;
-          const stored = await ctx.accounts.load(authHost).catch(() => null);
-          if (stored?.status === 'pending') await ctx.accounts.mark(authHost, { status: 'unanswered' }).catch(() => {});
-          return await handoff('account', { accountFailure: accountFailure('locator_control_error', accountStageFor(snapshot)) });
+          const authControlHandoff = await handleAuthControlClickError(error, snapshot);
+          if (authControlHandoff) return authControlHandoff;
+          throw error;
         }
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),

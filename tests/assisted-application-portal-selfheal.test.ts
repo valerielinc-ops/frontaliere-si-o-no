@@ -291,6 +291,70 @@ describe('portal runner self-correction', () => {
     expect(exactClick).not.toHaveBeenCalled();
   });
 
+  it('dismisses a late-appearing cookie consent banner and retries an obstructed control click', async () => {
+    let cookieVisible = true;
+    const preDispatchBlocked = new Error(
+      'locator.click: Timeout 6000ms exceeded.\nCall log:\n  - locator resolved to <a class="button">Create profile</a>\n  - <div id="onetrust-banner-sdk"> intercepts pointer events',
+    );
+    const snapshotButtons = () => ([
+      { id: 'f7', text: 'Create profile', href: 'https://apply.example/ApplicationMethods?jobId=42', disabled: false, frame: 0 },
+      ...(cookieVisible ? [
+        { id: 'f9', text: 'Customise Cookies', cookieSurface: 'banner', chrome: true, disabled: false, frame: 0 },
+        { id: 'f10', text: 'Decline optional cookies', cookieSurface: 'banner', disabled: false, frame: 0 },
+        { id: 'f11', text: 'Accept optional cookies', cookieSurface: 'banner', disabled: false, frame: 0 },
+      ] : []),
+    ]);
+    const createClick = vi.fn(async () => {
+      if (cookieVisible) throw preDispatchBlocked;
+    });
+    const cookieRejectClick = vi.fn(async () => {
+      cookieVisible = false;
+    });
+    const frame = {
+      url: () => 'https://apply.example/CHCareers/Login?jobId=42',
+      evaluate: vi.fn(async (fn: any) => {
+        if (fn === extractFieldsInPage) {
+          return {
+            url: 'https://apply.example/CHCareers/Login?jobId=42',
+            fields: [],
+            buttons: snapshotButtons(),
+            links: [],
+            dialogs: [],
+            captcha: false,
+            passwordVisible: true,
+            errors: [],
+            text: 'Manage your cookie preferences',
+          };
+        }
+        return false;
+      }),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: selector === '[data-aa-id="f10"]' ? cookieRejectClick : createClick,
+          evaluate: vi.fn().mockResolvedValue(undefined),
+        }),
+      })),
+      getByRole: vi.fn(),
+    };
+    const page = {
+      url: () => 'https://apply.example/CHCareers/Login?jobId=42',
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForTimeout: vi.fn().mockResolvedValue(undefined),
+    };
+
+    const result = await clickButton(page as any, {
+      id: 'f7',
+      text: 'Create profile',
+      href: 'https://apply.example/ApplicationMethods?jobId=42',
+      frame: 0,
+    });
+
+    expect(result).toBe('again');
+    expect(cookieRejectClick).toHaveBeenCalledOnce();
+    expect(createClick).toHaveBeenCalledTimes(2);
+  });
+
   it('level 1: the agent may name the last page’s send button; the guard keeps only a real ref', () => {
     expect(Object.keys(AGENT_SCHEMA.properties)).toContain('submitRef');
     const turn = (submitRef: string) => ({ status: 'done', reason: '', advanceRef: '', submitRef, actions: [], questions: [] });
