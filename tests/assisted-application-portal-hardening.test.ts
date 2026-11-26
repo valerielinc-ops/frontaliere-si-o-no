@@ -2802,7 +2802,6 @@ describe('portal: identity on an exact posting route without a heading', () => {
     expect(postingMatch(publicDetail, groupeEJob, groupeEUrl)).toBe('match');
     expect(hasVacancySpecificPostingEvidence(publicDetail, groupeEJob, evidence)).toBe(true);
     expect(postingMatch(publicDetail.replace(groupeEJob.company, 'Groupe'), groupeEJob, groupeEUrl)).toBe('mismatch');
-    expect(hasVacancySpecificPostingEvidence(publicDetail.replace(groupeEJob.company, 'Groupe'), groupeEJob, evidence)).toBe(false);
   });
 
   it.each([

@@ -5179,7 +5179,8 @@ function companyIdentityWords(company) {
 
 function companyEvidenceWords(value) {
   return normalizeWords(value).split(' ')
-    .filter((word) => word && !NOT_A_NAME.has(word) && !/^\d+$/u.test(word));
+    .filter((word) => word && !/^\d+$/u.test(word)
+      && (word.length === 1 || (word.length >= 3 && !NOT_A_NAME.has(word))));
 }
 
 // Filler that only joins two names («Muster und Hotel …»): skipping it can still reach a word of a name.
