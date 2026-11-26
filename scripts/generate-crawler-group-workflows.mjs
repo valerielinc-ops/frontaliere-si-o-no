@@ -3507,8 +3507,11 @@ function normalizedJobContract(workflow, side, fileName) {
   const workdayStepIndexes = (job.steps ?? [])
     .map((step, index) => step?.name === 'Configure shared Workday egress state' ? index : -1)
     .filter((index) => index >= 0);
-  if (workdayStepIndexes.length !== 1 || workdayStepIndexes[0] !== 0) {
-    throw new Error(`${fileName}: Workday egress state bootstrap must be first and unique in ${side} workflows`);
+  const hasOptionalGeneratedWorkdayBootstrap = side === 'generated'
+    && workdayStepIndexes.length === 0;
+  if (!hasOptionalGeneratedWorkdayBootstrap
+      && (workdayStepIndexes.length !== 1 || workdayStepIndexes[0] !== 0)) {
+    throw new Error(`${fileName}: Workday egress state bootstrap must be first and unique when present in ${side} workflows`);
   }
   const steps = (job.steps ?? [])
     .map((step) => normalizedContractStep(step, side, fileName, members))
