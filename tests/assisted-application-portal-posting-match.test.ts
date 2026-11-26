@@ -144,6 +144,18 @@ describe('application form posting identity', () => {
       applyUrl,
       formFieldLabels: fields,
     })).toBe('match');
+    expect(formPostingMatch(form.replace('Opzioni', 'Siemens AG'), {
+      title: 'Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)',
+      company: 'Coop Genossenschaft',
+    }, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl,
+      postingUrl,
+      postingRouteProof: proof,
+      applyUrl,
+      formFieldLabels: fields,
+    })).toBe('mismatch');
   });
 
   it('accepts the Kanton St. Gallen Application/New form with its full ATS title and Weiter control', () => {
