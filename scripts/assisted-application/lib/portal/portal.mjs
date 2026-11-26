@@ -6219,8 +6219,31 @@ export function formPostingMatch(formText, job = {}, {
     : [stripGenericStageTitleSegments(employerIdentityLines[0]), ...employerIdentityLines.slice(1)].join('\n');
   const employerText = [...employerHeadingCandidates, employerIdentityText].filter(Boolean).join('\n');
   const postingEvidenceText = [...headingCandidates, identityFormText].filter(Boolean).join('\n');
-  const direct = postingMatch(postingEvidenceText, job, pageUrl);
-  const rawDirect = postingMatch(String(formText || ''), job, pageUrl);
+  const successFactorsRoute = { pageUrl, applyUrl };
+  const requisitionSections = [...new Set(formSections.map(section => String(section || '').trim()))]
+    .filter(section => /\(\s*\d{1,20}\s*\)$/.test(section));
+  // Native application groups can expose their title through aria-labelledby
+  // without a standalone line in the body text or an H1.
+  const sectionBindsRequisition = requisitionSections.length === 1
+    && roleHeading !== 'mismatch'
+    && successFactorsRequisitionShown(requisitionSections[0], job, successFactorsRoute);
+  const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, successFactorsRoute)
+    || sectionBindsRequisition;
+  // Only lines reproduced by a native field label are form questions.
+  // Keep headings and other employer notices in the identity check.
+  const normalizeFieldLine = line => String(line || '')
+    .replace(/^\s*(?:[*＊]\s*|[•◦‣⁃·▪▫●○–—-]\s+)/u, '')
+    // SuccessFactors can render an icon-font suffix in body innerText.
+    .replace(/(?:\s*\p{Co})+\s*$/u, '')
+    .replace(/\s+/g, ' ').trim();
+  const nativeQuestionLines = successFactorsBound
+    ? new Set(formFieldLabels.map(normalizeFieldLine).filter(Boolean))
+    : new Set();
+  const withoutNativeQuestionLines = text => nativeQuestionLines.size
+    ? String(text || '').split(/\r?\n/).filter(line => !nativeQuestionLines.has(normalizeFieldLine(line))).join('\n')
+    : text;
+  const direct = postingMatch(withoutNativeQuestionLines(postingEvidenceText), job, pageUrl);
+  const rawDirect = postingMatch(withoutNativeQuestionLines(formText), job, pageUrl);
   const formTitleLine = genericOnlyTitleLine ? '' : stripGenericStageTitleSegments(rawFormTitleLine);
   const headingConflict = [...employerHeadingCandidates, formTitleLine].filter(Boolean)
     .some((headingText) => namesAnotherEmployer(headingText, job, { allowPostingLocation: postingLocationBound }));
@@ -6252,30 +6275,12 @@ export function formPostingMatch(formText, job = {}, {
   if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });
-  const successFactorsRoute = { pageUrl, applyUrl };
-  const requisitionSections = [...new Set(formSections.map(section => String(section || '').trim()))]
-    .filter(section => /\(\s*\d{1,20}\s*\)$/.test(section));
-  // Native application groups can expose their title through aria-labelledby
-  // without a standalone line in the body text or an H1.
-  const sectionBindsRequisition = requisitionSections.length === 1
-    && roleHeading !== 'mismatch'
-    && successFactorsRequisitionShown(requisitionSections[0], job, successFactorsRoute);
-  const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, successFactorsRoute)
-    || sectionBindsRequisition;
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
-  // Only lines reproduced by a native field label are form questions.
-  // Keep headings and other employer notices in the identity check.
-  const normalizeFieldLine = line => String(line || '').replace(/^\s*(?:[*＊]\s*|[•◦‣⁃·▪▫●○–—-]\s+)/u, '').replace(/\s+/g, ' ').trim();
-  const nativeQuestionLines = successFactorsBound
-    ? new Set(formFieldLabels.map(normalizeFieldLine).filter(Boolean))
-    : new Set();
-  const employerTextOutsideQuestions = employerText.split(/\r?\n/)
-    .filter(line => !nativeQuestionLines.has(normalizeFieldLine(line))).join('\n');
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
       : (headingConflict || (!boundPinpointApplication
-        && namesAnotherEmployer(employerTextOutsideQuestions, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
+        && namesAnotherEmployer(withoutNativeQuestionLines(employerText), job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
