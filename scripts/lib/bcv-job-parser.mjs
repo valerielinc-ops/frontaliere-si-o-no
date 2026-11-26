@@ -19,6 +19,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { readAttr, scanMarkupStartTags } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -231,8 +232,9 @@ function parseDetailPage(html = '') {
   }
   const description = descParts.join('\n\n').trim();
 
-  const dateTag = html.match(/<meta\b(?=[^>]*\bitemprop=["']datePosted["'])[^>]*>/i)?.[0] || '';
-  const date = dateTag.match(/\bcontent=["']([^"']*)["']/i)?.[1] || '';
+  const dateTag = scanMarkupStartTags(html, 'meta')
+    .find(({ raw }) => readAttr(raw, 'itemprop').toLowerCase() === 'dateposted')?.raw || '';
+  const date = readAttr(dateTag, 'content');
   return { title, description, ...successFactorsPostingDateFields(date) };
 }
 

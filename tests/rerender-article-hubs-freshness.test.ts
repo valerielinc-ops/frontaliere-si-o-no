@@ -152,6 +152,25 @@ describe('hub corpus-main registry drift decisions', () => {
 });
 
 describe('preserved hub shells receive the shared X-card head', () => {
+  it('reads card metadata only from live meta tags', () => {
+    const fake = '<meta property="og:image" content="https://frontaliereticino.ch/og-image.png">';
+    const html = [
+      `<div data-template='${fake}'></div>`,
+      `<script>const decoy = ${JSON.stringify(fake)};</script>`,
+      '<title>Articoli frontalieri</title>',
+      '<meta name="description" content="Guide per frontalieri">',
+      '<meta property="og:image" content="https://frontaliereticino.ch/images/real.webp">',
+      '</head><body></body></html>',
+    ].join('');
+
+    const patched = ensureTwitterCardMeta(html, {
+      locale: 'it',
+      siteBase: 'https://frontaliereticino.ch',
+    });
+
+    expect(patched).toContain('<meta name="twitter:image" content="https://frontaliereticino.ch/images/real.webp">');
+  });
+
   it('injects all four tags without touching an existing card', () => {
     const html = [
       '<!doctype html><html><head>',

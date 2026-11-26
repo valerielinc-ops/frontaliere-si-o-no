@@ -20,6 +20,7 @@ import {
   loadPublishedImagePolicy,
 } from './lib/published-image-policy.mjs';
 import { executeIncrementalPageAudit, loadPublisherPageIndex } from './ci/page-audit-index.mjs';
+import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,21 +53,11 @@ function decodeHtml(value) {
     .replace(/&gt;/gi, '>');
 }
 
-function attributes(tag) {
-  const result = {};
-  const attrRe = /([:\w-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/g;
-  for (const match of tag.matchAll(attrRe)) {
-    result[match[1].toLowerCase()] = decodeHtml(match[2] ?? match[3] ?? match[4] ?? '');
-  }
-  return result;
-}
-
 export function extractOgImageUrls(html, pageUrl = SITE_ORIGIN) {
   const urls = [];
-  for (const match of String(html || '').matchAll(/<meta\b[^>]*>/gi)) {
-    const attrs = attributes(match[0]);
-    if (attrs.property?.toLowerCase() !== 'og:image') continue;
-    const raw = String(attrs.content || '').trim();
+  for (const { raw: tag } of scanMarkupStartTags(String(html || ''), 'meta')) {
+    if (readAttr(tag, 'property').toLowerCase() !== 'og:image') continue;
+    const raw = decodeHtml(readAttr(tag, 'content')).trim();
     if (!raw) continue;
     try {
       urls.push(new URL(raw, pageUrl).href);

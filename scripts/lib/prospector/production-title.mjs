@@ -1,4 +1,5 @@
 import { isSpontaneousApplicationTitle } from '../spontaneous-application.mjs';
+import { readAttr, scanMarkupStartTags } from '../html-attr.mjs';
 
 const GENERIC_VACANCY_TITLES = new Set([
   'header', 'home', 'menu', 'navigation', 'search', 'job search', 'jobs search',
@@ -12,57 +13,6 @@ const GENERIC_VACANCY_TITLES = new Set([
 ]);
 
 /**
- * Read a quoted or unquoted HTML attribute without depending on its position
- * among the other attributes in the tag.
- *
- * @param {string} tag
- * @param {'property'|'name'|'content'} attributeName
- * @returns {string}
- */
-function readHtmlAttribute(tag, attributeName) {
-  const pattern = new RegExp(
-    `(?:^|\\s)${attributeName}\\s*=\\s*(?:"([^"]{0,1000})"|'([^']{0,1000})'|([^\\s>]{1,1000}))`,
-    'i',
-  );
-  const match = pattern.exec(tag);
-  return match?.[1] ?? match?.[2] ?? match?.[3] ?? '';
-}
-
-/**
- * Extract meta tags while treating `>` inside a quoted attribute as content.
- *
- * @param {string} html
- * @returns {string[]}
- */
-function metaTagsFromHtml(html) {
-  const source = String(html);
-  const tags = [];
-  const openingTag = /<meta\b/gi;
-  let match;
-  while ((match = openingTag.exec(source))) {
-    const start = match.index;
-    let quote = '';
-    let end = start + match[0].length;
-    let closed = false;
-    for (; end < source.length; end++) {
-      const character = source[end];
-      if (quote) {
-        if (character === quote) quote = '';
-      } else if (character === '"' || character === "'") {
-        quote = character;
-      } else if (character === '>') {
-        closed = true;
-        end++;
-        break;
-      }
-    }
-    if (closed) tags.push(source.slice(start, end));
-    openingTag.lastIndex = end;
-  }
-  return tags;
-}
-
-/**
  * Read title evidence directly from the raw detail-page markup. These signals
  * remain independent of the crawler's structured-detail extractor and its
  * final output title.
@@ -74,11 +24,11 @@ export function rawDetailTitleEvidence(html = '') {
   const source = String(html);
   const h1 = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(source)?.[1] || '';
   let openGraphTitle = '';
-  for (const tag of metaTagsFromHtml(source)) {
-    const property = readHtmlAttribute(tag, 'property').toLowerCase();
-    const name = readHtmlAttribute(tag, 'name').toLowerCase();
+  for (const { raw: tag } of scanMarkupStartTags(source, 'meta')) {
+    const property = readAttr(tag, 'property').toLowerCase();
+    const name = readAttr(tag, 'name').toLowerCase();
     if (property !== 'og:title' && name !== 'og:title') continue;
-    const content = readHtmlAttribute(tag, 'content');
+    const content = readAttr(tag, 'content');
     if (content) {
       openGraphTitle = content;
       break;

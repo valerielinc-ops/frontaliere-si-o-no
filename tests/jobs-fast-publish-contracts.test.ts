@@ -312,6 +312,8 @@ describe("jobs fast-publish HTML asset contract", () => {
 
   it("checks fetchable first-party resources without probing canonical or hreflang page URLs", () => {
     const html = `
+      <div data-template='<meta property="og:image" content="https://frontaliereticino.ch/fake.jpg">'></div>
+      <script>const fake = '<meta property="og:image" content="https://frontaliereticino.ch/fake-script.jpg">';</script>
       <meta property="og:image" content="https://cdn.frontaliereticino.ch/jobs/offer.jpg">
       <script src="/assets/site.js"></script>
       <img src="/images/employer.svg">
