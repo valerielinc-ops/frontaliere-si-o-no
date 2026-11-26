@@ -192,7 +192,7 @@ function parseApiLocation(record = {}) {
     const parts = String(rawLocation || '').split('|').map(normalizeSpace);
     const city = parts[0] || '';
     const countryCode = (parts[4] || parts.at(-1) || '').toUpperCase();
-    if (!city || (countryCode && countryCode !== 'CHE' && countryCode !== 'CH')) continue;
+    if (!city || !isSwissCountry(countryCode)) continue;
     const canton = normalizeCantonCode(parts[2]) || inferSwissTargetCanton(city);
     if (canton) return { city, canton };
   }
@@ -206,17 +206,19 @@ function detailCountry(detail = {}) {
 
 function isSwissCountry(value = '') {
   const country = normalize(value);
-  return !country || country === 'ch' || country === 'che' || country.includes('schweiz')
-    || country.includes('switzerland') || country.includes('suisse') || country.includes('svizzera');
+  return Boolean(country) && (country === 'ch' || country === 'che' || country.includes('schweiz')
+    || country.includes('switzerland') || country.includes('suisse') || country.includes('svizzera'));
 }
 
-function resolveZkbLocation(detail = {}, record = {}) {
+export function resolveZkbLocation(detail = {}, record = {}) {
   const sourceCountry = detailCountry(detail);
-  if (!isSwissCountry(sourceCountry)) return null;
+  if (sourceCountry && !isSwissCountry(sourceCountry)) return null;
 
-  const detailCity = normalizeSpace(detail.city || '');
-  const detailCanton = normalizeCantonCode(detail.region) || inferSwissTargetCanton(detailCity);
-  if (detailCity && detailCanton) return { city: detailCity, canton: detailCanton };
+  if (isSwissCountry(sourceCountry)) {
+    const detailCity = normalizeSpace(detail.city || '');
+    const detailCanton = normalizeCantonCode(detail.region) || inferSwissTargetCanton(detailCity);
+    if (detailCity && detailCanton) return { city: detailCity, canton: detailCanton };
+  }
 
   return parseApiLocation(record);
 }
@@ -381,12 +383,10 @@ export async function fetchAllZkbJobs() {
 export function isZkbJob(job) {
   const key = normalize(job?.companyKey || '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
   return key === ZKB_KEY
     || company.includes('zkb')
     || company.includes('zürcher kantonalbank')
-    || url.includes('zkb.ch')
-    || url.includes('apply.refline.ch/792841/');
+    || isTrustedDomain(job?.url || '');
 }
 
 export function isTrustedDomain(rawUrl = '') {

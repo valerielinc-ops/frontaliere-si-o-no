@@ -14,6 +14,7 @@ import {
   isTrustedDomain,
   parseZkbApiResponse,
   parseZkbDetailPage,
+  resolveZkbLocation,
 } from '../scripts/lib/zkb-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -100,6 +101,23 @@ describe('ZKB current SuccessFactors source', () => {
       url: 'https://jobs.zkb.ch/job/Platform-Engineer-Observability-%28mwd%29/67-de_DE/',
     });
   });
+
+  it('requires an explicit Swiss country discriminator before resolving a location', () => {
+    expect(resolveZkbLocation(
+      { city: 'Zürich', region: 'ZH', places: [] },
+      { jobLocationShort: ['Zürich||ZH||'] },
+    )).toBeNull();
+
+    expect(resolveZkbLocation(
+      { city: 'Zürich', region: 'ZH', country: 'CHE' },
+      { jobLocationShort: ['Zürich||ZH||'] },
+    )).toEqual({ city: 'Zürich', canton: 'ZH' });
+
+    expect(resolveZkbLocation(
+      { places: [] },
+      { jobLocationShort: ['Zürich||ZH||CHE'] },
+    )).toEqual({ city: 'Zürich', canton: 'ZH' });
+  });
 });
 
 describe('ZKB crawler parser', () => {
@@ -133,6 +151,10 @@ describe('ZKB crawler parser', () => {
 
     it('rejects unrelated jobs', () => {
       expect(isZkbJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
+    });
+
+    it('rejects a lookalike host in the URL ownership check', () => {
+      expect(isZkbJob({ url: 'https://notzkb.ch/job/x/' })).toBe(false);
     });
 
     it('handles null/undefined gracefully', () => {
