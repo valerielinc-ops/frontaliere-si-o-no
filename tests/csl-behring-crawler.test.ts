@@ -116,6 +116,11 @@ describe('CSL Behring crawler parser', () => {
     workdayMocks.createWorkdayRequestContext.mockReturnValue(context);
     workdayMocks.fetchWorkdayJobs.mockImplementation(async function* (_apiBase: string, options: any) {
       expect(options.requestContext).toBe(context);
+      yield {
+        title: 'Partial listing',
+        externalPath: '/job/Bern/Partial_R1',
+        locationsText: 'EMEA, CH, Bern, CSL Behring',
+      };
       throw new WorkdayAuthError('anti-bot block', 403, 'https://csl.wd1.myworkdayjobs.com/jobs');
     });
 

@@ -282,7 +282,7 @@ export async function fetchAllCslBehringJobs() {
     const listings = await fetchJobListings(requestContext);
     if (listings?.fetchOutcome === 'anti_bot_block') {
       console.warn('⚠️ Workday anti-bot block prevented a complete CSL Behring listing snapshot.');
-      return listings;
+      return markFetchOutcome([], listings.fetchOutcome);
     }
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
