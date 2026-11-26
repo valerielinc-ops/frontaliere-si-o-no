@@ -537,7 +537,7 @@ async function fetchSwisscomJobs(summaryCounts = null) {
 
   if (summaryCounts) {
     summaryCounts.parsed = jobs.length;
-    if (jobs.length === 0 && summaryCounts.lastFetchOutcome !== 'filtered_empty') {
+    if (jobs.length === 0 && !summaryCounts.lastFetchOutcome) {
       summaryCounts.lastFetchOutcome = 'selector_miss';
       summaryCounts.abortKind = 'no-jobs-parsed';
     }

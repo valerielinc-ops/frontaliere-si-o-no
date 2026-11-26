@@ -293,6 +293,7 @@ describe('Swisscom crawler health receipt', () => {
     expect(source).toContain('summaryCounts.parsed = relevantPostings.length;');
     expect(source).toContain("summaryCounts.abortKind = 'no-jobs-parsed';");
     expect(source).toContain("summaryCounts.lastFetchOutcome = 'selector_miss';");
+    expect(source).toContain('if (jobs.length === 0 && !summaryCounts.lastFetchOutcome)');
   });
 
   it('does not publish a partial listing page after a later-page response failure', () => {
