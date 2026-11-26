@@ -6,6 +6,7 @@ import {
   buildFastLaneExpectedPagePlan,
   buildFastLaneHubVisibleJobIdsByLocale,
   checkJobPageContracts,
+  previousJobSitemapEntriesToRemove,
 } from '../scripts/publish-jobs-fast.mjs';
 import {
   ACTIVE_JOB_PAGE_LOCALES,
@@ -286,7 +287,21 @@ describe('fast publisher isolated renderer dist', () => {
     await expect(signals.jobsSeoPagesFlushed).resolves.toBeUndefined();
     const fullBuildSitemapLocs = signals.getJobSitemapAllowlist();
     expect(fullBuildSitemapLocs).not.toBeNull();
-    expect(fullBuildSitemapLocs?.size).toBeGreaterThan(0);
+    const fullBuildLocs = fullBuildSitemapLocs ?? new Set<string>();
+    const expectedCanonicalLocs = ACTIVE_JOB_PAGE_LOCALES.map((locale) =>
+      `https://frontaliereticino.ch${buildCanonicalJobDetailPath(
+        locale,
+        job,
+        localizedActiveJobSlug(job, locale),
+        'ZH',
+      )}`,
+    );
+    expect([...fullBuildLocs]).toEqual(expect.arrayContaining(expectedCanonicalLocs));
+    expect(previousJobSitemapEntriesToRemove(
+      expectedCanonicalLocs.map((loc) => new URL(loc).pathname),
+      new Set(),
+      fullBuildLocs,
+    )).toEqual([]);
     expect(JSON.parse(fs.readFileSync(receiptFile, 'utf8'))).toEqual({
       schema: 'jobs-fast-render/v1',
       requestedIds: [],
