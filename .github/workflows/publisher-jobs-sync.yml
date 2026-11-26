@@ -89,6 +89,12 @@ jobs:
       # into the full dataset; a corrupt record fails here → no poisoned commit.
       - name: Validate — dataset assembles with the new slice
         if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          # The full expired-archive reconciliation exceeds Node's default
+          # heap on the publisher runner as the archive grows. Keep the full
+          # validation gate; give it the same proven headroom as other full
+          # assembly callers.
+          NODE_OPTIONS: --max-old-space-size=8192
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       # App installation token = push identity honoured by main's

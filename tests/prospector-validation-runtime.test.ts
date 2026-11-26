@@ -181,6 +181,14 @@ describe('Prospector production validation', () => {
       .toBe('Senior > Engineer');
   });
 
+  it('ignores metadata-shaped text inside attributes and raw-text elements', () => {
+    const fake = '<meta property="og:title" content="Fake title">';
+    const html = `<div data-template='${fake}'></div><script>const decoy = ${JSON.stringify(fake)};</script>`
+      + '<meta property="og:title" content="Live title">';
+
+    expect(rawDetailTitleEvidence(html).rawOpenGraphTitle).toBe('Live title');
+  });
+
   it('keeps a valid listing title when the detail H1 is generic chrome', () => {
     expect(isGenericVacancyTitle('Header')).toBe(true);
     expect(selectPublishableTitle('Header', 'Platform Engineer')).toBe('Platform Engineer');

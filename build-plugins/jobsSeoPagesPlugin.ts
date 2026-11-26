@@ -83,6 +83,7 @@ import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_RE
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml as buildSeoPageHtmlBase } from './shared/seoPageShell';
+import { readLiveMetaAttr, scanLiveMetaTags } from '../scripts/lib/live-meta-tags.mjs';
 import { JOB_BOARD_HEAD_TAGS } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
 import {
@@ -942,12 +943,9 @@ export function ensureRetainedActiveBridgeMetadata(
 }
 
 function hasNoindexRobotsMeta(html: string): boolean {
-  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
-    const attributes = match[1] || '';
-    const nameMatch = attributes.match(/(?:^|\s)name\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
-    if (String(nameMatch?.[1] ?? nameMatch?.[2] ?? nameMatch?.[3] ?? '').toLowerCase() !== 'robots') continue;
-    const contentMatch = attributes.match(/(?:^|\s)content\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
-    if (/\bnoindex\b/i.test(String(contentMatch?.[1] ?? contentMatch?.[2] ?? contentMatch?.[3] ?? ''))) return true;
+  for (const raw of scanLiveMetaTags(String(html || ''))) {
+    if (readLiveMetaAttr(raw, 'name').toLowerCase() !== 'robots') continue;
+    if (/\bnoindex\b/i.test(readLiveMetaAttr(raw, 'content'))) return true;
   }
   return false;
 }

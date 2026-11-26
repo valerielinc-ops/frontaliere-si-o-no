@@ -18,7 +18,9 @@
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   extractVacancySummaryLocation,
+  readAttr,
   readVacancySummaryLocation,
+  scanMarkupStartTags,
 } from './html-attr.mjs';
 import { extractJobPostingsLd, selectJobPostingLd } from './jsonld-jobposting.mjs';
 import { canonicalSwissCityName, isKnownSwissCity } from './target-swiss-locations.mjs';
@@ -262,7 +264,7 @@ function canonicalSbbLocality(value = '') {
  * `itemprop="addressLocality"` value inside the JobPosting markup.
  */
 function itempropTokens(tag = '') {
-  const value = tag.match(/\bitemprop\s*=\s*["']([^"']+)["']/i)?.[1] || '';
+  const value = readAttr(tag, 'itemprop');
   return value.toLowerCase().split(/\s+/).filter(Boolean);
 }
 
@@ -348,10 +350,9 @@ export function extractSbbStrongMarkupLocation(html = '', identity = {}) {
   // itemprop. A bare meta itemprop in a header or a related-job card is not a
   // workplace and must never outrank the vacancy JSON-LD.
   for (const scope of currentJobLocationMicrodataScopes(html, identity)) {
-    const tags = [...scope.matchAll(/<meta\b[^>]*>/gi)].map((match) => match[0]);
-    for (const tag of tags) {
+    for (const { raw: tag } of scanMarkupStartTags(scope, 'meta')) {
       if (!itempropTokens(tag).includes('addresslocality')) continue;
-      const content = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i)?.[1] || '';
+      const content = readAttr(tag, 'content');
       const locality = canonicalSbbLocality(content);
       if (locality) return locality;
     }

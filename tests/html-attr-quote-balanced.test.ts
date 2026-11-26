@@ -30,6 +30,7 @@ import {
   readTagByAttr,
   scanMarkupStartTags,
 } from '../scripts/lib/html-attr.mjs';
+import { readLiveMetaAttr, scanLiveMetaTags } from '../scripts/lib/live-meta-tags.mjs';
 import { extractJsonLd, scoreVacancyPage } from '../scripts/lib/prospector/extract.mjs';
 import {
   cleanAnchorText,
@@ -52,6 +53,16 @@ import { parseJobBlocks as parseUsiJobBlocks } from '../scripts/update-usi-jobs.
 import { parseJobLinks as parseZegnaJobLinks } from '../scripts/update-zegna-jobs.mjs';
 
 describe('scanMarkupStartTags — comment and raw-text boundaries', () => {
+  it('does not treat a tag-shaped value inside an attribute as live markup', () => {
+    const tags = scanMarkupStartTags(
+      `<div data-template='<meta name="robots" content="noindex">'></div>` +
+      '<meta name="robots" content="index,follow">',
+      'meta',
+    );
+    expect(tags).toHaveLength(1);
+    expect(tags[0].raw).toContain('index,follow');
+  });
+
   it('keeps live metadata after a raw-text block containing a comment marker', () => {
     const tags = scanMarkupStartTags(
       `<script>const marker = '<!--';</script><meta name="robots" content="noindex">`,
@@ -68,6 +79,20 @@ describe('scanMarkupStartTags — comment and raw-text boundaries', () => {
     );
     expect(tags).toHaveLength(1);
     expect(tags[0].raw).toContain('noindex');
+  });
+
+  it('skips inert and RCDATA containers in both live-meta scanners', () => {
+    const html = '<template><meta name="robots" content="noindex"></template>'
+      + '<textarea><meta name="robots" content="noindex"></textarea>'
+      + '<title><meta name="robots" content="noindex"></title>'
+      + '<meta name="robots" content="index,follow">';
+    const markupTags = scanMarkupStartTags(html, 'meta');
+    const liveTags = scanLiveMetaTags(html);
+
+    expect(markupTags).toHaveLength(1);
+    expect(liveTags).toHaveLength(1);
+    expect(readAttr(markupTags[0].raw, 'content')).toBe('index,follow');
+    expect(readLiveMetaAttr(liveTags[0], 'content')).toBe('index,follow');
   });
 });
 
@@ -306,6 +331,14 @@ describe('readMetaContent — quote balanced', () => {
   it('ignores property-shaped text inside another meta attribute value', () => {
     const html = `<meta data-template="property='og:title' content='decoy'" property="og:description" content="wrong">`
       + `<meta content="Titolo reale" property="OG:TITLE">`;
+    expect(readMetaContent(html, 'og:title')).toBe('Titolo reale');
+  });
+
+  it('ignores meta-shaped text inside attributes and raw-text elements', () => {
+    const decoy = '<meta property="og:title" content="Titolo falso">';
+    const html = `<div data-template='${decoy}'></div>`
+      + `<script>const fake = ${JSON.stringify(decoy)};</script>`
+      + '<meta property="og:title" content="Titolo reale">';
     expect(readMetaContent(html, 'og:title')).toBe('Titolo reale');
   });
 

@@ -14,6 +14,7 @@ import {
   BING_TITLE_AUDIT_URLS,
   BING_TITLE_MAX_CHARS,
 } from '../../scripts/seo/bing-seo-policy.mjs';
+import { preflight } from '../../scripts/submit-indexnow-remediation.mjs';
 import { submitIndexNowUrlsStreaming } from '../../scripts/lib/indexnow-submit.mjs';
 
 const URL = 'https://frontaliereticino.ch/';
@@ -83,6 +84,40 @@ describe('Bing SEO live contract', () => {
     expect(new Set(BING_INDEXNOW_REMEDIATION_URLS).size).toBe(BING_INDEXNOW_REMEDIATION_URLS.length);
     expect(BING_TITLE_MAX_CHARS).toBe(66);
     expect(parseHtmlContract('<h1>ok</h1>').h1s).toHaveLength(1);
+  });
+
+  it('retries transient live 5xx responses before accepting an IndexNow URL', async () => {
+    const url = `${URL}indexnow-preflight-retry/`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(null, { status: 503 }))
+      .mockResolvedValueOnce(new Response(null, { status: 200 }));
+
+    const result = await preflight([url], {
+      fetchImpl: fetchMock,
+      retries: 1,
+      retryBaseMs: 0,
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(result).toEqual({ live: [url], skipped: [], errors: [] });
+  });
+
+  it('keeps a persistent transient status as a preflight error after bounded retries', async () => {
+    const url = `${URL}indexnow-preflight-persistent-503/`;
+    const fetchMock = vi.fn(async () => new Response(null, { status: 503 }));
+
+    const result = await preflight([url], {
+      fetchImpl: fetchMock,
+      retries: 2,
+      retryBaseMs: 0,
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(result).toEqual({
+      live: [],
+      skipped: [],
+      errors: [{ url, status: 503, reason: 'unexpected-status' }],
+    });
   });
 
   it('stops each streamed batch after the first accepted IndexNow endpoint', async () => {

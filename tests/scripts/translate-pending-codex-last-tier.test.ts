@@ -10,8 +10,9 @@ import YAML from 'yaml';
  * override legacy esplicito e nessun workflow di produzione lo imposta.
  * Vale per la logica del sito e per l'artifact generato che gira sul pool del
  * corpus:
- *   · il broker parte dopo il passaggio Argos bulk (2a) e prima della 2b;
- *   · il socket arriva alle fasi 2a.2, 2b, 2d e 2e, ognuna con un budget per
+ *   · il broker parte prima del prepass di riparazione stale e resta disponibile
+ *     alle fasi 2a.2, 2b, 2d e 2e;
+ *   · il socket arriva al prepass e alle fasi 2a.2, 2b, 2d e 2e, ognuna con un budget per
  *     run ereditato dal resolver comune;
  *   · nessuno step imposta AI_MODELS_PREFER;
  *   · TTL del broker che copre la finestra delle fasi.
@@ -26,6 +27,7 @@ const PHASE_2A2 = 'Phase 2a.2: Fix untranslated titles (free cascade, before des
 const PHASE_2B = 'Phase 2b: Translate pending jobs (cascade top-up)';
 const PHASE_2D = 'Phase 2d: Fix untranslated titles (free cascade)';
 const PHASE_2E = 'Phase 2e: Fix untranslated descriptions (free cascade)';
+const STALE_PREPASS = 'Phase 2 pre: Repair stale source-copy descriptions (bounded)';
 const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
 const CODEX_MAX_CALLS_REPO_EXPR = '${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}';
 const DEFAULT_CODEX_MAX_CALLS = 350;
@@ -51,9 +53,10 @@ function expectBudget(step: Step) {
   // dal budget di tempo e dal nuovo budget di caratteri; la variabile di
   // repository FREE_TRANSLATE_CODEX_MAX_CALLS resta il rollback immediato.
   expect(calls, step.name).toBe(350);
-  // Descrizioni (2b, 2e): 25 righe per richiesta, misurate con Codex Luna Max
-  // reale l'8 ottobre 2026; titoli (2a.2, 2d): 10.
-  expect(step.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS, step.name).toBe(/Phase 2[be]:/.test(String(step.name)) ? '25' : '10');
+  // Descrizioni (prepass, 2b, 2e): 25 righe per richiesta, misurate con Codex
+  // Luna Max reale l'8 ottobre 2026; titoli (2a.2, 2d): 10.
+  const isDescriptionRepair = /Phase 2[be]:/.test(String(step.name)) || step.name === STALE_PREPASS;
+  expect(step.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS, step.name).toBe(isDescriptionRepair ? '25' : '10');
   expect(step.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS, step.name).toBe('3000');
   expect(ms, step.name).toBeGreaterThan(0);
   // La 2b ha una finestra di 30 minuti e puo' spenderne 25; il budget Codex
@@ -67,12 +70,16 @@ describe.each(TARGETS)('translate-pending: dove entra Codex (%s)', (rel) => {
   const steps = stepsOf(rel);
   const at = (predicate: (step: Step) => boolean) => steps.findIndex(predicate);
 
-  it('il broker parte dopo il passaggio Argos bulk e prima della cascata 2b', () => {
+  it('il broker parte prima del prepass stale e delle fasi di traduzione', () => {
     const setupAt = at((step) => step.id === 'setup_claude_haiku_fallback');
     expect(setupAt).toBeGreaterThan(0);
+    const clockAt = at((step) => step.name === 'Initialize translation run clock');
+    const stalePrepassAt = at((step) => step.name === STALE_PREPASS);
     const argosBulkAt = at((step) => /^Phase 2a: .*Argos/.test(step.name ?? ''));
+    expect(clockAt).toBeLessThan(setupAt);
+    expect(setupAt).toBeLessThan(stalePrepassAt);
     expect(argosBulkAt).toBeGreaterThanOrEqual(0);
-    expect(argosBulkAt).toBeLessThan(setupAt);
+    expect(stalePrepassAt).toBeLessThan(argosBulkAt);
     expect(setupAt).toBeLessThan(at((step) => step.name === PHASE_2B));
     const setup = steps[setupAt];
     expect(setup.if).toContain('inputs.dry_run != true');
@@ -81,11 +88,11 @@ describe.each(TARGETS)('translate-pending: dove entra Codex (%s)', (rel) => {
     expect(Number(setup.with?.broker_idle_ttl_ms)).toBeGreaterThanOrEqual(12_600_000);
   });
 
-  it('il socket arriva alle fasi titolo e articolo, che ereditano il budget per run', () => {
+  it('il socket arriva al prepass e alle fasi titolo e articolo, che ereditano il budget per run', () => {
     const consumers = steps.filter((step) => step.env
       && Object.prototype.hasOwnProperty.call(step.env, 'CODEX_AUTH_BROKER_SOCKET')
       && step.name !== 'Cleanup Codex auth broker');
-    expect(consumers.map((step) => step.name)).toEqual([PHASE_2A2, PHASE_2B, PHASE_2D, PHASE_2E]);
+    expect(consumers.map((step) => step.name)).toEqual([STALE_PREPASS, PHASE_2A2, PHASE_2B, PHASE_2D, PHASE_2E]);
     const resolver = steps.find((step) => step.name === CODEX_BUDGET_RESOLVER);
     expect(resolver?.env?.FREE_TRANSLATE_CODEX_MAX_CALLS_REPO).toBe(CODEX_MAX_CALLS_REPO_EXPR);
     expect(resolver?.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS');

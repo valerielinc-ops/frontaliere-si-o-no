@@ -35,6 +35,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { directLogoSources, loadLogoRegistry } from './lib/company-logo-registry.mjs';
 import { companyLogoKeyForJob } from './lib/company-logo-key.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
+import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 import {
   domainCandidates,
   isAtsDomain,
@@ -377,12 +378,10 @@ export function extractOfficialLogoImages(html, baseUrl, domain) {
       addDeclaredLogo(match[1]);
     }
   }
-  for (const tag of html.match(/<meta\b[^>]*>/gi) || []) {
-    const property = tag.match(/\bproperty\s*=\s*["']([^"']+)["']/i)?.[1]
-      || tag.match(/\bname\s*=\s*["']([^"']+)["']/i)?.[1]
-      || '';
+  for (const { raw: tag } of scanMarkupStartTags(html, 'meta')) {
+    const property = readAttr(tag, ['property', 'name']);
     if (property.toLowerCase() !== 'og:logo') continue;
-    const content = tag.match(/\bcontent\s*=\s*["']([^"']+)["']/i)?.[1];
+    const content = readAttr(tag, 'content');
     if (content) addDeclaredLogo(content);
   }
   return links.slice(0, 8);

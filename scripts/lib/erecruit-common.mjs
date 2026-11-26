@@ -31,6 +31,7 @@ import {
 import { sourcePostingDateFields, sourceRssPostingDateFields } from './source-posting-date.mjs';
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { readMetaContent } from './html-attr.mjs';
 
 // eRecruit hosts (Apache + custom CGI) reset the connection if the Accept
 // header advertises "application/rss+xml" with wildcard fallback. Use a
@@ -106,9 +107,9 @@ export async function fetchErecruitDetail(detailUrl, { includePublication = fals
   const h2Match = html.match(/<div class="title-container">[\s\S]*?<h2>([\s\S]*?)<\/h2>/);
   if (h2Match) title = normalizeSpace(decodeEntities(h2Match[1].replace(/<[^>]+>/g, '')));
   if (!title) {
-    const ogTitleMatch = html.match(/<meta\s+property="og:title"\s+content="([^"]+)"/i);
-    if (ogTitleMatch) {
-      let raw = decodeEntities(normalizeSpace(ogTitleMatch[1]));
+    const ogTitle = readMetaContent(html, 'og:title');
+    if (ogTitle) {
+      let raw = decodeEntities(normalizeSpace(ogTitle));
       // Drop trailing site label patterns like "Site | Nos offres - <real>"
       // or "Site Name - <real>" by keeping the segment after the last
       // " - " separator IFF the prefix part contains "Nos offres" or "|".
