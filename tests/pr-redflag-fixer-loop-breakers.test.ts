@@ -309,7 +309,8 @@ describe('3. push respinto: un altro writer ha avanzato il branch', () => {
     }
     const temp = path.join(dir, 'tmp');
     mkdirSync(temp);
-    writeFileSync(path.join(temp, 'redflag-response.md'), '- `a.mjs:L1` — disputed: già coperto.\n');
+    mkdirSync(path.join(temp, 'redflag'));
+    writeFileSync(path.join(temp, 'redflag', 'redflag-response.md'), '- `a.mjs:L1` — disputed: già coperto.\n');
     const gh = fakeBin(dir, 'gh', `case "$*" in
   *"pulls/9959 --jq"*) echo "body rewritten" ;;
   *comments*) echo "" ;;

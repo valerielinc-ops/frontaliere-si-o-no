@@ -9,7 +9,7 @@ import { exportResponseArtifact, prepareResponseArtifact, MAX_RESPONSE_BYTES } f
 interface ActionStep { id?: string; name?: string; run?: string }
 interface WorkflowStep { uses?: string; with?: Record<string, string> }
 const action = YAML.parse(readFileSync(resolve('.github/actions/claude-codex-fallback/action.yml'), 'utf8')) as {
-  inputs: { response_artifact: { default: string } };
+  inputs: { response_artifact: { default: string }; response_artifact_dir: { default: string } };
   runs: { steps: ActionStep[] };
 };
 function stepScript(predicate: (step: ActionStep) => boolean): string {
@@ -47,13 +47,27 @@ describe('declared Codex response handoff', () => {
     expect(codex.indexOf(exportBlock!)).toBeGreaterThan(codex.indexOf('\nstop_bridge\n'));
     const cleanup = stepScript(step => step.name === 'Cleanup ephemeral Codex subscription auth');
     const output = execFileSync('/bin/bash', ['-c', `${runtimeSnapshotBinding}\n${exportBlock}\nprintf 'model_status=%s\\n' "$codex_status"\n${cleanup}`], {
-      env: { ...process.env, CODEX_RESPONSE_ARTIFACT: f.filename, runner_temp: f.runnerTemp, scratch_dir: f.scratchRoot,
+      env: { ...process.env, CODEX_RESPONSE_ARTIFACT: f.filename, CODEX_RESPONSE_ARTIFACT_DIR: '', runner_temp: f.runnerTemp, scratch_dir: f.scratchRoot,
         runtime_root: runtime, node_realpath: process.execPath, codex_status: String(status),
         CODEX_HOME: f.home, CODEX_RUNTIME_SNAPSHOT: runtime, RUNNER_TEMP: f.runnerTemp, TRUSTED_NODE: process.execPath }, encoding: 'utf8',
     });
     expect(output).toContain(`model_status=${status}`);
     expect(readFileSync(join(f.runnerTemp, f.filename), 'utf8')).toBe(response);
     expect(existsSync(f.home)).toBe(false);
+  });
+
+  it('exports a response from the caller-declared context directory', () => {
+    const f = fixture();
+    const directory = 'redcheck';
+    mkdirSync(join(f.runnerTemp, directory));
+    mkdirSync(join(f.scratchRoot, directory));
+    const scoped = { ...f, directory };
+    prepareResponseArtifact(scoped);
+    const response = 'recovered: the source run is green now.\n';
+    writeFileSync(join(f.scratchRoot, directory, f.filename), response);
+
+    expect(exportResponseArtifact(scoped)).toEqual({ status: 'exported', bytes: Buffer.byteLength(response) });
+    expect(readFileSync(join(f.runnerTemp, directory, f.filename), 'utf8')).toBe(response);
   });
 
   it('removes stale host output and reports a missing response without manufacturing one', () => {
@@ -67,6 +81,11 @@ describe('declared Codex response handoff', () => {
   it.each(['../outside.md', '/absolute.md', 'nested/file.md', '.hidden', 'bad\nname'])('rejects unsafe basename %j', filename => {
     const f = fixture();
     expect(() => prepareResponseArtifact({ ...f, filename })).toThrow('plain basename');
+  });
+
+  it.each(['../outside', '/absolute', 'nested/file', '.hidden', 'bad\nname'])('rejects unsafe response directory %j', directory => {
+    const f = fixture();
+    expect(() => prepareResponseArtifact({ ...f, directory })).toThrow('plain basename');
   });
 
   it.each(['symlink', 'hardlink'])('rejects a %s source without copying protected content', kind => {
@@ -107,9 +126,11 @@ describe('declared Codex response handoff', () => {
     const caller = Object.values(workflow.jobs).flatMap(job => job.steps || [])
       .find(step => step.uses === './.github/actions/claude-codex-fallback');
     expect(action.inputs.response_artifact.default).toBe('');
+    expect(action.inputs.response_artifact_dir.default).toBe('');
     expect(snapshot).toContain('sanitize-git-config.mjs response-artifact.mjs; do');
-    expect(snapshot).toContain('prepare "$CODEX_RESPONSE_ARTIFACT" "$runner_temp"');
+    expect(snapshot).toContain('prepare "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "$CODEX_RESPONSE_ARTIFACT_DIR"');
     expect(caller?.with?.response_artifact).toBe('redflag-response.md');
+    expect(caller?.with?.response_artifact_dir).toBe('redflag');
     expect(codex).toContain('RUNNER_TEMP="$scratch_dir"');
     expect(codex).toContain('permissions.codex-fallback.network.enabled=false');
   });
