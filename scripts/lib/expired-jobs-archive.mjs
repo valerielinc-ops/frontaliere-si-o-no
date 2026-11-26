@@ -648,9 +648,16 @@ export function mergeSourceIdentityHistory(survivor, removed) {
  * survivor remains untouched so callers can keep the records separate or keep
  * the already-persisted winner. Other transfer failures still propagate.
  *
+ * @param {object} [options]
+ * @param {(error: Error) => void} [options.onLegacyRouteCapRefusal]
  * @returns {boolean} whether route evidence or context changed
  */
-export function mergeExpiredRouteEvidence(survivor, historical, source = 'expired-route-evidence') {
+export function mergeExpiredRouteEvidence(
+  survivor,
+  historical,
+  source = 'expired-route-evidence',
+  { onLegacyRouteCapRefusal } = {},
+) {
   if (!survivor || typeof survivor !== 'object' || !historical || typeof historical !== 'object') {
     return false;
   }
@@ -678,7 +685,10 @@ export function mergeExpiredRouteEvidence(survivor, historical, source = 'expire
       preserveAllExpiredRoutes: true,
     });
   } catch (error) {
-    if (isLegacyRouteCapRefusal(error)) return false;
+    if (isLegacyRouteCapRefusal(error)) {
+      onLegacyRouteCapRefusal?.(error);
+      return false;
+    }
     throw error;
   }
   const after = JSON.stringify({
@@ -906,14 +916,22 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
       indexRecord(entry);
       added++;
     } else if (compareExpiredAt(entry.expiredAt, prev.expiredAt) >= 0) {
-      const previousMetadata = firstSeenMetadata(prev);
-      unindexRecord(prev); // the replaced record no longer owns its identities or routes
-      bySlug.set(entry.slug, entry);
+      let routeCapRefused = false;
       const routeEvidenceMerged = mergeExpiredRouteEvidence(
         entry,
         prev,
         `archive-removed-jobs-to-slice/${crawlerKey}`,
+        { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
       );
+      if (routeCapRefused) {
+        // A refusal means the old record is still the only proven owner of
+        // its routes. Keep it indexed and do not replace it with the newer
+        // payload whose history could not carry those routes.
+        continue;
+      }
+      const previousMetadata = firstSeenMetadata(prev);
+      unindexRecord(prev); // the replaced record no longer owns its identities or routes
+      bySlug.set(entry.slug, entry);
       const merged = mergeSourceIdentityHistory(entry, prev) || routeEvidenceMerged;
       indexRecord(entry); // after the merge: it may now carry the old record's identity history
       // A newer payload may replace a legacy entry that has no metadata. The
