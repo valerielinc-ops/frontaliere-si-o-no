@@ -687,6 +687,11 @@ describe('Volg/fenaco crawler — detail enrichment retranslation flags', () => 
     const previous = asVolgRecord(before);
     const discovered = {
       ...asVolgRecord(after),
+      // Exercise source drift without also asking locale hardening to derive
+      // a new canonical slug from a renamed role; the worker boundary under
+      // test is retranslation, not slug history repair.
+      title: previous.title,
+      description: `${after.description}\nUpdated source responsibility.`,
       _enrichedFromDetail: true,
     };
     const fetchSpy = vi.fn();
