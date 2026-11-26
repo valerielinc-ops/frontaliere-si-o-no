@@ -9893,11 +9893,14 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
       const inputs = form ? [...form.querySelectorAll('input')] : [];
       return {
         tagName: String(element.tagName || '').toUpperCase(),
+        role: element.getAttribute('role') || '',
         text: element.innerText || element.textContent || '',
         ariaLabel: element.getAttribute('aria-label') || '',
         title: element.getAttribute('title') || '',
         labelledBy,
         disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
+        inChrome: Boolean(element.closest('header, nav, footer, [role="banner"], [role="contentinfo"]'))
+          && !element.closest('main, [role="main"], form, [role="form"], dialog, [role="dialog"], [aria-modal="true"]'),
         href: element.getAttribute('href'),
         dataAutomationId: element.getAttribute('data-automation-id') || '',
         formId: form?.getAttribute('data-aa-id') || '',
@@ -9949,6 +9952,23 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
       && (sameFormAuthButton || pageLevelCreateAuthButton)
       && explicitSignInLabel;
     if (workdayFormButton) {
+      return locator.click({ timeout: 6_000 }).then(() => true, () => false);
+    }
+    const interactiveSignInButton = Boolean(liveControl)
+      && (liveControl.tagName === 'BUTTON'
+        || liveControl.tagName === 'INPUT'
+        || liveControl.role === 'button'
+        || (liveControl.tagName === 'A' && /^(?:#|javascript:)/i.test(String(liveControl.href || '').trim())));
+    const existingAccountSignInButton = interactiveSignInButton
+      && portalProtocol === 'https:'
+      && candidate.chrome !== true
+      && liveControl.inChrome !== true
+      && candidate.disabled !== true
+      && liveControl.disabled !== true
+      && (!Array.isArray(currentSnapshot?.fields) || authPageKind(currentSnapshot) === 'none')
+      && hasExistingAccountPrompt(currentSnapshot)
+      && explicitSignInLabel;
+    if (existingAccountSignInButton) {
       return locator.click({ timeout: 6_000 }).then(() => true, () => false);
     }
     if (liveControl?.tagName !== 'A' || !explicitSignInLabel) continue;
@@ -11030,6 +11050,18 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const after = await awaitAuthOutcome(page, 'create', registrationSnapshot.errors, registrationSnapshot.fields);
     diagnostics?.afterClick();
     if (hasExistingAccountPrompt(after)) {
+      if (retryingUnverifiedAccount && account) {
+        registrationRestarts.add(host);
+        if (await openVerifiedSignInNavigation(page, after)) {
+          const signInView = await awaitAuthView(page, after);
+          if (authPageKind(signInView) === 'sign_in') {
+            return noted(await handleAuth({
+              page, snapshot: signInView, ctx, diagnostics, typedSecrets, registrationRestarts, recoveryAttempts,
+            }));
+          }
+        }
+        return noted(accountHandoff('account', 'login_unobserved', 'login'));
+      }
       if (typeof ctx.accounts.recordExistingUnknownPassword === 'function') {
         await ctx.accounts.recordExistingUnknownPassword(host);
       } else if (credentialSaved) {
@@ -13550,8 +13582,21 @@ export async function submitViaPortal(ctx) {
         return { result: request || await handoff('portal_needs_candidate') };
       }
       if (agent.status === 'ACCOUNT_STEP') {
-        const authSnapshot = currentSnapshot;
-        const otpAccount = authSnapshot ? await pendingOtpAccount(authSnapshot) : null;
+        let authSnapshot = currentSnapshot;
+        let otpAccount = authSnapshot ? await pendingOtpAccount(authSnapshot) : null;
+        if (authSnapshot && authPageKind(authSnapshot) === 'none' && !otpAccount) {
+          let authHost = '';
+          try {
+            authHost = new URL(page.url()).hostname;
+          } catch {
+            authHost = '';
+          }
+          const storedAccount = authHost && ctx.accounts ? await ctx.accounts.load(authHost).catch(() => null) : null;
+          if (storedAccount && hasExistingAccountPrompt(authSnapshot) && await openVerifiedSignInNavigation(page, authSnapshot)) {
+            authSnapshot = await awaitAuthView(page, authSnapshot);
+            otpAccount = authSnapshot ? await pendingOtpAccount(authSnapshot) : null;
+          }
+        }
         if (!authSnapshot || (authPageKind(authSnapshot) === 'none' && !otpAccount)) return { result: await handoff('account') };
         if (!ctx.accounts) {
           const stage = otpAccount ? 'verification' : authPageKind(authSnapshot);
