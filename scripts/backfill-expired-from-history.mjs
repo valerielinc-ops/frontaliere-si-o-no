@@ -38,6 +38,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { mergeUrlKey } from './lib/job-url-key.mjs';
 import {
   collapseDuplicateRouteEntries,
   createSameIdentityArchiveIndex,
@@ -197,24 +198,82 @@ function listHistoryCommits(relPath, cwd) {
 }
 
 /**
- * Collect the identities that name a page, not a posting (a bare listing URL):
- * two postings in one version of the slice, or two `#fragment`s over history.
- * Such an identity never proves that a recovered payload is already archived.
+ * Whether a `url:` source identity carries a posting-specific token in its last
+ * path segment or its query. A token only in an ancestor segment names a board
+ * or a tenant. Identities that are not URLs are declared per posting.
+ */
+function namesOnePosting(identity) {
+  if (!identity.startsWith('url:')) return true;
+  const url = identity.slice(4).toLowerCase().replace(/\/+$/, '');
+  const key = mergeUrlKey(url);
+  // `url:` = no token; `req:<host>:num:…` = the vendor rules' tenant fallback.
+  if (key.startsWith('url:') || /:(?:num|hex|url):/.test(key)) return false;
+  if (key.startsWith('req:')) return true;
+  const token = key.slice(key.indexOf(':') + 1);
+  const [beforeQuery, ...query] = url.split('#')[0].split('?');
+  return `${beforeQuery.split('/').pop()}?${query.join('?')}`.includes(token);
+}
+
+/**
+ * Collect the identities that name a page, not a posting (a listing URL). Such
+ * an identity never proves on its own that a recovered payload is already
+ * archived. Three signals:
+ *   - two postings under it in one version of the slice;
+ *   - two `#fragment`s under it over history;
+ *   - for a URL without a posting token, sightings anywhere in history or in the
+ *     archive that no chain of shared ids or slugs connects: successive
+ *     postings of a one-vacancy listing are never open in the same version.
+ * A URL that names one posting needs no link, so a rename that also changes the
+ * id is still recognised.
  */
 function createListingIdentityCollector() {
   const ambiguous = new Set();
   const fragmentByIdentity = new Map();
+  const groupsByIdentity = new Map(); // identity -> disjoint Set<id/slug key>[]
+  const seenSightings = new Set();
+
+  const addSighting = (identity, record) => {
+    if (!identity || namesOnePosting(identity)) return;
+    const slugs = [
+      record.slug,
+      ...Object.values(record.slugByLocale || {}),
+      ...(record.previousSlugs || []),
+      ...Object.values(record.previousSlugsByLocale || {}).flat(),
+    ].filter(Boolean);
+    const keys = [
+      ...(record.id ? [`id:${record.id}`] : []),
+      ...slugs.map((slug) => `slug:${slug}`),
+    ];
+    if (keys.length === 0) return;
+    // Most versions repeat the previous one.
+    const signature = JSON.stringify([identity, keys]);
+    if (seenSightings.has(signature)) return;
+    seenSightings.add(signature);
+    const merged = new Set(keys);
+    const apart = [];
+    for (const group of groupsByIdentity.get(identity) || []) {
+      if (keys.some((key) => group.has(key))) for (const key of group) merged.add(key);
+      else apart.push(group);
+    }
+    groupsByIdentity.set(identity, [...apart, merged]);
+  };
+
   return {
-    ambiguous,
+    isAmbiguous: (identity) => ambiguous.has(identity)
+      || (groupsByIdentity.get(identity)?.length || 0) > 1,
+    addArchiveRow(row) {
+      addSighting(row?.sourceIdentity, row || {});
+    },
     addVersion(jobs) {
       for (const identity of ambiguousJobIdentities(jobs)) ambiguous.add(identity);
       for (const job of jobs) {
         const url = String(job?.url || '');
         const hashAt = url.indexOf('#');
-        if (hashAt < 0) continue;
-        const fragment = url.slice(hashAt);
-        for (const identity of [job.sourceIdentity, buildStableJobIdentity(job)]) {
+        const fragment = hashAt < 0 ? null : url.slice(hashAt);
+        for (const identity of new Set([job?.sourceIdentity, buildStableJobIdentity(job || {})])) {
           if (!identity) continue;
+          addSighting(identity, job || {});
+          if (fragment === null) continue;
           const seen = fragmentByIdentity.get(identity);
           if (seen === undefined) fragmentByIdentity.set(identity, fragment);
           else if (seen !== fragment) ambiguous.add(identity);
@@ -349,11 +408,17 @@ export function processSlice(sliceFile, {
     if (ej?.slug) bySlug.set(ej.slug, ej);
   }
 
+  // Every sighting is in before the first identity lookup. Archive rows count
+  // too: a bounded history may know a departed posting only from them.
+  for (const row of [...existing, ...historicalExpiredBySlug.values()]) {
+    listingIdentities.addArchiveRow(row);
+  }
+
   // What the archive serves before this run: none of it may disappear below.
   const routesServedBefore = existing.flatMap((entry) => [...localeRouteKeys(entry || {})]);
   const indexArchive = () => createSameIdentityArchiveIndex([...bySlug.values()], {
     activeJobs: currentJobs,
-    isAmbiguousIdentity: (identity) => listingIdentities.ambiguous.has(identity),
+    isAmbiguousIdentity: listingIdentities.isAmbiguous,
   });
 
   /**

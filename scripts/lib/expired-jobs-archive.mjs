@@ -789,7 +789,8 @@ export function carryReplacedExpiredEntry(entry, previous, source) {
  * @param {object[]} records
  * @param {{activeJobs?: object[], isAmbiguousIdentity?: (identity: string) => boolean}} [options]
  *   `isAmbiguousIdentity` names identities that point at a page rather than one
- *   posting (a bare listing URL); they never prove that two payloads are the same.
+ *   posting (a bare listing URL); under such an identity only the same job `id`
+ *   proves that two payloads are the same posting.
  */
 export function createSameIdentityArchiveIndex(records, { activeJobs, isAmbiguousIdentity } = {}) {
   const recordsBySourceIdentity = new Map(); // identity -> Set<record>, insertion order
@@ -842,8 +843,11 @@ export function createSameIdentityArchiveIndex(records, { activeJobs, isAmbiguou
    */
   const absorb = (entry) => {
     const identity = entry?.sourceIdentity;
-    if (!identity || isAmbiguousIdentity?.(identity)) return null;
-    const record = recordsBySourceIdentity.get(identity)?.values().next().value;
+    if (!identity) return null;
+    const owners = [...(recordsBySourceIdentity.get(identity) || [])];
+    const record = isAmbiguousIdentity?.(identity)
+      ? owners.find((owner) => entry.id && owner.id === entry.id)
+      : owners[0];
     if (!record) return null;
     const held = localeRouteKeys(record);
     const unserved = [...localeRouteKeys(entry)].filter((routeKey) => {

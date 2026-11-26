@@ -67,9 +67,10 @@ const missing = (before: Set<string>, rows: Row[]) => {
 };
 const hex8Routes = (rows: Row[]) => [...routesOf(rows)].filter((key) => /-[0-9a-f]{8}$/.test(key));
 
-const sourceUrl = (n: number | string) => `https://jobs.example.invalid/vacancy/${n}`;
+// A detail URL: its leaf carries a posting token.
+const sourceUrl = (n: number) => `https://jobs.example.invalid/vacancy/${7_000_000 + n}`;
 
-function record(slug: string, source: number | string, extra: Row = {}): Row {
+function record(slug: string, source: number, extra: Row = {}): Row {
   return {
     slug,
     title: `Posting ${source}`,
@@ -84,7 +85,7 @@ function record(slug: string, source: number | string, extra: Row = {}): Row {
   };
 }
 
-function activeJob(id: string, slug: string, source: number | string, extra: Row = {}): Row {
+function activeJob(id: string, slug: string, source: number, extra: Row = {}): Row {
   return {
     id,
     slug,
@@ -284,6 +285,114 @@ describe('history backfill: served expired routes', () => {
     expect(missing(before, first)).toEqual([]);
     expect(routesOf(first).has('de:mitarbeiter-umschlag-dintikon')).toBe(true);
     expect(missing(before, readArchive())).toEqual([]);
+  });
+});
+
+describe('history backfill: one listing URL for successive postings', () => {
+  // No posting token anywhere: the URL names the page that lists the vacancies.
+  const listing = 'https://jobs.example.invalid/jobs';
+  const onListing = (id: string, slug: string, extra: Row = {}) => (
+    activeJob(id, slug, 0, { url: listing, title: `Posting ${id}`, ...extra })
+  );
+  const listingRecord = (slug: string, extra: Row = {}) => (
+    record(slug, 0, { sourceIdentity: `url:${listing}`, ...extra })
+  );
+  const routesBySlug = (rows: Row[]) => Object.fromEntries(
+    rows.filter((row) => row.slug !== 'custode-airolo')
+      .map((row) => [row.slug, [...routesOf([row])].sort()]),
+  );
+  const runTwice = () => {
+    run();
+    const first = readArchive();
+    commit({});
+    run();
+    return { first, second: readArchive() };
+  };
+
+  it('keeps two records when no single version shows both postings', () => {
+    commit({ active: [onListing('a', 'old', { crawledAt: daysAgo(40), slugByLocale: { it: 'old', de: 'alt' } })] });
+    commit({ active: [onListing('b', 'new', { slugByLocale: { it: 'new', de: 'neu' } })] });
+    commit({ active: [] });
+
+    const { first, second } = runTwice();
+
+    expect(routesBySlug(first)).toEqual({
+      old: ['de:alt', 'it:old'],
+      new: ['de:neu', 'it:new'],
+    });
+    expect(second).toEqual(first);
+  });
+
+  it('keeps them apart while the second posting is still open', () => {
+    commit({ active: [onListing('a', 'old', { crawledAt: daysAgo(40) }), unrelatedDrop()] });
+    commit({ active: [onListing('b', 'new')] });
+
+    const { first, second } = runTwice();
+
+    expect(routesBySlug(first)).toEqual({ old: ['it:old'] });
+    expect(second).toEqual(first);
+  });
+
+  it('keeps apart a posting known only from the archive and a later lost job', () => {
+    commit({ active: [onListing('b', 'new')], expired: [listingRecord('old', { id: 'a' })] });
+    commit({ active: [] });
+
+    const { first, second } = runTwice();
+
+    expect(routesBySlug(first)).toEqual({ old: ['it:old'], new: ['it:new'] });
+    expect(second).toEqual(first);
+  });
+
+  it('still folds a rename that keeps the id into one record', () => {
+    commit({ active: [], expired: [listingRecord('lattoniere-faido', { id: 'a' })] });
+    commit({ active: [], expired: [listingRecord('lattoniere-esperto-faido', { id: 'a', expiredAt: daysAgo(10) })] });
+
+    const { first, second } = runTwice();
+
+    expect(first.map((row) => row.slug)).toEqual(['lattoniere-esperto-faido']);
+    expect(routesOf(first).has('it:lattoniere-faido')).toBe(true);
+    expect(hex8Routes(first)).toEqual([]);
+    expect(second).toEqual(first);
+  });
+
+  it('folds a same-id rename into its own record on a page shared by other postings', () => {
+    commit({ active: [onListing('c', 'gessatore-faido'), onListing('a', 'lattoniere-faido')] });
+    commit({
+      active: [],
+      expired: [
+        listingRecord('gessatore-faido', { id: 'c', expiredAt: daysAgo(2) }),
+        listingRecord('lattoniere-faido', { id: 'a', expiredAt: daysAgo(40) }),
+      ],
+    });
+    commit({
+      active: [unrelatedDrop()],
+      expired: [
+        listingRecord('gessatore-faido', { id: 'c', expiredAt: daysAgo(2) }),
+        listingRecord('lattoniere-esperto-faido', { id: 'a', expiredAt: daysAgo(10) }),
+      ],
+    });
+    commit({ active: [] });
+
+    const { first, second } = runTwice();
+
+    expect(Object.keys(routesBySlug(first)).sort())
+      .toEqual(['gessatore-faido', 'lattoniere-esperto-faido']);
+    expect(routesBySlug(first)['lattoniere-esperto-faido'])
+      .toEqual(['it:lattoniere-esperto-faido', 'it:lattoniere-faido']);
+    expect(second).toEqual(first);
+  });
+
+  it('still folds a rename with a new id when the URL names one posting', () => {
+    commit({ active: [activeJob('first-id', 'selciatore-olivone', 21, { crawledAt: daysAgo(40) })] });
+    commit({ active: [activeJob('second-id', 'selciatore-esperto-olivone', 21)] });
+    commit({ active: [] });
+
+    const { first, second } = runTwice();
+
+    expect(first.map((row) => row.slug)).toEqual(['selciatore-esperto-olivone']);
+    expect(routesOf(first).has('it:selciatore-olivone')).toBe(true);
+    expect(hex8Routes(first)).toEqual([]);
+    expect(second).toEqual(first);
   });
 });
 
