@@ -362,6 +362,11 @@ jobs:
       - name: Assemble jobs dataset from per-crawler slices
         id: assemble
         continue-on-error: true
+        env:
+          # The full newsletter assembly retains the expired archive while it
+          # reconciles previousSlugs; the default V8 heap exhausted on the
+          # current archive before the newsletter could read the dataset.
+          NODE_OPTIONS: --max-old-space-size=8192
         run: node scripts/assemble-jobs-dataset.mjs 2>&1
 
       - name: Report degraded newsletter (jobs assembly failed)
