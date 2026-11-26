@@ -27,6 +27,37 @@ import { MID_PLUGINS_FAST } from './mid-plugins-flag.mjs';
  * because SME markup emits them.
  *
  */
+function findQuotedValueEnd(source, start, quote) {
+  let firstNestedTag = -1;
+  let insideTag = false;
+  let tagQuote = '';
+
+  for (let i = start; i < source.length; i += 1) {
+    const character = source[i];
+    if (insideTag) {
+      if (tagQuote) {
+        if (character === tagQuote) tagQuote = '';
+      } else if (character === '"' || character === "'") {
+        tagQuote = character;
+      } else if (character === '>') {
+        insideTag = false;
+      }
+      continue;
+    }
+
+    if (character === quote) return i;
+    if (character === '<' && /^<\/?[a-z][a-z0-9:-]*(?:\s|\/?\s*>)/i.test(source.slice(i))) {
+      if (firstNestedTag === -1) firstNestedTag = i;
+      insideTag = true;
+    }
+  }
+
+  // A malformed quote must not swallow following elements. A valid quoted
+  // template reaches its closing quote outside the nested tag and returns
+  // above, so this fallback only applies to an unterminated value.
+  return firstNestedTag === -1 ? source.length : firstNestedTag;
+}
+
 /**
  * Tokenize attribute assignments while respecting quoted and unquoted value
  * boundaries, so attribute-shaped text inside a value is never rediscovered.
@@ -64,7 +95,7 @@ function scanAttributes(input = '') {
     if (quote) {
       i += 1;
       const valueStart = i;
-      while (i < source.length && source[i] !== quote && source[i] !== '<') i += 1;
+      i = findQuotedValueEnd(source, i, quote);
       if (source[i] !== quote) continue;
       out.push({ name: name.toLowerCase(), value: source.slice(valueStart, i) });
       i += 1;
@@ -224,7 +255,7 @@ function shouldRecoverAtNestedTag(source, start, quote) {
 }
 
 /**
- * Remove comments and raw-text elements while keeping source offsets stable.
+ * Remove comments and non-live containers while keeping source offsets stable.
  * Comment boundaries are resolved before looking for a raw-text opener; this
  * prevents `<script>` text inside a comment from swallowing live metadata.
  * Conversely, a raw-text block is consumed as one unit, so `<!--` in a
@@ -237,11 +268,75 @@ function scrubMarkupForTagScan(source) {
   return MID_PLUGINS_FAST ? scrubMarkupForTagScanFast(source) : scrubMarkupForTagScanLegacy(source);
 }
 
-const RAW_TEXT_OPEN = /<(script|style)(?=[\s/>])/iy;
-const RAW_TEXT_CLOSE = {
+const NON_LIVE_CONTAINER_OPEN = /<(script|style|template|textarea|title)(?=[\s/>])/iy;
+const NON_LIVE_CONTAINER_CLOSE = {
   script: /<\/script\s*>/ig,
   style: /<\/style\s*>/ig,
+  template: /<\/template\s*>/ig,
+  textarea: /<\/textarea\s*>/ig,
+  title: /<\/title\s*>/ig,
 };
+
+/**
+ * Skip one container whose contents are not live document markup. Template
+ * contents can contain nested templates, comments and raw-text elements, so
+ * its matching close must be found structurally instead of with a bare
+ * `indexOf('</template>')`.
+ *
+ * @param {string} source
+ * @param {string} name
+ * @param {number} openEnd
+ * @returns {number}
+ */
+function findNonLiveContainerEnd(source, name, openEnd) {
+  if (name !== 'template') {
+    const closePattern = NON_LIVE_CONTAINER_CLOSE[name];
+    closePattern.lastIndex = openEnd;
+    const close = closePattern.exec(source);
+    return close ? close.index + close[0].length : source.length;
+  }
+
+  let depth = 1;
+  let cursor = openEnd;
+  while (cursor < source.length) {
+    if (source.startsWith('<!--', cursor)) {
+      const close = source.indexOf('-->', cursor + 4);
+      cursor = close === -1 ? source.length : close + 3;
+      continue;
+    }
+    if (source[cursor] !== '<') {
+      cursor += 1;
+      continue;
+    }
+
+    const templateTag = source.slice(cursor).match(/^<\/?template(?=[\s/>])/i);
+    if (templateTag) {
+      const tagEnd = findTagEnd(source, cursor);
+      if (tagEnd === -1) return source.length;
+      if (templateTag[0][1] === '/') {
+        depth -= 1;
+        if (depth === 0) return tagEnd;
+      } else {
+        depth += 1;
+      }
+      cursor = tagEnd;
+      continue;
+    }
+
+    const nestedContainer = source.slice(cursor).match(/^<(script|style|textarea|title)(?=[\s/>])/i);
+    if (nestedContainer) {
+      const tagEnd = findTagEnd(source, cursor);
+      if (tagEnd === -1) return source.length;
+      cursor = findNonLiveContainerEnd(source, nestedContainer[1].toLowerCase(), tagEnd);
+      continue;
+    }
+
+    const tagEnd = findTagEnd(source, cursor);
+    if (tagEnd === -1) return source.length;
+    cursor = tagEnd;
+  }
+  return source.length;
+}
 
 /**
  * Stesso risultato di `scrubMarkupForTagScanLegacy` (stessa stringa, stessa
@@ -276,18 +371,15 @@ function scrubMarkupForTagScanFast(source) {
     }
 
     if (source[cursor] === '<') {
-      RAW_TEXT_OPEN.lastIndex = cursor;
-      const rawOpen = RAW_TEXT_OPEN.exec(source);
+      NON_LIVE_CONTAINER_OPEN.lastIndex = cursor;
+      const rawOpen = NON_LIVE_CONTAINER_OPEN.exec(source);
       if (rawOpen) {
         const openEnd = findTagEnd(source, cursor);
         if (openEnd === -1) {
           blank(cursor, length);
           break;
         }
-        const closePattern = RAW_TEXT_CLOSE[rawOpen[1].toLowerCase()];
-        closePattern.lastIndex = openEnd;
-        const close = closePattern.exec(source);
-        const end = close ? close.index + close[0].length : length;
+        const end = findNonLiveContainerEnd(source, rawOpen[1].toLowerCase(), openEnd);
         blank(cursor, end);
         cursor = end;
         continue;
@@ -325,17 +417,14 @@ function scrubMarkupForTagScanLegacy(source) {
     }
 
     if (source[cursor] === '<') {
-      const rawOpen = source.slice(cursor).match(/^<(script|style)(?=[\s/>])/i);
+      const rawOpen = source.slice(cursor).match(/^<(script|style|template|textarea|title)(?=[\s/>])/i);
       if (rawOpen) {
         const openEnd = findTagEnd(source, cursor);
         if (openEnd === -1) {
           blank(cursor, source.length);
           break;
         }
-        const closePattern = new RegExp(`</${rawOpen[1]}\\s*>`, 'ig');
-        closePattern.lastIndex = openEnd;
-        const close = closePattern.exec(source);
-        const end = close ? close.index + close[0].length : source.length;
+        const end = findNonLiveContainerEnd(source, rawOpen[1].toLowerCase(), openEnd);
         blank(cursor, end);
         cursor = end;
         continue;

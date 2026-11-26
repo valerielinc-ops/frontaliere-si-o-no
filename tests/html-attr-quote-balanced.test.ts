@@ -30,6 +30,7 @@ import {
   readTagByAttr,
   scanMarkupStartTags,
 } from '../scripts/lib/html-attr.mjs';
+import { readLiveMetaAttr, scanLiveMetaTags } from '../scripts/lib/live-meta-tags.mjs';
 import { extractJsonLd, scoreVacancyPage } from '../scripts/lib/prospector/extract.mjs';
 import {
   cleanAnchorText,
@@ -78,6 +79,20 @@ describe('scanMarkupStartTags — comment and raw-text boundaries', () => {
     );
     expect(tags).toHaveLength(1);
     expect(tags[0].raw).toContain('noindex');
+  });
+
+  it('skips inert and RCDATA containers in both live-meta scanners', () => {
+    const html = '<template><meta name="robots" content="noindex"></template>'
+      + '<textarea><meta name="robots" content="noindex"></textarea>'
+      + '<title><meta name="robots" content="noindex"></title>'
+      + '<meta name="robots" content="index,follow">';
+    const markupTags = scanMarkupStartTags(html, 'meta');
+    const liveTags = scanLiveMetaTags(html);
+
+    expect(markupTags).toHaveLength(1);
+    expect(liveTags).toHaveLength(1);
+    expect(readAttr(markupTags[0].raw, 'content')).toBe('index,follow');
+    expect(readLiveMetaAttr(liveTags[0], 'content')).toBe('index,follow');
   });
 });
 

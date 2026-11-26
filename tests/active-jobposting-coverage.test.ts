@@ -36,6 +36,9 @@ describe('active JobPosting coverage', () => {
   it('reads robots only from live metadata tags', () => {
     const html = '<div data-template=\'<meta name="robots" content="noindex">\'>'
       + '</div><script>const fake = \'<meta name="robots" content="noindex">\';</script>'
+      + '<template><meta name="robots" content="noindex"></template>'
+      + '<textarea><meta name="robots" content="noindex"></textarea>'
+      + '<title><meta name="robots" content="noindex"></title>'
       + '<meta name="robots" content="index,follow">';
     expect(htmlIsIndexable(html)).toBe(true);
   });
