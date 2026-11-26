@@ -291,12 +291,14 @@ function addRouteHolders(holders, keys) {
  *
  * @returns {{ replacement: string, key: string, reused: boolean }}
  */
-function chooseCollisionReplacement(entry, route, locale, routeHolders, ownKeys) {
+function chooseCollisionReplacement(entry, route, locale, routeHolders, ownKeys, activeRouteOwners = null) {
   for (let attempt = 0; attempt < MAX_COLLISION_ATTEMPTS; attempt += 1) {
     const replacement = appendSlugDisambiguator(route, collisionRouteSuffix(entry, route, attempt));
     const key = `${locale}:${replacement}`;
     const own = ownKeys.has(key);
-    const heldByOthers = (routeHolders.get(key) || 0) - (own ? 1 : 0) > 0;
+    const activeHolders = activeRouteOwners?.get(key)?.length || 0;
+    const expiredHolders = routeHolders.get(key) || 0;
+    const heldByOthers = activeHolders + expiredHolders - (own ? 1 : 0) > 0;
     if (heldByOthers) continue;
     return { replacement, key, reused: own };
   }
@@ -323,6 +325,29 @@ function syncRouteHolders(holders, before, after) {
 const MAX_REPAIR_ROUNDS = 8;
 
 /**
+ * Build the immutable active-route owner index used while repairing expired
+ * records. A full assembly applies the same active population to every archive
+ * slice, so callers can build this once and share it across those repairs.
+ *
+ * @param {object[]} activeJobs
+ * @returns {Map<string, object[]>}
+ */
+export function createActiveRouteOwnersIndex(activeJobs) {
+  const activeRouteOwners = new Map();
+  if (!Array.isArray(activeJobs)) return activeRouteOwners;
+
+  for (const activeJob of activeJobs) {
+    for (const routeKey of localeRouteKeys(activeJob)) {
+      const owners = activeRouteOwners.get(routeKey) || [];
+      if (!owners.includes(activeJob)) owners.push(activeJob);
+      activeRouteOwners.set(routeKey, owners);
+    }
+  }
+
+  return activeRouteOwners;
+}
+
+/**
  * Keep an expired archive record from claiming a route that belongs to a
  * different active posting.
  *
@@ -342,24 +367,24 @@ const MAX_REPAIR_ROUNDS = 8;
  *
  * @param {object[]} expiredJobs
  * @param {object[]} activeJobs
+ * @param {{activeRouteOwners?: Map<string, object[]>}} [options]
  * @returns {{ entries: object[], changed: number, repairedRoutes: number, details: string[] }}
  */
-export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
+export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs, {
+  activeRouteOwners = null,
+} = {}) {
   if (!Array.isArray(expiredJobs) || !Array.isArray(activeJobs) || activeJobs.length === 0) {
     return { entries: Array.isArray(expiredJobs) ? expiredJobs : [], changed: 0, repairedRoutes: 0, details: [] };
   }
 
-  const activeRouteOwners = new Map();
-  for (const activeJob of activeJobs) {
-    for (const routeKey of localeRouteKeys(activeJob)) {
-      const owners = activeRouteOwners.get(routeKey) || [];
-      if (!owners.includes(activeJob)) owners.push(activeJob);
-      activeRouteOwners.set(routeKey, owners);
-    }
-  }
+  const routeOwners = activeRouteOwners instanceof Map
+    ? activeRouteOwners
+    : createActiveRouteOwnersIndex(activeJobs);
 
+  // Keep only per-slice expired counts here. Active counts stay in the shared
+  // index and are read on demand, avoiding a full active-route map clone for
+  // every archived crawler slice.
   const routeHolders = new Map();
-  for (const [routeKey, owners] of activeRouteOwners) routeHolders.set(routeKey, owners.length);
   for (const expiredJob of expiredJobs) addRouteHolders(routeHolders, localeRouteKeys(expiredJob));
 
   let changed = 0;
@@ -371,7 +396,7 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
     for (let round = 0; round < MAX_REPAIR_ROUNDS; round += 1) {
       const ownKeys = localeRouteKeys(expiredJob);
       const conflictingRouteKeys = [...ownKeys].filter((routeKey) => {
-        const owners = activeRouteOwners.get(routeKey);
+        const owners = routeOwners.get(routeKey);
         if (!owners || owners.length === 0) return false;
         // If any active owner is provably the same posting, ghost reconciliation
         // owns this route and must be allowed to remove/merge it normally.
@@ -387,7 +412,7 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
         const locale = localeFromRouteKey(routeKey);
         const route = rawRouteFromLocaleKey(routeKey);
         const { replacement } = chooseCollisionReplacement(
-          expiredJob, route, locale, routeHolders, ownKeys,
+          expiredJob, route, locale, routeHolders, ownKeys, routeOwners,
         );
 
         if (!replaceSlugRouteEverywhere(expiredJob, route, replacement, {

@@ -12,6 +12,7 @@ import {
 import {
   archiveRemovedJobsToSlice,
   collapseDuplicateRouteEntries,
+  createActiveRouteOwnersIndex,
   localeRouteKeys,
   repairExpiredRoutesAgainstActive,
 } from '../scripts/lib/expired-jobs-archive.mjs';
@@ -62,6 +63,23 @@ describe('repairExpiredRoutesAgainstActive', () => {
     });
     expect(active.slug).toBe(COLLIDING_ROUTE);
     expect(active.slugByLocale.de).toBe(COLLIDING_ROUTE);
+  });
+
+  it('uses a precomputed active-route index for repeated archive repairs', () => {
+    const active = activeJob();
+    const activeRouteOwners = createActiveRouteOwnersIndex([active]);
+    const firstExpired = expiredJob(`url:${EXPIRED_URL}/first`);
+    const secondExpired = expiredJob(`url:${EXPIRED_URL}/second`);
+
+    const firstResult = repairExpiredRoutesAgainstActive([firstExpired], [active], { activeRouteOwners });
+    const secondResult = repairExpiredRoutesAgainstActive([secondExpired], [active], { activeRouteOwners });
+
+    expect(firstResult.changed).toBe(2);
+    expect(secondResult.changed).toBe(2);
+    expect(firstExpired.slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
+    expect(secondExpired.slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
+    expect(secondExpired.slug).not.toBe(firstExpired.slug);
+    expect(activeRouteOwners.get(`it:${COLLIDING_ROUTE}`)).toEqual([active]);
   });
 
   it('repairs only the locale whose route collides with the active posting', () => {
