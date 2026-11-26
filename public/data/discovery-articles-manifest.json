@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "90425dcce736ec0ea16c08a3b3906546f84945a5",
+  "commit": "0bcba7c2a505a95dbb4422889318426ccfcaac46",
   "files": {
     "data/discovery-articles.json": 5284
   },
@@ -11,16 +11,6 @@
     "schema": 1,
     "algorithm": "sha256-discovery-article-v2",
     "entries": {
-      "telelavoro-frontaliere-quadro-svizzero": {
-        "signature": "7157045b25b9b1b165ba723def85e51f972bdef0e3c02f4d74c698d8177d4ed1",
-        "verifiedAt": "2026-11-07T18:38:12.122Z",
-        "locales": [
-          "de",
-          "en",
-          "fr",
-          "it"
-        ]
-      },
       "fiscalita-svizzera-tre-livelli": {
         "signature": "ad9101339f459afddaba061806f579e90e3880fcb9381258825b331c3305fc53",
         "verifiedAt": "2026-11-26T07:25:52.717Z",
@@ -34,6 +24,16 @@
         "verifiedAt": "2026-11-26T07:25:52.717Z",
         "locales": [
           "fr"
+        ]
+      },
+      "telelavoro-frontaliere-quadro-svizzero": {
+        "signature": "7157045b25b9b1b165ba723def85e51f972bdef0e3c02f4d74c698d8177d4ed1",
+        "verifiedAt": "2026-11-07T18:38:12.122Z",
+        "locales": [
+          "de",
+          "en",
+          "fr",
+          "it"
         ]
       }
     }

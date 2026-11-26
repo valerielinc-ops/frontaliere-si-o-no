@@ -14,6 +14,7 @@ import { readJsonFile } from './lib/read-large-json.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { abortKindForFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -115,7 +116,9 @@ async function fetchAndParsePkbJobs(summaryCounts = null) {
       summaryCounts.parsed = 0;
       summaryCounts.abortKind = authoritativeEmptySnapshot
         ? null
-        : failed > 0 ? 'connection-level-fetch' : 'no-jobs-parsed';
+        : failed > 0
+          ? abortKindForFetchOutcome(fetchOutcome) ?? 'connection-level-fetch'
+          : 'no-jobs-parsed';
     }
     console.log(`⚠️ No listing jobs found (${fetchOutcome}). Keeping existing PKB jobs unchanged.`);
     return [];

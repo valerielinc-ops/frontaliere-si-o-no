@@ -1,9 +1,9 @@
 import { FUNCTIONS_BASE } from './functionsBase';
 import { ensureAppCheck } from './firebase';
 import { cdnDataUrl } from './cdnDataBase';
-import { readDirectEmployerChannelEnabled } from './directEmployerChannelFlag';
+import { DIRECT_EMPLOYER_LIST_ENDPOINT, readDirectEmployerChannelEnabled } from './directEmployerChannelFlag';
 
-export const DIRECT_EMPLOYER_LIST_ENDPOINT = `${FUNCTIONS_BASE}/getPermanentEmployers/`;
+export { DIRECT_EMPLOYER_LIST_ENDPOINT } from './directEmployerChannelFlag';
 export const DIRECT_EMPLOYER_ADMIN_ENDPOINT = `${FUNCTIONS_BASE}/adminPermanentEmployerSignals/`;
 const PROSPECTOR_PERMANENT_EMPLOYER_FEED = '/data/permanent-employers.json';
 

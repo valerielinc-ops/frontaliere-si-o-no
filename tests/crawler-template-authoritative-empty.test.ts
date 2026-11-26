@@ -228,10 +228,10 @@ describe('standard crawler authoritative-empty policy', () => {
 
     const [, , counts] = mocks.registerCrawlerSummaryGuard.mock.calls.at(-1);
     expect(counts.lastFetchOutcome).toBe('exhausted_retry');
-    expect(counts.abortKind).toBe('connection-level-fetch');
+    expect(counts.abortKind).toBe('retryable-http-response');
   });
 
-  it('marks custom-main soft exits as connection-level fetch failures (#7784)', () => {
+  it('marks custom-main soft exits with their fetch-boundary cause (#7784)', () => {
     const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
       throw new Error(`exit:${code}`);
     }) as never);
@@ -247,7 +247,7 @@ describe('standard crawler authoritative-empty policy', () => {
         Object.assign(new Error('HTTP 503'), { status: 503, retryBudgetExhausted: true }),
         'Custom-main retry test',
       )).toThrow('exit:0');
-      expect(mocks.markCrawlerSummaryAbortKind).toHaveBeenCalledWith('connection-level-fetch');
+      expect(mocks.markCrawlerSummaryAbortKind).toHaveBeenCalledWith('retryable-http-response');
     } finally {
       exit.mockRestore();
     }

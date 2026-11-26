@@ -603,9 +603,9 @@ export function exitCrawlerOnError(err, label = 'crawler') {
     process.exit(0);
   }
   if (isRetryBudgetExhaustedError(err)) {
-    // Custom-main crawlers have no mutable `counts` object. Keep the broad
-    // fetch-stage abort marker here; standard runs retain the finer outcome.
-    markCrawlerSummaryAbortKind('connection-level-fetch');
+    // Custom-main crawlers have no mutable `counts` object, so preserve the
+    // response-vs-connection distinction in the guard summary itself.
+    markCrawlerSummaryAbortKind('retryable-http-response');
     console.log(
       `\n⚠️ ${label}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs (no de-index).`,
     );
@@ -964,7 +964,7 @@ export async function runStandardCrawlerPipeline(config) {
     }
     if (isRetryBudgetExhaustedError(err)) {
       counts.lastFetchOutcome = 'exhausted_retry';
-      counts.abortKind = 'connection-level-fetch';
+      counts.abortKind = 'retryable-http-response';
       console.log(
         `\n⚠️ ${companyLabel}: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs.`,
       );

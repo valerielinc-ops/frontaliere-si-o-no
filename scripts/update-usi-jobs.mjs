@@ -39,7 +39,7 @@ import {
   fetchHtml,
   isConnectionLevelFetchError,
 } from './lib/crawler-template.mjs';
-import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
+import { abortKindForFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
 import { WAF_IP_BLOCK_STATUS, isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
 import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import { looksLikeAntiBotChallenge } from './lib/jina-proxy.mjs';
@@ -641,9 +641,7 @@ export function classifyUsiFetchError(error) {
 
   return {
     lastFetchOutcome,
-    abortKind: CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(lastFetchOutcome)
-      ? 'connection-level-fetch'
-      : 'no-jobs-parsed',
+    abortKind: abortKindForFetchOutcome(lastFetchOutcome) ?? 'no-jobs-parsed',
   };
 }
 
