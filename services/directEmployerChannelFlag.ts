@@ -1,19 +1,20 @@
-import { fetchAndActivate, getConfigValue } from './firebase';
-import { DIRECT_EMPLOYER_CHANNEL_FLAG } from './directEmployerFeature';
+import { FUNCTIONS_BASE } from './functionsBase';
 
-/**
- * Read the public channel flag after attempting activation.
- *
- * Firebase Remote Config can return false when activation found no newer
- * values, while the active cached value is still enabled. The activation
- * result is therefore not the feature flag; only an exception or the value
- * itself can decide the gate.
- */
+export const DIRECT_EMPLOYER_LIST_ENDPOINT = `${FUNCTIONS_BASE}/getPermanentEmployers/`;
+
 export async function readDirectEmployerChannelEnabled(): Promise<boolean> {
- try {
-  await fetchAndActivate();
-  return (await getConfigValue(DIRECT_EMPLOYER_CHANNEL_FLAG)).trim().toLowerCase() === 'true';
- } catch {
-  return false;
- }
+  try {
+    const response = await fetch(`${DIRECT_EMPLOYER_LIST_ENDPOINT}?status=1`, {
+      method: 'GET',
+      credentials: 'omit',
+      cache: 'no-store',
+    });
+    if (response.status !== 200) return false;
+    const data = await response.json();
+    if (data === null || typeof data !== 'object' || Array.isArray(data)) return false;
+    const keys = Object.keys(data);
+    return keys.length === 1 && keys[0] === 'enabled' && data.enabled === true;
+  } catch {
+    return false;
+  }
 }
