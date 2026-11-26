@@ -196,15 +196,24 @@ describe('an unverified SuccessFactors account on its sign-in page', () => {
       createdAt: 500,
       verifiedAt: 1000 as number | null,
     };
+    const events: string[] = [];
     const accounts = {
       load: vi.fn(async () => ({ ...account })),
-      mark: vi.fn(async (_host: string, patch: Record<string, unknown>) => { Object.assign(account, patch); }),
+      mark: vi.fn(async (_host: string, patch: Record<string, unknown>) => {
+        events.push(`mark:${String(patch.status ?? 'verified')}:${patch.verifiedAt === null ? 'null' : 'set'}`);
+        Object.assign(account, patch);
+      }),
       verificationMessageIds: vi.fn(async () => ['in-old']),
-      waitForVerification: vi.fn(async () => ({ url: activationLink, code: '', messageId: 'in-fresh' })),
+      waitForVerification: vi.fn(async () => {
+        events.push(`wait:${String(account.status ?? '')}:${account.verifiedAt === null ? 'null' : 'set'}`);
+        return { url: activationLink, code: '', messageId: 'in-fresh' };
+      }),
       waitForAccountNotice: vi.fn(async () => null),
     };
     const result = await handleAuth({ page, snapshot: signIn(SBB, values) as any, ctx: { accounts } as any });
     expect(clicks).toEqual(['login', 'resend']);
+    expect(events[0]).toBe('mark:pending:null');
+    expect(events[1]).toBe('wait:pending:null');
     expect(accounts.waitForVerification).toHaveBeenCalledWith(expect.objectContaining({
       host: SBB,
       excludeMessageIds: ['in-old'],
@@ -212,6 +221,7 @@ describe('an unverified SuccessFactors account on its sign-in page', () => {
     expect(page.goto).toHaveBeenCalledWith(activationLink, expect.any(Object));
     expect(result).toMatchObject({ reopen: true });
     expect(result).not.toHaveProperty('handoff');
+    expect(account).toMatchObject({ status: 'created' });
     expect(account.verifiedAt).toBeGreaterThan(1000);
   });
 
@@ -257,6 +267,7 @@ describe('an unverified SuccessFactors account on its sign-in page', () => {
     expect(clicks).toEqual(['login', 'resend']);
     expect(result).toMatchObject({ reopen: true });
     expect(result).not.toHaveProperty('handoff');
+    expect(account).toMatchObject({ status: 'created' });
     expect(account.verifiedAt).toBeGreaterThan(1000);
   });
 });
