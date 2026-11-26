@@ -73,6 +73,9 @@ jobs:
       CRAWLER_GROUP_MAX_PARALLEL: "4"
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
+      - name: Configure shared Workday egress state
+        shell: bash
+        run: echo "WORKDAY_EGRESS_STATE_DIR=$RUNNER_TEMP/crawler-generation/workday-egress" >> "$GITHUB_ENV"
       - name: Checkout frontaliere-si-o-no (attempt 1/2, sparse)
         id: site_checkout_primary
         uses: actions/checkout@v7
@@ -6472,1705 +6475,1767 @@ jobs:
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-orell-fuessli-thalia'].outcome }}
+          CRAWLER_MEMBER_SLUG: orell-fuessli-thalia
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/orell-fuessli-thalia.status"
-          pid_file="$state_dir/orell-fuessli-thalia.pid"
-          log_file="$state_dir/orell-fuessli-thalia.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::orell-fuessli-thalia: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::orell-fuessli-thalia: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::orell-fuessli-thalia: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::orell-fuessli-thalia: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::orell-fuessli-thalia: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::orell-fuessli-thalia: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::orell-fuessli-thalia: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run stadtspital-zuerich
         id: crawler-stadtspital-zuerich
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-stadtspital-zuerich'].outcome }}
+          CRAWLER_MEMBER_SLUG: stadtspital-zuerich
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/stadtspital-zuerich.status"
-          pid_file="$state_dir/stadtspital-zuerich.pid"
-          log_file="$state_dir/stadtspital-zuerich.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::stadtspital-zuerich: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::stadtspital-zuerich: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::stadtspital-zuerich: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::stadtspital-zuerich: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::stadtspital-zuerich: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::stadtspital-zuerich: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::stadtspital-zuerich: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run dormakaba
         id: crawler-dormakaba
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-dormakaba'].outcome }}
+          CRAWLER_MEMBER_SLUG: dormakaba
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/dormakaba.status"
-          pid_file="$state_dir/dormakaba.pid"
-          log_file="$state_dir/dormakaba.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::dormakaba: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::dormakaba: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::dormakaba: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::dormakaba: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::dormakaba: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::dormakaba: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::dormakaba: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run ksbl
         id: crawler-ksbl
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-ksbl'].outcome }}
+          CRAWLER_MEMBER_SLUG: ksbl
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/ksbl.status"
-          pid_file="$state_dir/ksbl.pid"
-          log_file="$state_dir/ksbl.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::ksbl: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::ksbl: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::ksbl: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::ksbl: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::ksbl: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::ksbl: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::ksbl: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run marriott
         id: crawler-marriott
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-marriott'].outcome }}
+          CRAWLER_MEMBER_SLUG: marriott
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/marriott.status"
-          pid_file="$state_dir/marriott.pid"
-          log_file="$state_dir/marriott.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::marriott: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::marriott: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::marriott: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::marriott: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::marriott: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::marriott: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::marriott: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run kellerhals-carrard
         id: crawler-kellerhals-carrard
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-kellerhals-carrard'].outcome }}
+          CRAWLER_MEMBER_SLUG: kellerhals-carrard
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/kellerhals-carrard.status"
-          pid_file="$state_dir/kellerhals-carrard.pid"
-          log_file="$state_dir/kellerhals-carrard.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::kellerhals-carrard: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::kellerhals-carrard: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::kellerhals-carrard: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::kellerhals-carrard: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::kellerhals-carrard: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::kellerhals-carrard: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::kellerhals-carrard: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run klinik-sonnenhalde
         id: crawler-klinik-sonnenhalde
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-klinik-sonnenhalde'].outcome }}
+          CRAWLER_MEMBER_SLUG: klinik-sonnenhalde
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/klinik-sonnenhalde.status"
-          pid_file="$state_dir/klinik-sonnenhalde.pid"
-          log_file="$state_dir/klinik-sonnenhalde.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::klinik-sonnenhalde: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::klinik-sonnenhalde: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::klinik-sonnenhalde: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::klinik-sonnenhalde: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::klinik-sonnenhalde: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::klinik-sonnenhalde: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::klinik-sonnenhalde: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run logitech
         id: crawler-logitech
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-logitech'].outcome }}
+          CRAWLER_MEMBER_SLUG: logitech
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/logitech.status"
-          pid_file="$state_dir/logitech.pid"
-          log_file="$state_dir/logitech.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::logitech: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::logitech: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::logitech: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::logitech: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::logitech: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::logitech: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::logitech: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run vtg
         id: crawler-vtg
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-vtg'].outcome }}
+          CRAWLER_MEMBER_SLUG: vtg
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/vtg.status"
-          pid_file="$state_dir/vtg.pid"
-          log_file="$state_dir/vtg.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::vtg: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::vtg: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::vtg: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::vtg: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::vtg: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::vtg: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::vtg: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run spital-buelach
         id: crawler-spital-buelach
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-spital-buelach'].outcome }}
+          CRAWLER_MEMBER_SLUG: spital-buelach
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/spital-buelach.status"
-          pid_file="$state_dir/spital-buelach.pid"
-          log_file="$state_dir/spital-buelach.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::spital-buelach: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::spital-buelach: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::spital-buelach: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::spital-buelach: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::spital-buelach: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::spital-buelach: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::spital-buelach: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run pdag
         id: crawler-pdag
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-pdag'].outcome }}
+          CRAWLER_MEMBER_SLUG: pdag
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/pdag.status"
-          pid_file="$state_dir/pdag.pid"
-          log_file="$state_dir/pdag.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::pdag: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::pdag: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::pdag: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::pdag: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::pdag: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::pdag: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::pdag: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run ricola
         id: crawler-ricola
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-ricola'].outcome }}
+          CRAWLER_MEMBER_SLUG: ricola
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/ricola.status"
-          pid_file="$state_dir/ricola.pid"
-          log_file="$state_dir/ricola.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::ricola: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::ricola: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::ricola: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::ricola: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::ricola: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::ricola: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::ricola: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run omega
         id: crawler-omega
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-omega'].outcome }}
+          CRAWLER_MEMBER_SLUG: omega
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/omega.status"
-          pid_file="$state_dir/omega.pid"
-          log_file="$state_dir/omega.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::omega: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::omega: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::omega: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::omega: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::omega: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::omega: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::omega: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run michaelpage
         id: crawler-michaelpage
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-michaelpage'].outcome }}
+          CRAWLER_MEMBER_SLUG: michaelpage
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/michaelpage.status"
-          pid_file="$state_dir/michaelpage.pid"
-          log_file="$state_dir/michaelpage.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::michaelpage: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::michaelpage: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::michaelpage: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::michaelpage: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::michaelpage: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::michaelpage: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::michaelpage: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run galderma
         id: crawler-galderma
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-galderma'].outcome }}
+          CRAWLER_MEMBER_SLUG: galderma
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/galderma.status"
-          pid_file="$state_dir/galderma.pid"
-          log_file="$state_dir/galderma.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::galderma: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::galderma: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::galderma: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::galderma: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::galderma: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::galderma: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::galderma: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run six-group
         id: crawler-six-group
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-six-group'].outcome }}
+          CRAWLER_MEMBER_SLUG: six-group
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/six-group.status"
-          pid_file="$state_dir/six-group.pid"
-          log_file="$state_dir/six-group.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::six-group: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::six-group: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::six-group: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::six-group: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::six-group: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::six-group: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::six-group: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run hoch-health
         id: crawler-hoch-health
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-hoch-health'].outcome }}
+          CRAWLER_MEMBER_SLUG: hoch-health
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/hoch-health.status"
-          pid_file="$state_dir/hoch-health.pid"
-          log_file="$state_dir/hoch-health.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::hoch-health: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::hoch-health: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::hoch-health: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::hoch-health: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::hoch-health: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::hoch-health: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::hoch-health: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run liebherr
         id: crawler-liebherr
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-liebherr'].outcome }}
+          CRAWLER_MEMBER_SLUG: liebherr
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/liebherr.status"
-          pid_file="$state_dir/liebherr.pid"
-          log_file="$state_dir/liebherr.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::liebherr: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::liebherr: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::liebherr: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::liebherr: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::liebherr: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::liebherr: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::liebherr: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run cambiavalute
         id: crawler-cambiavalute
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-cambiavalute'].outcome }}
+          CRAWLER_MEMBER_SLUG: cambiavalute
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/cambiavalute.status"
-          pid_file="$state_dir/cambiavalute.pid"
-          log_file="$state_dir/cambiavalute.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::cambiavalute: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::cambiavalute: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::cambiavalute: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::cambiavalute: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::cambiavalute: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::cambiavalute: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::cambiavalute: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run livit
         id: crawler-livit
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-livit'].outcome }}
+          CRAWLER_MEMBER_SLUG: livit
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/livit.status"
-          pid_file="$state_dir/livit.pid"
-          log_file="$state_dir/livit.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::livit: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::livit: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::livit: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::livit: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::livit: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::livit: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::livit: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run flury-stiftung
         id: crawler-flury-stiftung
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-flury-stiftung'].outcome }}
+          CRAWLER_MEMBER_SLUG: flury-stiftung
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/flury-stiftung.status"
-          pid_file="$state_dir/flury-stiftung.pid"
-          log_file="$state_dir/flury-stiftung.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::flury-stiftung: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::flury-stiftung: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::flury-stiftung: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::flury-stiftung: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::flury-stiftung: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::flury-stiftung: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::flury-stiftung: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run bps-suisse
         id: crawler-bps-suisse
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-bps-suisse'].outcome }}
+          CRAWLER_MEMBER_SLUG: bps-suisse
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/bps-suisse.status"
-          pid_file="$state_dir/bps-suisse.pid"
-          log_file="$state_dir/bps-suisse.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::bps-suisse: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::bps-suisse: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::bps-suisse: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::bps-suisse: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::bps-suisse: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::bps-suisse: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::bps-suisse: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run beekeeper
         id: crawler-beekeeper
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-beekeeper'].outcome }}
+          CRAWLER_MEMBER_SLUG: beekeeper
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/beekeeper.status"
-          pid_file="$state_dir/beekeeper.pid"
-          log_file="$state_dir/beekeeper.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::beekeeper: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::beekeeper: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::beekeeper: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::beekeeper: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::beekeeper: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::beekeeper: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::beekeeper: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run ardian
         id: crawler-ardian
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-ardian'].outcome }}
+          CRAWLER_MEMBER_SLUG: ardian
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/ardian.status"
-          pid_file="$state_dir/ardian.pid"
-          log_file="$state_dir/ardian.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::ardian: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::ardian: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::ardian: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::ardian: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::ardian: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::ardian: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::ardian: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run clinique-le-noirmont
         id: crawler-clinique-le-noirmont
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-clinique-le-noirmont'].outcome }}
+          CRAWLER_MEMBER_SLUG: clinique-le-noirmont
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/clinique-le-noirmont.status"
-          pid_file="$state_dir/clinique-le-noirmont.pid"
-          log_file="$state_dir/clinique-le-noirmont.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::clinique-le-noirmont: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::clinique-le-noirmont: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::clinique-le-noirmont: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::clinique-le-noirmont: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::clinique-le-noirmont: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::clinique-le-noirmont: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::clinique-le-noirmont: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run geberit
         id: crawler-geberit
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-geberit'].outcome }}
+          CRAWLER_MEMBER_SLUG: geberit
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/geberit.status"
-          pid_file="$state_dir/geberit.pid"
-          log_file="$state_dir/geberit.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::geberit: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::geberit: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::geberit: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::geberit: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::geberit: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::geberit: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::geberit: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run lombard-odier
         id: crawler-lombard-odier
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-lombard-odier'].outcome }}
+          CRAWLER_MEMBER_SLUG: lombard-odier
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/lombard-odier.status"
-          pid_file="$state_dir/lombard-odier.pid"
-          log_file="$state_dir/lombard-odier.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::lombard-odier: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::lombard-odier: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::lombard-odier: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::lombard-odier: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::lombard-odier: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::lombard-odier: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::lombard-odier: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run kone
         id: crawler-kone
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-kone'].outcome }}
+          CRAWLER_MEMBER_SLUG: kone
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/kone.status"
-          pid_file="$state_dir/kone.pid"
-          log_file="$state_dir/kone.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::kone: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::kone: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::kone: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::kone: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::kone: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::kone: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::kone: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run seniorenzentrum-engelhof
         id: crawler-seniorenzentrum-engelhof
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-seniorenzentrum-engelhof'].outcome }}
+          CRAWLER_MEMBER_SLUG: seniorenzentrum-engelhof
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/seniorenzentrum-engelhof.status"
-          pid_file="$state_dir/seniorenzentrum-engelhof.pid"
-          log_file="$state_dir/seniorenzentrum-engelhof.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::seniorenzentrum-engelhof: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::seniorenzentrum-engelhof: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::seniorenzentrum-engelhof: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::seniorenzentrum-engelhof: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::seniorenzentrum-engelhof: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::seniorenzentrum-engelhof: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::seniorenzentrum-engelhof: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run medimeo-ch
         id: crawler-medimeo-ch
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-medimeo-ch'].outcome }}
+          CRAWLER_MEMBER_SLUG: medimeo-ch
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/medimeo-ch.status"
-          pid_file="$state_dir/medimeo-ch.pid"
-          log_file="$state_dir/medimeo-ch.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::medimeo-ch: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::medimeo-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::medimeo-ch: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::medimeo-ch: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::medimeo-ch: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::medimeo-ch: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::medimeo-ch: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Run policelavaux-ch
         id: crawler-policelavaux-ch
         if: always()
         continue-on-error: true
         env:
           CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-policelavaux-ch'].outcome }}
+          CRAWLER_MEMBER_SLUG: policelavaux-ch
         run: |-
           set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/policelavaux-ch.status"
-          pid_file="$state_dir/policelavaux-ch.pid"
-          log_file="$state_dir/policelavaux-ch.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::policelavaux-ch: launch step outcome is $launch_outcome; detached crawler was not started"
+          s="$CRAWLER_MEMBER_SLUG"
+          d="$RUNNER_TEMP/crawler-generation/group-21"
+          f="$d/$s.status"
+          p="$d/$s.pid"
+          l="$d/$s.log"
+          o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$o" != "success" ]; then
+            echo "::error::$s: launch step outcome is $o; detached crawler was not started"
             exit 1
           fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::policelavaux-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+          if [ ! -s "$f" ] && [ ! -s "$p" ]; then
+            echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::policelavaux-ch: detached crawler did not publish a status before the 340 minute group budget"
+          e=$((SECONDS + 340 * 60))
+          while [ ! -s "$f" ]; do
+            if [ "$SECONDS" -ge "$e" ]; then
+              echo "::error::$s: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::policelavaux-ch: invalid detached crawler PID: $pid"
+            if [ -s "$p" ]; then
+              i="$(cat "$p" 2>/dev/null || true)"
+              if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::$s: invalid detached crawler PID: $i"
                 exit 1
               fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+              if [ -n "$i" ] && ! kill -0 "$i" 2>/dev/null; then
                 sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::policelavaux-ch: detached crawler exited without publishing its status"
+                if [ ! -s "$f" ]; then
+                  echo "::error::$s: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
             fi
             sleep 2
           done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
+          if [ -f "$l" ]; then
+            cat "$l"
           else
-            echo "::error::policelavaux-ch: crawler log is missing"
+            echo "::error::$s: crawler log is missing"
             exit 1
           fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::policelavaux-ch: invalid crawler status: $status"
+          v="$(cat "$f" 2>/dev/null || true)"
+          if ! [[ "$v" =~ ^[0-9]+$ ]]; then
+            echo "::error::$s: invalid crawler status: $v"
             exit 1
           fi
-          exit "$status"
+          exit "$v"
       - name: Aggregate crawler outcomes
         id: crawler_aggregate
         if: always()
