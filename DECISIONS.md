@@ -52,3 +52,5 @@
 | 2026-08-24 | #5995 (repo weight): leve **1** (batch commit bot), **3** (cache derivate fuori git), **4** (file append-only partizionati per shard) autorizzate. Leve **2** (snapshot fuori git) e **5** (immagini→CDN, tentativo precedente ritirato) restano BACKLOG, non autorizzate: non aprire lavoro su quelle finché non arriva una decisione dedicata | istruzione diretta, sessione 24-08 |
 | 2026-08-25 | #5983 (text-html-ratio + max-bfs-depth migliorati): **NO, non stringere la baseline** (6912/26398 restano). Ogni gate SEO nice-to-have diventa advisory (issue #6462), senza stringere la soglia — driver **D9** | istruzione diretta, sessione 25-08, issue #6458 |
 | 2026-09-05 | **Obiettivo `crawler-goal` RIATTIVATO** (#727 piano, #728 audit, corpus): rimesse in coda con `agent:fix-queued`; i numeri del 02-09 vanno rimisurati prima di lavorarci | istruzione diretta, sessione 05-09 |
+
+| 2026-11-26 | Migrazione dei workflow Codex Luna a GPT-6 Luna, mantenendo max e i tier di review high esistenti | Istruzione diretta dopo benchmark Frontaliere |

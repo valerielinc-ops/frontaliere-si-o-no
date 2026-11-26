@@ -1349,7 +1349,7 @@ runs:
             --ephemeral \
             --strict-config \
             --ignore-user-config \
-            --model gpt-5.6-luna \
+            --model gpt-6-luna \
             -c 'default_permissions="codex-fallback"' \
             -c 'permissions.codex-fallback.extends=":workspace"' \
             -c 'permissions.codex-fallback.network.enabled=false' \

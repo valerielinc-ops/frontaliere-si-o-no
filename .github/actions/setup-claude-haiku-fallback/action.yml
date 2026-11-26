@@ -1,7 +1,7 @@
 name: "Setup Codex Luna Max article lane"
 description: >-
   Installs the pinned Codex CLI and exposes a private broker for the
-  gpt-5.6-luna subscription lane. The lane's only switch is
+  gpt-6-luna subscription lane. The lane's only switch is
   ENABLE_CODEX_ARTICLE_FALLBACK (Remote Config via load-rc-env.mjs): unset
   means ON, only an explicit 0/false/no/off turns it off, and the provider is
   usable only after the broker is ready. ENABLE_HAIKU_ARTICLE_FALLBACK has no

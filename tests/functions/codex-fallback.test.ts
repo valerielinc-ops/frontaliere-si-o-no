@@ -425,10 +425,11 @@ describe('readCodexSse — il testo finale come lo legge la CLI', () => {
 });
 
 describe('parità con la CI e con la rotazione', () => {
-  it('il modello di default è lo stesso Codex della CI', async () => {
+  it('mantiene i default distinti del trasporto Responses Lite e della CLI CI', async () => {
     const { CODEX_FALLBACK_DEFAULT_MODEL } = await import('../../functions/src/codexFallback.js');
     const { CODEX_FALLBACK_MODEL } = await import('../../scripts/ci/claude-codex-fallback.mjs');
-    expect(CODEX_FALLBACK_DEFAULT_MODEL).toBe(CODEX_FALLBACK_MODEL);
+    expect(CODEX_FALLBACK_DEFAULT_MODEL).toBe('gpt-5.6-luna');
+    expect(CODEX_FALLBACK_MODEL).toBe('gpt-6-luna');
   });
 
   it('la versione della CLI imitata è quella pinnata dalla rotazione e dalle action', async () => {
