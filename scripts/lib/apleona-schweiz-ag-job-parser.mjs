@@ -89,11 +89,11 @@ function headingLevel(element) {
  * above; the next heading is the remaining source-owned boundary, while
  * contact/company headings stop the range before page chrome is included.
  */
-function semanticHeadingBody(heading) {
+function semanticHeadingBody(heading, scope) {
   const level = headingLevel(heading);
   if (!level) return null;
 
-  const headings = [...heading.ownerDocument.querySelectorAll(
+  const headings = [...scope.querySelectorAll(
     'h1, h2, h3, h4, h5, h6, [role="heading"]',
   )];
   const headingIndex = headings.indexOf(heading);
@@ -256,12 +256,19 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
       }
 
       if (!hasVacancySpecificSection) {
-        for (const headingElement of document.querySelectorAll(
-          'h1, h2, h3, h4, h5, h6, [role="heading"]',
-        )) {
-          const heading = normalizeSpace(headingElement.textContent || '');
-          if (!APLEONA_SECOND_SKIN_HEADING_RX.test(heading)) continue;
-          appendSecondSkinSection(heading, semanticHeadingBody(headingElement));
+        // A semantic heading is source-owned only inside the explicit vacancy
+        // content container. A document-wide sweep would reinterpret generic
+        // Umantis page content as an Apleona vacancy and bypass the tenant's
+        // deliberate empty verdict.
+        const semanticScope = document.querySelector('.job-content');
+        if (semanticScope) {
+          for (const headingElement of semanticScope.querySelectorAll(
+            'h1, h2, h3, h4, h5, h6, [role="heading"]',
+          )) {
+            const heading = normalizeSpace(headingElement.textContent || '');
+            if (!APLEONA_SECOND_SKIN_HEADING_RX.test(heading)) continue;
+            appendSecondSkinSection(heading, semanticHeadingBody(headingElement, semanticScope));
+          }
         }
       }
 
