@@ -13,6 +13,7 @@ import {
   resetPublicPlateAuctionSnapshotCache,
 } from "../functions/src/plateAuctions.js";
 import { FR_ECARI_CATALOGUE_URL } from "../functions/src/plateAuctionSourceUrls.js";
+import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from "../functions/src/plateAuctionSourceRegistry.js";
 
 function makeDb({ auctions = [], sources = [], history = [] } = {}) {
   return {
@@ -290,11 +291,22 @@ describe("published plate-auction snapshot (Cloud Storage)", () => {
       },
     };
     const bucket = bucketWith(async () => [published("2026-11-26T09:55:00.000Z")]);
-    const { body } = await getCachedPublicPlateAuctionSnapshotBody({
-      db: db as never,
-      bucket: bucket as never,
-      now: () => Date.parse("2026-11-26T10:00:00.000Z"),
-    });
+    // GE e' `blocked` fuori sessione: la sessione di novembre 2026 si apre solo
+    // qui, con un orologio fisso, e la voce torna com'era.
+    const geEntry = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY.ge as Record<string, unknown>;
+    const geBefore = { ...geEntry };
+    Object.assign(geEntry, { status: "active", activeUntil: "2026-11-26T10:00:00.000Z" });
+    let body: Buffer;
+    try {
+      ({ body } = await getCachedPublicPlateAuctionSnapshotBody({
+        db: db as never,
+        bucket: bucket as never,
+        now: () => Date.parse("2026-11-26T10:00:00.000Z"),
+      }));
+    } finally {
+      for (const k of Object.keys(geEntry)) delete geEntry[k];
+      Object.assign(geEntry, geBefore);
+    }
     const snapshot = JSON.parse(body.toString("utf8"));
 
     expect(counter.builds).toBe(1);
