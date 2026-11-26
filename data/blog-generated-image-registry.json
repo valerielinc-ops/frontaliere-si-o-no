@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1205,
-  "generatedAt": "2026-11-26T07:31:35.591Z",
+  "assetCount": 1206,
+  "generatedAt": "2026-11-26T11:15:07.848Z",
   "assets": [
     {
       "schema": 1,
@@ -51577,6 +51577,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic illustration of an exceptional transport on an Alpine road with an escort vehicle; no visible text, logos, faces, or identifiable people."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-consultazione-modifiche-oosg",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "8c938eee53eb6f7315ac72f53b600ab8c0b89a6302b72a75451df29dde7f1ba3",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "2ba75b02d3f2f518a4ec86236f98a498e5f33b7527dc29f97d2aaf0c2a9572dc",
+      "bytes": 191956,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-26T10:15:43.954Z",
+      "verifiedAt": "2026-11-26T10:15:52.716Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-consultazione-modifiche-oosg.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of gas infrastructure; no text, logos, signage, people, or identifiable event."
       }
     }
   ],

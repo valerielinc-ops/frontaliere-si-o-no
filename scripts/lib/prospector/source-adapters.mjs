@@ -1,4 +1,5 @@
 import { extractAgatDetailFields, fetchAllAgatJobs } from '../agat-job-parser.mjs';
+import { extractBrefispersonalDetailFields } from '../brefispersonal-job-parser.mjs';
 import { extractLeTeamDetailFields, fetchAllLeTeamJobs } from '../le-team-job-parser.mjs';
 import { extractRhExpertChDetailFields, fetchAllRhExpertChJobs } from '../rh-expert-ch-job-parser.mjs';
 import {
@@ -83,6 +84,7 @@ export function sourceCrawlerAdapterFor(spec) {
 }
 
 const PRODUCTION_RUNTIME_OPTIONS = Object.freeze({
+  brefispersonal: Object.freeze({ detailExtractor: extractBrefispersonalDetailFields }),
   physioswiss: Object.freeze({ listingExtractor: extractPhysioswissListingCandidates }),
   'apleona-schweiz-ag': Object.freeze({ detailExtractor: extractApleonaDetailFields }),
   'opacc-software-ag': Object.freeze({ detailExtractor: extractOpaccSoftwareAgDetailFields }),

@@ -11,6 +11,7 @@
 
 import { createRequire } from 'node:module';
 import { nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
+import { countryName, extractCvDatelinePlace, platformPostalCode, platformPostalCountry } from '../../../../functions/src/assistedApplicationPlatformDefaults.js';
 
 const require = createRequire(import.meta.url);
 const ITALY_POSTAL_DIRECTORY = require('../../data/italy-postal-codes.json');
@@ -47,7 +48,7 @@ function localityEquivalent(input, directoryName) {
 
 function removeKnownCountry(value) {
   return compact(value)
-    .replace(/(?:,|\s[-–—]\s)\s*(?:italia|italy|italie|italien|svizzera|switzerland|suisse|schweiz)\s*$/i, '')
+    .replace(/(?:,|\s[-–—]\s)\s*(?:italia|italy|italie|italien|svizzera|switzerland|suisse|schweiz|germania|germany|allemagne|deutschland|francia|france|frankreich|austria|[oö]sterreich|autriche|liechtenstein)\s*$/i, '')
     .trim();
 }
 
@@ -79,7 +80,7 @@ function addressTextVariants(value) {
   const labelled = raw.replace(GENERAL_ADDRESS_LABEL_RE, '').replace(LOCALITY_LABEL_RE, '').replace(POSTAL_LABEL_RE, '');
   if (!labelled) return [];
   const countryless = removeKnownCountry(labelled)
-    .replace(/\s+(?:italia|italy|italie|italien|svizzera|switzerland|suisse|schweiz)\s*$/i, '')
+    .replace(/\s+(?:italia|italy|italie|italien|svizzera|switzerland|suisse|schweiz|germania|germany|allemagne|deutschland|francia|france|frankreich|austria|[oö]sterreich|autriche|liechtenstein)\s*$/i, '')
     .trim();
   const withoutPostal = countryless.replace(/\b\d{4,5}\b/g, ' ').replace(/\s+/g, ' ').trim();
   return [raw, labelled, countryless, cityWithoutProvince(countryless), withoutPostal, cityWithoutProvince(withoutPostal)]
@@ -144,7 +145,9 @@ function explicitCountry(value) {
   if (/^(?:it|italia|italy|italie|italien)$/.test(text)) return 'Italia';
   if (/^(?:ch|svizzera|switzerland|suisse|schweiz)$/.test(text)) return 'Svizzera';
   if (/^(?:de|germania|germany|allemagne|deutschland)$/.test(text)) return 'Germania';
-  if (/^(?:fr|francia|france)$/.test(text)) return 'Francia';
+  if (/^(?:fr|francia|france|frankreich)$/.test(text)) return 'Francia';
+  if (/^(?:at|austria|osterreich|autriche)$/.test(text)) return 'Austria';
+  if (/^(?:li|liechtenstein)$/.test(text)) return 'Liechtenstein';
   return '';
 }
 
@@ -168,15 +171,25 @@ export function resolveResidenceAddress(rawAddress = {}, location = '', cvText =
   const rawCity = compact(address.city) || compact(location);
   const province = provinceFrom(address.city) || provinceFrom(location);
   const explicit = explicitCountry(address.country) || explicitCountry(rawCity) || explicitCountry(location);
-  const city = cityWithoutProvince(rawCity);
+  const baseCity = cityWithoutProvince(rawCity);
+  const datelineTown = !baseCity && !explicit ? extractCvDatelinePlace(cvText) : '';
+  const city = baseCity || datelineTown;
   const knownItalianPostal = resolveItalianPostalCode(city, province);
   const rawStatedPostal = compact(address.postalCode, 20);
   const statedPostal = postalCodeDigits(rawStatedPostal) || rawStatedPostal;
+  const platformCountryCode = !knownItalianPostal && !explicit && city
+    ? platformPostalCountry(city, { postalCode: statedPostal, region: province })
+    : '';
+  const inferredPlatformPostal = !statedPostal && platformCountryCode
+    ? (platformPostalCode(city, { country: platformCountryCode, region: province })?.code || '')
+    : '';
   const postalCode = knownItalianPostal
     || explicitPostalCode(cvText, city, province)
-    || statedPostal;
+    || statedPostal
+    || inferredPlatformPostal;
   const country = (knownItalianPostal ? 'Italia' : '')
     || explicit
+    || (platformCountryCode ? countryName(platformCountryCode, 'it') : '')
     || (SWISS_CANTONS.has(province) && /^\d{4}$/.test(statedPostal) ? 'Svizzera' : '');
   // Remove a known postal code copied into the street field. A bare
   // four/five-digit value is rejected below as an ambiguous postal code, while
@@ -224,26 +237,30 @@ export function residenceCountryCode(value) {
   // country.
   const raw = String(value ?? '').replace(/\s+/g, ' ').trim();
   const codeMatches = [...raw.matchAll(/(?:^|[\s([{:\/\-–—])([A-Z]{2})(?=$|[\s)\]}:\/\-–—])/gi)]
-    .filter((match) => /^(?:IT|CH|DE|FR)$/i.test(match[1]));
+    .filter((match) => /^(?:IT|CH|DE|FR|AT|LI)$/i.test(match[1]));
   if (codeMatches.length > 1) return '';
   const codeMatch = codeMatches[0];
   const code = codeMatch?.[1]?.toUpperCase() || '';
-  if (/^(?:IT|CH|DE|FR)$/.test(code)) {
+  if (/^(?:IT|CH|DE|FR|AT|LI)$/.test(code)) {
     const start = codeMatch.index + codeMatch[0].length - code.length;
     const left = raw.slice(0, start).trimEnd().at(-1) || '';
     const right = raw.slice(start + code.length).trimStart()[0] || '';
-    const countryName = {
+    const countryNameMatch = {
       IT: /\b(?:italia|italy|italie|italien)\b/.test(text),
       CH: /\b(?:svizzera|switzerland|suisse|schweiz)\b/.test(text),
       DE: /\b(?:germania|germany|allemagne|deutschland)\b/.test(text),
-      FR: /\b(?:francia|france)\b/.test(text),
+      FR: /\b(?:francia|france|frankreich)\b/.test(text),
+      AT: /\b(?:austria|osterreich|autriche)\b/.test(text),
+      LI: /\b(?:liechtenstein)\b/.test(text),
     }[code];
-    if (text === code.toLowerCase() || countryName || /[()[\]{}:\/\-–—]/.test(`${left}${right}`)) return code;
+    if (text === code.toLowerCase() || countryNameMatch || /[()[\]{}:\/\-–—]/.test(`${left}${right}`)) return code;
   }
   if (/^(?:it|italia|italy|italie|italien)$/.test(text)) return 'IT';
   if (/^(?:ch|svizzera|switzerland|suisse|schweiz)$/.test(text)) return 'CH';
   if (/^(?:de|germania|germany|allemagne|deutschland)$/.test(text)) return 'DE';
-  if (/^(?:fr|francia|france)$/.test(text)) return 'FR';
+  if (/^(?:fr|francia|france|frankreich)$/.test(text)) return 'FR';
+  if (/^(?:at|austria|osterreich|autriche)$/.test(text)) return 'AT';
+  if (/^(?:li|liechtenstein|furstentum liechtenstein|principality of liechtenstein|principaute de liechtenstein|principato del liechtenstein)$/.test(text)) return 'LI';
   return '';
 }
 

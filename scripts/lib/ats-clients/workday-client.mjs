@@ -105,7 +105,10 @@ export class WorkdayRateLimitError extends WorkdayApiError {
     this.retryAfterMs = retryAfterMs;
     this.consecutiveFailures = consecutiveFailures;
     this.circuitOpen = Boolean(metadata?.circuitOpen);
-    this.retryExhausted = Boolean(metadata?.retryExhausted);
+    // Opening the bounded circuit is the terminal outcome of the same retry
+    // policy. Preserve that fact so crawler boundaries can soft-exit with a
+    // health summary instead of treating the typed 429 as an uncaught crash.
+    this.retryExhausted = Boolean(metadata?.retryExhausted || metadata?.circuitOpen);
   }
 }
 

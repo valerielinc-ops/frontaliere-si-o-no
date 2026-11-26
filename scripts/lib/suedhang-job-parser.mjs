@@ -9,10 +9,10 @@
  * outpatient ambulatori in Bern, Biel, Burgdorf. Listed standalone in the
  * 2026-05 welches-spital inventory (BE, Psichiatria).
  *
- * The careers page is a WordPress site (suedhang.ch is a Tutto Bene Group
- * brand). No third-party ATS — every job is its own permalink under
- * /karriere/offene-stellen/{slug}/ with rich detail content. We scrape the
- * listing index, then fetch each detail page for the description.
+ * The public careers page currently redirects to an Abacus Job Portal, while
+ * older snapshots used WordPress permalinks under
+ * /karriere/offene-stellen/{slug}/. Keep both source shapes trusted so a
+ * platform migration does not turn a live listing into a no-jobs snapshot.
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
@@ -36,7 +36,10 @@ export const SUEDHANG_COMPANY_NAME = 'Klinik Südhang';
 export const SUEDHANG_COMPANY_DOMAIN = 'suedhang.ch';
 
 const LISTING_URL = 'https://www.suedhang.ch/karriere/offene-stellen/';
-const DETAIL_URL_PREFIX = 'https://www.suedhang.ch/karriere/offene-stellen/';
+const ABACUS_PORTAL_URL = 'https://suedhang.jobportal.abaservices.ch/';
+const LEGACY_DETAIL_PATH_RE = /^\/karriere\/offene-stellen\/[^/#?]+\/?$/i;
+const ABACUS_DETAIL_PATH_RE = /^(?:\/[a-z]{2,3})?\/job-advertisement\/[^/?#]+(?:\/[^/?#]+)?\/?$/i;
+const ABACUS_RELATIVE_HREF_RE = /^(?:\.?\/)?(?:[a-z]{2,3}\/)?job-advertisement\//i;
 
 const POSTAL_CODE_BY_CITY = {
   kirchlindach: '3038',
@@ -66,14 +69,19 @@ export function isSuedhangJob(job) {
     key.startsWith('suedhang') ||
     company.includes('südhang') ||
     company.includes('suedhang') ||
-    url.includes('suedhang.ch')
+    url.includes('suedhang.ch') ||
+    url.includes('suedhang.jobportal.abaservices.ch')
   );
 }
 
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'suedhang.ch' || host.endsWith('.suedhang.ch');
+    return (
+      host === 'suedhang.ch' ||
+      host.endsWith('.suedhang.ch') ||
+      host === 'suedhang.jobportal.abaservices.ch'
+    );
   } catch {
     return false;
   }
@@ -84,14 +92,29 @@ export function isTrustedDomain(rawUrl = '') {
 function parseListing(html = '') {
   const out = [];
   const seen = new Set();
-  const re = /<a[^>]*href="(https:\/\/www\.suedhang\.ch\/karriere\/offene-stellen\/[^/"#]+\/)"[^>]*>([\s\S]*?)<\/a>/gi;
+  // The portal emits both absolute and relative links, with either quote
+  // style. Resolve them before validating host and path so a same-shaped
+  // external link cannot enter the crawl.
+  const re = /<a\b[^>]*\bhref\s*=\s*(["'])([^"'<>]+)\1[^>]*>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
-    const url = m[1];
+    const rawHref = decodeEntities(m[2].trim());
+    let parsedUrl;
+    try {
+      const baseUrl = ABACUS_RELATIVE_HREF_RE.test(rawHref)
+        ? ABACUS_PORTAL_URL
+        : LISTING_URL;
+      parsedUrl = new URL(rawHref, baseUrl);
+    } catch {
+      continue;
+    }
+    if (parsedUrl.protocol !== 'https:' || !isTrustedDomain(parsedUrl.toString())) continue;
+    if (!LEGACY_DETAIL_PATH_RE.test(parsedUrl.pathname) && !ABACUS_DETAIL_PATH_RE.test(parsedUrl.pathname)) continue;
+    parsedUrl.hash = '';
+    const url = parsedUrl.toString();
     if (seen.has(url)) continue;
-    if (url.endsWith('/offene-stellen/')) continue;
     seen.add(url);
-    const text = normalizeSpace(decodeEntities(m[2].replace(/<[^>]+>/g, ' ')));
+    const text = normalizeSpace(decodeEntities(m[3].replace(/<[^>]+>/g, ' ')));
     if (!text || text.length < 3) continue;
     out.push({ url, titleHint: text });
   }
@@ -111,11 +134,6 @@ function extractDetail(html = '') {
   const h1 = noScripts.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   if (h1) title = normalizeSpace(decodeEntities(h1[1].replace(/<[^>]+>/g, ' ')));
 
-  // Suedhang uses Gutenberg WP blocks: <div class="content page-content">…</div>
-  // wraps the actual body. Slice from there to the next </footer> or the
-  // sibling </div> closing the page wrapper — but since the WP HTML has many
-  // nested divs, easier: take everything from the `content page-content` opener
-  // up to the start of the footer/page-footer.
   let body = noScripts;
   // The description is published only from a delimited container: with no
   // length cap, the whole-page fallback (kept for the Arbeitsort/pensum
@@ -124,7 +142,6 @@ function extractDetail(html = '') {
   const startMatch = noScripts.match(/<div[^>]*class="content page-content"[^>]*>/i);
   if (startMatch) {
     const startIx = startMatch.index + startMatch[0].length;
-    // Find the next "footer-like" tag — sticky-footer / <footer> / sibling page block
     const tail = noScripts.slice(startIx);
     const cutMatch = tail.match(/<footer\b|<div[^>]*class="[^"]*(?:page-footer|site-footer|footer-wrap|cf-footer)/i);
     body = cutMatch ? tail.slice(0, cutMatch.index) : tail;
@@ -280,3 +297,5 @@ export async function fetchAllSuedhangJobs() {
   console.log(`\n📋 Total ${SUEDHANG_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+export { parseListing };

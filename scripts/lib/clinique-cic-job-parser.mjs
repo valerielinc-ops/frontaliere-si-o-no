@@ -253,10 +253,14 @@ export async function fetchAllCicJobs() {
     }
 
     const loc = inferLocalityFromSite(detail.lieuDeTravail, detail.title);
-    if (!meetsSourceBodyFloor(detail.description)) {
-      throw new Error(`JobCloud detail has no source body meeting the minimum: ${detailUrl}`);
+    // A reachable detail without enough source prose is a per-job quality
+    // miss, not a failure of the whole listing. The standard pipeline keeps a
+    // valid stored source body for this URL or withholds the row this run;
+    // keeping the field empty here prevents thin content from being emitted.
+    const description = meetsSourceBodyFloor(detail.description) ? detail.description : '';
+    if (!description) {
+      console.warn(`  ⚠️ Detail has no source body meeting the minimum; withholding this job (${detailUrl})`);
     }
-    const description = detail.description;
     const sourceLang = detectLang(description || detail.title, 'fr');
     const jobSlug = slugify(`${detail.title} ${CIC_KEY} ${loc.city}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);

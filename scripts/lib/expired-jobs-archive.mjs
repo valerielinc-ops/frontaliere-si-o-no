@@ -476,11 +476,19 @@ function rawRouteFromLocaleKey(routeKey) {
  * owns is reused, never replaced by a new one).
  *
  * @param {object[]} entries
- * @param {{source?: string, repairUnprovenCollisions?: boolean, sourceIdentityOnly?: boolean}} [options]
+ * @param {{source?: string, repairUnprovenCollisions?: boolean, repairSharedIdentityCollisions?: boolean, repairSharedIdentityCollisionScopes?: Array<{entries: Set<object>, routes: Set<string>}>, sourceIdentityOnly?: boolean}} [options]
  * `repairUnprovenCollisions` is reserved for an ownership reconciliation
  * boundary that has already refused a lossy history merge. It keeps the
  * records separate and repairs only the duplicate route; the default remains
  * fail-closed for ambiguous archive identity in the general writers.
+ * `repairSharedIdentityCollisions` is reserved for the same cap-refused
+ * boundary when both records declare the same posting. The merge was already
+ * attempted and could not preserve the full route union, so one deterministic
+ * alias is still required to leave the route uniquely owned without dropping
+ * either record.
+ * `repairSharedIdentityCollisionScopes` narrows that fallback to the exact
+ * cap-refused components from the current pass; each scope carries the entry
+ * references and locale-route keys that belong to that component.
  * `sourceIdentityOnly` is for archive ownership reconciliation: raw `id` and
  * `url` fields can differ between crawler slices that carry the same historic
  * alias, so only persisted `sourceIdentity` provenance can preempt that merge.
@@ -491,6 +499,8 @@ export function repairExpiredRoutesWithinArchive(
   {
     source = 'expired-jobs-archive.repairExpiredRoutesWithinArchive',
     repairUnprovenCollisions = false,
+    repairSharedIdentityCollisions = false,
+    repairSharedIdentityCollisionScopes = undefined,
     sourceIdentityOnly = false,
   } = {},
 ) {
@@ -512,6 +522,12 @@ export function repairExpiredRoutesWithinArchive(
   let changed = 0;
   let repairedRoutes = 0;
   const details = [];
+  const isSharedIdentityCollisionInScope = (entry, routeKey) => (
+    repairSharedIdentityCollisionScopes == null
+      || repairSharedIdentityCollisionScopes.some((scope) => (
+        scope?.entries?.has(entry) && scope?.routes?.has(routeKey)
+      ))
+  );
 
   for (const entry of ordered) {
     if (!entry || typeof entry !== 'object' || !entry.companyKey) continue;
@@ -532,7 +548,10 @@ export function repairExpiredRoutesWithinArchive(
             ? hasExplicitlySharedDeclaredSourceIdentity(entry, owner)
             : hasExplicitlySharedArchiveIdentity(entry, owner)
         ));
-        if ((!hasProvenSharedIdentity && repairUnprovenCollisions)
+        if ((repairUnprovenCollisions && !hasProvenSharedIdentity)
+          || (repairSharedIdentityCollisions
+            && hasProvenSharedIdentity
+            && isSharedIdentityCollisionInScope(entry, routeKey))
           || routeOwners.every((owner) => explicitlyDifferent(entry, owner))) {
           conflictingRouteKeys.push(routeKey);
         }
@@ -1317,10 +1336,13 @@ function compareArchiveEntries(a, b) {
  * route union. Two histories can be too deep to fit the legacy previousSlugs
  * cap, and `promotePreviousSlugToLegacy` correctly refuses to drop the
  * overflow; measured on 2026-09-05, 9 of the 547 committed slices hit that
- * wall. Such a component is left exactly as it was: a duplicated route is an
- * ambiguity, a lost route is a 404 on an indexed URL, and this runs inside the
- * crawler cron where a throw would abort the whole archival step. The residual
- * duplicates stay visible to `assertNoDuplicateRoutesWithin`.
+ * wall. A cap-refused component with a proven shared source identity is not
+ * ambiguous: keep both payloads but move the duplicate route to its
+ * deterministic alias. An identity-less or otherwise unproven component is
+ * left exactly as it was: a duplicated route is an ambiguity, a lost route is
+ * a 404 on an indexed URL, and this runs inside the crawler cron where a throw
+ * would abort the whole archival step. Those residual duplicates stay visible
+ * to `assertNoDuplicateRoutesWithin`.
  *
  * A component never mixes an entry that NAMES its source posting (url,
  * `sourceIdentity` or the `sourceIdentityHistory` an earlier merge left) with
@@ -1405,6 +1427,11 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
   let slugsTransferred = 0;
   let unmergeable = 0;
   let capRefused = 0;
+  // The post-collapse repair must not infer a global mode from this counter:
+  // another same-identity component can be unmergeable for heldByOthers and
+  // must retain its routes unchanged. Keep the exact component references and
+  // route keys from each cap refusal so the next stage can scope the fallback.
+  const capRefusedScopes = [];
   // The index is maintained incrementally, never rebuilt: this runs over the
   // ~30k-entry aggregate archive, where a full rebuild per entry would be
   // quadratic. An entry whose merge was refused is kept in `out` but claims no
@@ -1455,6 +1482,10 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
       if (!isLegacyRouteCapRefusal(error)) throw error;
       merged = false;
       capRefused += 1;
+      capRefusedScopes.push({
+        entries: new Set(component),
+        routes: new Set(component.flatMap((member) => [...localeRouteKeys(member)])),
+      });
     }
     if (merged) {
       const served = new Set(namespaced(survivor));
@@ -1510,6 +1541,7 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
     unmergeable,
     capRefused,
     identityRefused,
+    capRefusedScopes,
   };
 }
 
@@ -1558,6 +1590,7 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
 
   for (let pass = 0; pass < MAX_COLLAPSE_PASSES; pass += 1) {
     const result = collapseDuplicateRouteEntriesOnce(current, options);
+    const { capRefusedScopes = [], ...resultSummary } = result;
     if (pass === 0) firstPassCapRefused = result.capRefused;
     collapsed += result.collapsed;
     slugsTransferred += result.slugsTransferred;
@@ -1568,7 +1601,18 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
     // the survivor. Repair the post-collapse state before deciding that the
     // archive reached a fixed point; otherwise the first writer pass can
     // persist a slice that a second read immediately changes again.
-    const postCollapseRepair = repairExpiredRoutesWithinArchive(result.entries, options);
+    const postCollapseRepair = repairExpiredRoutesWithinArchive(result.entries, {
+      ...options,
+      // A cap refusal is non-destructive only while the component remains
+      // route-unique. Shared source identity normally permits a merge, but
+      // when that merge is refused the residual duplicate needs the same
+      // deterministic alias fallback as every other proven collision.
+      repairSharedIdentityCollisions: options.repairSharedIdentityCollisions === true
+        || result.capRefused > 0,
+      repairSharedIdentityCollisionScopes: options.repairSharedIdentityCollisions === true
+        ? options.repairSharedIdentityCollisionScopes
+        : capRefusedScopes,
+    });
     repairedRoutes += postCollapseRepair.repairedRoutes;
     if (repairDetails.length < 20) {
       repairDetails.push(...postCollapseRepair.details.slice(0, 20 - repairDetails.length));
@@ -1577,7 +1621,7 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
     const nextSignature = archiveEntriesSignature(result.entries);
     if (nextSignature === currentSignature) {
       return {
-        ...result,
+        ...resultSummary,
         collapsed,
         slugsTransferred,
         // Preserve the pre-fixpoint meaning used by the archive reports:

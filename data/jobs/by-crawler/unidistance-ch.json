@@ -1,7 +1,7 @@
 {
   "crawlerKey": "unidistance-ch",
-  "assembledAt": "2026-11-25T21:43:59.633Z",
-  "runId": "45704355338",
+  "assembledAt": "2026-11-26T10:12:53.887Z",
+  "runId": "45791999505",
   "jobs": [
     {
       "id": "unidistance-ch-589b7e149684",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "due-cattedre-di-diritto-pubblico-d-f-80-100-open-rank-unidistance-suisse-brig-arbeitsbeginn-01",
         "en": "two-professorships-in-public-law-d-f-80-100-open-rank-unidistance-suisse-brig-arbeitsbeginn-01",
-        "de": "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-unidistance-suisse-brig",
+        "de": "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-brig-arbeitsbeginn-01-august",
         "fr": "deux-chaires-de-droit-public-d-f-80-100-grade-ouvert-unidistance-suisse-brig-arbeitsbeginn-01"
       },
       "company": "UniDistance Suisse",
@@ -34,7 +34,7 @@
       "url": "https://fernuni.ch/jobs/mehr/professuren-oeffentliches-recht",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:42:25.222Z",
+      "crawledAt": "2026-11-26T10:12:34.844Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -54,11 +54,10 @@
       "applyUrl": "https://fernuni.ch/jobs/mehr/professuren-oeffentliches-recht",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-brig-arbeitsbeginn-01-august",
-        "zwei-professuren-per-offentliches-recht-d-f-80-100-open-rank-unidistance-suisse-brig"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-unidistance-suisse-brig"
+        ],
         "it": [
           "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-brig-arbeitsbeginn-01-august",
           "zwei-professuren-per-offentliches-recht-d-f-80-100-open-rank-unidistance-suisse-brig"
@@ -66,13 +65,15 @@
         "en": [
           "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-brig-arbeitsbeginn-01-august"
         ],
-        "de": [
-          "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-brig-arbeitsbeginn-01-august"
-        ],
         "fr": [
           "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-brig-arbeitsbeginn-01-august"
         ]
       },
+      "previousSlugs": [
+        "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-brig-arbeitsbeginn-01-august",
+        "zwei-professuren-per-offentliches-recht-d-f-80-100-open-rank-unidistance-suisse-brig",
+        "zwei-professuren-fur-offentliches-recht-d-f-80-100-open-rank-unidistance-suisse-brig"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-09T09:44:20.948Z",
       "salaryMin": 69000,
@@ -89,7 +90,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:42:25.222Z",
+      "validThrough": "2027-02-07T10:12:34.844Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -97,7 +98,7 @@
       "slug": "dottorato-in-economia-e-commercio-80-100-unidistance-suisse-brig-start-date-immediately-or-upon-agreement",
       "slugByLocale": {
         "it": "dottorato-in-economia-e-commercio-80-100-unidistance-suisse-brig-start-date-immediately-or-upon-agreement",
-        "en": "doctoral-student-in-business-economics-80-100-unidistance-suisse-brig",
+        "en": "doctoral-student-in-business-amp-economics-80-100-brig-start-date-immediately-or-upon",
         "de": "doktorand-in-business-economics-80-100-unidistance-suisse-brig-start-date-immediately-or-upon-agreement",
         "fr": "etudiant-au-doctorat-en-affaires-et-en-economie-80-100-unidistance-suisse-brig-start-date-immediately-or-upon-agreement"
       },
@@ -123,7 +124,7 @@
       "url": "https://fernuni.ch/jobs/mehr/doctoral-student-business-economics",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:42:25.220Z",
+      "crawledAt": "2026-11-26T10:12:34.839Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -143,14 +144,11 @@
       "applyUrl": "https://fernuni.ch/jobs/mehr/doctoral-student-business-economics",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "doctoral-student-in-business-amp-economics-80-100-brig-start-date-immediately-or-upon"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "doctoral-student-in-business-amp-economics-80-100-brig-start-date-immediately-or-upon"
-        ],
         "en": [
+          "doctoral-student-in-business-economics-80-100-unidistance-suisse-brig"
+        ],
+        "it": [
           "doctoral-student-in-business-amp-economics-80-100-brig-start-date-immediately-or-upon"
         ],
         "de": [
@@ -160,6 +158,10 @@
           "doctoral-student-in-business-amp-economics-80-100-brig-start-date-immediately-or-upon"
         ]
       },
+      "previousSlugs": [
+        "doctoral-student-in-business-amp-economics-80-100-brig-start-date-immediately-or-upon",
+        "doctoral-student-in-business-economics-80-100-unidistance-suisse-brig"
+      ],
       "firstSeenAt": "2026-11-16T21:39:48.896Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -175,7 +177,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:42:25.220Z",
+      "validThrough": "2027-02-15T10:12:34.839Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -183,7 +185,7 @@
       "slug": "postdoc-in-economia-sperimentale-e-comportamentale-80-100-unidistance-suisse-brig-start-date-immediately-or-upon",
       "slugByLocale": {
         "it": "postdoc-in-economia-sperimentale-e-comportamentale-80-100-unidistance-suisse-brig-start-date-immediately-or-upon",
-        "en": "postdoc-in-experimental-and-behavioral-economics-80-100-unidistance-suisse-brig",
+        "en": "postdoc-in-experimental-and-behavioral-economics-80-100-brig-start-date-immediately-or",
         "de": "postdoc-in-experimental-und-verhaltensokonomie-80-100-unidistance-suisse-brig",
         "fr": "postdoc-en-economie-experimentale-et-comportementale-80-100-unidistance-suisse-brig-start-date-immediately-or-upon"
       },
@@ -209,7 +211,7 @@
       "url": "https://fernuni.ch/jobs/mehr/postdoc-in-experimental-and-behavioral-economics-80-100",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:42:25.213Z",
+      "crawledAt": "2026-11-26T10:12:34.834Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -229,14 +231,11 @@
       "applyUrl": "https://fernuni.ch/jobs/mehr/postdoc-in-experimental-and-behavioral-economics-80-100",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoc-in-experimental-and-behavioral-economics-80-100-brig-start-date-immediately-or"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "postdoc-in-experimental-and-behavioral-economics-80-100-brig-start-date-immediately-or"
-        ],
         "en": [
+          "postdoc-in-experimental-and-behavioral-economics-80-100-unidistance-suisse-brig"
+        ],
+        "it": [
           "postdoc-in-experimental-and-behavioral-economics-80-100-brig-start-date-immediately-or"
         ],
         "de": [
@@ -246,6 +245,10 @@
           "postdoc-in-experimental-and-behavioral-economics-80-100-brig-start-date-immediately-or"
         ]
       },
+      "previousSlugs": [
+        "postdoc-in-experimental-and-behavioral-economics-80-100-brig-start-date-immediately-or",
+        "postdoc-in-experimental-and-behavioral-economics-80-100-unidistance-suisse-brig"
+      ],
       "firstSeenAt": "2026-11-16T21:39:48.894Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -261,7 +264,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:42:25.213Z",
+      "validThrough": "2027-02-15T10:12:34.834Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -270,7 +273,7 @@
       "slugByLocale": {
         "it": "personale-specializzato-servizi-per-il-corpo-docente-50-unidistance-suisse-brig",
         "en": "specialized-employee-specialized-employee-faculty-services-50-unidistance-suisse-vallese",
-        "de": "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-unidistance-suisse-brig",
+        "de": "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-brig-mit-der",
         "fr": "services-specialises-aux-employes-services-specialises-aux-enseignants-50-unidistance-suisse-vallese"
       },
       "company": "UniDistance Suisse",
@@ -295,7 +298,7 @@
       "url": "https://fernuni.ch/jobs/mehr/spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:42:25.208Z",
+      "crawledAt": "2026-11-26T10:12:34.832Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -315,12 +318,10 @@
       "applyUrl": "https://fernuni.ch/jobs/mehr/spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-brig-mit-der",
-        "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-unidistance-suisse-brig",
-        "spezialisierte-mitarbeiterin-spezialisierter-collaboratore-trice-faculty-services-50-unidistance-suisse-brig"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-unidistance-suisse-brig"
+        ],
         "it": [
           "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-brig-mit-der",
           "spezialisierte-mitarbeiterin-spezialisierter-collaboratore-trice-faculty-services-50-unidistance-suisse-brig"
@@ -328,13 +329,15 @@
         "en": [
           "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-unidistance-suisse-brig"
         ],
-        "de": [
-          "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-brig-mit-der"
-        ],
         "fr": [
           "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-unidistance-suisse-brig"
         ]
       },
+      "previousSlugs": [
+        "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-brig-mit-der",
+        "spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services-50-unidistance-suisse-brig",
+        "spezialisierte-mitarbeiterin-spezialisierter-collaboratore-trice-faculty-services-50-unidistance-suisse-brig"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-09T09:44:20.927Z",
       "salaryMin": 30300,
@@ -351,7 +354,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:42:25.208Z",
+      "validThrough": "2027-02-07T10:12:34.832Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +363,7 @@
       "slugByLocale": {
         "it": "responsabile-facolta-60-limitato-a-tre-anni-unidistance-suisse-vallese",
         "en": "faculty-manager-60-limited-to-three-years-unidistance-suisse-vallese",
-        "de": "faculty-manager-60-befristet-auf-drei-jahre-unidistance-suisse-brig",
+        "de": "faculty-manager-60-befristet-auf-drei-jahre-brig-mit-der-moglichkeit-teilweise-im",
         "fr": "gestionnaire-de-faculte-60-limite-a-trois-ans-unidistance-suisse-vallese"
       },
       "company": "UniDistance Suisse",
@@ -385,7 +388,7 @@
       "url": "https://fernuni.ch/jobs/mehr/faculty-manager-geschichte-befristet",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:42:25.201Z",
+      "crawledAt": "2026-11-26T10:12:34.813Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -405,11 +408,10 @@
       "applyUrl": "https://fernuni.ch/jobs/mehr/faculty-manager-geschichte-befristet",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "faculty-manager-60-befristet-auf-drei-jahre-brig-mit-der-moglichkeit-teilweise-im",
-        "faculty-manager-60-befristet-auf-drei-jahre-unidistance-suisse-brig"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "faculty-manager-60-befristet-auf-drei-jahre-unidistance-suisse-brig"
+        ],
         "it": [
           "faculty-manager-60-befristet-auf-drei-jahre-brig-mit-der-moglichkeit-teilweise-im",
           "faculty-manager-60-befristet-auf-drei-jahre-unidistance-suisse-brig"
@@ -417,13 +419,14 @@
         "en": [
           "faculty-manager-60-befristet-auf-drei-jahre-brig-mit-der-moglichkeit-teilweise-im"
         ],
-        "de": [
-          "faculty-manager-60-befristet-auf-drei-jahre-brig-mit-der-moglichkeit-teilweise-im"
-        ],
         "fr": [
           "faculty-manager-60-befristet-auf-drei-jahre-brig-mit-der-moglichkeit-teilweise-im"
         ]
       },
+      "previousSlugs": [
+        "faculty-manager-60-befristet-auf-drei-jahre-brig-mit-der-moglichkeit-teilweise-im",
+        "faculty-manager-60-befristet-auf-drei-jahre-unidistance-suisse-brig"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-09T09:44:20.912Z",
       "salaryMin": 50100,
@@ -440,7 +443,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:42:25.201Z",
+      "validThrough": "2027-02-07T10:12:34.813Z",
       "validThroughSource": "last-observed-window"
     }
   ]

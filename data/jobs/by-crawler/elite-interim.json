@@ -1,7 +1,7 @@
 {
   "crawlerKey": "elite-interim",
-  "assembledAt": "2026-11-25T21:23:43.515Z",
-  "runId": "45702856844",
+  "assembledAt": "2026-11-26T09:53:18.122Z",
+  "runId": "45790496540",
   "jobs": [
     {
       "id": "elite-interim-3587",
@@ -35,7 +35,7 @@
       "applyUrl": "https://eliteinterim.ch/installateur-electricien-cfc-h-f/",
       "source": "Elite Interim Dedicated Parser (official WordPress detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:36.973Z",
+      "crawledAt": "2026-11-26T09:53:10.212Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -81,8 +81,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:23:36.973Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-16T09:53:10.212Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://eliteinterim.ch/installateur-electricien-cfc-h-f"
     },
     {
       "id": "elite-interim-3586",
@@ -117,7 +118,7 @@
       "applyUrl": "https://eliteinterim.ch/electricien-de-montage-cfc-h-f/",
       "source": "Elite Interim Dedicated Parser (official WordPress detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:23:36.973Z",
+      "crawledAt": "2026-11-26T09:53:10.212Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -166,8 +167,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:23:36.973Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-16T09:53:10.212Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://eliteinterim.ch/electricien-de-montage-cfc-h-f"
     }
   ]
 }

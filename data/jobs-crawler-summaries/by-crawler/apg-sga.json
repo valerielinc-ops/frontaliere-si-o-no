@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-11-25T21:24:39.673Z",
+  "generatedAt": "2026-11-26T09:57:45.754Z",
   "total": 4,
   "discovered": null,
   "parsed": 3,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6883,
-  "avgDurationMs": 6883,
+  "durationMs": 8021,
+  "avgDurationMs": 8021,
   "durationHistory": [
-    6883
+    8021
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:24:20.924Z",
+      "crawledAt": "2026-11-26T09:57:25.410Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:24:20.924Z",
+      "validThrough": "2026-12-29T09:57:25.410Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://jobs.apgsga.ch/publication/key-account-manager-in-zuerich/yqbyamdibr2ofdtyu4hhivzweb0vjlvst4c1j2v9hdqkhs86jpvkcplx8pcxdcy5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:24:20.481Z",
+      "crawledAt": "2026-11-26T09:57:24.973Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:24:20.481Z",
+      "validThrough": "2027-01-19T09:57:24.973Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://jobs.apgsga.ch/publication/verkaufsberatung-aussendienst-bern/vkwavwpoo2jxbr09jpnr1wnddc5q0xq0o50iijpdpbrwkmeviovet7cwt7xzih7x",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:24:20.042Z",
+      "crawledAt": "2026-11-26T09:57:24.532Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -151,7 +151,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:24:20.042Z",
+      "validThrough": "2027-02-02T09:57:24.532Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -199,7 +199,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T09:35:33.571Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://jobs.apgsga.ch/publication/sales-coordinator-airport-advertising-zuerich/kwx50lsqcs0s57kphl6u3t2orih52uw7k5pj4tjji0h62tscr18qfnt8cfyzvmky",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -209,5 +210,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }

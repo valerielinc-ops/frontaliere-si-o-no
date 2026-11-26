@@ -1,9 +1,9 @@
 {
   "key": "absolut-liv-ch",
   "label": "absolutLIV AG",
-  "generatedAt": "2026-11-25T21:45:11.580Z",
+  "generatedAt": "2026-11-26T09:46:17.552Z",
   "total": 1,
-  "discovered": 104,
+  "discovered": 100,
   "parsed": 7,
   "lastFetchOutcome": null,
   "fetchReceipt": {
@@ -12,7 +12,7 @@
       "https://absolut-liv.ch/jobs"
     ],
     "phase": "detail",
-    "pages": 108,
+    "pages": 104,
     "httpStatuses": [
       {
         "status": 200,
@@ -64,11 +64,11 @@
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100014-48-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100054-11-1"
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100054-11-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100014-48-1"
       },
       {
         "status": 200,
@@ -88,15 +88,15 @@
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100023-39-1"
-      },
-      {
-        "status": 200,
         "url": "https://absolut-liv.ch/jobs/2240-100178-6-1"
       },
       {
         "status": 200,
         "url": "https://absolut-liv.ch/jobs/2240-100005-114-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100023-39-1"
       },
       {
         "status": 200,
@@ -108,11 +108,11 @@
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100015-22-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100162-3-1"
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100162-3-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100015-22-1"
       },
       {
         "status": 200,
@@ -124,7 +124,7 @@
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100084-9-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100038-38-1"
       },
       {
         "status": 200,
@@ -132,11 +132,11 @@
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100038-38-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100021-42-1"
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100021-42-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100084-9-1"
       },
       {
         "status": 200,
@@ -148,7 +148,7 @@
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100186-4-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100045-27-1"
       },
       {
         "status": 200,
@@ -156,11 +156,11 @@
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100045-27-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100020-10-1"
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100020-10-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100186-4-1"
       },
       {
         "status": 200,
@@ -188,11 +188,11 @@
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100204-1-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100034-39-1"
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100034-39-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100204-1-1"
       },
       {
         "status": 200,
@@ -200,19 +200,19 @@
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100173-8-1"
-      },
-      {
-        "status": 200,
         "url": "https://absolut-liv.ch/jobs/2240-100071-6-1"
       },
       {
         "status": 200,
-        "url": "https://absolut-liv.ch/jobs/2240-100172-6-1"
+        "url": "https://absolut-liv.ch/jobs/2240-100173-8-1"
       },
       {
         "status": 200,
         "url": "https://absolut-liv.ch/jobs/2240-100178-5-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100172-6-1"
       }
     ],
     "proxiedBy": [],
@@ -222,9 +222,9 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
-  "detailCandidates": 104,
+  "detailCandidates": 100,
   "detailGone": 0,
-  "detailRejected": 9,
+  "detailRejected": 8,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
@@ -232,10 +232,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 234956,
-  "avgDurationMs": 234956,
+  "durationMs": 245303,
+  "avgDurationMs": 245303,
   "durationHistory": [
-    234956
+    245303
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -253,7 +253,7 @@
       "url": "https://absolut-liv.ch/jobs/2240-100028-4-1",
       "source": "absolutLIV AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:44:58.944Z",
+      "crawledAt": "2026-11-26T09:46:01.560Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:44:58.944Z",
+      "validThrough": "2026-12-26T09:46:01.560Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -287,5 +287,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }
