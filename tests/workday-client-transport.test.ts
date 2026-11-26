@@ -60,35 +60,34 @@ afterEach(() => {
 describe('Workday JSON transport', () => {
   it('shares the runner egress lock and Retry-After cooldown across processes', async () => {
     const egressStateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'workday-egress-test-'));
-    const requestLogPath = path.join(egressStateDir, 'requests.log');
-    fs.writeFileSync(requestLogPath, '');
+    const requestLogPath = path.join(egressStateDir, 'request-times.log');
+    const readRequestTimes = () => {
+      if (!fs.existsSync(requestLogPath)) return [];
+      return fs.readFileSync(requestLogPath, 'utf8')
+        .split('\n')
+        .filter(Boolean)
+        .map(Number);
+    };
 
     try {
-      const apiBase = 'https://test.wd3.myworkdayjobs.com/wday/cxs/test/External';
+      const apiBase = 'https://workday.test/wday/cxs/test/External';
       const clientUrl = pathToFileURL(path.resolve('scripts/lib/ats-clients/workday-client.mjs')).href;
-      const runClientProcess = () => new Promise<void>((resolve, reject) => {
+      const runClientProcess = (status: number) => new Promise<void>((resolve, reject) => {
         const script = `
           import fs from 'node:fs';
-          import { fetchWorkdayJsonWithRetry } from ${JSON.stringify(clientUrl)};
+          const status = ${JSON.stringify(status)};
+          const requestLogPath = ${JSON.stringify(requestLogPath)};
           globalThis.fetch = async () => {
-            const previous = fs.readFileSync(${JSON.stringify(requestLogPath)}, 'utf8');
-            fs.appendFileSync(${JSON.stringify(requestLogPath)}, String(Date.now()) + '\\n');
-            if (!previous) {
-              Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100);
-              return {
-                status: 429,
-                ok: false,
-                headers: { get: (name) => name.toLowerCase() === 'retry-after' ? '1' : null },
-                text: async () => '',
-              };
-            }
-            return {
-              status: 200,
-              ok: true,
-              headers: { get: () => null },
-              text: async () => JSON.stringify({ ok: true }),
-            };
+            fs.appendFileSync(requestLogPath, String(Date.now()) + '\\n');
+            if (status === 429) await new Promise((resolve) => setTimeout(resolve, 100));
+            return new Response(status === 429 ? '' : JSON.stringify({ ok: true }), {
+              status,
+              headers: status === 429
+                ? { 'Retry-After': '1' }
+                : { 'Content-Type': 'application/json' },
+            });
           };
+          const { fetchWorkdayJsonWithRetry } = await import(${JSON.stringify(clientUrl)});
           try {
             await fetchWorkdayJsonWithRetry(${JSON.stringify(apiBase)}, ${JSON.stringify(`${apiBase}/jobs`)}, {
               retries: 0,
@@ -108,17 +107,20 @@ describe('Workday JSON transport', () => {
         });
       });
 
-      const first = runClientProcess();
-      const second = runClientProcess();
+      const first = runClientProcess(429);
+      const deadline = Date.now() + 2000;
+      while (readRequestTimes().length < 1 && Date.now() < deadline) {
+        await new Promise((resolve) => setTimeout(resolve, 10));
+      }
+      expect(readRequestTimes()).toHaveLength(1);
+      const secondStartedAt = Date.now();
+      const second = runClientProcess(200);
       await Promise.all([first, second]);
 
-      const requestTimes = fs.readFileSync(requestLogPath, 'utf8')
-        .trim()
-        .split('\n')
-        .filter(Boolean)
-        .map(Number);
+      const requestTimes = readRequestTimes();
       expect(requestTimes).toHaveLength(2);
       expect(requestTimes[1] - requestTimes[0]).toBeGreaterThanOrEqual(900);
+      expect(Date.now() - secondStartedAt).toBeGreaterThanOrEqual(800);
     } finally {
       fs.rmSync(egressStateDir, { recursive: true, force: true });
     }

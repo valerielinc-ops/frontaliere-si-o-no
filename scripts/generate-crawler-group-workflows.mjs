@@ -3214,6 +3214,14 @@ function logicRemoteConfigStep() {
   return { name: 'Load secrets from Remote Config', run: 'node scripts/load-rc-env.mjs' };
 }
 
+function logicWorkdayEgressStateStep() {
+  return {
+    name: 'Configure shared Workday egress state',
+    shell: 'bash',
+    run: 'echo "WORKDAY_EGRESS_STATE_DIR=$RUNNER_TEMP/crawler-generation/workday-egress" >> "$GITHUB_ENV"',
+  };
+}
+
 // #7091 — see scripts/check-crawler-group-live-run.mjs. Each entry point
 // checks the OTHER one: the generated (workflow_dispatch) side checks the
 // live corpus repo, the logic (workflow_call) side checks this repo's own
@@ -3316,6 +3324,11 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
     }
     job.permissions = withSourceRelayJobPermissions(workflow.permissions);
   }
+
+  // Workday crawlers run concurrently in this job. Give their shared client a
+  // runner-local coordination directory so separate processes observe the
+  // same egress cooldown state. Other crawlers simply ignore this setting.
+  job.steps.unshift(logicWorkdayEgressStateStep());
 
   const checkoutAt = job.steps.findIndex((step) => step?.uses?.startsWith('actions/checkout@'));
   const rcAt = job.steps.findIndex((step) => step?.name === 'Load secrets from Remote Config');
@@ -3442,6 +3455,13 @@ function normalizedContractStep(step, side, fileName, members) {
     return null;
   }
 
+  if (copy?.name === 'Configure shared Workday egress state') {
+    if (side !== 'logic' || canonicalJson(copy) !== canonicalJson(logicWorkdayEgressStateStep())) {
+      throw new Error(`${fileName}: undeclared Workday egress state bootstrap difference`);
+    }
+    return null;
+  }
+
   if (copy?.name === 'Guard: refuse a concurrent run of the other entry point') {
     const nn = /crawler-group-(\d{2})/.exec(fileName)?.[1];
     const groupName = `crawler-group-${nn}`;
@@ -3484,6 +3504,13 @@ function normalizedJobContract(workflow, side, fileName) {
     normalizedJob.permissions = { 'id-token': 'write' };
   }
   const members = (job.steps ?? []).filter(isCrawlerLaunchStep).length;
+  const workdayStepIndexes = (job.steps ?? [])
+    .map((step, index) => step?.name === 'Configure shared Workday egress state' ? index : -1)
+    .filter((index) => index >= 0);
+  if ((side === 'generated' && workdayStepIndexes.length !== 0) ||
+      (side === 'logic' && (workdayStepIndexes.length !== 1 || workdayStepIndexes[0] !== 0))) {
+    throw new Error(`${fileName}: Workday egress state bootstrap must be absent from generated workflows and first in logic workflows`);
+  }
   const steps = (job.steps ?? [])
     .map((step) => normalizedContractStep(step, side, fileName, members))
     .filter(Boolean);
@@ -3495,8 +3522,9 @@ function normalizedJobContract(workflow, side, fileName) {
  * I 24 `*-logic.yml` erano copie manuali: la loro parita' col generatore era
  * solo accidentale. Questo confronto fail-closed copre l'intero job (setup,
  * roster, env e shell body) e normalizza esclusivamente le differenze
- * dichiarate del workflow_call cross-repo: checkout esplicito, bootstrap PAT,
- * composite action assolute e token ambient rimosso dai crawler.
+ * dichiarate del workflow_call cross-repo: checkout esplicito, bootstrap dello
+ * stato egress Workday, bootstrap PAT, composite action assolute e token
+ * ambient rimosso dai crawler.
  */
 export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowText, fileName = 'crawler logic') {
   const generatedWorkflow = YAML.parse(generatedWorkflowText);
