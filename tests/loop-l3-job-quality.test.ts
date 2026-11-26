@@ -87,6 +87,73 @@ describe('L3 Job Quality → Apply', () => {
     expect(verdict.snapshot.outcomes).toMatchObject({ eligibleJobSessions: 120, validHandoffs: 90 });
   });
 
+  it.each([
+    ['aborted 429 receipt', {
+      abortKind: 'connection-level-fetch',
+      fetchReceipt: { fetchOutcome: null, httpStatuses: [{ status: 429 }] },
+    }],
+    ['exhausted retry', { lastFetchOutcome: 'exhausted_retry' }],
+    ['unavailable feed endpoint', { lastFetchOutcome: 'feed_endpoint_unavailable' }],
+    ['anti-bot refusal', { lastFetchOutcome: 'anti_bot_block' }],
+  ])('does not treat a recent %s summary as source-fresh', (_label, failure) => {
+    const verdict = validateJobSummaries([summary(failure)], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict).toMatchObject({
+      ok: false,
+      quality: 'stale',
+      snapshot: {
+        freshSummaries: 0,
+        staleSummaries: 1,
+        staleSummaryIssueCount: 1,
+        sourceFailedSummaries: 1,
+        jobsInspected: 0,
+        validJobs: 0,
+      },
+    });
+    expect(verdict.issues.join(' ')).toContain('source refresh failed');
+  });
+
+  it('does not publish a handoff metric from the old slice retained after a failed refresh', async () => {
+    const failedSummary = {
+      ...summary().data,
+      abortKind: 'connection-level-fetch',
+      lastFetchOutcome: 'exhausted_retry',
+      fetchReceipt: { fetchOutcome: 'exhausted_retry', httpStatuses: [{ status: 429 }] },
+    };
+    const source = tempSource(failedSummary, outcomes());
+    const result = await runL3({
+      now: NOW,
+      summaryDir: source.summaryDir,
+      outcomePath: source.outcomePath,
+      reportDir: source.dir,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict).toMatchObject({ ok: false, quality: 'stale' });
+    expect(result.verdict.snapshot).toMatchObject({ sourceFailedSummaries: 1, validJobs: 0, jobsInspected: 0 });
+    expect(result.outcome).toMatchObject({ status: 'partial', independent: false, numerator: null, denominator: null });
+    expect(result.observation).toMatchObject({ numerator: null, denominator: null });
+  });
+
+  it('keeps legacy summaries without an explicitly failed receipt compatible', () => {
+    const verdict = validateJobSummaries([summary({
+      fetchReceipt: { fetchOutcome: null, httpStatuses: [] },
+    })], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+    expect(verdict.snapshot).toMatchObject({ freshSummaries: 1, staleSummaries: 0, sourceFailedSummaries: 0, validJobs: 1 });
+  });
+
+  it('accepts a retried 429 when the receipt records a successful final source read', () => {
+    const verdict = validateJobSummaries([summary({
+      lastFetchOutcome: 'ok',
+      fetchReceipt: { fetchOutcome: 'ok', httpStatuses: [{ status: 429 }, { status: 200 }] },
+    })], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+    expect(verdict.snapshot).toMatchObject({ freshSummaries: 1, staleSummaries: 0, sourceFailedSummaries: 0 });
+  });
+
   it('keeps a source-backed handoff independent when only a sibling summary is stale', async () => {
     const source = tempSource(summary().data, outcomes());
     fs.writeFileSync(path.join(source.summaryDir, 'stale.json'), `${JSON.stringify({

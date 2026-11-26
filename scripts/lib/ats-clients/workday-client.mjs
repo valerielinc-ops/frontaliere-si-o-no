@@ -21,6 +21,9 @@
  *   - Tenant URL:       https://{tenant}.{datacenter}.myworkdayjobs.com/{lang}/{site}
  */
 
+import { randomUUID } from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 import { sourcePostingDateFields } from '../source-posting-date.mjs';
 import { isSwissLocationText } from '../target-swiss-locations.mjs';
 import {
@@ -43,6 +46,7 @@ import {
 } from '../prospector/country-inventory.mjs';
 import { KNOWN_CANTON_CODES } from '../job-location-display.mjs';
 import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
+import { withSingleFlightLockAsync } from '../single-flight-lock.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
@@ -340,6 +344,7 @@ async function fetchJsonWithRetry(url, options = {}) {
     beforeDirectAttempt,
     beforeBrowserFallback,
     onTransientFailure,
+    withEgressRequest,
   } = options;
 
   // Route through the shared transient-fetch retry/backoff. Only TRANSIENT
@@ -351,62 +356,67 @@ async function fetchJsonWithRetry(url, options = {}) {
   try {
     return await fetchWithRetry(
       async () => {
-        if (typeof beforeDirectAttempt === 'function') await beforeDirectAttempt();
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
-        try {
-          const res = await fetch(url, {
-            method,
-            body,
-            signal: controller.signal,
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json',
-              'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
-              'User-Agent': userAgent,
-            },
-          });
-
-          if (res.status === 401 || res.status === 403) {
-            throw new WorkdayAuthError(
-              `Workday auth/anti-bot block (HTTP ${res.status}) for ${url}`,
-              res.status,
-              url,
-            );
-          }
-          if (!res.ok) {
-            const err = new WorkdayApiError(
-              `Workday API error HTTP ${res.status} for ${url}`,
-              res.status,
-              url,
-            );
-            err.status = res.status;
-            err.retryable = RETRYABLE_STATUS.has(res.status);
-            err.retryAfter = res.headers?.get?.('retry-after') ?? null;
-            throw err;
-          }
-          const text = await res.text();
+        const directRequest = async () => {
+          if (typeof beforeDirectAttempt === 'function') await beforeDirectAttempt();
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), timeoutMs);
           try {
-            return JSON.parse(text);
-          } catch (parseErr) {
-            // A 2xx status with a non-JSON body is the signature of a WAF/CDN
-            // "challenge" page served on an otherwise-OK status (#4247 Bucher +
-            // Suter — same class, different ATS). isTransientFetchError()
-            // checks `err.retryable` first, so tag it explicitly to route
-            // through the same backoff loop as a 5xx instead of failing fast
-            // on one blip (a bare SyntaxError from res.json() has no such
-            // signal and would otherwise fail immediately).
-            const err = new WorkdayApiError(
-              `Workday API returned non-JSON body for ${url}: ${parseErr?.message || parseErr}`,
-              res.status,
-              url,
-            );
-            err.retryable = true;
-            throw err;
+            const res = await fetch(url, {
+              method,
+              body,
+              signal: controller.signal,
+              headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
+                'User-Agent': userAgent,
+              },
+            });
+
+            if (res.status === 401 || res.status === 403) {
+              throw new WorkdayAuthError(
+                `Workday auth/anti-bot block (HTTP ${res.status}) for ${url}`,
+                res.status,
+                url,
+              );
+            }
+            if (!res.ok) {
+              const err = new WorkdayApiError(
+                `Workday API error HTTP ${res.status} for ${url}`,
+                res.status,
+                url,
+              );
+              err.status = res.status;
+              err.retryable = RETRYABLE_STATUS.has(res.status);
+              err.retryAfter = res.headers?.get?.('retry-after') ?? null;
+              throw err;
+            }
+            const text = await res.text();
+            try {
+              return JSON.parse(text);
+            } catch (parseErr) {
+              // A 2xx status with a non-JSON body is the signature of a WAF/CDN
+              // "challenge" page served on an otherwise-OK status (#4247 Bucher +
+              // Suter — same class, different ATS). isTransientFetchError()
+              // checks `err.retryable` first, so tag it explicitly to route
+              // through the same backoff loop as a 5xx instead of failing fast
+              // on one blip (a bare SyntaxError from res.json() has no such
+              // signal and would otherwise fail immediately).
+              const err = new WorkdayApiError(
+                `Workday API returned non-JSON body for ${url}: ${parseErr?.message || parseErr}`,
+                res.status,
+                url,
+              );
+              err.retryable = true;
+              throw err;
+            }
+          } finally {
+            clearTimeout(timer);
           }
-        } finally {
-          clearTimeout(timer);
-        }
+        };
+        return typeof withEgressRequest === 'function'
+          ? withEgressRequest(directRequest)
+          : directRequest();
       },
       {
         retries,
@@ -438,7 +448,10 @@ async function fetchJsonWithRetry(url, options = {}) {
     if (browserFallback && !rateLimited && (connectionLevelFailure || retryBudgetExhausted)) {
       try {
         if (typeof beforeBrowserFallback === 'function') await beforeBrowserFallback();
-        return await browserFallback({ url, method, body, userAgent, timeoutMs });
+        const browserRequest = () => browserFallback({ url, method, body, userAgent, timeoutMs });
+        return await (typeof withEgressRequest === 'function'
+          ? withEgressRequest(browserRequest)
+          : browserRequest());
       } catch (fallbackErr) {
         // A browser response is stronger evidence than the original socket
         // failure: preserve an observed HTTP/auth failure. If the browser
@@ -472,6 +485,90 @@ async function fetchJsonWithRetry(url, options = {}) {
 }
 
 const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 60_000;
+// The group-07 runner has four crawler workers. A shared 500ms start interval
+// keeps their aggregate Workday request rate at the existing per-worker
+// default (one request every two seconds) while preventing synchronized bursts.
+const DEFAULT_EGRESS_MIN_DELAY_MS = 500;
+const EGRESS_LOCK_RETRY_MS = 50;
+
+function readWorkdayEgressState(statePath) {
+  try {
+    const state = JSON.parse(fs.readFileSync(statePath, 'utf8'));
+    return {
+      blockedUntil: Number.isFinite(state?.blockedUntil) ? Math.max(0, state.blockedUntil) : 0,
+      nextRequestAt: Number.isFinite(state?.nextRequestAt) ? Math.max(0, state.nextRequestAt) : 0,
+    };
+  } catch {
+    // A missing or damaged advisory state file must not leave the runner stuck.
+    // The lock itself is published atomically and has crash-safe takeover.
+    return { blockedUntil: 0, nextRequestAt: 0 };
+  }
+}
+
+function writeWorkdayEgressState(statePath, state) {
+  const tempPath = `${statePath}.${process.pid}.${randomUUID()}.tmp`;
+  try {
+    fs.writeFileSync(tempPath, JSON.stringify(state), { flag: 'wx' });
+    fs.renameSync(tempPath, statePath);
+  } finally {
+    try {
+      fs.unlinkSync(tempPath);
+    } catch (error) {
+      if (error?.code !== 'ENOENT') throw error;
+    }
+  }
+}
+
+async function withRunnerWorkdayEgress(operation, {
+  stateDir,
+  minDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
+  fallbackCooldownMs = DEFAULT_RATE_LIMIT_COOLDOWN_MS,
+  retryAfterCapMs = MAX_RETRY_AFTER_MS,
+} = {}) {
+  if (!stateDir) return operation();
+
+  const resolvedStateDir = path.resolve(stateDir);
+  fs.mkdirSync(resolvedStateDir, { recursive: true });
+  const lockPath = path.join(resolvedStateDir, 'workday-egress.lock');
+  const statePath = path.join(resolvedStateDir, 'workday-egress-state.json');
+  const minimumDelayMs = Number.isFinite(Number(minDelayMs))
+    ? Math.max(0, Number(minDelayMs))
+    : DEFAULT_EGRESS_MIN_DELAY_MS;
+
+  while (true) {
+    const gate = await withSingleFlightLockAsync(lockPath, async () => {
+      const state = readWorkdayEgressState(statePath);
+      const waitMs = Math.max(state.blockedUntil, state.nextRequestAt) - Date.now();
+      if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
+
+      state.nextRequestAt = Date.now() + minimumDelayMs;
+      writeWorkdayEgressState(statePath, state);
+      try {
+        return await operation();
+      } catch (error) {
+        const status = Number(error?.statusCode ?? error?.status);
+        // WorkdayRateLimitError is the local circuit's synthetic stop signal.
+        // Its original HTTP 429 has already recorded the shared cooldown.
+        if (status === 429 && !(error instanceof WorkdayRateLimitError)) {
+          const retryAfterMs = parseRetryAfterMs(
+            error?.retryAfter ?? error?.response?.headers?.get?.('retry-after'),
+            { capMs: retryAfterCapMs },
+          );
+          const cooldownMs = retryAfterMs === null
+            ? Math.max(0, Number(fallbackCooldownMs) || 0)
+            : retryAfterMs;
+          state.blockedUntil = Math.max(state.blockedUntil, Date.now() + cooldownMs);
+          writeWorkdayEgressState(statePath, state);
+        }
+        throw error;
+      }
+    });
+
+    if (gate.acquired) return gate.value;
+    await new Promise((resolve) => setTimeout(resolve, EGRESS_LOCK_RETRY_MS));
+  }
+}
+
 // Two consecutive 429s prove that changing only the Workday URL cannot clear
 // a tenant/egress limit. With the existing two-minute Retry-After cap, this
 // keeps the worst bounded exit below five minutes (2 x 120s).
@@ -511,7 +608,7 @@ export function resetWorkdayImplicitRateLimitStateForTests() {
  * previous request is waiting out the tenant's Retry-After window.
  *
  * @param {string} apiBase
- * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object }} [options]
+ * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object, egressStateDir?: string|null, egressMinDelayMs?: number }} [options]
  * @returns {{ request: (url: string, options?: object) => Promise<any>, close: () => Promise<void> }}
  */
 export function createWorkdayRequestContext(apiBase, options = {}) {
@@ -522,6 +619,8 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     retryAfterCapMs = MAX_RETRY_AFTER_MS,
     fallbackCooldownMs = DEFAULT_RATE_LIMIT_COOLDOWN_MS,
     rateLimitCircuitThreshold = DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
+    egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || null,
+    egressMinDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
   } = options;
   let browserSession = null;
   let closed = false;
@@ -604,6 +703,12 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
           beforeDirectAttempt,
           beforeBrowserFallback: waitForRateLimit,
           onTransientFailure,
+          withEgressRequest: (operation) => withRunnerWorkdayEgress(operation, {
+            stateDir: egressStateDir,
+            minDelayMs: egressMinDelayMs,
+            fallbackCooldownMs,
+            retryAfterCapMs,
+          }),
         });
         rateLimitState.consecutiveRateLimits = 0;
         return data;
@@ -657,6 +762,8 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     retryAfterCapMs,
     fallbackCooldownMs,
     rateLimitCircuitThreshold,
+    egressStateDir,
+    egressMinDelayMs,
     ...requestOptions
   } = options;
   const requestContext = createWorkdayRequestContext(apiBase, {
@@ -664,6 +771,8 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     retryAfterCapMs,
     fallbackCooldownMs,
     rateLimitCircuitThreshold,
+    egressStateDir,
+    egressMinDelayMs,
     rateLimitState: implicitRateLimitState(apiBase),
   });
 

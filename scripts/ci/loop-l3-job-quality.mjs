@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { CRAWLER_FETCH_FAILURE_OUTCOMES } from '../lib/crawler-fetch-outcome.mjs';
 import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { isHttpsUrl as httpsUrl } from '../lib/https-url.mjs';
 import {
@@ -102,6 +103,51 @@ function countIssue(summary, field, list, issues, warnings, prefix) {
       issues.push(`${prefix}.${field} (${expected}) does not match ${field.replace('Count', 'Jobs')}.length (${list.length})`);
     }
   }
+}
+
+function sourceRefreshFailureReasons(summary) {
+  const reasons = [];
+  const addOutcome = (field, value) => {
+    if (value === null || value === undefined) return;
+    if (typeof value !== 'string' || !value.trim()) {
+      reasons.push(`${field} is malformed`);
+      return;
+    }
+    const outcome = value.trim();
+    if (CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome)) {
+      reasons.push(`${field}=${outcome}`);
+    } else if (outcome !== 'ok' && outcome !== 'filtered_empty') {
+      // Unknown explicit outcomes must not be promoted to source success.
+      reasons.push(`${field}=${outcome.slice(0, 80)} (unrecognized)`);
+    }
+  };
+
+  if (summary.abortKind !== null && summary.abortKind !== undefined && summary.abortKind !== '') {
+    const abortKind = typeof summary.abortKind === 'string'
+      ? summary.abortKind.trim().slice(0, 80) || 'malformed'
+      : 'malformed';
+    reasons.push(`abortKind=${abortKind}`);
+  }
+  addOutcome('lastFetchOutcome', summary.lastFetchOutcome);
+
+  if (summary.fetchReceipt !== null && summary.fetchReceipt !== undefined) {
+    if (!object(summary.fetchReceipt)) {
+      reasons.push('fetchReceipt is malformed');
+    } else {
+      addOutcome('fetchReceipt.fetchOutcome', summary.fetchReceipt.fetchOutcome);
+      const statuses = summary.fetchReceipt.httpStatuses;
+      if (statuses !== null && statuses !== undefined && !Array.isArray(statuses)) {
+        reasons.push('fetchReceipt.httpStatuses is malformed');
+      } else if (Array.isArray(statuses)) {
+        const lastStatus = statuses.map((entry) => Number(entry?.status))
+          .filter((status) => Number.isInteger(status) && status > 0)
+          .at(-1);
+        if (lastStatus >= 400) reasons.push(`fetchReceipt terminal HTTP ${lastStatus}`);
+      }
+    }
+  }
+
+  return [...new Set(reasons)];
 }
 
 function validateActivePartition(summary, prefix, issues) {
@@ -275,6 +321,8 @@ export function validateJobSummaries(summaries, {
   let freshSummaries = 0;
   let staleSummaries = 0;
   let staleSummaryIssueCount = 0;
+  let freshnessIssueCount = 0;
+  let sourceFailedSummaries = 0;
   let malformedSummaries = 0;
   let jobsInspected = 0;
   let validJobs = 0;
@@ -319,23 +367,38 @@ export function validateJobSummaries(summaries, {
       ? summary.aggregateOf.filter(text).map((key) => key.trim())
       : []);
     const generatedAt = finiteDate(summary.generatedAt);
+    const sourceFailureReasons = sourceRefreshFailureReasons(summary);
+    let ageHours = null;
+    let timestampFresh = false;
+    let staleByAge = false;
     if (!text(summary.key)) issues.push(`${prefix}: key is missing`);
     if (!generatedAt) issues.push(`${prefix}: generatedAt is missing or invalid`);
     else {
-      const ageHours = hoursBetween(now, generatedAt);
+      ageHours = hoursBetween(now, generatedAt);
       if (ageHours < -0.0834) issues.push(`${prefix}: generatedAt is in the future`);
       if (ageHours > maxAgeHours) {
-        staleSummaries += 1;
-        staleSummaryIssueCount += 1;
-        staleSummaryDetails.push({
-          file: prefix,
-          generatedAt: generatedAt.toISOString(),
-          ageHours: Number(ageHours.toFixed(3)),
-          maxAgeHours,
-        });
+        staleByAge = true;
         issues.push(`${prefix}: summary is stale (${ageHours.toFixed(1)}h old; max ${maxAgeHours}h)`);
-      }
-      else if (ageHours >= -0.0834) freshSummaries += 1;
+        freshnessIssueCount += 1;
+      } else if (ageHours >= -0.0834) timestampFresh = true;
+    }
+    if (sourceFailureReasons.length) {
+      sourceFailedSummaries += 1;
+      issues.push(`${prefix}: source refresh failed (${sourceFailureReasons.join('; ')}); summary cannot count as fresh`);
+      freshnessIssueCount += 1;
+    }
+    if (staleByAge || sourceFailureReasons.length) {
+      staleSummaries += 1;
+      staleSummaryIssueCount += 1;
+      staleSummaryDetails.push({
+        file: prefix,
+        generatedAt: generatedAt?.toISOString() ?? null,
+        ...(Number.isFinite(ageHours) ? { ageHours: Number(ageHours.toFixed(3)) } : {}),
+        maxAgeHours,
+        ...(sourceFailureReasons.length ? { sourceFailureReasons } : {}),
+      });
+    } else if (timestampFresh) {
+      freshSummaries += 1;
     }
     if (!integer(summary.total)) issues.push(`${prefix}: total is missing or not a non-negative integer`);
     const sections = ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs'];
@@ -352,6 +415,7 @@ export function validateJobSummaries(summaries, {
       issues.push(`${prefix}.written is not a non-negative integer`);
     }
     validateActivePartition(summary, prefix, issues);
+    if (sourceFailureReasons.length) continue;
     for (const section of ['newJobs', 'updatedJobs', 'unchangedJobs']) {
       for (const [index, job] of (summary[section] || []).entries()) {
         jobsInspected += 1;
@@ -418,6 +482,7 @@ export function validateJobSummaries(summaries, {
     freshSummaries,
     staleSummaries,
     staleSummaryIssueCount,
+    sourceFailedSummaries,
     staleSummaryDetails: staleSummaryDetails.sort((a, b) => a.file.localeCompare(b.file)),
     malformedSummaries,
     jobsInspected,
@@ -429,7 +494,7 @@ export function validateJobSummaries(summaries, {
   };
 
   const hasActionableIssues = issues.length > 0;
-  const hasNonFreshnessIssues = issues.length > staleSummaryIssueCount;
+  const hasNonFreshnessIssues = issues.length > freshnessIssueCount;
   let quality = 'observed';
   if (summaryCount === 0 || malformedSummaries === summaryCount) quality = 'unmeasurable';
   else if (staleSummaries === summaryCount) quality = 'stale';
