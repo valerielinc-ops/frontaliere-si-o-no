@@ -1,7 +1,7 @@
 {
   "crawlerKey": "neoproconseils",
-  "assembledAt": "2026-11-26T09:23:48.231Z",
-  "runId": "45788845587",
+  "assembledAt": "2026-11-26T21:19:39.006Z",
+  "runId": "45895741910",
   "jobs": [
     {
       "id": "neoproconseils-14fdde329346",
@@ -34,7 +34,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:23:42.871Z",
+      "crawledAt": "2026-11-26T21:19:32.547Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -77,9 +77,8 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:23:42.871Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114"
+      "validThrough": "2026-12-26T21:19:32.547Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "neoproconseils-3813e5ada334",
@@ -112,7 +111,7 @@
       "url": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:23:42.869Z",
+      "crawledAt": "2026-11-26T21:19:32.545Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -161,9 +160,8 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:23:42.869Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124"
+      "validThrough": "2026-12-26T21:19:32.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "neoproconseils-35b796fb3625",
@@ -196,7 +194,7 @@
       "url": "https://neoproconseils.ch/emplois/electricien-du-batiment-h-f-ref-75131/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:23:42.868Z",
+      "crawledAt": "2026-11-26T21:19:32.544Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -245,9 +243,8 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:23:42.868Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://neoproconseils.ch/emplois/electricien-du-batiment-h-f-ref-75131"
+      "validThrough": "2027-01-18T21:19:32.544Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "neoproconseils-2d5de1ea0740",
@@ -280,7 +277,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-coffreur-h-f-ref-75128/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:23:42.868Z",
+      "crawledAt": "2026-11-26T21:19:32.544Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -329,9 +326,8 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:23:42.868Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://neoproconseils.ch/emplois/macon-coffreur-h-f-ref-75128"
+      "validThrough": "2027-01-10T21:19:32.544Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "neoproconseils-71333434d9b4",
@@ -364,7 +360,7 @@
       "url": "https://neoproconseils.ch/emplois/employe-e-de-commerce-ref-75139/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:23:42.867Z",
+      "crawledAt": "2026-11-26T21:19:32.542Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -417,9 +413,8 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:23:42.867Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://neoproconseils.ch/emplois/employe-e-de-commerce-ref-75139"
+      "validThrough": "2027-02-16T21:19:32.542Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,19 +1,251 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-11-26T09:18:57.685Z",
-  "total": 23,
-  "newCount": 0,
-  "updatedCount": 0,
+  "generatedAt": "2026-11-26T21:24:35.878Z",
+  "total": 25,
+  "newCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 23,
-  "durationMs": 19732,
-  "avgDurationMs": 19732,
+  "unchangedCount": 22,
+  "durationMs": 16518,
+  "avgDurationMs": 16518,
   "durationHistory": [
-    19732
+    16518
   ],
-  "newJobs": [],
-  "updatedJobs": [],
+  "newJobs": [
+    {
+      "id": "efg-6613",
+      "slug": "learning-development-specialist-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Learning & Development Specialist",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-26T12:50:47+00:00",
+      "postedDate": "2026-11-26T12:50:47+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6613",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [
+              "University degree, preferably in human resources, organizational development, economics, or a related field",
+              "5+ of relevant experience within structured HR departments of international companies",
+              "Strong commitment to people development and delivering outstanding customer service",
+              "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
+              "Fluency in English, French, and Italian",
+              "International mindset and experience working in multicultural environments",
+              "Proactive, positive attitude with energy and intellectual curiosity",
+              "Excellent interpersonal and collaboration skills; proven ability to work with diverse stakeholders across functions and countries",
+              "Strong communication skills, with the ability to clearly and effectively structure key messages",
+              "Exceptional organizational skills; able to work independently, manage multiple priorities, and deliver in a dynamic and demanding environment",
+              "Proficiency in MS Office programs",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
+              "<strong>Passionate</strong>: Being committed and striving for excellence",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "University degree, preferably in human resources, organizational development, economics, or a related field",
+              "5+ of relevant experience within structured HR departments of international companies",
+              "Strong commitment to people development and delivering outstanding customer service"
+            ],
+            "keywords": [
+              "University degree",
+              "5+ of relevant experience within structured HR departments of international companies",
+              "Strong commitment to people development and delivering outstanding customer service",
+              "Demonstrated interest in learning technologies",
+              "Fluency in English"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.",
+                  "<br><strong>Job Description</strong>",
+                  "As a key member of the Learning & Development team, the Learning & Development Specialist will contribute to the organisation and coordination of selected learning initiatives and manage EFG’s apprenticeship programmes end to end, ensuring a best-in-class experience.",
+                  "The Learning & Development Specialist will collaborate with all HR functional areas and become a key point of contact within the organisation for their assigned activities.",
+                  "This is an excellent opportunity for someone looking to work in an international, fast-paced and client-oriented HR team within a global private banking group.",
+                  "<br><strong>Main responsibilities</strong>"
+                ],
+                "bullets": [
+                  "Manage end-to-end the apprentices programme (recruitment, onboarding, rotations, learning sessions etc) in Switzerland, partnering with line managers and HR Business Partners/local HR.",
+                  "Prepare reports and feedback surveys to measure programme effectiveness; analyse insights to assess impact and identify opportunities for improvement.",
+                  "Coordinate selected global learning initiatives, supporting design, rollout, communications and logistics.",
+                  "Provide expert technical support for training initiatives, empowering employees to make the most of the company’s learning tools and systems.",
+                  "The Learning & Development Specialist will have a dual reporting line to the Head of Talent Development and the Head of Learning. The role collaborates with HRBPs, local HR, and business stakeholders to ensure seamless delivery and adherence to global frameworks."
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-11-26T21:24:21.234Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-24T21:24:21.234Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-26T21:24:21.234Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 21,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6496",
+      "slug": "cloud-oberservability-infrastructure-engineer-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Cloud Oberservability & Infrastructure Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-26T13:47:54+00:00",
+      "postedDate": "2026-11-26T13:47:54+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6496",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Department: Infrastructure Engineering team</span></li><li><span>Work time Percentage: 100%</span></li><li><span>Location: Geneva - Quai du seujet 24</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>Join our Infrastructure Engineering team to design, implement and bring into operation a cloud-based observability platform for public cloud services and applications. You will also operate the existing on-premises observability environment and contribute to the engineering, automation and continuous improvement of the team’s infrastructure platforms.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Define</strong> the cloud observability architecture, including integration patterns, reusable telemetry ingestion, secure application connectivity and monitoring standards.</span></li><li><span><strong>Implement</strong> metrics collection for public cloud compute, networking, storage, managed platform services and data analytics platforms.</span></li><li><span><strong>Onboard</strong> applications to the observability platform, collecting logs, service health metrics, performance indicators, and error and exception events.</span></li><li><span><strong>Operate</strong> the existing on-premises observability environment.</span></li><li><span><strong>Establish</strong> alert categories, severity levels, notification channels, ownership and escalation procedures so the appropriate teams know when and how to respond.</span></li><li><span><strong>Build</strong> executive dashboards for service health, operational dashboards for troubleshooting and service-specific dashboards for deeper analysis.</span></li><li><span><strong>Contribute</strong> to the engineering, automation and continuous improvement of Linux, container orchestration platforms, infrastructure automation solutions and application delivery controllers.</span></li><li><span><strong>Collaborate</strong> with application and operational teams to troubleshoot issues and document observability solutions.</span></li></ul><p> </p><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Education:</strong> Minimum and preferred qualifications are to be confirmed.</span></li><li><span><strong>Professional experience:</strong> Hands-on experience with enterprise observability platforms, public cloud platforms, cloud-native monitoring, Linux and infrastructure automation. The required number of years is to be confirmed.</span></li><li><span><strong>Technical and functional knowledge:</strong> Experience with observability search and analytics, dashboards, agents, telemetry ingestion and alerting; working knowledge of networking, APIs and TLS; and strong troubleshooting, documentation and collaboration skills.</span></li><li><span><strong>Preferred knowledge:</strong> Experience in one or more of container orchestration platforms, enterprise automation platforms, application delivery controllers, data analytics platform monitoring or Infrastructure as Code. Expertise across all platforms is not required.</span></li><li><span><strong>Languages:</strong> Language requirements and proficiency levels are to be confirmed.</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-11-26T21:24:21.211Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-24T21:24:21.211Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-26T21:24:21.211Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 23,
+        "completeness": 25
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
+      "id": "efg-6349",
+      "slug": "gestione-configurazione-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "IT Configuration Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23T16:19:21+00:00",
+      "postedDate": "2026-11-23T16:19:21+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6349",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>IT Configuration Manager</strong></span></p><p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva </span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>We are looking for an <strong>IT Configuration Manager</strong> to maintain reliable information about IT assets and services. You will work with IT colleagues and other stakeholders to improve data quality, provide information for reporting and audits, and contribute to effective IT service management.</span></p><p><span>Configuration management is the primary focus of the role. You will also provide backup for change management and contribute to incident resolution and root cause analysis when needed. </span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Maintain</strong> accurate and complete configuration records throughout the lifecycle of IT assets, working with IT colleagues to document changes. </span></li><li><span><strong>Review</strong> configuration data, resolve inconsistencies and identify opportunities to improve data quality. </span></li><li><span><strong>Develop and maintain</strong> configuration management documentation and standards, and help IT colleagues understand and apply them. </span></li><li><span><strong>Provide</strong> configuration information and reports to support internal and external audits and compliance requirements. </span></li><li><span><strong>Collaborate</strong> with IT service management colleagues to ensure configuration information supports change, incident and problem management. </span></li><li><span><strong>Provide</strong> backup for change management and contribute to incident resolution and root cause analysis when needed. </span></li><li><span><strong>Track</strong> configuration data quality and prepare reports to inform stakeholders and support improvements. </span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Education:</strong> No minimum or preferred formal educational qualification is specified.</span></li><li><span><strong>Professional experience:</strong> At least six years’ experience in IT change and configuration management. Experience in banking or financial services is preferred. </span></li><li><span><strong>Technical and functional knowledge:</strong> Strong understanding of IT service management practices, including ITIL; experience managing configuration data, improving data quality and producing reports; and the ability to coordinate with technical stakeholders. ITIL certification is a strong asset. </span></li><li><span><strong>Languages:</strong> Fluent spoken and written French and English. </span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-11-26T21:24:21.206Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-21T21:24:21.206Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T21:17:47.178Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6349",
+      "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -53,7 +285,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.142Z",
+      "crawledAt": "2026-11-26T21:24:21.305Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -64,7 +296,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:18:41.142Z",
+      "validThrough": "2027-02-03T21:24:21.305Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:13:58.262Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6560",
@@ -113,7 +345,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.137Z",
+      "crawledAt": "2026-11-26T21:24:21.302Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 113000,
@@ -135,7 +367,7 @@
       },
       "streetAddress": "Bleicherweg 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:18:41.137Z",
+      "validThrough": "2026-12-26T21:24:21.302Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T22:20:59.183Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6550",
@@ -184,7 +416,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.131Z",
+      "crawledAt": "2026-11-26T21:24:21.298Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 174500,
@@ -195,7 +427,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:18:41.131Z",
+      "validThrough": "2027-02-01T21:24:21.298Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.747Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6549",
@@ -244,7 +476,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.125Z",
+      "crawledAt": "2026-11-26T21:24:21.293Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 104500,
@@ -255,7 +487,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:18:41.125Z",
+      "validThrough": "2027-02-01T21:24:21.293Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.740Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6548",
@@ -301,7 +533,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.119Z",
+      "crawledAt": "2026-11-26T21:24:21.288Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -317,7 +549,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:18:41.119Z",
+      "validThrough": "2026-12-26T21:24:21.288Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -443,7 +675,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.113Z",
+      "crawledAt": "2026-11-26T21:24:21.283Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -459,7 +691,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:18:41.113Z",
+      "validThrough": "2026-12-26T21:24:21.283Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -506,7 +738,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.075Z",
+      "crawledAt": "2026-11-26T21:24:21.264Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -528,7 +760,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:18:41.075Z",
+      "validThrough": "2027-01-17T21:24:21.264Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6221",
       "_qualityScore": 99,
@@ -643,7 +875,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.071Z",
+      "crawledAt": "2026-11-26T21:24:21.262Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -660,7 +892,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:18:41.071Z",
+      "validThrough": "2026-12-26T21:24:21.262Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -704,7 +936,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.067Z",
+      "crawledAt": "2026-11-26T21:24:21.258Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -721,7 +953,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:18:41.067Z",
+      "validThrough": "2026-12-26T21:24:21.258Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -838,7 +1070,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.045Z",
+      "crawledAt": "2026-11-26T21:24:21.244Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -866,7 +1098,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:18:41.045Z",
+      "validThrough": "2026-12-26T21:24:21.244Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -913,7 +1145,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.038Z",
+      "crawledAt": "2026-11-26T21:24:21.240Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -924,7 +1156,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:18:41.038Z",
+      "validThrough": "2027-02-11T21:24:21.240Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.870Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6515",
@@ -973,7 +1205,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.032Z",
+      "crawledAt": "2026-11-26T21:24:21.235Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 97500,
@@ -984,9 +1216,10 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:18:41.032Z",
+      "validThrough": "2027-02-18T21:24:21.235Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T21:19:37.019Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6562",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1032,7 +1265,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.026Z",
+      "crawledAt": "2026-11-26T21:24:21.216Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 73000,
@@ -1043,9 +1276,10 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:18:41.026Z",
+      "validThrough": "2027-01-08T21:24:21.216Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-24T21:16:44.042Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6597",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1091,7 +1325,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-26T09:18:41.021Z",
+      "crawledAt": "2026-11-26T21:24:21.212Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -1102,7 +1336,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:18:41.021Z",
+      "validThrough": "2027-02-11T21:24:21.212Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.873Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6541",
@@ -1110,65 +1344,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6349",
-      "slug": "gestione-configurazione-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Configuration Manager",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-23T16:19:21+00:00",
-      "postedDate": "2026-11-23T16:19:21+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6349",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>IT Configuration Manager</strong></span></p><p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva </span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>We are looking for an <strong>IT Configuration Manager</strong> to maintain reliable information about IT assets and services. You will work with IT colleagues and other stakeholders to improve data quality, provide information for reporting and audits, and contribute to effective IT service management.</span></p><p><span>Configuration management is the primary focus of the role. You will also provide backup for change management and contribute to incident resolution and root cause analysis when needed. </span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Maintain</strong> accurate and complete configuration records throughout the lifecycle of IT assets, working with IT colleagues to document changes. </span></li><li><span><strong>Review</strong> configuration data, resolve inconsistencies and identify opportunities to improve data quality. </span></li><li><span><strong>Develop and maintain</strong> configuration management documentation and standards, and help IT colleagues understand and apply them. </span></li><li><span><strong>Provide</strong> configuration information and reports to support internal and external audits and compliance requirements. </span></li><li><span><strong>Collaborate</strong> with IT service management colleagues to ensure configuration information supports change, incident and problem management. </span></li><li><span><strong>Provide</strong> backup for change management and contribute to incident resolution and root cause analysis when needed. </span></li><li><span><strong>Track</strong> configuration data quality and prepare reports to inform stakeholders and support improvements. </span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Education:</strong> No minimum or preferred formal educational qualification is specified.</span></li><li><span><strong>Professional experience:</strong> At least six years’ experience in IT change and configuration management. Experience in banking or financial services is preferred. </span></li><li><span><strong>Technical and functional knowledge:</strong> Strong understanding of IT service management practices, including ITIL; experience managing configuration data, improving data quality and producing reports; and the ability to coordinate with technical stakeholders. ITIL certification is a strong asset. </span></li><li><span><strong>Languages:</strong> Fluent spoken and written French and English. </span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-11-26T09:18:41.013Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:18:41.013Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:17:47.178Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1333,8 +1508,8 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-11-26T09:22:17.154Z",
-      "validThroughSource": "last-observed-window",
+      "validThrough": "2027-02-24T21:24:23.836Z",
+      "validThroughSource": "build-clock-fallback",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2045,5 +2220,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }

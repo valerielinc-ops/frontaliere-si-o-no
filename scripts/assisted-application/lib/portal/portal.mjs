@@ -7844,6 +7844,20 @@ export function signedInApplicationSurface(view) {
     && (hasApplicationForm(view) || sendsApplication(view)) && showsCandidateSession(view);
 }
 
+/**
+ * Decide whether the runner should reopen the posting entry after an account
+ * step. A post-verification confirmation screen with zero form fields can
+ * expose a generic "Continue to apply" control that matches NEXT_RE without
+ * binding back to the selected requisition; force a clean reopen there.
+ */
+export function shouldReopenAfterAuth(auth, snapshot, applyUrl) {
+  if (!auth?.reopen || isWorkdayTenantUrl(applyUrl)) return false;
+  if (hasApplicationForm(snapshot)) return false;
+  if (auth.verified && !snapshot?.fields?.length) return true;
+  return !findButton(snapshot?.buttons || [], NEXT_RE)
+    && !findButton(snapshot?.buttons || [], SUBMIT_RE);
+}
+
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
 export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   let current = snapshot || await extractFields(page);
@@ -7926,7 +7940,7 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   // Accepted on the portal's notice while the page stayed unreadable: the job is reopened anyway.
   const snapshotAfter = after || await extractFields(page).catch(() => null)
     || { url: page.url(), fields: [], buttons: [], links: [], errors: [] };
-  return { snapshot: snapshotAfter, reopen: true };
+  return { snapshot: snapshotAfter, reopen: true, verified: true };
 }
 
 // SuccessFactors' required privacy statement (Coop, 2026-10-02) starts as a
@@ -10512,7 +10526,18 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         && hasActivationPrompt
         && (!usesOtpAccountCreation(host) || !codeField(after)));
     if (needsPostSignInVerification) {
-      return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
+      const clearedStaleVerification = Boolean(account.verifiedAt);
+      if (clearedStaleVerification) {
+        account.verifiedAt = null;
+        if (typeof ctx.accounts.mark === 'function') {
+          await ctx.accounts.mark(host, { status: 'pending', verifiedAt: null });
+        }
+      }
+      const verification = await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after });
+      if (clearedStaleVerification && !verification?.handoff && typeof ctx.accounts.mark === 'function') {
+        await ctx.accounts.mark(host, { status: 'created' });
+      }
+      return { ...verification, pressed };
     }
     // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
     if (authPageKind(after) === 'create') return { ...accountHandoff('account_sign_in_failed', 'login_unobserved', 'login'), pressed };
@@ -13679,8 +13704,7 @@ export async function submitViaPortal(ctx) {
           && authPageKind(snapshot) === 'none' && !codeField(snapshot)) {
           const restored = await restoreWorkdayApplication();
           if (restored) return restored;
-        } else if (auth.reopen && !isWorkdayTenantUrl(ctx.applyUrl)
-          && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
+        } else if (shouldReopenAfterAuth(auth, snapshot, ctx.applyUrl)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
@@ -13876,8 +13900,7 @@ export async function submitViaPortal(ctx) {
           && authPageKind(snapshot) === 'none' && !codeField(snapshot)) {
           const restored = await restoreWorkdayApplication();
           if (restored) return restored;
-        } else if (auth.reopen && !isWorkdayTenantUrl(ctx.applyUrl)
-          && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
+        } else if (shouldReopenAfterAuth(auth, snapshot, ctx.applyUrl)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {

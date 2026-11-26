@@ -30,7 +30,11 @@
  * fail() convention.
  */
 
-import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
+import {
+  resolveZoneId as resolveZoneIdShared,
+  describeCfError,
+  withCfRetry,
+} from './lib/cf-analytics.mjs';
 import { BOUNCE_ADDRESS, MAIL_DOMAIN, EMAIL_WORKER_NAME } from './lib/bounce-return-path.mjs';
 
 const ZONE_NAME = MAIL_DOMAIN;
@@ -126,9 +130,12 @@ function fail(msg) {
 
 async function resolveZoneId() {
   try {
-    return await resolveZoneIdShared(TOKEN, ZONE_NAME, process.env.CF_ZONE_ID);
-  } catch {
-    fail(`zone ${ZONE_NAME} not found (token Zone:Read scope?)`);
+    return await withCfRetry(
+      () => resolveZoneIdShared(TOKEN, ZONE_NAME, process.env.CF_ZONE_ID),
+      { label: 'zone lookup', token: TOKEN },
+    );
+  } catch (error) {
+    fail(`Cannot resolve zone id for ${ZONE_NAME}: ${describeCfError(error, TOKEN)}`);
   }
 }
 

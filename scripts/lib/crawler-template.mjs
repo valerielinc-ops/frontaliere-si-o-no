@@ -816,6 +816,118 @@ export function createCrawlerDetailSnapshotFailure(message, candidates, rejected
   return error;
 }
 
+function normalizeWeisseArenaJobNumber(value) {
+  const jobNumber = String(value ?? '').trim().toUpperCase();
+  return /^WAG\d+$/.test(jobNumber) ? jobNumber : '';
+}
+
+/**
+ * Validate the partial listing receipt and bind each corroborated omission
+ * to its stored job. Null rejects the receipt. An empty array means that
+ * there are no omissions. Offset pagination itself authorizes no removals.
+ */
+export function verifiedWeisseArenaOmissionProof({ companyKey, fetchMetadata, parsedJobs, existingJobs }) {
+  if (companyKey !== 'weisse-arena' || !Array.isArray(parsedJobs)) return null;
+
+  const snapshot = fetchMetadata?.sourceListingSnapshot;
+  const listingIdentities = snapshot?.listingIdentities;
+  const processedIdentities = snapshot?.processedIdentities;
+  const listingJobNumbers = snapshot?.listingJobNumbers;
+  const processedJobNumbers = snapshot?.processedJobNumbers;
+  const listingCount = snapshot?.listingCount;
+  const minimumExpectedCount = snapshot?.minimumExpectedCount;
+  const terminalJobsCount = snapshot?.terminalJobsCount;
+  const baselineJobIds = snapshot?.baselineJobIds;
+  const currentJobIds = snapshot?.currentJobIds;
+  const absenceVerifiedJobIds = snapshot?.absenceVerifiedJobIds;
+
+  if (
+    snapshot?.source !== companyKey
+    || snapshot.coverage !== 'observed'
+    || !Number.isSafeInteger(snapshot.pageCount)
+    || snapshot.pageCount < 1
+    || !Number.isSafeInteger(listingCount)
+    || listingCount < 0
+    || !Number.isSafeInteger(minimumExpectedCount)
+    || minimumExpectedCount < 0
+    || listingCount < minimumExpectedCount
+    || !Number.isSafeInteger(snapshot.terminalOffset)
+    || snapshot.terminalOffset !== listingCount
+    || !Number.isSafeInteger(terminalJobsCount)
+    || terminalJobsCount < 0
+    || typeof snapshot.terminalJobsOmitted !== 'boolean'
+    || (snapshot.terminalJobsOmitted && terminalJobsCount !== 0)
+    || !Array.isArray(existingJobs)
+    || !Array.isArray(baselineJobIds)
+    || !Array.isArray(currentJobIds)
+    || !Array.isArray(absenceVerifiedJobIds)
+    || !Array.isArray(listingIdentities)
+    || !Array.isArray(processedIdentities)
+    || !Array.isArray(listingJobNumbers)
+    || !Array.isArray(processedJobNumbers)
+    || snapshot.processedCount !== listingCount
+    || fetchMetadata.discoveredCount !== listingCount
+    || parsedJobs.length !== listingCount
+    || listingIdentities.length !== listingCount
+    || processedIdentities.length !== listingCount
+    || listingJobNumbers.length !== listingCount
+    || processedJobNumbers.length !== listingCount
+  ) return null;
+
+  // Tie the receipt to the slice passed to the parser and to the parsed
+  // URLs. Each omitted ID needs its own detail evidence from both sides of
+  // the scan. This does not assert consistency across listing responses.
+  const jobIdFromUrl = (job) => {
+    try {
+      const url = new URL(job?.url || '');
+      const ids = url.searchParams.getAll('jobId');
+      const raw = ids.length === 1 ? ids[0] : '';
+      const number = /^\d+$/.test(raw) ? Number(raw) : NaN;
+      if (url.protocol !== 'https:'
+        || !['weissearena.com', 'www.weissearena.com'].includes(url.hostname.toLowerCase())
+        || url.pathname !== '/jobs/details.html'
+        || !Number.isSafeInteger(number) || number <= 0) return '';
+      return String(number);
+    } catch { return ''; }
+  };
+  const validIds = (ids) => ids.every((id) => typeof id === 'string'
+    && /^[1-9]\d*$/.test(id) && Number.isSafeInteger(Number(id)))
+    && new Set(ids).size === ids.length;
+  const actualBaseline = existingJobs.map(jobIdFromUrl);
+  const actualCurrent = parsedJobs.map(jobIdFromUrl);
+  const baselineSet = new Set(baselineJobIds);
+  const currentSet = new Set(currentJobIds);
+  const absentSet = new Set(absenceVerifiedJobIds);
+  const omittedIds = actualBaseline.filter((id) => !currentSet.has(id));
+  if (
+    !validIds(actualBaseline) || !validIds(actualCurrent)
+    || !validIds(baselineJobIds) || !validIds(currentJobIds) || !validIds(absenceVerifiedJobIds)
+    || actualBaseline.length !== baselineJobIds.length
+    || actualBaseline.some((id) => !baselineSet.has(id))
+    || actualCurrent.length !== currentJobIds.length
+    || actualCurrent.some((id) => !currentSet.has(id))
+    || (omittedIds.length > 0 && (snapshot.terminalJobsOmitted !== true || terminalJobsCount !== 0))
+    || omittedIds.length !== absentSet.size
+    || omittedIds.some((id) => !absentSet.has(id))
+  ) return null;
+
+  const normalizedListingNumbers = listingJobNumbers.map(normalizeWeisseArenaJobNumber);
+  const normalizedProcessedNumbers = processedJobNumbers.map(normalizeWeisseArenaJobNumber);
+  const normalizedListingIdentities = listingIdentities.map(normalizeWeisseArenaJobNumber);
+  const normalizedProcessedIdentities = processedIdentities.map(normalizeWeisseArenaJobNumber);
+  const normalizedParsedNumbers = parsedJobs.map((job) => normalizeWeisseArenaJobNumber(job?.jobNumber));
+  const listingRowsVerified = normalizedListingIdentities.every((identity, index) => identity && identity === normalizedListingNumbers[index])
+    && new Set(normalizedListingIdentities).size === listingCount
+    && normalizedProcessedIdentities.every((identity, index) => identity === normalizedListingIdentities[index])
+    && normalizedProcessedNumbers.every((jobNumber, index) => jobNumber === normalizedListingNumbers[index])
+    && normalizedParsedNumbers.every((jobNumber, index) => jobNumber === normalizedListingNumbers[index]);
+  if (!listingRowsVerified) return null;
+
+  return existingJobs.flatMap((job, index) => absentSet.has(actualBaseline[index])
+    ? [{ job, reason: 'talentlink-detail-confirmed-absence', definitive: true }]
+    : []);
+}
+
 // A source-specific parser may report how many otherwise-valid listings it
 // discarded because it could not derive a per-vacancy detail URL. Once that
 // loss exceeds 40% of the existing slice, keep the old slice: the ordinary
@@ -1058,6 +1170,13 @@ export async function runStandardCrawlerPipeline(config) {
     throw err;
   }
 
+  const weisseArenaOmissionProof = verifiedWeisseArenaOmissionProof({
+    companyKey,
+    fetchMetadata,
+    parsedJobs,
+    existingJobs: companyExisting,
+  });
+
   if (Number.isFinite(fetchMetadata?.discoveredCount)) {
     counts.discovered = fetchMetadata.discoveredCount;
   }
@@ -1115,10 +1234,10 @@ export async function runStandardCrawlerPipeline(config) {
   }
 
   // Only a run with an explicit proof may retire every unmatched record
-  // immediately: a source-specific validator wired by the runner, or an empty
-  // batch the parser stamped as a source-proven zero. Validation runs before
-  // the zero-job soft exit and before any scratch/archive write, so a partial
-  // or degraded crawl fails closed with the existing slice untouched.
+  // immediately: a source-specific validator wired by the runner
+  // or an empty batch the parser stamped as a source-proven zero. Validation
+  // runs before the zero-job soft exit and before any scratch/archive write, so
+  // a partial or degraded crawl fails closed with the existing slice untouched.
   const {
     authoritativeSnapshotVerified,
     authoritativeEmptySnapshot,
@@ -1126,9 +1245,17 @@ export async function runStandardCrawlerPipeline(config) {
   } = evaluateAuthoritativeSnapshot(
     parsedJobs,
     {
-      validateAuthoritativeSnapshot,
+      // The listing stays partial even when the detail API corroborates every
+      // omitted prior ID. The separate omission proof can only retire those IDs.
+      validateAuthoritativeSnapshot: companyKey === 'weisse-arena'
+        ? (jobs) => {
+          if (jobs !== parsedJobs || !weisseArenaOmissionProof) return false;
+          if (validateAuthoritativeSnapshot && validateAuthoritativeSnapshot(jobs) !== true) return false;
+          return SNAPSHOT_VALIDATED_PARTIAL;
+        }
+        : validateAuthoritativeSnapshot,
       allowAuthoritativeEmptySnapshot,
-      authoritativeSnapshotScope,
+      authoritativeSnapshotScope: companyKey === 'weisse-arena' ? 'all' : authoritativeSnapshotScope,
       companyLabel,
       fetchOutcome: reportedFetchOutcome,
     },
@@ -1199,7 +1326,7 @@ export async function runStandardCrawlerPipeline(config) {
   } else if (partialSnapshotValidated) {
     console.log(
       `\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed from a validated PARTIAL snapshot; `
-      + 'stored jobs it does not contain keep the miss grace instead of being retired.\n',
+      + 'unmatched stored jobs keep the miss grace unless separately proven absent.\n',
     );
   } else {
     console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed, preparing source bodies.\n`);
@@ -1276,7 +1403,11 @@ export async function runStandardCrawlerPipeline(config) {
     ...(matchKey ? { matchKey } : {}),
     ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
   };
-  const merged = mergePreserveLocaleData(mergeExistingForSourceBodies, sourceBodyJobs, mergeOpts);
+  const confirmedOmissions = new Set((weisseArenaOmissionProof || []).map(({ job }) => job.url));
+  const mergeBaseline = confirmedOmissions.size > 0
+    ? mergeExistingForSourceBodies.filter((job) => !confirmedOmissions.has(job.url))
+    : mergeExistingForSourceBodies;
+  const merged = mergePreserveLocaleData(mergeBaseline, sourceBodyJobs, mergeOpts);
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
     : merged;
@@ -1407,26 +1538,28 @@ export async function runStandardCrawlerPipeline(config) {
   const durationMs = getCrawlerElapsedMs();
   const sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const sliceJobs = Array.isArray(sliceRaw) ? sliceRaw.filter(isCompanyJob) : [];
+  const removedWithoutDetailProof = confirmedOmissions.size > 0
+    ? diff.removedJobs.filter((job) => !confirmedOmissions.has(job.url))
+    : diff.removedJobs;
   const thinHousekeepingProof = buildThinSourceHousekeepingProof(
-    diff.removedJobs,
+    removedWithoutDetailProof,
     thinSourceJobs,
     sourceBodyMatchKey,
   );
   const sourceFailureHousekeepingProof = buildSourceBodyFailureHousekeepingProof(
-    diff.removedJobs,
+    removedWithoutDetailProof,
     Array.isArray(parsedJobs) ? parsedJobs.filter(hasSourceBodyFailure) : [],
     sourceBodyMatchKey,
   );
   const housekeepingProof = [
+    ...(weisseArenaOmissionProof || []),
     ...(thinHousekeepingProof || []),
     ...(sourceFailureHousekeepingProof || []),
   ];
 
   // Evidence-gated write (#5016/#5017). Identical to writeJobsCrawlerSlice
-  // until the anti-shrink guard trips; then the disappearing jobs are probed
-  // at their own source URLs and the smaller slice is accepted ONLY if every
-  // one of them is provably gone. A degraded/blocked source still fails here
-  // exactly as before — the threshold is unchanged, the proof is the addition.
+  // until the anti-shrink guard trips; then every disappearing job needs
+  // definitive evidence. A degraded/blocked source still fails here.
   await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, {
     isTargetJob: isCompanyJob,
     preserveExistingSlugs,
@@ -1438,11 +1571,10 @@ export async function runStandardCrawlerPipeline(config) {
     // pages reachable with HTTP 200, but the validator is still useful evidence
     // for the guarded decision below.
     //
-    // A non-empty source proof describes the current listing, but does not prove
-    // that a sudden loss of previously published records is real. Keep the
-    // central anti-shrink guard active for non-empty snapshots; only an explicit
-    // authoritative zero may bypass it. This catches source/parser regressions
-    // such as a complete board collapsing to a handful of rows (#9398).
+    // Keep the central anti-shrink guard active for every non-empty snapshot.
+    // Only an explicit authoritative zero may bypass it directly. This still
+    // catches source or parser regressions such as a complete board collapsing
+    // to a handful of rows (#9398).
     skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
   });
   writeSummaryCrawlerSlice({

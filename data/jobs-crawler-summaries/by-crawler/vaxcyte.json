@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-11-26T09:19:58.079Z",
+  "generatedAt": "2026-11-26T21:15:59.999Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3515,
-  "avgDurationMs": 3515,
+  "durationMs": 5304,
+  "avgDurationMs": 5304,
   "durationHistory": [
-    3515
+    5304
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:19:36.087Z",
+      "crawledAt": "2026-11-26T21:15:26.308Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:19:36.087Z",
+      "validThrough": "2027-01-03T21:15:26.308Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -88,7 +88,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008?gh_jid=5481965008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:19:36.071Z",
+      "crawledAt": "2026-11-26T21:15:26.284Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:19:36.071Z",
+      "validThrough": "2027-02-17T21:15:26.284Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -139,7 +139,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:19:36.030Z",
+      "crawledAt": "2026-11-26T21:15:26.219Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:19:36.030Z",
+      "validThrough": "2027-01-26T21:15:26.219Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -178,5 +178,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }

@@ -197,6 +197,31 @@ describe('PSI response streams', () => {
     expect(attempts).toBe(3);
   });
 
+  it('un NO_FCP persistente dice cosa e successo entro la riga di log e resta bloccante, con backoff 2s/4s', async () => {
+    const waits: number[] = [];
+    const fetchImpl = async () => ({
+      ok: false,
+      status: 400,
+      text: async () => JSON.stringify({
+        error: { code: 400, message: 'Lighthouse returned error: NO_FCP. The page did not paint any content.' },
+      }),
+    });
+
+    const error = await runPsiRequest(
+      'https://frontaliereticino.ch/compara-servizi/cambio-franco-euro/', 'mobile', '', fetchImpl,
+      async (ms: number) => { waits.push(ms); },
+    ).then(() => null, (e: Error) => e);
+
+    expect(waits).toEqual([2000, 4000]);
+    // Lo script stampa i primi 200 caratteri: il verdetto deve starci tutto.
+    const logged = error!.message.slice(0, 200);
+    expect(logged).toContain('NO_FCP after 3 attempts');
+    expect(logged).toContain('/compara-servizi/cambio-franco-euro/ (mobile)');
+    expect(logged).toContain('gate stays red. Check that the page paints.');
+    expect(isInconclusivePsiError(error)).toBe(false);
+    expect((error!.cause as Error).message).toContain('Lighthouse returned error: NO_FCP');
+  });
+
   it('non ritenta un 400 generico con payload non riconosciuto', async () => {
     let attempts = 0;
     const fetchImpl = async () => {

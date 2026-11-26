@@ -65,7 +65,7 @@ const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:ver
 // passwords.
 const BARE_CODE_LABEL_RE = /^[\s*:]*(?:code|codice|pass[\s-]?code)[\s*:]*$/i;
 
-const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
+const VERIFY_OK_RE = /(?:^|[^\p{L}\p{N}])(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?s?|confirmée?s?|activée?s?|erfolgreich|successfully)(?=$|[^\p{L}\p{N}])/iu;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
 const VERIFY_LOADING_RE = /(chargement en cours|loading(?:\.\.\.|…)?|caricamento in corso|wird geladen|in bearbeitung|processing|traitement en cours)/i;
 
@@ -129,7 +129,7 @@ export function isAccountVerificationResponse(snapshot = {}) {
 }
 
 function verifiedLanding(after) {
-  const text = String(after?.text || '').trim();
+  const text = String(after?.text || '').normalize('NFC').trim();
   // A verification/instructions page may expose a generic sign-in control as
   // well; it is not proof that the OTP was accepted. A create form is also
   // not the verified landing page, even if it has a similarly named control.
@@ -161,7 +161,7 @@ export function registrationOutcome(after) {
  * `unconfirmed`, and neither is recorded as verified.
  */
 export function verificationOutcome(after) {
-  const text = String(after?.text || '').trim();
+  const text = String(after?.text || '').normalize('NFC').trim();
   const errors = (after.errors || []).map((error) => String(error).trim()).filter(Boolean);
   const loading = errors.some((error) => VERIFY_LOADING_RE.test(error));
   const rejected = errors.some((error) => !VERIFY_LOADING_RE.test(error)) || VERIFY_FAILED_RE.test(text);

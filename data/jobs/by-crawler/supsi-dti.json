@@ -1233,7 +1233,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:42:57.022Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.supsi.ch/bando26_5047"
     },
     {
       "id": "company-l4u55x",

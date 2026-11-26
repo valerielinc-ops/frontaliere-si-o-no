@@ -1,7 +1,7 @@
 {
   "crawlerKey": "vitrea-gesundheit",
-  "assembledAt": "2026-11-26T09:23:55.325Z",
-  "runId": "45788845587",
+  "assembledAt": "2026-11-26T21:18:45.219Z",
+  "runId": "45895741910",
   "jobs": [
     {
       "id": "vitrea-gesundheit-e6144cb6b4cf",
@@ -35,7 +35,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/td3xp4ri5fqcc0alzjrg6nfebm4uwd2",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:49.042Z",
+      "crawledAt": "2026-11-26T21:18:37.632Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -84,8 +84,9 @@
       },
       "streetAddress": "Dussnang",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:23:49.042Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T21:18:37.632Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/td3xp4ri5fqcc0alzjrg6nfebm4uwd2"
     },
     {
       "id": "vitrea-gesundheit-e5b921e1fc05",
@@ -118,7 +119,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/z6t4s3lsod2qlddtxfdca1otrn99r2g",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:46.920Z",
+      "crawledAt": "2026-11-26T21:18:36.349Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -169,8 +170,9 @@
       },
       "streetAddress": "Zihlschlacht-Sitterdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:23:46.920Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T21:18:36.349Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/z6t4s3lsod2qlddtxfdca1otrn99r2g"
     },
     {
       "id": "vitrea-gesundheit-8e5c877859f1",
@@ -204,7 +206,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ja1cb389oxc0xm0cofveckptaah5mnh",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:44.820Z",
+      "crawledAt": "2026-11-26T21:18:34.679Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -253,8 +255,9 @@
       },
       "streetAddress": "Zihlschlacht-Sitterdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:23:44.820Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T21:18:34.679Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/ja1cb389oxc0xm0cofveckptaah5mnh"
     },
     {
       "id": "vitrea-gesundheit-3f1466bab996",
@@ -288,7 +291,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/zb9inqmfjej0yvvo0d7kqahr2iwiekd",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:42.673Z",
+      "crawledAt": "2026-11-26T21:18:33.014Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -339,8 +342,9 @@
       },
       "streetAddress": "Dussnang",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:23:42.673Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:18:33.014Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/zb9inqmfjej0yvvo0d7kqahr2iwiekd"
     },
     {
       "id": "vitrea-gesundheit-bd618fec17a8",
@@ -373,7 +377,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/x3rdunvq6aeato1l4fd59d2wi21285w",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:41.420Z",
+      "crawledAt": "2026-11-26T21:18:31.986Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -424,8 +428,9 @@
       },
       "streetAddress": "Seewis im Prättigau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:23:41.420Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T21:18:31.986Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/x3rdunvq6aeato1l4fd59d2wi21285w"
     },
     {
       "id": "vitrea-gesundheit-71f5de3ef2e7",
@@ -459,7 +464,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/xgavxxknxmf2cmn6eq6zvowbxuftm2l",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:40.240Z",
+      "crawledAt": "2026-11-26T21:18:30.428Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -508,8 +513,9 @@
       },
       "streetAddress": "Dussnang",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:23:40.240Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-20T21:18:30.428Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/xgavxxknxmf2cmn6eq6zvowbxuftm2l"
     },
     {
       "id": "vitrea-gesundheit-600556fceb0b",
@@ -543,7 +549,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/rpdk4bpw94j9pbwglux3z4zc9smw854",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:38.588Z",
+      "crawledAt": "2026-11-26T21:18:29.092Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -592,8 +598,9 @@
       },
       "streetAddress": "Zihlschlacht-Sitterdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:23:38.588Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T21:18:29.092Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/rpdk4bpw94j9pbwglux3z4zc9smw854"
     },
     {
       "id": "vitrea-gesundheit-aa10393aaf25",
@@ -627,7 +634,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/iqigfd2hogjooswvsyhcxerrd89kmo0",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:36.478Z",
+      "crawledAt": "2026-11-26T21:18:27.495Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -676,8 +683,9 @@
       },
       "streetAddress": "Zihlschlacht-Sitterdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:23:36.478Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-20T21:18:27.495Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/iqigfd2hogjooswvsyhcxerrd89kmo0"
     },
     {
       "id": "vitrea-gesundheit-732a0298656b",
@@ -710,7 +718,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/h9z6ycm0zd17q3cknz537syrhdtkrbd",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:34.418Z",
+      "crawledAt": "2026-11-26T21:18:25.907Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -761,8 +769,9 @@
       },
       "streetAddress": "Zihlschlacht-Sitterdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:23:34.418Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-16T21:18:25.907Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/h9z6ycm0zd17q3cknz537syrhdtkrbd"
     },
     {
       "id": "vitrea-gesundheit-dfb33ab52b13",
@@ -796,7 +805,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/2l66yund188h9lagkkjfdslpvt6ie3n",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:32.293Z",
+      "crawledAt": "2026-11-26T21:18:24.615Z",
       "addressLocality": "Seefeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -841,86 +850,9 @@
       },
       "streetAddress": "Seefeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:23:32.293Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "vitrea-gesundheit-d1e1bbff2a08",
-      "slug": "in-servizio-a-60-vitrea-gesundheit-seewis-im-prattigau",
-      "slugByLocale": {
-        "it": "in-servizio-a-60-vitrea-gesundheit-seewis-im-prattigau",
-        "en": "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau",
-        "de": "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau",
-        "fr": "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "MitabeiterIn Service (a) 60%",
-      "titleByLocale": {
-        "it": "In servizio (a) 60%",
-        "en": "In service (a) 60%",
-        "de": "MitabeiterIn Service (a) 60%",
-        "fr": "En service (a) 60%"
-      },
-      "description": "MitabeiterIn Service (a) 60%\nArbeitsort: Rehaklinik Seewis\nWo dein Job Reha macht.\n\nKardiologie, Innere Medizin / Onkologie und Psychiatrie/Psychosomatik. Erstklassige Rehabilitation, eingebettet in eine prächtige Berglandschaft. Und das mit über 50 Jahren Erfahrung. Das Umfeld in der Rehaklinik Seewis tut auch den rund 135 Mitarbeitenden gut.\nHier hast du alle Zutaten für Wohlbefinden bei unseren Gästen und dir: Ein geordneter, familiärer Betrieb, regionale Produkte, moderne Menus, viel Wertschätzung und offener Austausch.\n\nDarauf darfst du dich freuen:\n• Gäste in unseren Restaurants zuvorkommend bedienen\n• Durch gute Kommunikation unseren Gästen ein \"Zuhause-Gefühl\" vermitteln\n• Interne Abläufe gewissenhaft gewährleisten\n• Verantwortung übernehmen und anderen mit Freude und Engagement helfen\n\nDarüber freuen wir uns:\n• Berufserfahrung im Bereich Hotellerie/ Gastronomie\n• Sicherheit im Umgang mit PC und Tablet\n• Freude daran, kunden- und dienstleistungsorientiert zu handeln\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B2)\n• Bereitschaft für Schichtdienst auch am Wochenende und an Feiertagen\n\nDas bieten wir:\n\nUnterstützung bei Weiterbildung\n\nSüsse Überraschungen\n\nTeilzeit arbeiten\n\nZusätzlichen Urlaub kaufen\n\nDarum Rehaklinik Seewis:\n\nWir zählen zu den führenden Reha-Spezialisten der Schweiz und sind Teil der VITREA Schweiz. Für dich bedeutet das viel Abwechslung und interdisziplinäre Zusammenarbeit auf hohem fachlichem Niveau, gleichzeitig auf Augenhöhe. Wenn du also etwas bewegen und beruflich weiterkommen willst, bist du bei uns genau richtig. Denn bei uns können sich alle einbringen.\n\n• Arbeitszeit: Teilzeit",
-      "descriptionByLocale": {
-        "it": "In servizio (a) 60%\nLuogo di lavoro: Seewis clinica di riabilitazione\nDove il tuo lavoro sta facendo riabilitazione.\n\nCardiologia, Medicina Interna / Oncologia e Psichiatria / Psicosomatica. Riabilitazione di prima classe, incastonata in un magnifico paesaggio montano. Con oltre 50 anni di esperienza. L'ambiente nella clinica di riabilitazione Seewis beneficia anche dei circa 135 dipendenti.\nQui avete tutti gli ingredienti per il benessere con i nostri ospiti e voi: un business ordinato, a conduzione familiare, prodotti regionali, menu moderni, un sacco di apprezzamento e scambio aperto.\n\nSi può guardare avanti a questo:\n• Servire ospiti nei nostri ristoranti cortesemente\n• Dare ai nostri ospiti un \"sentire a casa\" attraverso una buona comunicazione\n• Garantire consciamente i processi interni\n• Prendere la responsabilità e aiutare gli altri con gioia e impegno\n\nSiamo lieti di questo:\n• Esperienza professionale nell'ospitalità/gastronomia\n• Sicurezza nel trattare con PC e tablet\n• Gioia di agire cliente- e orientato al servizio\n• Buona conoscenza del tedesco nelle parole e nella scrittura (almeno livello B2)\n• Volontà per il lavoro a turni anche nei fine settimana e nei giorni festivi\n\nQuesto è ciò che offriamo:\n\nSupporto per la formazione\n\nDolci sorprese\n\nLavorazione a tempo parziale\n\nComprare vacanze aggiuntive\n\nPertanto, Seewis clinica di riabilitazione:\n\nSiamo uno dei principali specialisti della riabilitazione in Svizzera e facciamo parte della VITREA Svizzera. Per voi, questo significa molta varietà e cooperazione interdisciplinare ad alto livello professionale, allo stesso tempo a livello degli occhi. Quindi, se vuoi fare la differenza e progredire professionalmente, hai esattamente ragione con noi. Tutti possono essere coinvolti con noi.\n\n• Orario di lavoro: part-time",
-        "en": "In service (a) 60%\nPlace of work: Seewis rehabilitation clinic\nWhere your job is doing rehab.\n\nCardiology, Internal Medicine / Oncology and Psychiatry / Psychosomatics. First-class rehabilitation, embedded in a magnificent mountain landscape. With over 50 years of experience. The environment in the Seewis rehabilitation clinic also benefits the approximately 135 employees.\nHere you have all the ingredients for well-being with our guests and you: an orderly, family-run business, regional products, modern menus, a lot of appreciation and open exchange.\n\nYou can look forward to this:\n• Serving guests in our restaurants courteously\n• Giving our guests a \"feeling at home\" through good communication\n• Conscientiously ensure internal processes\n• Taking responsibility and helping others with joy and commitment\n\nWe are pleased about this:\n• Professional experience in hospitality/gastronomy\n• Safety in dealing with PC and tablet\n• Joy of acting customer- and service-oriented\n• Good knowledge of German in words and writing (at least level B2)\n• Willingness for shift work also on weekends and public holidays\n\nThis is what we offer:\n\nSupport for training\n\nSweet surprises\n\nWorking part-time\n\nBuying additional holidays\n\nTherefore, Seewis rehabilitation clinic:\n\nWe are one of the leading rehab specialists in Switzerland and are part of VITREA Switzerland. For you, this means a lot of variety and interdisciplinary cooperation at a high professional level, at the same time at eye level. So if you want to make a difference and progress professionally, you are exactly right with us. Everyone can get involved with us.\n\n• Working time: part-time",
-        "de": "MitabeiterIn Service (a) 60%\nArbeitsort: Rehaklinik Seewis\nWo dein Job Reha macht.\n\nKardiologie, Innere Medizin / Onkologie und Psychiatrie/Psychosomatik. Erstklassige Rehabilitation, eingebettet in eine prächtige Berglandschaft. Und das mit über 50 Jahren Erfahrung. Das Umfeld in der Rehaklinik Seewis tut auch den rund 135 Mitarbeitenden gut.\nHier hast du alle Zutaten für Wohlbefinden bei unseren Gästen und dir: Ein geordneter, familiärer Betrieb, regionale Produkte, moderne Menus, viel Wertschätzung und offener Austausch.\n\nDarauf darfst du dich freuen:\n• Gäste in unseren Restaurants zuvorkommend bedienen\n• Durch gute Kommunikation unseren Gästen ein \"Zuhause-Gefühl\" vermitteln\n• Interne Abläufe gewissenhaft gewährleisten\n• Verantwortung übernehmen und anderen mit Freude und Engagement helfen\n\nDarüber freuen wir uns:\n• Berufserfahrung im Bereich Hotellerie/ Gastronomie\n• Sicherheit im Umgang mit PC und Tablet\n• Freude daran, kunden- und dienstleistungsorientiert zu handeln\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B2)\n• Bereitschaft für Schichtdienst auch am Wochenende und an Feiertagen\n\nDas bieten wir:\n\nUnterstützung bei Weiterbildung\n\nSüsse Überraschungen\n\nTeilzeit arbeiten\n\nZusätzlichen Urlaub kaufen\n\nDarum Rehaklinik Seewis:\n\nWir zählen zu den führenden Reha-Spezialisten der Schweiz und sind Teil der VITREA Schweiz. Für dich bedeutet das viel Abwechslung und interdisziplinäre Zusammenarbeit auf hohem fachlichem Niveau, gleichzeitig auf Augenhöhe. Wenn du also etwas bewegen und beruflich weiterkommen willst, bist du bei uns genau richtig. Denn bei uns können sich alle einbringen.\n\n• Arbeitszeit: Teilzeit",
-        "fr": "En service (a) 60%\nLieu de travail: Clinique de réadaptation Seewis\nOù votre travail est en désintox.\n\nCardiologie, Médecine interne / Oncologie et Psychiatrie / Psychosomatique. Remise en état de première classe, intégrée dans un magnifique paysage de montagne. Avec plus de 50 ans d'expérience. L'environnement de la clinique de réadaptation de Seewis profite également aux quelque 135 employés.\nIci vous avez tous les ingrédients pour le bien-être avec nos invités et vous: une entreprise ordonnée, familiale, des produits régionaux, des menus modernes, beaucoup d'appréciation et d'échange ouvert.\n\nVous pouvez attendre avec impatience ceci:\n• Servir les clients dans nos restaurants avec courtoisie\n• Donner à nos invités un « sentiment à la maison » grâce à une bonne communication\n• Assurer consciencieusement les processus internes\n• Prendre des responsabilités et aider les autres avec joie et engagement\n\nNous sommes heureux de ce qui suit :\n• Expérience professionnelle en hôtellerie/gastronomie\n• Sécurité dans le traitement du PC et du comprimé\n• La joie d'agir axée sur le client et le service\n• Bonne connaissance de l'allemand en mots et en écriture (au moins niveau B2)\n• Volonté pour le travail posté également le week-end et les jours fériés\n\nC'est ce que nous proposons :\n\nAppui à la formation\n\nBonnes surprises\n\nTravail à temps partiel\n\nAchat de vacances supplémentaires\n\nPar conséquent, la clinique de réadaptation Seewis:\n\nNous sommes l'un des principaux spécialistes de la réadaptation en Suisse et faisons partie de VITREA Suisse. Pour vous, cela signifie beaucoup de variété et de coopération interdisciplinaire à un niveau professionnel élevé, en même temps au niveau des yeux. Donc, si vous voulez faire une différence et progresser professionnellement, vous avez exactement raison avec nous. Tout le monde peut s'impliquer avec nous.\n\n• Temps de travail: temps partiel"
-      },
-      "location": "Seewis im Prättigau",
-      "canton": "GR",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/954x4kut8ewvmlt6vp2h3ntgfze8yif",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:21:23.762Z",
-      "addressLocality": "Seewis im Prättigau",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7212",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/954x4kut8ewvmlt6vp2h3ntgfze8yif",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau"
-        ]
-      },
-      "firstSeenAt": "2026-11-09T21:17:09.285Z",
-      "salaryMin": 48900,
-      "salaryMax": 68400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48900,
-          "maxValue": 68400,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Seewis im Prättigau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:21:23.762Z",
+      "validThrough": "2027-02-24T21:18:24.615Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "sourceIdentity": "url:https://vamed-ag-ch.onlyfy.jobs/de/job/2l66yund188h9lagkkjfdslpvt6ie3n"
     }
   ]
 }
