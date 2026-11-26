@@ -265,7 +265,10 @@ describe('employerProfilePagesPlugin', () => {
       ['de/aziende/acme-corp/index.html', 'Acme Corp: 15 offene Stellen. Standorte: Lugano.'],
       ['fr/aziende/acme-corp/index.html', 'Acme Corp : 15 offres d’emploi. Sites : Lugano.'],
     ] as const) {
-      const description = read(rel).match(/<meta name="description" content="([^"]*)">/)?.[1] ?? '';
+      // buildSeoPageHtml finishes with minifyHtml, which removes quotes from
+      // HTML5-safe single-token attributes such as name=description. Keep the
+      // exact content assertion below against the emitted form.
+      const description = read(rel).match(/<meta name=description content="([^"]*)">/)?.[1] ?? '';
       expect(description, rel).toContain(expected);
     }
 
