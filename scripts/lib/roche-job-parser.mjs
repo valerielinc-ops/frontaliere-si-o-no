@@ -156,6 +156,14 @@ function detectEmploymentType(text = '') {
  * Roche External careers — `roche.wd3.myworkdayjobs.com/roche-ext`.
  * Filter to Switzerland-based postings via the standard Workday country UUID.
  */
+function markFetchOutcome(jobs, fetchOutcome) {
+  Object.defineProperty(jobs, 'fetchOutcome', {
+    value: fetchOutcome,
+    enumerable: false,
+  });
+  return jobs;
+}
+
 async function fetchJobListings() {
   const out = [];
   try {
@@ -179,7 +187,10 @@ async function fetchJobListings() {
   } catch (err) {
     if (err instanceof WorkdayAuthError) {
       console.error(`❌ Workday anti-bot block: ${err.message}`);
-      return [];
+      // Do not let a blocked listing request look like a source-proven zero.
+      // The standard pipeline keeps the previous slice and the health monitor
+      // can route the failure to transport/anti-bot diagnostics.
+      return markFetchOutcome(out, 'anti_bot_block');
     }
     throw err;
   }
@@ -198,6 +209,12 @@ export async function fetchAllRocheJobs() {
   console.log(`   Source: ${CAREER_URL}\n`);
 
   const listings = await fetchJobListings();
+  if (listings?.fetchOutcome === 'anti_bot_block') {
+    console.warn('⚠️ Workday anti-bot block prevented a complete Roche listing snapshot.');
+    // A partial listing batch is not safe to publish or merge with the live
+    // slice. Preserve only the diagnostic metadata on the empty result.
+    return markFetchOutcome([], listings.fetchOutcome);
+  }
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
