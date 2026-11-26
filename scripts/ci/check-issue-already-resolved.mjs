@@ -612,6 +612,33 @@ ${OUTCOME}`;
   setOutput(true);
 }
 
+/**
+ * Pre-flight leg for `handoffSupersededVerdict`: reads GitHub through the same
+ * `gh` shim and, on a positive verdict, closes the hand-off as completed with a
+ * pointer to the merged PRs. Returns true when it closed (output already set).
+ */
+function closeIfHandoffSuperseded(handoffOrigin) {
+  const sup = handoffSupersededVerdict({
+    originPr: handoffOrigin,
+    handoffIssue: ISSUE,
+    repoArgs,
+    read: (args) => gh(args, { allowFail: true }),
+  });
+  if (!sup.resolved) {
+    console.log(`Conflict hand-off of PR #${handoffOrigin}: not superseded (${sup.reason}).`);
+    return false;
+  }
+  console.log(`Conflict hand-off of PR #${handoffOrigin}: ${sup.reason} → close, no reapply PR.`);
+  const mergers = (sup.prs || []).map((n) => `#${n}`).join(', ');
+  closeResolvedHandoff(
+    sup.reason === 'origin-closed-unmerged'
+      ? `✅ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è **chiusa senza merge** e nessun'altra PR aperta la sostituisce: nulla da riapplicare.`
+      : `✅ **Pre-flight (auto, zero-Claude)**: le issue che la PR di origine **#${handoffOrigin}** dichiara di chiudere (${sup.issues.map((n) => `#${n}`).join(', ')}) sono già chiuse come completed da PR mergiate (${mergers}), che toccano già tutti i suoi file scritti a mano. La fix è su main: una PR di riapplicazione sarebbe un duplicato.`,
+    `- PR di origine #${handoffOrigin}: ${sup.reason}${mergers ? ` (${mergers})` : ''}`,
+  );
+  return true;
+}
+
 function main() {
   if (!ISSUE) {
     console.error('ISSUE_NUMBER not set — proceeding (no gate).');
@@ -670,26 +697,7 @@ function main() {
       expectedHead: conflictHandoffExpectedHead(iss.body),
       conflictClearedAfterOpen,
     });
-    if (!verdict.resolved) {
-      const sup = handoffSupersededVerdict({
-        originPr: handoffOrigin,
-        handoffIssue: ISSUE,
-        repoArgs,
-        read: (args) => gh(args, { allowFail: true }),
-      });
-      if (sup.resolved) {
-        console.log(`Conflict hand-off of PR #${handoffOrigin}: ${sup.reason} → close, no reapply PR.`);
-        const mergers = (sup.prs || []).map((n) => `#${n}`).join(', ');
-        closeResolvedHandoff(
-          sup.reason === 'origin-closed-unmerged'
-            ? `✅ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è **chiusa senza merge** e nessun'altra PR aperta la sostituisce: nulla da riapplicare.`
-            : `✅ **Pre-flight (auto, zero-Claude)**: le issue che la PR di origine **#${handoffOrigin}** dichiara di chiudere (${sup.issues.map((n) => `#${n}`).join(', ')}) sono già chiuse come completed da PR mergiate (${mergers}), che toccano già tutti i suoi file scritti a mano. La fix è su main: una PR di riapplicazione sarebbe un duplicato.`,
-          `- PR di origine #${handoffOrigin}: ${sup.reason}${mergers ? ` (${mergers})` : ''}`,
-        );
-        return;
-      }
-      console.log(`Conflict hand-off of PR #${handoffOrigin}: not superseded (${sup.reason}).`);
-    }
+    if (!verdict.resolved && closeIfHandoffSuperseded(handoffOrigin)) return;
     if (verdict.sameHeadMergeable) {
       console.log(`Conflict hand-off of PR #${handoffOrigin}: mergeable on the same HEAD, no merge-tree proof → short-circuit, no reapply PR.`);
       shortCircuit(
