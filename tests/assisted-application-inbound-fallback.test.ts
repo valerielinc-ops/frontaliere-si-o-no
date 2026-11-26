@@ -997,4 +997,28 @@ describe('verification tokens stay in the native sender text', () => {
       }
     });
   }
+
+  it('binds a French SuccessFactors verification link even when text/plain carries HTML with an inline logo img', async () => {
+    const host = 'career55.employer.example';
+    const { store, alias } = await setup('fr', host);
+    const link = `https://${host}/career?company=ExampleCo&navBarLevel=EMAIL_VERIFICATION`;
+    const htmlInPlain = [
+      '<p>Bonjour,</p>',
+      `<p>Afin de valider votre compte, merci de cliquer sur le lien suivant&nbsp;: <a href='${link}'>Cliquez ici</a></p>`,
+      '<p><img src=https://hcm55.employer.example/companyLogoServlet/?companyId=ExampleCo alt=\'Logo\' /></p>',
+    ].join('\n');
+    const raw = plainMail({
+      subject: 'Bienvenue sur l\'espace Carrière',
+      text: htmlInPlain,
+      headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'],
+    });
+    const { inbox, sendCascade } = await deliverWithoutModel({ store, alias, raw });
+    expect(inbox).toMatchObject({
+      category: 'verification',
+      verificationUrl: link,
+      portalVerificationHost: host,
+      forwarded: { status: 'skipped', reason: 'portal_verification' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
 });
