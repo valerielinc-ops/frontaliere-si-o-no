@@ -621,6 +621,20 @@ describe('locale-router remaining-section shard routing (all cantons + article h
   });
 });
 
+const ARTICLE_SECTION_ROUTES = SECTION_ROUTES.filter(
+  (route: { section: string }) => ['articolifrontaliere', 'articolisvizzera'].includes(route.section),
+);
+
+describe.each(ARTICLE_SECTION_ROUTES)('article shard $prefix', ({ prefix }: { prefix: string }) => {
+  it.each(['GET', 'HEAD'])('caches a missing article for at most one minute (%s)', async (method) => {
+    upstreamHandler = () => new Response(null, { status: 404 });
+    const response = await worker.fetch(new Request(`${APEX}${prefix}/pending-article/`, { method }), {}, ctx);
+
+    expect(response.status).toBe(404);
+    expect(response.headers.get('Cache-Control')).toBe('public, max-age=60, s-maxage=60');
+  });
+});
+
 describe('locale-router section-shard regression guards', () => {
   it('still routes an ordinary non-sharded EN path to origin-en (regression guard)', async () => {
     // Every canton URL-group is now a section shard (see SECTION_ROUTES), so

@@ -13754,6 +13754,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.euro-sotto-091-sollievo.title': 'Euro below 0,91: relief for cross-border commuters',
     'blog.article.euro-sotto-091-sollievo.excerpt': 'At 13:45 the euro reached 0,9076, falling below the psychological threshold of 91 cents.',
     'blog.article.euro-sotto-091-sollievo.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.sem-chiasso-personale-due-mesi.title': 'Sem reopens Chiasso: Ors is looking for staff for two additional months',
+    'blog.article.sem-chiasso-personale-due-mesi.excerpt': 'With Sem’s reopening in Chiasso, Ors will have to find staff for another two months to manage via Motta.',
+    'blog.article.sem-chiasso-personale-due-mesi.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

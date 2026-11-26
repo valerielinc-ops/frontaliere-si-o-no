@@ -35,6 +35,45 @@ describe('AGAT! source-backed crawler', () => {
     expect(detail.title).toBe('Maçon B H/F/D');
   });
 
+  it('resolves an explicitly named Swiss region outside the agency-city shortlist', () => {
+    const detail = extractAgatDetailFields(
+      `<html><body><main><article><h2>Chapeur</h2>
+        <p>Mission de longue durée dans la région du Chablais Valaisan.</p>
+        <p>Lieu de travail : Région de St-Maurice</p>
+      </article></main></body></html>`,
+      'https://www.agat-job.com/post/nous-recherchons-des-chapeurs',
+    );
+
+    expect(detail.location).toBe('région du Chablais Valaisan');
+    expect(detail.canton).toBe('VS');
+    expect(detail.locationCandidates).toEqual([{
+      location: 'région du Chablais Valaisan',
+      addressRegion: 'VS',
+    }]);
+  });
+
+  it('accepts an explicit canton as the source location', () => {
+    const detail = extractAgatDetailFields(
+      `<html><body><main><article><h2>Paysagiste</h2>
+        <p>Pour le compte d’un client situé dans le canton de Vaud.</p>
+      </article></main></body></html>`,
+      'https://www.agat-job.com/post/paysagiste-100',
+    );
+
+    expect(detail.location).toBe('canton de Vaud');
+    expect(detail.canton).toBe('VD');
+  });
+
+  it('keeps an unrecognized region fail-closed', () => {
+    const detail = extractAgatDetailFields(
+      '<html><body><main><article><p>Mission dans la région de la côte.</p></article></main></body></html>',
+      'https://www.agat-job.com/post/unknown-region',
+    );
+
+    expect(detail.location).toBe('');
+    expect(detail.locationCandidates).toEqual([]);
+  });
+
   it('fails closed when the official detail body contains no source-backed workplace', () => {
     const detail = extractAgatDetailFields(
       '<html><head><title>Installateur Électricien CFC</title></head><body><main><article><p>Offer details.</p></article></main></body></html>',

@@ -375,8 +375,8 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
         if (isUnshippablePath(entry.orphanPath, unshippablePrefixes)) { skippedUnshippable++; continue; }
         const { indexPath: indexTarget, flatPath: flatTarget } = safeTargets;
         if (hasClaimedOrReservedPath(indexTarget)
-          || Boolean(flatTarget && hasClaimedOrReservedPath(flatTarget))
-          || fs.existsSync(indexTarget)) { skipped++; continue; }
+          || Boolean(flatTarget && hasClaimedOrReservedPath(flatTarget))) { skipped++; continue; }
+        if (fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const html = renderPage(entry, distDir);
 

@@ -1312,9 +1312,9 @@ function jobCanonShardKey(slug) {
   return sk;
 }
 
-// The v1 live corpus was 238,512,449 bytes (2026-11-13): 256 buckets produced
-// a 970,410-byte maximum and 932,070-byte median. With 4096 buckets the live
-// maximum was 72,180 bytes and the median 58,221 bytes, inside both v2 limits.
+// The v1 live corpus was measured before the hash migration; 4096 buckets
+// remove its prefix skew and keep individual lookup payloads operationally
+// manageable. Shard bytes are reported as manifest telemetry, not a hard cap.
 const JOB_CANON_V2_SHARD_COUNT = 4096;
 let jobCanonV2SuccessLogDay = null;
 
@@ -3973,12 +3973,16 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     }
     // Localized body (see renderNotFoundPage). Fresh headers: the origin's
     // Content-Length/ETag describe the Italian 404.html, not this document.
+    const articleSection = sectionRoute?.section === 'articolifrontaliere'
+      || sectionRoute?.section === 'articolisvizzera';
+    const negativeCacheControl = jobCanonMarkerUnavailable ? 'no-store'
+      : articleSection ? CORPUS_NOT_FOUND_CACHE_CONTROL : NOT_FOUND_CACHE_CONTROL;
     const page = renderNotFoundPage(url.pathname, recoveryLocale, sectionRoute);
     if (page !== null) {
       const headers = new Headers({
         'Content-Type': 'text/html; charset=utf-8',
         'Content-Language': recoveryLocale,
-        'Cache-Control': jobCanonMarkerUnavailable ? 'no-store' : NOT_FOUND_CACHE_CONTROL,
+        'Cache-Control': negativeCacheControl,
       });
       if (negativeAliasCacheCandidate && jobAliasCacheKey) {
         headers.set(JOB_ALIAS_CACHE_DIAGNOSTIC_HEADER, 'miss');
@@ -3990,7 +3994,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       });
     }
     const headers = new Headers(resp.headers);
-    headers.set('Cache-Control', jobCanonMarkerUnavailable ? 'no-store' : NOT_FOUND_CACHE_CONTROL);
+    headers.set('Cache-Control', negativeCacheControl);
     if (jobCanonMarkerUnavailable) {
       headers.delete('Location');
       headers.delete('Retry-After');
