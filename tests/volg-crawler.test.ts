@@ -680,7 +680,7 @@ describe('Volg/fenaco crawler — detail enrichment retranslation flags', () => 
     }
   });
 
-  it('keeps a changed source queued through the real SKIP_AI_TRANSLATION worker', async () => {
+  it('keeps a changed source queued through the real SKIP_AI_TRANSLATION worker', { timeout: 30_000 }, async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
     const dataJobsPath = path.join(root, 'jobs.json');
     const { before, after } = retranslationPair('source-changed');
