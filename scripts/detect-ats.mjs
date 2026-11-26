@@ -98,16 +98,18 @@ function detectFromSignals({ html, finalUrl, requestedUrl }) {
 
   // --- Workday -----------------------------------------------------------
   const wdHostMatch = /(^|\.)myworkdayjobs\.com$/.test(hostname) ||
-                      /(^|\.)wd\d*\.myworkdayjobs\.com$/.test(hostname);
+                      /(^|\.)wd\d*\.myworkdayjobs\.com$/.test(hostname) ||
+                      /(^|\.)myworkdaysite\.com$/.test(hostname);
   const wdHtmlMatch = lowerHtml.includes('wday/cxs') ||
                       lowerHtml.includes('myworkdayjobs.com') ||
+                      lowerHtml.includes('myworkdaysite.com') ||
                       lowerHtml.includes('workday.com');
   if (wdHostMatch) {
-    evidence.push('hostname matches *.myworkdayjobs.com');
+    evidence.push('hostname matches a Workday career-site host');
     ats = 'workday';
     confidence = 1.0;
   } else if (wdHtmlMatch) {
-    evidence.push('html contains workday/wday-cxs/myworkdayjobs reference');
+    evidence.push('html contains workday/wday-cxs/myworkdayjobs/myworkdaysite reference');
     if (ats === 'unknown') {
       ats = 'workday';
       confidence = 0.85;

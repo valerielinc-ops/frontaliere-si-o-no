@@ -132,6 +132,12 @@ describe('mergeUrlKey Workday requisition rule (Rule W — slug-drift class)', (
     expect(mergeUrlKey(other)).toBe('req:acme.wd3.myworkdayjobs.com:r11696');
     expect(mergeUrlKey(swisslife)).not.toBe(mergeUrlKey(other));
   });
+  it('preserves the Hamilton requisition key across the Workday host migration', () => {
+    const legacy = 'https://hamilton.wd3.myworkdayjobs.com/en-US/hamilton_jobs/job/Bonaduz/CSV-Requirements-Engineer-80---100----w-m-d-_JR-6026-1';
+    const migrated = 'https://wd3.myworkdaysite.com/recruiting/hamilton/hamilton_jobs/job/Bonaduz/CSV-Requirements-Engineer-80---100----w-m-d-_JR-6026-1';
+    expect(mergeUrlKey(legacy)).toBe('req:hamilton.wd3.myworkdayjobs.com:jr-6026-1');
+    expect(mergeUrlKey(migrated)).toBe(mergeUrlKey(legacy));
+  });
   it('does NOT change keys for non-Workday hosts (host-gated, no re-key)', () => {
     // A non-Workday leaf that happens to end in `_r12345` must stay url:-keyed.
     expect(mergeUrlKey('https://acme.com/careers/title_r12345')).toBe('url:https://acme.com/careers/title_r12345');

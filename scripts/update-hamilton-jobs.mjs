@@ -8,13 +8,13 @@ import { readJsonFile } from './lib/read-large-json.mjs';
  * Careers portal: https://jobs.hamilton.ch/en/open-positions/
  *
  * Jobs are managed via Workday ATS.  The external API is at:
- *   POST https://hamilton.wd3.myworkdayjobs.com/wday/cxs/hamilton/hamilton_jobs/jobs
+ *   POST https://wd3.myworkdaysite.com/wday/cxs/hamilton/hamilton_jobs/jobs
  * Body: { appliedFacets, limit, offset, searchText }
  *
  * The API returns up to 20 jobs per page with: title, externalPath,
  * locationsText, bulletFields (jobId + department).
  * Detail endpoint (GET):
- *   https://hamilton.wd3.myworkdayjobs.com/wday/cxs/hamilton/hamilton_jobs{externalPath}
+ *   https://wd3.myworkdaysite.com/wday/cxs/hamilton/hamilton_jobs{externalPath}
  *
  * We filter by locationCountry = Switzerland to keep only Swiss positions.
  *
@@ -77,11 +77,11 @@ const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Hamilton Bonaduz AG';
 const COMPANY_DOMAIN = 'hamilton.ch';
 
-const API_BASE = 'https://hamilton.wd3.myworkdayjobs.com/wday/cxs/hamilton/hamilton_jobs';
+const API_BASE = 'https://wd3.myworkdaysite.com/wday/cxs/hamilton/hamilton_jobs';
 const API_URL = `${API_BASE}/jobs`;
-const DETAIL_BASE = 'https://hamilton.wd3.myworkdayjobs.com/wday/cxs/hamilton/hamilton_jobs';
+const DETAIL_BASE = 'https://wd3.myworkdaysite.com/wday/cxs/hamilton/hamilton_jobs';
 const CAREERS_URL = 'https://jobs.hamilton.ch/en/open-positions/';
-const JOB_URL_BASE = 'https://hamilton.wd3.myworkdayjobs.com/en-US/hamilton_jobs';
+const JOB_URL_BASE = 'https://wd3.myworkdaysite.com/en-US/recruiting/hamilton/hamilton_jobs';
 
 // Workday locationCountry facet ID for Switzerland
 const SWITZERLAND_FACET_ID = '187134fccb084a0ea9b4b95f23890dbe';
@@ -112,6 +112,7 @@ function isTargetJob(job = {}) {
     key.startsWith('hamilton') ||
     company.includes('hamilton') ||
     url.includes('hamilton.wd3.myworkdayjobs.com') ||
+    url.includes('wd3.myworkdaysite.com/recruiting/hamilton/hamilton_jobs') ||
     url.includes('jobs.hamilton.ch')
   );
 }

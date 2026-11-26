@@ -1,4 +1,4 @@
-const WORKDAY_HOST_RE = /^(?:[a-z0-9-]+\.)+wd\d+\.myworkdayjobs\.com$/i;
+import { WORKDAY_HOST_RE } from '../../../lib/job-url-key.mjs';
 const WORKDAY_LOCALE_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
 // Workday tenants publish more than one requisition-id spelling. The
 // standard `_R-...` form is joined by `_R...`, `_JR...`, `_REQ...`, and

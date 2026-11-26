@@ -615,6 +615,27 @@ describe('Workday JSON transport', () => {
     );
   });
 
+  it('derives the recruiting path for a shared Workday site browser fallback page', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+    const { page } = browserTransport({
+      total: 0,
+      jobPostings: [],
+    });
+
+    const jobs = [];
+    for await (const posting of fetchWorkdayJobs(
+      'https://wd3.myworkdaysite.com/wday/cxs/hamilton/hamilton_jobs',
+      { minDelayMs: 0 },
+    )) jobs.push(posting);
+
+    expect(jobs).toHaveLength(0);
+    expect(page.goto).toHaveBeenCalledWith(
+      'https://wd3.myworkdaysite.com/en-US/recruiting/hamilton/hamilton_jobs',
+      expect.objectContaining({ waitUntil: 'domcontentloaded' }),
+    );
+  });
+
   it('aborts a stalled browser fallback at the request timeout', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
