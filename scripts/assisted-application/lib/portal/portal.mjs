@@ -11336,6 +11336,19 @@ export function umantisBirthDateRejected(snapshot, submissionUrl) {
   }
 }
 
+/** Whether any line matching VALIDATION_RE appeared only after the final click (ignoring pre-submit legends like "* Champ obligatoire"). */
+export function hasNewValidationText(text = '', preSubmitText = '') {
+  const after = String(text || '');
+  if (!VALIDATION_RE.test(after)) return false;
+  if (!preSubmitText) return true;
+  const previousLines = new Set(
+    String(preSubmitText).split(/\r?\n/u).map((line) => line.replace(/\s+/gu, ' ').trim()).filter(Boolean),
+  );
+  return after.split(/\r?\n/u)
+    .map((line) => line.replace(/\s+/gu, ' ').trim())
+    .some((line) => line && !previousLines.has(line) && VALIDATION_RE.test(line));
+}
+
 async function waitForOutcome(page, context = {}) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS;
@@ -11370,7 +11383,12 @@ async function waitForOutcome(page, context = {}) {
     if (urlConfirms(page.url(), lastSnapshot, context)) return { outcome: 'confirmed', snapshot: lastSnapshot };
     if (advancedToFinalReview(lastSnapshot, { ...context, url: page.url() })) return { outcome: 'review_pending', snapshot: lastSnapshot };
     if (snapshot?.captcha) return { outcome: 'captcha', snapshot: lastSnapshot };
-    if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return { outcome: 'validation', snapshot: lastSnapshot };
+    const newValidationLine = hasNewValidationText(text, context.preSubmitText);
+    const hasFieldValidationSignal = Boolean(snapshot?.errors?.length)
+      || (snapshot?.fields || []).some((field) => field?.invalid === true);
+    if (Date.now() > started + 4000 && (hasFieldValidationSignal || newValidationLine)) {
+      return { outcome: 'validation', snapshot: lastSnapshot };
+    }
   }
   return { outcome: 'ambiguous', snapshot: lastSnapshot };
 }
@@ -12637,7 +12655,7 @@ export async function submitViaPortal(ctx) {
   const confirmedReceipt = async (current) => {
     const snapshot = { ...current, text: await pageText(page) };
     const stage = applicationStage(snapshot, {
-      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+      applyUrl: ctx.applyUrl, submissionUrl: evidence.submissionUrl || undefined, postingUrl: ctx.postingUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
       applicationEntryUrl, applicationEntryProven: enteredThroughApplicationEntry,
       ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
     });
@@ -14859,6 +14877,7 @@ export async function submitViaPortal(ctx) {
       const observed = await waitForOutcome(page, {
         applyUrl: ctx.applyUrl,
         submissionUrl: finalUrl,
+        preSubmitText: finalText,
         sourceProtocol,
         job: ctx.job,
         finalSubmission,
