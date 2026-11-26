@@ -73,7 +73,7 @@ describe('resolveWorkdayPrimarySwissLocation — primary-only publish gate', () 
   });
 });
 
-describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
+describe('createWorkdaySwissParser — faceted Workday auth outcome', () => {
   const ORIGINAL_FETCH = global.fetch;
 
   afterEach(() => {
@@ -92,7 +92,7 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
     ...overrides,
   });
 
-  it('refetches the live board unfiltered when the Swiss facet is blocked', async () => {
+  it('marks an auth block on the Swiss facet without an unfiltered retry', async () => {
     const listingRequests: any[] = [];
     global.fetch = vi.fn(async (url: string, init: any = {}) => {
       const urlStr = String(url);
@@ -124,12 +124,12 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
 
     const jobs = await makeParser().fetchAllJobs();
 
-    expect(jobs.map((job: any) => job.title)).toEqual(['Senior Underwriting Assistant']);
-    expect(listingRequests).toHaveLength(2);
+    expect(jobs).toHaveLength(0);
+    expect((jobs as any).fetchOutcome).toBe('anti_bot_block');
+    expect(listingRequests).toHaveLength(1);
     expect(listingRequests[0].appliedFacets).toEqual({
       locationCountry: ['187134fccb084a0ea9b4b95f23890dbe'],
     });
-    expect(listingRequests[1].appliedFacets).toEqual({});
   });
 
   it('refetches the live board when the Swiss facet returns an empty page', async () => {
@@ -1681,7 +1681,7 @@ describe('createWorkdaySwissParser — country facet discovery after HTTP 400/42
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 
-  it('neither discovers nor stamps on an anti-bot block', async () => {
+  it('does not read the board or stamp a zero after an anti-bot block', async () => {
     const bodies = mockTenant({
       accepts: {},
       board: [FOREIGN_POSTING],
@@ -1691,7 +1691,7 @@ describe('createWorkdaySwissParser — country facet discovery after HTTP 400/42
 
     const jobs = await makeParser().fetchAllJobs();
 
-    expect(bodies.map((body) => body.appliedFacets)).toEqual([{ locationCountry: [CH_ID] }, {}]);
+    expect(bodies.map((body) => body.appliedFacets)).toEqual([{ locationCountry: [CH_ID] }]);
     expect(jobs).toHaveLength(0);
     expect((jobs as any).fetchOutcome).toBe('anti_bot_block');
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);

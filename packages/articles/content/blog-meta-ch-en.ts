@@ -8735,6 +8735,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iniziativa-congedo-parentale-riuscita.title': 'Successful 18-week parental leave initiative',
     'blog.article.iniziativa-congedo-parentale-riuscita.excerpt': 'The proposal to guarantee 18 weeks of parental leave for mothers and fathers received official confirmation of its success on September 30.',
     'blog.article.iniziativa-congedo-parentale-riuscita.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.commissioni-divise-preventivo.title': 'Federal budget: split fees',
+    'blog.article.commissioni-divise-preventivo.excerpt': 'The States Commission: 11 votes in favour, 0 against and 1 abstention.',
+    'blog.article.commissioni-divise-preventivo.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.fiscalita-tre-livelli-svizzera.title': 'Swiss taxation: three levels and distinct areas of responsibility',
+    'blog.article.fiscalita-tre-livelli-svizzera.excerpt': 'Swiss taxation is structured across three levels: direct federal tax, cantonal taxation and municipal taxation.',
+    'blog.article.fiscalita-tre-livelli-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

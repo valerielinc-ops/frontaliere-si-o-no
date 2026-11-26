@@ -525,7 +525,18 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
     if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
     const previous = bySlug.get(job.slug);
-    mergeExpiredRouteEvidence(entry, previous, `cleanup-jobs/slice/${crawlerKey}`);
+    let routeCapRefused = false;
+    mergeExpiredRouteEvidence(
+      entry,
+      previous,
+      `cleanup-jobs/slice/${crawlerKey}`,
+      { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
+    );
+    if (routeCapRefused) {
+      // Keep the existing archive record: it is still the owner of the
+      // historical route evidence that the new payload could not absorb.
+      continue;
+    }
     mergeSourceIdentityHistory(entry, previous);
     bySlug.set(job.slug, entry);
     added++;

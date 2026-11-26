@@ -157,6 +157,8 @@ export interface AssistedApplicationAutomationView {
     draftAutoRetryCount?: number | null;
     draftFailureKind?: string | null;
     heldBy: string[];
+    heldSince?: number | null;
+    candidateStaleArchivedAt?: number | null;
     /** `posting_withdrawn_by_employer` when the employer withdrew the posting (no refund, Terms 6.5). */
     withdrawnReason?: string | null;
     /** The posting's own proof of that withdrawal: liveness code, where it was read, when. */
@@ -286,6 +288,7 @@ export interface AssistedApplicationAdminOrder {
   submissionStatus: AssistedApplicationAdminStatus;
   /** Mirror of the automated flow state (null when the flow never started). */
   automationState?: string | null;
+  candidateStaleArchivedAt?: string | null;
   automation?: AssistedApplicationAutomationView | null;
   submissionNotes: string | null;
   submittedAt: string | null;

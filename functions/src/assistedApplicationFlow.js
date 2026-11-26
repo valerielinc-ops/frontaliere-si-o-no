@@ -73,6 +73,7 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
+export const CANDIDATE_STALE_ARCHIVE_AFTER_MS = 30 * 24 * 60 * 60 * 1000;
 // Expedited dispatch for unpredicted ATS screening questions: 4 hours operator escalation
 // instead of 5 days of silent wait, preventing job posting expiration in Switzerland.
 export const URGENT_FIELD_DISPATCH_TIMEOUT_MS = 4 * 60 * 60 * 1000;
@@ -415,6 +416,7 @@ function base(flow) {
     heldBy: Array.isArray(flow?.heldBy) ? flow.heldBy : [],
     heldSince: Number(flow?.heldSince) || null,
     heldNudges: Number(flow?.heldNudges) || 0,
+    candidateStaleArchivedAt: Number(flow?.candidateStaleArchivedAt) || null,
     ...(typeof flow?.heldReason === 'string' ? { heldReason: flow.heldReason } : {}),
     ...(Array.isArray(flow?.pendingFields) ? { pendingFields: flow.pendingFields.slice(0, 20) } : {}),
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
@@ -571,6 +573,20 @@ export function employerWithdrawalPending(flow, order = null) {
 // (assistedApplicationAutomation.js runAutomationSweep; review of #12366).
 export const CANDIDATE_REMINDER_STATES = new Set(['candidate_review', 'needs_candidate_action', 'candidate_handoff']);
 
+/** When a held candidate wait began (explicit heldSince, else when the current waiting state was entered). */
+export function candidateWaitSince(flow) {
+  const current = base(flow);
+  if (!CANDIDATE_REMINDER_STATES.has(current.state)) return 0;
+  // A review waiting only for the 12 h auto-approval clock dispatches itself and is not stale-held.
+  if (current.state === 'candidate_review' && current.deadlineAt && current.heldBy.length === 0) return 0;
+  if (Number(current.heldSince) > 0) return Number(current.heldSince);
+  const history = Array.isArray(current.history) ? current.history : [];
+  for (let index = history.length - 1; index >= 0; index -= 1) {
+    if (history[index]?.state !== current.state) return Number(history[index + 1]?.at) || 0;
+  }
+  return Number(history[0]?.at) || 0;
+}
+
 /**
  * The tick that is due would write to the candidate: a reminder of the questions and documents still open, of
  * the 12 hours running out, or of the portal step handed to them. (The notice to Valerie after the reminders
@@ -664,6 +680,7 @@ function enterOwnerReview(next, flags, nowMs) {
 
 function enterCandidateReview(next, flags, nowMs, { resend = true, keepDeadline = null } = {}) {
   next.state = 'candidate_review';
+  next.candidateStaleArchivedAt = null;
   // The candidate is shown this round's draft: it counts among theirs (roundsShown).
   if (!next.shownRounds.includes(next.round)) next.shownRounds = [...next.shownRounds, next.round];
   next.heldBy = candidateHolds(flags);
@@ -1266,6 +1283,17 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       next.heldBy = [];
       effects = [{ type: 'mark_submitted', by: 'candidate' }];
       break;
+    case 'candidate_stale_archive': {
+      if (!CANDIDATE_REMINDER_STATES.has(state)) return ignore('not_waiting_for_candidate');
+      if (current.candidateStaleArchivedAt) return ignore('already_archived');
+      const since = candidateWaitSince(current);
+      if (!since || nowMs - since < CANDIDATE_STALE_ARCHIVE_AFTER_MS) return ignore('not_stale');
+      next.candidateStaleArchivedAt = nowMs;
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      effects = [];
+      break;
+    }
     case 'posting_closed': {
       if (!['drafting', 'regenerating', 'owner_review', 'candidate_review', 'submitting'].includes(state)) {
         return ignore('not_open');
@@ -1556,6 +1584,9 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
   // (an automatic or owner retry) already leaves from the Swiss runner.
   if (!requiresSwissEgress(current) && !next.egress && current.heldBy.includes(REGION_UNSUPPORTED_HOLD)) {
     next.egress = swissEgressMark({ round: current.round, nowMs, source: 'region_hold' });
+  }
+  if (!CANDIDATE_REMINDER_STATES.has(next.state)) {
+    next.candidateStaleArchivedAt = null;
   }
   // Every way out of the wait (answers given, a new round, Valerie, a closed ad) ends its reminders, and
   // leaves its mark: an ad found closed later in the round is judged knowing the candidate was awaited.

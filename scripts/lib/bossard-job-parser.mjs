@@ -49,7 +49,11 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
+import {
+  fetchWorkdayPrimarySwissLocation,
+  fetchWorkdaySwissCanton,
+  isWorkdayFacetValidationError,
+} from './workday-swiss-job-parser-common.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
@@ -221,6 +225,7 @@ async function fetchJobListings() {
       console.error(`❌ Workday anti-bot block (${BOSSARD_COMPANY_NAME}): ${err.message}`);
       return [];
     }
+    if (!isWorkdayFacetValidationError(err)) throw err;
     // Some tenants reject an unrecognised locationCountry facet outright —
     // fall back to the unfiltered board and rely on the per-listing
     // foreign guard below.

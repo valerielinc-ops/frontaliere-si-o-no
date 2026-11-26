@@ -38,6 +38,7 @@ import {
   fetchWorkdaySidebarText,
   workdayPostingDateFields,
   extractWorkdayJobIdentity,
+  WorkdayApiError,
   WorkdayAuthError,
   WorkdayRateLimitError,
   workdayPrimaryLocationState,
@@ -48,6 +49,31 @@ import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 // Switzerland country UUID — standard across nearly all Workday tenants.
 export const WORKDAY_SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
+
+const WORKDAY_FACET_REJECTION_STATUS_CODES = new Set([400, 422]);
+
+/**
+ * True only for a typed Workday API response that validates the facet as
+ * unsupported. Auth/rate-limit errors, other HTTP statuses, and transport
+ * failures do not justify retrying the board without its Swiss filter.
+ *
+ * @param {unknown} error
+ * @returns {boolean}
+ */
+export function isWorkdayFacetValidationError(error) {
+  return error instanceof WorkdayApiError
+    && !(error instanceof WorkdayAuthError)
+    && !(error instanceof WorkdayRateLimitError)
+    && WORKDAY_FACET_REJECTION_STATUS_CODES.has(error.statusCode);
+}
+
+function markWorkdayAntiBotBlock(listings) {
+  Object.defineProperty(listings, 'fetchOutcome', {
+    value: 'anti_bot_block',
+    enumerable: false,
+  });
+  return listings;
+}
 
 // Officially assigned ISO 3166-1 alpha-2 codes (249). A structured country is
 // evidence only when its code is on this list: a malformed, reserved or
@@ -764,20 +790,15 @@ export function createWorkdaySwissParser(config) {
       }
     } catch (err) {
       if (err instanceof WorkdayAuthError) {
-        // A blocked Swiss-faceted request must reach fetchAllJobs(), which
-        // already has the safe unfiltered-board fallback for tenants that
-        // reject the facet. Returning [] here turns a live board into the
-        // runner's `no-jobs-parsed` abort (the Everest Re failure mode).
+        // A blocked Swiss-faceted request reaches fetchAllJobs(), which
+        // returns an empty anti_bot_block batch without another listing query.
+        // Only 400/422 facet validation errors authorize the unfiltered path.
         if (useCountryFacet) throw err;
         console.error(`❌ Workday anti-bot block (${companyName}): ${err.message}`);
         // The unfiltered retry is the last transport attempt. Preserve the
         // cause on the empty array so the standard pipeline records an
         // anti-bot failure rather than treating it as a legitimate zero.
-        Object.defineProperty(out, 'fetchOutcome', {
-          value: 'anti_bot_block',
-          enumerable: false,
-        });
-        return out;
+        return markWorkdayAntiBotBlock(out);
       }
       throw err;
     }
@@ -859,21 +880,21 @@ export function createWorkdaySwissParser(config) {
    * the default key (the tenant names its country facet differently), read
    * the unfiltered board's facets and pick the tenant's own country facet.
    * Workday tenants have returned both statuses for the same invalid facet
-   * payload. Any other failure (anti-bot, 5xx, network), a key the parser
-   * declared, or a board that does not name one facet unambiguously → `null`,
-   * today's path.
+   * payload. A Workday auth failure is reported by fetchAllJobs as an empty
+   * anti_bot_block batch without another listing query. Other failures (429,
+   * 5xx, network) propagate and cannot authorize an unfiltered retry; a key
+   * the parser declared or a board without one unambiguous country facet returns
+   * `null`.
    * The summary read here is kept in `boardCache` for the zero proof.
    */
   async function discoverCountryFacetAfterRejection(err, boardCache, requestContext) {
-    if (countryFacetDeclared) return null;
-    if (err instanceof WorkdayAuthError || ![400, 422].includes(err?.statusCode)) return null;
+    if (countryFacetDeclared || !isWorkdayFacetValidationError(err)) return null;
     let summary;
     try {
       summary = await fetchWorkdayBoardSummary(API_BASE, { requestContext });
     } catch (summaryErr) {
-      if (summaryErr instanceof WorkdayRateLimitError) throw summaryErr;
       console.warn(`⚠️ ${companyName}: could not read the Workday board facets to find the country facet (${summaryErr?.message || summaryErr}).`);
-      return null;
+      throw summaryErr;
     }
     if (boardCache) boardCache.summary = summary;
     const discovered = discoverWorkdayCountryFacet(summary, { rejectedParameter: countryFacetParameter, swissIds: locationFilters });
@@ -923,9 +944,16 @@ export function createWorkdaySwissParser(config) {
         facetParameter,
       });
     } catch (err) {
-      if (err instanceof WorkdayRateLimitError) throw err;
+      if (err instanceof WorkdayAuthError) return markWorkdayAntiBotBlock([]);
+      if (!isWorkdayFacetValidationError(err)) throw err;
       console.warn(`⚠️ ${companyName}: ${countryFacetParameter} facet rejected (${err?.message || err}).`);
-      const discovered = await discoverCountryFacetAfterRejection(err, boardCache, requestContext);
+      let discovered;
+      try {
+        discovered = await discoverCountryFacetAfterRejection(err, boardCache, requestContext);
+      } catch (summaryErr) {
+        if (summaryErr instanceof WorkdayAuthError) return markWorkdayAntiBotBlock([]);
+        throw summaryErr;
+      }
       let discoveredListings = null;
       if (discovered) {
         console.warn(`⚠️ ${companyName}: using the board's own country facet "${discovered.facetParameter}" `
@@ -939,7 +967,8 @@ export function createWorkdaySwissParser(config) {
           });
           facetParameter = discovered.facetParameter;
         } catch (retryErr) {
-          if (retryErr instanceof WorkdayRateLimitError) throw retryErr;
+          if (retryErr instanceof WorkdayAuthError) return markWorkdayAntiBotBlock([]);
+          if (!isWorkdayFacetValidationError(retryErr)) throw retryErr;
           console.warn(`⚠️ ${companyName}: discovered facet "${discovered.facetParameter}" rejected too (${retryErr?.message || retryErr}).`);
         }
       }

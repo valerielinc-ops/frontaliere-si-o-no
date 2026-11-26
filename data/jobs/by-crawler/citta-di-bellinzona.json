@@ -66,7 +66,7 @@
           "governante-presso-l-ente-autonomo-bellinzonaanziani-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-11-20T21:21:25.672Z",
+      "firstSeenAt": "2026-11-20T09:22:26.526Z",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:21:36.804Z",
       "validThroughSource": "last-observed-window",
@@ -82,7 +82,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
     },
     {
       "id": "citta-di-bellinzona-ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona",
@@ -147,7 +148,7 @@
           "ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-11-20T21:21:25.880Z",
+      "firstSeenAt": "2026-11-20T09:22:26.729Z",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:21:37.228Z",
       "validThroughSource": "last-observed-window",
@@ -163,7 +164,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
     }
   ]
 }

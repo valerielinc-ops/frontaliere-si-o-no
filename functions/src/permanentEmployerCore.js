@@ -88,6 +88,34 @@ export async function listPermanentEmployers({ db = getAdminDb(), limit = 50 } =
   }).filter((item) => item.companyName && item.website);
 }
 
+export async function handleGetPermanentEmployers(req, res, {
+  readEnabled = readDirectEmployerChannelEnabled,
+  listEmployers = listPermanentEmployers,
+} = {}) {
+  try {
+    const enabled = await readEnabled();
+    if (req.method === 'GET' && req.query?.status === '1') {
+      res.set('Cache-Control', 'no-store');
+      res.status(200).json({ enabled });
+      return;
+    }
+    if (!enabled) {
+      res.set('Cache-Control', 'no-store');
+      res.status(200).json({ enabled: false, employers: [] });
+      return;
+    }
+    const employers = await listEmployers();
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
+    res.status(200).json({ enabled: true, employers });
+  } catch (error) {
+    console.error('[getPermanentEmployers]', error instanceof Error ? error.message : String(error));
+    // The flag was read successfully above. Keep enabled:true so clients can
+    // distinguish a temporary data outage from an intentionally disabled
+    // channel and use the generated prospector feed as its primary source.
+    res.status(503).json({ enabled: true, employers: [], error: 'employers_unavailable' });
+  }
+}
+
 export async function listPermanentEmployerSignals({ db = getAdminDb(), status = 'pending_moderation', limit = 50, cursor = '' }) {
   return listModerationPage({ db, collectionName: PERMANENT_EMPLOYER_COLLECTION, status, limit, cursor });
 }
