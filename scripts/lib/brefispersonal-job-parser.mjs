@@ -204,7 +204,13 @@ export function resolveBrefispersonalGeography(listing, descriptionText = '') {
     && inferSwissTargetCanton(addressLocality) === structuredCanton,
   );
   const structured = cantonOnlyLocality
-    ? resolveSourceBackedSwissGeography({ ...listing, addressLocality: '' })
+    ? resolveSourceBackedSwissGeography({
+      ...listing,
+      // The generic extractor may compose the two structured fields as
+      // `ZH, ZH`; the verified canton is the complete source evidence here.
+      location: structuredCanton,
+      addressLocality: '',
+    })
     : resolveSourceBackedSwissGeography(listing);
   if (!cantonOnlyLocality) return structured;
 
