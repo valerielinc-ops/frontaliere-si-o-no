@@ -1,8 +1,16 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+const { fetchHtml } = vi.hoisted(() => ({ fetchHtml: vi.fn() }));
+vi.mock('../scripts/lib/hospital-custom-html-helpers.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/lib/hospital-custom-html-helpers.mjs')>()),
+  fetchHtml,
+}));
+
 import {
   THURKLINIK_KEY,
   THURKLINIK_COMPANY_NAME,
   THURKLINIK_CAREERS_URL,
+  fetchAllThurklinikJobs,
   isThurklinikJob,
   isTrustedDomain,
   parseListing,
@@ -143,8 +151,44 @@ describe('Thurklinik crawler parser', () => {
         '<a href="https://thurklinik.ch/wp/x.pdf">Pflege 80%</a><a href="https://thurklinik.ch/wp/x.pdf">Pflege 80%</a>';
       expect(parseListing(html).length).toBe(1);
     });
+    it('dedupes a legacy PDF and detail representation by vacancy key', () => {
+      const title = 'Pflegefachkraft HF 60–80 %';
+      const rows = parseListing(
+        `<a href="/wp-content/uploads/legacy.pdf">${title}</a><a href="/stellen/pflege">${title}</a>`,
+      );
+
+      expect(rows).toHaveLength(1);
+      expect(rows[0]).toMatchObject({
+        detailUrl: 'https://thurklinik.ch/stellen/pflege/',
+        title,
+      });
+      expect(rows[0].pdfUrl).toBeUndefined();
+    });
     it('returns empty on empty HTML', () => {
       expect(parseListing('')).toEqual([]);
+    });
+  });
+
+  describe('fetchAllThurklinikJobs', () => {
+    it('emits one detail-backed job when the listing has PDF and detail duplicates', async () => {
+      const title = 'Pflegefachkraft HF 60–80 %';
+      fetchHtml.mockImplementation(async (url: string) => {
+        if (url === THURKLINIK_CAREERS_URL) {
+          return `<a href="/wp-content/uploads/legacy.pdf">${title}</a><a href="/stellen/pflege">${title}</a>`;
+        }
+        return `<main><h1>${title}</h1><p>${'Aufgaben und Anforderungen im OP-Team. '.repeat(12)}</p></main>`;
+      });
+
+      const jobs = await fetchAllThurklinikJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        id: buildThurklinikJobId(title),
+        url: 'https://thurklinik.ch/stellen/pflege/',
+        applyUrl: 'https://thurklinik.ch/stellen/pflege/',
+      });
+      expect(fetchHtml).toHaveBeenCalledTimes(2);
+      fetchHtml.mockReset();
     });
   });
 

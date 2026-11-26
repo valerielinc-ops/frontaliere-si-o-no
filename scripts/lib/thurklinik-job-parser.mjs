@@ -127,7 +127,7 @@ function normalizeThurklinikDetailUrl(rawUrl = '') {
 /* ── Listing parsing ──────────────────────────────────────── */
 
 /**
- * Parse the stellen/ HTML and return one row per PDF posting.
+ * Parse the stellen/ HTML and return one row per vacancy.
  *
  * Strategy: every `<a href="…thurklinik.ch/wp-content/uploads/…pdf">TEXT</a>`
  * is a posting. The anchor text is the job title (the PDF filename is
@@ -142,7 +142,7 @@ export function parseListing(html = '') {
 
   const dom = new JSDOM(html);
   const document = dom.window.document;
-  const out = [];
+  const rowsByVacancyKey = new Map();
   const seen = new Set();
 
   try {
@@ -178,18 +178,26 @@ export function parseListing(html = '') {
 
       const isSpontaneous = /^Spontanbewerbung/i.test(anchorText)
         || /spontanbewerbung/i.test(url.pathname);
-      out.push({
+      const row = {
         ...(isPdf ? { pdfUrl: url.href } : { detailUrl }),
         title,
         identifier,
         isSpontaneous,
-      });
+      };
+      const vacancyKey = buildThurklinikVacancyKey(title);
+      const existing = rowsByVacancyKey.get(vacancyKey);
+      // During the source migration the listing can expose the legacy PDF and
+      // the replacement detail page for one vacancy. Keep one row and prefer
+      // the detail page because it is the current source of truth.
+      if (!existing || (row.detailUrl && !existing.detailUrl)) {
+        rowsByVacancyKey.set(vacancyKey, row);
+      }
     }
   } finally {
     dom.window.close();
   }
 
-  return out;
+  return [...rowsByVacancyKey.values()];
 }
 
 /**
