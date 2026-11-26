@@ -38,6 +38,36 @@ const crawlerGeneratorWorktreePaths = [
   ...crawlerGeneratedOutputDirectories,
 ];
 
+/**
+ * File scritti a mano che il generatore LEGGE: se uno di questi e' in conflitto,
+ * rigenerare prima di averlo risolto produrrebbe artefatti calcolati su un input
+ * con i marcatori di conflitto (o sul lato sbagliato). Il generatore, i moduli
+ * che importa dal suo albero (`scripts/lib/crawler-*`) e i dati di input
+ * dichiarati in `worktreePaths` (esclusi gli output). Un elenco conservativo:
+ * un falso positivo costa solo un hand-off manuale, un falso negativo una
+ * rigenerazione sbagliata.
+ */
+const crawlerGeneratorInputPatterns = [
+  exactPathPattern([
+    'scripts/generate-crawler-group-workflows.mjs',
+    'scripts/crawler-group-generation-finalizer.mjs',
+    'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs',
+    'scripts/ci/apply-checkout-profiles.mjs',
+    'scripts/ci/checkout-buckets.json',
+    'scripts/ci/translate-watchdog-pin.mjs',
+    'scripts/lib/atomic-write-json.mjs',
+    'scripts/lib/atomic-shard-write.mjs',
+    'scripts/lib/global-data-pipeline-lease.mjs',
+    'data/canton-municipalities.json',
+    'data/swiss-locality-postal-codes.json',
+    'data/crawler-manifest.json',
+    'data/crawler-workflow-duration-baseline.json',
+    'data/crawler-quarantine.json',
+    'package.json',
+  ]),
+  /^scripts\/(?:ci\/)?lib\/crawler-[^/]+$/u,
+];
+
 const crawlerGeneratorDisplay = 'CRAWLER_SOURCE_REF=main CRAWLER_SOURCE_COMMIT="$(git merge-base origin/main HEAD)" node scripts/generate-crawler-group-workflows.mjs';
 
 const crawlerGenerator = Object.freeze({
@@ -63,6 +93,7 @@ export const GENERATED_FILE_REGISTRY = Object.freeze([
   Object.freeze({
     id: crawlerGenerator.id,
     pathPatterns: Object.freeze([exactPathPattern(crawlerGeneratedPaths)]),
+    inputPatterns: Object.freeze(crawlerGeneratorInputPatterns),
     worktreePaths: Object.freeze(crawlerGeneratorWorktreePaths),
     generator: crawlerGenerator,
     verifier: crawlerVerifier,
@@ -95,4 +126,32 @@ export function generatedConflictWorktreePaths(plan) {
       .flatMap((rule) => (Array.isArray(rule.worktreePaths) ? rule.worktreePaths : []))
       .filter((path) => typeof path === 'string' && path.length > 0),
   )];
+}
+
+/**
+ * Divide i path in conflitto in «da rigenerare» (nel registro) e «da risolvere»
+ * (scritti a mano). `inputConflicts` sono i path da risolvere che sono INPUT di
+ * un generatore coinvolto: in quel caso la rigenerazione va dopo la
+ * risoluzione, mai prima. Pura.
+ */
+export function generatedConflictPartition(paths, registry = GENERATED_FILE_REGISTRY) {
+  const uniquePaths = [...new Set(paths)].filter((path) => typeof path === 'string' && path.length > 0);
+  const generated = [];
+  const manual = [];
+  const rules = [];
+  for (const path of uniquePaths) {
+    const plan = generatedConflictPlan([path], registry);
+    if (plan.eligible) {
+      generated.push(path);
+      for (const rule of plan.rules) if (!rules.includes(rule)) rules.push(rule);
+    } else {
+      manual.push(path);
+    }
+  }
+  const inputConflicts = rules.length === 0
+    ? []
+    : manual.filter((path) => rules.some((rule) => (
+      (rule.inputPatterns || []).some((pattern) => pattern.test(path))
+    )));
+  return { generated, manual, rules, inputConflicts };
 }

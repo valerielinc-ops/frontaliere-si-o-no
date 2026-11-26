@@ -234,19 +234,21 @@ describe('REPLAY #11147 — un solo hand-off per PR di origine, anche se il LGTM
     }
   });
 
-  it('stessa origine ma HEAD nuova → crea una nuova evidenza; issue non instradata sulla stessa HEAD → si riusa', () => {
+  it('stessa origine: HEAD nuova → si riusa la issue (evidenza aggiornata), mai una seconda; reclamata → solo una nota', () => {
     const { title, body } = buildConflictHandoffIssue({ num: 11147, branch: 'b', head: HEAD, files: [], lgtm: true });
     const routed = [{ number: 11157, title, body, labels: ['agent:fix'], created_at: null }];
-    expect(planConflictHandoff({ existing: routed, num: 11147, head: 'c'.repeat(40) })).toEqual({ action: 'create' });
+    expect(planConflictHandoff({ existing: routed, num: 11147, head: 'c'.repeat(40) })).toEqual({ action: 'reuse', issue: 11157 });
+    expect(planConflictHandoff({ existing: [{ ...routed[0], labels: ['agent:in-progress'] }], num: 11147, head: 'c'.repeat(40) }))
+      .toEqual({ action: 'note-new-head', issue: 11157 });
     expect(planConflictHandoff({ existing: [{ ...routed[0], labels: ['agent:triaged'] }], num: 11147, head: HEAD })).toEqual({ action: 'reuse', issue: 11157 });
     expect(planConflictHandoff({ existing: [{ ...routed[0], labels: ['agent:in-progress'] }], num: 11147, head: HEAD }))
       .toEqual({ action: 'already-handed-off', issue: 11157 });
-    // Corpo senza HEAD leggibile: non si dimostra la stessa HEAD → si crea evidenza nuova.
-    expect(planConflictHandoff({ existing: [{ ...routed[0], body: '' }], num: 11147, head: HEAD })).toEqual({ action: 'create' });
+    // Corpo senza HEAD leggibile: non si dimostra la stessa HEAD → si riscrive l'evidenza sulla stessa issue.
+    expect(planConflictHandoff({ existing: [{ ...routed[0], body: '' }], num: 11147, head: HEAD })).toEqual({ action: 'reuse', issue: 11157 });
     expect(planConflictHandoff({ existing: [], num: 11147, head: HEAD })).toEqual({ action: 'create' });
   });
 
-  it('fra HEAD vecchia e corrente elegge solo la corrente', () => {
+  it('fra HEAD vecchia e corrente elegge una sola issue (instradata prima, poi la piu\' vecchia)', () => {
     const old = buildConflictHandoffIssue({ num: 11147, branch: 'b', head: 'b'.repeat(40), files: ['old.ts'] });
     const current = buildConflictHandoffIssue({ num: 11147, branch: 'b', head: HEAD, files: ['current.ts'] });
     expect(planConflictHandoff({
@@ -256,7 +258,7 @@ describe('REPLAY #11147 — un solo hand-off per PR di origine, anche se il LGTM
       ],
       num: 11147,
       head: HEAD,
-    })).toEqual({ action: 'reuse', issue: 11151 });
+    })).toEqual({ action: 'reuse', issue: 11150 });
   });
 
   it('fra più issue della stessa origine si riusa quella instradata, non la più vecchia (stessa elezione del riconciliatore)', () => {
@@ -290,7 +292,7 @@ describe('REPLAY #11147 — un solo hand-off per PR di origine, anche se il LGTM
     expect(fn).toContain('planConflictHandoff({ existing, num, head })');
     expect(fn.indexOf("if (plan.action === 'already-handed-off')")).toBeLessThan(fn.indexOf("'issue', 'create'"));
     const dedupe = SOURCE.slice(SOURCE.indexOf('function closeDuplicateHandoffIssues('), SOURCE.indexOf('function handOffConflictToFixer('));
-    expect(dedupe).toContain('electHandoffKeeper(currentHead, num, [])');
+    expect(dedupe).toContain('electHandoffKeeper(all, num, [])');
     expect(dedupe).toContain('duplicateOldEnough(member, now)');
     // Un duplicato reclamato dal fixer non si chiude qui (come planDuplicateClosures del riconciliatore).
     expect(dedupe).toContain('handoffBusy(member, num, [])');
