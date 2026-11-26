@@ -269,7 +269,7 @@ describe('Workday JSON transport', () => {
             jobPostingInfo: {
               title: 'Process Engineer',
               location: 'Visp, Switzerland',
-              jobDescription: 'Responsibilities include process improvement, careful documentation, cross-functional collaboration, reliable communication, and continuous quality work. The role supports production teams, coordinates technical activities, and contributes to a safe, structured, and inclusive workplace with professional development and modern facilities.',
+              jobDescription: 'Responsibilities include process improvement, careful documentation, cross-functional collaboration, reliable communication, and continuous quality work. The role supports production teams, coordinates technical activities, and contributes to a safe, structured, and inclusive workplace with professional development and modern facilities. You will work with experienced specialists, review production data, maintain clear procedures, participate in quality initiatives, and communicate next steps to colleagues while developing practical expertise in a supportive international environment.',
             },
           }),
         };
