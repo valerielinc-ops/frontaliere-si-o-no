@@ -71,6 +71,42 @@ describe('FNZ fetch boundary diagnostics', () => {
     expect(jobs.fetchOutcome).toBe('filtered_empty');
     expect(jobs.abortKind).toBeNull();
   });
+
+  it('skips a stale detail and continues to a later valid posting', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubGlobal('fetch', vi.fn(async (url) => {
+      const requestUrl = String(url);
+      if (requestUrl.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 2,
+          jobPostings: [
+            { externalPath: '/job/stale', title: 'Stale posting', locationsText: 'Zurich' },
+            { externalPath: '/job/valid', title: 'Valid posting', locationsText: 'Zurich' },
+          ],
+        }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+      }
+      if (requestUrl.endsWith('/job/stale')) {
+        return new Response('', { status: 404 });
+      }
+      if (requestUrl.endsWith('/job/valid')) {
+        return new Response(JSON.stringify({
+          jobPostingInfo: {
+            title: 'Valid posting',
+            location: 'Zurich',
+            jobDescription: '<p>A valid source-backed detail.</p>',
+          },
+        }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+      }
+      throw new Error(`Unexpected Workday URL: ${requestUrl}`);
+    }));
+
+    const jobs = await fetchFnzJobs({ browserFallback: null });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ title: 'Valid posting', location: 'Zürich' });
+    expect(jobs.fetchOutcome).toBe('ok');
+    expect(jobs.abortKind).toBeNull();
+  });
 });
 
 describe('fnz-job-parser / resolveFnzSwissLocation', () => {

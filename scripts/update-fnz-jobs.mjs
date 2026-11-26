@@ -62,7 +62,11 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { fetchWorkdayJsonWithRetry, firstLocationSegment, WorkdayRateLimitError } from './lib/ats-clients/workday-client.mjs';
-import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
+import {
+  isRetryBudgetExhausted,
+  RETRYABLE_STATUS,
+  WAF_IP_BLOCK_STATUS,
+} from './lib/transient-fetch.mjs';
 import { CRAWLER_ABORT_KINDS, CRAWLER_FETCH_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
 import { resolveFnzSwissLocation } from './lib/fnz-job-parser.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
@@ -308,6 +312,24 @@ async function fetchJobDetail(externalPath, { browserFallback } = {}) {
   return fetchJson(`${FNZ_API_BASE}${externalPath}`, { browserFallback });
 }
 
+/**
+ * A listing can outlive its Workday detail URL. Treat only a definitive,
+ * non-retryable HTTP client response as a per-posting miss; transport errors,
+ * retry exhaustion, auth/WAF responses, and server failures must still abort
+ * the crawl so the health receipt keeps the source failure visible.
+ */
+function isSkippableFnzDetailError(error) {
+  const status = Number(error?.statusCode ?? error?.status);
+  return Number.isFinite(status)
+    && status >= 400
+    && status < 500
+    && status !== 401
+    && !RETRYABLE_STATUS.has(status)
+    && !WAF_IP_BLOCK_STATUS.has(status)
+    && !isRetryBudgetExhausted(error)
+    && !isConnectionLevelFetchError(error);
+}
+
 /* ── Location & canton mapping ─────────────────────────────── */
 
 function parseWorkdayLocation(locText = '') {
@@ -450,7 +472,15 @@ export async function fetchFnzJobs({ browserFallback } = {}) {
     if (!externalPath) continue;
 
     console.log(`  📄 Fetching detail: ${listing.title}`);
-    const detail = await fetchJobDetail(externalPath, { browserFallback });
+    let detail;
+    try {
+      detail = await fetchJobDetail(externalPath, { browserFallback });
+    } catch (err) {
+      if (!isSkippableFnzDetailError(err)) throw err;
+      const status = Number(err?.statusCode ?? err?.status);
+      console.warn(`  ⏭️  Skipped — stale/unavailable detail (HTTP ${status})`);
+      continue;
+    }
 
     const info = detail?.jobPostingInfo || {};
     const title = normalizeSpace(info.title || listing.title || '');
