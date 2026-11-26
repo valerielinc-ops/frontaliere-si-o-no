@@ -14,6 +14,7 @@ import {
   planConflictHandoff,
   reapplyIssueCandidates,
   resolveMergeConflict,
+  supersededNumber,
 } from '../scripts/ci/pr-autorebase.mjs';
 import { groupHandoffs } from '../scripts/ci/reconcile-conflict-handoffs.mjs';
 import { generatedConflictPartition } from '../scripts/ci/generated-files-registry.mjs';
@@ -298,6 +299,23 @@ describe('catena di riapplicazioni', () => {
     expect(CHAIN_LIMIT_MARKER).toMatch(/^<!-- .* -->$/u);
     // Dopo l'arresto il marker ferma ogni tick successivo, prima di leggere qualunque cosa.
     expect(fn.indexOf('hasCommentMarker(num, CHAIN_LIMIT_MARKER)')).toBeLessThan(fn.indexOf('readReapplyContext(num, branch)'));
+  });
+
+  it('Supersedes #M senza branch del fixer ne Closes: M entra fra i candidati e la 3a generazione e\' bloccata', () => {
+    expect(reapplyIssueCandidates({ branch: 'feature/reapply', closes: [], prBody: 'Supersedes #20203' })).toEqual([20203]);
+    expect(supersededNumber('Supersedes #20203\n')).toBe(20203);
+    expect(supersededNumber('Closes #1')).toBeNull();
+    const carrier = { number: 20203, title: 'qualunque', body: `x\n<!-- CONFLICT_HANDOFF_CHAIN root=20179 gen=2 prev=20185 -->` };
+    expect(decideHandoffChain({ num: 20300, prBody: 'Supersedes #20203', issues: [carrier] }))
+      .toMatchObject({ isReapply: true, root: 20179, generation: 3, blocked: true });
+    // L'hand-off di M trovato per titolo (M e' la PR di origine) porta la stessa generazione.
+    const second = { number: 20231, ...buildConflictHandoffIssue({ num: 20203, branch: 'b', head: HEAD, files: [CONTRACT], chain: { root: 20179, generation: 2, prev: 20185 } }) };
+    expect(decideHandoffChain({ num: 20300, prBody: 'Supersedes #20203', issues: [second] }))
+      .toMatchObject({ generation: 3, blocked: true });
+    // Il wiring legge gli hand-off aperti di M dall'elenco REST consistente, non dalla search API.
+    const ctx = SOURCE.slice(SOURCE.indexOf('function readReapplyContext('), SOURCE.indexOf('function stopHandoffChain('));
+    expect(ctx).toContain('handoffIssueIndex.forOrigin(superseded)');
+    expect(ctx).not.toContain("'--search'");
   });
 
   it('la sola keyword Supersedes (issue illeggibile) basta a riconoscere la riapplicazione; una PR normale no', () => {

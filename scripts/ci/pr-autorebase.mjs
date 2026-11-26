@@ -2119,12 +2119,22 @@ export function parseHandoffChain(body, title = '') {
 }
 
 /** Numeri delle issue che la PR di riapplicazione dichiara di servire: branch del fixer, poi `Closes`. Pura. */
-export function reapplyIssueCandidates({ branch, closes }) {
+export function reapplyIssueCandidates({ branch, closes, prBody = '' }) {
   const out = [];
   const fromBranch = /^fix\/issue-(\d+)(?:$|[-/])/u.exec(String(branch || ''));
   if (fromBranch) out.push(Number(fromBranch[1]));
   for (const n of Array.isArray(closes) ? closes : []) if (!out.includes(Number(n))) out.push(Number(n));
+  // `Supersedes #M` senza branch del fixer ne `Closes`: M e' un candidato anche da solo
+  // (la sua issue o PR puo' portare il marker di catena).
+  const supersedes = supersededNumber(prBody);
+  if (supersedes !== null && !out.includes(supersedes)) out.push(supersedes);
   return out;
+}
+
+/** Il numero dopo `Supersedes #` nel body della PR, o null. Pura. */
+export function supersededNumber(prBody) {
+  const m = /\bsupersedes\s+#(\d+)(?!\d)/iu.exec(String(prBody || ''));
+  return m ? Number(m[1]) : null;
 }
 
 /**
@@ -2135,10 +2145,17 @@ export function reapplyIssueCandidates({ branch, closes }) {
  * @returns {{ isReapply:boolean, root:number|null, prev:number|null, generation:number, blocked:boolean }}
  */
 export function decideHandoffChain({ num, prBody = '', issues = [], maxGenerations = MAX_HANDOFF_GENERATIONS }) {
+  // Conta ogni issue che e' un hand-off (titolo) o che porta un marker di catena.
   const handoffs = (issues || [])
-    .map((issue) => ({ issue, chain: conflictHandoffOriginPr(issue?.title) === null ? null : parseHandoffChain(issue.body, issue.title) }))
+    .map((issue) => ({
+      issue,
+      chain: conflictHandoffOriginPr(issue?.title) === null && !String(issue?.body || '').includes(CHAIN_MARKER_PREFIX)
+        ? null
+        : parseHandoffChain(issue.body, issue.title),
+    }))
     .filter((entry) => entry.chain);
-  const supersedes = /\bsupersedes\s+#(\d+)(?!\d)/iu.exec(String(prBody || ''));
+  const supersededPr = supersededNumber(prBody);
+  const supersedes = supersededPr === null ? null : [null, supersededPr];
   if (handoffs.length === 0 && !supersedes) {
     return { isReapply: false, root: Number(num), prev: null, generation: 1, blocked: false };
   }
@@ -2762,13 +2779,21 @@ function readReapplyContext(num, branch) {
   if (!view || typeof view !== 'object') return null;
   const closes = prClosingIssueNumbers(num);
   const issues = [];
-  for (const k of reapplyIssueCandidates({ branch, closes })) {
+  for (const k of reapplyIssueCandidates({ branch, closes, prBody: view.body })) {
     const issue = gh(['issue', 'view', String(k), '--repo', REPO, '--json', 'number,title,body'], { allowFail: true });
     if (!issue || typeof issue !== 'object') {
       if (new RegExp(`^fix/issue-${k}(?:$|[-/])`, 'u').test(String(branch || ''))) return null;
       continue;
     }
     issues.push(issue);
+  }
+  // `Supersedes #M`: gli hand-off aperti di M portano la generazione della catena.
+  // Dall'elenco REST consistente (mai la search API, il cui indice arriva in ritardo).
+  const superseded = supersededNumber(view.body);
+  if (superseded !== null) {
+    const open = handoffIssueIndex.forOrigin(superseded);
+    if (open === null) return null;
+    for (const issue of open) if (!issues.some((known) => known.number === issue.number)) issues.push(issue);
   }
   return { body: String(view.body || ''), closes, issues };
 }
