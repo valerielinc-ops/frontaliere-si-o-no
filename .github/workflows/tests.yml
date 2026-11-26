@@ -2865,6 +2865,39 @@ jobs:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
+      # A PR can start while main is already assembling the exact same inputs.
+      # Since the shared cache is immutable, the first restore misses and cannot
+      # see the cache until that main run saves it. Wait briefly only when a
+      # trusted main seed is in flight, then retry the same exact key.
+      - name: Wait for an in-flight main assemble cache
+        id: assemble_cache_wait
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && steps.hourly_snapshot_restore.outputs.restored != 'true' && steps.assemble_cache.outputs.cache-hit != 'true' && steps.assemble_cache_key.outputs.key != '' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+        continue-on-error: true
+        uses: actions/github-script@v9
+        env:
+          ASSEMBLE_CACHE_FULL_KEY: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+        with:
+          script: |
+            const { pathToFileURL } = require('node:url');
+            const helper = await import(pathToFileURL(
+              `${process.env.GITHUB_WORKSPACE}/scripts/ci/wait-for-main-assemble-cache.mjs`,
+            ).href);
+            await helper.waitForMainAssembleCache({
+              github,
+              context,
+              core,
+              cacheKey: process.env.ASSEMBLE_CACHE_FULL_KEY,
+            });
+
+      - name: Restore exact assemble-jobs cache after main warm-up
+        id: assemble_cache_retry
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && steps.hourly_snapshot_restore.outputs.restored != 'true' && steps.assemble_cache_wait.outputs.cache_ready == 'true' }}
+        continue-on-error: true
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
       - name: Assemble + migrate
         id: assemble_jobs
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}

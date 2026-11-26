@@ -110,6 +110,7 @@ import {
   archiveRemovedJobsToSlice,
   collapseDuplicateRouteEntries,
   normalizeExpiredAtEntries,
+  createActiveRouteOwnersIndex,
   repairExpiredRoutesAgainstActive,
 } from './lib/expired-jobs-archive.mjs';
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
@@ -4498,6 +4499,10 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
   const details = [];
   const allEntries = [];
   let malformed = false;
+  // The active route set is constant for this entire scan. Rebuilding this
+  // index for every crawler slice made cold assembly scale as active jobs ×
+  // slice count, even when the archive needed no route changes.
+  const activeRouteOwners = createActiveRouteOwnersIndex(activeJobs);
   for (const slicePath of listSliceFiles(sliceDir)) {
     const entries = readJson(slicePath, null);
     if (!Array.isArray(entries)) {
@@ -4522,7 +4527,7 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
     repairedRoutes += collapsed.repairedRoutes;
     if (details.length < 20) details.push(...(collapsed.repairDetails || []));
 
-    const result = repairExpiredRoutesAgainstActive(workingEntries, activeJobs);
+    const result = repairExpiredRoutesAgainstActive(workingEntries, activeJobs, { activeRouteOwners });
     if (result.changed > 0) {
       writeJson(slicePath, workingEntries);
       changed += result.changed;
