@@ -50,7 +50,6 @@
         "de": "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-la-lecherette-vd-ekp38j",
         "fr": "mitarbeiter-in-gebaudebetrieb-swiss-armed-forces-vtg-la-lecherette-vd-ekp38j"
       },
-      "needsRetranslation": true,
       "sourceLang": "de",
       "postalCode": "1660",
       "addressLocality": "La Lécherette",
@@ -136,11 +135,22 @@
       "streetAddress": "Bettlistrasse 16",
       "previousSlugsByLocale": {
         "it": [
-          "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf"
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf",
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
+        ],
+        "en": [
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
+        ],
+        "de": [
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
+        ],
+        "fr": [
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
         ]
       },
       "previousSlugs": [
-        "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf"
+        "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf",
+        "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -237,7 +247,6 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-23T10:15:40.410Z",
       "validThroughSource": "last-observed-window",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
