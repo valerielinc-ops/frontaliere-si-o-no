@@ -5037,13 +5037,13 @@ function employerHostPrefixMatches(pageText, job = {}, pageUrl = '') {
 }
 
 export function postingMatch(pageText, job = {}, pageUrl = '') {
-  const company = nameWords(job.company);
+  const company = companyIdentityWords(job.company);
   const titles = jobTitleCandidates(job);
   const title = titles.flatMap(value => nameWords(value)).filter((word) => word.length >= 4);
   if (!company.length && !title.length) return 'unknown';
   if (company.length) {
     // The page's words filtered as the name is ("Ospedale Regionale di Lugano" = "ospedale regionale lugano").
-    const named = ` ${nameWords(pageText).join(' ')} `;
+    const named = ` ${companyEvidenceWords(pageText).join(' ')} `;
     // The whole name without the short form the order adds in brackets is the same employer, written out:
     // «Ente Case Anziani Mendrisiotto (ECAM)» signs its notice «Ente Case Anziani Mendrisiotto» (CVRDEqJ3,
     // 2026-11-11). The short form alone stays no match (an «ECAM» or an «EOC» on a page is initials).
@@ -5125,13 +5125,13 @@ const FORM_TITLE_FIELD_WORDS = new Set([
  * and at least one word that is a name (never two «Hotel Schweiz» and «Hotel Deutschland» of anybody).
  */
 export function sameEmployerFamily(one, other) {
-  const core = (name) => nameWords(name).filter((word) => !BRANCH_WORDS.has(word));
+  const core = (name) => companyIdentityWords(name).filter((word) => !BRANCH_WORDS.has(word));
   const first = core(one);
   return first.some((word) => !EMPLOYER_KIND_WORDS.has(word) && !FORM_VOCABULARY.has(word)) && first.join(' ') === core(other).join(' ');
 }
 
 function hasDistinctiveCompanyIdentity(company) {
-  return nameWords(company).some((word) => !EMPLOYER_KIND_WORDS.has(word)
+  return companyIdentityWords(company).some((word) => !EMPLOYER_KIND_WORDS.has(word)
     && !FORM_VOCABULARY.has(word) && !BRANCH_WORDS.has(word));
 }
 
@@ -5165,6 +5165,23 @@ const EMPLOYER_KIND_CLASS = new Map([
   ...['group', 'gruppe', 'gruppo', 'groupe'].map((word) => [word, 'group']),
 ]);
 const employerKindsOf = (words) => new Set(words.map((word) => EMPLOYER_KIND_CLASS.get(word)).filter(Boolean));
+
+// A short brand token can be meaningful when it is part of a longer source
+// company name («Groupe E»), but a lone initial is not employer evidence. Keep
+// the complete normalized sequence so a page that only says «Groupe» does not
+// bind to «Groupe E» by the generic employer-kind word alone.
+function companyIdentityWords(company) {
+  const normalized = companyEvidenceWords(company);
+  const baseWords = new Set(nameWords(company));
+  if (!baseWords.size) return [];
+  return normalized.filter((word) => baseWords.has(word) || /^[a-z]$/u.test(word));
+}
+
+function companyEvidenceWords(value) {
+  return normalizeWords(value).split(' ')
+    .filter((word) => word && !NOT_A_NAME.has(word) && !/^\d+$/u.test(word));
+}
+
 // Filler that only joins two names («Muster und Hotel …»): skipping it can still reach a word of a name.
 const JOINING_WORDS = new Set(['and', 'und', 'e', 'ed', 'et', 'o', 'or', 'oder', 'ou', 'sowie']);
 // Filler between two words: skipped when looking for the word next to a company word.
@@ -5299,8 +5316,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     return equivalentEmployerPhrases.some((alias) => alias.length === identityWords.length
       && alias.every((word, index) => word === identityWords[index]));
   };
-  const ours = new Set([...nameWords(job.company),
-    ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
+  const ours = new Set([...companyIdentityWords(job.company),
+    ...(sameEmployerFamily(job.organization, job.company) ? companyIdentityWords(job.organization) : [])]);
   if (!ours.size) return false;
   const ourKinds = employerKindsOf([...ours]);
   const text = String(formText || '');
@@ -5326,7 +5343,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...FORM_VOCABULARY,
   ]);
-  const identities = [nameWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
+  const identities = [companyIdentityWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
     .filter((words) => words.length > 0);
   const titleNamesOwnEmployer = (line) => {
     const words = normalizeWords(line).split(' ').filter(Boolean);
@@ -5463,7 +5480,7 @@ const EMPLOYER_HEADING_DESCRIPTION_PATTERNS = [
  */
 function hasUnexplainedEmployerCommaHeading(value, job = {}) {
   const employerTokens = [
-    ...nameWords(job.company), ...companyLongFormWords(job.company), ...companyShortForms(job.company).flat(),
+    ...companyIdentityWords(job.company), ...companyLongFormWords(job.company), ...companyShortForms(job.company).flat(),
     ...alternateEmployerNamePhrases(job.company).flat(),
   ].filter((word) => word.length >= 3 && !EMPLOYER_KIND_WORDS.has(word) && !NOT_A_NAME.has(word));
   if (!employerTokens.length) return false;
@@ -5960,8 +5977,8 @@ function formRoleHeadingStatus(formText, job = {}) {
     ...FORM_HEADING_VOCABULARY,
     ...TITLE_GENDER_MARKERS,
     ...candidates.flatMap(title => nameWords(title)),
-    ...nameWords(job.company),
-    ...nameWords(job.organization),
+    ...companyIdentityWords(job.company),
+    ...companyIdentityWords(job.organization),
   ]);
   const knownTitleLanguages = new Set(candidates.flatMap((candidate) => {
     const detected = detectLanguageWithConfidence(candidate);
@@ -6008,8 +6025,8 @@ function formRoleHeadingStatus(formText, job = {}) {
 // posting route or a stale heading would otherwise make the form look bound.
 function hasExplicitFormRoleHeading(formText, job = {}) {
   const companyWords = new Set([
-    ...nameWords(job.company),
-    ...nameWords(job.organization),
+    ...companyIdentityWords(job.company),
+    ...companyIdentityWords(job.organization),
   ]);
   const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
     .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);
