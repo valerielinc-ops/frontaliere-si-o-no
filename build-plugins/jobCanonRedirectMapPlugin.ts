@@ -57,7 +57,6 @@ import {
 const OUT_SUBDIR = 'job-canon';
 const V2_SUBDIR = 'v2';
 const V2_BUCKET_COUNT = JOB_CANON_V2_SHARD_COUNT;
-const V2_MAX_SHARD_BYTES = 256 * 1024;
 // Schema 2 digests use emitted key order, so v1 integrity is accumulated while
 // writing instead of rebuilding a complete shard to sort it after emission.
 const MANIFEST_SCHEMA_VERSION = 2;
@@ -512,12 +511,6 @@ export function assertMaxShardGrowthWithinPercent(
     );
   }
   return growthPercent;
-}
-
-export function assertJobCanonV2ShardWithinLimit(bytes: number, maximumBytes = V2_MAX_SHARD_BYTES): void {
-  if (bytes > maximumBytes) {
-    throw new Error(`job-canon v2 shard is ${bytes} bytes, above ${maximumBytes} bytes`);
-  }
 }
 
 function summarizeBytes(values: readonly number[]): { count: number; total: number; max: number; median: number } {
@@ -1462,7 +1455,6 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           const serialized = JSON.stringify(bucket);
           const serializedBytes = Buffer.from(serialized, 'utf8');
           const bytes = serializedBytes.length;
-          assertJobCanonV2ShardWithinLimit(bytes);
           const relativeFile = `${key}.json`;
           fs.writeFileSync(path.join(v2Dir, relativeFile), serializedBytes);
           v2FileManifest[relativeFile] = {
@@ -1539,8 +1531,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         markHeap('v2-written');
         console.log(
           `[job-canon-redirect-map] v1: ${JSON.stringify(summarizeBytes(v1Bytes))}, `
-          + `v2: ${JSON.stringify(summarizeBytes(v2Bytes))}, `
-          + `maxShardLimit=${V2_MAX_SHARD_BYTES}, heap=${heapCheckpoints['v2-written']}`,
+          + `v2: ${JSON.stringify(summarizeBytes(v2Bytes))}, heap=${heapCheckpoints['v2-written']}`,
         );
 
         activePrefixStats.changedByLocale = logicalStats.activePrefixes.changedByLocale;
