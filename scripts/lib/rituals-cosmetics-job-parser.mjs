@@ -1,52 +1,38 @@
 #!/usr/bin/env node
 /**
- * Rituals Cosmetics Switzerland job parser — Workday ATS.
+ * Rituals Cosmetics Switzerland job parser — official Rituals careers site.
  *
- * Tenant host: rituals.wd3.myworkdayjobs.com
- * Site path:   Rituals
- * Career URL:  https://www.rituals.com/en-ch/careers
+ * Career URL:  https://careers.rituals.com/de-CH/jobs/
  *
  * Rituals is a Dutch cosmetics / home-fragrance retailer with a large Swiss
  * retail network (shop-in-shop counters inside Manor department stores plus
- * standalone boutiques). Swiss legal entity HQ: Landquart GR. At the time of
- * this parser, the Workday tenant exposed ~638 open Swiss positions (mostly
- * retail sales advisor / stockroom roles across dozens of store locations).
+ * standalone boutiques). Swiss legal entity HQ: Landquart GR.
  *
- * Workday quirk: this tenant uses the facet parameter `Location_Country`
- * (capitalised, underscore) rather than the more common `locationCountry` —
- * same as Abbott / Stryker. The generic `createWorkdaySwissParser` shared
- * factory only knows the `locationCountry` key, so it falls back to an
- * unfiltered global-board fetch capped at Workday's 2000-result window —
- * which mostly returns non-Swiss postings and drops almost all real CH
- * roles. This bespoke parser instead applies the Swiss facet directly (like
- * `abbott-job-parser.mjs`), which correctly scopes the API to CH.
- *
- * Location text format: `{City} {Store/Mall name}` (e.g. "Basel St Jakob
- * Park", "Manor Winterthur", "Landquart Fashion Outlet") — no separator and
- * no country/canton prefix. We strip a leading department-store partner
- * name (Manor/Coop/Migros/Globus/Jelmoli) then look up a known Swiss city
- * token anywhere in the remaining text.
+ * The former Workday tenant stopped being the source for the official CH
+ * career pages. The public board now exposes job links and store locations on
+ * the branded site, with the vacancy body on each detail page. The parser
+ * treats an unreadable page or detail as an incomplete snapshot and never
+ * converts a transport/selector failure into an empty corpus.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllRitualsCosmeticsJobs() — Fetch and parse all Swiss jobs
  *   - isRitualsCosmeticsJob()        — Match jobs belonging to this company
- *   - isTrustedDomain()              — Validate URLs belong to Rituals / Workday tenant
+ *   - isTrustedDomain()              — Validate URLs belong to the official source
  *   - RITUALS_COSMETICS_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
-import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { appendSlugDisambiguator, detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import {
-  buildWorkdayApiBase,
-  fetchWorkdayJobs,
-  fetchWorkdayJobDetailParts,
-  workdayPostingDateFields,
-  extractWorkdayJobIdentity,
-  WorkdayAuthError,
-} from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
+  fetchHtml,
+  normalizeDescriptionSpace,
+  normalizeSpace,
+  slugify,
+  stripHtml,
+} from './crawler-template.mjs';
+import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -55,17 +41,18 @@ export const RITUALS_COSMETICS_KEY = 'rituals-cosmetics';
 export const RITUALS_COSMETICS_COMPANY_NAME = 'Rituals Cosmetics Switzerland';
 export const RITUALS_COSMETICS_COMPANY_DOMAIN = 'rituals.com';
 
-const WORKDAY_TENANT_HOST = 'rituals.wd3.myworkdayjobs.com';
-const WORKDAY_SITE_PATH = 'Rituals';
-const WORKDAY_API_BASE = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
-const WORKDAY_PUBLIC_BASE = `https://${WORKDAY_TENANT_HOST}/en-US/${WORKDAY_SITE_PATH}`;
-
-const CAREER_URL = 'https://www.rituals.com/en-ch/careers';
-
-// Swiss legal-entity seat, quoted in the fallback description only: it is
-// never a vacancy's location or canton (issue 9842).
-const DEFAULT_CITY = 'Landquart';
-const DEFAULT_CANTON = 'GR';
+export const RITUALS_COSMETICS_CAREER_URL = 'https://careers.rituals.com/de-CH/jobs/';
+const RITUALS_CAREER_ENTRY_URLS = [
+  RITUALS_COSMETICS_CAREER_URL,
+  'https://careers.rituals.com/de-CH/',
+  'https://careers.rituals.com/de-CH/shops/',
+  'https://careers.rituals.com/de-CH/holidayjobs/',
+];
+const RITUALS_CAREERS_HOST = 'careers.rituals.com';
+const KALIBER_CAREERS_HOST = 'rituals-careers-prd.kaliber.io';
+const LEGACY_WORKDAY_HOST = 'rituals.wd3.myworkdayjobs.com';
+const LISTING_PAGE_SIZE = 20;
+const MAX_LISTING_PAGES = 100;
 
 // Store localities the federal register does not list as municipalities, so
 // the gazetteer cannot resolve them: Shoppyland Schönbühl lies in
@@ -76,17 +63,10 @@ const RITUALS_STORE_LOCALITY_CANTONS = new Map([
   ['schoenbuehl', 'BE'],
 ]);
 
-// Switzerland country UUID is consistent across most Workday tenants.
-const SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
-
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
-}
-
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
 /**
@@ -126,18 +106,21 @@ export function isRitualsCosmeticsJob(job) {
     key.startsWith('rituals') ||
     company.includes('rituals') ||
     url.includes('rituals.com') ||
-    url.includes(WORKDAY_TENANT_HOST)
+    url.includes(LEGACY_WORKDAY_HOST)
   );
 }
 
 export function isTrustedDomain(rawUrl = '') {
   try {
-    const host = new URL(rawUrl).hostname.toLowerCase();
+    const parsed = new URL(rawUrl);
+    if (parsed.protocol !== 'https:') return false;
+    const host = parsed.hostname.toLowerCase();
     return (
       host === RITUALS_COSMETICS_COMPANY_DOMAIN ||
       host.endsWith(`.${RITUALS_COSMETICS_COMPANY_DOMAIN}`) ||
-      host === WORKDAY_TENANT_HOST ||
-      host.endsWith('.myworkdayjobs.com')
+      host === RITUALS_CAREERS_HOST ||
+      host === KALIBER_CAREERS_HOST ||
+      host === LEGACY_WORKDAY_HOST
     );
   } catch {
     return false;
@@ -169,43 +152,251 @@ function detectExperienceLevel(title = '') {
 function detectEmploymentType(timeType = '', title = '') {
   const t = normalize(`${timeType} ${title}`);
   if (/\b(part.?time|teilzeit|aushilfe|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
+  if (/\b\d{1,3}\s*[-–]\s*\d{1,3}\s*(?:hours?|stunden|heures?|ore)\b/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
   return 'FULL_TIME';
 }
 
-/* ── Workday fetcher ───────────────────────────────────────── */
+/* ── Official careers-site fetcher ────────────────────────── */
 
-async function fetchJobListings() {
-  const out = [];
+function attachFetchMetadata(jobs, { discoveredCount = 0, fetchOutcome = 'selector_miss' } = {}) {
+  Object.defineProperties(jobs, {
+    discoveredCount: { value: discoveredCount, enumerable: false },
+    fetchOutcome: { value: fetchOutcome, enumerable: false },
+  });
+  return jobs;
+}
+
+function jobPostingPath(rawUrl = '') {
   try {
-    for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, {
-      // Rituals tenant uses 'Location_Country' rather than 'locationCountry'.
-      appliedFacets: { Location_Country: SWISS_LOCATION_IDS },
-      maxPages: 100000,
-    })) {
-      const id = extractWorkdayJobIdentity(posting, {
-        apiBase: WORKDAY_API_BASE,
-        publicBase: WORKDAY_PUBLIC_BASE,
-        company: RITUALS_COSMETICS_COMPANY_NAME,
-      });
-      out.push({
-        title: id.title,
-        locationRaw: posting.locationsText || id.location || '',
-        url: id.applyUrl,
-        ...workdayPostingDateFields(posting),
-        externalPath: id.externalPath,
-        jobReqId: id.jobReqId,
-        timeType: posting.timeType || '',
-      });
-    }
-  } catch (err) {
-    if (err instanceof WorkdayAuthError) {
-      console.error(`❌ Workday anti-bot block: ${err.message}`);
-      return [];
-    }
-    throw err;
+    const url = new URL(rawUrl, RITUALS_COSMETICS_CAREER_URL);
+    if (!isTrustedDomain(url.href)) return null;
+    const parts = url.pathname.split('/').filter(Boolean);
+    const jobsIndex = parts.findIndex((part) => part.toLowerCase() === 'jobs');
+    if (jobsIndex < 1 || parts.length < jobsIndex + 3) return null;
+    const locale = parts[jobsIndex - 1];
+    const slug = parts[jobsIndex + 1];
+    const jobId = parts[jobsIndex + 2];
+    if (!/^[a-z]{2}-[A-Z]{2}$/.test(locale) || !slug || !jobId) return null;
+    return {
+      url: `${url.origin}${url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`}`,
+      jobId,
+    };
+  } catch {
+    return null;
   }
-  return out;
+}
+
+function extractListingTotal(html = '') {
+  const text = normalizeSpace(stripHtml(html));
+  const match = text.match(/\b\d+\s*(?:of|von|sur|di)\s*(\d+)\s*(?:jobs?|stellen|postes?|posti)\b/i);
+  return match ? Number(match[1]) : null;
+}
+
+function listingCardForLink(link) {
+  const title = normalizeSpace(link.textContent || '');
+  let node = link;
+  let fallback = link.parentElement || link;
+  for (let depth = 0; node && depth < 7; depth += 1, node = node.parentElement) {
+    const text = normalizeSpace(node.textContent || '');
+    if (!text || (title && !text.includes(title))) continue;
+    if (text.length <= 800 && /(?:hours?|stunden|heures?|ore)\b/i.test(text)) return node;
+    fallback = node;
+  }
+  return fallback;
+}
+
+function extractListingLocation(card, title) {
+  const text = normalizeSpace(stripHtml(card?.innerHTML || card?.textContent || ''));
+  const lines = text.split(/\n+/).map(normalizeSpace).filter(Boolean);
+  const metadata = lines.find((line) => /(?:hours?|stunden|heures?|ore)\b/i.test(line)) || text;
+  const parts = metadata.split(/\s*[•·|]\s*/).map(normalizeSpace).filter(Boolean);
+  const workloadIndex = parts.findIndex((part) => /(?:hours?|stunden|heures?|ore)\b/i.test(part));
+  if (workloadIndex > 0) {
+    const candidates = parts.slice(0, workloadIndex).filter((part) => part !== title);
+    if (candidates.length > 0) return candidates.at(-1);
+  }
+  return lines.find((line) => line !== title && !/(?:hours?|stunden|heures?|ore)\b/i.test(line)) || '';
+}
+
+/** Parse detail links from the server-rendered official careers page. */
+export function parseRitualsListingPage(html = '', pageUrl = RITUALS_COSMETICS_CAREER_URL) {
+  const document = new JSDOM(String(html || '')).window.document;
+  const rows = [];
+  const seen = new Set();
+  for (const link of document.querySelectorAll('a[href]')) {
+    const href = link.getAttribute('href') || '';
+    let posting;
+    try {
+      posting = jobPostingPath(new URL(href, pageUrl).href);
+    } catch {
+      posting = null;
+    }
+    if (!posting || seen.has(posting.url)) continue;
+    const card = listingCardForLink(link);
+    const title = normalizeSpace(link.textContent || card?.querySelector('h2,h3,h4')?.textContent || '');
+    if (!title || title.length < 3) continue;
+    seen.add(posting.url);
+    rows.push({
+      title,
+      url: posting.url,
+      jobReqId: posting.jobId,
+      locationRaw: extractListingLocation(card, title),
+      timeType: normalizeSpace(card?.textContent || ''),
+    });
+  }
+  return rows;
+}
+
+function paginationUrl(pageUrl, offset) {
+  const url = new URL(pageUrl);
+  url.searchParams.set('from', String(offset));
+  return url.href;
+}
+
+function listingFailure(message, discoveredCount, cause) {
+  const error = new Error(message, cause ? { cause } : undefined);
+  error.specListingFailure = true;
+  error.specDiscoveredCount = discoveredCount;
+  return error;
+}
+
+async function fetchJobListings({ fetchHtmlImpl = fetchHtml } = {}) {
+  const firstUrl = RITUALS_CAREER_ENTRY_URLS[0];
+  const firstHtml = await fetchHtmlImpl(firstUrl, {
+    headers: { Accept: 'text/html,application/xhtml+xml' },
+    validateRedirectUrl: isTrustedDomain,
+  });
+  const listings = [];
+  const seen = new Set();
+  let pageUrl = firstUrl;
+  let html = firstHtml;
+  let total = null;
+
+  for (let page = 0; page < MAX_LISTING_PAGES; page += 1) {
+    const rows = parseRitualsListingPage(html, pageUrl);
+    total = total ?? extractListingTotal(html);
+    for (const row of rows) {
+      if (seen.has(row.url)) continue;
+      seen.add(row.url);
+      listings.push(row);
+    }
+    if (total != null && listings.length >= total) break;
+    if (rows.length < LISTING_PAGE_SIZE) break;
+
+    const nextUrl = paginationUrl(firstUrl, listings.length);
+    try {
+      html = await fetchHtmlImpl(nextUrl, {
+        headers: { Accept: 'text/html,application/xhtml+xml' },
+        validateRedirectUrl: isTrustedDomain,
+      });
+      pageUrl = nextUrl;
+    } catch (error) {
+      throw listingFailure(
+        `Rituals careers listing page ${nextUrl} could not be read`,
+        listings.length,
+        error,
+      );
+    }
+  }
+
+  if (listings.length > 0) {
+    return { listings, discoveredCount: listings.length, fetchOutcome: 'ok' };
+  }
+
+  // These branded pages are a bounded recovery when the listing route has
+  // rendered its shell but no cards. A zero-card result remains selector_miss;
+  // it is never treated as proof that the source is empty.
+  for (const entryUrl of RITUALS_CAREER_ENTRY_URLS.slice(1)) {
+    let entryHtml;
+    try {
+      entryHtml = await fetchHtmlImpl(entryUrl, {
+        headers: { Accept: 'text/html,application/xhtml+xml' },
+        validateRedirectUrl: isTrustedDomain,
+      });
+    } catch (error) {
+      if (error?.status === 404) continue;
+      throw error;
+    }
+    for (const row of parseRitualsListingPage(entryHtml, entryUrl)) {
+      if (seen.has(row.url)) continue;
+      seen.add(row.url);
+      listings.push(row);
+    }
+  }
+  return {
+    listings,
+    discoveredCount: listings.length,
+    fetchOutcome: listings.length > 0 ? 'ok' : 'selector_miss',
+  };
+}
+
+function parseJobPostingJsonLd(document) {
+  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    try {
+      const nodes = extractJobPostingNodesFromJson(JSON.parse(script.textContent || ''));
+      if (nodes[0]) return nodes[0];
+    } catch {
+      // An unrelated malformed JSON-LD block must not hide the detail body.
+    }
+  }
+  return null;
+}
+
+function removeSourceChrome(root) {
+  for (const element of root.querySelectorAll('script,style,noscript,nav,header,footer,aside,form')) {
+    element.remove();
+  }
+}
+
+function extractDetailDescription(document) {
+  const main = document.querySelector('main,[role="main"],article');
+  if (!main) return '';
+  const h1 = main.querySelector('h1');
+  if (!h1) return '';
+  const stopHeading = [...main.querySelectorAll('h2,h3')].find((heading) =>
+    /^(?:mehr|more|plus|più)\s+(?:shop|store|career|karrier|job|stelle|poste)/i.test(normalizeSpace(heading.textContent || '')),
+  );
+  const range = document.createRange();
+  range.setStartAfter(h1);
+  if (stopHeading) range.setEndBefore(stopHeading);
+  else range.setEndAfter(main.lastChild || h1);
+  const wrapper = document.createElement('div');
+  wrapper.appendChild(range.cloneContents());
+  removeSourceChrome(wrapper);
+  return normalizeDescriptionSpace(stripHtml(wrapper.innerHTML));
+}
+
+function detailLocation(document, listing, posting) {
+  const address = Array.isArray(posting?.jobLocation)
+    ? posting.jobLocation[0]?.address
+    : posting?.jobLocation?.address;
+  const structured = address?.addressLocality || posting?.jobLocation?.name || '';
+  const candidates = [listing.locationRaw, structured];
+  const main = document.querySelector('main,[role="main"],article');
+  if (main) {
+    const lines = stripHtml(main.innerHTML).split(/\n+/).map(normalizeSpace).filter(Boolean);
+    candidates.push(...lines.slice(0, 12));
+  }
+  for (const candidate of candidates) {
+    const location = cleanRitualsLocation(candidate);
+    if (location) return location;
+  }
+  return '';
+}
+
+export function parseRitualsDetailPage(html = '', listing = {}) {
+  const document = new JSDOM(String(html || '')).window.document;
+  const posting = parseJobPostingJsonLd(document);
+  const title = normalizeSpace(posting?.title || document.querySelector('main h1,h1')?.textContent || listing.title || '');
+  const jsonDescription = posting?.description ? stripHtml(String(posting.description)) : '';
+  const description = normalizeDescriptionSpace(jsonDescription || extractDetailDescription(document));
+  const location = detailLocation(document, listing, posting);
+  const employmentType = Array.isArray(posting?.employmentType)
+    ? posting.employmentType.join(' ')
+    : String(posting?.employmentType || listing.timeType || '');
+  const datePosted = sourcePostingDateFields(String(posting?.datePosted || ''));
+  return { title, description, location, employmentType, ...datePosted };
 }
 
 /* ── Slug identity ─────────────────────────────────────────── */
@@ -225,8 +416,8 @@ async function fetchJobListings() {
  * reconciliation removed them, and the accumulator byte guard aborted the
  * writers that saw the swing.
  *
- * The Workday requisition ID is the req's own identity; the URL hash only
- * covers a posting Workday serves without one.
+ * The requisition ID is the req's own identity; the URL hash only covers a
+ * posting whose source omits one.
  */
 export function ritualsSlugDisambiguator(jobReqId = '', publicUrl = '') {
   const fromReqId = String(jobReqId || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
@@ -259,16 +450,16 @@ function indexPublishedRitualsJobs(existingJobs = []) {
  *   a new `slugDisambiguator`, because a new suffix on a published job is an
  *   explicit route migration for the slug pipeline.
  */
-export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
+export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [], _fetchHtml = fetchHtml } = {}) {
   const published = indexPublishedRitualsJobs(existingJobs);
   console.log(`🏭 Fetching ${RITUALS_COSMETICS_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${CAREER_URL}`);
-  console.log(`   Workday: ${WORKDAY_API_BASE}\n`);
+  console.log(`   Source: ${RITUALS_COSMETICS_CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listingResult = await fetchJobListings({ fetchHtmlImpl: _fetchHtml });
+  const { listings, discoveredCount, fetchOutcome } = listingResult;
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No Swiss job listings returned from Workday API.');
-    return [];
+    console.warn('⚠️ No Rituals job links were observed on the official careers source.');
+    return attachFetchMetadata([], { discoveredCount, fetchOutcome });
   }
 
   console.log(`  📋 Swiss listings found: ${listings.length}`);
@@ -284,40 +475,45 @@ export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
     }
-    // An "N Locations" roll-up (or an empty location) cleans to '': only the
-    // req's own primary workplace may place it in Switzerland, never the
-    // Landquart legal seat (issue 9842).
-    const location = cleanRitualsLocation(rawLocation)
-      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const publicUrl = listing.url || RITUALS_COSMETICS_CAREER_URL;
+    let detailHtml;
+    try {
+      detailHtml = await _fetchHtml(publicUrl, {
+        headers: { Accept: 'text/html,application/xhtml+xml' },
+        validateRedirectUrl: isTrustedDomain,
+      });
+    } catch (cause) {
+      const error = new Error(
+        `Rituals careers detail could not be read: ${publicUrl}`,
+        { cause },
+      );
+      error.specDetailDrop = { dropped: 1, candidates: listings.length };
+      error.specDiscoveredCount = listings.length;
+      throw error;
+    }
+    const detail = parseRitualsDetailPage(detailHtml, listing);
+    const detailDescription = detail.description;
+    const location = detail.location || cleanRitualsLocation(rawLocation);
     const canton = location
       ? (RITUALS_STORE_LOCALITY_CANTONS.get(normalize(location).normalize('NFC'))
         || inferSwissTargetCanton(location)
-        || inferSwissTargetCanton(rawLocation)
-        || await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location))
+        || inferSwissTargetCanton(rawLocation))
       : '';
     if (!canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
       continue;
     }
-    const publicUrl = listing.url || CAREER_URL;
-
-    // Workday listing endpoint never returns the body — fetch detail.
-    // One detail request: the body, and the `timeType` the CXS listing row
-    // never carries.
-    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
-      WORKDAY_API_BASE,
-      listing.externalPath,
-      stripHtml,
+    const employmentType = detectEmploymentType(
+      `${listing.timeType || ''} ${detail.employmentType || ''}`,
+      title,
     );
-    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
-    await new Promise((r) => setTimeout(r, 350));
+    await new Promise((resolve) => setTimeout(resolve, 250));
 
-    // Only the posting's own text is published (issue 5253): a req whose
-    // Workday detail has no body used to go out as a synthetic "Key details"
-    // stub (location, employer, "apply on the portal"); it is not published
-    // any more.
+    // Only the posting's own text is published (issue 5253). A detail page
+    // without a source body stays out of this run; the standard pipeline keeps
+    // any valid stored body under its normal miss-grace rules.
     if (!meetsSourceBodyFloor(detailDescription)) {
-      console.log(`  ⏭️  No vacancy text in the Workday detail, not published: ${title}`);
+      console.log(`  ⏭️  No vacancy text in the Rituals detail, not published: ${title}`);
       withoutBody += 1;
       continue;
     }
@@ -325,43 +521,18 @@ export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
 
     const sourceLang = detectLang(baseDescription || title, 'de');
 
-    // Rituals authors ONE corporate template per job TITLE and reuses it,
-    // byte-for-byte, across every store that opens that role — verified live
-    // against the Workday detail API: distinct req IDs at "Basel St Jakob
-    // Park", "Basel Freie Strasse" and "Basel SBB" all return an identical
-    // jobPostingInfo.jobDescription. That's genuine source content, not a
-    // chrome-scraping/fetch bug — but `location` above intentionally collapses
-    // to the bare city for canton inference (see cleanRitualsLocation doc),
-    // which silently discards the per-listing detail Workday does provide.
-    // Two real distinguishers exist and were previously thrown away:
-    //   1. the specific store/mall descriptor (e.g. "Basel St Jakob Park"
-    //      vs "Basel Freie Strasse" — both collapse to "Basel");
-    //   2. Rituals genuinely runs MULTIPLE concurrent open reqs for the same
-    //      role at the exact same store (verified live: R3932-R3935, four
-    //      distinct "Mitarbeiter Warenverräumung" reqs at the identical
-    //      Basel St Jakob Park store) — same title, same store, same body,
-    //      only the Workday requisition ID differs.
-    // Surfacing both (store descriptor + the standard "Job ID" reference
-    // line real job boards show for applicant/recruiter reference) gives
-    // every one of the ~638 live postings genuinely unique, sourced content
-    // instead of a handful of copies of one of ~16 role templates. Computed
-    // AFTER language detection above so this English/German meta-line can't
-    // skew detectLang on French/Italian source text, and without touching
-    // the city/canton pipeline other code relies on.
-    // publicUrl is always unique per listing (built from the Workday
-    // externalPath), so it's a safe fallback identifier on the rare chance
-    // Workday omits jobReqId on a given posting.
     const jobRefId = listing.jobReqId || publicUrl.split('_').pop() || publicUrl.slice(-10);
     const storeLine = detailDescription.length >= 100
       ? `Store: ${rawLocation}${canton ? `, ${canton}` : ''}, Switzerland. Job ID: ${jobRefId}.\n\n`
       : '';
     const descriptionText = `${storeLine}${baseDescription}`;
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const id = `${RITUALS_COSMETICS_KEY}-${urlHash}`;
     // Same role in the same city is the normal case on this board, so an
     // unpublished req is minted with its own suffix; a published one keeps
     // its indexed route (see ritualsSlugDisambiguator).
-    const publishedJob = published.byReqId.get(normalizeReqId(listing.jobReqId)) || published.byId.get(id);
+    const publishedJob = published.byReqId.get(normalizeReqId(listing.jobReqId))
+      || published.byId.get(`${RITUALS_COSMETICS_KEY}-${urlHash}`);
+    const id = publishedJob?.id || `${RITUALS_COSMETICS_KEY}-${urlHash}`;
     const slugDisambiguator = publishedJob
       ? String(publishedJob.slugDisambiguator || '').trim()
       : ritualsSlugDisambiguator(listing.jobReqId, publicUrl);
@@ -389,7 +560,7 @@ export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
       location,
       canton,
       url: publicUrl,
-      source: `${RITUALS_COSMETICS_COMPANY_NAME} Dedicated Parser (Workday)`,
+      source: `${RITUALS_COSMETICS_COMPANY_NAME} Dedicated Parser (official careers)`,
       sourceLang,
       crawledAt: new Date().toISOString(),
 
@@ -404,7 +575,7 @@ export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
       sector: 'Cosmetica / Retail',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: detailInfo })),
+      ...mergeSourcePostingDates(listing, detail),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -416,8 +587,8 @@ export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
   }
 
   if (withoutBody > 0) {
-    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Workday detail — not published.`);
+    console.log(`  ⏭️  ${withoutBody} req(s) without vacancy text in the Rituals detail — not published.`);
   }
   console.log(`\n📋 Total ${RITUALS_COSMETICS_COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  return attachFetchMetadata(jobs, { discoveredCount, fetchOutcome });
 }
