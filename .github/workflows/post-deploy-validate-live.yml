@@ -300,6 +300,8 @@ jobs:
       - name: Purge exact cache entry for the Pages home
         if: steps.propagation.outcome == 'success'
         env:
+          # Non-secret canonical ID from infra/cloudflare/rules.md; the purge
+          # token need not also have Zone:Read for name-based lookup.
           CF_ZONE_ID: 435c32ec15993fe826d2bb5eb62d3d43
           PAGES_PURGE_URLS: https://frontaliereticino.ch/,https://frontaliereticino.ch/sitemap.xml,https://frontaliereticino.ch/cerca-lavoro-ticino/,https://origin-ticino-it.frontaliereticino.ch/cerca-lavoro-ticino/,https://frontaliereticino.ch/cerca-lavoro-zurigo/,https://origin-zurigo-it.frontaliereticino.ch/cerca-lavoro-zurigo/
         run: |
