@@ -49,7 +49,7 @@ export const CRR_COMPANY_DOMAIN = 'crr-suva.ch';
 
 const LISTING_URL = 'https://www.crr-suva.ch/fr/la-clinique/carriere/offres-d-emploi-1999/';
 const DETAIL_DELAY_MS = 250;
-const JOBUP_DETAIL_PATH_RE = /^\/(?:[a-z]{2}\/)?(?:jobs|emplois)\/detail\/[0-9a-f-]{36}\/?$/i;
+const JOBUP_DETAIL_PATH_RE = /^\/(?:[a-z]{2}\/)?(?:jobs|emplois)\/detail\/[0-9a-f-]{36}(?:\/[^/]+)?\/?$/i;
 
 export function isCrrJob(job) {
   const url = String(job?.url || '').toLowerCase();
@@ -157,7 +157,10 @@ export function parseCrrDetail(html = '') {
   const rawLocation = Array.isArray(posting.jobLocation)
     ? posting.jobLocation[0]
     : posting.jobLocation;
-  const addressCountry = normalizeSpace(String(rawLocation?.address?.addressCountry || ''));
+  const rawAddressCountry = rawLocation?.address?.addressCountry;
+  const addressCountry = normalizeSpace(typeof rawAddressCountry === 'object'
+    ? String(rawAddressCountry?.name || '')
+    : String(rawAddressCountry || ''));
   const employmentType = normalizeSpace(
     (Array.isArray(posting.employmentType) ? posting.employmentType : [posting.employmentType])
       .filter(Boolean)

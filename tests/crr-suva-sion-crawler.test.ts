@@ -91,6 +91,14 @@ describe('CRR Suva Sion crawler', () => {
     });
   });
 
+  it('accepts a canonical slugged Jobup UUID detail URL from a CRR card', () => {
+    const [id, title, resume] = LIVE_CARD_ROWS[0];
+    const rows = parseListing(`<a class="post-link" href="https://www.jobup.ch/en/jobs/detail/${id}/stagiaire-mp-e/"><h3 class="post-title">${title}</h3><span class="post-resume">${resume}</span></a>`);
+    expect(rows).toEqual([expect.objectContaining({
+      url: `https://www.jobup.ch/en/jobs/detail/${id}/stagiaire-mp-e/`, title,
+    })]);
+  });
+
   it('ignores arbitrary Jobup links that are not CRR vacancy cards', () => {
     expect(parseListing('<a href="https://www.jobup.ch/en/jobs/detail/aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa/">Other employer</a>')).toEqual([]);
     expect(parseListing('<a class="post-link" href="https://jobup.ch/en/companies/example/">Company</a>')).toEqual([]);
@@ -121,6 +129,11 @@ describe('CRR Suva Sion crawler', () => {
     expect(detail?.body).toContain('Take your first professional steps');
     expect(detail?.body).toContain('• Duration: 12 months');
     expect(extractDetailBody(DETAIL_HTML)).toBe(detail?.body);
+  });
+
+  it('normalizes object-form schema.org addressCountry to its name', () => {
+    const detail = parseCrrDetail(DETAIL_HTML.replace('"addressCountry":"CH"', '"addressCountry":{"name":"Switzerland"}'));
+    expect(detail?.addressCountry).toBe('Switzerland');
   });
 
   it('fails closed when the detail has no valid JobPosting', () => {
