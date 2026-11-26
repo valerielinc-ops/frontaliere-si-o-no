@@ -473,6 +473,23 @@ const MANUAL_SEO_CTR_FAMILIES = [
     measuredOn: '2026-11-08',
   },
   {
+    // Flagged unregistered by discoverUnregisteredFamilies (issue #19821):
+    // `/farmacie/` is emitted by pharmacyDirectoryPagesPlugin together with
+    // its localized roots. The plugin owns the shared pageTitle/pageDescription
+    // generators for the directory pages, so this is an actionable template
+    // family rather than a heterogeneous editorial listing.
+    id: 'farmacie',
+    label: 'Farmacie (directory)',
+    pathContains: '/farmacie/',
+    pathAliases: ['/en/pharmacies/', '/de/apotheken/', '/fr/pharmacies/'],
+    kind: 'template',
+    targetCtr: 0.03,
+    monitored: true,
+    // Discovery measurement from the issue: all locales, trailing 90 days.
+    impressions90d: 50076,
+    measuredOn: '2026-11-26',
+  },
+  {
     // Il template fuel-price giornaliero (`build-plugins/fuelDailyPagesPlugin.ts`
     // + `fuelDailyData.ts`, sezione `FUEL_SECTION_SLUG.benzina`): un generator
     // condiviso di title/description, quindi una famiglia sorvegliabile come le
