@@ -178,7 +178,6 @@ async function listSwissJobs() {
     const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, {
       method: 'POST',
       body,
-      throwOnError: true,
     });
 
     if (!data || !Array.isArray(data.jobPostings)) {
