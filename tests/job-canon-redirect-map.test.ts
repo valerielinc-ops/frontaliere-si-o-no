@@ -5,7 +5,6 @@ import os from 'node:os';
 import path from 'node:path';
 
 import {
-  assertJobCanonV2ShardWithinLimit,
   assertMaxShardGrowthWithinPercent,
   assertUniqueJobCanonV1Key,
   jobCanonRedirectMapPlugin,
@@ -256,6 +255,84 @@ describe('jobCanonRedirectMapPlugin', () => {
     }
     expect(logicalDigest.digest('hex')).toBe(manifest.logical.canonicalEntriesSha256);
   });
+
+  it('emits a v2 shard larger than the former size threshold with valid integrity metadata', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-large-v2-shard-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    const previousOrderingFields = getJobCanonOrderingFields();
+    const prefix = `/cerca-lavoro-${'x'.repeat(3500)}`;
+    const matchingSlugs: string[] = [];
+    const shardKey = jobCanonV2ShardKey('large-shard-fixture-0');
+    for (let index = 0; matchingSlugs.length < 100; index += 1) {
+      const slug = `large-shard-fixture-${index}`;
+      if (jobCanonV2ShardKey(slug) === shardKey) matchingSlugs.push(slug);
+    }
+    const registry = Object.fromEntries(
+      matchingSlugs.map((slug) => [slug, { it: `${prefix}/${slug}` }]),
+    );
+
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'data', 'jobs.json'), '[]');
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+      writeAllKnownJobSlugs(registry, root);
+      setJobCanonOrderingFields([]);
+
+      const plugin = jobCanonRedirectMapPlugin(root);
+      await (plugin.closeBundle as () => Promise<void>).call(plugin);
+
+      const outputDir = path.join(root, 'dist', 'job-canon');
+      const relativeFile = `${shardKey}.json`;
+      const rawShard = fs.readFileSync(path.join(outputDir, 'v2', relativeFile));
+      const shard = JSON.parse(rawShard.toString('utf8')) as Record<string, { it?: string }>;
+      const manifest = JSON.parse(fs.readFileSync(path.join(outputDir, 'manifest.json'), 'utf8')) as {
+        logical: { entries: number; aliases: number; canonicalEntriesSha256: string };
+        v2: { files: Record<string, {
+          bytes: number;
+          sha256: string;
+          entries: number;
+          aliases: number;
+          canonicalEntriesSha256: string;
+        }> };
+      };
+      const fileManifest = manifest.v2.files[relativeFile];
+      const canonicalDigest = createHash('sha256');
+      for (const slug of [...matchingSlugs].sort()) {
+        canonicalDigest.update(JSON.stringify(slug));
+        canonicalDigest.update(':');
+        canonicalDigest.update(JSON.stringify({ it: prefix }));
+        canonicalDigest.update('\n');
+      }
+      const expectedCanonicalDigest = canonicalDigest.digest('hex');
+
+      expect(rawShard.byteLength).toBeGreaterThan(256 * 1024);
+      expect(Object.keys(shard).sort()).toEqual([...matchingSlugs].sort());
+      expect(Object.values(shard).every((entry) => entry.it === prefix)).toBe(true);
+      expect(fileManifest).toMatchObject({
+        bytes: rawShard.byteLength,
+        sha256: createHash('sha256').update(rawShard).digest('hex'),
+        entries: matchingSlugs.length,
+        aliases: 0,
+        canonicalEntriesSha256: expectedCanonicalDigest,
+      });
+      expect(manifest.logical).toMatchObject({
+        entries: matchingSlugs.length,
+        aliases: 0,
+        canonicalEntriesSha256: expectedCanonicalDigest,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      if (previousOrderingFields) {
+        setJobCanonOrderingFields(
+          [...previousOrderingFields].map(([id, fields]) => ({ id, ...fields })),
+        );
+      } else clearJobCanonOrderingFields();
+    }
+  }, 60_000);
 
   it('reconstructs the same Worker targets as PR-A registry output for bridge candidates', () => {
     const logicalTracking = readAllKnownJobSlugs(tmp) as Record<string, Record<string, string>>;
@@ -1661,12 +1738,6 @@ describe('job canon bridge path planning and PR-B classification', () => {
     expect(assertMaxShardGrowthWithinPercent([100, 900], [100, 945], 5)).toBe(5);
     expect(() => assertMaxShardGrowthWithinPercent([100, 900], [100, 946], 5))
       .toThrow('maximum job-canon shard grew 5.11%, above 5%');
-  });
-
-  it('rejects a v2 shard larger than 256 KiB', () => {
-    expect(() => assertJobCanonV2ShardWithinLimit(256 * 1024)).not.toThrow();
-    expect(() => assertJobCanonV2ShardWithinLimit((256 * 1024) + 1))
-      .toThrow('job-canon v2 shard is 262145 bytes, above 262144 bytes');
   });
 
   it('keeps ambiguous paths, exact-prefix paths, missing entries, and alias chains for PR-B', () => {
