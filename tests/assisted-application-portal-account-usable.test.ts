@@ -221,6 +221,7 @@ describe('an unverified SuccessFactors account on its sign-in page', () => {
     expect(page.goto).toHaveBeenCalledWith(activationLink, expect.any(Object));
     expect(result).toMatchObject({ reopen: true });
     expect(result).not.toHaveProperty('handoff');
+    expect(account).toMatchObject({ status: 'created' });
     expect(account.verifiedAt).toBeGreaterThan(1000);
   });
 
@@ -266,6 +267,7 @@ describe('an unverified SuccessFactors account on its sign-in page', () => {
     expect(clicks).toEqual(['login', 'resend']);
     expect(result).toMatchObject({ reopen: true });
     expect(result).not.toHaveProperty('handoff');
+    expect(account).toMatchObject({ status: 'created' });
     expect(account.verifiedAt).toBeGreaterThan(1000);
   });
 });
