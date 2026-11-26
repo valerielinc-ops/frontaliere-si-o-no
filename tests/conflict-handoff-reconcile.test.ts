@@ -256,6 +256,29 @@ describe('groupHandoffs: duplicati della stessa PR di origine (#10586/#10587)', 
     expect(withPr[0].duplicates.map((i) => i.number)).toEqual([10586]);
   });
 
+  it('REGRESSIONE 2026-11-26 (#20229, #20234, origine #20209): Supersedes sull\'origine non rende occupati i fratelli', () => {
+    const replacement = {
+      number: 20246,
+      headRefName: 'fix/issue-20234',
+      title: 'fix(issue-20234): reapply crawler workflow bootstrap on main',
+      body: 'Supersedes #20209\nCloses #20183\nCloses #20234',
+    };
+    const groups = groupHandoffs([handoff(20229, 20209), handoff(20234, 20209)], [replacement]);
+    expect(groups).toHaveLength(1);
+    expect(groups[0].keeper.number).toBe(20234);
+    expect(groups[0].duplicates.map((i) => i.number)).toEqual([20229]);
+    const plan = planDuplicateClosures(groups[0], [replacement], Date.parse(OPENED) + 3_600_000);
+    expect(plan.close.map((i) => i.number)).toEqual([20229]);
+    expect(plan.deferred).toEqual([]);
+  });
+
+  it('una PR con il solo Supersedes sull\'origine non elegge nessun keeper per se: resta il piu\' basso e chiude gli altri', () => {
+    const pr = { number: 9, headRefName: 'fix/issue-1', body: 'Supersedes #20209' };
+    const groups = groupHandoffs([handoff(20229, 20209), handoff(20234, 20209)], [pr]);
+    expect(groups[0].keeper.number).toBe(20229);
+    expect(groups[0].duplicates.map((i) => i.number)).toEqual([20234]);
+  });
+
   it('ignora le issue che non sono hand-off', () => {
     expect(groupHandoffs([{ number: 1, title: 'Re: Conflitto con main: riapplicare la PR #2 su main', body: '', labels: [] }]))
       .toEqual([]);
