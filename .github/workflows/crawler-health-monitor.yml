@@ -174,6 +174,48 @@ jobs:
           echo "Found $count stale crawler(s)."
 
           for i in $(seq 0 $((count - 1))); do
+            # Causa condivisa (stessa famiglia ATS + stesso abortKind, vedi
+            # groupSharedFamilyIssues in check-crawler-health.mjs): UNA issue
+            # aggregata con titolo deterministico, che il creator dedupa sul
+            # titolo (un giro dopo l'altro commenta, non duplica). I membri non
+            # aprono la propria issue; quelle gia' aperte e non reclamate
+            # (senza agent:in-progress) si chiudono come duplicate: riusarle
+            # lascerebbe N issue per una causa, e un fixer per ciascuna.
+            if [ "$(jq -r ".[$i].aggregate // false" data/crawler-health-issues.json)" = "true" ]; then
+              agg_title=$(jq -r ".[$i].title" data/crawler-health-issues.json)
+              agg_status=$(jq -r ".[$i].status" data/crawler-health-issues.json)
+              agg_body_file=$(mktemp)
+              jq -r ".[$i].body" data/crawler-health-issues.json > "$agg_body_file"
+              case "$agg_status" in
+                broken) agg_priority=2 ;;
+                *)      agg_priority=3 ;;
+              esac
+              node scripts/lib/github-issue-creator.mjs \
+                --title "$agg_title" \
+                --description-file "$agg_body_file" \
+                --priority "$agg_priority" \
+                --label crawler-health \
+                --workflow "${{ github.workflow }}"
+              rm -f "$agg_body_file"
+
+              gh issue list --state open --label crawler-health --limit 500 \
+                --json number,title,labels > /tmp/health-open.json || echo '[]' > /tmp/health-open.json
+              agg_number=$(jq -r --arg t "$agg_title" '[.[] | select(.title == $t)] | sort_by(.number) | .[0].number // empty' /tmp/health-open.json)
+              if [ -z "$agg_number" ]; then
+                echo "::warning::Aggregate issue \"${agg_title}\" not found after create; leaving member issues untouched."
+                continue
+              fi
+              for member in $(jq -r ".[$i].members[]" data/crawler-health-issues.json); do
+                member_title="[crawler-health] ${member}: crawler unhealthy"
+                for dup in $(jq -r --arg t "$member_title" '.[] | select(.title == $t) | select(([.labels[].name] | index("agent:in-progress")) | not) | .number' /tmp/health-open.json); do
+                  echo "Closing #$dup as duplicate of aggregate #$agg_number (${member})."
+                  gh issue close "$dup" --reason "not planned" \
+                    --comment "Duplicata: ${member} fallisce per la stessa causa condivisa degli altri crawler del gruppo. Si ripara una volta sola nell'aggregata #${agg_number}; il monitor la riapre da li' se il crawler ricade fuori dal gruppo." || true
+                done
+              done
+              continue
+            fi
+
             slug=$(jq -r ".[$i].slug" data/crawler-health-issues.json)
             reason=$(jq -r ".[$i].reason" data/crawler-health-issues.json)
             status=$(jq -r ".[$i].status" data/crawler-health-issues.json)
@@ -256,6 +298,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          HEALTH_OUTCOME: ${{ steps.health.outcome }}
         run: |
           set -uo pipefail
           # Auto-close `[crawler-health] <slug>: …` issues whose crawler
@@ -293,6 +336,30 @@ jobs:
           # next `read` never sees — crawlers left flagged unhealthy after
           # they recovered.
           while IFS=$'\t' read -r -u 9 num open_title; do
+            # Aggregate `[crawler-health] family:<f> abortKind:<k>`: aperta dal
+            # monitor per una causa condivisa, non ha una riga in
+            # data/crawler-health.json. Si chiude quando il giro non la
+            # riemette piu': o il monitor e' verde (nessun file di issue), o il
+            # file esiste e non contiene quel titolo. Se il monitor e' crashato
+            # senza scrivere il file non si deduce niente.
+            case "$open_title" in
+              "[crawler-health] family:"*)
+                still_open=""
+                if [ -f data/crawler-health-issues.json ]; then
+                  still_open=$(jq -r --arg t "$open_title" 'any(.[]; .aggregate == true and .title == $t)' data/crawler-health-issues.json)
+                fi
+                if [ "$still_open" = "false" ] || { [ ! -f data/crawler-health-issues.json ] && [ "${HEALTH_OUTCOME:-}" = "success" ]; }; then
+                  echo "Resolving #$num (\"${open_title}\") — the shared-cause group no longer exists."
+                  node scripts/lib/github-issue-creator.mjs --resolve \
+                    --title "$open_title" \
+                    --workflow "${{ github.workflow }}" \
+                    --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                else
+                  echo "Keeping #$num — the shared-cause group is still reported."
+                fi
+                continue
+                ;;
+            esac
             slug=$(printf '%s' "$open_title" | sed -E 's/^\[crawler-health\] ([^:]+):.*/\1/')
             status=$(jq -r --arg s "$slug" '.crawlers[$s].status // "unknown"' data/crawler-health.json)
             # `advisory` (#6496) rides on `status: "healthy"` by design (the

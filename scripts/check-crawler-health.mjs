@@ -1445,6 +1445,7 @@ async function main() {
         status: issueStatus,
         consecutiveEmptyRuns: state.consecutiveEmptyRuns,
         codeCommit: state._lastObservedCodeCommit ?? null,
+        abortKind: state._lastObservedAbortKind ?? null,
       };
       // La scheda viaggia nel file, non nel workflow: la condizione di chiusura
       // di questa issue vive nel codice del closer (lo step "Close recovered
@@ -1489,10 +1490,15 @@ async function main() {
   await fs.writeFile(HEALTH_STATE_PATH, JSON.stringify(nextState, null, 2) + '\n');
 
   if (issues.length > 0) {
-    await fs.writeFile(HEALTH_ISSUES_PATH, JSON.stringify(issues, null, 2) + '\n');
+    // Una causa condivisa e' una issue sola: i crawler della stessa famiglia
+    // ATS con lo stesso abortKind confluiscono in un'aggregata.
+    const resolveFamily = await createCrawlerFamilyResolver();
+    const { singles, aggregates } = await groupSharedFamilyIssues(issues, resolveFamily);
+    const published = [...aggregates, ...singles];
+    await fs.writeFile(HEALTH_ISSUES_PATH, JSON.stringify(published, null, 2) + '\n');
     console.error(
-      `[health] ${issues.length} crawler(s) stale/broken:`,
-      issues.map((i) => `${i.slug}(${i.status})`).join(', '),
+      `[health] ${issues.length} crawler(s) stale/broken (${aggregates.length} shared-cause group(s)):`,
+      published.map((i) => `${i.slug}(${i.status})`).join(', '),
     );
     process.exit(1);
   }
@@ -1519,6 +1525,185 @@ export {
   selectNewestCrawlerObservation,
   shouldCarryForwardCrawlerSlug,
 };
+
+/**
+ * Famiglia ATS di un crawler, ricavata dal codice e non da una tabella.
+ *
+ * La famiglia di un crawler e' il client ATS condiviso
+ * (`scripts/lib/ats-clients/<famiglia>-client.mjs`) che il suo
+ * `scripts/update-<slug>-jobs.mjs` raggiunge seguendo gli import locali. Un
+ * client nuovo e' una famiglia nuova senza toccare questo file.
+ *
+ * I moduli importati direttamente da almeno `INFRA_IMPORT_SHARE` degli script
+ * crawler (`crawler-template`, `dedicated-crawler-common`, ...) sono
+ * infrastruttura e non vengono attraversati: da li' si raggiungono tutti i
+ * client, e senza questo taglio ogni crawler sarebbe di ogni famiglia. Un
+ * crawler che raggiunge piu' di una famiglia e' ambiguo e resta singolo.
+ */
+export const INFRA_IMPORT_SHARE = 0.04;
+const LOCAL_IMPORT_RE = /(?:from|import)\s*\(?\s*['"](\.[^'"]+\.mjs)['"]/g;
+
+export async function createCrawlerFamilyResolver({ scriptsDir = path.join(ROOT, 'scripts') } = {}) {
+  const clientsDir = path.join(scriptsDir, 'lib', 'ats-clients');
+  const familyByFile = new Map();
+  try {
+    for (const name of await fs.readdir(clientsDir)) {
+      const match = /^(.+)-client\.mjs$/.exec(name);
+      if (match) familyByFile.set(path.join(clientsDir, name), match[1]);
+    }
+  } catch {
+    return async () => null;
+  }
+  if (familyByFile.size === 0) return async () => null;
+
+  const importCache = new Map();
+  const importsOf = async (file) => {
+    if (importCache.has(file)) return importCache.get(file);
+    let source = '';
+    try {
+      source = await fs.readFile(file, 'utf8');
+    } catch {
+      /* missing module: no edges */
+    }
+    const edges = [...source.matchAll(LOCAL_IMPORT_RE)].map((m) => path.resolve(path.dirname(file), m[1]));
+    importCache.set(file, edges);
+    return edges;
+  };
+
+  let infra = null;
+  const infraSet = async () => {
+    if (infra) return infra;
+    const scripts = (await fs.readdir(scriptsDir)).filter((n) => /^update-.+-jobs\.mjs$/.test(n));
+    const counts = new Map();
+    for (const name of scripts) {
+      for (const dep of new Set(await importsOf(path.join(scriptsDir, name)))) {
+        counts.set(dep, (counts.get(dep) ?? 0) + 1);
+      }
+    }
+    infra = new Set(
+      [...counts]
+        .filter(([, n]) => n >= Math.max(2, scripts.length * INFRA_IMPORT_SHARE))
+        .map(([f]) => f),
+    );
+    return infra;
+  };
+
+  const memo = new Map();
+  return async function resolveFamily(slug) {
+    if (memo.has(slug)) return memo.get(slug);
+    const entry = path.join(scriptsDir, `update-${slug}-jobs.mjs`);
+    const skip = await infraSet();
+    const families = new Set();
+    const seen = new Set([entry]);
+    const queue = [entry];
+    while (queue.length) {
+      for (const dep of await importsOf(queue.shift())) {
+        if (seen.has(dep)) continue;
+        seen.add(dep);
+        if (familyByFile.has(dep)) {
+          families.add(familyByFile.get(dep));
+        } else if (!skip.has(dep)) {
+          queue.push(dep);
+        }
+      }
+    }
+    const family = families.size === 1 ? [...families][0] : null;
+    const result = family ? { family, repairPoint: `scripts/lib/ats-clients/${family}-client.mjs` } : null;
+    memo.set(slug, result);
+    return result;
+  };
+}
+
+export const AGGREGATE_MIN_MEMBERS = 2;
+export const AGGREGATE_TITLE_PREFIX = '[crawler-health] family:';
+
+export function aggregateTitle(family, abortKind) {
+  return `${AGGREGATE_TITLE_PREFIX}${family} abortKind:${abortKind}`;
+}
+
+/** Marker HTML nel body: chiave di dedupe leggibile da chi non parsa il titolo. */
+export function aggregateMarker(family, abortKind) {
+  return `<!-- crawler-health-aggregate:family=${family};abortKind=${abortKind} -->`;
+}
+
+/**
+ * Separa le issue per crawler da quelle a causa condivisa.
+ *
+ * Una issue entra in un gruppo se e' `stale`/`broken` (non `advisory`), la sua
+ * Reason dichiara `abortKind=<kind>` (uguale a quello dello stato) e il
+ * crawler ha una famiglia ATS univoca. Il gruppo vale da 2 membri; sotto resta
+ * singola. `summary-missing` e' un guasto del gruppo di workflow, non della
+ * libreria, e non aggrega.
+ *
+ * @param {Array<object>} issues
+ * @param {(slug: string) => Promise<{family: string, repairPoint: string}|null>} resolveFamily
+ */
+export async function groupSharedFamilyIssues(issues, resolveFamily) {
+  const groups = new Map();
+  for (const issue of issues) {
+    const kind = issue.abortKind;
+    if (
+      !kind ||
+      kind === SUMMARY_MISSING_ABORT_KIND ||
+      issue.status === 'advisory' ||
+      !String(issue.reason ?? '').includes(`abortKind=${kind}`)
+    ) continue;
+    const fam = await resolveFamily(issue.slug);
+    if (!fam) continue;
+    const key = `${fam.family}\t${kind}`;
+    if (!groups.has(key)) groups.set(key, { ...fam, abortKind: kind, members: [] });
+    groups.get(key).members.push(issue);
+  }
+  const grouped = new Set();
+  const aggregates = [];
+  for (const group of groups.values()) {
+    if (group.members.length < AGGREGATE_MIN_MEMBERS) continue;
+    for (const member of group.members) grouped.add(member.slug);
+    aggregates.push(buildAggregateIssue(group));
+  }
+  return {
+    singles: issues.filter((i) => !grouped.has(i.slug)),
+    aggregates,
+  };
+}
+
+export function buildAggregateIssue({ family, abortKind, repairPoint, members }) {
+  const title = aggregateTitle(family, abortKind);
+  const sorted = [...members].sort((a, b) => a.slug.localeCompare(b.slug));
+  const status = sorted.some((m) => m.status === 'broken') ? 'broken' : 'stale';
+  const list = sorted.map((m) => `- \`${m.slug}\` (${m.status}) — ${m.reason}`).join('\n');
+  const body = [
+    aggregateMarker(family, abortKind),
+    `Il monitor ha trovato **${sorted.length} crawler** della famiglia ATS **\`${family}\`** fermi per la stessa causa: \`abortKind=${abortKind}\`.`,
+    "Una issue sola per la causa condivisa: i crawler elencati non aprono una issue propria finche' il gruppo esiste.",
+    '',
+    `Repair point: \`${repairPoint}\``,
+    '',
+    '## Crawler colpiti',
+    '',
+    list,
+    '',
+    'Triage:',
+    `0. Leggi la Reason: con \`abortKind=${abortKind}\` la sorgente non e' stata osservata vuota; il difetto e' nel trasporto o nel bail-out della libreria condivisa, non in un selettore.`,
+    '1. Ripara UNA volta nel Repair point (o nel parser comune che lo importa), non crawler per crawler: un fix per slug apre PR parallele sugli stessi file.',
+    "2. La issue si chiude da sola quando meno di 2 crawler del gruppo restano non sani.",
+    '',
+    'Source state: `data/crawler-health.json` → `crawlers[<slug>]`',
+    'Detection script: `scripts/check-crawler-health.mjs`',
+  ].join('\n');
+  return {
+    aggregate: true,
+    slug: `family:${family} abortKind:${abortKind}`,
+    title,
+    family,
+    abortKind,
+    repairPoint,
+    members: sorted.map((m) => m.slug),
+    status,
+    reason: `${sorted.length} ${family} crawlers share abortKind=${abortKind}`,
+    body,
+  };
+}
 
 /**
  * Il blocco `## Scheda` della issue `[crawler-health] <slug>`.
