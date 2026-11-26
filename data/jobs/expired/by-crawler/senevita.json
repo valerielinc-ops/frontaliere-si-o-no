@@ -11498,11 +11498,11 @@
         "fachfrau-mann-gesundheit-efz-50-senevita-bern-be-102f78e7",
         "professional-health-efz-50-senevita-bern-be-fcdcad16",
         "sante-professionnelle-efz-50-senevita-bern-be-725fadcf",
-        "fachfrau-mann-gesundheit-cfc-50-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-50-senevita-be-bern",
         "specialista-sanitario-efz-50-senevita-be-bern-a0c39820",
         "health-specialist-efz-50-senevita-be-bern",
-        "specialiste-de-la-sante-efz-50-senevita-be-bern"
+        "specialiste-de-la-sante-efz-50-senevita-be-bern",
+        "fachfrau-mann-gesundheit-cfc-50-senevita-bern-be"
       ],
       "en": [
         "professional-health-efz-40-70-senevita-bern-be-04d43a1f",
@@ -11519,11 +11519,11 @@
         "dipl-professionnels-des-soins-infirmiers-sante-specialisee-efz-en-service-de-nuit-60-80-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern",
         "fachfrau-mann-gesundheit-cfc-50-senevita-be-bern",
-        "professional-health-efz-50-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-50-senevita-be-bern-6c5225f5",
         "health-specialist-efz-50-senevita-be-bern-701e0047",
         "specialista-sanitario-efz-50-senevita-be-bern",
-        "specialiste-de-la-sante-efz-50-senevita-be-bern"
+        "specialiste-de-la-sante-efz-50-senevita-be-bern",
+        "professional-health-efz-50-senevita-bern-be"
       ],
       "de": [
         "fachfrau-mann-gesundheit-efz-40-70-senevita-bern-be-b3dc1625",
@@ -11540,11 +11540,11 @@
         "dipl-nursing-professional-specialist-health-efz-on-night-duty-60-80-senevita-bern-be",
         "dipl-professionnels-des-soins-infirmiers-sante-specialisee-efz-en-service-de-nuit-60-80-senevita-bern-be",
         "fachfrau-mann-gesundheit-cfc-50-senevita-be-bern",
-        "fachfrau-mann-gesundheit-efz-50-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-50-senevita-be-bern-29da132c",
         "specialista-sanitario-efz-50-senevita-be-bern",
         "health-specialist-efz-50-senevita-be-bern",
-        "specialiste-de-la-sante-efz-50-senevita-be-bern"
+        "specialiste-de-la-sante-efz-50-senevita-be-bern",
+        "fachfrau-mann-gesundheit-efz-50-senevita-bern-be"
       ],
       "fr": [
         "sante-professionnelle-efz-40-70-senevita-bern-be-9a373c44",
@@ -11561,11 +11561,11 @@
         "dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-efz-im-nachtdienst-60-80-senevita-bern",
         "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern",
         "fachfrau-mann-gesundheit-cfc-50-senevita-be-bern",
-        "sante-professionnelle-efz-50-senevita-bern-be",
         "fachfrau-mann-gesundheit-efz-50-senevita-be-bern-6c5225f5",
         "specialiste-de-la-sante-efz-50-senevita-be-bern-52cb4502",
         "specialista-sanitario-efz-50-senevita-be-bern",
-        "health-specialist-efz-50-senevita-be-bern"
+        "health-specialist-efz-50-senevita-be-bern",
+        "sante-professionnelle-efz-50-senevita-bern-be"
       ]
     },
     "postalCode": "3027",
@@ -12223,7 +12223,6 @@
       "assistant-infirmier-assistant-infirmier-srk-60-100-senevita-be-lenk-4c4aaae0",
       "assistente-infermieristico-srk-50-100-senevita-be-burgdorf",
       "nursing-assistant-srk-50-100-senevita-be-burgdorf",
-      "pflegehelfer-srk-50-100-senevita-be-burgdorf",
       "assistante-infirmiere-srk-50-100-senevita-be-burgdorf",
       "assistente-infermieristico-assistente-infermieristico-srk-60-100-senevita-be-lenk-5478511d",
       "nursing-assistant-nursing-assistant-srk-60-100-senevita-be-lenk-db2ea9a1",
@@ -12470,7 +12469,9 @@
       "pflegeassistenz-pflegehelfer-srk-60-100-senevita-be-lenk",
       "assistente-infermieristico-assistente-infermieristico-srk-60-100-senevita-be-lenk",
       "nursing-assistant-nursing-assistant-srk-60-100-senevita-be-lenk-dc8ebb3a",
-      "assistant-infirmier-assistant-infirmier-srk-60-100-senevita-be-lenk-cd5ffd82"
+      "assistant-infirmier-assistant-infirmier-srk-60-100-senevita-be-lenk-cd5ffd82",
+      "pflegehelfer-srk-50-100-senevita-be-burgdorf",
+      "pflegehelfer-srk-50-100-senevita-be-burgdorf-f041e593"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -12488,7 +12489,7 @@
         "assistant-infirmier-assistant-infirmier-srk-60-100-senevita-be-lenk-4c4aaae0",
         "assistente-infermieristico-srk-50-100-senevita-be-burgdorf",
         "nursing-assistant-srk-50-100-senevita-be-burgdorf",
-        "pflegehelfer-srk-50-100-senevita-be-burgdorf",
+        "pflegehelfer-srk-50-100-senevita-be-burgdorf-f041e593",
         "assistante-infirmiere-srk-50-100-senevita-be-burgdorf",
         "assistente-infermieristico-assistente-infermieristico-srk-60-100-senevita-be-lenk-5478511d",
         "pflegehelfer-in-srk-senevita-be-bern",
@@ -12672,7 +12673,8 @@
         "assistente-infermieristico-assistente-infermieristico-srk-60-100-senevita-be-lenk-647fc9fd",
         "nursing-assistant-nursing-assistant-srk-60-100-senevita-be-lenk",
         "pflegeassistenz-pflegehelfer-srk-60-100-senevita-be-lenk-b25d52c0",
-        "assistente-infermieristico-assistente-infermieristico-srk-60-100-senevita-be-lenk-138c5971"
+        "assistente-infermieristico-assistente-infermieristico-srk-60-100-senevita-be-lenk-138c5971",
+        "pflegehelfer-srk-50-100-senevita-be-burgdorf"
       ],
       "en": [
         "pflegehelfer-in-srk-senevita-be-bern",
@@ -12803,13 +12805,14 @@
         "pflegeassistenz-pflegehelfer-srk-60-100-senevita-be-lenk",
         "assistente-infermieristico-assistente-infermieristico-srk-60-100-senevita-be-lenk",
         "assistant-infirmier-assistant-infirmier-srk-60-100-senevita-be-lenk",
-        "nursing-assistant-nursing-assistant-srk-60-100-senevita-be-lenk-dc8ebb3a"
+        "nursing-assistant-nursing-assistant-srk-60-100-senevita-be-lenk-dc8ebb3a",
+        "pflegehelfer-srk-50-100-senevita-be-burgdorf"
       ],
       "de": [
         "pflegehelfer-in-srk-40-100-senevita-be-bern",
         "pflegehelfer-in-srk-pa-oder-ags-40-senevita-be-bern",
         "pflegeassistenz-pflegehelfer-srk-60-100-senevita-be-lenk-93ac5a0e",
-        "pflegehelfer-srk-50-100-senevita-be-burgdorf",
+        "pflegehelfer-srk-50-100-senevita-be-burgdorf-f041e593",
         "pflegehelfer-in-srk-ags-senevita-bl-lausen",
         "pflegeassistenz-pflegehelfer-srk-60-100-senevita-be-lenk-e1785ff9",
         "pflegeassistenz-pflegehelfer-srk-60-100-senevita-be-lenk-216c1c27",
@@ -12873,7 +12876,8 @@
         "assistente-infermieristico-assistente-infermieristico-srk-60-100-senevita-be-lenk",
         "nursing-assistant-nursing-assistant-srk-60-100-senevita-be-lenk",
         "assistant-infirmier-assistant-infirmier-srk-60-100-senevita-be-lenk",
-        "pflegeassistenz-pflegehelfer-srk-60-100-senevita-be-lenk-b25d52c0"
+        "pflegeassistenz-pflegehelfer-srk-60-100-senevita-be-lenk-b25d52c0",
+        "pflegehelfer-srk-50-100-senevita-be-burgdorf"
       ],
       "fr": [
         "pflegehelfer-in-srk-senevita-be-bern",
@@ -13004,7 +13008,8 @@
         "pflegeassistenz-pflegehelfer-srk-60-100-senevita-be-lenk",
         "assistente-infermieristico-assistente-infermieristico-srk-60-100-senevita-be-lenk",
         "nursing-assistant-nursing-assistant-srk-60-100-senevita-be-lenk",
-        "assistant-infirmier-assistant-infirmier-srk-60-100-senevita-be-lenk-cd5ffd82"
+        "assistant-infirmier-assistant-infirmier-srk-60-100-senevita-be-lenk-cd5ffd82",
+        "pflegehelfer-srk-50-100-senevita-be-burgdorf"
       ]
     },
     "postalCode": "3027",
@@ -26618,5 +26623,57 @@
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "id": "senevita-0e00238a55ea",
+    "slug": "ausiliario-a-di-cura-srk-50-senevita-be-ittigen",
+    "title": "Pflegehelfer/-in SRK 50%",
+    "titleByLocale": {
+      "it": "Ausiliario/a di cura SRK 50%",
+      "en": "Nursing assistant SRK 50%",
+      "de": "Pflegehelfer/-in SRK 50%",
+      "fr": "Auxiliaire de santé CRS 50 %"
+    },
+    "company": "Senevita",
+    "companyKey": "senevita",
+    "location": "BE Ittigen",
+    "canton": "BE",
+    "addressLocality": "BE Ittigen",
+    "descriptionByLocale": {
+      "it": "Senevita è il più grande fornitore integrato di servizi in età avanzata e impiega circa 4.300 persone. Le offerte ambulatoriale e stazionario si fondono senza soluzione di continuità. Mentre le sedi di Senevita sono per la vita assistita indipendente e la cura completa, Senevita Casa è il fornitore leader di servizi privati Spitex in tutta la Svizzera.\n\nPer la Senevita Aespliz in Ittigen stiamo cercando 01. Febbraio 2027 o su appuntamento un assistente allattante in SRK 50 %\nI loro compiti\n\n• Nella vita di tutti i giorni si assume la cura di base competente in base alle esigenze individuali\n\n• Si rispettano le linee guida per l'igiene e si occupano anche delle attività domestiche\n\n• Si guida la documentazione di cura senza soluzione di continuità e indipendentemente\n\n• Partecipazione a Rapporti e incontri di squadra\n\n• Assistenza nella formazione di nuovi dipendenti, apprendisti e tirocinanti\nEcco cosa portano con loro.\n\n• Formazione come assistente di cura o equivalente\n\n• Esperienza in una posizione simile, utile nella cura a lungo termine\n\n• Buona conoscenza orale e scritta del tedesco\n\n• Impegno e responsabilità\n\n• Alta competenza sociale nella cura e nella cura\nNoi li offriamo\n\n• Ampia offerta di formazione dell'Accademia Senevita, può essere visitata gratuitamente\n\n• Filosofia moderna\n\n• Cultura unica e vari generosi eventi dei dipendenti\n\n• Cibo economico nella gastronomia interna\n\n• Vari vantaggi (carburanti, assicurazione complementare, fitness, farmacia, ecc.)\n\n• Buoni benefici sociali e almeno. 5 settimane di vacanza (da 50 anni 6 o da 60 anni 7 settimane)\n\nQuesto passaggio ti parla? Attendiamo con ansia la vostra applicazione online.\nSe avete domande, lo specialista elencati di seguito è disponibile per telefono.\n\nCompiti\n• Nella vita di tutti i giorni si assume la cura di base competente in base alle esigenze individuali\n\n• Assistenza nella formazione di nuovi dipendenti, apprendisti e tirocinanti\n\nRequisiti\n• Formazione come assistente di cura o equivalente\n\n• Alta competenza sociale nella cura e nella cura\n\nOffriamo\n• Ampia offerta di formazione dell'Accademia Senevita, può essere visitata gratuitamente",
+      "en": "Senevita is the largest integrated provider of services in old age and employs around 4,300 people. Outpatient and stationary offerings merge seamlessly. While the Senevita locations stand for independent assisted living and comprehensive care, Senevita Casa is the leading provider of private Spitex services throughout Switzerland.\n\nFor the Senevita Aespliz in Ittigen we are looking for 01. February 2027 or by appointment a nursing assistant in SRK 50 %\nTheir tasks\n\n• In everyday life you take over the competent basic care according to individual needs\n\n• You comply with the hygiene guidelines and also take on domestic activities\n\n• You lead the care documentation seamlessly and independently\n\n• Participation in rapports and team meetings\n\n• Assistance in the training of new employees, apprentices and trainees\nThis is what they bring with them.\n\n• Training as a nursing assistant or equivalent\n\n• Experience in a similar position, beneficial in long-term care\n\n• Good oral and written knowledge of German\n\n• Commitment and responsibility\n\n• High Social Competence in Care & Care\nWe offer them\n\n• Extensive training offer of the Senevita Academy, can be visited free of charge\n\n• Modern nursing philosophy\n\n• Unique culture and various generous employee events\n\n• Cheap food in the in-house gastronomy\n\n• Various perks (fuels, supplementary insurance, fitness, pharmacy, etc.)\n\n• Good social benefits and at least. 5 weeks holiday (from 50 years 6 or from 60 years 7 weeks)\n\nDoes this passage speak to you? We look forward to your online application.\nIf you have any questions, the specialist listed below is available to you by phone.\n\nTasks\n• In everyday life you take over the competent basic care according to individual needs\n\n• Assistance in the training of new employees, apprentices and trainees\n\nRequirements\n• Training as a nursing assistant or equivalent\n\n• High Social Competence in Care & Care\n\nWe offer\n• Extensive training offer of the Senevita Academy, can be visited free of charge",
+      "de": "Senevita ist die grösste integrierte Anbieterin von Dienstleistungen im Alter und beschäftigt rund 4'300 Mitarbeitende. Ambulante und stationäre Angebote gehen nahtlos ineinander über. Während die Senevita Standorte für selbstständiges betreutes Wohnen und umfassende Pflege stehen, ist Senevita Casa die schweizweit führende Anbieterin privater Spitex-Leistungen.\n\nFür die Senevita Aespliz in Ittigen suchen wir per 01. Februar 2027 oder nach Vereinbarung eine/n Pflegehelfer/-in SRK 50%\nIhre Aufgaben\n\n• Im Alltag übernimmst du die kompetente Grundpflege nach individuellen Bedürfnissen\n\n• Du hältst die Hygienerichtlinien ein und übernimmst auch hauswirtschaftliche Tätigkeiten\n\n• Du führst die Pflegedokumentation lückenlos und selbstständig\n\n• Teilnahme an Rapporten und Teamsitzungen\n\n• Mithilfe bei der Einarbeitung von neuen Mitarbeitenden, Auszubildenden und Praktikanten\nDas bringen Sie mit\n\n• Ausbildung als Pflegeassistent/in oder gleichwertige Ausbildung\n\n• Erfahrung in einer ähnlichen Position, von Vorteil in der Langzeitpflege\n\n• Gute mündliche und schriftliche Deutschkenntnisse\n\n• Engagement und Verantwortungsbewusstsein\n\n• Hohe Sozialkompetenz in Pflege & Betreuung\nWir bieten Ihnen\n\n• Umfangreiches Weiterbildungsangebot der Senevita Akademie, kann kostenlos besucht werden\n\n• Neuzeitliche Pflegephilosophie\n\n• Einzigartige Kultur und diverse grosszügige Mitarbeiteranlässe\n\n• Vergünstige Verpflegung in der hauseigenen Gastronomie\n\n• Verschiedene Vergünstigungen (Tanken, Zusatzversicherungen, Fitness, Apotheke usw.)\n\n• Gute Sozialleistungen und mind. 5 Wochen Ferien (ab 50 Jahren 6 bzw. ab 60 Jahren 7 Wochen)\n\nSpricht dich diese Stelle an? Wir freuen uns auf deine Onlinebewerbung.\nBei Fragen steht dir die nachfolgend aufgeführte Fachperson gerne telefonisch zur Verfügung.Spricht dich diese Stelle an? Wir freuen uns auf deine Onlinebewerbung.\nBei Fragen steht dir die nachfolgend aufgeführte Fachperson gerne telefonisch zur Verfügung.\n\nAufgaben\n• Im Alltag übernimmst du die kompetente Grundpflege nach individuellen Bedürfnissen\n\n• Mithilfe bei der Einarbeitung von neuen Mitarbeitenden, Auszubildenden und Praktikanten\n\nAnforderungen\n• Ausbildung als Pflegeassistent/in oder gleichwertige Ausbildung\n\n• Hohe Sozialkompetenz in Pflege & Betreuung\n\nWir bieten\n• Umfangreiches Weiterbildungsangebot der Senevita Akademie, kann kostenlos besucht werden",
+      "fr": "Senevita est le plus grand prestataire de services intégré de la vieillesse et emploie environ 4300 personnes. Les offres ambulatoires et stationnaires fusionnent parfaitement. Alors que les sites de Senevita sont synonymes de vie autonome assistée et de soins complets, Senevita Casa est le premier fournisseur de services privés Spitex dans toute la Suisse.\n\nPour le Senevita Aespliz à Ittigen, nous cherchons 01. Février 2027 ou sur rendez-vous un assistant infirmier en SRK 50 %\nLeurs tâches\n\n• Dans la vie quotidienne, vous prenez en charge les soins de base compétents selon les besoins individuels\n\n• Vous respectez les lignes directrices en matière d'hygiène ainsi que les activités domestiques\n\n• Vous dirigez la documentation de soins de manière transparente et indépendante\n\n• Participation aux rapports et réunions d'équipe\n\n• Aide à la formation des nouveaux employés, apprentis et stagiaires\nC'est ce qu'ils apportent.\n\n• Formation en tant qu'assistant infirmier ou équivalent\n\n• Expérience dans une situation similaire, bénéfique dans les soins de longue durée\n\n• Bonne connaissance orale et écrite de l'allemand\n\n• Engagement et responsabilité\n\n• Haute compétence sociale en soins et soins\nNous leur offrons\n\n• Une vaste offre de formation de l'Académie Senevita, peut être visitée gratuitement\n\n• Philosophie infirmière moderne\n\n• Culture unique et divers événements généreux pour les employés\n\n• Nourriture bon marché dans la gastronomie interne\n\n• Divers avantages (carburants, assurance complémentaire, conditionnement physique, pharmacie, etc.)\n\n• Bonnes prestations sociales et au moins. 5 semaines de vacances (à partir de 50 ans 6 ou à partir de 60 ans 7 semaines)\n\nCe passage vous parle-t-il ? Nous nous réjouissons de votre candidature en ligne.\nSi vous avez des questions, le spécialiste ci-dessous est à votre disposition par téléphone.\n\nTâche\n• Dans la vie quotidienne, vous prenez en charge les soins de base compétents selon les besoins individuels\n\n• Aide à la formation des nouveaux employés, apprentis et stagiaires\n\nExigences\n• Formation en tant qu'assistant infirmier ou équivalent\n\n• Haute compétence sociale en soins et soins\n\nNous offrons\n• Une vaste offre de formation de l'Académie Senevita, peut être visitée gratuitement"
+    },
+    "slugByLocale": {
+      "it": "ausiliario-a-di-cura-srk-50-senevita-be-ittigen",
+      "en": "nursing-assistant-srk-50-senevita-be-ittigen",
+      "de": "pflegehelfer-in-srk-50-senevita-be-ittigen",
+      "fr": "auxiliaire-de-sante-crs-50-senevita-be-ittigen"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-11-26T21:42:28.868Z",
+    "previousSlugs": [
+      "pflegehelfer-in-srk-50-senevita-be-ittigen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "pflegehelfer-in-srk-50-senevita-be-ittigen"
+      ],
+      "en": [
+        "pflegehelfer-in-srk-50-senevita-be-ittigen"
+      ],
+      "fr": [
+        "pflegehelfer-in-srk-50-senevita-be-ittigen"
+      ]
+    },
+    "postalCode": "3063",
+    "streetAddress": "BE Ittigen",
+    "salaryMin": 42500,
+    "salaryMax": 59500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.senevita.ch/pflegehelfer-in-srk-50-de-j2361.html",
+    "firstSeenAt": "2026-10-26T09:29:05.614Z"
   }
 ]
