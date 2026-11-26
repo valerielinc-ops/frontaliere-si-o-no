@@ -27,7 +27,7 @@
       "fr": "technicien-ne-de-service-ol-oberwallis-ariston-group-brig-glis-ch-3902"
     },
     "sector": "Energia & Riscaldamento",
-    "expiredAt": "2026-11-26T04:17:45.110Z",
+    "expiredAt": "2026-11-26T05:36:22.901Z",
     "previousSlugs": [
       "servicetechniker-in-ol-oberwallis-ariston-group-brig-glis-ch-3902"
     ],
@@ -79,7 +79,7 @@
       "fr": "gaz-technique-de-service-m-w-ariston-group-biel-ch-2502"
     },
     "sector": "Energia & Riscaldamento",
-    "expiredAt": "2026-11-26T04:17:45.110Z",
+    "expiredAt": "2026-11-26T05:36:22.901Z",
     "previousSlugs": [
       "servicetechniker-gas-m-w-d-ariston-group-biel-ch-2502",
       "servicetechniker-gas-m-w-ariston-group-biel-ch-2502"
@@ -145,7 +145,7 @@
       "fr": "gaz-technique-de-service-m-w-ariston-group-gerlafingen-ch-4563"
     },
     "sector": "Energia & Riscaldamento",
-    "expiredAt": "2026-11-26T04:17:45.110Z",
+    "expiredAt": "2026-11-26T05:36:22.901Z",
     "previousSlugs": [
       "servicetechniker-gas-m-w-d-ariston-group-gerlafingen-ch-4563",
       "servicetechniker-gas-m-w-ariston-group-gerlafingen-ch-4563"
@@ -211,7 +211,7 @@
       "fr": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-bedano-ch-6930"
     },
     "sector": "Energia & Riscaldamento",
-    "expiredAt": "2026-11-26T04:17:45.110Z",
+    "expiredAt": "2026-11-26T05:36:22.901Z",
     "salaryMin": 58000,
     "salaryMax": 88000,
     "salaryCurrency": "CHF",
@@ -259,7 +259,7 @@
       "fr": "gaz-de-service-ariston-group-thun-ch-3600"
     },
     "sector": "Energia & Riscaldamento",
-    "expiredAt": "2026-11-26T04:17:45.110Z",
+    "expiredAt": "2026-11-26T05:36:22.901Z",
     "previousSlugs": [
       "service-technicien-ariston-group-bern-ch-3004",
       "service-technician-ariston-group-bern-ch-3004",
@@ -367,7 +367,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.aristongroup.com/job/geneve-technicienne-de-service-gazmazout-puls%c3%89-r%c3%89gion-g%c3%89neve-gen%c3%a8-1202/1441047333",
-    "firstSeenAt": "2026-09-24T14:43:28.119Z"
+    "firstSeenAt": "2026-09-24T14:43:28.119Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technicien-ne-de-service-gaz-mazout-pulse-region-geneve-ariston-group-geneve-ch-1202": "GE",
+        "gas-mazout-pulse-service-technician-geneva-region-ariston-group-geneve-ch-1202": "GE"
+      },
+      "en": {
+        "technicien-ne-de-service-gaz-mazout-pulse-region-geneve-ariston-group-geneve-ch-1202": "GE"
+      },
+      "de": {
+        "technicien-ne-de-service-gaz-mazout-pulse-region-geneve-ariston-group-geneve-ch-1202": "GE"
+      }
+    }
   },
   {
     "id": "ariston-group-7ba06c921aef",
@@ -434,7 +446,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.aristongroup.com/job/fribourg-technicienne-de-service-mazout-r%c3%89gion-fribourg-frei-1700/1439030933",
-    "firstSeenAt": "2026-09-19T23:09:54.078Z",
+    "firstSeenAt": "2026-06-10T22:11:57.658Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://careers.aristongroup.com/job/fribourg-technicienne-de-service-mazout-r%c3%89gion-fribourg-frei-1700/1439030933",
@@ -446,7 +458,28 @@
         "firstSeenAt": "2026-06-10T22:11:57.658Z",
         "title": "TECHNICIEN/NE DE SERVICE MAZOUT - RÉGION NEUCHÂTEL"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technicien-ne-de-service-mazout-region-fribourg-ariston-group-freiburg-ch-1700": "FR",
+        "tecnico-del-servizio-olio-combustibile-regione-di-neuchatel-ariston-group-fontaines-ch-2046": "FR",
+        "technicien-ne-de-service-mazout-region-neuchatel-ariston-group-fontaines-ch-2046": "FR",
+        "fuel-oil-service-technician-neuchatel-region-ariston-group-fontaines-ch-2046": "FR",
+        "heizol-servicetechniker-region-neuchatel-ariston-group-fontaines-ch-2046": "FR",
+        "mazout-service-technician-regione-neuchatel-ariston-group-fontaines-ch-2046": "FR"
+      },
+      "en": {
+        "fuel-oil-service-technician-neuchatel-region-ariston-group-fontaines-ch-2046": "FR",
+        "technicien-ne-de-service-mazout-region-neuchatel-ariston-group-fontaines-ch-2046": "FR"
+      },
+      "de": {
+        "heizol-servicetechniker-region-neuchatel-ariston-group-fontaines-ch-2046": "FR",
+        "technicien-ne-de-service-mazout-region-neuchatel-ariston-group-fontaines-ch-2046": "FR"
+      },
+      "fr": {
+        "technicien-ne-de-service-mazout-region-neuchatel-ariston-group-fontaines-ch-2046": "FR"
+      }
+    }
   },
   {
     "slug": "ai-agentic-solutions-engineer-ariston-group-milano-it-20121",
