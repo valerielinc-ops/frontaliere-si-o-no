@@ -89,7 +89,8 @@
       "meccanica-operativa-m-f-fisba-ag-st-gallen",
       "meccanica-operativa-m-f-fisba-ag-st-gallen-e1034ef9a9",
       "operational-mechanics-m-f-fisba-ag-st-gallen",
-      "mecanique-operationnelle-h-f-fisba-ag-st-gallen"
+      "mecanique-operationnelle-h-f-fisba-ag-st-gallen",
+      "betriebsmechaniker-m-w-st-gallen-fisba-ch-2c5491c1"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -137,7 +138,23 @@
         "firstSeenAt": "2026-10-26T09:40:20.757Z",
         "title": "Betriebsmechaniker (m/w)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "meccanica-operativa-m-f-fisba-ag-st-gallen-e1034ef9a9": "SG",
+        "betriebsmechaniker-m-w-st-gallen-fisba-ch": "SG",
+        "meccanica-operativa-m-f-fisba-ag-st-gallen": "SG"
+      },
+      "en": {
+        "operational-mechanics-m-f-fisba-ag-st-gallen": "SG"
+      },
+      "de": {
+        "betriebsmechaniker-m-w-st-gallen-fisba-ch": "SG"
+      },
+      "fr": {
+        "mecanique-operationnelle-h-f-fisba-ag-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "applicazione-spontanea-non-richiesta-fisba-ag-st-gallen",
