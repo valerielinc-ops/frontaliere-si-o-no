@@ -12105,11 +12105,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
   requestSlot('job-board-alert-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
   setJobBoardAlertAuthPromptOpen(true);
-  Analytics.trackJobAlertAuthHandoff(
-   'job_board_filters',
-   'prompt_shown',
-   keyword,
-  );
  };
 
  const handleBoardFilterAlertAuthPromptDismiss = () => {
