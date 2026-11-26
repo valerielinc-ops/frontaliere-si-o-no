@@ -817,7 +817,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:23:34.008Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-dc8816741a3b",
@@ -1900,7 +1901,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:23:34.619Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-beb64dd74712",
@@ -1966,7 +1968,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:23:34.681Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-c511144680b8",
@@ -2442,7 +2445,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:23:34.954Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-58e668484ba4",
@@ -6393,7 +6397,6 @@
       "url": "https://careers.sbb.ch/job/Kerzers-Elektroinstallateurin%2C-Elektronikerin%2C-Elektromechanikerin-im-Frequenzumformerwerk-Infr/1460577233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-25T21:23:37.162Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-elektroniker-in-elektromechaniker-in-im-frequenzumformerwerk-ffs-officine-ferrovie-federali-elektromechaniker-in-im-frequenzumformerwerk"
@@ -8503,7 +8506,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Disponentin-G%C3%BCterverkehr-Olte/1442648133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-25T21:23:38.358Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -13648,7 +13650,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Immobilienbewirtschafterin/1460685733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-25T21:23:41.236Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",

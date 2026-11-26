@@ -13887,9 +13887,9 @@
       "slug": "lastwagenchauffeur-euse-ipersonal-ag-untersiggenthal-ag",
       "slugByLocale": {
         "de": "lastwagenchauffeur-euse-ipersonal-ag-untersiggenthal-ag",
-        "it": "lastwagenchauffeur-euse-ipersonal-ag-untersiggenthal-ag",
-        "en": "lastwagenchauffeur-euse-ipersonal-ag-untersiggenthal-ag",
-        "fr": "lastwagenchauffeur-euse-ipersonal-ag-untersiggenthal-ag"
+        "it": "camion-driver-uso-ipersonal-ag-untersiggenthal-ag",
+        "en": "truck-driver-euse-ipersonal-ag-untersiggenthal-ag",
+        "fr": "conducteur-utilisateur-de-camion-ipersonal-ag-untersiggenthal-ag"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -13947,7 +13947,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T21:56:11.321Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-25T21:56:11.321Z"
+      "firstSeenAt": "2026-11-25T21:56:11.321Z",
+      "previousSlugs": [
+        "lastwagenchauffeur-euse-ipersonal-ag-untersiggenthal-ag"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "lastwagenchauffeur-euse-ipersonal-ag-untersiggenthal-ag"
+        ],
+        "fr": [
+          "lastwagenchauffeur-euse-ipersonal-ag-untersiggenthal-ag"
+        ]
+      }
     }
   ]
 }
