@@ -413,7 +413,18 @@
         "firstSeenAt": "2026-09-19T22:53:19.878Z",
         "title": "Activity Leader"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "activity-leader-nord-anglia-geneva": "GE"
+      },
+      "de": {
+        "activity-leader-nord-anglia-education-switzerland-geneve": "GE"
+      },
+      "fr": {
+        "activity-leader-nord-anglia-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "regional-people-culture-direttore-europe-nord-anglia-education-switzerland-lausanne",

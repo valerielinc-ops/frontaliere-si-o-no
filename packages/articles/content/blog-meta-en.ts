@@ -13757,6 +13757,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sem-chiasso-personale-due-mesi.title': 'Sem reopens Chiasso: Ors is looking for staff for two additional months',
     'blog.article.sem-chiasso-personale-due-mesi.excerpt': 'With Sem’s reopening in Chiasso, Ors will have to find staff for another two months to manage via Motta.',
     'blog.article.sem-chiasso-personale-due-mesi.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.protocollo-lavoro-remoto-2024.title': 'Cross-border workers, teleworking up to 25% from January 1, 2024',
+    'blog.article.protocollo-lavoro-remoto-2024.excerpt': 'The Italy-Switzerland Protocol allows teleworking up to 25%.',
+    'blog.article.protocollo-lavoro-remoto-2024.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

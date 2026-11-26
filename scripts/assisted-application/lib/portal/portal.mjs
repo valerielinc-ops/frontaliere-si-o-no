@@ -814,6 +814,9 @@ const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
 const NAVIGATION = { listboxOptions: false };
+// Keep the portal loop below the workflow job ceiling so a slow or redrawing
+// portal is handed to the owner while the runner can still persist evidence.
+export const PORTAL_RUN_MAX_RUNTIME_MS = 90 * 60 * 1000;
 // Codex turns available to the autonomous navigation agent across a portal run.
 const MAX_AGENT_CALLS = AGENT_ROUNDS;
 // The account page's technical stops (handleAuth's `authStop`) that the agentic fallback may try
@@ -12224,6 +12227,12 @@ export async function submitViaPortal(ctx) {
   let maxSteps = Number.isFinite(requestedMaxSteps) && requestedMaxSteps > 0
     ? Math.trunc(requestedMaxSteps)
     : 80;
+  const requestedMaxRuntimeMs = Number(ctx.maxRuntimeMs);
+  const maxRuntimeMs = Number.isFinite(requestedMaxRuntimeMs) && requestedMaxRuntimeMs > 0
+    ? Math.min(Math.trunc(requestedMaxRuntimeMs), PORTAL_RUN_MAX_RUNTIME_MS)
+    : PORTAL_RUN_MAX_RUNTIME_MS;
+  const portalRunStartedAt = Date.now();
+  const portalRunDeadline = portalRunStartedAt + maxRuntimeMs;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
   const registrationRestarts = new Set();
   let candidateRequestRound = Number.isInteger(Number(ctx.candidateRequestRound))
@@ -12243,6 +12252,26 @@ export async function submitViaPortal(ctx) {
     };
   };
   const browser = await launch();
+  const portalRuntimeBudgetError = () => Object.assign(new Error('portal_runtime_budget'), { code: 'portal_runtime_budget' });
+  const assertPortalRuntime = () => {
+    if (Date.now() >= portalRunDeadline) throw portalRuntimeBudgetError();
+  };
+  const rawCodex = ctx.codex;
+  if (typeof rawCodex === 'function') {
+    ctx = {
+      ...ctx,
+      codex: async (request = {}) => {
+        assertPortalRuntime();
+        const remainingMs = portalRunDeadline - Date.now();
+        const requestedTimeoutMs = Number(request?.timeoutMs);
+        const timeoutMs = Number.isFinite(requestedTimeoutMs) && requestedTimeoutMs > 0
+          ? Math.min(requestedTimeoutMs, remainingMs)
+          : remainingMs;
+        if (timeoutMs < 1) throw portalRuntimeBudgetError();
+        return rawCodex({ ...request, timeoutMs: Math.max(1, Math.trunc(timeoutMs)) });
+      },
+    };
+  }
   let context = null;
   let page = null;
   let sourceProtocol = null;
@@ -13428,6 +13457,7 @@ export async function submitViaPortal(ctx) {
     let maxStepAgentRecoveryUsed = false;
     let retainedAgentSubmitRef = '';
     for (let step = 1; step <= maxSteps; step += 1) {
+      assertPortalRuntime();
       if (loopAttemptStarted) await diagnostics?.beginAttempt();
       else loopAttemptStarted = true;
       const loopChallenge = await passAssistedPortalChallenge(page, browser, log);
@@ -14588,6 +14618,7 @@ export async function submitViaPortal(ctx) {
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
       evidence.submissionUrl = finalUrl;
+      assertPortalRuntime();
       await diagnostics.beforeSubmit(page);
       const guardToken = randomUUID();
       const armed = await final.locator.evaluate(armFinalFormClickGuardInPage, {
@@ -14725,6 +14756,13 @@ export async function submitViaPortal(ctx) {
     }
     return await handoff('portal_needs_candidate');
   } catch (error) {
+    if (error?.code === 'portal_runtime_budget') {
+      evidence.runtimeBudget = {
+        maxRuntimeMs,
+        elapsedMs: Math.max(0, Date.now() - portalRunStartedAt),
+      };
+      return await handoff('portal_needs_candidate');
+    }
     const currentAttempt = diagnostics?.currentAttempt?.();
     const finalClickInCurrentAttempt = Number.isSafeInteger(finalClickAttempt)
       && Number.isSafeInteger(currentAttempt)

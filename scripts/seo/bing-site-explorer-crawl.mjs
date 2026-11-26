@@ -24,6 +24,7 @@ import { HEALTH_FACILITIES_SECTION_RX } from '../lib/healthFacilitiesSections.mj
 import { loadCantonUrlSlugs } from '../lib/canton-url-slugs.mjs';
 import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
+import { readAttr, scanMarkupStartTags } from '../lib/html-attr.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
@@ -987,10 +988,10 @@ function stripTags(value) {
 
 function findMetaRobots(html) {
   const values = [];
-  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
-    const name = attr(match[1], 'name').toLowerCase();
+  for (const { raw } of scanMarkupStartTags(String(html || ''), 'meta')) {
+    const name = decodeXmlEntities(readAttr(raw, 'name')).toLowerCase();
     if (name === 'robots' || name === 'bingbot' || name === 'googlebot') {
-      const content = attr(match[1], 'content').toLowerCase();
+      const content = decodeXmlEntities(readAttr(raw, 'content')).toLowerCase();
       if (content) values.push(content);
     }
   }
@@ -998,9 +999,9 @@ function findMetaRobots(html) {
 }
 
 function findMetaRefreshTarget(html, pageUrl) {
-  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
-    if (attr(match[1], 'http-equiv').toLowerCase() !== 'refresh') continue;
-    const content = attr(match[1], 'content');
+  for (const { raw } of scanMarkupStartTags(String(html || ''), 'meta')) {
+    if (decodeXmlEntities(readAttr(raw, 'http-equiv')).toLowerCase() !== 'refresh') continue;
+    const content = decodeXmlEntities(readAttr(raw, 'content'));
     const targetMatch = content.match(/^\s*\d+(?:\.\d+)?\s*;\s*url\s*=\s*(.*?)\s*$/i);
     if (!targetMatch) continue;
     const rawTarget = targetMatch[1].trim().replace(/^(['"])([\s\S]*)\1$/, '$2');
@@ -1107,9 +1108,9 @@ function hasNewsArticleTitleInvariant(html, title) {
 }
 
 function findMetaDescription(html) {
-  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
-    if (attr(match[1], 'name').toLowerCase() !== 'description') continue;
-    return attr(match[1], 'content').replace(/\s+/g, ' ').trim();
+  for (const { raw } of scanMarkupStartTags(String(html || ''), 'meta')) {
+    if (decodeXmlEntities(readAttr(raw, 'name')).toLowerCase() !== 'description') continue;
+    return decodeXmlEntities(readAttr(raw, 'content')).replace(/\s+/g, ' ').trim();
   }
   return '';
 }

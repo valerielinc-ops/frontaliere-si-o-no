@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-26T14:39:01.765Z",
+  "generatedAt": "2026-11-26T15:40:18.122Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -32695,6 +32695,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-13T16:15:51.517Z"
+    },
+    "guidle:AadM5Jg::ea320ef297fc86d72cc521adecf3a8bc67a13af3fb8e87a740cfb45613edb41c": {
+      "id": "guidle:AadM5Jg",
+      "sourceDescriptionHash": "ea320ef297fc86d72cc521adecf3a8bc67a13af3fb8e87a740cfb45613edb41c",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Chollerhalle; cantone: ZG; categoria: Pop generalmente; partecipante: Fresh Voices; data: 2027-09-18; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Chollerhalle; cantone: ZG; categoria: Pop generalmente; partecipante: Fresh Voices; data: 2027-09-18; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Chollerhalle; canton: ZG; category: Pop generalmente; participant: Fresh Voices; date: 2027-09-18; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Chollerhalle; kanton: ZG; kategorie: Pop generalmente; mitwirkender: Fresh Voices; datum: 2027-09-18; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Chollerhalle; canton: ZG; catégorie: Pop generalmente; participant: Fresh Voices; date: 2027-09-18; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-26T15:33:45.319Z"
     },
     "guidle:AAdmrv6::5bb52baa4b89b6fb43d8bab6733feef323a9c90a4404c03c88bfd9bc2d0c371e": {
       "id": "guidle:AAdmrv6",
@@ -186220,6 +186234,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T18:21:38.261Z"
     },
+    "myswitzerland:fc74f3552fc4487398decc1404eaf42e::6a7c536500be4cb7b02a78b89be1297ea9b276b4763524b7414278be8645efc9": {
+      "id": "myswitzerland:fc74f3552fc4487398decc1404eaf42e",
+      "sourceDescriptionHash": "6a7c536500be4cb7b02a78b89be1297ea9b276b4763524b7414278be8645efc9",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Appenzell; cantone: AI; categoria: Event; data: 2027-08-21; ora: 15:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Appenzell; cantone: AI; categoria: Event; data: 2027-08-21; ora: 15:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Appenzell; canton: AI; category: Event; date: 2027-08-21; time: 15:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Appenzell; kanton: AI; kategorie: Event; datum: 2027-08-21; uhrzeit: 15:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Appenzell; canton: AI; catégorie: Event; date: 2027-08-21; heure: 15:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-26T15:33:45.307Z"
+    },
     "myswitzerland:fc7c44de62864e9490a40ef01121098b::3c8af2892f7d3ea19201c81fbb00cf5accc1e5543469daceee8caaefe6932d21": {
       "id": "myswitzerland:fc7c44de62864e9490a40ef01121098b",
       "sourceDescriptionHash": "3c8af2892f7d3ea19201c81fbb00cf5accc1e5543469daceee8caaefe6932d21",
@@ -203636,15 +203664,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AadM5Jg::ea320ef297fc86d72cc521adecf3a8bc67a13af3fb8e87a740cfb45613edb41c": {
-      "id": "guidle:AadM5Jg",
-      "sourceDescriptionHash": "ea320ef297fc86d72cc521adecf3a8bc67a13af3fb8e87a740cfb45613edb41c",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-26T09:37:09.261Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AAfFuC8::6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc": {
       "id": "guidle:AAfFuC8",
       "sourceDescriptionHash": "6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc",
@@ -210140,15 +210159,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T02:36:18.806Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:fc74f3552fc4487398decc1404eaf42e::6a7c536500be4cb7b02a78b89be1297ea9b276b4763524b7414278be8645efc9": {
-      "id": "myswitzerland:fc74f3552fc4487398decc1404eaf42e",
-      "sourceDescriptionHash": "6a7c536500be4cb7b02a78b89be1297ea9b276b4763524b7414278be8645efc9",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T21:35:11.468Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

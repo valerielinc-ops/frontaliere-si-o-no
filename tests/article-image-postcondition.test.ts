@@ -5,6 +5,7 @@ import path from 'node:path';
 
 import {
   declaredImageIsOwn,
+  extractOgImage,
   filterEntriesByImagePostcondition,
   isGenericOgImage,
   normalizeImagePath,
@@ -164,6 +165,25 @@ describe('remote hero sizes for sparse article re-renders', () => {
 });
 
 describe('article image postcondition', () => {
+  it('reads og:image only from live meta tags', () => {
+    const html = [
+      '<div data-template=\'<meta property="og:image" content="https://frontaliereticino.ch/og-image.png">\'></div>',
+      '<script>const fake = \'<meta property="og:image" content="https://frontaliereticino.ch/og-image.png">\';</script>',
+      '<style>.fake::before { content: \'<meta property="og:image" content="https://frontaliereticino.ch/og-image.png">\'; }</style>',
+      '<!-- <meta property="og:image" content="https://frontaliereticino.ch/og-image.png"> -->',
+      '<meta property="og:image" content="https://frontaliereticino.ch/images/real.webp">',
+    ].join('');
+
+    expect(extractOgImage(html)).toBe('https://frontaliereticino.ch/images/real.webp');
+  });
+
+  it('does not read a tag-shaped value as an outer meta attribute', () => {
+    const html = "<meta data-template='<meta property=\"og:image\" content=\"https://bad.example/x\">'>"
+      + '<meta property="og:image" content="https://good.example/y">';
+
+    expect(extractOgImage(html)).toBe('https://good.example/y');
+  });
+
   it('does not reinterpret external declared images as site-owned paths', () => {
     expect(normalizeImagePath('//cdn.example/images/hero.webp')).toBeNull();
     expect(declaredImageIsOwn('//cdn.example/images/hero.webp')).toBe(false);

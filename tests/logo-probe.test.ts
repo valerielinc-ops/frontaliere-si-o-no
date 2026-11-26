@@ -119,7 +119,12 @@ describe('employerLogoDomain', () => {
 
 describe('employerSiteName', () => {
   it('reads the name the homepage declares when it names the domain', () => {
-    expect(employerSiteName('<meta property="og:site_name" content="Garage Service Kuhn AG">', 'servicekuhn.ch'))
+    expect(employerSiteName(
+      '<div data-template=\'<meta property="og:site_name" content="Wrong Brand">\'>'
+      + '</div><script>const fake = \'<meta property="og:site_name" content="Wrong Brand">\';</script>'
+      + '<meta property="og:site_name" content="Garage Service Kuhn AG">',
+      'servicekuhn.ch',
+    ))
       .toBe('Garage Service Kuhn AG');
     expect(employerSiteName('<script type="application/ld+json">{"@type":"Organization","name":"BENU Apotheken"}</script>', 'benu.ch'))
       .toBe('BENU Apotheken');
