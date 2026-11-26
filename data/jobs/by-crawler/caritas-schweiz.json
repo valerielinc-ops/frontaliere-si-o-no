@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-11-25T21:19:18.601Z",
-  "runId": "45701648627",
+  "assembledAt": "2026-11-26T09:25:16.568Z",
+  "runId": "45789327191",
   "jobs": [
     {
       "id": "caritas-schweiz-41d37a49c14d",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "responsabile-di-progetto-20-caritas-schweiz-luzern",
         "en": "project-manager-20-caritas-schweiz-luzern",
-        "de": "projektleiter-in-20-caritas-schweiz-luzern",
+        "de": "projektleiter-in-20-caritas-schweiz-solothurn",
         "fr": "chef-fe-de-projet-20-caritas-schweiz-luzern"
       },
       "company": "Caritas Schweiz",
@@ -30,17 +30,18 @@
         "fr": "Nous défendons les gens. Caritas Soleure s'engage dans une société de solidarité à travers le canton avec un large éventail d'offres.\n.\nPour le développement ultérieur du point de rencontre Dellenmobil dans le Dellenpark à Trimbach, nous recherchons\n.\nLeurs tâches\n• Appui et développement du point de rencontre Dellenmobil à Dellenpark\n• Relations publiques et réseautage ainsi que coopération avec les volontaires\n• Planification et mise en œuvre des manifestations et des manifestations thématiques\nC'est ce qu'ils apportent.\n• Diplôme en travail social ou en animation socioculturelle\n• Expérience initiale du projet et/ou du travail communautaire\n• Expérience et intérêt pour la planification, l'organisation et le travail conceptuel\n• Profitez de la communication et des relations avec les différentes parties prenantes\nVous êtes une initiative, une personnalité communicative et travaillez de manière indépendante, structurée et orientée vers la solution. Ils sont intéressés par la rencontre et travailler dans un environnement religieux. La proximité géographique du lieu de travail et la flexibilité sont un grand plus.\nC'est ce qu'on vous offre.\nAvec nous, vous avez l'occasion d'apporter une contribution précieuse à une société plus juste et plus solidaire. Elle attend une atmosphère de travail ouverte et appréciée, une équipe motivée, des avantages sociaux attrayants et une intégration dans une entreprise sociale professionnelle.\n.\nLe lieu de travail est Trimbach. L'entrée dans l'emploi est le 01.04.2027 ou par accord.\nLa période de demande s'étend jusqu'au 15.12.2026\nVous pouvez poser des questions à Emil Inauen, directeur général de Stv Caritas Soleure,\ne.inauen@caritas-solothurn.ch, tél. 062 837 07 29, disponible.\nNotre site web: www.caritas-solothurn.ch"
       },
       "needsRetranslation": false,
-      "location": "Luzern",
-      "canton": "LU",
+      "location": "Solothurn",
+      "canton": "SO",
       "url": "https://apply.refline.ch/126757/2397/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:37.649Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
+      "crawledAt": "2026-11-26T09:24:50.567Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "Niklaus-Konrad-Strasse 18",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6003",
+      "postalCode": "4500",
       "category": "Sociale / Educazione",
       "contract": "part-time",
       "employmentType": "PART_TIME",
@@ -57,12 +58,13 @@
       "pensumMin": 20,
       "pensumMax": 20,
       "pensum": "20%",
-      "previousSlugs": [
-        "projektleiter-in-20-caritas-schweiz-luzern"
-      ],
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "projektleiter-in-20-caritas-schweiz-luzern"
+        ],
+        "it": [
+          "projektleiter-in-20-caritas-schweiz-luzern",
+          "projektleiter-in-20-caritas-schweiz-solothurn"
         ],
         "en": [
           "projektleiter-in-20-caritas-schweiz-luzern"
@@ -71,25 +73,27 @@
           "projektleiter-in-20-caritas-schweiz-luzern"
         ]
       },
+      "previousSlugs": [
+        "projektleiter-in-20-caritas-schweiz-luzern",
+        "projektleiter-in-20-caritas-schweiz-solothurn"
+      ],
       "firstSeenAt": "2026-11-19T09:30:48.687Z",
-      "salaryMin": 18000,
-      "salaryMax": 33200,
+      "salaryMin": 17600,
+      "salaryMax": 32500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 18000,
-          "maxValue": 33200,
+          "minValue": 17600,
+          "maxValue": 32500,
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Luzern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:18:37.649Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2397/pub/1/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-16T09:24:50.567Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-0e067aefd94b",
@@ -123,9 +127,10 @@
       "url": "https://apply.refline.ch/126757/2396/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:37.208Z",
+      "crawledAt": "2026-11-26T09:24:50.102Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
+      "streetAddress": "Kasinostrasse 25",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5000",
@@ -175,11 +180,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Aarau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:18:37.208Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2396/pub/1/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-11T09:24:50.102Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-9ddec5edc18c",
@@ -213,9 +216,10 @@
       "url": "https://apply.refline.ch/126757/2395/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:36.764Z",
+      "crawledAt": "2026-11-26T09:24:49.638Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
+      "streetAddress": "Laurenzenvorstadt 90",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "5000",
@@ -263,11 +267,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Aarau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:18:36.764Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2395/pub/1/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-11T09:24:49.638Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-e24ca4232fc9",
@@ -301,9 +303,10 @@
       "url": "https://apply.refline.ch/126757/2389/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:36.319Z",
+      "crawledAt": "2026-11-26T09:24:49.172Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
+      "streetAddress": "Beckenhofstrasse 16",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
@@ -351,11 +354,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:18:36.319Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2389/pub/1/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-03T09:24:49.172Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-6b39cbcf8a7a",
@@ -389,9 +390,10 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:35.868Z",
+      "crawledAt": "2026-11-26T09:24:48.706Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
+      "streetAddress": "Beckenhofstrasse 16",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
@@ -439,11 +441,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:18:35.868Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2379/pub/1/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:24:48.706Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-7210a83051f7",
@@ -477,9 +477,10 @@
       "url": "https://apply.refline.ch/126757/2020/pub/5/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:35.423Z",
+      "crawledAt": "2026-11-26T09:24:48.240Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
+      "streetAddress": "Zähringerstrasse 25",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3004",
@@ -542,11 +543,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:35.423Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2020/pub/5/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-26T09:24:48.240Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-1a3dad5c8974",
@@ -554,7 +553,7 @@
       "slugByLocale": {
         "it": "allenatore-di-integrazione-mna-80-100-m-f-d-caritas-schweiz-zurich",
         "en": "integration-coach-mna-80-100-m-f-d-caritas-schweiz-zurich",
-        "de": "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich",
+        "de": "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-uster",
         "fr": "entraineur-d-integration-mna-80-100-h-f-d-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
@@ -575,17 +574,18 @@
         "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nCaritas Suisse gère des centres d'asile pour les familles, les personnes et les mineurs non accompagnés (MNA) dans cinq localités du canton de Zurich depuis mars 2024 au nom de l'Office social cantonal (KSA).\nEn tant que coach d'intégration MNA, vous coordonnez l'intégration sociale, éducative et professionnelle des demandeurs d'asile mineurs non accompagnés dans un centre MNA.\nLeurs tâches\n• Documentation des évaluations ou détermination de l'emplacement, en particulier évaluation brève IAS \"Résultats de l'évaluation du potentiel\" pour tous les AMN\n• Demandes de mesures d'intégration du catalogue IAZH\n• Organisation de solutions pédagogiques et de suivi professionnel\n• Documentation des discussions, mesures prévues et mises en œuvre\n• Traitement trimestriel des domaines de la vie professionnelle et de l'intégration scolaire en étroite collaboration avec la personne de référence sociopédagogique\n• Documentation de discussion sur les thèmes d'intégration\n• Responsabilité Intégration professionnelle: clarification, coopération avec des postes spécialisés et soutien à la recherche d'apprentis\n• Coopération avec les institutions et les autorités pour discuter de sujets spécifiques à l'intégration\n• Rapports selon les spécifications du Département de l ' intégration\n• Préparation d'informations pertinentes à l'intégration pour la phase de sortie\n• Échanges avec des écoles, des experts (participation à des discussions de localisation)\nNos exigences\n• Formation complète en travail social, pédagogie sociale, orientation professionnelle, éducation ou carrière, pédagogie ou qualification équivalente\n• Formation continue en gestion de cas et/ou sur des thèmes d'intégration d'avantage\n• Bonne connaissance du système suisse d'éducation et de formation, notamment des différents parcours éducatifs et des solutions de suivi\n• Bonne connaissance de l'asile et des exigences d'intégration pertinentes\n• Au moins trois ans d'expérience professionnelle, idéalement dans le service social en mettant l'accent sur la gestion de cas réfugiés ou dans le domaine de l'intégration\n• Appréciation de travailler avec les demandeurs d'asile mineurs non accompagnés et compréhension de leur situation particulière\n• Connaissance et expérience dans l'application de la loi sur l'aide sociale et du règlement sur la protection sociale en matière d'asile\n• Très bonne connaissance orale et écrite de l'allemand et bonne connaissance orale d'une autre langue nationale et/ou de l'anglais et/ou d'une langue d'asile\n• Compétences en informatique idéalement avec le logiciel d'orientation de cas tutoris\n• Un extrait privé spécial parfait du casier judiciaire ou la volonté de le soumettre avant d'entrer dans l'emploi\nLieu de travail: Canton de Zurich (Uster)\nDébut des travaux : immédiatement ou d'un commun accord\nCaritas offre des conditions d'emploi attrayantes et une atmosphère de travail ouverte à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec un état d'esprit numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nMaria Venezia Pajarillaga, responsable de l'intégration MNA, Téléphone: +41 76 361 99 37\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
       },
       "needsRetranslation": false,
-      "location": "Zürich",
+      "location": "Uster",
       "canton": "ZH",
       "url": "https://apply.refline.ch/126757/2363/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:34.975Z",
-      "addressLocality": "Zürich",
+      "crawledAt": "2026-11-26T09:24:47.772Z",
+      "addressLocality": "Uster",
       "addressRegion": "ZH",
+      "streetAddress": "Aathalstrasse 21",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8001",
+      "postalCode": "8610",
       "category": "Sociale / Educazione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -602,10 +602,13 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-11-25T09:16:37.126Z",
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich"
+        ],
+        "it": [
+          "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich",
+          "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-uster"
         ],
         "en": [
           "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich"
@@ -615,8 +618,10 @@
         ]
       },
       "previousSlugs": [
-        "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich"
+        "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich",
+        "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-uster"
       ],
+      "firstSeenAt": "2026-11-25T09:16:37.126Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -630,11 +635,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:34.975Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2363/pub/4/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-26T09:24:47.772Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-11e6571f8614",
@@ -642,7 +645,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
         "en": "sorting-plant-employee-60-m-f-d-caritas-schweiz-waldibrucke-emmen",
-        "de": "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
+        "de": "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-emmen",
         "fr": "employe-de-l-usine-de-tri-60-h-f-d-caritas-schweiz-waldibrucke-emmen"
       },
       "company": "Caritas Schweiz",
@@ -662,14 +665,15 @@
         "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nDie Kleiderzentrale sammelt und sortiert jährlich rund 600 Tonnen Gebrauchtkleider und Schuhe für eine sinnvolle und gezielte Weiterverwendung im In- und Ausland. Ein wichtiger Teil der gesammelten Kleider geht in den Verkauf in der Schweiz. Der Betrieb umfasst das Sortierwerk, die Lagerhallen, zwei Textil-Verkaufsläden und die Administration.\nIhre Aufgaben\n• Fachliche und organisatorische Führung sowie Begleitung von Mitarbeitenden aus unterschiedlichen Gruppen\n• Sortierung von neuer sowie gebrauchter (Secondhand-) Kleidung und Schuhen\n• Einteilung und Kategorisierung der Waren nach Grösse, Geschlecht, Saison und Qualitätsstandards\n• Prüfung eingehender Kleiderspenden hinsichtlich Vollständigkeit, Sauberkeit und Zustand\n• Vorbereitung der Waren für die Weitergabe, Lagerung oder den Verkauf in den Shops: Waschen, Etikettieren, Zusammenlegen, Verpacken\n• Förderung der Arbeitsintegration sowie Unterstützung bei der Einarbeitung und Entwicklung der Mitarbeitenden\n• Sicherstellung eines effizienten, qualitativ hochwertigen und reibungslosen Arbeitsablaufs im Bereich Textilsortierung und Warenaufbereitung\n• Mitverantwortung für Ordnung, Sauberkeit und Arbeitssicherheit im gesamten Arbeitsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im Textilbereich oder vergleichbare Ausbildung und Erfahrung\n• Erfahrung in Lager, Sortierung oder Verkauf von Bekleidung / Modewissen von Vorteil\n• Körperliche Belastbarkeit\n• Teamfähigkeit und Zuverlässigkeit\n• Übernahme von Verantwortung für Teilbereiche\n• Verantwortungsbewusstsein\n• Geduld und Sozialkompetenz im Umgang mit Freiwilligen, Schulklassen, Asylsuchenden und Teilnehmenden der gemeinnützigen Arbeit\n• Gute Deutschkenntnisse von Vorteil\n• Interesse an Nachhaltigkeit und Wiederverwertung von Textilien und Schuhen\n• Grundkenntnisse in Warenkunde, Sortierprozessen sowie Weiterbildung im Bereich Recycling und Nachhaltigkeit von Vorteil\nArbeitsort ist Waldibrücke, Emmen.\nArbeitsbeginn: per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Drazenka Anicic, Telefon +41 41 269 00 30.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
         "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nChaque année, le centre vestimentaire recueille et trie environ 600 tonnes de vêtements et de chaussures usagés pour une réutilisation significative et ciblée au pays et à l'étranger. Une partie importante des vêtements collectés est en vente en Suisse. L'opération comprend l'usine de tri, les entrepôts, deux magasins de vente de textiles et l'administration.\nLeurs tâches\n• Leadership professionnel et organisationnel ainsi que soutien des employés de différents groupes\n• Tri de vêtements et de chaussures neufs et usagés (de seconde main)\n• Classification et classification des marchandises par taille, sexe, saison et normes de qualité\n• Examen des dons entrants de vêtements en ce qui concerne l'exhaustivité, la propreté et l'état\n• Préparation des marchandises pour le transfert, le stockage ou la vente en magasin: lavage, étiquetage, fusion, emballage\n• Promotion de l'insertion professionnelle et soutien à l'insertion et au développement des salariés\n• Assurer des opérations efficaces, de qualité et sans heurt dans le domaine du tri et de la préparation des textiles\n• Coresponsabilité pour l'ordre, la propreté et la sécurité au travail dans l'ensemble de la zone de travail\nNos exigences\n• Formation et expérience en matière de textiles terminées ou comparables\n• Expérience en stock, tri ou vente de vêtements / connaissance de la mode d'avantage\n• Capacité physique\n• Travail d'équipe et fiabilité\n• Hypothèse de la responsabilité pour les sous-zones\n• Responsabilité\n• Patience et compétences sociales dans le traitement des bénévoles, des classes scolaires, des demandeurs d'asile et des participants au travail communautaire\n• Une bonne connaissance de l'allemand est avantageuse\n• Intérêt pour la durabilité et le recyclage des textiles et des chaussures\n• La connaissance de base des marchandises, des procédés de tri et de la formation continue dans le domaine du recyclage et de la durabilité est avantageuse\nLe lieu de travail est Waldibrücke, Emmen.\nDébut des travaux: immédiatement ou d'un commun accord.\nCaritas offre des conditions d'emploi attrayantes et une atmosphère de travail ouverte à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec un état d'esprit numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nPour des informations sur cette position, veuillez contacter Drazenka Anicic, téléphone +41 41 269 00 30.\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
       },
-      "location": "Waldibrücke, Emmen",
+      "location": "Emmen",
       "canton": "LU",
       "url": "https://apply.refline.ch/126757/2398/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:33.736Z",
-      "addressLocality": "Waldibrücke, Emmen",
+      "crawledAt": "2026-11-26T09:24:47.305Z",
+      "addressLocality": "Emmen",
       "addressRegion": "LU",
+      "streetAddress": "Feldmattstrasse 28",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6032",
@@ -689,12 +693,13 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "previousSlugs": [
-        "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
-      ],
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
+        ],
+        "it": [
+          "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
+          "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-emmen"
         ],
         "en": [
           "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
@@ -703,6 +708,10 @@
           "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
         ]
       },
+      "previousSlugs": [
+        "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
+        "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-emmen"
+      ],
       "firstSeenAt": "2026-11-23T09:22:30.451Z",
       "salaryMin": 35700,
       "salaryMax": 66000,
@@ -717,11 +726,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Waldibrücke, Emmen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:18:33.736Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2398/pub/1/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-21T09:24:47.305Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-6dc00984e5ad",
@@ -729,7 +736,7 @@
       "slugByLocale": {
         "it": "persone-di-riferimento-pedagogico-sociale-mna-80-100-a-zurigo-uster-m-f-d-caritas-schweiz-zurich",
         "en": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "de": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+        "de": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-uster",
         "fr": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
@@ -750,17 +757,18 @@
         "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nCaritas Suisse exploite des centres d'asile dans différents endroits du canton de Zurich depuis mars 2024. En tant que spécialiste socioéducatif et soignant, vous êtes responsable des soins, du soutien et de l'intégration personnels et adaptés à l'âge des demandeurs d'asile mineurs non accompagnés au Centre MNA sur Aathalstrasse à Zurich-Uster.\nLeurs tâches\n• Soutien sociopédagogique et psychosocial des jeunes dans le cadre du système des personnes de référence\n• Promotion des jeunes dans les différents domaines de la vie (école, loisirs, santé, gestion de l'argent) avec des objectifs individuels et des contrôles d'objectifs\n• Développement de structures quotidiennes axées sur les besoins et d'activités de loisirs pour et avec les jeunes\n• Promouvoir l'autosuffisance, le travail indépendant et l'intégrité psychologique et sociale et établir un cadre contraignant pour la coexistence\n• Intervention en cas de crise et gestion des conflits\n• Coordination et planification interdisciplinaires actives au sein de l'équipe (par exemple, coopération étroite avec le soutien des mineurs)\n• Responsabilité budgétaire conformément à la directive de transposition du canton de ZH et aux exigences de Caritas Suisse, ainsi que préparation de la facturation\n• Mise en réseau externe avec les partenaires et organisations de coopération\n• Coresponsabilité pour la création d'une bonne ambiance et pour le respect des règles de la maison et de la sécurité dans le centre\n• Prise en charge du service de picting sociopédagogique\nNos exigences\n• Formation sociopédagogique reconnue (ou équivalent)\n• Expérience de la migration et/ou du travail des jeunes souhaitable\n• Très bonne connaissance de l'allemand, meilleure connaissance des langues étrangères bénéfique\n• Compétence interculturelle\n• Volonté et flexibilité du temps de travail en fonction du temps (travail posté/fin de semaine)\n• Un haut sentiment de responsabilité et de qualité pour travailler avec les jeunes vulnérables\n• Initiative, indépendance, travail d'équipe et assurance\n• Haute résilience et résilience\n• Bonne connaissance de Microsoft Office\n• Gomme fiable\nLieu de travail: Canton de Zurich (Uster) Début du travail: immédiatement ou par accord\nCaritas offre des conditions d'emploi attrayantes et un environnement de travail ouvert à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec une mentalité numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nVous êtes invités à recevoir des informations sur cette position de Mme Tijana Tomovic, Chef du Centre d'asile MNA, ttomovic@caritas.ch.\nNous vous remercions de votre intérêt et attendons avec impatience de recevoir votre candidature jusqu'à présent via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
       },
       "needsRetranslation": false,
-      "location": "Zürich",
+      "location": "Uster",
       "canton": "ZH",
       "url": "https://apply.refline.ch/126757/2338/pub/10/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:33.292Z",
-      "addressLocality": "Zürich",
+      "crawledAt": "2026-11-26T09:24:46.835Z",
+      "addressLocality": "Uster",
       "addressRegion": "ZH",
+      "streetAddress": "Aathalstrasse 21",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8001",
+      "postalCode": "8610",
       "category": "Sociale / Educazione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -777,6 +785,34 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugsByLocale": {
+        "de": [
+          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich-2c787629",
+          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
+        ],
+        "it": [
+          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich-2c787629",
+          "persone-di-riferimento-pedagogico-sociale-mna-80-100-a-zurigo-uster-m-f-d-caritas-schweiz-zurich-ee706689",
+          "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich-277d9fe1",
+          "personnes-de-reference-sociopedagogiques-mna-80-100-a-zurich-uster-h-f-d-caritas-schweiz-zurich-2d03fa17",
+          "persona-di-riferimento-pedagogico-sociale-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich",
+          "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+          "persona-di-riferimento-pedagogico-sociale-mna-100-a-zurigo-oerlikon-m-f-d-caritas-schweiz-zurich",
+          "social-pedagogical-reference-person-mna-100-in-zurich-oerlikon-m-f-d-caritas-schweiz-zurich",
+          "sozialpadagogische-bezugsperson-mna-100-in-zurich-oerlikon-m-w-d-caritas-schweiz-zurich",
+          "personne-de-reference-pedagogique-sociale-mna-100-a-zurich-oerlikon-h-f-d-caritas-schweiz-zurich",
+          "social-pedagogical-reference-person-mna-80-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+          "personne-de-reference-pedagogique-sociale-mna-80-a-zurich-uster-h-f-d-caritas-schweiz-zurich",
+          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-uster"
+        ],
+        "en": [
+          "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich"
+        ],
+        "fr": [
+          "personnes-de-reference-sociopedagogiques-mna-80-100-a-zurich-uster-h-f-d-caritas-schweiz-zurich"
+        ]
+      },
       "previousSlugs": [
         "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
         "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
@@ -792,34 +828,9 @@
         "sozialpadagogische-bezugsperson-mna-100-in-zurich-oerlikon-m-w-d-caritas-schweiz-zurich",
         "personne-de-reference-pedagogique-sociale-mna-100-a-zurich-oerlikon-h-f-d-caritas-schweiz-zurich",
         "social-pedagogical-reference-person-mna-80-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
-        "personne-de-reference-pedagogique-sociale-mna-80-a-zurich-uster-h-f-d-caritas-schweiz-zurich"
+        "personne-de-reference-pedagogique-sociale-mna-80-a-zurich-uster-h-f-d-caritas-schweiz-zurich",
+        "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-uster"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich-2c787629",
-          "persone-di-riferimento-pedagogico-sociale-mna-80-100-a-zurigo-uster-m-f-d-caritas-schweiz-zurich-ee706689",
-          "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich-277d9fe1",
-          "personnes-de-reference-sociopedagogiques-mna-80-100-a-zurich-uster-h-f-d-caritas-schweiz-zurich-2d03fa17",
-          "persona-di-riferimento-pedagogico-sociale-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich",
-          "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-          "persona-di-riferimento-pedagogico-sociale-mna-100-a-zurigo-oerlikon-m-f-d-caritas-schweiz-zurich",
-          "social-pedagogical-reference-person-mna-100-in-zurich-oerlikon-m-f-d-caritas-schweiz-zurich",
-          "sozialpadagogische-bezugsperson-mna-100-in-zurich-oerlikon-m-w-d-caritas-schweiz-zurich",
-          "personne-de-reference-pedagogique-sociale-mna-100-a-zurich-oerlikon-h-f-d-caritas-schweiz-zurich",
-          "social-pedagogical-reference-person-mna-80-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
-          "personne-de-reference-pedagogique-sociale-mna-80-a-zurich-uster-h-f-d-caritas-schweiz-zurich"
-        ],
-        "en": [
-          "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich"
-        ],
-        "de": [
-          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich-2c787629"
-        ],
-        "fr": [
-          "personnes-de-reference-sociopedagogiques-mna-80-100-a-zurich-uster-h-f-d-caritas-schweiz-zurich"
-        ]
-      },
       "firstSeenAt": "2026-08-27T00:41:55.297Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -834,11 +845,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:33.292Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2338/pub/10/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-26T09:24:46.835Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-f587483a5b3e",
@@ -872,9 +881,10 @@
       "url": "https://apply.refline.ch/126757/2394/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:32.844Z",
+      "crawledAt": "2026-11-26T09:24:46.372Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
+      "streetAddress": "Bleicherweg 47",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
@@ -922,11 +932,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:18:32.844Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2394/pub/1/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-11T09:24:46.372Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-9d8a49d4a0d0",
@@ -960,9 +968,10 @@
       "url": "https://apply.refline.ch/126757/2393/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:32.398Z",
+      "crawledAt": "2026-11-26T09:24:45.905Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
+      "streetAddress": "Bleicherweg 47",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
@@ -1012,11 +1021,279 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:18:32.398Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2393/pub/1/index.html"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-10T09:24:45.905Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "caritas-schweiz-99562f004696",
+      "slug": "gestione-divisione-diakonie-40-50-caritas-schweiz-st-gallen",
+      "slugByLocale": {
+        "it": "gestione-divisione-diakonie-40-50-caritas-schweiz-st-gallen",
+        "en": "divisional-management-diakonie-40-50-caritas-schweiz-st-gallen",
+        "de": "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen",
+        "fr": "gestion-divisionnaire-diakonie-40-50-caritas-schweiz-st-gallen"
+      },
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Bereichsleitung Diakonie (40-50 %)",
+      "titleByLocale": {
+        "it": "Gestione divisione Diakonie (40-50 %)",
+        "en": "Divisional management Diakonie (40-50 %)",
+        "de": "Bereichsleitung Diakonie (40-50 %)",
+        "fr": "Gestion divisionnaire Diakonie (40-50 %)"
+      },
+      "description": "Caritas St.Gallen-Appenzell ist das Hilfswerk des Bistums St.Gallen. Wir setzen uns mit konkreten Angeboten und gesellschaftlichem Engagement für armutsbetroffene, ausgegrenzte und in Not geratene Menschen ein.\nSprichst du Kirche und Caritas?\nKirche und Caritas verbindet ein gemeinsamer Auftrag: Menschen unterstützen, gesellschaftliche Verantwortung übernehmen und Solidarität konkret leben. Dabei treffen unterschiedliche Erfahrungen, Perspektiven und Arbeitsweisen aufeinander. Gerade darin liegen Chancen, voneinander zu lernen und gemeinsam etwas zu bewegen. Wir suchen eine Persönlichkeit, die diese Welten kennt, Verbindungen schafft und den diakonischen Auftrag mit Überzeugung und Freude mitgestaltet.\n.\nWas du bei uns bewegst:\n• Du pflegst und gestaltest die Zusammenarbeit zwischen Caritas St.Gallen-Appenzell, dem Bistum St.Gallen und weiteren kirchlichen Partnern.\n• Du bringst sozialfachlichen Erfahrungen und Perspektiven in kirchliche Gremien und Entwicklungsprozesse ein und förderst den Dialog zwischen Kirche und Caritas.\n• Du verbindest theologische, gesellschaftliche und sozialpolitische Fragen und wirkst an der strategischen Weiterentwicklung unserer Organisation mit.\n• Du engagierst dich in regionalen und nationalen kirchlichen und sozialen Netzwerken.\n• Du leitest den Bereich Diakonieanimation mit vier Mitarbeitenden und gestaltest dessen Bildungs- und Projektarbeit mit.\n• Du bist Mitglied der Geschäftsleitung und bringst dort deine fachliche Perspektive ein.\nWas du mitbringst:\n• Eine theologische Ausbildung, fundierte Kenntnisse der katholischen Kirche und idealerweise eine gute Vernetzung im Bistum St.Gallen.\n• Ein ausgeprägtes Verständnis für gesellschaftliche und sozialpolitische Fragen sowie für die Lebensrealitäten benachteiligter Menschen.\n• Freude am Dialog, die Fähigkeit, unterschiedliche Perspektiven zusammenzuführen, und ein gutes Gespür für institutionelle Zusammenhänge.\n• Strategisches Denken, Eigeninitiative und die Bereitschaft, Verantwortung für ein kleines Team zu übernehmen. Führungserfahrung ist willkommen, aber keine Voraussetzung.\n• Kommunikationsstärke, Offenheit, Geduld und eine gesunde Portion Humor.\nArbeitsort ist St. Gallen\nArbeitsbeginn: 01.01.2027 oder nach Vereinbarung.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Herr Philipp Holderegger, Geschäftsleiter: Telefon 071 577 50 29.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am\n30. November 2026 über das Online-Portal.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch",
+      "descriptionByLocale": {
+        "it": "Caritas St.Gallen-Appenzell è la carità della Diocesi di San Gallo. Lavoriamo con offerte concrete e impegno sociale per le persone colpite dalla povertà, escluse e bisognose.\nParli Chiesa e Caritas?\nLa Chiesa e la Caritas condividono una missione comune: sostenere le persone, assumersi la responsabilità sociale e vivere la solidarietà in modi concreti. Esperienze diverse, prospettive e metodi di lavoro si incontrano. Questo è proprio dove ci sono opportunità di imparare l'un l'altro e fare la differenza insieme. Stiamo cercando una personalità che conosca questi mondi, crea connessioni e plasma la missione diaconale con convinzione e gioia.\n.\nCosa fai con noi:\n• Mantenete e plasmate la cooperazione tra Caritas St.Gallen-Appenzell, la Diocesi di San Gallo e altri partner ecclesiali.\n• Porti esperienze e prospettive sociali a comitati di chiesa e processi di sviluppo e promuovi il dialogo tra chiesa e Caritas.\n• Si collegano questioni teologiche, sociali e socio-politiche e contribuiscono allo sviluppo strategico della nostra organizzazione.\n• Sei coinvolto in chiesa regionale e nazionale e reti sociali.\n• Si guida la divisione Diakonieanimation con quattro dipendenti e contribuire a modellare il suo lavoro educativo e di progetto.\n• Sei un membro del team di gestione e portare la tua prospettiva professionale lì.\nCosa porti:\n• Un'educazione teologica, una conoscenza approfondita della Chiesa cattolica e idealmente una buona rete nella diocesi di San Gallo.\n• Una forte comprensione delle questioni sociali e socio-politiche e delle realtà della vita delle persone svantaggiate.\n• La gioia del dialogo, la capacità di riunire prospettive diverse e un buon senso dei legami istituzionali.\n• Il pensiero strategico, l'iniziativa e la volontà di assumersi la responsabilità di una piccola squadra. L'esperienza di leadership è gradita, ma non un requisito.\n• Forza di comunicazione, apertura, pazienza e una dose sana di umorismo.\nLuogo di lavoro è San Gallo\nInizio del lavoro: 01.01.2027 o d'accordo.\nPhilipp Holderegger, Amministratore Delegato, è lieto di fornirvi informazioni su questa posizione: telefono 071 577 50 29.\nVi ringraziamo per il vostro interesse e non vediamo l'ora della vostra applicazione fino al\n30. Novembre 2026 tramite il portale online.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch",
+        "en": "Caritas St.Gallen-Appenzell is the charity of the Diocese of St.Gallen. We work with concrete offers and social commitment for people affected by poverty, excluded and in need.\nDo you speak Church and Caritas?\nThe Church and Caritas share a common mission: to support people, assume social responsibility and live solidarity in concrete ways. Different experiences, perspectives and working methods meet. This is precisely where there are opportunities to learn from each other and make a difference together. We are looking for a personality who knows these worlds, creates connections and shapes the diaconal mission with conviction and joy.\n.\nWhat you do with us:\n• You maintain and shape the cooperation between Caritas St.Gallen-Appenzell, the Diocese of St.Gallen and other church partners.\n• You bring social experiences and perspectives to church committees and development processes and promote the dialogue between church and Caritas.\n• You connect theological, social and socio-political questions and contribute to the strategic development of our organization.\n• You are involved in regional and national church and social networks.\n• You lead the Diakonieanimation division with four employees and help shape its educational and project work.\n• You are a member of the management team and bring your professional perspective there.\nWhat you bring:\n• A theological education, in-depth knowledge of the Catholic Church and ideally a good network in the diocese of St.Gallen.\n• A strong understanding of social and socio-political issues as well as the realities of life of disadvantaged people.\n• The joy of dialogue, the ability to bring together different perspectives and a good sense of institutional connections.\n• Strategic thinking, initiative and the willingness to take responsibility for a small team. Leadership experience is welcome, but not a requirement.\n• Communication strength, openness, patience and a healthy dose of humor.\nPlace of work is St. Gallen\nStart of work: 01.01.2027 or by agreement.\nPhilipp Holderegger, Managing Director, is happy to provide you with information about this position: telephone 071 577 50 29.\nWe thank you for your interest and look forward to your application until the\n30. November 2026 via the online portal.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch",
+        "de": "Caritas St.Gallen-Appenzell ist das Hilfswerk des Bistums St.Gallen. Wir setzen uns mit konkreten Angeboten und gesellschaftlichem Engagement für armutsbetroffene, ausgegrenzte und in Not geratene Menschen ein.\nSprichst du Kirche und Caritas?\nKirche und Caritas verbindet ein gemeinsamer Auftrag: Menschen unterstützen, gesellschaftliche Verantwortung übernehmen und Solidarität konkret leben. Dabei treffen unterschiedliche Erfahrungen, Perspektiven und Arbeitsweisen aufeinander. Gerade darin liegen Chancen, voneinander zu lernen und gemeinsam etwas zu bewegen. Wir suchen eine Persönlichkeit, die diese Welten kennt, Verbindungen schafft und den diakonischen Auftrag mit Überzeugung und Freude mitgestaltet.\n.\nWas du bei uns bewegst:\n• Du pflegst und gestaltest die Zusammenarbeit zwischen Caritas St.Gallen-Appenzell, dem Bistum St.Gallen und weiteren kirchlichen Partnern.\n• Du bringst sozialfachlichen Erfahrungen und Perspektiven in kirchliche Gremien und Entwicklungsprozesse ein und förderst den Dialog zwischen Kirche und Caritas.\n• Du verbindest theologische, gesellschaftliche und sozialpolitische Fragen und wirkst an der strategischen Weiterentwicklung unserer Organisation mit.\n• Du engagierst dich in regionalen und nationalen kirchlichen und sozialen Netzwerken.\n• Du leitest den Bereich Diakonieanimation mit vier Mitarbeitenden und gestaltest dessen Bildungs- und Projektarbeit mit.\n• Du bist Mitglied der Geschäftsleitung und bringst dort deine fachliche Perspektive ein.\nWas du mitbringst:\n• Eine theologische Ausbildung, fundierte Kenntnisse der katholischen Kirche und idealerweise eine gute Vernetzung im Bistum St.Gallen.\n• Ein ausgeprägtes Verständnis für gesellschaftliche und sozialpolitische Fragen sowie für die Lebensrealitäten benachteiligter Menschen.\n• Freude am Dialog, die Fähigkeit, unterschiedliche Perspektiven zusammenzuführen, und ein gutes Gespür für institutionelle Zusammenhänge.\n• Strategisches Denken, Eigeninitiative und die Bereitschaft, Verantwortung für ein kleines Team zu übernehmen. Führungserfahrung ist willkommen, aber keine Voraussetzung.\n• Kommunikationsstärke, Offenheit, Geduld und eine gesunde Portion Humor.\nArbeitsort ist St. Gallen\nArbeitsbeginn: 01.01.2027 oder nach Vereinbarung.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Herr Philipp Holderegger, Geschäftsleiter: Telefon 071 577 50 29.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am\n30. November 2026 über das Online-Portal.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch",
+        "fr": "Caritas St.Gallen-Appenzell est la charité du diocèse de Saint-Gall. Nous travaillons avec des offres concrètes et un engagement social pour les personnes touchées par la pauvreté, exclues et dans le besoin.\nParlez-vous Église et Caritas ?\nL'Eglise et Caritas partagent une mission commune : soutenir les gens, assumer la responsabilité sociale et vivre la solidarité de manière concrète. Différentes expériences, perspectives et méthodes de travail se rencontrent. C'est précisément là qu'il y a des occasions d'apprendre les uns des autres et de faire une différence ensemble. Nous cherchons une personnalité qui connaît ces mondes, crée des liens et façonne la mission diaconale avec conviction et joie.\n.\nCe que vous faites de nous :\n• Vous maintenez et façonnez la coopération entre Caritas St.Gallen-Appenzell, le diocèse de St.Gallen et d'autres partenaires de l'église.\n• Vous apportez des expériences et des perspectives sociales aux comités religieux et aux processus de développement et favorisez le dialogue entre l'Église et Caritas.\n• Vous reliez les questions théologiques, sociales et sociopolitiques et contribuez au développement stratégique de notre organisation.\n• Vous participez aux réseaux religieux et sociaux régionaux et nationaux.\n• Vous dirigez la division Diakonieanimation avec quatre employés et aidez à façonner son travail éducatif et de projet.\n• Vous êtes membre de l'équipe de gestion et apportez votre point de vue professionnel là-bas.\nCe que vous apportez:\n• Une éducation théologique, une connaissance approfondie de l'Église catholique et idéalement un bon réseau dans le diocèse de Saint-Gall.\n• Une bonne compréhension des questions sociales et sociopolitiques ainsi que des réalités de la vie des personnes défavorisées.\n• La joie du dialogue, la capacité de réunir différentes perspectives et un bon sens des liens institutionnels.\n• Pensée stratégique, initiative et volonté d'assumer la responsabilité d'une petite équipe. L'expérience en leadership est la bienvenue, mais pas une exigence.\n• La force de communication, l'ouverture, la patience et une bonne dose d'humour.\nLe lieu de travail est St. Gallen\nDébut des travaux: 01.01.2027 ou par accord.\nPhilipp Holderegger, directeur général, est heureux de vous fournir des informations sur ce poste : téléphone 071 577 50 29.\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature jusqu'au\n30. Novembre 2026 via le portail en ligne.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch"
+      },
+      "needsRetranslation": false,
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://apply.refline.ch/126757/2388/pub/1/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:24:45.439Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "streetAddress": "Langgasse 13",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9000",
+      "category": "Sociale / Educazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-02T14:10:32.162712+00:00",
+      "postedDate": "2026-11-02T14:10:32.162712+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/126757/2388/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 40,
+      "pensumMax": 50,
+      "pensum": "40 - 50%",
+      "previousSlugs": [
+        "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
+        ],
+        "en": [
+          "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
+        ],
+        "fr": [
+          "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
+        ]
+      },
+      "firstSeenAt": "2026-11-04T09:24:21.179Z",
+      "salaryMin": 24300,
+      "salaryMax": 44800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 24300,
+          "maxValue": 44800,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-01T09:24:45.439Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "caritas-schweiz-4972e95ee6b3",
+      "slug": "responsabile-del-team-e-persona-di-riferimento-socioeducativa-80-100-a-uster-m-f-d-caritas-schweiz-zurich",
+      "slugByLocale": {
+        "it": "responsabile-del-team-e-persona-di-riferimento-socioeducativa-80-100-a-uster-m-f-d-caritas-schweiz-zurich",
+        "en": "team-management-and-social-pedagogical-caregiver-80-100-in-uster-m-f-d-caritas-schweiz-zurich",
+        "de": "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
+        "fr": "gestion-d-equipe-et-aidant-pedagogique-social-80-100-en-uster-h-f-d-caritas-schweiz-zurich"
+      },
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Teamleitung und Sozialpädagogische Bezugsperson 80 - 100 % in Uster (m/w/d)",
+      "titleByLocale": {
+        "it": "Responsabile del team e persona di riferimento socioeducativa 80 - 100 % a Uster (m/f/d)",
+        "en": "Team management and social pedagogical caregiver 80 - 100% in Uster (m/f/d)",
+        "de": "Teamleitung und Sozialpädagogische Bezugsperson 80 - 100 % in Uster (m/w/d)",
+        "fr": "Gestion d'équipe et aidant pédagogique social 80 - 100% en Uster (h/f/d)"
+      },
+      "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). In dieser verantwortungsvollen Funktion verbinden Sie Führungskompetenz mit sozialpädagogischer Facharbeit und gestalten die Entwicklung von Team und Jugendlichen aktiv mit.\nIhre Aufgaben\n• Fachliche und personelle Führung und Beratung des MNA-Wohngruppenteams, lösungsorientierte Intervention bei Problemen und Konflikte\n• Planung des Personaleinsatzes entsprechend der Personalbedarfsplanung in Absprache mit der Zentrumsleitung\n• Mitwirkung bei der Rekrutierung weiterer Fachpersonen für das Team\n• Vor- und Nachbereitung und Durchführung von Sitzungen inklusive Fallbesprechungen\n• Förderung der fachlichen Weiterentwicklung der Mitarbeitenden\n• Vertretung der Wohngruppe gegenüber internen und externen Stellen\n• Förderung einer konstruktiven, wertschätzenden und interdisziplinären Zusammenarbeit im Team\n• Durchführung von Mitarbeitendengesprächen sowie Unterstützung bei der Zielvereinbarung und Leistungsentwicklung\n• Übernahme von einer MNA-Fallführung\nUnsere Anforderungen\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Ausgeprägte Führungs- und Kommunikationsfähigkeiten\n• Gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft zeitlich variierende Arbeitszeiten zu leisten\n• Hohes Verantwortungs- und Qualitätsbewusstsein\n• Eigeninitiative und Selbständigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund\nArbeitsort: Kanton Zürich (Uster)\nArbeitsbeginn: Per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Tijana Tomovic, Leiterin MNA-Zentrum, E-Mail: ttomovic@caritas.ch\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 1. Dezember 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+      "descriptionByLocale": {
+        "it": "Fare la cosa giusta. In Svizzera e in circa 20 paesi in quattro continenti. Impegnarsi con noi per la visione di una società solidale, come\nCaritas Svizzera gestisce centri di asilo per famiglie, individui e minori non accompagnati (MNA) in cinque sedi nel Cantone di Zurigo dal marzo 2024 per conto dell'Ufficio Sociale cantonale (KSA). In questo ruolo responsabile, si combinano competenze di leadership con il lavoro di specialisti socio-pedagogici e modellano attivamente lo sviluppo del team e dei giovani.\nI loro compiti\n• Gestione professionale e del personale e consulenza del gruppo MNA residenziale, intervento orientato alla soluzione nei problemi e conflitti\n• Pianificazione del personale in conformità con la pianificazione dei requisiti del personale in accordo con la gestione del centro\n• Partecipazione al reclutamento di professionisti aggiuntivi per il team\n• Preparazione, follow-up e svolgimento delle riunioni, comprese le riunioni dei casi\n• Promozione dello sviluppo professionale dei dipendenti\n• Rappresentanza del gruppo di alloggio nei confronti di organismi interni ed esterni\n• Promuovere il lavoro di squadra costruttivo, apprezzativo e interdisciplinare\n• Gestione delle interviste ai dipendenti e supporto per l'accordo di destinazione e lo sviluppo delle prestazioni\n• Ripresa da un case management MNA\nI nostri requisiti\n• Formazione socio-pedagogica riconosciuta completa (o equivalente)\n• Esperienza nella migrazione e/o nella gioventù\n• Forte capacità di leadership e comunicazione\n• Buona conoscenza del tedesco, ulteriore conoscenza delle lingue straniere benefico\n• Competenza interculturale\n• Volontà di fornire il tempo varia orari di lavoro\n• Alto senso di responsabilità e qualità\n• Iniziativa e autooccupazione\n• Alta resilienza e resilienza\n• Buona conoscenza di Microsoft Office\n• Gomma affidabile\nLuogo di lavoro: Cantone di Zurigo (Uster)\nInizio del lavoro: Immediatamente o d'accordo.\nCaritas offre interessanti condizioni di lavoro e un ambiente di lavoro aperto al polso delle questioni sociali. Per la trasformazione verso il lavoro basato sul ruolo, contiamo sui dipendenti con una mentalità digitale e agile che amano partecipare ai processi di cambiamento e prendersi la responsabilità.\nPer informazioni su questo punto si prega di contattare Tijana Tomovic, Capo del Centro MNA, e-mail: ttomovic@caritas.ch\nVi ringraziamo per l'interesse e non vediamo l'ora della vostra applicazione fino al 1 °. Dicembre 2026 tramite il portale online.\nCaritas Svizzera, Adligenswilerstrasse 15, 6002 Lucerna\nwww.caritas.ch",
+        "en": "Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as\nCaritas Switzerland has been running asylum centres for families, individuals and unaccompanied minors (MNA) at five locations in the Canton of Zurich since March 2024 on behalf of the Cantonal Social Office (KSA). In this responsible role, you combine leadership skills with socio-pedagogical specialist work and actively shape the development of the team and young people.\nTheir tasks\n• Professional and personnel management and advice of the MNA residential group team, solution-oriented intervention in problems and conflicts\n• Planning of the personnel deployment in accordance with the personnel requirements planning in agreement with the centre management\n• Participation in the recruitment of additional professionals for the team\n• Preparation, follow-up and conduct of meetings, including case meetings\n• Promotion of the professional development of employees\n• Representation of the housing group vis-à-vis internal and external bodies\n• Promoting constructive, appreciative and interdisciplinary teamwork\n• Conduct of employee interviews as well as support for target agreement and performance development\n• Taking over from an MNA case management\nOur requirements\n• Completed recognised socio-pedagogical training (or equivalent)\n• Experience in migration and/or youth work desirable\n• Strong leadership and communication skills\n• Good knowledge of German, further knowledge of foreign languages beneficial\n• Intercultural competence\n• Willingness to provide time varying working hours\n• High sense of responsibility and quality\n• Own initiative and self-employment and enforcement\n• High resilience and resilience\n• Good Microsoft Office knowledge\n• Reliable gum\nPlace of work: Canton of Zurich (Uster)\nStart of work: Immediately or by agreement.\nCaritas offers attractive employment conditions and an open working environment at the pulse of social issues. For the transformation towards role-based work, we count on employees with a digital and agile mindset who like to participate in change processes and take responsibility.\nFor information on this point please contact Tijana Tomovic, Head of MNA Centre, e-mail: ttomovic@caritas.ch\nWe thank you for the interest and look forward to your application until the 1st. December 2026 via the online portal.\nCaritas Switzerland, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch",
+        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). In dieser verantwortungsvollen Funktion verbinden Sie Führungskompetenz mit sozialpädagogischer Facharbeit und gestalten die Entwicklung von Team und Jugendlichen aktiv mit.\nIhre Aufgaben\n• Fachliche und personelle Führung und Beratung des MNA-Wohngruppenteams, lösungsorientierte Intervention bei Problemen und Konflikte\n• Planung des Personaleinsatzes entsprechend der Personalbedarfsplanung in Absprache mit der Zentrumsleitung\n• Mitwirkung bei der Rekrutierung weiterer Fachpersonen für das Team\n• Vor- und Nachbereitung und Durchführung von Sitzungen inklusive Fallbesprechungen\n• Förderung der fachlichen Weiterentwicklung der Mitarbeitenden\n• Vertretung der Wohngruppe gegenüber internen und externen Stellen\n• Förderung einer konstruktiven, wertschätzenden und interdisziplinären Zusammenarbeit im Team\n• Durchführung von Mitarbeitendengesprächen sowie Unterstützung bei der Zielvereinbarung und Leistungsentwicklung\n• Übernahme von einer MNA-Fallführung\nUnsere Anforderungen\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Ausgeprägte Führungs- und Kommunikationsfähigkeiten\n• Gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft zeitlich variierende Arbeitszeiten zu leisten\n• Hohes Verantwortungs- und Qualitätsbewusstsein\n• Eigeninitiative und Selbständigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund\nArbeitsort: Kanton Zürich (Uster)\nArbeitsbeginn: Per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Tijana Tomovic, Leiterin MNA-Zentrum, E-Mail: ttomovic@caritas.ch\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 1. Dezember 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+        "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nCaritas Suisse gère des centres d'asile pour les familles, les personnes et les mineurs non accompagnés (MNA) dans cinq localités du canton de Zurich depuis mars 2024 au nom de l'Office social cantonal (KSA). Dans ce rôle responsable, vous combinez les compétences de leadership avec le travail sociopédagogique de spécialiste et façonnez activement le développement de l'équipe et des jeunes.\nLeurs tâches\n• Gestion professionnelle et du personnel et conseils de l'équipe du groupe résidentiel MNA, intervention axée sur la solution dans les problèmes et les conflits\n• Planification du déploiement du personnel conformément à la planification des besoins en personnel en accord avec la direction du centre\n• Participation au recrutement de professionnels supplémentaires pour l ' équipe\n• Préparation, suivi et organisation de réunions, y compris de réunions de cas\n• Promotion du perfectionnement professionnel des salariés\n• Représentation du groupe logement par rapport aux organismes internes et externes\n• Promouvoir un travail d'équipe constructif, reconnaissant et interdisciplinaire\n• Conduite d'entrevues avec des employés ainsi que soutien à l'établissement d'un accord sur les cibles et au perfectionnement du rendement\n• Reprise d'une gestion de cas de l'ANM\nNos exigences\n• Formation sociopédagogique reconnue (ou équivalent)\n• Expérience de la migration et/ou du travail des jeunes souhaitable\n• Forte capacité de leadership et de communication\n• Bonne connaissance de l'allemand, meilleure connaissance des langues étrangères\n• Compétence interculturelle\n• Volonté de prévoir des horaires variables\n• Haute responsabilité et qualité\n• Initiative propre et travail indépendant et application\n• Haute résilience et résilience\n• Bonne connaissance de Microsoft Office\n• Gomme fiable\nLieu de travail: Canton de Zurich (Uster)\nDébut du travail: Immédiatement ou d'un commun accord.\nCaritas offre des conditions d'emploi attrayantes et un environnement de travail ouvert à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec une mentalité numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nPour plus d'informations sur ce point, veuillez contacter Tijana Tomovic, Chef du Centre MNA, e-mail: ttomovic@caritas.ch\nNous vous remercions de l'intérêt et attendons avec impatience votre candidature jusqu'au 1er. Décembre 2026 via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
+      },
+      "needsRetranslation": false,
+      "location": "Uster",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/126757/2387/pub/1/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:24:43.958Z",
+      "addressLocality": "Uster",
+      "addressRegion": "ZH",
+      "streetAddress": "Aathalstrasse 21",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8610",
+      "category": "Sociale / Educazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-02T10:21:45.510399+00:00",
+      "postedDate": "2026-11-02T10:21:45.510399+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/126757/2387/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "previousSlugs": [
+        "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
+        "teamleitung-e-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
+          "teamleitung-e-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich"
+        ],
+        "en": [
+          "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz"
+        ],
+        "fr": [
+          "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz"
+        ]
+      },
+      "firstSeenAt": "2026-11-03T09:27:30.858Z",
+      "salaryMin": 95000,
+      "salaryMax": 175500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 95000,
+          "maxValue": 175500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-01T09:24:43.958Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "caritas-schweiz-3280f1fae50c",
+      "slug": "testa-di-asylum-centre-100-m-f-d-caritas-schweiz-zurich",
+      "slugByLocale": {
+        "it": "testa-di-asylum-centre-100-m-f-d-caritas-schweiz-zurich",
+        "en": "head-of-asylum-centre-100-m-f-d-caritas-schweiz-zurich",
+        "de": "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich",
+        "fr": "chef-du-centre-d-asile-100-h-f-d-caritas-schweiz-zurich"
+      },
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Leitung Asylzentrum MNA 100 % (m/w/d)",
+      "titleByLocale": {
+        "it": "Testa di Asylum Centre 100% (m/f/d)",
+        "en": "Head of Asylum Centre 100% (m/f/d)",
+        "de": "Leitung Asylzentrum MNA 100 % (m/w/d)",
+        "fr": "Chef du centre d'asile 100 % (h/f/d)"
+      },
+      "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an mehreren Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete minderjährige Asylsuchende (MNA). Infolge einer Nachbesetzung suchen wir für das MNA-Zentrum Regensbergstrasse in Zürich Oerlikon eine engagierte und verantwortungsbewusste Zentrumsleitung.\nIhre Aufgaben\n• Umsetzung des Leistungsauftrags des Kantonalen Sozialamts Zürich (KSA) auf Basis des Einzelvertrages des Standortes und Rahmenvertrages für MNA-Wohngruppen sowie weiterer Regelwerke\n• Verantwortung für die Unterbringung, Betreuung, Integration und Sicherheit der minderjährigen Asylsuchenden (MNA)\n• Gesamtverantwortung für die Personalplanung, Personalführung und Personalentwicklung\n• Finanzverantwortung für Budgets und Kostenstelle sowie für administrative Abläufe und wirtschaftlichen Einsatz von Ressourcen\n• Verantwortung für die Betreuungs-, Auftragsabwicklungs- und Dokumentationsqualität sowie für die Umsetzung von Arbeitsprozessen und strukturellen Anpassungen\n• Verantwortung für die stufengerechte Weitergabe von Informationen und Sicherstellung der internen sowie externen Kommunikation\n• Zusammenarbeit mit dem Kanton, der Beistandschaft und weiteren Partnerschaften, zentralen Fachbereichsleitungen und anderen MNA-Standorten\nUnsere Anforderungen\n• Universitäts- oder Fachhochschulabschluss im Sozialbereich / Betriebswirtschaft oder vergleichbar\n• Weiterbildung in Betriebswirtschaft und Management von NPO\n• Ausgewiesene sozialpädagogische Fachkompetenzen sowie Arbeitserfahrung in der Betreuung von MNA (zwingende Voraussetzung)\n• Fachkenntnisse im Asyl- und Migrationsbereich\n• Ausgewiesene Personalführungserfahrung\n• Erfahrung in der Zusammenarbeit mit Behörden und Partnerschaften\n• Eigeninitiative, Selbstständigkeit, Durchsetzungsvermögen und Entscheidungsfreude\n• Hohe Resilienz und Belastbarkeit\n• Unternehmerisches und vernetztes Denken und Handeln\n• Ausgeprägte Kommunikationsfähigkeiten und Deutschkenntnisse auf Muttersprachniveau\n• Interkulturelle Kompetenzen\n• Konfliktinterventionskompetenzen\nArbeitsort: Kanton Zürich\nArbeitsbeginn: Nach Vereinbarung\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Herr Giuseppe Sollazzi, Mandatsleiter MNA Zentren, gsollazzi@caritas.ch .\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+      "descriptionByLocale": {
+        "it": "Fare la cosa giusta. In Svizzera e in circa 20 paesi su quattro continenti. Impegnarsi con noi per la visione di una società solidale, come\nCaritas Svizzera gestisce centri di asilo per famiglie, persone e richiedenti asilo minori non accompagnati (MNA) in diverse sedi del Cantone di Zurigo a nome dell'Ufficio Sociale cantonale (KSA) dal marzo 2024. Come risultato di un follow-up, stiamo cercando una gestione del centro impegnata e responsabile per la MNA Center Regensbergstrasse di Zurigo Oerlikon.\nI loro compiti\n• Attuazione del mandato di servizio dell'Ufficio Sociale cantonale di Zurigo (KSA) sulla base del contratto individuale della sede e del contratto quadro per i gruppi residenziali MNA e altre normative\n• Responsabilità per l'alloggio, la cura, l'integrazione e la sicurezza dei richiedenti asilo minori (MNA)\n• Responsabilità complessiva per la pianificazione del personale, la gestione del personale e lo sviluppo del personale\n• Responsabilità finanziaria per i bilanci e i centri di costo nonché per i processi amministrativi e l'uso economico delle risorse\n• Responsabilità per la qualità del supporto, dell'ordine e della documentazione nonché per l'attuazione dei processi di lavoro e degli adattamenti strutturali\n• Responsabilità per la condivisione graduale delle informazioni e per garantire la comunicazione interna ed esterna\n• Cooperazione con il Cantone, l'assistenza e altre partnership, la gestione dei dipartimenti centrali e altre sedi MNA\nI nostri requisiti\n• Università o Università di Scienze Applicate laurea in campo sociale / amministrazione aziendale o comparabile\n• Ulteriore istruzione in amministrazione aziendale e gestione di NPO\n• Esperienza socio-pedagogica comprovata e esperienza lavorativa nella supervisione di MNA (obbligatorio)\n• Competenza in materia di asilo e migrazione\n• Esperienza di gestione del personale progettata\n• Esperienza in collaborazione con autorità e partenariati\n• Iniziativa, indipendenza, assertività e processo decisionale\n• Alta resilienza e resilienza\n• Imprenditorialità e rete di pensiero e agire\n• Forte capacità di comunicazione e conoscenza del tedesco a livello di lingua madre\n• Competenze interculturali\n• Competenze di intervento di conflitto\nLuogo di lavoro: Cantone di Zurigo\nInizio del lavoro: d'accordo\nCaritas offre interessanti condizioni di lavoro e un'atmosfera di lavoro aperta al polso delle questioni sociali. Per la trasformazione verso il lavoro basato sul ruolo, contiamo su dipendenti con una mentalità digitale e agile che amano partecipare a processi di cambiamento e prendersi la responsabilità.\nSiete invitati a ricevere informazioni su questo punto dal Sig. Giuseppe Sollazzi, Responsabile Missione Centri MNA, gsollazzi@caritas.ch .\nVi ringraziamo per il vostro interesse e non vediamo l'ora della vostra applicazione tramite il portale online.\nCaritas Svizzera, Adligenswilerstrasse 15, 6002 Lucerna\nwww.caritas.ch",
+        "en": "Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as\nCaritas Switzerland has been running asylum centres for families, individuals and unaccompanied minor asylum seekers (MNA) at several locations in the Canton of Zurich on behalf of the Cantonal Social Office (KSA) since March 2024. As a result of a follow-up, we are looking for a committed and responsible center management for the MNA Center Regensbergstrasse in Zurich Oerlikon.\nTheir tasks\n• Implementation of the service mandate of the Cantonal Social Office Zurich (KSA) on the basis of the individual contract of the location and framework contract for MNA residential groups as well as other regulations\n• Responsibility for the accommodation, care, integration and security of minor asylum seekers (MNA)\n• Overall responsibility for personnel planning, personnel management and personnel development\n• Financial responsibility for budgets and cost centres as well as for administrative processes and economic use of resources\n• Responsibility for the quality of support, order processing and documentation as well as for the implementation of work processes and structural adjustments\n• Responsibility for the step-by-step sharing of information and ensuring internal and external communication\n• Cooperation with the canton, assistance and other partnerships, central department management and other MNA locations\nOur requirements\n• University or University of Applied Sciences degree in social field / business administration or comparable\n• Further education in business administration and management of NPO\n• Proven socio-pedagogical expertise as well as work experience in the supervision of MNA (mandatory requirement)\n• Expertise in the field of asylum and migration\n• Designated personnel management experience\n• Experience in cooperation with authorities and partnerships\n• Initiative, independence, assertiveness and decision-making\n• High resilience and resilience\n• Entrepreneurial and networked thinking and acting\n• Strong communication skills and knowledge of German at native language level\n• Intercultural competences\n• Conflict Intervention Competences\nPlace of work: Canton of Zurich\nStart of work: by agreement\nCaritas offers attractive employment conditions and an open working atmosphere at the pulse of social issues. For the transformation towards role-based work, we count on employees with a digital and agile mindset who like to participate in change processes and take responsibility.\nYou are welcome to receive information on this point from Mr. Giuseppe Sollazzi, Head of Mission MNA Centres, gsollazzi@caritas.ch .\nWe thank you for your interest and look forward to your application via the online portal.\nCaritas Switzerland, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch",
+        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an mehreren Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete minderjährige Asylsuchende (MNA). Infolge einer Nachbesetzung suchen wir für das MNA-Zentrum Regensbergstrasse in Zürich Oerlikon eine engagierte und verantwortungsbewusste Zentrumsleitung.\nIhre Aufgaben\n• Umsetzung des Leistungsauftrags des Kantonalen Sozialamts Zürich (KSA) auf Basis des Einzelvertrages des Standortes und Rahmenvertrages für MNA-Wohngruppen sowie weiterer Regelwerke\n• Verantwortung für die Unterbringung, Betreuung, Integration und Sicherheit der minderjährigen Asylsuchenden (MNA)\n• Gesamtverantwortung für die Personalplanung, Personalführung und Personalentwicklung\n• Finanzverantwortung für Budgets und Kostenstelle sowie für administrative Abläufe und wirtschaftlichen Einsatz von Ressourcen\n• Verantwortung für die Betreuungs-, Auftragsabwicklungs- und Dokumentationsqualität sowie für die Umsetzung von Arbeitsprozessen und strukturellen Anpassungen\n• Verantwortung für die stufengerechte Weitergabe von Informationen und Sicherstellung der internen sowie externen Kommunikation\n• Zusammenarbeit mit dem Kanton, der Beistandschaft und weiteren Partnerschaften, zentralen Fachbereichsleitungen und anderen MNA-Standorten\nUnsere Anforderungen\n• Universitäts- oder Fachhochschulabschluss im Sozialbereich / Betriebswirtschaft oder vergleichbar\n• Weiterbildung in Betriebswirtschaft und Management von NPO\n• Ausgewiesene sozialpädagogische Fachkompetenzen sowie Arbeitserfahrung in der Betreuung von MNA (zwingende Voraussetzung)\n• Fachkenntnisse im Asyl- und Migrationsbereich\n• Ausgewiesene Personalführungserfahrung\n• Erfahrung in der Zusammenarbeit mit Behörden und Partnerschaften\n• Eigeninitiative, Selbstständigkeit, Durchsetzungsvermögen und Entscheidungsfreude\n• Hohe Resilienz und Belastbarkeit\n• Unternehmerisches und vernetztes Denken und Handeln\n• Ausgeprägte Kommunikationsfähigkeiten und Deutschkenntnisse auf Muttersprachniveau\n• Interkulturelle Kompetenzen\n• Konfliktinterventionskompetenzen\nArbeitsort: Kanton Zürich\nArbeitsbeginn: Nach Vereinbarung\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Herr Giuseppe Sollazzi, Mandatsleiter MNA Zentren, gsollazzi@caritas.ch .\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+        "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nCaritas Suisse gère des centres d'asile pour les familles, les particuliers et les demandeurs d'asile mineurs non accompagnés (MNA) dans plusieurs localités du canton de Zurich au nom de l'Office social cantonal (KSA) depuis mars 2024. Grâce à un suivi, nous recherchons un centre de gestion engagé et responsable pour la MNA Center Regensbergstrasse de Zurich Oerlikon.\nLeurs tâches\n• Exécution du mandat de service de l'Office social cantonal de Zurich (KSA) sur la base du contrat individuel de localisation et de contrat-cadre pour les groupes résidentiels MNA ainsi que d'autres règlements\n• Responsabilité en matière de logement, de soins, d ' intégration et de sécurité des demandeurs d ' asile mineurs\n• Responsabilité générale en matière de planification du personnel, de gestion du personnel et de perfectionnement du personnel\n• Responsabilité financière des budgets et des centres de coûts ainsi que des processus administratifs et de l'utilisation économique des ressources\n• Responsabilité de la qualité de l'appui, du traitement des commandes et de la documentation, ainsi que de la mise en œuvre des processus de travail et des ajustements structurels\n• Responsabilité de l'échange progressif d'informations et de la communication interne et externe\n• Coopération avec le canton, assistance et autres partenariats, gestion du département central et autres lieux d ' implantation de l ' AMN\nNos exigences\n• Diplôme universitaire ou universitaire en sciences appliquées dans le domaine social / administration des affaires ou comparable\n• Formation continue en administration et gestion des entreprises des administrateurs recrutés sur le plan national\n• Expertise sociopédagogique éprouvée et expérience professionnelle dans la supervision du MNA (exigence obligatoire)\n• Expertise dans le domaine de l'asile et de la migration\n• Expérience en matière de gestion du personnel\n• Expérience de la coopération avec les autorités et les partenariats\n• Initiative, indépendance, assurance et prise de décisions\n• Haute résilience et résilience\n• La pensée et l'action entrepreneuriales et en réseau\n• Fortes compétences en communication et connaissance de l'allemand au niveau de la langue maternelle\n• Compétences interculturelles\n• Compétences en intervention en cas de conflit\nLieu de travail: Canton de Zurich\nDébut des travaux: par accord\nCaritas offre des conditions d'emploi attrayantes et une atmosphère de travail ouverte à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec un état d'esprit numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nVous êtes invités à recevoir des informations sur ce point de la part de M. Giuseppe Sollazzi, Chef de la mission MNA Centres, gsollazzi@caritas.ch .\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
+      },
+      "needsRetranslation": false,
+      "location": "Uster",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/126757/2366/pub/6/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:24:43.493Z",
+      "addressLocality": "Uster",
+      "addressRegion": "ZH",
+      "streetAddress": "Aathalstrasse 21",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8610",
+      "category": "Sociale / Educazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-21T12:26:48.703098+00:00",
+      "postedDate": "2026-09-21T12:26:48.703098+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/126757/2366/pub/6/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "de": [
+          "leitung-asylzentrum-mna-100-m-w-d-caritas-schweiz-uster"
+        ],
+        "it": [
+          "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich",
+          "leitung-asylzentrum-mna-100-m-w-d-caritas-schweiz-zurich",
+          "leitung-asylzentrum-mna-100-m-w-d-caritas-schweiz-uster"
+        ],
+        "en": [
+          "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich"
+        ],
+        "fr": [
+          "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich",
+        "leitung-asylzentrum-mna-100-m-w-d-caritas-schweiz-zurich",
+        "leitung-asylzentrum-mna-100-m-w-d-caritas-schweiz-uster"
+      ],
+      "firstSeenAt": "2026-10-29T09:34:09.418Z",
+      "salaryMin": 95000,
+      "salaryMax": 175500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 95000,
+          "maxValue": 175500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-26T09:24:43.493Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "caritas-schweiz-09909023f291",
@@ -1100,275 +1377,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:18:31.954Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2390/pub/4/index.html"
-    },
-    {
-      "id": "caritas-schweiz-99562f004696",
-      "slug": "gestione-divisione-diakonie-40-50-caritas-schweiz-st-gallen",
-      "slugByLocale": {
-        "it": "gestione-divisione-diakonie-40-50-caritas-schweiz-st-gallen",
-        "en": "divisional-management-diakonie-40-50-caritas-schweiz-st-gallen",
-        "de": "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen",
-        "fr": "gestion-divisionnaire-diakonie-40-50-caritas-schweiz-st-gallen"
-      },
-      "company": "Caritas Schweiz",
-      "companyKey": "caritas-schweiz",
-      "companyDomain": "caritas.ch",
-      "title": "Bereichsleitung Diakonie (40-50 %)",
-      "titleByLocale": {
-        "it": "Gestione divisione Diakonie (40-50 %)",
-        "en": "Divisional management Diakonie (40-50 %)",
-        "de": "Bereichsleitung Diakonie (40-50 %)",
-        "fr": "Gestion divisionnaire Diakonie (40-50 %)"
-      },
-      "description": "Caritas St.Gallen-Appenzell ist das Hilfswerk des Bistums St.Gallen. Wir setzen uns mit konkreten Angeboten und gesellschaftlichem Engagement für armutsbetroffene, ausgegrenzte und in Not geratene Menschen ein.\nSprichst du Kirche und Caritas?\nKirche und Caritas verbindet ein gemeinsamer Auftrag: Menschen unterstützen, gesellschaftliche Verantwortung übernehmen und Solidarität konkret leben. Dabei treffen unterschiedliche Erfahrungen, Perspektiven und Arbeitsweisen aufeinander. Gerade darin liegen Chancen, voneinander zu lernen und gemeinsam etwas zu bewegen. Wir suchen eine Persönlichkeit, die diese Welten kennt, Verbindungen schafft und den diakonischen Auftrag mit Überzeugung und Freude mitgestaltet.\n.\nWas du bei uns bewegst:\n• Du pflegst und gestaltest die Zusammenarbeit zwischen Caritas St.Gallen-Appenzell, dem Bistum St.Gallen und weiteren kirchlichen Partnern.\n• Du bringst sozialfachlichen Erfahrungen und Perspektiven in kirchliche Gremien und Entwicklungsprozesse ein und förderst den Dialog zwischen Kirche und Caritas.\n• Du verbindest theologische, gesellschaftliche und sozialpolitische Fragen und wirkst an der strategischen Weiterentwicklung unserer Organisation mit.\n• Du engagierst dich in regionalen und nationalen kirchlichen und sozialen Netzwerken.\n• Du leitest den Bereich Diakonieanimation mit vier Mitarbeitenden und gestaltest dessen Bildungs- und Projektarbeit mit.\n• Du bist Mitglied der Geschäftsleitung und bringst dort deine fachliche Perspektive ein.\nWas du mitbringst:\n• Eine theologische Ausbildung, fundierte Kenntnisse der katholischen Kirche und idealerweise eine gute Vernetzung im Bistum St.Gallen.\n• Ein ausgeprägtes Verständnis für gesellschaftliche und sozialpolitische Fragen sowie für die Lebensrealitäten benachteiligter Menschen.\n• Freude am Dialog, die Fähigkeit, unterschiedliche Perspektiven zusammenzuführen, und ein gutes Gespür für institutionelle Zusammenhänge.\n• Strategisches Denken, Eigeninitiative und die Bereitschaft, Verantwortung für ein kleines Team zu übernehmen. Führungserfahrung ist willkommen, aber keine Voraussetzung.\n• Kommunikationsstärke, Offenheit, Geduld und eine gesunde Portion Humor.\nArbeitsort ist St. Gallen\nArbeitsbeginn: 01.01.2027 oder nach Vereinbarung.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Herr Philipp Holderegger, Geschäftsleiter: Telefon 071 577 50 29.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am\n30. November 2026 über das Online-Portal.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch",
-      "descriptionByLocale": {
-        "it": "Caritas St.Gallen-Appenzell è la carità della Diocesi di San Gallo. Lavoriamo con offerte concrete e impegno sociale per le persone colpite dalla povertà, escluse e bisognose.\nParli Chiesa e Caritas?\nLa Chiesa e la Caritas condividono una missione comune: sostenere le persone, assumersi la responsabilità sociale e vivere la solidarietà in modi concreti. Esperienze diverse, prospettive e metodi di lavoro si incontrano. Questo è proprio dove ci sono opportunità di imparare l'un l'altro e fare la differenza insieme. Stiamo cercando una personalità che conosca questi mondi, crea connessioni e plasma la missione diaconale con convinzione e gioia.\n.\nCosa fai con noi:\n• Mantenete e plasmate la cooperazione tra Caritas St.Gallen-Appenzell, la Diocesi di San Gallo e altri partner ecclesiali.\n• Porti esperienze e prospettive sociali a comitati di chiesa e processi di sviluppo e promuovi il dialogo tra chiesa e Caritas.\n• Si collegano questioni teologiche, sociali e socio-politiche e contribuiscono allo sviluppo strategico della nostra organizzazione.\n• Sei coinvolto in chiesa regionale e nazionale e reti sociali.\n• Si guida la divisione Diakonieanimation con quattro dipendenti e contribuire a modellare il suo lavoro educativo e di progetto.\n• Sei un membro del team di gestione e portare la tua prospettiva professionale lì.\nCosa porti:\n• Un'educazione teologica, una conoscenza approfondita della Chiesa cattolica e idealmente una buona rete nella diocesi di San Gallo.\n• Una forte comprensione delle questioni sociali e socio-politiche e delle realtà della vita delle persone svantaggiate.\n• La gioia del dialogo, la capacità di riunire prospettive diverse e un buon senso dei legami istituzionali.\n• Il pensiero strategico, l'iniziativa e la volontà di assumersi la responsabilità di una piccola squadra. L'esperienza di leadership è gradita, ma non un requisito.\n• Forza di comunicazione, apertura, pazienza e una dose sana di umorismo.\nLuogo di lavoro è San Gallo\nInizio del lavoro: 01.01.2027 o d'accordo.\nPhilipp Holderegger, Amministratore Delegato, è lieto di fornirvi informazioni su questa posizione: telefono 071 577 50 29.\nVi ringraziamo per il vostro interesse e non vediamo l'ora della vostra applicazione fino al\n30. Novembre 2026 tramite il portale online.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch",
-        "en": "Caritas St.Gallen-Appenzell is the charity of the Diocese of St.Gallen. We work with concrete offers and social commitment for people affected by poverty, excluded and in need.\nDo you speak Church and Caritas?\nThe Church and Caritas share a common mission: to support people, assume social responsibility and live solidarity in concrete ways. Different experiences, perspectives and working methods meet. This is precisely where there are opportunities to learn from each other and make a difference together. We are looking for a personality who knows these worlds, creates connections and shapes the diaconal mission with conviction and joy.\n.\nWhat you do with us:\n• You maintain and shape the cooperation between Caritas St.Gallen-Appenzell, the Diocese of St.Gallen and other church partners.\n• You bring social experiences and perspectives to church committees and development processes and promote the dialogue between church and Caritas.\n• You connect theological, social and socio-political questions and contribute to the strategic development of our organization.\n• You are involved in regional and national church and social networks.\n• You lead the Diakonieanimation division with four employees and help shape its educational and project work.\n• You are a member of the management team and bring your professional perspective there.\nWhat you bring:\n• A theological education, in-depth knowledge of the Catholic Church and ideally a good network in the diocese of St.Gallen.\n• A strong understanding of social and socio-political issues as well as the realities of life of disadvantaged people.\n• The joy of dialogue, the ability to bring together different perspectives and a good sense of institutional connections.\n• Strategic thinking, initiative and the willingness to take responsibility for a small team. Leadership experience is welcome, but not a requirement.\n• Communication strength, openness, patience and a healthy dose of humor.\nPlace of work is St. Gallen\nStart of work: 01.01.2027 or by agreement.\nPhilipp Holderegger, Managing Director, is happy to provide you with information about this position: telephone 071 577 50 29.\nWe thank you for your interest and look forward to your application until the\n30. November 2026 via the online portal.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch",
-        "de": "Caritas St.Gallen-Appenzell ist das Hilfswerk des Bistums St.Gallen. Wir setzen uns mit konkreten Angeboten und gesellschaftlichem Engagement für armutsbetroffene, ausgegrenzte und in Not geratene Menschen ein.\nSprichst du Kirche und Caritas?\nKirche und Caritas verbindet ein gemeinsamer Auftrag: Menschen unterstützen, gesellschaftliche Verantwortung übernehmen und Solidarität konkret leben. Dabei treffen unterschiedliche Erfahrungen, Perspektiven und Arbeitsweisen aufeinander. Gerade darin liegen Chancen, voneinander zu lernen und gemeinsam etwas zu bewegen. Wir suchen eine Persönlichkeit, die diese Welten kennt, Verbindungen schafft und den diakonischen Auftrag mit Überzeugung und Freude mitgestaltet.\n.\nWas du bei uns bewegst:\n• Du pflegst und gestaltest die Zusammenarbeit zwischen Caritas St.Gallen-Appenzell, dem Bistum St.Gallen und weiteren kirchlichen Partnern.\n• Du bringst sozialfachlichen Erfahrungen und Perspektiven in kirchliche Gremien und Entwicklungsprozesse ein und förderst den Dialog zwischen Kirche und Caritas.\n• Du verbindest theologische, gesellschaftliche und sozialpolitische Fragen und wirkst an der strategischen Weiterentwicklung unserer Organisation mit.\n• Du engagierst dich in regionalen und nationalen kirchlichen und sozialen Netzwerken.\n• Du leitest den Bereich Diakonieanimation mit vier Mitarbeitenden und gestaltest dessen Bildungs- und Projektarbeit mit.\n• Du bist Mitglied der Geschäftsleitung und bringst dort deine fachliche Perspektive ein.\nWas du mitbringst:\n• Eine theologische Ausbildung, fundierte Kenntnisse der katholischen Kirche und idealerweise eine gute Vernetzung im Bistum St.Gallen.\n• Ein ausgeprägtes Verständnis für gesellschaftliche und sozialpolitische Fragen sowie für die Lebensrealitäten benachteiligter Menschen.\n• Freude am Dialog, die Fähigkeit, unterschiedliche Perspektiven zusammenzuführen, und ein gutes Gespür für institutionelle Zusammenhänge.\n• Strategisches Denken, Eigeninitiative und die Bereitschaft, Verantwortung für ein kleines Team zu übernehmen. Führungserfahrung ist willkommen, aber keine Voraussetzung.\n• Kommunikationsstärke, Offenheit, Geduld und eine gesunde Portion Humor.\nArbeitsort ist St. Gallen\nArbeitsbeginn: 01.01.2027 oder nach Vereinbarung.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Herr Philipp Holderegger, Geschäftsleiter: Telefon 071 577 50 29.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am\n30. November 2026 über das Online-Portal.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch",
-        "fr": "Caritas St.Gallen-Appenzell est la charité du diocèse de Saint-Gall. Nous travaillons avec des offres concrètes et un engagement social pour les personnes touchées par la pauvreté, exclues et dans le besoin.\nParlez-vous Église et Caritas ?\nL'Eglise et Caritas partagent une mission commune : soutenir les gens, assumer la responsabilité sociale et vivre la solidarité de manière concrète. Différentes expériences, perspectives et méthodes de travail se rencontrent. C'est précisément là qu'il y a des occasions d'apprendre les uns des autres et de faire une différence ensemble. Nous cherchons une personnalité qui connaît ces mondes, crée des liens et façonne la mission diaconale avec conviction et joie.\n.\nCe que vous faites de nous :\n• Vous maintenez et façonnez la coopération entre Caritas St.Gallen-Appenzell, le diocèse de St.Gallen et d'autres partenaires de l'église.\n• Vous apportez des expériences et des perspectives sociales aux comités religieux et aux processus de développement et favorisez le dialogue entre l'Église et Caritas.\n• Vous reliez les questions théologiques, sociales et sociopolitiques et contribuez au développement stratégique de notre organisation.\n• Vous participez aux réseaux religieux et sociaux régionaux et nationaux.\n• Vous dirigez la division Diakonieanimation avec quatre employés et aidez à façonner son travail éducatif et de projet.\n• Vous êtes membre de l'équipe de gestion et apportez votre point de vue professionnel là-bas.\nCe que vous apportez:\n• Une éducation théologique, une connaissance approfondie de l'Église catholique et idéalement un bon réseau dans le diocèse de Saint-Gall.\n• Une bonne compréhension des questions sociales et sociopolitiques ainsi que des réalités de la vie des personnes défavorisées.\n• La joie du dialogue, la capacité de réunir différentes perspectives et un bon sens des liens institutionnels.\n• Pensée stratégique, initiative et volonté d'assumer la responsabilité d'une petite équipe. L'expérience en leadership est la bienvenue, mais pas une exigence.\n• La force de communication, l'ouverture, la patience et une bonne dose d'humour.\nLe lieu de travail est St. Gallen\nDébut des travaux: 01.01.2027 ou par accord.\nPhilipp Holderegger, directeur général, est heureux de vous fournir des informations sur ce poste : téléphone 071 577 50 29.\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature jusqu'au\n30. Novembre 2026 via le portail en ligne.\nCaritas St. Gallen-Appenzell, Langgasse 13, 9008 St. Gallen\nwww.caritas-stgallen.ch"
-      },
-      "needsRetranslation": false,
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://apply.refline.ch/126757/2388/pub/1/index.html",
-      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:31.508Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9000",
-      "category": "Sociale / Educazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / NGO",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-02T14:10:32.162712+00:00",
-      "postedDate": "2026-11-02T14:10:32.162712+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/126757/2388/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 40,
-      "pensumMax": 50,
-      "pensum": "40 - 50%",
-      "previousSlugs": [
-        "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
-        ],
-        "en": [
-          "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
-        ],
-        "fr": [
-          "bereichsleitung-diakonie-40-50-caritas-schweiz-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-11-04T09:24:21.179Z",
-      "salaryMin": 24300,
-      "salaryMax": 44800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 24300,
-          "maxValue": 44800,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "St. Gallen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:18:31.508Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2388/pub/1/index.html"
-    },
-    {
-      "id": "caritas-schweiz-4972e95ee6b3",
-      "slug": "responsabile-del-team-e-persona-di-riferimento-socioeducativa-80-100-a-uster-m-f-d-caritas-schweiz-zurich",
-      "slugByLocale": {
-        "it": "responsabile-del-team-e-persona-di-riferimento-socioeducativa-80-100-a-uster-m-f-d-caritas-schweiz-zurich",
-        "en": "team-management-and-social-pedagogical-caregiver-80-100-in-uster-m-f-d-caritas-schweiz-zurich",
-        "de": "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
-        "fr": "gestion-d-equipe-et-aidant-pedagogique-social-80-100-en-uster-h-f-d-caritas-schweiz-zurich"
-      },
-      "company": "Caritas Schweiz",
-      "companyKey": "caritas-schweiz",
-      "companyDomain": "caritas.ch",
-      "title": "Teamleitung und Sozialpädagogische Bezugsperson 80 - 100 % in Uster (m/w/d)",
-      "titleByLocale": {
-        "it": "Responsabile del team e persona di riferimento socioeducativa 80 - 100 % a Uster (m/f/d)",
-        "en": "Team management and social pedagogical caregiver 80 - 100% in Uster (m/f/d)",
-        "de": "Teamleitung und Sozialpädagogische Bezugsperson 80 - 100 % in Uster (m/w/d)",
-        "fr": "Gestion d'équipe et aidant pédagogique social 80 - 100% en Uster (h/f/d)"
-      },
-      "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). In dieser verantwortungsvollen Funktion verbinden Sie Führungskompetenz mit sozialpädagogischer Facharbeit und gestalten die Entwicklung von Team und Jugendlichen aktiv mit.\nIhre Aufgaben\n• Fachliche und personelle Führung und Beratung des MNA-Wohngruppenteams, lösungsorientierte Intervention bei Problemen und Konflikte\n• Planung des Personaleinsatzes entsprechend der Personalbedarfsplanung in Absprache mit der Zentrumsleitung\n• Mitwirkung bei der Rekrutierung weiterer Fachpersonen für das Team\n• Vor- und Nachbereitung und Durchführung von Sitzungen inklusive Fallbesprechungen\n• Förderung der fachlichen Weiterentwicklung der Mitarbeitenden\n• Vertretung der Wohngruppe gegenüber internen und externen Stellen\n• Förderung einer konstruktiven, wertschätzenden und interdisziplinären Zusammenarbeit im Team\n• Durchführung von Mitarbeitendengesprächen sowie Unterstützung bei der Zielvereinbarung und Leistungsentwicklung\n• Übernahme von einer MNA-Fallführung\nUnsere Anforderungen\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Ausgeprägte Führungs- und Kommunikationsfähigkeiten\n• Gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft zeitlich variierende Arbeitszeiten zu leisten\n• Hohes Verantwortungs- und Qualitätsbewusstsein\n• Eigeninitiative und Selbständigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund\nArbeitsort: Kanton Zürich (Uster)\nArbeitsbeginn: Per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Tijana Tomovic, Leiterin MNA-Zentrum, E-Mail: ttomovic@caritas.ch\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 1. Dezember 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
-      "descriptionByLocale": {
-        "it": "Fare la cosa giusta. In Svizzera e in circa 20 paesi in quattro continenti. Impegnarsi con noi per la visione di una società solidale, come\nCaritas Svizzera gestisce centri di asilo per famiglie, individui e minori non accompagnati (MNA) in cinque sedi nel Cantone di Zurigo dal marzo 2024 per conto dell'Ufficio Sociale cantonale (KSA). In questo ruolo responsabile, si combinano competenze di leadership con il lavoro di specialisti socio-pedagogici e modellano attivamente lo sviluppo del team e dei giovani.\nI loro compiti\n• Gestione professionale e del personale e consulenza del gruppo MNA residenziale, intervento orientato alla soluzione nei problemi e conflitti\n• Pianificazione del personale in conformità con la pianificazione dei requisiti del personale in accordo con la gestione del centro\n• Partecipazione al reclutamento di professionisti aggiuntivi per il team\n• Preparazione, follow-up e svolgimento delle riunioni, comprese le riunioni dei casi\n• Promozione dello sviluppo professionale dei dipendenti\n• Rappresentanza del gruppo di alloggio nei confronti di organismi interni ed esterni\n• Promuovere il lavoro di squadra costruttivo, apprezzativo e interdisciplinare\n• Gestione delle interviste ai dipendenti e supporto per l'accordo di destinazione e lo sviluppo delle prestazioni\n• Ripresa da un case management MNA\nI nostri requisiti\n• Formazione socio-pedagogica riconosciuta completa (o equivalente)\n• Esperienza nella migrazione e/o nella gioventù\n• Forte capacità di leadership e comunicazione\n• Buona conoscenza del tedesco, ulteriore conoscenza delle lingue straniere benefico\n• Competenza interculturale\n• Volontà di fornire il tempo varia orari di lavoro\n• Alto senso di responsabilità e qualità\n• Iniziativa e autooccupazione\n• Alta resilienza e resilienza\n• Buona conoscenza di Microsoft Office\n• Gomma affidabile\nLuogo di lavoro: Cantone di Zurigo (Uster)\nInizio del lavoro: Immediatamente o d'accordo.\nCaritas offre interessanti condizioni di lavoro e un ambiente di lavoro aperto al polso delle questioni sociali. Per la trasformazione verso il lavoro basato sul ruolo, contiamo sui dipendenti con una mentalità digitale e agile che amano partecipare ai processi di cambiamento e prendersi la responsabilità.\nPer informazioni su questo punto si prega di contattare Tijana Tomovic, Capo del Centro MNA, e-mail: ttomovic@caritas.ch\nVi ringraziamo per l'interesse e non vediamo l'ora della vostra applicazione fino al 1 °. Dicembre 2026 tramite il portale online.\nCaritas Svizzera, Adligenswilerstrasse 15, 6002 Lucerna\nwww.caritas.ch",
-        "en": "Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as\nCaritas Switzerland has been running asylum centres for families, individuals and unaccompanied minors (MNA) at five locations in the Canton of Zurich since March 2024 on behalf of the Cantonal Social Office (KSA). In this responsible role, you combine leadership skills with socio-pedagogical specialist work and actively shape the development of the team and young people.\nTheir tasks\n• Professional and personnel management and advice of the MNA residential group team, solution-oriented intervention in problems and conflicts\n• Planning of the personnel deployment in accordance with the personnel requirements planning in agreement with the centre management\n• Participation in the recruitment of additional professionals for the team\n• Preparation, follow-up and conduct of meetings, including case meetings\n• Promotion of the professional development of employees\n• Representation of the housing group vis-à-vis internal and external bodies\n• Promoting constructive, appreciative and interdisciplinary teamwork\n• Conduct of employee interviews as well as support for target agreement and performance development\n• Taking over from an MNA case management\nOur requirements\n• Completed recognised socio-pedagogical training (or equivalent)\n• Experience in migration and/or youth work desirable\n• Strong leadership and communication skills\n• Good knowledge of German, further knowledge of foreign languages beneficial\n• Intercultural competence\n• Willingness to provide time varying working hours\n• High sense of responsibility and quality\n• Own initiative and self-employment and enforcement\n• High resilience and resilience\n• Good Microsoft Office knowledge\n• Reliable gum\nPlace of work: Canton of Zurich (Uster)\nStart of work: Immediately or by agreement.\nCaritas offers attractive employment conditions and an open working environment at the pulse of social issues. For the transformation towards role-based work, we count on employees with a digital and agile mindset who like to participate in change processes and take responsibility.\nFor information on this point please contact Tijana Tomovic, Head of MNA Centre, e-mail: ttomovic@caritas.ch\nWe thank you for the interest and look forward to your application until the 1st. December 2026 via the online portal.\nCaritas Switzerland, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch",
-        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an aktuell fünf Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete Minderjährige (MNA). In dieser verantwortungsvollen Funktion verbinden Sie Führungskompetenz mit sozialpädagogischer Facharbeit und gestalten die Entwicklung von Team und Jugendlichen aktiv mit.\nIhre Aufgaben\n• Fachliche und personelle Führung und Beratung des MNA-Wohngruppenteams, lösungsorientierte Intervention bei Problemen und Konflikte\n• Planung des Personaleinsatzes entsprechend der Personalbedarfsplanung in Absprache mit der Zentrumsleitung\n• Mitwirkung bei der Rekrutierung weiterer Fachpersonen für das Team\n• Vor- und Nachbereitung und Durchführung von Sitzungen inklusive Fallbesprechungen\n• Förderung der fachlichen Weiterentwicklung der Mitarbeitenden\n• Vertretung der Wohngruppe gegenüber internen und externen Stellen\n• Förderung einer konstruktiven, wertschätzenden und interdisziplinären Zusammenarbeit im Team\n• Durchführung von Mitarbeitendengesprächen sowie Unterstützung bei der Zielvereinbarung und Leistungsentwicklung\n• Übernahme von einer MNA-Fallführung\nUnsere Anforderungen\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Ausgeprägte Führungs- und Kommunikationsfähigkeiten\n• Gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft zeitlich variierende Arbeitszeiten zu leisten\n• Hohes Verantwortungs- und Qualitätsbewusstsein\n• Eigeninitiative und Selbständigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund\nArbeitsort: Kanton Zürich (Uster)\nArbeitsbeginn: Per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Tijana Tomovic, Leiterin MNA-Zentrum, E-Mail: ttomovic@caritas.ch\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung bis am 1. Dezember 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
-        "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nCaritas Suisse gère des centres d'asile pour les familles, les personnes et les mineurs non accompagnés (MNA) dans cinq localités du canton de Zurich depuis mars 2024 au nom de l'Office social cantonal (KSA). Dans ce rôle responsable, vous combinez les compétences de leadership avec le travail sociopédagogique de spécialiste et façonnez activement le développement de l'équipe et des jeunes.\nLeurs tâches\n• Gestion professionnelle et du personnel et conseils de l'équipe du groupe résidentiel MNA, intervention axée sur la solution dans les problèmes et les conflits\n• Planification du déploiement du personnel conformément à la planification des besoins en personnel en accord avec la direction du centre\n• Participation au recrutement de professionnels supplémentaires pour l ' équipe\n• Préparation, suivi et organisation de réunions, y compris de réunions de cas\n• Promotion du perfectionnement professionnel des salariés\n• Représentation du groupe logement par rapport aux organismes internes et externes\n• Promouvoir un travail d'équipe constructif, reconnaissant et interdisciplinaire\n• Conduite d'entrevues avec des employés ainsi que soutien à l'établissement d'un accord sur les cibles et au perfectionnement du rendement\n• Reprise d'une gestion de cas de l'ANM\nNos exigences\n• Formation sociopédagogique reconnue (ou équivalent)\n• Expérience de la migration et/ou du travail des jeunes souhaitable\n• Forte capacité de leadership et de communication\n• Bonne connaissance de l'allemand, meilleure connaissance des langues étrangères\n• Compétence interculturelle\n• Volonté de prévoir des horaires variables\n• Haute responsabilité et qualité\n• Initiative propre et travail indépendant et application\n• Haute résilience et résilience\n• Bonne connaissance de Microsoft Office\n• Gomme fiable\nLieu de travail: Canton de Zurich (Uster)\nDébut du travail: Immédiatement ou d'un commun accord.\nCaritas offre des conditions d'emploi attrayantes et un environnement de travail ouvert à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec une mentalité numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nPour plus d'informations sur ce point, veuillez contacter Tijana Tomovic, Chef du Centre MNA, e-mail: ttomovic@caritas.ch\nNous vous remercions de l'intérêt et attendons avec impatience votre candidature jusqu'au 1er. Décembre 2026 via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/126757/2387/pub/1/index.html",
-      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:31.063Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sociale / Educazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sociale / NGO",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-02T10:21:45.510399+00:00",
-      "postedDate": "2026-11-02T10:21:45.510399+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/126757/2387/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
-        "teamleitung-e-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
-          "teamleitung-e-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich"
-        ],
-        "en": [
-          "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz"
-        ],
-        "fr": [
-          "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz"
-        ]
-      },
-      "firstSeenAt": "2026-11-03T09:27:30.858Z",
-      "salaryMin": 95000,
-      "salaryMax": 175500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 95000,
-          "maxValue": 175500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:18:31.063Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2387/pub/1/index.html"
-    },
-    {
-      "id": "caritas-schweiz-3280f1fae50c",
-      "slug": "testa-di-asylum-centre-100-m-f-d-caritas-schweiz-zurich",
-      "slugByLocale": {
-        "it": "testa-di-asylum-centre-100-m-f-d-caritas-schweiz-zurich",
-        "en": "head-of-asylum-centre-100-m-f-d-caritas-schweiz-zurich",
-        "de": "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich",
-        "fr": "chef-du-centre-d-asile-100-h-f-d-caritas-schweiz-zurich"
-      },
-      "company": "Caritas Schweiz",
-      "companyKey": "caritas-schweiz",
-      "companyDomain": "caritas.ch",
-      "title": "Leitung Asylzentrum MNA 100 % (m/w/d)",
-      "titleByLocale": {
-        "it": "Testa di Asylum Centre 100% (m/f/d)",
-        "en": "Head of Asylum Centre 100% (m/f/d)",
-        "de": "Leitung Asylzentrum MNA 100 % (m/w/d)",
-        "fr": "Chef du centre d'asile 100 % (h/f/d)"
-      },
-      "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an mehreren Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete minderjährige Asylsuchende (MNA). Infolge einer Nachbesetzung suchen wir für das MNA-Zentrum Regensbergstrasse in Zürich Oerlikon eine engagierte und verantwortungsbewusste Zentrumsleitung.\nIhre Aufgaben\n• Umsetzung des Leistungsauftrags des Kantonalen Sozialamts Zürich (KSA) auf Basis des Einzelvertrages des Standortes und Rahmenvertrages für MNA-Wohngruppen sowie weiterer Regelwerke\n• Verantwortung für die Unterbringung, Betreuung, Integration und Sicherheit der minderjährigen Asylsuchenden (MNA)\n• Gesamtverantwortung für die Personalplanung, Personalführung und Personalentwicklung\n• Finanzverantwortung für Budgets und Kostenstelle sowie für administrative Abläufe und wirtschaftlichen Einsatz von Ressourcen\n• Verantwortung für die Betreuungs-, Auftragsabwicklungs- und Dokumentationsqualität sowie für die Umsetzung von Arbeitsprozessen und strukturellen Anpassungen\n• Verantwortung für die stufengerechte Weitergabe von Informationen und Sicherstellung der internen sowie externen Kommunikation\n• Zusammenarbeit mit dem Kanton, der Beistandschaft und weiteren Partnerschaften, zentralen Fachbereichsleitungen und anderen MNA-Standorten\nUnsere Anforderungen\n• Universitäts- oder Fachhochschulabschluss im Sozialbereich / Betriebswirtschaft oder vergleichbar\n• Weiterbildung in Betriebswirtschaft und Management von NPO\n• Ausgewiesene sozialpädagogische Fachkompetenzen sowie Arbeitserfahrung in der Betreuung von MNA (zwingende Voraussetzung)\n• Fachkenntnisse im Asyl- und Migrationsbereich\n• Ausgewiesene Personalführungserfahrung\n• Erfahrung in der Zusammenarbeit mit Behörden und Partnerschaften\n• Eigeninitiative, Selbstständigkeit, Durchsetzungsvermögen und Entscheidungsfreude\n• Hohe Resilienz und Belastbarkeit\n• Unternehmerisches und vernetztes Denken und Handeln\n• Ausgeprägte Kommunikationsfähigkeiten und Deutschkenntnisse auf Muttersprachniveau\n• Interkulturelle Kompetenzen\n• Konfliktinterventionskompetenzen\nArbeitsort: Kanton Zürich\nArbeitsbeginn: Nach Vereinbarung\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Herr Giuseppe Sollazzi, Mandatsleiter MNA Zentren, gsollazzi@caritas.ch .\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
-      "descriptionByLocale": {
-        "it": "Fare la cosa giusta. In Svizzera e in circa 20 paesi su quattro continenti. Impegnarsi con noi per la visione di una società solidale, come\nCaritas Svizzera gestisce centri di asilo per famiglie, persone e richiedenti asilo minori non accompagnati (MNA) in diverse sedi del Cantone di Zurigo a nome dell'Ufficio Sociale cantonale (KSA) dal marzo 2024. Come risultato di un follow-up, stiamo cercando una gestione del centro impegnata e responsabile per la MNA Center Regensbergstrasse di Zurigo Oerlikon.\nI loro compiti\n• Attuazione del mandato di servizio dell'Ufficio Sociale cantonale di Zurigo (KSA) sulla base del contratto individuale della sede e del contratto quadro per i gruppi residenziali MNA e altre normative\n• Responsabilità per l'alloggio, la cura, l'integrazione e la sicurezza dei richiedenti asilo minori (MNA)\n• Responsabilità complessiva per la pianificazione del personale, la gestione del personale e lo sviluppo del personale\n• Responsabilità finanziaria per i bilanci e i centri di costo nonché per i processi amministrativi e l'uso economico delle risorse\n• Responsabilità per la qualità del supporto, dell'ordine e della documentazione nonché per l'attuazione dei processi di lavoro e degli adattamenti strutturali\n• Responsabilità per la condivisione graduale delle informazioni e per garantire la comunicazione interna ed esterna\n• Cooperazione con il Cantone, l'assistenza e altre partnership, la gestione dei dipartimenti centrali e altre sedi MNA\nI nostri requisiti\n• Università o Università di Scienze Applicate laurea in campo sociale / amministrazione aziendale o comparabile\n• Ulteriore istruzione in amministrazione aziendale e gestione di NPO\n• Esperienza socio-pedagogica comprovata e esperienza lavorativa nella supervisione di MNA (obbligatorio)\n• Competenza in materia di asilo e migrazione\n• Esperienza di gestione del personale progettata\n• Esperienza in collaborazione con autorità e partenariati\n• Iniziativa, indipendenza, assertività e processo decisionale\n• Alta resilienza e resilienza\n• Imprenditorialità e rete di pensiero e agire\n• Forte capacità di comunicazione e conoscenza del tedesco a livello di lingua madre\n• Competenze interculturali\n• Competenze di intervento di conflitto\nLuogo di lavoro: Cantone di Zurigo\nInizio del lavoro: d'accordo\nCaritas offre interessanti condizioni di lavoro e un'atmosfera di lavoro aperta al polso delle questioni sociali. Per la trasformazione verso il lavoro basato sul ruolo, contiamo su dipendenti con una mentalità digitale e agile che amano partecipare a processi di cambiamento e prendersi la responsabilità.\nSiete invitati a ricevere informazioni su questo punto dal Sig. Giuseppe Sollazzi, Responsabile Missione Centri MNA, gsollazzi@caritas.ch .\nVi ringraziamo per il vostro interesse e non vediamo l'ora della vostra applicazione tramite il portale online.\nCaritas Svizzera, Adligenswilerstrasse 15, 6002 Lucerna\nwww.caritas.ch",
-        "en": "Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as\nCaritas Switzerland has been running asylum centres for families, individuals and unaccompanied minor asylum seekers (MNA) at several locations in the Canton of Zurich on behalf of the Cantonal Social Office (KSA) since March 2024. As a result of a follow-up, we are looking for a committed and responsible center management for the MNA Center Regensbergstrasse in Zurich Oerlikon.\nTheir tasks\n• Implementation of the service mandate of the Cantonal Social Office Zurich (KSA) on the basis of the individual contract of the location and framework contract for MNA residential groups as well as other regulations\n• Responsibility for the accommodation, care, integration and security of minor asylum seekers (MNA)\n• Overall responsibility for personnel planning, personnel management and personnel development\n• Financial responsibility for budgets and cost centres as well as for administrative processes and economic use of resources\n• Responsibility for the quality of support, order processing and documentation as well as for the implementation of work processes and structural adjustments\n• Responsibility for the step-by-step sharing of information and ensuring internal and external communication\n• Cooperation with the canton, assistance and other partnerships, central department management and other MNA locations\nOur requirements\n• University or University of Applied Sciences degree in social field / business administration or comparable\n• Further education in business administration and management of NPO\n• Proven socio-pedagogical expertise as well as work experience in the supervision of MNA (mandatory requirement)\n• Expertise in the field of asylum and migration\n• Designated personnel management experience\n• Experience in cooperation with authorities and partnerships\n• Initiative, independence, assertiveness and decision-making\n• High resilience and resilience\n• Entrepreneurial and networked thinking and acting\n• Strong communication skills and knowledge of German at native language level\n• Intercultural competences\n• Conflict Intervention Competences\nPlace of work: Canton of Zurich\nStart of work: by agreement\nCaritas offers attractive employment conditions and an open working atmosphere at the pulse of social issues. For the transformation towards role-based work, we count on employees with a digital and agile mindset who like to participate in change processes and take responsibility.\nYou are welcome to receive information on this point from Mr. Giuseppe Sollazzi, Head of Mission MNA Centres, gsollazzi@caritas.ch .\nWe thank you for your interest and look forward to your application via the online portal.\nCaritas Switzerland, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch",
-        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nCaritas Schweiz führt seit März 2024 im Auftrag des Kantonalen Sozialamts (KSA) an mehreren Standorten im Kanton Zürich Asylzentren für Familien, Einzelpersonen und unbegleitete minderjährige Asylsuchende (MNA). Infolge einer Nachbesetzung suchen wir für das MNA-Zentrum Regensbergstrasse in Zürich Oerlikon eine engagierte und verantwortungsbewusste Zentrumsleitung.\nIhre Aufgaben\n• Umsetzung des Leistungsauftrags des Kantonalen Sozialamts Zürich (KSA) auf Basis des Einzelvertrages des Standortes und Rahmenvertrages für MNA-Wohngruppen sowie weiterer Regelwerke\n• Verantwortung für die Unterbringung, Betreuung, Integration und Sicherheit der minderjährigen Asylsuchenden (MNA)\n• Gesamtverantwortung für die Personalplanung, Personalführung und Personalentwicklung\n• Finanzverantwortung für Budgets und Kostenstelle sowie für administrative Abläufe und wirtschaftlichen Einsatz von Ressourcen\n• Verantwortung für die Betreuungs-, Auftragsabwicklungs- und Dokumentationsqualität sowie für die Umsetzung von Arbeitsprozessen und strukturellen Anpassungen\n• Verantwortung für die stufengerechte Weitergabe von Informationen und Sicherstellung der internen sowie externen Kommunikation\n• Zusammenarbeit mit dem Kanton, der Beistandschaft und weiteren Partnerschaften, zentralen Fachbereichsleitungen und anderen MNA-Standorten\nUnsere Anforderungen\n• Universitäts- oder Fachhochschulabschluss im Sozialbereich / Betriebswirtschaft oder vergleichbar\n• Weiterbildung in Betriebswirtschaft und Management von NPO\n• Ausgewiesene sozialpädagogische Fachkompetenzen sowie Arbeitserfahrung in der Betreuung von MNA (zwingende Voraussetzung)\n• Fachkenntnisse im Asyl- und Migrationsbereich\n• Ausgewiesene Personalführungserfahrung\n• Erfahrung in der Zusammenarbeit mit Behörden und Partnerschaften\n• Eigeninitiative, Selbstständigkeit, Durchsetzungsvermögen und Entscheidungsfreude\n• Hohe Resilienz und Belastbarkeit\n• Unternehmerisches und vernetztes Denken und Handeln\n• Ausgeprägte Kommunikationsfähigkeiten und Deutschkenntnisse auf Muttersprachniveau\n• Interkulturelle Kompetenzen\n• Konfliktinterventionskompetenzen\nArbeitsort: Kanton Zürich\nArbeitsbeginn: Nach Vereinbarung\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Herr Giuseppe Sollazzi, Mandatsleiter MNA Zentren, gsollazzi@caritas.ch .\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
-        "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nCaritas Suisse gère des centres d'asile pour les familles, les particuliers et les demandeurs d'asile mineurs non accompagnés (MNA) dans plusieurs localités du canton de Zurich au nom de l'Office social cantonal (KSA) depuis mars 2024. Grâce à un suivi, nous recherchons un centre de gestion engagé et responsable pour la MNA Center Regensbergstrasse de Zurich Oerlikon.\nLeurs tâches\n• Exécution du mandat de service de l'Office social cantonal de Zurich (KSA) sur la base du contrat individuel de localisation et de contrat-cadre pour les groupes résidentiels MNA ainsi que d'autres règlements\n• Responsabilité en matière de logement, de soins, d ' intégration et de sécurité des demandeurs d ' asile mineurs\n• Responsabilité générale en matière de planification du personnel, de gestion du personnel et de perfectionnement du personnel\n• Responsabilité financière des budgets et des centres de coûts ainsi que des processus administratifs et de l'utilisation économique des ressources\n• Responsabilité de la qualité de l'appui, du traitement des commandes et de la documentation, ainsi que de la mise en œuvre des processus de travail et des ajustements structurels\n• Responsabilité de l'échange progressif d'informations et de la communication interne et externe\n• Coopération avec le canton, assistance et autres partenariats, gestion du département central et autres lieux d ' implantation de l ' AMN\nNos exigences\n• Diplôme universitaire ou universitaire en sciences appliquées dans le domaine social / administration des affaires ou comparable\n• Formation continue en administration et gestion des entreprises des administrateurs recrutés sur le plan national\n• Expertise sociopédagogique éprouvée et expérience professionnelle dans la supervision du MNA (exigence obligatoire)\n• Expertise dans le domaine de l'asile et de la migration\n• Expérience en matière de gestion du personnel\n• Expérience de la coopération avec les autorités et les partenariats\n• Initiative, indépendance, assurance et prise de décisions\n• Haute résilience et résilience\n• La pensée et l'action entrepreneuriales et en réseau\n• Fortes compétences en communication et connaissance de l'allemand au niveau de la langue maternelle\n• Compétences interculturelles\n• Compétences en intervention en cas de conflit\nLieu de travail: Canton de Zurich\nDébut des travaux: par accord\nCaritas offre des conditions d'emploi attrayantes et une atmosphère de travail ouverte à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec un état d'esprit numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nVous êtes invités à recevoir des informations sur ce point de la part de M. Giuseppe Sollazzi, Chef de la mission MNA Centres, gsollazzi@caritas.ch .\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/126757/2366/pub/6/index.html",
-      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:18:30.617Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sociale / Educazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / NGO",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-21T12:26:48.703098+00:00",
-      "postedDate": "2026-09-21T12:26:48.703098+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/126757/2366/pub/6/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich",
-        "leitung-asylzentrum-mna-100-m-w-d-caritas-schweiz-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich",
-          "leitung-asylzentrum-mna-100-m-w-d-caritas-schweiz-zurich"
-        ],
-        "en": [
-          "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich"
-        ],
-        "fr": [
-          "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-29T09:34:09.418Z",
-      "salaryMin": 95000,
-      "salaryMax": 175500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 95000,
-          "maxValue": 175500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:18:30.617Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2366/pub/6/index.html"
+      "sourceIdentity": "url:https://apply.refline.ch/126757/2390/pub/4/index.html",
+      "crawlerMissStreak": 1
     },
     {
       "id": "caritas-schweiz-46405d7e7155",
@@ -1450,7 +1460,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:18:30.165Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2370/pub/1/index.html"
+      "sourceIdentity": "url:https://apply.refline.ch/126757/2370/pub/1/index.html",
+      "crawlerMissStreak": 1
     }
   ]
 }
