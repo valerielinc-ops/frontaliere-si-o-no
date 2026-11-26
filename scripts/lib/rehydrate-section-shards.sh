@@ -471,48 +471,6 @@ validate_section_shard_batches_manifest() {
   done
 }
 
-# A section window is safe only while it reads one artifact batch. The batch ZIP
-# is shared by its sections, but two different batches can each retain a large
-# compressed archive while their tar streams grow dist/; the old locale-only
-# window allowed exactly that peak (ticino and svizzera were the first two
-# workers). Drain each batch before admitting the next one. Parallelism within
-# the batch remains caller-controlled, so small sections still share the work
-# without reopening the cross-batch disk/memory spike.
-rehydrate_current_locale_in_batches() {
-  local max_parallel="$1"
-  local batch section section_batch batch_failed_file aggregate_failed_file
-  local locale_rc=0
-  local -a batch_sections
-  aggregate_failed_file="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures.txt"
-
-  while IFS= read -r batch; do
-    [ -n "$batch" ] || continue
-    batch_sections=()
-    for section in "${SECTION_NAMES[@]}"; do
-      section_batch="$(jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json)"
-      [ "$section_batch" = "$batch" ] || continue
-      batch_sections+=("$section")
-    done
-    [ "${#batch_sections[@]}" -gt 0 ] || continue
-
-    batch_failed_file="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures-${REHYDRATE_CURRENT_LOCALE}-${batch}.txt"
-    rm -f "$batch_failed_file"
-    export BP_FAILED_FILE="$batch_failed_file"
-    bp_run_bounded "$max_parallel" rehydrate_section_for_current_locale "${batch_sections[@]}" || locale_rc=1
-    if [ -s "$batch_failed_file" ]; then
-      cat "$batch_failed_file" >> "$aggregate_failed_file"
-    fi
-    rm -f "$batch_failed_file"
-  done < <(
-    for section in "${SECTION_NAMES[@]}"; do
-      jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json
-    done | sort -n -u
-  )
-
-  export BP_FAILED_FILE="$aggregate_failed_file"
-  return "$locale_rc"
-}
-
 trunk_guard_init section
 
 # Keep the resource ceiling in one shared implementation. Four is the cap
@@ -555,6 +513,48 @@ if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
   if ! validate_section_shard_batches_manifest; then
     exit 1
   fi
+
+  # A section window is safe only while it reads one artifact batch. The batch ZIP
+  # is shared by its sections, but two different batches can each retain a large
+  # compressed archive while their tar streams grow dist/; the old locale-only
+  # window allowed exactly that peak (ticino and svizzera were the first two
+  # workers). Drain each batch before admitting the next one. Parallelism within
+  # the batch remains caller-controlled, so small sections still share the work
+  # without reopening the cross-batch disk/memory spike.
+  rehydrate_current_locale_in_batches() {
+    local max_parallel="$1"
+    local batch section section_batch batch_failed_file aggregate_failed_file
+    local locale_rc=0
+    local -a batch_sections
+    aggregate_failed_file="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures.txt"
+
+    while IFS= read -r batch; do
+      [ -n "$batch" ] || continue
+      batch_sections=()
+      for section in "${SECTION_NAMES[@]}"; do
+        section_batch="$(jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json)"
+        [ "$section_batch" = "$batch" ] || continue
+        batch_sections+=("$section")
+      done
+      [ "${#batch_sections[@]}" -gt 0 ] || continue
+
+      batch_failed_file="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures-${REHYDRATE_CURRENT_LOCALE}-${batch}.txt"
+      rm -f "$batch_failed_file"
+      export BP_FAILED_FILE="$batch_failed_file"
+      bp_run_bounded "$max_parallel" rehydrate_section_for_current_locale "${batch_sections[@]}" || locale_rc=1
+      if [ -s "$batch_failed_file" ]; then
+        cat "$batch_failed_file" >> "$aggregate_failed_file"
+      fi
+      rm -f "$batch_failed_file"
+    done < <(
+      for section in "${SECTION_NAMES[@]}"; do
+        jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json
+      done | sort -n -u
+    )
+
+    export BP_FAILED_FILE="$aggregate_failed_file"
+    return "$locale_rc"
+  }
 
   # Readers of each batch zip, for batch_zip_release(): one line per LIVE
   # section, keyed by its batch number. Written before any worker starts, so
