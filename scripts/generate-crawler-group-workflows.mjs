@@ -1566,7 +1566,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     'while :; do',
     '  for slot_index in $(seq 1 "$max_parallel"); do',
     dedicatedSlot
-      ? `    slot_path="${tight ? '$d' : '$state_dir'}/slots/relay-${tight ? '$s' : slug}.lock"`
+      ? `    slot_path="${tight ? '$d' : '$state_dir'}/slots/relay-${slug}.lock"`
       : `    slot_path="${tight ? '$d' : '$state_dir'}/slots/slot-\${slot_index}.lock"`,
     '    flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"',
     '    flock_exit=$?',
@@ -3997,10 +3997,9 @@ export function buildStandaloneCrossRepoWorkflow({
   const yaml = YAML.stringify(standalone, { lineWidth: 0 });
   const runtimeDependencyHeader = runtimePaths.length > 0
     ? [
-        // These are hash-bound metadata comments. The compact `#path` form
-        // preserves one auditable path per line while keeping 25 portable
-        // workflows below the repository's existing GitHub size budget.
-        ...runtimePaths.map((runtimePath) => `#${runtimePath}`),
+        // These are hash-bound metadata comments. Keep the documented marker
+        // format so the closure guard can parse every portable artifact.
+        ...runtimePaths.map((runtimePath) => `# - ${runtimePath}`),
       ]
     : [];
   const portableWorkflowHeader = workflowFile === 'translate-pending.yml'

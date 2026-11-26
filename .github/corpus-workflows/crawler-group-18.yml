@@ -1,28 +1,28 @@
 # AUTO-GENERATED.
-#functions/src/githubApiHeaders.js
-#scripts/crawler-group-generation-finalizer.mjs
-#scripts/lib/accumulator-byte-floor-guard.mjs
-#scripts/lib/atomic-write-json.mjs
-#scripts/lib/canonical-json-digest.mjs
-#scripts/lib/crawler-generation-contract.mjs
-#scripts/lib/crawler-generation-group-ids.mjs
-#scripts/lib/crawler-generation-ledger.mjs
-#scripts/lib/crawler-generation-receipt.mjs
-#scripts/lib/crawler-generation-token.mjs
-#scripts/lib/crawler-grace-policy.mjs
-#scripts/lib/crawler-location-config.mjs
-#scripts/lib/crawler-slice-integrity.mjs
-#scripts/lib/detail-failure-reuse-policy.mjs
-#scripts/lib/global-data-pipeline-lease.mjs
-#scripts/lib/job-identity.mjs
-#scripts/lib/job-match-key.mjs
-#scripts/lib/job-url-key.mjs
-#scripts/lib/locale-map-diff.mjs
-#scripts/lib/prospector/country-inventory.mjs
-#scripts/lib/slug-history-journal.mjs
-#scripts/lib/slug-preservation-guard.mjs
-#scripts/lib/stable-stringify.mjs
-#scripts/lib/target-swiss-locations.mjs
+# - functions/src/githubApiHeaders.js
+# - scripts/crawler-group-generation-finalizer.mjs
+# - scripts/lib/accumulator-byte-floor-guard.mjs
+# - scripts/lib/atomic-write-json.mjs
+# - scripts/lib/canonical-json-digest.mjs
+# - scripts/lib/crawler-generation-contract.mjs
+# - scripts/lib/crawler-generation-group-ids.mjs
+# - scripts/lib/crawler-generation-ledger.mjs
+# - scripts/lib/crawler-generation-receipt.mjs
+# - scripts/lib/crawler-generation-token.mjs
+# - scripts/lib/crawler-grace-policy.mjs
+# - scripts/lib/crawler-location-config.mjs
+# - scripts/lib/crawler-slice-integrity.mjs
+# - scripts/lib/detail-failure-reuse-policy.mjs
+# - scripts/lib/global-data-pipeline-lease.mjs
+# - scripts/lib/job-identity.mjs
+# - scripts/lib/job-match-key.mjs
+# - scripts/lib/job-url-key.mjs
+# - scripts/lib/locale-map-diff.mjs
+# - scripts/lib/prospector/country-inventory.mjs
+# - scripts/lib/slug-history-journal.mjs
+# - scripts/lib/slug-preservation-guard.mjs
+# - scripts/lib/stable-stringify.mjs
+# - scripts/lib/target-swiss-locations.mjs
 name: Crawler Group 18 (sparse cross-repo execution)
 run-name: crawler-generation-${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}-group-18
 on:
@@ -313,21 +313,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/tertianum.sh"
-          launcher_path="$state_dir/tertianum.launcher.sh"
-          worker_path="$state_dir/tertianum.worker.sh"
-          log_path="$state_dir/tertianum.log"
-          pid_path="$state_dir/tertianum.pid"
-          status_path="$state_dir/tertianum.status"
-          started_path="$state_dir/tertianum.started"
-          watchdog_path="$state_dir/tertianum.watchdog"
+          s='tertianum'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/tertianum.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/tertianum.crawl-exit"
+          rm -f "$d/tertianum.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-tertianum-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -340,17 +340,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Tertianum jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run tertianum" \
@@ -381,19 +378,20 @@ jobs:
             echo "⚠️ tertianum: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/tertianum.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/tertianum.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/tertianum.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/tertianum.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/tertianum.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/tertianum.log"
+          s='\''tertianum'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/tertianum.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -403,13 +401,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/tertianum.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/tertianum.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/tertianum.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/tertianum.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/tertianum.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/tertianum.watchdog"
+          s='\''tertianum'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/tertianum.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-174}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -467,7 +466,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -513,21 +512,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/etat-de-vaud.sh"
-          launcher_path="$state_dir/etat-de-vaud.launcher.sh"
-          worker_path="$state_dir/etat-de-vaud.worker.sh"
-          log_path="$state_dir/etat-de-vaud.log"
-          pid_path="$state_dir/etat-de-vaud.pid"
-          status_path="$state_dir/etat-de-vaud.status"
-          started_path="$state_dir/etat-de-vaud.started"
-          watchdog_path="$state_dir/etat-de-vaud.watchdog"
+          s='etat-de-vaud'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/etat-de-vaud.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/etat-de-vaud.crawl-exit"
+          rm -f "$d/etat-de-vaud.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-etat-de-vaud-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -540,17 +539,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update État de Vaud jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run etat-de-vaud" \
@@ -581,19 +577,20 @@ jobs:
             echo "⚠️ etat-de-vaud: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.log"
+          s='\''etat-de-vaud'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/etat-de-vaud.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -603,13 +600,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-vaud.watchdog"
+          s='\''etat-de-vaud'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/etat-de-vaud.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-159}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -667,7 +665,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -713,21 +711,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/rheinmetall-air-defence.sh"
-          launcher_path="$state_dir/rheinmetall-air-defence.launcher.sh"
-          worker_path="$state_dir/rheinmetall-air-defence.worker.sh"
-          log_path="$state_dir/rheinmetall-air-defence.log"
-          pid_path="$state_dir/rheinmetall-air-defence.pid"
-          status_path="$state_dir/rheinmetall-air-defence.status"
-          started_path="$state_dir/rheinmetall-air-defence.started"
-          watchdog_path="$state_dir/rheinmetall-air-defence.watchdog"
+          s='rheinmetall-air-defence'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/rheinmetall-air-defence.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/rheinmetall-air-defence.crawl-exit"
+          rm -f "$d/rheinmetall-air-defence.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-rheinmetall-air-defence-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -740,17 +738,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Rheinmetall Air Defence jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run rheinmetall-air-defence" \
@@ -781,19 +776,20 @@ jobs:
             echo "⚠️ rheinmetall-air-defence: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.log"
+          s='\''rheinmetall-air-defence'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/rheinmetall-air-defence.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -803,13 +799,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/rheinmetall-air-defence.watchdog"
+          s='\''rheinmetall-air-defence'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/rheinmetall-air-defence.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-143}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -867,7 +864,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -913,21 +910,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/trumpf.sh"
-          launcher_path="$state_dir/trumpf.launcher.sh"
-          worker_path="$state_dir/trumpf.worker.sh"
-          log_path="$state_dir/trumpf.log"
-          pid_path="$state_dir/trumpf.pid"
-          status_path="$state_dir/trumpf.status"
-          started_path="$state_dir/trumpf.started"
-          watchdog_path="$state_dir/trumpf-schweiz.watchdog"
+          s='trumpf'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/trumpf-schweiz.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/trumpf-schweiz.crawl-exit"
+          rm -f "$d/trumpf-schweiz.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           npm run jobs:update:trumpf
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -940,17 +937,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🔧 Auto-update TRUMPF Schweiz jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run trumpf" \
@@ -981,19 +975,20 @@ jobs:
             echo "⚠️ trumpf: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/trumpf.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/trumpf.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/trumpf-schweiz.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/trumpf.log"
+          s='\''trumpf'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/trumpf-schweiz.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1003,13 +998,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/trumpf.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/trumpf.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/trumpf-schweiz.watchdog"
+          s='\''trumpf'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/trumpf-schweiz.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-133}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1067,7 +1063,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -1113,21 +1109,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/sfs-group.sh"
-          launcher_path="$state_dir/sfs-group.launcher.sh"
-          worker_path="$state_dir/sfs-group.worker.sh"
-          log_path="$state_dir/sfs-group.log"
-          pid_path="$state_dir/sfs-group.pid"
-          status_path="$state_dir/sfs-group.status"
-          started_path="$state_dir/sfs-group.started"
-          watchdog_path="$state_dir/sfs-group.watchdog"
+          s='sfs-group'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/sfs-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/sfs-group.crawl-exit"
+          rm -f "$d/sfs-group.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-sfs-group-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1140,17 +1136,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SFS Group jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run sfs-group" \
@@ -1181,19 +1174,20 @@ jobs:
             echo "⚠️ sfs-group: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.log"
+          s='\''sfs-group'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/sfs-group.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1203,13 +1197,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/sfs-group.watchdog"
+          s='\''sfs-group'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/sfs-group.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-126}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1267,7 +1262,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -1313,21 +1308,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/usi.sh"
-          launcher_path="$state_dir/usi.launcher.sh"
-          worker_path="$state_dir/usi.worker.sh"
-          log_path="$state_dir/usi.log"
-          pid_path="$state_dir/usi.pid"
-          status_path="$state_dir/usi.status"
-          started_path="$state_dir/usi.started"
-          watchdog_path="$state_dir/usi-universita-della-svizzera-italiana.watchdog"
+          s='usi'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/usi-universita-della-svizzera-italiana.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/usi-universita-della-svizzera-italiana.crawl-exit"
+          rm -f "$d/usi-universita-della-svizzera-italiana.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           npm run jobs:update:usi
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1340,17 +1335,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🎓 Auto-update USI jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run usi" \
@@ -1381,19 +1373,20 @@ jobs:
             echo "⚠️ usi: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/usi.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/usi.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/usi.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/usi.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/usi-universita-della-svizzera-italiana.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/usi.log"
+          s='\''usi'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/usi-universita-della-svizzera-italiana.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1403,13 +1396,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/usi.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/usi.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/usi.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/usi.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/usi.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/usi-universita-della-svizzera-italiana.watchdog"
+          s='\''usi'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/usi-universita-della-svizzera-italiana.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-119}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1467,7 +1461,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -1513,21 +1507,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/ksml.sh"
-          launcher_path="$state_dir/ksml.launcher.sh"
-          worker_path="$state_dir/ksml.worker.sh"
-          log_path="$state_dir/ksml.log"
-          pid_path="$state_dir/ksml.pid"
-          status_path="$state_dir/ksml.status"
-          started_path="$state_dir/ksml.started"
-          watchdog_path="$state_dir/ksml.watchdog"
+          s='ksml'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/ksml.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/ksml.crawl-exit"
+          rm -f "$d/ksml.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-ksml-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1540,17 +1534,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update KSML jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run ksml" \
@@ -1581,19 +1572,20 @@ jobs:
             echo "⚠️ ksml: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/ksml.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/ksml.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/ksml.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/ksml.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/ksml.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/ksml.log"
+          s='\''ksml'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/ksml.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1603,13 +1595,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/ksml.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/ksml.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/ksml.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/ksml.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/ksml.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/ksml.watchdog"
+          s='\''ksml'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/ksml.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-112}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1667,7 +1660,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -1713,21 +1706,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/spital-lachen.sh"
-          launcher_path="$state_dir/spital-lachen.launcher.sh"
-          worker_path="$state_dir/spital-lachen.worker.sh"
-          log_path="$state_dir/spital-lachen.log"
-          pid_path="$state_dir/spital-lachen.pid"
-          status_path="$state_dir/spital-lachen.status"
-          started_path="$state_dir/spital-lachen.started"
-          watchdog_path="$state_dir/spital-lachen.watchdog"
+          s='spital-lachen'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/spital-lachen.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/spital-lachen.crawl-exit"
+          rm -f "$d/spital-lachen.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-spital-lachen-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1740,17 +1733,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SPITAL-LACHEN jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run spital-lachen" \
@@ -1781,19 +1771,20 @@ jobs:
             echo "⚠️ spital-lachen: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.log"
+          s='\''spital-lachen'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/spital-lachen.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1803,13 +1794,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/spital-lachen.watchdog"
+          s='\''spital-lachen'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/spital-lachen.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-104}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1867,7 +1859,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -1913,21 +1905,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/kanton-zuerich.sh"
-          launcher_path="$state_dir/kanton-zuerich.launcher.sh"
-          worker_path="$state_dir/kanton-zuerich.worker.sh"
-          log_path="$state_dir/kanton-zuerich.log"
-          pid_path="$state_dir/kanton-zuerich.pid"
-          status_path="$state_dir/kanton-zuerich.status"
-          started_path="$state_dir/kanton-zuerich.started"
-          watchdog_path="$state_dir/kanton-zuerich.watchdog"
+          s='kanton-zuerich'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/kanton-zuerich.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/kanton-zuerich.crawl-exit"
+          rm -f "$d/kanton-zuerich.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-kanton-zuerich-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -1940,17 +1932,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kanton Zürich jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run kanton-zuerich" \
@@ -1981,19 +1970,20 @@ jobs:
             echo "⚠️ kanton-zuerich: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.log"
+          s='\''kanton-zuerich'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/kanton-zuerich.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2003,13 +1993,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/kanton-zuerich.watchdog"
+          s='\''kanton-zuerich'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/kanton-zuerich.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-99}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2067,7 +2058,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -2113,21 +2104,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/zuger-kantonsspital.sh"
-          launcher_path="$state_dir/zuger-kantonsspital.launcher.sh"
-          worker_path="$state_dir/zuger-kantonsspital.worker.sh"
-          log_path="$state_dir/zuger-kantonsspital.log"
-          pid_path="$state_dir/zuger-kantonsspital.pid"
-          status_path="$state_dir/zuger-kantonsspital.status"
-          started_path="$state_dir/zuger-kantonsspital.started"
-          watchdog_path="$state_dir/zuger-kantonsspital.watchdog"
+          s='zuger-kantonsspital'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/zuger-kantonsspital.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/zuger-kantonsspital.crawl-exit"
+          rm -f "$d/zuger-kantonsspital.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-zuger-kantonsspital-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2140,17 +2131,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ZUGER-KANTONSSPITAL jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run zuger-kantonsspital" \
@@ -2181,19 +2169,20 @@ jobs:
             echo "⚠️ zuger-kantonsspital: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.log"
+          s='\''zuger-kantonsspital'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/zuger-kantonsspital.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2203,13 +2192,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/zuger-kantonsspital.watchdog"
+          s='\''zuger-kantonsspital'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/zuger-kantonsspital.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-93}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2267,7 +2257,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -2313,21 +2303,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/sicpa.sh"
-          launcher_path="$state_dir/sicpa.launcher.sh"
-          worker_path="$state_dir/sicpa.worker.sh"
-          log_path="$state_dir/sicpa.log"
-          pid_path="$state_dir/sicpa.pid"
-          status_path="$state_dir/sicpa.status"
-          started_path="$state_dir/sicpa.started"
-          watchdog_path="$state_dir/sicpa.watchdog"
+          s='sicpa'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/sicpa.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/sicpa.crawl-exit"
+          rm -f "$d/sicpa.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-sicpa-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2340,17 +2330,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SICPA SA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run sicpa" \
@@ -2381,19 +2368,20 @@ jobs:
             echo "⚠️ sicpa: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/sicpa.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/sicpa.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/sicpa.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/sicpa.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/sicpa.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/sicpa.log"
+          s='\''sicpa'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/sicpa.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2403,13 +2391,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/sicpa.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/sicpa.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/sicpa.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/sicpa.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/sicpa.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/sicpa.watchdog"
+          s='\''sicpa'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/sicpa.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-87}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2467,7 +2456,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -2513,21 +2502,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/hofweissbad.sh"
-          launcher_path="$state_dir/hofweissbad.launcher.sh"
-          worker_path="$state_dir/hofweissbad.worker.sh"
-          log_path="$state_dir/hofweissbad.log"
-          pid_path="$state_dir/hofweissbad.pid"
-          status_path="$state_dir/hofweissbad.status"
-          started_path="$state_dir/hofweissbad.started"
-          watchdog_path="$state_dir/hofweissbad.watchdog"
+          s='hofweissbad'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/hofweissbad.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/hofweissbad.crawl-exit"
+          rm -f "$d/hofweissbad.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-hofweissbad-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2540,17 +2529,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Hof Weissbad jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run hofweissbad" \
@@ -2581,19 +2567,20 @@ jobs:
             echo "⚠️ hofweissbad: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.log"
+          s='\''hofweissbad'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/hofweissbad.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2603,13 +2590,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/hofweissbad.watchdog"
+          s='\''hofweissbad'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/hofweissbad.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-83}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2667,7 +2655,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -2713,21 +2701,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/tinext.sh"
-          launcher_path="$state_dir/tinext.launcher.sh"
-          worker_path="$state_dir/tinext.worker.sh"
-          log_path="$state_dir/tinext.log"
-          pid_path="$state_dir/tinext.pid"
-          status_path="$state_dir/tinext.status"
-          started_path="$state_dir/tinext.started"
-          watchdog_path="$state_dir/tinext.watchdog"
+          s='tinext'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/tinext.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/tinext.crawl-exit"
+          rm -f "$d/tinext.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           npm run jobs:update:tinext
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2740,17 +2728,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🧩 Auto-update Tinext jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run tinext" \
@@ -2781,19 +2766,20 @@ jobs:
             echo "⚠️ tinext: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/tinext.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/tinext.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/tinext.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/tinext.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/tinext.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/tinext.log"
+          s='\''tinext'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/tinext.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2803,13 +2789,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/tinext.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/tinext.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/tinext.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/tinext.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/tinext.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/tinext.watchdog"
+          s='\''tinext'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/tinext.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-78}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2867,7 +2854,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -2913,25 +2900,24 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/apleona-schweiz-ag.sh"
-          launcher_path="$state_dir/apleona-schweiz-ag.launcher.sh"
-          worker_path="$state_dir/apleona-schweiz-ag.worker.sh"
-          log_path="$state_dir/apleona-schweiz-ag.log"
-          pid_path="$state_dir/apleona-schweiz-ag.pid"
-          status_path="$state_dir/apleona-schweiz-ag.status"
-          started_path="$state_dir/apleona-schweiz-ag.started"
-          watchdog_path="$state_dir/apleona-schweiz-ag.watchdog"
+          s='apleona-schweiz-ag'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/apleona-schweiz-ag.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/apleona-schweiz-ag.crawl-exit"
+          rm -f "$d/apleona-schweiz-ag.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           # ---- apleona-schweiz-ag: 60 minute target wall timeout ----
           timeout --signal=TERM --kill-after=30s 60m bash -c '\''set -uo pipefail
           set +e
-
           node scripts/update-apleona-schweiz-ag-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -2943,17 +2929,14 @@ jobs:
           fi
           git_commit_exit=0
           housekeeping_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''\'\'''\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Apleona Schweiz AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''\'\'''\''
             git_commit_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::apleona-schweiz-ag: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ apleona-schweiz-ag: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
@@ -2997,7 +2980,6 @@ jobs:
             echo "::error::apleona-schweiz-ag: target exceeded 60 minute wall timeout"
             if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then echo "❌ apleona-schweiz-ag: target timed out after 60 minutes" >> "$GITHUB_STEP_SUMMARY"; fi
           fi
-
           # ---- apleona-schweiz-ag: Report failure to GitHub Issue (outside timeout, only on target failure) ----
           crawler_failure_timeout_detail='\'''\''
           if [ "$target_exit" -eq 124 ]; then
@@ -3016,7 +2998,6 @@ jobs:
               --workflow "Run apleona-schweiz-ag"
             report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed apleona-schweiz-ag"
           fi
-
           if [ "$target_exit" -eq 143 ]; then
             exit 143
           fi
@@ -3029,12 +3010,14 @@ jobs:
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.log"
+          s='\''apleona-schweiz-ag'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/apleona-schweiz-ag.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3044,13 +3027,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/apleona-schweiz-ag.watchdog"
+          s='\''apleona-schweiz-ag'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/apleona-schweiz-ag.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-70}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3108,7 +3092,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -3154,21 +3138,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/pkb-private-bank.sh"
-          launcher_path="$state_dir/pkb-private-bank.launcher.sh"
-          worker_path="$state_dir/pkb-private-bank.worker.sh"
-          log_path="$state_dir/pkb-private-bank.log"
-          pid_path="$state_dir/pkb-private-bank.pid"
-          status_path="$state_dir/pkb-private-bank.status"
-          started_path="$state_dir/pkb-private-bank.started"
-          watchdog_path="$state_dir/pkb-private-bank.watchdog"
+          s='pkb-private-bank'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/pkb-private-bank.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/pkb-private-bank.crawl-exit"
+          rm -f "$d/pkb-private-bank.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           npm run jobs:update:pkb-private-bank
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3181,17 +3165,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update PKB Private Bank jobs (dedicated crawler)"'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run pkb-private-bank" \
@@ -3222,19 +3203,20 @@ jobs:
             echo "⚠️ pkb-private-bank: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.log"
+          s='\''pkb-private-bank'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/pkb-private-bank.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3244,13 +3226,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/pkb-private-bank.watchdog"
+          s='\''pkb-private-bank'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/pkb-private-bank.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3308,7 +3291,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -3354,21 +3337,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/klinik-schloss-mammern.sh"
-          launcher_path="$state_dir/klinik-schloss-mammern.launcher.sh"
-          worker_path="$state_dir/klinik-schloss-mammern.worker.sh"
-          log_path="$state_dir/klinik-schloss-mammern.log"
-          pid_path="$state_dir/klinik-schloss-mammern.pid"
-          status_path="$state_dir/klinik-schloss-mammern.status"
-          started_path="$state_dir/klinik-schloss-mammern.started"
-          watchdog_path="$state_dir/klinik-schloss-mammern.watchdog"
+          s='klinik-schloss-mammern'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/klinik-schloss-mammern.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/klinik-schloss-mammern.crawl-exit"
+          rm -f "$d/klinik-schloss-mammern.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-klinik-schloss-mammern-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3381,17 +3364,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update KLINIK-SCHLOSS-MAMMERN jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run klinik-schloss-mammern" \
@@ -3422,19 +3402,20 @@ jobs:
             echo "⚠️ klinik-schloss-mammern: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.log"
+          s='\''klinik-schloss-mammern'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/klinik-schloss-mammern.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3444,13 +3425,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/klinik-schloss-mammern.watchdog"
+          s='\''klinik-schloss-mammern'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/klinik-schloss-mammern.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-69}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3508,7 +3490,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -3554,21 +3536,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/zermatt-bergbahnen.sh"
-          launcher_path="$state_dir/zermatt-bergbahnen.launcher.sh"
-          worker_path="$state_dir/zermatt-bergbahnen.worker.sh"
-          log_path="$state_dir/zermatt-bergbahnen.log"
-          pid_path="$state_dir/zermatt-bergbahnen.pid"
-          status_path="$state_dir/zermatt-bergbahnen.status"
-          started_path="$state_dir/zermatt-bergbahnen.started"
-          watchdog_path="$state_dir/zermatt-bergbahnen.watchdog"
+          s='zermatt-bergbahnen'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/zermatt-bergbahnen.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/zermatt-bergbahnen.crawl-exit"
+          rm -f "$d/zermatt-bergbahnen.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-zermatt-bergbahnen-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3581,17 +3563,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Zermatt Bergbahnen jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run zermatt-bergbahnen" \
@@ -3622,19 +3601,20 @@ jobs:
             echo "⚠️ zermatt-bergbahnen: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.log"
+          s='\''zermatt-bergbahnen'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/zermatt-bergbahnen.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3644,13 +3624,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/zermatt-bergbahnen.watchdog"
+          s='\''zermatt-bergbahnen'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/zermatt-bergbahnen.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-62}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3708,7 +3689,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -3754,21 +3735,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/etat-de-fribourg.sh"
-          launcher_path="$state_dir/etat-de-fribourg.launcher.sh"
-          worker_path="$state_dir/etat-de-fribourg.worker.sh"
-          log_path="$state_dir/etat-de-fribourg.log"
-          pid_path="$state_dir/etat-de-fribourg.pid"
-          status_path="$state_dir/etat-de-fribourg.status"
-          started_path="$state_dir/etat-de-fribourg.started"
-          watchdog_path="$state_dir/etat-de-fribourg.watchdog"
+          s='etat-de-fribourg'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/etat-de-fribourg.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/etat-de-fribourg.crawl-exit"
+          rm -f "$d/etat-de-fribourg.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-etat-de-fribourg-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3781,17 +3762,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Etat de Fribourg jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run etat-de-fribourg" \
@@ -3822,19 +3800,20 @@ jobs:
             echo "⚠️ etat-de-fribourg: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.log"
+          s='\''etat-de-fribourg'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/etat-de-fribourg.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3844,13 +3823,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/etat-de-fribourg.watchdog"
+          s='\''etat-de-fribourg'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/etat-de-fribourg.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-52}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3908,7 +3888,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -3954,21 +3934,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/huber-suhner.sh"
-          launcher_path="$state_dir/huber-suhner.launcher.sh"
-          worker_path="$state_dir/huber-suhner.worker.sh"
-          log_path="$state_dir/huber-suhner.log"
-          pid_path="$state_dir/huber-suhner.pid"
-          status_path="$state_dir/huber-suhner.status"
-          started_path="$state_dir/huber-suhner.started"
-          watchdog_path="$state_dir/huber-suhner.watchdog"
+          s='huber-suhner'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/huber-suhner.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/huber-suhner.crawl-exit"
+          rm -f "$d/huber-suhner.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-huber-suhner-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -3981,17 +3961,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Huber+Suhner AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run huber-suhner" \
@@ -4022,19 +3999,20 @@ jobs:
             echo "⚠️ huber-suhner: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.log"
+          s='\''huber-suhner'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/huber-suhner.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4044,13 +4022,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/huber-suhner.watchdog"
+          s='\''huber-suhner'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/huber-suhner.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-46}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4108,7 +4087,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -4154,21 +4133,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/canton-valais.sh"
-          launcher_path="$state_dir/canton-valais.launcher.sh"
-          worker_path="$state_dir/canton-valais.worker.sh"
-          log_path="$state_dir/canton-valais.log"
-          pid_path="$state_dir/canton-valais.pid"
-          status_path="$state_dir/canton-valais.status"
-          started_path="$state_dir/canton-valais.started"
-          watchdog_path="$state_dir/canton-valais.watchdog"
+          s='canton-valais'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/canton-valais.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/canton-valais.crawl-exit"
+          rm -f "$d/canton-valais.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-canton-valais-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4181,17 +4160,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Canton du Valais jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run canton-valais" \
@@ -4222,19 +4198,20 @@ jobs:
             echo "⚠️ canton-valais: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.log"
+          s='\''canton-valais'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/canton-valais.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4244,13 +4221,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/canton-valais.watchdog"
+          s='\''canton-valais'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/canton-valais.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-41}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4308,7 +4286,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -4354,21 +4332,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/constellium.sh"
-          launcher_path="$state_dir/constellium.launcher.sh"
-          worker_path="$state_dir/constellium.worker.sh"
-          log_path="$state_dir/constellium.log"
-          pid_path="$state_dir/constellium.pid"
-          status_path="$state_dir/constellium.status"
-          started_path="$state_dir/constellium.started"
-          watchdog_path="$state_dir/constellium.watchdog"
+          s='constellium'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/constellium.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/constellium.crawl-exit"
+          rm -f "$d/constellium.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-constellium-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4381,17 +4359,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Constellium Valais jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run constellium" \
@@ -4422,19 +4397,20 @@ jobs:
             echo "⚠️ constellium: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/constellium.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/constellium.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/constellium.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/constellium.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/constellium.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/constellium.log"
+          s='\''constellium'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/constellium.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4444,13 +4420,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/constellium.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/constellium.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/constellium.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/constellium.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/constellium.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/constellium.watchdog"
+          s='\''constellium'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/constellium.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-33}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4508,7 +4485,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -4554,21 +4531,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/empa.sh"
-          launcher_path="$state_dir/empa.launcher.sh"
-          worker_path="$state_dir/empa.worker.sh"
-          log_path="$state_dir/empa.log"
-          pid_path="$state_dir/empa.pid"
-          status_path="$state_dir/empa.status"
-          started_path="$state_dir/empa.started"
-          watchdog_path="$state_dir/empa.watchdog"
+          s='empa'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/empa.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/empa.crawl-exit"
+          rm -f "$d/empa.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-empa-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4581,17 +4558,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Empa jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run empa" \
@@ -4622,19 +4596,20 @@ jobs:
             echo "⚠️ empa: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/empa.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/empa.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/empa.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/empa.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/empa.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/empa.log"
+          s='\''empa'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/empa.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4644,13 +4619,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/empa.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/empa.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/empa.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/empa.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/empa.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/empa.watchdog"
+          s='\''empa'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/empa.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4708,7 +4684,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -4754,21 +4730,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/kantonsspital-uri.sh"
-          launcher_path="$state_dir/kantonsspital-uri.launcher.sh"
-          worker_path="$state_dir/kantonsspital-uri.worker.sh"
-          log_path="$state_dir/kantonsspital-uri.log"
-          pid_path="$state_dir/kantonsspital-uri.pid"
-          status_path="$state_dir/kantonsspital-uri.status"
-          started_path="$state_dir/kantonsspital-uri.started"
-          watchdog_path="$state_dir/kantonsspital-uri.watchdog"
+          s='kantonsspital-uri'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/kantonsspital-uri.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/kantonsspital-uri.crawl-exit"
+          rm -f "$d/kantonsspital-uri.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-kantonsspital-uri-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4781,17 +4757,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update KANTONSSPITAL-URI jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run kantonsspital-uri" \
@@ -4822,19 +4795,20 @@ jobs:
             echo "⚠️ kantonsspital-uri: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.log"
+          s='\''kantonsspital-uri'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/kantonsspital-uri.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4844,13 +4818,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/kantonsspital-uri.watchdog"
+          s='\''kantonsspital-uri'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/kantonsspital-uri.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4908,7 +4883,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -4954,21 +4929,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/bobst.sh"
-          launcher_path="$state_dir/bobst.launcher.sh"
-          worker_path="$state_dir/bobst.worker.sh"
-          log_path="$state_dir/bobst.log"
-          pid_path="$state_dir/bobst.pid"
-          status_path="$state_dir/bobst.status"
-          started_path="$state_dir/bobst.started"
-          watchdog_path="$state_dir/bobst.watchdog"
+          s='bobst'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/bobst.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/bobst.crawl-exit"
+          rm -f "$d/bobst.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-bobst-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -4981,17 +4956,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Bobst jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run bobst" \
@@ -5022,19 +4994,20 @@ jobs:
             echo "⚠️ bobst: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/bobst.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/bobst.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/bobst.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/bobst.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/bobst.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/bobst.log"
+          s='\''bobst'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/bobst.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5044,13 +5017,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/bobst.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/bobst.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/bobst.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/bobst.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/bobst.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/bobst.watchdog"
+          s='\''bobst'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/bobst.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5108,7 +5082,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -5154,21 +5128,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/baloise.sh"
-          launcher_path="$state_dir/baloise.launcher.sh"
-          worker_path="$state_dir/baloise.worker.sh"
-          log_path="$state_dir/baloise.log"
-          pid_path="$state_dir/baloise.pid"
-          status_path="$state_dir/baloise.status"
-          started_path="$state_dir/baloise.started"
-          watchdog_path="$state_dir/baloise.watchdog"
+          s='baloise'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/baloise.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/baloise.crawl-exit"
+          rm -f "$d/baloise.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-baloise-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5181,17 +5155,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Baloise jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run baloise" \
@@ -5222,19 +5193,20 @@ jobs:
             echo "⚠️ baloise: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/baloise.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/baloise.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/baloise.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/baloise.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/baloise.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/baloise.log"
+          s='\''baloise'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/baloise.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5244,13 +5216,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/baloise.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/baloise.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/baloise.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/baloise.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/baloise.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/baloise.watchdog"
+          s='\''baloise'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/baloise.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5308,7 +5281,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -5354,21 +5327,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/etavis.sh"
-          launcher_path="$state_dir/etavis.launcher.sh"
-          worker_path="$state_dir/etavis.worker.sh"
-          log_path="$state_dir/etavis.log"
-          pid_path="$state_dir/etavis.pid"
-          status_path="$state_dir/etavis.status"
-          started_path="$state_dir/etavis.started"
-          watchdog_path="$state_dir/etavis.watchdog"
+          s='etavis'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/etavis.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/etavis.crawl-exit"
+          rm -f "$d/etavis.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-etavis-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5381,17 +5354,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update ETAVIS jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run etavis" \
@@ -5422,19 +5392,20 @@ jobs:
             echo "⚠️ etavis: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/etavis.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/etavis.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/etavis.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/etavis.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/etavis.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/etavis.log"
+          s='\''etavis'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/etavis.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5444,13 +5415,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/etavis.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/etavis.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/etavis.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/etavis.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/etavis.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/etavis.watchdog"
+          s='\''etavis'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/etavis.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5508,7 +5480,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -5554,21 +5526,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/amina-bank.sh"
-          launcher_path="$state_dir/amina-bank.launcher.sh"
-          worker_path="$state_dir/amina-bank.worker.sh"
-          log_path="$state_dir/amina-bank.log"
-          pid_path="$state_dir/amina-bank.pid"
-          status_path="$state_dir/amina-bank.status"
-          started_path="$state_dir/amina-bank.started"
-          watchdog_path="$state_dir/amina-bank.watchdog"
+          s='amina-bank'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/amina-bank.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/amina-bank.crawl-exit"
+          rm -f "$d/amina-bank.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-amina-bank-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5581,17 +5553,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update AMINA Bank jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run amina-bank" \
@@ -5622,19 +5591,20 @@ jobs:
             echo "⚠️ amina-bank: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.log"
+          s='\''amina-bank'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/amina-bank.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5644,13 +5614,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/amina-bank.watchdog"
+          s='\''amina-bank'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/amina-bank.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5708,7 +5679,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -5754,21 +5725,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/opus-personal.sh"
-          launcher_path="$state_dir/opus-personal.launcher.sh"
-          worker_path="$state_dir/opus-personal.worker.sh"
-          log_path="$state_dir/opus-personal.log"
-          pid_path="$state_dir/opus-personal.pid"
-          status_path="$state_dir/opus-personal.status"
-          started_path="$state_dir/opus-personal.started"
-          watchdog_path="$state_dir/opus-personal.watchdog"
+          s='opus-personal'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/opus-personal.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/opus-personal.crawl-exit"
+          rm -f "$d/opus-personal.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-opus-personal-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5781,17 +5752,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Opus Personal AG, Zweigniederlassung Altdorf jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run opus-personal" \
@@ -5822,19 +5790,20 @@ jobs:
             echo "⚠️ opus-personal: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.log"
+          s='\''opus-personal'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/opus-personal.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5844,13 +5813,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/opus-personal.watchdog"
+          s='\''opus-personal'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/opus-personal.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5908,7 +5878,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -5954,21 +5924,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/rohrer-gartenbau-und-hauswartungen.sh"
-          launcher_path="$state_dir/rohrer-gartenbau-und-hauswartungen.launcher.sh"
-          worker_path="$state_dir/rohrer-gartenbau-und-hauswartungen.worker.sh"
-          log_path="$state_dir/rohrer-gartenbau-und-hauswartungen.log"
-          pid_path="$state_dir/rohrer-gartenbau-und-hauswartungen.pid"
-          status_path="$state_dir/rohrer-gartenbau-und-hauswartungen.status"
-          started_path="$state_dir/rohrer-gartenbau-und-hauswartungen.started"
-          watchdog_path="$state_dir/rohrer-gartenbau-und-hauswartungen.watchdog"
+          s='rohrer-gartenbau-und-hauswartungen'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/rohrer-gartenbau-und-hauswartungen.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/rohrer-gartenbau-und-hauswartungen.crawl-exit"
+          rm -f "$d/rohrer-gartenbau-und-hauswartungen.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-rohrer-gartenbau-und-hauswartungen-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -5981,17 +5951,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Rohrer Gartenbau und Hauswartungen GmbH jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run rohrer-gartenbau-und-hauswartungen" \
@@ -6022,19 +5989,20 @@ jobs:
             echo "⚠️ rohrer-gartenbau-und-hauswartungen: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.log"
+          s='\''rohrer-gartenbau-und-hauswartungen'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/rohrer-gartenbau-und-hauswartungen.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -6044,13 +6012,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/rohrer-gartenbau-und-hauswartungen.watchdog"
+          s='\''rohrer-gartenbau-und-hauswartungen'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/rohrer-gartenbau-und-hauswartungen.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -6108,7 +6077,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -6154,21 +6123,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/wokin.sh"
-          launcher_path="$state_dir/wokin.launcher.sh"
-          worker_path="$state_dir/wokin.worker.sh"
-          log_path="$state_dir/wokin.log"
-          pid_path="$state_dir/wokin.pid"
-          status_path="$state_dir/wokin.status"
-          started_path="$state_dir/wokin.started"
-          watchdog_path="$state_dir/wokin.watchdog"
+          s='wokin'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/wokin.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/wokin.crawl-exit"
+          rm -f "$d/wokin.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-wokin-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -6181,17 +6150,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update WOKIN jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run wokin" \
@@ -6222,19 +6188,20 @@ jobs:
             echo "⚠️ wokin: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/wokin.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/wokin.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/wokin.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/wokin.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/wokin.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/wokin.log"
+          s='\''wokin'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/wokin.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -6244,13 +6211,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/wokin.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/wokin.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/wokin.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/wokin.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/wokin.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/wokin.watchdog"
+          s='\''wokin'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/wokin.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -6308,7 +6276,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
@@ -6354,21 +6322,21 @@ jobs:
           WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/protectas.sh"
-          launcher_path="$state_dir/protectas.launcher.sh"
-          worker_path="$state_dir/protectas.worker.sh"
-          log_path="$state_dir/protectas.log"
-          pid_path="$state_dir/protectas.pid"
-          status_path="$state_dir/protectas.status"
-          started_path="$state_dir/protectas.started"
-          watchdog_path="$state_dir/protectas.watchdog"
+          s='protectas'
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          mkdir -p "$d/slots"
+          script_path="$d/$s.sh"
+          launcher_path="$d/$s.launcher.sh"
+          worker_path="$d/$s.worker.sh"
+          log_path="$d/$s.log"
+          pid_path="$d/$s.pid"
+          status_path="$d/$s.status"
+          started_path="$d/$s.started"
+          watchdog_path="$d/protectas.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/protectas.crawl-exit"
+          rm -f "$d/protectas.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
-
           node scripts/update-protectas-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
@@ -6381,17 +6349,14 @@ jobs:
           git_commit_exit=0
           housekeeping_exit=0
           report_exit=0
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs)
             housekeeping_exit=$?
           fi
-
           if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
             CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Protectas SA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
-
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run protectas" \
@@ -6422,19 +6387,20 @@ jobs:
             echo "⚠️ protectas: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
-
           (( git_commit_exit == 45 )) && exit 45
           if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
             exit 1
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-18/protectas.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/protectas.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-18/protectas.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/protectas.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-18/protectas.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-18/protectas.log"
+          s='\''protectas'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          script_path="$d/$s.sh"
+          worker_status_file="$d/$s.worker.status"
+          worker_status_tmp="$d/$s.worker.status.tmp.$$"
+          started_file="$d/$s.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$d/protectas.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$d/$s.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -6444,13 +6410,14 @@ jobs:
           validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }
           validateGeneratedWorkerScript "$worker_path" || exit 1
           printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-18"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-18/protectas.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-18/protectas.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-18/protectas.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-18/protectas.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-18/protectas.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-18/protectas.watchdog"
+          s='\''protectas'\''
+          d="$RUNNER_TEMP/crawler-generation/group-18"
+          worker_path="$d/$s.worker.sh"
+          status_file="$d/$s.status"
+          status_tmp="$d/$s.status.tmp.$$"
+          worker_status_file="$d/$s.worker.status"
+          started_file="$d/$s.started"
+          watchdog_file="$d/protectas.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -6508,7 +6475,7 @@ jobs:
           fi
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              slot_path="$d/slots/slot-${slot_index}.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then
