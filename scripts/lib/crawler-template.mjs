@@ -1465,12 +1465,7 @@ export async function runStandardCrawlerPipeline(config) {
 
   // Invoke the helper even when no job disappeared: it also persists repairs
   // to legacy entries already present in the expired slice.
-  // Leave these proven removals to the verified writer, which archives them
-  // alongside its shrink decision using the stored jobs in the proof.
-  const removedWithoutDetailProof = confirmedOmissions.size > 0
-    ? diff.removedJobs.filter((job) => !confirmedOmissions.has(job.url))
-    : diff.removedJobs;
-  const archived = archiveRemovedJobsToSlice(removedWithoutDetailProof, companyKey, {
+  const archived = archiveRemovedJobsToSlice(diff.removedJobs, companyKey, {
     activeJobs: clean,
   });
   if (archived > 0) {
@@ -1542,6 +1537,9 @@ export async function runStandardCrawlerPipeline(config) {
   const durationMs = getCrawlerElapsedMs();
   const sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const sliceJobs = Array.isArray(sliceRaw) ? sliceRaw.filter(isCompanyJob) : [];
+  const removedWithoutDetailProof = confirmedOmissions.size > 0
+    ? diff.removedJobs.filter((job) => !confirmedOmissions.has(job.url))
+    : diff.removedJobs;
   const thinHousekeepingProof = buildThinSourceHousekeepingProof(
     removedWithoutDetailProof,
     thinSourceJobs,

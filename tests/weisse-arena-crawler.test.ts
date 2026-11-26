@@ -689,7 +689,7 @@ describe('TalentLink pagination completeness', () => {
     expect(detailRequests).toEqual([51, 51, 51, 51, 51, 51]);
   });
 
-  it('passes only bracketed omissions to the guarded writer on an 11-to-3 crawl', async () => {
+  it('archives and passes bracketed omissions to the guarded writer on an 11-to-3 crawl', async () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'weisse-arena-crawler-'));
     mocks.scratchPath = path.join(tmp, 'jobs.json');
     vi.stubEnv('GITHUB_STEP_SUMMARY', path.join(tmp, 'step-summary.md'));
@@ -753,7 +753,9 @@ describe('TalentLink pagination completeness', () => {
         JSON.stringify({ jobs }),
         options.housekeepingProof,
       )).toBe(true);
-      expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith([], WEISSE_ARENA_KEY, expect.anything());
+      expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith(
+        existingJobs.slice(2), WEISSE_ARENA_KEY, expect.objectContaining({ activeJobs: expect.any(Array) }),
+      );
       expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(expect.objectContaining({
         written: 3,
         removedCount: 9,
