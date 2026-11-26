@@ -180,7 +180,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.cedes.com/en/career/jobs/operator-in-smd-assembly",
-    "firstSeenAt": "2026-10-01T21:13:08.795Z"
+    "firstSeenAt": "2026-10-01T21:13:08.795Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operatore-nell-assemblaggio-smd-cedes-ag-landquart": "GR",
+        "operatore-in-assemblaggio-smd-cedes-ag-landquart": "GR",
+        "operatore-nel-montaggio-smd-cedes-ag-landquart": "GR",
+        "operator-in-smd-assembly-cedes-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "software-test-engineer-80-100-cedes-landquart",

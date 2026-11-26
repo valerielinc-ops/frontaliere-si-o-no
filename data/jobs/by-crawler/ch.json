@@ -84,7 +84,8 @@
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:24:10.712Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=554547064889945322"
     },
     {
       "id": "ch-37d6081c0007",
@@ -172,7 +173,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:24:26.760Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643700560553054187&trigger_from=related_jobs"
     },
     {
       "id": "ch-83ed6ae265a5",
@@ -261,7 +263,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:24:26.760Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709347153580011&trigger_from=related_jobs"
     },
     {
       "id": "ch-bb68f4e2a64a",
@@ -356,7 +359,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:24:26.759Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709330289201131&trigger_from=related_jobs"
     },
     {
       "id": "ch-6065ad68f5d4",
@@ -450,7 +454,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:24:26.758Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=534436300199954406&trigger_from=related_jobs"
     },
     {
       "id": "ch-ed4b1f6c32d1",
@@ -546,7 +551,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:24:26.757Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=620325418921827426&trigger_from=related_jobs"
     },
     {
       "id": "ch-04a2dae392b1",
@@ -634,7 +640,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:24:26.756Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=629358298822548459&trigger_from=related_jobs"
     },
     {
       "id": "ch-9bd1dcdc6b9f",
@@ -724,7 +731,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:24:26.755Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643700580016263147&trigger_from=related_jobs"
     },
     {
       "id": "ch-42d7ba92c481",
@@ -813,7 +821,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:25:37.546Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643700540655013867&trigger_from=related_jobs"
     },
     {
       "id": "ch-cb409e6dc2de",
@@ -905,7 +914,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:37.545Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709380301754347&trigger_from=related_jobs"
     },
     {
       "id": "ch-e5b08c7f022c",
@@ -996,7 +1006,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:37.545Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709326745735147&trigger_from=related_jobs"
     },
     {
       "id": "ch-e4262a96370e",
@@ -1088,7 +1099,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:25:37.544Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643700552382812139&trigger_from=related_jobs"
     },
     {
       "id": "ch-4818d48aeaea",
@@ -1177,7 +1189,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:37.544Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709341129314283&trigger_from=related_jobs"
     },
     {
       "id": "ch-138720288c9e",
@@ -1269,7 +1282,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:25:37.543Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643700538861817835&trigger_from=related_jobs"
     },
     {
       "id": "ch-ada12f737893",
@@ -1355,7 +1369,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:37.542Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709318492983275&trigger_from=related_jobs"
     },
     {
       "id": "ch-6e8cfb8ba3c9",
@@ -1450,7 +1465,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:37.542Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=535252897224001458&trigger_from=related_jobs"
     },
     {
       "id": "ch-3c6fa59a54ad",
@@ -1530,7 +1546,8 @@
       "validThrough": "2026-12-24T21:25:37.541Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.503Z",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=638820208470328979&trigger_from=related_jobs"
     },
     {
       "id": "ch-8f6e5c36c48c",
@@ -1624,7 +1641,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:37.541Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=607937195415245774&trigger_from=related_jobs"
     },
     {
       "id": "ch-d58eb5f68be6",
@@ -1710,7 +1728,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T21:25:37.540Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=611684740931522211&trigger_from=related_jobs"
     },
     {
       "id": "ch-c1b3cea01b95",
@@ -1802,7 +1821,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:25:37.540Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709335347793899&trigger_from=related_jobs"
     }
   ]
 }
