@@ -434,6 +434,10 @@ describe("jobs fast-publish HTML asset contract", () => {
     expect(renderer).toContain("asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)");
     expect(renderer).toContain('src="/assets/${entryJs}"');
     expect(fastPublisher).toContain("fastLaneDistDir: distDir,");
+    expect(renderer).toContain("fastLaneSitemapOnly?: boolean;");
+    expect(renderer).toContain("setJobSitemapAllowlist(new Set(jobSitemapLocOwner.keys()));");
+    expect(fastPublisher).toContain("const sitemapOnly = candidates.length === 0;");
+    expect(fastPublisher).toContain("fastLaneSitemapOnly: sitemapOnly,");
   });
 
   it('matches the full build active path and exits before full-build-only bridge work', () => {

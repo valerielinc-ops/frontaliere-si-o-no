@@ -6,6 +6,7 @@ import {
   buildFastLaneExpectedPagePlan,
   buildFastLaneHubVisibleJobIdsByLocale,
   checkJobPageContracts,
+  previousJobSitemapEntriesToRemove,
 } from '../scripts/publish-jobs-fast.mjs';
 import {
   ACTIVE_JOB_PAGE_LOCALES,
@@ -238,5 +239,75 @@ describe('fast publisher isolated renderer dist', () => {
     );
     fs.writeFileSync(mapPath, '[]');
     expect(jobRenderer.readFinalWorkerSlugMap(distDir)).toEqual([]);
+  });
+
+  it('rebuilds the full-build sitemap allowlist without rendering a zero-page batch', async () => {
+    previousEnv = Object.fromEntries(controlledEnvNames.map((name) => [name, process.env[name]])) as typeof previousEnv;
+    for (const name of controlledEnvNames) delete process.env[name];
+    process.env.JOBS_SEO_FALLBACK_WORKERS = '0';
+
+    const job = {
+      id: 'fast-publish-sitemap-maintenance',
+      slug: 'fast-publish-sitemap-maintenance',
+      title: 'Specialista amministrativo',
+      company: 'Sitemap Maintenance Example AG',
+      companyKey: 'sitemap-maintenance-example',
+      canton: 'ZH',
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      postalCode: '8001',
+      streetAddress: 'Bahnhofstrasse 1',
+      description: 'La posizione richiede esperienza professionale, precisione e capacità organizzative. Il team offre formazione continua, un contratto stabile e condizioni trasparenti. La persona selezionata collaborerà con il gruppo di lavoro e gestirà le attività quotidiane nel rispetto delle procedure aziendali. Lavorerà con i reparti interni, seguirà le procedure di qualità, contribuirà alla pianificazione dei progetti e comunicherà con colleghi e responsabili. Sono richieste affidabilità, autonomia e disponibilità a imparare. L’azienda mette a disposizione strumenti adeguati, un ambiente collaborativo e colloqui periodici per accompagnare lo sviluppo professionale.',
+      employmentType: 'FULL_TIME',
+      contract: 'full-time',
+      salaryMin: 70000,
+      salaryMax: 90000,
+      url: 'https://example.test/careers/fast-publish-sitemap-maintenance/',
+      datePosted: daysAgo(2),
+      postedDate: daysAgo(2),
+      firstSeenAt: daysAgo(3),
+      crawledAt: daysAgo(1),
+    };
+    const { root, distDir } = makeRoot(job);
+    const receiptFile = path.join(root, 'tmp', 'render-receipt.json');
+    process.env.JOBS_FAST_DIST_DIR = distDir;
+    process.env.JOBS_FAST_RESULT_FILE = receiptFile;
+
+    const { jobRenderer, signals } = await loadBuildModules();
+    const renderer = jobRenderer.jobsSeoPagesPlugin(root, {
+      activeJobIds: [],
+      fastLaneVisibleJobIdsByLocale: { it: [], en: [], de: [], fr: [] },
+      fastLaneDistDir: distDir,
+      fastLane: true,
+      fastLaneSitemapOnly: true,
+      fastLaneResultFile: receiptFile,
+    });
+    await (renderer.closeBundle as () => Promise<void>).call(renderer);
+
+    await expect(signals.jobsSeoPagesFlushed).resolves.toBeUndefined();
+    const fullBuildSitemapLocs = signals.getJobSitemapAllowlist();
+    expect(fullBuildSitemapLocs).not.toBeNull();
+    const fullBuildLocs = fullBuildSitemapLocs ?? new Set<string>();
+    const expectedCanonicalLocs = ACTIVE_JOB_PAGE_LOCALES.map((locale) =>
+      `https://frontaliereticino.ch${buildCanonicalJobDetailPath(
+        locale,
+        job,
+        localizedActiveJobSlug(job, locale),
+        'ZH',
+      )}`,
+    );
+    expect([...fullBuildLocs]).toEqual(expect.arrayContaining(expectedCanonicalLocs));
+    expect(previousJobSitemapEntriesToRemove(
+      expectedCanonicalLocs.map((loc) => new URL(loc).pathname),
+      new Set(),
+      fullBuildLocs,
+    )).toEqual([]);
+    expect(JSON.parse(fs.readFileSync(receiptFile, 'utf8'))).toEqual({
+      schema: 'jobs-fast-render/v1',
+      requestedIds: [],
+      pages: [],
+      sitemapEntries: [],
+      hubUpdates: [],
+    });
   });
 });

@@ -1694,11 +1694,17 @@ export async function runJobsFastPublish({
     }
   }
 
-  if (candidates.length === 0) {
+  const sitemapOnly = candidates.length === 0;
+  if (sitemapOnly && dryRun) {
     console.log(
       `[jobs-fast] no pending active offers; candidates=${discoveredCount} dry_run=${dryRun}`,
     );
     return { outcome: "empty", offers: 0, pages: 0 };
+  }
+  if (sitemapOnly) {
+    console.log(
+      `[jobs-fast] no pending active offers; candidates=${discoveredCount} — running sitemap-only maintenance`,
+    );
   }
 
   const batchIds = candidates.map((candidate) => candidate.id);
@@ -1773,6 +1779,7 @@ export async function runJobsFastPublish({
       fastLaneVisibleJobIdsByLocale,
       fastLaneDistDir: distDir,
       fastLane: true,
+      fastLaneSitemapOnly: sitemapOnly,
       fastLaneResultFile: receiptFile,
     }).closeBundle();
 

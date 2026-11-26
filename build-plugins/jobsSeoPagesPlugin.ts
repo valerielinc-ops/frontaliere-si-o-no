@@ -1920,6 +1920,8 @@ export interface JobsSeoPagesPluginOptions {
  fastLaneResultFile?: string;
  /** Stop after active job pages have been rendered and flushed. */
  fastLane?: boolean;
+ /** Rebuild the full-build job sitemap allowlist without rendering pages. */
+ fastLaneSitemapOnly?: boolean;
 }
 
 export function readFinalWorkerSlugMap(distDir: string): ActiveJobSlugMapRow[] {
@@ -1961,6 +1963,9 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   || !options.fastLaneResultFile
  )) {
   throw new Error('[jobs-seo-pages] fastLane requires activeJobIds, fastLaneVisibleJobIdsByLocale, fastLaneDistDir and fastLaneResultFile');
+ }
+ if (options.fastLaneSitemapOnly && !options.fastLane) {
+  throw new Error('[jobs-seo-pages] fastLaneSitemapOnly requires fastLane');
  }
  // JOBS_SEO_SECTOR_MEMO=1: one memo per closeBundle over the immutable job
  // corpus — same booleans, without re-running the sector regexes for every
@@ -4139,6 +4144,9 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // of BUILD_LOCALE. The sitemap writes each job's hreflang group only from
  // URLs this job owns, so a same-id or duplicate record can never push a
  // second copy of a locale <loc> (review #15110).
+ // This allowlist intentionally follows the full validJobs corpus, not
+ // activeJobIds: a sitemap-only fast lane has an empty render batch but still
+ // needs every valid source URL to protect existing entries from deletion.
  const jobSitemapLocOwner = new Map<string, unknown>();
  const activeJobSitemapLocOwnerIds = new Map<string, string>();
  const claimedActiveJobPaths = new Set<string>();
@@ -4172,6 +4180,22 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  }
  setActiveJobSitemapLocs(activeJobSitemapLocs);
  setJobSitemapAllowlist(new Set(jobSitemapLocOwner.keys()));
+ if (options.fastLaneSitemapOnly) {
+  if (activeJobIds === null || activeJobIds.size > 0) {
+   throw new Error('[jobs-seo-pages] fastLaneSitemapOnly requires an empty activeJobIds batch');
+  }
+  fs.mkdirSync(np.dirname(options.fastLaneResultFile!), { recursive: true });
+  fs.writeFileSync(options.fastLaneResultFile!, JSON.stringify({
+   schema: 'jobs-fast-render/v1',
+   requestedIds: [],
+   pages: [],
+   sitemapEntries: [],
+   hubUpdates: [],
+  }), 'utf8');
+  jobsSeoReuse?.release();
+  resolveJobsSeoPagesFlushed();
+  return;
+ }
  const activeCanonicalJobHref = (
   job: any,
   locale: 'it' | 'en' | 'de' | 'fr',
