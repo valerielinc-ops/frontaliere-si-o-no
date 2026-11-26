@@ -56,9 +56,11 @@ describe('classifySurface — the split that was missing', () => {
 
   it('classifies every explicit section shard route, including the article hub, as worker-shard', () => {
     for (const prefix of SECTION_SHARD_PREFIXES) {
+      expect(classifySurface({ host: 'frontaliereticino.ch', path: prefix })).toBe('worker-shard');
       expect(classifySurface({ host: 'frontaliereticino.ch', path: `${prefix}/` })).toBe('worker-shard');
       expect(classifySurface({ host: 'frontaliereticino.ch', path: `${prefix}.html` })).toBe('worker-shard');
     }
+    expect(classifyCfErrorUrl('frontaliereticino.ch/cerca-lavoro-ticino/tutti/')).toBe('worker-shard');
     expect(classifyCfErrorUrl('frontaliereticino.ch/articoli-frontaliere/')).toBe('worker-shard');
     expect(classifyCfErrorUrl('frontaliereticino.ch/en/cross-border-articles/')).toBe('worker-shard');
   });

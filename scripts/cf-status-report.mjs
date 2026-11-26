@@ -252,7 +252,8 @@ async function main() {
             count: r.count,
           })),
           // Present ONLY under --by-hour. Consumers must treat "absent" as
-          // "recency unknown" and fail open, never as "no recent errors".
+          // "recency unknown", never as "no recent errors" or evidence for
+          // promoting a flat total without per-URL hourly rows.
           ...(hourlyRows
             ? {
                 detailByHour: hourlyRows.map((r) => ({
