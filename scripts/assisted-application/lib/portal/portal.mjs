@@ -4844,7 +4844,7 @@ function verifiedDirectApplicationUrl(stageContext, currentUrl) {
 const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
 // Legal forms and short words name no company: "Ospedale ABC SA" is "ospedale abc",
 // "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
-const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'limited', 'inc', 'llc', 'llp', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
+const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'llp', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
 const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
 const TALENTSOFT_HOST_RE = /(?:^|\.)talent-soft\.com$/i;
 
@@ -5358,6 +5358,12 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     && title.some((word, index) => !filler(word) && !neutral.has(word)
     && !FORM_TITLE_FIELD_WORDS.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
+  const globalNetworkNoticePhrases = new Set(
+    text.split(/\r?\n/)
+      .filter((line) => /\brefers\s+to\s+one\s+or\s+more\s+of\b[^\n]{1,180}\b(?:network\s+of\s+member\s+firms|member\s+firms?\b[^\n]{0,80}\b(?:legal(?:ly)?\s+separate|independent\s+entit(?:y|ies)|related\s+entities))\b/iu.test(line)
+        && !/\b(?:other|another|andere[rsn]?|altro|altra|autre|autres)\b/iu.test(line))
+      .flatMap((line) => line.split(PHRASE_END_RE).map((segment) => segment.trim()).filter(Boolean)),
+  );
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
   for (const phrase of text.split(PHRASE_END_RE)) {
     if (isFormDateFieldLabel(phrase)) continue;
@@ -5374,6 +5380,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     // Where the employer stands named whole (legal forms and filler between its words allowed).
     const wholeStarts = new Set();
     const wholeEnds = new Set();
+    const wholeMatchEnds = new Map();
     for (let index = 0; index < words.length; index += 1) {
       for (const identity of identities) {
         let at = index;
@@ -5386,6 +5393,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         if (matched === identity.length) {
           wholeStarts.add(index);
           wholeEnds.add(at - 1);
+          const prevEnd = wholeMatchEnds.get(index) ?? -1;
+          if (at - 1 > prevEnd) wholeMatchEnds.set(index, at - 1);
         }
       }
     }
@@ -5394,7 +5403,13 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
       const prefixCount = normalizeWords(phrase.slice(0, networkDefinition.index)).split(' ').filter(Boolean).length;
       const suffixOffset = normalizeWords(phrase.slice(0, networkDefinition.index + networkDefinition[0].length))
         .split(' ').filter(Boolean).length;
-      if (prefixCount > 0 && wholeStarts.has(0) && wholeEnds.has(prefixCount - 1) && wholeStarts.has(suffixOffset)) continue;
+      const suffixMatchEnd = wholeMatchEnds.get(suffixOffset);
+      const suffixEndsAtMatchedIdentity = suffixMatchEnd !== undefined
+        && words.slice(suffixMatchEnd + 1).every((word) => NOT_A_NAME.has(word));
+      const suffixMemberFirmBoilerplate = wholeStarts.has(suffixOffset)
+        && globalNetworkNoticePhrases.has(phrase.trim());
+      if (prefixCount > 0 && wholeStarts.has(0) && wholeEnds.has(prefixCount - 1)
+        && (suffixEndsAtMatchedIdentity || suffixMemberFirmBoilerplate)) continue;
     }
     for (const [index, word] of words.entries()) {
       if (!ours.has(word)) continue;

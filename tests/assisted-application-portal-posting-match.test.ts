@@ -514,7 +514,7 @@ describe('PinpointHQ New Application title and route binding', () => {
     };
     const footer = [
       'Want to know more about opportunities at Deloitte? Visit\u202fwww.apply.example.ch',
-      'Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), a UK private company limited by guarantee, its network of member firms, and their related entities.',
+      'Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (“DTTL”), a UK private company limited by guarantee, and its network of member firms, each of which is a legally separate and independent entity.',
       'Deloitte AG is a subsidiary of Deloitte LLP, the United Kingdom member firm of DTTL.',
     ].join('\n');
 
@@ -535,6 +535,8 @@ describe('PinpointHQ New Application title and route binding', () => {
     // Counterexamples must still reject conflicting second employers.
     expect(namesAnotherEmployer(`Applying to ${job.title} | Other Consulting AG\n${footer}`, job)).toBe(true);
     expect(namesAnotherEmployer('Deloitte Partners Other AG', job)).toBe(true);
+    expect(namesAnotherEmployer('Acme refers to one or more of Acme Other Employer', { company: 'Acme' })).toBe(true);
+    expect(namesAnotherEmployer('Acme refers to one or more of Acme AG', { company: 'Acme' })).toBe(false);
     expect(formPostingMatch(`Applying to ${job.title}\nOther Consulting AG`, job, {
       postingMatched: true,
       postingEntry: true,
