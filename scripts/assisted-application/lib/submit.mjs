@@ -38,7 +38,7 @@ import { chromeErrorPageFailure, emailInfrastructureFailure, navigationInfrastru
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { autoAnswersForPortalQuestions, candidateForForm, isPostingDocumentUrl, portalQuestionKey, postingAddressForPortal, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, isPostingDocumentUrl, portalQuestionKey, postingAddressForPortal, submitViaPortal, successFactorsPostingRouteProof, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
@@ -632,9 +632,7 @@ export async function submitApplication(ctx) {
   // or anything it must not bypass ends in the career-ops handoff below.
   let applyUrl = channel.applyUrl || draft.job?.applyUrl || postingUrl || '';
   let channelType = channel.type;
-  let postingRouteProof = channel.via === 'successfactors'
-    ? { via: 'successfactors', applyUrl: channel.applyUrl, postingUrl: channel.postingUrl || draft.job?.postingUrl || '' }
-    : null;
+  let postingRouteProof = successFactorsPostingRouteProof(channel, draft.job?.postingUrl || postingUrl || '');
   const currentPostingRoute = publishedPostingUrl || channel.postingUrl || '';
   // Older employer-site drafts, and SuccessFactors routes synthesized from
   // page configuration, can keep an ATS URL that no longer opens this job.
@@ -660,9 +658,7 @@ export async function submitApplication(ctx) {
     } else {
       const target = await resolveApplyUrl(routeUrl, { fetchImpl, resolve: ctx.resolve });
       applyUrl = target.applyUrl || routeUrl;
-      postingRouteProof = target.via === 'successfactors'
-        ? { via: 'successfactors', applyUrl, postingUrl: routeUrl }
-        : null;
+      postingRouteProof = successFactorsPostingRouteProof({ via: target.via, applyUrl, postingUrl: routeUrl });
       if (target.via || channel.type !== 'employer_site') {
         channelType = classifyApplicationChannel({ applyUrl }).type;
       }

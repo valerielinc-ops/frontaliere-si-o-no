@@ -1224,10 +1224,23 @@ describe('submit mode', () => {
     // A draft made before the redirect was resolved: resolved at submit time.
     await submit({ ...baseDraft, channel: { type: 'employer_site', applyUrl: posting, host: 'jobs.coopjobs.ch', requiresAccount: false } });
     expect((runner.mock.calls as any)[0][0].applyUrl).toBe(ats);
+    expect((runner.mock.calls as any)[0][0].postingRouteProof).toEqual({
+      via: 'successfactors',
+      applyUrl: ats,
+      postingUrl: posting,
+    });
     // A draft made today: the ATS for the runner, the posting for liveness, SuccessFactors never fetched.
     calls.length = 0;
     await submit({ ...baseDraft, channel: { type: 'successfactors', applyUrl: ats, postingUrl: posting, via: 'prospective', host: 'career2.successfactors.eu', requiresAccount: true } });
     expect((runner.mock.calls as any)[1][0].applyUrl).toBe(ats);
+    expect((runner.mock.calls as any)[1][0].postingRouteProof).toEqual({
+      via: 'successfactors',
+      applyUrl: ats,
+      postingUrl: posting,
+    });
+    // An unverified direct SuccessFactors URL (`via: ''`) never invents provenance.
+    await submit({ ...baseDraft, channel: { type: 'successfactors', applyUrl: ats, postingUrl: posting, via: '', host: 'career2.successfactors.eu', requiresAccount: true } });
+    expect((runner.mock.calls as any)[2][0].postingRouteProof).toBeNull();
     expect(calls).toContain(`GET ${posting}`);
     expect(calls.some((call) => call.includes('successfactors'))).toBe(false);
   });

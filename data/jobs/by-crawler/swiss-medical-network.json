@@ -1207,10 +1207,9 @@
         "location": "Chiasso"
       },
       "sourceLang": "it",
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3530,
-      "retranslationAttempts": 19,
+      "retranslationAttempts": 20,
       "firstSeenAt": "2026-11-19T21:25:53.861Z",
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
@@ -1229,7 +1228,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162488479-team-lead-hr-administration-payroll-it",
@@ -4287,10 +4287,9 @@
         "location": "Echandens"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3861,
-      "retranslationAttempts": 41,
+      "retranslationAttempts": 42,
       "firstSeenAt": "2026-07-22T22:09:02.216Z",
       "streetAddress": "Echandens",
       "streetAddressSource": "to-enrich",
@@ -4309,7 +4308,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139058930-gynakologe-in-und-geburtshelfer-in",
