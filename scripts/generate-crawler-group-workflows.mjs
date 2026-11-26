@@ -4076,6 +4076,27 @@ function canonicalizePortableCrawlerIdentities(content, logic, sourceMembers) {
   return { content: canonicalContent, members: canonicalMembers };
 }
 
+function removePortableWorkdayEgressStateStep(content, workflowFile) {
+  if (!workflowFile.startsWith('crawler-group-') || !workflowFile.endsWith('.yml')) return content;
+
+  const expected = logicWorkdayEgressStateStep();
+  const lines = content.split('\n');
+  const stepIndex = lines.findIndex((line) => line.trim() === `- name: ${expected.name}`);
+  if (stepIndex < 0) {
+    throw new Error(`${workflowFile}: portable workflow is missing the Workday egress state bootstrap`);
+  }
+  const expectedLines = [
+    `- name: ${expected.name}`,
+    `shell: ${expected.shell}`,
+    `run: ${expected.run}`,
+  ];
+  if (expectedLines.some((line, offset) => lines[stepIndex + offset]?.trim() !== line)) {
+    throw new Error(`${workflowFile}: portable Workday egress state bootstrap drifted from its generated form`);
+  }
+  lines.splice(stepIndex, expectedLines.length);
+  return lines.join('\n');
+}
+
 /** Genera i 24 workflow crawler + translate-pending e il loro contratto hash. */
 /**
  * @param {{
@@ -4162,7 +4183,13 @@ export function generateCrossRepoExecutionArtifacts({
         }
       }
     }
-    const content = portable.content;
+    // The Workday client derives this same runner-local path from
+    // RUNNER_TEMP plus CRAWLER_GROUP_MAX_PARALLEL/JOBS_SLICE_FILE. Keep the
+    // explicit bootstrap in reusable site logic, but omit its duplicate from
+    // the portable artifact after size-profile selection. Selecting the
+    // profile before removal keeps existing compact groups byte-stable apart
+    // from the redundant step itself.
+    const content = removePortableWorkdayEgressStateStep(portable.content, fileName);
     YAML.parse(content);
     workflowPayloads.set(fileName, content);
     artifactContents.push(content);
