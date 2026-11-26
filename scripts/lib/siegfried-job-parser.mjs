@@ -26,6 +26,7 @@ import { inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   fetchWorkdayJsonWithRetry,
   firstLocationSegment,
+  isWorkdayListingRequest,
   normalizeWorkdayLocationCandidate,
   WorkdayRateLimitError,
   workdayPostingDateFields,
@@ -146,7 +147,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (err instanceof WorkdayRateLimitError || isWorkdayListingRequest(WORKDAY_API_BASE, url, method)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }

@@ -122,6 +122,29 @@ const DEFAULT_TIMEOUT_MS = 20000;
 const AMBIGUOUS_COMPACT_LOCATION_MARKERS = new Set(['st', 'luxembourg']);
 
 /**
+ * Identify a Workday listing request by its tenant API base and endpoint.
+ * Listing failures invalidate the whole snapshot; detail failures may be
+ * skipped by callers without confusing an unavailable board with an empty one.
+ *
+ * @param {string} apiBase
+ * @param {string} url
+ * @param {string} [method]
+ * @returns {boolean}
+ */
+export function isWorkdayListingRequest(apiBase, url, method = 'GET') {
+  if (String(method).toUpperCase() !== 'POST') return false;
+  try {
+    const base = new URL(apiBase);
+    const target = new URL(url, base);
+    const basePath = base.pathname.replace(/\/+$/, '');
+    const targetPath = target.pathname.replace(/\/+$/, '');
+    return target.origin === base.origin && targetPath === `${basePath}/jobs`;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Derive the public Workday career page from a CXS API base. The browser
  * fallback needs a same-origin page so its `fetch()` keeps the browser's
  * cookies, TLS stack and user-agent while posting to the JSON API.

@@ -19,7 +19,7 @@ import { readJsonFile } from './lib/read-large-json.mjs';
  *   5. Runs base crawler for AI localization (4 locales)
  *   6. Post-processes and validates locale coverage
  */
-import { fetchWorkdayJsonWithRetry, WorkdayRateLimitError, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, isWorkdayListingRequest, WorkdayRateLimitError, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -341,7 +341,7 @@ async function fetchJson(url, options = {}, apiBase = WORKDAY_API_BASE) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (err instanceof WorkdayRateLimitError || isWorkdayListingRequest(apiBase, url, method)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }

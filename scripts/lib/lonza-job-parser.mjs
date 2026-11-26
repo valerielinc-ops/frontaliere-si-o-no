@@ -17,6 +17,7 @@ import {
   createWorkdayRequestContext,
   fetchWorkdayJsonWithRetry,
   firstLocationSegment,
+  isWorkdayListingRequest,
   WorkdayRateLimitError,
   workdayPostingDateFields,
 } from './ats-clients/workday-client.mjs';
@@ -129,7 +130,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (err instanceof WorkdayRateLimitError || isWorkdayListingRequest(LONZA_API_BASE, url, method)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }

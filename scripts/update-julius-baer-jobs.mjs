@@ -28,11 +28,12 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { sourceSlotTitleAndSlug, dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isJuliusBaerSwissListing, resolveJuliusBaerPlace, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, dropJuliusBaerFabricatedText } from './lib/julius-baer-job-parser.mjs';
-import { fetchWorkdayJsonWithRetry, WorkdayRateLimitError } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, isWorkdayListingRequest, WorkdayRateLimitError } from './lib/ats-clients/workday-client.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -75,7 +76,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (err instanceof WorkdayRateLimitError || isWorkdayListingRequest(WORKDAY_API_BASE, url, method)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }
@@ -128,7 +129,7 @@ async function fetchJobDetail(externalPath) {
   return fetchJson(`${WORKDAY_API_BASE}${externalPath}`);
 }
 
-async function fetchJuliusBaerJobs() {
+export async function fetchJuliusBaerJobs() {
   console.log(`🔍 Fetching Julius Baer jobs from Workday API`);
   console.log(`   API: ${WORKDAY_API_BASE}/jobs`);
 
@@ -309,4 +310,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Julius Baer'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Julius Baer'));
+}

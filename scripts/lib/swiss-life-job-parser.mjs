@@ -27,7 +27,7 @@ import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isKnownSwissCity, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { fetchWorkdayJsonWithRetry, firstLocationSegment, WorkdayRateLimitError, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment, isWorkdayListingRequest, WorkdayRateLimitError, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -173,7 +173,7 @@ async function fetchJson(url, options = {}, browserFallback) {
       ...(browserFallback === undefined ? {} : { browserFallback }),
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (err instanceof WorkdayRateLimitError || isWorkdayListingRequest(WORKDAY_API_BASE, url, method)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }
