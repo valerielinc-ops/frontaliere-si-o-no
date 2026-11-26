@@ -8741,6 +8741,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fiscalita-tre-livelli-svizzera.title': 'Fiscalità svizzera: tre livelli e competenze distinte',
     'blog.article.fiscalita-tre-livelli-svizzera.excerpt': 'La fiscalità svizzera è articolata su tre livelli: imposta federale diretta, imposizione cantonale e imposizione comunale.',
     'blog.article.fiscalita-tre-livelli-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.consultazione-modifiche-oosg.title': 'Gas: aperta la consultazione sulle modifiche alla OOSG',
+    'blog.article.consultazione-modifiche-oosg.excerpt': 'La comunicazione del 25 novembre 2026 annuncia una nuova regolamentazione dei costi ASIG e un accesso selettivo ampliato al monitoraggio del gas naturale.',
+    'blog.article.consultazione-modifiche-oosg.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

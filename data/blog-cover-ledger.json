@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1203,
+      "5": 1204,
       "6": 5062
     },
-    "publishedCovers": 7946,
+    "publishedCovers": 7947,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -219839,6 +219839,39 @@
         "provider": "openai-codex",
         "assetId": "article-uri-parere-trasporti-eccezionali",
         "imageUrl": "/images/blog/article-uri-parere-trasporti-eccezionali.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-consultazione-modifiche-oosg": {
+      "cover": "/images/blog/article-consultazione-modifiche-oosg.webp",
+      "hash": "2ba75b02d3f2f518a4ec86236f98a498e5f33b7527dc29f97d2aaf0c2a9572dc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "consultazione-modifiche-oosg",
+          "category": "novita",
+          "date": "2026-11-26T10:15:53.913Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-consultazione-modifiche-oosg.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-consultazione-modifiche-oosg",
+        "imageUrl": "/images/blog/article-consultazione-modifiche-oosg.webp",
         "evidence": "generated-engine-record"
       }
     }
