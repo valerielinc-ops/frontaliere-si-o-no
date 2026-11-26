@@ -40,6 +40,7 @@ import {
   formatArticleCountEvidence,
 } from '../../build-plugins/shared/publishedMeasurements.mjs';
 import { httpFetchAndReadWithRetry } from './transient-fetch.mjs';
+import { readMetaContent as readSharedMetaContent } from './html-attr.mjs';
 
 export const ARTICLE_HUB_LANDING_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const ARTICLE_HUB_LANDING_TIMEOUT_MS = 20_000;
@@ -72,14 +73,6 @@ function emptyResult(locales) {
   };
 }
 
-function htmlAttribute(tag, name) {
-  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const match = tag.match(
-    new RegExp(`\\b${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
-  );
-  return match?.[1] ?? match?.[2] ?? match?.[3] ?? '';
-}
-
 function decodeBasicEntities(value) {
   return String(value ?? '')
     .replace(/&quot;/gi, '"')
@@ -90,13 +83,7 @@ function decodeBasicEntities(value) {
 }
 
 function readMetaContent(html, key) {
-  for (const match of String(html ?? '').matchAll(/<meta\b[^>]*>/gi)) {
-    const tag = match[0];
-    const name = htmlAttribute(tag, 'name').toLowerCase();
-    const property = htmlAttribute(tag, 'property').toLowerCase();
-    if (name === key || property === key) return decodeBasicEntities(htmlAttribute(tag, 'content'));
-  }
-  return '';
+  return decodeBasicEntities(readSharedMetaContent(html, key));
 }
 
 const CLOUDFLARE_JS_DETECTION_RX =

@@ -1704,7 +1704,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.466Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -4927,7 +4926,6 @@
         ]
       },
       "firstSeenAt": "2026-10-01T21:58:57.774Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -6100,7 +6098,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:54:56.281Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -8028,7 +8025,6 @@
         ]
       },
       "firstSeenAt": "2026-10-05T22:16:12.453Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -8280,7 +8276,6 @@
         ]
       },
       "firstSeenAt": "2026-10-06T22:04:36.540Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -10432,7 +10427,6 @@
         ]
       },
       "firstSeenAt": "2026-10-08T10:16:58.112Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -10920,11 +10914,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "fachkraft-fur-gebaudetechnik-im-bereich-luftungs-und-klimaanlagen-m-w-100-zurich-zh",
+          "fachkraft-per-gebaudetechnik-im-bereich-luftungs-e-klimaanlagen-m-w-d-100-yellowshark-ag-zurich"
+        ],
+        "en": [
+          "fachkraft-fur-gebaudetechnik-im-bereich-luftungs-und-klimaanlagen-m-w-100-zurich-zh",
+          "specialist-in-building-technology-in-the-area-of-ventilation-and-air-conditioning-m-f-100-yellowshark-ag-zurich-zh"
+        ],
+        "fr": [
           "fachkraft-fur-gebaudetechnik-im-bereich-luftungs-und-klimaanlagen-m-w-100-zurich-zh"
         ]
       },
       "previousSlugs": [
-        "fachkraft-fur-gebaudetechnik-im-bereich-luftungs-und-klimaanlagen-m-w-100-zurich-zh"
+        "fachkraft-fur-gebaudetechnik-im-bereich-luftungs-und-klimaanlagen-m-w-100-zurich-zh",
+        "fachkraft-per-gebaudetechnik-im-bereich-luftungs-e-klimaanlagen-m-w-d-100-yellowshark-ag-zurich",
+        "specialist-in-building-technology-in-the-area-of-ventilation-and-air-conditioning-m-f-100-yellowshark-ag-zurich-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13943,12 +13947,20 @@
       "previousSlugsByLocale": {
         "it": [
           "gebaudetechnikplaner-hlks-m-w-basel-bs-yellowshark-ch",
-          "progettazione-progettista-hlks-m-f-yellowshark-ag-basel"
+          "progettazione-progettista-hlks-m-f-yellowshark-ag-basel",
+          "progettazione-progettista-hlks-m-f-yellowshark-ag-basel-5f23e67a2a"
+        ],
+        "en": [
+          "gebaudetechnikplaner-hlks-m-w-basel-bs-yellowshark-ch"
+        ],
+        "fr": [
+          "gebaudetechnikplaner-hlks-m-w-basel-bs-yellowshark-ch"
         ]
       },
       "previousSlugs": [
         "gebaudetechnikplaner-hlks-m-w-basel-bs-yellowshark-ch",
-        "progettazione-progettista-hlks-m-f-yellowshark-ag-basel"
+        "progettazione-progettista-hlks-m-f-yellowshark-ag-basel",
+        "progettazione-progettista-hlks-m-f-yellowshark-ag-basel-5f23e67a2a"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -14279,7 +14291,6 @@
         ]
       },
       "firstSeenAt": "2026-10-14T10:08:31.236Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -14868,7 +14879,6 @@
         ]
       },
       "firstSeenAt": "2026-10-14T10:08:31.230Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -15198,7 +15208,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.682Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -15768,7 +15777,6 @@
         ]
       },
       "firstSeenAt": "2026-10-19T22:09:39.315Z",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -16698,7 +16706,6 @@
         ]
       },
       "firstSeenAt": "2026-10-16T22:11:37.396Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -18898,7 +18905,23 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:01:23.828Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-27T15:21:10.717Z"
+      "firstSeenAt": "2026-09-27T15:21:10.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "progettazione-progettista-hlks-m-f-yellowshark-ag-baden"
+        ],
+        "en": [
+          "building-engineering-planner-hlks-m-f-yellowshark-ag-baden"
+        ],
+        "fr": [
+          "ingenieur-du-batiment-hlks-h-f-yellowshark-ag-baden"
+        ]
+      },
+      "previousSlugs": [
+        "progettazione-progettista-hlks-m-f-yellowshark-ag-baden",
+        "building-engineering-planner-hlks-m-f-yellowshark-ag-baden",
+        "ingenieur-du-batiment-hlks-h-f-yellowshark-ag-baden"
+      ]
     },
     {
       "id": "yellowshark-f9ebde9fe681",
@@ -19299,7 +19322,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-16T10:01:23.825Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.401Z"
+      "firstSeenAt": "2026-09-28T21:58:25.401Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controllo-plc-sviluppatore-software-80-100-m-f-yellowshark-ag-st-gallen-sg",
+          "controllo-plc-sviluppatore-software-80-100-m-f-yellowshark-ag-st-gallen"
+        ],
+        "en": [
+          "software-developer-plc-control-80-100-m-f-yellowshark-ag-st-gallen-sg",
+          "software-developer-plc-control-80-100-m-f-yellowshark-ag-st-gallen"
+        ],
+        "fr": [
+          "logiciel-developpeur-controle-plc-80-100-h-f-yellowshark-ag-st-gallen-sg",
+          "logiciel-developpeur-controle-plc-80-100-h-f-yellowshark-ag-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "controllo-plc-sviluppatore-software-80-100-m-f-yellowshark-ag-st-gallen-sg",
+        "controllo-plc-sviluppatore-software-80-100-m-f-yellowshark-ag-st-gallen",
+        "software-developer-plc-control-80-100-m-f-yellowshark-ag-st-gallen-sg",
+        "software-developer-plc-control-80-100-m-f-yellowshark-ag-st-gallen",
+        "logiciel-developpeur-controle-plc-80-100-h-f-yellowshark-ag-st-gallen-sg",
+        "logiciel-developpeur-controle-plc-80-100-h-f-yellowshark-ag-st-gallen"
+      ]
     },
     {
       "id": "yellowshark-d2f2a7fb2875",
@@ -22751,7 +22796,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.681Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -24165,7 +24209,6 @@
         ]
       },
       "firstSeenAt": "2026-10-22T10:04:54.912Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -25555,7 +25598,6 @@
         ]
       },
       "firstSeenAt": "2026-10-23T22:00:05.075Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -30455,7 +30497,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.584Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -30890,7 +30931,6 @@
         ]
       },
       "firstSeenAt": "2026-10-10T10:05:40.275Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -31485,7 +31525,6 @@
         ]
       },
       "firstSeenAt": "2026-10-29T10:13:29.329Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -32343,7 +32382,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:54:56.285Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -33100,7 +33138,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.620Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -33289,7 +33326,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.621Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -34913,7 +34949,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.529Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -35000,7 +35035,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.641Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -35713,7 +35747,41 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:01:23.709Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.626Z"
+      "firstSeenAt": "2026-09-28T21:58:25.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "carpenter-per-mobili-m-f-yellowshark-ag-zurich-zh-465548",
+          "carpenter-per-mobili-m-f-yellowshark-ag-zurich-zh",
+          "carpenter-per-mobili-m-f-yellowshark-ag-zurich"
+        ],
+        "en": [
+          "furniture-carpenter-m-f-yellowshark-ag-zurich-zh-465548",
+          "furniture-carpenter-m-f-yellowshark-ag-zurich-zh",
+          "furniture-carpenter-m-f-yellowshark-ag-zurich"
+        ],
+        "de": [
+          "mobelschreiner-m-w-zurich-zh-yellowshark-ch-bh9h4c",
+          "mobelschreiner-m-w-yellowshark-ag-zurich"
+        ],
+        "fr": [
+          "charpentier-de-meubles-h-f-yellowshark-ag-zurich-zh-465548",
+          "charpentier-de-meubles-h-f-yellowshark-ag-zurich-zh",
+          "charpentier-de-meubles-h-f-yellowshark-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "carpenter-per-mobili-m-f-yellowshark-ag-zurich-zh-465548",
+        "carpenter-per-mobili-m-f-yellowshark-ag-zurich-zh",
+        "carpenter-per-mobili-m-f-yellowshark-ag-zurich",
+        "furniture-carpenter-m-f-yellowshark-ag-zurich-zh-465548",
+        "furniture-carpenter-m-f-yellowshark-ag-zurich-zh",
+        "furniture-carpenter-m-f-yellowshark-ag-zurich",
+        "mobelschreiner-m-w-zurich-zh-yellowshark-ch-bh9h4c",
+        "mobelschreiner-m-w-yellowshark-ag-zurich",
+        "charpentier-de-meubles-h-f-yellowshark-ag-zurich-zh-465548",
+        "charpentier-de-meubles-h-f-yellowshark-ag-zurich-zh",
+        "charpentier-de-meubles-h-f-yellowshark-ag-zurich"
+      ]
     },
     {
       "id": "yellowshark-e18582935109",
@@ -35861,7 +35929,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:54:56.284Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -36268,7 +36335,6 @@
         ]
       },
       "firstSeenAt": "2026-11-02T11:23:40.460Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -36960,7 +37026,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.555Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -37137,7 +37202,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.581Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -38635,7 +38699,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.488Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -38719,7 +38782,6 @@
         ]
       },
       "firstSeenAt": "2026-11-02T11:23:40.438Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -40505,7 +40567,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.455Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -40748,11 +40809,25 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-monteur-m-w-zurich-zh-yellowshark-ch"
+          "schreiner-monteur-m-w-zurich-zh-yellowshark-ch",
+          "carpenter-m-f-yellowshark-ag-zurich-zh",
+          "carpenter-m-f-yellowshark-ag-zurich-4c8aa4ce20"
+        ],
+        "en": [
+          "schreiner-monteur-m-w-zurich-zh-yellowshark-ch",
+          "carpenter-m-f-yellowshark-ag-zurich"
+        ],
+        "fr": [
+          "schreiner-monteur-m-w-zurich-zh-yellowshark-ch",
+          "charpentier-h-f-yellowshark-ag-zurich-zh"
         ]
       },
       "previousSlugs": [
-        "schreiner-monteur-m-w-zurich-zh-yellowshark-ch"
+        "schreiner-monteur-m-w-zurich-zh-yellowshark-ch",
+        "carpenter-m-f-yellowshark-ag-zurich-zh",
+        "carpenter-m-f-yellowshark-ag-zurich-4c8aa4ce20",
+        "carpenter-m-f-yellowshark-ag-zurich",
+        "charpentier-h-f-yellowshark-ag-zurich-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -41010,7 +41085,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T10:01:23.674Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.544Z"
+      "firstSeenAt": "2026-09-28T21:58:25.544Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarmonteur-m-w-yellowshark-ag-liestal",
+          "sanitarmonteur-m-w-d-yellowshark-ag-liestal"
+        ],
+        "en": [
+          "sanitary-fitting-m-f-yellowshark-ag-liestal-bl",
+          "sanitary-fitting-m-f-yellowshark-ag-liestal"
+        ],
+        "fr": [
+          "fixation-sanitaire-h-f-yellowshark-ag-liestal-bl",
+          "fixation-sanitaire-h-f-yellowshark-ag-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarmonteur-m-w-yellowshark-ag-liestal",
+        "sanitarmonteur-m-w-d-yellowshark-ag-liestal",
+        "sanitary-fitting-m-f-yellowshark-ag-liestal-bl",
+        "sanitary-fitting-m-f-yellowshark-ag-liestal",
+        "fixation-sanitaire-h-f-yellowshark-ag-liestal-bl",
+        "fixation-sanitaire-h-f-yellowshark-ag-liestal"
+      ]
     },
     {
       "id": "yellowshark-87481aa8e25a",
@@ -41330,7 +41427,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.625Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -41825,7 +41921,25 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T10:01:23.668Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.540Z"
+      "firstSeenAt": "2026-09-28T21:58:25.540Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intonacatore-m-f-yellowshark-ag-schwyz"
+        ],
+        "en": [
+          "plasterer-m-f-yellowshark-ag-schwyz"
+        ],
+        "fr": [
+          "plaquette-m-w-d-yellowshark-ag-schwyz",
+          "gipser-m-w-d-yellowshark-ag-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "intonacatore-m-f-yellowshark-ag-schwyz",
+        "plasterer-m-f-yellowshark-ag-schwyz",
+        "plaquette-m-w-d-yellowshark-ag-schwyz",
+        "gipser-m-w-d-yellowshark-ag-schwyz"
+      ]
     },
     {
       "id": "yellowshark-124403c402e5",
@@ -42315,7 +42429,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:54:56.290Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -42645,11 +42758,25 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "bauspengler-m-w-liestal-bl-yellowshark-ch"
+          "bauspengler-m-w-liestal-bl-yellowshark-ch",
+          "lattoniere-edile-m-f-yellowshark-ag-liestal-bl"
+        ],
+        "en": [
+          "manufacturer-m-w-d-yellowshark-ag-liestal",
+          "construction-plunger-m-f-yellowshark-ag-liestal-bl"
+        ],
+        "fr": [
+          "fabricant-m-w-d-yellowshark-ag-liestal",
+          "baupengler-h-f-yellowshark-ag-liestal-bl"
         ]
       },
       "previousSlugs": [
-        "bauspengler-m-w-liestal-bl-yellowshark-ch"
+        "bauspengler-m-w-liestal-bl-yellowshark-ch",
+        "lattoniere-edile-m-f-yellowshark-ag-liestal-bl",
+        "manufacturer-m-w-d-yellowshark-ag-liestal",
+        "construction-plunger-m-f-yellowshark-ag-liestal-bl",
+        "fabricant-m-w-d-yellowshark-ag-liestal",
+        "baupengler-h-f-yellowshark-ag-liestal-bl"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -43324,7 +43451,6 @@
         ]
       },
       "firstSeenAt": "2026-11-13T22:16:22.119Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -44165,7 +44291,25 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T10:01:23.651Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.608Z"
+      "firstSeenAt": "2026-09-28T21:58:25.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montatore-di-controsoffitti-m-f-yellowshark-ag-st-gallen",
+          "montatore-di-controsoffitti-m-f-yellowshark-ag-st-gallen-c28b6f9d87"
+        ],
+        "en": [
+          "ceiling-installer-m-f-yellowshark-ag-st-gallen"
+        ],
+        "fr": [
+          "monteur-de-plafonds-h-f-yellowshark-ag-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "montatore-di-controsoffitti-m-f-yellowshark-ag-st-gallen",
+        "montatore-di-controsoffitti-m-f-yellowshark-ag-st-gallen-c28b6f9d87",
+        "ceiling-installer-m-f-yellowshark-ag-st-gallen",
+        "monteur-de-plafonds-h-f-yellowshark-ag-st-gallen"
+      ]
     },
     {
       "id": "yellowshark-2092cc64641d",
@@ -45150,7 +45294,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.604Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -45803,7 +45946,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.622Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -46057,7 +46199,23 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T10:01:23.637Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-24T00:09:46.447Z"
+      "firstSeenAt": "2026-09-24T00:09:46.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "attrezzature-per-tetto-e-costruzione-m-f-yellowshark-ag-schwyz-sz-01cb0d"
+        ],
+        "en": [
+          "roofing-and-construction-equipment-m-f-yellowshark-ag-schwyz-sz-01cb0d"
+        ],
+        "fr": [
+          "materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-schwyz-sz"
+        ]
+      },
+      "previousSlugs": [
+        "attrezzature-per-tetto-e-costruzione-m-f-yellowshark-ag-schwyz-sz-01cb0d",
+        "roofing-and-construction-equipment-m-f-yellowshark-ag-schwyz-sz-01cb0d",
+        "materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-schwyz-sz"
+      ]
     },
     {
       "id": "yellowshark-20e1581859fa",
@@ -47479,7 +47637,23 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T10:01:23.626Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.582Z"
+      "firstSeenAt": "2026-09-28T21:58:25.582Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "roofing-piano-tetto-ripido-m-f-yellowshark-ag-bern-be-d696a2"
+        ],
+        "en": [
+          "roofing-flat-steep-roof-m-f-yellowshark-ag-bern-be-d696a2"
+        ],
+        "fr": [
+          "toit-plat-toit-escarpe-h-f-yellowshark-ag-bern-be-d696a2"
+        ]
+      },
+      "previousSlugs": [
+        "roofing-piano-tetto-ripido-m-f-yellowshark-ag-bern-be-d696a2",
+        "roofing-flat-steep-roof-m-f-yellowshark-ag-bern-be-d696a2",
+        "toit-plat-toit-escarpe-h-f-yellowshark-ag-bern-be-d696a2"
+      ]
     },
     {
       "id": "yellowshark-b8fe247b5008",
@@ -48055,7 +48229,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.613Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -48540,7 +48713,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.599Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -48792,7 +48964,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.691Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -49126,7 +49297,6 @@
         ]
       },
       "firstSeenAt": "2026-11-09T22:07:30.590Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -50680,7 +50850,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:45:10.379Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -50849,7 +51018,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.515Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -54345,7 +54513,6 @@
         ]
       },
       "firstSeenAt": "2026-11-13T22:16:22.020Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -55127,7 +55294,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.584Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -56295,7 +56461,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.413Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -56466,7 +56631,23 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T10:01:23.547Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-24T10:14:50.737Z"
+      "firstSeenAt": "2026-10-24T10:14:50.737Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strato-terra-m-f-yellowshark-ag-sarnen-ow-dba94d"
+        ],
+        "en": [
+          "ground-layer-m-f-yellowshark-ag-sarnen-ow-dba94d"
+        ],
+        "fr": [
+          "couche-au-sol-h-f-yellowshark-ag-sarnen-ow-dba94d"
+        ]
+      },
+      "previousSlugs": [
+        "strato-terra-m-f-yellowshark-ag-sarnen-ow-dba94d",
+        "ground-layer-m-f-yellowshark-ag-sarnen-ow-dba94d",
+        "couche-au-sol-h-f-yellowshark-ag-sarnen-ow-dba94d"
+      ]
     },
     {
       "id": "yellowshark-15c705e75ce1",
@@ -57619,7 +57800,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.474Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -61857,7 +62037,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T14:28:34.127Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -62764,16 +62943,35 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa036604/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
-          "operatore-di-gru-m-f-yellowshark-ag-schwyz"
+          "operatore-di-gru-m-f-yellowshark-ag-schwyz",
+          "operatore-di-gru-m-f-yellowshark-ag-schwyz-sz",
+          "operatore-di-gru-a-rotazione-inferiore-m-f-yellowshark-ag-schwyz-sz",
+          "operatore-di-gru-m-f-yellowshark-ag-schwyz-661a34304c"
+        ],
+        "en": [
+          "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
+          "crane-operator-m-f-yellowshark-ag-schwyz-sz",
+          "bottom-slewing-crane-operator-m-f-yellowshark-ag-schwyz-sz"
+        ],
+        "fr": [
+          "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
+          "operateur-de-grue-h-f-yellowshark-ag-schwyz-sz",
+          "grutier-de-grue-a-montage-par-le-bas-h-f-yellowshark-ag-schwyz-sz"
         ]
       },
       "previousSlugs": [
         "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
-        "operatore-di-gru-m-f-yellowshark-ag-schwyz"
+        "operatore-di-gru-m-f-yellowshark-ag-schwyz",
+        "operatore-di-gru-m-f-yellowshark-ag-schwyz-sz",
+        "operatore-di-gru-a-rotazione-inferiore-m-f-yellowshark-ag-schwyz-sz",
+        "operatore-di-gru-m-f-yellowshark-ag-schwyz-661a34304c",
+        "crane-operator-m-f-yellowshark-ag-schwyz-sz",
+        "bottom-slewing-crane-operator-m-f-yellowshark-ag-schwyz-sz",
+        "operateur-de-grue-h-f-yellowshark-ag-schwyz-sz",
+        "grutier-de-grue-a-montage-par-le-bas-h-f-yellowshark-ag-schwyz-sz"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -62856,7 +63054,6 @@
         ]
       },
       "firstSeenAt": "2026-11-17T09:53:35.264Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -68921,7 +69118,6 @@
         ]
       },
       "firstSeenAt": "2026-11-23T10:15:21.493Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -71928,7 +72124,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-11-25T22:18:29.531Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "spezialist-stammdatenmanagement-m-w-80-100-bern-be-yellowshark-ch"
@@ -72026,7 +72221,6 @@
         ]
       },
       "firstSeenAt": "2026-11-25T09:57:31.329Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -72179,7 +72373,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-11-25T22:18:29.530Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "spezialist-gasnetzstrategie-038-warmeprojekte-m-w-80-100-zurich-zh-yellowshark-ch"
@@ -72362,7 +72555,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.551Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -72531,7 +72723,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.500Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -72850,7 +73041,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-11-25T09:57:31.326Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -73399,14 +73589,25 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa069379/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch"
+          "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch",
+          "progettista-elettrico-a-m-w-d-100-yellowshark-ag-thalwil"
+        ],
+        "en": [
+          "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch",
+          "electrical-planner-m-w-100-yellowshark-ag-thalwil-zh"
+        ],
+        "fr": [
+          "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch",
+          "planificateur-trice-electrique-m-w-100-yellowshark-ag-thalwil-zh"
         ]
       },
       "previousSlugs": [
-        "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch"
+        "elektroplaner-m-w-100-thalwil-zh-yellowshark-ch",
+        "progettista-elettrico-a-m-w-d-100-yellowshark-ag-thalwil",
+        "electrical-planner-m-w-100-yellowshark-ag-thalwil-zh",
+        "planificateur-trice-electrique-m-w-100-yellowshark-ag-thalwil-zh"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -73785,7 +73986,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -74007,7 +74207,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "it-netzwerk-und-firewall-spezialist-m-w-100-bulach-zh-yellowshark-ch"
@@ -74489,7 +74688,8 @@
         "softwareentwickler-sps-steuerung-80-100-m-w-st-gallen-sg-yellowshark-ch",
         "controllo-plc-sviluppatore-software-80-100-m-f-yellowshark-ag-st-gallen-sg",
         "software-developer-plc-control-80-100-m-f-yellowshark-ag-st-gallen-sg",
-        "logiciel-developpeur-controle-plc-80-100-h-f-yellowshark-ag-st-gallen-sg"
+        "logiciel-developpeur-controle-plc-80-100-h-f-yellowshark-ag-st-gallen-sg",
+        "softwareentwickler-sps-steuerung-80-100-m-w-st-gallen-sg-yellowshark-ch-bii6w5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -74503,6 +74703,9 @@
         "fr": [
           "softwareentwickler-sps-steuerung-80-100-m-w-st-gallen-sg-yellowshark-ch",
           "logiciel-developpeur-controle-plc-80-100-h-f-yellowshark-ag-st-gallen-sg"
+        ],
+        "de": [
+          "softwareentwickler-sps-steuerung-80-100-m-w-st-gallen-sg-yellowshark-ch-bii6w5"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.401Z",
@@ -75077,7 +75280,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch"
+        "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch",
+        "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch-bii6w7"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -75088,6 +75292,9 @@
         ],
         "fr": [
           "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch"
+        ],
+        "de": [
+          "gebaudetechnikplaner-hlks-m-w-baden-ag-yellowshark-ch-bii6w7"
         ]
       },
       "firstSeenAt": "2026-09-27T15:21:10.717Z",
@@ -75838,7 +76045,8 @@
         "sanitarmonteur-m-w-liestal-bl-yellowshark-ch",
         "sanitarmonteur-m-w-yellowshark-ag-liestal",
         "sanitary-fitting-m-f-yellowshark-ag-liestal-bl",
-        "fixation-sanitaire-h-f-yellowshark-ag-liestal-bl"
+        "fixation-sanitaire-h-f-yellowshark-ag-liestal-bl",
+        "sanitarmonteur-m-w-liestal-bl-yellowshark-ch-bf327h"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -75852,6 +76060,9 @@
         "fr": [
           "sanitarmonteur-m-w-liestal-bl-yellowshark-ch",
           "fixation-sanitaire-h-f-yellowshark-ag-liestal-bl"
+        ],
+        "de": [
+          "sanitarmonteur-m-w-liestal-bl-yellowshark-ch-bf327h"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.544Z",
@@ -76019,7 +76230,8 @@
         "mobelschreiner-m-w-zurich-zh-yellowshark-ch-bh9h4c",
         "charpentier-de-meubles-h-f-yellowshark-ag-zurich-zh-465548",
         "charpentier-de-meubles-h-f-yellowshark-ag-zurich-zh",
-        "mobelschreiner-m-w-yellowshark-ag-zurich"
+        "mobelschreiner-m-w-yellowshark-ag-zurich",
+        "mobelschreiner-m-w-zurich-zh-yellowshark-ch-bhxab5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76034,7 +76246,8 @@
         ],
         "de": [
           "mobelschreiner-m-w-zurich-zh-yellowshark-ch-bh9h4c",
-          "mobelschreiner-m-w-yellowshark-ag-zurich"
+          "mobelschreiner-m-w-yellowshark-ag-zurich",
+          "mobelschreiner-m-w-zurich-zh-yellowshark-ch-bhxab5"
         ],
         "fr": [
           "mobelschreiner-m-w-zurich-zh-yellowshark-ch",
@@ -76212,7 +76425,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gipser-m-w-schwyz-sz-yellowshark-ch",
-        "plaquette-m-w-d-yellowshark-ag-schwyz"
+        "plaquette-m-w-d-yellowshark-ag-schwyz",
+        "gipser-m-w-schwyz-sz-yellowshark-ch-bgu8by"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76220,6 +76434,9 @@
         ],
         "fr": [
           "plaquette-m-w-d-yellowshark-ag-schwyz"
+        ],
+        "de": [
+          "gipser-m-w-schwyz-sz-yellowshark-ch-bgu8by"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.540Z",
@@ -76293,7 +76510,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch"
+        "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch",
+        "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch-bgtk1t"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76304,6 +76522,9 @@
         ],
         "fr": [
           "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch"
+        ],
+        "de": [
+          "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch-bgtk1t"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.582Z",
@@ -76378,12 +76599,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch",
-        "montatore-di-controsoffitti-m-f-yellowshark-ag-st-gallen"
+        "montatore-di-controsoffitti-m-f-yellowshark-ag-st-gallen",
+        "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch-bgu65g"
       ],
       "previousSlugsByLocale": {
         "it": [
           "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch",
           "montatore-di-controsoffitti-m-f-yellowshark-ag-st-gallen"
+        ],
+        "de": [
+          "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch-bgu65g"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.608Z",
@@ -76457,7 +76682,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch"
+        "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch",
+        "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch-bhx835"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76468,6 +76694,9 @@
         ],
         "fr": [
           "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch"
+        ],
+        "de": [
+          "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch-bhx835"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:46.447Z",
@@ -76541,7 +76770,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bodenleger-m-w-sarnen-ow-yellowshark-ch"
+        "bodenleger-m-w-sarnen-ow-yellowshark-ch",
+        "bodenleger-m-w-sarnen-ow-yellowshark-ch-bhx82x"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76552,6 +76782,9 @@
         ],
         "fr": [
           "bodenleger-m-w-sarnen-ow-yellowshark-ch"
+        ],
+        "de": [
+          "bodenleger-m-w-sarnen-ow-yellowshark-ch-bhx82x"
         ]
       },
       "firstSeenAt": "2026-10-24T10:14:50.737Z",
