@@ -1142,12 +1142,26 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  fr: parseBlogBodyLocale('fr'),
  } as const;
 
+ const zurichOffsetFormatter = new Intl.DateTimeFormat('en', {
+  timeZone: 'Europe/Zurich', timeZoneName: 'longOffset',
+ });
+ const zurichOffset = (instant: number) =>
+  zurichOffsetFormatter.formatToParts(instant)
+   .find(({ type }) => type === 'timeZoneName')?.value.slice(3);
+
  const normalizeDateTime = (value: string): string => {
- if (!value) return value;
- if (/(Z|[+-]\d{2}:\d{2})$/.test(value)) return value;
- if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return `${value}T00:00:00+01:00`;
- if (/^\d{4}-\d{2}-\d{2}T/.test(value)) return `${value}+01:00`;
- return value;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return `${value}T00:00:00+01:00`;
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/.test(value)) return value;
+  const wallClock = Date.parse(`${value}Z`);
+  if (!Number.isFinite(wallClock)) return value.split('T')[0];
+  // Sample both sides of a possible clock change. Keep only offsets that
+  // are actually in force at the resulting instant.
+  const dayMs = 86_400_000;
+  const offsets = new Set([zurichOffset(wallClock - dayMs), zurichOffset(wallClock + dayMs)]);
+  const candidates = [...offsets].filter(offset =>
+   offset && zurichOffset(Date.parse(`${value}${offset}`)) === offset);
+  // A skipped or repeated hour cannot identify a unique publication instant.
+  return candidates.length === 1 ? `${value}${candidates[0]}` : value.split('T')[0];
  };
 
  // Human-readable date+time for Google News (answer/9607104: "show both a clear date and time")
@@ -1202,7 +1216,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const modDay = modIso.split('T')[0];
  const parts: string[] = [];
  if (pubDay) {
-  const hasPublicationTime = /T\d{2}:\d{2}.*(?:Z|[+-]\d{2}:\d{2})$/.test(datePubIso)
+  const hasPublicationTime = /T\d{2}:\d{2}/.test(datePubIso) && /(?:Z|[+-]\d{2}:\d{2})$/.test(pubIso)
    && Number.isFinite(Date.parse(pubIso));
   const datetime = hasPublicationTime ? pubIso : pubDay;
   const visible = hasPublicationTime ? formatPublicationDateTime(pubIso, locale) : formatHumanDate(pubIso, locale);
