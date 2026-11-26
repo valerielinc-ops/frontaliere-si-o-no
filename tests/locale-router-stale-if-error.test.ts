@@ -105,6 +105,22 @@ describe('locale-router stale-if-error', () => {
     expect(cfOptions[1]).toEqual(cfOptions[0]);
   });
 
+  it('emits a structured origin_failure when a shard 503 cannot be served stale', async () => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('boom', { status: 503 }));
+
+    const res = await worker.fetch(new Request(`${APEX}/fr/emploi/`), {}, ctx);
+
+    expect(res.status).toBe(503);
+    expect(log).toHaveBeenCalledExactlyOnceWith({
+      event: 'origin_failure',
+      reason: 'origin-503',
+      path: '/fr/emploi/',
+      status: 503,
+      stale: false,
+    });
+  });
+
   it.each([
     [200, 7200], [301, 7200], [404, 7200], [410, 7200],
     [427, 7200], [428, -1], [429, -1], [430, 7200],

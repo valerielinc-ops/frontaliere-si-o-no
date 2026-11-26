@@ -204,7 +204,7 @@ describe('locale-router canton-drift 301', () => {
       expect(canonRequests[0]).toContain(`/job-canon/releases/1001/v2/${jobCanonV2ShardKey(slug)}.json`);
       expect(canonRequests[1]).toContain('/job-canon/releases/1001/so.json');
       expect(log).toHaveBeenCalledTimes(1);
-      expect(log).toHaveBeenCalledWith(JSON.stringify({ event: 'job_canon_v1_fallback' }));
+      expect(log).toHaveBeenCalledWith({ event: 'job_canon_v1_fallback' });
     },
   );
 
@@ -316,11 +316,11 @@ describe('locale-router canton-drift 301', () => {
     expect(cacheMatchCount).toBe(0);
     expect(cachePutCount).toBe(0);
     expect(mapRequests).toEqual([]);
-    expect(log).toHaveBeenCalledWith(JSON.stringify({
+    expect(log).toHaveBeenCalledWith({
       event: 'job_canon_marker_unavailable',
       reason,
       ...(loggedStatus === undefined ? {} : { status: loggedStatus }),
-    }));
+    });
     expect(JSON.stringify(log.mock.calls)).not.toContain(slug);
     expect(markerOptions).toHaveLength(1);
     expect(markerOptions[0]).toMatchObject({
@@ -354,10 +354,10 @@ describe('locale-router canton-drift 301', () => {
     expect(cacheMatchCount).toBe(0);
     expect(cachePutCount).toBe(0);
     expect(mapRequests).toEqual([]);
-    expect(log).toHaveBeenCalledWith(JSON.stringify({
+    expect(log).toHaveBeenCalledWith({
       event: 'job_canon_marker_unavailable',
       reason: 'network',
-    }));
+    });
     expect(JSON.stringify(log.mock.calls)).not.toContain(slug);
   });
 
@@ -416,10 +416,10 @@ describe('locale-router canton-drift 301', () => {
     expect(cacheMatchCount).toBe(0);
     expect(cachePutCount).toBe(0);
     expect(mapRequests).toEqual([]);
-    expect(log).toHaveBeenCalledWith(JSON.stringify({
+    expect(log).toHaveBeenCalledWith({
       event: 'job_canon_marker_unavailable',
       reason: 'timeout',
-    }));
+    });
     expect(JSON.stringify(log.mock.calls)).not.toContain(slug);
   });
 
@@ -458,11 +458,11 @@ describe('locale-router canton-drift 301', () => {
     expect(mapRequests).toHaveLength(1);
     expect(new URL(mapRequests[0]).pathname).toContain('/job-canon/releases/1002/');
     expect(cacheMatchCount).toBe(1);
-    expect(log).toHaveBeenCalledWith(JSON.stringify({
+    expect(log).toHaveBeenCalledWith({
       event: 'job_canon_marker_unavailable',
       reason: 'http-status',
       status: 500,
-    }));
+    });
     expect(fetchMock).toHaveBeenCalled();
   });
 
@@ -487,11 +487,11 @@ describe('locale-router canton-drift 301', () => {
     expect(mapRequests).toEqual([]);
     expect(cacheMatchCount).toBe(0);
     expect(cachePutCount).toBe(0);
-    expect(log).toHaveBeenCalledWith(JSON.stringify({
+    expect(log).toHaveBeenCalledWith({
       event: 'job_canon_marker_unavailable',
       reason: 'http-status',
       status: 500,
-    }));
+    });
     expect(JSON.stringify(log.mock.calls)).not.toContain('azienda-denner-sa');
   });
 

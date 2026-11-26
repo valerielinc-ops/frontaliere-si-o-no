@@ -177,7 +177,8 @@ export function isValidCodexFallbackEvidence(value) {
   if (!value || typeof value !== 'object') return false;
   const payload = /** @type {Record<string, unknown>} */ (value);
   if (payload.provider !== 'codex') return false;
-  if (payload.model !== CODEX_FALLBACK_MODEL || !isAllowedCodexEffort(payload.effort)) return false;
+  // Trusted review gates can see evidence from either side of the model rollout.
+  if (![CODEX_FALLBACK_MODEL, 'gpt-5.6-luna', 'gpt-6-luna'].includes(payload.model) || !isAllowedCodexEffort(payload.effort)) return false;
   if (!Object.values(FALLBACK_TRIGGER).includes(payload.trigger)) return false;
   if (!Object.values(FALLBACK_STATUS).includes(payload.status)) return false;
   if ('detail' in payload && typeof payload.detail !== 'string') return false;

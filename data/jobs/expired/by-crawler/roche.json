@@ -366,7 +366,29 @@
         "firstSeenAt": "2026-09-09T13:44:28.702Z",
         "title": "Study Start Up Lead"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "iniziare-lo-studio-piombo-roche-kyiv": "BS",
+        "clinical-trials-administrator-roche-ch": "BS",
+        "clinical-trials-administrator-roche-kyiv": "BS",
+        "study-start-up-lead-roche-kyiv": "BS",
+        "study-start-up-lead-roche-ch": "BS",
+        "amministratore-delle-prove-cliniche-roche-kyiv": "BS"
+      },
+      "en": {
+        "clinical-trials-administrator-roche-ch": "BS"
+      },
+      "de": {
+        "klinische-studien-administrator-roche-kyiv": "BS",
+        "clinical-trials-administrator-roche-ch": "BS"
+      },
+      "fr": {
+        "l-etude-commence-le-plomb-roche-kyiv": "BS",
+        "clinical-trials-administrator-roche-ch": "BS",
+        "administrateur-des-essais-cliniques-roche-kyiv": "BS"
+      }
+    }
   },
   {
     "slug": "project-controls-ingegnere-basel-unbefristet-80-100-roche-basel",
@@ -2719,7 +2741,8 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "piombo-globale-della-catena-di-lancio-e-di-fornitura-del-prodotto-roche-basel"
+        "piombo-globale-della-catena-di-lancio-e-di-fornitura-del-prodotto-roche-basel",
+        "new-product-launch-expert-instruments-supply-chain-roche-ch"
       ],
       "en": [
         "new-product-launch-expert-instruments-supply-chain-roche-ch"
@@ -7173,7 +7196,19 @@
         "firstSeenAt": "2026-09-10T23:07:37.417Z",
         "title": "Praktikum für Studierende im Bereich Pharmazeutische Qualitätskontrolle - RiKO (ab Februar 2027, mind. 6 Monate)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stage-per-gli-studenti-nel-campo-del-controllo-qualita-farmaceutico-riko-da-febbraio-2027-12-mesi-roche-kaiseraugst": "AG",
+        "praktikum-fur-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar": "AG"
+      },
+      "en": {
+        "internship-for-students-in-the-field-of-pharmaceutical-quality-control-riko-from-february-2027-12-months-roche": "AG"
+      },
+      "fr": {
+        "stage-pour-etudiants-dans-le-domaine-du-controle-de-la-qualite-des-produits-pharmaceutiques-riko-a-partir-de-fevrier": "AG"
+      }
+    }
   },
   {
     "slug": "stage-per-gli-studenti-nel-campo-del-qc-support-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst",
@@ -7449,7 +7484,19 @@
         "firstSeenAt": "2026-09-10T23:08:03.775Z",
         "title": "Praktikum für Studierende im Bereich Sterile Filling - RiKO (ab Februar 2027, mind. 6 Monate)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stage-per-studenti-nel-campo-di-sterile-filling-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst": "AG",
+        "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate": "AG"
+      },
+      "en": {
+        "internship-for-students-in-the-field-of-sterile-filling-riko-from-february-2027-at-least-6-months-roche-715e9f": "AG"
+      },
+      "fr": {
+        "stage-pour-etudiants-dans-le-domaine-du-remplissage-sterile-riko-au-moins-a-partir-de-fevrier-2027-6-mois-roche": "AG"
+      }
+    }
   },
   {
     "slug": "stage-per-gli-studenti-nell-area-della-domanda-clinica-e-pianificazione-del-rifornimento-ptds-p-riko-da-febbraio-2027",
@@ -8522,7 +8569,24 @@
         "firstSeenAt": "2026-08-18T09:45:21.990Z",
         "title": "Senior Statistician"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "statistici-senior-roche-welwyn": "BS",
+        "senior-statistician-roche-ch": "BS"
+      },
+      "en": {
+        "senior-statistician-roche-welwyn": "BS"
+      },
+      "de": {
+        "senior-statistiker-roche-welwyn": "BS",
+        "senior-statistician-roche-ch": "BS"
+      },
+      "fr": {
+        "statistique-superieur-roche-welwyn": "BS",
+        "senior-statistician-roche-ch": "BS"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-warehouse-operational-services-basel-unbefristet-roche-basel",
@@ -10984,7 +11048,6 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "partenaire-financier-roche-budapest",
         "finance-business-partner-roche-ch",
         "business-analista-erp-operations-roche-petaling-jaya",
         "business-analyst-erp-operations-roche-ch",
@@ -11003,7 +11066,8 @@
         "finance-business-partner-roche-ch-2",
         "erp-business-analyst-finance-roche-ch",
         "finance-business-analyst-roche-ch",
-        "finanzen-business-analyst-roche-budapest"
+        "finanzen-business-analyst-roche-budapest",
+        "partenaire-financier-roche-budapest"
       ],
       "en": [
         "erp-business-analyst-roche-ch",
@@ -11068,7 +11132,29 @@
         "firstSeenAt": "2026-09-03T13:34:06.180Z",
         "title": "ERP Functional Consultant"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "erp-business-analista-roche-hyderabad": "BS",
+        "erp-business-analyst-roche-ch": "BS",
+        "erp-business-analyst-roche-ch-2": "BS"
+      },
+      "en": {
+        "erp-business-analyst-roche-ch": "BS",
+        "erp-business-analista-roche-hyderabad": "BS"
+      },
+      "de": {
+        "erp-business-analyst-roche-ch": "BS",
+        "erp-business-analista-roche-hyderabad": "BS",
+        "erp-business-analyst-roche-ch-2": "BS"
+      },
+      "fr": {
+        "erp-business-analyste-roche-hyderabad": "BS",
+        "erp-business-analyst-roche-ch": "BS",
+        "erp-business-analista-roche-hyderabad": "BS",
+        "erp-business-analyst-roche-ch-2": "BS"
+      }
+    }
   },
   {
     "slug": "erp-solution-consulente-sap-intercompany-roche-basel",
@@ -11160,7 +11246,58 @@
         "firstSeenAt": "2026-06-03T15:15:49.319Z",
         "title": "ERP Solution Consultant - SAP Intercompany"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "erp-solution-consulente-sap-ewm-roche-basel": "BS",
+        "erp-solution-consultant-sap-ewm-roche-ch": "BS",
+        "erp-solution-consultant-sap-intercompany-roche-ch": "BS",
+        "erp-solution-berater-sap-intercompany-roche-basel": "BS",
+        "consultant-erp-sap-intercompany-roche-basel": "BS",
+        "erp-solution-consulente-sap-quality-roche-hyderabad": "BS",
+        "erp-solution-consultant-sap-quality-roche-ch": "BS",
+        "erp-solution-berater-sap-qualitat-roche-hyderabad": "BS",
+        "erp-solution-consultant-sap-qualite-roche-hyderabad": "BS",
+        "erp-solution-consulente-sap-mm-im-ewm-roche-pune": "BS",
+        "erp-solution-consultant-sap-mm-im-ewm-roche-ch": "BS",
+        "erp-solution-berater-sap-mm-im-ewm-roche-pune": "BS",
+        "erp-solution-consulente-sap-manufacturing-roche-pune": "BS",
+        "erp-solution-consultant-sap-manufacturing-roche-ch": "BS",
+        "erp-solution-berater-sap-manufacturing-roche-pune": "BS"
+      },
+      "en": {
+        "erp-solution-consultant-sap-ewm-roche-ch": "BS",
+        "erp-solution-consultant-sap-quality-roche-ch": "BS",
+        "erp-solution-consulente-sap-mm-im-ewm-roche-pune": "BS",
+        "erp-solution-consultant-sap-mm-im-ewm-roche-ch": "BS",
+        "erp-solution-berater-sap-mm-im-ewm-roche-pune": "BS",
+        "erp-solution-consulente-sap-manufacturing-roche-pune": "BS",
+        "erp-solution-consultant-sap-manufacturing-roche-ch": "BS",
+        "erp-solution-berater-sap-manufacturing-roche-pune": "BS"
+      },
+      "de": {
+        "erp-solution-berater-sap-ewm-roche-basel": "BS",
+        "erp-solution-consultant-sap-ewm-roche-ch": "BS",
+        "erp-solution-berater-sap-qualitat-roche-hyderabad": "BS",
+        "erp-solution-consulente-sap-mm-im-ewm-roche-pune": "BS",
+        "erp-solution-consultant-sap-mm-im-ewm-roche-ch": "BS",
+        "erp-solution-berater-sap-mm-im-ewm-roche-pune": "BS",
+        "erp-solution-consulente-sap-manufacturing-roche-pune": "BS",
+        "erp-solution-consultant-sap-manufacturing-roche-ch": "BS",
+        "erp-solution-berater-sap-manufacturing-roche-pune": "BS"
+      },
+      "fr": {
+        "consultant-en-solutions-erp-sap-ewm-roche-basel": "BS",
+        "erp-solution-consultant-sap-ewm-roche-ch": "BS",
+        "erp-solution-consultant-sap-qualite-roche-hyderabad": "BS",
+        "erp-solution-consulente-sap-mm-im-ewm-roche-pune": "BS",
+        "erp-solution-consultant-sap-mm-im-ewm-roche-ch": "BS",
+        "erp-solution-berater-sap-mm-im-ewm-roche-pune": "BS",
+        "erp-solution-consulente-sap-manufacturing-roche-pune": "BS",
+        "erp-solution-consultant-sap-manufacturing-roche-ch": "BS",
+        "erp-solution-berater-sap-manufacturing-roche-pune": "BS"
+      }
+    }
   },
   {
     "slug": "expert-android-design-system-ingegnere-m-f-d-roche-basel",
@@ -11998,7 +12135,19 @@
         "firstSeenAt": "2026-09-08T13:34:41.087Z",
         "title": "Patient Journey Partner- Neurology"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "partner-del-viaggio-paziente-neurologia-roche-hyderabad": "BS",
+        "patient-journey-partner-neurology-roche-ch": "BS"
+      },
+      "de": {
+        "patient-journey-partner-neurology-roche-ch-2": "BS"
+      },
+      "fr": {
+        "partenaire-voyage-patient-neurologie-roche-hyderabad": "BS"
+      }
+    }
   },
   {
     "slug": "partner-di-eccellenza-operativa-roche-basel",
@@ -12708,6 +12857,7 @@
         "senior-business-analsyt-roche-ch",
         "senior-business-analyst-roche-ch-2",
         "analsyt-d-entreprise-senior-roche-madrid",
+        "senior-regulatory-business-analista-roche-basel",
         "senior-business-analista-roche-basel"
       ],
       "en": [
@@ -12747,7 +12897,36 @@
         "firstSeenAt": "2026-09-08T13:34:19.060Z",
         "title": "Senior Regulatory Business Analyst"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-business-analista-roche-basel": "BS",
+        "senior-business-analista-roche-basel-3e5yc9": "BS",
+        "senior-business-analyst-roche-ch": "BS",
+        "senior-regulatory-business-analista-roche-basel": "BS",
+        "senior-regulatory-business-analyst-roche-ch": "BS",
+        "senior-regulatory-business-analyste-roche-basel": "BS",
+        "senior-business-analsyt-roche-ch": "BS",
+        "senior-business-analyst-roche-ch-2": "BS",
+        "analsyt-d-entreprise-senior-roche-madrid": "BS"
+      },
+      "en": {
+        "senior-business-analyst-roche-ch": "BS",
+        "senior-business-analista-roche-basel": "BS"
+      },
+      "de": {
+        "senior-business-analyst-roche-ch": "BS",
+        "senior-regulatory-business-analista-roche-basel": "BS",
+        "senior-business-analista-roche-basel": "BS",
+        "senior-business-analsyt-roche-ch": "BS"
+      },
+      "fr": {
+        "senior-business-analyste-roche-basel": "BS",
+        "senior-business-analyst-roche-ch": "BS",
+        "senior-business-analista-roche-basel": "BS",
+        "analsyt-d-entreprise-senior-roche-madrid": "BS"
+      }
+    }
   },
   {
     "slug": "senior-responsabile-della-scienza-medica-oculumologia-roche-basel",
@@ -13011,7 +13190,27 @@
         "firstSeenAt": "2026-08-28T05:17:37.595Z",
         "title": "(Sr) Regional Technical Solution Specialist - IT"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sr-regional-technical-solution-specialist-it-roche-ch-4": "BS",
+        "sr-regional-technical-solution-specialist-it-roche-ch": "BS",
+        "sr-regional-technical-solution-specialista-it-roche-shanghai": "BS"
+      },
+      "en": {
+        "sr-regional-technical-solution-specialist-it-roche-ch-6aa1z9": "BS"
+      },
+      "de": {
+        "sr-regional-technical-solution-specialist-it-roche-ch-4": "BS",
+        "sr-regional-technical-solution-spezialist-it-roche-shanghai": "BS",
+        "sr-regional-technical-solution-specialist-it-roche-ch": "BS"
+      },
+      "fr": {
+        "sr-regional-technical-solution-specialist-it-roche-ch-4": "BS",
+        "sr-regional-technical-solution-specialiste-it-roche-shanghai": "BS",
+        "sr-regional-technical-solution-specialist-it-roche-ch": "BS"
+      }
+    }
   },
   {
     "slug": "sviluppatore-di-software-personalizzato-tecnologie-digitali-per-lo-sviluppo-tecnico-di-pharma-roche-basel",
@@ -13696,7 +13895,36 @@
         "firstSeenAt": "2026-09-19T22:50:16.284Z",
         "title": "Field Service Engineer"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "field-service-ingegnere-roche-daejeon": "BS",
+        "field-service-engineer-roche-ch": "BS",
+        "field-service-ingegnere-roche-seoul": "BS",
+        "field-service-engineer-roche-ch-2": "BS",
+        "field-service-engineer-roche-ch-4": "BS"
+      },
+      "de": {
+        "field-service-ingenieur-roche-daejeon": "BS",
+        "field-service-engineer-roche-ch": "BS",
+        "field-service-ingenieur-roche-seoul": "BS",
+        "field-service-engineer-roche-ch-2": "BS",
+        "field-service-ingegnere-roche-seoul": "BS",
+        "field-service-engineer-roche-ch-4": "BS"
+      },
+      "fr": {
+        "field-service-ingenieur-roche-daejeon": "BS",
+        "field-service-engineer-roche-ch": "BS",
+        "field-service-ingenieur-roche-seoul": "BS",
+        "field-service-engineer-roche-ch-2": "BS",
+        "field-service-ingegnere-roche-seoul": "BS",
+        "field-service-engineer-roche-ch-4": "BS"
+      },
+      "en": {
+        "field-service-ingegnere-roche-seoul": "BS",
+        "field-service-engineer-roche-ch-2": "BS"
+      }
+    }
   },
   {
     "slug": "gestione-degli-affari-regolatori-diagnostica-di-compagno-roche-basel",
@@ -15082,7 +15310,47 @@
         "firstSeenAt": "2026-06-03T15:22:16.059Z",
         "title": "Travel and Expense Compliance Analyst with Arabic- TALENT POOL"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-del-prodotto-roche-ho-chi-minh": "BS",
+        "travel-and-expense-compliance-analyst-with-arabic-talent-pool-roche-ch": "BS",
+        "product-manager-roche-ch": "BS",
+        "travel-and-expense-compliance-analista-with-arabic-talent-pool-roche-basel": "BS",
+        "responsabile-del-prodotto-roche-almaty": "BS",
+        "product-manager-roche-ch-4": "BS",
+        "product-manager-roche-ch-3": "BS",
+        "product-manager-roche-ch-2": "BS",
+        "responsabile-del-prodotto-roche-seoul": "BS"
+      },
+      "en": {
+        "travel-and-expense-compliance-analyst-with-arabic-talent-pool-roche-ch": "BS",
+        "product-manager-roche-ch": "BS",
+        "travel-and-expense-compliance-analista-with-arabic-talent-pool-roche-basel": "BS",
+        "product-manager-roche-almaty": "BS"
+      },
+      "de": {
+        "product-manager-roche-ch": "BS",
+        "travel-and-expense-compliance-analyst-mit-arabic-talent-pool-roche-basel": "BS",
+        "reise-und-kostentreue-mit-arabisch-talent-pool-roche-basel": "BS",
+        "travel-and-expense-compliance-analista-with-arabic-talent-pool-roche-basel": "BS",
+        "produktmanager-roche-almaty": "BS",
+        "product-manager-roche-ch-4": "BS",
+        "produktmanager-roche-seoul": "BS",
+        "product-manager-roche-ch-2": "BS"
+      },
+      "fr": {
+        "product-manager-roche-ch": "BS",
+        "travel-and-expense-compliance-analyste-with-arabic-talent-pool-roche-basel": "BS",
+        "analyste-de-la-conformite-des-voyages-et-des-depenses-avec-arabic-talent-pool-roche-basel": "BS",
+        "analyste-de-la-conformite-aux-frais-et-aux-voyages-avec-l-arabe-talent-pool-roche-basel": "BS",
+        "travel-and-expense-compliance-analista-with-arabic-talent-pool-roche-basel": "BS",
+        "gestionnaire-de-produits-roche-almaty": "BS",
+        "product-manager-roche-ch-4": "BS",
+        "gestionnaire-de-produits-roche-seoul": "BS",
+        "product-manager-roche-ch-2": "BS"
+      }
+    }
   },
   {
     "slug": "roccaforte-it-roche-basel",
@@ -15827,7 +16095,22 @@
         "firstSeenAt": "2026-06-05T12:33:18.412Z",
         "title": "Cybersecurity Engineer for Secure Access Network (Temporary, Fixed Term)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cybersecurity-analyst-network-security-temporary-fixed-term-roche-ch": "BS",
+        "cybersecurity-engineer-for-secure-access-network-temporary-fixed-term-roche-ch": "BS"
+      },
+      "en": {
+        "cybersecurity-engineer-for-secure-access-network-temporary-fixed-term-roche-ch-9z7sje": "BS"
+      },
+      "de": {
+        "cybersecurity-analyst-network-security-temporary-fixed-term-roche-ch": "BS"
+      },
+      "fr": {
+        "cybersecurity-analyst-network-security-temporary-fixed-term-roche-ch": "BS"
+      }
+    }
   },
   {
     "slug": "d2p-accounts-payable-senior-solution-architetto-rdt-erp-roche-basel",
@@ -15995,7 +16278,40 @@
         "firstSeenAt": "2026-08-28T05:20:08.333Z",
         "title": "DMR（営業職_千葉）"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dmr-roche-saitama": "BS",
+        "dmr-roche-ch-2": "BS",
+        "dmr-roche-ch": "BS",
+        "dmr-roche-ch-3": "BS",
+        "dmr-roche-ch-6": "BS",
+        "dmr-roche-fukuoka": "BS",
+        "dmr-roche-ch-4": "BS",
+        "dmr-roche-tokyo": "BS",
+        "dmr-roche-osaka": "BS",
+        "dmr-roche-ch-5": "BS"
+      },
+      "en": {
+        "dmr-roche-saitama": "BS",
+        "dmr-roche-fukuoka": "BS",
+        "dmr-roche-tokyo": "BS",
+        "dmr-roche-osaka": "BS"
+      },
+      "de": {
+        "dmr-roche-saitama": "BS",
+        "dmr-auszug-aus-der-dmr-roche-fukuoka": "BS",
+        "dmr-roche-fukuoka": "BS",
+        "dmr-auszug-roche-tokyo": "BS",
+        "dmr-auszug-aus-der-dmr-roche-osaka": "BS"
+      },
+      "fr": {
+        "dmr-roche-saitama": "BS",
+        "dmr-roche-fukuoka": "BS",
+        "dmr-roche-tokyo": "BS",
+        "dmr-roche-osaka": "BS"
+      }
+    }
   },
   {
     "slug": "domain-architetto-dia-r-d-roche-basel",
@@ -16260,8 +16576,6 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "lead-field-engineering-specialiste-california-nevada-roche-basel",
-        "field-engineering-specialista-roche-wisconsin",
         "field-engineering-spezialist-roche-wisconsin",
         "field-engineering-specialiste-roche-wisconsin",
         "field-engineering-specialista-memphis-roche-memphis",
@@ -16280,7 +16594,9 @@
         "field-engineering-specialiste-denver-co-roche-denver",
         "lead-field-engineering-specialista-california-nevada-roche-basel",
         "lead-field-engineering-specialist-california-nevada-roche-ch",
-        "lead-field-engineering-spezialist-california-nevada-roche-basel"
+        "lead-field-engineering-spezialist-california-nevada-roche-basel",
+        "lead-field-engineering-specialiste-california-nevada-roche-basel",
+        "field-engineering-specialista-roche-wisconsin"
       ],
       "en": [
         "field-engineering-specialist-memphis-roche-ch",
@@ -16304,7 +16620,6 @@
         "lead-field-engineering-spezialist-california-nevada-roche-basel"
       ],
       "fr": [
-        "lead-field-engineering-specialiste-california-nevada-roche-basel",
         "field-engineering-specialiste-roche-wisconsin",
         "field-engineering-specialiste-memphis-roche-memphis",
         "field-engineering-specialiste-birmingham-al-roche-birmingham",
@@ -16315,7 +16630,8 @@
         "field-engineering-specialist-roche-ch-2-3y4nqy",
         "field-engineering-specialist-roche-ch",
         "field-engineering-specialist-roche-ch-3",
-        "field-engineering-specialiste-denver-co-roche-denver"
+        "field-engineering-specialiste-denver-co-roche-denver",
+        "lead-field-engineering-specialiste-california-nevada-roche-basel"
       ]
     },
     "salaryMin": 72500,
@@ -16355,7 +16671,42 @@
         "firstSeenAt": "2026-09-23T23:36:33.011Z",
         "title": "Field Engineering Specialist"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "field-engineering-specialista-roche-seattle": "BS",
+        "field-engineering-specialist-roche-ch": "BS",
+        "field-engineering-specialist-roche-ch-2": "BS",
+        "field-engineering-specialista-roche-tampa": "BS",
+        "field-engineering-specialist-roche-ch-3": "BS",
+        "field-engineering-specialist-roche-ch-4": "BS"
+      },
+      "de": {
+        "field-engineering-spezialist-roche-seattle": "BS",
+        "field-engineering-specialist-roche-ch": "BS",
+        "field-engineering-specialista-roche-seattle": "BS",
+        "field-engineering-specialist-roche-ch-2": "BS",
+        "field-engineering-spezialist-roche-tampa": "BS",
+        "field-engineering-specialist-roche-ch-3": "BS",
+        "field-engineering-specialista-roche-tampa": "BS",
+        "field-engineering-specialist-roche-ch-4": "BS"
+      },
+      "fr": {
+        "field-engineering-specialiste-roche-seattle": "BS",
+        "field-engineering-specialist-roche-ch": "BS",
+        "field-engineering-specialista-roche-seattle": "BS",
+        "field-engineering-specialist-roche-ch-2": "BS",
+        "field-engineering-specialiste-roche-tampa": "BS",
+        "field-engineering-specialist-roche-ch-3": "BS",
+        "field-engineering-specialista-roche-tampa": "BS",
+        "field-engineering-specialist-roche-ch-4": "BS"
+      },
+      "en": {
+        "field-engineering-specialista-roche-seattle": "BS",
+        "field-engineering-specialist-roche-ch-2": "BS",
+        "field-engineering-specialista-roche-tampa": "BS"
+      }
+    }
   },
   {
     "slug": "functional-consulente-sap-ewm-tm-custom-solutions-roche-basel",
@@ -17399,7 +17750,33 @@
         "firstSeenAt": "2026-08-18T09:45:02.102Z",
         "title": "(Senior) Medical Science Manager (BC)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-direttore-scientifico-medico-bc-roche-guangzhou": "BS",
+        "senior-medical-science-manager-bc-roche-ch": "BS",
+        "senior-medical-science-manager-bc-roche-ch-3": "BS",
+        "senior-direttore-scientifico-medico-bc-roche-hangzhou": "BS",
+        "senior-medical-science-manager-bc-roche-ch-5": "BS",
+        "senior-medical-science-manager-bc-roche-ch-4": "BS"
+      },
+      "en": {
+        "senior-medical-science-manager-bc-roche-ch": "BS",
+        "senior-medical-science-manager-bc-roche-ch-3e5f0j": "BS"
+      },
+      "de": {
+        "senior-medizinischer-leiter-bc-roche-guangzhou": "BS",
+        "senior-medical-science-manager-bc-roche-ch-3": "BS",
+        "senior-medizinischer-leiter-bc-roche-hangzhou": "BS",
+        "senior-medical-science-manager-bc-roche-ch-5": "BS",
+        "senior-medical-science-manager-bc-roche-ch-4": "BS"
+      },
+      "fr": {
+        "aine-gestionnaire-des-sciences-medicales-bc-roche-guangzhou": "BS",
+        "aine-gestionnaire-des-sciences-medicales-bc-roche-hangzhou": "BS",
+        "senior-medical-science-manager-bc-roche-ch-4": "BS"
+      }
+    }
   },
   {
     "slug": "solution-architetto-o2c-pharma-rdt-erp-roche-basel",
@@ -18360,7 +18737,36 @@
         "firstSeenAt": "2026-06-02T14:31:48.519Z",
         "title": "Medical Director (CVM)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "direttore-medico-cvm-roche-basel": "BS",
+        "medical-director-cvm-roche-ch": "BS",
+        "medical-director-cvm-roche-ch-3": "BS",
+        "medizinischer-direktor-cvm-roche-basel": "BS",
+        "medical-direttore-cvm-roche-basel-hfwosr": "BS",
+        "medical-director-cvm-roche-ch-2": "BS",
+        "medical-direttore-cvm-roche-basel-a4vrka": "BS",
+        "medical-direktor-cvm-roche-basel": "BS"
+      },
+      "en": {
+        "medical-director-cvm-roche-ch-iufbmm": "BS",
+        "medical-direttore-cvm-roche-basel-hfwosr": "BS",
+        "medical-director-cvm-roche-ch-2": "BS"
+      },
+      "de": {
+        "medical-director-cvm-roche-ch": "BS",
+        "medical-direttore-cvm-roche-basel-hfwosr": "BS",
+        "medical-director-cvm-roche-ch-2": "BS"
+      },
+      "fr": {
+        "medical-director-cvm-roche-ch-iufbmm": "BS",
+        "medical-director-cvm-roche-ch": "BS",
+        "directeur-medical-cvm-roche-basel-74757b": "BS",
+        "medical-direttore-cvm-roche-basel-hfwosr": "BS",
+        "medical-director-cvm-roche-ch-2": "BS"
+      }
+    }
   },
   {
     "slug": "processo-tecnico-roche-basel",
@@ -18802,7 +19208,8 @@
       "solution-architetto-dia-r-d-roche-basel-3ip55s",
       "solution-architetto-dia-r-d-roche-basel-5h1clm",
       "solution-architecte-dia-r-d-roche-basel",
-      "solution-architect-dia-r-d-roche-ch-5h1clm"
+      "solution-architect-dia-r-d-roche-ch-5h1clm",
+      "solution-architect-dia-r-d-roche-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -18859,7 +19266,28 @@
         "firstSeenAt": "2026-06-11T23:22:23.867Z",
         "title": "Solution Architect - DIA R&D"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "solution-architect-dia-r-d-roche-ch": "BS",
+        "solution-architetto-dia-r-d-roche-basel-3ip55s": "BS",
+        "solution-architetto-dia-r-d-roche-basel-5h1clm": "BS",
+        "losungsarchitekt-dia-r-d-roche-basel-0934f1": "BS",
+        "solution-architecte-dia-r-d-roche-basel": "BS",
+        "losungsarchitekt-dia-r-d-roche-basel-133b37": "BS"
+      },
+      "de": {
+        "losungsarchitekt-dia-r-d-roche-basel-133b37": "BS",
+        "losungsarchitekt-dia-r-d-roche-basel-0934f1": "BS"
+      },
+      "fr": {
+        "solution-architect-dia-r-d-roche-ch": "BS",
+        "losungsarchitekt-dia-r-d-roche-basel-133b37": "BS"
+      },
+      "en": {
+        "losungsarchitekt-dia-r-d-roche-basel-133b37": "BS"
+      }
+    }
   },
   {
     "slug": "technical-support-specialista-slovak-czech-language-roche-basel",
@@ -20361,7 +20789,27 @@
         "firstSeenAt": "2026-06-03T15:24:06.344Z",
         "title": "Accounts Payable Analyst (Japanese Speaker)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "accounts-payable-analista-japanese-speaker-roche-petaling-jaya": "BS",
+        "accounts-payable-analyst-japanese-speaker-roche-ch": "BS",
+        "accounts-payable-analyst-japanese-speaker-roche-ch-2": "BS"
+      },
+      "de": {
+        "accounts-payable-analyst-japanischer-sprecher-roche-petaling-jaya": "BS",
+        "accounts-payable-analyst-japanese-speaker-roche-ch": "BS",
+        "accounts-payable-analista-japanese-speaker-roche-petaling-jaya": "BS"
+      },
+      "fr": {
+        "accounts-payable-analyst-japanese-speaker-roche-ch": "BS",
+        "accounts-payable-analista-japanese-speaker-roche-petaling-jaya": "BS",
+        "accounts-payable-analyst-japanese-speaker-roche-ch-2": "BS"
+      },
+      "en": {
+        "accounts-payable-analista-japanese-speaker-roche-petaling-jaya": "BS"
+      }
+    }
   },
   {
     "slug": "erp-solution-consulente-capital-finanza-management-roche-hyderabad-w86hxj",
@@ -20427,7 +20875,27 @@
         "firstSeenAt": "2026-09-19T22:51:03.214Z",
         "title": "ERP Solution Consultant - Capital Finance Management"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "erp-solution-consulente-capital-finanza-management-roche-hyderabad": "BS",
+        "erp-solution-consultant-capital-finance-management-roche-ch": "BS",
+        "erp-solution-consultant-capital-finance-management-roche-ch-2": "BS"
+      },
+      "de": {
+        "erp-solution-consultant-capital-finance-management-roche-ch": "BS",
+        "erp-solution-consulente-capital-finanza-management-roche-hyderabad": "BS",
+        "erp-solution-consultant-capital-finance-management-roche-ch-2": "BS"
+      },
+      "fr": {
+        "erp-solution-consultant-capital-finance-management-roche-ch": "BS",
+        "erp-solution-consulente-capital-finanza-management-roche-hyderabad": "BS",
+        "erp-solution-consultant-capital-finance-management-roche-ch-2": "BS"
+      },
+      "en": {
+        "erp-solution-consulente-capital-finanza-management-roche-hyderabad": "BS"
+      }
+    }
   },
   {
     "slug": "full-stack-ai-ingegnere-data-scientist-agentic-systems-roche-hyderabad-0wbb8f",
@@ -20510,7 +20978,30 @@
         "firstSeenAt": "2026-09-19T22:51:31.782Z",
         "title": "Full-Stack AI Engineer / Data Scientist – Agentic Systems"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "full-stack-ai-ingegnere-data-scientist-agentic-systems-roche-hyderabad": "BS",
+        "full-stack-ai-engineer-data-scientist-agentic-systems-roche-ch": "BS",
+        "full-stack-ai-engineer-data-scientist-agentic-systems-roche-ch-2": "BS",
+        "full-stack-ai-engineer-data-scientist-agentic-systems-roche-ch-3": "BS"
+      },
+      "de": {
+        "full-stack-ai-engineer-data-scientist-agentic-systems-roche-ch": "BS",
+        "full-stack-ai-ingegnere-data-scientist-agentic-systems-roche-hyderabad": "BS",
+        "full-stack-ai-engineer-data-scientist-agentic-systems-roche-ch-2": "BS",
+        "full-stack-ai-engineer-data-scientist-agentic-systems-roche-ch-3": "BS"
+      },
+      "fr": {
+        "full-stack-ai-engineer-data-scientist-agentic-systems-roche-ch": "BS",
+        "full-stack-ai-ingegnere-data-scientist-agentic-systems-roche-hyderabad": "BS",
+        "full-stack-ai-engineer-data-scientist-agentic-systems-roche-ch-2": "BS",
+        "full-stack-ai-engineer-data-scientist-agentic-systems-roche-ch-3": "BS"
+      },
+      "en": {
+        "full-stack-ai-ingegnere-data-scientist-agentic-systems-roche-hyderabad": "BS"
+      }
+    }
   },
   {
     "slug": "fullstack-ai-quality-ingegnere-applied-agentic-ai-systems-roche-hyderabad-w86hrd",
@@ -20576,7 +21067,27 @@
         "firstSeenAt": "2026-09-09T13:44:39.055Z",
         "title": "Fullstack AI Quality Engineer – Applied & Agentic AI Systems"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fullstack-ai-quality-ingegnere-applied-agentic-ai-systems-roche-hyderabad": "BS",
+        "fullstack-ai-quality-engineer-applied-agentic-ai-systems-roche-ch": "BS",
+        "fullstack-ai-quality-engineer-applied-agentic-ai-systems-roche-ch-2": "BS"
+      },
+      "de": {
+        "fullstack-ai-quality-engineer-applied-agentic-ai-systems-roche-ch": "BS",
+        "fullstack-ai-quality-ingegnere-applied-agentic-ai-systems-roche-hyderabad": "BS",
+        "fullstack-ai-quality-engineer-applied-agentic-ai-systems-roche-ch-2": "BS"
+      },
+      "fr": {
+        "fullstack-ai-quality-engineer-applied-agentic-ai-systems-roche-ch": "BS",
+        "fullstack-ai-quality-ingegnere-applied-agentic-ai-systems-roche-hyderabad": "BS",
+        "fullstack-ai-quality-engineer-applied-agentic-ai-systems-roche-ch-2": "BS"
+      },
+      "en": {
+        "fullstack-ai-quality-ingegnere-applied-agentic-ai-systems-roche-hyderabad": "BS"
+      }
+    }
   },
   {
     "slug": "fullstack-data-ingegnere-applied-agentic-ai-systems-roche-hyderabad-w86hr9",
@@ -20640,7 +21151,25 @@
         "firstSeenAt": "2026-09-09T23:03:50.623Z",
         "title": "Fullstack Data Engineer - Applied & Agentic AI Systems"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fullstack-data-ingegnere-applied-agentic-ai-systems-roche-hyderabad": "BS",
+        "fullstack-data-engineer-applied-agentic-ai-systems-roche-ch": "BS",
+        "fullstack-data-engineer-applied-agentic-ai-systems-roche-ch-2": "BS"
+      },
+      "de": {
+        "fullstack-data-engineer-applied-agentic-ai-systems-roche-ch-2": "BS",
+        "fullstack-data-ingegnere-applied-agentic-ai-systems-roche-hyderabad": "BS"
+      },
+      "fr": {
+        "fullstack-data-engineer-applied-agentic-ai-systems-roche-ch-2": "BS",
+        "fullstack-data-ingegnere-applied-agentic-ai-systems-roche-hyderabad": "BS"
+      },
+      "en": {
+        "fullstack-data-ingegnere-applied-agentic-ai-systems-roche-hyderabad": "BS"
+      }
+    }
   },
   {
     "slug": "solution-architetto-pharma-r-d-roche-hyderabad-0wrbe0",
@@ -20710,7 +21239,25 @@
         "firstSeenAt": "2026-09-07T23:24:47.811Z",
         "title": "Solution Architect - Pharma R&D"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "solution-architetto-pharma-r-d-roche-hyderabad": "BS",
+        "solution-architect-pharma-r-d-roche-ch": "BS",
+        "solution-architect-pharma-r-d-roche-ch-2": "BS"
+      },
+      "de": {
+        "losungsarchitekt-pharma-f-e-roche-hyderabad": "BS",
+        "solution-architetto-pharma-r-d-roche-hyderabad": "BS"
+      },
+      "fr": {
+        "solution-architect-pharma-r-d-roche-ch-2": "BS",
+        "solution-architetto-pharma-r-d-roche-hyderabad": "BS"
+      },
+      "en": {
+        "solution-architetto-pharma-r-d-roche-hyderabad": "BS"
+      }
+    }
   },
   {
     "slug": "travel-expense-compliance-tirocinante-mandarin-speaker-roche-petaling-jaya-iufbmt",
@@ -20776,7 +21323,27 @@
         "firstSeenAt": "2026-06-03T15:24:34.929Z",
         "title": "Travel & Expense Compliance Intern (Mandarin Speaker)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "travel-expense-compliance-tirocinante-mandarin-speaker-roche-petaling-jaya": "BS",
+        "travel-expense-compliance-intern-mandarin-speaker-roche-ch": "BS",
+        "travel-expense-compliance-intern-mandarin-speaker-roche-ch-2": "BS"
+      },
+      "de": {
+        "travel-expense-compliance-intern-mandarin-speaker-roche-ch": "BS",
+        "travel-expense-compliance-tirocinante-mandarin-speaker-roche-petaling-jaya": "BS",
+        "travel-expense-compliance-intern-mandarin-speaker-roche-ch-2": "BS"
+      },
+      "fr": {
+        "travel-expense-compliance-intern-mandarin-speaker-roche-ch": "BS",
+        "travel-expense-compliance-tirocinante-mandarin-speaker-roche-petaling-jaya": "BS",
+        "travel-expense-compliance-intern-mandarin-speaker-roche-ch-2": "BS"
+      },
+      "en": {
+        "travel-expense-compliance-tirocinante-mandarin-speaker-roche-petaling-jaya": "BS"
+      }
+    }
   },
   {
     "slug": "assistente-di-ricerca-nel-campo-della-chimica-a-fase-solida-m-f-d-temporaneamente-per-2-anni-roche-penzberg",
@@ -21502,7 +22069,21 @@
         "firstSeenAt": "2026-09-19T22:50:14.863Z",
         "title": "Applications/Systems Engineer - Pre and Post-Sales"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "applications-systems-ingegnere-pre-and-post-sales-roche-czech-republic": "BS",
+        "applications-systems-engineer-pre-and-post-sales-roche-ch": "BS"
+      },
+      "de": {
+        "applications-systems-ingenieur-pre-and-post-sales-roche-czech-republic": "BS",
+        "applications-systems-engineer-pre-and-post-sales-roche-ch": "BS"
+      },
+      "fr": {
+        "applications-systems-ingenieur-pre-and-post-sales-roche-czech-republic": "BS",
+        "applications-systems-engineer-pre-and-post-sales-roche-ch": "BS"
+      }
+    }
   },
   {
     "slug": "associate-field-engineering-specialista-south-atlanta-ga-roche-atlanta",
@@ -24123,6 +24704,10 @@
     ],
     "previousSlugsByLocale": {
       "it": [
+        "key-account-manager-conti-pubblici-d-f-m-roche-france",
+        "key-account-manager-comptes-publics-d-f-m-roche-ch",
+        "gestione-account-chiave-roche-nantong",
+        "gestionnaire-de-comptes-cles-roche-nairobi",
         "key-account-manager-sustain-roche-ch",
         "key-account-manager-sutain-roche-costa-rica",
         "gestionnaire-de-compte-cle-soutien-roche-costa-rica",
@@ -24138,12 +24723,7 @@
         "key-account-manager-histology-sequencing-roche-ch",
         "account-manager-roche-ch",
         "direzione-direttore-dell-account-roche-kunming",
-        "account-manager-roche-ch-2",
-        "key-account-manager-roche-ch",
-        "key-account-manager-conti-pubblici-d-f-m-roche-france",
-        "key-account-manager-comptes-publics-d-f-m-roche-ch",
-        "gestione-account-chiave-roche-nantong",
-        "gestionnaire-de-comptes-cles-roche-nairobi"
+        "account-manager-roche-ch-2"
       ],
       "en": [
         "account-executive-roche-south-san-francisco",
@@ -24169,7 +24749,6 @@
         "key-account-manager-histology-sequencing-roche-ch",
         "account-manager-roche-ch",
         "account-manager-roche-ch-2",
-        "key-account-manager-roche-ch",
         "gestionnaire-de-comptes-cles-roche-nairobi"
       ],
       "de": [
@@ -24184,8 +24763,7 @@
         "key-account-manager-m-w-d-roche-ch",
         "key-account-manager-histology-sequencing-roche-ch",
         "account-manager-roche-ch",
-        "account-manager-roche-ch-2",
-        "key-account-manager-roche-ch"
+        "account-manager-roche-ch-2"
       ]
     },
     "salaryMin": 85500,
@@ -25866,7 +26444,8 @@
       "premium-account-lead-roche-ch-2",
       "conto-premium-lead-roche-shanghai-3e5xkp",
       "compte-premium-responsable-roche-shanghai-9ef270",
-      "compte-premium-responsable-roche-shanghai"
+      "compte-premium-responsable-roche-shanghai",
+      "conto-premium-lead-roche-shanghai"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -28617,7 +29196,29 @@
         "firstSeenAt": "2026-06-03T15:21:11.686Z",
         "title": "Finance Enterprise Partner"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "finanza-enterprise-partner-roche-tokyo": "BS",
+        "finance-enterprise-partner-roche-ch": "BS",
+        "finance-enterprise-partner-roche-ch-3": "BS",
+        "finance-enterprise-partner-roche-ch-2": "BS",
+        "finanza-enterprise-partner-roche-belgium": "BS"
+      },
+      "de": {
+        "finanzen-enterprise-partner-roche-tokyo": "BS",
+        "finance-enterprise-partner-roche-ch": "BS",
+        "finanzen-enterprise-partner-roche-belgium": "BS",
+        "finance-enterprise-partner-roche-ch-2": "BS"
+      },
+      "fr": {
+        "finance-entreprise-partenaire-roche-tokyo": "BS",
+        "finance-enterprise-partner-roche-ch": "BS",
+        "finance-enterprise-partner-roche-tokyo": "BS",
+        "finance-entreprise-partenaire-roche-belgium": "BS",
+        "finance-enterprise-partner-roche-belgium": "BS"
+      }
+    }
   },
   {
     "slug": "formulation-operatore-roche-shanghai",
@@ -30483,7 +31084,21 @@
         "firstSeenAt": "2026-09-19T22:50:49.504Z",
         "title": "Paid Media Expert"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "media-a-pagamento-expert-roche-riga": "BS",
+        "paid-media-expert-roche-ch": "BS",
+        "paid-media-expert-roche-ch-2": "BS"
+      },
+      "de": {
+        "bezahlter-medienexperte-roche-riga": "BS"
+      },
+      "fr": {
+        "medias-payants-expert-roche-riga": "BS",
+        "paid-media-expert-roche-ch-2": "BS"
+      }
+    }
   },
   {
     "slug": "medical-affairs-partner-cardiovascolare-renale-e-metabolismo-obesity-weight-management-roche-united-kingdom",
@@ -30928,7 +31543,21 @@
         "firstSeenAt": "2026-08-12T21:50:17.301Z",
         "title": "Order Management Analyst"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "order-management-analista-roche-asuncion": "BS",
+        "order-management-analyst-roche-ch": "BS",
+        "order-management-analyst-roche-ch-2": "BS"
+      },
+      "de": {
+        "auftragsverwaltung-roche-asuncion": "BS"
+      },
+      "fr": {
+        "order-management-analyste-roche-asuncion": "BS",
+        "order-management-analyst-roche-ch-2": "BS"
+      }
+    }
   },
   {
     "slug": "organizzazione-del-lavoro-roche-shanghai",
@@ -33563,7 +34192,8 @@
     "expiredAt": "2026-09-23T23:48:49.170Z",
     "previousSlugs": [
       "senior-medical-science-manager-gi-roche-ch-3xnezo",
-      "senior-medical-science-manager-gi-roche-ch-2"
+      "senior-medical-science-manager-gi-roche-ch-2",
+      "senior-medical-science-manager-gi-roche-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -34310,7 +34940,23 @@
         "firstSeenAt": "2026-09-10T23:07:52.186Z",
         "title": "Manufacturing Directory Services - RDT Identity & Access Management"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "servizi-di-manufacturing-directory-rdt-gestione-dell-identita-e-dell-accesso-roche-pune": "BS",
+        "manufacturing-directory-services-rdt-identity-access-management-roche-ch": "BS",
+        "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2": "BS"
+      },
+      "de": {
+        "fertigungsverzeichnisdienste-rdt-identitats-und-zugriffsverwaltung-roche-pune": "BS",
+        "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2": "BS"
+      },
+      "fr": {
+        "manufacturing-directory-services-rdt-identity-access-management-roche-pune": "BS",
+        "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2": "BS",
+        "services-d-annuaires-de-fabrication-rdt-gestion-de-l-identite-et-de-l-acces-roche-pune": "BS"
+      }
+    }
   },
   {
     "slug": "servizio-clienti-digital-solutions-specialista-diagnostic-it-solutions-visayas-roche-philippines",
@@ -35024,7 +35670,8 @@
       "stage-progetto-di-trasformazione-erp-roche-shanghai",
       "praktikum-erp-transformation-projekt-roche-shanghai",
       "stage-projet-de-transformation-du-pgi-roche-shanghai",
-      "internship-erp-transformation-project-roche-ch-9z9378"
+      "internship-erp-transformation-project-roche-ch-9z9378",
+      "internship-erp-transformation-project-roche-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -35059,7 +35706,19 @@
         "firstSeenAt": "2026-09-07T15:04:02.860Z",
         "title": "Internship - ERP Transformation Project"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stage-progetto-di-trasformazione-erp-roche-shanghai": "BS",
+        "internship-erp-transformation-project-roche-ch": "BS"
+      },
+      "de": {
+        "praktikum-erp-transformation-projekt-roche-shanghai": "BS"
+      },
+      "fr": {
+        "stage-projet-de-transformation-du-pgi-roche-shanghai": "BS"
+      }
+    }
   },
   {
     "slug": "startup-china-pharma-market-access-hospital-strategic-alliance-hsa-roche-ch",
@@ -36447,7 +37106,21 @@
         "firstSeenAt": "2026-09-11T23:06:15.827Z",
         "title": "Web Access Management Engineer - RDT Identity & Access Management"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "web-access-management-ingegnere-rdt-identity-access-management-roche-san-jose-costa-rica": "BS",
+        "web-access-management-engineer-rdt-identity-access-management-roche-ch": "BS"
+      },
+      "de": {
+        "web-access-management-ingenieur-rdt-identity-access-management-roche-san-jose-costa-rica": "BS",
+        "web-access-management-engineer-rdt-identity-access-management-roche-ch": "BS"
+      },
+      "fr": {
+        "web-access-management-ingenieur-rdt-identity-access-management-roche-san-jose-costa-rica": "BS",
+        "web-access-management-engineer-rdt-identity-access-management-roche-ch": "BS"
+      }
+    }
   },
   {
     "slug": "accounting-tirocinante-hungarian-speaking-roche-budapest",
@@ -37272,7 +37945,28 @@
         "firstSeenAt": "2026-07-15T10:59:41.159Z",
         "title": "Digital Content & Services Lead"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "contenuti-e-servizi-digitali-roche-riga": "BS",
+        "digital-content-services-lead-roche-ch": "BS",
+        "digital-content-services-lead-roche-ch-2": "BS",
+        "strategista-dei-contenuti-digitali-roche-riga": "BS",
+        "digital-content-strategist-roche-ch": "BS",
+        "stratege-de-contenu-numerique-roche-riga": "BS",
+        "digital-content-strategist-roche-riga": "BS"
+      },
+      "de": {
+        "digitale-inhalte-dienstleistungen-fuhrend-roche-riga": "BS",
+        "digital-content-strategist-roche-ch": "BS",
+        "digital-content-services-lead-roche-ch-2": "BS"
+      },
+      "fr": {
+        "contenu-et-services-numeriques-responsable-roche-riga": "BS",
+        "digital-content-services-lead-roche-ch-2": "BS",
+        "stratege-de-contenu-numerique-roche-riga": "BS"
+      }
+    }
   },
   {
     "slug": "contratti-lifecycle-business-partner-roche-warsaw",
@@ -37705,7 +38399,8 @@
       "cybersecurity-analyste-monitoring-incident-response-roche-san-jose-costa-rica",
       "cybersecurity-analyste-monitoring-incident-response-roche-madrid",
       "cybersecurity-analyste-monitoring-incident-response-roche-petaling-jaya",
-      "cybersecurity-ingegnere-monitoring-incident-response-roche-madrid-2p6ew7"
+      "cybersecurity-ingegnere-monitoring-incident-response-roche-madrid-2p6ew7",
+      "cybersecurity-ingegnere-monitoring-incident-response-roche-madrid"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -37810,7 +38505,24 @@
         "firstSeenAt": "2026-07-20T22:03:32.095Z",
         "title": "Data Steward for Data & Analytic Governance"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "data-steward-per-la-gestione-dei-dati-e-analitica-roche-riga": "BS",
+        "data-steward-for-data-analytic-governance-roche-ch": "BS"
+      },
+      "en": {
+        "data-steward-for-data-analytic-governance-roche-ch-w87407": "BS"
+      },
+      "de": {
+        "data-steward-for-data-analytic-governance-roche-ch-w87407": "BS",
+        "data-steward-for-data-analytic-governance-roche-ch": "BS"
+      },
+      "fr": {
+        "data-steward-pour-la-gouvernance-des-donnees-et-des-analyses-roche-riga": "BS",
+        "data-steward-for-data-analytic-governance-roche-ch": "BS"
+      }
+    }
   },
   {
     "slug": "data-transfer-ingegnere-roche-madrid",
@@ -38464,7 +39176,8 @@
     "previousSlugs": [
       "finops-engineer-hosting-and-infrastructure-roche-ch",
       "finops-ingegnere-hosting-and-infrastructure-roche-madrid-1r8urg",
-      "finops-engineer-hosting-and-infrastructure-roche-ch-2"
+      "finops-engineer-hosting-and-infrastructure-roche-ch-2",
+      "finops-ingegnere-hosting-and-infrastructure-roche-madrid"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -38604,7 +39317,22 @@
         "firstSeenAt": "2026-07-08T22:08:44.699Z",
         "title": "Project Change Manager"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "project-change-manager-roche-ch-2": "BS",
+        "project-change-manager-roche-ch": "BS"
+      },
+      "en": {
+        "project-change-manager-roche-ch-1tsugv": "BS"
+      },
+      "de": {
+        "project-change-manager-roche-ch-2": "BS"
+      },
+      "fr": {
+        "gestionnaire-de-changement-de-projet-roche-riga": "BS"
+      }
+    }
   },
   {
     "slug": "gestore-del-servizio-di-consegna-techops-cell-gene-therapy-roche-madrid",
@@ -38715,7 +39443,20 @@
         "firstSeenAt": "2026-08-07T10:10:45.410Z",
         "title": "Product Manager_ Immu"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gestore-prodotti-immu-roche-shanghai-76f54c": "BS",
+        "product-manager-immu-roche-ch": "BS",
+        "product-manager-immu-roche-ch-2": "BS"
+      },
+      "de": {
+        "produktmanager-immu-roche-shanghai-76f54c": "BS"
+      },
+      "fr": {
+        "gestionnaire-de-produits-immu-roche-shanghai-76f54c": "BS"
+      }
+    }
   },
   {
     "slug": "global-business-process-specialista-capital-investment-finanza-fixed-term-roche-budapest",
@@ -38747,7 +39488,8 @@
     "previousSlugs": [
       "global-business-process-specialist-capital-investment-finance-fixed-term-roche-ch",
       "global-business-process-specialiste-capital-investment-finance-fixed-term-roche-budapest",
-      "global-business-process-specialista-capital-investment-finanza-fixed-term-roche-bud-iuggc9"
+      "global-business-process-specialista-capital-investment-finanza-fixed-term-roche-bud-iuggc9",
+      "global-business-process-specialista-capital-investment-finanza-fixed-term-roche-budapest"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -42550,6 +43292,13 @@
       "roche-ch-44-f83ef79d",
       "roche-basel-7482b5cc",
       "roche-ch-18",
+      "roche-changchun-948688a0",
+      "roche-ch-59725d20-2f0d1ad8",
+      "roche-ch-468efaf3",
+      "roche-nanjing-9a1b62f5",
+      "roche-ch-18-02d2943a-8768be19",
+      "roche-ch-43-726bbb33-c7970837",
+      "roche-ch-f3982499-1a35aa7b",
       "roche-nanjing",
       "roche-ch-18-02d2943a",
       "roche-ch-f3982499",
@@ -42559,13 +43308,10 @@
       "roche-ch-59725d20",
       "roche-basel",
       "roche-ch-44",
-      "roche-changchun-948688a0",
-      "roche-ch-59725d20-2f0d1ad8",
-      "roche-ch-468efaf3",
-      "roche-nanjing-9a1b62f5",
-      "roche-ch-18-02d2943a-8768be19",
-      "roche-ch-43-726bbb33-c7970837",
-      "roche-ch-f3982499-1a35aa7b"
+      "roche-ch-69-1b814397",
+      "roche-ch-44-3018e33f",
+      "roche-nanjing-aae4014e",
+      "roche-basel-9646388f"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -42604,6 +43350,10 @@
         "roche-ch-18-02d2943a-8768be19",
         "roche-ch-43-726bbb33-c7970837",
         "roche-ch-f3982499-1a35aa7b",
+        "roche-ch-69-1b814397",
+        "roche-ch-44-3018e33f",
+        "roche-nanjing-aae4014e",
+        "roche-basel-9646388f",
         "roche-ch-59725d20",
         "roche-ch-69",
         "roche-ch-37",
@@ -42629,6 +43379,9 @@
         "roche-ch-59725d20-2f0d1ad8",
         "roche-ch-468efaf3",
         "roche-nanjing-9a1b62f5",
+        "roche-basel-9646388f",
+        "roche-ch-44-3018e33f",
+        "roche-nanjing-aae4014e",
         "roche-ch-18-02d2943a",
         "roche-ch-f3982499",
         "roche-ch-43-726bbb33",
@@ -42655,6 +43408,9 @@
         "roche-ch-468efaf3",
         "roche-nanjing-9a1b62f5",
         "roche-ch-f3982499-1a35aa7b",
+        "roche-ch-44-3018e33f",
+        "roche-nanjing-aae4014e",
+        "roche-basel-9646388f",
         "roche-ch-18-02d2943a",
         "roche-ch-43-726bbb33",
         "roche-ch-59725d20"
@@ -42679,6 +43435,9 @@
         "roche-ch-59725d20-2f0d1ad8",
         "roche-ch-468efaf3",
         "roche-nanjing-9a1b62f5",
+        "roche-basel-9646388f",
+        "roche-ch-44-3018e33f",
+        "roche-nanjing-aae4014e",
         "roche-ch-18-02d2943a",
         "roche-ch-f3982499",
         "roche-ch-43-726bbb33",
@@ -42894,14 +43653,6 @@
       "roche-ch-31-8acd0a4b",
       "roche-ch-18-e689e96e",
       "roche-ch-35",
-      "roche-ch-31-9194933e",
-      "roche-ch-32",
-      "roche-ch-28",
-      "roche-ch-26",
-      "roche-ch-24",
-      "roche-ch-9da43afa",
-      "roche-ch-31",
-      "roche-shanghai",
       "roche-ch-17-c6721c05",
       "roche-ch-13-68c56195",
       "roche-ch-12-6c8303b1",
@@ -42911,7 +43662,23 @@
       "roche-ch-28-10edc326",
       "roche-ch-26-60864c2a",
       "roche-ch-673a6b93",
-      "roche-ch-13-37ed5a4c"
+      "roche-ch-13-37ed5a4c",
+      "roche-ch-31-9194933e",
+      "roche-ch-32",
+      "roche-ch-28",
+      "roche-ch-26",
+      "roche-ch-24",
+      "roche-ch-9da43afa",
+      "roche-ch-31",
+      "roche-shanghai",
+      "roche-ch-17",
+      "roche-ch-12",
+      "roche-ch-37",
+      "roche-ch-31-3b5ba00b",
+      "roche-ch-28-bd8b7881",
+      "roche-ch-26-070adcb8",
+      "roche-shanghai-f450bd6b",
+      "roche-ch-24-e42e1767"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -42954,6 +43721,10 @@
         "roche-ch-28-10edc326",
         "roche-ch-26-60864c2a",
         "roche-ch-673a6b93",
+        "roche-ch-31-3b5ba00b",
+        "roche-ch-28-bd8b7881",
+        "roche-ch-26-070adcb8",
+        "roche-shanghai-f450bd6b",
         "roche-ch-32",
         "roche-ch-9da43afa",
         "roche-ch-31"
@@ -42977,6 +43748,8 @@
         "roche-ch-13-37ed5a4c",
         "roche-ch-18-5ec52130",
         "roche-ch-673a6b93",
+        "roche-ch-24-e42e1767",
+        "roche-ch-31-3b5ba00b",
         "roche-shanghai",
         "roche-ch-31-9194933e",
         "roche-ch-28",
@@ -43003,6 +43776,9 @@
         "roche-ch-673a6b93",
         "roche-ch-13-37ed5a4c",
         "roche-ch-18-5ec52130",
+        "roche-ch-24-e42e1767",
+        "roche-ch-31-3b5ba00b",
+        "roche-shanghai-c3b04d28",
         "roche-ch-31-9194933e",
         "roche-ch-28",
         "roche-ch-26",
@@ -43028,6 +43804,9 @@
         "roche-ch-13-37ed5a4c",
         "roche-ch-18-5ec52130",
         "roche-ch-673a6b93",
+        "roche-ch-24-e42e1767",
+        "roche-ch-31-3b5ba00b",
+        "roche-shanghai-c3b04d28",
         "roche-ch-31-9194933e",
         "roche-ch-28",
         "roche-ch-26",
@@ -43284,6 +44063,9 @@
       "roche-ch-44",
       "roche-ch-36",
       "roche-ch-31",
+      "roche-ch-53-a4acaedc-cb81b076",
+      "roche-ch-51-2b5542b4",
+      "roche-ch-36-e702bfb0-9c860fc1",
       "roche-ch-51",
       "roche-ch-53-a4acaedc",
       "roche-ch-36-e702bfb0",
@@ -43297,10 +44079,7 @@
       "roche-ch-86",
       "roche-ch-71",
       "roche-ch-34",
-      "roche-ch-27",
-      "roche-ch-53-a4acaedc-cb81b076",
-      "roche-ch-51-2b5542b4",
-      "roche-ch-36-e702bfb0-9c860fc1"
+      "roche-ch-27"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -44664,7 +45443,6 @@
       "roche-ch-78-b576551f",
       "roche-ch-33-06ff625d",
       "roche-ch-73-d2766dbe",
-      "roche-ch-34-b3c9d24b",
       "roche-ch-50-f6eb95f5",
       "roche-ch-27-88dd359f",
       "roche-ch-102-8bd87b98",
@@ -44678,13 +45456,31 @@
       "roche-ch-151-742d4824",
       "roche-ch-144-6eb7c2b7",
       "roche-ch-150-4af92b68",
-      "roche-ch-111-0efad6e6",
       "roche-ch-98-ac72ff94",
       "roche-ch-54-6f6a0473",
       "roche-ch-58-51a458d7",
       "roche-ch-30-2b7f08c7",
       "roche-ch-117-cbb63b85",
       "roche-ch-35-fa4ff62b",
+      "roche-ch-97-53f7b7d3",
+      "roche-ch-39-d0d63321",
+      "roche-ch-32-3463b54b",
+      "roche-ch-30-d31f849d",
+      "roche-ch-62-70943dfe",
+      "roche-ch-79e0e3a8-4304439b",
+      "roche-ch-2f499f8a",
+      "roche-ch-35-2407c1a8",
+      "roche-ch-92-4d8bad25",
+      "roche-ch-125-8dc99c98",
+      "roche-ch-96-3bd9ab09",
+      "roche-ch-63-7b38f910",
+      "roche-ch-40-0ed11967",
+      "roche-ch-59-22a4be37",
+      "roche-ch-33-e8484e3f",
+      "roche-ch-50-b6c559d9",
+      "roche-ch-33-791584bd",
+      "roche-ch-34-b3c9d24b",
+      "roche-ch-111-0efad6e6",
       "roche-ch-92",
       "roche-ch-59",
       "roche-ch-125",
@@ -44706,23 +45502,23 @@
       "roche-ch-98",
       "roche-ch-54",
       "roche-ch-58",
-      "roche-ch-97-53f7b7d3",
-      "roche-ch-39-d0d63321",
-      "roche-ch-32-3463b54b",
-      "roche-ch-30-d31f849d",
-      "roche-ch-62-70943dfe",
-      "roche-ch-79e0e3a8-4304439b",
-      "roche-ch-2f499f8a",
-      "roche-ch-35-2407c1a8",
-      "roche-ch-92-4d8bad25",
-      "roche-ch-125-8dc99c98",
-      "roche-ch-96-3bd9ab09",
-      "roche-ch-63-7b38f910",
-      "roche-ch-40-0ed11967",
-      "roche-ch-59-22a4be37",
-      "roche-ch-33-e8484e3f",
-      "roche-ch-50-b6c559d9",
-      "roche-ch-33-791584bd"
+      "roche-ch-32-de29d5da",
+      "roche-ch-63-c89d911c",
+      "roche-ch-33-0554972d",
+      "roche-ch-35-f559d02e",
+      "roche-ch-30",
+      "roche-ch-32",
+      "roche-ch-34-b3c9d24b-bc2f91bb",
+      "roche-ch-111-0efad6e6-655ef8b3",
+      "roche-ch-117-32b3b104",
+      "roche-ch-63-c89d911c-9f769cb2",
+      "roche-ch-111-6b56e5d0",
+      "roche-ch-40-b8b6a44c",
+      "roche-ch-93-229d59ce",
+      "roche-ch-33-0554972d-d3a238b8",
+      "roche-ch-111-90aa0abd",
+      "roche-ch-35-f559d02e-da66aa18",
+      "roche-ch-30-f7f80055"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -44773,7 +45569,7 @@
         "roche-ch-78-b576551f",
         "roche-ch-33-06ff625d",
         "roche-ch-73-d2766dbe",
-        "roche-ch-34-b3c9d24b",
+        "roche-ch-34-b3c9d24b-bc2f91bb",
         "roche-ch-50-f6eb95f5",
         "roche-ch-32-3463b54b",
         "roche-ch-30-d31f849d",
@@ -44786,7 +45582,7 @@
         "roche-ch-58-ae84a81a",
         "roche-ch-75-ed9b8e71",
         "roche-ch-62-70943dfe",
-        "roche-ch-111-0efad6e6",
+        "roche-ch-111-0efad6e6-655ef8b3",
         "roche-ch-98-ac72ff94",
         "roche-ch-54-6f6a0473",
         "roche-ch-58-51a458d7",
@@ -44802,9 +45598,15 @@
         "roche-ch-59-22a4be37",
         "roche-ch-33-e8484e3f",
         "roche-ch-50-b6c559d9",
+        "roche-ch-32-de29d5da",
+        "roche-ch-117-32b3b104",
+        "roche-ch-63-c89d911c-9f769cb2",
+        "roche-ch-111-6b56e5d0",
+        "roche-ch-40-b8b6a44c",
+        "roche-ch-34-b3c9d24b",
+        "roche-ch-111-0efad6e6",
         "roche-ch-97",
         "roche-ch-39",
-        "roche-ch-32-de29d5da",
         "roche-ch-62",
         "roche-ch-117",
         "roche-ch-79e0e3a8",
@@ -44855,7 +45657,7 @@
         "roche-ch-78-b576551f",
         "roche-ch-33-791584bd",
         "roche-ch-73-d2766dbe",
-        "roche-ch-34-b3c9d24b",
+        "roche-ch-34-b3c9d24b-bc2f91bb",
         "roche-ch-27-88dd359f",
         "roche-ch-102-8bd87b98",
         "roche-ch-88-0caa3f7a",
@@ -44881,6 +45683,15 @@
         "roche-ch-96-3bd9ab09",
         "roche-ch-63-7b38f910",
         "roche-ch-40-0ed11967",
+        "roche-ch-93-229d59ce",
+        "roche-ch-33-0554972d-d3a238b8",
+        "roche-ch-111-90aa0abd",
+        "roche-ch-35-f559d02e-da66aa18",
+        "roche-ch-30-f7f80055",
+        "roche-ch-63-c89d911c-9f769cb2",
+        "roche-ch-111-0efad6e6",
+        "roche-ch-40-b8b6a44c",
+        "roche-ch-34-b3c9d24b",
         "roche-ch-97",
         "roche-ch-59",
         "roche-ch-93",
@@ -44935,7 +45746,7 @@
         "roche-ch-78-b576551f",
         "roche-ch-33-791584bd",
         "roche-ch-73-d2766dbe",
-        "roche-ch-34-b3c9d24b",
+        "roche-ch-34-b3c9d24b-bc2f91bb",
         "roche-ch-27-88dd359f",
         "roche-ch-102-8bd87b98",
         "roche-ch-88-0caa3f7a",
@@ -44961,6 +45772,15 @@
         "roche-ch-96-3bd9ab09",
         "roche-ch-63-7b38f910",
         "roche-ch-40-0ed11967",
+        "roche-ch-93-229d59ce",
+        "roche-ch-33-0554972d-d3a238b8",
+        "roche-ch-111-90aa0abd",
+        "roche-ch-35-f559d02e-da66aa18",
+        "roche-ch-30-f7f80055",
+        "roche-ch-63-c89d911c-9f769cb2",
+        "roche-ch-111-0efad6e6",
+        "roche-ch-40-b8b6a44c",
+        "roche-ch-34-b3c9d24b",
         "roche-ch-97",
         "roche-ch-59",
         "roche-ch-93",
@@ -45016,7 +45836,7 @@
         "roche-ch-78-b576551f",
         "roche-ch-33-791584bd",
         "roche-ch-73-d2766dbe",
-        "roche-ch-34-b3c9d24b",
+        "roche-ch-34-b3c9d24b-bc2f91bb",
         "roche-ch-27-88dd359f",
         "roche-ch-102-8bd87b98",
         "roche-ch-88-0caa3f7a",
@@ -45041,6 +45861,15 @@
         "roche-ch-96-3bd9ab09",
         "roche-ch-63-7b38f910",
         "roche-ch-40-0ed11967",
+        "roche-ch-93-229d59ce",
+        "roche-ch-33-0554972d-d3a238b8",
+        "roche-ch-111-90aa0abd",
+        "roche-ch-35-f559d02e-da66aa18",
+        "roche-ch-30-f7f80055",
+        "roche-ch-63-c89d911c-9f769cb2",
+        "roche-ch-111-0efad6e6",
+        "roche-ch-40-b8b6a44c",
+        "roche-ch-34-b3c9d24b",
         "roche-ch-97",
         "roche-ch-59",
         "roche-ch-93",
@@ -45743,11 +46572,12 @@
       "roche-ch-91-820e60c2",
       "roche-ch-85-96907e45",
       "roche-ch-82-55761c77",
+      "roche-ch-97-b53fc616",
+      "roche-ch-93-b5891424",
       "roche-ch-f3a599ed",
       "roche-ch-91",
       "roche-wuhan",
-      "roche-ch-97-b53fc616",
-      "roche-ch-93-b5891424"
+      "roche-ch-f3a599ed-0b43a675"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -45765,6 +46595,7 @@
         "roche-ch-91-820e60c2",
         "roche-ch-85-96907e45",
         "roche-ch-82-55761c77",
+        "roche-ch-f3a599ed-0b43a675",
         "roche-ch-f3a599ed",
         "roche-wuhan"
       ],
@@ -45779,14 +46610,15 @@
         "die-kommission-hat-die-kommission-aufgefordert-die-in-artikel-2-absatz-1-genannten-ma-nahmen-zu-prufen-roche-wuhan",
         "roche-ch-85-96907e45",
         "roche-ch-82-55761c77",
-        "roche-ch-f3a599ed",
+        "roche-ch-f3a599ed-0b43a675",
         "roche-wuhan-01a79295",
         "roche-ch-97-b53fc616",
+        "roche-ch-f3a599ed",
         "roche-ch-91",
         "roche-wuhan"
       ],
       "en": [
-        "roche-ch-f3a599ed",
+        "roche-ch-f3a599ed-0b43a675",
         "roche-ch-64-fd478815",
         "roche-ch-58-93dd87c5",
         "roche-ch-391bf4d4",
@@ -45798,6 +46630,7 @@
         "roche-ch-82-55761c77",
         "roche-wuhan-01a79295",
         "roche-ch-97-b53fc616",
+        "roche-ch-f3a599ed",
         "roche-ch-91"
       ],
       "fr": [
@@ -45811,8 +46644,9 @@
         "roche-wuhan-8195d3fe",
         "roche-ch-85-96907e45",
         "roche-ch-82-55761c77",
-        "roche-ch-f3a599ed",
+        "roche-ch-f3a599ed-0b43a675",
         "roche-ch-97-b53fc616",
+        "roche-ch-f3a599ed",
         "roche-ch-91"
       ]
     },
@@ -49718,7 +50552,19 @@
         "firstSeenAt": "2026-07-28T22:08:25.991Z",
         "title": "GxP Supplier Quality Manager"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gxp-fornitore-quality-manager-roche-mississauga": "BS",
+        "gxp-supplier-quality-manager-roche-ch": "BS"
+      },
+      "de": {
+        "gxp-supplier-qualitat-manager-roche-mississauga": "BS"
+      },
+      "fr": {
+        "gxp-supplier-qualite-manager-roche-mississauga": "BS"
+      }
+    }
   },
   {
     "slug": "hilfskoch-kochin-m-w-d-100-befristet-per-1-jahr-roche-basel",
@@ -49856,7 +50702,8 @@
         "qa-manager-roche-ch",
         "qa-manager-roche-suzhou",
         "gestionnaire-de-l-aq-roche-suzhou",
-        "responsabile-qa-imp-roche-basel"
+        "responsabile-qa-imp-roche-basel",
+        "imp-qa-manager-roche-ch"
       ],
       "en": [
         "qa-manager-roche-ch"
@@ -51035,7 +51882,8 @@
     "previousSlugsByLocale": {
       "it": [
         "responsabile-dei-dati-anagrafici-pune-roche-pune",
-        "master-data-manager-pune-roche-ch"
+        "master-data-manager-pune-roche-ch",
+        "master-data-manager-roche-ch"
       ],
       "en": [
         "master-data-manager-pune-roche-ch",
@@ -51654,7 +52502,24 @@
         "firstSeenAt": "2026-09-01T23:08:52.620Z",
         "title": "Medical Science Partner : Cardio-Metabolic"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "partner-di-scienze-mediche-cardio-metabolic-roche-basel-fbd1ef": "BS",
+        "medical-science-partner-cardio-metabolic-roche-ch": "BS",
+        "medical-science-partner-cardio-metabolic-roche-ch-2": "BS"
+      },
+      "en": {
+        "medical-science-partner-cardio-metabolic-roche-ch-0vrmcj": "BS"
+      },
+      "de": {
+        "medical-science-partner-cardio-metabolic-roche-ch-2": "BS"
+      },
+      "fr": {
+        "partenaire-des-sciences-medicales-cardio-metabolique-roche-basel-fbd1ef": "BS",
+        "medical-science-partner-cardio-metabolic-roche-ch-2": "BS"
+      }
+    }
   },
   {
     "slug": "partner-di-supporto-del-sistema-roche-basel",
@@ -52344,7 +53209,8 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "praticante-de-mantenimiento-de-equipo-medico-barranquilla-roche-barranquilla"
+        "praticante-de-mantenimiento-de-equipo-medico-barranquilla-roche-barranquilla",
+        "practicante-de-mantenimiento-de-equipo-medico-barranquilla-roche-ch"
       ],
       "en": [
         "practicante-de-mantenimiento-de-equipo-medico-barranquilla-roche-ch"
@@ -52834,7 +53700,19 @@
         "firstSeenAt": "2026-09-08T23:19:00.062Z",
         "title": "Regulatory Affairs Intern"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "regulatory-affairs-intern-roche-ch-2": "BS",
+        "regulatory-affairs-intern-roche-ch": "BS"
+      },
+      "de": {
+        "regulatory-affairs-intern-roche-ch-2": "BS"
+      },
+      "fr": {
+        "regulatory-affairs-intern-roche-ch-2": "BS"
+      }
+    }
   },
   {
     "slug": "responsabile-corporate-affairs-corporate-affairs-and-communications-roche-basel",
@@ -53308,13 +54186,13 @@
       "roche-ch",
       "roche-ch-53",
       "roche-ch-61",
+      "roche-ch-47-5d40fdd1-b6fd0807",
       "roche-ch-47-5d40fdd1",
       "roche-ch-113",
       "roche-ch-109",
       "roche-ch-59",
       "roche-ch-115",
-      "roche-ch-105",
-      "roche-ch-47-5d40fdd1-b6fd0807"
+      "roche-ch-105"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -57627,15 +58505,29 @@
       "roche-ch-32-ea482d10",
       "roche-ch-113-768d1bb7",
       "roche-ch-107-34505e26",
-      "roche-ch-65-7879a664",
-      "roche-ch-36-27ec7596",
-      "roche-ch-25-880537dc",
       "roche-ch-131-f6da834a",
       "roche-ch-61-99e2f0d3",
-      "roche-ch-d7cbba90",
       "roche-ch-23-2b9637c2",
       "roche-ch-18-e8a95a66",
       "roche-ch-35-6b790101",
+      "roche-ch-137-fda4a42f",
+      "roche-ch-119-921a7a46",
+      "roche-ch-29-5cba5b22",
+      "roche-ch-22-7dd317d4",
+      "roche-ch-65-60a402b2",
+      "roche-ch-36-d750cc5e",
+      "roche-ch-66-b69513e1",
+      "roche-ch-40-998a653d",
+      "roche-ch-138-160e5735",
+      "roche-ch-124-ab431ba7",
+      "roche-ch-124-07fa6e96",
+      "roche-ch-35-fa4ff62b",
+      "roche-ch-137-0bf4a360",
+      "roche-ch-22-36b28182",
+      "roche-ch-65-7879a664",
+      "roche-ch-36-27ec7596",
+      "roche-ch-25-880537dc",
+      "roche-ch-d7cbba90",
       "roche-ch-137",
       "roche-ch-119",
       "roche-ch-66",
@@ -57650,20 +58542,20 @@
       "roche-ch-159",
       "roche-ch-113",
       "roche-ch-99",
-      "roche-ch-137-fda4a42f",
-      "roche-ch-119-921a7a46",
-      "roche-ch-29-5cba5b22",
-      "roche-ch-22-7dd317d4",
-      "roche-ch-65-60a402b2",
-      "roche-ch-36-d750cc5e",
-      "roche-ch-66-b69513e1",
-      "roche-ch-40-998a653d",
-      "roche-ch-138-160e5735",
-      "roche-ch-124-ab431ba7",
-      "roche-ch-124-07fa6e96",
-      "roche-ch-35-fa4ff62b",
-      "roche-ch-137-0bf4a360",
-      "roche-ch-22-36b28182"
+      "roche-ch-29-14e93b97",
+      "roche-ch-22-01e690bf",
+      "roche-ch-24-971aa9f5",
+      "roche-ch-25-880537dc-bd98fc9c",
+      "roche-ch-d7cbba90-94cbe9f8",
+      "roche-ch-29-14e93b97-a0128ad3",
+      "roche-ch-22-01e690bf-6b2b4954",
+      "roche-ch-23-b9c3f080",
+      "roche-ch-36-ef95b39b",
+      "roche-ch-65-7879a664-bfc0e16b",
+      "roche-ch-36-27ec7596-6f82aaf4",
+      "roche-ch-159-efe35f9e",
+      "roche-ch-24-971aa9f5-b8de1ad4",
+      "roche-ch-65-a9ed11f0"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -57714,7 +58606,7 @@
         "roche-ch-29-5cba5b22",
         "roche-ch-73-9a0b3d32",
         "roche-ch-27-49de987e",
-        "roche-ch-25-880537dc",
+        "roche-ch-25-880537dc-bd98fc9c",
         "roche-ch-24-ded52a18",
         "roche-ch-22-7dd317d4",
         "roche-ch-38-c1421c1c",
@@ -57739,7 +58631,7 @@
         "roche-ch-113-768d1bb7",
         "roche-ch-107-34505e26",
         "roche-ch-131-f6da834a",
-        "roche-ch-d7cbba90",
+        "roche-ch-d7cbba90-94cbe9f8",
         "roche-ch-23-2b9637c2",
         "roche-ch-18-e8a95a66",
         "roche-ch-35-6b790101",
@@ -57749,6 +58641,14 @@
         "roche-ch-40-998a653d",
         "roche-ch-138-160e5735",
         "roche-ch-124-ab431ba7",
+        "roche-ch-29-14e93b97-a0128ad3",
+        "roche-ch-22-01e690bf-6b2b4954",
+        "roche-ch-23-b9c3f080",
+        "roche-ch-36-ef95b39b",
+        "roche-ch-65-7879a664-bfc0e16b",
+        "roche-ch-36-27ec7596-6f82aaf4",
+        "roche-ch-25-880537dc",
+        "roche-ch-d7cbba90",
         "roche-ch-137",
         "roche-ch-119",
         "roche-ch-29-14e93b97",
@@ -57822,12 +58722,12 @@
         "roche-ch-43-eb741fb9",
         "roche-ch-39-e8b1d9fb",
         "roche-ch-32-ea482d10",
-        "roche-ch-65-7879a664",
-        "roche-ch-36-27ec7596",
-        "roche-ch-25-880537dc",
+        "roche-ch-65-7879a664-bfc0e16b",
+        "roche-ch-36-27ec7596-6f82aaf4",
+        "roche-ch-25-880537dc-bd98fc9c",
         "roche-ch-131-f6da834a",
         "roche-ch-61-99e2f0d3",
-        "roche-ch-d7cbba90",
+        "roche-ch-d7cbba90-94cbe9f8",
         "roche-ch-23-2b9637c2",
         "roche-ch-18-e8a95a66",
         "roche-ch-35-fa4ff62b",
@@ -57837,6 +58737,17 @@
         "roche-ch-22-36b28182",
         "roche-ch-66-b69513e1",
         "roche-ch-40-998a653d",
+        "roche-ch-159-efe35f9e",
+        "roche-ch-24-971aa9f5-b8de1ad4",
+        "roche-ch-29-14e93b97-a0128ad3",
+        "roche-ch-22-01e690bf-6b2b4954",
+        "roche-ch-23-b9c3f080",
+        "roche-ch-65-a9ed11f0",
+        "roche-ch-36-ef95b39b",
+        "roche-ch-65-7879a664",
+        "roche-ch-36-27ec7596",
+        "roche-ch-25-880537dc",
+        "roche-ch-d7cbba90",
         "roche-ch-138",
         "roche-ch-124",
         "roche-ch-159",
@@ -57909,12 +58820,12 @@
         "roche-ch-43-eb741fb9",
         "roche-ch-39-e8b1d9fb",
         "roche-ch-32-ea482d10",
-        "roche-ch-65-7879a664",
-        "roche-ch-36-27ec7596",
-        "roche-ch-25-880537dc",
+        "roche-ch-65-7879a664-bfc0e16b",
+        "roche-ch-36-27ec7596-6f82aaf4",
+        "roche-ch-25-880537dc-bd98fc9c",
         "roche-ch-131-f6da834a",
         "roche-ch-61-99e2f0d3",
-        "roche-ch-d7cbba90",
+        "roche-ch-d7cbba90-94cbe9f8",
         "roche-ch-23-2b9637c2",
         "roche-ch-18-e8a95a66",
         "roche-ch-35-fa4ff62b",
@@ -57924,6 +58835,17 @@
         "roche-ch-22-36b28182",
         "roche-ch-66-b69513e1",
         "roche-ch-40-998a653d",
+        "roche-ch-159-efe35f9e",
+        "roche-ch-24-971aa9f5-b8de1ad4",
+        "roche-ch-29-14e93b97-a0128ad3",
+        "roche-ch-22-01e690bf-6b2b4954",
+        "roche-ch-23-b9c3f080",
+        "roche-ch-65-a9ed11f0",
+        "roche-ch-36-ef95b39b",
+        "roche-ch-65-7879a664",
+        "roche-ch-36-27ec7596",
+        "roche-ch-25-880537dc",
+        "roche-ch-d7cbba90",
         "roche-ch-138",
         "roche-ch-124",
         "roche-ch-159",
@@ -57995,12 +58917,12 @@
         "roche-ch-43-eb741fb9",
         "roche-ch-39-e8b1d9fb",
         "roche-ch-32-ea482d10",
-        "roche-ch-65-7879a664",
-        "roche-ch-36-27ec7596",
-        "roche-ch-25-880537dc",
+        "roche-ch-65-7879a664-bfc0e16b",
+        "roche-ch-36-27ec7596-6f82aaf4",
+        "roche-ch-25-880537dc-bd98fc9c",
         "roche-ch-131-f6da834a",
         "roche-ch-61-99e2f0d3",
-        "roche-ch-d7cbba90",
+        "roche-ch-d7cbba90-94cbe9f8",
         "roche-ch-23-2b9637c2",
         "roche-ch-18-e8a95a66",
         "roche-ch-35-fa4ff62b",
@@ -58010,6 +58932,17 @@
         "roche-ch-22-36b28182",
         "roche-ch-66-b69513e1",
         "roche-ch-40-998a653d",
+        "roche-ch-159-efe35f9e",
+        "roche-ch-24-971aa9f5-b8de1ad4",
+        "roche-ch-29-14e93b97-a0128ad3",
+        "roche-ch-22-01e690bf-6b2b4954",
+        "roche-ch-23-b9c3f080",
+        "roche-ch-65-a9ed11f0",
+        "roche-ch-36-ef95b39b",
+        "roche-ch-65-7879a664",
+        "roche-ch-36-27ec7596",
+        "roche-ch-25-880537dc",
+        "roche-ch-d7cbba90",
         "roche-ch-138",
         "roche-ch-124",
         "roche-ch-159",
