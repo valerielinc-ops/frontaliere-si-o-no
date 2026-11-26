@@ -1,4 +1,5 @@
 import { hasRecordedJobIdentity } from './jobArchiveEvidence';
+import { readAllAttr, scanMarkupStartTags } from '../../scripts/lib/html-attr.mjs';
 
 function attributeValues(tag: string, name: string): string[] {
   const values: string[] = [];
@@ -43,11 +44,11 @@ export function isUnverifiedJobArchiveHtml(html: string, pathname: string): bool
   const heads = [...markup.matchAll(/<head(?:\s[^>]*)?>([\s\S]*?)<\/head\s*>/gi)];
   if (heads.length !== 1) return false;
   let noindex = false;
-  for (const [tag] of heads[0][1].matchAll(/<meta(?:\s[^>]*)?>/gi)) {
-    const names = attributeValues(tag, 'name').map((name) => name.toLowerCase());
+  for (const { raw: tag } of scanMarkupStartTags(heads[0][1], 'meta')) {
+    const names = readAllAttr(tag, 'name').map((name) => name.toLowerCase());
     if (!names.includes('robots')) continue;
     if (names.some((name) => name !== 'robots')) return false;
-    const contents = attributeValues(tag, 'content');
+    const contents = readAllAttr(tag, 'content');
     if (!contents.length || contents.some((content) => {
       const tokens = content.toLowerCase().split(/[\s,]+/);
       return !tokens.includes('noindex') || tokens.includes('index');

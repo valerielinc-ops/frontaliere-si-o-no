@@ -33,6 +33,16 @@ describe('active JobPosting coverage', () => {
     expect(htmlIsIndexable('<meta name=robots content=noindex,follow>')).toBe(false);
   });
 
+  it('reads robots only from live metadata tags', () => {
+    const html = '<div data-template=\'<meta name="robots" content="noindex">\'>'
+      + '</div><script>const fake = \'<meta name="robots" content="noindex">\';</script>'
+      + '<template><meta name="robots" content="noindex"></template>'
+      + '<textarea><meta name="robots" content="noindex"></textarea>'
+      + '<title><meta name="robots" content="noindex"></title>'
+      + '<meta name="robots" content="index,follow">';
+    expect(htmlIsIndexable(html)).toBe(true);
+  });
+
   it('throws on a single active page without JobPosting, printing the rate', () => {
     const coverage = createActiveJobPostingCoverage();
     coverage.record('it', '/cerca-lavoro-zurigo/a/', page(posting));

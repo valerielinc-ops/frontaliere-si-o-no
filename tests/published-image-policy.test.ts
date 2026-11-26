@@ -16,6 +16,7 @@ import { validatePublishedBlogImageEvidence } from '../scripts/lib/published-blo
 import { syncPublishedBlogImageEvidence } from '../scripts/sync-published-blog-image-evidence.mjs';
 import {
   collectOgImageReferences,
+  extractOgImageUrls,
   run as runOgImageGate,
   verifyOgImageReferences,
 } from '../scripts/verify-og-images.mjs';
@@ -93,6 +94,14 @@ function withPinnedRoot<T>(run: (root: string) => T): T {
 }
 
 describe('published image policy', () => {
+  it('extracts og:image only from live meta tags', () => {
+    const fake = '<meta property="og:image" content="https://example.test/fake.webp">';
+    const html = `<div data-template='${fake}'></div><script>const decoy = ${JSON.stringify(fake)};</script>`
+      + '<meta property="og:image" content="/images/live.webp">';
+
+    expect(extractOgImageUrls(html)).toEqual(['https://frontaliereticino.ch/images/live.webp']);
+  });
+
   it('validates published place evidence against the place registry envelope', () => {
     const blogRegistry = JSON.parse(fs.readFileSync(
       path.join(ROOT, 'data/blog-generated-image-registry.json'),

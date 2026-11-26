@@ -1557,8 +1557,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:36:26.834Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=3z1hk0",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=3z1hk0"
     },
     {
       "id": "coopers-0c698b2e80f3",
@@ -3731,8 +3730,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T09:35:59.612Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=02o3jp",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=02o3jp"
     },
     {
       "id": "coopers-4daea4158845",
@@ -3930,8 +3928,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T09:35:57.363Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=r73ek8",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=r73ek8"
     },
     {
       "id": "coopers-5c9f654319e9",
@@ -4661,7 +4658,6 @@
           "Gebäudetechnik"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
