@@ -138,7 +138,7 @@ function workdayPublicUrlFromApiBase(apiBase) {
   const isWorkdaySiteHost = /(?:^|\.)myworkdaysite\.com$/i.test(parsed.hostname);
   const sitePath = cxsPath.length > 1 ? cxsPath.slice(1).join('/') : cxsPath.join('/');
   if (!sitePath) throw new Error(`Workday API base has no career-site path: ${apiBase}`);
-  if (isWorkdaySiteHost) return `${parsed.origin}/en-US/recruiting/${cxsPath.join('/')}`;
+  if (isWorkdaySiteHost) return `${parsed.origin}/recruiting/${cxsPath.join('/')}`;
   return `${parsed.origin}/en-US/${sitePath}`;
 }
 

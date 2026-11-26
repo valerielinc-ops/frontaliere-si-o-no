@@ -81,7 +81,7 @@ const API_BASE = 'https://wd3.myworkdaysite.com/wday/cxs/hamilton/hamilton_jobs'
 const API_URL = `${API_BASE}/jobs`;
 const DETAIL_BASE = 'https://wd3.myworkdaysite.com/wday/cxs/hamilton/hamilton_jobs';
 const CAREERS_URL = 'https://jobs.hamilton.ch/en/open-positions/';
-const JOB_URL_BASE = 'https://wd3.myworkdaysite.com/en-US/recruiting/hamilton/hamilton_jobs';
+const JOB_URL_BASE = 'https://wd3.myworkdaysite.com/recruiting/hamilton/hamilton_jobs';
 
 // Workday locationCountry facet ID for Switzerland
 const SWITZERLAND_FACET_ID = '187134fccb084a0ea9b4b95f23890dbe';

@@ -631,7 +631,7 @@ describe('Workday JSON transport', () => {
 
     expect(jobs).toHaveLength(0);
     expect(page.goto).toHaveBeenCalledWith(
-      'https://wd3.myworkdaysite.com/en-US/recruiting/hamilton/hamilton_jobs',
+      'https://wd3.myworkdaysite.com/recruiting/hamilton/hamilton_jobs',
       expect.objectContaining({ waitUntil: 'domcontentloaded' }),
     );
   });
