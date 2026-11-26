@@ -1,9 +1,9 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-11-26T09:37:51.011Z",
+  "generatedAt": "2026-11-26T21:57:04.764Z",
   "total": 2,
-  "discovered": 13,
+  "discovered": 11,
   "parsed": 2,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6924,
-  "avgDurationMs": 6924,
+  "durationMs": 6090,
+  "avgDurationMs": 6090,
   "durationHistory": [
-    6924
+    6090
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15882",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:37:31.194Z",
+      "crawledAt": "2026-11-26T21:56:49.934Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -61,7 +61,7 @@
       "salaryMax": 87500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:37:31.194Z",
+      "validThrough": "2027-02-07T21:56:49.934Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15881",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:37:30.402Z",
+      "crawledAt": "2026-11-26T21:56:49.197Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -106,7 +106,7 @@
       "salaryMax": 87500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:37:30.402Z",
+      "validThrough": "2027-02-07T21:56:49.197Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -117,5 +117,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }
