@@ -86,7 +86,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:51:08.252Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=5b29a07f-81e3-46ff-b0dc-3c2f06ed0c4b&cat=all"
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a6e1502aa7d7",
@@ -170,7 +171,8 @@
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:51:06.025Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=0538d47b-9ac3-45df-8a14-c7b565dc8657&cat=all"
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-483519be3354",
@@ -259,7 +261,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:51:03.827Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=9b1364ab-783f-4faf-887b-43446f55cffa&cat=all"
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-f23aa33da384",
@@ -331,7 +334,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:51:01.359Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T09:51:01.359Z"
+      "firstSeenAt": "2026-11-26T09:51:01.359Z",
+      "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=01d93350-2c6e-46bb-9422-551cb7a1a80b&cat=all"
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-dc71d114a303",
@@ -439,7 +443,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:23:35.643Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=085f248b-0f1b-40ff-808d-c6e8bb831c73&cat=all"
     }
   ]
 }
