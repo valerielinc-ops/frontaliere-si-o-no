@@ -99,8 +99,9 @@ export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
  * gate: non e' sempre presente e potrebbe solo spostare un verdetto da rosso a
  * verde, spegnendo un finding vero. Resta un oracolo indipendente nei test.
  * Un secondo finding sulla stessa riga richiede un confine di frase esplicito:
- * punteggiatura seguita da spazio. Senza, una citazione plain-text dentro un Nit
- * sarebbe indistinguibile da un nuovo marker.
+ * la punteggiatura (`.`, `!`, `?`, `;`) è sufficiente anche quando il renderer
+ * incolla il marker successivo senza spazio. Senza punteggiatura, una citazione
+ * plain-text dentro un Nit sarebbe indistinguibile da un nuovo marker.
  *
  * Il preflight di `pr-redflag-fixer.yml` e la Classe B di
  * `stale-pr-rescuer.yml` usano la stessa forma PCRE: grep lavora una riga per
@@ -108,7 +109,7 @@ export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
  * deriva il pattern dalla source, ne pinna il valore e verifica entrambe le copie
  * dei workflow.
  */
-export const REDFLAG_IMPORTANT_RE = /^(?!(?=(?:[^\n\x60]*\x60[^\n\x60]*\x60)*[^\n\x60]*$)(?:[^\n\x60«🟡🟢❓]|\x60[^\n\x60]*\x60|«[^\n»]*»|«(?![^\n»]*»))*[🟡🟢❓](?:(?![.!?;][ \t])(?:[^\n\x60«]|\x60[^\n\x60]*\x60|«[^\n»]*»|«(?![^\n»]*»)))*🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-])(?:(?:(?=(?:[^\n`]*`[^\n`]*`)*[^\n`]*`[^\n`]*$)(?:(?:[^\n«🟡🟢❓]|«[^\n»]*»|«(?![^\n»]*»))*|(?:[^\n«]|«[^\n»]*»|«(?![^\n»]*»))*[🟡🟢❓](?:[^\n«]|«[^\n»]*»|«(?![^\n»]*»))*|(?:[^\n`«🟡🟢❓]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»))*)|(?:(?:[^\n«🟡🟢❓]|«[^\n»]*»|«(?![^\n»]*»))*|(?:[^\n`«]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»)|`(?![^\n`]*`))*[🟡🟢❓](?:[^\n`«]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»)|`(?![^\n`]*`))*|(?:[^\n`«🟡🟢❓]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»))*)(?<!\s`)(?<!^`))🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:(?:[-*+>]|\d+[.)])[ \t]*){0,3}(?:`[^\n`]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?)(?:[ \t]*[,;][ \t]*(?:`[^\n`]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?))*:[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=[ \t]+[^\n \t\r]))/mu;
+export const REDFLAG_IMPORTANT_RE = /^(?!(?=(?:[^\n\x60]*\x60[^\n\x60]*\x60)*[^\n\x60]*$)(?:[^\n\x60«🟡🟢❓]|\x60[^\n\x60]*\x60|«[^\n»]*»|«(?![^\n»]*»))*[🟡🟢❓](?:(?![.!?;])(?:[^\n\x60«]|\x60[^\n\x60]*\x60|«[^\n»]*»|«(?![^\n»]*»)))*🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-])(?:(?:(?=(?:[^\n`]*`[^\n`]*`)*[^\n`]*`[^\n`]*$)(?:(?:[^\n«🟡🟢❓]|«[^\n»]*»|«(?![^\n»]*»))*|(?:[^\n«]|«[^\n»]*»|«(?![^\n»]*»))*[🟡🟢❓](?:[^\n«]|«[^\n»]*»|«(?![^\n»]*»))*|(?:[^\n`«🟡🟢❓]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»))*)|(?:(?:[^\n«🟡🟢❓]|«[^\n»]*»|«(?![^\n»]*»))*|(?:[^\n`«]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»)|`(?![^\n`]*`))*[🟡🟢❓](?:[^\n`«]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»)|`(?![^\n`]*`))*|(?:[^\n`«🟡🟢❓]|`[^\n`]*`|«[^\n»]*»|«(?![^\n»]*»))*)(?<!\s`)(?<!^`))🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:(?:[-*+>]|\d+[.)])[ \t]*){0,3}(?:`[^\n`]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?)(?:[ \t]*[,;][ \t]*(?:`[^\n`]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?))*:[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=[ \t]+[^\n \t\r]))/mu;
 
 /**
  * Identità che possono pubblicare la review Claude. Con il token GitHub App
