@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-26T13:28:33.394Z",
+  "generatedAt": "2026-11-26T14:39:01.765Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -101688,6 +101688,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T18:32:24.049Z"
     },
+    "myswitzerland:42e5407ba26b4b64a37900336c344d23::3af818c26a5eff7ac4153e49cd8e07b009c0a130ae771061b09ea3d76b109617": {
+      "id": "myswitzerland:42e5407ba26b4b64a37900336c344d23",
+      "sourceDescriptionHash": "3af818c26a5eff7ac4153e49cd8e07b009c0a130ae771061b09ea3d76b109617",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Restaurant Lounge du Centre Sportif; comune: Le Chenit; cantone: VD; categoria: Sports; organizzatore: Centre Sportif Vallée de Joux Rue; data: 2027-08-18; ora: 02:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Restaurant Lounge du Centre Sportif; comune: Le Chenit; cantone: VD; categoria: Sports; organizzatore: Centre Sportif Vallée de Joux Rue; data: 2027-08-18; ora: 02:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Restaurant Lounge du Centre Sportif; municipality: Le Chenit; canton: VD; category: Sports; organiser: Centre Sportif Vallée de Joux Rue; date: 2027-08-18; time: 02:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Restaurant Lounge du Centre Sportif; gemeinde: Le Chenit; kanton: VD; kategorie: Sports; veranstalter: Centre Sportif Vallée de Joux Rue; datum: 2027-08-18; uhrzeit: 02:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Restaurant Lounge du Centre Sportif; commune: Le Chenit; canton: VD; catégorie: Sports; organisateur: Centre Sportif Vallée de Joux Rue; date: 2027-08-18; heure: 02:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-26T14:32:28.322Z"
+    },
     "myswitzerland:42fa9194dfa04c55997e78f324288002::8d3864ecbbf877b2087a84d3f3b072a6e70701c500882d7f859438478a19a3b9": {
       "id": "myswitzerland:42fa9194dfa04c55997e78f324288002",
       "sourceDescriptionHash": "8d3864ecbbf877b2087a84d3f3b072a6e70701c500882d7f859438478a19a3b9",
@@ -184834,6 +184848,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-15T16:21:53.733Z"
     },
+    "myswitzerland:f97c889a19a44ffab252ecdf75a0c021::9145ce82414e71e46f765f0de6facabc77c687eb9f5abfb717e8ba1a2d4eb06a": {
+      "id": "myswitzerland:f97c889a19a44ffab252ecdf75a0c021",
+      "sourceDescriptionHash": "9145ce82414e71e46f765f0de6facabc77c687eb9f5abfb717e8ba1a2d4eb06a",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Le Crêt-du-Midi; comune: Chalais; cantone: VS; categoria: Festival; data: 2027-08-15; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Le Crêt-du-Midi; comune: Chalais; cantone: VS; categoria: Festival; data: 2027-08-15; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Le Crêt-du-Midi; municipality: Chalais; canton: VS; category: Festival; date: 2027-08-15; time: 09:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Le Crêt-du-Midi; gemeinde: Chalais; kanton: VS; kategorie: Festival; datum: 2027-08-15; uhrzeit: 09:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Le Crêt-du-Midi; commune: Chalais; canton: VS; catégorie: Festival; date: 2027-08-15; heure: 09:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-26T14:32:28.301Z"
+    },
     "myswitzerland:f99324c83df543a1b20587c473c8f745::36b703f89fa1ecdcbb589dc91bb23596ce955c2e84a220468225ed0d5d4f8e63": {
       "id": "myswitzerland:f99324c83df543a1b20587c473c8f745",
       "sourceDescriptionHash": "36b703f89fa1ecdcbb589dc91bb23596ce955c2e84a220468225ed0d5d4f8e63",
@@ -207055,15 +207083,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:42e5407ba26b4b64a37900336c344d23::3af818c26a5eff7ac4153e49cd8e07b009c0a130ae771061b09ea3d76b109617": {
-      "id": "myswitzerland:42e5407ba26b4b64a37900336c344d23",
-      "sourceDescriptionHash": "3af818c26a5eff7ac4153e49cd8e07b009c0a130ae771061b09ea3d76b109617",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T21:35:43.096Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:446e141d23d945778237e9515d31ef6c::fa16484a08728fa0a7c5b1066a568715a5cda0c9904f135bbb11bcbf8c860968": {
       "id": "myswitzerland:446e141d23d945778237e9515d31ef6c",
       "sourceDescriptionHash": "fa16484a08728fa0a7c5b1066a568715a5cda0c9904f135bbb11bcbf8c860968",
@@ -210040,15 +210059,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-18T00:57:37.208Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:f97c889a19a44ffab252ecdf75a0c021::9145ce82414e71e46f765f0de6facabc77c687eb9f5abfb717e8ba1a2d4eb06a": {
-      "id": "myswitzerland:f97c889a19a44ffab252ecdf75a0c021",
-      "sourceDescriptionHash": "9145ce82414e71e46f765f0de6facabc77c687eb9f5abfb717e8ba1a2d4eb06a",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T21:29:40.641Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

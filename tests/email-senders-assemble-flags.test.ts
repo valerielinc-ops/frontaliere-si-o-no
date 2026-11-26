@@ -69,6 +69,11 @@ describe('newsletter: assemble completo, perche legge previousSlugs', () => {
     expect(String(keyStep?.with?.args ?? '')).toBe('');
     expect(String(assembleStep?.run)).not.toMatch(/--active-only|--no-summaries/);
   });
+
+  it('assegna heap sufficiente all assemble completo senza cambiare il contratto del sender', () => {
+    const assembleStep = steps.find((s) => /assemble-jobs-dataset\.mjs/.test(String(s?.run ?? '')));
+    expect(String(assembleStep?.env?.NODE_OPTIONS)).toContain('--max-old-space-size=8192');
+  });
 });
 
 const normalize = (value: string) => value.trim().split(/\s+/).filter(Boolean).join(' ');

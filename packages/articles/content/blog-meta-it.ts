@@ -13758,6 +13758,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sem-chiasso-personale-due-mesi.title': 'Sem riapre Chiasso: Ors cerca personale per due mesi in più',
     'blog.article.sem-chiasso-personale-due-mesi.excerpt': 'Con la riapertura di Chiasso da parte della Sem, Ors dovrà reperire per altri due mesi il personale destinato alla gestione di via Motta.',
     'blog.article.sem-chiasso-personale-due-mesi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.protocollo-lavoro-remoto-2024.title': 'Frontalieri, telelavoro fino al 25% dal 1 gennaio 2024',
+    'blog.article.protocollo-lavoro-remoto-2024.excerpt': 'Il Protocollo Italia-Svizzera consente telelavoro fino al 25%.',
+    'blog.article.protocollo-lavoro-remoto-2024.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
