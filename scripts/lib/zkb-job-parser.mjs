@@ -56,7 +56,9 @@ function encodePathSegment(value = '') {
   const decoded = (() => {
     try { return decodeURIComponent(String(value || '')); } catch { return String(value || ''); }
   })();
-  return encodeURIComponent(decoded);
+  return encodeURIComponent(decoded).replace(/[!'()*]/g, (character) => (
+    `%${character.charCodeAt(0).toString(16).toUpperCase()}`
+  ));
 }
 
 function recordIdentity(record = {}) {
@@ -275,11 +277,6 @@ function detectEmploymentType(detail = {}) {
   return 'FULL_TIME';
 }
 
-function isZkbApiRecord(record = {}) {
-  const brand = normalize(record.brandUrl || record.brand || record.company || '');
-  return !brand || brand.includes('zkb') || brand.includes('zürcher kantonalbank');
-}
-
 /**
  * Fetch all current ZKB jobs from the official SuccessFactors portal.
  */
@@ -287,7 +284,10 @@ export async function fetchAllZkbJobs() {
   console.log(`🔍 Fetching ${ZKB_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_LISTING_URL} (SuccessFactors NES recruiting API)\n`);
 
-  const listings = (await fetchZkbListings()).filter(isZkbApiRecord);
+  // The recruiting endpoint is hosted on the ZKB-specific career origin, so
+  // its response is already scoped to ZKB and its subsidiaries. Preserve an
+  // unknown brand value instead of treating an API label as ownership proof.
+  const listings = await fetchZkbListings();
   if (listings.length === 0) {
     console.warn('⚠️ ZKB recruiting API returned no ZKB listings.');
     return [];
@@ -308,7 +308,10 @@ export async function fetchAllZkbJobs() {
     }
 
     const title = normalizeSpace(detail.title || record.title || record.jobTitle || '');
-    const description = normalizeSpace(detail.description || '');
+    // Keep the source's line breaks and bullet markers. The content-quality
+    // audit uses those markers to distinguish a structured vacancy body from
+    // flat boilerplate, and the NES parser already normalizes them safely.
+    const description = String(detail.description || '').trim();
     if (!title || !meetsSourceBodyFloor(description)) {
       withoutBody += 1;
       await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));

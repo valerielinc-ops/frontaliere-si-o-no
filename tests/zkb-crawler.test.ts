@@ -24,7 +24,8 @@ function nesDetailPage() {
   tokens[18] = '<p>Die Zürcher Kantonalbank ist die zweitgrösste Universalbank der Schweiz.</p>'
     + '<p>In dieser Rolle entwickelst und betreibst du eine moderne Plattform für Observability und Automatisierung.</p>'
     + '<p>Du arbeitest eng mit unseren Teams zusammen, verbesserst die Stabilität und gestaltest die technische Weiterentwicklung.</p>'
-    + '<ul><li>Du konzipierst skalierbare Services.</li><li>Du betreibst Kubernetes und Cloud-Infrastruktur.</li></ul>';
+    + '<ul><li>Du konzipierst skalierbare Services.</li><li>Du betreibst Kubernetes und Cloud-Infrastruktur.</li></ul>'
+    + '<p>Gemeinsam sorgst du für verlässliche Lösungen und einen nachhaltigen Betrieb.</p>';
   return `<div id="search-wrapper">${tokens.map((value) => (
     `<div class="joblayouttoken"><span class="rtltextaligneligible">${value}</span></div>`
   )).join('')}</div>`;
@@ -61,6 +62,7 @@ describe('ZKB current SuccessFactors source', () => {
     });
     expect(parsed.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(50);
     expect(parsed.description).toContain('Du betreibst Kubernetes');
+    expect(parsed.description).toMatch(/\n- Du konzipierst skalierbare Services/);
   });
 
   it('discovers ZKB postings from the official recruiting API and detail page', async () => {
@@ -121,6 +123,10 @@ describe('ZKB crawler parser', () => {
       expect(isZkbJob({ url: 'https://www.zkb.ch/de/ueber-uns/jobs-karriere/123' })).toBe(true);
     });
 
+    it('matches by URL domain (current official career portal)', () => {
+      expect(isZkbJob({ url: 'https://jobs.zkb.ch/job/Platform-Engineer/67-de_DE/' })).toBe(true);
+    });
+
     it('matches by Refline tenant listing URL', () => {
       expect(isZkbJob({ url: 'https://apply.refline.ch/792841/11001/pub/1' })).toBe(true);
     });
@@ -140,6 +146,10 @@ describe('ZKB crawler parser', () => {
   describe('isTrustedDomain', () => {
     it('trusts corporate domain', () => {
       expect(isTrustedDomain('https://www.zkb.ch/de/ueber-uns/jobs-karriere/123')).toBe(true);
+    });
+
+    it('trusts the current official career portal', () => {
+      expect(isTrustedDomain('https://jobs.zkb.ch/job/Platform-Engineer/67-de_DE/')).toBe(true);
     });
 
     it('trusts Refline tenant domain', () => {
