@@ -22,6 +22,10 @@ const parser = createWorkdaySwissParser({
   tenantHost: 'everestre.wd5.myworkdayjobs.com',
   sitePath: 'External',
   careerUrl: 'https://everestre.wd5.myworkdayjobs.com/External',
+  // Everest's public Workday board is served at /External/, not the factory's
+  // default /en-US/External/ route. Use the real same-origin page when the
+  // direct CXS request needs the browser transport fallback.
+  browserPublicUrl: 'https://everestre.wd5.myworkdayjobs.com/External/',
   defaultCanton: 'ZH',
   defaultCity: 'Zürich',
   defaultPostalCode: '8001',
