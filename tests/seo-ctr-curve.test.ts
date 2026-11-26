@@ -330,6 +330,29 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(discoverUnregisteredFamilies(rows)).toEqual([]);
     });
 
+    it('registers the pharmacy directory template with all locale roots (issue #19821)', () => {
+      const fam = SEO_CTR_FAMILIES.find((f) => f.id === 'farmacie')!;
+      expect(fam).toBeDefined();
+      expect(fam).toMatchObject({
+        pathContains: '/farmacie/',
+        kind: 'template',
+        monitored: true,
+        targetCtr: 0.03,
+        impressions90d: 50076,
+      });
+      expect(familyPathPrefixes(fam).sort()).toEqual([
+        '/apotheken/',
+        '/farmacie/',
+        '/pharmacies/',
+      ]);
+
+      const rows = familyPathPrefixes(fam).map((prefix) => ({
+        path: `${prefix}directory/`,
+        impressions: MIN_IMPRESSIONS_TO_MONITOR * 2,
+      }));
+      expect(discoverUnregisteredFamilies(rows)).toEqual([]);
+    });
+
     it('registers the fuel-price template with all four locale slugs (issue #6704)', () => {
       // Il caso che ha aperto la issue: lo slug IT e quello EN dello STESSO
       // template fuel superavano la soglia separatamente e venivano rialzati
