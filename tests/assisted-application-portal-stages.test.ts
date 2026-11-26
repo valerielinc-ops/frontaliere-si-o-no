@@ -977,7 +977,28 @@ describe('application stage ownership', () => {
   it('does not reinterpret an account ID or application ID as a job ID', () => {
     expect(portalJobKey(`${origin}/profile?applicationId=42`)).toBeNull();
     expect(portalJobKey(`${origin}/profile?jobId=42&JOBID=43`)).toBeNull();
+    expect(portalJobKey(`${origin}/profile?jobId=42&tempJobid=43`)).toBeNull();
     expect(portalJobKey(`${origin}/profile?jobId=42`)).toBe('42');
+    expect(portalJobKey(`${origin}/CHCareers/Register?tempJobid=24124`)).toBe('24124');
+  });
+
+  it('does not mistake adjectival "a complete application" on a job detail page for an incomplete-application stop', () => {
+    const apply = { text: 'Apply', href: `${origin}/CHCareers/Login?jobId=24124`, frame: 0 };
+    const posting = {
+      url: `${origin}/CHCareers/JobDetail/Manager-IT/24124`,
+      text: `${job.title}. Please click on "apply now" to submit a complete application, including CV, cover letter, references and degree certificates.`,
+      fields: [],
+      buttons: [apply],
+    };
+    expect(applicationStage(posting, { applyUrl: posting.url, job })).toEqual({ kind: 'unknown_apply', prefinal: false });
+
+    const verbPrompt = {
+      url: `${origin}/CHCareers/Application?jobId=24124`,
+      text: `${job.title}. Please complete your application before submitting.`,
+      fields: [],
+      buttons: [{ text: 'Submit application', formId: 'application', frame: 0 }],
+    };
+    expect(applicationStage(verbPrompt, { applyUrl: verbPrompt.url, job })).toMatchObject({ kind: 'unknown_apply', prefinal: true });
   });
 
   it.each([

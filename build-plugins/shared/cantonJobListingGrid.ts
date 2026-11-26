@@ -61,7 +61,7 @@ export function renderCantonJobListingGrid(options: {
   return (
     `${CANTON_LISTING_GRID_START}` +
     `<h2 class="s-iEVPhz">${escapeHtml(HEADING[locale](display))}</h2>` +
-    `<section data-listing-grid data-jobs-fast-list-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6">` +
+    `<section data-listing-grid data-jobs-fast-list-grid class="space-y-3 min-h-[600px] my-6">` +
     JOB_CARD_ICON_SYMBOLS +
     cards +
     `</section>` +

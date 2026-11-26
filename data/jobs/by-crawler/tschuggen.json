@@ -1,7 +1,7 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-11-25T21:20:01.350Z",
-  "runId": "45702677976",
+  "assembledAt": "2026-11-26T09:49:39.522Z",
+  "runId": "45790334028",
   "jobs": [
     {
       "id": "tschuggen-a230738e90d2",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1395/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:48.104Z",
+      "crawledAt": "2026-11-26T09:48:51.657Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       },
       "streetAddress": "Tschuggentorweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T21:19:48.104Z",
+      "validThrough": "2026-12-30T09:48:51.657Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -130,7 +130,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1109/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:46.438Z",
+      "crawledAt": "2026-11-26T09:48:50.379Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       },
       "streetAddress": "Tschuggentorweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:19:46.438Z",
+      "validThrough": "2027-02-04T09:48:50.379Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -231,7 +231,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1409/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:45.592Z",
+      "crawledAt": "2026-11-26T09:48:49.499Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "addressRegion": "GR",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:19:45.592Z",
+      "validThrough": "2027-02-17T09:48:49.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -320,7 +320,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1406/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:44.688Z",
+      "crawledAt": "2026-11-26T09:48:48.609Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -370,7 +370,7 @@
       "addressRegion": "TI",
       "streetAddress": "Ascona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:19:44.688Z",
+      "validThrough": "2027-02-18T09:48:48.609Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -404,7 +404,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1407/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:43.814Z",
+      "crawledAt": "2026-11-26T09:48:47.728Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -459,7 +459,520 @@
       "addressRegion": "TI",
       "streetAddress": "Ascona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:19:43.814Z",
+      "validThrough": "2027-02-18T09:48:47.728Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "tschuggen-bccbf670bb29",
+      "slug": "responsabile-del-kids-club-nell-impiego-stagionale-m-f-d-tschuggen-collection-ascona",
+      "slugByLocale": {
+        "it": "responsabile-del-kids-club-nell-impiego-stagionale-m-f-d-tschuggen-collection-ascona",
+        "en": "kids-club-leader-in-seasonal-employment-m-f-d-tschuggen-collection-ascona",
+        "de": "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "fr": "responsable-du-club-pour-enfants-en-h-f-d-d-emploi-saisonnier-tschuggen-collection-ascona"
+      },
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Kids Club Leiter/-in in Saisonanstellung (m/w/d)",
+      "titleByLocale": {
+        "it": "Responsabile del Kids Club nell'Impiego Stagionale (m/f/d)",
+        "en": "Kids Club Leader in Seasonal Employment (m/f/d)",
+        "de": "Kids Club Leiter/-in in Saisonanstellung (m/w/d)",
+        "fr": "Responsable du club pour enfants en (h/f/d) d'emploi saisonnier"
+      },
+      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab dem 20. März 2027 oder nach Vereinbarung\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\n\nIHR PROFIL\n• Ausbildung im pädagogischen Bereich\n• Erfahrung in derselben Position ist von Vorteil\n• Ausgeprägte Dienstleistungsorientierung, hohes Qualitätsbewusstsein und Liebe zum Detail\n• Freundliches Auftreten, Höflichkeit gegenüber den Gästen\n• Gepflegtes Erscheinungsbild\n• Flexibilität\n\nIHRE AUFGABEN\n• Betreuung und Animation der Gästekinder in unserem Miniclub nach den geforderten Standards\n• Vertretung die 1. Kinderbetreuerin in deren Abwesenheit und sorgte für Ordnung, Sauberkeit und Hygiene am Arbeitsplatz\n• Die Erstellung des Wochenprogramms, das Einpacken der Kindergeschenke sowie den Miniclub betreffenden administrative Arbeiten\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise, Lido Locarno und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+      "descriptionByLocale": {
+        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nTi stiamo cercando dai 20 anni. Marzo 2027 o d'accordo\nSei un ospite appassionato ed empatico, apprezzato e rispettoso?\nAllora hai ragione con noi.\n\nIl tuo progetto\n• Formazione professionale\n• L'esperienza nella stessa posizione è benefica\n• Forte orientamento al servizio, alta consapevolezza di qualità e attenzione ai dettagli\n• Gentilezza, cortesia verso gli ospiti\n• Aspetto principale\n• Flessibilità\n\nITS TASKs\n• Cura e animazione dei bambini ospiti nel nostro mini club secondo gli standard richiesti\n• Rappresentare il primo fornitore di assistenza all'infanzia in loro assenza e garantire l'ordine, la pulizia e l'igiene sul posto di lavoro\n• La preparazione del programma settimanale, l'imballaggio di regali per bambini e il lavoro amministrativo relativo al mini club\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise, Lido Locarno e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
+        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe are looking for you from the 20. March 2027 or by agreement\nYou are a passionate and empathetic host, appreciative & respectful?\nThen you are right with us.\n\nYOUR PROFILE\n• Educational training\n• Experience in the same position is beneficial\n• Strong service orientation, high quality awareness and attention to detail\n• Kindness, courtesy towards guests\n• Maintained appearance\n• Flexibility\n\nITS TASKS\n• Care and animation of the guest children in our mini club according to the required standards\n• Representing the 1st childcare provider in their absence and ensuring order, cleanliness and hygiene in the workplace\n• The preparation of the weekly program, the packing of children's gifts and administrative work concerning the mini club\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise, Lido Locarno and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
+        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab dem 20. März 2027 oder nach Vereinbarung\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\n\nIHR PROFIL\n• Ausbildung im pädagogischen Bereich\n• Erfahrung in derselben Position ist von Vorteil\n• Ausgeprägte Dienstleistungsorientierung, hohes Qualitätsbewusstsein und Liebe zum Detail\n• Freundliches Auftreten, Höflichkeit gegenüber den Gästen\n• Gepflegtes Erscheinungsbild\n• Flexibilität\n\nIHRE AUFGABEN\n• Betreuung und Animation der Gästekinder in unserem Miniclub nach den geforderten Standards\n• Vertretung die 1. Kinderbetreuerin in deren Abwesenheit und sorgte für Ordnung, Sauberkeit und Hygiene am Arbeitsplatz\n• Die Erstellung des Wochenprogramms, das Einpacken der Kindergeschenke sowie den Miniclub betreffenden administrative Arbeiten\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise, Lido Locarno und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "fr": "L'hôtel Eden Roc est situé directement sur les rives du lac Majeur et, en tant qu'hôtel de luxe 5 étoiles supérieur, appartient aux « hôtels de luxe suisse » et aux « hôtels principaux du monde ». Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous vous cherchons depuis les 20 ans. Mars 2027 ou par accord\nVous êtes un hôte passionné et empathique, reconnaissant et respectueux?\nAlors vous avez raison avec nous.\n\nVOTRE PROFIL\n• Formation scolaire\n• L'expérience dans la même position est bénéfique\n• Orientation forte du service, sensibilisation de haute qualité et attention aux détails\n• Bienveillance, courtoisie envers les invités\n• Aspect maintenu\n• Flexibilité\n\nSES TÂCHES\n• Soins et animation des enfants invités dans notre mini-club selon les normes requises\n• Représenter le 1er fournisseur de soins en leur absence et assurer l'ordre, la propreté et l'hygiène sur le lieu de travail\n• La préparation du programme hebdomadaire, l'emballage des cadeaux pour enfants et les travaux administratifs concernant le mini club\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise, Lido Locarno et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier d'application - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
+      },
+      "location": "Ascona",
+      "canton": "TI",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1405/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:48:46.812Z",
+      "addressLocality": "Ascona",
+      "postalCode": "6612",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1405/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "hotelName": "Hotel Eden Roc",
+      "previousSlugs": [
+        "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "kids-club-responsabile-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+          "kids-club-responsabile-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+        ],
+        "en": [
+          "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
+          "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-23T21:22:34.647Z",
+      "salaryMin": 72000,
+      "salaryMax": 90500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "streetAddress": "Ascona",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T09:48:46.812Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "tschuggen-faea525b1a0b",
+      "slug": "dipendente-dell-ufficio-in-occupazione-stagionale-m-f-d-tschuggen-collection-ascona",
+      "slugByLocale": {
+        "it": "dipendente-dell-ufficio-in-occupazione-stagionale-m-f-d-tschuggen-collection-ascona",
+        "en": "office-employee-in-in-seasonal-employment-m-f-d-tschuggen-collection-ascona",
+        "de": "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "fr": "employe-de-bureau-in-en-emploi-saisonnier-h-f-d-tschuggen-collection-ascona"
+      },
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Officemitarbeiter /-in in Saisonanstellung (m/w/d)",
+      "titleByLocale": {
+        "it": "Dipendente dell'ufficio /-in occupazione stagionale (m/f/d)",
+        "en": "Office employee /-in in seasonal employment (m/f/d)",
+        "de": "Officemitarbeiter /-in in Saisonanstellung (m/w/d)",
+        "fr": "Employé de bureau /-in en emploi saisonnier (h/f/d)"
+      },
+      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab März 2027 oder nach Vereinbarung.\nMit Ihrer Begeisterung für den Service am Gast sind Sie bei uns genau richtig!\n\nIHR PROFIL\n• Erfahrung in einer vergleichbaren Position von Vorteil\n• Freundliches Auftreten sowie Körperliche Belastbarkeit & Flexibilität\n• Verantwortungsbewusstes Handeln im Sinne unserer Unternehmens\n\nIHRE AUFGABEN\n• Allgemeine Küchen- und Officearbeiten (vom Porzellan bis zu den Töpfen reinigen)\n• Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle\n• Aushelfen und Unterstützung im Mitarbeiter-Restaurant inklusive Reinigung\n• Umsetzen des Hygienekonzeptes nach Eurofins und Iso\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+      "descriptionByLocale": {
+        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nVi cercheremo dal marzo 2027 o su appuntamento.\nCon il vostro entusiasmo per il servizio dell'ospite siete esattamente a destra con noi!\n\nIl tuo progetto\n• L'esperienza in una posizione comparabile è vantaggiosa\n• Amichevole aspetto e resistenza fisica e flessibilità\n• Azione responsabile nel senso della nostra azienda\n\nITS TASKs\n• Cucina generale e ufficio lavoro (da porcellana di pulizia a vasi)\n• Creare un ambiente sicuro, pulito e amichevole per tutti\n• Aiuto e supporto nel ristorante del personale, compresa la pulizia\n• Attuazione del concetto di igiene secondo Eurofins e Iso\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
+        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe will search you from March 2027 or by appointment.\nWith your enthusiasm for the service of the guest you are exactly right with us!\n\nYOUR PROFILE\n• Experience in a comparable position is advantageous\n• Friendly appearance as well as physical resilience & flexibility\n• Responsible action in the sense of our company\n\nITS TASKS\n• General kitchen and office work (from cleaning porcelain to pots)\n• Creating a safe, clean and friendly environment for everyone\n• Help and support in the staff restaurant including cleaning\n• Implementation of the hygiene concept according to Eurofins and Iso\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
+        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab März 2027 oder nach Vereinbarung.\nMit Ihrer Begeisterung für den Service am Gast sind Sie bei uns genau richtig!\n\nIHR PROFIL\n• Erfahrung in einer vergleichbaren Position von Vorteil\n• Freundliches Auftreten sowie Körperliche Belastbarkeit & Flexibilität\n• Verantwortungsbewusstes Handeln im Sinne unserer Unternehmens\n\nIHRE AUFGABEN\n• Allgemeine Küchen- und Officearbeiten (vom Porzellan bis zu den Töpfen reinigen)\n• Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle\n• Aushelfen und Unterstützung im Mitarbeiter-Restaurant inklusive Reinigung\n• Umsetzen des Hygienekonzeptes nach Eurofins und Iso\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "fr": "L'hôtel Eden Roc est situé directement sur les rives du lac Majeur et, en tant qu'hôtel de luxe 5 étoiles supérieur, appartient aux « hôtels de luxe suisse » et aux « hôtels principaux du monde ». Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous vous chercherons à partir de mars 2027 ou sur rendez-vous.\nAvec votre enthousiasme pour le service de l'invité, vous avez exactement raison avec nous!\n\nVOTRE PROFIL\n• L'expérience dans une position comparable est avantageuse\n• Aspect amical ainsi que résilience physique et flexibilité\n• Une action responsable au sens de notre entreprise\n\nSES TÂCHES\n• Cuisine générale et travaux de bureau (du nettoyage de porcelaine aux pots)\n• Créer un environnement sûr, propre et convivial pour tous\n• Aide et soutien dans le restaurant du personnel, y compris le nettoyage\n• Mise en œuvre du concept d'hygiène selon Eurofins et Iso\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier d'application - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
+      },
+      "location": "Ascona",
+      "canton": "TI",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1410/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:48:46.138Z",
+      "addressLocality": "Ascona",
+      "postalCode": "6612",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Gastronomia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1410/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Küche",
+      "hotelName": "Hotel Eden Roc",
+      "previousSlugs": [
+        "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+        ],
+        "en": [
+          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+        ],
+        "fr": [
+          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+        ]
+      },
+      "firstSeenAt": "2026-11-23T21:22:33.775Z",
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 67000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "streetAddress": "Ascona",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T09:48:46.138Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "tschuggen-5c65cb7d2025",
+      "slug": "assistente-di-lavanderia-nella-stagione-m-f-d-tschuggen-collection-ascona",
+      "slugByLocale": {
+        "it": "assistente-di-lavanderia-nella-stagione-m-f-d-tschuggen-collection-ascona",
+        "en": "laundry-attendant-in-season-m-f-d-tschuggen-collection-ascona",
+        "de": "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "fr": "lave-linge-en-saison-h-f-d-tschuggen-collection-ascona"
+      },
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Laundry Attendant in Saisonanstellung (m/w/d)",
+      "titleByLocale": {
+        "it": "Assistente di lavanderia nella stagione (m/f/d)",
+        "en": "Laundry Attendant in season (m/f/d)",
+        "de": "Laundry Attendant in Saisonanstellung (m/w/d)",
+        "fr": "Lave-linge en saison (h/f/d)"
+      },
+      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab Mitte März 2027 oder nach Vereinbarung\nMit Ihrer Begeisterung und mit ihrem Auge fürs Detail sind Sie bei uns genau richtig!\n\nIHR PROFIL\n• Erfahrung in einer vergleichbaren Position von Vorteil\n• Erfahrung in der Änderungsschneiderei\n• Sorgfalt und Genauigkeit beim Einhalten der Reinigungsstandards\n• Gepflegtes Erscheinungsbild und Körperliche Belastbarkeit\n• Freundliches Auftreten\n\nIHRE AUFGABEN\n• Waschen, trocknen, mangen, bügeln und wegräumen der gesamten Wäsche (Hotel, Gäste, Uniformen) gemäss den vorgegebenen Standards.\n• Änderung von Mitarbeiteruniformen\n• Erledigen diverser Reinigungsarbeiten in den Personalhäusern\n• Fachgerechte Anwendung der Waschmittel (Chemikalien) und anderen Materialien nach Vorschrift\n• Sorgfältiger und korrekter Umgang mit den technischen Geräten sowie mit dem gesamten Hoteleigentum\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+      "descriptionByLocale": {
+        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nCercheremo da metà marzo 2027 o su appuntamento\nCon il vostro entusiasmo e il vostro occhio per i dettagli, siete esattamente a destra con noi!\n\nIl tuo progetto\n• L'esperienza in una posizione comparabile è vantaggiosa\n• Esperienza nel cambiamento sartoria\n• Cura e precisione nel soddisfare gli standard di pulizia\n• Aspetto principale e forza fisica\n• Aspetto amichevole\n\nITS TASKs\n• Lavare, asciugare, mangere, stirare e rimuovere tutto il bucato (hotel, ospiti, uniformi) secondo gli standard specificati.\n• Modifiche alle uniformi dei dipendenti\n• Completare vari lavori di pulizia nelle case del personale\n• Uso corretto dei detergenti (chimici) e di altri materiali come prescritto\n• Gestione attenta e corretta delle attrezzature tecniche e dell'intera struttura alberghiera\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
+        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe will search from mid-March 2027 or by appointment\nWith your enthusiasm and your eye for detail, you are exactly right with us!\n\nYOUR PROFILE\n• Experience in a comparable position is advantageous\n• Experience in change tailoring\n• Care and accuracy in meeting cleaning standards\n• Maintained appearance and physical strength\n• Friendly appearance\n\nITS TASKS\n• Wash, dry, mange, iron and remove all laundry (hotel, guests, uniforms) according to the specified standards.\n• Changes to Employee Uniforms\n• Completing various cleaning work in the staff houses\n• Proper use of detergents (chemicals) and other materials as prescribed\n• Careful and correct handling of the technical equipment as well as the entire hotel property\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
+        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab Mitte März 2027 oder nach Vereinbarung\nMit Ihrer Begeisterung und mit ihrem Auge fürs Detail sind Sie bei uns genau richtig!\n\nIHR PROFIL\n• Erfahrung in einer vergleichbaren Position von Vorteil\n• Erfahrung in der Änderungsschneiderei\n• Sorgfalt und Genauigkeit beim Einhalten der Reinigungsstandards\n• Gepflegtes Erscheinungsbild und Körperliche Belastbarkeit\n• Freundliches Auftreten\n\nIHRE AUFGABEN\n• Waschen, trocknen, mangen, bügeln und wegräumen der gesamten Wäsche (Hotel, Gäste, Uniformen) gemäss den vorgegebenen Standards.\n• Änderung von Mitarbeiteruniformen\n• Erledigen diverser Reinigungsarbeiten in den Personalhäusern\n• Fachgerechte Anwendung der Waschmittel (Chemikalien) und anderen Materialien nach Vorschrift\n• Sorgfältiger und korrekter Umgang mit den technischen Geräten sowie mit dem gesamten Hoteleigentum\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "fr": "L'hôtel Eden Roc est situé directement sur les rives du lac Majeur et, en tant qu'hôtel de luxe 5 étoiles supérieur, appartient aux « hôtels de luxe suisse » et aux « hôtels principaux du monde ». Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous chercherons à partir de mi-mars 2027 ou sur rendez-vous\nAvec votre enthousiasme et votre souci du détail, vous avez raison avec nous !\n\nVOTRE PROFIL\n• L'expérience dans une position comparable est avantageuse\n• Expérience de l'adaptation au changement\n• Soin et précision dans le respect des normes de nettoyage\n• Aspect maintenu et force physique\n• Aspect amical\n\nSES TÂCHES\n• Laver, sécher, manger, repasser et enlever toute la lessive (hôtel, invités, uniformes) selon les normes spécifiées.\n• Changements aux uniformes des employés\n• Achèvement de divers travaux de nettoyage dans les maisons du personnel\n• Utilisation appropriée des détergents (produits chimiques) et autres matériaux prescrits\n• Manipulation attentive et correcte de l'équipement technique ainsi que de l'ensemble de l'hôtel\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier d'application - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
+      },
+      "location": "Ascona",
+      "canton": "TI",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1408/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:48:45.457Z",
+      "addressLocality": "Ascona",
+      "postalCode": "6612",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1408/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Lingerie",
+      "hotelName": "Hotel Eden Roc",
+      "previousSlugs": [
+        "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ],
+        "en": [
+          "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
+          "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-23T21:22:32.919Z",
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 67000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "streetAddress": "Ascona",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T09:48:45.457Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "tschuggen-1f63b6f48e4a",
+      "slug": "chef-de-partie-ristorante-marina-in-impiego-stagionale-m-f-d-tschuggen-collection-ascona",
+      "slugByLocale": {
+        "it": "chef-de-partie-ristorante-marina-in-impiego-stagionale-m-f-d-tschuggen-collection-ascona",
+        "en": "chef-de-partie-restaurant-marina-in-seasonal-employment-m-f-d-tschuggen-collection-ascona",
+        "de": "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "fr": "chef-de-partie-restaurant-marina-dans-emploi-saisonnier-h-f-d-tschuggen-collection-ascona"
+      },
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Chef de Partie Restaurant Marina in Saisonanstellung (m/w/d)",
+      "titleByLocale": {
+        "it": "Chef de Partie Ristorante Marina in impiego stagionale (m/f/d)",
+        "en": "Chef de Partie Restaurant Marina in seasonal employment (m/f/d)",
+        "de": "Chef de Partie Restaurant Marina in Saisonanstellung (m/w/d)",
+        "fr": "Chef de Partie Restaurant Marina dans emploi saisonnier (h/f/d)"
+      },
+      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab März 2026\nSie sorgen bei unseren Gästen für kulinarische Erlebnisse!\n\nIHR PROFIL\nAbgeschlossene Berufsausbildung als Koch\nErfahrung in derselben oder einer vergleichbaren Position\nAusgeprägtes Servicedenken, Organisationstalent\nSorgfalt und Genauigkeit beim Einhalten der Hygienestandards\nKörperliche Belastbarkeit\nFührungskompetenz, Flexibilität und Kreativität\n\nIHRE AUFGABEN\nHerstellen der Mise en Place laut Karte\nUmsetzen des Hygienekonzeptes nach Eurofins und Iso\nAnweisungen der Demi-chef de Partie, der Commis de cuisine und Lernenden\nSicherstellung eines hohen Service für die Gäste\nSchaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+      "descriptionByLocale": {
+        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nVi stiamo cercando dal marzo 2026\nOffrono ai nostri ospiti esperienze culinarie!\n\nIl tuo progetto\nAllenamento professionale completo come cuoco\nEsperienza nella stessa o posizione paragonabile\nForte pensiero di servizio, talento organizzativo\nCura e precisione nel rispetto degli standard igienici\nCapacità fisica\nLeadership, flessibilità e creatività\n\nITS TASKs\nRendere il Mise en Place secondo la mappa\nAttuazione del concetto di igiene secondo Eurofins e Iso\nIstruzioni da Demi-chef de Partie, Commis de cuisine and learners\nGarantire un alto livello di servizio per gli ospiti\nCreare un ambiente sicuro, pulito e amichevole per tutti gli ospiti\n\nOUR BENEFITS - Cosa puoi aspettarti da noi\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
+        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe are looking for you from March 2026\nThey provide our guests with culinary experiences!\n\nYOUR PROFILE\nCompleted professional training as a cook\nExperience in the same or a comparable position\nStrong service thinking, organizational talent\nCare and accuracy in compliance with hygiene standards\nPhysical capacity\nLeadership, flexibility and creativity\n\nITS TASKS\nMaking the Mise en Place according to the map\nImplementation of the hygiene concept according to Eurofins and Iso\nInstructions from Demi-chef de Partie, Commis de cuisine and learners\nEnsuring a high level of service for guests\nCreating a safe, clean and friendly environment for all guests\n\nOUR BENEFITS - What you can expect from us\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
+        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab März 2026\nSie sorgen bei unseren Gästen für kulinarische Erlebnisse!\n\nIHR PROFIL\nAbgeschlossene Berufsausbildung als Koch\nErfahrung in derselben oder einer vergleichbaren Position\nAusgeprägtes Servicedenken, Organisationstalent\nSorgfalt und Genauigkeit beim Einhalten der Hygienestandards\nKörperliche Belastbarkeit\nFührungskompetenz, Flexibilität und Kreativität\n\nIHRE AUFGABEN\nHerstellen der Mise en Place laut Karte\nUmsetzen des Hygienekonzeptes nach Eurofins und Iso\nAnweisungen der Demi-chef de Partie, der Commis de cuisine und Lernenden\nSicherstellung eines hohen Service für die Gäste\nSchaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "fr": "Hôtel Eden Roc est situé directement sur les rives du lac Majeur et comme un hôtel de luxe 5 étoiles supérieur appartient aux \"Swiss Deluxe Hotels\" et les \"Leading Hotels of the World\". Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous vous cherchons à partir de mars 2026\nIls offrent à nos invités des expériences culinaires!\n\nVOTRE PROFIL\nFormation professionnelle terminée comme cuisinier\nExpérience dans la même position ou dans une position comparable\nForte pensée de service, talent organisationnel\nSoin et précision dans le respect des normes d'hygiène\nCapacité physique\nLeadership, flexibilité et créativité\n\nSES TÂCHES\nFaire la mise en place selon la carte\nMise en œuvre du concept d'hygiène selon Eurofins et Iso\nInstructions de Demi-chef de Partie, Commissaire de cuisine et apprenants\nAssurer un haut niveau de service pour les clients\nCréer un environnement sûr, propre et convivial pour tous les clients\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier de candidature - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
+      },
+      "location": "Ascona",
+      "canton": "TI",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1413/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:48:44.774Z",
+      "addressLocality": "Ascona",
+      "postalCode": "6612",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Gastronomia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1413/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Küche",
+      "hotelName": "Hotel Eden Roc",
+      "firstSeenAt": "2026-11-25T21:19:39.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ],
+        "en": [
+          "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
+          "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch"
+      ],
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 67000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "streetAddress": "Ascona",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-24T09:48:44.774Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "tschuggen-bfe070850971",
+      "slug": "demi-chef-de-partie-restaurant-eden-roc-nella-stagione-m-f-d-tschuggen-collection-ascona",
+      "slugByLocale": {
+        "it": "demi-chef-de-partie-restaurant-eden-roc-nella-stagione-m-f-d-tschuggen-collection-ascona",
+        "en": "demi-chef-de-partie-restaurant-eden-roc-in-season-m-f-d-tschuggen-collection-ascona",
+        "de": "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "fr": "demi-chef-de-partie-restaurant-eden-roc-en-saison-h-f-d-tschuggen-collection-ascona"
+      },
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Demi Chef de Partie Restaurant Eden Roc in Saisonanstellung (m/w/d)",
+      "titleByLocale": {
+        "it": "Demi Chef de Partie Restaurant Eden Roc nella stagione (m/f/d)",
+        "en": "Demi Chef de Partie Restaurant Eden Roc in season (m/f/d)",
+        "de": "Demi Chef de Partie Restaurant Eden Roc in Saisonanstellung (m/w/d)",
+        "fr": "Demi Chef de Partie Restaurant Eden Roc en saison (h/f/d)"
+      },
+      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab sofort oder nach Vereinbarung\nMit Ihrer Begeisterung für den Einsatz vor und hinter den Kulissen des Restaurants Eden Roc sind Sie bei uns genau richtig!\n\nIHR PROFIL\nAbgeschlossene Berufslehre als Koch\nSaubere und selbständige Arbeitsweise\nMehrjährige Berufserfahrung in der gehobenen Gastronomie oder der Luxushotellerie\nGrosse Teamfähigkeit\nFlexibilität, Kreativität und gross\n\nIHRE AUFGABEN\nStellvertretung der Postenchefs bei deren Abwesenheit\nSicherstellung eines hohen Service\nfür die Gäste\nSchaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste\nHerstellen des Mise en Place laut Karte\nEinhaltung der Standards der \"The Leading\nHotels of the World\"\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+      "descriptionByLocale": {
+        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nLa stiamo cercando ora o d'accordo\nCon il vostro entusiasmo per il lavoro di fronte e dietro le quinte del ristorante Eden Roc, siete nel posto giusto!\n\nIl tuo progetto\nApprendistato completo come cuoco\nLavoro pulito e indipendente\nDiversi anni di esperienza professionale nel settore alberghiero di lusso e gastronomia\nGrande capacità di squadra\nFlessibilità, creatività e grande\n\nITS TASKs\nVice capi postali in loro assenza\nGarantire un alto livello di servizio\nPer gli ospiti\nCreare un ambiente sicuro, pulito e amichevole per tutti gli ospiti\nRendere il Mise en Place secondo la mappa\nRispetto degli standard \"The Leading\"\nHotel del Mondo\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
+        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe are looking for you now or by agreement\nWith your enthusiasm for the work in front of and behind the scenes of the Eden Roc restaurant, you are in the right place!\n\nYOUR PROFILE\nCompleted apprenticeship as a cook\nClean and independent work\nSeveral years of professional experience in the upscale gastronomy or luxury hotel industry\nGreat team capability\nFlexibility, creativity and great\n\nITS TASKS\nDeputy heads of post in their absence\nEnsuring a high level of service\nFor guests\nCreating a safe, clean and friendly environment for all guests\nMaking the Mise en Place according to the map\nCompliance with the standards of \"The Leading\"\nHotels of the World\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
+        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab sofort oder nach Vereinbarung\nMit Ihrer Begeisterung für den Einsatz vor und hinter den Kulissen des Restaurants Eden Roc sind Sie bei uns genau richtig!\n\nIHR PROFIL\nAbgeschlossene Berufslehre als Koch\nSaubere und selbständige Arbeitsweise\nMehrjährige Berufserfahrung in der gehobenen Gastronomie oder der Luxushotellerie\nGrosse Teamfähigkeit\nFlexibilität, Kreativität und gross\n\nIHRE AUFGABEN\nStellvertretung der Postenchefs bei deren Abwesenheit\nSicherstellung eines hohen Service\nfür die Gäste\nSchaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste\nHerstellen des Mise en Place laut Karte\nEinhaltung der Standards der \"The Leading\nHotels of the World\"\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "fr": "Hôtel Eden Roc est situé directement sur les rives du lac Majeur et comme un hôtel de luxe 5 étoiles supérieur appartient aux \"Swiss Deluxe Hotels\" et les \"Leading Hotels of the World\". Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous vous recherchons maintenant ou d'un commun accord\nAvec votre enthousiasme pour le travail devant et derrière les coulisses du restaurant Eden Roc, vous êtes au bon endroit !\n\nVOTRE PROFIL\nApprentissage terminé comme cuisinier\nTravail propre et indépendant\nPlusieurs années d'expérience professionnelle dans la gastronomie haut de gamme ou l'hôtellerie de luxe\nGrande capacité d'équipe\nFlexibilité, créativité et grande\n\nSES TÂCHES\nAdministrateurs adjoints en leur absence\nAssurer un niveau de service élevé\nPour les invités\nCréer un environnement sûr, propre et convivial pour tous les clients\nFaire la mise en place selon la carte\nRespect des normes de \"Le Leader\"\nHôtels du monde\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier de candidature - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
+      },
+      "location": "Ascona",
+      "canton": "TI",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1414/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:48:44.066Z",
+      "addressLocality": "Ascona",
+      "postalCode": "6612",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Gastronomia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1414/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Küche",
+      "hotelName": "Hotel Eden Roc",
+      "firstSeenAt": "2026-11-25T21:19:38.777Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ],
+        "en": [
+          "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
+          "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch"
+      ],
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 67000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "streetAddress": "Ascona",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-24T09:48:44.066Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "tschuggen-8e61dab3946a",
+      "slug": "butler-esterno-m-f-d-stagione-estiva-2027-tschuggen-collection-ascona",
+      "slugByLocale": {
+        "it": "butler-esterno-m-f-d-stagione-estiva-2027-tschuggen-collection-ascona",
+        "en": "outdoor-butler-m-f-d-summer-season-2027-tschuggen-collection-ascona",
+        "de": "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch",
+        "fr": "butler-exterieur-h-f-d-saison-estivale-2027-tschuggen-collection-ascona"
+      },
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Outdoor Butler (m/w/d) Sommersaison 2027",
+      "titleByLocale": {
+        "it": "Butler esterno (m/f/d) Stagione estiva 2027",
+        "en": "Outdoor Butler (m/f/d) Summer Season 2027",
+        "de": "Outdoor Butler (m/w/d) Sommersaison 2027",
+        "fr": "Butler extérieur (h/f/d) Saison estivale 2027"
+      },
+      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nZur Verstärkung unseres Teams suchen wir ab März 2027 eine motivierte und engagierte Persönlichkeit.\n\nIHR PROFIL\nErfahrung in einer Position mit enger Gästebetreuung von Vorteil\nGute Kenntnisse der Region & Kultur\nGute Vernetzung in der Region von Vorteil\nOutdoor-Affin\nStarke organisatorische und koordinative Fähigkeiten\nAuthentischer Umgang mit Gästen und persönliche Art von Vorteil\nErfahrung in der 5* Hotellerie von Vorteil\nD/E/I Bedingung, jede weitere Sprache von Vorteil\nAusgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail\nSorgfalt und Genauigkeit beim Einhalten der Standards\nFreundliches Auftreten, Höflichkeit gegenüber Gästen\nGepflegtes Erscheinungsbild\nBelastbarkeit, Flexibilität, Lösungsorientiert\n\nIHRE AUFGABEN\nBegleitung und ganzheitliche Gästebetreuung während PLAY-Aktivitäten\nAktive Bewerbung und Verkauf PLAY Wochenprogramm\nAdministrative Arbeiten (Korrespondenz, Programmkoordination mit anderen Abteilungen, massgeschneiderte Angebotserstellung, etc.)\nJahresplanung mit unterschiedlichen Programmen im Winter & Sommer\nRecherche und Entwicklung neuer Programmpunkte und Highlights inklusive Pricing\nWeiterentwicklung bestehender Aktivitäten im PLAY Pillar\nKoordination abteilungsübergreifender Kommunikation\nEntwicklung und Schulung abteilungsübergreifender PLAY Aktivitäten (bspw. Erlebnis mit mehreren involvierten Abteilungen)\nPlanung, Monitoring und Durchführung Ambassador Programm\nAufbau, Schulung und Koordination eines Ambassador- bzw. Assistant-Pools, um Ausfälle, Urlaube und Zusatzanfragen bedienen zu können\nAusarbeitung, Schulung und Weiterentwicklung internes Buchungshandling sowie Aktivitäten-Übersicht\nReporting, Aufbereitung und Auswertung relevanter Pillars\nPLAY-Lead und Ansprechpartner für alle PLAY bezogenen Fragen\nPlanung und Betreuung von Erlebnissen für Journalisten und Influencer\nEnge Zusammenarbeit Concierge / Front Office / Reservierung\nKommunikation und Zusammenarbeit mit externen Partnern\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+      "descriptionByLocale": {
+        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nPer rafforzare il nostro team, stiamo cercando una personalità motivata e impegnata dal marzo 2027.\n\nIl tuo progetto\nL'esperienza in una posizione con la cura degli ospiti vicino è vantaggioso\nBuona conoscenza della regione & cultura\nBuona rete nella regione\nImpiego all'aperto\nForte capacità organizzative e coordinate\nAutentica interazione con gli ospiti e tipo personale di vantaggio\nL'esperienza nel settore alberghiero 5* è un vantaggio\nD/E/I Condizione, qualsiasi altra lingua utile\nForte pensiero di servizio, consapevolezza di alta qualità, attenzione ai dettagli\nCura e precisione negli standard di soddisfare\nGentilezza, cortesia verso gli ospiti\nAspetto principale\nResilienza, flessibilità, soluzione orientata\n\nITS TASKs\nAccompagnamento e assistenza olistica durante le attività PLAY\nApplicazione attiva e vendita programma settimanale PLAY\nLavoro amministrativo (corrispondenza, coordinamento del programma con altri dipartimenti, preparazione dell'offerta su misura, ecc.)\nPianificazione annuale con diversi programmi in inverno e estate\nRicerca e sviluppo di nuovi punti di programma e punti salienti compresi i prezzi\nUlteriori sviluppi delle attività esistenti nel pilastro PLAY\nCoordinamento della comunicazione trasversale\nSviluppo e formazione delle attività di PLAY cross-departmental (per esempio esperienza con diversi dipartimenti coinvolti)\nPianificazione, monitoraggio e attuazione del Programma Ambasciatore\nStabilimento, formazione e coordinamento di un ambasciatore o di un pool di assistenti al fine di poter servire outage, vacanze e richieste aggiuntive\nSviluppo, formazione e ulteriore sviluppo della gestione delle prenotazioni interne e della panoramica delle attività\nRapporti, preparazione e valutazione dei pertinenti Pilastri\nPLAY-Lead e contatto per tutte le domande relative a PLAY\nPianificazione e sostegno di esperienze per giornalisti e influencer\nChiudi cooperazione concierge / front office / prenotazione\nComunicazione e cooperazione con partner esterni\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
+        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nTo strengthen our team, we are looking for a motivated and committed personality from March 2027.\n\nYOUR PROFILE\nExperience in a position with close guest care is beneficial\nGood knowledge of the region & culture\nGood networking in the region\nOutdoor affin\nStrong organizational and coordinative skills\nAuthentic interaction with guests and personal kind of advantage\nExperience in the 5* hotel industry is an advantage\nD/E/I Condition, any other language beneficial\nStrong service thinking, high quality awareness, attention to detail\nCare and accuracy in meeting standards\nKindness, courtesy towards guests\nMaintained appearance\nResilience, flexibility, solution-oriented\n\nITS TASKS\nAccompaniment and holistic guest care during PLAY activities\nActive application and sale PLAY weekly program\nAdministrative work (correspondence, programme coordination with other departments, tailor-made offer preparation, etc.)\nAnnual planning with different programs in winter & summer\nResearch and development of new program points and highlights including pricing\nFurther development of existing activities in the PLAY Pillar\nCoordination of cross-departmental communication\nDevelopment and training of cross-departmental PLAY activities (e.g. experience with several departments involved)\nPlanning, monitoring and implementation of the Ambassador Programme\nEstablishment, training and coordination of an ambassador or assistant pool in order to be able to serve outages, holidays and additional requests\nDevelopment, training and further development of internal booking handling as well as activity overview\nReporting, preparation and evaluation of relevant Pillars\nPLAY-Lead and contact for all PLAY-related questions\nPlanning and supporting experiences for journalists and influencers\nClose cooperation concierge / front office / reservation\nCommunication and cooperation with external partners\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
+        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nZur Verstärkung unseres Teams suchen wir ab März 2027 eine motivierte und engagierte Persönlichkeit.\n\nIHR PROFIL\nErfahrung in einer Position mit enger Gästebetreuung von Vorteil\nGute Kenntnisse der Region & Kultur\nGute Vernetzung in der Region von Vorteil\nOutdoor-Affin\nStarke organisatorische und koordinative Fähigkeiten\nAuthentischer Umgang mit Gästen und persönliche Art von Vorteil\nErfahrung in der 5* Hotellerie von Vorteil\nD/E/I Bedingung, jede weitere Sprache von Vorteil\nAusgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail\nSorgfalt und Genauigkeit beim Einhalten der Standards\nFreundliches Auftreten, Höflichkeit gegenüber Gästen\nGepflegtes Erscheinungsbild\nBelastbarkeit, Flexibilität, Lösungsorientiert\n\nIHRE AUFGABEN\nBegleitung und ganzheitliche Gästebetreuung während PLAY-Aktivitäten\nAktive Bewerbung und Verkauf PLAY Wochenprogramm\nAdministrative Arbeiten (Korrespondenz, Programmkoordination mit anderen Abteilungen, massgeschneiderte Angebotserstellung, etc.)\nJahresplanung mit unterschiedlichen Programmen im Winter & Sommer\nRecherche und Entwicklung neuer Programmpunkte und Highlights inklusive Pricing\nWeiterentwicklung bestehender Aktivitäten im PLAY Pillar\nKoordination abteilungsübergreifender Kommunikation\nEntwicklung und Schulung abteilungsübergreifender PLAY Aktivitäten (bspw. Erlebnis mit mehreren involvierten Abteilungen)\nPlanung, Monitoring und Durchführung Ambassador Programm\nAufbau, Schulung und Koordination eines Ambassador- bzw. Assistant-Pools, um Ausfälle, Urlaube und Zusatzanfragen bedienen zu können\nAusarbeitung, Schulung und Weiterentwicklung internes Buchungshandling sowie Aktivitäten-Übersicht\nReporting, Aufbereitung und Auswertung relevanter Pillars\nPLAY-Lead und Ansprechpartner für alle PLAY bezogenen Fragen\nPlanung und Betreuung von Erlebnissen für Journalisten und Influencer\nEnge Zusammenarbeit Concierge / Front Office / Reservierung\nKommunikation und Zusammenarbeit mit externen Partnern\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "fr": "Hôtel Eden Roc est situé directement sur les rives du lac Majeur et comme un hôtel de luxe 5 étoiles supérieur appartient aux \"Swiss Deluxe Hotels\" et les \"Leading Hotels of the World\". Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nPour renforcer notre équipe, nous recherchons une personnalité motivée et engagée à partir de mars 2027.\n\nVOTRE PROFIL\nL'expérience dans une position avec des soins proches des clients est bénéfique\nBonne connaissance de la région et de la culture\nBonne mise en réseau dans la région\nAffin extérieur\nFortes compétences organisationnelles et coordinatives\nInteraction authentique avec les invités et avantage personnel\nL'expérience dans l'hôtellerie 5* est un avantage\nCondition D/E/I, toute autre langue utile\nRéflexion forte sur le service, sensibilisation de haute qualité, attention aux détails\nRespect et précision des normes\nBienveillance, courtoisie envers les invités\nAspect maintenu\nRésilience, flexibilité, solution\n\nSES TÂCHES\nAccompagnement et soins holistiques lors des activités PLAY\nApplication active et vente Programme hebdomadaire PLAY\nTravaux administratifs (correspondance, coordination des programmes avec d'autres départements, préparation d'offres sur mesure, etc.)\nPlanification annuelle avec différents programmes en hiver et en été\nRecherche et développement de nouveaux points et faits saillants du programme, y compris la tarification\nDéveloppement des activités existantes dans le pilier PLAY\nCoordination de la communication interministérielle\nÉlaboration et formation d'activités de PLAY interministérielles (p. ex. expérience avec plusieurs ministères concernés)\nPlanification, suivi et exécution du Programme des ambassadeurs\nCréation, formation et coordination d'un bassin d'ambassadeurs ou d'assistants pour pouvoir servir les pannes, les vacances et les demandes supplémentaires\nDéveloppement, formation et perfectionnement du traitement interne des réservations ainsi qu'un aperçu des activités\nRapports, préparation et évaluation des piliers pertinents\nPLAY-Lead et contact pour toutes les questions relatives à PLAY\nPlanification et soutien des expériences des journalistes et des influenceurs\nCoopération étroite concierge / réception / réservation\nCommunication et coopération avec les partenaires extérieurs\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier de candidature - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
+      },
+      "location": "Ascona",
+      "canton": "TI",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1415/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T09:48:43.363Z",
+      "addressLocality": "Ascona",
+      "postalCode": "6612",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1415/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Loge",
+      "hotelName": "Hotel Eden Roc",
+      "firstSeenAt": "2026-11-25T21:19:37.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch"
+        ],
+        "en": [
+          "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch"
+        ],
+        "fr": [
+          "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "streetAddress": "Ascona",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-24T09:48:43.363Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -545,484 +1058,8 @@
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-20T21:19:42.961Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tschuggen-bccbf670bb29",
-      "slug": "responsabile-del-kids-club-nell-impiego-stagionale-m-f-d-tschuggen-collection-ascona",
-      "slugByLocale": {
-        "it": "responsabile-del-kids-club-nell-impiego-stagionale-m-f-d-tschuggen-collection-ascona",
-        "en": "kids-club-leader-in-seasonal-employment-m-f-d-tschuggen-collection-ascona",
-        "de": "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "fr": "responsable-du-club-pour-enfants-en-h-f-d-d-emploi-saisonnier-tschuggen-collection-ascona"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "Kids Club Leiter/-in in Saisonanstellung (m/w/d)",
-      "titleByLocale": {
-        "it": "Responsabile del Kids Club nell'Impiego Stagionale (m/f/d)",
-        "en": "Kids Club Leader in Seasonal Employment (m/f/d)",
-        "de": "Kids Club Leiter/-in in Saisonanstellung (m/w/d)",
-        "fr": "Responsable du club pour enfants en (h/f/d) d'emploi saisonnier"
-      },
-      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab dem 20. März 2027 oder nach Vereinbarung\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\n\nIHR PROFIL\n• Ausbildung im pädagogischen Bereich\n• Erfahrung in derselben Position ist von Vorteil\n• Ausgeprägte Dienstleistungsorientierung, hohes Qualitätsbewusstsein und Liebe zum Detail\n• Freundliches Auftreten, Höflichkeit gegenüber den Gästen\n• Gepflegtes Erscheinungsbild\n• Flexibilität\n\nIHRE AUFGABEN\n• Betreuung und Animation der Gästekinder in unserem Miniclub nach den geforderten Standards\n• Vertretung die 1. Kinderbetreuerin in deren Abwesenheit und sorgte für Ordnung, Sauberkeit und Hygiene am Arbeitsplatz\n• Die Erstellung des Wochenprogramms, das Einpacken der Kindergeschenke sowie den Miniclub betreffenden administrative Arbeiten\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise, Lido Locarno und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-      "descriptionByLocale": {
-        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nTi stiamo cercando dai 20 anni. Marzo 2027 o d'accordo\nSei un ospite appassionato ed empatico, apprezzato e rispettoso?\nAllora hai ragione con noi.\n\nIl tuo progetto\n• Formazione professionale\n• L'esperienza nella stessa posizione è benefica\n• Forte orientamento al servizio, alta consapevolezza di qualità e attenzione ai dettagli\n• Gentilezza, cortesia verso gli ospiti\n• Aspetto principale\n• Flessibilità\n\nITS TASKs\n• Cura e animazione dei bambini ospiti nel nostro mini club secondo gli standard richiesti\n• Rappresentare il primo fornitore di assistenza all'infanzia in loro assenza e garantire l'ordine, la pulizia e l'igiene sul posto di lavoro\n• La preparazione del programma settimanale, l'imballaggio di regali per bambini e il lavoro amministrativo relativo al mini club\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise, Lido Locarno e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
-        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe are looking for you from the 20. March 2027 or by agreement\nYou are a passionate and empathetic host, appreciative & respectful?\nThen you are right with us.\n\nYOUR PROFILE\n• Educational training\n• Experience in the same position is beneficial\n• Strong service orientation, high quality awareness and attention to detail\n• Kindness, courtesy towards guests\n• Maintained appearance\n• Flexibility\n\nITS TASKS\n• Care and animation of the guest children in our mini club according to the required standards\n• Representing the 1st childcare provider in their absence and ensuring order, cleanliness and hygiene in the workplace\n• The preparation of the weekly program, the packing of children's gifts and administrative work concerning the mini club\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise, Lido Locarno and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
-        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab dem 20. März 2027 oder nach Vereinbarung\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\n\nIHR PROFIL\n• Ausbildung im pädagogischen Bereich\n• Erfahrung in derselben Position ist von Vorteil\n• Ausgeprägte Dienstleistungsorientierung, hohes Qualitätsbewusstsein und Liebe zum Detail\n• Freundliches Auftreten, Höflichkeit gegenüber den Gästen\n• Gepflegtes Erscheinungsbild\n• Flexibilität\n\nIHRE AUFGABEN\n• Betreuung und Animation der Gästekinder in unserem Miniclub nach den geforderten Standards\n• Vertretung die 1. Kinderbetreuerin in deren Abwesenheit und sorgte für Ordnung, Sauberkeit und Hygiene am Arbeitsplatz\n• Die Erstellung des Wochenprogramms, das Einpacken der Kindergeschenke sowie den Miniclub betreffenden administrative Arbeiten\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise, Lido Locarno und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-        "fr": "L'hôtel Eden Roc est situé directement sur les rives du lac Majeur et, en tant qu'hôtel de luxe 5 étoiles supérieur, appartient aux « hôtels de luxe suisse » et aux « hôtels principaux du monde ». Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous vous cherchons depuis les 20 ans. Mars 2027 ou par accord\nVous êtes un hôte passionné et empathique, reconnaissant et respectueux?\nAlors vous avez raison avec nous.\n\nVOTRE PROFIL\n• Formation scolaire\n• L'expérience dans la même position est bénéfique\n• Orientation forte du service, sensibilisation de haute qualité et attention aux détails\n• Bienveillance, courtoisie envers les invités\n• Aspect maintenu\n• Flexibilité\n\nSES TÂCHES\n• Soins et animation des enfants invités dans notre mini-club selon les normes requises\n• Représenter le 1er fournisseur de soins en leur absence et assurer l'ordre, la propreté et l'hygiène sur le lieu de travail\n• La préparation du programme hebdomadaire, l'emballage des cadeaux pour enfants et les travaux administratifs concernant le mini club\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise, Lido Locarno et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier d'application - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
-      },
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1405/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:42.271Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1405/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "hotelName": "Hotel Eden Roc",
-      "previousSlugs": [
-        "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "kids-club-responsabile-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
-          "kids-club-responsabile-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
-        ],
-        "en": [
-          "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
-        ],
-        "fr": [
-          "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-23T21:22:34.647Z",
-      "salaryMin": 72000,
-      "salaryMax": 90500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "streetAddress": "Ascona",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:19:42.271Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tschuggen-faea525b1a0b",
-      "slug": "dipendente-dell-ufficio-in-occupazione-stagionale-m-f-d-tschuggen-collection-ascona",
-      "slugByLocale": {
-        "it": "dipendente-dell-ufficio-in-occupazione-stagionale-m-f-d-tschuggen-collection-ascona",
-        "en": "office-employee-in-in-seasonal-employment-m-f-d-tschuggen-collection-ascona",
-        "de": "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "fr": "employe-de-bureau-in-en-emploi-saisonnier-h-f-d-tschuggen-collection-ascona"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "Officemitarbeiter /-in in Saisonanstellung (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipendente dell'ufficio /-in occupazione stagionale (m/f/d)",
-        "en": "Office employee /-in in seasonal employment (m/f/d)",
-        "de": "Officemitarbeiter /-in in Saisonanstellung (m/w/d)",
-        "fr": "Employé de bureau /-in en emploi saisonnier (h/f/d)"
-      },
-      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab März 2027 oder nach Vereinbarung.\nMit Ihrer Begeisterung für den Service am Gast sind Sie bei uns genau richtig!\n\nIHR PROFIL\n• Erfahrung in einer vergleichbaren Position von Vorteil\n• Freundliches Auftreten sowie Körperliche Belastbarkeit & Flexibilität\n• Verantwortungsbewusstes Handeln im Sinne unserer Unternehmens\n\nIHRE AUFGABEN\n• Allgemeine Küchen- und Officearbeiten (vom Porzellan bis zu den Töpfen reinigen)\n• Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle\n• Aushelfen und Unterstützung im Mitarbeiter-Restaurant inklusive Reinigung\n• Umsetzen des Hygienekonzeptes nach Eurofins und Iso\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-      "descriptionByLocale": {
-        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nVi cercheremo dal marzo 2027 o su appuntamento.\nCon il vostro entusiasmo per il servizio dell'ospite siete esattamente a destra con noi!\n\nIl tuo progetto\n• L'esperienza in una posizione comparabile è vantaggiosa\n• Amichevole aspetto e resistenza fisica e flessibilità\n• Azione responsabile nel senso della nostra azienda\n\nITS TASKs\n• Cucina generale e ufficio lavoro (da porcellana di pulizia a vasi)\n• Creare un ambiente sicuro, pulito e amichevole per tutti\n• Aiuto e supporto nel ristorante del personale, compresa la pulizia\n• Attuazione del concetto di igiene secondo Eurofins e Iso\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
-        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe will search you from March 2027 or by appointment.\nWith your enthusiasm for the service of the guest you are exactly right with us!\n\nYOUR PROFILE\n• Experience in a comparable position is advantageous\n• Friendly appearance as well as physical resilience & flexibility\n• Responsible action in the sense of our company\n\nITS TASKS\n• General kitchen and office work (from cleaning porcelain to pots)\n• Creating a safe, clean and friendly environment for everyone\n• Help and support in the staff restaurant including cleaning\n• Implementation of the hygiene concept according to Eurofins and Iso\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
-        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab März 2027 oder nach Vereinbarung.\nMit Ihrer Begeisterung für den Service am Gast sind Sie bei uns genau richtig!\n\nIHR PROFIL\n• Erfahrung in einer vergleichbaren Position von Vorteil\n• Freundliches Auftreten sowie Körperliche Belastbarkeit & Flexibilität\n• Verantwortungsbewusstes Handeln im Sinne unserer Unternehmens\n\nIHRE AUFGABEN\n• Allgemeine Küchen- und Officearbeiten (vom Porzellan bis zu den Töpfen reinigen)\n• Schaffung einer sicheren, sauberen und freundlichen Umgebung für alle\n• Aushelfen und Unterstützung im Mitarbeiter-Restaurant inklusive Reinigung\n• Umsetzen des Hygienekonzeptes nach Eurofins und Iso\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-        "fr": "L'hôtel Eden Roc est situé directement sur les rives du lac Majeur et, en tant qu'hôtel de luxe 5 étoiles supérieur, appartient aux « hôtels de luxe suisse » et aux « hôtels principaux du monde ». Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous vous chercherons à partir de mars 2027 ou sur rendez-vous.\nAvec votre enthousiasme pour le service de l'invité, vous avez exactement raison avec nous!\n\nVOTRE PROFIL\n• L'expérience dans une position comparable est avantageuse\n• Aspect amical ainsi que résilience physique et flexibilité\n• Une action responsable au sens de notre entreprise\n\nSES TÂCHES\n• Cuisine générale et travaux de bureau (du nettoyage de porcelaine aux pots)\n• Créer un environnement sûr, propre et convivial pour tous\n• Aide et soutien dans le restaurant du personnel, y compris le nettoyage\n• Mise en œuvre du concept d'hygiène selon Eurofins et Iso\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier d'application - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
-      },
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1410/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:41.405Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1410/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Küche",
-      "hotelName": "Hotel Eden Roc",
-      "previousSlugs": [
-        "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
-          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
-        ],
-        "en": [
-          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
-        ],
-        "fr": [
-          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
-        ]
-      },
-      "firstSeenAt": "2026-11-23T21:22:33.775Z",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "streetAddress": "Ascona",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:19:41.405Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tschuggen-5c65cb7d2025",
-      "slug": "assistente-di-lavanderia-nella-stagione-m-f-d-tschuggen-collection-ascona",
-      "slugByLocale": {
-        "it": "assistente-di-lavanderia-nella-stagione-m-f-d-tschuggen-collection-ascona",
-        "en": "laundry-attendant-in-season-m-f-d-tschuggen-collection-ascona",
-        "de": "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "fr": "lave-linge-en-saison-h-f-d-tschuggen-collection-ascona"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "Laundry Attendant in Saisonanstellung (m/w/d)",
-      "titleByLocale": {
-        "it": "Assistente di lavanderia nella stagione (m/f/d)",
-        "en": "Laundry Attendant in season (m/f/d)",
-        "de": "Laundry Attendant in Saisonanstellung (m/w/d)",
-        "fr": "Lave-linge en saison (h/f/d)"
-      },
-      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab Mitte März 2027 oder nach Vereinbarung\nMit Ihrer Begeisterung und mit ihrem Auge fürs Detail sind Sie bei uns genau richtig!\n\nIHR PROFIL\n• Erfahrung in einer vergleichbaren Position von Vorteil\n• Erfahrung in der Änderungsschneiderei\n• Sorgfalt und Genauigkeit beim Einhalten der Reinigungsstandards\n• Gepflegtes Erscheinungsbild und Körperliche Belastbarkeit\n• Freundliches Auftreten\n\nIHRE AUFGABEN\n• Waschen, trocknen, mangen, bügeln und wegräumen der gesamten Wäsche (Hotel, Gäste, Uniformen) gemäss den vorgegebenen Standards.\n• Änderung von Mitarbeiteruniformen\n• Erledigen diverser Reinigungsarbeiten in den Personalhäusern\n• Fachgerechte Anwendung der Waschmittel (Chemikalien) und anderen Materialien nach Vorschrift\n• Sorgfältiger und korrekter Umgang mit den technischen Geräten sowie mit dem gesamten Hoteleigentum\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-      "descriptionByLocale": {
-        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nCercheremo da metà marzo 2027 o su appuntamento\nCon il vostro entusiasmo e il vostro occhio per i dettagli, siete esattamente a destra con noi!\n\nIl tuo progetto\n• L'esperienza in una posizione comparabile è vantaggiosa\n• Esperienza nel cambiamento sartoria\n• Cura e precisione nel soddisfare gli standard di pulizia\n• Aspetto principale e forza fisica\n• Aspetto amichevole\n\nITS TASKs\n• Lavare, asciugare, mangere, stirare e rimuovere tutto il bucato (hotel, ospiti, uniformi) secondo gli standard specificati.\n• Modifiche alle uniformi dei dipendenti\n• Completare vari lavori di pulizia nelle case del personale\n• Uso corretto dei detergenti (chimici) e di altri materiali come prescritto\n• Gestione attenta e corretta delle attrezzature tecniche e dell'intera struttura alberghiera\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
-        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe will search from mid-March 2027 or by appointment\nWith your enthusiasm and your eye for detail, you are exactly right with us!\n\nYOUR PROFILE\n• Experience in a comparable position is advantageous\n• Experience in change tailoring\n• Care and accuracy in meeting cleaning standards\n• Maintained appearance and physical strength\n• Friendly appearance\n\nITS TASKS\n• Wash, dry, mange, iron and remove all laundry (hotel, guests, uniforms) according to the specified standards.\n• Changes to Employee Uniforms\n• Completing various cleaning work in the staff houses\n• Proper use of detergents (chemicals) and other materials as prescribed\n• Careful and correct handling of the technical equipment as well as the entire hotel property\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
-        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab Mitte März 2027 oder nach Vereinbarung\nMit Ihrer Begeisterung und mit ihrem Auge fürs Detail sind Sie bei uns genau richtig!\n\nIHR PROFIL\n• Erfahrung in einer vergleichbaren Position von Vorteil\n• Erfahrung in der Änderungsschneiderei\n• Sorgfalt und Genauigkeit beim Einhalten der Reinigungsstandards\n• Gepflegtes Erscheinungsbild und Körperliche Belastbarkeit\n• Freundliches Auftreten\n\nIHRE AUFGABEN\n• Waschen, trocknen, mangen, bügeln und wegräumen der gesamten Wäsche (Hotel, Gäste, Uniformen) gemäss den vorgegebenen Standards.\n• Änderung von Mitarbeiteruniformen\n• Erledigen diverser Reinigungsarbeiten in den Personalhäusern\n• Fachgerechte Anwendung der Waschmittel (Chemikalien) und anderen Materialien nach Vorschrift\n• Sorgfältiger und korrekter Umgang mit den technischen Geräten sowie mit dem gesamten Hoteleigentum\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-        "fr": "L'hôtel Eden Roc est situé directement sur les rives du lac Majeur et, en tant qu'hôtel de luxe 5 étoiles supérieur, appartient aux « hôtels de luxe suisse » et aux « hôtels principaux du monde ». Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous chercherons à partir de mi-mars 2027 ou sur rendez-vous\nAvec votre enthousiasme et votre souci du détail, vous avez raison avec nous !\n\nVOTRE PROFIL\n• L'expérience dans une position comparable est avantageuse\n• Expérience de l'adaptation au changement\n• Soin et précision dans le respect des normes de nettoyage\n• Aspect maintenu et force physique\n• Aspect amical\n\nSES TÂCHES\n• Laver, sécher, manger, repasser et enlever toute la lessive (hôtel, invités, uniformes) selon les normes spécifiées.\n• Changements aux uniformes des employés\n• Achèvement de divers travaux de nettoyage dans les maisons du personnel\n• Utilisation appropriée des détergents (produits chimiques) et autres matériaux prescrits\n• Manipulation attentive et correcte de l'équipement technique ainsi que de l'ensemble de l'hôtel\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier d'application - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
-      },
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1408/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:40.543Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1408/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Lingerie",
-      "hotelName": "Hotel Eden Roc",
-      "previousSlugs": [
-        "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
-        ],
-        "en": [
-          "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
-        ],
-        "fr": [
-          "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-23T21:22:32.919Z",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "streetAddress": "Ascona",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:19:40.543Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tschuggen-1f63b6f48e4a",
-      "slug": "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch",
-      "slugByLocale": {
-        "de": "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "it": "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "en": "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "fr": "chef-de-partie-restaurant-marina-in-saisonanstellung-m-w-d-tschuggen-ch"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "Chef de Partie Restaurant Marina in Saisonanstellung (m/w/d)",
-      "titleByLocale": {
-        "de": "Chef de Partie Restaurant Marina in Saisonanstellung (m/w/d)",
-        "it": "Chef de Partie Ristorante Marina in impiego stagionale (m/f/d)",
-        "en": "Chef de Partie Restaurant Marina in seasonal employment (m/f/d)",
-        "fr": "Chef de Partie Restaurant Marina dans emploi saisonnier (h/f/d)"
-      },
-      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab März 2026\nSie sorgen bei unseren Gästen für kulinarische Erlebnisse!\n\nIHR PROFIL\nAbgeschlossene Berufsausbildung als Koch\nErfahrung in derselben oder einer vergleichbaren Position\nAusgeprägtes Servicedenken, Organisationstalent\nSorgfalt und Genauigkeit beim Einhalten der Hygienestandards\nKörperliche Belastbarkeit\nFührungskompetenz, Flexibilität und Kreativität\n\nIHRE AUFGABEN\nHerstellen der Mise en Place laut Karte\nUmsetzen des Hygienekonzeptes nach Eurofins und Iso\nAnweisungen der Demi-chef de Partie, der Commis de cuisine und Lernenden\nSicherstellung eines hohen Service für die Gäste\nSchaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-      "descriptionByLocale": {
-        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab März 2026\nSie sorgen bei unseren Gästen für kulinarische Erlebnisse!\n\nIHR PROFIL\nAbgeschlossene Berufsausbildung als Koch\nErfahrung in derselben oder einer vergleichbaren Position\nAusgeprägtes Servicedenken, Organisationstalent\nSorgfalt und Genauigkeit beim Einhalten der Hygienestandards\nKörperliche Belastbarkeit\nFührungskompetenz, Flexibilität und Kreativität\n\nIHRE AUFGABEN\nHerstellen der Mise en Place laut Karte\nUmsetzen des Hygienekonzeptes nach Eurofins und Iso\nAnweisungen der Demi-chef de Partie, der Commis de cuisine und Lernenden\nSicherstellung eines hohen Service für die Gäste\nSchaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nVi stiamo cercando dal marzo 2026\nOffrono ai nostri ospiti esperienze culinarie!\n\nIl tuo progetto\nAllenamento professionale completo come cuoco\nEsperienza nella stessa o posizione paragonabile\nForte pensiero di servizio, talento organizzativo\nCura e precisione nel rispetto degli standard igienici\nCapacità fisica\nLeadership, flessibilità e creatività\n\nITS TASKs\nRendere il Mise en Place secondo la mappa\nAttuazione del concetto di igiene secondo Eurofins e Iso\nIstruzioni da Demi-chef de Partie, Commis de cuisine and learners\nGarantire un alto livello di servizio per gli ospiti\nCreare un ambiente sicuro, pulito e amichevole per tutti gli ospiti\n\nOUR BENEFITS - Cosa puoi aspettarti da noi\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
-        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe are looking for you from March 2026\nThey provide our guests with culinary experiences!\n\nYOUR PROFILE\nCompleted professional training as a cook\nExperience in the same or a comparable position\nStrong service thinking, organizational talent\nCare and accuracy in compliance with hygiene standards\nPhysical capacity\nLeadership, flexibility and creativity\n\nITS TASKS\nMaking the Mise en Place according to the map\nImplementation of the hygiene concept according to Eurofins and Iso\nInstructions from Demi-chef de Partie, Commis de cuisine and learners\nEnsuring a high level of service for guests\nCreating a safe, clean and friendly environment for all guests\n\nOUR BENEFITS - What you can expect from us\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
-        "fr": "Hôtel Eden Roc est situé directement sur les rives du lac Majeur et comme un hôtel de luxe 5 étoiles supérieur appartient aux \"Swiss Deluxe Hotels\" et les \"Leading Hotels of the World\". Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous vous cherchons à partir de mars 2026\nIls offrent à nos invités des expériences culinaires!\n\nVOTRE PROFIL\nFormation professionnelle terminée comme cuisinier\nExpérience dans la même position ou dans une position comparable\nForte pensée de service, talent organisationnel\nSoin et précision dans le respect des normes d'hygiène\nCapacité physique\nLeadership, flexibilité et créativité\n\nSES TÂCHES\nFaire la mise en place selon la carte\nMise en œuvre du concept d'hygiène selon Eurofins et Iso\nInstructions de Demi-chef de Partie, Commissaire de cuisine et apprenants\nAssurer un haut niveau de service pour les clients\nCréer un environnement sûr, propre et convivial pour tous les clients\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier de candidature - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
-      },
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1413/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:39.658Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1413/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Küche",
-      "hotelName": "Hotel Eden Roc",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "streetAddress": "Ascona",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:19:39.658Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-25T21:19:39.658Z"
-    },
-    {
-      "id": "tschuggen-bfe070850971",
-      "slug": "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch",
-      "slugByLocale": {
-        "de": "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "it": "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "en": "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "fr": "demi-chef-de-partie-restaurant-eden-roc-in-saisonanstellung-m-w-d-tschuggen-ch"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "Demi Chef de Partie Restaurant Eden Roc in Saisonanstellung (m/w/d)",
-      "titleByLocale": {
-        "de": "Demi Chef de Partie Restaurant Eden Roc in Saisonanstellung (m/w/d)",
-        "it": "Demi Chef de Partie Restaurant Eden Roc nella stagione (m/f/d)",
-        "en": "Demi Chef de Partie Restaurant Eden Roc in season (m/f/d)",
-        "fr": "Demi Chef de Partie Restaurant Eden Roc en saison (h/f/d)"
-      },
-      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab sofort oder nach Vereinbarung\nMit Ihrer Begeisterung für den Einsatz vor und hinter den Kulissen des Restaurants Eden Roc sind Sie bei uns genau richtig!\n\nIHR PROFIL\nAbgeschlossene Berufslehre als Koch\nSaubere und selbständige Arbeitsweise\nMehrjährige Berufserfahrung in der gehobenen Gastronomie oder der Luxushotellerie\nGrosse Teamfähigkeit\nFlexibilität, Kreativität und gross\n\nIHRE AUFGABEN\nStellvertretung der Postenchefs bei deren Abwesenheit\nSicherstellung eines hohen Service\nfür die Gäste\nSchaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste\nHerstellen des Mise en Place laut Karte\nEinhaltung der Standards der \"The Leading\nHotels of the World\"\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-      "descriptionByLocale": {
-        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nWir suchen Sie ab sofort oder nach Vereinbarung\nMit Ihrer Begeisterung für den Einsatz vor und hinter den Kulissen des Restaurants Eden Roc sind Sie bei uns genau richtig!\n\nIHR PROFIL\nAbgeschlossene Berufslehre als Koch\nSaubere und selbständige Arbeitsweise\nMehrjährige Berufserfahrung in der gehobenen Gastronomie oder der Luxushotellerie\nGrosse Teamfähigkeit\nFlexibilität, Kreativität und gross\n\nIHRE AUFGABEN\nStellvertretung der Postenchefs bei deren Abwesenheit\nSicherstellung eines hohen Service\nfür die Gäste\nSchaffung einer sicheren, sauberen und freundlichen Umgebung für alle Gäste\nHerstellen des Mise en Place laut Karte\nEinhaltung der Standards der \"The Leading\nHotels of the World\"\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nLa stiamo cercando ora o d'accordo\nCon il vostro entusiasmo per il lavoro di fronte e dietro le quinte del ristorante Eden Roc, siete nel posto giusto!\n\nIl tuo progetto\nApprendistato completo come cuoco\nLavoro pulito e indipendente\nDiversi anni di esperienza professionale nel settore alberghiero di lusso e gastronomia\nGrande capacità di squadra\nFlessibilità, creatività e grande\n\nITS TASKs\nVice capi postali in loro assenza\nGarantire un alto livello di servizio\nPer gli ospiti\nCreare un ambiente sicuro, pulito e amichevole per tutti gli ospiti\nRendere il Mise en Place secondo la mappa\nRispetto degli standard \"The Leading\"\nHotel del Mondo\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
-        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nWe are looking for you now or by agreement\nWith your enthusiasm for the work in front of and behind the scenes of the Eden Roc restaurant, you are in the right place!\n\nYOUR PROFILE\nCompleted apprenticeship as a cook\nClean and independent work\nSeveral years of professional experience in the upscale gastronomy or luxury hotel industry\nGreat team capability\nFlexibility, creativity and great\n\nITS TASKS\nDeputy heads of post in their absence\nEnsuring a high level of service\nFor guests\nCreating a safe, clean and friendly environment for all guests\nMaking the Mise en Place according to the map\nCompliance with the standards of \"The Leading\"\nHotels of the World\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
-        "fr": "Hôtel Eden Roc est situé directement sur les rives du lac Majeur et comme un hôtel de luxe 5 étoiles supérieur appartient aux \"Swiss Deluxe Hotels\" et les \"Leading Hotels of the World\". Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nNous vous recherchons maintenant ou d'un commun accord\nAvec votre enthousiasme pour le travail devant et derrière les coulisses du restaurant Eden Roc, vous êtes au bon endroit !\n\nVOTRE PROFIL\nApprentissage terminé comme cuisinier\nTravail propre et indépendant\nPlusieurs années d'expérience professionnelle dans la gastronomie haut de gamme ou l'hôtellerie de luxe\nGrande capacité d'équipe\nFlexibilité, créativité et grande\n\nSES TÂCHES\nAdministrateurs adjoints en leur absence\nAssurer un niveau de service élevé\nPour les invités\nCréer un environnement sûr, propre et convivial pour tous les clients\nFaire la mise en place selon la carte\nRespect des normes de \"Le Leader\"\nHôtels du monde\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier de candidature - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
-      },
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1414/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:38.777Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1414/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Küche",
-      "hotelName": "Hotel Eden Roc",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "streetAddress": "Ascona",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:19:38.777Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-25T21:19:38.777Z"
-    },
-    {
-      "id": "tschuggen-8e61dab3946a",
-      "slug": "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch",
-      "slugByLocale": {
-        "de": "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch",
-        "it": "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch",
-        "en": "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch",
-        "fr": "outdoor-butler-m-w-d-sommersaison-2027-tschuggen-ch"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "Outdoor Butler (m/w/d) Sommersaison 2027",
-      "titleByLocale": {
-        "de": "Outdoor Butler (m/w/d) Sommersaison 2027",
-        "it": "Butler esterno (m/f/d) Stagione estiva 2027",
-        "en": "Outdoor Butler (m/f/d) Summer Season 2027",
-        "fr": "Butler extérieur (h/f/d) Saison estivale 2027"
-      },
-      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nZur Verstärkung unseres Teams suchen wir ab März 2027 eine motivierte und engagierte Persönlichkeit.\n\nIHR PROFIL\nErfahrung in einer Position mit enger Gästebetreuung von Vorteil\nGute Kenntnisse der Region & Kultur\nGute Vernetzung in der Region von Vorteil\nOutdoor-Affin\nStarke organisatorische und koordinative Fähigkeiten\nAuthentischer Umgang mit Gästen und persönliche Art von Vorteil\nErfahrung in der 5* Hotellerie von Vorteil\nD/E/I Bedingung, jede weitere Sprache von Vorteil\nAusgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail\nSorgfalt und Genauigkeit beim Einhalten der Standards\nFreundliches Auftreten, Höflichkeit gegenüber Gästen\nGepflegtes Erscheinungsbild\nBelastbarkeit, Flexibilität, Lösungsorientiert\n\nIHRE AUFGABEN\nBegleitung und ganzheitliche Gästebetreuung während PLAY-Aktivitäten\nAktive Bewerbung und Verkauf PLAY Wochenprogramm\nAdministrative Arbeiten (Korrespondenz, Programmkoordination mit anderen Abteilungen, massgeschneiderte Angebotserstellung, etc.)\nJahresplanung mit unterschiedlichen Programmen im Winter & Sommer\nRecherche und Entwicklung neuer Programmpunkte und Highlights inklusive Pricing\nWeiterentwicklung bestehender Aktivitäten im PLAY Pillar\nKoordination abteilungsübergreifender Kommunikation\nEntwicklung und Schulung abteilungsübergreifender PLAY Aktivitäten (bspw. Erlebnis mit mehreren involvierten Abteilungen)\nPlanung, Monitoring und Durchführung Ambassador Programm\nAufbau, Schulung und Koordination eines Ambassador- bzw. Assistant-Pools, um Ausfälle, Urlaube und Zusatzanfragen bedienen zu können\nAusarbeitung, Schulung und Weiterentwicklung internes Buchungshandling sowie Aktivitäten-Übersicht\nReporting, Aufbereitung und Auswertung relevanter Pillars\nPLAY-Lead und Ansprechpartner für alle PLAY bezogenen Fragen\nPlanung und Betreuung von Erlebnissen für Journalisten und Influencer\nEnge Zusammenarbeit Concierge / Front Office / Reservierung\nKommunikation und Zusammenarbeit mit externen Partnern\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-      "descriptionByLocale": {
-        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nZur Verstärkung unseres Teams suchen wir ab März 2027 eine motivierte und engagierte Persönlichkeit.\n\nIHR PROFIL\nErfahrung in einer Position mit enger Gästebetreuung von Vorteil\nGute Kenntnisse der Region & Kultur\nGute Vernetzung in der Region von Vorteil\nOutdoor-Affin\nStarke organisatorische und koordinative Fähigkeiten\nAuthentischer Umgang mit Gästen und persönliche Art von Vorteil\nErfahrung in der 5* Hotellerie von Vorteil\nD/E/I Bedingung, jede weitere Sprache von Vorteil\nAusgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail\nSorgfalt und Genauigkeit beim Einhalten der Standards\nFreundliches Auftreten, Höflichkeit gegenüber Gästen\nGepflegtes Erscheinungsbild\nBelastbarkeit, Flexibilität, Lösungsorientiert\n\nIHRE AUFGABEN\nBegleitung und ganzheitliche Gästebetreuung während PLAY-Aktivitäten\nAktive Bewerbung und Verkauf PLAY Wochenprogramm\nAdministrative Arbeiten (Korrespondenz, Programmkoordination mit anderen Abteilungen, massgeschneiderte Angebotserstellung, etc.)\nJahresplanung mit unterschiedlichen Programmen im Winter & Sommer\nRecherche und Entwicklung neuer Programmpunkte und Highlights inklusive Pricing\nWeiterentwicklung bestehender Aktivitäten im PLAY Pillar\nKoordination abteilungsübergreifender Kommunikation\nEntwicklung und Schulung abteilungsübergreifender PLAY Aktivitäten (bspw. Erlebnis mit mehreren involvierten Abteilungen)\nPlanung, Monitoring und Durchführung Ambassador Programm\nAufbau, Schulung und Koordination eines Ambassador- bzw. Assistant-Pools, um Ausfälle, Urlaube und Zusatzanfragen bedienen zu können\nAusarbeitung, Schulung und Weiterentwicklung internes Buchungshandling sowie Aktivitäten-Übersicht\nReporting, Aufbereitung und Auswertung relevanter Pillars\nPLAY-Lead und Ansprechpartner für alle PLAY bezogenen Fragen\nPlanung und Betreuung von Erlebnissen für Journalisten und Influencer\nEnge Zusammenarbeit Concierge / Front Office / Reservierung\nKommunikation und Zusammenarbeit mit externen Partnern\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n• Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen\n\nFühlen Sie sich angesprochen? Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-        "it": "L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e come hotel di lusso a 5 stelle superior appartiene ai \"Swiss Deluxe Hotels\" e ai \"Leading Hotels of the World\". Come una delle quattro case della \"Collezione Tschuggen\" è stata premiata più volte come il miglior hotel per le vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il 19-point gourmet highlight La Brezza Gault Millau & due stelle Michelin e la 2000 m2 Eden Roc Spa. L'ampio giardino con spiaggia privata di balneazione, il molo panoramico della barca e il porto turistico è completato da un'offerta di sport acquatici versatili, una scuola di sci d'acqua e vela nonché noleggio di barche.\nVISIONE - Ritorniamo il vostro valore in tempo.\nPer rafforzare il nostro team, stiamo cercando una personalità motivata e impegnata dal marzo 2027.\n\nIl tuo progetto\nL'esperienza in una posizione con la cura degli ospiti vicino è vantaggioso\nBuona conoscenza della regione & cultura\nBuona rete nella regione\nImpiego all'aperto\nForte capacità organizzative e coordinate\nAutentica interazione con gli ospiti e tipo personale di vantaggio\nL'esperienza nel settore alberghiero 5* è un vantaggio\nD/E/I Condizione, qualsiasi altra lingua utile\nForte pensiero di servizio, consapevolezza di alta qualità, attenzione ai dettagli\nCura e precisione negli standard di soddisfare\nGentilezza, cortesia verso gli ospiti\nAspetto principale\nResilienza, flessibilità, soluzione orientata\n\nITS TASKs\nAccompagnamento e assistenza olistica durante le attività PLAY\nApplicazione attiva e vendita programma settimanale PLAY\nLavoro amministrativo (corrispondenza, coordinamento del programma con altri dipartimenti, preparazione dell'offerta su misura, ecc.)\nPianificazione annuale con diversi programmi in inverno e estate\nRicerca e sviluppo di nuovi punti di programma e punti salienti compresi i prezzi\nUlteriori sviluppi delle attività esistenti nel pilastro PLAY\nCoordinamento della comunicazione trasversale\nSviluppo e formazione delle attività di PLAY cross-departmental (per esempio esperienza con diversi dipartimenti coinvolti)\nPianificazione, monitoraggio e attuazione del Programma Ambasciatore\nStabilimento, formazione e coordinamento di un ambasciatore o di un pool di assistenti al fine di poter servire outage, vacanze e richieste aggiuntive\nSviluppo, formazione e ulteriore sviluppo della gestione delle prenotazioni interne e della panoramica delle attività\nRapporti, preparazione e valutazione dei pertinenti Pilastri\nPLAY-Lead e contatto per tutte le domande relative a PLAY\nPianificazione e sostegno di esperienze per giornalisti e influencer\nChiudi cooperazione concierge / front office / prenotazione\nComunicazione e cooperazione con partner esterni\n\nOUR BENEFITS - Cosa puoi aspettarti da noi:\n• Attraente alloggio personale vicino all'hotel\n• Offerta menu bilanciata nella nostra stafftrattoria con opzioni vegetariane e vegane\n• Prezzi speciali per le applicazioni nel centro benessere dell'hotel e Lido Locarno - piscina e fitness\n• Tariffe speciali per soggiorni di notte nei nostri hotel di \"The Tschuggen Collection\" e negli hotel di lusso svizzeri\n• Sconti speciali a AMAG, Sunrise e numerose altre aziende\n\nTi senti indirizzato? Applica subito!\nAttendiamo con ansia il vostro dossier di applicazione - felicemente digitale:\nLettera di applicazione\nCV completo incl. Foto\nCertificati e Diploma",
-        "en": "Hotel Eden Roc is located directly on the shores of Lake Maggiore and as a 5-star superior luxury hotel belongs to the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four houses of the \"The Tschuggen Collection\" it has been awarded several times as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the 19-point gourmet highlight La Brezza Gault Millau & two Michelin stars and the 2000 m2 Eden Roc Spa. The extensive garden with private bathing beach, panoramic boat pier and marina is complemented by a versatile water sports offer, a water skiing and sailing school as well as boat rental.\nOUR VISION - We return your value to time.\nTo strengthen our team, we are looking for a motivated and committed personality from March 2027.\n\nYOUR PROFILE\nExperience in a position with close guest care is beneficial\nGood knowledge of the region & culture\nGood networking in the region\nOutdoor affin\nStrong organizational and coordinative skills\nAuthentic interaction with guests and personal kind of advantage\nExperience in the 5* hotel industry is an advantage\nD/E/I Condition, any other language beneficial\nStrong service thinking, high quality awareness, attention to detail\nCare and accuracy in meeting standards\nKindness, courtesy towards guests\nMaintained appearance\nResilience, flexibility, solution-oriented\n\nITS TASKS\nAccompaniment and holistic guest care during PLAY activities\nActive application and sale PLAY weekly program\nAdministrative work (correspondence, programme coordination with other departments, tailor-made offer preparation, etc.)\nAnnual planning with different programs in winter & summer\nResearch and development of new program points and highlights including pricing\nFurther development of existing activities in the PLAY Pillar\nCoordination of cross-departmental communication\nDevelopment and training of cross-departmental PLAY activities (e.g. experience with several departments involved)\nPlanning, monitoring and implementation of the Ambassador Programme\nEstablishment, training and coordination of an ambassador or assistant pool in order to be able to serve outages, holidays and additional requests\nDevelopment, training and further development of internal booking handling as well as activity overview\nReporting, preparation and evaluation of relevant Pillars\nPLAY-Lead and contact for all PLAY-related questions\nPlanning and supporting experiences for journalists and influencers\nClose cooperation concierge / front office / reservation\nCommunication and cooperation with external partners\n\nOUR BENEFITS - What you can expect from us:\n• Attractive staff accommodation near the hotel\n• Balanced menu offer in our stafftrattoria with vegetarian & vegan options\n• Special prices for applications in the hotel's spa and Lido Locarno - swimming pool and fitness\n• Special rates for overnight stays in our hotels of \"The Tschuggen Collection\" and the Swiss Deluxe Hotels\n• Special discounts at AMAG, Sunrise and numerous other companies\n\nDo you feel addressed? Apply now!\nWe look forward to your application dossier - gladly digital:\nLetter of application\nFull CV incl. Photo\nCertificates & Diplomas",
-        "fr": "Hôtel Eden Roc est situé directement sur les rives du lac Majeur et comme un hôtel de luxe 5 étoiles supérieur appartient aux \"Swiss Deluxe Hotels\" et les \"Leading Hotels of the World\". Comme l'une des quatre maisons de la « Collection Tschuggen », il a été décerné plusieurs fois comme le meilleur hôtel de vacances en Suisse. L'hôtel dispose de 95 chambres et suites luxueuses, quatre restaurants, dont le 19-point gastronomique mettant en valeur La Brezza Gault Millau & deux étoiles Michelin et le Spa Eden Roc 2000 m2. Le vaste jardin avec plage privée, quai panoramique et marina est complété par une offre polyvalente de sports nautiques, une école de ski nautique et de voile ainsi que la location de bateaux.\nNOTRE VISION - Nous retournons votre valeur dans le temps.\nPour renforcer notre équipe, nous recherchons une personnalité motivée et engagée à partir de mars 2027.\n\nVOTRE PROFIL\nL'expérience dans une position avec des soins proches des clients est bénéfique\nBonne connaissance de la région et de la culture\nBonne mise en réseau dans la région\nAffin extérieur\nFortes compétences organisationnelles et coordinatives\nInteraction authentique avec les invités et avantage personnel\nL'expérience dans l'hôtellerie 5* est un avantage\nCondition D/E/I, toute autre langue utile\nRéflexion forte sur le service, sensibilisation de haute qualité, attention aux détails\nRespect et précision des normes\nBienveillance, courtoisie envers les invités\nAspect maintenu\nRésilience, flexibilité, solution\n\nSES TÂCHES\nAccompagnement et soins holistiques lors des activités PLAY\nApplication active et vente Programme hebdomadaire PLAY\nTravaux administratifs (correspondance, coordination des programmes avec d'autres départements, préparation d'offres sur mesure, etc.)\nPlanification annuelle avec différents programmes en hiver et en été\nRecherche et développement de nouveaux points et faits saillants du programme, y compris la tarification\nDéveloppement des activités existantes dans le pilier PLAY\nCoordination de la communication interministérielle\nÉlaboration et formation d'activités de PLAY interministérielles (p. ex. expérience avec plusieurs ministères concernés)\nPlanification, suivi et exécution du Programme des ambassadeurs\nCréation, formation et coordination d'un bassin d'ambassadeurs ou d'assistants pour pouvoir servir les pannes, les vacances et les demandes supplémentaires\nDéveloppement, formation et perfectionnement du traitement interne des réservations ainsi qu'un aperçu des activités\nRapports, préparation et évaluation des piliers pertinents\nPLAY-Lead et contact pour toutes les questions relatives à PLAY\nPlanification et soutien des expériences des journalistes et des influenceurs\nCoopération étroite concierge / réception / réservation\nCommunication et coopération avec les partenaires extérieurs\n\nNOTRE AVANTAGES - Ce que vous pouvez attendre de nous:\n• Hébergement attrayant du personnel près de l'hôtel\n• Offre de menu équilibré dans notre stafftrattoria avec des options végétariennes et végétaliennes\n• Prix spéciaux pour les applications dans le spa de l'hôtel et Lido Locarno - piscine et fitness\n• Tarifs spéciaux pour les nuitées dans nos hôtels de \"La Collection Tschuggen\" et les Swiss Deluxe Hotels\n• Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises\n\nVous sentez-vous adressé ? Postulez !\nNous attendons avec impatience votre dossier de candidature - volontiers numérique:\nLettre de demande\nCV complet incl. Photo\nCertificats et diplômes"
-      },
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1415/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:19:37.827Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1415/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Loge",
-      "hotelName": "Hotel Eden Roc",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "streetAddress": "Ascona",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:19:37.827Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-25T21:19:37.827Z"
+      "crawlerMissStreak": 1
     },
     {
       "id": "tschuggen-8ed219ca4686",
@@ -1127,7 +1164,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T09:19:37.335Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

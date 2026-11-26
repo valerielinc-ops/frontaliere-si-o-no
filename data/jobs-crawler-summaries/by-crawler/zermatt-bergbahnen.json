@@ -1,7 +1,7 @@
 {
   "key": "zermatt-bergbahnen",
   "label": "Zermatt Bergbahnen",
-  "generatedAt": "2026-11-25T21:43:27.654Z",
+  "generatedAt": "2026-11-26T09:52:00.121Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -14,79 +14,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 5,
-  "durationMs": 6496,
-  "avgDurationMs": 6496,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 4,
+  "durationMs": 8967,
+  "avgDurationMs": 8967,
   "durationHistory": [
-    6496
+    8967
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "zermatt-bergbahnen-44fe7c8677eb",
-      "slug": "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt",
-      "company": "Zermatt Bergbahnen",
-      "companyKey": "zermatt-bergbahnen",
-      "companyDomain": "matterhornparadise.ch",
-      "title": "Lehrstelle Informatiker/in EFZ",
-      "location": "Zermatt",
-      "canton": "VS",
-      "addressLocality": "Zermatt",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3920",
-      "category": "technology",
-      "sector": "Turismo / Funivie",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
-      "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
-      "source": "Zermatt Bergbahnen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:33:16.495Z",
-      "firstSeenAt": "2026-08-27T00:53:04.281Z",
-      "salaryMin": 57000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Zermatt Bergbahnen",
-        "streetAddress": "Schluhmattstrasse 123",
-        "postalCode": "3920",
-        "registeredName": "Zermatt Bergbahnen AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "3920",
-        "addressLocality": "Zermatt",
-        "addressRegion": "VS",
-        "checkedAt": "2026-11-16T15:23:08.822Z"
-      },
-      "streetAddress": "Schluhmattstrasse 123",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-24T09:33:16.495Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "zermatt-bergbahnen-4992cc0352fc",
       "slug": "capocuoco-capocuoca-nel-servizio-diurno-zermatt-bergbahnen-zermatt",
@@ -114,7 +51,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/kuechenchef-kuechenchefin-im-tagesbetrieb_job_5225639",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:13.533Z",
+      "crawledAt": "2026-11-26T09:51:38.324Z",
       "firstSeenAt": "2026-10-05T21:36:24.260Z",
       "salaryMin": 88000,
       "salaryMax": 110500,
@@ -136,7 +73,7 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-03T21:43:13.533Z",
+      "validThrough": "2027-01-04T09:51:38.324Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -145,7 +82,10 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "zermatt-bergbahnen-450c7c2a86a3",
       "slug": "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt-bf4c08",
@@ -173,7 +113,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer-in-efz_job_4602024",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:12.908Z",
+      "crawledAt": "2026-11-26T09:51:37.630Z",
       "firstSeenAt": "2026-11-21T21:31:18.507Z",
       "salaryMin": 49000,
       "salaryMax": 74500,
@@ -195,7 +135,7 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-19T21:43:12.908Z",
+      "validThrough": "2027-02-20T09:51:37.630Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -232,7 +172,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-seilbahnmechatroniker-in-efz_job_3704876",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:12.331Z",
+      "crawledAt": "2026-11-26T09:51:36.924Z",
       "firstSeenAt": "2026-11-18T21:45:52.335Z",
       "salaryMin": 49000,
       "salaryMax": 74500,
@@ -254,7 +194,7 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-17T21:43:12.331Z",
+      "validThrough": "2027-02-17T09:51:36.924Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -291,7 +231,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker-in-produktionsmechaniker-in_job_3700464",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:11.748Z",
+      "crawledAt": "2026-11-26T09:51:36.260Z",
       "firstSeenAt": "2026-11-21T21:31:16.771Z",
       "salaryMin": 49000,
       "salaryMax": 74500,
@@ -313,7 +253,7 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-19T21:43:11.748Z",
+      "validThrough": "2027-02-20T09:51:36.260Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -350,7 +290,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:11.147Z",
+      "crawledAt": "2026-11-26T09:51:35.533Z",
       "firstSeenAt": "2026-08-31T17:33:46.526Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -372,7 +312,7 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T21:43:11.147Z",
+      "validThrough": "2026-12-26T09:51:35.533Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -383,5 +323,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }

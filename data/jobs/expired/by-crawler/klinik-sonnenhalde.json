@@ -324,17 +324,30 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-04T09:27:37.182Z",
     "previousSlugs": [
-      "mitarbeiterin-service-stv-leitung-service-klinik-sonnenhalde-riehen"
+      "mitarbeiterin-service-stv-leitung-service-klinik-sonnenhalde-riehen",
+      "collaboratore-trice-service-klinik-sonnenhalde-riehen",
+      "mitarbeiter-in-service-klinik-sonnenhalde-riehen",
+      "associate-service-klinik-sonnenhalde-riehen",
+      "collaborateur-trice-service-klinik-sonnenhalde-riehen"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiterin-service-stv-leitung-service-klinik-sonnenhalde-riehen"
+        "mitarbeiterin-service-stv-leitung-service-klinik-sonnenhalde-riehen",
+        "collaboratore-trice-service-klinik-sonnenhalde-riehen",
+        "mitarbeiter-in-service-klinik-sonnenhalde-riehen"
       ],
       "en": [
-        "mitarbeiterin-service-stv-leitung-service-klinik-sonnenhalde-riehen"
+        "mitarbeiterin-service-stv-leitung-service-klinik-sonnenhalde-riehen",
+        "associate-service-klinik-sonnenhalde-riehen",
+        "mitarbeiter-in-service-klinik-sonnenhalde-riehen"
       ],
       "fr": [
-        "mitarbeiterin-service-stv-leitung-service-klinik-sonnenhalde-riehen"
+        "mitarbeiterin-service-stv-leitung-service-klinik-sonnenhalde-riehen",
+        "collaborateur-trice-service-klinik-sonnenhalde-riehen",
+        "mitarbeiter-in-service-klinik-sonnenhalde-riehen"
+      ],
+      "de": [
+        "mitarbeiter-in-service-klinik-sonnenhalde-riehen"
       ]
     },
     "postalCode": "4125",
@@ -343,7 +356,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/414/description/1",
-    "firstSeenAt": "2026-09-24T00:08:14.046Z"
+    "firstSeenAt": "2026-09-24T00:08:14.046Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratore-trice-service-klinik-sonnenhalde-riehen": "BS",
+        "mitarbeiter-in-service-klinik-sonnenhalde-riehen": "BS"
+      },
+      "en": {
+        "associate-service-klinik-sonnenhalde-riehen": "BS",
+        "mitarbeiter-in-service-klinik-sonnenhalde-riehen": "BS"
+      },
+      "de": {
+        "mitarbeiter-in-service-klinik-sonnenhalde-riehen": "BS"
+      },
+      "fr": {
+        "collaborateur-trice-service-klinik-sonnenhalde-riehen": "BS",
+        "mitarbeiter-in-service-klinik-sonnenhalde-riehen": "BS"
+      }
+    }
   },
   {
     "slug": "dipl-infermiera-fh-hf-in-servizio-notturno-klinik-sonnenhalde-riehen",
