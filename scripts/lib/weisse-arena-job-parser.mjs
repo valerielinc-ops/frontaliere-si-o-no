@@ -279,6 +279,7 @@ async function mapWithConcurrency(values, concurrency, mapper) {
   const results = new Array(values.length);
   let nextIndex = 0;
   let stopped = false;
+  let firstError;
 
   async function worker() {
     while (!stopped && nextIndex < values.length) {
@@ -288,13 +289,14 @@ async function mapWithConcurrency(values, concurrency, mapper) {
         results[index] = await mapper(values[index], index);
       } catch (error) {
         stopped = true;
-        throw error;
+        firstError ??= error;
       }
     }
   }
 
   const workerCount = Math.min(concurrency, values.length);
   await Promise.all(Array.from({ length: workerCount }, () => worker()));
+  if (firstError !== undefined) throw firstError;
   return results;
 }
 
