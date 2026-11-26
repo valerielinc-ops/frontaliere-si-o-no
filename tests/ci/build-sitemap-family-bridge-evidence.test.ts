@@ -57,6 +57,14 @@ describe('sitemap family bridge evidence builder', () => {
     expect(hasNoindexFollow(html)).toBe(expected);
   });
 
+  it('ignores a robots decoy inside a raw-text element', () => {
+    const fake = '<meta name="robots" content="noindex,follow">';
+    const html = `<script>const decoy = ${JSON.stringify(fake)};</script>`
+      + '<meta name="robots" content="index,follow">';
+
+    expect(hasNoindexFollow(html)).toBe(false);
+  });
+
   it.each([
     ['https://frontaliereticino.ch/', 'it'],
     ['https://frontaliereticino.ch/ricerca/x/', 'it'],

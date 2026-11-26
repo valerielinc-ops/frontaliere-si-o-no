@@ -24,6 +24,7 @@ import { fetchVerifiedLogo } from '../company-logo-audit.mjs';
 import { extractIconLinks, extractOfficialLogoImages } from '../../download-missing-company-logos.mjs';
 import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost, registrableDomain } from './registrable.mjs';
+import { readAttr, scanMarkupStartTags } from '../html-attr.mjs';
 
 const FETCH_TIMEOUT_MS = 10_000;
 /** Declared assets tried per homepage, so one page full of logos costs little. */
@@ -78,9 +79,9 @@ export function employerSiteName(html, domain) {
   if (label.length < 3) return '';
   const source = String(html || '');
   const names = [];
-  for (const tag of source.match(/<meta\b[^>]*>/gi) || []) {
-    if (!/\b(?:property|name)\s*=\s*["']og:site_name["']/i.test(tag)) continue;
-    names.push(tag.match(/\bcontent\s*=\s*["']([^"']{2,120})["']/i)?.[1]);
+  for (const { raw: tag } of scanMarkupStartTags(source, 'meta')) {
+    if (readAttr(tag, ['property', 'name']).toLowerCase() !== 'og:site_name') continue;
+    names.push(readAttr(tag, 'content'));
   }
   for (const match of source.matchAll(/"@type"\s*:\s*"(?:Organization|Corporation|LocalBusiness)"[^{}]{0,400}?"name"\s*:\s*"([^"]{2,120})"/g)) {
     names.push(match[1]);

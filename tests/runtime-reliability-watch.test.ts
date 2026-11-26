@@ -55,6 +55,8 @@ describe('runtime reliability watchdog', () => {
     expect(extractBuildIdFromHtml('<html><head><script>"<meta name=ft-build-id content=1793621650112>"</script></head></html>')).toBeNull();
     expect(extractBuildIdFromHtml('<html><head><meta name="ft-build-id" content="1793621650112"><meta name="ft-build-id" content="1793621650113"></head></html>')).toBeNull();
     expect(extractBuildIdFromHtml('<html><head><meta name="robots" content="index"></head></html>')).toBeNull();
+    expect(extractBuildIdFromHtml('<html><head><div data-template=\'<meta name="ft-build-id" content="1793621650112">\'>'
+      + '</div><meta name="ft-build-id" content="1793621650113"></head></html>')).toBe('1793621650113');
   });
 
   it('purges only home pages whose HTML build-id differs from the fresh site marker', () => {

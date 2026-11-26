@@ -18,6 +18,7 @@ import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { normalizeAnyCantonCode } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
+import { readMetaContent } from './html-attr.mjs';
 
 // ─── SmartRecruiters public API (CH-wide source of truth) ──────────────────
 // The swissmedical.net careers page is React-rendered; the
@@ -367,9 +368,8 @@ export function parseSmartRecruiterDetail(html = '') {
   const description = normalizeSpace(htmlToText(contentHtml));
 
   // Try to extract location from structured data or meta
-  const locMatch = html.match(/"jobLocation"[^}]*"addressLocality"\s*:\s*"([^"]+)"/i)
-    || html.match(/<meta[^>]*name="geo\.placename"[^>]*content="([^"]+)"/i);
-  const location = locMatch ? normalizeSpace(locMatch[1]) : '';
+  const structuredLocation = html.match(/"jobLocation"[^}]*"addressLocality"\s*:\s*"([^"]+)"/i)?.[1] || '';
+  const location = normalizeSpace(structuredLocation || readMetaContent(html, 'geo.placename'));
 
   return { title, description, location };
 }

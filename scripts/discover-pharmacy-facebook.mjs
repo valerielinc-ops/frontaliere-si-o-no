@@ -14,6 +14,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { realpathSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { readMetaContent as readSharedMetaContent } from './lib/html-attr.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG_PATH = resolve(REPO_ROOT, 'data/pharmacy-enrichment-sources.json');
@@ -34,11 +35,6 @@ function decodeHtml(value) {
     .replace(/&gt;/gi, '>');
 }
 
-function htmlAttribute(tag, name) {
-  const match = String(tag || '').match(new RegExp(`\\b${name}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
-  return match ? decodeHtml(match[2]) : '';
-}
-
 function htmlText(html) {
   return decodeHtml(String(html || '')
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
@@ -49,12 +45,7 @@ function htmlText(html) {
 }
 
 function metaContent(html, key) {
-  for (const match of String(html || '').matchAll(/<meta\b[^>]*>/gi)) {
-    const tag = match[0];
-    const property = htmlAttribute(tag, 'property') || htmlAttribute(tag, 'name');
-    if (property.toLowerCase() === key.toLowerCase()) return htmlAttribute(tag, 'content');
-  }
-  return '';
+  return decodeHtml(readSharedMetaContent(html, key));
 }
 
 function safePublicHttpsUrl(value) {

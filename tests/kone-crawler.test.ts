@@ -1,9 +1,21 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { afterEach, describe, it, expect, vi } from 'vitest';
+
+const { launchStealthOrChromiumMock } = vi.hoisted(() => ({
+  launchStealthOrChromiumMock: vi.fn(),
+}));
+
+vi.mock('../scripts/lib/stealth-browser.mjs', () => ({
+  chromeUserAgent: () => 'Mozilla/5.0 Chrome/140.0.0.0',
+  isStealthBrowser: () => false,
+  launchStealthOrChromium: launchStealthOrChromiumMock,
+}));
+
 import {
   KONE_KEY,
   KONE_COMPANY_NAME,
+  KONE_WORKDAY_PUBLIC_URL,
   fetchAllKoneJobs,
   isKoneJob,
   isTrustedDomain,
@@ -49,6 +61,8 @@ function mockKoneWorkday({ faceted, unfiltered, details = {}, siteStatus = 200 }
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+  launchStealthOrChromiumMock.mockReset();
 });
 
 describe('KONE crawler — Workday source (tenant kone, site Careers)', () => {
@@ -111,6 +125,63 @@ describe('KONE crawler — Workday source (tenant kone, site Careers)', () => {
   it('fails loudly when the career site does not exist', async () => {
     mockKoneWorkday({ siteStatus: 404 });
     await expect(fetchAllKoneJobs()).rejects.toThrow(/HTTP 404/);
+  });
+
+  it('boots the browser fallback on KONE\'s German public Workday site', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+
+    const page = {
+      goto: vi.fn().mockResolvedValue({ status: () => 200 }),
+      evaluate: vi.fn().mockImplementation(async (_evaluate, args) => {
+        const url = String(args.requestUrl);
+        if (url.endsWith('/jobs')) {
+          return {
+            status: 200,
+            body: JSON.stringify({
+              total: 1,
+              jobPostings: [{
+                title: 'Service Engineer',
+                externalPath: '/job/Lausanne/Service_Engineer_R123',
+                locationsText: 'Lausanne, Switzerland',
+              }],
+            }),
+          };
+        }
+        return {
+          status: 200,
+          body: JSON.stringify({
+            jobPostingInfo: {
+              title: 'Service Engineer',
+              location: 'Lausanne, Switzerland',
+              jobDescription: 'The role supports Swiss customers and coordinates installation, maintenance, safety, documentation, communication, training, planning, service delivery, quality checks, collaboration, continuous improvement, and reliable customer support across the organization. You will work with experienced colleagues, follow clear procedures, solve practical problems, communicate progress, and contribute to safe, inclusive, professional operations while developing your technical expertise in a structured international team.',
+            },
+          }),
+        };
+      }),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    const context = {
+      newPage: vi.fn().mockResolvedValue(page),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    const browser = {
+      version: () => '140.0.0',
+      newContext: vi.fn().mockResolvedValue(context),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    launchStealthOrChromiumMock.mockResolvedValue(browser);
+
+    const jobs = await fetchAllKoneJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(page.goto).toHaveBeenCalledWith(
+      KONE_WORKDAY_PUBLIC_URL,
+      expect.objectContaining({ waitUntil: 'domcontentloaded' }),
+    );
+    expect(page.evaluate).toHaveBeenCalled();
+    expect(browser.close).toHaveBeenCalledOnce();
   });
 
   it('wires the runner to accept only a proven empty snapshot', () => {

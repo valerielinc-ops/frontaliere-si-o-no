@@ -48,6 +48,7 @@ import { validateMandatoryJobPostingFields } from "./lib/jobposting-mandatory-fi
 import { APEX_HOST } from "./lib/cf-worker-routes.mjs";
 import { MAX_TARGETED_FILES } from "./lib/cf-purge-limits.mjs";
 import { SECTION_ORIGIN } from "../infra/cloudflare-worker/locale-router.js";
+import { readAttr, scanMarkupStartTags } from "./lib/html-attr.mjs";
 
 const BASE_URL = "https://frontaliereticino.ch";
 const LOCALES = ACTIVE_JOB_PAGE_LOCALES;
@@ -304,11 +305,10 @@ function extractAlternates(html) {
 
 function extractRobots(html) {
   const values = [];
-  for (const match of html.matchAll(/<meta\b[^>]*>/giu)) {
-    const tag = match[0];
-    const name = extractAttr(tag, "name").toLowerCase();
+  for (const { raw: tag } of scanMarkupStartTags(html, "meta")) {
+    const name = readAttr(tag, "name").toLowerCase();
     if (name === "robots" || name === "googlebot")
-      values.push(extractAttr(tag, "content").toLowerCase());
+      values.push(readAttr(tag, "content").toLowerCase());
   }
   return values;
 }
@@ -320,10 +320,9 @@ export function extractFirstPartyAssetUrls(html) {
     const value = extractAttr(match[0], "src");
     if (value) assets.add(value);
   }
-  for (const match of html.matchAll(/<meta\b[^>]*>/giu)) {
-    const tag = match[0];
-    if (extractAttr(tag, "property").toLowerCase() === "og:image") {
-      const value = extractAttr(tag, "content");
+  for (const { raw: tag } of scanMarkupStartTags(html, "meta")) {
+    if (readAttr(tag, "property").toLowerCase() === "og:image") {
+      const value = readAttr(tag, "content");
       if (value) assets.add(value);
     }
   }

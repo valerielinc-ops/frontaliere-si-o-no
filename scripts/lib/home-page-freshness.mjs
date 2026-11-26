@@ -1,4 +1,5 @@
 import { APEX_HOST, shardOriginForApexUrl } from './cf-worker-routes.mjs';
+import { readAllAttr, scanMarkupStartTags } from './html-attr.mjs';
 
 export const SITE_ORIGIN = `https://${APEX_HOST}`;
 
@@ -13,28 +14,17 @@ export const HOME_PAGE_LOCALES = Object.freeze(Object.keys(HOME_PAGE_PATH_BY_LOC
 
 const BUILD_ID_PATTERN = /^\d{10,20}$/;
 
-function attributeValues(tag, wantedName) {
-  const values = [];
-  for (const match of tag.matchAll(/\b([a-z][\w:-]*)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/gi)) {
-    if (match[1].toLowerCase() !== wantedName) continue;
-    values.push(match[2] ?? match[3] ?? match[4] ?? '');
-  }
-  return values;
-}
-
 /** Return a single well-formed ft-build-id meta value; missing/ambiguous is unknown. */
 export function extractBuildIdFromHtml(html) {
   if (typeof html !== 'string') return null;
   const heads = [...html.matchAll(/<head\b[^>]*>([\s\S]*?)<\/head\s*>/gi)];
   if (heads.length !== 1) return null;
-  const head = heads[0][1]
-    .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, '');
+  const head = heads[0][1];
   const markers = [];
-  for (const tag of head.matchAll(/<meta\b[^>]*>/gi)) {
-    const names = attributeValues(tag[0], 'name');
+  for (const { raw: tag } of scanMarkupStartTags(head, 'meta')) {
+    const names = readAllAttr(tag, 'name');
     if (!names.some((name) => name.toLowerCase() === 'ft-build-id')) continue;
-    const contents = attributeValues(tag[0], 'content');
+    const contents = readAllAttr(tag, 'content');
     if (names.length !== 1 || contents.length !== 1 || !BUILD_ID_PATTERN.test(contents[0].trim())) {
       return null;
     }

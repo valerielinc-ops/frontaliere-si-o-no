@@ -11,6 +11,7 @@ import {
   SITEMAP_FAMILY_CHURN_TOLERANCE,
   sitemapFamilyUrlDifferences,
 } from '../lib/sitemap-family-coverage.mjs';
+import { scanMarkupStartTags } from '../lib/html-attr.mjs';
 
 export const BRIDGE_EVIDENCE_KIND = 'sitemap-family-bridge-evidence';
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -49,9 +50,8 @@ function metaAttributes(tag) {
 }
 
 export function hasNoindexFollow(html) {
-  const tags = html.match(/<meta\b[^>]*>/giu) ?? [];
-  return tags.some((tag) => {
-    const attributes = metaAttributes(tag);
+  return scanMarkupStartTags(html, 'meta').some(({ raw }) => {
+    const attributes = metaAttributes(raw);
     if (attributes?.get('name')?.toLowerCase() !== 'robots') return false;
     const directives = (attributes.get('content') ?? '').toLowerCase().split(/[\s,]+/u);
     return directives.includes('noindex') && directives.includes('follow');
