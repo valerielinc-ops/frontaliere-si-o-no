@@ -1178,7 +1178,7 @@
     "slugByLocale": {
       "it": "responsabile-del-team-di-consulenza-alla-clientela-raiffeisen-muri-ag",
       "en": "customer-advisory-team-leader-raiffeisen-muri-ag",
-      "de": "teamleiter-in-kundenberatung-raiffeisen-muri-ag",
+      "de": "teamleiter-in-kundenberatung-raiffeisen-muri-ag-78dc4746",
       "fr": "responsable-d-equipe-du-conseil-a-la-clientele-raiffeisen-muri-ag"
     },
     "sector": "Sanità / Ospedali",
@@ -1189,6 +1189,7 @@
     ],
     "previousSlugsByLocale": {
       "it": [
+        "teamleiter-in-kundenberatung-raiffeisen-muri-ag-78dc4746",
         "teamleiter-in-kundenberatung-raiffeisen-muri-ag"
       ],
       "en": [
@@ -1197,6 +1198,9 @@
       ],
       "fr": [
         "teamleiter-in-kundenberatung-raiffeisen-muri-ag"
+      ],
+      "de": [
+        "teamleiter-in-kundenberatung-raiffeisen-muri-ag-78dc4746"
       ]
     },
     "postalCode": "5630",
@@ -7687,16 +7691,23 @@
     "slugByLocale": {
       "it": "collaboratore-trice-fachverarbeitung-m-w-d-raiffeisen-lyss",
       "en": "associate-fachverarbeitung-m-w-d-raiffeisen-lyss",
-      "de": "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss",
+      "de": "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss-72967deb",
       "fr": "collaborateur-trice-fachverarbeitung-m-w-d-raiffeisen-lyss"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-28T22:25:52.873Z",
-    "previousSlugs": [
-      "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss-72967deb",
+        "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
+      ],
+      "en": [
+        "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
+      ],
+      "de": [
+        "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss-72967deb"
+      ],
+      "fr": [
         "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
       ]
     },
@@ -7706,7 +7717,10 @@
     "salaryPeriod": "YEAR",
     "postalCode": "3250",
     "streetAddress": "Lyss",
-    "sourceIdentity": "url:https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-in-fachverarbeitung-m-w-d/de7525dc-3525-4bda-b44b-3f03e22968ca"
+    "sourceIdentity": "url:https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-in-fachverarbeitung-m-w-d/de7525dc-3525-4bda-b44b-3f03e22968ca",
+    "previousSlugs": [
+      "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
+    ]
   },
   {
     "slug": "membro-del-consiglio-di-amministrazione-di-raiffeisenbank-st-gallen-raiffeisen-st-gallen",
