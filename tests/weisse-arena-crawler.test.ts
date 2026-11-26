@@ -12,7 +12,11 @@
  *   - Trusted domain detection (weissearena.com + recruitmentplatform.com)
  *   - Slug generation
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { afterEach, describe, it, expect, vi } from 'vitest';
+import { isProvenHousekeepingPrune } from '../scripts/lib/crawler-slice-integrity.mjs';
 import {
   WEISSE_ARENA_KEY,
   WEISSE_ARENA_COMPANY_NAME,
@@ -26,7 +30,7 @@ import {
   buildDetailUrl,
 } from '../scripts/lib/weisse-arena-job-parser.mjs';
 import {
-  hasVerifiedWeisseArenaListingObservation,
+  verifiedWeisseArenaOmissionProof,
   runStandardCrawlerPipeline,
   slugify,
 } from '../scripts/lib/crawler-template.mjs';
@@ -34,15 +38,42 @@ import {
 const mocks = vi.hoisted(() => ({
   readExistingCrawlerJobs: vi.fn(),
   writeJobsCrawlerSliceVerified: vi.fn(),
+  writeSummaryCrawlerSlice: vi.fn(),
+  archiveRemovedJobsToSlice: vi.fn(() => 0),
+  scratchPath: '',
 }));
 
 vi.mock('../scripts/assemble-jobs-dataset.mjs', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../scripts/assemble-jobs-dataset.mjs')>()),
-  ...mocks,
+  readExistingCrawlerJobs: mocks.readExistingCrawlerJobs,
+  writeJobsCrawlerSliceVerified: mocks.writeJobsCrawlerSliceVerified,
+  writeSummaryCrawlerSlice: mocks.writeSummaryCrawlerSlice,
+  assembleJobsDataset: vi.fn(),
   registerCrawlerSummaryGuard: vi.fn(),
 }));
 
-afterEach(() => vi.unstubAllGlobals());
+vi.mock('../scripts/lib/dedicated-crawler-common.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/lib/dedicated-crawler-common.mjs')>()),
+  runDedicatedBaseCrawler: vi.fn(),
+  validateDedicatedLocaleCoverage: vi.fn(),
+}));
+
+vi.mock('../scripts/lib/expired-jobs-archive.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/lib/expired-jobs-archive.mjs')>()),
+  archiveRemovedJobsToSlice: mocks.archiveRemovedJobsToSlice,
+  readExpiredSlice: vi.fn(() => []),
+}));
+
+vi.mock('../scripts/lib/crawler-scratch-path.mjs', async (importOriginal) => {
+  const original = await importOriginal<typeof import('../scripts/lib/crawler-scratch-path.mjs')>();
+  return { ...original, crawlerScratchPathFor: (key: string) => mocks.scratchPath || original.crawlerScratchPathFor(key) };
+});
+
+afterEach(() => {
+  vi.clearAllMocks();
+  vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+});
 
 // ─── Constants ──────────────────────────────────────────────────────────────────
 
@@ -378,6 +409,12 @@ describe('TalentLink pagination completeness', () => {
     url: `https://www.weissearena.com/jobs/details.html?jobId=${id}`,
   });
 
+  const detailNotFound = () => Response.json({
+    errorType: 'APPLICATION',
+    errorCode: 'Bad Request',
+    errorMsg: 'Stelle nicht gefunden',
+  }, { status: 400 });
+
   const detailJobId = (url: URL) => {
     const match = url.pathname.match(/\/fo\/rest\/jobs\/(\d+)\/details$/);
     return match ? Number(match[1]) : null;
@@ -519,19 +556,15 @@ describe('TalentLink pagination completeness', () => {
     const page = Array.from({ length: 50 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
     const existingJobs = Array.from({ length: 100 }, (_, index) => existingJob(index + 1));
     const offsets: number[] = [];
-    const detailRequests: number[] = [];
+    const omittedJob51Verdicts: string[] = [];
     let sourceMutated = false;
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
       const url = new URL(String(input));
       const id = detailJobId(url);
       if (id !== null) {
-        detailRequests.push(id);
-        return sourceMutated
-          ? new Response(JSON.stringify({ errorType: 'APPLICATION', errorCode: 'Bad Request', errorMsg: 'Stelle nicht gefunden' }), {
-            status: 400,
-            headers: { 'Content-Type': 'application/json' },
-          })
-          : Response.json({ jobFields: { id } });
+        if (id === 1) sourceMutated = false;
+        if (id === 51) omittedJob51Verdicts.push(sourceMutated ? 'absent' : 'active');
+        return sourceMutated ? detailNotFound() : Response.json({ jobFields: { id } });
       }
 
       const offset = Number(url.searchParams.get('firstResult'));
@@ -559,17 +592,17 @@ describe('TalentLink pagination completeness', () => {
       isCompanyJob: isWeisseArenaJob,
       prepareExistingJobs,
     })).rejects.toThrow(
-      /snapshot remained incomplete.*job 51 not found.*no verified source snapshot version/i,
+      /snapshot remained incomplete.*job 51.*before: active; after: absent/i,
     );
     expect(prepareExistingJobs).not.toHaveBeenCalled();
     expect(mocks.writeJobsCrawlerSliceVerified).not.toHaveBeenCalled();
     expect(offsets).toEqual([0, 50, 0, 50, 0, 50]);
-    expect(detailRequests).toEqual([51, 51, 51]);
+    expect(omittedJob51Verdicts).toEqual(['active', 'absent', 'active', 'absent', 'active', 'absent']);
     expect(existingJobs.map(({ url }) => new URL(url).searchParams.get('jobId')))
       .toEqual(Array.from({ length: 100 }, (_, index) => String(index + 1)));
   });
 
-  it('accepts only an observed receipt with every actual baseline ID present', () => {
+  it('binds each proven omission to exactly one actually omitted baseline job', () => {
     const existingJobs = Array.from({ length: 100 }, (_, index) => existingJob(index + 1));
     const parsedJobs = existingJobs.slice(0, 50);
     const numbers = parsedJobs.map((job) => job.jobNumber);
@@ -579,23 +612,29 @@ describe('TalentLink pagination completeness', () => {
       minimumExpectedCount: 50, terminalOffset: 50, terminalJobsCount: 0, terminalJobsOmitted: true,
       listingIdentities: numbers, processedIdentities: numbers, listingJobNumbers: numbers,
       processedJobNumbers: numbers, processedCount: 50,
-      baselineJobIds: ids(1, 50), currentJobIds: ids(1, 50),
+      baselineJobIds: ids(1, 50), currentJobIds: ids(1, 50), absenceVerifiedJobIds: [],
     };
     const check = (receipt: Record<string, unknown>, prior = existingJobs.slice(0, 50)) => (
-      hasVerifiedWeisseArenaListingObservation({
+      verifiedWeisseArenaOmissionProof({
         companyKey: 'weisse-arena',
         fetchMetadata: { discoveredCount: 50, sourceListingSnapshot: receipt },
         parsedJobs,
         existingJobs: prior,
       })
     );
-    expect(check(snapshot)).toBe(true);
-    expect(check(snapshot, existingJobs)).toBe(false);
-    expect(check({ ...snapshot, baselineJobIds: ids(1, 100), absenceVerifiedJobIds: ids(51, 100) }, existingJobs)).toBe(false);
-    expect(check({ ...snapshot, coverage: undefined, complete: true })).toBe(false);
-    expect(check({ ...snapshot, currentJobIds: ids(2, 51) })).toBe(false);
-    expect(check({ ...snapshot, currentJobIds: [...ids(1, 49), '49'] })).toBe(false);
-    expect(check({ ...snapshot, currentJobIds: [...ids(1, 49), '050'] })).toBe(false);
+    const completeProof = { ...snapshot, baselineJobIds: ids(1, 100), absenceVerifiedJobIds: ids(51, 100) };
+    expect(check(snapshot)).toEqual([]);
+    expect(check(snapshot, existingJobs)).toBeNull();
+    expect(check(completeProof, existingJobs)).toEqual(existingJobs.slice(50).map((job) => ({
+      job, reason: 'talentlink-detail-confirmed-absence', definitive: true,
+    })));
+    expect(check({ ...completeProof, absenceVerifiedJobIds: ids(51, 99) }, existingJobs)).toBeNull();
+    expect(check({ ...completeProof, absenceVerifiedJobIds: [...ids(51, 99), '99'] }, existingJobs)).toBeNull();
+    expect(check({ ...completeProof, absenceVerifiedJobIds: [...ids(51, 99), '1'] }, existingJobs)).toBeNull();
+    expect(check({ ...snapshot, coverage: undefined, complete: true })).toBeNull();
+    expect(check({ ...snapshot, currentJobIds: ids(2, 51) })).toBeNull();
+    expect(check({ ...snapshot, currentJobIds: [...ids(1, 49), '49'] })).toBeNull();
+    expect(check({ ...snapshot, currentJobIds: [...ids(1, 49), '050'] })).toBeNull();
   });
 
   it.each([
@@ -632,6 +671,7 @@ describe('TalentLink pagination completeness', () => {
       const url = new URL(String(input));
       const requestedDetailJobId = detailJobId(url);
       if (requestedDetailJobId !== null) {
+        if (requestedDetailJobId !== 51) return Response.json({ jobFields: { id: requestedDetailJobId } });
         detailRequests.push(requestedDetailJobId);
         return detailResponse();
       }
@@ -646,7 +686,84 @@ describe('TalentLink pagination completeness', () => {
 
     await expect(fetchAllWeisseArenaJobs({ existingJobs })).rejects.toThrow(expected);
     expect(listingOffsets).toEqual([0, 50, 0, 50, 0, 50]);
-    expect(detailRequests).toEqual([51, 51, 51]);
+    expect(detailRequests).toEqual([51, 51, 51, 51, 51, 51]);
+  });
+
+  it('passes only bracketed omissions to the guarded writer on an 11-to-3 crawl', async () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'weisse-arena-crawler-'));
+    mocks.scratchPath = path.join(tmp, 'jobs.json');
+    vi.stubEnv('GITHUB_STEP_SUMMARY', path.join(tmp, 'step-summary.md'));
+
+    try {
+      const existingJobs = Array.from({ length: 11 }, (_, index) => {
+        const id = index + 1;
+        const title = `Role ${id}`;
+        return {
+          ...existingJob(id),
+          title,
+          slug: slugify(`${title} weisse-arena ch`),
+          url: buildDetailUrl(id, title),
+        };
+      });
+      const currentIds = [1, 2, 12];
+      const body = Array(60).fill('Ausführliche').join(' ');
+      const currentListings = currentIds.map((id) => ({
+        ...listing(id, `Role ${id}`),
+        customFields: [{ title: 'Aufgaben', content: body }],
+      }));
+      const requests: string[] = [];
+      vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+        const url = new URL(String(input));
+        const id = detailJobId(url);
+        if (id !== null) {
+          requests.push(`detail:${id}`);
+          return currentIds.includes(id) ? Response.json({ jobFields: { id } }) : detailNotFound();
+        }
+        const offset = Number(url.searchParams.get('firstResult'));
+        requests.push(`listing:${offset}`);
+        return Response.json(offset === 0
+          ? { globals: { jobsCount: 3 }, jobs: currentListings }
+          : { globals: { jobsCount: 0 } });
+      }));
+
+      mocks.readExistingCrawlerJobs.mockReturnValueOnce(existingJobs);
+      await runStandardCrawlerPipeline({
+        companyKey: WEISSE_ARENA_KEY,
+        companyLabel: WEISSE_ARENA_COMPANY_NAME,
+        fetchJobs: fetchAllWeisseArenaJobs,
+        isCompanyJob: isWeisseArenaJob,
+      });
+
+      expect(requests).toEqual([
+        ...existingJobs.map((_, index) => `detail:${index + 1}`),
+        'listing:0', 'listing:3',
+        ...existingJobs.slice(2).map((_, index) => `detail:${index + 3}`),
+      ]);
+      expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledTimes(1);
+      const [, jobs, options] = mocks.writeJobsCrawlerSliceVerified.mock.calls[0];
+      expect(jobs.map((job: { url: string }) => Number(new URL(job.url).searchParams.get('jobId'))))
+        .toEqual(currentIds);
+      expect(options.skipShrinkGuard).toBe(false);
+      expect(options.housekeepingProof).toEqual(existingJobs.slice(2).map((job) => ({
+        job, reason: 'talentlink-detail-confirmed-absence', definitive: true,
+      })));
+      expect(isProvenHousekeepingPrune(
+        'data/jobs/by-crawler/weisse-arena.json',
+        JSON.stringify({ jobs: existingJobs }),
+        JSON.stringify({ jobs }),
+        options.housekeepingProof,
+      )).toBe(true);
+      expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith([], WEISSE_ARENA_KEY, expect.anything());
+      expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(expect.objectContaining({
+        written: 3,
+        removedCount: 9,
+        snapshotCoverage: 'partial',
+        authoritativeEmptySnapshot: false,
+      }));
+    } finally {
+      mocks.scratchPath = '';
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
   });
 
   it('retries an invalid TalentLink envelope and publishes the next complete snapshot', async () => {

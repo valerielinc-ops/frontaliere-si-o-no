@@ -29,6 +29,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { runWithConcurrency } from './live-link-check.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -41,6 +42,7 @@ const SITE_TECH_ID = 'PD6FK026203F3VBQBLO8NV79D';
 const API_BASE = 'https://emea3.recruitmentplatform.com/fo/rest/jobs';
 const DETAIL_BASE = 'https://www.weissearena.com/jobs/details.html';
 const PAGE_SIZE = 50;
+const DETAIL_PROBE_CONCURRENCY = 4;
 const LISTING_SNAPSHOT_MAX_ATTEMPTS = 3;
 const LISTING_SNAPSHOT_RETRY_DELAY_MS = 500;
 const PAGINATION_INCOMPLETE_ERROR_CODE = 'WEISSE_ARENA_PAGINATION_INCOMPLETE';
@@ -250,6 +252,7 @@ async function requestTalentLinkApi(url, body, readResponse) {
   try {
     const response = await fetch(url, {
       method: body ? 'POST' : 'GET',
+      ...(body ? {} : { cache: 'no-store', redirect: 'error' }),
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -274,10 +277,9 @@ async function callTalentLinkApi(url, body = null) {
   });
 }
 
-// Probe one omitted ID for diagnostics. A later detail error describes only
-// the individual request; TalentLink's offset endpoint supplies no documented
-// cross-page snapshot revision that would permit publishing a shrink.
-async function rejectUnprovenTalentLinkOmission(jobId) {
+// A detail response attests only the requested posting. In particular, two
+// "not found" responses do not make the intervening listing authoritative.
+async function probeTalentLinkJob(jobId) {
   const url = `${API_BASE}/${encodeURIComponent(jobId)}/details`;
   let response;
   let data;
@@ -287,62 +289,54 @@ async function rejectUnprovenTalentLinkOmission(jobId) {
       data: await detailResponse.json(),
     })));
   } catch (error) {
-    throw createIncompleteSnapshotError(
-      `Weisse Arena could not verify whether TalentLink job ${jobId} still exists: ${error?.message || 'unknown detail error'}.`,
-    );
+    return { verdict: 'unknown', reason: `could not read its detail response: ${error?.message || 'unknown detail error'}` };
   }
 
   if (
     response.status === 400
-    && data !== null
-    && typeof data === 'object'
-    && !Array.isArray(data)
-    && data.errorType === 'APPLICATION'
-    && data.errorCode === 'Bad Request'
-    && data.errorMsg === 'Stelle nicht gefunden'
-  ) {
-    throw createIncompleteSnapshotError(
-      `Weisse Arena detail reported TalentLink job ${jobId} not found, but the listing has no verified source snapshot version.`,
-    );
+    && data?.errorType === 'APPLICATION'
+    && data?.errorCode === 'Bad Request'
+    && data?.errorMsg === 'Stelle nicht gefunden'
+  ) return { verdict: 'absent' };
+
+  if (response.status === 200) {
+    return normalizeTalentLinkJobId(data?.jobFields?.id) === jobId
+      ? { verdict: 'active' }
+      : { verdict: 'unknown', reason: 'its detail response did not attest the same jobId' };
   }
 
-  if (response.status === 200 && response.ok) {
-    const detailJobId = normalizeTalentLinkJobId(data?.jobFields?.id);
-    if (detailJobId === jobId) {
-      throw createIncompleteSnapshotError(
-        `Weisse Arena listing omitted still-active TalentLink job ${jobId}; refusing to publish a partial snapshot.`,
-      );
-    }
-    throw createIncompleteSnapshotError(
-      `Weisse Arena detail response for job ${jobId} did not attest the same jobId; refusing to verify its absence.`,
-    );
-  }
-
-  throw createIncompleteSnapshotError(
-    `Weisse Arena detail response for job ${jobId} returned unrecognized status ${response.status}; refusing to verify its absence.`,
-  );
+  return { verdict: 'unknown', reason: `its detail response returned unrecognized status ${response.status}` };
 }
 
-async function verifyExistingJobsAgainstListingObservation(snapshot, existingJobs) {
-  const baselineJobIds = (Array.isArray(existingJobs) ? existingJobs : []).map(existingTalentLinkJobId);
-  if (new Set(baselineJobIds).size !== baselineJobIds.length) {
-    throw createIncompleteSnapshotError(
-      'Weisse Arena existing slice contains duplicate TalentLink jobIds; refusing to verify a shrink.',
-    );
-  }
-
+async function verifyExistingJobsAgainstListingObservation(snapshot, baselineJobIds, beforeDetails) {
   const currentJobIds = snapshot.listings.map(listingTalentLinkJobId);
-  if (new Set(currentJobIds).size !== currentJobIds.length) {
+  const currentJobIdSet = new Set(currentJobIds);
+  if (currentJobIdSet.size !== currentJobIds.length) {
     throw createIncompleteSnapshotError(
       'Weisse Arena listing snapshot contains duplicate TalentLink jobIds; refusing to verify a shrink.',
     );
   }
 
-  const currentJobIdSet = new Set(currentJobIds);
-  const missingJobId = baselineJobIds.find((jobId) => !currentJobIdSet.has(jobId));
-  if (missingJobId) await rejectUnprovenTalentLinkOmission(missingJobId);
+  const omittedJobIds = baselineJobIds.filter((jobId) => !currentJobIdSet.has(jobId));
+  const afterDetails = await runWithConcurrency(omittedJobIds, DETAIL_PROBE_CONCURRENCY, probeTalentLinkJob);
+  for (const [index, jobId] of omittedJobIds.entries()) {
+    const before = beforeDetails.get(jobId);
+    const after = afterDetails[index];
+    if (before.verdict === 'absent' && after.verdict === 'absent') continue;
 
-  return { baselineJobIds, currentJobIds };
+    const unknown = [before, after].find(({ verdict }) => verdict === 'unknown');
+    if (unknown) {
+      throw createIncompleteSnapshotError(
+        `Weisse Arena cannot prove absence of TalentLink job ${jobId}: ${unknown.reason}.`,
+      );
+    }
+    throw createIncompleteSnapshotError(
+      `Weisse Arena listing omitted still-active TalentLink job ${jobId} `
+        + `(detail before: ${before.verdict}; after: ${after.verdict}).`,
+    );
+  }
+
+  return { baselineJobIds, currentJobIds, absenceVerifiedJobIds: omittedJobIds };
 }
 
 /**
@@ -489,15 +483,24 @@ async function fetchJobListingsOnce() {
 }
 
 async function fetchJobListings({ existingJobs = [] } = {}) {
-  const minimumExistingCount = Array.isArray(existingJobs) ? existingJobs.length : 0;
+  const baselineJobIds = (Array.isArray(existingJobs) ? existingJobs : []).map(existingTalentLinkJobId);
+  if (new Set(baselineJobIds).size !== baselineJobIds.length) {
+    throw createIncompleteSnapshotError(
+      'Weisse Arena existing slice contains duplicate TalentLink jobIds; refusing to verify a shrink.',
+    );
+  }
   let lastError;
   let lastListingCount = 0;
 
   for (let attempt = 1; attempt <= LISTING_SNAPSHOT_MAX_ATTEMPTS; attempt += 1) {
     try {
+      // The eventual omissions are unknown until the last offset. Read the
+      // baseline details before the first page and check only omissions again.
+      const preScan = await runWithConcurrency(baselineJobIds, DETAIL_PROBE_CONCURRENCY, probeTalentLinkJob);
+      const beforeDetails = new Map(baselineJobIds.map((jobId, index) => [jobId, preScan[index]]));
       const snapshot = await fetchJobListingsOnce();
       lastListingCount = snapshot.listings.length;
-      const observedIdProof = await verifyExistingJobsAgainstListingObservation(snapshot, existingJobs);
+      const observedIdProof = await verifyExistingJobsAgainstListingObservation(snapshot, baselineJobIds, beforeDetails);
       snapshot.sourceListingSnapshot = {
         ...snapshot.sourceListingSnapshot,
         ...observedIdProof,
@@ -510,7 +513,7 @@ async function fetchJobListings({ existingJobs = [] } = {}) {
         if (error?.code === PAGINATION_INCOMPLETE_ERROR_CODE && attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
           throw createIncompleteSnapshotError(
             `Weisse Arena listing snapshot remained incomplete after ${LISTING_SNAPSHOT_MAX_ATTEMPTS} attempts: `
-              + `fetched ${lastListingCount}/${minimumExistingCount} baseline jobs, or observed different identities; `
+              + `fetched ${lastListingCount}/${baselineJobIds.length} baseline jobs, or observed different identities; `
               + `${error.message} Refusing a partial crawl.`,
           );
         }
@@ -591,7 +594,7 @@ export function buildDetailUrl(jobId, jobTitle = '') {
 
 /**
  * Fetch all Weisse Arena Gruppe jobs.
- * Returns the parsed source-locale jobs array. Complete listing metadata is
+ * Returns the parsed source-locale jobs array. Listing observation metadata is
  * attached as non-enumerable array properties for the crawler template.
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled

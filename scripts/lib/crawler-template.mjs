@@ -822,11 +822,12 @@ function normalizeWeisseArenaJobNumber(value) {
 }
 
 /**
- * Check that a Weisse Arena observation accounts for every previously
- * published TalentLink ID. Offset pagination does not authorize absence.
+ * Validate the partial listing receipt and bind each corroborated omission
+ * to its stored job. Null rejects the receipt. An empty array means that
+ * there are no omissions. Offset pagination itself authorizes no removals.
  */
-export function hasVerifiedWeisseArenaListingObservation({ companyKey, fetchMetadata, parsedJobs, existingJobs }) {
-  if (companyKey !== 'weisse-arena' || !Array.isArray(parsedJobs)) return false;
+export function verifiedWeisseArenaOmissionProof({ companyKey, fetchMetadata, parsedJobs, existingJobs }) {
+  if (companyKey !== 'weisse-arena' || !Array.isArray(parsedJobs)) return null;
 
   const snapshot = fetchMetadata?.sourceListingSnapshot;
   const listingIdentities = snapshot?.listingIdentities;
@@ -838,6 +839,7 @@ export function hasVerifiedWeisseArenaListingObservation({ companyKey, fetchMeta
   const terminalJobsCount = snapshot?.terminalJobsCount;
   const baselineJobIds = snapshot?.baselineJobIds;
   const currentJobIds = snapshot?.currentJobIds;
+  const absenceVerifiedJobIds = snapshot?.absenceVerifiedJobIds;
 
   if (
     snapshot?.source !== companyKey
@@ -858,6 +860,7 @@ export function hasVerifiedWeisseArenaListingObservation({ companyKey, fetchMeta
     || !Array.isArray(existingJobs)
     || !Array.isArray(baselineJobIds)
     || !Array.isArray(currentJobIds)
+    || !Array.isArray(absenceVerifiedJobIds)
     || !Array.isArray(listingIdentities)
     || !Array.isArray(processedIdentities)
     || !Array.isArray(listingJobNumbers)
@@ -869,11 +872,11 @@ export function hasVerifiedWeisseArenaListingObservation({ companyKey, fetchMeta
     || processedIdentities.length !== listingCount
     || listingJobNumbers.length !== listingCount
     || processedJobNumbers.length !== listingCount
-  ) return false;
+  ) return null;
 
-  // Tie the receipt to the slice passed to the parser and to the actual parsed
-  // URLs. A later detail lookup cannot prove that an omission from the
-  // listing reflects a consistent source snapshot.
+  // Tie the receipt to the slice passed to the parser and to the parsed
+  // URLs. Each omitted ID needs its own detail evidence from both sides of
+  // the scan. This does not assert consistency across listing responses.
   const jobIdFromUrl = (job) => {
     try {
       const url = new URL(job?.url || '');
@@ -894,26 +897,34 @@ export function hasVerifiedWeisseArenaListingObservation({ companyKey, fetchMeta
   const actualCurrent = parsedJobs.map(jobIdFromUrl);
   const baselineSet = new Set(baselineJobIds);
   const currentSet = new Set(currentJobIds);
+  const absentSet = new Set(absenceVerifiedJobIds);
+  const omittedIds = actualBaseline.filter((id) => !currentSet.has(id));
   if (
     !validIds(actualBaseline) || !validIds(actualCurrent)
-    || !validIds(baselineJobIds) || !validIds(currentJobIds)
+    || !validIds(baselineJobIds) || !validIds(currentJobIds) || !validIds(absenceVerifiedJobIds)
     || actualBaseline.length !== baselineJobIds.length
     || actualBaseline.some((id) => !baselineSet.has(id))
     || actualCurrent.length !== currentJobIds.length
     || actualCurrent.some((id) => !currentSet.has(id))
-    || baselineJobIds.some((id) => !currentSet.has(id))
-  ) return false;
+    || omittedIds.length !== absentSet.size
+    || omittedIds.some((id) => !absentSet.has(id))
+  ) return null;
 
   const normalizedListingNumbers = listingJobNumbers.map(normalizeWeisseArenaJobNumber);
   const normalizedProcessedNumbers = processedJobNumbers.map(normalizeWeisseArenaJobNumber);
   const normalizedListingIdentities = listingIdentities.map(normalizeWeisseArenaJobNumber);
   const normalizedProcessedIdentities = processedIdentities.map(normalizeWeisseArenaJobNumber);
   const normalizedParsedNumbers = parsedJobs.map((job) => normalizeWeisseArenaJobNumber(job?.jobNumber));
-  return normalizedListingIdentities.every((identity, index) => identity && identity === normalizedListingNumbers[index])
+  const listingRowsVerified = normalizedListingIdentities.every((identity, index) => identity && identity === normalizedListingNumbers[index])
     && new Set(normalizedListingIdentities).size === listingCount
     && normalizedProcessedIdentities.every((identity, index) => identity === normalizedListingIdentities[index])
     && normalizedProcessedNumbers.every((jobNumber, index) => jobNumber === normalizedListingNumbers[index])
     && normalizedParsedNumbers.every((jobNumber, index) => jobNumber === normalizedListingNumbers[index]);
+  if (!listingRowsVerified) return null;
+
+  return existingJobs.flatMap((job, index) => absentSet.has(actualBaseline[index])
+    ? [{ job, reason: 'talentlink-detail-confirmed-absence', definitive: true }]
+    : []);
 }
 
 // A source-specific parser may report how many otherwise-valid listings it
@@ -1158,7 +1169,7 @@ export async function runStandardCrawlerPipeline(config) {
     throw err;
   }
 
-  const verifiedWeisseArenaListingObservation = hasVerifiedWeisseArenaListingObservation({
+  const weisseArenaOmissionProof = verifiedWeisseArenaOmissionProof({
     companyKey,
     fetchMetadata,
     parsedJobs,
@@ -1233,12 +1244,11 @@ export async function runStandardCrawlerPipeline(config) {
   } = evaluateAuthoritativeSnapshot(
     parsedJobs,
     {
-      // A valid Weisse Arena observation confirms the baseline IDs are present
-      // and grants only the partial verdict. A missing baseline ID fails
-      // before merge or archive even if a later detail lookup returned 400.
+      // The listing stays partial even when the detail API corroborates every
+      // omitted prior ID. The separate omission proof can only retire those IDs.
       validateAuthoritativeSnapshot: companyKey === 'weisse-arena'
         ? (jobs) => {
-          if (jobs !== parsedJobs || !verifiedWeisseArenaListingObservation) return false;
+          if (jobs !== parsedJobs || !weisseArenaOmissionProof) return false;
           if (validateAuthoritativeSnapshot && validateAuthoritativeSnapshot(jobs) !== true) return false;
           return SNAPSHOT_VALIDATED_PARTIAL;
         }
@@ -1315,7 +1325,7 @@ export async function runStandardCrawlerPipeline(config) {
   } else if (partialSnapshotValidated) {
     console.log(
       `\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed from a validated PARTIAL snapshot; `
-      + 'stored jobs it does not contain keep the miss grace instead of being retired.\n',
+      + 'unmatched stored jobs keep the miss grace unless separately proven absent.\n',
     );
   } else {
     console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed, preparing source bodies.\n`);
@@ -1392,7 +1402,11 @@ export async function runStandardCrawlerPipeline(config) {
     ...(matchKey ? { matchKey } : {}),
     ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
   };
-  const merged = mergePreserveLocaleData(mergeExistingForSourceBodies, sourceBodyJobs, mergeOpts);
+  const confirmedOmissions = new Set((weisseArenaOmissionProof || []).map(({ job }) => job.url));
+  const mergeBaseline = confirmedOmissions.size > 0
+    ? mergeExistingForSourceBodies.filter((job) => !confirmedOmissions.has(job.url))
+    : mergeExistingForSourceBodies;
+  const merged = mergePreserveLocaleData(mergeBaseline, sourceBodyJobs, mergeOpts);
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
     : merged;
@@ -1451,7 +1465,12 @@ export async function runStandardCrawlerPipeline(config) {
 
   // Invoke the helper even when no job disappeared: it also persists repairs
   // to legacy entries already present in the expired slice.
-  const archived = archiveRemovedJobsToSlice(diff.removedJobs, companyKey, {
+  // Leave these proven removals to the verified writer, which archives them
+  // alongside its shrink decision using the stored jobs in the proof.
+  const removedWithoutDetailProof = confirmedOmissions.size > 0
+    ? diff.removedJobs.filter((job) => !confirmedOmissions.has(job.url))
+    : diff.removedJobs;
+  const archived = archiveRemovedJobsToSlice(removedWithoutDetailProof, companyKey, {
     activeJobs: clean,
   });
   if (archived > 0) {
@@ -1524,16 +1543,17 @@ export async function runStandardCrawlerPipeline(config) {
   const sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const sliceJobs = Array.isArray(sliceRaw) ? sliceRaw.filter(isCompanyJob) : [];
   const thinHousekeepingProof = buildThinSourceHousekeepingProof(
-    diff.removedJobs,
+    removedWithoutDetailProof,
     thinSourceJobs,
     sourceBodyMatchKey,
   );
   const sourceFailureHousekeepingProof = buildSourceBodyFailureHousekeepingProof(
-    diff.removedJobs,
+    removedWithoutDetailProof,
     Array.isArray(parsedJobs) ? parsedJobs.filter(hasSourceBodyFailure) : [],
     sourceBodyMatchKey,
   );
   const housekeepingProof = [
+    ...(weisseArenaOmissionProof || []),
     ...(thinHousekeepingProof || []),
     ...(sourceFailureHousekeepingProof || []),
   ];
