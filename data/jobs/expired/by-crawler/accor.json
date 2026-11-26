@@ -390,7 +390,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.accor.com/fr/fr/job/front-office-agent-langstrasse-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-27718",
-    "firstSeenAt": "2026-10-22T09:42:31.537Z"
+    "firstSeenAt": "2026-10-22T09:42:31.537Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5": "ZH",
+        "front-office-agent-langstrasse-f-m-d-accor-ch": "ZH"
+      },
+      "de": {
+        "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5": "ZH"
+      },
+      "fr": {
+        "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5": "ZH"
+      }
+    }
   },
   {
     "id": "accor-5bf571062e63",
