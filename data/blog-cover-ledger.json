@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1204,
+      "5": 1205,
       "6": 5062
     },
-    "publishedCovers": 7947,
+    "publishedCovers": 7948,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -219872,6 +219872,39 @@
         "provider": "openai-codex",
         "assetId": "article-consultazione-modifiche-oosg",
         "imageUrl": "/images/blog/article-consultazione-modifiche-oosg.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rimborso-imposta-secondo-pilastro-svizzero": {
+      "cover": "/images/blog/article-rimborso-imposta-secondo-pilastro-svizzero.webp",
+      "hash": "e390ecef64c2fb849648c7930be5b6a1d0a445dcea28dc1d5f5d09f6b7794e10",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "rimborso-imposta-secondo-pilastro-svizzero",
+          "category": "fiscale",
+          "date": "2026-11-26T12:10:16.144Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rimborso-imposta-secondo-pilastro-svizzero.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rimborso-imposta-secondo-pilastro-svizzero",
+        "imageUrl": "/images/blog/article-rimborso-imposta-secondo-pilastro-svizzero.webp",
         "evidence": "generated-engine-record"
       }
     }

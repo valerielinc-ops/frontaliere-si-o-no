@@ -8744,6 +8744,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consultazione-modifiche-oosg.title': 'Gas: consultation opened on amendments to the OOSG',
     'blog.article.consultazione-modifiche-oosg.excerpt': 'The communication of November 25, 2026 announces new regulation of ASIG costs and expanded selective access to natural gas monitoring.',
     'blog.article.consultazione-modifiche-oosg.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.title': 'Swiss second pillar: withholding tax refund for residents in Italy',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.excerpt': 'Since 2024, according to the reconstruction published by Fiscomania, refusals by the Swiss cantonal authorities of requests for a refund of withholding tax withheld on second-pillar capital have been reported.',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

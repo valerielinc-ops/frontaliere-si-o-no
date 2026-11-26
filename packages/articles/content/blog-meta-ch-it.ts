@@ -8744,6 +8744,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consultazione-modifiche-oosg.title': 'Gas: aperta la consultazione sulle modifiche alla OOSG',
     'blog.article.consultazione-modifiche-oosg.excerpt': 'La comunicazione del 25 novembre 2026 annuncia una nuova regolamentazione dei costi ASIG e un accesso selettivo ampliato al monitoraggio del gas naturale.',
     'blog.article.consultazione-modifiche-oosg.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.title': 'Secondo pilastro svizzero: rimborso imposta alla fonte per residenti in Italia',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.excerpt': 'Dal 2024, secondo la ricostruzione pubblicata da Fiscomania, sono stati segnalati dinieghi da parte delle autorità cantonali svizzere alle richieste di rimborso dell’imposta alla fonte trattenuta sul capitale del secondo pilastro.',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

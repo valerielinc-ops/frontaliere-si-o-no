@@ -8744,6 +8744,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consultazione-modifiche-oosg.title': 'Gaz : consultation ouverte sur les modifications de l’OOSG',
     'blog.article.consultazione-modifiche-oosg.excerpt': 'La communication du 25 novembre 2026 annonce une nouvelle réglementation des coûts de l’ASIG et un accès sélectif élargi à la surveillance du gaz naturel.',
     'blog.article.consultazione-modifiche-oosg.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.title': 'Deuxième pilier suisse : remboursement fiscal en Italie',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.excerpt': 'Depuis 2024, selon la reconstitution publiée par Fiscomania, des refus de la part des autorités cantonales suisses ont été signalés concernant les demandes de remboursement de l’impôt à la source retenu sur le capital du deuxième pilier.',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
