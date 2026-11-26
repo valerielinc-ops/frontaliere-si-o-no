@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grund-ag-ch",
-  "assembledAt": "2026-11-26T09:23:42.255Z",
-  "runId": "45789327191",
+  "assembledAt": "2026-11-26T21:35:34.357Z",
+  "runId": "45896122190",
   "jobs": [
     {
       "id": "grund-ag-ch-d07ce0e95f63",
@@ -34,7 +34,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804713-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:37.435Z",
+      "crawledAt": "2026-11-26T21:35:27.048Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -90,9 +90,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:23:37.435Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.yousty.ch/de-ch/lehrstellen/profile/8804713-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge"
+      "validThrough": "2026-12-26T21:35:27.048Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grund-ag-ch-96bbd0d8e49e",
@@ -125,7 +124,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804712-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:37.434Z",
+      "crawledAt": "2026-11-26T21:35:27.047Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -181,9 +180,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:23:37.434Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.yousty.ch/de-ch/lehrstellen/profile/8804712-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge"
+      "validThrough": "2026-12-26T21:35:27.047Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

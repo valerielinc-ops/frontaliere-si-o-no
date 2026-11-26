@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-11-26T09:25:16.568Z",
-  "runId": "45789327191",
+  "assembledAt": "2026-11-26T21:35:58.419Z",
+  "runId": "45896122190",
   "jobs": [
     {
       "id": "caritas-schweiz-41d37a49c14d",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/126757/2397/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:50.567Z",
+      "crawledAt": "2026-11-26T21:35:19.356Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Niklaus-Konrad-Strasse 18",
@@ -58,10 +58,11 @@
       "pensumMin": 20,
       "pensumMax": 20,
       "pensum": "20%",
+      "previousSlugs": [
+        "projektleiter-in-20-caritas-schweiz-luzern",
+        "projektleiter-in-20-caritas-schweiz-solothurn"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "projektleiter-in-20-caritas-schweiz-luzern"
-        ],
         "it": [
           "projektleiter-in-20-caritas-schweiz-luzern",
           "projektleiter-in-20-caritas-schweiz-solothurn"
@@ -69,14 +70,13 @@
         "en": [
           "projektleiter-in-20-caritas-schweiz-luzern"
         ],
+        "de": [
+          "projektleiter-in-20-caritas-schweiz-luzern"
+        ],
         "fr": [
           "projektleiter-in-20-caritas-schweiz-luzern"
         ]
       },
-      "previousSlugs": [
-        "projektleiter-in-20-caritas-schweiz-luzern",
-        "projektleiter-in-20-caritas-schweiz-solothurn"
-      ],
       "firstSeenAt": "2026-11-19T09:30:48.687Z",
       "salaryMin": 17600,
       "salaryMax": 32500,
@@ -92,7 +92,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T09:24:50.567Z",
+      "validThrough": "2027-02-16T21:35:19.356Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -127,7 +127,7 @@
       "url": "https://apply.refline.ch/126757/2396/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:50.102Z",
+      "crawledAt": "2026-11-26T21:35:18.872Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Kasinostrasse 25",
@@ -181,7 +181,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:24:50.102Z",
+      "validThrough": "2027-02-11T21:35:18.872Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -216,7 +216,7 @@
       "url": "https://apply.refline.ch/126757/2395/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:49.638Z",
+      "crawledAt": "2026-11-26T21:35:18.386Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Laurenzenvorstadt 90",
@@ -268,7 +268,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:24:49.638Z",
+      "validThrough": "2027-02-10T21:35:18.386Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -303,7 +303,7 @@
       "url": "https://apply.refline.ch/126757/2389/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:49.172Z",
+      "crawledAt": "2026-11-26T21:35:17.898Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Beckenhofstrasse 16",
@@ -355,7 +355,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:24:49.172Z",
+      "validThrough": "2027-02-02T21:35:17.898Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -390,7 +390,7 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:48.706Z",
+      "crawledAt": "2026-11-26T21:35:17.408Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Beckenhofstrasse 16",
@@ -442,7 +442,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:24:48.706Z",
+      "validThrough": "2027-01-12T21:35:17.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -477,7 +477,7 @@
       "url": "https://apply.refline.ch/126757/2020/pub/5/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:48.240Z",
+      "crawledAt": "2026-11-26T21:35:16.917Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Zähringerstrasse 25",
@@ -544,7 +544,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:24:48.240Z",
+      "validThrough": "2026-12-26T21:35:16.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -579,7 +579,7 @@
       "url": "https://apply.refline.ch/126757/2363/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:47.772Z",
+      "crawledAt": "2026-11-26T21:35:16.422Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "Aathalstrasse 21",
@@ -602,10 +602,11 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich",
+        "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-uster"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich"
-        ],
         "it": [
           "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich",
           "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-uster"
@@ -613,14 +614,13 @@
         "en": [
           "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich"
         ],
+        "de": [
+          "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich"
+        ],
         "fr": [
           "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich"
         ]
       },
-      "previousSlugs": [
-        "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-zurich",
-        "integrationscoach-mna-80-100-m-w-d-caritas-schweiz-uster"
-      ],
       "firstSeenAt": "2026-11-25T09:16:37.126Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -636,7 +636,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:24:47.772Z",
+      "validThrough": "2026-12-26T21:35:16.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -651,11 +651,11 @@
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
       "companyDomain": "caritas.ch",
-      "title": "Mitarbeiter/in Sortierwerk 60% (m/w/d)",
+      "title": "Mitarbeiter/in Sortierwerk 60-80% (m/w/d)",
       "titleByLocale": {
         "it": "Collaboratore/trice Sortierwerk 60% (m/w/d)",
         "en": "Sorting plant employee 60% (m/f/d)",
-        "de": "Mitarbeiter/in Sortierwerk 60% (m/w/d)",
+        "de": "Mitarbeiter/in Sortierwerk 60-80% (m/w/d)",
         "fr": "Employé de l'usine de tri 60 % (h/f/d)"
       },
       "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nDie Kleiderzentrale sammelt und sortiert jährlich rund 600 Tonnen Gebrauchtkleider und Schuhe für eine sinnvolle und gezielte Weiterverwendung im In- und Ausland. Ein wichtiger Teil der gesammelten Kleider geht in den Verkauf in der Schweiz. Der Betrieb umfasst das Sortierwerk, die Lagerhallen, zwei Textil-Verkaufsläden und die Administration.\nIhre Aufgaben\n• Fachliche und organisatorische Führung sowie Begleitung von Mitarbeitenden aus unterschiedlichen Gruppen\n• Sortierung von neuer sowie gebrauchter (Secondhand-) Kleidung und Schuhen\n• Einteilung und Kategorisierung der Waren nach Grösse, Geschlecht, Saison und Qualitätsstandards\n• Prüfung eingehender Kleiderspenden hinsichtlich Vollständigkeit, Sauberkeit und Zustand\n• Vorbereitung der Waren für die Weitergabe, Lagerung oder den Verkauf in den Shops: Waschen, Etikettieren, Zusammenlegen, Verpacken\n• Förderung der Arbeitsintegration sowie Unterstützung bei der Einarbeitung und Entwicklung der Mitarbeitenden\n• Sicherstellung eines effizienten, qualitativ hochwertigen und reibungslosen Arbeitsablaufs im Bereich Textilsortierung und Warenaufbereitung\n• Mitverantwortung für Ordnung, Sauberkeit und Arbeitssicherheit im gesamten Arbeitsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im Textilbereich oder vergleichbare Ausbildung und Erfahrung\n• Erfahrung in Lager, Sortierung oder Verkauf von Bekleidung / Modewissen von Vorteil\n• Körperliche Belastbarkeit\n• Teamfähigkeit und Zuverlässigkeit\n• Übernahme von Verantwortung für Teilbereiche\n• Verantwortungsbewusstsein\n• Geduld und Sozialkompetenz im Umgang mit Freiwilligen, Schulklassen, Asylsuchenden und Teilnehmenden der gemeinnützigen Arbeit\n• Gute Deutschkenntnisse von Vorteil\n• Interesse an Nachhaltigkeit und Wiederverwertung von Textilien und Schuhen\n• Grundkenntnisse in Warenkunde, Sortierprozessen sowie Weiterbildung im Bereich Recycling und Nachhaltigkeit von Vorteil\nArbeitsort ist Waldibrücke, Emmen.\nArbeitsbeginn: per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Drazenka Anicic, Telefon +41 41 269 00 30.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
@@ -665,12 +665,13 @@
         "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nDie Kleiderzentrale sammelt und sortiert jährlich rund 600 Tonnen Gebrauchtkleider und Schuhe für eine sinnvolle und gezielte Weiterverwendung im In- und Ausland. Ein wichtiger Teil der gesammelten Kleider geht in den Verkauf in der Schweiz. Der Betrieb umfasst das Sortierwerk, die Lagerhallen, zwei Textil-Verkaufsläden und die Administration.\nIhre Aufgaben\n• Fachliche und organisatorische Führung sowie Begleitung von Mitarbeitenden aus unterschiedlichen Gruppen\n• Sortierung von neuer sowie gebrauchter (Secondhand-) Kleidung und Schuhen\n• Einteilung und Kategorisierung der Waren nach Grösse, Geschlecht, Saison und Qualitätsstandards\n• Prüfung eingehender Kleiderspenden hinsichtlich Vollständigkeit, Sauberkeit und Zustand\n• Vorbereitung der Waren für die Weitergabe, Lagerung oder den Verkauf in den Shops: Waschen, Etikettieren, Zusammenlegen, Verpacken\n• Förderung der Arbeitsintegration sowie Unterstützung bei der Einarbeitung und Entwicklung der Mitarbeitenden\n• Sicherstellung eines effizienten, qualitativ hochwertigen und reibungslosen Arbeitsablaufs im Bereich Textilsortierung und Warenaufbereitung\n• Mitverantwortung für Ordnung, Sauberkeit und Arbeitssicherheit im gesamten Arbeitsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im Textilbereich oder vergleichbare Ausbildung und Erfahrung\n• Erfahrung in Lager, Sortierung oder Verkauf von Bekleidung / Modewissen von Vorteil\n• Körperliche Belastbarkeit\n• Teamfähigkeit und Zuverlässigkeit\n• Übernahme von Verantwortung für Teilbereiche\n• Verantwortungsbewusstsein\n• Geduld und Sozialkompetenz im Umgang mit Freiwilligen, Schulklassen, Asylsuchenden und Teilnehmenden der gemeinnützigen Arbeit\n• Gute Deutschkenntnisse von Vorteil\n• Interesse an Nachhaltigkeit und Wiederverwertung von Textilien und Schuhen\n• Grundkenntnisse in Warenkunde, Sortierprozessen sowie Weiterbildung im Bereich Recycling und Nachhaltigkeit von Vorteil\nArbeitsort ist Waldibrücke, Emmen.\nArbeitsbeginn: per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Drazenka Anicic, Telefon +41 41 269 00 30.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
         "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\nChaque année, le centre vestimentaire recueille et trie environ 600 tonnes de vêtements et de chaussures usagés pour une réutilisation significative et ciblée au pays et à l'étranger. Une partie importante des vêtements collectés est en vente en Suisse. L'opération comprend l'usine de tri, les entrepôts, deux magasins de vente de textiles et l'administration.\nLeurs tâches\n• Leadership professionnel et organisationnel ainsi que soutien des employés de différents groupes\n• Tri de vêtements et de chaussures neufs et usagés (de seconde main)\n• Classification et classification des marchandises par taille, sexe, saison et normes de qualité\n• Examen des dons entrants de vêtements en ce qui concerne l'exhaustivité, la propreté et l'état\n• Préparation des marchandises pour le transfert, le stockage ou la vente en magasin: lavage, étiquetage, fusion, emballage\n• Promotion de l'insertion professionnelle et soutien à l'insertion et au développement des salariés\n• Assurer des opérations efficaces, de qualité et sans heurt dans le domaine du tri et de la préparation des textiles\n• Coresponsabilité pour l'ordre, la propreté et la sécurité au travail dans l'ensemble de la zone de travail\nNos exigences\n• Formation et expérience en matière de textiles terminées ou comparables\n• Expérience en stock, tri ou vente de vêtements / connaissance de la mode d'avantage\n• Capacité physique\n• Travail d'équipe et fiabilité\n• Hypothèse de la responsabilité pour les sous-zones\n• Responsabilité\n• Patience et compétences sociales dans le traitement des bénévoles, des classes scolaires, des demandeurs d'asile et des participants au travail communautaire\n• Une bonne connaissance de l'allemand est avantageuse\n• Intérêt pour la durabilité et le recyclage des textiles et des chaussures\n• La connaissance de base des marchandises, des procédés de tri et de la formation continue dans le domaine du recyclage et de la durabilité est avantageuse\nLe lieu de travail est Waldibrücke, Emmen.\nDébut des travaux: immédiatement ou d'un commun accord.\nCaritas offre des conditions d'emploi attrayantes et une atmosphère de travail ouverte à l'impulsion des questions sociales. Pour la transformation vers le travail basé sur le rôle, nous comptons sur des employés avec un état d'esprit numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\nPour des informations sur cette position, veuillez contacter Drazenka Anicic, téléphone +41 41 269 00 30.\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
       },
+      "needsRetranslation": true,
       "location": "Emmen",
       "canton": "LU",
       "url": "https://apply.refline.ch/126757/2398/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:47.305Z",
+      "crawledAt": "2026-11-26T21:35:15.936Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 28",
@@ -678,8 +679,8 @@
       "country": "CH",
       "postalCode": "6032",
       "category": "Sociale / Educazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sociale / NGO",
       "currency": "CHF",
@@ -691,43 +692,45 @@
       "requirements": [],
       "requirementsByLocale": {},
       "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
+      "pensumMax": 80,
+      "pensum": "60 - 80%",
+      "previousSlugs": [
+        "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
+        "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-emmen",
+        "mitarbeiter-in-sortierwerk-60-80-m-w-d-caritas-schweiz-emmen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
-        ],
         "it": [
           "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
-          "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-emmen"
+          "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-emmen",
+          "mitarbeiter-in-sortierwerk-60-80-m-w-d-caritas-schweiz-emmen"
         ],
         "en": [
+          "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
+        ],
+        "de": [
           "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
         ],
         "fr": [
           "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
-        "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-emmen"
-      ],
       "firstSeenAt": "2026-11-23T09:22:30.451Z",
-      "salaryMin": 35700,
-      "salaryMax": 66000,
+      "salaryMin": 47600,
+      "salaryMax": 88000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 35700,
-          "maxValue": 66000,
+          "minValue": 47600,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T09:24:47.305Z",
+      "validThrough": "2027-02-21T21:35:15.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -762,7 +765,7 @@
       "url": "https://apply.refline.ch/126757/2338/pub/10/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:46.835Z",
+      "crawledAt": "2026-11-26T21:35:15.446Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "Aathalstrasse 21",
@@ -785,11 +788,25 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+        "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+        "personnes-de-reference-sociopedagogiques-mna-80-100-a-zurich-uster-h-f-d-caritas-schweiz-zurich",
+        "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich-2c787629",
+        "persone-di-riferimento-pedagogico-sociale-mna-80-100-a-zurigo-uster-m-f-d-caritas-schweiz-zurich-ee706689",
+        "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich-277d9fe1",
+        "personnes-de-reference-sociopedagogiques-mna-80-100-a-zurich-uster-h-f-d-caritas-schweiz-zurich-2d03fa17",
+        "persona-di-riferimento-pedagogico-sociale-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich",
+        "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+        "persona-di-riferimento-pedagogico-sociale-mna-100-a-zurigo-oerlikon-m-f-d-caritas-schweiz-zurich",
+        "social-pedagogical-reference-person-mna-100-in-zurich-oerlikon-m-f-d-caritas-schweiz-zurich",
+        "sozialpadagogische-bezugsperson-mna-100-in-zurich-oerlikon-m-w-d-caritas-schweiz-zurich",
+        "personne-de-reference-pedagogique-sociale-mna-100-a-zurich-oerlikon-h-f-d-caritas-schweiz-zurich",
+        "social-pedagogical-reference-person-mna-80-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
+        "personne-de-reference-pedagogique-sociale-mna-80-a-zurich-uster-h-f-d-caritas-schweiz-zurich",
+        "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-uster"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich-2c787629",
-          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
-        ],
         "it": [
           "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
           "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich-2c787629",
@@ -809,28 +826,14 @@
         "en": [
           "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich"
         ],
+        "de": [
+          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich-2c787629",
+          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
+        ],
         "fr": [
           "personnes-de-reference-sociopedagogiques-mna-80-100-a-zurich-uster-h-f-d-caritas-schweiz-zurich"
         ]
       },
-      "previousSlugs": [
-        "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
-        "personnes-de-reference-sociopedagogiques-mna-80-100-a-zurich-uster-h-f-d-caritas-schweiz-zurich",
-        "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich-2c787629",
-        "persone-di-riferimento-pedagogico-sociale-mna-80-100-a-zurigo-uster-m-f-d-caritas-schweiz-zurich-ee706689",
-        "social-pedagogical-reference-persons-mna-80-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich-277d9fe1",
-        "personnes-de-reference-sociopedagogiques-mna-80-100-a-zurich-uster-h-f-d-caritas-schweiz-zurich-2d03fa17",
-        "persona-di-riferimento-pedagogico-sociale-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich",
-        "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "persona-di-riferimento-pedagogico-sociale-mna-100-a-zurigo-oerlikon-m-f-d-caritas-schweiz-zurich",
-        "social-pedagogical-reference-person-mna-100-in-zurich-oerlikon-m-f-d-caritas-schweiz-zurich",
-        "sozialpadagogische-bezugsperson-mna-100-in-zurich-oerlikon-m-w-d-caritas-schweiz-zurich",
-        "personne-de-reference-pedagogique-sociale-mna-100-a-zurich-oerlikon-h-f-d-caritas-schweiz-zurich",
-        "social-pedagogical-reference-person-mna-80-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
-        "personne-de-reference-pedagogique-sociale-mna-80-a-zurich-uster-h-f-d-caritas-schweiz-zurich",
-        "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-uster"
-      ],
       "firstSeenAt": "2026-08-27T00:41:55.297Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -846,7 +849,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:24:46.835Z",
+      "validThrough": "2026-12-26T21:35:15.446Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -881,7 +884,7 @@
       "url": "https://apply.refline.ch/126757/2394/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:46.372Z",
+      "crawledAt": "2026-11-26T21:35:13.649Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bleicherweg 47",
@@ -933,7 +936,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:24:46.372Z",
+      "validThrough": "2027-02-10T21:35:13.649Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -968,7 +971,7 @@
       "url": "https://apply.refline.ch/126757/2393/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:45.905Z",
+      "crawledAt": "2026-11-26T21:35:13.161Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bleicherweg 47",
@@ -1022,7 +1025,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:24:45.905Z",
+      "validThrough": "2027-02-10T21:35:13.161Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1057,7 +1060,7 @@
       "url": "https://apply.refline.ch/126757/2388/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:45.439Z",
+      "crawledAt": "2026-11-26T21:35:12.675Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Langgasse 13",
@@ -1109,7 +1112,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:24:45.439Z",
+      "validThrough": "2027-01-31T21:35:12.675Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1144,7 +1147,7 @@
       "url": "https://apply.refline.ch/126757/2387/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:43.958Z",
+      "crawledAt": "2026-11-26T21:35:12.190Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "Aathalstrasse 21",
@@ -1198,7 +1201,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:24:43.958Z",
+      "validThrough": "2027-01-31T21:35:12.190Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1233,7 +1236,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/6/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:24:43.493Z",
+      "crawledAt": "2026-11-26T21:35:11.704Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "Aathalstrasse 21",
@@ -1292,7 +1295,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:24:43.493Z",
+      "validThrough": "2026-12-26T21:35:11.704Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1378,7 +1381,7 @@
       "validThrough": "2027-02-02T21:18:31.954Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/126757/2390/pub/4/index.html",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "caritas-schweiz-46405d7e7155",
@@ -1461,7 +1464,7 @@
       "validThrough": "2026-12-25T21:18:30.165Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/126757/2370/pub/1/index.html",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
