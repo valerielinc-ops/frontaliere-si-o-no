@@ -1,7 +1,7 @@
 {
   "key": "christinavassalli",
   "label": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät",
-  "generatedAt": "2026-11-26T09:55:10.655Z",
+  "generatedAt": "2026-11-26T21:54:38.077Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -44,10 +44,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6686,
-  "avgDurationMs": 6686,
+  "durationMs": 6589,
+  "avgDurationMs": 6589,
   "durationHistory": [
-    6686
+    6589
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -65,7 +65,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-40-wollerau/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:54:53.448Z",
+      "crawledAt": "2026-11-26T21:54:24.820Z",
       "addressLocality": "Wollerau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-11-19T21:45:13.248Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:54:53.448Z",
+      "validThrough": "2026-12-26T21:54:24.820Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -110,7 +110,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-20-40-zuerich/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:54:53.447Z",
+      "crawledAt": "2026-11-26T21:54:24.819Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,7 +133,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T14:25:57.444Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:54:53.447Z",
+      "validThrough": "2026-12-26T21:54:24.819Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -144,5 +144,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }

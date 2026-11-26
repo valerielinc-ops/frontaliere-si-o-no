@@ -6783,23 +6783,26 @@
     "slugByLocale": {
       "it": "giudice-con-lingua-principale-tedesco-confederazione-svizzera-st-gallen",
       "en": "judge-with-main-language-german-confederazione-svizzera-st-gallen",
-      "de": "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen",
+      "de": "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen-bc6600ff",
       "fr": "juge-avec-langue-principale-allemand-confederazione-svizzera-st-gallen"
     },
     "sector": "Pubblica amministrazione",
     "expiredAt": "2026-11-26T07:57:26.201Z",
-    "previousSlugs": [
-      "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen-bc6600ff",
         "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen"
       ],
       "en": [
+        "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen-bc6600ff",
         "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen"
       ],
       "fr": [
+        "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen-bc6600ff",
         "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen"
+      ],
+      "de": [
+        "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen-bc6600ff"
       ]
     },
     "salaryMin": 60000,
@@ -6807,7 +6810,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/richter-in-mit-hauptsprache-deutsch/a410a459-a388-42a2-8425-ab0c8b0e162a",
-    "firstSeenAt": "2026-09-01T23:27:38.259Z"
+    "firstSeenAt": "2026-09-01T23:27:38.259Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen-bc6600ff": "SG"
+      },
+      "en": {
+        "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen-bc6600ff": "SG"
+      },
+      "de": {
+        "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen-bc6600ff": "SG"
+      },
+      "fr": {
+        "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen-bc6600ff": "SG"
+      }
+    },
+    "previousSlugs": [
+      "richter-in-mit-hauptsprache-deutsch-confederazione-st-gallen"
+    ]
   },
   {
     "id": "confederazione-ticino-a97df602e053",
@@ -67081,7 +67101,12 @@
       "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-d372d461",
       "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-44fccb03",
       "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-27ac8f79",
-      "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg"
+      "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg",
+      "wissenschaftliche-r-responsabile-di-progetto-confederazione-svizzera-neuenburg",
+      "scientific-project-manager-confederazione-svizzera-neuenburg",
+      "wissenschaftliche-r-project-manager-confederazione-svizzera-neuenburg",
+      "responsable-de-projet-scientifique-confederazione-svizzera-neuenburg",
+      "wissenschaftliche-r-chef-de-projet-confederazione-svizzera-neuenburg"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -67138,7 +67163,8 @@
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-d372d461",
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-44fccb03",
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-27ac8f79",
-        "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg"
+        "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg",
+        "wissenschaftliche-r-responsabile-di-progetto-confederazione-svizzera-neuenburg"
       ],
       "en": [
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-4fe0de8c",
@@ -67193,7 +67219,9 @@
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-d372d461",
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-44fccb03",
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-27ac8f79",
-        "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg"
+        "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg",
+        "scientific-project-manager-confederazione-svizzera-neuenburg",
+        "wissenschaftliche-r-project-manager-confederazione-svizzera-neuenburg"
       ],
       "fr": [
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-4fe0de8c",
@@ -67248,7 +67276,9 @@
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-d372d461",
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-44fccb03",
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-27ac8f79",
-        "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg"
+        "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg",
+        "responsable-de-projet-scientifique-confederazione-svizzera-neuenburg",
+        "wissenschaftliche-r-chef-de-projet-confederazione-svizzera-neuenburg"
       ],
       "de": [
         "wissenschaftliche-r-projektleiter-in-confederazione-neuenburg-bb931805",
@@ -67312,7 +67342,20 @@
         "firstSeenAt": "2026-08-20T21:32:21.875Z",
         "title": "Wissenschaftliche/-r Projektleiter/-in"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "wissenschaftliche-r-responsabile-di-progetto-confederazione-svizzera-neuenburg": "NE"
+      },
+      "en": {
+        "scientific-project-manager-confederazione-svizzera-neuenburg": "NE",
+        "wissenschaftliche-r-project-manager-confederazione-svizzera-neuenburg": "NE"
+      },
+      "fr": {
+        "responsable-de-projet-scientifique-confederazione-svizzera-neuenburg": "NE",
+        "wissenschaftliche-r-chef-de-projet-confederazione-svizzera-neuenburg": "NE"
+      }
+    }
   },
   {
     "slug": "segreteria-scolastica-centro-di-reclutamento-ruti-confederazione-svizzera-ruti",
@@ -85021,5 +85064,111 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/entreprise-architect/928c8b60-36d4-4817-b17e-282a62dbc043",
     "firstSeenAt": "2026-06-10T22:26:55.170Z"
+  },
+  {
+    "id": "confederazione-ticino-4fb5290f45ac",
+    "slug": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-altstatten",
+    "title": "Lernende/-r Kauffrau/-mann EFZ",
+    "titleByLocale": {
+      "it": "Apprendista Impiegato/a di commercio AFC",
+      "en": "Apprentice businesswoman EFZ",
+      "de": "Lernende/-r Kauffrau/-mann EFZ",
+      "fr": "Apprenant (e) Employé (e) de commerce CFC"
+    },
+    "company": "Confederazione Svizzera",
+    "companyKey": "confederazione-ticino",
+    "location": "Altstätten",
+    "canton": "SG",
+    "addressLocality": "Altstätten",
+    "descriptionByLocale": {
+      "it": "## Metti al punto\n\nStiamo cercando un apprendista motivato e talentuoso che sostiene l'EJPD in vari compiti commerciali. Non solo sarai accompagnato e supportato dai nostri apprendisti pratici motivati, ma avrai anche l'opportunità di opportunità di networking interna con gli altri studenti e tirocinanti. La vostra formazione sarà arricchita anche dal campo di apprendimento annuale.\n\n- Data di entrata: 01.08.2027\n- Tipo di lavoro: temporaneo\n- Numero di riferimento: 401-20495\n\n## Puoi dare questo contributo\n\n- Compiti amministrativi nella procedura d'asilo (ad es. trattamento di entrata e uscita, registrazione di dati personali, documenti d'identità, prove)\n- Organizzazione degli appuntamenti (incluse le indagini, la registrazione dei rapporti di età, trasferimenti, eventi interni)\n- Elaborazione di richieste esterne\n- Gestione dei materiali\n- Eseguire attività di controllo commerciale (ad esempio creare valutazioni e prepararle graficamente)\n- Assistenza nell'organizzazione di eventi e altri compiti del personale\n- Scrivere documenti come lettere, e-mail, registri e fogli di fatto\n- Fornire informazioni telefoniche e scritte\n\n## Questo ti rende unico\n\n- Sei una persona motivata, ambiziosa e responsabile\n- Sei in grado di lavorare di squadra e avere buone capacità di comunicazione\n- Hai un alto livello di apprendimento e impegno.\n- Si padroneggia il sistema di dieci dita\n- Hai conoscenza di base dei programmi MS-Office\n\n## Offriamo questo\n\n- Lavorare per la Svizzera: Siamo impegnati al modello di successo svizzero e lavoriamo a beneficio della popolazione.\n- Vivi diversità: Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n- Salute al lavoro: Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\n## Formazione professionale FYD – Formiamo il futuro!\n\nLa società di formazione EJPD promette eccitazione e diversità. Si tratta di questioni socio-politiche come la coesistenza di persone di nazionalità svizzera o straniera, questioni di asilo, sicurezza interna o la lotta contro la criminalità. Stato civile o questioni di diritti civili sono altrettanto una parte del remit della FJPD come la supervisione del gioco d'azzardo. L'inizio ottimale al mondo del lavoro nell'agosto 2027 per giovani impegnati e motivati.\n\nSei interessato ora? Poi chiedi l'apprendistato con noi a Eidg. Dipartimento di Giustizia e Polizia – siamo lieti.\n\n## Ulteriori informazioni\n\nInviaci il tuo dossier completo",
+      "en": "## Put to the Point\n\nWe are looking for a motivated and talented learner who supports the EJPD in various commercial tasks. You will not only be accompanied and supported by our motivated practical trainees, but also have the opportunity for internal networking opportunities with the other learners and interns. Your education will also be enriched by the annual learning camp.\n\n- Date of entry: 01.08.2027\n- Type of employment: temporary\n- Reference No: 401-20495\n\n## You can make this contribution\n\n- Administrative tasks in the asylum procedure (e.g. processing of entry and exit, recording of personal data, identity documents, evidence)\n- Organisation of appointments (including surveys, registration of age reports, transfers, internal events)\n- Processing external requests\n- Material management\n- Perform commercial controlling tasks (e.g. create evaluations and prepare them graphically)\n- Assistance in the organisation of events and other staff tasks\n- Write documents such as letters, emails, logs and fact sheets\n- Provide telephone and written information\n\n## This makes you unique\n\n- You are a motivated, ambitious and responsible person\n- You are capable of teamwork and have good communication skills\n- You have a high level of learning and commitment.\n- You master the ten finger system\n- You have basic knowledge of the MS-Office programs\n\n## We offer this\n\n- Working for Switzerland: We are committed to the Swiss success model and work for the benefit of the population.\n- Living diversity: Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n- Healthy at work: We support and advise our employees in the field of physical and mental health.\n\n## Vocational training FYD – We form the future!\n\nThe training company EJPD promises excitement and diversity. It deals with socio-political issues such as the coexistence of people of Swiss or foreign nationality, asylum issues, internal security or the fight against crime. Civil status or civil rights issues are just as much a part of the FJPD’s remit as the supervision of gambling. The optimal start to the world of work in August 2027 for committed and motivated young people.\n\nAre you interested now? Then apply for the apprenticeship with us at Eidg. Department of Justice and Police – we are delighted.\n\n## Additional information\n\nPlease send us your full application dossier",
+      "de": "## Auf den Punkt gebracht\n\nWir suchen eine/-n motivierte/-n und talentierte/-n Lernende/-n, die/der das EJPD in verschiedenen kaufmännischen Aufgabenbereichen unterstützt. Du wirst dabei nicht nur durch unsere motivierten Praxisbildenden begleitet und gefördert, sondern hast auch die Möglichkeit auf interne Vernetzungsmöglichkeiten mit den anderen Lernenden und Praktikanten. Deine Ausbildung wird ausserdem durch das jährliche Lernendenlager bereichert.\n\n- Eintrittsdatum: 01.08.2027\n- Anstellungsart: befristet\n- Referenz-Nr.: 401-20495\n\n## Diesen Beitrag kannst du leisten\n\n- Administrative Aufgaben im Rahmen des Asylverfahrens (u. a. Verarbeitung von Ein- und Austritten, Aufnahme der Personendaten, Identitätsdokumente, Beweismittel)\n- Organisation von Terminen (u. a. Befragungen, Anmeldung Altersgutachten, Transfers, interne Anlässe)\n- Externe Anfragen bearbeiten\n- Materialbewirtschaftung\n- Kaufmännische Controlling-Aufgaben wahrnehmen (z.B. Auswertungen erstellen und grafisch aufbereiten)\n- Mithilfe bei der Organisation von Anlässen und weitere Stabsaufgaben\n- Dokumente wie Briefe, E-Mails, Protokolle und Fact Sheets verfassen\n- Telefonische und schriftliche Auskünfte erteilen\n\n## Das macht dich einzigartig\n\n- Du bist eine motivierte, ehrgeizige und verantwortungsbewusste Person\n- Du bist teamfähig und hast eine gute Kommunikationsfähigkeit\n- Du verfügst über eine hohe Lern- und Einsatzbereitschaft\n- Du beherrschst das Zehnfingersystem\n- Du hast Grundkenntnisse der MS-Office Programme\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Berufsbildung EJPD – Wir bilden Zukunft!\n\nDer Ausbildungsbetrieb EJPD verspricht Spannung und Vielfalt. Er befasst sich mit gesellschaftspolitischen Themen wie dem Zusammenleben von Menschen schweizerischer oder ausländischer Nationalität, Asylfragen, der Inneren Sicherheit oder Bekämpfung von Kriminalität. Das Zivilstandswesen oder Bürgerrechtsfragen gehören ebenso zum Aufgabenkreis des EJPD wie die Aufsicht über das Glücksspiel. Der optimale Start in die Arbeitswelt im August 2027 für engagierte und motivierte Jugendliche.\n\nBist du jetzt interessiert? Dann bewirb dich für die Lehrstelle bei uns im Eidg. Justiz- und Polizeidepartement – wir freuen uns.\n\n## Zusätzliche Informationen\n\nBitte sende uns dein vollständiges Bewerbungsdossier mit",
+      "fr": "## Mettre au point\n\nNous cherchons un apprenant motivé et talentueux qui soutient l'EJPD dans diverses tâches commerciales. Vous serez non seulement accompagné et soutenu par nos stagiaires pratiques motivés, mais aussi l'occasion de créer des réseaux internes avec les autres apprenants et stagiaires. Votre éducation sera également enrichie par le camp d'apprentissage annuel.\n\n- Date d'entrée: 01.08.2027\n- Type d'emploi: temporaire\n- Numéro de référence: 401-20495\n\n## Vous pouvez faire cette contribution\n\n- Tâches administratives dans la procédure d'asile (par exemple traitement de l'entrée et de la sortie, enregistrement des données à caractère personnel, documents d'identité, preuves)\n- Organisation des nominations (y compris enquêtes, enregistrement des rapports d'âge, transferts, événements internes)\n- Traitement des demandes externes\n- Gestion du matériel\n- Effectuer des tâches commerciales de contrôle (par exemple créer des évaluations et les préparer graphiquement)\n- Assistance à l'organisation d'événements et d'autres tâches de personnel\n- Écrire des documents tels que lettres, courriels, journaux et fiches d'information\n- Fournir des renseignements téléphoniques et écrits\n\n## Cela vous rend unique\n\n- Vous êtes une personne motivée, ambitieuse et responsable\n- Vous êtes capable de travailler en équipe et avez de bonnes compétences en communication\n- Vous avez un haut niveau d'apprentissage et d'engagement.\n- Vous maîtrisez le système des dix doigts\n- Vous avez une connaissance de base des programmes MS-Office\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse : Nous sommes engagés dans le modèle de réussite suisse et travaillons au bénéfice de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Formation professionnelle FYD – Nous formons l'avenir!\n\nL'entreprise de formation EJPD promet excitation et diversité. Il traite de questions sociopolitiques telles que la coexistence de personnes de nationalité suisse ou étrangère, les questions d'asile, la sécurité intérieure ou la lutte contre la criminalité. L'état civil ou les questions de droits civils font tout autant partie du mandat des FJPD que la surveillance du jeu. Le début optimal du monde du travail en août 2027 pour les jeunes engagés et motivés.\n\nÇa t'intéresse ? Puis postuler pour l'apprentissage avec nous à l'Eidg. Ministère de la Justice et de la Police – nous sommes ravis.\n\n## Informations complémentaires\n\nVeuillez nous envoyer votre dossier complet"
+    },
+    "slugByLocale": {
+      "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-altstatten",
+      "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-altstatten",
+      "de": "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+      "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-altstatten"
+    },
+    "sector": "Pubblica amministrazione",
+    "expiredAt": "2026-11-26T22:01:46.705Z",
+    "previousSlugs": [
+      "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+      "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+        "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
+      ],
+      "en": [
+        "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+      ],
+      "fr": [
+        "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+      ]
+    },
+    "postalCode": "9450",
+    "streetAddress": "Altstätten",
+    "salaryMin": 48000,
+    "salaryMax": 73000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-efz/6db4821e-0508-4290-87c3-b95487fe5edb",
+    "firstSeenAt": "2026-09-25T15:09:20.522Z"
+  },
+  {
+    "id": "confederazione-ticino-1154376fa1fc",
+    "slug": "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf",
+    "title": "Ärztin / Arzt Fliegerärztliches Institut Luftwaffe",
+    "titleByLocale": {
+      "de": "Ärztin / Arzt Fliegerärztliches Institut Luftwaffe",
+      "it": "Dottore / Doctor Air Force Institute",
+      "en": "Doctor / Doctor Air Force Institute",
+      "fr": "Docteur / Docteur Institut de la Force aérienne"
+    },
+    "company": "Confederazione Svizzera",
+    "companyKey": "confederazione-ticino",
+    "location": "Dübendorf",
+    "canton": "ZH",
+    "addressLocality": "Dübendorf",
+    "descriptionByLocale": {
+      "de": "## Auf den Punkt gebracht\n\nMensch und Maschine gehören in der Aviatik zusammen. Wir suchen eine Ärztin oder einen Arzt mit Flair für die Verbindung von Medizin, Psychologie und Sicherheit in komplexen Systemen. Das Fliegerärztliche Institut ist missionsrelevante Schlüsseleinheit der Luftwaffe und als Aeromedical Center nach EASA und FAA zivil akkreditiert. Die Weiterbildung zur AME können Sie bei uns absolvieren.\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20669\n- Arbeitsort: Bettlistrasse 16, 8600 Dübendorf\n\nDiesen Beitrag können Sie leisten\n\n- Eignungs- und Tauglichkeitsabklärungen für Angehörige des militärischen Flugdienstes sowie für militärische und zivile Spezialistinnen und Spezialisten durchführen\n\n- Sprechstunden inklusive Betreuung und Folgebehandlungen selbständig führen\n\n- Flugmedizinische Fragestellungen analysieren und daraus konkrete Massnahmen ableiten\n\n- Die flugmedizinische Lehre intern vermitteln und die Fachentwicklung mitgestalten\n\n- Prozesse des Aeromedical Centers nach EASA- und FAA-Vorgaben mittragen und dokumentieren\n\n- Interdisziplinär mit Psychologie, Flugsicherheit und Operations zusammenarbeiten\n\nDas macht Sie einzigartig\n\n- Facharzttitel Allgemeine Innere Medizin oder Arbeitsmedizin\n\n- Weiterbildung oder fundierte Kenntnisse in flugmedizinischen Themen\n\n- Engagierte, teamfähige und umsichtige Persönlichkeit\n\n- Interesse an einer Weiterbildung zur akkreditierten Flugmedizinerin bzw. zum akkreditierten Flugmediziner (AME)\n\n- Gute aktive Kenntnisse mindestens einer zweiten Amtssprache, vorzugsweise passive Kenntnisse einer dritten Amtssprache und gute Englischkenntnisse\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDas Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nFragen? Hier gibt es Antworten:\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
+      "it": "## Metti al punto\n\nL'uomo e la macchina appartengono insieme nell'aviazione. Siamo alla ricerca di un medico con flair per la combinazione di medicina, psicologia e sicurezza in sistemi complessi. L'Istituto Aeromedico è un'unità chiave di missione-rilevante dell'Aeronautica ed è accreditato civile come Centro Aeromedico secondo EASA e FAA. È possibile completare ulteriormente la formazione per l'AME con noi.\n\n- Data di entrata: d'accordo\n- Tipo di lavoro: perpetuo\n- Numero di riferimento: JRQ$540-20669\n- Luogo di lavoro: Bettlistrasse 16, 8600 Dübendorf\n\nPuoi dare questo contributo\n\n- Eseguire aptitude e valutazioni di fitness per i membri del servizio aereo militare e per gli specialisti militari e civili\n\n- Ore di consultazione, comprese le cure e il trattamento di follow-up indipendentemente\n\n- Analizzare le domande mediche di volo e derivare misure concrete da loro\n\n- Impart insegnamento aero-medico internamente e contribuire a modellare lo sviluppo specializzato\n\n- Processi di supporto e documentazione del Centro Aeromedico secondo i requisiti EASA e FAA\n\n- Collaborazione interdisciplinare con psicologia, sicurezza e operazioni di volo\n\nQuesto li rende unici.\n\n- Titolo specialistico Medicina interna generale o medicina professionale\n\n- Formazione avanzata o conoscenza approfondita di argomenti aero-medici\n\n- Engaged, squadra capace e personalità prudente\n\n- Interessato a ulteriori corsi di formazione come aeromedico accreditato (AME)\n\n- Buona conoscenza attiva di almeno una seconda lingua ufficiale, conoscenza preferibilmente passiva di una terza lingua ufficiale e buona conoscenza dell'inglese\n\nOffriamo questo\n\n- Siamo impegnati nel modello di successo svizzero e lavoriamo a beneficio della popolazione.\n\n- Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n\n- Salute al lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nLe operazioni di comando (Kdo Op) sono responsabili di tutte le operazioni e le operazioni militari dell'esercito svizzero. Il Kdo Op include la Luftwaffe, l'esercito, le quattro divisioni territoriali, il SWISSINT Competence Center, il Comando delle Forze Speciali e la Polizia Militare. Circa il 40% dei circa 2.500 dipendenti sono dipendenti civili – dagli ingegneri alla meccanica degli aeromobili agli analisti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.\n\n## Ulteriori informazioni\n\nDomande? Ecco le risposte:\n\nLe donne sono ancora sottorappresentate nella nostra unità amministrativa. Le vostre applicazioni sono quindi particolarmente gradite.",
+      "en": "## Put to the Point\n\nMan and machine belong together in aviation. We are looking for a doctor with flair for the combination of medicine, psychology and safety in complex systems. The Aeromedical Institute is a mission-relevant key unit of the Air Force and is civilly accredited as an Aeromedical Center according to EASA and FAA. You can complete further training for the AME with us.\n\n- Entry date: by agreement\n- Type of employment: perpetual\n- Reference No: JRQ$540-20669\n- Place of work: Bettlistrasse 16, 8600 Dübendorf\n\nYou can make this contribution\n\n- Perform aptitude and fitness assessments for members of military air service as well as for military and civilian specialists\n\n- Consultation hours including care and follow-up treatment independently\n\n- Analyze flight medical questions and derive concrete measures from them\n\n- Impart aero-medical teaching internally and help shape the specialist development\n\n- Support and document processes of the Aeromedical Center according to EASA and FAA requirements\n\n- Interdisciplinary collaboration with psychology, flight safety and operations\n\nThis makes them unique.\n\n- Specialist title General internal medicine or occupational medicine\n\n- Advanced training or in-depth knowledge of aero-medical topics\n\n- Engaged, team capable and prudent personality\n\n- Interested in further training as an accredited aeromedic (AME)\n\n- Good active knowledge of at least one second official language, preferably passive knowledge of a third official language and good knowledge of English\n\nWe offer this\n\n- We are committed to the Swiss success model and work for the benefit of the population.\n\n- Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom\nThe Command Operations (Kdo Op) is responsible for all military operations and operations of the Swiss Army. The Kdo Op includes the Luftwaffe, the Army, the four territorial divisions, the SWISSINT Competence Center, the Special Forces Command and the Military Police. Around 40% of the approximately 2,500 employees are civil employees – from engineers to aircraft mechanics to analysts.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.\n\n## Additional information\n\nQuestions? Here are the answers:\n\nWomen are still underrepresented in our administrative unit. Your applications are therefore particularly welcome.",
+      "fr": "## Mettre au point\n\nL'homme et la machine font partie de l'aviation. Nous sommes à la recherche d'un médecin avec goût pour la combinaison de la médecine, de la psychologie et de la sécurité dans les systèmes complexes. L'Institut aéromédical est une unité clé de l'armée de l'air et est accrédité civilement comme centre aéromédical selon l'AESA et la FAA. Vous pouvez compléter la formation pour l'AME avec nous.\n\n- Date d'entrée: par accord\n- Type d'emploi: perpétuel\n- Numéro de référence: JRQ$540-20669\n- Lieu de travail: Bettlistrasse 16, 8600 Dübendorf\n\nVous pouvez faire cette contribution\n\n- Effectuer des évaluations des aptitudes et de la condition physique des membres du service aérien militaire ainsi que des spécialistes militaires et civils\n\n- Heures de consultation incluant les soins et le suivi indépendamment\n\n- Analyser les questions médicales de vol et en tirer des mesures concrètes\n\n- Impart enseignement aéromédical en interne et aider à façonner le développement spécialisé\n\n- Soutien et documentation du Centre Aéromédical selon les exigences de l'AESA et de la FAA\n\n- Collaboration interdisciplinaire avec la psychologie, la sécurité des vols et les opérations\n\nCela les rend uniques.\n\n- Titre du spécialiste Médecine interne générale ou médecine du travail\n\n- Formation avancée ou connaissance approfondie de sujets aéromédicaux\n\n- Personnalité engagée, capable d'équipe et prudente\n\n- Intéressé par une formation continue en tant qu'aéromédice accrédité (AME)\n\n- Bonne connaissance active d'au moins une seconde langue officielle, de préférence connaissance passive d'une troisième langue officielle et bonne connaissance de l'anglais\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle suisse de réussite et travaillons au profit de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLes opérations de commandement (Kdo Op) sont responsables de toutes les opérations militaires de l'armée suisse. L'opération Kdo comprend la Luftwaffe, l'armée, les quatre divisions territoriales, le centre de compétence SWISSINT, le commandement des forces spéciales et la police militaire. Environ 40 % des quelque 2 500 employés sont des employés civils – des ingénieurs à la mécanique des aéronefs aux analystes.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge : L'Armée suisse forme les apprenants dans plus de 30 professions.\n\n## Informations complémentaires\n\nDes questions ? Voici les réponses :\n\nLes femmes sont encore sous-représentées dans notre unité administrative. Vos candidatures sont donc particulièrement bienvenues."
+    },
+    "slugByLocale": {
+      "de": "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-z23znv",
+      "it": "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-z23znv",
+      "en": "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-z23znv",
+      "fr": "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-z23znv"
+    },
+    "sector": "Pubblica amministrazione",
+    "expiredAt": "2026-11-26T22:01:46.699Z",
+    "previousSlugs": [
+      "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
+    ],
+    "previousSlugsByLocale": {
+      "en": [
+        "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
+      ],
+      "de": [
+        "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
+      ],
+      "fr": [
+        "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
+      ]
+    },
+    "postalCode": "8600",
+    "streetAddress": "Dübendorf",
+    "salaryMin": 79000,
+    "salaryMax": 134500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/aerztin-arzt-fliegeraerztliches-institut-luftwaffe/dc0bcd28-1e77-49e1-b106-1fb9e99b99b7",
+    "firstSeenAt": "2026-11-26T09:55:29.195Z"
   }
 ]

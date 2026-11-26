@@ -490,7 +490,8 @@
       ],
       "de": [
         "postauto-chauffeur-in-postauto-bad-ragaz",
-        "postauto-chauffeur-in-postauto-sarnen"
+        "postauto-chauffeur-in-postauto-sarnen",
+        "postauto-chauffeur-in-postauto-sarnen-e707a5f2"
       ],
       "fr": [
         "postauto-chauffeur-in-post",
@@ -942,6 +943,7 @@
         "postauto-fahrer-in-postauto-appenzell",
         "pilote-postbus-in-postauto-ag-appenzell",
         "postbus-driver-in-postauto-ag-appenzell",
+        "postauto-driver-postauto-ag-reichenburg",
         "postauto-fahrer-in-postauto-reichenburg"
       ],
       "en": [
@@ -952,6 +954,7 @@
         "postauto-fahrer-in-postauto-ilanz",
         "postbus-driver-in-postauto-reichenburg",
         "postbus-driver-in-postauto-appenzell",
+        "postauto-driver-postauto-ag-reichenburg-f9e0f17d",
         "postauto-fahrer-in-postauto-reichenburg",
         "postauto-driver-postauto-ag-reichenburg"
       ],
@@ -965,12 +968,15 @@
         "pilote-postbus-in-postauto-ag-reichenburg",
         "pilote-postbus-in-postauto-reichenburg",
         "pilote-postbus-in-postauto-appenzell",
+        "postauto-driver-postauto-ag-reichenburg",
         "postauto-fahrer-in-postauto-reichenburg"
       ],
       "de": [
         "postauto-fahrer-in-postauto-ilanz",
         "postauto-fahrer-in-postauto-appenzell",
-        "postauto-fahrer-in-postauto-reichenburg"
+        "postauto-fahrer-in-postauto-reichenburg",
+        "postauto-fahrer-in-postauto-reichenburg-da847804",
+        "postauto-driver-postauto-ag-reichenburg"
       ]
     },
     "postalCode": "8864",
@@ -2411,12 +2417,6 @@
       "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag-213c40ea",
       "controleur-de-billets-et-conseil-client-postauto-ag-interlaken-14ef1960",
       "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag-a719cd4d",
-      "ticket-inspector-and-customer-service-advisor-postauto-ag-brugg-ag",
-      "ticket-inspector-and-customer-service-postauto-ag-interlaken",
-      "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag",
-      "controleur-de-billets-et-conseil-client-postauto-ag-interlaken",
-      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken",
-      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag",
       "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
       "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
     ],
