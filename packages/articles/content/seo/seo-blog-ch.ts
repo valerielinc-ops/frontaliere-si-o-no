@@ -110519,6 +110519,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consultazione-modifiche-oosg': {
+    title: 'Gas: aperta la consultazione sulle modifiche alla OOSG',
+    description: 'Berna, 25 novembre 2026: consultazione su costi ASIG per una grave penuria di gas e accesso selettivo al monitoraggio del gas naturale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aperta, consultazione, sulle, modifiche',
+    ogTitle: 'OOSG: costi ASIG e monitoraggio del gas',
+    ogDescription: 'La comunicazione del 25 novembre 2026 presenta due ambiti della consultazione: i costi sostenuti dall\'ASIG per preparare misure in caso di grave penuria e l\'ampliamento selettivo dell\'accesso al monitoraggio del gas naturale da parte dell\'UFAE.',
+    canonicalPath: '/articoli-svizzera/consultazione-modifiche-oosg/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gas: aperta la consultazione sulle modifiche alla OOSG",
+      "description": "Berna, 25 novembre 2026: consultazione su costi ASIG per una grave penuria di gas e accesso selettivo al monitoraggio del gas naturale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-consultazione-modifiche-oosg.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-26T10:15:54+00:00",
+      "dateModified": "2026-11-26T10:15:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consultazione-modifiche-oosg/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

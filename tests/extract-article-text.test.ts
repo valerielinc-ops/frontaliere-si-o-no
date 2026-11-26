@@ -83,6 +83,91 @@ describe('extractArticleText', () => {
     expect(r.text).not.toContain('Cookie policy');
   });
 
+  it('takes an iCMS publication date from the root actually selected for extraction', () => {
+    const articleDate = new Date(Date.now() - 12 * 86_400_000).toISOString();
+    const mainDate = new Date(Date.now() - 3 * 86_400_000).toISOString();
+    const first = 'The real source paragraph in the main editorial root contains enough facts for the extractor to select it.';
+    const second = 'A second source paragraph confirms that the article root is the active page content rather than the short shell lead.';
+    const html = `<article><time class="icms-date" datetime="${articleDate}"></time><p>Short shell lead.</p></article>`
+      + `<main><time class="icms-date" datetime="${mainDate}"></time><p>${first}</p><p>${second}</p></main>`;
+
+    const result = extractArticleText(html);
+
+    expect(result.method).toBe('main-tag');
+    expect(result.publishedAt).toBe(mainDate);
+  });
+
+  it('keeps the publication date inside an article root when that root wins', () => {
+    const articleDate = new Date(Date.now() - 8 * 86_400_000).toISOString();
+    const mainDate = new Date(Date.now() - 2 * 86_400_000).toISOString();
+    const first = 'The article root contains the complete source paragraph with enough facts for editorial extraction.';
+    const second = 'The second article paragraph confirms that the article root is the selected source body.';
+    const html = `<article><time class="icms-date" datetime="${articleDate}"></time><p>${first}</p><p>${second}</p></article>`
+      + `<main><time class="icms-date" datetime="${mainDate}"></time><p>${first}</p><p>${second}</p></main>`;
+
+    const result = extractArticleText(html);
+
+    expect(result.method).toBe('article-tag');
+    expect(result.publishedAt).toBe(articleDate);
+  });
+
+  it('ignores inactive iCMS dates and rejects ambiguous active dates', () => {
+    const publishedAt = new Date(Date.now() - 2 * 86_400_000).toISOString();
+    const inactiveDate = new Date(Date.now() - 10 * 86_400_000).toISOString();
+    const first = 'The active article paragraph contains enough substantive source context for the date test.';
+    const second = 'The second active article paragraph keeps the editorial root above the extraction threshold.';
+    const oneActive = `<main><time class="icms-date d-none" datetime="${inactiveDate}"></time>`
+      + `<time class="icms-date" datetime="${publishedAt}"></time><p>${first}</p><p>${second}</p></main>`;
+    expect(extractArticleText(oneActive).publishedAt).toBe(publishedAt);
+
+    const ambiguous = `<main><time class="icms-date" datetime="${publishedAt}"></time>`
+      + `<time class="icms-date" datetime="${inactiveDate}"></time><p>${first}</p><p>${second}</p></main>`;
+    expect(extractArticleText(ambiguous).publishedAt).toBe('');
+  });
+
+  it('collapses an iCMS marker wrapper and its nested semantic date', () => {
+    const first = 'The selected article contains enough substantive source context for the nested publication date test.';
+    const second = 'A second paragraph keeps the editorial root eligible while the wrapper and time represent one marker.';
+    const html = `<main><span class="icms-date"><time itemprop="datePublished" datetime="2025-02-01"></time></span>`
+      + `<p>${first}</p><p>${second}</p></main>`;
+
+    expect(extractArticleText(html).publishedAt).toBe('2025-02-01T00:00:00.000Z');
+  });
+
+  it('does not inherit an unrelated iCMS date when JSON-LD body wins', () => {
+    const articleBody = 'The JSON-LD article body is the authoritative source and must not inherit a date from a separate editorial shell. '.repeat(4);
+    const html = `<article data-icms-date="2024-01-01"><p>Shell paragraph one with enough content for root selection.</p>`
+      + '<p>Shell paragraph two keeps the separate article root qualifying.</p></article>'
+      + `<script type="application/ld+json">${JSON.stringify({ '@type': 'NewsArticle', articleBody })}</script>`;
+
+    const result = extractArticleText(html);
+
+    expect(result.method).toBe('jsonld');
+    expect(result.publishedAt).toBe('');
+  });
+
+  it('preserves publication date through the naive fallback', () => {
+    const publishedAt = new Date(Date.now() - 4 * 86_400_000).toISOString();
+    const html = `<head><meta property="article:published_time" content="${publishedAt}"></head>`
+      + '<body><div>Short shell text.</div></body>';
+
+    const result = extractArticleText(html);
+
+    expect(result.method).toBe('naive-fallback');
+    expect(result.publishedAt).toBe(publishedAt);
+  });
+
+  it('preserves publication date through the noscript fallback', () => {
+    const publishedAt = new Date(Date.now() - 5 * 86_400_000).toISOString();
+    const html = `<head><meta property="article:published_time" content="${publishedAt}"></head>`
+      + '<body><main><noscript>Short no-script source text.</noscript></main></body>';
+
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('naive-fallback');
+    expect(result.publishedAt).toBe(publishedAt);
+  });
+
   it('preserves active noscript fallback markup when scripting is disabled', () => {
     const html = `<main><noscript>
       <h1>Headline from the no-script article page</h1>
@@ -607,6 +692,11 @@ describe('source publication date provenance', () => {
     '<time itemprop="datePublished" datetime="DATE">Published</time>',
   ])('retains explicitly identified publication markup: %s', (markup) => {
     expect(publication(markup.replace('DATE', publishedAt))).toBe(publishedAt);
+  });
+
+  it('parses an explicit European publication date before the host Date parser', () => {
+    expect(publication('<meta property="article:published_time" content="01/02/2025">'))
+      .toBe('2025-02-01T00:00:00.000Z');
   });
 
   it('continues past modification-only graph nodes to explicit publication', () => {

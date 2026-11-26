@@ -49,7 +49,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/sion-responsable-d&apos;exploitation-b%c3%a9ton-r%c3%a9gion-valaisanne-vala-1950/1376956157",
-    "firstSeenAt": "2026-11-06T21:45:23.738Z"
+    "firstSeenAt": "2026-11-06T21:45:23.738Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-d-exploitation-beton-region-valaisanne-holcim-ch": "VS"
+      },
+      "en": {
+        "responsable-d-exploitation-beton-region-valaisanne-holcim-ch": "VS"
+      },
+      "de": {
+        "responsable-d-exploitation-beton-region-valaisanne-holcim-ch": "VS"
+      }
+    },
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/sierre-responsable-d&apos;exploitation-b%c3%a9ton-r%c3%a9gion-valaisanne-vala-3960/1376956157",
+        "firstSeenAt": "2026-11-06T21:45:23.738Z",
+        "title": "Responsable d'Exploitation Béton - Région Valaisanne"
+      },
+      {
+        "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/sion-responsable-d&apos;exploitation-b%c3%a9ton-r%c3%a9gion-valaisanne-vala-1950/1376956157",
+        "firstSeenAt": "2026-11-06T21:45:23.738Z",
+        "title": "Responsable d'Exploitation Béton - Région Valaisanne"
+      }
+    ]
   },
   {
     "id": "holcim-ebff0a3d7dd8",
@@ -461,7 +484,23 @@
       "chauffeur-in-ghiaia-cemento-e-riciclaggio-80-100-kirchberg-holcim-group-kirchberg",
       "chauffeur-in-gravel-concrete-recycling-80-100-kirchberg-holcim-group-kirchberg",
       "chauffeur-en-gravier-beton-recyclage-80-100-kirchberg-holcim-group-kirchberg"
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "autista-ghiaia-calcestruzzo-e-riciclaggio-80-100-kirchberg-holcim-group-kirchberg": "SG",
+        "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch": "SG"
+      },
+      "en": {
+        "gravel-concrete-recycling-driver-80-100-kirchberg-holcim-group-kirchberg": "SG"
+      },
+      "de": {
+        "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch": "SG",
+        "chauffeur-in-kies-beton-recycling-80-100-kirchberg-holcim-group-kirchberg": "SG"
+      },
+      "fr": {
+        "chauffeur-dans-le-gravier-le-beton-et-le-recyclage-80-100-kirchberg-holcim-group-kirchberg": "SG"
+      }
+    }
   },
   {
     "slug": "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-770b44e1",
@@ -492,7 +531,7 @@
     "expiredAt": "2026-11-10T21:32:33.155Z",
     "previousSlugsByLocale": {
       "it": [
-        "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-8a4e2ba3",
+        "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf-091617d9",
         "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf-6b7afda9",
         "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-8b49b1b8",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e",
@@ -503,7 +542,7 @@
         "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf-5dd874d0",
         "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf-14663a04",
         "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-32d8f91d",
-        "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf-091617d9",
+        "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-8a4e2ba3",
         "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-5b90bf52",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch-44a60aad",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-5aec02c8",
@@ -7398,6 +7437,99 @@
     "firstSeenAt": "2026-10-15T21:22:28.696Z"
   },
   {
+    "slug": "impiegato-clienti-e-supporto-vendite-holcim-group-mulligen",
+    "title": "Sachbearbeiter:in Customer & Sales Support (Mülligen)",
+    "titleByLocale": {
+      "it": "Impiegato Clienti e Supporto Vendite",
+      "en": "Administrative Specialist: Customer & Sales Support (Mülligen)",
+      "de": "Sachbearbeiter:in Customer & Sales Support (Mülligen)",
+      "fr": "Commis de support client et commercial"
+    },
+    "company": "Holcim Group",
+    "companyKey": "holcim",
+    "location": "Mülligen",
+    "addressLocality": "Mülligen",
+    "descriptionByLocale": {
+      "it": "Forma l'industria di domani con noi.\n\nSei un talento organizzativo, goditi il contatto con i clienti e tieni anche una panoramica su diverse interfacce?\nQuindi entrare a far parte del nostro Customer & Sales Support Team e assicurarsi che tutto funzioni senza problemi dall'offerta alla fattura.\n\nCosa aspettarsi:\n\n• Elaborazione dell'intera catena di processo dall'offerta alla corretta preparazione della fattura e al pagamento del corriere incl. Inbox processing ( fatture dei creditori)\n\n• Supporto/coordinamento tra vendite, logistica, produzione nel Centro assistenza clienti regionale\n\n• Monitoraggio degli ordini del cliente, accordi di nomina (compreso il trattamento delle note di consegna)\n\n• Preparazione, tracciabilità e completamento delle offerte per cemento, ghiaia, scavo e riciclaggio\n\n• Consulenza e supporto telefonico per i nostri clienti e supporto indipendente per i piccoli clienti\n\n• Manutenzione dei dati dei clienti e degli oggetti nel CRM e compilazione di statistiche, calcoli e panoramica dei mercati\n\n• Partecipazione attiva all'ottimizzazione dei processi e dei flussi di lavoro nel Customer Support Center e con la sede (Business Support Center)\n\n• Supporto amministrativo team di progetto e gestione degli impianti\n\n• Completa un'amministrazione di processo efficiente e senza errori\n\nCosa porti:\n\n• Formazione commerciale completa o formazione tecnica di base (di vantaggio nell'edilizia / ingegneria civile) con ulteriore formazione come mercante tecnico / mercante o diploma commerciale\n\n• Esperienza amministrativa, idealmente con punti di contatto per vendite, logistica o acquisto\n\n• Buona comprensione dei processi commerciali dalla preparazione delle offerte alla fatturazione\n\n• Conoscenza di base dei singoli prodotti di ghiaia Holcim, cemento e cemento nonché dei servizi di Holcim, così come avanzati\n\n• Ottima conoscenza e apertura dell'utente IT alle nuove tecnologie\n\n• Metodi di lavoro strutturati, affidabili e indipendenti, nonché un forte orientamento al cliente e al servizio\n\n• Agility, aperta al cambiamento e alla volontà di conoscere e assumere altri compiti e funzioni\n\n• Comunicazione e forza di squadra oltre a negoziare a prova di tedesco e buone abilità inglesi\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo fin dall'inizio con un'attenta familiarizzazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life Balance: Offriamo orari di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni di vacanze, acquisto di vacanze, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che ti senti a tuo agio e beneficia di servizi aggiuntivi attraenti",
+      "en": "Shape the industry of tomorrow with us.\n\nYou are an organizational talent, enjoy customer contact and also keep an overview at different interfaces?\nThen become part of our Customer & Sales Support Team and ensure that everything works smoothly from offer to invoice.\n\nWhat to expect:\n\n• Processing of the entire process chain from the offer to the correct invoice preparation and freight forwarder payment incl. Inbox processing (creditors’ invoices)\n\n• Support/coordination between sales, logistics, production in the regional Customer Support Center\n\n• Monitoring of customer orders, appointment agreements (including delivery note processing)\n\n• Preparation, traceability and completion of offers for concrete, gravel, excavation and recycling\n\n• Telephone advice and support for our customers as well as independent support for small customers\n\n• Maintenance of customer and object data in the CRM as well as compilation of statistics, calculations and market overviews\n\n• Active participation in the optimization of processes and workflows in the Customer Support Center as well as with the headquarters (Business Support Center)\n\n• Administrative support project team and plant management\n\n• Complete an efficient and error-free process administration\n\nWhat you bring:\n\n• Completed commercial training or basic technical training (of advantage in building / civil engineering) with further training as a technical merchant / merchant or trade diploma\n\n• Administrative experience, ideally with points of contact for sales, logistics or purchasing\n\n• Good understanding of commercial processes from the preparation of offers to invoicing\n\n• Basic knowledge of the individual Holcim gravel, concrete and cement products as well as the services of Holcim, as well as advanced\n\n• Very good IT user knowledge and openness to new technologies\n\n• Structured, reliable and independent working methods as well as a strong customer and service orientation\n\n• Agility, open to change and willingness to get to know and take on other tasks and functions\n\n• Communication and team strength as well as negotiating-proof German and good English skills\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful familiarization, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+      "de": "Gestalte die Industrie von morgen mit uns.\n\nDu bist ein Organisationstalent, hast Freude am Kundenkontakt und behältst auch an unterschiedlichen Schnittstellen den Überblick?\nDann werde Teil unseres Customer & Sales Support Teams und sorge dafür, dass vom Angebot bis zur Rechnung alles reibungslos funktioniert.\n\nWas dich erwartet:\n\n• Abwicklung der gesamten Prozesskette vom Angebot bis zur korrekten Rechnungserstellung und Spediteurzahlung inkl. Inbox-Bearbeitung (Kreditorenrechnungen)\n\n• Unterstützung/Koordination zwischen Verkauf, Logistik, Produktion in den regionalen Customer Support Center\n\n• Überwachung von Kundenaufträgen, Terminvereinbarungen (inkl. Lieferscheinbearbeitung)\n\n• Erstellung, Nachverfolgung und Abschluss von Offerten für Beton, Kies, Aushub und Recycling\n\n• Telefonische Beratung und Betreuung unserer Kunden sowie eigenständige Betreuung von Kleinkunden\n\n• Pflege von Kunden- und Objektdaten im CRM sowie Erstellung von Statistiken, Kalkulationen und Marktübersichten\n\n• Aktive Mitarbeit bei der Optimierung von Prozessen und Arbeitsabläufen im Customer Support Center sowie mit der Zentrale (Business Support Center)\n\n• Administrative Unterstützung Projektteam sowie der Werkleitung\n\n• Erledigen einer effizienten und fehlerfreien Prozess-Administration\n\nWas du mitbringst:\n\n• Abgeschlossene kaufmännische Ausbildung oder technische Grundausbildung (von Vorteil im Hoch- / Tiefbau) mit Weiterbildung als technische/r Kaufmann / Kauffrau oder Handelsdiplom\n\n• Erfahrung im administrativen Bereich, idealerweise mit Berührungspunkten zu Verkauf, Logistik oder Einkauf\n\n• Gutes Verständnis kaufmännischer Prozesse von der Angebotserstellung bis zur Fakturierung\n\n• Grundkenntnisse der einzelnen Holcim Kies-, Beton- und Zementprodukte sowie den Dienstleistungen von Holcim, sowie erweiterte\n\n• Sehr gute IT-Anwenderkenntnisse und Offenheit für neue Technologien\n\n• Strukturierte, zuverlässige und selbstständige Arbeitsweise sowie ausgeprägte Kunden- und Serviceorientierung\n\n• Agilität, offen für Veränderungen und Bereitschaft andere Aufgaben und Funktionen kennen zu lernen und zu übernehmen\n\n• Kommunikations- und Teamstärke sowie verhandlungssichere Deutsch- und gute Englischkenntnisse\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+      "fr": "Formez l'industrie de demain avec nous.\n\nVous êtes un talent organisationnel, profitez des contacts avec les clients et gardez également un aperçu à différentes interfaces?\nFaites ensuite partie de notre équipe de support client et ventes et assurez-vous que tout fonctionne bien de l'offre à la facture.\n\nÀ quoi s'attendre :\n\n• Traitement de l'ensemble de la chaîne de processus de l'offre à la préparation correcte de la facture et le paiement transitaire incl. Traitement des boîtes de réception (factures des créanciers)\n\n• Soutien/coordination entre les ventes, la logistique, la production dans le Centre régional d'assistance à la clientèle\n\n• Surveillance des commandes des clients, accords de rendez-vous (y compris le traitement des notes de livraison)\n\n• Préparation, traçabilité et achèvement des offres de béton, gravier, excavation et recyclage\n\n• Conseils téléphoniques et support pour nos clients ainsi qu'un support indépendant pour les petits clients\n\n• Gestion des données client et objet dans le CRM ainsi que compilation de statistiques, calculs et aperçus du marché\n\n• Participation active à l'optimisation des processus et des flux de travail au Centre d'assistance à la clientèle ainsi qu'au siège (Centre d'assistance aux entreprises)\n\n• Équipe de projet d'appui administratif et gestion des installations\n\n• Terminer une administration de processus efficace et sans erreur\n\nCe que vous apportez :\n\n• Achevé une formation commerciale ou une formation technique de base (d'avantage dans le bâtiment / génie civil) avec une formation complémentaire en tant que spécialiste technique / marchand ou diplôme de commerce\n\n• Expérience administrative, idéalement avec points de contact pour les ventes, la logistique ou l'achat\n\n• Bonne compréhension des processus commerciaux, de la préparation des offres à la facturation\n\n• Connaissance de base du gravier, du béton et du ciment de Holcim, ainsi que des services de Holcim, ainsi que des produits avancés\n\n• Très bonne connaissance des utilisateurs informatiques et ouverture aux nouvelles technologies\n\n• Méthodes de travail structurées, fiables et indépendantes ainsi qu'une forte orientation client et service\n\n• Agilité, ouverte au changement et volonté d'apprendre à connaître et à assumer d'autres tâches et fonctions\n\n• La communication et la force de l'équipe ainsi que la maîtrise de l'allemand et de l'anglais\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début d'une familiarisation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité et équilibre entre le travail et la vie personnelle : nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie les parts à un prix préférentiel à l'avantage Swibeco monde - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
+    },
+    "slugByLocale": {
+      "it": "impiegato-clienti-e-supporto-vendite-holcim-group-mulligen",
+      "en": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen",
+      "de": "sachbearbeiter-in-customer-amp-sales-support-holcim-ch",
+      "fr": "commis-de-support-client-et-commercial-holcim-group-mulligen"
+    },
+    "sector": "Materiali da costruzione / Cemento",
+    "expiredAt": "2026-10-23T09:32:05.561Z",
+    "previousSlugs": [
+      "sachbearbeiter-in-customer-amp-sales-support-holcim-ch",
+      "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen",
+      "sachbearbeiter-in-customer-amp-sales-support-mulligen-holcim-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "sachbearbeiter-in-customer-amp-sales-support-holcim-ch",
+        "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen",
+        "sachbearbeiter-in-customer-amp-sales-support-mulligen-holcim-ch"
+      ],
+      "fr": [
+        "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen"
+      ]
+    },
+    "postalCode": "5243",
+    "salaryMin": 74000,
+    "salaryMax": 113500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/m%c3%bclligen-sachbearbeiterin-customer-&-sales-support-%28m%c3%bclligen%29-ag-5243/1374161257",
+    "firstSeenAt": "2026-10-07T09:37:20.491Z"
+  },
+  {
+    "slug": "sachbearbeiter-in-customer-sales-support-birsfelden-holcim-group-birsfelden",
+    "title": "Sachbearbeiter:in Customer & Sales Support (Birsfelden)",
+    "titleByLocale": {
+      "it": "Impiegato/a Customer & Sales Support (Birsfelden)",
+      "en": "Customer & Sales Support Administrator (Birsfelden)",
+      "de": "Sachbearbeiter:in Customer & Sales Support (Birsfelden)",
+      "fr": "Collaborateur·rice administratif·ve Customer & Sales Support (Birsfelden)"
+    },
+    "company": "Holcim Group",
+    "companyKey": "holcim",
+    "location": "Birsfelden",
+    "addressLocality": "Birsfelden",
+    "descriptionByLocale": {
+      "it": "Formare l'industria di domani con noi.\n\nSei un talento organizzativo, goditi il contatto con i clienti e tieni anche una panoramica su diverse interfacce?\nQuindi entrare a far parte del nostro Customer & Sales Support Team e assicurarsi che tutto funzioni senza problemi dall'offerta alla fattura.\n\nCosa aspettarsi:\n\n• Elaborazione dell'intera catena di processo dall'offerta alla corretta preparazione della fattura e al pagamento del corriere incl. Inbox processing ( fatture dei creditori)\n\n• Supporto/coordinamento tra vendite, logistica, produzione nel Centro assistenza clienti regionale\n\n• Monitoraggio degli ordini del cliente, accordi di nomina (compreso il trattamento delle note di consegna)\n\n• Preparazione, tracciabilità e completamento delle offerte per cemento, ghiaia, scavo e riciclaggio\n\n• Consulenza e supporto telefonico per i nostri clienti e supporto indipendente per i piccoli clienti\n\n• Manutenzione dei dati dei clienti e degli oggetti nel CRM e compilazione di statistiche, calcoli e panoramica dei mercati\n\n• Partecipazione attiva all'ottimizzazione dei processi e dei flussi di lavoro nel Customer Support Center e con la sede (Business Support Center)\n\n• Supporto amministrativo team di progetto e gestione degli impianti\n\n• Completa un'amministrazione di processo efficiente e senza errori\n\nCosa porti:\n\n• Formazione commerciale completa o formazione tecnica di base (di vantaggio nell'edilizia / ingegneria civile) con ulteriore formazione come mercante tecnico / mercante o diploma commerciale\n\n• Esperienza amministrativa, idealmente con punti di contatto per vendite, logistica o acquisto\n\n• Buona comprensione dei processi commerciali dalla preparazione delle offerte alla fatturazione\n\n• Conoscenza di base dei singoli prodotti di ghiaia Holcim, cemento e cemento nonché dei servizi di Holcim, così come avanzati\n\n• Ottima conoscenza e apertura dell'utente IT alle nuove tecnologie\n\n• Metodi di lavoro strutturati, affidabili e indipendenti, nonché un forte orientamento al cliente e al servizio\n\n• Agility, aperta al cambiamento e alla volontà di conoscere e assumere altri compiti e funzioni\n\n• Comunicazione e forza di squadra oltre a negoziare competenze tedesche e buone inglesi\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni festivi, acquisti di vacanze, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che ti senti a tuo agio e beneficia di servizi aggiuntivi attraenti",
+      "en": "Shape the industry of tomorrow with us.\n\nYou are an organizational talent, enjoy customer contact and also keep an overview at different interfaces?\nThen become part of our Customer & Sales Support Team and ensure that everything works smoothly from offer to invoice.\n\nWhat to expect:\n\n• Processing of the entire process chain from the offer to the correct invoice preparation and freight forwarder payment incl. Inbox processing (creditors’ invoices)\n\n• Support/coordination between sales, logistics, production in the regional Customer Support Center\n\n• Monitoring of customer orders, appointment agreements (including delivery note processing)\n\n• Preparation, traceability and completion of offers for concrete, gravel, excavation and recycling\n\n• Telephone advice and support for our customers as well as independent support for small customers\n\n• Maintenance of customer and object data in the CRM as well as compilation of statistics, calculations and market overviews\n\n• Active participation in the optimization of processes and workflows in the Customer Support Center as well as with the headquarters (Business Support Center)\n\n• Administrative support project team and plant management\n\n• Complete an efficient and error-free process administration\n\nWhat you bring:\n\n• Completed commercial training or basic technical training (of advantage in building / civil engineering) with further training as a technical merchant / merchant or trade diploma\n\n• Administrative experience, ideally with points of contact for sales, logistics or purchasing\n\n• Good understanding of commercial processes from the preparation of offers to invoicing\n\n• Basic knowledge of the individual Holcim gravel, concrete and cement products as well as the services of Holcim, as well as advanced\n\n• Very good IT user knowledge and openness to new technologies\n\n• Structured, reliable and independent working methods as well as a strong customer and service orientation\n\n• Agility, open to change and willingness to get to know and take on other tasks and functions\n\n• Communication and team strength as well as negotiating-sure German and good English skills\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchases, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+      "de": "Gestalte die Industrie von morgen mit uns.\n\nDu bist ein Organisationstalent, hast Freude am Kundenkontakt und behältst auch an unterschiedlichen Schnittstellen den Überblick?\nDann werde Teil unseres Customer & Sales Support Teams und sorge dafür, dass vom Angebot bis zur Rechnung alles reibungslos funktioniert.\n\nWas dich erwartet:\n\n• Abwicklung der gesamten Prozesskette vom Angebot bis zur korrekten Rechnungserstellung und Spediteurzahlung inkl. Inbox-Bearbeitung (Kreditorenrechnungen)\n\n• Unterstützung/Koordination zwischen Verkauf, Logistik, Produktion in den regionalen Customer Support Center\n\n• Überwachung von Kundenaufträgen, Terminvereinbarungen (inkl. Lieferscheinbearbeitung)\n\n• Erstellung, Nachverfolgung und Abschluss von Offerten für Beton, Kies, Aushub und Recycling\n\n• Telefonische Beratung und Betreuung unserer Kunden sowie eigenständige Betreuung von Kleinkunden\n\n• Pflege von Kunden- und Objektdaten im CRM sowie Erstellung von Statistiken, Kalkulationen und Marktübersichten\n\n• Aktive Mitarbeit bei der Optimierung von Prozessen und Arbeitsabläufen im Customer Support Center sowie mit der Zentrale (Business Support Center)\n\n• Administrative Unterstützung Projektteam sowie der Werkleitung\n\n• Erledigen einer effizienten und fehlerfreien Prozess-Administration\n\nWas du mitbringst:\n\n• Abgeschlossene kaufmännische Ausbildung oder technische Grundausbildung (von Vorteil im Hoch- / Tiefbau) mit Weiterbildung als technische/r Kaufmann / Kauffrau oder Handelsdiplom\n\n• Erfahrung im administrativen Bereich, idealerweise mit Berührungspunkten zu Verkauf, Logistik oder Einkauf\n\n• Gutes Verständnis kaufmännischer Prozesse von der Angebotserstellung bis zur Fakturierung\n\n• Grundkenntnisse der einzelnen Holcim Kies-, Beton- und Zementprodukte sowie den Dienstleistungen von Holcim, sowie erweiterte\n\n• Sehr gute IT-Anwenderkenntnisse und Offenheit für neue Technologien\n\n• Strukturierte, zuverlässige und selbstständige Arbeitsweise sowie ausgeprägte Kunden- und Serviceorientierung\n\n• Agilität, offen für Veränderungen und Bereitschaft andere Aufgaben und Funktionen kennen zu lernen und zu übernehmen\n\n• Kommunikations- und Teamstärke sowie verhandlungssichere Deutsch- und gute Englischkenntnisse\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+      "fr": "Formez l'industrie de demain avec nous.\n\nVous êtes un talent organisationnel, profitez du contact client et gardez également un aperçu à différentes interfaces?\nFaites ensuite partie de notre équipe de support client et ventes et assurez-vous que tout fonctionne bien de l'offre à la facture.\n\nÀ quoi s'attendre :\n\n• Traitement de l'ensemble de la chaîne de processus de l'offre à la préparation correcte de la facture et le paiement transitaire incl. Traitement des boîtes de réception (factures des créanciers)\n\n• Soutien/coordination entre les ventes, la logistique, la production dans le Centre régional d'assistance à la clientèle\n\n• Contrôle des commandes des clients, accords de rendez-vous (y compris le traitement des notes de livraison)\n\n• Préparation, traçabilité et achèvement des offres pour le béton, le gravier, l'excavation et le recyclage\n\n• Conseils téléphoniques et soutien pour nos clients ainsi que soutien indépendant pour les petits clients\n\n• Gestion des données client et objet dans le CRM ainsi que compilation de statistiques, calculs et aperçus du marché\n\n• Participation active à l'optimisation des processus et des flux de travail dans le Centre d'assistance à la clientèle ainsi qu'au siège (Business Support Center)\n\n• Équipe de projet d ' appui administratif et gestion des installations\n\n• Terminer une administration de processus efficace et sans erreur\n\nCe que vous apportez:\n\n• Achevé une formation commerciale ou technique de base (d'avantage dans le bâtiment / génie civil) avec une formation complémentaire en tant que professionnel technique / marchand ou diplôme de commerce\n\n• Expérience administrative, idéalement avec points de contact pour les ventes, la logistique ou l'achat\n\n• Bonne compréhension des processus commerciaux, de la préparation des offres à la facturation\n\n• Connaissance de base du gravier, du béton et du ciment de Holcim, ainsi que des services de Holcim, ainsi que des produits avancés\n\n• Très bonne connaissance des utilisateurs informatiques et ouverture aux nouvelles technologies\n\n• Méthodes de travail structurées, fiables et indépendantes ainsi qu'une forte orientation client et service\n\n• Agilité, ouverture au changement et volonté de connaître et d'assumer d'autres tâches et fonctions\n\n• Communication et force d'équipe ainsi que négociation-sûr allemand et de bonnes compétences en anglais\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité et équilibre entre le travail et la vie personnelle : nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, des achats de vacances, un congé de maternité et de paternité prolongé\n\n• Rémunération attrayante: Nous offrons à nos employés un ensemble de rémunération attrayant avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
+    },
+    "slugByLocale": {
+      "it": "sachbearbeiter-in-customer-sales-support-birsfelden-holcim-group-birsfelden",
+      "en": "sachbearbeiter-in-customer-sales-support-birsfelden-holcim-group-birsfelden",
+      "de": "sachbearbeiter-in-customer-amp-sales-support-birsfelden-holcim-ch",
+      "fr": "collaborateur-rice-administratif-ve-customer-sales-support-birsfelden-holcim-group-birsfelden"
+    },
+    "sector": "Materiali da costruzione / Cemento",
+    "expiredAt": "2026-10-23T09:32:05.561Z",
+    "previousSlugs": [
+      "sachbearbeiter-in-customer-amp-sales-support-birsfelden-holcim-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "sachbearbeiter-in-customer-amp-sales-support-birsfelden-holcim-ch"
+      ]
+    },
+    "postalCode": "4127",
+    "salaryMin": 74000,
+    "salaryMax": 113500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/birsfelden-sachbearbeiterin-customer-&-sales-support-%28birsfelden%29-bl-4127/1374984657",
+    "firstSeenAt": "2026-10-15T21:22:28.696Z"
+  },
+  {
     "slug": "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens",
     "title": "Collaborateur·trice polyvalent·e - Entretien industriel",
     "titleByLocale": {
@@ -8101,6 +8233,55 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/zurich-legal-&-compliance-officer-80-100-ch-%c2%ad8050/1372209557",
     "firstSeenAt": "2026-09-17T06:58:53.248Z"
+  },
+  {
+    "slug": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen-12d7ef40",
+    "title": "Sachbearbeiter:in Customer & Sales Support",
+    "titleByLocale": {
+      "de": "Sachbearbeiter:in Customer & Sales Support",
+      "en": "Sachbearbeiter:in Customer & Sales Support",
+      "it": "Sachbearbeiter:in Customer & Sales Support",
+      "fr": "Sachbearbeiter:in Customer & Sales Support"
+    },
+    "company": "Holcim Group",
+    "companyKey": "holcim",
+    "location": "Mülligen",
+    "addressLocality": "Mülligen",
+    "descriptionByLocale": {
+      "de": "Gestalte die Industrie von morgen mit uns.\n\nDu bist ein Organisationstalent, hast Freude am Kundenkontakt und behältst auch an unterschiedlichen Schnittstellen den Überblick?\nDann werde Teil unseres Customer & Sales Support Teams und sorge dafür, dass vom Angebot bis zur Rechnung alles reibungslos funktioniert.\n\nWas dich erwartet:\n\n• Abwicklung der gesamten Prozesskette vom Angebot bis zur korrekten Rechnungserstellung und Spediteurzahlung inkl. Inbox-Bearbeitung (Kreditorenrechnungen)\n\n• Unterstützung/Koordination zwischen Verkauf, Logistik, Produktion in den regionalen Customer Support Center\n\n• Überwachung von Kundenaufträgen, Terminvereinbarungen (inkl. Lieferscheinbearbeitung)\n\n• Erstellung, Nachverfolgung und Abschluss von Offerten für Beton, Kies, Aushub und Recycling\n\n• Telefonische Beratung und Betreuung unserer Kunden sowie eigenständige Betreuung von Kleinkunden\n\n• Pflege von Kunden- und Objektdaten im CRM sowie Erstellung von Statistiken, Kalkulationen und Marktübersichten\n\n• Aktive Mitarbeit bei der Optimierung von Prozessen und Arbeitsabläufen im Customer Support Center sowie mit der Zentrale (Business Support Center)\n\n• Administrative Unterstützung Projektteam sowie der Werkleitung\n\n• Erledigen einer effizienten und fehlerfreien Prozess-Administration\n\nWas du mitbringst:\n\n• Abgeschlossene kaufmännische Ausbildung oder technische Grundausbildung (von Vorteil im Hoch- / Tiefbau) mit Weiterbildung als technische/r Kaufmann / Kauffrau oder Handelsdiplom\n\n• Erfahrung im administrativen Bereich, idealerweise mit Berührungspunkten zu Verkauf, Logistik oder Einkauf\n\n• Gutes Verständnis kaufmännischer Prozesse von der Angebotserstellung bis zur Fakturierung\n\n• Grundkenntnisse der einzelnen Holcim Kies-, Beton- und Zementprodukte sowie den Dienstleistungen von Holcim, sowie erweiterte\n\n• Sehr gute IT-Anwenderkenntnisse und Offenheit für neue Technologien\n\n• Strukturierte, zuverlässige und selbstständige Arbeitsweise sowie ausgeprägte Kunden- und Serviceorientierung\n\n• Agilität, offen für Veränderungen und Bereitschaft andere Aufgaben und Funktionen kennen zu lernen und zu übernehmen\n\n• Kommunikations- und Teamstärke sowie verhandlungssichere Deutsch- und gute Englischkenntnisse\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+      "it": "Forma l'industria di domani con noi.\n\nSei un talento organizzativo, goditi il contatto con i clienti e tieni anche una panoramica su diverse interfacce?\nQuindi entrare a far parte del nostro Customer & Sales Support Team e assicurarsi che tutto funzioni senza problemi dall'offerta alla fattura.\n\nCosa aspettarsi:\n\n• Elaborazione dell'intera catena di processo dall'offerta alla corretta preparazione della fattura e al pagamento del corriere incl. Inbox processing ( fatture dei creditori)\n\n• Supporto/coordinamento tra vendite, logistica, produzione nel Centro assistenza clienti regionale\n\n• Monitoraggio degli ordini del cliente, accordi di nomina (compreso il trattamento delle note di consegna)\n\n• Preparazione, tracciabilità e completamento delle offerte per cemento, ghiaia, scavo e riciclaggio\n\n• Consulenza e supporto telefonico per i nostri clienti e supporto indipendente per i piccoli clienti\n\n• Manutenzione dei dati dei clienti e degli oggetti nel CRM e compilazione di statistiche, calcoli e panoramica dei mercati\n\n• Partecipazione attiva all'ottimizzazione dei processi e dei flussi di lavoro nel Customer Support Center e con la sede (Business Support Center)\n\n• Supporto amministrativo team di progetto e gestione degli impianti\n\n• Completa un'amministrazione di processo efficiente e senza errori\n\nCosa porti:\n\n• Formazione commerciale completa o formazione tecnica di base (di vantaggio nell'edilizia / ingegneria civile) con ulteriore formazione come mercante tecnico / mercante o diploma commerciale\n\n• Esperienza amministrativa, idealmente con punti di contatto per vendite, logistica o acquisto\n\n• Buona comprensione dei processi commerciali dalla preparazione delle offerte alla fatturazione\n\n• Conoscenza di base dei singoli prodotti di ghiaia Holcim, cemento e cemento nonché dei servizi di Holcim, così come avanzati\n\n• Ottima conoscenza e apertura dell'utente IT alle nuove tecnologie\n\n• Metodi di lavoro strutturati, affidabili e indipendenti, nonché un forte orientamento al cliente e al servizio\n\n• Agility, aperta al cambiamento e alla volontà di conoscere e assumere altri compiti e funzioni\n\n• Comunicazione e forza di squadra oltre a negoziare a prova di tedesco e buone abilità inglesi\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo fin dall'inizio con un'attenta familiarizzazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life Balance: Offriamo orari di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni di vacanze, acquisto di vacanze, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che ti senti a tuo agio e beneficia di servizi aggiuntivi attraenti",
+      "en": "Shape the industry of tomorrow with us.\n\nYou are an organizational talent, enjoy customer contact and also keep an overview at different interfaces?\nThen become part of our Customer & Sales Support Team and ensure that everything works smoothly from offer to invoice.\n\nWhat to expect:\n\n• Processing of the entire process chain from the offer to the correct invoice preparation and freight forwarder payment incl. Inbox processing (creditors’ invoices)\n\n• Support/coordination between sales, logistics, production in the regional Customer Support Center\n\n• Monitoring of customer orders, appointment agreements (including delivery note processing)\n\n• Preparation, traceability and completion of offers for concrete, gravel, excavation and recycling\n\n• Telephone advice and support for our customers as well as independent support for small customers\n\n• Maintenance of customer and object data in the CRM as well as compilation of statistics, calculations and market overviews\n\n• Active participation in the optimization of processes and workflows in the Customer Support Center as well as with the headquarters (Business Support Center)\n\n• Administrative support project team and plant management\n\n• Complete an efficient and error-free process administration\n\nWhat you bring:\n\n• Completed commercial training or basic technical training (of advantage in building / civil engineering) with further training as a technical merchant / merchant or trade diploma\n\n• Administrative experience, ideally with points of contact for sales, logistics or purchasing\n\n• Good understanding of commercial processes from the preparation of offers to invoicing\n\n• Basic knowledge of the individual Holcim gravel, concrete and cement products as well as the services of Holcim, as well as advanced\n\n• Very good IT user knowledge and openness to new technologies\n\n• Structured, reliable and independent working methods as well as a strong customer and service orientation\n\n• Agility, open to change and willingness to get to know and take on other tasks and functions\n\n• Communication and team strength as well as negotiating-proof German and good English skills\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful familiarization, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+      "fr": "Formez l'industrie de demain avec nous.\n\nVous êtes un talent organisationnel, profitez des contacts avec les clients et gardez également un aperçu à différentes interfaces?\nFaites ensuite partie de notre équipe de support client et ventes et assurez-vous que tout fonctionne bien de l'offre à la facture.\n\nÀ quoi s'attendre :\n\n• Traitement de l'ensemble de la chaîne de processus de l'offre à la préparation correcte de la facture et le paiement transitaire incl. Traitement des boîtes de réception (factures des créanciers)\n\n• Soutien/coordination entre les ventes, la logistique, la production dans le Centre régional d'assistance à la clientèle\n\n• Surveillance des commandes des clients, accords de rendez-vous (y compris le traitement des notes de livraison)\n\n• Préparation, traçabilité et achèvement des offres de béton, gravier, excavation et recyclage\n\n• Conseils téléphoniques et support pour nos clients ainsi qu'un support indépendant pour les petits clients\n\n• Gestion des données client et objet dans le CRM ainsi que compilation de statistiques, calculs et aperçus du marché\n\n• Participation active à l'optimisation des processus et des flux de travail au Centre d'assistance à la clientèle ainsi qu'au siège (Centre d'assistance aux entreprises)\n\n• Équipe de projet d'appui administratif et gestion des installations\n\n• Terminer une administration de processus efficace et sans erreur\n\nCe que vous apportez :\n\n• Achevé une formation commerciale ou une formation technique de base (d'avantage dans le bâtiment / génie civil) avec une formation complémentaire en tant que spécialiste technique / marchand ou diplôme de commerce\n\n• Expérience administrative, idéalement avec points de contact pour les ventes, la logistique ou l'achat\n\n• Bonne compréhension des processus commerciaux, de la préparation des offres à la facturation\n\n• Connaissance de base du gravier, du béton et du ciment de Holcim, ainsi que des services de Holcim, ainsi que des produits avancés\n\n• Très bonne connaissance des utilisateurs informatiques et ouverture aux nouvelles technologies\n\n• Méthodes de travail structurées, fiables et indépendantes ainsi qu'une forte orientation client et service\n\n• Agilité, ouverte au changement et volonté d'apprendre à connaître et à assumer d'autres tâches et fonctions\n\n• La communication et la force de l'équipe ainsi que la maîtrise de l'allemand et de l'anglais\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début d'une familiarisation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité et équilibre entre le travail et la vie personnelle : nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie les parts à un prix préférentiel à l'avantage Swibeco monde - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
+    },
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-customer-amp-sales-support-holcim-ch-dbdb7863",
+      "it": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen-12d7ef40",
+      "en": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen-d7c476ab",
+      "fr": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen-d7c476ab"
+    },
+    "sector": "Materiali da costruzione / Cemento",
+    "expiredAt": "2026-10-07T21:27:07.767Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "sachbearbeiter-in-customer-amp-sales-support-holcim-ch-dbdb7863"
+      ],
+      "en": [
+        "sachbearbeiter-in-customer-amp-sales-support-holcim-ch-dbdb7863"
+      ],
+      "de": [
+        "sachbearbeiter-in-customer-amp-sales-support-holcim-ch-dbdb7863"
+      ],
+      "fr": [
+        "sachbearbeiter-in-customer-amp-sales-support-holcim-ch-dbdb7863"
+      ]
+    },
+    "postalCode": "5243",
+    "salaryMin": 74000,
+    "salaryMax": 113500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/m%c3%bclligen-sachbearbeiterin-customer-&-sales-support-ag-5243/1374161257",
+    "firstSeenAt": "2026-10-07T09:37:20.491Z"
   },
   {
     "slug": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen-9d002a89",
@@ -9701,7 +9882,7 @@
     "firstSeenAt": "2026-07-27T12:54:40.223Z"
   },
   {
-    "slug": "camion-driver-in-holcim-group-oberdorf",
+    "slug": "camion-driver-in-holcim-group-oberdorf-0d7b8a48",
     "title": "Lastwagenführer:in",
     "titleByLocale": {
       "it": "Driver per il camion",
@@ -9720,32 +9901,33 @@
       "fr": "La durabilité nous motive. Toi aussi ?\n\nSi vous voulez faire une différence, vous avez raison avec nous.\n\nSalut, vous ! Nous en tant que chauffeurs de camion: à l'intérieur ont les meilleures conditions à Holcim: le salaire est bon et voici vraiment regarder ma sécurité! À Holcim, je me sens valorisé et par la formation je peux constamment développer. Un autre plus est nos véhicules de haute qualité, qui permettent une conduite efficace, sûre et durable. Ici, non seulement je monte, mais je représente le Holcim pour nos clients : à l'intérieur et sur les routes. - Christian, chauffeur chez Holcim (Suisse) AG\n\nÀ quoi s'attendre :\n\n• Vous effectuez quotidiennement des commandes de transport par camion - avec une attention particulière à la sécurité, ponctualité et satisfaction des clients, ainsi que dans le respect de nos normes de qualité et d'environnement\n\n• Vous prenez le transport pour tous les travaux concrets dans la région\n\n• Vous vérifiez les notes de livraison après le chargement soigneusement et consciencieusement\n\n• Vous êtes responsable des soins et du nettoyage de votre véhicule et de vos toilettes\n\n• Vous effectuez des travaux d'entretien et d'entretien mineurs sur le véhicule indépendamment et soutient activement l'entretien de l'usine\n\nCe que vous apportez:\n\n• Vous avez suivi un apprentissage professionnel et avez un permis de conduire valide de la catégorie C\n\n• Vous avez une expérience professionnelle en tant que chauffeur de camion: dans et vous distinguer par une haute fiabilité et résilience\n\n• La sécurité est votre priorité et vous êtes motivé à relever de nouveaux défis\n\n• Vous êtes bien placé dans la région et avez une forte compréhension technique\n\n• Vous travaillez de façon indépendante, responsable et aimez participer\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
     },
     "slugByLocale": {
-      "it": "camion-driver-in-holcim-group-oberdorf",
-      "en": "truck-drivers-holcim-group-oberdorf",
-      "de": "lastwagenfuhrer-in-holcim-ch",
-      "fr": "conducteur-de-camion-en-holcim-group-oberdorf"
+      "it": "camion-driver-in-holcim-group-oberdorf-0d7b8a48",
+      "en": "truck-drivers-holcim-group-oberdorf-ebf653dd",
+      "de": "lastwagenfuhrer-in-holcim-ch-0dc2ea21",
+      "fr": "conducteur-de-camion-en-holcim-group-oberdorf-a0054d35"
     },
     "sector": "Materiali da costruzione / Cemento",
     "expiredAt": "2026-09-22T00:08:34.396Z",
-    "previousSlugs": [
-      "lastwagenfuhrer-in-holcim-ch",
-      "lastwagenfuhrer-in-holcim-group-oberdorf",
-      "truck-driver-in-holcim-group-oberdorf"
-    ],
     "previousSlugsByLocale": {
       "it": [
-        "lastwagenfuhrer-in-holcim-ch",
-        "lastwagenfuhrer-in-holcim-group-oberdorf"
-      ],
-      "en": [
-        "lastwagenfuhrer-in-holcim-group-oberdorf",
+        "lastwagenfuhrer-in-holcim-ch-0dc2ea21",
+        "lastwagenfuhrer-in-holcim-group-oberdorf-1b357449",
         "truck-driver-in-holcim-group-oberdorf"
       ],
+      "en": [
+        "lastwagenfuhrer-in-holcim-group-oberdorf-1b357449",
+        "truck-driver-in-holcim-group-oberdorf-2b4c3049",
+        "lastwagenfuhrer-in-holcim-ch-0dc2ea21"
+      ],
       "de": [
-        "lastwagenfuhrer-in-holcim-group-oberdorf"
+        "lastwagenfuhrer-in-holcim-group-oberdorf-1b357449",
+        "lastwagenfuhrer-in-holcim-ch-0dc2ea21",
+        "truck-driver-in-holcim-group-oberdorf"
       ],
       "fr": [
-        "lastwagenfuhrer-in-holcim-group-oberdorf"
+        "lastwagenfuhrer-in-holcim-group-oberdorf-1b357449",
+        "lastwagenfuhrer-in-holcim-ch-0dc2ea21",
+        "truck-driver-in-holcim-group-oberdorf"
       ]
     },
     "salaryMin": 69500,
@@ -9775,6 +9957,11 @@
         "firstSeenAt": "2026-07-08T22:25:39.818Z",
         "title": "Lastwagenführer:in"
       }
+    ],
+    "previousSlugs": [
+      "lastwagenfuhrer-in-holcim-group-oberdorf-1b357449",
+      "truck-driver-in-holcim-group-oberdorf",
+      "truck-driver-in-holcim-group-oberdorf-2b4c3049"
     ]
   },
   {
@@ -10432,6 +10619,54 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen",
+    "title": "Laborant:in Bindemitteltechnologie 80-100%",
+    "titleByLocale": {
+      "it": "Laboratorio: nella tecnologia del legante 80-100 %",
+      "en": "Laboratory:in binder technology 80-100 %",
+      "de": "Laborant:in Bindemitteltechnologie 80-100%",
+      "fr": "Laboratoire: technologie de reliure 80-100 %"
+    },
+    "company": "Holcim Group",
+    "companyKey": "holcim",
+    "location": "Würenlingen",
+    "addressLocality": "Würenlingen",
+    "descriptionByLocale": {
+      "it": "Hai un occhio per i dettagli, lavori in modo strutturato e ti senti a tuo agio nell'ambiente di laboratorio? Poi vieni a sostenere il nostro team nella gestione professionale e preparazione di campioni per array di alta qualità.\n\nCosa aspettarsi:\n\n•\nPrendere campioni e registrarli in modo affidabile nel nostro sistema di informazioni di laboratorio (LIMS)\n\n•\nPrepari i campioni professionalmente - questo include essiccazione, omogeneizzazione e divisione in condizioni definite\n\n•\nSi frantumano materiali come materie prime di cemento, clinker o aggregati con frantoi, mulini e altre attrezzature\n\n•\nEffettuare determinazioni fisiche (ad esempio umidità e contenuto di materia secca) e supporto in ulteriori analisi\n\n•\nEffettuate speciali trattamenti di esempio, come l'attivazione termica o la deposizione del vapore del gas\n\n•\nSegui costantemente le linee guida per la sicurezza e la qualità\n\n•\nSi prende cura della cura e pulizia dell'attrezzatura e aiuto con manutenzione e servizio\n\n•\nDocumenti passi di lavoro con attenzione e comprensibile\n\nCosa porti:\n\n•\nHai completato la formazione nel settore tecnico o artigianale\n\n•\nAvete una buona comprensione tecnica e godere di lavorare con le macchine di elaborazione\n\n•\nIdealmente, avrete la prima esperienza nell'utilizzo di attrezzature di laboratorio e metodi di misura\n\n•\nSei fiducioso nell'utilizzo di strumenti per ufficio e hai idealmente già lavorato con un LIMS\n\n•\nLavori con attenzione, strutturato e affidabile\n\n•\nAccuratezza e pulizia sono una questione naturalmente per voi\n\n•\nSei un giocatore di squadra e comunica chiaramente e con rispetto\n\n•\nSei flessibile, mostra la tua iniziativa e promuove la cooperazione costruttiva\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life-Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni vacanze, acquisto vacanza, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che vi sentite a vostro agio e beneficiate di attraenti servizi aggiuntivi",
+      "en": "Do you have an eye for detail, work in a structured way and feel comfortable in the laboratory environment? Then come and support our team in the professional handling and preparation of samples for high-quality arrays.\n\nWhat to expect:\n\n•\nYou take samples and record them reliably in our laboratory information system (LIMS)\n\n•\nYou prepare samples professionally - this includes drying, homogenization and division under defined conditions\n\n•\nYou crush materials such as cement raw materials, clinker or aggregates with crushers, mills and other equipment\n\n•\nYou carry out physical determinations (e.g. moisture and dry matter content) and support in further analyses\n\n•\nYou implement special sample treatments, such as thermal activation or gas vapor deposition\n\n•\nYou consistently adhere to safety and quality guidelines\n\n•\nYou take care of the care and cleaning of the equipment and help with maintenance and service\n\n•\nYou document work steps carefully and comprehensibly\n\nWhat you bring:\n\n•\nYou have completed training in the technical or craft sector\n\n•\nYou have a good technical understanding and enjoy working with processing machines\n\n•\nIdeally, you will have first experience in using laboratory equipment and measuring methods\n\n•\nYou are confident in using office tools and have ideally already worked with a LIMS\n\n•\nYou work carefully, structured and reliable\n\n•\nAccuracy and cleanliness are a matter of course for you\n\n•\nYou are a team player and communicate clearly and respectfully\n\n•\nYou are flexible, show your own initiative and promote constructive cooperation\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life-Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+      "de": "Du begeisterst dich für analytische Laborarbeit, moderne Messtechnik und innovative Baustoffe? Du möchtest mit deiner Expertise zur Entwicklung nachhaltiger Bindemittel beitragen und eng mit Produktion, Technik und Forschung zusammenarbeiten? Dann bist du bei uns genau richtig.\n\nIn dieser vielseitigen Funktion übernimmst du die Planung, Durchführung und Auswertung anspruchsvoller Laboranalysen im Bereich Bindemitteltechnologie.\n\nWas dich erwartet:\n\n• Du analysierst die Hydratation und Phasenentwicklung von Zementen und Bindemitteln mithilfe modernster Analysemethoden wie XRD/Rietveld, isothermer Kalorimetrie, XRF und TGA/DSC\n\n• Du planst, führst und bewertest Performance-Tests zur Reaktivität und Hydratationskinetik von Bindemitteln – mit und ohne Zusatzmittel\n\n• Du unterstützt unsere sechs Werke bei der Interpretation und Auswertung von XRD-Analysen und arbeitest eng mit internen Fachbereichen zusammen\n\n• Du führst material- und zusatzmittelspezifische Analysen durch und entwickelst bestehende Prüf- und Messmethoden kontinuierlich weiter\n\n• Du validierst und optimierst analytische Verfahren für mineralische und pulverförmige Materialien und leitest daraus fundierte technische Auswertungen und Prüfberichte ab\n\n• Du stellst eine lückenlose Dokumentation sicher und sorgst für die Pflege sowie den sicheren Betrieb unserer modernen Laborinfrastruktur\n\n• Du lebst unsere Sicherheits-, Qualitäts- und Umweltstandards und bringst dich aktiv in die kontinuierliche Verbesserung unserer Prozesse ein\n\n•\n\nWas du mitbringst:\n\n• Eine abgeschlossene Ausbildung als Laborant, Baustoffprüfer, Chemielaborant oder eine vergleichbare Ausbildung – idealerweise mit Erfahrung in der Baustoff-, Zement- oder Bindemitteltechnologie\n\n• Erfahrung in einem analytischen Labor sowie im Umgang mit modernen Laborgeräten und Messverfahren\n\n• Technisches Verständnis und Freude daran, mit Labor- und Aufbereitungsanlagen zu arbeiten\n\n• Eine strukturierte, sorgfältige und zuverlässige Arbeitsweise\n\n• Ein hohes Qualitäts- und Sicherheitsbewusstsein\n\n• Analytisches Denkvermögen und Interesse an materialwissenschaftlichen Fragestellungen\n\n• Teamgeist, Kommunikationsstärke und Eigeninitiative\n\n• Belastbarkeit sowie Freude an einer praxisnahen Tätigkeit im Labor.\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+      "fr": "Avez-vous un œil pour le détail, travailler de manière structurée et se sentir à l'aise dans l'environnement de laboratoire? Ensuite venez soutenir notre équipe dans la manipulation professionnelle et la préparation d'échantillons pour des tableaux de haute qualité.\n\nÀ quoi s'attendre :\n\n•\nVous prenez des échantillons et les enregistrez de façon fiable dans notre système d'information de laboratoire (LIMS)\n\n•\nVous préparez des échantillons professionnellement - cela inclut le séchage, l'homogénéisation et la division dans des conditions définies\n\n•\nVous écrasez des matériaux tels que les matières premières de ciment, clinker ou des agrégats avec des concasseurs, des moulins et d'autres équipements\n\n•\nVous effectuez des déterminations physiques (par exemple la teneur en eau et en matière sèche) et vous supportez les analyses ultérieures.\n\n•\nVous appliquez des traitements d'échantillons spéciaux, tels que l'activation thermique ou le dépôt de vapeur de gaz\n\n•\nVous respectez systématiquement les directives de sécurité et de qualité\n\n•\nVous vous occupez des soins et du nettoyage de l'équipement et aidez à l'entretien et au service\n\n•\nVous documentez les étapes du travail avec soin et compréhension\n\nCe que vous apportez:\n\n•\nVous avez suivi une formation technique ou artisanale\n\n•\nVous avez une bonne compréhension technique et aimez travailler avec des machines de traitement\n\n•\nIdéalement, vous aurez une première expérience dans l'utilisation des équipements de laboratoire et des méthodes de mesure\n\n•\nVous êtes confiant dans l'utilisation des outils de bureau et avez idéalement déjà travaillé avec un LIMS\n\n•\nVous travaillez avec soin, structuré et fiable\n\n•\nL'exactitude et la propreté sont une question bien sûr pour vous\n\n•\nVous êtes un joueur d'équipe et communiquez clairement et respectueusement\n\n•\nVous êtes flexible, montrez votre propre initiative et encouragez la coopération constructive\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
+    },
+    "slugByLocale": {
+      "it": "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen",
+      "en": "laboratory-in-binder-technology-80-100-holcim-group-wurenlingen",
+      "de": "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+      "fr": "laboratoire-technologie-de-reliure-80-100-holcim-group-wurenlingen"
+    },
+    "sector": "Materiali da costruzione / Cemento",
+    "expiredAt": "2026-08-20T10:27:38.175Z",
+    "previousSlugs": [
+      "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+      ],
+      "en": [
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+      ],
+      "fr": [
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+      ]
+    },
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/w%c3%bcrenlingen-laborantin-bindemitteltechnologie-80-100-ag-5303/1359795357",
+    "firstSeenAt": "2026-11-21T21:35:04.252Z"
+  },
+  {
     "slug": "corporate-communications-tirocinante-for-6-months-holcim-group-zug",
     "title": "Corporate Communications intern for 6-months",
     "titleByLocale": {
@@ -10607,6 +10842,54 @@
     "salaryMax": 78500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "marinaio-in-holcim-group-birsfelden",
+    "title": "Matrose:in",
+    "titleByLocale": {
+      "it": "Marinaio:in",
+      "en": "Sailor:in",
+      "de": "Matrose:in",
+      "fr": "Voilier:in"
+    },
+    "company": "Holcim Group",
+    "companyKey": "holcim",
+    "location": "Birsfelden",
+    "addressLocality": "Birsfelden",
+    "descriptionByLocale": {
+      "it": "Il tuo posto di lavoro? Proprio sull'acqua, proprio in mezzo all'azione!\n\nCosa aspettarsi:\n\n• -Il carico e lo scarico sicuri e professionali delle navi cargo fanno parte del vostro compito quotidiano\n• -Quando si trasportano materiali con navi da carico, si lavora a stretto contatto con gli skipper e li supporta attivamente\n• Servizio e manutenzione si eseguono in modo affidabile sia sulla nave di trasporto che in fabbrica\n• - Anche nei punti di carico e scarico si sono impegnati in lavori di manutenzione\n• - Le macchine per il processo di carico e scarico che gestisci di routine, responsabilmente e con grande cura\n\nCosa porti:\n\n• - Hai completato la formazione professionale come specialista nautico:\n• -Si ha un forte interesse per il vostro sviluppo professionale e sono pronti a completare l'ulteriore formazione a:r Schiffführer:in\n• L'esperienza nella gestione delle navi da carico sulle vie navigabili interne fa parte della vostra qualifica\n• -Con il carico, lo scarico e il lavoro di manutenzione della nave sapete meglio\n• Esperienza nella spedizione e manutenzione fanno parte della vostra attrezzatura professionale\n• La conoscenza della produzione di ghiaia è un vantaggio\n• Buone competenze tedesche in parola e la scrittura completa il tuo profilo\n\nNon vedo l'ora della sua applicazione! #gerneperdu\n\nIsabelle",
+      "en": "Your workplace? Right on the water, right in the middle of the action!\n\nWhat to expect:\n\n• -The safe and professional loading and unloading of the cargo ships is part of your daily task\n• -When transporting materials with cargo ships, you work closely with the skippers and actively support them\n• Service and maintenance work you perform reliably both on the transport ship and in the factory\n• - Also at the loading and unloading points you are engaged in maintenance work\n• - The machines for the loading and unloading process you operate routinely, responsibly and with great care\n\nWhat you bring:\n\n• -You have completed vocational training as a nautical:r specialist:frau\n• -You have a strong interest in your professional development and are ready to complete the further education to:r Schiffführer:in\n• Experience in handling cargo ships on inland waterways is part of your qualification\n• -With ship loading, unloading and maintenance work you know best\n• Experience in shipping and maintenance are part of your professional equipment\n• Knowledge of gravel production is an advantage\n• Good German skills in word and writing round off your profile\n\nI look forward to your application! #gerneperdu\n\nIsabelle",
+      "de": "Dein Arbeitsplatz? Direkt auf dem Wasser, mittendrin im Geschehen!\n\nWas dich erwartet:\n\n• -Das sichere und fachgerechte Be- und Entladen der Lastschiffe gehört zu deinem täglichen Aufgabenbereich\n• -Beim Materialtransport mit Lastschiffen arbeitest du eng mit den Schiffsführern zusammen und unterstützt sie aktiv\n• -Service- und Unterhaltsarbeiten führst du sowohl auf dem Transportschiff als auch im Werk zuverlässig aus\n• -Auch an den Be- und Entladestellen bringst du dich engagiert bei Unterhaltsarbeiten ein\n• -Die Maschinen für den Be- und Entladeprozess bedienst du routiniert, verantwortungsbewusst und mit hoher Sorgfalt\n\nWas du mitbringst:\n\n• -Du verfügst über eine abgeschlossene Berufsausbildung als nautische:r Fachmann:frau\n• -Du bringst ein starkes Interesse an deiner beruflichen Weiterentwicklung mit und bist bereit, die Weiterbildung zum:r Schiffsführer:in zu absolvieren\n• -Erfahrung im Umgang mit Lastschiffen auf Binnengewässern ist Teil deiner Qualifikation\n• -Mit Schiffsverlad, -entladung und Wartungsarbeiten kennst du dich bestens aus\n• -Erfahrung in Schifffahrt und Instandhaltung gehören zu deinem fachlichen Rüstzeug\n• -Kenntnisse in der Kiesproduktion sind von Vorteil\n• -Gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab\n\nIch freue mich auf deine Bewerbung! #gerneperdu\n\nIsabelle",
+      "fr": "Votre lieu de travail ? Sur l'eau, au milieu de l'action !\n\nÀ quoi s'attendre :\n\n• -Le chargement et déchargement sûrs et professionnels des cargos fait partie de votre tâche quotidienne\n• -Lorsque vous transportez des matériaux avec des cargos, vous travaillez en étroite collaboration avec les skippers et les soutenez activement\n• Service et entretien que vous effectuez de manière fiable sur le navire de transport et dans l'usine\n• - Aussi aux points de chargement et de déchargement que vous êtes engagés dans des travaux d'entretien\n• - Les machines pour le chargement et le déchargement que vous utilisez régulièrement, de manière responsable et avec grand soin\n\nCe que vous apportez:\n\n• -Vous avez suivi une formation professionnelle en tant que spécialiste nautique:frau\n• -Vous avez un fort intérêt pour votre perfectionnement professionnel et êtes prêt à terminer la formation complémentaire à:r Schiffführer:in\n• L'expérience de la manutention des navires à cargaison sur les voies navigables intérieures fait partie de votre qualification\n• -Avec le chargement, le déchargement et l'entretien du navire, vous savez mieux\n• Expérience dans l'expédition et l'entretien font partie de votre équipement professionnel\n• La connaissance de la production de gravier est un avantage\n• Bonnes compétences en allemand en mots et en écriture complètent votre profil\n\nJ'attends avec impatience votre candidature! #gerneperdu\n\nIsabelle"
+    },
+    "slugByLocale": {
+      "it": "marinaio-in-holcim-group-birsfelden",
+      "en": "sailor-in-holcim-group-birsfelden",
+      "de": "matrose-in-holcim-ch",
+      "fr": "voilier-in-holcim-group-birsfelden"
+    },
+    "sector": "Materiali da costruzione / Cemento",
+    "expiredAt": "2026-08-06T12:02:29.242Z",
+    "previousSlugs": [
+      "matrose-in-holcim-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "matrose-in-holcim-ch"
+      ],
+      "en": [
+        "matrose-in-holcim-ch"
+      ],
+      "fr": [
+        "matrose-in-holcim-ch"
+      ]
+    },
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/birsfelden-matrosein-bl-4127/1352166957",
+    "firstSeenAt": "2026-11-21T21:34:54.356Z"
   },
   {
     "slug": "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug",

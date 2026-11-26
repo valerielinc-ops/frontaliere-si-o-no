@@ -115165,7 +115165,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     title: 'Sem riapre Chiasso: Ors cerca personale per due mesi in più',
     description: 'La Sem riapre Chiasso: Ors cerca personale per due mesi in più. Una quarantina di dipendenti non è stata riconfermata a Chiasso.',
     keywords: 'SEM Chiasso, Ors, via Motta, personale, Vpod, lavoro in Ticino, riapertura Chiasso, assistenza',
-    ogTitle: 'Sem riapre Chiasso: Ors cerca personale',
+    ogTitle: 'Sem riapre Chiasso: Ors cerca personale per due mesi in più',
     ogDescription: 'La Sem riapre Chiasso, ma la gestione di via Motta resta al centro del confronto: Ors chiede supporto per due mesi in più anche a dipendenti non riassunti. Vpod definisce l’offerta «strumentale»; una quarantina non è stata riconfermata.',
     canonicalPath: '/articoli-frontaliere/sem-chiasso-personale-due-mesi/',
     structuredData: {

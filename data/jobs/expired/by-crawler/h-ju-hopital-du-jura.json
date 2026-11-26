@@ -348,7 +348,24 @@
         "firstSeenAt": "2026-09-09T23:03:34.932Z",
         "title": "Instrumentiste de bloc opératoire"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operatore-hopital-du-jura-h-ju-delemont-e1a244": "JU",
+        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont": "JU"
+      },
+      "en": {
+        "operator-hopital-du-jura-h-ju-delemont-e1a244": "JU",
+        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont": "JU"
+      },
+      "de": {
+        "betreiber-hopital-du-jura-h-ju-delemont-e1a244": "JU",
+        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont": "JU"
+      },
+      "fr": {
+        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont": "JU"
+      }
+    }
   },
   {
     "slug": "segretario-medico-geriatrics-porrentruy-hopital-du-jura-h-ju-porrentruy",
