@@ -8735,6 +8735,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziativa-congedo-parentale-riuscita.title': 'Initiative réussie pour un congé parental de 18 semaines',
     'blog.article.iniziativa-congedo-parentale-riuscita.excerpt': 'La proposition de garantir 18 semaines de congé parental aux mères et aux pères a reçu la confirmation officielle de son succès le 30 septembre.',
     'blog.article.iniziativa-congedo-parentale-riuscita.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.commissioni-divise-preventivo.title': 'Budget fédéral : commissions réparties',
+    'blog.article.commissioni-divise-preventivo.excerpt': 'La commission des États : 11 oui, 0 non et 1 abstention. La commission nationale propose de rejeter le projet.',
+    'blog.article.commissioni-divise-preventivo.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.fiscalita-tre-livelli-svizzera.title': 'Fiscalité suisse : trois niveaux et compétences distinctes',
+    'blog.article.fiscalita-tre-livelli-svizzera.excerpt': 'La fiscalité suisse s’articule sur trois niveaux : l’impôt fédéral direct, l’imposition cantonale et l’imposition communale.',
+    'blog.article.fiscalita-tre-livelli-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

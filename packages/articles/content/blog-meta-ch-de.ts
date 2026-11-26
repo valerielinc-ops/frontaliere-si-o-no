@@ -8735,6 +8735,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iniziativa-congedo-parentale-riuscita.title': 'Erfolgreiche Initiative für 18 Wochen Elternurlaub',
     'blog.article.iniziativa-congedo-parentale-riuscita.excerpt': 'Der Vorschlag, Müttern und Vätern 18 Wochen Elternurlaub zu garantieren, erhielt am 30. September die offizielle Bestätigung seines Erfolgs.',
     'blog.article.iniziativa-congedo-parentale-riuscita.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.commissioni-divise-preventivo.title': 'Bundesbudget: Aufgeteilte Provisionen',
+    'blog.article.commissioni-divise-preventivo.excerpt': 'Die Kommission der Kantone: 11 Ja, 0 Nein und 1 Enthaltung. Die Kommission des Nationalrates schlägt vor, das Projekt abzulehnen.',
+    'blog.article.commissioni-divise-preventivo.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.fiscalita-tre-livelli-svizzera.title': 'Schweizer Steuerwesen: drei Ebenen und getrennte Zuständigkeiten',
+    'blog.article.fiscalita-tre-livelli-svizzera.excerpt': 'Das Schweizer Steuerwesen ist auf drei Ebenen gegliedert: direkte Bundessteuer, kantonale Besteuerung und kommunale Besteuerung.',
+    'blog.article.fiscalita-tre-livelli-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

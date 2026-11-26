@@ -46819,13 +46819,13 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-dosso-gaggiolo-disagi-frontalieri.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Traffico in coda a una dogana del Canton Ticino"
       },
       "datePublished": "2026-07-03T13:13:04+02:00",
-      "dateModified": "2026-11-16T00:00:00+02:00",
+      "dateModified": "2026-11-26T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -115001,6 +115001,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-rodi-lavori-finiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mendrisio-feste-pista-ghiaccio': {
+    title: 'Mendrisio porta feste e pista di ghiaccio in piazza',
+    description: 'Da fine novembre a gennaio Mendrisio anima piazze e quartieri con pista di ghiaccio, scambio degli auguri e un calendario di appuntamenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisio, porta, feste, pista',
+    ogTitle: 'Mendrisio porta feste e pista di ghiaccio in piazza',
+    ogDescription: 'Da fine novembre a gennaio la Città di Mendrisio anima piazze e quartieri. La fonte indica una pista di ghiaccio, lo scambio degli auguri e un calendario di appuntamenti, ma non riporta date precise, orari o sedi dettagliate.',
+    canonicalPath: '/articoli-frontaliere/mendrisio-feste-pista-ghiaccio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisio porta feste e pista di ghiaccio in piazza",
+      "description": "Da fine novembre a gennaio Mendrisio anima piazze e quartieri con pista di ghiaccio, scambio degli auguri e un calendario di appuntamenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mendrisio-feste-pista-ghiaccio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-20T22:27:43+00:00",
+      "dateModified": "2026-11-20T22:27:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mendrisio-feste-pista-ghiaccio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-festival-ai-lugano-aree': {
+    title: 'Festival AI a Lugano: 13 aree e oltre 60 relatori',
+    description: 'Festival AI a Lugano: al Palazzo dei Congressi, oltre 60 relatori internazionali, 13 aree e un\'area espositiva gratuita aperta a tutti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, festival, lugano, aree, oltre',
+    ogTitle: 'Festival AI a Lugano: 13 aree e oltre 60 relatori',
+    ogDescription: 'Al Palazzo dei Congressi di Lugano, il Festival AI è descritto come un grande successo di pubblico. La notizia indica oltre 60 relatori internazionali, 13 aree tematiche e un\'area espositiva gratuita aperta a tutti.',
+    canonicalPath: '/articoli-frontaliere/festival-ai-lugano-aree/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festival AI a Lugano: 13 aree e oltre 60 relatori",
+      "description": "Festival AI a Lugano: al Palazzo dei Congressi, oltre 60 relatori internazionali, 13 aree e un'area espositiva gratuita aperta a tutti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-festival-ai-lugano-aree.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-21T08:36:29+00:00",
+      "dateModified": "2026-11-21T08:36:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festival-ai-lugano-aree/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-controlli-mendrisiotto-settembre-novembre': {
+    title: 'Controlli congiunti nel Mendrisiotto tra settembre e novembre',
+    description: 'Tra settembre e novembre, Polizia cantonale e Udsc hanno effettuato 43 posti di controllo nel Mendrisiotto, riscontrando 26 violazioni e 17 infrazioni doganali.',
+    keywords: 'Mendrisiotto, controlli confine, Polizia cantonale, Udsc, infrazioni doganali, cocaina sequestrata, transito',
+    ogTitle: 'Controlli congiunti Mendrisiotto settembre novembre',
+    ogDescription: 'Polizia cantonale e Udsc hanno intensificato i controlli nelle zone di confine del Mendrisiotto tra settembre e novembre. Sono stati verificati 461 veicoli e 699 persone.',
+    canonicalPath: '/articoli-frontaliere/controlli-mendrisiotto-settembre-novembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli congiunti nel Mendrisiotto tra settembre e novembre",
+      "description": "Tra settembre e novembre, Polizia cantonale e Udsc hanno effettuato 43 posti di controllo nel Mendrisiotto, riscontrando 26 violazioni e 17 infrazioni doganali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-controlli-mendrisiotto-settembre-novembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-21T16:11:41+00:00",
+      "dateModified": "2026-11-21T16:11:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-mendrisiotto-settembre-novembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-euro-sotto-091-sollievo': {
+    title: 'Euro sotto 0,91: sollievo ai frontalieri | Frontaliere Ticino',
+    description: 'Il franco svizzero tocca 0,9076 contro l\'euro: il cambio scende sotto 0,91 e rafforza il potere d\'acquisto degli stipendi in franchi.',
+    keywords: 'cambio euro-franco, franco svizzero, euro sotto 0,91, stipendi frontalieri, potere d\'acquisto, mercato valutario, UBP, fascia di confine',
+    ogTitle: 'Euro sotto 0,91: effetti sugli stipendi frontalieri',
+    ogDescription: 'Alle 13:45 l\'euro ha toccato 0,9076, minimo dallo scorso maggio e distante dai quasi 0,95 di inizio ottobre. Il franco forte sostiene il potere d\'acquisto di chi incassa franchi e spende euro, senza ritocchi contrattuali.',
+    canonicalPath: '/articoli-frontaliere/euro-sotto-091-sollievo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Euro sotto 0,91: sollievo ai frontalieri",
+      "description": "Il franco svizzero tocca 0,9076 contro l'euro: il cambio scende sotto 0,91 e rafforza il potere d'acquisto degli stipendi in franchi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-euro-sotto-091-sollievo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-25T16:05:56+00:00",
+      "dateModified": "2026-11-25T16:05:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/euro-sotto-091-sollievo/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

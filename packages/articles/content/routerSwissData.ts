@@ -2934,6 +2934,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tasso-ilo-terzo-trimestre': { it: 'tasso-ilo-terzo-trimestre', en: 'ilo-rate-third-quarter', de: 'ilo-rate-drittquartal', fr: 'taux-ilo-troisieme-trimestre' },
  'fiscalita-svizzera-tre-livelli': { it: 'fiscalita-svizzera-tre-livelli', en: 'swiss-tax-three-levels', de: 'schweizer-steuer-drei-ebenen', fr: 'fiscalite-suisse-trois-niveaux' },
  'iniziativa-congedo-parentale-riuscita': { it: 'iniziativa-congedo-parentale-riuscita', en: 'parental-leave-initiative-succeeded', de: 'elterngeld-initiative-erfolgreich', fr: 'initiative-conge-parental-reussie' },
+ 'commissioni-divise-preventivo': { it: 'commissioni-divise-preventivo', en: 'divided-committees-federal-budget', de: 'geteilte-kommissionen-bundesbudget', fr: 'commissions-divisees-budget-federal' },
+ 'fiscalita-tre-livelli-svizzera': { it: 'fiscalita-tre-livelli-svizzera', en: 'swiss-three-level-taxation', de: 'schweizer-dreistufen-steuer', fr: 'fiscalite-trois-niveaux-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

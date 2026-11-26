@@ -110441,6 +110441,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commissioni-divise-preventivo': {
+    title: 'Preventivo federale: commissioni divise | Frontaliere Ticino',
+    description: 'La commissione degli Stati: 11 sì, 0 no e 1 astensione. La commissione del Nazionale propone di respingere il progetto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, preventivo, federale, commissioni, divise',
+    ogTitle: 'Preventivo federale, commissioni divise',
+    ogDescription: 'La commissione degli Stati: 11 sì, 0 no e 1 astensione. La commissione del Nazionale propone di respingere il progetto.',
+    canonicalPath: '/articoli-svizzera/commissioni-divise-preventivo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Preventivo federale: commissioni divise",
+      "description": "La commissione degli Stati: 11 sì, 0 no e 1 astensione. La commissione del Nazionale propone di respingere il progetto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-commissioni-divise-preventivo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-21T05:20:07+00:00",
+      "dateModified": "2026-11-21T05:20:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissioni-divise-preventivo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fiscalita-tre-livelli-svizzera': {
+    title: 'Fiscalità svizzera: tre livelli e competenze distinte',
+    description: 'La fiscalità svizzera si divide in tre livelli: federale, cantonale e comunale. AFC/ESTV gestisce IFD e IVA; i cantoni gestiscono le imposte cantonali e comunali.',
+    keywords: 'fiscalità svizzera, IFD, IVA, imposte cantonali, AFC/ESTV, amministrazioni cantonali',
+    ogTitle: 'Fiscalità svizzera: tre livelli e competenze distinte',
+    ogDescription: 'La fiscalità svizzera è strutturata su tre livelli: federale, cantonale e comunale. L\'AFC/ESTV gestisce IFD e IVA, mentre le amministrazioni cantonali si occupano delle imposte cantonali e comunali.',
+    canonicalPath: '/articoli-svizzera/fiscalita-tre-livelli-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiscalità svizzera: tre livelli e competenze distinte",
+      "description": "La fiscalità svizzera si divide in tre livelli: federale, cantonale e comunale. AFC/ESTV gestisce IFD e IVA; i cantoni gestiscono le imposte cantonali e comunali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fiscalita-tre-livelli-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-26T05:09:09+00:00",
+      "dateModified": "2026-11-26T05:09:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fiscalita-tre-livelli-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

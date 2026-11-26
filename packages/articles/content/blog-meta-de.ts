@@ -13741,6 +13741,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a2-rodi-lavori-finiti.title': 'A2 bei Rodi: Arbeiten abgeschlossen, Strecke frei',
     'blog.article.a2-rodi-lavori-finiti.excerpt': 'Das Bundesamt für Strassen USTRA gibt das Ende der Arbeiten an der A2 bei Rodi bekannt.',
     'blog.article.a2-rodi-lavori-finiti.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.mendrisio-feste-pista-ghiaccio.title': 'Mendrisio bringt Feste und eine Eisbahn auf den Platz',
+    'blog.article.mendrisio-feste-pista-ghiaccio.excerpt': 'Von Ende November bis Januar belebt Mendrisio Plätze und Quartiere mit einer Eisbahn, dem Austausch von guten Wünschen und einem Veranstaltungskalender.',
+    'blog.article.mendrisio-feste-pista-ghiaccio.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.festival-ai-lugano-aree.title': 'Festival AI in Lugano: 13 Bereiche und mehr als 60 Referenten',
+    'blog.article.festival-ai-lugano-aree.excerpt': 'Im Palazzo dei Congressi di Lugano versammelt das Festival AI mehr als 60 internationale Referenten in 13 Bereichen, mit einem kostenlosen und allen offenstehenden Ausstellungsbereich.',
+    'blog.article.festival-ai-lugano-aree.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.controlli-mendrisiotto-settembre-novembre.title': 'Gemeinsame Kontrollen im Mendrisiotto zwischen September und November',
+    'blog.article.controlli-mendrisiotto-settembre-novembre.excerpt': 'Die Operation zielte darauf ab, die Transitströme zu verfolgen, allfällige verdächtige Situationen festzustellen und potenziell rechtswidriges Verhalten zu bekämpfen.',
+    'blog.article.controlli-mendrisiotto-settembre-novembre.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.euro-sotto-091-sollievo.title': 'Euro unter 0,91: Erleichterung für Grenzgänger',
+    'blog.article.euro-sotto-091-sollievo.excerpt': 'Um 13:45 Uhr erreichte der Euro 0,9076 und fiel damit unter die psychologische Schwelle von 91 Rappen.',
+    'blog.article.euro-sotto-091-sollievo.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
