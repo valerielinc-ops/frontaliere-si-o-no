@@ -198,9 +198,18 @@ jobs:
                 --workflow "${{ github.workflow }}"
               rm -f "$agg_body_file"
 
-              gh issue list --state open --label crawler-health --limit 500 \
-                --json number,title,labels > /tmp/health-open.json || echo '[]' > /tmp/health-open.json
-              agg_number=$(jq -r --arg t "$agg_title" '[.[] | select(.title == $t)] | sort_by(.number) | .[0].number // empty' /tmp/health-open.json)
+              # L'indice delle issue appena create (titolo + label) arriva con
+              # qualche secondo di ritardo: il 2026-11-26 la lettura subito dopo
+              # la create non trovo' #20279 e 13 singole non reclamate restarono
+              # aperte fino al giro dopo. Si rilegge con attese brevi (max ~25 s).
+              agg_number=""
+              for attempt in 1 2 3 4 5 6; do
+                gh issue list --state open --label crawler-health --limit 500 \
+                  --json number,title,labels > /tmp/health-open.json || echo '[]' > /tmp/health-open.json
+                agg_number=$(jq -r --arg t "$agg_title" '[.[] | select(.title == $t)] | sort_by(.number) | .[0].number // empty' /tmp/health-open.json)
+                [ -n "$agg_number" ] && break
+                sleep 5
+              done
               if [ -z "$agg_number" ]; then
                 echo "::warning::Aggregate issue \"${agg_title}\" not found after create; leaving member issues untouched."
                 continue
