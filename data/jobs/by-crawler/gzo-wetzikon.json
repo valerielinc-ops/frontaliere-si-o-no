@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gzo-wetzikon",
-  "assembledAt": "2026-11-26T09:57:23.278Z",
-  "runId": "45790496540",
+  "assembledAt": "2026-11-26T21:29:17.670Z",
+  "runId": "45897017809",
   "jobs": [
     {
       "id": "gzo-wetzikon-7732f92c25d1",
@@ -35,7 +35,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job167956?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:41.149Z",
+      "crawledAt": "2026-11-26T21:28:36.747Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -87,9 +87,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:56:41.149Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job167956?ext"
+      "validThrough": "2027-01-26T21:28:36.747Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-998d88ac8f2b",
@@ -123,7 +122,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job167991?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:40.515Z",
+      "crawledAt": "2026-11-26T21:28:36.106Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -175,9 +174,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:56:40.515Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job167991?ext"
+      "validThrough": "2027-01-26T21:28:36.106Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-f3b4baf68e56",
@@ -211,7 +209,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job168081?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:39.866Z",
+      "crawledAt": "2026-11-26T21:28:35.576Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -265,9 +263,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:56:39.866Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen/~job168081?ext"
+      "validThrough": "2027-01-27T21:28:35.576Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-16504eb6c042",
@@ -301,7 +298,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job168228?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:39.220Z",
+      "crawledAt": "2026-11-26T21:28:34.939Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -363,9 +360,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:56:39.220Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job168228?ext"
+      "validThrough": "2027-02-20T21:28:34.939Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-e82fb29f5329",
@@ -398,7 +394,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job168247?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:38.583Z",
+      "crawledAt": "2026-11-26T21:28:34.306Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -450,9 +446,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:56:38.583Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job168247?ext"
+      "validThrough": "2027-01-28T21:28:34.306Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-7ec0f0f8bfbd",
@@ -486,7 +481,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job163664?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:37.935Z",
+      "crawledAt": "2026-11-26T21:28:33.767Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -550,9 +545,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:37.935Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job163664?ext"
+      "validThrough": "2026-12-26T21:28:33.767Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-ace844b94515",
@@ -586,7 +580,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job163751?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:37.304Z",
+      "crawledAt": "2026-11-26T21:28:33.233Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -648,9 +642,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:37.304Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job163751?ext"
+      "validThrough": "2026-12-26T21:28:33.233Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-91433d8c0723",
@@ -684,7 +677,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job162810?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:36.661Z",
+      "crawledAt": "2026-11-26T21:28:32.596Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -732,9 +725,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:36.661Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job162810?ext"
+      "validThrough": "2026-12-26T21:28:32.596Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-4a21151a022f",
@@ -768,7 +760,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164116?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:36.028Z",
+      "crawledAt": "2026-11-26T21:28:32.056Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -820,9 +812,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:36.028Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164116?ext"
+      "validThrough": "2026-12-26T21:28:32.056Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-9d916ad4a065",
@@ -856,7 +847,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job168457?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:35.390Z",
+      "crawledAt": "2026-11-26T21:28:31.522Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -936,7 +927,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo-dab5b9b5",
           "senior-physician-internal-medicine-50-100-design-the-medicine-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon-49c1b3b3",
           "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo-c398b103",
           "senior-physician-internal-medicine-50-100-design-the-medicine-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon-c48a84be",
@@ -956,7 +946,8 @@
           "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo-79ca4a02",
           "senior-physician-internal-medicine-50-100-design-the-medicine-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon-ce3d425b",
           "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo-1263727b",
-          "senior-physician-internal-medicine-50-100-design-the-medicine-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon-a14bef02"
+          "senior-physician-internal-medicine-50-100-design-the-medicine-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon-a14bef02",
+          "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo-dab5b9b5"
         ],
         "en": [
           "senior-physician-internal-medicine-50-100-jobsharing-possible-gzo-spital-wetzikon-wetzikon",
@@ -987,9 +978,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:35.390Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job168457?ext"
+      "validThrough": "2026-12-26T21:28:31.522Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-5033c379c35c",
@@ -1022,7 +1012,7 @@
       "url": "https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job159865?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:34.741Z",
+      "crawledAt": "2026-11-26T21:28:30.983Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1077,9 +1067,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:34.741Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job159865?ext"
+      "validThrough": "2026-12-26T21:28:30.983Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-8982e2b56743",
@@ -1112,7 +1101,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job168750?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:34.102Z",
+      "crawledAt": "2026-11-26T21:28:30.450Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1171,9 +1160,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:56:34.102Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job168750?ext"
+      "validThrough": "2027-02-04T21:28:30.450Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-56f11c95c323",
@@ -1206,7 +1194,7 @@
       "url": "https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job166538?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:33.458Z",
+      "crawledAt": "2026-11-26T21:28:29.812Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1252,9 +1240,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:56:33.458Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job166538?ext"
+      "validThrough": "2027-01-06T21:28:29.812Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-7e70a9096ef2",
@@ -1287,7 +1274,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job160183?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:32.816Z",
+      "crawledAt": "2026-11-26T21:28:29.179Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1333,9 +1320,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:32.816Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job160183?ext"
+      "validThrough": "2026-12-26T21:28:29.179Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-b3ecea0e35e8",
@@ -1369,7 +1355,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job164837?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:32.176Z",
+      "crawledAt": "2026-11-26T21:28:28.639Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1415,9 +1401,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:32.176Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job164837?ext"
+      "validThrough": "2026-12-26T21:28:28.639Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-84e0fb9f3964",
@@ -1451,7 +1436,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164976?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:31.524Z",
+      "crawledAt": "2026-11-26T21:28:28.092Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1497,9 +1482,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:31.524Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164976?ext"
+      "validThrough": "2026-12-26T21:28:28.092Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-82da280e9cdd",
@@ -1533,7 +1517,7 @@
       "url": "https://www.publicjobs.ch/jobs/klinische-sekretariate-mpa/~job167205?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:30.879Z",
+      "crawledAt": "2026-11-26T21:28:27.554Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1579,9 +1563,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:56:30.879Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/klinische-sekretariate-mpa/~job167205?ext"
+      "validThrough": "2027-01-14T21:28:27.554Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-3a877cc2a4be",
@@ -1614,7 +1597,7 @@
       "url": "https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job167206?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:30.236Z",
+      "crawledAt": "2026-11-26T21:28:27.016Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1666,9 +1649,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:56:30.236Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job167206?ext"
+      "validThrough": "2027-01-14T21:28:27.016Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-8002f0f7b59a",
@@ -1702,7 +1684,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job165067?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:29.590Z",
+      "crawledAt": "2026-11-26T21:28:26.470Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1748,9 +1730,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:29.590Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job165067?ext"
+      "validThrough": "2026-12-26T21:28:26.470Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-957b080c4477",
@@ -1784,7 +1765,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job165200?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:28.941Z",
+      "crawledAt": "2026-11-26T21:28:25.926Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1830,9 +1811,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:28.941Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen/~job165200?ext"
+      "validThrough": "2026-12-26T21:28:25.926Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-dc74ef4e1434",
@@ -1866,7 +1846,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job169728?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:28.294Z",
+      "crawledAt": "2026-11-26T21:28:25.289Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1918,9 +1898,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:56:28.294Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen/~job169728?ext"
+      "validThrough": "2027-02-16T21:28:25.289Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-53f8281b9895",
@@ -1954,7 +1933,7 @@
       "url": "https://www.publicjobs.ch/jobs/finanzen-buchhaltung-lohnbuchhaltung/~job162522?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:27.645Z",
+      "crawledAt": "2026-11-26T21:28:24.750Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -2000,9 +1979,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:56:27.645Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/finanzen-buchhaltung-lohnbuchhaltung/~job162522?ext"
+      "validThrough": "2026-12-26T21:28:24.750Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-d98372f696dd",
@@ -2035,7 +2013,7 @@
       "url": "https://www.publicjobs.ch/jobs/klinische-sekretariate-mpa/~job167675?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:26.359Z",
+      "crawledAt": "2026-11-26T21:28:23.664Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -2084,9 +2062,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:56:26.359Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/klinische-sekretariate-mpa/~job167675?ext"
+      "validThrough": "2027-02-04T21:28:23.664Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-7eb18d646b2e",
@@ -2120,7 +2097,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job165562?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:56:25.708Z",
+      "crawledAt": "2026-11-26T21:28:23.126Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -2179,9 +2156,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:56:25.708Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job165562?ext"
+      "validThrough": "2027-02-20T21:28:23.126Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

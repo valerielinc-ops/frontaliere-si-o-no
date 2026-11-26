@@ -1,7 +1,7 @@
 {
   "crawlerKey": "octapharma",
-  "assembledAt": "2026-11-26T09:53:52.239Z",
-  "runId": "45790496540",
+  "assembledAt": "2026-11-26T21:29:50.820Z",
+  "runId": "45897017809",
   "jobs": [
     {
       "id": "octapharma-bcf2f4b50027",
@@ -34,7 +34,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Analyst-Quality-Applications/1451699233/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:53:43.168Z",
+      "crawledAt": "2026-11-26T21:29:42.907Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -69,9 +69,8 @@
       },
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:53:43.168Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.octapharma.com/job/lachen-group-senior-analyst-quality-applications/1451699233"
+      "validThrough": "2027-01-25T21:29:42.907Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "octapharma-186c552b48e8",
@@ -104,7 +103,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Associate-Specialist-Customer-Service/1457604533/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:53:42.616Z",
+      "crawledAt": "2026-11-26T21:29:42.361Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -157,9 +156,8 @@
       },
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:53:42.616Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.octapharma.com/job/lachen-group-associate-specialist-customer-service/1457604533"
+      "validThrough": "2027-02-14T21:29:42.361Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "octapharma-effa920e96b5",
@@ -192,7 +190,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Manager-IT-Sales%2C-Marketing-&-Communications-Applications/1454562433/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:53:42.076Z",
+      "crawledAt": "2026-11-26T21:29:41.820Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -238,9 +236,8 @@
       },
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:53:42.076Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.octapharma.com/job/lachen-group-senior-manager-it-sales%2c-marketing-&-communications-applications/1454562433"
+      "validThrough": "2027-02-03T21:29:41.820Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "octapharma-18ebbb436c47",
@@ -273,7 +270,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Manager-Data-&-AI/1456437433/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:53:41.523Z",
+      "crawledAt": "2026-11-26T21:29:41.277Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -316,9 +313,8 @@
       },
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:53:41.523Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.octapharma.com/job/lachen-group-senior-manager-data-&-ai/1456437433"
+      "validThrough": "2027-02-09T21:29:41.277Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
