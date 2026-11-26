@@ -173,6 +173,42 @@ export function navigationErrorVerdict(error) {
 }
 
 /**
+ * What the edge answered for the probed document. `page.goto` resolves on a 503
+ * too, and an error body loads no script: without this, a Worker error reads as
+ * a page that forgot Funding Choices (runs 45598180618 and 45758586117, both a
+ * `router-exception` 503 from the locale router).
+ *
+ * @param {{ status: () => number, headers: () => Record<string, string> } | null} response
+ * @returns {{ status: number | null, cfRay: string | null, servedStale: string | null }}
+ */
+export function documentEvidence(response) {
+  const headers = response?.headers() ?? {};
+  return {
+    status: response?.status() ?? null,
+    cfRay: headers['cf-ray'] ?? null,
+    servedStale: headers['x-served-stale'] ?? null,
+  };
+}
+
+/**
+ * Names the HTTP error behind an `fc_not_requested` fail. It only rewrites the
+ * reason and detail of a verdict that already failed: a pass, an inconclusive
+ * and the gate's own failures come back untouched.
+ *
+ * @param {ProbeVerdict} verdict
+ * @param {{ status?: number | null, cfRay?: string | null }} document
+ * @returns {ProbeVerdict}
+ */
+export function explainDocumentError(verdict, { status, cfRay } = {}) {
+  if (verdict.verdict !== 'fail' || verdict.reason !== 'fc_not_requested' || !(status >= 400)) return verdict;
+  return {
+    verdict: 'fail',
+    reason: 'document_http_error',
+    detail: `The page document answered HTTP ${status} (cf-ray ${cfRay || 'unknown'}), so Funding Choices was never requested and this visitor got an error instead of the page. Look up the cf-ray, or the path and time, in the locale router's Workers Logs (\`origin_failure\` and its \`reason\`) before suspecting the page's loaders.`,
+  };
+}
+
+/**
  * Verdict of one page over its attempts, failure-sticky: a pass on any attempt
  * clears a flake; otherwise a fail on any attempt stands, whatever the other
  * attempts said. Only attempts that are all inconclusive stay a warning.
