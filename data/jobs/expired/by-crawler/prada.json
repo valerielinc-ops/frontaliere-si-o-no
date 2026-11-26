@@ -3295,7 +3295,10 @@
     "salaryMin": 72000,
     "salaryMax": 97000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "miu-miu-in-store-crm-manager-harrods-prada-group-mendrisio",
@@ -3390,7 +3393,10 @@
     "salaryMin": 72000,
     "salaryMax": 97000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "retail-training-manager-prada-mendrisio",
@@ -3421,6 +3427,9 @@
     "salaryMin": 72000,
     "salaryMax": 97000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   }
 ]
