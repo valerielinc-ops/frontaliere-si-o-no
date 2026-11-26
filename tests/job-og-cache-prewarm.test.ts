@@ -309,7 +309,12 @@ describe('job OG cache prewarm and deferred publication', () => {
     expect(deploy).toContain('restore-keys: |\n            og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-');
     expect(prewarm).toContain('uses: ./.github/actions/assemble-jobs-cache-key');
     expect(prewarm).toContain('path: .cache/assemble-jobs');
-    expect(prewarm).toContain('node scripts/assemble-jobs-dataset.mjs --stats');
+    expect(prewarm).toContain(
+      '      - name: Assemble deploy job dataset\n' +
+      '        env:\n' +
+      '          NODE_OPTIONS: --max-old-space-size=8192\n' +
+      '        run: node scripts/assemble-jobs-dataset.mjs --stats',
+    );
     expect(prewarm).toContain('node scripts/cleanup-jobs.mjs');
     const saveJob = prewarm.slice(prewarm.indexOf('  save-cache:'));
     expect(saveJob).toContain("needs.render.result == 'skipped'");

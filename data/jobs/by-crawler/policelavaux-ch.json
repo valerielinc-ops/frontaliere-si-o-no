@@ -85,7 +85,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T10:21:49.840Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-se-developpe-et-recrute"
     },
     {
       "id": "policelavaux-ch-1682e107d331",
@@ -169,7 +170,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T10:21:49.839Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-recrute-des-sous-officierere-superieure"
     }
   ]
 }

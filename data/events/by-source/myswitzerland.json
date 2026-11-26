@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-25T16:27:30.320Z",
+  "assembledAt": "2026-11-26T16:04:56.972Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -68648,13 +68648,12 @@
         "fr": "Claudio Zuccolini - Der Vorsorger"
       },
       "startDate": "2027-05-24",
-      "endDate": "2027-05-27",
-      "startTime": "20:00",
+      "endDate": "2027-10-05",
       "category": "Event",
       "venue": "Basel",
       "comune": "Basel",
       "canton": "BS",
-      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/claudio-zuccolini-der-vorsorger-9/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/claudio-zuccolini-der-vorsorger-9/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -281408,6 +281407,502 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "876a2f3687e9301e3e11fbcf1fc7d3a8dcf59a50ce5139d11fd5f8a9094bdbe8"
+    },
+    {
+      "id": "myswitzerland:b22882836f224f81b666c72d69b642b1",
+      "title": "schön&gut: UNTER FREIEM HIMMEL live @Kaiserbühne",
+      "titleByLocale": {
+        "it": "schön&gut: UNTER FREIEM HIMMEL live @Kaiserbühne",
+        "en": "schön&gut: UNTER FREIEM HIMMEL live @Kaiserbühne",
+        "de": "schön&gut: UNTER FREIEM HIMMEL live @Kaiserbühne",
+        "fr": "schön&gut: UNTER FREIEM HIMMEL live @Kaiserbühne"
+      },
+      "startDate": "2027-05-27",
+      "endDate": "2027-05-27",
+      "category": "Event",
+      "venue": "Kaiserstuhl",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/schoengut-unter-freiem-himmel-live-kaiserbuehne/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5690573,
+        "lng": 8.4187082
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "104a3313f12a280f88a4712b41244e585e4ad40b97441983eae28b50cf6eb3b0"
+    },
+    {
+      "id": "myswitzerland:b13b7d266fbd4396822e5e3cbb429033",
+      "title": "Adventsmarkt Fläsch 28. November 2026",
+      "titleByLocale": {
+        "it": "Adventsmarkt Fläsch 28. November 2026",
+        "en": "Adventsmarkt Fläsch 28. November 2026",
+        "de": "Adventsmarkt Fläsch 28. November 2026",
+        "fr": "Adventsmarkt Fläsch 28. November 2026"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Fläsch",
+      "comune": "Fläsch",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventsmarkt-flaesch-28-november-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.024797,
+        "lng": 9.511525
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Ihnen"
+      },
+      "sourceDescriptionHash": "ceb175c20ef240f207ba31e99d578648e86c1bc20a239bf2352ba69ea1e17d40"
+    },
+    {
+      "id": "myswitzerland:b0ea14e282484e748835480b28cbc298",
+      "title": "Classic Festival Arosa in the Mountain Chapel",
+      "titleByLocale": {
+        "it": "Classic Festival Arosa in the Mountain Chapel",
+        "en": "Classic Festival Arosa in the Mountain Chapel",
+        "de": "Klassik Festival Arosa im Bergkirchli",
+        "fr": "Festival de la Classique Arosa à Bergkirchli"
+      },
+      "startDate": "2027-03-09",
+      "endDate": "2027-03-09",
+      "category": "Event",
+      "venue": "Arosa",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/klassik-festival-arosa-im-bergkirchli/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7772287,
+        "lng": 9.6554
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b94072aa687a7c76e8a29c2dbf5379615d5c98d186daf4ee6ef7e2e3636bc73c"
+    },
+    {
+      "id": "myswitzerland:b0db4e7391774c648a4dbb34d85273d4",
+      "title": "Mit Weihnachtsliedern durch das Klanghaus – Für Eltern und Kinder",
+      "titleByLocale": {
+        "it": "Mit Weihnachtsliedern durch das Klanghaus – Für Eltern und Kinder",
+        "en": "Mit Weihnachtsliedern durch das Klanghaus – Für Eltern und Kinder",
+        "de": "Mit Weihnachtsliedern durch das Klanghaus – Für Eltern und Kinder",
+        "fr": "Mit Weihnachtsliedern durch das Klanghaus – Für Eltern und Kinder"
+      },
+      "startDate": "2026-12-26",
+      "endDate": "2026-12-26",
+      "category": "Event",
+      "venue": "Wildhaus",
+      "comune": "Wildhaus-Alt St. Johann",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mit-weihnachtsliedern-durch-das-klanghaus-fuer-eltern-und-kinder/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1886732,
+        "lng": 9.3296006
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "28e77fab33c507b032db3d10b06ecb712cdc6a2d15908e5413fd2ab506bf8e44"
+    },
+    {
+      "id": "myswitzerland:b0b879e8d78e4e11a92a25989f0b1c34",
+      "title": "Atelier découverte de la linogravure",
+      "titleByLocale": {
+        "it": "Atelier découverte de la linogravure",
+        "en": "Atelier découverte de la linogravure",
+        "de": "Atelier découverte de la linogravure",
+        "fr": "Atelier découverte de la linogravure"
+      },
+      "startDate": "2026-11-30",
+      "endDate": "2026-11-30",
+      "category": "Event",
+      "venue": "Châtel-St-Denis",
+      "comune": "Châtel-Saint-Denis",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/atelier-decouverte-de-la-linogravure/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5298585,
+        "lng": 6.9069007
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "19729b3dab43e65d4f546d887b0f32de90217d9a3dd1142eeb86b2165fa05ac4"
+    },
+    {
+      "id": "myswitzerland:b03e3c88779a4d798e0139b2a2495823",
+      "title": "Matinée - Klassische Saitensprünge",
+      "titleByLocale": {
+        "it": "Matinée - Klassische Saitensprünge",
+        "en": "Matinée - Klassische Saitensprünge",
+        "de": "Matinée - Klassische Saitensprünge",
+        "fr": "Matinée - Klassische Saitensprünge"
+      },
+      "startDate": "2027-01-10",
+      "endDate": "2027-01-10",
+      "category": "Event",
+      "venue": "Kreuzlingen",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/matinee-klassische-saitenspruenge/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6442833,
+        "lng": 9.1719698
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Terminen"
+        },
+        {
+          "name": "Themen"
+        },
+        {
+          "name": "Menschen"
+        }
+      ],
+      "sourceDescriptionHash": "11e539cba25a8c48987d23f9a3554e5683b38b83ff65c982f64894a3a0f3c008"
+    },
+    {
+      "id": "myswitzerland:b01095f7b3cc49f49873177f63fbd90f",
+      "title": "Lesung mit Malwina Ledniowska",
+      "titleByLocale": {
+        "it": "Lesung mit Malwina Ledniowska",
+        "en": "Lesung mit Malwina Ledniowska",
+        "de": "Lesung mit Malwina Ledniowska",
+        "fr": "Lesung mit Malwina Ledniowska"
+      },
+      "startDate": "2027-01-28",
+      "endDate": "2027-01-28",
+      "category": "Event",
+      "venue": "Langnau i.E.",
+      "comune": "Langnau im Emmental",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/lesung-mit-malwina-ledniowska/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9389996,
+        "lng": 7.7860716
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Malwina Ledniowska"
+      },
+      "sourceDescriptionHash": "bfd06129019a99c630b60caef6256d7a2e75472d7e76e8793cda610857107c6d"
+    },
+    {
+      "id": "myswitzerland:aef996fb2a4f45d2b460f11d2979f266",
+      "title": "Fondue Chinoise im Chalet Bilstenhof",
+      "titleByLocale": {
+        "it": "Fondue Chinoise im Chalet Bilstenhof",
+        "en": "Fondue Chinoise im Chalet Bilstenhof",
+        "de": "Fondue Chinoise im Chalet Bilstenhof",
+        "fr": "Fondue Chinoise im Chalet Bilstenhof"
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2027-02-26",
+      "category": "Event",
+      "venue": "Altendorf",
+      "comune": "Altendorf",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/fondue-chinoise-im-chalet-bilstenhof/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.182059,
+        "lng": 8.8061
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "96bbee99e4b98b46803cfd2fef6ab5cdc58eee870e434b01f72bd2720225cef5"
+    },
+    {
+      "id": "myswitzerland:ae9ce59e184d418e9697eb9159b87a78",
+      "title": "Tavolata - gemeinsam essen",
+      "titleByLocale": {
+        "it": "Tavolata - gemeinsam essen",
+        "en": "Tavolata - gemeinsam essen",
+        "de": "Tavolata - gemeinsam essen",
+        "fr": "Tavolata - gemeinsam essen"
+      },
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-04",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tavolata-gemeinsam-essen-381/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3808313,
+        "lng": 8.4254879
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a"
+    },
+    {
+      "id": "myswitzerland:ae904cf212e0488280db8ba985dd0419",
+      "title": "Schnupper-Schneeschuhwanderung in Ilanz",
+      "titleByLocale": {
+        "it": "Schnupper-Schneeschuhwanderung in Ilanz",
+        "en": "Schnupper-Schneeschuhwanderung in Ilanz",
+        "de": "Schnupper-Schneeschuhwanderung in Ilanz",
+        "fr": "Schnupper-Schneeschuhwanderung in Ilanz"
+      },
+      "startDate": "2027-01-16",
+      "endDate": "2027-01-16",
+      "category": "Event",
+      "venue": "Ilanz",
+      "comune": "Ilanz/Glion",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/schnupper-schneeschuhwanderung-in-ilanz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7749006,
+        "lng": 9.2075059
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "769e3117c3b620022ff2a799fce3f731c6eb2353f7d771eac19290d6ce5b1901"
+    },
+    {
+      "id": "myswitzerland:ae10500abcfb44f4998184cb302882e1",
+      "title": "BaRo Benefizkonzert – Balkan- & Roma-Musik",
+      "titleByLocale": {
+        "it": "BaRo Benefizkonzert – Balkan- & Roma-Musik",
+        "en": "BaRo Benefizkonzert – Balkan- & Roma-Musik",
+        "de": "BaRo Benefizkonzert – Balkan- & Roma-Musik",
+        "fr": "BaRo Benefizkonzert – Balkan- & Roma-Musik"
+      },
+      "startDate": "2027-04-10",
+      "endDate": "2027-04-10",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/baro-benefizkonzert-2027-balkan-romamusik/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3941452,
+        "lng": 8.5429743
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a9d07bd3149bd039d8484776b9b1f88bcf2626e388bef1c135b48164a43f58b2"
+    },
+    {
+      "id": "myswitzerland:ada360a4364b475da7788ede4055c7ee",
+      "title": "Oldies für Oldies",
+      "titleByLocale": {
+        "it": "Oldies für Oldies",
+        "en": "Oldies für Oldies",
+        "de": "Oldies für Oldies",
+        "fr": "Oldies für Oldies"
+      },
+      "startDate": "2027-09-13",
+      "endDate": "2027-09-13",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/oldies-fuer-oldies-40/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3877405,
+        "lng": 8.4284658
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "22538cc133b7f26f8eb919580ebd4d6f70f44f5a1c457197217b28276b231706"
+    },
+    {
+      "id": "myswitzerland:ad959d657fcf42319a676e332f00b069",
+      "title": "Tavolata - gemeinsam essen",
+      "titleByLocale": {
+        "it": "Tavolata - gemeinsam essen",
+        "en": "Tavolata - gemeinsam essen",
+        "de": "Tavolata - gemeinsam essen",
+        "fr": "Tavolata - gemeinsam essen"
+      },
+      "startDate": "2026-12-29",
+      "endDate": "2026-12-29",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tavolata-gemeinsam-essen-406/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3808313,
+        "lng": 8.4254879
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a"
+    },
+    {
+      "id": "myswitzerland:ad86a2d4f0e9467f8b5396aefb0e3a6e",
+      "title": "noe&friends | christmas specials",
+      "titleByLocale": {
+        "it": "noe&friends | christmas specials",
+        "en": "noe&friends | christmas specials",
+        "de": "noe&friends | christmas specials",
+        "fr": "noe&friends | christmas specials"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/noefriends-christmas-specials/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9479739,
+        "lng": 7.4474468
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "fc267d9af5ffcef4562152547524634eb8640aeb03d4db4040a5734fd42af7da"
+    },
+    {
+      "id": "myswitzerland:ad08911aa10d4e7c8705bbbc79a399ba",
+      "title": "Oldies für Oldies",
+      "titleByLocale": {
+        "it": "Oldies für Oldies",
+        "en": "Oldies für Oldies",
+        "de": "Oldies für Oldies",
+        "fr": "Oldies für Oldies"
+      },
+      "startDate": "2027-11-29",
+      "endDate": "2027-11-29",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/oldies-fuer-oldies-51/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3877405,
+        "lng": 8.4284658
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "22538cc133b7f26f8eb919580ebd4d6f70f44f5a1c457197217b28276b231706"
+    },
+    {
+      "id": "myswitzerland:ace2f56e03524ef5acf9a1d4746a7c42",
+      "title": "Fasten in der Propstei Wislikofen",
+      "titleByLocale": {
+        "it": "Fasten in der Propstei Wislikofen",
+        "en": "Fasten in der Propstei Wislikofen",
+        "de": "Fasten in der Propstei Wislikofen",
+        "fr": "Fasten in der Propstei Wislikofen"
+      },
+      "startDate": "2027-02-21",
+      "endDate": "2027-02-27",
+      "category": "Event",
+      "venue": "Wislikofen",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/fasten-in-der-propstei-wislikofen-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5571851,
+        "lng": 8.3605721
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "766c9f370a1ce1f5ef2fb12ba7a8893b931d89416ce1d57123453fba8a4b0557"
+    },
+    {
+      "id": "myswitzerland:ace14b002c7f41ccb9245564f9154976",
+      "title": "Nordic Family Day",
+      "titleByLocale": {
+        "it": "Nordic Family Day",
+        "en": "Nordic Family Day",
+        "de": "Nordic Family Day",
+        "fr": "Nordic Family Day"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "San Bernardino",
+      "comune": "Mesocco",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/nordic-family-day/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.453321,
+        "lng": 9.200366
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Madesimo",
+        "Campodolcino"
+      ],
+      "sourceDescriptionHash": "14d1294f4f69131fd63d6ea9412b28bf2a187a8b5c04ab038de98a30f8d10d38"
+    },
+    {
+      "id": "myswitzerland:ac37ca96047e4353ad3cae382ce63c63",
+      "title": "Adventskonzert Cantemus \"Disteln und Rosen\"",
+      "titleByLocale": {
+        "it": "Adventskonzert Cantemus \"Disteln und Rosen\"",
+        "en": "Adventskonzert Cantemus \"Disteln und Rosen\"",
+        "de": "Adventskonzert Cantemus \"Disteln und Rosen\"",
+        "fr": "Adventskonzert Cantemus \"Disteln und Rosen\""
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventskonzert-cantemus-disteln-und-rosen-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5681557,
+        "lng": 9.1113456
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "2877d642879438b41c265aac032cda42acd1a694a8df77d4ebdd00a9505e89b4"
+    },
+    {
+      "id": "myswitzerland:abcfe655b37141f684bd3273cece5f51",
+      "title": "Vendita di pane cotto nel forno a legna",
+      "titleByLocale": {
+        "it": "Vendita di pane cotto nel forno a legna",
+        "en": "Wood-Fired Bread Sale",
+        "de": "Holzofenbrot-Verkauf",
+        "fr": "Vente de pain cuit au feu de bois"
+      },
+      "startDate": "2026-12-28",
+      "endDate": "2026-12-28",
+      "category": "Event",
+      "venue": "Sarn (Heinzenberg)",
+      "comune": "Cazis",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/vendita-di-pane-cotto-nel-forno-a-legna/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.719837795887,
+        "lng": 9.40940552645874
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "ada998a580515e384cae10a84c2ba3c99137309cbfb4448992a418e9d83069cf"
     }
   ]
 }
