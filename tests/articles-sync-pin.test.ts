@@ -236,6 +236,10 @@ describe('pull-articles-corpus: the corpus follows the published API, not the br
 
   beforeAll(async () => {
     server = http.createServer((req, res) => {
+      if (req.url === '/articles.json' || req.url === '/swiss-articles.json') {
+        res.writeHead(200, { 'content-type': 'application/json' }).end('[]');
+        return;
+      }
       if ((req.url ?? '').replace(/^\//, '') !== 'manifest.json') {
         res.writeHead(404).end('not found');
         return;
@@ -252,7 +256,7 @@ describe('pull-articles-corpus: the corpus follows the published API, not the br
   });
 
   const manifest = (commit: unknown) =>
-    JSON.stringify({ schema: 1, commit, counts: { articles: 3116 } });
+    JSON.stringify({ schema: 1, commit, counts: { articles: 0, swissArticles: 0 }, files: { 'articles.json': 2, 'swiss-articles.json': 2 } });
 
   it('checks out the commit the manifest names even when the mirror has moved past it', async () => {
     const remote = makeCorpusRemote();
