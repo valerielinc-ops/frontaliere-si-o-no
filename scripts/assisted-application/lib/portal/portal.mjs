@@ -10459,13 +10459,14 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     diagnostics?.afterClick();
     const postSignInVerificationText = accountResponseText(after);
     const hasActivationPrompt = isAccountVerificationResponse(after)
-      || (hasResendVerificationControl(after) && VERIFY_PAGE_RE.test(postSignInVerificationText));
+      || (hasResendVerificationControl(after) && (!codeField(after) || VERIFY_PAGE_RE.test(postSignInVerificationText)));
     const needsPostSignInVerification = (!account.verifiedAt
       && (VERIFY_PAGE_RE.test(postSignInVerificationText) || codeField(after)
         || hasActivationPrompt || (authPageKind(after) !== 'create' && hasResendVerificationControl(after))))
       // Even when a stored account already carries `verifiedAt` (e.g. a stale or partial
-      // activation), an explicit post-login account-activation notice with no password/OTP
-      // challenge (or non-OTP tenant) proves the portal still requires email activation.
+      // activation), an explicit post-login account-activation notice or resend-verification
+      // control with no OTP code challenge (or non-OTP tenant) proves the portal still
+      // requires email activation.
       || (authPageKind(after) !== 'create'
         && hasActivationPrompt
         && (!usesOtpAccountCreation(host) || !codeField(after)));
