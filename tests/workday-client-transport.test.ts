@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-import { createServer } from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -61,29 +60,34 @@ afterEach(() => {
 describe('Workday JSON transport', () => {
   it('shares the runner egress lock and Retry-After cooldown across processes', async () => {
     const egressStateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'workday-egress-test-'));
-    const requestTimes: number[] = [];
-    let firstRequestResolve!: () => void;
-    const firstRequest = new Promise<void>((resolve) => { firstRequestResolve = resolve; });
-    const server = createServer((_request, response) => {
-      requestTimes.push(Date.now());
-      if (requestTimes.length === 1) {
-        response.writeHead(429, { 'Retry-After': '1' }).end();
-        firstRequestResolve();
-        return;
-      }
-      response.writeHead(200, { 'Content-Type': 'application/json' })
-        .end(JSON.stringify({ ok: true }));
-    });
+    const requestLogPath = path.join(egressStateDir, 'request-times.log');
+    const readRequestTimes = () => {
+      if (!fs.existsSync(requestLogPath)) return [];
+      return fs.readFileSync(requestLogPath, 'utf8')
+        .split('\n')
+        .filter(Boolean)
+        .map(Number);
+    };
 
     try {
-      await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
-      const address = server.address();
-      if (!address || typeof address === 'string') throw new Error('test server did not bind');
-      const apiBase = `http://127.0.0.1:${address.port}/wday/cxs/test/External`;
+      const apiBase = 'https://workday.test/wday/cxs/test/External';
       const clientUrl = pathToFileURL(path.resolve('scripts/lib/ats-clients/workday-client.mjs')).href;
-      const runClientProcess = () => new Promise<void>((resolve, reject) => {
+      const runClientProcess = (status: number) => new Promise<void>((resolve, reject) => {
         const script = `
-          import { fetchWorkdayJsonWithRetry } from ${JSON.stringify(clientUrl)};
+          import fs from 'node:fs';
+          const status = ${JSON.stringify(status)};
+          const requestLogPath = ${JSON.stringify(requestLogPath)};
+          globalThis.fetch = async () => {
+            fs.appendFileSync(requestLogPath, String(Date.now()) + '\\n');
+            if (status === 429) await new Promise((resolve) => setTimeout(resolve, 100));
+            return new Response(status === 429 ? '' : JSON.stringify({ ok: true }), {
+              status,
+              headers: status === 429
+                ? { 'Retry-After': '1' }
+                : { 'Content-Type': 'application/json' },
+            });
+          };
+          const { fetchWorkdayJsonWithRetry } = await import(${JSON.stringify(clientUrl)});
           try {
             await fetchWorkdayJsonWithRetry(${JSON.stringify(apiBase)}, ${JSON.stringify(`${apiBase}/jobs`)}, {
               retries: 0,
@@ -103,17 +107,21 @@ describe('Workday JSON transport', () => {
         });
       });
 
-      const first = runClientProcess();
-      await firstRequest;
-      await first;
+      const first = runClientProcess(429);
+      const deadline = Date.now() + 2000;
+      while (readRequestTimes().length < 1 && Date.now() < deadline) {
+        await new Promise((resolve) => setTimeout(resolve, 10));
+      }
+      expect(readRequestTimes()).toHaveLength(1);
       const secondStartedAt = Date.now();
-      await runClientProcess();
+      const second = runClientProcess(200);
+      await Promise.all([first, second]);
 
+      const requestTimes = readRequestTimes();
       expect(requestTimes).toHaveLength(2);
       expect(requestTimes[1] - requestTimes[0]).toBeGreaterThanOrEqual(900);
       expect(Date.now() - secondStartedAt).toBeGreaterThanOrEqual(800);
     } finally {
-      await new Promise<void>((resolve) => server.close(() => resolve()));
       fs.rmSync(egressStateDir, { recursive: true, force: true });
     }
   });
