@@ -340,7 +340,8 @@ jobs:
           # The complete logical dist is disk-bound even after the source-only
           # image tree is omitted from this caller's checkout. Keep the cap
           # caller-owned: the weekly full replay is serial, while the async
-          # replay opts into its separately measured two-worker contract.
+          # replay opts into its separately measured two-worker contract within
+          # one artifact batch (the shared script drains batches between windows).
           REHYDRATE_MAX_PARALLEL: ${{ inputs.rehydrate_max_parallel }}
         run: |
           set -uo pipefail

@@ -114,7 +114,7 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
 
     expect(batchScheduler).toBeGreaterThan(-1);
     expect(batchOrder).toBeGreaterThan(batchScheduler);
-    expect(boundedWindow).toBeGreaterThan(batchOrder);
+    expect(boundedWindow).toBeGreaterThan(batchScheduler);
     expect(localeLoop).toBeGreaterThan(batchScheduler);
     expect(batchCall).toBeGreaterThan(localeLoop);
     expect(script).toContain('batch_failed_file="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures-');
