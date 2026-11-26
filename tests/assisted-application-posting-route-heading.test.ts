@@ -140,5 +140,8 @@ describe('postingMainHeading', () => {
     // The review's acceptance case as a page: a unique visible h1 with a bare number is not the role (finding 7254076cf749).
     expect(isRoleHeading(await postingMainHeading(pageOf('<h1>Product Manager 999</h1>')), 'Product Manager')).toBe(false);
     expect(isRoleHeading(await postingMainHeading(pageOf('<h1>Product Manager 80-100%</h1>')), 'Product Manager')).toBe(true);
+    // A site-chrome logo <h1> inside <header><a href> logo</a></header> is ignored so <h2> role pages don't fail vacancy evidence.
+    expect(await postingMainHeading(pageOf('<header><a class="header__logo" href="/careers"><h1>yellowshark AG</h1></a></header><h2>IT Product Manager</h2>'))).toBe('');
+    expect(await postingMainHeading(pageOf('<header><a class="header__logo" href="/careers"><h1>yellowshark AG</h1></a></header><main><h1>IT Product Manager</h1></main>'))).toBe('IT Product Manager');
   });
 });

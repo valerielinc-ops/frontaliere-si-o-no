@@ -207,13 +207,81 @@ export function splitTown(value) {
   return { town, region, country, statedPostal: postal?.[1] || '' };
 }
 
+const POSTAL_LENGTH_COUNTRIES = {
+  4: new Set(['CH', 'AT', 'LI']),
+  5: new Set(['IT', 'DE', 'FR']),
+};
+
+function matchingPostalEntries(town, { region = '', country = '', postalCode = '' } = {}) {
+  const index = postalDirectory();
+  const folded = fold(town);
+  let matches = index.get(folded) || [];
+  const postal = /^\d{4,5}$/.test(clean(postalCode, 10)) ? clean(postalCode, 10) : '';
+  // Hyphenated municipality/district names («Kusterdingen-Mähringen») fall back to their leading
+  // municipality only when an explicit postal code matches that municipality's exact directory code.
+  if (!matches.length && postal && /[-/]/.test(town)) {
+    const base = fold(String(town).split(/[-/]/)[0]);
+    const baseMatches = base ? index.get(base) || [] : [];
+    const exactBase = baseMatches.filter((entry) => entry.code === postal);
+    if (exactBase.length) matches = exactBase;
+  }
+  if (!matches.length) return [];
+  const countryCode = countryCodeOf(country) || (COUNTRY_NAMES[clean(country, 4).toUpperCase()] ? clean(country, 4).toUpperCase() : '');
+  const regionCode = clean(region, 8).toUpperCase();
+  let filtered = countryCode ? matches.filter((entry) => entry.country === countryCode) : matches;
+  if (!filtered.length) return [];
+  if (postal) {
+    const exactCode = filtered.filter((entry) => entry.code === postal);
+    if (exactCode.length) filtered = exactCode;
+    else {
+      const allowed = POSTAL_LENGTH_COUNTRIES[postal.length];
+      if (allowed) filtered = filtered.filter((entry) => allowed.has(entry.country));
+    }
+  }
+  if (!filtered.length) return [];
+  if (regionCode) {
+    const byRegion = filtered.filter((entry) => entry.region === regionCode);
+    if (byRegion.length) filtered = byRegion;
+  }
+  return filtered;
+}
+
+/** ISO country code when the GeoNames directory places the locality in a single country, '' otherwise. */
+export function platformPostalCountry(town, { region = '', country = '', postalCode = '' } = {}) {
+  const matches = matchingPostalEntries(town, { region, country, postalCode });
+  if (!matches.length) return '';
+  const countries = new Set(matches.map((entry) => entry.country));
+  return countries.size === 1 ? [...countries][0] : '';
+}
+
+const DATELINE_MONTH_RE = '(?:januar|j[aä]nner|februar|m[aä]rz|april|mai|juni|juli|august|september|oktober|november|dezember|january|february|march|may|june|july|october|december|gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre|janvier|f[eé]vrier|mars|avril|juin|juillet|ao[uû]t|septembre|octobre|novembre|d[eé]cembre)';
+const CV_DATELINE_RE = new RegExp(`^\\s*([\\p{L}][\\p{L}\\s'’.-]{1,48}?),\\s*(?:(?:den|le|il)\\s+)?(?:\\d{1,2}\\.?\\s+${DATELINE_MONTH_RE}\\s+(?:19|20)\\d{2}|${DATELINE_MONTH_RE}\\s+\\d{1,2}(?:st|nd|rd|th)?,?\\s+(?:19|20)\\d{2}|\\d{1,2}[./-]\\d{1,2}[./-](?:19|20)\\d{2})\\s*$`, 'iu');
+const DATELINE_EXCLUDED_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|address|country|city|town))|job\s+(?:location|address|city|town)|office|headquarters|sede|datore\s+di\s+lavoro|born|nato|nata|geboren|n[ée]e?\s+le)\b/i;
+
+/** Extract an unambiguous city from standalone CV/cover-letter datelines (e.g. «Kusterdingen, 15. November 2026»). */
+export function extractCvDatelinePlace(cvText = '') {
+  const distinct = new Map();
+  for (const rawLine of String(cvText || '').split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.length > 90 || DATELINE_EXCLUDED_RE.test(line)) continue;
+    const match = CV_DATELINE_RE.exec(line);
+    if (!match) continue;
+    const place = clean(match[1], 60);
+    if (!place || /\d/.test(place)) continue;
+    if (!platformPostalCountry(place)) continue;
+    const key = fold(place);
+    if (key && !distinct.has(key)) distinct.set(key, place);
+  }
+  return distinct.size === 1 ? [...distinct.values()][0] : '';
+}
+
 /**
  * The representative postal code of a town: the country hint first, then
  * Italy, then Switzerland; within one, the region when known, then the
  * lowest code. '' for an unknown town.
  */
-export function platformPostalCode(town, { region = '', country = '' } = {}) {
-  const matches = postalDirectory().get(fold(town)) || [];
+export function platformPostalCode(town, { region = '', country = '', postalCode = '' } = {}) {
+  const matches = matchingPostalEntries(town, { region, country, postalCode });
   if (!matches.length) return null;
   const rank = (entry) => [
     country && entry.country !== country ? 1 : 0,
@@ -378,18 +446,20 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const address = profile?.address && typeof profile.address === 'object' ? profile.address : {};
   const fromCity = splitTown(address.city || '');
   const fromLocation = splitTown(profile?.location || order?.applicantLocation || '');
-  const town = fromCity.town || fromLocation.town;
+  const datelineTown = (!fromCity.town && !fromLocation.town) ? extractCvDatelinePlace(cvText) : '';
+  const town = fromCity.town || fromLocation.town || datelineTown;
   const region = fromCity.region || fromLocation.region;
   const statedCountry = countryCodeOf(address.country) || fromCity.country || fromLocation.country
     || countryCodeOf(order?.applicantLocationCountry);
-  const directory = town ? platformPostalCode(town, { region, country: statedCountry }) : null;
   const statedPostal = /^\d{4,5}$/.test(clean(address.postalCode, 10)) ? clean(address.postalCode, 10)
     : fromCity.statedPostal || fromLocation.statedPostal;
+  const inferredCountry = statedCountry || (town ? platformPostalCountry(town, { region, postalCode: statedPostal }) : '');
+  const directory = town ? platformPostalCode(town, { region, country: inferredCountry || statedCountry, postalCode: statedPostal }) : null;
   const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
   // The upload answers name the country only for a CV with no town at all: a town the
   // directory cannot place is not evidence of the permit's or nationality's country.
-  const country = statedCountry || directory?.country || (town ? '' : uploadResidenceCountry(uploaded));
-  const postalCode = statedPostal || directory?.code || '';
+  const country = inferredCountry || (town ? '' : uploadResidenceCountry(uploaded));
+  const postalCode = statedPostal || (inferredCountry ? directory?.code || '' : '');
   const statedStreet = /\p{L}/u.test(clean(address.street)) ? clean(address.street) : '';
   const houseNumber = /\b(\d{1,5}[a-z]?)\b/i.exec(statedStreet)?.[1]
     || String(1 + (seedNumber(key, 'house') % PLATFORM_HOUSE_NUMBER_MAX));
@@ -585,7 +655,7 @@ export function isSwissPlace(value) {
   if (SWISS_NAME.test(fold(text))) return true;
   if (!entries.length) return false;
   if (region) return entries.some((entry) => entry.country === 'CH' && entry.region === region);
-  return platformPostalCode(town)?.country === 'CH';
+  return platformPostalCountry(town) === 'CH';
 }
 
 /** Whether a role of the CV is current or ended at most CROSS_BORDER_RECENT_MONTHS before `nowMs`. */
