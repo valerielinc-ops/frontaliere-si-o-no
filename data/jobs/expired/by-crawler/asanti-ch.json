@@ -248,7 +248,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/sachbearbeiterin-2-3-saeule-80-100-2-2",
-    "firstSeenAt": "2026-11-13T21:49:36.492Z"
+    "firstSeenAt": "2026-11-13T21:49:36.492Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch": "ZH",
+        "impiegato-a-amministrativo-a-2-3-pilastro-80-100-asanti-ag-region-zurich": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch": "ZH",
+        "administrative-clerk-2nd-3rd-pillar-80-100-asanti-ag-region-zurich": "ZH",
+        "administrative-specialist-2-3-pillar-80-100-asanti-ag-region-zurich": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch": "ZH",
+        "gestionnaire-du-2e-3e-pilier-80-100-asanti-ag-region-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "logistiker-cfc-m-w-d-100-asanti-ag-bulach",
