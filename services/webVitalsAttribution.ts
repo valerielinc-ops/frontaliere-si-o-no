@@ -61,6 +61,7 @@ const SELECTOR_MAX_LENGTH = 70;
 // GA4 truncates event parameter values used as dimensions at 100 characters.
 const PARAM_MAX_LENGTH = 100;
 const UNKNOWN_ACTION = 'unknown';
+export const CWV_ATTRIBUTION_DETAILS_PREFIX = 'cwv:';
 
 function isSection(value: string): value is CwvAttributionSection {
   return (CWV_ATTRIBUTION_SECTIONS as readonly string[]).includes(value);
@@ -142,6 +143,20 @@ function countMatches(doc: Document, selector: string): number {
   }
 }
 
+function buildDetails(
+  section: CwvAttributionSection,
+  component: CwvAttributionComponent,
+  action: string,
+  selector: string,
+  autoAds: number,
+  collapsedAutoAds: number,
+): string {
+  const prefix = `${CWV_ATTRIBUTION_DETAILS_PREFIX}${section}:${component}:${action}:`;
+  const suffix = `|ac${Math.min(autoAds, 9999)}|cc${Math.min(collapsedAutoAds, 9999)}`;
+  const selectorBudget = Math.max(0, Math.min(SELECTOR_MAX_LENGTH, PARAM_MAX_LENGTH - prefix.length - suffix.length));
+  return `${prefix}${selector.slice(0, selectorBudget)}${suffix}`;
+}
+
 /** `loadState` for CLS, `interactionType` for INP: a handful of known tokens. */
 function sanitizeAction(value: unknown): string {
   return typeof value === 'string' && /^[a-z-]{1,24}$/.test(value) ? value : UNKNOWN_ACTION;
@@ -180,6 +195,9 @@ export function buildCwvAttributionEvent(
     component,
     action,
     cta_id: `${CWV_ATTRIBUTION_PAGE}.${section}.${component}.${action}`,
-    details: `${selector.slice(0, SELECTOR_MAX_LENGTH)}|ac${autoAds}|cc${collapsedAutoAds}`.slice(0, PARAM_MAX_LENGTH),
+    // The marker lets the reader select only value-bearing CWV attribution
+    // events without spending another GA4 dimension on eventName/cta_id. The
+    // selector remains bounded and the suffix keeps the existing ad context.
+    details: buildDetails(section, component, action, selector, autoAds, collapsedAutoAds),
   };
 }

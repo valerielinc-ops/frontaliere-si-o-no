@@ -1,7 +1,7 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-11-25T21:22:21.230Z",
+  "generatedAt": "2026-11-26T09:37:14.099Z",
   "total": 3,
   "discovered": 24,
   "parsed": 3,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 58764,
-  "avgDurationMs": 58764,
+  "durationMs": 59090,
+  "avgDurationMs": 59090,
   "durationHistory": [
-    58764
+    59090
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "recruitingapp-2677-9091ecfa79c7",
       "slug": "regionenleiter-in-firmenkunden-lachen-uznach-recruitingapp-2677-ch",
@@ -35,7 +36,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2022/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:35.129Z",
+      "crawledAt": "2026-11-26T09:36:29.383Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -51,21 +52,20 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/2022/Description/1",
-      "needsRetranslation": true,
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "firstSeenAt": "2026-11-25T21:21:35.129Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "salarySource": "estimated",
       "postalCode": "8853",
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:21:35.129Z",
+      "validThrough": "2027-02-24T09:36:29.383Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-25T21:21:35.129Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -81,7 +81,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2024/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:34.826Z",
+      "crawledAt": "2026-11-26T09:36:29.081Z",
       "addressLocality": "Vaduz oder Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -97,26 +97,24 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/2024/Description/1",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-25T21:21:34.826Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "9000",
       "streetAddress": "Vaduz oder Uznach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:21:34.826Z",
+      "validThrough": "2027-02-24T09:36:29.081Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-25T21:21:34.826Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -131,7 +129,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2013/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:35.434Z",
+      "crawledAt": "2026-11-26T09:36:29.687Z",
       "addressLocality": "Vaduz oder Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -154,7 +152,7 @@
       "postalCode": "9000",
       "streetAddress": "Vaduz oder Uznach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:21:35.434Z",
+      "validThrough": "2027-02-04T09:36:29.687Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -165,5 +163,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }
