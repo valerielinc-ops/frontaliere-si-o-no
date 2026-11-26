@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cnp",
-  "assembledAt": "2026-11-20T22:05:18.073Z",
-  "runId": "44818504377",
+  "assembledAt": "2026-11-25T21:22:36.068Z",
+  "runId": "45702165596",
   "jobs": [
     {
       "id": "cnp-9eb815e758d3",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1e590793-a3c6-47ba-8698-e8e49e92b47f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:09.714Z",
+      "crawledAt": "2026-11-25T21:22:29.337Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -139,7 +139,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:05:09.714Z",
+      "validThrough": "2026-12-25T21:22:29.337Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/1e590793-a3c6-47ba-8698-e8e49e92b47f"
     },
@@ -175,7 +175,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/18a3c8be-9f30-410c-9605-e85ace2d1a5d",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:09.065Z",
+      "crawledAt": "2026-11-25T21:22:28.457Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T22:05:09.065Z",
+      "validThrough": "2026-12-25T21:22:28.457Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/18a3c8be-9f30-410c-9605-e85ace2d1a5d"
     },
@@ -285,7 +285,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/92b0c580-9c7f-464d-b8ea-44daa4e14bc4",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:08.342Z",
+      "crawledAt": "2026-11-25T21:22:27.615Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -406,7 +406,7 @@
       },
       "streetAddress": "La Tène",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:05:08.342Z",
+      "validThrough": "2026-12-25T21:22:27.615Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/92b0c580-9c7f-464d-b8ea-44daa4e14bc4"
     },
@@ -442,7 +442,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/169ef49e-3313-4826-9235-0bd4191de3a3",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:07.436Z",
+      "crawledAt": "2026-11-25T21:22:26.773Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -485,7 +485,7 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T22:05:07.436Z",
+      "validThrough": "2026-12-31T21:22:26.773Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/169ef49e-3313-4826-9235-0bd4191de3a3"
     },
@@ -521,7 +521,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9a95c92e-a6bf-4bf9-923e-14779738be50",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:06.757Z",
+      "crawledAt": "2026-11-25T21:22:25.764Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -595,7 +595,7 @@
       },
       "streetAddress": "La Tène",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:05:06.757Z",
+      "validThrough": "2026-12-25T21:22:25.764Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/9a95c92e-a6bf-4bf9-923e-14779738be50"
     },
@@ -631,7 +631,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7fecbd7e-56c3-4e73-859b-c097ccc9ad19",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:06.083Z",
+      "crawledAt": "2026-11-25T21:22:24.438Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -682,7 +682,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:05:06.083Z",
+      "validThrough": "2026-12-25T21:22:24.438Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/7fecbd7e-56c3-4e73-859b-c097ccc9ad19"
     },
@@ -717,7 +717,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ef0972ca-bb17-4df1-9d69-ce3ac128b71f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:05.399Z",
+      "crawledAt": "2026-11-25T21:22:22.977Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -766,7 +766,7 @@
       },
       "streetAddress": "La Tène",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:05:05.399Z",
+      "validThrough": "2026-12-25T21:22:22.977Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/ef0972ca-bb17-4df1-9d69-ce3ac128b71f"
     },
@@ -801,7 +801,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/b7bcca27-9e8c-4905-bbb4-a98e7f67b955",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:04.691Z",
+      "crawledAt": "2026-11-25T21:22:22.180Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -850,7 +850,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:05:04.691Z",
+      "validThrough": "2026-12-25T21:22:22.180Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/b7bcca27-9e8c-4905-bbb4-a98e7f67b955"
     },
@@ -885,7 +885,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e9598a12-17e9-46a9-815c-2daa636351e1",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:03.830Z",
+      "crawledAt": "2026-11-25T21:22:21.335Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -946,7 +946,7 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:05:03.830Z",
+      "validThrough": "2026-12-25T21:22:21.335Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/e9598a12-17e9-46a9-815c-2daa636351e1"
     },
@@ -981,7 +981,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/62abf0ca-ffe6-4fab-92a6-6fd127202969",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:03.141Z",
+      "crawledAt": "2026-11-25T21:22:20.523Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1030,7 +1030,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:05:03.141Z",
+      "validThrough": "2026-12-25T21:22:20.523Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/62abf0ca-ffe6-4fab-92a6-6fd127202969"
     },
@@ -1065,7 +1065,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/106403b3-c271-47fa-adbd-b44bff48f062",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:02.397Z",
+      "crawledAt": "2026-11-25T21:22:19.474Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1116,7 +1116,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:05:02.397Z",
+      "validThrough": "2026-12-25T21:22:19.474Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/106403b3-c271-47fa-adbd-b44bff48f062"
     },
@@ -1151,7 +1151,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91e830ee-eefc-434a-81d0-774c11c09834",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:01.523Z",
+      "crawledAt": "2026-11-25T21:22:18.693Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1202,7 +1202,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T22:05:01.523Z",
+      "validThrough": "2026-12-25T21:22:18.693Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/91e830ee-eefc-434a-81d0-774c11c09834"
     },
@@ -1237,7 +1237,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ea1b3520-3059-482b-937d-23286572b932",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:00.817Z",
+      "crawledAt": "2026-11-25T21:22:17.636Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1307,7 +1307,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T22:05:00.817Z",
+      "validThrough": "2026-12-25T21:22:17.636Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/ea1b3520-3059-482b-937d-23286572b932"
     },
@@ -1343,7 +1343,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/b8d31886-b49a-442e-a4bc-80d3b1eb9b8d",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:05:00.086Z",
+      "crawledAt": "2026-11-25T21:22:16.704Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1394,7 +1394,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T22:05:00.086Z",
+      "validThrough": "2026-12-25T21:22:16.704Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/b8d31886-b49a-442e-a4bc-80d3b1eb9b8d"
     },
@@ -1429,7 +1429,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ced2aea0-6ef9-4819-9e41-cc290a808ad5",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:59.433Z",
+      "crawledAt": "2026-11-25T21:22:15.552Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1478,7 +1478,7 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:04:59.433Z",
+      "validThrough": "2026-12-25T21:22:15.552Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/ced2aea0-6ef9-4819-9e41-cc290a808ad5"
     },
@@ -1514,7 +1514,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e6a03c89-522c-4182-9336-8b95a0c97f05",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:58.617Z",
+      "crawledAt": "2026-11-25T21:22:14.671Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1572,7 +1572,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T22:04:58.617Z",
+      "validThrough": "2026-12-30T21:22:14.671Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/e6a03c89-522c-4182-9336-8b95a0c97f05"
     },
@@ -1607,7 +1607,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/c6a18c36-d464-43b1-9e13-b4522c74e806",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:57.880Z",
+      "crawledAt": "2026-11-25T21:22:13.807Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1656,93 +1656,9 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T22:04:57.880Z",
+      "validThrough": "2027-01-04T21:22:13.807Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/c6a18c36-d464-43b1-9e13-b4522c74e806"
-    },
-    {
-      "id": "cnp-e168731a3acd",
-      "slug": "assistente-amministrativo-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-      "slugByLocale": {
-        "it": "assistente-amministrativo-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "en": "administrative-assistant-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "de": "assistent-e-des-directions-administratives-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "fr": "assistant-e-des-directions-administratives-cnp-marin-epagnier"
-      },
-      "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
-      "companyKey": "cnp",
-      "companyDomain": "cnp.ch",
-      "title": "Assistant·e des directions administratives",
-      "titleByLocale": {
-        "it": "Assistente amministrativo",
-        "en": "Administrative Assistant",
-        "de": "Assistent·e des directions administratives",
-        "fr": "Assistant·e des directions administratives"
-      },
-      "description": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n\nAssistant·e des directions administratives\n CDI - 60%\n\nVotre mission\n Au sein du Centre Neuchâtelois de Psychiatrie (CNP), établissement public cantonal engagé pour la santé psychique, vous apportez un soutien administratif et organisationnel polyvalent et proactif à la Direction des finances et de l’exploitation.\n Véritable partenaire de confiance, vous contribuez à la fluidité des activités administratives, à la coordination des priorités stratégiques et à la gestion efficiente des dossiers sensibles.\n Sur demande, vous apportez également un appui à la Direction générale et à la Direction des relations et ressources humaines.\n Vos responsabilités\n Soutien administratif de haut niveau\n\n• Assurer un accueil professionnel et de qualité (téléphonique et physique).\n\n• Gérer les agendas en tenant compte des priorités et des échéances.\n\n• Préparer et organiser les séances des directions administratives.\n\n• Rédiger et diffuser procès-verbaux, communications officielles et courriers dans le respect strict de la confidentialité.\n\n• Assurer le suivi et l’archivage des contrats, conventions (assureurs, partenaires) et baux.\n\n• Mettre à jour les supports digitaux (intranet, internet) et les bases de contacts.\n\n• Soutenir le suivi opérationnel du bouclement mensuel des temps et assurer le reporting des anomalies.\n Soutien à la gestion opérationnelle et aux projets\n\n• Traiter les cas de responsabilité civile liés à l’exploitation (bâtiments, véhicules, biens), assurer les annonces aux assureurs et suivre leur prise en charge.\n\n• Coordonner, préparer et soumettre les appels d’offres en garantissant la conformité réglementaire.\n\n• Gérer les appartements thérapeutiques loués par le CNP (affectation, coordination avec gérance et équipes).\n\n• Piloter en autonomie des dossiers spécifiques confiés par la Direction finances et exploitation ou la DRRH.\n\n• Contribuer à l’amélioration continue des processus administratifs et opérationnels.\n Votre profil\n\n• CFC d’employé·e de commerce complété d’un certificat d’assistant de direction ou titre jugé équivalent.\n\n• CAS en gestion de projet : un atout.\n\n• Formation supérieure : Bachelor, Master, Maturité professionnelle appréciée.\n\n• Minimum 5 ans dans une fonction similaire, idéalement dans un environnement institutionnel ou de santé.\n\n• Excellente maîtrise rédactionnelle en français.\n\n• Maîtrise des outils MS Office.\n\n• Aisance dans la gestion de dossiers contractuels et administratifs complexes.\n\n• Bonne compréhension du cadre réglementaire et des processus institutionnels.\n\n• Autonomie et sens des responsabilités.\n\n• Rigueur et sens du détail.\n\n• Capacité d’analyse et d’anticipation.\n\n• Discrétion et respect strict de la confidentialité.\n\n• Sens du service, esprit d’équipe et excellente organisation.\n\n• Capacité à gérer des situations urgentes avec sang-froid.\n Nous vous offrons\n\n• Un rôle central au sein d’une direction stratégique.\n\n• Un environnement stimulant au service d’une mission de santé publique.\n\n• Des conditions attractives régies par la CCT21.\n\n• Un cadre de travail exceptionnel sur le site historique de Préfargier, au bord du lac, facilement accessible.\n Informations pratiques\n Lieu : Site de Préfargier, Neuchâtel\n Taux d'activité : 60%\n Type de contrat : CDI\n Entrée en fonction : 1er novembre 2026 ou à convenir\n Délai de postulation : 20 octobre 2026\n\nPréfargier\n2074 Marin-Epagnier",
-      "descriptionByLocale": {
-        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\n\nAssistente amministrativo\nCDI - 60%\n\nLa tua missione\nAll'interno del Centro Neuchâtelois de Psychiatrie (CNP), un'istituzione pubblica cantonale impegnata nella salute mentale, fornisce supporto amministrativo e organizzativo multifunzionale e proattivo alla Direzione delle Finanze e dell'Exploitation.\nCome partner affidabile, contribuisci alla fluidità delle attività amministrative, al coordinamento delle priorità strategiche e alla gestione efficiente dei file sensibili.\nSu richiesta, fornisce anche supporto al ramo e alla Direzione Risorse Umane e Relazioni.\nLe tue responsabilità\nSostegno amministrativo di alto livello\n\n• Assicurare ricezione professionale e di qualità (telefonico e fisico).\n\n• Gestione degli ordini del giorno tenendo conto delle priorità e dei tempi.\n\n• Preparare e organizzare le riunioni dei direttori amministrativi.\n\n• Scrivi e distribuisci minuti, comunicazioni ufficiali e posta in stretta riservatezza.\n\n• Contratti di monitoraggio e archiviazione, accordi (assicuratori, partner) e contratti di locazione.\n\n• Aggiorna i media digitali (intranet, internet) e le basi di contatto.\n\n• Sostenere il monitoraggio operativo del ciclo di tempo mensile e garantire la segnalazione delle anomalie.\nSupporto per la gestione operativa e dei progetti\n\n• Affrontare casi di responsabilità civile relativi all'operazione (edifici, veicoli, merci), garantire la pubblicità agli assicuratori e monitorare il loro assunzione.\n\n• Coordinare, preparare e presentare le offerte per garantire la conformità alle normative.\n\n• Gestisci gli appartamenti terapeutici affittati dalla NPC (assegnazione, coordinamento con la stewardship e le squadre).\n\n• Indipendentemente pilotare i file specifici affidati dalla Direzione Finanza e Operazioni o HRRD.\n\n• Contribuire al miglioramento continuo dei processi amministrativi e operativi.\nIl tuo profilo\n\n• Uomo d'affari SWC completato con un certificato di assistente di gestione o equivalente.\n\n• CAS in project management: un asset.\n\n• Istruzione superiore: Bachelor, Master, Professional Maturity apprezzato.\n\n• Minimo 5 anni in funzione simile, idealmente in un ambiente istituzionale o sanitario.\n\n• Il maestro eccellente scrive in francese.\n\n• Mastery degli strumenti di MS Office.\n\n• Esperienza nella gestione di complessi file contrattuali e amministrativi.\n\n• Buona comprensione del quadro normativo e dei processi istituzionali.\n\n• Autonomia e senso di responsabilità.\n\n• Rigor e senso del dettaglio.\n\n• Capacità di analisi e anticipazione.\n\n• Discrezione e rigoroso rispetto della riservatezza.\n\n• Senso di servizio, spirito di squadra e organizzazione eccellente.\n\n• Capacità di gestire situazioni di emergenza con sangue freddo.\nVi offriamo\n\n• Un ruolo centrale in una direzione strategica.\n\n• Un ambiente stimolante per una missione sanitaria pubblica.\n\n• Condizioni attraenti disciplinate dal CTC21.\n\n• Un ambiente di lavoro eccezionale sul sito storico di Prefargier, vicino al lago, facilmente accessibile.\nInformazioni pratiche\nUbicazione: Prefargier site, Neuchâtel\nTasso di partecipazione: 60%\nTipo di contratto: CDI\nEntrata in carica: 1 novembre 2026 o da concordare\nTermine ultimo per l'applicazione: 20 ottobre 2026\n\nPreagricoltore\n2074 Marin-Epagnier",
-        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\n\nAdministrative Assistant\nCDI - 60%\n\nYour Mission\nWithin the Centre Neuchâtelois de Psychiatrie (CNP), a cantonal public institution committed to mental health, you provide multifunctional and proactive administrative and organizational support to the Directorate of Finance and Exploitation.\nAs a trusted partner, you contribute to the fluidity of administrative activities, the coordination of strategic priorities and the efficient management of sensitive files.\nUpon request, you also provide support to the Branch and the Human Resources and Relations Directorate.\nYour Responsibilities\nHigh-level administrative support\n\n• Ensure professional and quality reception (telephonic and physical).\n\n• Managing agendas taking into account priorities and timelines.\n\n• Prepare and organize the meetings of the administrative directorates.\n\n• Write and distribute minutes, official communications and mail in strict confidentiality.\n\n• Monitoring and archiving contracts, agreements (insurers, partners) and leases.\n\n• Update digital media (intranet, internet) and contact bases.\n\n• Support the operational monitoring of the monthly time loop and ensure reporting of anomalies.\nOperational and project management support\n\n• Deal with cases of civil liability related to the operation (buildings, vehicles, goods), ensure the advertisements to insurers and monitor their taking over.\n\n• Coordinate, prepare and submit tenders ensuring regulatory compliance.\n\n• Manage therapeutic apartments rented by the NPC (assignment, coordination with stewardship and teams).\n\n• Independently pilot specific files entrusted by the Finance and Operations Directorate or HRRD.\n\n• Contribute to the continuous improvement of administrative and operational processes.\nYour profile\n\n• SWC businessman completed with a certificate of management assistant or equivalent.\n\n• CAS in project management: an asset.\n\n• Higher education: Bachelor, Master, Professional Maturity appreciated.\n\n• Minimum 5 years in a similar function, ideally in an institutional or health environment.\n\n• Excellent master's writing in French.\n\n• Mastery of MS Office tools.\n\n• Experience in managing complex contractual and administrative files.\n\n• Good understanding of the regulatory framework and institutional processes.\n\n• Autonomy and sense of responsibility.\n\n• Rigor and sense of detail.\n\n• Capacity for analysis and anticipation.\n\n• Discretion and strict respect for confidentiality.\n\n• Service sense, team spirit and excellent organization.\n\n• Ability to manage emergency situations with cold blood.\nWe offer you\n\n• A central role within a strategic direction.\n\n• A stimulating environment for a public health mission.\n\n• Attractive conditions governed by the CTC21.\n\n• An exceptional working environment on the historic site of Prefargier, by the lake, easily accessible.\nPractical information\nLocation : Prefargier site, Neuchâtel\nParticipation rate: 60%\nType of contract: CDI\nEntry into office: 1 November 2026 or to be agreed\nDeadline for application: 20 October 2026\n\nPrefargier\n2074 Marin-Epagnier",
-        "de": "Etablierung des kantonalen öffentlichen Rechts hat die CNP die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der Berufsbildung und Psychiatrieforschung fungiert.\n\nVerwaltungsassistent\nCDI - 60%\n\nDeine Mission\nInnerhalb des Centre Neuchâtelois de Psychiatrie (CNP), einer kantonalen öffentlichen Institution, die sich der psychischen Gesundheit verschrieben hat, bieten Sie multifunktionale und proaktive administrative und organisatorische Unterstützung für die Direktion für Finanzen und Ausbeutung.\nAls vertrauenswürdiger Partner tragen Sie zur Fluidität der administrativen Aktivitäten, zur Koordination der strategischen Prioritäten und zur effizienten Verwaltung sensibler Dateien bei.\nAuf Wunsch unterstützen Sie auch die Abteilung und die Direktion für Humanressourcen und Beziehungen.\nIhre Aufgaben\nHochrangige administrative Unterstützung\n\n• Gewährleistung eines professionellen und qualitativ hochwertigen Empfangs (telefonisch und physisch).\n\n• Verwaltung von Agenden unter Berücksichtigung von Prioritäten und Zeitplänen.\n\n• Vorbereitung und Organisation der Sitzungen der Verwaltungsdirektionen.\n\n• Schreiben und verteilen Sie Protokolle, offizielle Mitteilungen und Post in strikter Vertraulichkeit.\n\n• Überwachung und Archivierung von Verträgen, Vereinbarungen (Versicherer, Partner) und Leasingverträgen.\n\n• Aktualisieren Sie digitale Medien (Intranet, Internet) und Kontaktbasen.\n\n• Unterstützung der operativen Überwachung der monatlichen Zeitschleife und Gewährleistung der Meldung von Anomalien.\nBetriebs- und Projektmanagementunterstützung\n\n• Behandeln Sie Fälle zivilrechtlicher Haftung im Zusammenhang mit dem Betrieb (Gebäude, Fahrzeuge, Waren), stellen Sie die Werbung für die Versicherer sicher und überwachen Sie deren Übernahme.\n\n• Koordinierung, Vorbereitung und Einreichung von Angeboten zur Gewährleistung der Einhaltung der Vorschriften.\n\n• Verwalten Sie vom NPC gemietete therapeutische Wohnungen (Zuweisung, Koordination mit Stewardship und Teams).\n\n• Unabhängige Pilotierung spezifischer Dateien, die von der Direktion Finanzen und Operationen oder HRRD beauftragt werden.\n\n• Beitrag zur kontinuierlichen Verbesserung der administrativen und operativen Prozesse.\nDein Profil\n\n• SWC Geschäftsmann mit einem Zertifikat von Management-Assistent oder gleichwertig abgeschlossen.\n\n• CAS im Projektmanagement: ein Asset.\n\n• Hochschulbildung: Bachelor, Master, Professional Maturity geschätzt.\n\n• Mindestens 5 Jahre in einer ähnlichen Funktion, idealerweise in einem institutionellen oder gesundheitlichen Umfeld.\n\n• Hervorragendes Schreiben des Meisters auf Französisch.\n\n• Beherrschung von MS Office Tools.\n\n• Erfahrung in der Verwaltung komplexer Vertrags- und Verwaltungsdateien.\n\n• Gutes Verständnis des regulatorischen Rahmens und der institutionellen Prozesse.\n\n• Autonomie und Verantwortungsbewusstsein.\n\n• Strenge und Sinn für Details.\n\n• Analyse- und Antizipationsfähigkeit.\n\n• Diskretion und strikte Achtung der Vertraulichkeit.\n\n• Service Sinn, Teamgeist und exzellente Organisation.\n\n• Fähigkeit, Notsituationen mit kaltem Blut zu bewältigen.\nWir bieten Ihnen\n\n• Eine zentrale Rolle innerhalb einer strategischen Ausrichtung.\n\n• Ein anregendes Umfeld für eine öffentliche Gesundheitsmission.\n\n• Attraktive Bedingungen gemäß CTC21.\n\n• Ein außergewöhnliches Arbeitsumfeld auf der historischen Stätte Prefargier, am See, leicht zugänglich.\nPraktische Informationen\nStandort: Prefargier-Standort Neuenburg\nTeilnahmequote: 60%\nArt des Vertrags: CDI\nAmtsantritt: 1. November 2026 oder noch zu vereinbaren\nAntragsfrist: 20. Oktober 2026\n\nPrefarrer\n2074 Marin-Epagnier",
-        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n\nAssistant·e des directions administratives\nCDI - 60%\n\nVotre mission\nAu sein du Centre Neuchâtelois de Psychiatrie (CNP), établissement public cantonal engagé pour la santé psychique, vous apportez un soutien administratif et organisationnel polyvalent et proactif à la Direction des finances et de l’exploitation.\nVéritable partenaire de confiance, vous contribuez à la fluidité des activités administratives, à la coordination des priorités stratégiques et à la gestion efficiente des dossiers sensibles.\nSur demande, vous apportez également un appui à la Direction générale et à la Direction des relations et ressources humaines.\nVos responsabilités\nSoutien administratif de haut niveau\n\n• Assurer un accueil professionnel et de qualité (téléphonique et physique).\n\n• Gérer les agendas en tenant compte des priorités et des échéances.\n\n• Préparer et organiser les séances des directions administratives.\n\n• Rédiger et diffuser procès-verbaux, communications officielles et courriers dans le respect strict de la confidentialité.\n\n• Assurer le suivi et l’archivage des contrats, conventions (assureurs, partenaires) et baux.\n\n• Mettre à jour les supports digitaux (intranet, internet) et les bases de contacts.\n\n• Soutenir le suivi opérationnel du bouclement mensuel des temps et assurer le reporting des anomalies.\nSoutien à la gestion opérationnelle et aux projets\n\n• Traiter les cas de responsabilité civile liés à l’exploitation (bâtiments, véhicules, biens), assurer les annonces aux assureurs et suivre leur prise en charge.\n\n• Coordonner, préparer et soumettre les appels d’offres en garantissant la conformité réglementaire.\n\n• Gérer les appartements thérapeutiques loués par le CNP (affectation, coordination avec gérance et équipes).\n\n• Piloter en autonomie des dossiers spécifiques confiés par la Direction finances et exploitation ou la DRRH.\n\n• Contribuer à l’amélioration continue des processus administratifs et opérationnels.\nVotre profil\n\n• CFC d’employé·e de commerce complété d’un certificat d’assistant de direction ou titre jugé équivalent.\n\n• CAS en gestion de projet : un atout.\n\n• Formation supérieure : Bachelor, Master, Maturité professionnelle appréciée.\n\n• Minimum 5 ans dans une fonction similaire, idéalement dans un environnement institutionnel ou de santé.\n\n• Excellente maîtrise rédactionnelle en français.\n\n• Maîtrise des outils MS Office.\n\n• Aisance dans la gestion de dossiers contractuels et administratifs complexes.\n\n• Bonne compréhension du cadre réglementaire et des processus institutionnels.\n\n• Autonomie et sens des responsabilités.\n\n• Rigueur et sens du détail.\n\n• Capacité d’analyse et d’anticipation.\n\n• Discrétion et respect strict de la confidentialité.\n\n• Sens du service, esprit d’équipe et excellente organisation.\n\n• Capacité à gérer des situations urgentes avec sang-froid.\nNous vous offrons\n\n• Un rôle central au sein d’une direction stratégique.\n\n• Un environnement stimulant au service d’une mission de santé publique.\n\n• Des conditions attractives régies par la CCT21.\n\n• Un cadre de travail exceptionnel sur le site historique de Préfargier, au bord du lac, facilement accessible.\nInformations pratiques\nLieu : Site de Préfargier, Neuchâtel\nTaux d'activité : 60%\nType de contrat : CDI\nEntrée en fonction : 1er novembre 2026 ou à convenir\nDélai de postulation : 20 octobre 2026\n\nPréfargier\n2074 Marin-Epagnier"
-      },
-      "location": "Marin-Epagnier",
-      "canton": "NE",
-      "url": "https://www.jobup.ch/fr/emplois/detail/e3a732a6-f15a-4dab-bea9-68e376b12a2f",
-      "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:57.197Z",
-      "addressLocality": "Marin-Epagnier",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2074",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-06T11:47:42+02:00",
-      "postedDate": "2026-10-06T11:47:42+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/e3a732a6-f15a-4dab-bea9-68e376b12a2f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-e-des-directions-administratives-cnp-marin-epagnier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-des-directions-administratives-cnp-marin-epagnier"
-        ],
-        "en": [
-          "assistant-e-des-directions-administratives-cnp-marin-epagnier"
-        ],
-        "de": [
-          "assistant-e-des-directions-administratives-cnp-marin-epagnier"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T21:19:23.296Z",
-      "salaryMin": 86000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Marin-Epagnier",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T22:04:57.197Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/e3a732a6-f15a-4dab-bea9-68e376b12a2f"
     },
     {
       "id": "cnp-7f9ca7e005d7",
@@ -1776,7 +1692,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/775db87f-4cde-497e-b741-ee63e55d240e",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:56.522Z",
+      "crawledAt": "2026-11-25T21:22:12.847Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1825,7 +1741,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T22:04:56.522Z",
+      "validThrough": "2027-01-07T21:22:12.847Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/775db87f-4cde-497e-b741-ee63e55d240e"
     },
@@ -1861,7 +1777,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/bfff143b-a5e0-484c-9509-e14ab96dd8a5",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:55.812Z",
+      "crawledAt": "2026-11-25T21:22:12.000Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1910,94 +1826,9 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T22:04:55.812Z",
+      "validThrough": "2027-01-10T21:22:12.000Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/bfff143b-a5e0-484c-9509-e14ab96dd8a5"
-    },
-    {
-      "id": "cnp-4507f50467f6",
-      "slug": "master-trainee-supporto-rh-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-      "slugByLocale": {
-        "it": "master-trainee-supporto-rh-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "en": "master-trainee-rh-support-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "de": "master-trainee-rh-unterstutzung-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "fr": "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
-      },
-      "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
-      "companyKey": "cnp",
-      "companyDomain": "cnp.ch",
-      "title": "Stagiaire Master – Accompagnement RRH",
-      "titleByLocale": {
-        "it": "Master Trainee – Supporto RH",
-        "en": "Master Trainee – RH support",
-        "de": "Master Trainee – RH-Unterstützung",
-        "fr": "Stagiaire Master – Accompagnement RRH"
-      },
-      "description": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La Direction des Relations et Ressources Humaines (DRRH) recherche un·e :\n\nStagiaire Master – Accompagnement RRH\n 100%\n s/réf : R2026241\n\nVous êtes actuellement en études afin d’obtenir un Bachelor (HEG, sciences politiques,…) ou un Master (management des ressources humaines, psychologie du travail, sciences sociales…) et désirez intégrer une institution reconnue, spécialisée en santé psychique.\n Vos principales responsabilités :\n Soutien aux processus RH clés\n\n• Participation à la gestion d’entretiens d’accompagnement (organisation, suivi, consolidation des données)\n\n• Contribution aux campagnes d’évaluation (préparation, coordination, support aux managers, reporting)\n\n• Participation à la revue mensuelle des effectifs (préparation, statistiques, supports)\n\n• Contribution au processus budgétaire RH (préparation et consolidation des données)\n Analyse et amélioration continue\n\n• Analyse des indicateurs RH liés aux processus d’accompagnement\n\n• Identification de pistes d’amélioration (benchmark, recherches, bonnes pratiques)\n\n• Contribution à la mise en place d’actions concrètes d’amélioration\n\n• Participation active à l’optimisation des processus et outils de l’unité\n Gestion de projets\n\n• Participation à des projets RH transversaux\n\n• Pilotage en autonomie (avec supervision) d’un projet clé pour l’unité accompagnement RRH\n Votre profil :\n\n• Formation en cours ou récemment achevée : Bachelor (HEG, sciences politiques ou équivalent) ou Master (Ressources humaines, psychologie du travail ou domaine similaire)\n\n• Intérêt marqué pour les ressources humaines, l’analyse de données et l’accompagnement des collaborateurs\n\n• Aisance avec les outils informatiques (Excel en particulier)\n\n• Bonnes capacités rédactionnelles et analytiques\n\n• Sens de l’organisation, rigueur et respect des délais\n\n• Esprit d’initiative et orientation amélioration continue\n\n• Excellentes compétences relationnelles et sens de la confidentialité\n Entrée en fonction et taux : 1er novembre 2026 à 50% puis dès le 1er décembre 2026 à 100% ou à convenir\n Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier\n Type de contrat : Stage rémunéré\n Durée du contrat 6 à 12 mois\n Délai de postulation : 31 octobre 2026\n Contact : Madame Gisèle Muller, Partenaire accompagnement RRH\n Madame Maureen Magnan, Spécialiste sourcing et recrutement\n Le dossier de candidature complet (lettre de motivation, CV à jour, diplômes, certificats de travail et autres attestations) doit être adressé directement en ligne sur Jobup.\n\nSite de Préfargier\n2074 Marin-Epagnier",
-      "descriptionByLocale": {
-        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\nLa Direzione delle Risorse Umane e delle Relazioni (DRHR) ne sta cercando uno:\n\nMaster Trainee – Supporto RH\n100%\ns/ref: R2026241\n\nAttualmente stai studiando per ottenere un diploma di laurea (HEG, scienze politiche,...) o un master (gestione delle risorse umane, psicologia del lavoro, scienze sociali, ecc.) e vorrebbe unire un istituto riconosciuto specializzato in salute mentale.\nLe vostre principali responsabilità:\nSupporto per processi chiave HR\n\n• Partecipazione alla gestione delle interviste accompagnate (organizzazione, monitoraggio, consolidamento dei dati)\n\n• Contributo alle campagne di valutazione (preparazione, coordinamento, sostegno ai manager, reporting)\n\n• Partecipazione alla revisione mensile del personale (preparazione, statistiche, materiali)\n\n• Contributo al processo di bilancio HR (elaborazione e consolidamento dei dati)\nAnalisi e miglioramento continuo\n\n• Analisi degli indicatori HR relativi ai processi di accompagnamento\n\n• Identificazione delle aree di miglioramento (benchmark, ricerca, buona pratica)\n\n• Contributo all'attuazione di azioni concrete di miglioramento\n\n• Partecipazione attiva all'ottimizzazione dei processi e degli strumenti di unità\nGestione dei progetti\n\n• Partecipazione a progetti HR cross-cuting\n\n• Pilotaggio indipendente (superviso) di un progetto chiave per unità di supporto HRR\nIl tuo profilo:\n\n• Formazione in corso o recentemente completata: laurea (HEG, scienze politiche o equivalente) o laurea magistrale (risorse umane, psicologia del lavoro o campo simile)\n\n• Alto interesse per le risorse umane, l'analisi dei dati e il supporto dei dipendenti\n\n• Aisance con strumenti IT (Excel in particolare)\n\n• Buona capacità editoriale e analitica\n\n• Senso organizzativo, rigore e tempestività\n\n• Iniziativa e direzione miglioramento continuo\n\n• Eccellente capacità relazionali e un senso di riservatezza\nEntrata in ufficio e tariffa: 1 novembre 2026 al 50% e 1 dicembre 2026 al 100% o da concordare\nLuogo di lavoro: Prefargier sito, 2074 Marin-Epagnier\nTipo di contratto: Stage a pagamento\nPeriodo contrattuale da 6 a 12 mesi\nTermine ultimo per l'applicazione: 31 ottobre 2026\nContatto: Ms. Gisèle Muller, RRH Support Partner\nMaureen Magnan, Sourcing specialistico e reclutamento\nIl file completo della domanda (lettera example, CV corrente, diplomi, certificati di lavoro e altri certificati) deve essere inviato direttamente online a Jobup.\n\nSito web Prefargier\n2074 Marin-Epagnier",
-        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\nThe Directorate of Human Resources and Relations (DRHR) is looking for one:\n\nMaster Trainee – RH support\n100%\ns/ref: R2026241\n\nYou are currently studying to obtain a Bachelor's degree (HEG, political sciences,...) or a Master's degree (human resources management, labour psychology, social sciences, etc.) and would like to join a recognized institution specialized in mental health.\nYour main responsibilities:\nSupport for key HR processes\n\n• Participation in the management of accompanying interviews (organisation, monitoring, data consolidation)\n\n• Contribution to evaluation campaigns (preparation, coordination, support for managers, reporting)\n\n• Participation in the monthly staff review (preparation, statistics, materials)\n\n• Contribution to the HR budget process (data preparation and consolidation)\nAnalysis and continuous improvement\n\n• Analysis of HR indicators related to accompanying processes\n\n• Identification of areas for improvement (benchmark, research, good practice)\n\n• Contribution to the implementation of concrete actions for improvement\n\n• Active participation in optimizing unity processes and tools\nProject management\n\n• Participation in cross-cutting HR projects\n\n• Independent (supervised) piloting of a key project for HRR support unit\nYour profile:\n\n• Training in progress or recently completed: Bachelor's degree (HEG, political sciences or equivalent) or Master's degree (Human resources, labour psychology or similar field)\n\n• High interest in human resources, data analysis and employee support\n\n• Aisance with IT tools (Excel in particular)\n\n• Good editorial and analytical capacity\n\n• Organizational sense, rigour and timeliness\n\n• Initiative and direction continuous improvement\n\n• Excellent relational skills and a sense of confidentiality\nEntry into office and rate: 1 November 2026 at 50% and 1 December 2026 at 100% or to be agreed\nPlace of work : Prefargier site, 2074 Marin-Epagnier\nType of contract: Paid internship\nContract Period 6 to 12 months\nDeadline for application: 31 October 2026\nContact: Ms. Gisèle Muller, RRH Support Partner\nMaureen Magnan, Specialist sourcing and recruitment\nThe complete application file (example letter, current CV, diplomas, work certificates and other certificates) should be sent directly online to Jobup.\n\nPrefargier website\n2074 Marin-Epagnier",
-        "de": "Etablierung des kantonalen öffentlichen Rechts hat die CNP die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der Berufsbildung und Psychiatrieforschung fungiert.\nDie Direktion für Humanressourcen und Beziehungen (DRHR) sucht eine:\n\nMaster Trainee – RH-Unterstützung\n100%\ns/ref: R2026241\n\nSie studieren derzeit einen Bachelor-Abschluss (HEG, Politikwissenschaften,...) oder einen Master-Abschluss (Human Resources Management, Arbeitspsychologie, Sozialwissenschaften, etc.) und möchten einer anerkannten, auf psychische Gesundheit spezialisierten Institution beitreten.\nIhre Hauptaufgaben:\nUnterstützung für wichtige HR-Prozesse\n\n• Teilnahme am Management von Begleitgesprächen (Organisation, Monitoring, Datenkonsolidierung)\n\n• Beitrag zu Evaluierungskampagnen (Vorbereitung, Koordination, Unterstützung von Führungskräften, Reporting)\n\n• Teilnahme an der monatlichen Personalüberprüfung (Vorbereitung, Statistik, Material)\n\n• Beitrag zum HR-Budgetprozess (Datenaufbereitung und -konsolidierung)\nAnalyse und kontinuierliche Verbesserung\n\n• Analyse von HR-Indikatoren im Zusammenhang mit Begleitprozessen\n\n• Identifizierung von Verbesserungsbereichen (Benchmark, Forschung, gute Praxis)\n\n• Beitrag zur Umsetzung konkreter Verbesserungsmaßnahmen\n\n• Aktive Teilnahme an der Optimierung von Einheitsprozessen und Werkzeugen\nProjektmanagement\n\n• Beteiligung an bereichsübergreifenden HR-Projekten\n\n• Unabhängige (überwachte) Pilotierung eines Schlüsselprojekts für die HRR-Unterstützungseinheit\nIhr Profil:\n\n• Ausbildung im laufenden oder kürzlich abgeschlossen: Bachelor-Abschluss (HEG, Politikwissenschaften oder gleichwertig) oder Master-Abschluss (Human Resources, Arbeitspsychologie oder ähnliches)\n\n• Hohes Interesse an Personal, Datenanalyse und Mitarbeiterunterstützung\n\n• Aisance mit IT-Tools (Excel insbesondere)\n\n• Gute redaktionelle und analytische Fähigkeiten\n\n• Organisatorischer Sinn, Strenge und Aktualität\n\n• Initiative und Richtung kontinuierliche Verbesserung\n\n• Hervorragende relationale Fähigkeiten und ein Gefühl der Vertraulichkeit\nAmtsantritt und Tarif: 1. November 2026 zu 50% und 1. Dezember 2026 zu 100% oder noch zu vereinbaren\nArbeitsort: Prefargier, 2074 Marin-Epagnier\nArt des Vertrags: Bezahltes Praktikum\nVertragslaufzeit 6 bis 12 Monate\nAntragsfrist: 31. Oktober 2026\nKontakt: Frau Gisèle Muller, RRH Support Partner\nMaureen Magnan, Specialist Sourcing und Recruiting\nDie vollständige Bewerbungsdatei (Beispielbrief, aktueller Lebenslauf, Diplome, Arbeitszeugnisse und andere Zertifikate) sollte direkt online an Jobup gesendet werden.\n\nPrefargier Website\n2074 Marin-Epagnier",
-        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\nLa Direction des Relations et Ressources Humaines (DRRH) recherche un·e :\n\nStagiaire Master – Accompagnement RRH\n100%\ns/réf : R2026241\n\nVous êtes actuellement en études afin d’obtenir un Bachelor (HEG, sciences politiques,…) ou un Master (management des ressources humaines, psychologie du travail, sciences sociales…) et désirez intégrer une institution reconnue, spécialisée en santé psychique.\nVos principales responsabilités :\nSoutien aux processus RH clés\n\n• Participation à la gestion d’entretiens d’accompagnement (organisation, suivi, consolidation des données)\n\n• Contribution aux campagnes d’évaluation (préparation, coordination, support aux managers, reporting)\n\n• Participation à la revue mensuelle des effectifs (préparation, statistiques, supports)\n\n• Contribution au processus budgétaire RH (préparation et consolidation des données)\nAnalyse et amélioration continue\n\n• Analyse des indicateurs RH liés aux processus d’accompagnement\n\n• Identification de pistes d’amélioration (benchmark, recherches, bonnes pratiques)\n\n• Contribution à la mise en place d’actions concrètes d’amélioration\n\n• Participation active à l’optimisation des processus et outils de l’unité\nGestion de projets\n\n• Participation à des projets RH transversaux\n\n• Pilotage en autonomie (avec supervision) d’un projet clé pour l’unité accompagnement RRH\nVotre profil :\n\n• Formation en cours ou récemment achevée : Bachelor (HEG, sciences politiques ou équivalent) ou Master (Ressources humaines, psychologie du travail ou domaine similaire)\n\n• Intérêt marqué pour les ressources humaines, l’analyse de données et l’accompagnement des collaborateurs\n\n• Aisance avec les outils informatiques (Excel en particulier)\n\n• Bonnes capacités rédactionnelles et analytiques\n\n• Sens de l’organisation, rigueur et respect des délais\n\n• Esprit d’initiative et orientation amélioration continue\n\n• Excellentes compétences relationnelles et sens de la confidentialité\nEntrée en fonction et taux : 1er novembre 2026 à 50% puis dès le 1er décembre 2026 à 100% ou à convenir\nLieu de travail : Site de Préfargier, 2074 Marin-Epagnier\nType de contrat : Stage rémunéré\nDurée du contrat 6 à 12 mois\nDélai de postulation : 31 octobre 2026\nContact : Madame Gisèle Muller, Partenaire accompagnement RRH\nMadame Maureen Magnan, Spécialiste sourcing et recrutement\nLe dossier de candidature complet (lettre de motivation, CV à jour, diplômes, certificats de travail et autres attestations) doit être adressé directement en ligne sur Jobup.\n\nSite de Préfargier\n2074 Marin-Epagnier"
-      },
-      "needsRetranslation": false,
-      "location": "Marin-Epagnier",
-      "canton": "NE",
-      "url": "https://www.jobup.ch/fr/emplois/detail/41fecae3-b748-45ef-b208-e8ba76bdb78f",
-      "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:55.126Z",
-      "addressLocality": "Marin-Epagnier",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2074",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-13T09:47:29+02:00",
-      "postedDate": "2026-10-13T09:47:29+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/41fecae3-b748-45ef-b208-e8ba76bdb78f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
-        ],
-        "en": [
-          "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
-        ],
-        "de": [
-          "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T09:20:34.491Z",
-      "salaryMin": 77000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Marin-Epagnier",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T22:04:55.126Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/41fecae3-b748-45ef-b208-e8ba76bdb78f"
     },
     {
       "id": "cnp-7dd6d3c60965",
@@ -2031,7 +1862,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/acabcbce-3c58-4870-a2fa-67a77af9aa99",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:54.401Z",
+      "crawledAt": "2026-11-25T21:22:10.925Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2082,7 +1913,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T22:04:54.401Z",
+      "validThrough": "2027-01-11T21:22:10.925Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/acabcbce-3c58-4870-a2fa-67a77af9aa99"
     },
@@ -2118,7 +1949,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1caca73d-ed87-499b-b256-4e70573862aa",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:53.677Z",
+      "crawledAt": "2026-11-25T21:22:10.101Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2167,7 +1998,7 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T22:04:53.677Z",
+      "validThrough": "2027-01-11T21:22:10.101Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/1caca73d-ed87-499b-b256-4e70573862aa"
     },
@@ -2202,7 +2033,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/34520cde-4995-42a4-b558-c21737e73512",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:52.875Z",
+      "crawledAt": "2026-11-25T21:22:09.294Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2255,7 +2086,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T22:04:52.875Z",
+      "validThrough": "2027-01-20T21:22:09.294Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/34520cde-4995-42a4-b558-c21737e73512"
     },
@@ -2291,7 +2122,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/31203f3c-1e2b-4fd1-af74-d657cb86feb9",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:52.171Z",
+      "crawledAt": "2026-11-25T21:22:08.260Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2340,7 +2171,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T22:04:52.171Z",
+      "validThrough": "2027-02-03T21:22:08.260Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/31203f3c-1e2b-4fd1-af74-d657cb86feb9"
     },
@@ -2375,7 +2206,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/27b2bf80-571b-4858-8e38-f845f573015e",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:51.454Z",
+      "crawledAt": "2026-11-25T21:22:07.391Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2431,7 +2262,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T22:04:51.454Z",
+      "validThrough": "2027-02-07T21:22:07.391Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/27b2bf80-571b-4858-8e38-f845f573015e"
     },
@@ -2467,7 +2298,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/90287259-5a31-449a-9d64-e3ab6d7e80a0",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:50.769Z",
+      "crawledAt": "2026-11-25T21:22:06.568Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2516,7 +2347,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T22:04:50.769Z",
+      "validThrough": "2027-02-10T21:22:06.568Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/90287259-5a31-449a-9d64-e3ab6d7e80a0"
     },
@@ -2552,7 +2383,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/35d2e487-ac76-4f46-9892-324068620d10",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:50.076Z",
+      "crawledAt": "2026-11-25T21:22:05.385Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2601,7 +2432,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T22:04:50.076Z",
+      "validThrough": "2027-02-11T21:22:05.385Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/35d2e487-ac76-4f46-9892-324068620d10"
     },
@@ -2637,7 +2468,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ed11d964-a7ad-4cab-9d84-248013848565",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:49.368Z",
+      "crawledAt": "2026-11-25T21:22:04.480Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2688,7 +2519,7 @@
       },
       "streetAddress": "Marin-Epagnier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T22:04:49.368Z",
+      "validThrough": "2027-02-16T21:22:04.480Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/ed11d964-a7ad-4cab-9d84-248013848565"
     },
@@ -2696,34 +2527,34 @@
       "id": "cnp-8b5fcddb2ecc",
       "slug": "psicologo-assistant-70-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
       "slugByLocale": {
-        "fr": "psychologue-assistant-e-70-cnp-la-chaux-de-fonds",
         "it": "psicologo-assistant-70-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "en": "psychologist-assistant-70-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
-        "de": "psychologue-assistent-e-70-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
+        "de": "psychologue-assistent-e-70-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
+        "fr": "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
       "companyDomain": "cnp.ch",
       "title": "Psychologue-assistant·e 70%",
       "titleByLocale": {
-        "fr": "Psychologue-assistant·e 70%",
         "it": "Psicologo-Assistant 70%",
         "en": "Psychologist-Assistant 70%",
-        "de": "Psychologue-Assistent·e 70%"
+        "de": "Psychologue-Assistent·e 70%",
+        "fr": "Psychologue-assistant·e 70%"
       },
       "description": "Le CNP recrute un·e Psychologue-assistant·e à 70% pour soutenir la santé mentale.\n\nTâches\n\n• Assurer des prises en charge psychothérapeutiques sous supervision.\n\n• Collaborer à l’élaboration du projet thérapeutique des patient·e·s.\n\n• Participer aux réunions pluridisciplinaires pour des cas complexes.\n\nCompétences\n\n• Master en Psychologie ou titre équivalent reconnu.\n\n• Connaissance du système sanitaire suisse et cantonal.\n\n• Expérience en milieu pénitentiaire est un atout.\n\nEtablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n Le Département de l’adulte recherche, pour rejoindre le Service de psychiatrie légale un·e :\n\nPsychologue-assistant·e 70%\n\nLe Service de psychiatrie légale est composé du Service de Médecine et de Psychiatrie Pénitentiaires (SMPP) et de la Consultation de Transition. L’activité est séparée entre les établissements pénitentiaires du canton et les sites de consultations ambulatoires du CNP. Nous assurons l’accompagnement thérapeutique de personnes incarcérées et/ou soumises à une obligation de soins dans le cadre pénal.\n L’activité de psychologue-assistant·e se déroule dans le SMPP de la Chaux de Fonds (Prison La Promenade) à 40% et au CPCM à 30%.\n L’approche repose sur des valeurs fortes de respect, de bienveillance, avec l’ambition de proposer une prise en charge individualisée, adaptée aux besoins et au parcours de chaque patient·e.\n Les prises en charge sont assurées par une équipe pluridisciplinaire, composée notamment de médecins, psychologues et infirmier·ères, qui croise les regards et les expertises pour répondre à des situations cliniques complexes.\n Dans le cadre de votre fonction, vous serez amené·e à :\n\n• Assurer, sur prescription médicale, des prises en charge psychothérapeutiques sous la supervision du·de la psychologue-psychothérapeute senior ou du·de la psychologue responsable.\n\n• Effectuer des évaluations et indications thérapeutiques en partant d’une évaluation clinique.\n\n• Collaborer à l'élaboration, la mise en œuvre et l’actualisation du projet thérapeutique des patient·e·s.\n\n• Effectuer les traitements psychothérapeutiques.\n\n• Tenir à jour le dossier patient et participer à la rédaction de rapports.\n\n• Garantir le suivi administratif de son activité clinique, saisie des prestations pour la facturation.\n\n• Collaborer avec le réseau pluridisciplinaire dont les autorités judiciaires et l’administration pénitentiaire.\n\n• Participer aux temps de réflexion et d’élaboration clinique en pluridisciplinarité.\n\n• Contribuer aux réunions relatives à la définition des projets et des orientations du département.\n Les compétences requises pour ce poste sont les suivantes :\n\n• Être titulaire d'un master en Psychologie ou d'un titre équivalent reconnu au niveau fédéral,\n\n• Connaître l'organisation du système sanitaire suisse et cantonal,\n\n• Maitriser la langue française et les outils informatiques usuels,\n\n• Être à l’aise pour travailler de façon autonome ainsi qu’au sein d’une équipe.\n\n• Posséder une expérience dans le milieu carcéral ou pénitentiaire, et être psychologue forensique sont des atouts.\n Nous vous offrons :\n\n• Une mission à fort impact sociétal, au croisement des enjeux de santé mentale, de justice et de sécurité publique.\n\n• Une pratique clinique riche et stimulante, auprès de patient·es présentant des problématiques psychiatriques complexes.\n\n• Du temps pour la réflexion clinique, les échanges et le partage d’expertise, indispensable à la qualité de la prise en charge.\n\n• Un environnement de travail pluridisciplinaire, en collaboration étroite avec les équipes médicales, soignantes et administratives.\n\n• La possibilité de développer vos compétences professionnelles au sein d’une institution cantonale reconnue.\n\n• Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives.\n Entrée en fonction : 1 er décembre 2026 ou à convenir\n Lieu de travail : Etablissement d'exécution de la Promenade + CPCM,\n 2300 Chaux de Fonds\n Type de contrat : Contrat de durée maximale (CDMax) jusqu’à l’obtention du titre post- grade\n Personne de contact : Isaline Fadil-Clavijo, spécialiste recrutement\n Jérémy Terrat, Médecin-chef (Service psychiatrie légale)\n Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne.\n\nRue Jardinière 157\n2300 La Chaux-de-Fonds",
       "descriptionByLocale": {
-        "fr": "Le CNP recrute un·e Psychologue-assistant·e à 70% pour soutenir la santé mentale.\n\nTâches\n\n• Assurer des prises en charge psychothérapeutiques sous supervision.\n\n• Collaborer à l’élaboration du projet thérapeutique des patient·e·s.\n\n• Participer aux réunions pluridisciplinaires pour des cas complexes.\n\nCompétences\n\n• Master en Psychologie ou titre équivalent reconnu.\n\n• Connaissance du système sanitaire suisse et cantonal.\n\n• Expérience en milieu pénitentiaire est un atout.\n\nEtablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n Le Département de l’adulte recherche, pour rejoindre le Service de psychiatrie légale un·e :\n\nPsychologue-assistant·e 70%\n\nLe Service de psychiatrie légale est composé du Service de Médecine et de Psychiatrie Pénitentiaires (SMPP) et de la Consultation de Transition. L’activité est séparée entre les établissements pénitentiaires du canton et les sites de consultations ambulatoires du CNP. Nous assurons l’accompagnement thérapeutique de personnes incarcérées et/ou soumises à une obligation de soins dans le cadre pénal.\n L’activité de psychologue-assistant·e se déroule dans le SMPP de la Chaux de Fonds (Prison La Promenade) à 40% et au CPCM à 30%.\n L’approche repose sur des valeurs fortes de respect, de bienveillance, avec l’ambition de proposer une prise en charge individualisée, adaptée aux besoins et au parcours de chaque patient·e.\n Les prises en charge sont assurées par une équipe pluridisciplinaire, composée notamment de médecins, psychologues et infirmier·ères, qui croise les regards et les expertises pour répondre à des situations cliniques complexes.\n Dans le cadre de votre fonction, vous serez amené·e à :\n\n• Assurer, sur prescription médicale, des prises en charge psychothérapeutiques sous la supervision du·de la psychologue-psychothérapeute senior ou du·de la psychologue responsable.\n\n• Effectuer des évaluations et indications thérapeutiques en partant d’une évaluation clinique.\n\n• Collaborer à l'élaboration, la mise en œuvre et l’actualisation du projet thérapeutique des patient·e·s.\n\n• Effectuer les traitements psychothérapeutiques.\n\n• Tenir à jour le dossier patient et participer à la rédaction de rapports.\n\n• Garantir le suivi administratif de son activité clinique, saisie des prestations pour la facturation.\n\n• Collaborer avec le réseau pluridisciplinaire dont les autorités judiciaires et l’administration pénitentiaire.\n\n• Participer aux temps de réflexion et d’élaboration clinique en pluridisciplinarité.\n\n• Contribuer aux réunions relatives à la définition des projets et des orientations du département.\n Les compétences requises pour ce poste sont les suivantes :\n\n• Être titulaire d'un master en Psychologie ou d'un titre équivalent reconnu au niveau fédéral,\n\n• Connaître l'organisation du système sanitaire suisse et cantonal,\n\n• Maitriser la langue française et les outils informatiques usuels,\n\n• Être à l’aise pour travailler de façon autonome ainsi qu’au sein d’une équipe.\n\n• Posséder une expérience dans le milieu carcéral ou pénitentiaire, et être psychologue forensique sont des atouts.\n Nous vous offrons :\n\n• Une mission à fort impact sociétal, au croisement des enjeux de santé mentale, de justice et de sécurité publique.\n\n• Une pratique clinique riche et stimulante, auprès de patient·es présentant des problématiques psychiatriques complexes.\n\n• Du temps pour la réflexion clinique, les échanges et le partage d’expertise, indispensable à la qualité de la prise en charge.\n\n• Un environnement de travail pluridisciplinaire, en collaboration étroite avec les équipes médicales, soignantes et administratives.\n\n• La possibilité de développer vos compétences professionnelles au sein d’une institution cantonale reconnue.\n\n• Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives.\n Entrée en fonction : 1 er décembre 2026 ou à convenir\n Lieu de travail : Etablissement d'exécution de la Promenade + CPCM,\n 2300 Chaux de Fonds\n Type de contrat : Contrat de durée maximale (CDMax) jusqu’à l’obtention du titre post- grade\n Personne de contact : Isaline Fadil-Clavijo, spécialiste recrutement\n Jérémy Terrat, Médecin-chef (Service psychiatrie légale)\n Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne.\n\nRue Jardinière 157\n2300 La Chaux-de-Fonds",
-        "it": "Il CNP recluta uno psicologo del 70% per sostenere la salute mentale.\n\nCompiti\n\n• Fornire assistenza psicoterapeutica sotto supervisione.\n\n• Collaborate nello sviluppo del progetto terapeutico paziente.\n\n• Partecipa a riunioni multidisciplinari per casi complessi.\n\nCompetenze\n\n• Master in Psicologia o titolo equivalente riconosciuto.\n\n• Conoscenza del sistema sanitario svizzero e cantonale.\n\n• L'esperienza della prigione è una risorsa.\n\nCostituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. Il NPC mira a riabilitare i pazienti affetti da disturbi mentali adottando un modello di psichiatria integrata e comunitaria; implementa le politiche pubbliche per promuovere e prevenire la salute mentale; Esso funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\n Il Dipartimento della Ricerca per Adulti, per aderire al Servizio di Psichiatria Legale uno·e:\n\nPsicologo-Assistant 70%\n\nIl Servizio Legale di Psichiatria è composto dal Dipartimento di Medicina e Psichiatria Penitenziaria (SMPP) e dalla Consultazione di Transizione. L'attività è separata tra le prigioni del cantone e i siti di consultazione ambulatoriale del CNP. Forniamo supporto terapeutico alle persone incarcerate e/o soggette ad un dovere di cura nel contesto penale.\n L'attività psicologi-assista si svolge nella SMPP della Chaux de Fonds (Prison La Promenade) al 40% e al CPCM al 30%.\n L'approccio si basa su forti valori di rispetto e di benevolenza, con l'ambizione di offrire cure individualizzate adattate alle esigenze e ai viaggi di ogni paziente.\n La cura è fornita da un team multidisciplinare, tra cui medici, psicologi e infermieri, che cross-examine e competenze per rispondere a situazioni cliniche complesse.\n Nell'ambito dei vostri doveri, sarete tenuti a:\n\n• Fornire, su prescrizione medica, cure psicoterapeutiche sotto la supervisione dello psicologo senior / psicoterapeuta o dello psicologo responsabile.\n\n• Condurre valutazioni terapeutiche e indicazioni da una valutazione clinica.\n\n• Collaborare allo sviluppo, all'implementazione e all'aggiornamento del progetto di terapia del paziente.\n\n• Eseguire trattamenti psicoterapeutici.\n\n• Mantenere il record del paziente e partecipare alla segnalazione.\n\n• Assicurare il monitoraggio amministrativo della sua attività clinica, sequestro di servizi di fatturazione.\n\n• Collabora con la rete multidisciplinare tra cui le autorità giudiziarie e l'amministrazione carceraria.\n\n• Partecipa ai tempi di riflessione multidisciplinare e di sviluppo clinico.\n\n• Contribuire alle riunioni sulla definizione di progetti e orientamenti dipartimentali.\n Le competenze richieste per questa posizione sono:\n\n• Tenere un master in psicologia o equivalente riconosciuto a livello federale,\n\n• Conoscere l'organizzazione del sistema sanitario svizzero e cantonale,\n\n• Padroneggiare la lingua francese e i soliti strumenti informatici,\n\n• Sii comodo a lavorare in modo indipendente e su una squadra.\n\n• Avere esperienza nel carcere o nell'ambiente carcerario, e essere uno psicologo forense sono beni.\n Vi offriamo:\n\n• Una missione ad alto impatto sociale, all'incrocio tra salute mentale, giustizia e questioni di sicurezza pubblica.\n\n• Una pratica clinica ricca e stimolante con pazienti con problemi psichiatrici complessi.\n\n• Tempo di riflessione clinica, scambi e condivisione di competenze, essenziale per la qualità della gestione.\n\n• Un ambiente di lavoro multidisciplinare, in stretta collaborazione con team medici, sanitari e amministrativi.\n\n• La possibilità di sviluppare le tue competenze professionali all'interno di un'istituzione cantonale riconosciuta.\n\n• Condizioni di lavoro disciplinate dal CLC Health 21 e interessanti benefici sociali.\n Entrata in carica: 1 dicembre 2026 o da concordare\n Luogo di lavoro: Luogo di esecuzione della Passeggiata + CPCM,\n 2300 Fondo calce\n Tipo di contratto: Contratto di durata massima (CDMax) fino ad ottenere il titolo post-grado\n Persona di contatto: Isaline Fadil-Clavijo, specialista del reclutamento\n Jérémy Terrat, Chief Physician (Psichiatria Legale)\n Le domande complete (lettere di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate direttamente online.\n\nRue Jardinière 157\n2300 La Chaux-de-Fonds",
-        "en": "The CNP recruits a 70% assistant psychologist to support mental health.\n\nTasks\n\n• Provide psychotherapeutic care under supervision.\n\n• Collaborate in the development of the patient therapeutic project.\n\n• Participate in multidisciplinary meetings for complex cases.\n\nCompetences\n\n• Master in Psychology or recognized equivalent title.\n\n• Knowledge of the Swiss and cantonal health system.\n\n• Prison experience is an asset.\n\nEstablishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with partner institutions. The NPC aims to rehabilitate patients suffering from mental disorders by adopting an integrated and community psychiatry model; implements public policies to promote and prevent mental health; It acts as a reference centre in the field of vocational training and psychiatry research.\n The Department of Adult Research, to join the Legal Psychiatry Service one·e:\n\nPsychologist-Assistant 70%\n\nThe Legal Psychiatry Service consists of the Department of Medicine and Penitentiary Psychiatry (SMPP) and Transition Consultation. The activity is separated between the canton's prisons and the outpatient consultation sites of the CNP. We provide therapeutic support to persons incarcerated and/or subject to a duty of care in the criminal context.\n The psychologist-assistant activity takes place in the SMPP of the Chaux de Fonds (Prison La Promenade) at 40% and at the CPCM at 30%.\n The approach is based on strong values of respect and benevolence, with the ambition to offer individualised care adapted to the needs and journeys of each patient.\n Care is provided by a multidisciplinary team, including doctors, psychologists and nurses, who cross-examines and expertise to respond to complex clinical situations.\n As part of your duties, you will be required to:\n\n• Provide, on medical prescription, psychotherapeutic care under the supervision of the senior psychologist/psychotherapist or the responsible psychologist.\n\n• Conduct therapeutic assessments and indications from a clinical evaluation.\n\n• To collaborate in the development, implementation and updating of the patient therapy project.\n\n• Perform psychotherapeutic treatments.\n\n• Maintain patient record and participate in reporting.\n\n• Ensure the administrative monitoring of its clinical activity, seizure of invoicing services.\n\n• Collaborate with the multidisciplinary network including the judicial authorities and the prison administration.\n\n• Participate in multidisciplinarity reflection and clinical development times.\n\n• Contribute to meetings on the definition of departmental projects and guidelines.\n The competencies required for this position are:\n\n• To hold a master's degree in Psychology or equivalent recognized at the federal level,\n\n• Know the organisation of the Swiss and cantonal health system,\n\n• Mastering the French language and the usual computer tools,\n\n• Be comfortable working independently and on a team.\n\n• Having experience in the prison or prison environment, and being a forensic psychologist are assets.\n We offer you:\n\n• A mission with high societal impact, at the crossroads of mental health, justice and public safety issues.\n\n• A rich and stimulating clinical practice with patients with complex psychiatric problems.\n\n• Time for clinical reflection, exchanges and sharing of expertise, essential to the quality of management.\n\n• A multidisciplinary working environment, in close collaboration with medical, health and administrative teams.\n\n• The possibility of developing your professional skills within a recognised cantonal institution.\n\n• Working conditions governed by the CLC Health 21 and attractive social benefits.\n Entry into office: 1 December 2026 or to be agreed\n Place of work : Place of execution of the Promenade + CPCM,\n 2300 Fund lime\n Type of contract: Contract of maximum duration (CDMax) until obtaining the post-grade title\n Contact person : Isaline Fadil-Clavijo, recruitment specialist\n Jérémy Terrat, Chief Physician (Legal psychiatry)\n Full applications (motivation letters, CVs, diplomas and work certificates) should be submitted by direct online application.\n\nRue Jardinière 157\n2300 La Chaux-de-Fonds",
-        "de": "Die CNP rekrutiert einen 70% Assistenzpsychologen, um die psychische Gesundheit zu unterstützen.\n\nAufgaben\n\n• Psychotherapeutische Versorgung unter Aufsicht.\n\n• Zusammenarbeit bei der Entwicklung des Patiententherapieprojekts.\n\n• Nehmen Sie an multidisziplinären Treffen für komplexe Fälle teil.\n\nKompetenzen\n\n• Master in Psychologie oder anerkannte gleichwertige Titel.\n\n• Kenntnisse des schweizerischen und kantonalen Gesundheitssystems.\n\n• Gefängniserfahrung ist ein Gewinn.\n\nDie CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten, die an psychischen Störungen leiden, durch die Annahme eines integrierten und gemeinschaftlichen Psychiatriemodells zu rehabilitieren; setzt öffentliche Maßnahmen zur Förderung und Prävention der psychischen Gesundheit um; Sie fungiert als Referenzzentrum im Bereich der Berufsbildung und Psychiatrieforschung.\n Die Abteilung für Erwachsenenforschung, um dem Legal Psychiatry Service beizutreten one·e:\n\nPsychologin-Assistentin 70%\n\nDer Legal Psychiatry Service besteht aus der Abteilung für Medizin und Strafvollzugspsychiatrie (SMPP) und Übergangsberatung. Die Tätigkeit ist zwischen den Gefängnissen des Kantons und den ambulanten Beratungsstellen der CNP getrennt. Wir bieten therapeutische Unterstützung für Personen, die im kriminellen Kontext inhaftiert sind und/oder einer Fürsorgepflicht unterliegen.\n Die psychologisch-assistierende Tätigkeit findet im SMPP des Chaux de Fonds (Gefängnis La Promenade) bei 40% und im CPCM bei 30% statt.\n Der Ansatz basiert auf starken Werten wie Respekt und Wohlwollen, mit dem Ziel, eine individuelle Betreuung anzubieten, die auf die Bedürfnisse und Reisen jedes Patienten abgestimmt ist.\n Die Betreuung erfolgt durch ein multidisziplinäres Team, darunter Ärzte, Psychologen und Krankenschwestern, die sich gegenseitig untersuchen und auf komplexe klinische Situationen reagieren.\n Im Rahmen Ihrer Aufgaben müssen Sie:\n\n• Auf ärztliche Verschreibung psychotherapeutische Versorgung unter der Aufsicht des leitenden Psychologen/Psychotherapeuten oder des verantwortlichen Psychologen.\n\n• Führen Sie therapeutische Bewertungen und Indikationen aus einer klinischen Bewertung durch.\n\n• Zusammenarbeit bei der Entwicklung, Umsetzung und Aktualisierung des Patiententherapieprojekts.\n\n• Durchführung psychotherapeutischer Behandlungen.\n\n• Pflegen Sie Patientenakten und nehmen Sie an der Berichterstattung teil.\n\n• Gewährleistung der administrativen Überwachung ihrer klinischen Tätigkeit und Beschlagnahme von Rechnungsstellungsdiensten.\n\n• Zusammenarbeit mit dem multidisziplinären Netzwerk, einschließlich der Justizbehörden und der Gefängnisverwaltung.\n\n• Beteiligen Sie sich an Multidisziplinaritätsreflexion und klinischen Entwicklungszeiten.\n\n• Beitrag zu Sitzungen zur Definition von Abteilungsprojekten und Richtlinien.\n Die für diese Position erforderlichen Kompetenzen sind:\n\n• Um einen Master-Abschluss in Psychologie oder gleichwertige anerkannt auf Bundesebene zu halten,\n\n• die Organisation des schweizerischen und kantonalen Gesundheitssystems kennen,\n\n• Beherrschung der französischen Sprache und der üblichen Computer-Tools,\n\n• Seien Sie bequem, unabhängig und im Team zu arbeiten.\n\n• Erfahrung im Gefängnis oder im Gefängnisumfeld zu haben und ein forensischer Psychologe zu sein, sind Vermögenswerte.\n Wir bieten Ihnen:\n\n• Eine Mission mit hohen gesellschaftlichen Auswirkungen, an der Kreuzung von Fragen der psychischen Gesundheit, Justiz und öffentlichen Sicherheit.\n\n• Eine reichhaltige und anregende klinische Praxis mit Patienten mit komplexen psychiatrischen Problemen.\n\n• Zeit für klinische Reflexion, Austausch und Austausch von Fachwissen, das für die Qualität des Managements unerlässlich ist.\n\n• Ein multidisziplinäres Arbeitsumfeld in enger Zusammenarbeit mit medizinischen, Gesundheits- und Verwaltungsteams.\n\n• Die Möglichkeit, Ihre beruflichen Fähigkeiten innerhalb einer anerkannten kantonalen Institution zu entwickeln.\n\n• Arbeitsbedingungen gemäß CLC Health 21 und attraktive Sozialleistungen.\n Amtsantritt: 1. Dezember 2026 oder noch zu vereinbaren\n Arbeitsort : Ausführungsort der Promenade + CPCM,\n 2300 Fondskalk\n Art des Vertrags: Vertrag mit maximaler Laufzeit (CDMax) bis zur Erlangung des Titels nach Abschluss der Klasse\n Ansprechpartner : Isaline Fadil-Clavijo, Personalvermittlerin\n Jérémy Terrat, Chefarzt (Rechtspsychiatrie)\n Vollständige Bewerbungen (Motivationsschreiben, Lebensläufe, Diplome und Arbeitsbescheinigungen) sollten per Online-Direktbewerbung eingereicht werden.\n\nRue Jardinière 157\n2300 La Chaux-de-Fonds"
+        "it": "Il CNP recluta uno psicologo del 70% per sostenere la salute mentale.\n\nCompiti\n\n• Fornire assistenza psicoterapeutica sotto supervisione.\n\n• Collaborate nello sviluppo del progetto terapeutico paziente.\n\n• Partecipa a riunioni multidisciplinari per casi complessi.\n\nCompetenze\n\n• Master in Psicologia o titolo equivalente riconosciuto.\n\n• Conoscenza del sistema sanitario svizzero e cantonale.\n\n• L'esperienza della prigione è una risorsa.\n\nCostituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. Il NPC mira a riabilitare i pazienti affetti da disturbi mentali adottando un modello di psichiatria integrata e comunitaria; implementa le politiche pubbliche per promuovere e prevenire la salute mentale; Esso funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\nIl Dipartimento della Ricerca per Adulti, per aderire al Servizio di Psichiatria Legale uno·e:\n\nPsicologo-Assistant 70%\n\nIl Servizio Legale di Psichiatria è composto dal Dipartimento di Medicina e Psichiatria Penitenziaria (SMPP) e dalla Consultazione di Transizione. L'attività è separata tra le prigioni del cantone e i siti di consultazione ambulatoriale del CNP. Forniamo supporto terapeutico alle persone incarcerate e/o soggette ad un dovere di cura nel contesto penale.\nL'attività psicologi-assista si svolge nella SMPP della Chaux de Fonds (Prison La Promenade) al 40% e al CPCM al 30%.\nL'approccio si basa su forti valori di rispetto e di benevolenza, con l'ambizione di offrire cure individualizzate adattate alle esigenze e ai viaggi di ogni paziente.\nLa cura è fornita da un team multidisciplinare, tra cui medici, psicologi e infermieri, che cross-examine e competenze per rispondere a situazioni cliniche complesse.\nNell'ambito dei vostri doveri, sarete tenuti a:\n\n• Fornire, su prescrizione medica, cure psicoterapeutiche sotto la supervisione dello psicologo senior / psicoterapeuta o dello psicologo responsabile.\n\n• Condurre valutazioni terapeutiche e indicazioni da una valutazione clinica.\n\n• Collaborare allo sviluppo, all'implementazione e all'aggiornamento del progetto di terapia del paziente.\n\n• Eseguire trattamenti psicoterapeutici.\n\n• Mantenere il record del paziente e partecipare alla segnalazione.\n\n• Assicurare il monitoraggio amministrativo della sua attività clinica, sequestro di servizi di fatturazione.\n\n• Collabora con la rete multidisciplinare tra cui le autorità giudiziarie e l'amministrazione carceraria.\n\n• Partecipa ai tempi di riflessione multidisciplinare e di sviluppo clinico.\n\n• Contribuire alle riunioni sulla definizione di progetti e orientamenti dipartimentali.\nLe competenze richieste per questa posizione sono:\n\n• Tenere un master in psicologia o equivalente riconosciuto a livello federale,\n\n• Conoscere l'organizzazione del sistema sanitario svizzero e cantonale,\n\n• Padroneggiare la lingua francese e i soliti strumenti informatici,\n\n• Sii comodo a lavorare in modo indipendente e su una squadra.\n\n• Avere esperienza nel carcere o nell'ambiente carcerario, e essere uno psicologo forense sono beni.\nVi offriamo:\n\n• Una missione ad alto impatto sociale, all'incrocio tra salute mentale, giustizia e questioni di sicurezza pubblica.\n\n• Una pratica clinica ricca e stimolante con pazienti con problemi psichiatrici complessi.\n\n• Tempo di riflessione clinica, scambi e condivisione di competenze, essenziale per la qualità della gestione.\n\n• Un ambiente di lavoro multidisciplinare, in stretta collaborazione con team medici, sanitari e amministrativi.\n\n• La possibilità di sviluppare le tue competenze professionali all'interno di un'istituzione cantonale riconosciuta.\n\n• Condizioni di lavoro disciplinate dal CLC Health 21 e interessanti benefici sociali.\nEntrata in carica: 1 dicembre 2026 o da concordare\nLuogo di lavoro: Luogo di esecuzione della Passeggiata + CPCM,\n2300 Fondo calce\nTipo di contratto: Contratto di durata massima (CDMax) fino ad ottenere il titolo post-grado\nPersona di contatto: Isaline Fadil-Clavijo, specialista del reclutamento\nJérémy Terrat, Chief Physician (Psichiatria Legale)\nLe domande complete (lettere di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate direttamente online.\n\nRue Jardinière 157\n2300 La Chaux-de-Fonds",
+        "en": "The CNP recruits a 70% assistant psychologist to support mental health.\n\nTasks\n\n• Provide psychotherapeutic care under supervision.\n\n• Collaborate in the development of the patient therapeutic project.\n\n• Participate in multidisciplinary meetings for complex cases.\n\nCompetences\n\n• Master in Psychology or recognized equivalent title.\n\n• Knowledge of the Swiss and cantonal health system.\n\n• Prison experience is an asset.\n\nEstablishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with partner institutions. The NPC aims to rehabilitate patients suffering from mental disorders by adopting an integrated and community psychiatry model; implements public policies to promote and prevent mental health; It acts as a reference centre in the field of vocational training and psychiatry research.\nThe Department of Adult Research, to join the Legal Psychiatry Service one·e:\n\nPsychologist-Assistant 70%\n\nThe Legal Psychiatry Service consists of the Department of Medicine and Penitentiary Psychiatry (SMPP) and Transition Consultation. The activity is separated between the canton's prisons and the outpatient consultation sites of the CNP. We provide therapeutic support to persons incarcerated and/or subject to a duty of care in the criminal context.\nThe psychologist-assistant activity takes place in the SMPP of the Chaux de Fonds (Prison La Promenade) at 40% and at the CPCM at 30%.\nThe approach is based on strong values of respect and benevolence, with the ambition to offer individualised care adapted to the needs and journeys of each patient.\nCare is provided by a multidisciplinary team, including doctors, psychologists and nurses, who cross-examines and expertise to respond to complex clinical situations.\nAs part of your duties, you will be required to:\n\n• Provide, on medical prescription, psychotherapeutic care under the supervision of the senior psychologist/psychotherapist or the responsible psychologist.\n\n• Conduct therapeutic assessments and indications from a clinical evaluation.\n\n• To collaborate in the development, implementation and updating of the patient therapy project.\n\n• Perform psychotherapeutic treatments.\n\n• Maintain patient record and participate in reporting.\n\n• Ensure the administrative monitoring of its clinical activity, seizure of invoicing services.\n\n• Collaborate with the multidisciplinary network including the judicial authorities and the prison administration.\n\n• Participate in multidisciplinarity reflection and clinical development times.\n\n• Contribute to meetings on the definition of departmental projects and guidelines.\nThe competencies required for this position are:\n\n• To hold a master's degree in Psychology or equivalent recognized at the federal level,\n\n• Know the organisation of the Swiss and cantonal health system,\n\n• Mastering the French language and the usual computer tools,\n\n• Be comfortable working independently and on a team.\n\n• Having experience in the prison or prison environment, and being a forensic psychologist are assets.\nWe offer you:\n\n• A mission with high societal impact, at the crossroads of mental health, justice and public safety issues.\n\n• A rich and stimulating clinical practice with patients with complex psychiatric problems.\n\n• Time for clinical reflection, exchanges and sharing of expertise, essential to the quality of management.\n\n• A multidisciplinary working environment, in close collaboration with medical, health and administrative teams.\n\n• The possibility of developing your professional skills within a recognised cantonal institution.\n\n• Working conditions governed by the CLC Health 21 and attractive social benefits.\nEntry into office: 1 December 2026 or to be agreed\nPlace of work : Place of execution of the Promenade + CPCM,\n2300 Fund lime\nType of contract: Contract of maximum duration (CDMax) until obtaining the post-grade title\nContact person : Isaline Fadil-Clavijo, recruitment specialist\nJérémy Terrat, Chief Physician (Legal psychiatry)\nFull applications (motivation letters, CVs, diplomas and work certificates) should be submitted by direct online application.\n\nRue Jardinière 157\n2300 La Chaux-de-Fonds",
+        "de": "Die CNP rekrutiert einen 70% Assistenzpsychologen, um die psychische Gesundheit zu unterstützen.\n\nAufgaben\n\n• Psychotherapeutische Versorgung unter Aufsicht.\n\n• Zusammenarbeit bei der Entwicklung des Patiententherapieprojekts.\n\n• Nehmen Sie an multidisziplinären Treffen für komplexe Fälle teil.\n\nKompetenzen\n\n• Master in Psychologie oder anerkannte gleichwertige Titel.\n\n• Kenntnisse des schweizerischen und kantonalen Gesundheitssystems.\n\n• Gefängniserfahrung ist ein Gewinn.\n\nDie CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten, die an psychischen Störungen leiden, durch die Annahme eines integrierten und gemeinschaftlichen Psychiatriemodells zu rehabilitieren; setzt öffentliche Maßnahmen zur Förderung und Prävention der psychischen Gesundheit um; Sie fungiert als Referenzzentrum im Bereich der Berufsbildung und Psychiatrieforschung.\nDie Abteilung für Erwachsenenforschung, um dem Legal Psychiatry Service beizutreten one·e:\n\nPsychologin-Assistentin 70%\n\nDer Legal Psychiatry Service besteht aus der Abteilung für Medizin und Strafvollzugspsychiatrie (SMPP) und Übergangsberatung. Die Tätigkeit ist zwischen den Gefängnissen des Kantons und den ambulanten Beratungsstellen der CNP getrennt. Wir bieten therapeutische Unterstützung für Personen, die im kriminellen Kontext inhaftiert sind und/oder einer Fürsorgepflicht unterliegen.\nDie psychologisch-assistierende Tätigkeit findet im SMPP des Chaux de Fonds (Gefängnis La Promenade) bei 40% und im CPCM bei 30% statt.\nDer Ansatz basiert auf starken Werten wie Respekt und Wohlwollen, mit dem Ziel, eine individuelle Betreuung anzubieten, die auf die Bedürfnisse und Reisen jedes Patienten abgestimmt ist.\nDie Betreuung erfolgt durch ein multidisziplinäres Team, darunter Ärzte, Psychologen und Krankenschwestern, die sich gegenseitig untersuchen und auf komplexe klinische Situationen reagieren.\nIm Rahmen Ihrer Aufgaben müssen Sie:\n\n• Auf ärztliche Verschreibung psychotherapeutische Versorgung unter der Aufsicht des leitenden Psychologen/Psychotherapeuten oder des verantwortlichen Psychologen.\n\n• Führen Sie therapeutische Bewertungen und Indikationen aus einer klinischen Bewertung durch.\n\n• Zusammenarbeit bei der Entwicklung, Umsetzung und Aktualisierung des Patiententherapieprojekts.\n\n• Durchführung psychotherapeutischer Behandlungen.\n\n• Pflegen Sie Patientenakten und nehmen Sie an der Berichterstattung teil.\n\n• Gewährleistung der administrativen Überwachung ihrer klinischen Tätigkeit und Beschlagnahme von Rechnungsstellungsdiensten.\n\n• Zusammenarbeit mit dem multidisziplinären Netzwerk, einschließlich der Justizbehörden und der Gefängnisverwaltung.\n\n• Beteiligen Sie sich an Multidisziplinaritätsreflexion und klinischen Entwicklungszeiten.\n\n• Beitrag zu Sitzungen zur Definition von Abteilungsprojekten und Richtlinien.\nDie für diese Position erforderlichen Kompetenzen sind:\n\n• Um einen Master-Abschluss in Psychologie oder gleichwertige anerkannt auf Bundesebene zu halten,\n\n• die Organisation des schweizerischen und kantonalen Gesundheitssystems kennen,\n\n• Beherrschung der französischen Sprache und der üblichen Computer-Tools,\n\n• Seien Sie bequem, unabhängig und im Team zu arbeiten.\n\n• Erfahrung im Gefängnis oder im Gefängnisumfeld zu haben und ein forensischer Psychologe zu sein, sind Vermögenswerte.\nWir bieten Ihnen:\n\n• Eine Mission mit hohen gesellschaftlichen Auswirkungen, an der Kreuzung von Fragen der psychischen Gesundheit, Justiz und öffentlichen Sicherheit.\n\n• Eine reichhaltige und anregende klinische Praxis mit Patienten mit komplexen psychiatrischen Problemen.\n\n• Zeit für klinische Reflexion, Austausch und Austausch von Fachwissen, das für die Qualität des Managements unerlässlich ist.\n\n• Ein multidisziplinäres Arbeitsumfeld in enger Zusammenarbeit mit medizinischen, Gesundheits- und Verwaltungsteams.\n\n• Die Möglichkeit, Ihre beruflichen Fähigkeiten innerhalb einer anerkannten kantonalen Institution zu entwickeln.\n\n• Arbeitsbedingungen gemäß CLC Health 21 und attraktive Sozialleistungen.\nAmtsantritt: 1. Dezember 2026 oder noch zu vereinbaren\nArbeitsort : Ausführungsort der Promenade + CPCM,\n2300 Fondskalk\nArt des Vertrags: Vertrag mit maximaler Laufzeit (CDMax) bis zur Erlangung des Titels nach Abschluss der Klasse\nAnsprechpartner : Isaline Fadil-Clavijo, Personalvermittlerin\nJérémy Terrat, Chefarzt (Rechtspsychiatrie)\nVollständige Bewerbungen (Motivationsschreiben, Lebensläufe, Diplome und Arbeitsbescheinigungen) sollten per Online-Direktbewerbung eingereicht werden.\n\nRue Jardinière 157\n2300 La Chaux-de-Fonds",
+        "fr": "Le CNP recrute un·e Psychologue-assistant·e à 70% pour soutenir la santé mentale.\n\nTâches\n\n• Assurer des prises en charge psychothérapeutiques sous supervision.\n\n• Collaborer à l’élaboration du projet thérapeutique des patient·e·s.\n\n• Participer aux réunions pluridisciplinaires pour des cas complexes.\n\nCompétences\n\n• Master en Psychologie ou titre équivalent reconnu.\n\n• Connaissance du système sanitaire suisse et cantonal.\n\n• Expérience en milieu pénitentiaire est un atout.\n\nEtablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\nLe Département de l’adulte recherche, pour rejoindre le Service de psychiatrie légale un·e :\n\nPsychologue-assistant·e 70%\n\nLe Service de psychiatrie légale est composé du Service de Médecine et de Psychiatrie Pénitentiaires (SMPP) et de la Consultation de Transition. L’activité est séparée entre les établissements pénitentiaires du canton et les sites de consultations ambulatoires du CNP. Nous assurons l’accompagnement thérapeutique de personnes incarcérées et/ou soumises à une obligation de soins dans le cadre pénal.\nL’activité de psychologue-assistant·e se déroule dans le SMPP de la Chaux de Fonds (Prison La Promenade) à 40% et au CPCM à 30%.\nL’approche repose sur des valeurs fortes de respect, de bienveillance, avec l’ambition de proposer une prise en charge individualisée, adaptée aux besoins et au parcours de chaque patient·e.\nLes prises en charge sont assurées par une équipe pluridisciplinaire, composée notamment de médecins, psychologues et infirmier·ères, qui croise les regards et les expertises pour répondre à des situations cliniques complexes.\nDans le cadre de votre fonction, vous serez amené·e à :\n\n• Assurer, sur prescription médicale, des prises en charge psychothérapeutiques sous la supervision du·de la psychologue-psychothérapeute senior ou du·de la psychologue responsable.\n\n• Effectuer des évaluations et indications thérapeutiques en partant d’une évaluation clinique.\n\n• Collaborer à l'élaboration, la mise en œuvre et l’actualisation du projet thérapeutique des patient·e·s.\n\n• Effectuer les traitements psychothérapeutiques.\n\n• Tenir à jour le dossier patient et participer à la rédaction de rapports.\n\n• Garantir le suivi administratif de son activité clinique, saisie des prestations pour la facturation.\n\n• Collaborer avec le réseau pluridisciplinaire dont les autorités judiciaires et l’administration pénitentiaire.\n\n• Participer aux temps de réflexion et d’élaboration clinique en pluridisciplinarité.\n\n• Contribuer aux réunions relatives à la définition des projets et des orientations du département.\nLes compétences requises pour ce poste sont les suivantes :\n\n• Être titulaire d'un master en Psychologie ou d'un titre équivalent reconnu au niveau fédéral,\n\n• Connaître l'organisation du système sanitaire suisse et cantonal,\n\n• Maitriser la langue française et les outils informatiques usuels,\n\n• Être à l’aise pour travailler de façon autonome ainsi qu’au sein d’une équipe.\n\n• Posséder une expérience dans le milieu carcéral ou pénitentiaire, et être psychologue forensique sont des atouts.\nNous vous offrons :\n\n• Une mission à fort impact sociétal, au croisement des enjeux de santé mentale, de justice et de sécurité publique.\n\n• Une pratique clinique riche et stimulante, auprès de patient·es présentant des problématiques psychiatriques complexes.\n\n• Du temps pour la réflexion clinique, les échanges et le partage d’expertise, indispensable à la qualité de la prise en charge.\n\n• Un environnement de travail pluridisciplinaire, en collaboration étroite avec les équipes médicales, soignantes et administratives.\n\n• La possibilité de développer vos compétences professionnelles au sein d’une institution cantonale reconnue.\n\n• Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives.\nEntrée en fonction : 1 er décembre 2026 ou à convenir\nLieu de travail : Etablissement d'exécution de la Promenade + CPCM,\n2300 Chaux de Fonds\nType de contrat : Contrat de durée maximale (CDMax) jusqu’à l’obtention du titre post- grade\nPersonne de contact : Isaline Fadil-Clavijo, spécialiste recrutement\nJérémy Terrat, Médecin-chef (Service psychiatrie légale)\nLes dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne.\n\nRue Jardinière 157\n2300 La Chaux-de-Fonds"
       },
       "location": "La Chaux-de-Fonds",
       "canton": "NE",
       "url": "https://www.jobup.ch/fr/emplois/detail/deb70091-ead0-4a77-ad29-3b3876577983",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:04:48.664Z",
+      "crawledAt": "2026-11-25T21:22:03.453Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2741,9 +2572,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/deb70091-ead0-4a77-ad29-3b3876577983",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+        ],
+        "en": [
+          "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+        ],
+        "de": [
+          "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+        ]
       },
+      "firstSeenAt": "2026-11-19T21:24:23.715Z",
       "salaryMin": 60200,
       "salaryMax": 84000,
       "salarySource": "estimated",
@@ -2759,24 +2603,95 @@
       },
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T22:04:48.664Z",
+      "validThrough": "2027-02-17T21:22:03.453Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:24:23.715Z",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/deb70091-ead0-4a77-ad29-3b3876577983",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/deb70091-ead0-4a77-ad29-3b3876577983"
+    },
+    {
+      "id": "cnp-4507f50467f6",
+      "slug": "master-trainee-supporto-rh-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+      "slugByLocale": {
+        "it": "master-trainee-supporto-rh-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "master-trainee-rh-support-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "master-trainee-rh-unterstutzung-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "fr": "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
+      },
+      "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
+      "companyKey": "cnp",
+      "companyDomain": "cnp.ch",
+      "title": "Stagiaire Master – Accompagnement RRH",
+      "titleByLocale": {
+        "it": "Master Trainee – Supporto RH",
+        "en": "Master Trainee – RH support",
+        "de": "Master Trainee – RH-Unterstützung",
+        "fr": "Stagiaire Master – Accompagnement RRH"
+      },
+      "description": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La Direction des Relations et Ressources Humaines (DRRH) recherche un·e :\n\nStagiaire Master – Accompagnement RRH\n 100%\n s/réf : R2026241\n\nVous êtes actuellement en études afin d’obtenir un Bachelor (HEG, sciences politiques,…) ou un Master (management des ressources humaines, psychologie du travail, sciences sociales…) et désirez intégrer une institution reconnue, spécialisée en santé psychique.\n Vos principales responsabilités :\n Soutien aux processus RH clés\n\n• Participation à la gestion d’entretiens d’accompagnement (organisation, suivi, consolidation des données)\n\n• Contribution aux campagnes d’évaluation (préparation, coordination, support aux managers, reporting)\n\n• Participation à la revue mensuelle des effectifs (préparation, statistiques, supports)\n\n• Contribution au processus budgétaire RH (préparation et consolidation des données)\n Analyse et amélioration continue\n\n• Analyse des indicateurs RH liés aux processus d’accompagnement\n\n• Identification de pistes d’amélioration (benchmark, recherches, bonnes pratiques)\n\n• Contribution à la mise en place d’actions concrètes d’amélioration\n\n• Participation active à l’optimisation des processus et outils de l’unité\n Gestion de projets\n\n• Participation à des projets RH transversaux\n\n• Pilotage en autonomie (avec supervision) d’un projet clé pour l’unité accompagnement RRH\n Votre profil :\n\n• Formation en cours ou récemment achevée : Bachelor (HEG, sciences politiques ou équivalent) ou Master (Ressources humaines, psychologie du travail ou domaine similaire)\n\n• Intérêt marqué pour les ressources humaines, l’analyse de données et l’accompagnement des collaborateurs\n\n• Aisance avec les outils informatiques (Excel en particulier)\n\n• Bonnes capacités rédactionnelles et analytiques\n\n• Sens de l’organisation, rigueur et respect des délais\n\n• Esprit d’initiative et orientation amélioration continue\n\n• Excellentes compétences relationnelles et sens de la confidentialité\n Entrée en fonction et taux : 1er novembre 2026 à 50% puis dès le 1er décembre 2026 à 100% ou à convenir\n Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier\n Type de contrat : Stage rémunéré\n Durée du contrat 6 à 12 mois\n Délai de postulation : 31 octobre 2026\n Contact : Madame Gisèle Muller, Partenaire accompagnement RRH\n Madame Maureen Magnan, Spécialiste sourcing et recrutement\n Le dossier de candidature complet (lettre de motivation, CV à jour, diplômes, certificats de travail et autres attestations) doit être adressé directement en ligne sur Jobup.\n\nSite de Préfargier\n2074 Marin-Epagnier",
+      "descriptionByLocale": {
+        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\nLa Direzione delle Risorse Umane e delle Relazioni (DRHR) ne sta cercando uno:\n\nMaster Trainee – Supporto RH\n100%\ns/ref: R2026241\n\nAttualmente stai studiando per ottenere un diploma di laurea (HEG, scienze politiche,...) o un master (gestione delle risorse umane, psicologia del lavoro, scienze sociali, ecc.) e vorrebbe unire un istituto riconosciuto specializzato in salute mentale.\nLe vostre principali responsabilità:\nSupporto per processi chiave HR\n\n• Partecipazione alla gestione delle interviste accompagnate (organizzazione, monitoraggio, consolidamento dei dati)\n\n• Contributo alle campagne di valutazione (preparazione, coordinamento, sostegno ai manager, reporting)\n\n• Partecipazione alla revisione mensile del personale (preparazione, statistiche, materiali)\n\n• Contributo al processo di bilancio HR (elaborazione e consolidamento dei dati)\nAnalisi e miglioramento continuo\n\n• Analisi degli indicatori HR relativi ai processi di accompagnamento\n\n• Identificazione delle aree di miglioramento (benchmark, ricerca, buona pratica)\n\n• Contributo all'attuazione di azioni concrete di miglioramento\n\n• Partecipazione attiva all'ottimizzazione dei processi e degli strumenti di unità\nGestione dei progetti\n\n• Partecipazione a progetti HR cross-cuting\n\n• Pilotaggio indipendente (superviso) di un progetto chiave per unità di supporto HRR\nIl tuo profilo:\n\n• Formazione in corso o recentemente completata: laurea (HEG, scienze politiche o equivalente) o laurea magistrale (risorse umane, psicologia del lavoro o campo simile)\n\n• Alto interesse per le risorse umane, l'analisi dei dati e il supporto dei dipendenti\n\n• Aisance con strumenti IT (Excel in particolare)\n\n• Buona capacità editoriale e analitica\n\n• Senso organizzativo, rigore e tempestività\n\n• Iniziativa e direzione miglioramento continuo\n\n• Eccellente capacità relazionali e un senso di riservatezza\nEntrata in ufficio e tariffa: 1 novembre 2026 al 50% e 1 dicembre 2026 al 100% o da concordare\nLuogo di lavoro: Prefargier sito, 2074 Marin-Epagnier\nTipo di contratto: Stage a pagamento\nPeriodo contrattuale da 6 a 12 mesi\nTermine ultimo per l'applicazione: 31 ottobre 2026\nContatto: Ms. Gisèle Muller, RRH Support Partner\nMaureen Magnan, Sourcing specialistico e reclutamento\nIl file completo della domanda (lettera example, CV corrente, diplomi, certificati di lavoro e altri certificati) deve essere inviato direttamente online a Jobup.\n\nSito web Prefargier\n2074 Marin-Epagnier",
+        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\nThe Directorate of Human Resources and Relations (DRHR) is looking for one:\n\nMaster Trainee – RH support\n100%\ns/ref: R2026241\n\nYou are currently studying to obtain a Bachelor's degree (HEG, political sciences,...) or a Master's degree (human resources management, labour psychology, social sciences, etc.) and would like to join a recognized institution specialized in mental health.\nYour main responsibilities:\nSupport for key HR processes\n\n• Participation in the management of accompanying interviews (organisation, monitoring, data consolidation)\n\n• Contribution to evaluation campaigns (preparation, coordination, support for managers, reporting)\n\n• Participation in the monthly staff review (preparation, statistics, materials)\n\n• Contribution to the HR budget process (data preparation and consolidation)\nAnalysis and continuous improvement\n\n• Analysis of HR indicators related to accompanying processes\n\n• Identification of areas for improvement (benchmark, research, good practice)\n\n• Contribution to the implementation of concrete actions for improvement\n\n• Active participation in optimizing unity processes and tools\nProject management\n\n• Participation in cross-cutting HR projects\n\n• Independent (supervised) piloting of a key project for HRR support unit\nYour profile:\n\n• Training in progress or recently completed: Bachelor's degree (HEG, political sciences or equivalent) or Master's degree (Human resources, labour psychology or similar field)\n\n• High interest in human resources, data analysis and employee support\n\n• Aisance with IT tools (Excel in particular)\n\n• Good editorial and analytical capacity\n\n• Organizational sense, rigour and timeliness\n\n• Initiative and direction continuous improvement\n\n• Excellent relational skills and a sense of confidentiality\nEntry into office and rate: 1 November 2026 at 50% and 1 December 2026 at 100% or to be agreed\nPlace of work : Prefargier site, 2074 Marin-Epagnier\nType of contract: Paid internship\nContract Period 6 to 12 months\nDeadline for application: 31 October 2026\nContact: Ms. Gisèle Muller, RRH Support Partner\nMaureen Magnan, Specialist sourcing and recruitment\nThe complete application file (example letter, current CV, diplomas, work certificates and other certificates) should be sent directly online to Jobup.\n\nPrefargier website\n2074 Marin-Epagnier",
+        "de": "Etablierung des kantonalen öffentlichen Rechts hat die CNP die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der Berufsbildung und Psychiatrieforschung fungiert.\nDie Direktion für Humanressourcen und Beziehungen (DRHR) sucht eine:\n\nMaster Trainee – RH-Unterstützung\n100%\ns/ref: R2026241\n\nSie studieren derzeit einen Bachelor-Abschluss (HEG, Politikwissenschaften,...) oder einen Master-Abschluss (Human Resources Management, Arbeitspsychologie, Sozialwissenschaften, etc.) und möchten einer anerkannten, auf psychische Gesundheit spezialisierten Institution beitreten.\nIhre Hauptaufgaben:\nUnterstützung für wichtige HR-Prozesse\n\n• Teilnahme am Management von Begleitgesprächen (Organisation, Monitoring, Datenkonsolidierung)\n\n• Beitrag zu Evaluierungskampagnen (Vorbereitung, Koordination, Unterstützung von Führungskräften, Reporting)\n\n• Teilnahme an der monatlichen Personalüberprüfung (Vorbereitung, Statistik, Material)\n\n• Beitrag zum HR-Budgetprozess (Datenaufbereitung und -konsolidierung)\nAnalyse und kontinuierliche Verbesserung\n\n• Analyse von HR-Indikatoren im Zusammenhang mit Begleitprozessen\n\n• Identifizierung von Verbesserungsbereichen (Benchmark, Forschung, gute Praxis)\n\n• Beitrag zur Umsetzung konkreter Verbesserungsmaßnahmen\n\n• Aktive Teilnahme an der Optimierung von Einheitsprozessen und Werkzeugen\nProjektmanagement\n\n• Beteiligung an bereichsübergreifenden HR-Projekten\n\n• Unabhängige (überwachte) Pilotierung eines Schlüsselprojekts für die HRR-Unterstützungseinheit\nIhr Profil:\n\n• Ausbildung im laufenden oder kürzlich abgeschlossen: Bachelor-Abschluss (HEG, Politikwissenschaften oder gleichwertig) oder Master-Abschluss (Human Resources, Arbeitspsychologie oder ähnliches)\n\n• Hohes Interesse an Personal, Datenanalyse und Mitarbeiterunterstützung\n\n• Aisance mit IT-Tools (Excel insbesondere)\n\n• Gute redaktionelle und analytische Fähigkeiten\n\n• Organisatorischer Sinn, Strenge und Aktualität\n\n• Initiative und Richtung kontinuierliche Verbesserung\n\n• Hervorragende relationale Fähigkeiten und ein Gefühl der Vertraulichkeit\nAmtsantritt und Tarif: 1. November 2026 zu 50% und 1. Dezember 2026 zu 100% oder noch zu vereinbaren\nArbeitsort: Prefargier, 2074 Marin-Epagnier\nArt des Vertrags: Bezahltes Praktikum\nVertragslaufzeit 6 bis 12 Monate\nAntragsfrist: 31. Oktober 2026\nKontakt: Frau Gisèle Muller, RRH Support Partner\nMaureen Magnan, Specialist Sourcing und Recruiting\nDie vollständige Bewerbungsdatei (Beispielbrief, aktueller Lebenslauf, Diplome, Arbeitszeugnisse und andere Zertifikate) sollte direkt online an Jobup gesendet werden.\n\nPrefargier Website\n2074 Marin-Epagnier",
+        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\nLa Direction des Relations et Ressources Humaines (DRRH) recherche un·e :\n\nStagiaire Master – Accompagnement RRH\n100%\ns/réf : R2026241\n\nVous êtes actuellement en études afin d’obtenir un Bachelor (HEG, sciences politiques,…) ou un Master (management des ressources humaines, psychologie du travail, sciences sociales…) et désirez intégrer une institution reconnue, spécialisée en santé psychique.\nVos principales responsabilités :\nSoutien aux processus RH clés\n\n• Participation à la gestion d’entretiens d’accompagnement (organisation, suivi, consolidation des données)\n\n• Contribution aux campagnes d’évaluation (préparation, coordination, support aux managers, reporting)\n\n• Participation à la revue mensuelle des effectifs (préparation, statistiques, supports)\n\n• Contribution au processus budgétaire RH (préparation et consolidation des données)\nAnalyse et amélioration continue\n\n• Analyse des indicateurs RH liés aux processus d’accompagnement\n\n• Identification de pistes d’amélioration (benchmark, recherches, bonnes pratiques)\n\n• Contribution à la mise en place d’actions concrètes d’amélioration\n\n• Participation active à l’optimisation des processus et outils de l’unité\nGestion de projets\n\n• Participation à des projets RH transversaux\n\n• Pilotage en autonomie (avec supervision) d’un projet clé pour l’unité accompagnement RRH\nVotre profil :\n\n• Formation en cours ou récemment achevée : Bachelor (HEG, sciences politiques ou équivalent) ou Master (Ressources humaines, psychologie du travail ou domaine similaire)\n\n• Intérêt marqué pour les ressources humaines, l’analyse de données et l’accompagnement des collaborateurs\n\n• Aisance avec les outils informatiques (Excel en particulier)\n\n• Bonnes capacités rédactionnelles et analytiques\n\n• Sens de l’organisation, rigueur et respect des délais\n\n• Esprit d’initiative et orientation amélioration continue\n\n• Excellentes compétences relationnelles et sens de la confidentialité\nEntrée en fonction et taux : 1er novembre 2026 à 50% puis dès le 1er décembre 2026 à 100% ou à convenir\nLieu de travail : Site de Préfargier, 2074 Marin-Epagnier\nType de contrat : Stage rémunéré\nDurée du contrat 6 à 12 mois\nDélai de postulation : 31 octobre 2026\nContact : Madame Gisèle Muller, Partenaire accompagnement RRH\nMadame Maureen Magnan, Spécialiste sourcing et recrutement\nLe dossier de candidature complet (lettre de motivation, CV à jour, diplômes, certificats de travail et autres attestations) doit être adressé directement en ligne sur Jobup.\n\nSite de Préfargier\n2074 Marin-Epagnier"
+      },
+      "needsRetranslation": false,
+      "location": "Marin-Epagnier",
+      "canton": "NE",
+      "url": "https://www.jobup.ch/fr/emplois/detail/41fecae3-b748-45ef-b208-e8ba76bdb78f",
+      "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-24T21:20:43.808Z",
+      "addressLocality": "Marin-Epagnier",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2074",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13T09:47:29+02:00",
+      "postedDate": "2026-10-13T09:47:29+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/41fecae3-b748-45ef-b208-e8ba76bdb78f",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+          "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
         ],
         "en": [
-          "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+          "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
         ],
         "de": [
-          "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
+          "stagiaire-master-accompagnement-rrh-cnp-marin-epagnier"
         ]
       },
-      "previousSlugs": [
-        "psychologue-assistant-e-70-cnp-la-chaux-de-fonds"
-      ]
+      "firstSeenAt": "2026-10-13T09:20:34.491Z",
+      "salaryMin": 77000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T21:20:43.808Z",
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/41fecae3-b748-45ef-b208-e8ba76bdb78f"
     }
   ]
 }

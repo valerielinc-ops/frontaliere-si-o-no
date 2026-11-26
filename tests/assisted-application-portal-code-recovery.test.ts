@@ -11,6 +11,7 @@ import { candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } fr
 import { operationalPortalRecoveryReady, portalRecoveryDefinitelyUnsent } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 
 const now = Date.now();
+const futureAvailability = new Date(now + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 const version = 'b'.repeat(64);
 const base = 'assisted_applications/order_code_test';
 function fixture() {
@@ -84,14 +85,14 @@ describe('automatic recovery after a portal fix', () => {
       candidateAlias: { active: true, address: 'alias@example.test' }, consentVersion: 'assisted-application-v2', consentedAt: now,
       talentPoolConsent: true });
     store.docs.set(flowPath, { ...store.read(flowPath), state: 'needs_candidate_action', heldBy: ['question:email-repeat'],
-      answers: { availability: '2026-11-20' }, orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION,
+      answers: { availability: futureAvailability }, orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION,
       portalCodeVersion: 'a'.repeat(64), dispatch: { mode: 'submit', round: 1, requestedAt: now } });
     store.docs.set(draftPath, { ...store.read(draftPath), completedAt: now - 1,
       channel: { type: 'employer_site', applyUrl: 'https://jobs.example.test/apply' }, questions: [emailQuestion, availability] });
 
     expect(await reconcilePortalCode({ db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true }))
       .toMatchObject({ eligible: 1, queued: 1, identityQuestionsQueued: 1 });
-    expect(store.read(flowPath).answers).toMatchObject({ availability: '2026-11-20', 'email-repeat': 'alias@example.test' });
+    expect(store.read(flowPath).answers).toMatchObject({ availability: futureAvailability, 'email-repeat': 'alias@example.test' });
   });
 
   it('keeps a required birth date as a candidate question during portal recovery', async () => {

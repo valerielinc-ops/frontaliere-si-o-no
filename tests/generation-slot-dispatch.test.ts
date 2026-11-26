@@ -182,6 +182,35 @@ describe('generation slot dispatch', () => {
     entries: [{ section: 'canton-ti', workflow: 'generate-article-ti.yml', cron }],
   })[0];
 
+  it('recovers the Sciaffusa slot on a third tick after two GitHub errors', async () => {
+    const [entry] = parseCantonGenerationSchedule({
+      schema: 1,
+      entries: [{ section: 'canton-sh', workflow: 'generate-article-sh.yml', cron: '59 3,9,15,21 * * *' }],
+    });
+    const db = memoryDb();
+    const statuses = [500, 502, 204];
+    const fetchImpl = vi.fn(async (_url: string, init?: RequestInit) => init?.method === 'POST'
+      ? new Response(null, { status: statuses.shift() })
+      : responseForWorkflow(cantonWorkflow));
+    const dispatch = (scheduledAt: string) => dispatchGenerationSlot({
+      entry,
+      scheduledAt: new Date(scheduledAt),
+      now: Date.parse(scheduledAt),
+      context: { pat: 'test-token', owner: 'test-owner', repo: 'test-corpus' },
+      fetchImpl,
+      getAdminDbImpl: () => db,
+    });
+
+    const slotKey = 'generate-article/canton-sh/2026-11-25T15:59Z';
+    expect(await dispatch('2026-11-25T16:05:00Z')).toMatchObject({ slotKey, reason: 'generation_dispatch_failed:500' });
+    expect(await dispatch('2026-11-25T16:10:00Z')).toMatchObject({ slotKey, reason: 'generation_dispatch_failed:502' });
+    expect(await dispatch('2026-11-25T16:15:00Z')).toMatchObject({ slotKey, dispatched: true, attempt: 3 });
+    expect(await dispatch('2026-11-25T16:20:00Z')).toMatchObject({ dispatched: false, reason: 'slot_not_due' });
+    const posts = fetchImpl.mock.calls.filter(([, options]) => options?.method === 'POST');
+    expect(posts.map(([, options]) => JSON.parse(String(options?.body)).inputs.recovery_slot))
+      .toEqual([slotKey, slotKey, slotKey]);
+  });
+
   it.each([
     { hours: '2,11,23', duration: 3 * hour, offset: -1, admitted: true },
     { hours: '2,11,23', duration: 3 * hour, offset: 0, admitted: false },

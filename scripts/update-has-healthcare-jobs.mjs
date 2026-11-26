@@ -72,7 +72,11 @@ import {
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { assertSourceRelayReady, fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
-import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
+import {
+  abortKindForFetchOutcome as sharedAbortKindForFetchOutcome,
+  CRAWLER_TRANSPORT_FAILURE_OUTCOMES,
+  isFetchBoundaryAbortKind,
+} from './lib/crawler-fetch-outcome.mjs';
 import {
   isAuthoritativeEmptySnapshot,
   markAuthoritativeEmptySnapshot,
@@ -213,9 +217,7 @@ function fetchOutcomeForError(error) {
 }
 
 function abortKindForFetchOutcome(outcome) {
-  return CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(outcome)
-    ? 'connection-level-fetch'
-    : 'no-jobs-parsed';
+  return sharedAbortKindForFetchOutcome(outcome) ?? 'no-jobs-parsed';
 }
 
 /**
@@ -723,7 +725,7 @@ async function fetchJobs(counts) {
     detailFetchOutcomes,
   });
   Object.assign(counts, discovery);
-  if (discovery.abortKind === 'connection-level-fetch') {
+  if (isFetchBoundaryAbortKind(discovery.abortKind)) {
     console.warn(
       '⚠️ A detail transport failure made this partial run unsafe to merge; preserving the existing HAS slice.',
     );

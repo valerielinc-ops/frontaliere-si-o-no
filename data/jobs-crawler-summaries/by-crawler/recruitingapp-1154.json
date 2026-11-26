@@ -1,12 +1,12 @@
 {
-  "detailCandidates": 20,
+  "detailCandidates": 18,
   "detailGone": 0,
   "detailRejected": 5,
   "key": "recruitingapp-1154",
   "label": "SGKB Bewerbermanagement Stellen",
-  "generatedAt": "2026-11-20T22:27:39.969Z",
+  "generatedAt": "2026-11-25T21:21:43.490Z",
   "total": 0,
-  "discovered": 20,
+  "discovered": 18,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
   "fetchReceipt": {
@@ -15,7 +15,7 @@
       "https://recruitingapp-1154.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
     ],
     "phase": "detail",
-    "pages": 21,
+    "pages": 19,
     "httpStatuses": [
       {
         "status": 200,
@@ -24,6 +24,14 @@
       {
         "status": 200,
         "url": "https://recruitingapp-1154.umantis.com/Vacancies/3841/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3843/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3842/Description/1/Default?"
       },
       {
         "status": 200,
@@ -63,10 +71,6 @@
       },
       {
         "status": 200,
-        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3830/Description/1/Default?"
-      },
-      {
-        "status": 200,
         "url": "https://recruitingapp-1154.umantis.com/Vacancies/3829/Description/1/Default?"
       },
       {
@@ -87,24 +91,12 @@
       },
       {
         "status": 200,
-        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3822/Description/1/Default?"
-      },
-      {
-        "status": 200,
-        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3819/Description/1/Default?"
-      },
-      {
-        "status": 200,
         "url": "https://recruitingapp-1154.umantis.com/Vacancies/3813/Description/1/Default?"
-      },
-      {
-        "status": 200,
-        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3811/Description/1/Default?"
       }
     ],
     "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": "[prospector:recruitingapp-1154] detail snapshot incompleto: 5/20 detail page(s) dropped (25% > 15%); refusing partial publication"
+    "fetchDetail": "[prospector:recruitingapp-1154] detail snapshot incompleto: 5/18 detail page(s) dropped (28% > 15%); refusing partial publication"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -120,5 +112,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

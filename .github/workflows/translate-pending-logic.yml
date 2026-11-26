@@ -72,7 +72,7 @@ on:
   workflow_call:
     inputs:
       max_jobs:
-        description: 'Max jobs for the cascade. Wall-clock-bound, not quota-bound — its 30min cascade window stops it first.'
+        description: 'Max jobs for the cascade. Wall-clock-bound, not quota-bound — its queue-aware deadline stops it first.'
         type: string
         default: '900'
       mopup_max_jobs:
@@ -389,8 +389,8 @@ jobs:
           #   78-103 2a.2 title residue to the free cascade (25min window,
           #          110min ceiling)
           #   ~110   re-assemble + Argos commit + flags + baseline (~7min)
-          #   110-140 2b cascade (30min window, 150min ceiling)
-          #   140-170 2c Argos mop-up (170min ceiling)
+          #   110-140/150 2b cascade (30min minimum, queue-aware to 150min)
+          #   140/150-170 2c Argos mop-up (170min ceiling)
           #   ~175   commit; the repair gate now needs >= 90min, so this late
           #          run skips 2d/2e and preserves the final persistence queue
           #   175-210 2d titles (07:00 run) / 2e descriptions
@@ -489,7 +489,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --extra-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/translation-title-fix-attempts.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -546,12 +546,14 @@ jobs:
           # Translation and metadata calls deliberately keep the normal
           # cascade; Codex preference is scoped to body generation inside
           # create-article.
-          # Argos-first: a 30min window from this step's start under a 150min
-          # run-wide ceiling, so 2b no longer depends on what 2a consumed (see
-          # the budget table at Phase 2a). Argos disabled: the cascade is the
-          # primary translator, 250min run-wide and no window, as before.
+          # Argos-first: a 30min minimum window from this step's start. The
+          # runtime expands it by the eligible company count, up to the 150min
+          # run-wide ceiling, so a large queue can use the remaining envelope
+          # without stealing the 20min reserved for 2c. Argos disabled: the
+          # cascade is the primary translator, 250min run-wide and no window.
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '9000000' }}
           JOBS_CASCADE_WINDOW_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '0' || '1800000' }}
+          JOBS_CASCADE_PER_COMPANY_BUDGET_MS: '900000' # 15min/company; capped by JOBS_CASCADE_DEADLINE_MS.
           # Azure (F0, 2M chars/month) is kept for titles: Phase 2a.2 and 2d
           # spend it on ~46-char titles, while one 2b window of job
           # localization (titles + ~2,500-char descriptions per locale) can
@@ -561,7 +563,7 @@ jobs:
           AZURE_TRANSLATOR_KEY_2: ''
           # Codex reserve (see the broker step above): default tier position,
           # at most the configured number of requests (350 by default) and 25
-          # minutes of the 30-minute window per run. The jobs queue is traffic-
+          # minutes of the 30-minute minimum window per run. The jobs queue is traffic-
           # ordered, so the budget goes to the most visited jobs first. The phase writes its counters to
           # TRANSLATE_CODEX_RESERVE_DIR for the stats row and the credential
           # alert (scripts/lib/codex-reserve-report.mjs).
@@ -679,7 +681,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --extra-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -742,7 +744,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --extra-only "🔤 Fix untranslated titles (free cascade)" data/jobs/by-crawler/ data/translation-cache/ data/translation-title-fix-attempts.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)" data/jobs/by-crawler/ data/translation-cache/ data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -778,7 +780,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --extra-only "📝 Fix untranslated descriptions (free cascade)" data/jobs/by-crawler/
+          bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)" data/jobs/by-crawler/
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -1010,7 +1012,7 @@ jobs:
         if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         env:
           SKIP_AI_TRANSLATION: '1'
-        run: bash scripts/lib/git-commit-data.sh --extra-only "🔗 Regenerate locale slugs (post-translation)" data/jobs/by-crawler/
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)" data/jobs/by-crawler/
 
       - name: Save per-company translation cache
         if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true

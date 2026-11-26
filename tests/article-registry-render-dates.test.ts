@@ -86,7 +86,11 @@ it.each([
   { datePublished: '2026-02-18T11:45:01+00:00', dateModified: '2026-02-19T12:15:00+00:00' },
   { datePublished: '2026-02-18T11:45:01+00:00', dateModified: undefined },
   { datePublished: undefined, dateModified: '2026-02-19T12:15:00+00:00' },
-])('preserves known dates and omits unknown dates in four locales: %j', async (dates) => {
+  { datePublished: '2026-02-18T11:45:01', normalizedPublication: '2026-02-18T11:45:01+01:00' },
+  { datePublished: '2026-07-18T11:45:01', normalizedPublication: '2026-07-18T11:45:01+02:00' },
+  { datePublished: '2026-03-29T02:30:00', normalizedPublication: '2026-03-29' },
+  { datePublished: '2026-10-25T02:30:00', normalizedPublication: '2026-10-25' },
+])('preserves known dates and omits unknown dates in four locales: %j', async ({ normalizedPublication, ...dates }) => {
   const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'article-unknown-date-fixture-'));
   temporaryRoots.push(rootDir);
   const write = (file: string, body: string) => {
@@ -111,7 +115,8 @@ it.each([
   expect(result.entries).toHaveLength(2);
   for (const output of result.entries) {
     expect(Object.values(output.paths)).toHaveLength(4);
-    const expected: { datePublished?: string; dateModified?: string } = output.articleId === 'known-dates' ? dates : {};
+    const expected: { datePublished?: string; dateModified?: string } = output.articleId === 'known-dates'
+      ? { ...dates, datePublished: normalizedPublication ?? dates.datePublished } : {};
     for (const file of Object.values(output.paths)) {
       const html = fs.readFileSync(path.join(distDir, file), 'utf8');
       const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
@@ -126,7 +131,7 @@ it.each([
           expect(article[key]).toBe(value);
           expect(html).toContain(`<meta property="${property}" content="${value}">`);
           expect(byline).toContain(`itemprop="${key}"`);
-          expect(byline).toContain(`datetime="${value.slice(0,10)}"`);
+          expect(byline).toContain(`datetime="${key === 'datePublished' ? value : value.slice(0, 10)}"`);
         } else {
           expect(article).not.toHaveProperty(key);
           expect(html).not.toContain(`property="${property}"`);

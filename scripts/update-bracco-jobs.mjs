@@ -704,6 +704,18 @@ async function rewriteStoredJobsWithoutThinSource(storedJobs) {
   });
 }
 
+/**
+ * Preserve the response/no-response distinction in Bracco's custom-main exit.
+ *
+ * @param {unknown} error
+ * @returns {'retryable-http-response'|'connection-level-fetch'|null}
+ */
+export function classifyBraccoFetchAbortKind(error) {
+  if (isRetryBudgetExhausted(error)) return 'retryable-http-response';
+  if (isConnectionLevelFetchError(error)) return 'connection-level-fetch';
+  return null;
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
@@ -725,9 +737,10 @@ async function main() {
   try {
     discoveredJobs = await fetchBraccoJobs();
   } catch (err) {
-    const retryBudgetExhausted = isRetryBudgetExhausted(err);
-    if (!isConnectionLevelFetchError(err) && !retryBudgetExhausted) throw err;
-    markCrawlerSummaryAbortKind('connection-level-fetch');
+    const abortKind = classifyBraccoFetchAbortKind(err);
+    if (!abortKind) throw err;
+    const retryBudgetExhausted = abortKind === 'retryable-http-response';
+    markCrawlerSummaryAbortKind(abortKind);
     console.log(
       retryBudgetExhausted
         ? `\n⚠️ Bracco Suisse: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs (no de-index).`

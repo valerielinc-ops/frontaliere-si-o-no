@@ -118,6 +118,35 @@ describe('preharvest ATS questions & job question cache', () => {
     expect(merged.map((q) => q.question)).toEqual(['Do you speak French?', 'Available start date?']);
   });
 
+  it('preserves portal metadata in cache and deduplicates duplicate question ids across cached and live portal entries', async () => {
+    const cached = sanitizeQuestionsForCache([
+      {
+        id: 'portal_what_is_your_marital_status_b4j4zh_19o61vi',
+        source: 'portal',
+        question: 'Qual è il tuo stato civile?*',
+        applicationQuestion: 'What is your Marital Status?*',
+        type: 'choice',
+        options: ['Celibe/nubile (Svizzera)', 'Coniugato/a (Svizzera)'],
+        applicationOptions: ['Single (Switzerland)', 'Married (Switzerland)'],
+        context: 'Marital Status · What is your Marital Status?*',
+        addressContext: { section: 'Marital Status', owners: ['Marital Status'], unknown: false },
+      },
+    ]);
+    expect(cached[0]).toMatchObject({
+      source: 'portal',
+      context: 'Marital Status · What is your Marital Status?*',
+      addressContext: { section: 'Marital Status', owners: ['Marital Status'], unknown: false },
+    });
+
+    const { dedupePortalQuestions } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const deduped = dedupePortalQuestions([
+      { id: 'portal_q1', question: 'Stato civile', options: ['Coniugato/a'] },
+      { id: 'portal_q1', source: 'portal', question: 'Qual è il tuo stato civile?*', options: ['Sposato/a'], optionMap: [{ candidate: 'Sposato/a', application: 'Married' }] },
+    ]);
+    expect(deduped).toHaveLength(1);
+    expect(deduped[0]).toMatchObject({ id: 'portal_q1', source: 'portal', options: ['Sposato/a'] });
+  });
+
   it('applies uploaded candidateFacts noticePeriod and salaryExpectation to platformCandidateFacts', () => {
     const defaults = platformCandidateFacts({
       order: {

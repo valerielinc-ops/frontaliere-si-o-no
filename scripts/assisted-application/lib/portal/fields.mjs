@@ -861,7 +861,16 @@ function nativeQuestionText(value, counter = null) {
           const matches = node.ownerDocument.querySelectorAll(`[id="${CSS.escape(id)}"]`);
           if (matches.length !== 1) { result.unknown = true; return result; }
           const named = matches[0];
-          const name = captionText(named, element);
+          let name = captionText(named, element);
+          // In SuccessFactors RCM the group explicitly references a heading
+          // whose sole content is the section toggle. Its caption names this
+          // group, unlike a button incidentally embedded in a field label.
+          if (!name && isSuccessFactorsPage() && node.getAttribute('role') === 'group'
+            && /^H[1-4]$/.test(named.tagName) && !node.contains(named)
+            && node.parentElement?.contains(named)) {
+            const toggles = named.querySelectorAll('button, [role="button"]');
+            if (toggles.length === 1 && shown(toggles[0])) name = captionTextWithoutInteractiveControls(toggles[0]);
+          }
           if (!name) { result.unknown = true; return result; }
           if (!addName(name)) return result;
         }
@@ -870,6 +879,29 @@ function nativeQuestionText(value, counter = null) {
         if (!add(names.join(' · '))) return result;
       }
       if (node === boundary) break;
+    }
+    // SuccessFactors can render the profile/job sections as disclosure
+    // buttons whose controlled panels have no semantic region or heading.
+    // The exact aria-controls relationship is ownership proof; a nearby
+    // button label alone is not. When a page also has an expand-all control,
+    // keep the deepest controlled panel so its section owns the field.
+    if (!result.unknown && !result.owners.length) {
+      const candidates = [];
+      for (const toggle of document.querySelectorAll('button[aria-controls], [role="button"][aria-controls]')) {
+        if (!shown(toggle)) continue;
+        const references = idRefs(toggle.getAttribute('aria-controls'));
+        if (references.length !== 1) continue;
+        const targets = [...document.querySelectorAll('[id]')].filter(node => node.id === references[0]);
+        if (targets.length !== 1 || !targets[0].contains(element)) continue;
+        const labelledBy = (toggle.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+          .map(textOf).filter(Boolean).join(' ');
+        const label = clean(labelledBy || toggle.getAttribute('aria-label') || toggle.getAttribute('title')
+          || toggle.innerText || toggle.textContent);
+        if (label && label.length <= 300) candidates.push({ target: targets[0], label });
+      }
+      const specific = candidates.filter(candidate => !candidates.some(other =>
+        other !== candidate && other.target !== candidate.target && candidate.target.contains(other.target)));
+      if (specific.length === 1) add(specific[0].label);
     }
     const section = headingBefore(element);
     const externalSection = actualForm && boundary === actualForm

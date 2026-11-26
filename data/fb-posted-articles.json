@@ -2,18 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "autista-stellato-fabio-giorgianni-premio",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/autista-stellato-fabio-giorgianni-premio/",
-      "ts": "2026-05-07T13:07:41.448Z",
-      "seed": true
-    },
-    {
-      "id": "accordo-editori-sindacati-svizzera-tedesca",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/accordo-editori-sindacati-svizzera-tedesca/",
-      "ts": "2026-05-07T13:16:48.776Z",
-      "seed": true
-    },
-    {
       "id": "svizzera-minaccia-ibrida-russa-2026",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/svizzera-minaccia-ibrida-russa-2026/",
       "ts": "2026-05-07T13:25:37.428Z",
@@ -6385,6 +6373,40 @@
       "copyAngleIntent": "both",
       "copyHook": "Redditi esteri: un passaggio pratico da verificare nella guida.",
       "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "fiscalita-tre-livelli-svizzera",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/fiscalita-tre-livelli-svizzera/",
+      "ts": "2026-11-26T08:38:11.446Z",
+      "fbPostId": "951226518080080_122132453745272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Redditi esteri: un passaggio pratico da verificare nella guida.",
+      "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "euro-sotto-091-sollievo",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/euro-sotto-091-sollievo/",
+      "ts": "2026-11-26T08:38:17.882Z",
+      "fbPostId": "951226518080080_122132453787272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
+      "copyCta": "Consulta la guida."
     }
   ]
 }

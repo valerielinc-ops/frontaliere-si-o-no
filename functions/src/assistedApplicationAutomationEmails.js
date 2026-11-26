@@ -650,9 +650,11 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
   }
   if (stop.retryLane === 'transport' && Number(portalAutoRetryAt) > 0) {
     return {
-      reason: normalizedReason.startsWith('transport:') ? 'i provider email non hanno accettato l’invio'
-        : normalizedReason === 'portal:application_region_unsupported' ? `l’invio sul portale si è fermato: ${PORTAL_STOPS.application_region_unsupported}`
-          : 'la connessione al portale non è riuscita',
+      reason: normalizedReason === 'transport:codex_usage_limit' || normalizedReason === 'transport:codex_broker_unavailable'
+        ? 'il servizio Codex AI ha raggiunto temporaneamente il limite d’uso o non era disponibile'
+        : normalizedReason.startsWith('transport:') ? 'i provider email non hanno accettato l’invio'
+          : normalizedReason === 'portal:application_region_unsupported' ? `l’invio sul portale si è fermato: ${PORTAL_STOPS.application_region_unsupported}`
+            : 'la connessione al portale non è riuscita',
       hint: `La candidatura resta in coda. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')} e i tentativi proseguiranno mentre l’annuncio è disponibile. Non serve intervenire sulla singola candidatura.`,
       detail: '',
     };

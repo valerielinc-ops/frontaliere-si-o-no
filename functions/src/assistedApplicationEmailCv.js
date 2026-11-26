@@ -131,6 +131,7 @@ async function storeCv({ deps, orderDoc, attachment, nowMs }) {
       cvFileName: `${fileStem(attachment.filename)}.${attachment.type}`,
       cvUploadedAt: Timestamp.fromMillis(nowMs),
       cvUploadedBy: 'email_reply',
+      candidateStaleArchivedAt: null,
       updatedAt: timestamp,
       ...(order.submissionStatus === 'awaiting_upload' ? { submissionStatus: 'in_progress', statusChangedAt: timestamp } : {}),
     }, { merge: true });

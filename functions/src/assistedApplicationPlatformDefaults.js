@@ -97,7 +97,9 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // questions; a passport stated at upload remains the higher-priority fact, and an unknown nationality stays open.
 // v14 (2026-11-12): passport questions share one fact; verified platform answers plus a foreign permit can
 // establish EU/EFTA, while an explicit candidate blank keeps the passport unknown.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v14';
+// v15 (2026-11-24): deduce birth-year estimate from work experience when education lacks dates (unblocking
+// civil-status deduction), and deduce category B driving licence from own-car evidence or decision.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v15';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -262,10 +264,13 @@ export function platformDateOfBirth(profile = {}) {
   const dated = education.filter((item) => !UNIVERSITY_RE.test(text(item)));
   const leaving = dated.map((item) => yearOf(item?.end)).filter(Boolean);
   const started = education.map((item) => yearOf(item?.start)).filter(Boolean);
+  const experience = Array.isArray(profile?.experience) ? profile.experience : [];
+  const experienced = experience.flatMap((item) => [yearOf(item?.start), yearOf(item?.end)]).filter(Boolean);
   const year = maturity.length ? Math.min(...maturity) - PLATFORM_SCHOOL_LEAVING_AGE
     : university.length ? Math.min(...university) - PLATFORM_SCHOOL_LEAVING_AGE
       : leaving.length ? Math.min(...leaving) - PLATFORM_SCHOOL_LEAVING_AGE
-        : started.length ? Math.min(...started) - PLATFORM_SCHOOL_LEAVING_AGE : null;
+        : started.length ? Math.min(...started) - PLATFORM_SCHOOL_LEAVING_AGE
+          : experienced.length ? Math.min(...experienced) - PLATFORM_SCHOOL_LEAVING_AGE : null;
   return year ? { value: `${year}-01-01`, estimated: true } : null;
 }
 
@@ -496,7 +501,66 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     // The candidate's own answers at CV upload, '' when the order predates them (owner decision 2026-11-10).
     criminalRecord: legalRecordAnswer(uploaded.criminalRecord),
     debtRecord: legalRecordAnswer(uploaded.debtRecord),
+    drivingLicenceB: hasDrivingLicenceBFact({ order, profile, cvText, questions, answers, decisionAnswers }),
   };
+}
+
+const OWN_CAR_FACT_QUESTION = /\b(?:automunit[oa]|propri[ao]\s+(?:aut[oa]|veicol[oa]|mezzo)|aut[oa]\s+propri[ao]|mezzo\s+proprio|own\s+(?:car|vehicle)|eigenes?\s+(?:auto|fahrzeug|pkw)|voiture\s+personnelle|vehicule\s+personnel|disporre\s+di\s+(?:un[a']?\s+)?(?:aut[oa]|veicol[oa])|possied[ei]\s+(?:un[a']?\s+)?(?:aut[oa]|veicol[oa]))\b/;
+const DRIVING_LICENCE_B_TEXT = /\b(?:automunit[oa]|patent[ei](?:\s+di\s+guida)?(?:\s+cat(?:egori[ae])?\.?)?\s+b|fuhr(?:er)?(?:ausweis|schein)\s+(?:kat(?:egorie)?\.?)?\s*b|permis\s+(?:de\s+conduire\s+)?b|driv(?:ing|er'?s?)\s+licen[cs]e\s+b)\b/g;
+const DRIVING_LICENCE_B_FIELD = /\b(?:patente(?:\s+di\s+guida)?|licenz\w*\s+di\s+condur\w*|driv\w*\s+licen[cs]e|fuhrerausweis|fuhrerschein|fahrerlaubnis|permis\s+de\s+conduire)\b/;
+const DRIVING_LICENCE_CAT_B = /\b(?:cat(?:egori[ae]|egory)?\.?\s*b|classe?\s*b|kat(?:egorie)?\.?\s*b|patente\s+b|licenz\w*\s+b|permis\s+b|(?:ausweis|schein)\s+b|licen[cs]e\s+b)\b/;
+const DRIVING_LICENCE_OTHER_CAT = /\b(?:cat(?:egori[ae]|egory)?\.?\s*(?:a\d?|be|c\d?e?|d\d?e?|f|g|m)|patente\s+(?:a\d?|be|c\d?e?|d\d?e?)|permis\s+(?:a\d?|be|c\d?e?|d\d?e?)|kat(?:egorie)?\.?\s*(?:a\d?|be|c\d?e?|d\d?e?))\b/;
+const DRIVING_LICENCE_EXCLUSION = /\b(?:allega\w*|upload\w*|copia|copy|kopie|copie|scan\w*|pdf|file|datei\w*|fichier\w*|foto|numero|number|nummer|scadenz\w*|expir\w*|gultig\s+bis|valid\s+until|valable\s+jusqu|rilasciat\w*|issued|ausgestellt|delivre|data\s+di|date\s+of|anno|year|jahr|annee|punti|points|sospes\w*|revocat\w*)\b/;
+const LICENCE_NEGATION = /\b(?:no|non|not|without|senza|kein\w*|nicht|ohne|aucun\w*|sans)\s*$/;
+
+/** Whether the candidate's CV, intake, explicit answer, or verified own-car decision proves category B entitlement. */
+function hasDrivingLicenceBFact({ order = {}, profile = {}, cvText = '', questions = [], answers = {}, decisionAnswers = {} } = {}) {
+  const structured = fold([profile?.drivingLicence, order?.candidateFacts?.drivingLicence].filter(Boolean).join(' '));
+  if (structured && !/^(?:no|none|nessun[ao]?|kein\w*|aucun\w*|non)\b/.test(structured)
+    && /\b(?:patente\s*b|cat(?:egori[ae]|egory)?\.?\s*b|classe?\s*b|kat(?:egorie)?\.?\s*b|b\b|be\b|automunit[oa]|auto|car)\b/.test(structured)) {
+    return true;
+  }
+  let ownCarRejected = false;
+  for (const q of Array.isArray(questions) ? questions : []) {
+    const qText = label(q);
+    if (!OWN_CAR_FACT_QUESTION.test(qText) || DRIVING_LICENCE_EXCLUSION.test(qText)) continue;
+    const candidateAns = answers?.[q.id];
+    const hasCandidateAns = typeof candidateAns === 'boolean'
+      || (typeof candidateAns === 'string' && candidateAns.trim().length > 0 && !isUnknownAnswer(candidateAns));
+    if (hasCandidateAns) {
+      if (candidateAns === true || (typeof candidateAns === 'string' && YES.test(fold(candidateAns)))) return true;
+      if (candidateAns === false || (typeof candidateAns === 'string' && NO.test(fold(candidateAns)))) ownCarRejected = true;
+      continue;
+    }
+    if (isUnknownAnswer(candidateAns)) continue;
+    const decisionAns = decisionAnswers?.[q.id]?.value;
+    if (decisionAns === true || (typeof decisionAns === 'string' && YES.test(fold(decisionAns)))) return true;
+  }
+  if (!ownCarRejected) {
+    const ownCarDeclared = fold([order?.candidateFacts?.ownCar, profile?.ownCar].filter((value) => typeof value === 'string' && value.trim()).join(' '));
+    if (order?.candidateFacts?.ownCar === true || profile?.ownCar === true || (ownCarDeclared && YES.test(ownCarDeclared))) {
+      return true;
+    }
+  }
+  const narrative = fold([cvText, order?.candidateNotes, profile?.summary].filter((value) => typeof value === 'string' && value.trim()).join(' \n '));
+  if (narrative) {
+    for (const match of narrative.matchAll(DRIVING_LICENCE_B_TEXT)) {
+      if (ownCarRejected && /^automunit[oa]$/.test(match[0])) continue;
+      const prefix = narrative.slice(Math.max(0, match.index - 24), match.index);
+      if (!LICENCE_NEGATION.test(prefix)) return true;
+    }
+  }
+  return false;
+}
+
+function isDrivingLicenceBQuestion(question) {
+  if (!isBinary(question)) return false;
+  const text = label(question);
+  if (!DRIVING_LICENCE_B_FIELD.test(text) || DRIVING_LICENCE_OTHER_CAT.test(text)
+    || DRIVING_LICENCE_EXCLUSION.test(text) || OWN_CAR_FACT_QUESTION.test(text)) {
+    return false;
+  }
+  return DRIVING_LICENCE_CAT_B.test(text) || /\b(?:licenza\s+di\s+condurre|patente(?:\s+di\s+guida)?|fuhrerausweis|fuhrerschein|permis\s+de\s+conduire|driv(?:ing|er'?s?)\s+licen[cs]e)\b/.test(text);
 }
 
 /** The countries bordering Switzerland: a resident who works in Switzerland is a cross-border commuter. */
@@ -1527,6 +1591,7 @@ function classifyPlatformSubject(question) {
     return 'birth_date';
   }
   if (isCivilStatusField(text)) return 'civil_status';
+  if (isDrivingLicenceBQuestion(question)) return 'driving_licence_b';
   const raw = [question?.applicationQuestion, question?.question, question?.label].filter(Boolean).join(' ');
   const permitOptions = optionsOf(question).filter((option) => permitCodeOf(option)).length;
   if ((isPermitField(raw) && asksHeldStatus(raw)) || permitOptions >= 2) return 'work_permit';
@@ -2098,6 +2163,12 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       break;
     }
     case 'birth_date': value = dateValue(question, known.dateOfBirth, lang); break;
+    case 'driving_licence_b':
+      if (known.drivingLicenceB) {
+        value = yesValue(question, lang);
+        basis = 'deduced';
+      }
+      break;
     case 'birth_day': value = known.dateOfBirth ? choose(question, String(Number(known.dateOfBirth.slice(8, 10)))) || choose(question, `${Number(known.dateOfBirth.slice(8, 10))}.`) : ''; break;
     case 'birth_month': value = known.dateOfBirth ? choose(question, String(Number(known.dateOfBirth.slice(5, 7)))) || choose(question, `${Number(known.dateOfBirth.slice(5, 7))}.`) : ''; break;
     case 'birth_year': value = known.dateOfBirth ? choose(question, known.dateOfBirth.slice(0, 4)) : ''; break;

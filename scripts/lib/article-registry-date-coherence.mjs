@@ -88,7 +88,8 @@ function timestamp(value) {
  *
  * API rows absent from this source are ignored: the site may carry explicitly
  * preserved local-only articles. Rows shared by both sides must retain the
- * exact publication date, while freshness may only move forward.
+ * exact publication date, while freshness may only move forward. An empty publication date is the
+ * corpus sentinel for unknown and must match on both sides.
  *
  * @returns {{source: string, updatedIds: string[]}}
  */
@@ -114,7 +115,7 @@ export function applyPublishedArticleUpdates(
     if (publishedById.has(row.id)) {
       throw new Error(`[article-registry-date-coherence] ${fileName}: duplicate published article '${row.id}'`);
     }
-    if (typeof row.date !== 'string' || timestamp(row.date) === null) {
+    if (typeof row.date !== 'string' || (row.date !== '' && timestamp(row.date) === null)) {
       throw new Error(`[article-registry-date-coherence] ${fileName}: article '${row.id}' has invalid published date`);
     }
     if (row.updatedAt !== undefined

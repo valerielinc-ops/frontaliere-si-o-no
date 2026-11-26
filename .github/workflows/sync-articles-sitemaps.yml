@@ -536,15 +536,6 @@ jobs:
           else
             echo "article-content-changed=true" >> "$GITHUB_OUTPUT"
           fi
-          # Recorded BEFORE the commit, because after it `git diff` is clean.
-          # Drives the edge-publish step below: /sitemap-news.xml is served
-          # from R2, not from this commit, so committing a fresher file does
-          # nothing for Google News on its own.
-          if git diff --quiet -- public/sitemap-news.xml; then
-            echo "news-sitemap-changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "news-sitemap-changed=true" >> "$GITHUB_OUTPUT"
-          fi
           # Same reasoning, second surface: the homepage ticker reads
           # cdn.frontaliereticino.ch/data/news-ticker-live.json, an R2 object,
           # NOT the file this job commits. See the edge-publish step below.
@@ -931,10 +922,25 @@ jobs:
       # 'generated' llms.txt family with whatever a dist-less tree renders.
       # This job owns exactly one entry and pushes exactly that one.
       #
-      # Gated on the file having actually changed so a quiet run does not spend
-      # a Cloudflare purge on a byte-identical re-PUT.
+      # Compare against the delivered object even on a no-op sync: an earlier
+      # upload can fail after main already has the expected sitemap.
+      - name: Check the delivered news sitemap
+        id: news_sitemap_delivery
+        if: steps.commit.outcome == 'success' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          remote="$RUNNER_TEMP/delivered-news-sitemap.xml"
+          test -s public/sitemap-news.xml
+          if curl --fail --silent --show-error --max-time 20 --output "$remote" \
+            https://cdn.frontaliereticino.ch/edge/sitemap-news.xml \
+            && cmp -s public/sitemap-news.xml "$remote"; then
+            echo 'needs-upload=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'needs-upload=true' >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Prepare Firebase credentials
-        if: (steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: (steps.news_sitemap_delivery.outputs.needs-upload == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -944,18 +950,13 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: (steps.commit.outputs.news-sitemap-changed == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: (steps.news_sitemap_delivery.outputs.needs-upload == 'true' || steps.commit.outputs.ticker-changed == 'true' || steps.commit.outputs.feeds-changed == 'true') && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           if test -f scripts/load-rc-env.mjs; then
             node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
           else
             echo "⚠️ load-rc-env.mjs is absent in this checkout (non-fatal)"
           fi
-
-      - name: Publish the news sitemap to the edge
-        if: steps.commit.outputs.news-sitemap-changed == 'true' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        continue-on-error: true
-        run: node scripts/publish-edge-files.mjs --only=/sitemap-news.xml
 
       # The ten RSS feeds, same mechanism as the sitemap above. The --only list
       # stays on ONE line with no spaces after the commas: coveredPaths() in
@@ -1045,6 +1046,17 @@ jobs:
           # the bare-URL variant for everyone else, and mirrors the purge
           # publish-article-chunks.mjs already issues after its own PUT.
           node scripts/cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
+
+      - name: Publish the news sitemap to the edge
+        if: steps.news_sitemap_delivery.outputs.needs-upload == 'true' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          log="$RUNNER_TEMP/news-sitemap-upload.log"
+          node scripts/publish-edge-files.mjs --only=/sitemap-news.xml 2>&1 | tee "$log"
+          if ! grep -Fq '✅ uploaded ' "$log"; then
+            echo "::error::No successful PUT confirmed for the news sitemap"
+            exit 1
+          fi
 
       # Article sitemap files are published by the corpus publisher and by the
       # edge replay above, not by a Pages deploy. Reconcile the complete article

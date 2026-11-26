@@ -70,8 +70,8 @@
  *
  * Fetch outcome (issue #7897): a summary slice MAY report `lastFetchOutcome`,
  * the run's own verdict on WHY it ended up empty — `ok`, `anti_bot_block`,
- * `selector_miss`, `filtered_empty`, `connection_error` or
- * `exhausted_retry` or `feed_endpoint_unavailable`. It answers on the FIRST
+ * `selector_miss`, `filtered_empty`, `connection_error`, `exhausted_retry` or
+ * `feed_endpoint_unavailable`. It answers on the FIRST
  * observation the
  * question the empty-streak gate can only guess at after three days, and even
  * then only as "0 jobs, cause unknown": a source that refused the fetch, a
@@ -79,10 +79,13 @@
  * quiet all publish the same `total: 0`. `selector_miss`/`anti_bot_block`,
  * `connection_error`, `exhausted_retry` and `feed_endpoint_unavailable` are
  * proof of a broken refresh, so they flag `broken` immediately and NAME the
- * cause. The exception is a `connection-level-fetch` early exit: the standard
- * pipeline explicitly preserves the previous slice for this transient
- * transport failure, so the monitor keeps the normal three-run corroboration
- * gate for it.
+ * cause. Early exits at the fetch boundary (`connection-level-fetch` and
+ * `retryable-http-response`) preserve the previous slice, so the monitor keeps
+ * the normal three-run corroboration gate and the same stale-success floor.
+ * `connection-level-fetch` is a generic abort marker: when `lastFetchOutcome`
+ * is present, that more specific outcome names the cause for diagnosis. This
+ * includes response-based outcomes such as `anti_bot_block` and
+ * `feed_endpoint_unavailable` as well as no-response `connection_error`.
  * `filtered_empty` is the same evidence as the `discovered > 0, written === 0`
  * signal above and clears the streak. Like `discovered`/`written`, the field is
  * OPTIONAL: a slice without it — every historical slice included — is read
@@ -92,7 +95,7 @@
  * boundary).
  *
  * Early-exit cause (issue #7784): a guard slice MAY report `abortKind` as
- * `no-jobs-parsed`, `connection-level-fetch` or `crash`. `exitCode: 0` alone
+ * `no-jobs-parsed`, `connection-level-fetch`, `retryable-http-response` or `crash`. `exitCode: 0` alone
  * cannot distinguish a fail-closed no-jobs bail-out from a transport failure;
  * the explicit class keeps the monitor's triage at the right layer.
  *
@@ -114,6 +117,7 @@ import { isSliceFile } from './lib/crawler-slice-files.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import {
   CRAWLER_FETCH_FAILURE_OUTCOMES,
+  isFetchBoundaryAbortKind,
   normalizeAbortKind,
   normalizeFetchOutcome,
 } from './lib/crawler-fetch-outcome.mjs';
@@ -392,6 +396,7 @@ async function inspectCrawler(slug) {
   );
   const abortKind = normalizeAbortKind(
     summary && typeof summary === 'object' ? summary.abortKind : null,
+    lastFetchOutcome,
   );
   const earlyExit = summary && typeof summary === 'object' && summary.earlyExit === true;
   // Separates a deliberate bail-out (0) from a crash (non-zero) — different
@@ -535,6 +540,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
   );
   const abortKind = normalizeAbortKind(
     summary && typeof summary === 'object' ? summary.abortKind : null,
+    lastFetchOutcome,
   );
   // Same guard-slice marker as `inspectCrawler` above: the corpus republishes
   // whatever slice the crawler wrote, exit-guard placeholders included — and
@@ -979,13 +985,13 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       : null;
   const abortKind = summaryMissing
     ? SUMMARY_MISSING_ABORT_KIND
-    : normalizeAbortKind(observation.abortKind);
+    : normalizeAbortKind(observation.abortKind, fetchOutcome);
   // The standard pipeline soft-exits on a transport failure after preserving
   // the previous live slice. Keep that run in the ordinary empty streak so a
   // single CI/egress incident cannot turn a healthy crawler into a broken one.
   const abortedRun = observation.earlyExit === true && lastObservedJobs === 0;
   // ...but only while it is genuinely a blip. That reclassification routes a
-  // proven transport failure into the 3-empty-run streak, and the streak
+  // proven fetch-boundary failure into the 3-empty-run streak, and the streak
   // counter is the wrong witness for a source that has actually died: it only
   // advances on runs that observe the crawler at all, so `nord-anglia` sat at
   // `consecutiveEmptyRuns: 1` with `feed_endpoint_unavailable` and a last
@@ -999,13 +1005,14 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // days and all 37 are `healthy`, because the field only advances on a
   // non-zero-jobs run and a source with no vacancies for months is legitimately
   // quiet — `linnea` is at 108 days. Age alone would flag all 37 and drown the
-  // signal. The predicate is age AND a proven transport failure on the last
-  // observation, which today holds for exactly 4 crawlers.
+  // signal. The predicate is age AND a proven fetch-boundary failure on the
+  // last observation, including no-response errors and exhausted retryable
+  // HTTP responses.
   //
   // Threshold from that same distribution: p50 and p90 of the age are both 5
   // days (552 of 597 refresh inside a week), so 10 days is twice the p90
   // cadence and cannot fire on normal quiet. Measured effect at this value:
-  // 1 crawler (nord-anglia, 14 days). The three genuine 5-day transport blips
+  // 1 crawler (nord-anglia, 14 days). The three genuine 5-day fetch blips
   // stay inside the transient window, which is what that window is for.
   const lastSuccessAtMs = previous.lastSuccessfulRunAt
     ? Date.parse(previous.lastSuccessfulRunAt)
@@ -1013,27 +1020,27 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const transportAbortOutlivedFloor =
     Number.isFinite(lastSuccessAtMs) &&
     nowMs - lastSuccessAtMs > TRANSPORT_ABORT_STALE_FLOOR_MS;
-  const transientTransportAbort =
-    abortedRun && abortKind === 'connection-level-fetch' && !transportAbortOutlivedFloor;
+  const transientFetchBoundaryAbort =
+    abortedRun && isFetchBoundaryAbortKind(abortKind) && !transportAbortOutlivedFloor;
   // Same evidence as the #5945 filtered-empty counts, stated directly instead
   // of derived: the run fetched and parsed fine, its own filter kept nothing.
   const filteredEmptyOutcome = fetchOutcome === 'filtered_empty' && lastObservedJobs === 0;
-  // A non-transport early exit never observed a publishable source result. The
+  // A non-fetch-boundary early exit never observed a publishable source result. The
   // crawler template keeps the historical `selector_miss` outcome on this
   // receipt for compatibility, but that label is not evidence of a fetch-
   // boundary selector miss. Keep the receipt on the corroborated abort path;
   // otherwise one fail-closed detail/listing extraction abort immediately
   // marks a healthy crawler broken while its previous slice is still valid.
-  const unobservedNonTransportAbort =
-    abortedRun && abortKind !== 'connection-level-fetch';
+  const unobservedNonFetchBoundaryAbort =
+    abortedRun && !isFetchBoundaryAbortKind(abortKind);
   // A PROVEN break, on the run's own report. Waiting three days to say "0 jobs"
-  // adds nothing here: the cause is already known and named. A soft transport
+  // adds nothing here: the cause is already known and named. A soft fetch-boundary
   // abort is intentionally excluded and uses the ordinary empty-streak gate.
   const fetchFailed =
-    (CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) || abortKind === 'connection-level-fetch') &&
+    (CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) || isFetchBoundaryAbortKind(abortKind)) &&
     lastObservedJobs === 0 &&
-    !transientTransportAbort &&
-    !unobservedNonTransportAbort;
+    !transientFetchBoundaryAbort &&
+    !unobservedNonFetchBoundaryAbort;
 
   // A fetch failure, process-exit receipt, or parser-positive zero-output
   // receipt cancels every empty-ok signal, including a manual
@@ -1205,16 +1212,21 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     // and the reason can send triage to the right layer instead of the parser
     // by default.
     status = 'broken';
-    if (abortKind === 'connection-level-fetch') {
-      reason = 'run reported abortKind=connection-level-fetch with 0 jobs — the crawler could not reach the source after retries and proxy fallback; look at crawler egress/transport, not at selectors';
+    if (abortKind === 'retryable-http-response' || fetchOutcome === 'exhausted_retry') {
+      const responseEvidence = fetchOutcome === 'exhausted_retry'
+        ? 'lastFetchOutcome=exhausted_retry'
+        : 'abortKind=retryable-http-response';
+      reason = `run reported ${responseEvidence} with 0 jobs — the source returned retryable HTTP responses until the response retry budget was exhausted; look at the source response/retry behavior, not at crawler egress or selectors`;
     } else if (fetchOutcome === 'anti_bot_block') {
       reason = 'run reported lastFetchOutcome=anti_bot_block with 0 jobs — the source refused the fetch (WAF/anti-bot/IP reputation) and the selectors were never exercised; look at the fetch transport, not at the parser';
     } else if (fetchOutcome === 'selector_miss') {
       reason = 'run reported lastFetchOutcome=selector_miss with 0 jobs — the fetch succeeded and the parser matched nothing it used to match (selector/label drift); look at the parser config, the source is reachable';
     } else if (fetchOutcome === 'connection_error') {
       reason = 'run reported lastFetchOutcome=connection_error with 0 jobs — retries and proxy fallback never observed the source; look at crawler egress/transport, not at selectors';
-    } else if (fetchOutcome === 'exhausted_retry') {
-      reason = 'run reported lastFetchOutcome=exhausted_retry with 0 jobs — the source returned retryable HTTP responses until the response retry budget was exhausted; look at the source transport, not at selectors';
+    } else if (fetchOutcome === 'feed_endpoint_unavailable') {
+      reason = 'run reported lastFetchOutcome=feed_endpoint_unavailable with 0 jobs — the expected feed host answered with a redirect or HTML document; look at the vendor endpoint, not at XML selectors';
+    } else if (abortKind === 'connection-level-fetch') {
+      reason = 'run reported abortKind=connection-level-fetch with 0 jobs — the crawler could not reach the source after retries and proxy fallback; look at crawler egress/transport, not at selectors';
     } else {
       reason = 'run reported lastFetchOutcome=feed_endpoint_unavailable with 0 jobs — the expected feed host answered with a redirect or HTML document; look at the vendor endpoint, not at XML selectors';
     }
@@ -1228,20 +1240,35 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     // SOURCE and it sends triage to the parser selectors or to retiring the
     // crawler; when the run aborted, both are the wrong place to look and the
     // source is usually still full. Say what actually happened instead.
-    const abortKindDiagnosis = abortKind === 'no-jobs-parsed'
-      ? 'the crawler reached a fail-closed no-jobs bail-out before publishing'
-      : abortKind === 'connection-level-fetch'
-        ? 'the crawler could not reach the source at the transport boundary'
-        : abortKind === 'crash'
-          ? 'the crawler crashed before publishing'
-          // A cause the receipt names but this map does not describe (the
-          // template's newer exits: missing-detail-url, thin-source-all, …)
-          // is still a reported cause: say its name instead of claiming that
-          // none was given, so a new kind reaches the issue without editing
-          // this monitor.
-          : abortKind
-            ? `the crawler reported its early exit as abortKind=${abortKind}`
-            : 'the early-exit cause was not reported';
+    let abortKindDiagnosis;
+    if (fetchOutcome === 'anti_bot_block') {
+      abortKindDiagnosis = 'the source refused the fetch (WAF/anti-bot/IP reputation) before the selectors were exercised';
+    } else if (fetchOutcome === 'selector_miss') {
+      abortKindDiagnosis = 'the fetch succeeded and the parser matched nothing it used to match (selector/label drift); look at the parser config, the source is reachable';
+    } else if (fetchOutcome === 'connection_error') {
+      abortKindDiagnosis = 'retries and proxy fallback never observed the source; look at crawler egress/transport, not at selectors';
+    } else if (fetchOutcome === 'exhausted_retry') {
+      abortKindDiagnosis = 'the source answered with retryable HTTP responses until the response retry budget was exhausted';
+    } else if (fetchOutcome === 'feed_endpoint_unavailable') {
+      abortKindDiagnosis = 'the expected feed host answered with a redirect or HTML document; look at the vendor endpoint, not at XML selectors';
+    } else if (abortKind === 'no-jobs-parsed') {
+      abortKindDiagnosis = 'the crawler reached a fail-closed no-jobs bail-out before publishing';
+    } else if (abortKind === 'retryable-http-response') {
+      abortKindDiagnosis = 'the source answered with retryable HTTP responses until the response retry budget was exhausted';
+    } else if (abortKind === 'connection-level-fetch') {
+      abortKindDiagnosis = 'the crawler could not reach the source at the transport boundary';
+    } else if (abortKind === 'crash') {
+      abortKindDiagnosis = 'the crawler crashed before publishing';
+    } else if (abortKind) {
+      // A cause the receipt names but this map does not describe (the
+      // template's newer exits: missing-detail-url, thin-source-all, …)
+      // is still a reported cause: say its name instead of claiming that
+      // none was given, so a new kind reaches the issue without editing
+      // this monitor.
+      abortKindDiagnosis = `the crawler reported its early exit as abortKind=${abortKind}`;
+    } else {
+      abortKindDiagnosis = 'the early-exit cause was not reported';
+    }
     const summaryMissingRun = summaryMissingRunUrl(summaryMissing);
     reason = summaryMissing
       // No receipt reached `main` at all: the group generation published its

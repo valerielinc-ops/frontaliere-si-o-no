@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ritterschumacher-com",
-  "assembledAt": "2026-11-20T21:20:49.172Z",
-  "runId": "44818010851",
+  "assembledAt": "2026-11-25T21:16:23.443Z",
+  "runId": "45701648627",
   "jobs": [
     {
       "id": "ritterschumacher-com-c245dba08291",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "responsabile-generale-di-progetto-nel-settore-edile-coira-o-engadina-ritter-schumacher-ag-chur",
         "en": "overall-project-manager-for-building-construction-chur-or-engadin-ritter-schumacher-ag-chur-oder-engadin",
-        "de": "gesamtprojektleiter-in-hochbau-chur-oder-engadin-ritter-schumacher-ag-chur",
+        "de": "gesamtprojektleiter-in-hochbau-chur-oder-engadin-chur-oder-engadin-ritterschumacher-com-ch",
         "fr": "responsable-general-e-de-projet-dans-le-domaine-de-la-construction-coire-ou-engadine-ritter-schumacher-ag-chur-oder"
       },
       "company": "Ritter Schumacher AG",
@@ -34,7 +34,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/gesamtprojektleiterin-hochbau-chur-oder-engadin",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:41.897Z",
+      "crawledAt": "2026-11-25T21:16:17.513Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -69,11 +69,11 @@
         "en": [
           "gesamtprojektleiter-in-hochbau-chur-oder-engadin-ritter-schumacher-ag-chur"
         ],
-        "fr": [
+        "de": [
           "gesamtprojektleiter-in-hochbau-chur-oder-engadin-ritter-schumacher-ag-chur"
         ],
-        "de": [
-          "gesamtprojektleiter-in-hochbau-chur-oder-engadin-chur-oder-engadin-ritterschumacher-com-ch"
+        "fr": [
+          "gesamtprojektleiter-in-hochbau-chur-oder-engadin-ritter-schumacher-ag-chur"
         ]
       },
       "firstSeenAt": "2026-11-17T21:23:04.691Z",
@@ -91,9 +91,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:20:41.897Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ritterschumacher.com/menschen/offene-stellen/gesamtprojektleiterin-hochbau-chur-oder-engadin"
+      "validThrough": "2027-02-16T21:16:17.513Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ritterschumacher-com-68a48745a5ee",
@@ -101,7 +100,7 @@
       "slugByLocale": {
         "it": "specialista-in-fisica-dell-edilizia-ed-energia-coira-ritter-schumacher-ag-chur",
         "en": "specialist-in-building-physics-and-energy-chur-ritter-schumacher-ag-chur",
-        "de": "fachspezialist-in-bauphysik-und-energie-chur-ritter-schumacher-ag-chur",
+        "de": "fachspezialist-in-bauphysik-und-energie-chur-chur-ritterschumacher-com-ch",
         "fr": "specialiste-en-physique-du-batiment-et-en-energie-coire-ritter-schumacher-ag-chur"
       },
       "company": "Ritter Schumacher AG",
@@ -126,7 +125,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/fachspezialistin-bauphysik-und-energie-chur",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:41.896Z",
+      "crawledAt": "2026-11-25T21:16:17.512Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -159,11 +158,11 @@
         "en": [
           "fachspezialist-in-bauphysik-und-energie-chur-ritter-schumacher-ag-chur"
         ],
-        "fr": [
+        "de": [
           "fachspezialist-in-bauphysik-und-energie-chur-ritter-schumacher-ag-chur"
         ],
-        "de": [
-          "fachspezialist-in-bauphysik-und-energie-chur-chur-ritterschumacher-com-ch"
+        "fr": [
+          "fachspezialist-in-bauphysik-und-energie-chur-ritter-schumacher-ag-chur"
         ]
       },
       "firstSeenAt": "2026-11-17T21:23:04.690Z",
@@ -181,9 +180,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:20:41.896Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ritterschumacher.com/menschen/offene-stellen/fachspezialistin-bauphysik-und-energie-chur"
+      "validThrough": "2027-02-16T21:16:17.512Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ritterschumacher-com-a584ce1906f0",
@@ -216,7 +214,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/projekt-und-bauleiterin-energetische-sanierungen-und-bestandsbauten-chur",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:41.895Z",
+      "crawledAt": "2026-11-25T21:16:17.511Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -267,9 +265,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:20:41.895Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ritterschumacher.com/menschen/offene-stellen/projekt-und-bauleiterin-energetische-sanierungen-und-bestandsbauten-chur"
+      "validThrough": "2027-02-16T21:16:17.511Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ritterschumacher-com-de81170079ec",
@@ -277,7 +274,7 @@
       "slugByLocale": {
         "it": "direttore-trice-lavori-arosa-ritter-schumacher-ag-arosa",
         "en": "construction-manager-arosa-ritter-schumacher-ag-arosa",
-        "de": "bauleiter-in-arosa-ritter-schumacher-ag-arosa",
+        "de": "bauleiter-in-arosa-arosa-ritterschumacher-com-ch",
         "fr": "conducteur-rice-de-travaux-arosa-ritter-schumacher-ag-arosa"
       },
       "company": "Ritter Schumacher AG",
@@ -302,7 +299,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/bauleiterin-arosa",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:41.894Z",
+      "crawledAt": "2026-11-25T21:16:17.510Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -333,11 +330,11 @@
         "en": [
           "bauleiter-in-arosa-ritter-schumacher-ag-arosa"
         ],
-        "fr": [
+        "de": [
           "bauleiter-in-arosa-ritter-schumacher-ag-arosa"
         ],
-        "de": [
-          "bauleiter-in-arosa-arosa-ritterschumacher-com-ch"
+        "fr": [
+          "bauleiter-in-arosa-ritter-schumacher-ag-arosa"
         ]
       },
       "firstSeenAt": "2026-11-17T21:23:04.689Z",
@@ -355,9 +352,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:20:41.894Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ritterschumacher.com/menschen/offene-stellen/bauleiterin-arosa"
+      "validThrough": "2027-02-16T21:16:17.510Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ritterschumacher-com-0abfeb16ed47",
@@ -365,7 +361,7 @@
       "slugByLocale": {
         "it": "direttore-trice-dei-lavori-zurigo-svizzera-centrale-ritter-schumacher-ag-zurich",
         "en": "construction-manager-zurich-central-switzerland-ritter-schumacher-ag-zurich-zentralschweiz",
-        "de": "bauleiter-in-zurich-zentralschweiz-ritter-schumacher-ag-zurich",
+        "de": "bauleiter-in-zurich-zentralschweiz-zurich-zentralschweiz-ritterschumacher-com-ch",
         "fr": "conducteur-rice-de-travaux-zurich-suisse-centrale-ritter-schumacher-ag-zurich-zentralschweiz"
       },
       "company": "Ritter Schumacher AG",
@@ -390,7 +386,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/bauleiterin-zuerichzentralschweiz",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:41.892Z",
+      "crawledAt": "2026-11-25T21:16:17.508Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -423,11 +419,11 @@
         "en": [
           "bauleiter-in-zurich-zentralschweiz-ritter-schumacher-ag-zurich"
         ],
-        "fr": [
+        "de": [
           "bauleiter-in-zurich-zentralschweiz-ritter-schumacher-ag-zurich"
         ],
-        "de": [
-          "bauleiter-in-zurich-zentralschweiz-zurich-zentralschweiz-ritterschumacher-com-ch"
+        "fr": [
+          "bauleiter-in-zurich-zentralschweiz-ritter-schumacher-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-11-17T21:23:04.688Z",
@@ -445,9 +441,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:20:41.892Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ritterschumacher.com/menschen/offene-stellen/bauleiterin-zuerichzentralschweiz"
+      "validThrough": "2027-02-16T21:16:17.508Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

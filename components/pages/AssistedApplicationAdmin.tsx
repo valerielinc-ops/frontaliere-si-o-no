@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import {
   AlertTriangle,
+  Archive,
   CheckCircle2,
   Clock3,
   ExternalLink,
@@ -77,12 +78,13 @@ const NEXT_STATUS_OPTIONS: Record<AssistedApplicationAdminStatus, Array<{
 
 // Whose move it is (services/assistedApplicationNextStep.ts): the owner's first, then what is
 // stuck on a fix, then what only waits.
-const NEXT_STEP_ORDER: NextStepGroup[] = ['owner', 'fix', 'candidate', 'robot', 'done'];
+const NEXT_STEP_ORDER: NextStepGroup[] = ['owner', 'fix', 'candidate', 'robot', 'archived', 'done'];
 const NEXT_STEP_STYLES: Record<NextStepGroup, string> = {
   owner: 'bg-warning-subtle text-warning border-warning-border',
   fix: 'bg-danger-subtle text-danger border-danger-border',
   candidate: 'bg-info-subtle text-info border-info-border',
   robot: 'bg-surface-alt text-subtle border-edge',
+  archived: 'bg-surface-alt text-muted border-edge',
   done: 'bg-success-subtle text-success border-success-border',
 };
 
@@ -174,6 +176,7 @@ function NextStepIcon({ group }: { group: NextStepGroup }) {
   if (group === 'fix') return <AlertTriangle size={13} aria-hidden="true" />;
   if (group === 'owner') return <UserCheck size={13} aria-hidden="true" />;
   if (group === 'robot') return <Loader2 size={13} aria-hidden="true" />;
+  if (group === 'archived') return <Archive size={13} aria-hidden="true" />;
   return <Clock3 size={13} aria-hidden="true" />;
 }
 
@@ -378,7 +381,7 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
   // The next move of each order, and how many orders wait on each side.
   const steps = useMemo(() => new Map(orders.map((order) => [order.orderId, nextStepFor(order)])), [orders]);
   const stepCounts = useMemo(() => {
-    const result: Record<NextStepGroup, number> = { owner: 0, fix: 0, candidate: 0, robot: 0, done: 0 };
+    const result: Record<NextStepGroup, number> = { owner: 0, fix: 0, candidate: 0, robot: 0, archived: 0, done: 0 };
     steps.forEach((step) => { result[step.group] += 1; });
     return result;
   }, [steps]);

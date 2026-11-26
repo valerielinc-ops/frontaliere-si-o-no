@@ -13744,6 +13744,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.a2-rodi-lavori-finiti.title': 'A2 à Rodi : travaux terminés, tronçon libre',
     'blog.article.a2-rodi-lavori-finiti.excerpt': 'L’Office fédéral des routes OFROU annonce la fin des travaux sur l’A2 à Rodi.',
     'blog.article.a2-rodi-lavori-finiti.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.mendrisio-feste-pista-ghiaccio.title': 'Mendrisio apporte fêtes et patinoire sur la place',
+    'blog.article.mendrisio-feste-pista-ghiaccio.excerpt': 'De fin novembre à janvier, Mendrisio anime ses places et ses quartiers avec une patinoire, un échange de vœux et un calendrier de rendez-vous.',
+    'blog.article.mendrisio-feste-pista-ghiaccio.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.festival-ai-lugano-aree.title': 'Festival AI à Lugano : 13 domaines et plus de 60 intervenants',
+    'blog.article.festival-ai-lugano-aree.excerpt': 'Au Palais des congrès de Lugano, le Festival AI réunit plus de 60 intervenants internationaux dans 13 domaines, avec un espace d’exposition gratuit ouvert à tous.',
+    'blog.article.festival-ai-lugano-aree.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.controlli-mendrisiotto-settembre-novembre.title': 'Contrôles conjoints dans le Mendrisiotto entre septembre et novembre',
+    'blog.article.controlli-mendrisiotto-settembre-novembre.excerpt': 'L’opération visait à suivre les flux de transit, à relever d’éventuelles situations suspectes et à lutter contre des comportements potentiellement illicites.',
+    'blog.article.controlli-mendrisiotto-settembre-novembre.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.euro-sotto-091-sollievo.title': 'Euro sous 0,91 : soulagement pour les travailleurs frontaliers',
+    'blog.article.euro-sotto-091-sollievo.excerpt': 'À 13 h 45, l\'euro a atteint 0,9076, passant sous le seuil psychologique des 91 centimes.',
+    'blog.article.euro-sotto-091-sollievo.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

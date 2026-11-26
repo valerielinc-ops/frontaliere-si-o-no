@@ -343,6 +343,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         if (current?.state === 'sent') return;
         const record = confirmedNotSentRecord(current, reason, nowMs);
         if (failure) record.accountFailure = failure;
+        else if (current?.accountFailure) record.accountFailure = null;
         transaction.set(ref, { [key]: record }, { merge: true });
       });
     },

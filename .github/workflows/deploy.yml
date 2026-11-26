@@ -1922,6 +1922,7 @@ jobs:
           # extract 49.5 s → 32.9 s; extracted tree sha identical.
           LOCALE_SOURCE_TAR_PARTS: '4'
           PTAR_ZSTD: '1'
+          INCREMENTAL_MANIFEST_ENABLED: ${{ vars.INCREMENTAL_MANIFEST == '1' && '1' || '0' }}
         run: |
           set -euo pipefail
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
@@ -1947,6 +1948,22 @@ jobs:
           find "$out" -maxdepth 1 -type f \( -name '*.tar' -o -name '*.tar.zst' \) -size +0 | grep -q .
           grep -qx "${{ matrix.locale }}/" "$out/locale-shard-source-${{ matrix.locale }}.members"
           rm -f "$out/locale-shard-source-${{ matrix.locale }}.members"
+          # The delta publisher runs from a separate, current-SHA checkout, so
+          # the source build's manifest must travel beside the payload rather
+          # than relying on either checkout's local cache. Keep it outside the
+          # tar so it can never become published shard content. The explicit
+          # state marker lets a newer publisher distinguish an old artifact
+          # from a current build that intentionally has manifests disabled.
+          manifest_handoff="$out/incremental-manifest-handoff-v1.txt"
+          current_manifest=".cache/incremental-manifest/${{ matrix.locale }}.jsonl"
+          if [ "$INCREMENTAL_MANIFEST_ENABLED" = 1 ]; then
+            test -s "$current_manifest"
+            mkdir -p "$out/incremental-manifest"
+            cp "$current_manifest" "$out/incremental-manifest/${{ matrix.locale }}.jsonl"
+            printf '%s\n' required > "$manifest_handoff"
+          else
+            printf '%s\n' disabled > "$manifest_handoff"
+          fi
           # Non-IT source tarballs stay raw until deploy-publish has all four
           # same-run manifests. Keep this sidecar outside the tar so it cannot
           # leak into the published locale shard.
@@ -3015,7 +3032,7 @@ jobs:
           # the layout of the source artifacts, the IT plan or the receipts
           # changes. tests/deploy-publish-pinned-toolchain.test.ts keeps them
           # equal.
-          PROVENANCE_PUBLISH_CONTRACT_VERSION: '1'
+          PROVENANCE_PUBLISH_CONTRACT_VERSION: '2'
         run: |
           node scripts/ci/locale-publish-provenance.mjs \
             --output "$RUNNER_TEMP/locale-publish-provenance/${BUILD_LOCALE}.json" \

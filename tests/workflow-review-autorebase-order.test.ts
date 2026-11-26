@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
+const collisionWorkflow = readFileSync(new URL('../.github/workflows/pr-collision-detector.yml', import.meta.url), 'utf8');
 const workflowJobs = (YAML.parse(workflow) as {
   jobs?: Record<string, { if?: string; steps?: Array<{ name?: string; if?: string }> }>;
 }).jobs ?? {};
@@ -17,6 +18,22 @@ const translatePendingLogic = readFileSync(new URL('../.github/workflows/transla
 const housekeepingLogic = readFileSync(new URL('../.github/workflows/housekeeping-jobs-logic.yml', import.meta.url), 'utf8');
 
 describe('review → autorebase ordering', () => {
+  it('rileva le collisioni sul percorso PR con codice trusted e lock separato', () => {
+    const parsed = YAML.parse(collisionWorkflow) as {
+      on?: { pull_request_target?: { branches?: string[]; types?: string[] } };
+      concurrency?: { group?: string; 'cancel-in-progress'?: boolean };
+    };
+    const trigger = parsed.on?.pull_request_target;
+
+    expect(trigger?.branches).toEqual(['main']);
+    expect(trigger?.types).toEqual(expect.arrayContaining(['opened', 'synchronize', 'reopened', 'ready_for_review']));
+    expect(collisionWorkflow).toContain('ref: main');
+    expect(collisionWorkflow).toContain('persist-credentials: false');
+    expect(parsed.concurrency?.group).toBe('pr-collision-detector');
+    expect(parsed.concurrency?.['cancel-in-progress']).toBe(false);
+    expect(collisionWorkflow).not.toContain('group: tests-');
+  });
+
   it('keeps delegated daily housekeeping fail-closed before committing', () => {
     const housekeepingStart = housekeepingLogic.indexOf('name: Validate and clean job slices');
     const commitStart = housekeepingLogic.indexOf('name: Commit housekeeping changes');

@@ -85,7 +85,7 @@ interface Observation {
   freshnessSource: 'summary' | 'by-crawler' | 'mtime' | 'none';
   generatedAt: string | null;
   assembledAt: string | null;
-  abortKind?: 'no-jobs-parsed' | 'connection-level-fetch' | 'crash' | null;
+  abortKind?: 'no-jobs-parsed' | 'connection-level-fetch' | 'retryable-http-response' | 'crash' | null;
 }
 
 /** Convenience builder mirroring `inspectCrawler` output. */
@@ -1366,7 +1366,7 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
     expect(connection.reason).toBeNull();
     expect(connection.state.consecutiveEmptyRuns).toBe(1);
     expect(connection.state.lastNonZeroJobs).toBe(44);
-    expect(connection.state._lastObservedAbortKind).toBe('connection-level-fetch');
+    expect(connection.state._lastObservedAbortKind).toBe('retryable-http-response');
   });
 
   // The floor under that reclassification. Routing a proven transport failure
@@ -1457,7 +1457,7 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
     expect(connection.reason).toBeNull();
     expect(connection.state.consecutiveEmptyRuns).toBe(1);
     expect(connection.state.lastNonZeroJobs).toBe(19);
-    expect(connection.state._lastObservedAbortKind).toBe('connection-level-fetch');
+    expect(connection.state._lastObservedAbortKind).toBe('retryable-http-response');
   });
 
   it('flags a persistent soft transport failure after the normal empty streak', () => {
@@ -1480,6 +1480,58 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
     expect(connection.status).toBe('broken');
     expect(connection.reason).toMatch(/abortKind=connection-level-fetch/);
     expect(connection.reason).toMatch(/transport/);
+  });
+
+  it.each([
+    ['legacy receipt', 'connection-level-fetch'],
+    ['new receipt', 'retryable-http-response'],
+  ])('diagnoses an exhausted HTTP response for a %s after the ordinary empty streak', (_label, abortKind) => {
+    const retryableResponse = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        consecutiveEmptyRuns: 2,
+        lastSuccessfulRunAt: new Date(NOW_MS - DAY_MS).toISOString(),
+        _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      },
+      {
+        ...abortedObs(0),
+        abortKind,
+        lastFetchOutcome: 'exhausted_retry',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(retryableResponse.status).toBe('broken');
+    expect(retryableResponse.state.consecutiveEmptyRuns).toBe(3);
+    expect(retryableResponse.state._lastObservedAbortKind).toBe('retryable-http-response');
+    expect(retryableResponse.reason).toContain('abortKind=retryable-http-response');
+    expect(retryableResponse.reason).toMatch(/source answered with retryable HTTP responses/);
+    expect(retryableResponse.reason).not.toMatch(/could not reach the source/);
+  });
+
+  it('uses exhausted HTTP outcome when an early-exit summary omits abortKind', () => {
+    const retryableResponse = nextCrawlerState(
+      {
+        ...brokenEligiblePrev,
+        consecutiveEmptyRuns: 2,
+        lastSuccessfulRunAt: new Date(NOW_MS - DAY_MS).toISOString(),
+        _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      },
+      {
+        ...abortedObs(0),
+        abortKind: null,
+        lastFetchOutcome: 'exhausted_retry',
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(retryableResponse.status).toBe('broken');
+    expect(retryableResponse.state.consecutiveEmptyRuns).toBe(3);
+    expect(retryableResponse.state._lastObservedAbortKind).toBe('retryable-http-response');
+    expect(retryableResponse.reason).toContain('abortKind=retryable-http-response');
+    expect(retryableResponse.reason).toMatch(/source answered with retryable HTTP responses/);
   });
 
   it('never reports a missing exitCode as a clean bail-out', () => {
@@ -1593,7 +1645,7 @@ describe('nextCrawlerState — self-reported fetch outcome (#7897)', () => {
 
   it.each([
     ['connection_error', /crawler egress\/transport/],
-    ['exhausted_retry', /source transport/],
+    ['exhausted_retry', /source response\/retry behavior/],
     ['feed_endpoint_unavailable', /vendor endpoint/],
   ])('flags %s immediately with layer-specific triage', (outcome, expectedReason) => {
     const { status, reason, state } = nextCrawlerState(
@@ -1606,6 +1658,72 @@ describe('nextCrawlerState — self-reported fetch outcome (#7897)', () => {
     expect(reason).toContain(`lastFetchOutcome=${outcome}`);
     expect(reason).toMatch(expectedReason);
     expect(state._lastObservedFetchOutcome).toBe(outcome);
+  });
+
+  it.each([
+    ['anti_bot_block', /source refused the fetch/],
+    ['selector_miss', /parser matched nothing it used to match/],
+    ['connection_error', /never observed the source/],
+    ['exhausted_retry', /retryable HTTP responses/],
+    ['feed_endpoint_unavailable', /vendor endpoint/],
+  ])('prefers %s over a generic connection abort for immediate fetch failures', (outcome, expectedReason) => {
+    const oldSuccess = new Date(NOW_MS - (TRANSPORT_ABORT_STALE_FLOOR_DAYS + 1) * DAY_MS).toISOString();
+    const { status, reason } = nextCrawlerState(
+      {
+        lastSuccessfulRunAt: oldSuccess,
+        lastNonZeroJobs: 0,
+        consecutiveEmptyRuns: 1,
+        lastFailureReason: null,
+        status: 'healthy',
+        _lastObservedJobs: 0,
+        _lastObservedFreshnessAt: oldSuccess,
+      },
+      {
+        ...obsWithOutcome(0, outcome),
+        abortKind: 'connection-level-fetch',
+        earlyExit: true,
+        exitCode: 0,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(status).toBe('broken');
+    expect(reason).toMatch(expectedReason);
+    expect(reason).not.toMatch(/could not reach the source/);
+  });
+
+  it.each([
+    ['anti_bot_block', /source refused the fetch/],
+    ['selector_miss', /parser matched nothing it used to match/],
+    ['connection_error', /never observed the source/],
+    ['exhausted_retry', /retryable HTTP responses/],
+    ['feed_endpoint_unavailable', /vendor endpoint/],
+  ])('uses %s in the post-streak issue reason despite a generic connection abort', (outcome, expectedReason) => {
+    const { status, reason, state } = nextCrawlerState(
+      {
+        lastSuccessfulRunAt: null,
+        lastNonZeroJobs: 0,
+        consecutiveEmptyRuns: 2,
+        lastFailureReason: null,
+        status: 'healthy',
+        _lastObservedJobs: 0,
+        _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      },
+      {
+        ...obsWithOutcome(0, outcome),
+        abortKind: 'connection-level-fetch',
+        earlyExit: true,
+        exitCode: 0,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(status).toBe('broken');
+    expect(state.consecutiveEmptyRuns).toBe(3);
+    expect(reason).toMatch(expectedReason);
+    expect(reason).not.toMatch(/could not reach the source/);
   });
 
   it('treats filtered_empty as healthy and clears a broken-eligible streak', () => {

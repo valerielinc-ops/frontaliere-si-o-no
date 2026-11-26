@@ -850,6 +850,66 @@
       },
       "subscribedWithoutCreatedAt": 0,
       "findings": []
+    },
+    {
+      "date": "2026-11-22",
+      "windowHours": 24,
+      "subscribersCreated": 83,
+      "authSubscribers": 72,
+      "accountsTotal": 83,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 83,
+        "stub": 0,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-11-23",
+      "windowHours": 24,
+      "subscribersCreated": 124,
+      "authSubscribers": 92,
+      "accountsTotal": 127,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 123,
+        "stub": 0,
+        "missing": 4
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-11-24",
+      "windowHours": 24,
+      "subscribersCreated": 133,
+      "authSubscribers": 102,
+      "accountsTotal": 134,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 132,
+        "stub": 0,
+        "missing": 2
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-11-25",
+      "windowHours": 24,
+      "subscribersCreated": 136,
+      "authSubscribers": 113,
+      "accountsTotal": 140,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 135,
+        "stub": 0,
+        "missing": 5
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
     }
   ]
 }

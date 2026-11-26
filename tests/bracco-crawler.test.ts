@@ -6,7 +6,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { buildBraccoDescriptionFields, dropBraccoFabricatedText, fetchBraccoJobs } from '../scripts/update-bracco-jobs.mjs';
+import {
+  buildBraccoDescriptionFields,
+  classifyBraccoFetchAbortKind,
+  dropBraccoFabricatedText,
+  fetchBraccoJobs,
+} from '../scripts/update-bracco-jobs.mjs';
 import { resetWorkdayImplicitRateLimitStateForTests } from '../scripts/lib/ats-clients/workday-client.mjs';
 import { keepStoredSourceBodies } from '../scripts/lib/stored-source-body.mjs';
 
@@ -17,6 +22,20 @@ afterEach(() => {
   vi.unstubAllGlobals();
   vi.unstubAllEnvs();
   vi.useRealTimers();
+});
+
+describe('Bracco custom-main fetch abort taxonomy', () => {
+  it('records an exhausted retryable HTTP response separately from a connection error', () => {
+    expect(classifyBraccoFetchAbortKind(Object.assign(new Error('HTTP 429'), {
+      status: 429,
+      retryBudgetExhausted: true,
+    }))).toBe('retryable-http-response');
+    expect(classifyBraccoFetchAbortKind(new TypeError('fetch failed')))
+      .toBe('connection-level-fetch');
+    expect(classifyBraccoFetchAbortKind(Object.assign(new Error('HTTP 404'), {
+      status: 404,
+    }))).toBeNull();
+  });
 });
 
 describe('Bracco crawl provenance', () => {

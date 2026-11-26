@@ -1,16 +1,16 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-11-20T21:55:18.833Z",
-  "runId": "44818983620",
+  "assembledAt": "2026-11-25T21:19:50.117Z",
+  "runId": "45702677976",
   "jobs": [
     {
       "id": "spruengli-219290825ea0",
-      "slug": "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
+      "slug": "rilievo-di-natale-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-baden",
       "slugByLocale": {
-        "it": "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
-        "en": "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
+        "it": "rilievo-di-natale-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-baden",
+        "en": "christmas-relief-80-100-railway-station-baden-confiserie-sprungli-ag-baden",
         "de": "weihnachtsaushilfe-80-100-bahnhof-baden-spruengli-aargau",
-        "fr": "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
+        "fr": "relief-de-noel-80-100-gare-ferroviaire-baden-confiserie-sprungli-ag-baden"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/116352/1278/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.898Z",
+      "crawledAt": "2026-11-25T21:19:38.270Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -58,20 +58,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "weihnachtsaushilfe-80-100-bahnhof-baden-spruengli-aargau",
-        "rilievo-di-natale-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-baden",
-        "christmas-relief-80-100-railway-station-baden-confiserie-sprungli-ag-baden",
-        "relief-de-noel-80-100-gare-ferroviaire-baden-confiserie-sprungli-ag-baden"
+        "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-80-100-bahnhof-baden-spruengli-aargau",
-          "rilievo-di-natale-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-baden"
+          "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
         ],
         "en": [
-          "christmas-relief-80-100-railway-station-baden-confiserie-sprungli-ag-baden"
+          "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
         ],
         "fr": [
-          "relief-de-noel-80-100-gare-ferroviaire-baden-confiserie-sprungli-ag-baden"
+          "weihnachtsaushilfe-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
         ]
       },
       "firstSeenAt": "2026-10-13T09:21:39.433Z",
@@ -89,9 +87,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:54:46.898Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1278/pub/2/index.html"
+      "validThrough": "2027-01-24T21:19:38.270Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-1f477732ab02",
@@ -124,7 +121,7 @@
       "url": "https://apply.refline.ch/116352/1285/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.897Z",
+      "crawledAt": "2026-11-25T21:19:38.269Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hertensteinstrasse 62",
@@ -177,9 +174,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:54:46.897Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1285/pub/1/index.html"
+      "validThrough": "2027-02-14T21:19:38.269Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-0a8e01bc532c",
@@ -212,7 +208,7 @@
       "url": "https://apply.refline.ch/116352/1271/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.897Z",
+      "crawledAt": "2026-11-25T21:19:38.267Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Stadelhoferstrasse 8",
@@ -269,90 +265,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:54:46.897Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1271/pub/5/index.html"
-    },
-    {
-      "id": "spruengli-099ae07c7240",
-      "slug": "collaboratore-trice-in-abwasch-100-confiserie-sprungli-ag-dietikon",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-abwasch-100-confiserie-sprungli-ag-dietikon",
-        "en": "mitarbeiter-in-abwasch-100-confiserie-sprungli-ag-dietikon",
-        "de": "mitarbeiter-in-abwasch-100-spruengli-dietikon",
-        "fr": "mitarbeiter-in-abwasch-100-confiserie-sprungli-ag-dietikon"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Mitarbeiter*in Abwasch (100%)",
-      "titleByLocale": {
-        "it": "Addetto/a al lavaggio delle stoviglie (100%)",
-        "en": "Dishwasher (100%)",
-        "de": "Mitarbeiter*in Abwasch (100%)",
-        "fr": "Employé·e de plonge (100%)"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nMitarbeiter*in Abwasch (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Abwasch Produktion Dietikon per sofort oder nach Vereinbarung eine*n motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest an unserem Produktionsstandort in Dietikon an der Abwaschstation und sorgst dafür, dass alles rundläuft. Dein Einsatz findet von Montag bis Freitag in zwei Schichten zwischen 06:30 und 18:00 Uhr statt. Gelegentliche Wochenendeinsätze sind ebenfalls möglich.\n\n• Maschinelles Reinigen von Transportgebinden, Backblechen, Formen sowie Back- und Transportrechen\n\n• Pflege und Unterhalt der Reinigungsmaschinen\n\n• Sicherstellen, dass saubere Gebinde korrekt in die jeweiligen Abteilungen gelangen\n\nWas wir uns wünschen\n\n• Eine motivierte Persönlichkeit mit Freude an praktischer Arbeit\n\n• Selbstständige, strukturierte und verantwortungsbewusste Arbeitsweise\n\n• Erfahrung in der Lebensmittelbranche ist ein Plus, aber kein Muss\n\n• Flexibilität, Mobilität und eine gute körperliche Belastbarkeit\n\n• Grundkenntnisse in Deutsch, Verständigung im Arbeitsalltag möglich\n\nDarauf kannst du dich freuen\n\n• Kostenloser Deutschkurs für Mitarbeitende, der voraussichtlich 2027 bereits zum vierten Mal durchgeführt wird\n\n• Abwechslungsreiche Aufgaben in einem modernen Arbeitsumfeld mit motiviertem Team und Du Kultur\n\n• Attraktive Anstellungsbedingungen mit 5 Wochen Ferien und zusätzlichem freien Tag im Geburtstagsmonat\n\n• Arbeitskleidung inklusive Reinigung sowie Verpflegungsmöglichkeiten im Personalrestaurant\n\n• Kostenloser Parkplatz und grosszügige Einkaufsvergünstigungen\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1836, l'azienda di famiglia svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo di qualità, freschezza e naturalezza uniche. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nPiatti per lavare i dipendenti (100%)\n\n100%, Dietikon\n\nLavorare a Sprüngli\n\nNella nostra fabbrica di Dietikon, stiamo cercando una società motivata e impegnata per il reparto di produzione di lavaggio Dietikon. *\n\nCosa fai con noi\n\nLavorate nel nostro sito di produzione a Dietikon presso la stazione di lavastoviglie e assicuratevi che tutto funzioni senza problemi. La vostra missione si svolgerà dal lunedì al venerdì in due turni tra le 06:30 e le 18:00. Le scommesse occasionali del fine settimana sono anche possibili.\n\n• Pulizia della macchina di contenitori di trasporto, piastre di cottura, stampi e rastrelli di cottura e trasporto\n\n• Cura e manutenzione delle macchine per la pulizia\n\n• Assicurarsi che i contenitori puliti siano correttamente consegnati ai rispettivi reparti\n\nCosa vogliamo\n\n• Una personalità motivata con piacere nel lavoro pratico\n\n• Metodi di lavoro indipendenti, strutturati e responsabili\n\n• L'esperienza nell'industria alimentare è un vantaggio, ma non un must\n\n• Flessibilità, mobilità e buona forza fisica\n\n• Conoscenza di base in tedesco, comunicazione possibile nel lavoro quotidiano\n\nNon vedo l'ora.\n\n• Corso di tedesco gratuito per i dipendenti, che dovrebbe essere tenuto per la quarta volta nel 2027\n\n• Varie attività in un ambiente di lavoro moderno con team e cultura motivati\n\n• Attraente condizioni di lavoro con 5 settimane vacanze e giorno libero extra nel mese di compleanno\n\n• Abiti da lavoro inclusi servizi di pulizia e catering nel ristorante del personale\n\n• Parcheggio gratuito e sconti generosi per lo shopping\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo richieste di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. Sprüngli products stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nEmployee washing dishes (100%)\n\n100%, Dietikon\n\nWorking at Sprüngli\n\nIn our factory in Dietikon, we are looking for a motivated and committed company for the Dietikon Washing Production department. *n\n\nWhat you do with us\n\nYou work at our production site in Dietikon at the dishwashing station and ensure that everything runs smoothly. Your mission will take place from Monday to Friday in two shifts between 06:30 and 18:00. Occasional weekend bets are also possible.\n\n• Machine cleaning of transport containers, baking plates, moulds and baking and transport rakes\n\n• Care and maintenance of cleaning machines\n\n• Ensure that clean containers are correctly delivered to the respective departments\n\nWhat we want\n\n• A motivated personality with pleasure in practical work\n\n• Independent, structured and responsible working methods\n\n• Experience in the food industry is a plus, but not a must\n\n• Flexibility, mobility and good physical strength\n\n• Basic knowledge in German, communication possible in everyday work\n\nYou can look forward to that.\n\n• Free German course for employees, which is expected to be held for the fourth time in 2027\n\n• Varied tasks in a modern working environment with motivated team and culture\n\n• Attractive employment conditions with 5 weeks holidays and extra day off in the birthday month\n\n• Work clothes including cleaning and catering facilities in the staff restaurant\n\n• Free parking and generous shopping discounts\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting recruitment applications for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nMitarbeiter*in Abwasch (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Abwasch Produktion Dietikon per sofort oder nach Vereinbarung eine*n motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest an unserem Produktionsstandort in Dietikon an der Abwaschstation und sorgst dafür, dass alles rundläuft. Dein Einsatz findet von Montag bis Freitag in zwei Schichten zwischen 06:30 und 18:00 Uhr statt. Gelegentliche Wochenendeinsätze sind ebenfalls möglich.\n\n• Maschinelles Reinigen von Transportgebinden, Backblechen, Formen sowie Back- und Transportrechen\n\n• Pflege und Unterhalt der Reinigungsmaschinen\n\n• Sicherstellen, dass saubere Gebinde korrekt in die jeweiligen Abteilungen gelangen\n\nWas wir uns wünschen\n\n• Eine motivierte Persönlichkeit mit Freude an praktischer Arbeit\n\n• Selbstständige, strukturierte und verantwortungsbewusste Arbeitsweise\n\n• Erfahrung in der Lebensmittelbranche ist ein Plus, aber kein Muss\n\n• Flexibilität, Mobilität und eine gute körperliche Belastbarkeit\n\n• Grundkenntnisse in Deutsch, Verständigung im Arbeitsalltag möglich\n\nDarauf kannst du dich freuen\n\n• Kostenloser Deutschkurs für Mitarbeitende, der voraussichtlich 2027 bereits zum vierten Mal durchgeführt wird\n\n• Abwechslungsreiche Aufgaben in einem modernen Arbeitsumfeld mit motiviertem Team und Du Kultur\n\n• Attraktive Anstellungsbedingungen mit 5 Wochen Ferien und zusätzlichem freien Tag im Geburtstagsmonat\n\n• Arbeitskleidung inklusive Reinigung sowie Verpflegungsmöglichkeiten im Personalrestaurant\n\n• Kostenloser Parkplatz und grosszügige Einkaufsvergünstigungen\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nLave-vaisselle pour employés (100%)\n\n100%, Dietikon\n\nTravailler chez Sprüngli\n\nDans notre usine de Dietikon, nous recherchons une entreprise motivée et engagée pour le département de production de lavage Dietikon. *n\n\nCe que tu fais de nous\n\nVous travaillez sur notre site de production à Dietikon à la station de lavage de vaisselle et vous assurez que tout fonctionne bien. Votre mission aura lieu du lundi au vendredi en deux équipes entre 6h30 et 18h00. Des paris de week-end occasionnels sont également possibles.\n\n• Nettoyage automatique de conteneurs de transport, plaques de cuisson, moules et râteaux de cuisson et de transport\n\n• Entretien et entretien des machines de nettoyage\n\n• Veiller à ce que les contenants propres soient correctement livrés aux ministères concernés\n\nCe que nous voulons\n\n• Une personnalité motivée avec plaisir dans le travail pratique\n\n• Méthodes de travail indépendantes, structurées et responsables\n\n• L'expérience dans l'industrie alimentaire est un plus, mais pas un must\n\n• Flexibilité, mobilité et bonne force physique\n\n• Connaissances de base en allemand, communication possible dans le travail quotidien\n\nVous pouvez attendre avec impatience.\n\n• Cours d'allemand gratuit pour les employés, qui devrait se tenir pour la quatrième fois en 2027\n\n• Des tâches variées dans un environnement de travail moderne avec une équipe et une culture motivées\n\n• Conditions d'emploi attrayantes avec 5 semaines de vacances et jour de congé supplémentaire dans le mois d'anniversaire\n\n• Vêtements de travail, y compris nettoyage et restauration dans le restaurant du personnel\n\n• Parking gratuit et rabais shopping généreux\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures de recrutement pour ce poste."
-      },
-      "location": "Dietikon",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/116352/1281/pub/1/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:40:51.031Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "streetAddress": "Bernstrasse 89",
-      "postalCode": "8953",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06T07:46:01.475500+00:00",
-      "postedDate": "2026-11-06T07:46:01.475500+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/116352/1281/pub/1/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1281",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-abwasch-100-spruengli-dietikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-abwasch-100-spruengli-dietikon"
-        ]
-      },
-      "firstSeenAt": "2026-11-17T06:49:47.953Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:40:51.031Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1281/pub/1/index.html"
+      "validThrough": "2027-01-13T21:19:38.267Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-e1a54b773d6a",
@@ -385,7 +299,7 @@
       "url": "https://apply.refline.ch/116352/1237/pub/21/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.896Z",
+      "crawledAt": "2026-11-25T21:19:38.265Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -430,9 +344,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.896Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1237/pub/21/index.html"
+      "validThrough": "2026-12-25T21:19:38.265Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-9f0abf0e9cb2",
@@ -465,7 +378,7 @@
       "url": "https://apply.refline.ch/116352/1207/pub/43/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.895Z",
+      "crawledAt": "2026-11-25T21:19:38.260Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -521,9 +434,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.895Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1207/pub/43/index.html"
+      "validThrough": "2026-12-25T21:19:38.260Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-f7dceb317c62",
@@ -556,7 +468,7 @@
       "url": "https://apply.refline.ch/116352/1125/pub/64/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.894Z",
+      "crawledAt": "2026-11-25T21:19:38.257Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -626,16 +538,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
-          "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
-          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-2a0a74a4",
-          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-b8959836",
-          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-1ed25e6c",
-          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-7d2540d6",
-          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-f0e0c732",
-          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-46e9bf11",
-          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-80431941",
-          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-fa52e080",
           "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-fe30adea",
           "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-ae399402",
           "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-941fce14",
@@ -645,16 +547,26 @@
           "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-33375fa4",
           "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-031d7b7d",
           "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-d21b836e",
-          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-52dbaa94"
+          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-52dbaa94",
+          "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
+          "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
+          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-2a0a74a4",
+          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-b8959836",
+          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-1ed25e6c",
+          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-7d2540d6",
+          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-f0e0c732",
+          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-46e9bf11",
+          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-80431941",
+          "deputy-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich-fa52e080"
         ],
         "en": [
           "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
         ],
-        "fr": [
-          "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
-        ],
         "de": [
           "stv-filialleiter-in-100-raum-zurich-spruengli-zurich-93dd53e7"
+        ],
+        "fr": [
+          "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T00:41:48.695Z",
@@ -672,9 +584,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.894Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1125/pub/64/index.html"
+      "validThrough": "2026-12-25T21:19:38.257Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-5d4d42926a31",
@@ -707,7 +618,7 @@
       "url": "https://apply.refline.ch/116352/1282/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.893Z",
+      "crawledAt": "2026-11-25T21:19:38.254Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -751,6 +662,7 @@
           "directeur-d-usine-dans-le-departement-de-recouvrement-de-la-confiserie-100-confiserie-sprungli-ag-dietikon"
         ]
       },
+      "firstSeenAt": "2026-11-21T21:29:03.129Z",
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -765,9 +677,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:54:46.893Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1282/pub/1/index.html"
+      "validThrough": "2027-02-07T21:19:38.254Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-200c4e52bee9",
@@ -800,7 +711,7 @@
       "url": "https://apply.refline.ch/116352/1257/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.892Z",
+      "crawledAt": "2026-11-25T21:19:38.251Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -853,110 +764,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.892Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1257/pub/9/index.html"
-    },
-    {
-      "id": "spruengli-1e4d7a8a5215",
-      "slug": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
-      "slugByLocale": {
-        "it": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "en": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "de": "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
-        "fr": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Office- / Buffetmitarbeiter*in (100%) Paradeplatz",
-      "titleByLocale": {
-        "it": "Office- / Buffetmitarbeiter*in (100%) Paradeplatz",
-        "en": "Office / BuffetEmployee (100%) Parade Ground",
-        "de": "Office- / Buffetmitarbeiter*in (100%) Paradeplatz",
-        "fr": "Office- / Buffetmitarbeiter*in (100%) Paradeplatz"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nOffice- / Buffetmitarbeiter*in (100%) Paradeplatz\n\n100%, Zürich\n\nArbeiten bei Sprüngli\n\nFür unser neu eröffnetes, ikonisches Café & Restaurant am Paradeplatz suchen wir ab sofort eine motivierte und engagierte Persönlichkeit als\n\nWas du bei uns bewegst\n\nUnterstützt du gerne mit Hilfe moderner Ausstattung und trägst so zur besten Qualität bei? Dann wird es Zeit, dass wir uns kennenlernen.\n\n• Zubereitung unserer Sprüngli Schokoladen sowie Kaffeespezialitäten inkl. diverser anderer Getränke,\n\n• Zubereitung von Coupes, Glacé und Sprüngli Frühstücksspezialitäten\n\n• Einhaltung und Förderung der definierten Qualitäts- und Hygienestandards\n\n• Diverse Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Mehrere Jahre Berufserfahrung in der Gastronomie\n\n• Gute Deutschkenntnisse\n\n• Effiziente, strukturierte und selbstständige Arbeitsweise\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 6.00 und 19.00 Uhr im 7 Tages-Betrieb)\n\nDarauf kannst du dich freuen\n\n• Eine topmoderne & neue Küche\n\n• Durchdienst ohne Zimmerstunde\n\n• Offizielle Feiertage geschlossen\n\n• Zentral gelegener Arbeitsort am Paradeplatz in Zürich\n\n• Individuelle Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Einkaufsvergünstigung & weitere Fringe Benefits\n\n• Personalrestaurant mit einem vielfältigen & preiswerten Angebot\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1836, l'azienda di famiglia svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo di qualità, freschezza e naturalezza uniche. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nUfficio / dipendente a buffet (100%) Paradeplatz\n\n100%, Zurigo\n\nLavorare a Sprüngli\n\nPer la nostra nuova apertura, iconica caffetteria e ristorante a Paradeplatz stiamo cercando una personalità motivata e impegnata a partire da oggi.\n\nCosa fai con noi\n\nTi piace supportare con l'aiuto di attrezzature moderne e quindi contribuire alla migliore qualità? Allora è ora di conoscerci.\n\n• Preparazione dei nostri cioccolatini Sprüngli e specialità di caffè tra cui varie altre bevande,\n\n• Preparazione delle specialità della colazione Coupes, Glacé e Sprüngli\n\n• Rispetto e promozione di standard di qualità e igiene definiti\n\n• Lavori di pulizia vari\n\nCosa vogliamo\n\n• Diversi anni di esperienza professionale nella gastronomia\n\n• Buona conoscenza del tedesco\n\n• Metodi di lavoro efficienti, strutturati e indipendenti\n\n• Flessibilità dell'orario di lavoro (cambiamenti tra le 6.00 e le 19.00 in funzionamento 7 giorni)\n\nNon vedo l'ora.\n\n• Una cucina moderna e nuova\n\n• Attraverso il servizio senza orario di camera\n\n• Giorni festivi chiusi\n\n• Posto centrale di lavoro a Paradeplatz a Zurigo\n\n• Possibilità di sviluppo e formazione individuali\n\n• Sconto acquisto generoso & altri vantaggi Fringe\n\n• Ristorante personale con un'offerta diversificata e economica\n\n• Ulteriore giorno libero come apprezzamento di compleanno\n\n• Un ambiente vivace e moderno con una cultura collegiale\n\n• Un team motivato e impegnato che già vi aspetta\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo richieste di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. Sprüngli products stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nOffice / buffet employee (100%) Paradeplatz\n\n100%, Zurich\n\nWorking at Sprüngli\n\nFor our newly opened, iconic café & restaurant on Paradeplatz we are looking for a motivated and committed personality as of now.\n\nWhat you do with us\n\nDo you like to support with the help of modern equipment and thus contribute to the best quality? Then it is time for us to get to know each other.\n\n• Preparation of our Sprüngli chocolates as well as coffee specialties including various other drinks,\n\n• Preparation of Coupes, Glacé and Sprüngli breakfast specialties\n\n• Compliance with and promotion of defined quality and hygiene standards\n\n• Miscellaneous cleaning work\n\nWhat we want\n\n• Several years of professional experience in gastronomy\n\n• Good knowledge of German\n\n• Efficient, structured and independent working methods\n\n• Flexibility regarding working hours (shifts between 6.00 and 7.00 pm in 7 day operation)\n\nYou can look forward to that.\n\n• A modern and new kitchen\n\n• Through service without room hour\n\n• Official holidays closed\n\n• Centrally located place of work at Paradeplatz in Zurich\n\n• Individual development and training opportunities\n\n• Generous shopping discount & other Fringe Benefits\n\n• Staff restaurant with a diverse & inexpensive offer\n\n• Additional free day as a birthday appreciation\n\n• A lively and modern environment with a collegial du culture\n\n• A motivated and committed team that is already looking forward to you\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting recruitment applications for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nOffice- / Buffetmitarbeiter*in (100%) Paradeplatz\n\n100%, Zürich\n\nArbeiten bei Sprüngli\n\nFür unser neu eröffnetes, ikonisches Café & Restaurant am Paradeplatz suchen wir ab sofort eine motivierte und engagierte Persönlichkeit als\n\nWas du bei uns bewegst\n\nUnterstützt du gerne mit Hilfe moderner Ausstattung und trägst so zur besten Qualität bei? Dann wird es Zeit, dass wir uns kennenlernen.\n\n• Zubereitung unserer Sprüngli Schokoladen sowie Kaffeespezialitäten inkl. diverser anderer Getränke,\n\n• Zubereitung von Coupes, Glacé und Sprüngli Frühstücksspezialitäten\n\n• Einhaltung und Förderung der definierten Qualitäts- und Hygienestandards\n\n• Diverse Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Mehrere Jahre Berufserfahrung in der Gastronomie\n\n• Gute Deutschkenntnisse\n\n• Effiziente, strukturierte und selbstständige Arbeitsweise\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 6.00 und 19.00 Uhr im 7 Tages-Betrieb)\n\nDarauf kannst du dich freuen\n\n• Eine topmoderne & neue Küche\n\n• Durchdienst ohne Zimmerstunde\n\n• Offizielle Feiertage geschlossen\n\n• Zentral gelegener Arbeitsort am Paradeplatz in Zürich\n\n• Individuelle Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Einkaufsvergünstigung & weitere Fringe Benefits\n\n• Personalrestaurant mit einem vielfältigen & preiswerten Angebot\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nEmployé de bureau / buffet (100%) Paradeplatz\n\n100 %, Zurich\n\nTravailler chez Sprüngli\n\nPour notre nouveau café & restaurant emblématique sur Paradeplatz, nous recherchons dès maintenant une personnalité motivée et engagée.\n\nCe que tu fais de nous\n\nVous aimez soutenir avec l'aide d'équipements modernes et contribuer ainsi à la meilleure qualité? Alors il est temps pour nous de nous connaître.\n\n• Préparation de nos chocolats Sprüngli ainsi que des spécialités du café incluant diverses autres boissons,\n\n• Préparation des spécialités de petit déjeuner Coupes, Glacé et Sprüngli\n\n• Respect et promotion de normes de qualité et d'hygiène définies\n\n• Travaux divers de nettoyage\n\nCe que nous voulons\n\n• Plusieurs années d'expérience professionnelle en gastronomie\n\n• Bonne connaissance de l'allemand\n\n• Méthodes de travail efficaces, structurées et indépendantes\n\n• Flexibilité en matière d'horaires de travail (postes entre 6 heures et 19 heures en service de 7 jours)\n\nVous pouvez attendre avec impatience.\n\n• Une cuisine moderne et nouvelle\n\n• Par le service sans heure de chambre\n\n• Jours fériés fermés\n\n• Lieu de travail central à Paradeplatz à Zurich\n\n• Développement individuel et possibilités de formation\n\n• Remise shopping généreux et autres avantages Fringe\n\n• Restaurant du personnel avec une offre diversifiée et peu coûteuse\n\n• Journée gratuite supplémentaire comme une appréciation d'anniversaire\n\n• Un environnement animé et moderne avec une collégiale du culture\n\n• Une équipe motivée et engagée qui vous attend déjà\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures de recrutement pour ce poste."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/116352/1201/pub/37/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.891Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Bahnhofstrasse 21",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2025-12-18T14:53:13.892006+00:00",
-      "postedDate": "2025-12-18T14:53:13.892006+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/116352/1201/pub/37/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1201",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
-        "office-buffetemployee-100-parade-ground-confiserie-sprungli-ag-zurich",
-        "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich-85b7a6c4",
-        "ufficio-dipendente-a-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "employe-de-bureau-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich-8920a2bc",
-        "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich-d33b5520"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
-          "office-buffetemployee-100-parade-ground-confiserie-sprungli-ag-zurich",
-          "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich-85b7a6c4",
-          "ufficio-dipendente-a-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
-          "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich",
-          "employe-de-bureau-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
-          "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich-8920a2bc",
-          "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich-d33b5520"
-        ],
-        "en": [
-          "office-buffetemployee-100-parade-ground-confiserie-sprungli-ag-zurich"
-        ],
-        "de": [
-          "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich-85b7a6c4"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-02T13:44:42.470Z",
-      "salaryMin": 73000,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.891Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1201/pub/37/index.html"
+      "validThrough": "2026-12-25T21:19:38.251Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-0724eb3f55fa",
@@ -989,7 +798,7 @@
       "url": "https://apply.refline.ch/116352/1064/pub/88/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.891Z",
+      "crawledAt": "2026-11-25T21:19:38.248Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Bahnhofstrasse 9",
@@ -1051,9 +860,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.891Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1064/pub/88/index.html"
+      "validThrough": "2026-12-25T21:19:38.248Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-1dfd41124137",
@@ -1086,7 +894,7 @@
       "url": "https://apply.refline.ch/116352/1267/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.890Z",
+      "crawledAt": "2026-11-25T21:19:38.245Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1137,12 +945,12 @@
           "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich",
           "taster-day-in-retail-career-exploration-confiserie-sprungli-ag-zurich"
         ],
+        "de": [
+          "schnuppertag-detailhandel-berufserkundung-spruengli-zurich-8d8f0610"
+        ],
         "fr": [
           "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich",
           "journee-decouverte-dans-le-commerce-de-detail-exploration-professionnelle-confiserie-sprungli-ag-zurich"
-        ],
-        "de": [
-          "schnuppertag-detailhandel-berufserkundung-spruengli-zurich-8d8f0610"
         ]
       },
       "firstSeenAt": "2026-10-09T09:20:47.646Z",
@@ -1160,9 +968,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:54:46.890Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1267/pub/2/index.html"
+      "validThrough": "2027-01-07T21:19:38.245Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-78a4ca23b87e",
@@ -1195,7 +1002,7 @@
       "url": "https://apply.refline.ch/116352/1112/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.889Z",
+      "crawledAt": "2026-11-25T21:19:38.243Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1266,9 +1073,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.889Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1112/pub/17/index.html"
+      "validThrough": "2026-12-25T21:19:38.243Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-11cea024de85",
@@ -1301,7 +1107,7 @@
       "url": "https://apply.refline.ch/116352/0032/pub/60/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.888Z",
+      "crawledAt": "2026-11-25T21:19:38.240Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1360,9 +1166,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.888Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/0032/pub/60/index.html"
+      "validThrough": "2026-12-25T21:19:38.240Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-a3f321174a8b",
@@ -1395,7 +1200,7 @@
       "url": "https://apply.refline.ch/116352/1039/pub/69/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.887Z",
+      "crawledAt": "2026-11-25T21:19:38.236Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1457,9 +1262,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.887Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1039/pub/69/index.html"
+      "validThrough": "2026-12-25T21:19:38.236Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-366607266a85",
@@ -1492,7 +1296,7 @@
       "url": "https://apply.refline.ch/116352/0015/pub/91/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.886Z",
+      "crawledAt": "2026-11-25T21:19:38.234Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1551,9 +1355,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.886Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/0015/pub/91/index.html"
+      "validThrough": "2026-12-25T21:19:38.234Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-6be5b99033e5",
@@ -1586,7 +1389,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/48/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.885Z",
+      "crawledAt": "2026-11-25T21:19:38.232Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1641,9 +1444,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.885Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1190/pub/48/index.html"
+      "validThrough": "2026-12-25T21:19:38.232Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-7d14396c6c99",
@@ -1676,7 +1478,7 @@
       "url": "https://apply.refline.ch/116352/1260/pub/8/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.884Z",
+      "crawledAt": "2026-11-25T21:19:38.230Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1731,9 +1533,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.884Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1260/pub/8/index.html"
+      "validThrough": "2026-12-25T21:19:38.230Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-3378561d6a96",
@@ -1766,7 +1567,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/13/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.883Z",
+      "crawledAt": "2026-11-25T21:19:38.227Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1811,9 +1612,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:46.883Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1251/pub/13/index.html"
+      "validThrough": "2026-12-25T21:19:38.227Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-0232a27d503d",
@@ -1846,7 +1646,7 @@
       "url": "https://apply.refline.ch/116352/1275/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.881Z",
+      "crawledAt": "2026-11-25T21:19:38.223Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Steinenberg 14",
@@ -1906,9 +1706,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:54:46.881Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1275/pub/1/index.html"
+      "validThrough": "2027-01-20T21:19:38.223Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-a86faef4ae4e",
@@ -1941,7 +1740,7 @@
       "url": "https://apply.refline.ch/116352/1276/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.880Z",
+      "crawledAt": "2026-11-25T21:19:38.221Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Halle Bahnhofplatz",
@@ -1998,9 +1797,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:54:46.880Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1276/pub/1/index.html"
+      "validThrough": "2027-01-20T21:19:38.221Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spruengli-5654551ca19b",
@@ -2033,7 +1831,7 @@
       "url": "https://apply.refline.ch/116352/1272/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:46.879Z",
+      "crawledAt": "2026-11-25T21:19:38.218Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Bahnhofplatz",
@@ -2088,9 +1886,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:54:46.879Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/116352/1272/pub/1/index.html"
+      "validThrough": "2027-01-13T21:19:38.218Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

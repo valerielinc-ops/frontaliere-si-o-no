@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spitex-basel",
-  "assembledAt": "2026-11-20T21:26:53.466Z",
-  "runId": "44817363600",
+  "assembledAt": "2026-11-25T21:28:30.773Z",
+  "runId": "45700986462",
   "jobs": [
     {
       "id": "spitex-basel-a3c4e67c86e8",
@@ -34,7 +34,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-a/9c0c409e-fda2-4501-8d36-c09fadaa296b",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:26:42.242Z",
+      "crawledAt": "2026-11-25T21:27:51.366Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -87,9 +87,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:26:42.242Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-a/9c0c409e-fda2-4501-8d36-c09fadaa296b"
+      "validThrough": "2026-12-25T21:27:51.366Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-basel-85da8c998b9a",
@@ -123,7 +122,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-r-psychiatrie-kinder-spitex-dipl-pflegefachperson-hf-fh-a/d82d9d47-26a9-49cd-bb39-a612e635015b",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:26:42.236Z",
+      "crawledAt": "2026-11-25T21:27:51.361Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -171,9 +170,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:26:42.236Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-r-psychiatrie-kinder-spitex-dipl-pflegefachperson-hf-fh-a/d82d9d47-26a9-49cd-bb39-a612e635015b"
+      "validThrough": "2027-01-05T21:27:51.361Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-basel-8759c6795410",
@@ -207,7 +205,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-kinder-spitex-fuer-nachtwachen-a/b58cfd11-968c-487a-a843-a67fad8e11c7",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:26:42.226Z",
+      "crawledAt": "2026-11-25T21:27:51.358Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -263,9 +261,96 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:26:42.226Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-kinder-spitex-fuer-nachtwachen-a/b58cfd11-968c-487a-a843-a67fad8e11c7"
+      "validThrough": "2027-01-07T21:27:51.358Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "spitex-basel-d8a94e9fbfec",
+      "slug": "operatore-trice-sociosanitario-a-fage-possibili-anche-esclusivamente-turni-mattutini-o-esclusivamente-serali-a-spitex",
+      "slugByLocale": {
+        "it": "operatore-trice-sociosanitario-a-fage-possibili-anche-esclusivamente-turni-mattutini-o-esclusivamente-serali-a-spitex",
+        "en": "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel",
+        "de": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
+        "fr": "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
+      },
+      "company": "SPITEX BASEL",
+      "companyKey": "spitex-basel",
+      "companyDomain": "spitexbasel.ch",
+      "title": "Fachperson Gesundheit (FaGe), auch nur Morgen- oder nur Abendeinsätze möglich (a)",
+      "titleByLocale": {
+        "it": "Operatore/trice sociosanitario/a (FaGe), possibili anche esclusivamente turni mattutini o esclusivamente serali (a)",
+        "en": "Specialist Health (FaGe), also only morning or only evening assignments possible (a)",
+        "de": "Fachperson Gesundheit (FaGe), auch nur Morgen- oder nur Abendeinsätze möglich (a)",
+        "fr": "Spécialiste de la santé (FaGe), aussi seulement le matin ou seulement le soir des affectations possibles (a)"
+      },
+      "description": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\nOhne Nachtdienste\n\n## Was du bei uns bewegst\n• Kundinnen und Kunden zu Hause pflegen und unterstützen (Grund- und Behandlungspflege)\n• Veränderungen der Kundensituationen beobachten, dokumentieren und weiterleiten\n• Angehörige unterstützen und begleiten\n• Mitwirken bei der Qualitätsverbesserung\n• Zusammenarbeiten mit den fallführenden Mitarbeitenden\n• Auf Wunsch und nach Absprache begleiten von Lernenden (AGS, FaGe)\n\n## Was du mitbringst\n• Grundausbildung als Fachperson Gesundheit (FaGe) oder gleichwertig\n• Freude an der Arbeit mit Menschen\n• Selbstständiges Einschätzen von pflegerischen Situationen\n• Wertschätzende und empathische Kommunikation\n• Bereitschaft mit dem Velo unterwegs zu sein\n\n## BEI UNS ZÄHLT DER MENSCH!\nSPITEX BASEL unterstützt Menschen in der selbstständigen Lebensführung und trägt zu ihrer Lebensqualität bei, mit professioneller Pflege, Hauswirtschaft und Betreuung. Möchtest du Menschen in vielfältigen Pflegesituationen in ihrem Daheim eigenständig pflegen und unterstützen? Dann haben wir ein spannendes Angebot für dich. Wir finden gemeinsam das passende Pensum und Team für dich.\nUns ist egal, welches Geschlecht du hast, woher du kommst oder wie alt du bist – alle sind willkommen. Bei uns zählen deine Kompetenzen und deine Motivation.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
+      "descriptionByLocale": {
+        "it": "Attività significativa in un ambiente di lavoro multiculturale, gerarchie piatte\nSenza servizi notturni\n\n## Cosa fai con noi\n• Cura e supporto clienti a casa (assistenza medica e cura)\n• Osservare, documentare e modificare le situazioni dei clienti\n• Supporto e accompagnamento dei parenti\n• Partecipazione al miglioramento della qualità\n• Cooperazione con i responsabili delle case\n• Su richiesta e d'intesa accompagnano gli studenti (AGS, FaGe)\n\n## Cosa porti\n• Formazione di base come professionista sanitario (FaGe) o equivalente\n• Gioia di lavorare con le persone\n• Valutazione indipendente delle situazioni di allattamento\n• Comunicazione apprezzata ed empatica\n• Prontezza per viaggiare con il Velo\n\n## L'uomo ci conta!\nSPITEX BASEL supporta le persone in vita indipendente e contribuisce alla loro qualità di vita, con cura professionale, pulizia e cura. Vuoi prenderti cura indipendentemente e sostenere le persone in una varietà di situazioni di cura nella loro casa? Allora abbiamo un'offerta emozionante per voi. Insieme troveremo il giusto carico di lavoro e la squadra per voi.\nNon ci interessa quale genere sei, da dove vieni o quanti anni hai – tutti sono i benvenuti. Con noi, le tue abilità e la tua motivazione conta.\n\n## Cosa trovi con noi\nOpportunità di formazione interessanti\nVelo check-days, tutto-tempo adatto lavoro e abiti da lavoro, caffè gratuito, tè e frutta\nContributo sanitario annuale per le vostre esigenze sanitarie individuali\n\n## Informazioni su Spitex Basel\nSPITEX BASEL è una fondazione senza scopo di lucro, senza scopo di lucro, con un mandato di servizio del Cantone di Basilea-Stadt.\nCome organizzazione leader Spitex con un mandato di servizio pubblico, SPITEX BASEL offre servizi completi nelle aree di assistenza ambulatoriale e pulizia. Bambini, adolescenti e adulti sono sostenuti in ogni fase della vita.\nUlteriori informazioni su di noi",
+        "en": "Meaningful activity in a multicultural working environment, flat hierarchies\nWithout night services\n\n## What you do with us\n• Caring for and supporting customers at home (basic and treatment care)\n• Observe, document and forward changes in customer situations\n• Supporting and accompanying relatives\n• Participation in quality improvement\n• Cooperation with case-leading staff\n• Upon request and by agreement accompany learners (AGS, FaGe)\n\n## What you bring\n• Basic training as a health professional (FaGe) or equivalent\n• Joy of working with people\n• Independent assessment of nursing situations\n• Appreciative and empathetic communication\n• Readiness to travel with the Velo\n\n## The man counts us!\nSPITEX BASEL supports people in independent living and contributes to their quality of life, with professional care, housekeeping and care. Do you want to independently care for and support people in a variety of care situations in their home? Then we have an exciting offer for you. Together we will find the right workload and team for you.\nWe don’t care what gender you are, where you come from or how old you are – everyone is welcome. With us, your skills and your motivation count.\n\n## What you find with us\nAttractive training opportunities\nVelo check-days, all-weather suitable work and work clothes, free coffee, tea and fruit\nAnnual health care contribution for your individual health needs\n\n## About Spitex Basel\nSPITEX BASEL is a non-profit, non-profit-oriented foundation with a service mandate from the Canton of Basel-Stadt.\nAs a leading Spitex organization with a public service mandate, SPITEX BASEL offers comprehensive services in the areas of outpatient care as well as housekeeping and care. Children, adolescents and adults are supported at every stage of life.\nMore about us",
+        "de": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\nOhne Nachtdienste\n\n## Was du bei uns bewegst\n• Kundinnen und Kunden zu Hause pflegen und unterstützen (Grund- und Behandlungspflege)\n• Veränderungen der Kundensituationen beobachten, dokumentieren und weiterleiten\n• Angehörige unterstützen und begleiten\n• Mitwirken bei der Qualitätsverbesserung\n• Zusammenarbeiten mit den fallführenden Mitarbeitenden\n• Auf Wunsch und nach Absprache begleiten von Lernenden (AGS, FaGe)\n\n## Was du mitbringst\n• Grundausbildung als Fachperson Gesundheit (FaGe) oder gleichwertig\n• Freude an der Arbeit mit Menschen\n• Selbstständiges Einschätzen von pflegerischen Situationen\n• Wertschätzende und empathische Kommunikation\n• Bereitschaft mit dem Velo unterwegs zu sein\n\n## BEI UNS ZÄHLT DER MENSCH!\nSPITEX BASEL unterstützt Menschen in der selbstständigen Lebensführung und trägt zu ihrer Lebensqualität bei, mit professioneller Pflege, Hauswirtschaft und Betreuung. Möchtest du Menschen in vielfältigen Pflegesituationen in ihrem Daheim eigenständig pflegen und unterstützen? Dann haben wir ein spannendes Angebot für dich. Wir finden gemeinsam das passende Pensum und Team für dich.\nUns ist egal, welches Geschlecht du hast, woher du kommst oder wie alt du bist – alle sind willkommen. Bei uns zählen deine Kompetenzen und deine Motivation.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
+        "fr": "Activité significative dans un environnement de travail multiculturel, hiérarchies plates\nSans services de nuit\n\n## Ce que tu fais de nous\n• Soins et soutien aux clients à domicile (soins de base et soins médicaux)\n• Observer, documenter et transmettre les changements dans la situation des clients\n• Familles d ' appui et de soutien\n• Participation à l ' amélioration de la qualité\n• Coopération avec le personnel chef de file\n• Sur demande et par accord accompagner les apprenants (AGS, FaGe)\n\n## Ce que vous apportez\n• Formation de base en tant que professionnel de la santé (FaGe) ou équivalent\n• Joy de travailler avec les gens\n• Évaluation indépendante des situations de soins infirmiers\n• Communication reconnaissante et empathique\n• Prêt à voyager avec le Velo\n\n## L'homme nous compte !\nSPITEX BASEL soutient les personnes dans la vie autonome et contribue à leur qualité de vie, avec des soins professionnels, des soins ménagers et des soins. Voulez-vous prendre soin et soutenir les personnes dans diverses situations de soins à domicile? Alors nous avons une offre passionnante pour vous. Ensemble, nous trouverons la bonne charge de travail et l'équipe pour vous.\nNous ne nous soucions pas quel genre vous êtes, d'où vous venez ou quel âge vous êtes – tout le monde est le bienvenu. Avec nous, vos compétences et votre motivation comptent.\n\n## Ce que vous trouvez chez nous\nPossibilités de formation attrayantes\nJours fériés Velo, vêtements de travail adaptés à tous les temps, café gratuit, thé et fruits\nContribution annuelle aux soins de santé pour vos besoins individuels en matière de santé\n\n## À propos de Spitex Basel\nSPITEX BASEL est une fondation à but non lucratif dotée d'un mandat de service du canton de Bâle-Stadt.\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie.\nPlus sur nous"
+      },
+      "needsRetranslation": false,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/73c1203b-eb17-4545-9338-d67ebbd4f6db",
+      "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:27:51.353Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4001",
+      "streetAddress": "Basel",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/73c1203b-eb17-4545-9338-d67ebbd4f6db",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
+        "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
+        "salute-specialistica-fage-anche-solo-mattina-o-solo-sera-possibili-assegnazioni-a-spitex-basel-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
+          "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
+          "salute-specialistica-fage-anche-solo-mattina-o-solo-sera-possibili-assegnazioni-a-spitex-basel-basel"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ]
+      },
+      "firstSeenAt": "2026-09-03T13:51:37.566Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T21:27:51.353Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-basel-293e86030de0",
@@ -299,7 +384,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a/199f2daa-21aa-4050-b134-e1b129830c58",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:26:42.219Z",
+      "crawledAt": "2026-11-25T21:27:51.352Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -367,98 +452,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:26:42.219Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a/199f2daa-21aa-4050-b134-e1b129830c58"
-    },
-    {
-      "id": "spitex-basel-d8a94e9fbfec",
-      "slug": "operatore-trice-sociosanitario-a-fage-possibili-anche-esclusivamente-turni-mattutini-o-esclusivamente-serali-a-spitex",
-      "slugByLocale": {
-        "it": "operatore-trice-sociosanitario-a-fage-possibili-anche-esclusivamente-turni-mattutini-o-esclusivamente-serali-a-spitex",
-        "en": "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel",
-        "de": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-        "fr": "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
-      },
-      "company": "SPITEX BASEL",
-      "companyKey": "spitex-basel",
-      "companyDomain": "spitexbasel.ch",
-      "title": "Fachperson Gesundheit (FaGe), auch nur Morgen- oder nur Abendeinsätze möglich (a)",
-      "titleByLocale": {
-        "it": "Operatore/trice sociosanitario/a (FaGe), possibili anche esclusivamente turni mattutini o esclusivamente serali (a)",
-        "en": "Specialist Health (FaGe), also only morning or only evening assignments possible (a)",
-        "de": "Fachperson Gesundheit (FaGe), auch nur Morgen- oder nur Abendeinsätze möglich (a)",
-        "fr": "Spécialiste de la santé (FaGe), aussi seulement le matin ou seulement le soir des affectations possibles (a)"
-      },
-      "description": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\nOhne Nachtdienste\n\n## Was du bei uns bewegst\n• Kundinnen und Kunden zu Hause pflegen und unterstützen (Grund- und Behandlungspflege)\n• Veränderungen der Kundensituationen beobachten, dokumentieren und weiterleiten\n• Angehörige unterstützen und begleiten\n• Mitwirken bei der Qualitätsverbesserung\n• Zusammenarbeiten mit den fallführenden Mitarbeitenden\n• Auf Wunsch und nach Absprache begleiten von Lernenden (AGS, FaGe)\n\n## Was du mitbringst\n• Grundausbildung als Fachperson Gesundheit (FaGe) oder gleichwertig\n• Freude an der Arbeit mit Menschen\n• Selbstständiges Einschätzen von pflegerischen Situationen\n• Wertschätzende und empathische Kommunikation\n• Bereitschaft mit dem Velo unterwegs zu sein\n\n## BEI UNS ZÄHLT DER MENSCH!\nSPITEX BASEL unterstützt Menschen in der selbstständigen Lebensführung und trägt zu ihrer Lebensqualität bei, mit professioneller Pflege, Hauswirtschaft und Betreuung. Möchtest du Menschen in vielfältigen Pflegesituationen in ihrem Daheim eigenständig pflegen und unterstützen? Dann haben wir ein spannendes Angebot für dich. Wir finden gemeinsam das passende Pensum und Team für dich.\nUns ist egal, welches Geschlecht du hast, woher du kommst oder wie alt du bist – alle sind willkommen. Bei uns zählen deine Kompetenzen und deine Motivation.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
-      "descriptionByLocale": {
-        "it": "Attività significativa in un ambiente di lavoro multiculturale, gerarchie piatte\nSenza servizi notturni\n\n## Cosa fai con noi\n• Cura e supporto clienti a casa (assistenza medica e cura)\n• Osservare, documentare e modificare le situazioni dei clienti\n• Supporto e accompagnamento dei parenti\n• Partecipazione al miglioramento della qualità\n• Cooperazione con i responsabili delle case\n• Su richiesta e d'intesa accompagnano gli studenti (AGS, FaGe)\n\n## Cosa porti\n• Formazione di base come professionista sanitario (FaGe) o equivalente\n• Gioia di lavorare con le persone\n• Valutazione indipendente delle situazioni di allattamento\n• Comunicazione apprezzata ed empatica\n• Prontezza per viaggiare con il Velo\n\n## L'uomo ci conta!\nSPITEX BASEL supporta le persone in vita indipendente e contribuisce alla loro qualità di vita, con cura professionale, pulizia e cura. Vuoi prenderti cura indipendentemente e sostenere le persone in una varietà di situazioni di cura nella loro casa? Allora abbiamo un'offerta emozionante per voi. Insieme troveremo il giusto carico di lavoro e la squadra per voi.\nNon ci interessa quale genere sei, da dove vieni o quanti anni hai – tutti sono i benvenuti. Con noi, le tue abilità e la tua motivazione conta.\n\n## Cosa trovi con noi\nOpportunità di formazione interessanti\nVelo check-days, tutto-tempo adatto lavoro e abiti da lavoro, caffè gratuito, tè e frutta\nContributo sanitario annuale per le vostre esigenze sanitarie individuali\n\n## Informazioni su Spitex Basel\nSPITEX BASEL è una fondazione senza scopo di lucro, senza scopo di lucro, con un mandato di servizio del Cantone di Basilea-Stadt.\nCome organizzazione leader Spitex con un mandato di servizio pubblico, SPITEX BASEL offre servizi completi nelle aree di assistenza ambulatoriale e pulizia. Bambini, adolescenti e adulti sono sostenuti in ogni fase della vita.\nUlteriori informazioni su di noi",
-        "en": "Meaningful activity in a multicultural working environment, flat hierarchies\nWithout night services\n\n## What you do with us\n• Caring for and supporting customers at home (basic and treatment care)\n• Observe, document and forward changes in customer situations\n• Supporting and accompanying relatives\n• Participation in quality improvement\n• Cooperation with case-leading staff\n• Upon request and by agreement accompany learners (AGS, FaGe)\n\n## What you bring\n• Basic training as a health professional (FaGe) or equivalent\n• Joy of working with people\n• Independent assessment of nursing situations\n• Appreciative and empathetic communication\n• Readiness to travel with the Velo\n\n## The man counts us!\nSPITEX BASEL supports people in independent living and contributes to their quality of life, with professional care, housekeeping and care. Do you want to independently care for and support people in a variety of care situations in their home? Then we have an exciting offer for you. Together we will find the right workload and team for you.\nWe don’t care what gender you are, where you come from or how old you are – everyone is welcome. With us, your skills and your motivation count.\n\n## What you find with us\nAttractive training opportunities\nVelo check-days, all-weather suitable work and work clothes, free coffee, tea and fruit\nAnnual health care contribution for your individual health needs\n\n## About Spitex Basel\nSPITEX BASEL is a non-profit, non-profit-oriented foundation with a service mandate from the Canton of Basel-Stadt.\nAs a leading Spitex organization with a public service mandate, SPITEX BASEL offers comprehensive services in the areas of outpatient care as well as housekeeping and care. Children, adolescents and adults are supported at every stage of life.\nMore about us",
-        "de": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\nOhne Nachtdienste\n\n## Was du bei uns bewegst\n• Kundinnen und Kunden zu Hause pflegen und unterstützen (Grund- und Behandlungspflege)\n• Veränderungen der Kundensituationen beobachten, dokumentieren und weiterleiten\n• Angehörige unterstützen und begleiten\n• Mitwirken bei der Qualitätsverbesserung\n• Zusammenarbeiten mit den fallführenden Mitarbeitenden\n• Auf Wunsch und nach Absprache begleiten von Lernenden (AGS, FaGe)\n\n## Was du mitbringst\n• Grundausbildung als Fachperson Gesundheit (FaGe) oder gleichwertig\n• Freude an der Arbeit mit Menschen\n• Selbstständiges Einschätzen von pflegerischen Situationen\n• Wertschätzende und empathische Kommunikation\n• Bereitschaft mit dem Velo unterwegs zu sein\n\n## BEI UNS ZÄHLT DER MENSCH!\nSPITEX BASEL unterstützt Menschen in der selbstständigen Lebensführung und trägt zu ihrer Lebensqualität bei, mit professioneller Pflege, Hauswirtschaft und Betreuung. Möchtest du Menschen in vielfältigen Pflegesituationen in ihrem Daheim eigenständig pflegen und unterstützen? Dann haben wir ein spannendes Angebot für dich. Wir finden gemeinsam das passende Pensum und Team für dich.\nUns ist egal, welches Geschlecht du hast, woher du kommst oder wie alt du bist – alle sind willkommen. Bei uns zählen deine Kompetenzen und deine Motivation.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
-        "fr": "Activité significative dans un environnement de travail multiculturel, hiérarchies plates\nSans services de nuit\n\n## Ce que tu fais de nous\n• Soins et soutien aux clients à domicile (soins de base et soins médicaux)\n• Observer, documenter et transmettre les changements dans la situation des clients\n• Familles d ' appui et de soutien\n• Participation à l ' amélioration de la qualité\n• Coopération avec le personnel chef de file\n• Sur demande et par accord accompagner les apprenants (AGS, FaGe)\n\n## Ce que vous apportez\n• Formation de base en tant que professionnel de la santé (FaGe) ou équivalent\n• Joy de travailler avec les gens\n• Évaluation indépendante des situations de soins infirmiers\n• Communication reconnaissante et empathique\n• Prêt à voyager avec le Velo\n\n## L'homme nous compte !\nSPITEX BASEL soutient les personnes dans la vie autonome et contribue à leur qualité de vie, avec des soins professionnels, des soins ménagers et des soins. Voulez-vous prendre soin et soutenir les personnes dans diverses situations de soins à domicile? Alors nous avons une offre passionnante pour vous. Ensemble, nous trouverons la bonne charge de travail et l'équipe pour vous.\nNous ne nous soucions pas quel genre vous êtes, d'où vous venez ou quel âge vous êtes – tout le monde est le bienvenu. Avec nous, vos compétences et votre motivation comptent.\n\n## Ce que vous trouvez chez nous\nPossibilités de formation attrayantes\nJours fériés Velo, vêtements de travail adaptés à tous les temps, café gratuit, thé et fruits\nContribution annuelle aux soins de santé pour vos besoins individuels en matière de santé\n\n## À propos de Spitex Basel\nSPITEX BASEL est une fondation à but non lucratif dotée d'un mandat de service du canton de Bâle-Stadt.\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie.\nPlus sur nous"
-      },
-      "needsRetranslation": false,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/73c1203b-eb17-4545-9338-d67ebbd4f6db",
-      "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:26:42.220Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4001",
-      "streetAddress": "Basel",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/73c1203b-eb17-4545-9338-d67ebbd4f6db",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-        "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
-        "salute-specialistica-fage-anche-solo-mattina-o-solo-sera-possibili-assegnazioni-a-spitex-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-          "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
-          "salute-specialistica-fage-anche-solo-mattina-o-solo-sera-possibili-assegnazioni-a-spitex-basel-basel"
-        ],
-        "en": [
-          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
-        ],
-        "fr": [
-          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
-        ]
-      },
-      "firstSeenAt": "2026-09-03T13:51:37.566Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:26:42.220Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/73c1203b-eb17-4545-9338-d67ebbd4f6db"
+      "validThrough": "2027-02-02T21:27:51.352Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-basel-a193dc6cccad",
@@ -492,7 +487,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-a/5e06f111-7bb6-4a5f-a3a4-512ca5c00f25",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:26:42.204Z",
+      "crawledAt": "2026-11-25T21:27:51.347Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -542,9 +537,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:26:42.204Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-a/5e06f111-7bb6-4a5f-a3a4-512ca5c00f25"
+      "validThrough": "2026-12-25T21:27:51.347Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-basel-1e2b32d56859",
@@ -578,7 +572,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a/f0144138-3048-4cf0-b4f3-a6d874e97f39",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:26:42.200Z",
+      "crawledAt": "2026-11-25T21:27:51.345Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -649,9 +643,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:26:42.200Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a/f0144138-3048-4cf0-b4f3-a6d874e97f39"
+      "validThrough": "2026-12-25T21:27:51.345Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-basel-d871261c679c",
@@ -685,7 +678,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/pflegeprofi-fuer-flexible-einsaetze-a/a6c50772-8198-42f7-bf06-c54af6ddf73a",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:26:42.184Z",
+      "crawledAt": "2026-11-25T21:27:51.336Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -786,16 +779,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel",
-          "professionista-dell-assistenza-per-impieghi-flessibili-a-spitex-basel-basel",
-          "pflegeprofi-per-flexible-einsatze-a-spitex-basel-91a2791b",
-          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-3277856f",
-          "pflegeprofi-per-flexible-einsatze-a-spitex-basel-e979f84b",
-          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-3319d2af",
-          "pflegeprofi-per-flexible-einsatze-a-spitex-basel-c0c08348",
-          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-7a14ff4a",
-          "pflegeprofi-per-flexible-einsatze-a-spitex-basel-38e7ff07",
-          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-fa286218",
           "pflegeprofi-per-flexible-einsatze-a-spitex-basel-2de172df",
           "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-d578dc9d",
           "pflegeprofi-per-flexible-einsatze-a-spitex-basel-b968fa33",
@@ -805,7 +788,17 @@
           "pflegeprofi-per-flexible-einsatze-a-spitex-basel-1135b9ff",
           "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-ab9a20e2",
           "pflegeprofi-per-flexible-einsatze-a-spitex-basel-46742ff2",
-          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-960d021a"
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-960d021a",
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel",
+          "professionista-dell-assistenza-per-impieghi-flessibili-a-spitex-basel-basel",
+          "pflegeprofi-per-flexible-einsatze-a-spitex-basel-91a2791b",
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-3277856f",
+          "pflegeprofi-per-flexible-einsatze-a-spitex-basel-e979f84b",
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-3319d2af",
+          "pflegeprofi-per-flexible-einsatze-a-spitex-basel-c0c08348",
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-7a14ff4a",
+          "pflegeprofi-per-flexible-einsatze-a-spitex-basel-38e7ff07",
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-basel-fa286218"
         ],
         "en": [
           "care-professional-for-flexible-assignments-a-spitex-basel-basel-ae7da547"
@@ -832,9 +825,173 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:26:42.184Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.spitexbasel.ch/offene-stellen/pflegeprofi-fuer-flexible-einsaetze-a/a6c50772-8198-42f7-bf06-c54af6ddf73a"
+      "validThrough": "2027-02-16T21:27:51.336Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "spitex-basel-7de9972bc193",
+      "slug": "infermiera-hf-fh-a-spitex-basel-basel",
+      "slugByLocale": {
+        "it": "infermiera-hf-fh-a-spitex-basel-basel",
+        "en": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+        "de": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+        "fr": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+      },
+      "company": "SPITEX BASEL",
+      "companyKey": "spitex-basel",
+      "companyDomain": "spitexbasel.ch",
+      "title": "Fallverantwortliche/Fallverantwortlicher Pflege, Dipl. Pflegefachperson HF/FH (a)",
+      "titleByLocale": {
+        "it": "Infermiera HF/FH (a)",
+        "en": "Case responsible/case responsible care, Dipl. Nurse HF/FH (a)",
+        "de": "Fallverantwortliche/Fallverantwortlicher Pflege, Dipl. Pflegefachperson HF/FH (a)",
+        "fr": "Infirmière en chef/infirmière responsable de cas (a)"
+      },
+      "description": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\nOhne Nachtdienste\n\n## Was du bei uns bewegst\n• Steuern des Pflegeprozesses bei somatischen Kundinnen und Kunden\n• Ermitteln des Dienstleistungsbedarfs, Erstellen des Hilfe- und Pflegeplans\n• Gewährleisten der fachgerechten Erbringung von Pflegeleistungen, Sicherstellen der differenzierten und spezialisierten Pflege sowie des professionellen Wund- und Schmerzmanagements\n• Übernehmen von pflegerischen Einsätzen bei unseren Kundinnen und Kunden daheim\n• Durchführen von Interventionen und Führen der elektronischen Dokumentation\n• Fachliches Führen von Mitarbeitenden und Unterstützen in komplexen Pflegesituationen\n\n## Was du mitbringst\n• Grundausbildung Pflegefachperson HF/FH oder gleichwertig mit SRK-Anerkennung\n• Mehrjährige pflegerische Berufserfahrung\n• Kompetentes Einschätzen von pflegerischen Situationen\n• Flair und Freude an administrativen und organisatorischen Tätigkeiten\n• Gute IT Anwenderkenntnisse\n• Bereitschaft mit dem Velo unterwegs zu sein\n\n## BEI UNS ZÄHLT DER MENSCH!\nSPITEX BASEL unterstützt Menschen in der selbstständigen Lebensführung und trägt zu ihrer Lebensqualität bei, mit professioneller Pflege, Hauswirtschaft und Betreuung. Möchtest du Menschen in vielfältigen Pflegesituationen in ihrem Daheim eigenständig pflegen und unterstützen? Dann haben wir ein spannendes Angebot für dich als Fallverantwortliche oder Fallverantwortlicher Pflege.\nUns ist egal, welches Geschlecht du hast, woher du kommst oder wie alt du bist – alle (a) sind willkommen. Bei uns zählen deine Fähigkeiten und deine Motivation.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
+      "descriptionByLocale": {
+        "it": "Attività significativa in un ambiente di lavoro multiculturale, gerarchie piatte\nSenza servizi notturni\n\n## Cosa fai con noi\n• Controllo del processo di cura per i clienti somatici\n• Determinazione delle esigenze di servizio, creazione del piano di assistenza e assistenza\n• Assicurare la fornitura professionale di servizi di assistenza, garantire cure differenziate e specializzate, nonché la gestione professionale delle ferite e del dolore\n• Assumendo incarichi di cura presso le case dei nostri clienti\n• Attuazione degli interventi e documentazione elettronica\n• Gestione professionale dei dipendenti e supporto in situazioni di cura complesse\n\n## Cosa porti\n• Infermiere di base HF/FH o equivalente con riconoscimento SRC\n• Esperienza professionale in allattamento per diversi anni\n• Valutazione conforme delle situazioni di allattamento\n• Flair e piacere nelle attività amministrative e organizzative\n• Buona conoscenza degli utenti IT\n• Prontezza per viaggiare con il Velo\n\n## L'uomo ci conta!\nSPITEX BASEL supporta le persone in vita indipendente e contribuisce alla loro qualità di vita, con cura professionale, pulizia e cura. Vuoi prenderti cura in modo indipendente e sostenere le persone in una varietà di situazioni di cura nella loro casa? Poi abbiamo un'offerta emozionante per voi come un caso responsabile o caso cura responsabile.\nNon ci interessa quale genere sei, da dove vieni o quanti anni hai – tutti (a) sono i benvenuti. Con noi, le tue abilità e la tua motivazione conta.\n\n## Cosa trovi con noi\nOpportunità di formazione interessanti\nVelo check days, tutto-tempo adatto lavoro e abiti da lavoro, caffè gratuito, tè e frutta\nContributo annuale di assistenza sanitaria per le vostre esigenze sanitarie individuali\n\n## Informazioni su Spitex Basel\nSPITEX BASEL è una fondazione senza scopo di lucro, senza scopo di lucro, con un mandato di servizio del Cantone di Basilea-Stadt.\nCome organizzazione leader Spitex con un mandato di servizio pubblico, SPITEX BASEL offre servizi completi nelle aree di cura ambulatorio, nonché di pulizia e cura. Bambini, adolescenti e adulti sono sostenuti in ogni fase della vita.\nUlteriori informazioni su di noi",
+        "en": "Meaningful activity in a multicultural working environment, flat hierarchies\nWithout night services\n\n## What you do with us\n• Controlling the care process for somatic customers\n• Determination of service needs, creation of the assistance and care plan\n• Ensure the professional provision of care services, ensure differentiated and specialized care as well as professional wound and pain management\n• Assuming nursing assignments at our customers’ homes\n• Implementation of interventions and electronic documentation\n• Professional management of employees and support in complex care situations\n\n## What you bring\n• Basic training nurse HF/FH or equivalent with SRC recognition\n• Professional experience in nursing for several years\n• Competent assessment of nursing situations\n• Flair and pleasure in administrative and organizational activities\n• Good IT user knowledge\n• Readiness to travel with the Velo\n\n## The man counts us!\nSPITEX BASEL supports people in independent living and contributes to their quality of life, with professional care, housekeeping and care. Do you want to independently care for and support people in a variety of care situations in their home? Then we have an exciting offer for you as a case responsible or case responsible care.\nWe don’t care what gender you are, where you come from or how old you are – all (a) are welcome. With us, your skills and your motivation count.\n\n## What you find with us\nAttractive training opportunities\nVelo check days, all-weather suitable work and work clothes, free coffee, tea and fruit\nAnnual health care contribution for your individual health needs\n\n## About Spitex Basel\nSPITEX BASEL is a non-profit, non-profit-oriented foundation with a service mandate from the Canton of Basel-Stadt.\nAs a leading Spitex organization with a public service mandate, SPITEX BASEL offers comprehensive services in the areas of outpatient care as well as housekeeping and care. Children, adolescents and adults are supported at every stage of life.\nMore about us",
+        "de": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\nOhne Nachtdienste\n\n## Was du bei uns bewegst\n• Steuern des Pflegeprozesses bei somatischen Kundinnen und Kunden\n• Ermitteln des Dienstleistungsbedarfs, Erstellen des Hilfe- und Pflegeplans\n• Gewährleisten der fachgerechten Erbringung von Pflegeleistungen, Sicherstellen der differenzierten und spezialisierten Pflege sowie des professionellen Wund- und Schmerzmanagements\n• Übernehmen von pflegerischen Einsätzen bei unseren Kundinnen und Kunden daheim\n• Durchführen von Interventionen und Führen der elektronischen Dokumentation\n• Fachliches Führen von Mitarbeitenden und Unterstützen in komplexen Pflegesituationen\n\n## Was du mitbringst\n• Grundausbildung Pflegefachperson HF/FH oder gleichwertig mit SRK-Anerkennung\n• Mehrjährige pflegerische Berufserfahrung\n• Kompetentes Einschätzen von pflegerischen Situationen\n• Flair und Freude an administrativen und organisatorischen Tätigkeiten\n• Gute IT Anwenderkenntnisse\n• Bereitschaft mit dem Velo unterwegs zu sein\n\n## BEI UNS ZÄHLT DER MENSCH!\nSPITEX BASEL unterstützt Menschen in der selbstständigen Lebensführung und trägt zu ihrer Lebensqualität bei, mit professioneller Pflege, Hauswirtschaft und Betreuung. Möchtest du Menschen in vielfältigen Pflegesituationen in ihrem Daheim eigenständig pflegen und unterstützen? Dann haben wir ein spannendes Angebot für dich als Fallverantwortliche oder Fallverantwortlicher Pflege.\nUns ist egal, welches Geschlecht du hast, woher du kommst oder wie alt du bist – alle (a) sind willkommen. Bei uns zählen deine Fähigkeiten und deine Motivation.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
+        "fr": "Activité significative dans un environnement de travail multiculturel, hiérarchies plates\nSans services de nuit\n\n## Ce que tu fais avec nous\n• Contrôle du processus de soins pour les clients somatiques\n• Détermination des besoins en services, création du plan d'assistance et de soins\n• Assurer la prestation professionnelle de services de soins, assurer des soins différenciés et spécialisés ainsi que la gestion professionnelle des blessures et de la douleur\n• En supposant des missions de soins infirmiers chez nos clients\n• Mise en œuvre des interventions et documentation électronique\n• Gestion professionnelle des employés et soutien dans des situations de soins complexes\n\n## Ce que vous apportez\n• Infirmière de formation de base HF/FH ou équivalent avec reconnaissance SRC\n• Expérience professionnelle en soins infirmiers depuis plusieurs années\n• Évaluation compétente des situations de soins infirmiers\n• Flair et plaisir dans les activités administratives et organisationnelles\n• Bonne connaissance de l'utilisateur informatique\n• Prêt à voyager avec le Velo\n\n## L'homme nous compte !\nSPITEX BASEL soutient les personnes dans la vie autonome et contribue à leur qualité de vie, avec des soins professionnels, des soins ménagers et des soins. Voulez-vous prendre soin et aider les personnes dans une variété de situations de soins à domicile? Ensuite, nous avons une offre passionnante pour vous en tant que responsable de cas ou de soins responsables de cas.\nNous ne nous soucions pas de quel genre vous êtes, d'où vous venez ou de quel âge vous êtes – tous (a) sont les bienvenus. Avec nous, vos compétences et votre motivation comptent.\n\n## Ce que vous trouvez chez nous\nPossibilités de formation attrayantes\nJours de contrôle Velo, vêtements de travail et de travail adaptés à tous les temps, café gratuit, thé et fruits\nContribution annuelle aux soins de santé pour vos besoins individuels en matière de santé\n\n## À propos de Spitex Basel\nSPITEX BASEL est une fondation à but non lucratif dont le mandat de service provient du canton de Bâle-Stadt.\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie.\nPlus sur nous"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a/dda3be49-73da-4aa0-a1d8-7b6d6d51f5ae",
+      "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:27:51.332Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4001",
+      "streetAddress": "Basel",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a/dda3be49-73da-4aa0-a1d8-7b6d6d51f5ae",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+        "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        ],
+        "en": [
+          "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T13:48:19.074Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T21:27:51.332Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "spitex-basel-e7a7de2b6c88",
+      "slug": "responsabile-del-settore-hr-a-spitex-basel-basel",
+      "slugByLocale": {
+        "it": "responsabile-del-settore-hr-a-spitex-basel-basel",
+        "en": "hr-area-responsible-r-a-spitex-basel-basel",
+        "de": "hr-bereichsverantwortliche-r-a-spitex-basel-basel",
+        "fr": "responsable-du-service-rh-a-spitex-basel-basel"
+      },
+      "company": "SPITEX BASEL",
+      "companyKey": "spitex-basel",
+      "companyDomain": "spitexbasel.ch",
+      "title": "HR Bereichsverantwortliche/r (a)",
+      "titleByLocale": {
+        "it": "Responsabile del settore HR (a)",
+        "en": "HR Area responsible/r (a)",
+        "de": "HR Bereichsverantwortliche/r (a)",
+        "fr": "Responsable du service RH (a)"
+      },
+      "description": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\nBei uns ist HR kein Formularschalter. Du bist die erste Adresse für unsere Mitarbeitende und ihre Führungskräfte. Mal bist du Sparringpartner/in, mal Feuerwehr, mal Ideengeber/in. Das klingt nach dir?\n\n## Was du bei uns bewegst\n• Du besetzt Stellen in deinem Bereich, vom Inserat bis zur Zusage\n• Du berätst Führungskräfte, gerade dann, wenn es knifflig wird\n• Du begleitest Mitarbeitende vom Eintritt bis zum Austritt, auch bei Absenzen, schwierigen Gesprächen und personalrechtlichen Fragen\n• Du merkst, wo es hakt, und findest gemeinsam mit den Beteiligten Lösungen\n• Du arbeitest in HR-Projekten mit und machst unsere Prozesse einfacher und digitaler\n\n## Was du mitbringst\n• Eine HR-Ausbildung und Erfahrung als HR-Generalist/in\n• Beratungsstärke, Fingerspitzengefühl und einen kühlen Kopf, wenn es heiss wird\n• Eine selbständige, pragmatische Arbeitsweise und Lust auf digitale Lösungen\n• Von Vorteil: Erfahrung im Gesundheitswesen\n• Und: Du gehst offen auf Menschen zu und kannst auch über dich selbst lachen\n\n## Was wir dir bieten\n• Eine Rolle mit echtem Gestaltungsspielraum. Deine Ideen landen nicht in der Schublade\n• Ein HR-Team, das sich gegenseitig den Rücken freihält und auch zusammen lacht\n• Mind. 26 Tage Ferien, sehr gute Pensionskasse, internes Fortbildungsprogramm, verschiedene Rabatte (z.B. Brands for Employee, Corporate Benefits, u.v.m.)\nLust bekommen?\nDann schick uns deine Bewerbung, gerne auch ohne Floskeln. Fragen beantwortet dir Maria Grazia Urgese gerne vorab.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
+      "descriptionByLocale": {
+        "it": "Attività significativa in un ambiente di lavoro multiculturale, gerarchie piatte\nHR non è un interruttore di forma. Sei il primo indirizzo per i nostri dipendenti e i loro manager. A volte sei un partner sparring, a volte una brigata di fuoco, a volte un ideatore. Ti sembra?\n\n## Cosa fai con noi\n• Riempi le posizioni nella tua zona, dall'annuncio all'impegno\n• Si consiglia ai leader, soprattutto quando le cose diventano difficili\n• Si accompagnano i dipendenti dall'ingresso all'uscita, anche in caso di assenze, discussioni difficili e questioni di diritto del personale\n• Si noti dove è agganciato e trovare soluzioni insieme ai partecipanti\n• Lavori in progetti HR e rendi i nostri processi più semplici e digitali\n\n## Cosa porti\n• Un'educazione e un'esperienza HR come generalista\n• Forza di consulenza, punta delle dita e una testa fresca quando diventa caldo\n• Un metodo di lavoro indipendente e pragmatico e il desiderio di soluzioni digitali\n• Vantaggio: Esperienza nel settore sanitario\n• E: ti avvicini apertamente alle persone e puoi anche ridere di te stesso\n\n## Cosa ti offriamo\n• Un ruolo con un vero e proprio ambito creativo. Le tue idee non finiscono nel cassetto\n• Una squadra HR che tiene le spalle libere e ride insieme\n• Attenzione. 26 giorni di vacanze, ottimo fondo pensione, programma di formazione interna, vari sconti (ad es. Marche per dipendenti, indennità aziendali, ecc.)\nVuoi prenderlo?\nPoi inviaci la tua applicazione, anche senza frasi. Maria Grazia Urgese risponderà volentieri alle domande in anticipo.\n\n## Cosa trovi con noi\nOpportunità di formazione interessanti\nVelo check days, tutto-tempo adatto lavoro e abiti da lavoro, caffè gratuito, tè e frutta\nContributo annuale di assistenza sanitaria per le vostre esigenze sanitarie individuali\n\n## Informazioni su Spitex Basel\nSPITEX BASEL è una fondazione senza scopo di lucro, senza scopo di lucro, con un mandato di servizio del Cantone di Basilea-Stadt.\nCome organizzazione leader Spitex con un mandato di servizio pubblico, SPITEX BASEL offre servizi completi nelle aree di cura ambulatorio, nonché di pulizia e cura. Bambini, adolescenti e adulti sono sostenuti in ogni fase della vita.\nUlteriori informazioni su di noi",
+        "en": "Meaningful activity in a multicultural working environment, flat hierarchies\nHR is not a form switch. You are the first address for our employees and their managers. Sometimes you are a sparring partner, sometimes a fire brigade, sometimes an idea maker. Does that sound like you?\n\n## What you do with us\n• You fill positions in your area, from advertisement to commitment\n• You advise leaders, especially when things get tricky\n• You accompany employees from entry to exit, also in case of absences, difficult discussions and personnel law issues\n• You notice where it is hooked and find solutions together with the participants\n• You work in HR projects and make our processes easier and more digital\n\n## What you bring\n• An HR education and experience as an HR generalist\n• Counseling strength, fingertip and a cool head when it gets hot\n• An independent, pragmatic working method and desire for digital solutions\n• Advantage: Experience in healthcare\n• And: You openly approach people and can also laugh at yourself\n\n## What we offer you\n• A role with real creative scope. Your ideas don’t end up in the drawer\n• An HR team that keeps each other’s backs free and laughs together\n• Mind. 26 days holidays, very good pension fund, internal training program, various discounts (e.g. Brands for Employee, Corporate Benefits, etc.)\nWant to get it?\nThen send us your application, even without phrases. Maria Grazia Urgese will gladly answer questions in advance.\n\n## What you find with us\nAttractive training opportunities\nVelo check days, all-weather suitable work and work clothes, free coffee, tea and fruit\nAnnual health care contribution for your individual health needs\n\n## About Spitex Basel\nSPITEX BASEL is a non-profit, non-profit-oriented foundation with a service mandate from the Canton of Basel-Stadt.\nAs a leading Spitex organization with a public service mandate, SPITEX BASEL offers comprehensive services in the areas of outpatient care as well as housekeeping and care. Children, adolescents and adults are supported at every stage of life.\nMore about us",
+        "de": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\nBei uns ist HR kein Formularschalter. Du bist die erste Adresse für unsere Mitarbeitende und ihre Führungskräfte. Mal bist du Sparringpartner/in, mal Feuerwehr, mal Ideengeber/in. Das klingt nach dir?\n\n## Was du bei uns bewegst\n• Du besetzt Stellen in deinem Bereich, vom Inserat bis zur Zusage\n• Du berätst Führungskräfte, gerade dann, wenn es knifflig wird\n• Du begleitest Mitarbeitende vom Eintritt bis zum Austritt, auch bei Absenzen, schwierigen Gesprächen und personalrechtlichen Fragen\n• Du merkst, wo es hakt, und findest gemeinsam mit den Beteiligten Lösungen\n• Du arbeitest in HR-Projekten mit und machst unsere Prozesse einfacher und digitaler\n\n## Was du mitbringst\n• Eine HR-Ausbildung und Erfahrung als HR-Generalist/in\n• Beratungsstärke, Fingerspitzengefühl und einen kühlen Kopf, wenn es heiss wird\n• Eine selbständige, pragmatische Arbeitsweise und Lust auf digitale Lösungen\n• Von Vorteil: Erfahrung im Gesundheitswesen\n• Und: Du gehst offen auf Menschen zu und kannst auch über dich selbst lachen\n\n## Was wir dir bieten\n• Eine Rolle mit echtem Gestaltungsspielraum. Deine Ideen landen nicht in der Schublade\n• Ein HR-Team, das sich gegenseitig den Rücken freihält und auch zusammen lacht\n• Mind. 26 Tage Ferien, sehr gute Pensionskasse, internes Fortbildungsprogramm, verschiedene Rabatte (z.B. Brands for Employee, Corporate Benefits, u.v.m.)\nLust bekommen?\nDann schick uns deine Bewerbung, gerne auch ohne Floskeln. Fragen beantwortet dir Maria Grazia Urgese gerne vorab.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
+        "fr": "Activité significative dans un environnement de travail multiculturel, hiérarchies plates\nHR n'est pas un changement de formulaire. Vous êtes la première adresse pour nos employés et leurs gestionnaires. Parfois, vous êtes un partenaire de pompier, parfois une brigade de pompiers, parfois un créateur d'idées. Ça te ressemble ?\n\n## Ce que tu fais avec nous\n• Vous remplissez des postes dans votre secteur, de la publicité à l'engagement\n• Vous conseillez les leaders, surtout quand les choses deviennent délicates\n• Vous accompagnez les employés de l'entrée à la sortie, également en cas d'absence, de discussions difficiles et de questions de droit du personnel\n• Vous remarquez où il est accroché et trouvez des solutions avec les participants\n• Vous travaillez dans des projets RH et rendez nos processus plus faciles et plus numériques\n\n## Ce que vous apportez\n• Une formation et une expérience en RH en tant que généraliste des RH\n• Conseils force, bout de doigt et une tête fraîche quand il devient chaud\n• Une méthode de travail indépendante et pragmatique et un désir de solutions numériques\n• Avantage: Expérience en soins de santé\n• Et: Vous approchez ouvertement les gens et pouvez aussi rire de vous-même\n\n## Ce que nous vous offrons\n• Un rôle avec une réelle portée créative. Vos idées ne finissent pas dans le tiroir\n• Une équipe de RH qui se tient les uns les autres à l'aise et qui rit ensemble\n• Mind. 26 jours de congé, très bon fonds de pension, programme de formation interne, divers rabais (p. ex. marques pour les employés, avantages sociaux, etc.)\nTu veux l'avoir ?\nEnvoyez-nous votre demande, même sans phrases. Marie Grazia L'urgence répondra volontiers aux questions à l'avance.\n\n## Ce que vous trouvez chez nous\nPossibilités de formation attrayantes\nJours de contrôle Velo, vêtements de travail et de travail adaptés à tous les temps, café gratuit, thé et fruits\nContribution annuelle aux soins de santé pour vos besoins individuels en matière de santé\n\n## À propos de Spitex Basel\nSPITEX BASEL est une fondation à but non lucratif dont le mandat de service provient du canton de Bâle-Stadt.\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie.\nPlus sur nous"
+      },
+      "needsRetranslation": false,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.spitexbasel.ch/offene-stellen/hr-bereichsverantwortliche-r-a/53eb9006-32af-4255-9812-4df2ff0f8b12",
+      "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:27:51.323Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4001",
+      "streetAddress": "Basel",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/hr-bereichsverantwortliche-r-a/53eb9006-32af-4255-9812-4df2ff0f8b12",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "hr-bereichsverantwortliche-r-a-spitex-basel-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-bereichsverantwortliche-r-a-spitex-basel-basel"
+        ],
+        "en": [
+          "hr-bereichsverantwortliche-r-a-spitex-basel-basel"
+        ],
+        "fr": [
+          "hr-bereichsverantwortliche-r-a-spitex-basel-basel"
+        ]
+      },
+      "firstSeenAt": "2026-11-24T09:18:40.646Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T21:27:51.323Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

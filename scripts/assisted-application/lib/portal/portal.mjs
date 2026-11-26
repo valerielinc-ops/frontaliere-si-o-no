@@ -66,6 +66,7 @@ import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFo
 import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayBareLocaleFallbackUrl, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
 import { POSTING_BINDING_STATUS, resolvePostingBinding } from './posting-binding.mjs';
 import { installPortalReplayFence } from './replay-fence.mjs';
+import { SUCCESS_FACTORS_HOST_RE } from './ats-recognize.mjs';
 
 function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryProven = false) {
   if (!isWorkdayTenantUrl(applyUrl)) return false;
@@ -1028,6 +1029,30 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
   } catch {
     return false;
   }
+}
+
+/**
+ * Derive SuccessFactors route provenance when the resolved application channel
+ * reached a SuccessFactors module or Talent Community route directly or through
+ * a verified Prospective ATS redirect (`via: 'prospective'`).
+ */
+export function successFactorsPostingRouteProof(channel = {}, fallbackPostingUrl = '') {
+  const via = String(channel?.via || '').trim();
+  const applyUrl = String(channel?.applyUrl || '').trim();
+  const postingUrl = String(channel?.postingUrl || fallbackPostingUrl || '').trim();
+  if (!applyUrl) return null;
+  if (via === 'successfactors') return { via: 'successfactors', applyUrl, postingUrl };
+  if (via !== 'prospective' || !postingUrl) return null;
+  try {
+    const parsed = new URL(applyUrl);
+    if (isSuccessFactorsModuleRoute(parsed)
+      || (isSuccessFactorsPortalUrl(parsed) && /^\/talentcommunity\/apply\/[^/]+\/?$/i.test(parsed.pathname))) {
+      return { via: 'successfactors', applyUrl, postingUrl };
+    }
+  } catch {
+    return null;
+  }
+  return null;
 }
 
 const LOCALE_PATH_SEGMENT_RE = /^(?:it|en|de|fr)(?:-[a-z]{2})?$/i;
@@ -5040,6 +5065,9 @@ const FORM_VOCABULARY = new Set([
   'job', 'jobs', 'detail', 'details', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
+  // Italian SuccessFactors section controls and first fields are form chrome,
+  // not an employer or role heading.
+  'opzioni', 'esplodi', 'comprimi', 'tutte', 'sezioni', 'profilo', 'specifiche', 'visualizza', 'salva', 'lingua', 'appellativo',
   'number', 'numero', 'nummer',
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
   'employee', 'employees', 'staff', 'dipendente', 'dipendenti', 'mitarbeiter', 'mitarbeiterin', 'mitarbeitende',
@@ -5863,6 +5891,10 @@ const FORM_HEADING_VOCABULARY = new Set([
   'optionen', 'alle', 'abschnitte', 'einblenden', 'ausblenden', 'meine', 'weitere', 'persönlichen',
   'cercare', 'aggiungere', 'annulla', 'nome', 'cognome', 'indirizzo', 'telefono', 'cellulare', 'password', 'documenti',
   'lettera', 'presentazione', 'curriculum', 'vitae',
+  // Italian SuccessFactors shells expose their section controls before the
+  // first field («Esplodi tutte le sezioni», «Informazioni profilo»). These
+  // labels are form chrome, not a role heading.
+  'esplodi', 'comprimi', 'tutte', 'sezioni', 'profilo', 'specifiche', 'visualizza', 'salva', 'lingua', 'appellativo',
   'prénom', 'nom', 'adresse', 'téléphone', 'envoyer', 'suivant', 'enregistrer',
   'ag', 'gmbh', 'sa', 'sarl', 'ltd', 'inc', 'llc',
 ].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));
@@ -6081,6 +6113,8 @@ export function formPostingMatch(formText, job = {}, {
   paidPostingUrl = '',
   pageHeading = '',
   pageHeadings = undefined,
+  formSections = [],
+  formFieldLabels = [],
   postingRouteProof = null,
   applyUrl = '',
 } = {}) {
@@ -6110,6 +6144,8 @@ export function formPostingMatch(formText, job = {}, {
   );
   const umantisPairPostingUrl = umantisFormPostingUrl(formApplicationUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
+  const successFactorsRouteBound = postingRouteProof?.via === 'successfactors'
+    && bound && isSuccessFactorsCareerPath(pageUrl);
   const brassRingRouteAddress = formPostingUrl || postingUrl || applyUrl;
   const brassRingRouteExpected = sameBrassRingPostingAddress(applyUrl, brassRingRouteAddress);
   const brassRingRouteBound = brassRingRouteExpected && sameBrassRingPostingAddress(pageUrl, brassRingRouteAddress);
@@ -6193,8 +6229,32 @@ export function formPostingMatch(formText, job = {}, {
     : [stripGenericStageTitleSegments(employerIdentityLines[0]), ...employerIdentityLines.slice(1)].join('\n');
   const employerText = [...employerHeadingCandidates, employerIdentityText].filter(Boolean).join('\n');
   const postingEvidenceText = [...headingCandidates, identityFormText].filter(Boolean).join('\n');
-  const direct = postingMatch(postingEvidenceText, job, pageUrl);
-  const rawDirect = postingMatch(String(formText || ''), job, pageUrl);
+  const successFactorsRoute = { pageUrl, applyUrl };
+  const requisitionSections = [...new Set(formSections.map(section => String(section || '').trim()))]
+    .filter(section => /\(\s*\d{1,20}\s*\)$/.test(section));
+  // Native application groups can expose their title through aria-labelledby
+  // without a standalone line in the body text or an H1.
+  const sectionBindsRequisition = requisitionSections.length === 1
+    && roleHeading !== 'mismatch'
+    && successFactorsRequisitionShown(requisitionSections[0], job, successFactorsRoute);
+  const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, successFactorsRoute)
+    || sectionBindsRequisition;
+  // Only lines reproduced by a native field label are form questions.
+  // Keep headings and other employer notices in the identity check.
+  const normalizeFieldLine = line => String(line || '')
+    .replace(/^\s*(?:[*＊]\s*|[•◦‣⁃·▪▫●○–—-]\s+)/u, '')
+    // SuccessFactors can render an icon-font suffix in body innerText.
+    .replace(/(?:\s*\p{Co})+\s*$/u, '')
+    .replace(/\s+/g, ' ').trim();
+  const nativeQuestionLines = (successFactorsBound || successFactorsRouteBound)
+    ? new Set(formFieldLabels.map(normalizeFieldLine).filter(Boolean))
+    : new Set();
+  const withoutNativeQuestionLines = text => nativeQuestionLines.size
+    ? String(text || '').split(/\r?\n/).filter(line => !nativeQuestionLines.has(normalizeFieldLine(line))).join('\n')
+    : text;
+  const employerTextWithoutNativeQuestionLines = withoutNativeQuestionLines(employerText);
+  const direct = postingMatch(withoutNativeQuestionLines(postingEvidenceText), job, pageUrl);
+  const rawDirect = postingMatch(withoutNativeQuestionLines(formText), job, pageUrl);
   const formTitleLine = genericOnlyTitleLine ? '' : stripGenericStageTitleSegments(rawFormTitleLine);
   const headingConflict = [...employerHeadingCandidates, formTitleLine].filter(Boolean)
     .some((headingText) => namesAnotherEmployer(headingText, job, { allowPostingLocation: postingLocationBound }));
@@ -6224,14 +6284,19 @@ export function formPostingMatch(formText, job = {}, {
     && (direct === 'match' || (roleOnlyPostingBound && (postingEntry || Boolean(job.company))))) return 'mismatch';
   if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
+  // A verified `/portalcareer` continuation is already bound to the selected
+  // module. Its native controls can mention the employer (for example a Coop
+  // group-consent question) even when the tenant omits the role caption; the
+  // explicit heading/role conflict checks above still remain authoritative.
+  if (successFactorsRouteBound && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });
-  const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, { pageUrl, applyUrl });
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
-      : (headingConflict || (!boundPinpointApplication && namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
+      : (headingConflict || (!boundPinpointApplication
+        && namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
@@ -6302,7 +6367,7 @@ export function formPostingMatch(formText, job = {}, {
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
   // A conflicting employer identity on the form: no fallback to the role.
   if (successFactorsBound) return 'match';
-  if (namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound })
+  if (namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound })
     || (/\bhttps?:\/\//iu.test(formText)
       && !formTextMentionsEmployerHost(formText, job)
       && namesAnotherEmployer(formText, job, { allowPostingLocation: postingLocationBound }))) return 'mismatch';
@@ -6510,7 +6575,6 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   return Boolean(findButton(snapshot.buttons || [], NEXT_RE, { includeDisabled: true })
     && hasIdentity && hasApplicantDetails && hasCv && (hasCoverLetter || hasSupportingDocument));
 }
-const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
 const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
 
@@ -6618,7 +6682,8 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       applicationQuestion,
       ...(readableQuestionCandidate(item.candidatePrompt) ? { candidatePrompt: readableQuestionCandidate(item.candidatePrompt) } : {}),
       ...(applicationOptions.length ? { applicationOptions } : {}),
-      ...(applicationOptions.length > 0 && applicationOptionValues.length === applicationOptions.length && applicationOptionValues.every(Boolean)
+      // Keep aligned option values even when a placeholder row carries value="".
+      ...(applicationOptions.length > 0 && applicationOptionValues.length === applicationOptions.length && applicationOptionValues.some(Boolean)
         ? { applicationOptionValues } : {}),
       ...(optionMap.length ? { optionMap } : {}),
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
@@ -6722,7 +6787,7 @@ function normalizedQuestionText(value) {
 
 const OPTION_LANGUAGE_MARKERS = Object.freeze({
   it: Object.freeze(['si', 'no', 'vero', 'falso', 'true', 'false', 'seleziona', 'selezionare']),
-  de: Object.freeze(['ja', 'nein', 'wahr', 'falsch', 'true', 'false', 'bitte wahlen', 'bitte waehlen', 'auswahlen', 'auswaehlen']),
+  de: Object.freeze(['ja', 'nein', 'wahr', 'falsch', 'true', 'false', 'bitte wahlen', 'bitte waehlen', 'bitte auswahlen', 'bitte auswaehlen', 'auswahlen', 'auswaehlen']),
   fr: Object.freeze(['oui', 'non', 'vrai', 'faux', 'choisir', 'selectionner']),
   en: Object.freeze(['yes', 'no', 'true', 'false', 'select', 'choose', 'please select', 'select an option']),
 });
@@ -6731,7 +6796,7 @@ const OPTION_FALLBACK_MARKERS = Object.freeze({
   yes: Object.freeze(['yes', 'ja', 'si', 'oui', 'vero', 'true']),
   no: Object.freeze(['no', 'nein', 'non', 'falso', 'false']),
   placeholder: Object.freeze([
-    'select', 'seleziona', 'selezionare', 'please select', 'bitte wahlen', 'bitte waehlen', 'keine auswahl',
+    'select', 'seleziona', 'selezionare', 'please select', 'bitte wahlen', 'bitte waehlen', 'bitte auswahlen', 'bitte auswaehlen', 'keine auswahl',
     'auswahlen', 'auswaehlen', 'choisir', 'selectionner', 'choose', 'select an option',
   ]),
 });
@@ -6781,6 +6846,25 @@ function fallbackOption(option, language) {
 
 const REGION_CODE_RE = /^[A-Z]{2}$/;
 const REGION_LABEL_CACHE = new Map();
+// ICU maps retired ISO 3166-1 code AN (Netherlands Antilles) to "Curaçao",
+// colliding with CW in ATS country dropdowns that still list both options.
+const RETIRED_REGION_LABELS = Object.freeze({
+  AN: Object.freeze({
+    it: 'Antille Olandesi',
+    de: 'Niederländische Antillen',
+    fr: 'Antilles néerlandaises',
+    en: 'Netherlands Antilles',
+  }),
+});
+
+function regionDisplayName(code, language, displayNames = null) {
+  const locale = String(language || '').trim().split(/[-_]/)[0].toLowerCase();
+  const override = RETIRED_REGION_LABELS[code]?.[locale];
+  if (override) return override;
+  const resolver = displayNames || new Intl.DisplayNames([locale || language], { type: 'region' });
+  const display = resolver.of(code);
+  return display && display !== code ? String(display).trim() : '';
+}
 
 function localizedRegionLabel(code, language) {
   const normalizedCode = String(code || '').trim().toUpperCase();
@@ -6789,9 +6873,9 @@ function localizedRegionLabel(code, language) {
   if (REGION_LABEL_CACHE.has(cacheKey)) return REGION_LABEL_CACHE.get(cacheKey);
   let label = '';
   try {
-    if (typeof Intl.DisplayNames === 'function') {
-      const display = new Intl.DisplayNames([language], { type: 'region' }).of(normalizedCode);
-      label = display && display !== normalizedCode ? String(display).trim() : '';
+    if (RETIRED_REGION_LABELS[normalizedCode]?.[String(language || '').trim().split(/[-_]/)[0].toLowerCase()]
+      || typeof Intl?.DisplayNames === 'function') {
+      label = regionDisplayName(normalizedCode, language);
     }
   } catch {
     label = '';
@@ -6880,6 +6964,7 @@ const DETERMINISTIC_GERMAN_QUESTION_COPIES = Object.freeze({
   postleitzahl: { key: 'postal_code', it: 'CAP', de: 'Postleitzahl', fr: 'NPA', en: 'Postal code' },
   ort: { key: 'city', it: 'Località', de: 'Ort', fr: 'Localité', en: 'City' },
   land: { key: 'country', it: 'Paese', de: 'Land', fr: 'Pays', en: 'Country' },
+  'land region des wohnorts': { key: 'country', it: 'Paese / Regione di residenza', de: 'Land / Region des Wohnorts', fr: 'Pays / Région de résidence', en: 'Country / Region of Residence' },
   nationalitat: { key: 'nationality', it: 'Nazionalità', de: 'Nationalität', fr: 'Nationalité', en: 'Nationality' },
   mobile: { key: 'mobile', it: 'Cellulare', de: 'Mobile', fr: 'Portable', en: 'Mobile phone' },
   telefon: { key: 'phone', it: 'Telefono', de: 'Telefon', fr: 'Téléphone', en: 'Telephone' },
@@ -7003,7 +7088,7 @@ function regionNameCatalogue(language) {
     for (let first = 65; first <= 90; first += 1) {
       for (let second = 65; second <= 90; second += 1) {
         const code = String.fromCharCode(first, second);
-        const label = String(displayNames.of(code) || '').trim();
+        const label = regionDisplayName(code, locale, displayNames);
         const key = normalizedQuestionText(label);
         if (!label || key === normalizedQuestionText(code) || REGION_UNKNOWN_LABELS.has(key)) continue;
         byCode.set(code, label);
@@ -7155,7 +7240,10 @@ function deterministicGermanOption(option, entry, language, applicationOptionVal
     }
   }
   const booleanOrPlaceholder = fallbackOption(text, language);
-  if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
+  if (booleanOrPlaceholder !== text
+    || OPTION_FALLBACK_MARKERS.yes.includes(normalized)
+    || OPTION_FALLBACK_MARKERS.no.includes(normalized)
+    || OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)) return booleanOrPlaceholder;
   if (/^\d{1,4}\.?$/.test(text)) return text;
   return null;
 }
@@ -7505,13 +7593,28 @@ export async function portalRequirementsForCandidate(requirements, localization 
  */
 export function dedupePortalQuestions(questions = []) {
   const seen = new Set();
-  return (Array.isArray(questions) ? questions : []).filter((question) => {
-    if (question?.source !== 'portal') return true;
-    const key = portalQuestionKey(question) || question.id;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+  const byId = new Map();
+  const out = [];
+  for (const question of Array.isArray(questions) ? questions : []) {
+    if (!question || typeof question !== 'object') continue;
+    const id = String(question.id || '').trim();
+    const portalKey = question.source === 'portal' ? (portalQuestionKey(question) || id) : '';
+    if (portalKey && seen.has(portalKey)) continue;
+    if (id && byId.has(id)) {
+      const prevIndex = byId.get(id);
+      const prev = out[prevIndex];
+      const preferCurrent = question.source === 'portal' && prev?.source !== 'portal';
+      if (preferCurrent) {
+        out[prevIndex] = question;
+        if (portalKey) seen.add(portalKey);
+      }
+      continue;
+    }
+    if (portalKey) seen.add(portalKey);
+    if (id) byId.set(id, out.length);
+    out.push(question);
+  }
+  return out;
 }
 
 function authFormIdentity(snapshot) {
@@ -10619,6 +10722,47 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     await parkRegistrationCredential(authStop);
     return noted({ handoff: 'portal_needs_candidate', authStop });
   };
+  const missingRegistrationHandoff = async (snapshotForQuestions, planForQuestions, { onlyQuestionBatch = false } = {}) => {
+    const fields = (snapshotForQuestions?.fields || []).filter((field) => field.inputType !== 'password');
+    const requirements = portalRequirementsFromMissingRequired(fields, planForQuestions.missingRequired, {
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+    });
+    if (!onlyQuestionBatch) {
+      if (requirements.unreadableFields?.length) {
+        await parkRegistrationCredential('privacy_question_unreadable');
+        return noted({ handoff: 'question_label_unreadable' });
+      }
+      const missingRequiredFieldIds = new Set((planForQuestions.missingRequired || []).map((item) => item.fieldId).filter(Boolean));
+      const unhandledRequiredFiles = fields.filter((field) =>
+        (field.required === true || field.invalid === true || missingRequiredFieldIds.has(field.id))
+        && (field.kind === 'file' || field.inputType === 'file')
+        && !uploadIsSatisfied(field)
+        && !planForQuestions.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
+      if (unhandledRequiredFiles.length) {
+        await parkRegistrationCredential('privacy_required_file_unhandled');
+        return noted({ handoff: 'portal_required_file_unhandled' });
+      }
+    }
+    let request;
+    try {
+      request = await portalRequirementsForCandidate(requirements, {
+        candidateLocale: ctx.candidateLocale,
+        applicationLocale: ctx.language,
+        codex: ctx.codex,
+        log: ctx.log,
+      });
+    } catch (error) {
+      if (error?.code === 'portal_question_localization_unavailable') {
+        await parkRegistrationCredential('privacy_question_localization_unavailable');
+        return noted({ handoff: 'question_localization_unavailable' });
+      }
+      throw error;
+    }
+    if (!request) return null;
+    await parkRegistrationCredential('privacy_question_missing');
+    return noted(request);
+  };
   while (true) {
     const plannedActions = registrationPlan.actions.filter((action) => !registrationActionSatisfied(
       registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
@@ -10639,6 +10783,14 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted' });
     if (preflight.privacy !== 'none') privacy = preflight.privacy;
     if (preflight.blocked) {
+      // A blocked statement (for instance SuccessFactors gating the privacy dialog
+      // on a still-empty residence country) is a candidate question when a required
+      // registration field cannot be answered without asking the applicant.
+      const blockedSnapshot = preflight.filled?.fields?.length
+        ? accountRegistrationSnapshot(preflight.filled)
+        : registrationSnapshot;
+      const blockedHandoff = await missingRegistrationHandoff(blockedSnapshot, registrationPlan, { onlyQuestionBatch: true });
+      if (blockedHandoff) return blockedHandoff;
       // Nothing was pressed, so no account came of this: as with no button, a
       // retry keeps the same unverified account's encrypted password.
       if (!retryingUnverifiedAccount && credentialSaved) await ctx.accounts.discard(host, 'privacy_not_accepted');
@@ -10675,36 +10827,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, {
-      candidate,
-      candidateLocale: ctx.candidateLocale,
-    });
-    if (stableRequirements.unreadableFields?.length) {
-      await parkRegistrationCredential('privacy_question_unreadable');
-      return noted({ handoff: 'question_label_unreadable' });
-    }
-    const missingRequiredFieldIds = new Set((stablePlan.missingRequired || []).map((item) => item.fieldId).filter(Boolean));
-    const unhandledRequiredFiles = stableRegistrationSnapshot.fields.filter((field) =>
-      (field.required === true || field.invalid === true || missingRequiredFieldIds.has(field.id))
-      && (field.kind === 'file' || field.inputType === 'file')
-      && !uploadIsSatisfied(field)
-      && !stablePlan.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
-    if (unhandledRequiredFiles.length) {
-      await parkRegistrationCredential('privacy_required_file_unhandled');
-      return noted({ handoff: 'portal_required_file_unhandled' });
-    }
     // Emit the hard-question batch only from this stable post-privacy plan;
     // the first registration plan may not include fields revealed by the notice.
-    const stableRequest = await portalRequirementsForCandidate(stableRequirements, {
-      candidateLocale: ctx.candidateLocale,
-      applicationLocale: ctx.language,
-      codex: ctx.codex,
-      log: ctx.log,
-    });
-    if (stableRequest) {
-      await parkRegistrationCredential('privacy_question_missing');
-      return noted(stableRequest);
-    }
+    const stableHandoff = await missingRegistrationHandoff(stableRegistrationSnapshot, stablePlan);
+    if (stableHandoff) return stableHandoff;
     const newlyRequiredActions = stablePlan.actions.filter((action) => !registrationActionSatisfied(
       stableRegistrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
     ));
@@ -11280,9 +11406,21 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
 
     if (role === 'country' && fieldHasResidenceContext(field)
       && !residenceCountryPresent && !hasAnswer('portal_residence_country')) {
-      add(field, 'portal_residence_country', 'In quale Paese risiedi?',
-        'Il portale richiede il Paese di residenza per creare il profilo candidato.',
-        { type: 'choice', forceType: 'choice', requiresNativeOptions: true });
+      const residenceLang = localeCode(candidateLocale) || 'it';
+      const residenceQuestion = {
+        it: 'In quale Paese risiedi?',
+        de: 'In welchem Land wohnen Sie?',
+        fr: 'Dans quel pays résidez-vous ?',
+        en: 'Which country do you live in?',
+      }[residenceLang] || 'In quale Paese risiedi?';
+      const residenceWhy = {
+        it: 'Il portale richiede il Paese di residenza per creare il profilo candidato.',
+        de: 'Das Portal benötigt das Wohnsitzland, um das Bewerbungsprofil zu erstellen.',
+        fr: 'Le portail demande le pays de résidence pour créer le profil candidat.',
+        en: 'The portal requires your country of residence to create your candidate profile.',
+      }[residenceLang] || 'Il portale richiede il Paese di residenza per creare il profilo candidato.';
+      add(field, 'portal_residence_country', residenceQuestion, residenceWhy,
+        { type: 'choice', forceType: 'choice', requiresNativeOptions: true, candidatePrompt: residenceQuestion });
       continue;
     }
 
@@ -11454,8 +11592,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           .map((option) => String(option || '').trim())
           .filter(Boolean);
         const applicationOptionValues = field && readableOptions.length === applicationOptions.length
-          && readableOptions.every(option => typeof option !== 'string' && String(option?.value || '').trim())
-          ? readableOptions.map(option => String(option.value).trim()) : [];
+          && readableOptions.some(option => typeof option !== 'string' && String(option?.value || '').trim())
+          ? readableOptions.map(option => (typeof option === 'string' ? '' : String(option?.value || '').trim())) : [];
         const nativeChoiceField = Boolean(field && fieldRequiresNativeOptions(field) && (
           ['select', 'radio', 'listbox'].includes(field.kind)
           || field.selectLike === true
@@ -11905,6 +12043,8 @@ export async function readPortalRequirements(ctx) {
         paidPostingUrl: ctx.postingUrl || '',
         pageHeading,
         pageHeadings,
+        formSections: snapshot.fields.map(field => field.section),
+        formFieldLabels: snapshot.fields.map(field => field.label),
         postingRouteProof: ctx.postingRouteProof,
         applyUrl: ctx.applyUrl,
       });
@@ -12561,7 +12701,7 @@ export async function submitViaPortal(ctx) {
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
-    const formMatch = async () => {
+    const formMatch = async (current = snapshot) => {
       const pageUrl = page.url();
       const pageHeadings = await postingMainHeadings(page);
       const pageHeading = Array.isArray(pageHeadings) && pageHeadings.length === 1 ? pageHeadings[0] : '';
@@ -12588,6 +12728,8 @@ export async function submitViaPortal(ctx) {
         paidPostingUrl: ctx.postingUrl || '',
         pageHeading,
         pageHeadings,
+        formSections: current.fields.map(field => field.section),
+        formFieldLabels: current.fields.map(field => field.label),
         postingRouteProof: ctx.postingRouteProof,
         applyUrl: ctx.applyUrl,
       });
@@ -14290,7 +14432,7 @@ export async function submitViaPortal(ctx) {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
         ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
       });
-      const finalMatch = await formMatch();
+      const finalMatch = await formMatch(after);
       const expectedJobKey = portalJobKey(ctx.applyUrl, sourceProtocol);
       const currentJobKey = portalJobKey(page.url(), sourceProtocol);
       const workdayBound = !isWorkdayTenantUrl(ctx.applyUrl) || isWorkdayJobRouteBound(page.url(), ctx.applyUrl);

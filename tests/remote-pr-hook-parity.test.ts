@@ -40,7 +40,9 @@ describe('remote PR agents use the same committed hook contract as local agents'
   it('activates the same pre-push hook in a fresh remote checkout', () => {
     expect(packageJson).toContain('"prepare": "git config core.hooksPath .githooks || true"');
     expect(prePush).toContain('push_input=$(cat)');
-    expect(prePush).toContain('node scripts/ci/check-sibling-patterns.mjs --head "$local_sha"');
+    // The checker runs under the time-bounded wrapper, once per pushed branch SHA.
+    expect(prePush).toContain('node scripts/ci/check-sibling-patterns.mjs "$@" &');
+    expect(prePush).toContain('run_sibling_reminder --head "$local_sha"');
     expect(prePush).not.toMatch(/^\s*git\s+push[^\n]*--no-verify/m);
   });
 

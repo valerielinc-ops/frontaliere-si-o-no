@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43801",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43801",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "16641",
+      "normalizedPlate": "ZH16641",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1200,
+      "bidCount": 13,
+      "endsAt": "2026-11-25T18:00:00.000Z",
+      "closedAt": "2026-11-25T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43801",
+      "sourceFetchedAt": "2026-11-25T08:32:27.266Z",
+      "lastVerifiedAt": "2026-11-25T08:32:27.266Z",
+      "firstSeenAt": "2026-11-19T07:30:48.910Z",
+      "lastSeenAt": "2026-11-25T08:32:27.266Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "8b5be86778f0"
+    }
+  ]
+}

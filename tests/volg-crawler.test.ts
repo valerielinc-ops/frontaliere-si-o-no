@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { dropFabricatedDescription } from '../scripts/lib/drop-fabricated-description.mjs';
@@ -6,18 +7,54 @@ import {
   buildJob,
   fetchAllJobs,
   isVolgInventedText,
+  mergeJobs,
   resolveVolgJobBodies,
   sourceLangFromDetailUrl,
   stripVolgInventedSlots,
+  suppressSpuriousVolgRetranslationFlags,
   VOLG_INVENTED_TEXT_RX,
 } from '../scripts/update-volg-jobs.mjs';
+import {
+  _resetRetranslationBaselines,
+  recordRetranslationBaseline,
+  snapshotRetranslationBaseline,
+} from '../scripts/lib/crawler-retranslation-baseline.mjs';
+import { isIncomplete } from '../scripts/lib/translation-incomplete.mjs';
+import { translateMissingJobLocales } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 // First sentence of the retired fenaco company paragraph (VOLG_INVENTED_TEXT_MARKERS).
 const VOLG_INVENTED_TEXT_MARKERS_FOR_TEST = 'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.';
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+  _resetRetranslationBaselines();
 });
+
+const retranslationPairs = JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'crawler-retranslation-flag', 'real-pairs.json'), 'utf8'),
+) as Array<{ case: string, before: Record<string, unknown>, after: Record<string, unknown> }>;
+
+function retranslationPair(name: string) {
+  const found = retranslationPairs.find((pair) => pair.case === name);
+  if (!found) throw new Error(`Missing retranslation fixture: ${name}`);
+  return structuredClone(found);
+}
+
+function asVolgRecord(job: Record<string, unknown>) {
+  return {
+    ...job,
+    companyKey: 'volg-fenaco',
+    source: 'volg-fenaco-dedicated-crawler',
+    slug: 'fixture-volg-job',
+    slugByLocale: {
+      it: 'offerta-volg-fixture',
+      en: 'volg-fixture-job',
+      de: 'schadenmitarbeiter-w-m-generalagentur-olten-acme-olten',
+      fr: 'offre-volg-fixture',
+    },
+  };
+}
 
 /**
  * Tests for the Volg/fenaco crawler detail page parser.
@@ -544,6 +581,179 @@ describe('Volg/fenaco crawler — quality guards', () => {
     if (result.hasSections && result.sourceBodyLength > 0) {
       const ratio = result.text.length / result.sourceBodyLength;
       expect(ratio).toBeGreaterThanOrEqual(0.25);
+    }
+  });
+});
+
+describe('Volg/fenaco crawler — detail enrichment retranslation flags', () => {
+  it('clears an unchanged complete detail marker before localization can bypass its cache', () => {
+    const { before, after } = retranslationPair('source-unchanged');
+    after.needsRetranslation = true;
+
+    expect(isIncomplete(after)).toBe(false);
+    const report = suppressSpuriousVolgRetranslationFlags(
+      [after],
+      snapshotRetranslationBaseline([before]),
+    );
+
+    expect(report).toMatchObject({ flagged: 1, dropped: 1, keptSourceChanged: 0, keptIncomplete: 0 });
+    expect(after.needsRetranslation).toBeUndefined();
+  });
+
+  it('keeps the marker when the source changed', () => {
+    const { before, after } = retranslationPair('source-changed');
+    after.needsRetranslation = true;
+    const report = suppressSpuriousVolgRetranslationFlags([after], snapshotRetranslationBaseline([before]));
+
+    expect(after.needsRetranslation).toBe(true);
+    expect(report).toMatchObject({ dropped: 0, keptSourceChanged: 1 });
+  });
+
+  it('keeps the marker when a locale is incomplete', () => {
+    const { before, after } = retranslationPair('source-unchanged');
+    after.needsRetranslation = true;
+    after.descriptionByLocale.en = '';
+    const report = suppressSpuriousVolgRetranslationFlags([after], snapshotRetranslationBaseline([before]));
+
+    expect(after.needsRetranslation).toBe(true);
+    expect(report).toMatchObject({ dropped: 0, keptIncomplete: 1 });
+  });
+
+  it('removes the unchanged detail marker before the real localization worker can miss its cache', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
+    const dataJobsPath = path.join(root, 'jobs.json');
+    const { before, after } = retranslationPair('source-unchanged');
+    const previous = asVolgRecord(before);
+    const discovered = {
+      ...asVolgRecord(after),
+      _enrichedFromDetail: true,
+    };
+    const fetchSpy = vi.fn();
+    vi.stubGlobal('fetch', fetchSpy);
+    vi.stubEnv('SKIP_AI_TRANSLATION', '1');
+
+    try {
+      mergeJobs([discovered], {
+        existingJobs: [previous],
+        dataJobsPath,
+        publicJobsPath: path.join(root, 'public.json'),
+        retranslationBaseline: snapshotRetranslationBaseline([previous]),
+      });
+      const merged = JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'));
+      expect(merged[0].needsRetranslation).toBeUndefined();
+
+      const result = await translateMissingJobLocales({
+        dataJobsPath,
+        isTargetJob: (job) => job.companyKey === 'volg-fenaco',
+        retranslationFlagFilter: (jobs) =>
+          suppressSpuriousVolgRetranslationFlags(jobs, snapshotRetranslationBaseline([previous]))?.dropped || 0,
+      });
+      expect(result.translated).toBe(0);
+      expect(JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'))[0].needsRetranslation).toBeUndefined();
+      expect(fetchSpy).not.toHaveBeenCalled();
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('leaves a changed source queued through the merge boundary', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
+    const dataJobsPath = path.join(root, 'jobs.json');
+    const { before, after } = retranslationPair('source-changed');
+    const previous = asVolgRecord(before);
+    const discovered = {
+      ...asVolgRecord(after),
+      _enrichedFromDetail: true,
+    };
+
+    try {
+      mergeJobs([discovered], {
+        existingJobs: [previous],
+        dataJobsPath,
+        publicJobsPath: path.join(root, 'public.json'),
+        retranslationBaseline: snapshotRetranslationBaseline([previous]),
+      });
+      const merged = JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'));
+      expect(merged[0].needsRetranslation).toBe(true);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a changed source queued through the real SKIP_AI_TRANSLATION worker', { timeout: 30_000 }, async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
+    const dataJobsPath = path.join(root, 'jobs.json');
+    const { before, after } = retranslationPair('source-changed');
+    const previous = asVolgRecord(before);
+    const discovered = {
+      ...asVolgRecord(after),
+      // Exercise source drift without also asking locale hardening to derive
+      // a new canonical slug from a renamed role; the worker boundary under
+      // test is retranslation, not slug history repair.
+      title: previous.title,
+      description: `${after.description}\nUpdated source responsibility.`,
+      _enrichedFromDetail: true,
+    };
+    const fetchSpy = vi.fn();
+    vi.stubGlobal('fetch', fetchSpy);
+    vi.stubEnv('SKIP_AI_TRANSLATION', '1');
+    recordRetranslationBaseline('volg-fenaco', [previous]);
+
+    try {
+      mergeJobs([discovered], {
+        existingJobs: [previous],
+        dataJobsPath,
+        publicJobsPath: path.join(root, 'public.json'),
+        retranslationBaseline: snapshotRetranslationBaseline([previous]),
+      });
+      expect(JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'))[0].needsRetranslation).toBe(true);
+
+      const result = await translateMissingJobLocales({
+        dataJobsPath,
+        isTargetJob: (job) => job.companyKey === 'volg-fenaco',
+        retranslationFlagFilter: (jobs) =>
+          suppressSpuriousVolgRetranslationFlags(jobs, snapshotRetranslationBaseline([previous]))?.dropped || 0,
+      });
+
+      expect(result.translated).toBe(0);
+      expect(JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'))[0].needsRetranslation).toBe(true);
+      expect(fetchSpy).not.toHaveBeenCalled();
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps an already queued job through the real SKIP_AI_TRANSLATION worker', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
+    const dataJobsPath = path.join(root, 'jobs.json');
+    const { before, after } = retranslationPair('source-unchanged');
+    const previous = { ...asVolgRecord(before), needsRetranslation: true };
+    const discovered = {
+      ...asVolgRecord(after),
+      _enrichedFromDetail: true,
+    };
+    vi.stubGlobal('fetch', vi.fn());
+    vi.stubEnv('SKIP_AI_TRANSLATION', '1');
+    recordRetranslationBaseline('volg-fenaco', [previous]);
+
+    try {
+      mergeJobs([discovered], {
+        existingJobs: [previous],
+        dataJobsPath,
+        publicJobsPath: path.join(root, 'public.json'),
+        retranslationBaseline: snapshotRetranslationBaseline([previous]),
+      });
+
+      await translateMissingJobLocales({
+        dataJobsPath,
+        isTargetJob: (job) => job.companyKey === 'volg-fenaco',
+        retranslationFlagFilter: (jobs) =>
+          suppressSpuriousVolgRetranslationFlags(jobs, snapshotRetranslationBaseline([previous]))?.dropped || 0,
+      });
+
+      expect(JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'))[0].needsRetranslation).toBe(true);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
     }
   });
 });

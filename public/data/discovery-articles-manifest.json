@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "commit": "3514705b3e776363fc3b134c74c1e8321495e83a",
+  "commit": "99888c96123775ddeac018de78f0c06c3a3d0057",
   "files": {
-    "data/discovery-articles.json": 4002
+    "data/discovery-articles.json": 5284
   },
   "counts": {
-    "discoveryArticles": 3
+    "discoveryArticles": 4
   },
   "routeReadiness": {
     "schema": 1,
@@ -13,17 +13,17 @@
     "entries": {
       "fiscalita-svizzera-tre-livelli": {
         "signature": "ad9101339f459afddaba061806f579e90e3880fcb9381258825b331c3305fc53",
-        "verifiedAt": "2026-11-13T02:25:25.374Z",
+        "verifiedAt": "2026-11-26T07:25:52.717Z",
         "locales": [
-          "it"
+          "de",
+          "en"
         ]
       },
       "pamini-contributi-salari-svizzera": {
         "signature": "5c40d0c1a89e4bed3e17bfcc9ea0ad34cb8badb4924ab47969089f8ac2df7e91",
-        "verifiedAt": "2026-11-16T08:00:16.638Z",
+        "verifiedAt": "2026-11-26T07:25:52.717Z",
         "locales": [
-          "de",
-          "en"
+          "fr"
         ]
       },
       "telelavoro-frontaliere-quadro-svizzero": {

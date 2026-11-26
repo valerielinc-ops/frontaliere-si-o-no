@@ -1,9 +1,12 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import {
+  CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP,
   CANDIDATE_REPLY_SCHEMA,
   candidateReplyPatch,
+  isRetryableCandidateReplyError,
   processAssistedApplicationCandidateReply,
+  recoverFailedCandidateRepliesForOrder,
   shouldRegenerate,
   startDateOfQuote,
   verifiedCandidateReply,
@@ -198,11 +201,11 @@ describe('applying the reply to the order', () => {
 });
 
 describe('the reply trigger', () => {
-  function setup({ order = {}, flow = null }: { order?: Record<string, any>; flow?: Record<string, any> | null } = {}) {
+  function setup({ order = {}, flow = null, reply = {} }: { order?: Record<string, any>; flow?: Record<string, any> | null; reply?: Record<string, any> } = {}) {
     return createMemoryFirestore({
       [BASE]: { orderId: ORDER, locale: 'it', paymentStatus: 'paid', submissionStatus: 'in_progress', ...order },
       ...(flow ? { [`${BASE}/automation/flow`]: flow } : {}),
-      [`${BASE}/candidate_replies/re-1`]: { status: 'received', receivedAt: NOW, text: REPLY, subject: 'Re: La tua candidatura', cv: 'already_present', attempts: 0 },
+      [`${BASE}/candidate_replies/re-1`]: { status: 'received', receivedAt: NOW, text: REPLY, subject: 'Re: La tua candidatura', cv: 'already_present', attempts: 0, ...reply },
     });
   }
 
@@ -263,5 +266,53 @@ describe('the reply trigger', () => {
     expect(await processAssistedApplicationCandidateReply({ db: store.db, orderId: ORDER, replyId: 're-1', extract, nowMs: NOW })).toEqual({ ok: true, skipped: 'purged' });
     expect(extract).not.toHaveBeenCalled();
     expect(store.read(`${BASE}/candidate_replies/re-1`)).toBeUndefined();
+  });
+
+  it('recovers failed replies caused by transient Codex 429 errors within a bounded cap', async () => {
+    expect(isRetryableCandidateReplyError('codex_http_429')).toBe(true);
+    expect(isRetryableCandidateReplyError('invalid_payload')).toBe(false);
+    const store = setup({
+      reply: { status: 'failed', attempts: 3, lastError: 'codex_http_429', failedAt: NOW - 1000 },
+      flow: { state: 'owner_takeover', heldBy: ['draft_failed'] },
+    });
+    const result = await recoverFailedCandidateRepliesForOrder({
+      db: store.db,
+      orderId: ORDER,
+      extract: async () => ANSWER,
+      nowMs: NOW,
+    });
+    expect(result).toEqual({ recovered: 1 });
+    expect(store.read(`${BASE}/candidate_replies/re-1`)).toMatchObject({
+      status: 'processed',
+      recoveryAttempts: 1,
+    });
+    expect(store.read(BASE)?.applicantPhone).toBe('+39 333 123 4567');
+  });
+
+  it('caps per-order recovery attempts across a large failed reply backlog', async () => {
+    const store = setup({ flow: { state: 'owner_takeover', heldBy: ['draft_failed'] } });
+    store.docs.delete(`${BASE}/candidate_replies/re-1`);
+    for (let i = 0; i < 100; i += 1) {
+      const id = `re-${String(i).padStart(3, '0')}`;
+      store.docs.set(`${BASE}/candidate_replies/${id}`, {
+        id,
+        orderId: ORDER,
+        status: 'failed',
+        attempts: 3,
+        lastError: 'codex_http_429',
+        failedAt: NOW - 1000,
+        body: REPLY,
+        subject: 'Re: candidatura',
+      });
+    }
+    const extract = vi.fn(async () => ANSWER);
+    const result = await recoverFailedCandidateRepliesForOrder({
+      db: store.db,
+      orderId: ORDER,
+      extract,
+      nowMs: NOW,
+    });
+    expect(result).toEqual({ recovered: CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP });
+    expect(extract).toHaveBeenCalledTimes(CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP);
   });
 });

@@ -85,7 +85,7 @@ import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, mergeRequiredDocuments, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
-import { candidateForForm, portalQuestionKey, portalReaderErrorClass, postingAddressForPortal } from './portal/portal.mjs';
+import { candidateForForm, portalQuestionKey, portalReaderErrorClass, postingAddressForPortal, successFactorsPostingRouteProof } from './portal/portal.mjs';
 import { compactApplicationContract } from './portal/application-contract.mjs';
 import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
@@ -515,18 +515,13 @@ export async function buildDraft(ctx) {
     try {
       // The pre-read is an optimisation of the first review, never a gate on
       // the draft: a reader that throws is recorded like one that hands off.
+      const routeProof = successFactorsPostingRouteProof(channel, posting.postingUrl || order.jobUrl || '');
       portalResult = await Promise.resolve().then(() => readPortal({
         channelType: channel.type,
         applyUrl: channel.applyUrl,
         postingUrl: portalPostingUrl,
         job: portalJob,
-        ...(channel.via === 'successfactors' ? {
-          postingRouteProof: {
-            via: 'successfactors',
-            applyUrl: channel.applyUrl,
-            postingUrl: posting.postingUrl || order.jobUrl || '',
-          },
-        } : {}),
+        ...(routeProof ? { postingRouteProof: routeProof } : {}),
         language,
         candidateLocale: locale,
         candidate: candidateForForm({
@@ -576,24 +571,28 @@ export async function buildDraft(ctx) {
       // question. Re-run this filter after the portal has contributed its own
       // document labels.
       questions = questions.filter(notAnsweredByUpload);
-      const known = new Set(questions.map((question) => portalQuestionKey(question) || question.id));
+      const knownIds = new Set(questions.map((question) => String(question?.id || '').trim()).filter(Boolean));
+      const known = new Set(questions.map((question) => portalQuestionKey(question) || question.id).filter(Boolean));
       for (const question of Array.isArray(portal.questions) ? portal.questions : []) {
         if (!notAnsweredByUpload(question)) continue;
-        const key = portalQuestionKey(question) || question.id;
-        const existingIndex = questions.findIndex((existing) => (portalQuestionKey(existing) || existing.id) === key);
+        const id = String(question?.id || '').trim();
+        const key = portalQuestionKey(question) || id;
+        const existingIndex = questions.findIndex((existing) => (id && String(existing?.id || '').trim() === id)
+          || ((portalQuestionKey(existing) || existing?.id) === key));
         if (existingIndex >= 0) {
           const existing = questions[existingIndex];
-          // Upgrade a legacy portal question in place. Keeping its id preserves
-          // an answer already stored under that id, while the new application
-          // copy/options and candidate-language copy replace stale raw wording.
-          if (existing?.source === 'portal' && question?.source === 'portal'
-            && (question.applicationQuestion || question.applicationOptions?.length)) {
+          // Upgrade a cached or legacy portal question in place. Keeping its id preserves
+          // an answer already stored under that id, while the live application copy,
+          // options, source and native address context replace stale cached metadata.
+          if (question?.source === 'portal'
+            && (existing?.source !== 'portal' || question.applicationQuestion || question.applicationOptions?.length)) {
             questions[existingIndex] = { ...existing, ...question, id: existing.id || question.id };
           }
           continue;
         }
-        if (known.has(key)) continue;
-        known.add(key);
+        if ((id && knownIds.has(id)) || (key && known.has(key))) continue;
+        if (id) knownIds.add(id);
+        if (key) known.add(key);
         questions.push(question);
       }
       portalPreRead = { status: 'read', questions: portal.questions?.length || 0, documents: portal.documents?.length || 0 };
@@ -630,11 +629,18 @@ export async function buildDraft(ctx) {
   // Every answer the platform gives (a rule, a decision of the engine) is mirrored on its question in the
   // field's shape (`suggestedAnswer`, `answerOrigin`): the draft shows what the candidate is proposed. The
   // review page and the runner keep projecting it live.
+  const refreshedFacts = candidateWithEdits({
+    order,
+    draft: { profile, factSources: { text: cvText }, job: { title }, requirements: requirements.requirements, questions },
+    flow,
+    locale,
+    nowMs,
+  }).platformFacts;
   questions = withPlatformSuggestions(questions, {
     locale,
     answers,
     facts: {
-      ...edited.platformFacts,
+      ...refreshedFacts,
       cvAnswers: verifiedCvAnswers(questions, cvText, profile),
       decisionAnswers: verifiedDecisionAnswers(questions, cvText, { postingTitle: title, postingRequirements: requirements.requirements }),
     },

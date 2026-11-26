@@ -1,7 +1,7 @@
 {
   "crawlerKey": "invias-swiss",
-  "assembledAt": "2026-11-20T21:56:13.385Z",
-  "runId": "44820571493",
+  "assembledAt": "2026-11-25T21:45:29.930Z",
+  "runId": "45704355338",
   "jobs": [
     {
       "id": "invias-swiss-19e45ae0f00c",
@@ -34,7 +34,7 @@
       "url": "https://invias.swiss/jobs/holzbauplanerin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:55:53.420Z",
+      "crawledAt": "2026-11-25T21:45:16.693Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -97,9 +97,8 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:55:53.420Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://invias.swiss/jobs/holzbauplanerin-80-100"
+      "validThrough": "2027-02-03T21:45:16.693Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "invias-swiss-886f5d17e45c",
@@ -132,7 +131,7 @@
       "url": "https://invias.swiss/jobs/holzbauingenieurin-bauingenieurin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:55:53.419Z",
+      "crawledAt": "2026-11-25T21:45:16.692Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -195,9 +194,8 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:55:53.419Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://invias.swiss/jobs/holzbauingenieurin-bauingenieurin-80-100"
+      "validThrough": "2027-02-03T21:45:16.692Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "invias-swiss-0c5caef9d93d",
@@ -230,7 +228,7 @@
       "url": "https://invias.swiss/jobs/bauleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:55:53.417Z",
+      "crawledAt": "2026-11-25T21:45:16.691Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -293,9 +291,8 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:55:53.417Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://invias.swiss/jobs/bauleiterin-80-100"
+      "validThrough": "2027-02-03T21:45:16.691Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "invias-swiss-86339127b456",
@@ -328,7 +325,7 @@
       "url": "https://invias.swiss/jobs/technischer-projektleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:55:53.416Z",
+      "crawledAt": "2026-11-25T21:45:16.690Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -391,9 +388,8 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:55:53.416Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://invias.swiss/jobs/technischer-projektleiterin-80-100"
+      "validThrough": "2027-02-03T21:45:16.690Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "invias-swiss-5f2857b7dc67",
@@ -426,7 +422,7 @@
       "url": "https://invias.swiss/jobs/projektleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:55:53.415Z",
+      "crawledAt": "2026-11-25T21:45:16.685Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -489,34 +485,33 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:55:53.415Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://invias.swiss/jobs/projektleiterin-80-100"
+      "validThrough": "2027-02-03T21:45:16.685Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "invias-swiss-7a3ae2310c2e",
       "slug": "standortverantwortliche-r-responsabile-di-progetto-80-100-invias-ag-maienfeld",
       "slugByLocale": {
-        "de": "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch",
         "it": "standortverantwortliche-r-responsabile-di-progetto-80-100-invias-ag-maienfeld",
-        "en": "standortverantwortliche-r-project-manager-80-100-invias-ag-7304-maienfeld",
-        "fr": "standortverantwortliche-r-chef-de-projet-80-100-invias-ag-7304-maienfeld"
+        "en": "site-manager-project-manager-80-100-invias-ag-maienfeld",
+        "de": "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch",
+        "fr": "responsable-de-site-chef-fe-de-projet-80-100-invias-ag-maienfeld"
       },
       "company": "Invias AG",
       "companyKey": "invias-swiss",
       "companyDomain": "invias.swiss",
       "title": "STANDORTVERANTWORTLICHE:R PROJEKTLEITER:IN 80-100%",
       "titleByLocale": {
-        "de": "STANDORTVERANTWORTLICHE:R PROJEKTLEITER:IN 80-100%",
         "it": "RESPONSABILE DI SEDE RESPONSABILE DI PROGETTO 80-100%",
         "en": "SITE MANAGER: PROJECT MANAGER 80-100%",
+        "de": "STANDORTVERANTWORTLICHE:R PROJEKTLEITER:IN 80-100%",
         "fr": "RESPONSABLE DE SITE, CHEF/FE DE PROJET 80-100%"
       },
       "description": "STANDORTVERANTWORTLICHE:R PROJEKTLEITER:IN 80-100%\nUm unsere Erfolgsgeschichte fortzuführen und weiter auszubauen, suchen wir eine erfahrene Persönlichkeit als\nStandortverantwortliche:r Projektleiter:in 80-100%\nper sofort oder nach Vereinbarung an unserem Standort in Davos\nINVIAS vereint Architektur, Holzbauplanung und Baumanagement unter einem Dach. In Davos führen wir Projekte mit hoher Präsenz vor Ort und engem Bezug zur Region. Für unseren Standort suchen wir eine operativ starke Projektleiterin oder einen operativ starken Projektleiter, die oder der unsere Präsenz vor Ort aktiv mitprägt.\nDeine Rolle im Überblick\nIn dieser Funktion verbindest du Projektführung mit Standortverantwortung. Du behältst den Überblick, setzt Prioritäten und stellst sicher, dass Projekte und Team in Davos verlässlich funktionieren.\nDeine Aufgaben\n- Gesamtverantwortung für mehrere Bauprojekte in Davos\n- Sicherstellung von Qualität, Terminen und Wirtschaftlichkeit\n- Organisation und Koordination temporärer Bauten im Zusammenhang mit dem WEF\n- Operative Steuerung des Standorts im Tagesgeschäft\n- Sicherstellung klarer Strukturen und Zuständigkeiten\n- Aufbau, Führung und Weiterentwicklung des Teams vor Ort\n- Repräsentation von INVIAS im regionalen Umfeld von Davos\n- Pflege und Ausbau tragfähiger Kunden- und Partnerbeziehungen\nWas du mitbringst\n- Erfahrung in Bau-Projektleitung und/oder Bauleitung\n- Fachlicher Hintergrund in Architektur, Baumanagement oder Ingenieurbau / Holzbauplanung\n- Freude an der Steuerung komplexer Bauprojekte\n- Strukturierte und unternehmerische Arbeitsweise\n- Technisches, wirtschaftliches und organisatorisches Verständnis\n- Erfahrung im Umfeld des WEF oder Bereitschaft, dir in diesem Kontext ein Netzwerk aufzubauen\nWas wir dir bieten\nBei uns erwartet dich eine abwechslungsreiche Rolle, in der du Verantwortung übernimmst und mit viel Gestaltungsspielraum eigene Ideen einbringen kannst. Du arbeitest in einem dynamischen Umfeld, das von spannenden Projekten in den Bereichen Bau, Innovation und Nachhaltigkeit geprägt ist. Unsere moderne Arbeitsweise, kurzen Entscheidungswege und die hohe Eigenständigkeit bieten dir die Möglichkeit, täglich etwas zu bewegen und dich persönlich wie fachlich weiterzuentwickeln. Darüber hinaus eröffnen sich dir attraktive Entwicklungsperspektiven innerhalb unserer Unternehmensgruppe. Hast du Lust, Teil unserer Unternehmenskultur zu werden und unsere Werte – Begeisterung, Dynamik, Nachhaltigkeit, Verbundenheit und Vertrauen – mit zu leben ? Dann werde Teil eines engagierten Teams, das gemeinsam an einer besseren Zukunft baut!\nPasst diese Rolle zu dir?\nDu suchst keinen nächsten Job, sondern eine Aufgabe mit Wirkung. Du willst Projekte führen, den Standort mitprägen und sichtbar sein.\nDann freuen wir uns auf deine Kontaktaufnahme.\nINVIAS, Selina Zogg\ns.zogg@invias.swiss\nBewerben Sie sich für diesen Job\nJetzt bewerben",
       "descriptionByLocale": {
-        "de": "STANDORTVERANTWORTLICHE:R PROJEKTLEITER:IN 80-100%\nUm unsere Erfolgsgeschichte fortzuführen und weiter auszubauen, suchen wir eine erfahrene Persönlichkeit als\nStandortverantwortliche:r Projektleiter:in 80-100%\nper sofort oder nach Vereinbarung an unserem Standort in Davos\nINVIAS vereint Architektur, Holzbauplanung und Baumanagement unter einem Dach. In Davos führen wir Projekte mit hoher Präsenz vor Ort und engem Bezug zur Region. Für unseren Standort suchen wir eine operativ starke Projektleiterin oder einen operativ starken Projektleiter, die oder der unsere Präsenz vor Ort aktiv mitprägt.\nDeine Rolle im Überblick\nIn dieser Funktion verbindest du Projektführung mit Standortverantwortung. Du behältst den Überblick, setzt Prioritäten und stellst sicher, dass Projekte und Team in Davos verlässlich funktionieren.\nDeine Aufgaben\n- Gesamtverantwortung für mehrere Bauprojekte in Davos\n- Sicherstellung von Qualität, Terminen und Wirtschaftlichkeit\n- Organisation und Koordination temporärer Bauten im Zusammenhang mit dem WEF\n- Operative Steuerung des Standorts im Tagesgeschäft\n- Sicherstellung klarer Strukturen und Zuständigkeiten\n- Aufbau, Führung und Weiterentwicklung des Teams vor Ort\n- Repräsentation von INVIAS im regionalen Umfeld von Davos\n- Pflege und Ausbau tragfähiger Kunden- und Partnerbeziehungen\nWas du mitbringst\n- Erfahrung in Bau-Projektleitung und/oder Bauleitung\n- Fachlicher Hintergrund in Architektur, Baumanagement oder Ingenieurbau / Holzbauplanung\n- Freude an der Steuerung komplexer Bauprojekte\n- Strukturierte und unternehmerische Arbeitsweise\n- Technisches, wirtschaftliches und organisatorisches Verständnis\n- Erfahrung im Umfeld des WEF oder Bereitschaft, dir in diesem Kontext ein Netzwerk aufzubauen\nWas wir dir bieten\nBei uns erwartet dich eine abwechslungsreiche Rolle, in der du Verantwortung übernimmst und mit viel Gestaltungsspielraum eigene Ideen einbringen kannst. Du arbeitest in einem dynamischen Umfeld, das von spannenden Projekten in den Bereichen Bau, Innovation und Nachhaltigkeit geprägt ist. Unsere moderne Arbeitsweise, kurzen Entscheidungswege und die hohe Eigenständigkeit bieten dir die Möglichkeit, täglich etwas zu bewegen und dich persönlich wie fachlich weiterzuentwickeln. Darüber hinaus eröffnen sich dir attraktive Entwicklungsperspektiven innerhalb unserer Unternehmensgruppe. Hast du Lust, Teil unserer Unternehmenskultur zu werden und unsere Werte – Begeisterung, Dynamik, Nachhaltigkeit, Verbundenheit und Vertrauen – mit zu leben ? Dann werde Teil eines engagierten Teams, das gemeinsam an einer besseren Zukunft baut!\nPasst diese Rolle zu dir?\nDu suchst keinen nächsten Job, sondern eine Aufgabe mit Wirkung. Du willst Projekte führen, den Standort mitprägen und sichtbar sein.\nDann freuen wir uns auf deine Kontaktaufnahme.\nINVIAS, Selina Zogg\ns.zogg@invias.swiss\nBewerben Sie sich für diesen Job\nJetzt bewerben",
         "it": "RISPOSTE DI POSIZIONE:R PROGETTORE:IN 80-100 %\nPer continuare ed espandere la nostra storia di successo, stiamo cercando una personalità esperta come\nResponsabile della posizione:r Project manager:in 80-100 %\nimmediatamente o per accordo nella nostra posizione a Davos\nINVIAS combina architettura, progettazione della costruzione del legno e gestione della costruzione in un unico tetto. A Davos guidiamo progetti con un'alta presenza locale e una stretta connessione con la regione. Per la nostra posizione, siamo alla ricerca di un project manager di forza operativa che forma attivamente la nostra presenza in loco.\nIl tuo ruolo a colpo d'occhio\nIn questa funzione, si combina la gestione del progetto con la responsabilità della posizione. Tieni traccia, imposta le priorità e assicurati che progetti e team lavorino in modo affidabile a Davos.\nI tuoi compiti\n- Responsabilità complessiva di diversi progetti di costruzione a Davos\n- Garantire qualità, scadenze ed efficienza\n- Organizzazione e coordinamento di edifici temporanei legati alla WEF\n- Gestione operativa della posizione nel business quotidiano\n- Garantire strutture e responsabilità chiare\n- Istituzione, leadership e sviluppo del team sul posto\n- Rappresentanza di INVIAS nell'ambiente regionale di Davos\n- Mantenere ed espandere relazioni con clienti e partner sostenibili\nCosa porti\n- Esperienza nella gestione dei progetti di costruzione e/o nella gestione delle costruzioni\n- Sfondo professionale in architettura, gestione delle costruzioni o ingegneria / pianificazione della costruzione del legno\n- Godimento nel controllo di complessi progetti di costruzione\n- Metodi di lavoro strutturati e imprenditoriali\n- Comprensione tecnica, economica e organizzativa\n- Esperienza nell'ambiente della WEF o volontà di costruire una rete in questo contesto\nCosa ti offriamo\nCon noi, ci si può aspettare un ruolo vario in cui si può assumere la responsabilità e contribuire le proprie idee con un sacco di libertà creativa. Lavori in un ambiente dinamico caratterizzato da progetti entusiasmanti nei settori della costruzione, dell'innovazione e della sostenibilità. Il nostro moderno modo di lavorare, brevi percorsi decisionali e alta indipendenza vi offrono l'opportunità di fare la differenza ogni giorno e svilupparsi personalmente e professionalmente. Inoltre, interessanti prospettive di sviluppo all'interno del nostro gruppo di aziende si aprono per voi. Vuoi diventare parte della nostra cultura aziendale e vivere i nostri valori – entusiasmo, dinamismo, sostenibilità, connessione e fiducia? Quindi diventare parte di un team dedicato che costruisce un futuro migliore insieme!\nQuesto ruolo ti sta bene?\nNon siete alla ricerca di un prossimo lavoro, ma un compito con effetto. Si desidera condurre progetti, modellare la posizione e essere visibile.\nAllora non vediamo l'ora del tuo contatto.\nINVIAS, Selina Zogg\ns.zogg@invias.swiss\nRichiedi questo lavoro\nApplicare ora",
         "en": "LOCATION RESPONSIBLE:R PROJECTOR:IN 80-100 %\nIn order to continue and expand our success story, we are looking for an experienced personality as\nLocation responsible:r Project manager:in 80-100 %\nimmediately or by arrangement at our location in Davos\nINVIAS combines architecture, timber construction planning and construction management under one roof. In Davos we lead projects with a high local presence and close connection to the region. For our location, we are looking for an operationally strong project manager who actively shapes our presence on site.\nYour role at a glance\nIn this function, you combine project management with location responsibility. You keep track, set priorities and make sure that projects and teams work reliably in Davos.\nYour tasks\n- Overall responsibility for several construction projects in Davos\n- Ensuring quality, deadlines and efficiency\n- Organisation and coordination of temporary buildings related to the WEF\n- Operational management of the location in day-to-day business\n- Ensuring clear structures and responsibilities\n- Establishment, leadership and development of the team on site\n- Representation of INVIAS in the Davos regional environment\n- Maintaining and expanding sustainable customer and partner relationships\nWhat you bring\n- Experience in construction project management and/or construction management\n- Professional background in architecture, construction management or engineering / timber construction planning\n- Enjoyment in controlling complex construction projects\n- Structured and entrepreneurial working methods\n- Technical, economic and organisational understanding\n- Experience in the environment of the WEF or willingness to build a network in this context\nWhat we offer you\nWith us, you can expect a varied role in which you can take on responsibility and contribute your own ideas with a lot of creative freedom. You work in a dynamic environment characterized by exciting projects in the areas of construction, innovation and sustainability. Our modern way of working, short decision-making paths and high independence offer you the opportunity to make a difference every day and develop yourself personally and professionally. In addition, attractive development prospects within our group of companies open up for you. Do you want to become part of our corporate culture and live our values – enthusiasm, dynamism, sustainability, connection and trust? Then become part of a dedicated team that builds a better future together!\nDoes this role suit you?\nYou are not looking for a next job, but a task with effect. You want to lead projects, shape the location and be visible.\nThen we look forward to your contact.\nINVIAS, Selina Zogg\ns.zogg@invias.swiss\nApply for this job\nApply now",
+        "de": "STANDORTVERANTWORTLICHE:R PROJEKTLEITER:IN 80-100%\nUm unsere Erfolgsgeschichte fortzuführen und weiter auszubauen, suchen wir eine erfahrene Persönlichkeit als\nStandortverantwortliche:r Projektleiter:in 80-100%\nper sofort oder nach Vereinbarung an unserem Standort in Davos\nINVIAS vereint Architektur, Holzbauplanung und Baumanagement unter einem Dach. In Davos führen wir Projekte mit hoher Präsenz vor Ort und engem Bezug zur Region. Für unseren Standort suchen wir eine operativ starke Projektleiterin oder einen operativ starken Projektleiter, die oder der unsere Präsenz vor Ort aktiv mitprägt.\nDeine Rolle im Überblick\nIn dieser Funktion verbindest du Projektführung mit Standortverantwortung. Du behältst den Überblick, setzt Prioritäten und stellst sicher, dass Projekte und Team in Davos verlässlich funktionieren.\nDeine Aufgaben\n- Gesamtverantwortung für mehrere Bauprojekte in Davos\n- Sicherstellung von Qualität, Terminen und Wirtschaftlichkeit\n- Organisation und Koordination temporärer Bauten im Zusammenhang mit dem WEF\n- Operative Steuerung des Standorts im Tagesgeschäft\n- Sicherstellung klarer Strukturen und Zuständigkeiten\n- Aufbau, Führung und Weiterentwicklung des Teams vor Ort\n- Repräsentation von INVIAS im regionalen Umfeld von Davos\n- Pflege und Ausbau tragfähiger Kunden- und Partnerbeziehungen\nWas du mitbringst\n- Erfahrung in Bau-Projektleitung und/oder Bauleitung\n- Fachlicher Hintergrund in Architektur, Baumanagement oder Ingenieurbau / Holzbauplanung\n- Freude an der Steuerung komplexer Bauprojekte\n- Strukturierte und unternehmerische Arbeitsweise\n- Technisches, wirtschaftliches und organisatorisches Verständnis\n- Erfahrung im Umfeld des WEF oder Bereitschaft, dir in diesem Kontext ein Netzwerk aufzubauen\nWas wir dir bieten\nBei uns erwartet dich eine abwechslungsreiche Rolle, in der du Verantwortung übernimmst und mit viel Gestaltungsspielraum eigene Ideen einbringen kannst. Du arbeitest in einem dynamischen Umfeld, das von spannenden Projekten in den Bereichen Bau, Innovation und Nachhaltigkeit geprägt ist. Unsere moderne Arbeitsweise, kurzen Entscheidungswege und die hohe Eigenständigkeit bieten dir die Möglichkeit, täglich etwas zu bewegen und dich persönlich wie fachlich weiterzuentwickeln. Darüber hinaus eröffnen sich dir attraktive Entwicklungsperspektiven innerhalb unserer Unternehmensgruppe. Hast du Lust, Teil unserer Unternehmenskultur zu werden und unsere Werte – Begeisterung, Dynamik, Nachhaltigkeit, Verbundenheit und Vertrauen – mit zu leben ? Dann werde Teil eines engagierten Teams, das gemeinsam an einer besseren Zukunft baut!\nPasst diese Rolle zu dir?\nDu suchst keinen nächsten Job, sondern eine Aufgabe mit Wirkung. Du willst Projekte führen, den Standort mitprägen und sichtbar sein.\nDann freuen wir uns auf deine Kontaktaufnahme.\nINVIAS, Selina Zogg\ns.zogg@invias.swiss\nBewerben Sie sich für diesen Job\nJetzt bewerben",
         "fr": "LOCATION RESPONSABLE:R PROJECTEUR:EN 80-100 %\nPour poursuivre et élargir notre histoire de réussite, nous recherchons une personnalité expérimentée comme\nLieu responsable:r Gestionnaire de projet:dans 80-100 %\nimmédiatement ou par arrangement à notre emplacement à Davos\nINVIAS combine architecture, planification de la construction en bois et gestion de la construction sous un même toit. À Davos, nous menons des projets avec une forte présence locale et un lien étroit avec la région. Pour notre emplacement, nous sommes à la recherche d'un gestionnaire de projet opérationnel fort qui façonne activement notre présence sur place.\nVotre rôle en un coup d'oeil\nDans cette fonction, vous combinez la gestion de projet et la responsabilité de l'emplacement. Vous gardez la trace, définissez les priorités et assurez-vous que les projets et les équipes fonctionnent de manière fiable à Davos.\nVos tâches\n- Responsabilité globale de plusieurs projets de construction à Davos\n- Assurer la qualité, les délais et l'efficacité\n- Organisation et coordination des bâtiments temporaires liés au WEF\n- Gestion opérationnelle de l'emplacement en affaires courantes\n- Assurer des structures et des responsabilités claires\n- Création, leadership et perfectionnement de l'équipe sur place\n- Représentation d'INVIAS dans l'environnement régional de Davos\n- Maintenir et développer des relations durables avec les clients et les partenaires\nCe que vous apportez\n- Expérience en gestion de projets de construction et/ou de construction\n- Expérience professionnelle en architecture, gestion de la construction ou ingénierie / planification de la construction de bois\n- Profitez du contrôle des projets de construction complexes\n- Méthodes de travail structurées et entrepreneuriales\n- Compréhension technique, économique et organisationnelle\n- Expérience dans l'environnement du WEF ou volonté de construire un réseau dans ce contexte\nCe que nous vous offrons\nAvec nous, vous pouvez vous attendre à un rôle varié dans lequel vous pouvez prendre des responsabilités et apporter vos propres idées avec beaucoup de liberté créative. Vous travaillez dans un environnement dynamique caractérisé par des projets passionnants dans les domaines de la construction, de l'innovation et de la durabilité. Notre mode de travail moderne, nos chemins décisionnels courts et notre grande indépendance vous offrent la possibilité de faire une différence chaque jour et de vous développer personnellement et professionnellement. En outre, des perspectives de développement attrayantes au sein de notre groupe d'entreprises s'ouvrent pour vous. Voulez-vous faire partie de notre culture d'entreprise et vivre nos valeurs – enthousiasme, dynamisme, durabilité, connexion et confiance ? Faites ensuite partie d'une équipe dévouée qui construit ensemble un avenir meilleur !\nCe rôle vous convient-il ?\nVous ne cherchez pas un prochain emploi, mais une tâche avec effet. Vous voulez diriger des projets, façonner l'emplacement et être visible.\nEnsuite, nous attendons avec impatience votre contact.\nINVIAS, Selina Zogg\nS.zogg@invias.swiss\nPostulez à ce poste\nAppliquer maintenant"
       },
       "location": "7304 Maienfeld",
@@ -524,7 +519,7 @@
       "url": "https://invias.swiss/jobs/standortverantwortlicher-projektleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:55:53.410Z",
+      "crawledAt": "2026-11-25T21:45:16.681Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -543,23 +538,26 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://invias.swiss/jobs/standortverantwortlicher-projektleiterin-80-100",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch",
+        "standortverantwortliche-r-project-manager-80-100-invias-ag-7304-maienfeld",
+        "standortverantwortliche-r-chef-de-projet-80-100-invias-ag-7304-maienfeld"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch"
         ],
         "en": [
-          "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch"
+          "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch",
+          "standortverantwortliche-r-project-manager-80-100-invias-ag-7304-maienfeld"
         ],
         "fr": [
-          "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch"
+          "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch",
+          "standortverantwortliche-r-chef-de-projet-80-100-invias-ag-7304-maienfeld"
         ]
       },
-      "previousSlugs": [
-        "standortverantwortliche-r-projektleiter-in-80-100-7304-maienfeld-invias-swiss-ch"
-      ],
+      "firstSeenAt": "2026-11-19T21:43:22.860Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -588,10 +586,8 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-18T21:55:53.410Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:43:22.860Z",
-      "sourceIdentity": "url:https://invias.swiss/jobs/standortverantwortlicher-projektleiterin-80-100"
+      "validThrough": "2027-02-17T21:45:16.681Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "invias-swiss-d9f121c8bc0a",
@@ -624,7 +620,7 @@
       "url": "https://invias.swiss/jobs/zeichnerin-fachrichtung-architektur-60-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:55:53.408Z",
+      "crawledAt": "2026-11-25T21:45:16.677Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -687,9 +683,8 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:55:53.408Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://invias.swiss/jobs/zeichnerin-fachrichtung-architektur-60-100"
+      "validThrough": "2027-02-03T21:45:16.677Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "invias-swiss-de8157f4d916",
@@ -722,7 +717,7 @@
       "url": "https://invias.swiss/jobs/architektin-b-a-oder-in-ausbildung-50-80",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:55:53.405Z",
+      "crawledAt": "2026-11-25T21:45:16.675Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -787,9 +782,8 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:55:53.405Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://invias.swiss/jobs/architektin-b-a-oder-in-ausbildung-50-80"
+      "validThrough": "2027-02-03T21:45:16.675Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

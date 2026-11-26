@@ -9,6 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import { enrichCoopSourceBackedJobs, withoutRepublishedCoopVacancies } from './lib/coop-job-parser.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import {
   fetchAllInterdiscountJobs,
   isInterdiscountJob,
@@ -28,7 +29,11 @@ runStandardCrawlerPipeline({
   // facts) is one vacancy: keep the earliest-seen record.
   fetchJobs: async () => withoutRepublishedCoopVacancies(await enrichCoopSourceBackedJobs(await fetchAllInterdiscountJobs(), {
     allowedHosts: ['jobs.coopjobs.ch'],
-  }), 'Interdiscount'),
+  }), 'Interdiscount', {
+    onRouteHistoryOverflow: (overflowJobs, activeJobs) => {
+      archiveRemovedJobsToSlice(overflowJobs, INTERDISCOUNT_KEY, { activeJobs });
+    },
+  }),
   isCompanyJob: isInterdiscountJob,
   isTrustedDomain,
   defaultSourceLang: 'de',

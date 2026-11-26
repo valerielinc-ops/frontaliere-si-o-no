@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-11-17",
+  "generatedAt": "2026-11-24",
   "generatedLimit": 150,
   "items": {
     "article-como-manifestazioni-24-ottobre": {
@@ -11,7 +11,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/article-como-manifestazioni-24-ottobre.json",
       "proofLevel": 5,
       "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 2355248426669,
+      "priority": 2360282603515,
       "references": [
         {
           "section": "frontaliere",
@@ -34,7 +34,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/article-nobel-economia-fehr-2026.json",
       "proofLevel": 5,
       "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 2013688172541,
+      "priority": 2015426739837,
       "references": [
         {
           "section": "svizzera",
@@ -57,7 +57,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/article-malnate-imprenditrice-azienda-famiglia.json",
       "proofLevel": 5,
       "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1915745882417,
+      "priority": 1922448607145,
       "references": [
         {
           "section": "frontaliere",
@@ -80,7 +80,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/article-quota-regionale-salute-2027.json",
       "proofLevel": 5,
       "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1894824257515,
+      "priority": 1905338529057,
       "references": [
         {
           "section": "frontaliere",
@@ -94,6 +94,29 @@
       "generatedAssetId": "article-quota-regionale-salute-2027",
       "provider": "openai-codex",
       "generatedAt": "2026-11-02T22:45:05.432Z"
+    },
+    "article-a2-rodi-lavori-finiti": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-a2-rodi-lavori-finiti.webp",
+      "toCover": "/images/blog/article-a2-rodi-lavori-finiti.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-a2-rodi-lavori-finiti.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1795,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "a2-rodi-lavori-finiti",
+          "category": "novita",
+          "date": "2026-11-20T14:32:05.948Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-a2-rodi-lavori-finiti",
+      "provider": "openai-codex",
+      "generatedAt": "2026-11-20T14:31:52.158Z"
     },
     "article-bollettino-frontaliere-2026-11-15": {
       "mode": "generated",
@@ -117,6 +140,52 @@
       "generatedAssetId": "article-bollettino-frontaliere-2026-11-15",
       "provider": "openai-codex",
       "generatedAt": "2026-11-15T12:38:08.735Z"
+    },
+    "article-bollettino-frontaliere-2026-11-19": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-bollettino-frontaliere-2026-11-19.webp",
+      "toCover": "/images/blog/article-bollettino-frontaliere-2026-11-19.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-11-19.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1795,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-11-19",
+          "category": "novita",
+          "date": "2026-11-19T14:21:01.228Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "generatedAssetId": "article-bollettino-frontaliere-2026-11-19",
+      "provider": "openai-codex",
+      "generatedAt": "2026-11-19T14:20:48.833Z"
+    },
+    "article-bollettino-frontaliere-2026-11-20": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-bollettino-frontaliere-2026-11-20.webp",
+      "toCover": "/images/blog/article-bollettino-frontaliere-2026-11-20.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-11-20.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1795,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-11-20",
+          "category": "novita",
+          "date": "2026-11-20T13:58:11.410Z",
+          "updatedAt": null,
+          "authorSlug": "samuele-valente"
+        }
+      ],
+      "generatedAssetId": "article-bollettino-frontaliere-2026-11-20",
+      "provider": "openai-codex",
+      "generatedAt": "2026-11-20T13:57:46.032Z"
     },
     "article-cantonsrat-respinge-puk-soh": {
       "mode": "generated",
@@ -347,6 +416,29 @@
       "generatedAssetId": "article-referendum-budget-2027-frauenfeld",
       "provider": "openai-codex",
       "generatedAt": "2026-11-12T22:59:53.127Z"
+    },
+    "article-simon-graf-medico-cantonale": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/article-simon-graf-medico-cantonale.webp",
+      "toCover": "/images/blog/article-simon-graf-medico-cantonale.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-simon-graf-medico-cantonale.json",
+      "proofLevel": 5,
+      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
+      "priority": 1795,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "simon-graf-medico-cantonale",
+          "category": "novita",
+          "date": "2026-11-19T08:14:27.826Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-simon-graf-medico-cantonale",
+      "provider": "openai-codex",
+      "generatedAt": "2026-11-19T08:14:12.333Z"
     },
     "article-tasso-ilo-terzo-trimestre": {
       "mode": "generated",
@@ -3360,98 +3452,6 @@
       "generatedAssetId": "article-telelavoro-frontaliere-quadro-svizzero",
       "provider": "openai-codex",
       "generatedAt": "2026-11-07T15:02:17.652Z"
-    },
-    "article-tredicesima-avs-pensionati-italia": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-tredicesima-avs-pensionati-italia.webp",
-      "toCover": "/images/blog/article-tredicesima-avs-pensionati-italia.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-tredicesima-avs-pensionati-italia.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1794,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "tredicesima-avs-pensionati-italia",
-          "category": "pensione",
-          "date": "2026-11-09T23:37:15.075Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        }
-      ],
-      "generatedAssetId": "article-tredicesima-avs-pensionati-italia",
-      "provider": "openai-codex",
-      "generatedAt": "2026-11-09T23:37:01.272Z"
-    },
-    "article-turgovia-piano-risparmio-60-milioni": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-turgovia-piano-risparmio-60-milioni.webp",
-      "toCover": "/images/blog/article-turgovia-piano-risparmio-60-milioni.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-turgovia-piano-risparmio-60-milioni.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1794,
-      "references": [
-        {
-          "section": "canton-tg",
-          "id": "turgovia-piano-risparmio-60-milioni",
-          "category": "novita",
-          "date": "2026-11-03T03:53:14.620Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-turgovia-piano-risparmio-60-milioni",
-      "provider": "openai-codex",
-      "generatedAt": "2026-11-03T03:53:01.027Z"
-    },
-    "article-ulmann-incarico-appenzello": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-ulmann-incarico-appenzello.webp",
-      "toCover": "/images/blog/article-ulmann-incarico-appenzello.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-ulmann-incarico-appenzello.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1794,
-      "references": [
-        {
-          "section": "canton-appenzello",
-          "id": "ulmann-incarico-appenzello",
-          "category": "novita",
-          "date": "2026-11-03T15:45:25.350Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-ulmann-incarico-appenzello",
-      "provider": "openai-codex",
-      "generatedAt": "2026-11-03T15:45:13.305Z"
-    },
-    "article-uri-progetto-cultura-integrazione": {
-      "mode": "generated",
-      "status": "generated",
-      "fromCover": "/images/blog/article-uri-progetto-cultura-integrazione.webp",
-      "toCover": "/images/blog/article-uri-progetto-cultura-integrazione.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/article-uri-progetto-cultura-integrazione.json",
-      "proofLevel": 5,
-      "reason": "Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.",
-      "priority": 1794,
-      "references": [
-        {
-          "section": "canton-ur",
-          "id": "uri-progetto-cultura-integrazione",
-          "category": "novita",
-          "date": "2026-11-06T08:38:58.092Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "generatedAssetId": "article-uri-progetto-cultura-integrazione",
-      "provider": "openai-codex",
-      "generatedAt": "2026-11-06T08:38:34.906Z"
     }
   },
   "rewrittenArticles": 0,
@@ -3460,7 +3460,10 @@
     "article-nobel-economia-fehr-2026",
     "article-malnate-imprenditrice-azienda-famiglia",
     "article-quota-regionale-salute-2027",
+    "article-a2-rodi-lavori-finiti",
     "article-bollettino-frontaliere-2026-11-15",
+    "article-bollettino-frontaliere-2026-11-19",
+    "article-bollettino-frontaliere-2026-11-20",
     "article-cantonsrat-respinge-puk-soh",
     "article-decisioni-grand-conseil-10-novembre",
     "article-fiscalita-svizzera-tre-livelli",
@@ -3471,6 +3474,7 @@
     "article-lavoro-transfrontaliero-osservatorio",
     "article-pfiffner-450-posti-pratteln",
     "article-referendum-budget-2027-frauenfeld",
+    "article-simon-graf-medico-cantonale",
     "article-tasso-ilo-terzo-trimestre",
     "article-tasso-vacanza-2027-ginevra",
     "article-votazione-fondo-rete-gas-wil",
@@ -3601,10 +3605,6 @@
     "article-tassa-circolazione-veicoli-categoria-a",
     "article-tassa-salute-ristorni-tavolo-lavoro",
     "article-tasso-disoccupazione-ottobre-2026",
-    "article-telelavoro-frontaliere-quadro-svizzero",
-    "article-tredicesima-avs-pensionati-italia",
-    "article-turgovia-piano-risparmio-60-milioni",
-    "article-ulmann-incarico-appenzello",
-    "article-uri-progetto-cultura-integrazione"
+    "article-telelavoro-frontaliere-quadro-svizzero"
   ]
 }

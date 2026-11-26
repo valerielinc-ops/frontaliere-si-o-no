@@ -73,6 +73,13 @@ describe('next step of an assisted-application order', () => {
       expect(check.detail).toContain('Controlla se il datore l’ha ricevuta');
     }
     expect(step({ state: 'owner_takeover', heldBy: ['draft_failed'] })).toMatchObject({ group: 'owner', code: 'regenerate', label: 'Da rigenerare' });
+    expect(step({
+      state: 'owner_takeover',
+      heldBy: ['draft_failed'],
+      draftFailureKind: 'codex_usage_limit',
+      draftAutoRetryCount: 0,
+      draftAutoRetryAt: NOW + HOUR,
+    })).toMatchObject({ group: 'robot', code: 'portal_auto_retry', label: 'Nuovo tentativo programmato' });
     expect(step({ state: 'owner_takeover', heldBy: ['max_rounds'] })).toMatchObject({ group: 'owner', code: 'contact_candidate' });
     expect(step({ state: 'owner_takeover', heldBy: ['email_failed'] })).toMatchObject({ group: 'owner', code: 'retry_or_complete' });
     expect(step(null, { hasCv: true })).toMatchObject({ group: 'owner', code: 'start', label: 'Da avviare' });
@@ -128,5 +135,33 @@ describe('next step of an assisted-application order', () => {
     expect(stopped.detail).toContain('non serve controllare i fatti a mano');
     // Any other failed send keeps the generic move.
     expect(step({ state: 'owner_takeover', heldBy: ['email_failed'] })).toMatchObject({ group: 'owner', code: 'retry_or_complete' });
+  });
+
+  it('moves orders archived after 30 days of candidate wait into the archived section', () => {
+    const archivedFlow = step({
+      state: 'candidate_review',
+      heldBy: ['document:referenze'],
+      heldSince: NOW - 35 * 24 * HOUR,
+      candidateStaleArchivedAt: NOW,
+    });
+    expect(archivedFlow).toMatchObject({ group: 'archived', code: 'archived_waiting_candidate', label: 'Archiviata (> 30 gg)' });
+    expect(archivedFlow.detail).toContain('35 giorni');
+
+    const archivedCv = step(null, {
+      hasCv: false,
+      submissionStatus: 'awaiting_upload',
+      paidAt: new Date(NOW - 45 * 24 * HOUR).toISOString(),
+      candidateStaleArchivedAt: new Date(NOW).toISOString(),
+    });
+    expect(archivedCv).toMatchObject({ group: 'archived', code: 'archived_waiting_cv', label: 'Archiviata (> 30 gg · CV mancante)' });
+    expect(archivedCv.detail).toContain('45 giorni');
+
+    const liveAutoApprove = step({
+      state: 'candidate_review',
+      heldBy: [],
+      deadlineAt: NOW + 6 * HOUR,
+      candidateStaleArchivedAt: NOW,
+    });
+    expect(liveAutoApprove).toMatchObject({ group: 'candidate', code: 'waiting_candidate_approval' });
   });
 });

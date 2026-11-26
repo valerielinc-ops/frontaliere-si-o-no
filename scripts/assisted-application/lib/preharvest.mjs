@@ -224,6 +224,7 @@ export function sanitizeQuestionsForCache(questions) {
     .slice(0, 25)
     .map((q) => ({
       id: String(q.id || '').slice(0, 120),
+      ...(q.source ? { source: String(q.source).slice(0, 40) } : {}),
       question: String(q.question || q.applicationQuestion || '').slice(0, 300),
       applicationQuestion: String(q.applicationQuestion || q.question || '').slice(0, 300),
       type: String(q.type || 'text').slice(0, 30),
@@ -231,6 +232,16 @@ export function sanitizeQuestionsForCache(questions) {
       ...(Array.isArray(q.options) && q.options.length ? { options: q.options.slice(0, 40).map((o) => String(o).slice(0, 200)) } : {}),
       ...(Array.isArray(q.applicationOptions) && q.applicationOptions.length ? { applicationOptions: q.applicationOptions.slice(0, 40).map((o) => String(o).slice(0, 200)) } : {}),
       ...(q.section ? { section: String(q.section).slice(0, 120) } : {}),
+      ...(q.context ? { context: String(q.context).slice(0, 300) } : {}),
+      ...(q.addressContext && typeof q.addressContext === 'object' ? {
+        addressContext: {
+          section: String(q.addressContext.section || '').slice(0, 120),
+          owners: Array.isArray(q.addressContext.owners)
+            ? q.addressContext.owners.slice(0, 20).map((owner) => String(owner).slice(0, 120))
+            : [],
+          unknown: Boolean(q.addressContext.unknown),
+        },
+      } : {}),
     }));
 }
 
@@ -278,12 +289,15 @@ export function mergePreharvestedQuestions(existingQuestions = [], discoveredQue
   const existing = Array.isArray(existingQuestions) ? existingQuestions : [];
   const discovered = Array.isArray(discoveredQuestions) ? discoveredQuestions : [];
   const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const seenIds = new Set(existing.map((q) => String(q?.id || '').trim()).filter(Boolean));
   const seen = new Set(existing.flatMap((q) => [norm(q?.question), norm(q?.applicationQuestion)]).filter(Boolean));
   const merged = [...existing];
   for (const q of discovered) {
+    const id = String(q?.id || '').trim();
     const k1 = norm(q?.question);
     const k2 = norm(q?.applicationQuestion);
-    if ((k1 && seen.has(k1)) || (k2 && seen.has(k2))) continue;
+    if ((id && seenIds.has(id)) || (k1 && seen.has(k1)) || (k2 && seen.has(k2))) continue;
+    if (id) seenIds.add(id);
     if (k1) seen.add(k1);
     if (k2) seen.add(k2);
     merged.push(q);

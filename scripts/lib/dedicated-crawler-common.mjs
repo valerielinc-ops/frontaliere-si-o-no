@@ -2523,6 +2523,27 @@ export function shouldMarkSkipAiRetranslation(job, {
   return previous.hash !== retranslationSourceHash(job);
 }
 
+/**
+ * A complete map can still translate the previous source text. Keep its
+ * retranslation marker through SKIP_AI_TRANSLATION until the central drain
+ * has rebuilt the non-source slots from the changed body.
+ */
+export function hasRetranslationBaselineSourceDrift(job, crawlerKey = job?.companyKey) {
+  const previous = getRetranslationBaselineEntry(crawlerKey, job);
+  return Boolean(previous && !previous.flagged && previous.hash !== retranslationSourceHash(job));
+}
+
+/**
+ * FRO-549 may recache only jobs with no outstanding retranslation signal.
+ * The pre-localization filter removes spurious signals; every marker still
+ * present here is either an older queue entry, an incomplete locale map, or
+ * a source change and must survive SKIP_AI_TRANSLATION.
+ */
+export function shouldKeepSkipAiRetranslation(job, crawlerKey = job?.companyKey) {
+  return job?.needsRetranslation === true
+    || hasRetranslationBaselineSourceDrift(job, crawlerKey);
+}
+
 export function isLocalizationAllowedForJob(job = {}, ctx = {}) {
   const { LOCALIZE_ONLY_COMPANY_KEYS, normalizeCompanyKey: nck, normalizeHost: nh, hostOf: ho } = ctx;
   if (!(LOCALIZE_ONLY_COMPANY_KEYS instanceof Set) || LOCALIZE_ONLY_COMPANY_KEYS.size === 0) return true;
@@ -3702,7 +3723,14 @@ export async function enrichJobLocalesWithRetryDCC(job, crawlerConfig, ctx = {},
 
 // ── End FRO-234: Localization pipeline ──────────────────────────────────
 
-export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = null, maxJobs = 0, minDescriptionChars = 120, companySlug = '' }) {
+export async function translateMissingJobLocales({
+  dataJobsPath,
+  isTargetJob = null,
+  maxJobs = 0,
+  minDescriptionChars = 120,
+  companySlug = '',
+  retranslationFlagFilter = null,
+}) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, translated: 0, total: 0, details: [] };
   }
@@ -3716,6 +3744,14 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
   let translated = 0;
   const details = [];
   const concurrency = Math.max(1, Math.min(6, intFromEnv('JOBS_LOCALE_TRANSLATION_CONCURRENCY', 3)));
+
+  // A crawler may have baseline evidence that a marker hardening just raised
+  // is spurious. Run its narrow filter after hardening but before candidates
+  // are ordered and their translation-cache entries can be bypassed.
+  if (typeof retranslationFlagFilter === 'function') {
+    const dropped = Number(retranslationFlagFilter(raw)) || 0;
+    if (dropped > 0) changed = true;
+  }
 
   const filtered = isTargetJob ? raw.filter(isTargetJob) : raw;
   // FRO-327: prioritize jobs marked for retranslation (failed in a previous run)
@@ -3829,7 +3865,8 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           sourceLang: descLang || titleLang,
           minDescriptionChars,
         });
-        if (titlesComplete && someNonSourceTranslated && completeTextCoverage) {
+        const keepRetranslationMarker = shouldKeepSkipAiRetranslation(job);
+        if (titlesComplete && someNonSourceTranslated && completeTextCoverage && !keepRetranslationMarker) {
           // Translations complete — update cache so next run gets a hit
           translationCache[jobCacheKey] = buildCacheEntry(job, contentHash);
           cacheUpdated = true;
@@ -8810,9 +8847,18 @@ export function pruneEmptyPreviousSlugLocaleBuckets(job) {
  * Record a previous slug for a specific locale.
  * Writes to `job.previousSlugsByLocale[locale]` AND keeps legacy
  * `job.previousSlugs` in sync (union of all locale entries) for
- * backward compatibility with consumers not yet migrated.
+ * backward compatibility with consumers not yet migrated. Callers merging
+ * already locale-attributed archive evidence may opt out of that flattening;
+ * the locale buckets remain authoritative for those routes.
  */
-export function addPreviousSlugForLocale(job, locale, slug, cap = DEFAULT_PREV_SLUG_CAP, _source = 'addPreviousSlugForLocale') {
+export function addPreviousSlugForLocale(
+  job,
+  locale,
+  slug,
+  cap = DEFAULT_PREV_SLUG_CAP,
+  _source = 'addPreviousSlugForLocale',
+  { syncLegacy = true, legacyCap } = {},
+) {
   if (!slug || !locale) return;
   const norm = normalizeSpace(String(slug));
   if (!norm) return;
@@ -8850,8 +8896,9 @@ export function addPreviousSlugForLocale(job, locale, slug, cap = DEFAULT_PREV_S
     });
   }
 
-  // Sync legacy flat array
-  syncLegacyPreviousSlugs(job, cap);
+  // Sync legacy flat array unless the caller is carrying evidence whose
+  // locale provenance must remain precise.
+  if (syncLegacy) syncLegacyPreviousSlugs(job, cap, legacyCap);
 }
 
 /**
@@ -9191,8 +9238,10 @@ export function cleanPreviousSlugsPerLocale(job) {
  * must scale with the number of locale buckets it unions, so it only trims
  * once genuinely stale beyond what any single locale could account for.
  */
-function syncLegacyPreviousSlugs(job, cap = DEFAULT_PREV_SLUG_CAP) {
-  const legacyCap = cap * LOCALES.length;
+function syncLegacyPreviousSlugs(job, cap = DEFAULT_PREV_SLUG_CAP, legacyCapOverride) {
+  const legacyCap = Number.isSafeInteger(legacyCapOverride) && legacyCapOverride >= 1
+    ? legacyCapOverride
+    : cap * LOCALES.length;
   const all = new Set();
   // Preserve existing legacy entries FIRST (pre-migration or unattributed) so
   // they occupy the front of the union. Locale-aware entries are added

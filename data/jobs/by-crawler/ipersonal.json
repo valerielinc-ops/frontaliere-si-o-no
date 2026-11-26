@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ipersonal",
-  "assembledAt": "2026-11-20T21:20:32.891Z",
-  "runId": "44817524642",
+  "assembledAt": "2026-11-25T21:20:53.205Z",
+  "runId": "45701157752",
   "jobs": [
     {
       "id": "ipersonal-b14d0297131a",
@@ -34,7 +34,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-fachpersonen-langzeitpflege-betreuung-in-littenheid-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:23.221Z",
+      "crawledAt": "2026-11-25T21:20:44.423Z",
       "addressLocality": "Littenheid",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -90,9 +90,8 @@
       },
       "streetAddress": "Littenheid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:20:23.221Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/offene-stellen-fuer-fachpersonen-langzeitpflege-betreuung-in-littenheid-jetzt-bewerben"
+      "validThrough": "2027-01-24T21:20:44.423Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-7508a64b7c43",
@@ -125,7 +124,7 @@
       "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-sursee-und-umgebung-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:22.919Z",
+      "crawledAt": "2026-11-25T21:20:44.122Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -170,13 +169,12 @@
       },
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:20:22.919Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-sursee-und-umgebung-gesucht"
+      "validThrough": "2027-01-24T21:20:44.122Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-73624a3fc984",
-      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-und-umgebung",
       "slugByLocale": {
         "it": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-und-umgebung",
         "en": "care-vacancies-medipersonal-aarberg-und-umgebung",
@@ -205,7 +203,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-aarberg-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:22.617Z",
+      "crawledAt": "2026-11-25T21:20:43.821Z",
       "addressLocality": "Aarberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -235,7 +233,8 @@
         "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung",
         "care-vacancies-medipersonal-berna",
         "emplois-vacants-medipersonal-berna",
-        "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+        "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+        "posizioni-aperte-per-l-assistenza-medipersonal-aarberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -247,7 +246,8 @@
           "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
           "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
           "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg"
         ],
         "en": [
           "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
@@ -282,9 +282,8 @@
       "postalCode": "3270",
       "streetAddress": "Aarberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:20:22.617Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-aarberg-werde-teil-eines-engagierten-teams"
+      "validThrough": "2027-01-24T21:20:43.821Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-b2b53440c088",
@@ -317,7 +316,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-langenthal-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:22.316Z",
+      "crawledAt": "2026-11-25T21:20:43.520Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -394,110 +393,8 @@
       },
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:20:22.316Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-langenthal-dein-engagement-zaehlt"
-    },
-    {
-      "id": "ipersonal-a8dcd0079dc1",
-      "slug": "consulente-del-personale-per-il-settore-medico-medipersonal-wallisellen-zurich",
-      "slugByLocale": {
-        "it": "consulente-del-personale-per-il-settore-medico-medipersonal-wallisellen-zurich",
-        "en": "recruitment-consultant-for-the-medical-sector-medipersonal-wallisellen-zurich",
-        "de": "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-zurich",
-        "fr": "conseiller-ere-en-personnel-pour-le-secteur-medical-medipersonal-wallisellen-zurich"
-      },
-      "company": "MediPersonal",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Personalberater/in für die Medizinbranche",
-      "titleByLocale": {
-        "it": "Consulente del personale per il settore medico",
-        "en": "Recruitment consultant for the medical sector",
-        "de": "Personalberater/in für die Medizinbranche",
-        "fr": "Conseiller/ère en personnel pour le secteur médical"
-      },
-      "description": "Arbeitsort: unser Büro in Wallisellen\nBeginn: Ab sofort oder nach Vereinbarung\nMediPersonal ist ein Temporärbüro, das sich auf die Vermittlung von Fachkräften in der Medizinbranche spezialisiert hat und bietet massgeschneiderte Lösungen für Unternehmen und qualifizierte Kandidaten.\nÜber uns:\nMediPersonal ist ein modernes, wachsendes Personalberatungsunternehmen, das mit innovativen Konzepten und einer zukunftsorientierten Arbeitsweise neue Impulse auf dem Schweizer Markt setzt.\nUnser Standort in Wallisellen zeichnet sich durch ein hochmodernes Arbeitsumfeld, erstklassige digitale Tools und flache Hierarchien aus. Wir verstehen uns als strategische Partner unserer Kunden und begleiten sie mit massgeschneiderten Lösungen in der Personalgewinnung. Zur Verstärkung unseres Teams suchen wir eine/n erfahrene/n Personalberater/in & Personalvermittler/in mit Schwerpunkt Medizin.\nIhre Aufgaben:\n• Rekrutierung von medizinischem Fachpersonal:\nSie übernehmen den gesamten Recruiting-Prozess von der Profildefinition über die Direktansprache bis zur erfolgreichen Vermittlung von Ärzten, Pflegefachkräften und weiteren medizinischen Fachspezialisten.\n• Beratung und Betreuung von Kunden:\nDurch Ihre Marktkenntnisse und Ihr Gespür für die Bedürfnisse Ihrer Auftraggeber beraten Sie Kliniken, Spitäler, Gesundheitszentren sowie Praxen professionell und erarbeiten individuelle Lösungsansätze.\n• Aufbau und Pflege eines erstklassigen Kandidatennetzwerks:\nMit Fingerspitzengefühl nutzen Sie Ihr Netzwerk, Social-Media-Kanäle und Jobportale, um Top-Kandidatinnen und -Kandidaten für anspruchsvolle Vakanzen zu finden.\n• Marktbeobachtung und Innovationsförderung:\nSie beobachten aktiv Branchentrends, identifizieren neue Rekrutierungskanäle und setzen moderne Tools ein, um unsere Dienstleistungen kontinuierlich weiterzuentwickeln.\n• Qualitäts- und Kundenorientierung:\nSie pflegen langfristige, vertrauensvolle Beziehungen zu Kunden und Kandidaten, stellen einen reibungslosen Vermittlungsprozess sicher und legen grossen Wert auf eine exzellente Candidate Experience.\nIhr Profil:\n• Erfahrung in der Personalberatung oder -vermittlung:\nMehrjährige Berufserfahrung im Recruiting, idealerweise mit Schwerpunkt Medizin oder Gesundheitswesen.\n• Fachkenntnisse & Branchenverständnis:\nEin gutes Gespür für die Besonderheiten des medizinischen Arbeitsmarkts, inkl. Kenntnis relevanter Berufsgruppen und Qualifikationsanforderungen.\n• Kommunikative Kompetenz & Empathie:\nAusgeprägte Beratungs-, Kommunikations- und Verhandlungsfähigkeiten sowie ein professionelles Auftreten. Sie verstehen es, die Bedürfnisse beider Seiten (Kunden & Kandidaten) zu erkennen und zu vermitteln.\n• Hohe Eigeninitiative & Qualitätsbewusstsein:\nUnternehmerisches Denken, Selbstständigkeit und eine strukturierte Arbeitsweise zeichnen Sie aus.\n• Sprachkenntnisse:\nDeutsch auf Muttersprachniveau; weitere Sprachkenntnisse, insbesondere Englisch oder Französisch, sind von Vorteil.\nWir bieten:\n• Festanstellung (100 %) bei der iPersonal AG in Wallisellen:\nEin sicherer Arbeitsplatz in einem innovativen Unternehmen mit klarer Wachstumsstrategie.\n• Topmodernes Arbeitsumfeld & digitale Tools:\nHochwertige technische Ausstattung, moderne Softwarelösungen und effiziente Prozesse für erfolgreiches Recruiting.\n• Attraktive, leistungsorientierte Vergütung:\nIhr Einsatz und Ihre Vermittlungserfolge werden durch sehr attraktive Konditionen honoriert.\n• Weiterbildung & Entwicklung:\nLaufende Schulungen, interne Workshops und individuelle Entwicklungsmöglichkeiten, um Ihr Fachwissen und Ihre Kompetenzen auszubauen.\n• Dynamisches Team & offene Unternehmenskultur:\nEine kollegiale Atmosphäre, kurze Entscheidungswege und Raum für neue Ideen.\nHaben wir Ihr Interesse geweckt?\nDann freuen wir uns auf Ihre aussagekräftigen Bewerbungsunterlagen!\nStarten Sie jetzt Ihre nächste Karriereetappe bei der iPersonal AG und prägen Sie die Zukunft der Personalvermittlung in der Medizinbranche!\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nBewerbung bei MediPersonal\n• 1 Online bewerben Das Inserat steht schon im Formular. Ein Konto brauchen Sie nicht.\n• 2 Gespräch Ihre Kontaktperson ruft Sie an und lädt Sie zum Kennenlernen in unser Team ein.\n• 3 Start Passen Sie zu uns, folgt der Arbeitsvertrag mit der iPersonal AG.\nMöchten Sie vorher etwas klären? Ihre Kontaktperson erreichen Sie unter 044 515 57 61. Mit der Referenz MP-ALT-16839 hat sie diese Stelle sofort vor sich.\nLieber schreiben als anrufen? Nachricht schreiben und die Referenz MP-ALT-16839 angeben.\nAuf diese Stelle bewerben\nReferenz MP-ALT-16839",
-      "descriptionByLocale": {
-        "it": "Luogo di lavoro: il nostro ufficio a Wallisellen\nInizio: Ora o per accordo\nMediPersonal è un ufficio temporaneo specializzato nella collocazione di specialisti nel settore medico e offre soluzioni su misura per aziende e candidati qualificati.\nSu di noi:\nMediPersonal è una società di consulenza di reclutamento moderna e in crescita che fornisce nuovo impulso sul mercato svizzero con concetti innovativi e un modo di lavoro orientato al futuro.\nLa nostra posizione a Wallisellen è caratterizzata da un ambiente di lavoro all'avanguardia, strumenti digitali di prima classe e gerarchie piatte. Ci vediamo come partner strategico dei nostri clienti e li accompagniamo con soluzioni su misura nel reclutamento. Per rafforzare il nostro team, stiamo cercando un consulente e reclutatore di personale esperto con un focus sulla medicina.\nI loro compiti:\n• Reclutamento di medici professionisti:\nEssi prendono il controllo dell'intero processo di reclutamento dalla definizione del profilo e approccio diretto al posizionamento di successo di medici, infermieri e altri specialisti medici.\n• Consulenza e supporto dei clienti:\nAttraverso la vostra conoscenza del mercato e il vostro senso delle esigenze dei vostri clienti, consigliate cliniche, ospedali, centri sanitari e pratiche professionalmente e sviluppare soluzioni individuali.\n• Costruire e mantenere una rete di candidati di prima classe:\nSi utilizza la rete, i canali dei social media e i portali di lavoro per trovare i migliori candidati per le vacanzie impegnative.\n• Monitoraggio del mercato e promozione dell'innovazione:\nMonitorano attivamente le tendenze del settore, identificano nuovi canali di reclutamento e utilizzano strumenti moderni per sviluppare continuamente i nostri servizi.\n• Qualità e orientamento del cliente:\nMantengono relazioni a lungo termine e fiduciose con clienti e candidati, assicurano un processo di mediazione liscia e attribuiscono grande importanza ad un'eccellente esperienza di candidato.\nIl tuo profilo:\n• Esperienza nel reclutamento o nel collocamento:\nDiversi anni di esperienza professionale nel reclutamento, idealmente con un focus sulla medicina o sulla salute.\n• Competenza e comprensione del settore:\nUn buon senso delle peculiarità del mercato del lavoro medico, compresa la conoscenza di gruppi professionali rilevanti e requisiti di qualificazione.\n• Competenza comunicativa & Empathy:\nForte capacità di consulenza, comunicazione e negoziazione così come un aspetto professionale. Essi capiscono come riconoscere e comunicare le esigenze di entrambi i lati (clienti e candidati).\n• Alta consapevolezza di iniziativa e di qualità:\nIl pensiero imprenditoriale, il lavoro autonomo e un modo di lavorare strutturato ti distinguono.\n• Capacità linguistiche:\nIl tedesco a livello di lingua madre; ulteriori competenze linguistiche, in particolare inglese o francese, sono vantaggiose.\nOffriamo:\n• Occupazione permanente (100%) presso iPersonal AG a Wallisellen:\nUn luogo di lavoro sicuro in un'azienda innovativa con una chiara strategia di crescita.\n• I migliori ambienti di lavoro moderni e strumenti digitali:\nAttrezzature tecniche di alta qualità, soluzioni software moderne e processi efficienti per il reclutamento di successo.\n• Compensazione delle prestazioni:\nIl vostro impegno e i vostri successi di mediazione sono ricompensati da condizioni molto attraenti.\n• Formazione e sviluppo:\nFormazione continua, workshop interni e opportunità di sviluppo individuale per ampliare le tue competenze e competenze.\n• Team dinamico e cultura aziendale aperta:\nAtmosfera collegiale, brevi percorsi decisionali e spazio per nuove idee.\nAbbiamo suscitato il vostro interesse?\nAllora non vediamo l'ora di vostri documenti di applicazione significativi!\nInizia la tua prossima carriera a iPersonal AG ora e modella il futuro del reclutamento nel settore medico!\nOccupazione direttamente a iPersonal AG\nSono impiegati permanentemente da iPersonal AG, Bahnhofplatz 1C, 8304 Wallisellen e lavorano nel team del loro marchio MediPersonal. Contratto, payroll e assicurazione sono forniti direttamente da noi come il vostro datore di lavoro.\nApplicazione a MediPersonal\n• 1 Applicare online La lista è già nella forma. Non hai bisogno di un account.\n• 2 Conversazione La tua persona di contatto ti chiama e ti invita a conoscere la nostra squadra.\n• 3 Start Pass a noi, segue il contratto di lavoro con iPersonal AG.\nVuoi chiarire qualcosa prima? Il contatto può essere raggiunto il 044 515 57 61. Con il riferimento MP-ALT-16839, ha questa posizione immediatamente prima di lei.\nMeglio scrivere che chiamare? Scrivi il messaggio e specifica il riferimento MP-ALT-16839.\nApplicare per questo lavoro\nRiferimento MP-ALT-16839",
-        "en": "Place of work: our office in Wallisellen\nStart: Now or by agreement\nMediPersonal is a temporary office specialized in the placement of specialists in the medical industry and offers tailor-made solutions for companies and qualified candidates.\nAbout us:\nMediPersonal is a modern, growing recruitment consulting company that provides new impetus on the Swiss market with innovative concepts and a future-oriented way of working.\nOur location in Wallisellen is characterized by a state-of-the-art working environment, first-class digital tools and flat hierarchies. We see ourselves as strategic partners of our customers and accompany them with tailor-made solutions in recruitment. To strengthen our team, we are looking for an experienced personnel consultant & recruiter with a focus on medicine.\nTheir tasks:\n• Recruitment of medical professionals:\nThey take over the entire recruiting process from profile definition and direct approach to the successful placement of doctors, nurses and other medical specialists.\n• Advice and support of customers:\nThrough your market knowledge and your sense of the needs of your clients, you advise clinics, hospitals, health centers and practices professionally and develop individual solutions.\n• Building and maintaining a first-class candidate network:\nYou use your network, social media channels and job portals to find top candidates for challenging vacancies.\n• Market monitoring and innovation promotion:\nThey actively monitor industry trends, identify new recruitment channels and use modern tools to continuously develop our services.\n• Quality and customer orientation:\nThey maintain long-term, trusting relationships with customers and candidates, ensure a smooth mediation process and attach great importance to an excellent candidate experience.\nYour profile:\n• Experience in recruitment or placement:\nSeveral years of professional experience in recruiting, ideally with a focus on medicine or healthcare.\n• Expertise & industry understanding:\nA good sense of the peculiarities of the medical job market, including knowledge of relevant professional groups and qualification requirements.\n• Communicative Competence & Empathy:\nStrong consulting, communication and negotiation skills as well as a professional appearance. They understand how to recognize and communicate the needs of both sides (customers & candidates).\n• High initiative & quality awareness:\nEntrepreneurial thinking, self-employment and a structured way of working distinguish you.\n• Language skills:\nGerman at native language level; further language skills, in particular English or French, are advantageous.\nWe offer:\n• Permanent employment (100%) at iPersonal AG in Wallisellen:\nA secure workplace in an innovative company with a clear growth strategy.\n• Top modern working environment & digital tools:\nHigh-quality technical equipment, modern software solutions and efficient processes for successful recruiting.\n• Attractive, defined benefit compensation:\nYour commitment and your mediation successes are rewarded by very attractive conditions.\n• Further education and development:\nOngoing training, internal workshops and individual development opportunities to expand your expertise and competencies.\n• Dynamic team & open corporate culture:\nA collegial atmosphere, short decision paths and space for new ideas.\nHave we aroused your interest?\nThen we look forward to your meaningful application documents!\nStart your next career at iPersonal AG now and shape the future of recruitment in the medical industry!\nEmployment directly at iPersonal AG\nThey are permanently employed by iPersonal AG, Bahnhofplatz 1C, 8304 Wallisellen, and work in the team of their brand MediPersonal. Contract, payroll and insurance are provided directly by us as your employer.\nApplication to MediPersonal\n• 1 Apply online The listing is already in the form. You do not need an account.\n• 2 Conversation Your contact person calls you and invites you to get to know our team.\n• 3 Start Pass to us, follows the employment contract with iPersonal AG.\nWould you like to clarify something first? Your contact person can be reached on 044 515 57 61. With the reference MP-ALT-16839, she has this position immediately before her.\nBetter to write than call? Write the message and specify the reference MP-ALT-16839.\nApplying for this job\nReference MP-ALT-16839",
-        "de": "Arbeitsort: unser Büro in Wallisellen\nBeginn: Ab sofort oder nach Vereinbarung\nMediPersonal ist ein Temporärbüro, das sich auf die Vermittlung von Fachkräften in der Medizinbranche spezialisiert hat und bietet massgeschneiderte Lösungen für Unternehmen und qualifizierte Kandidaten.\nÜber uns:\nMediPersonal ist ein modernes, wachsendes Personalberatungsunternehmen, das mit innovativen Konzepten und einer zukunftsorientierten Arbeitsweise neue Impulse auf dem Schweizer Markt setzt.\nUnser Standort in Wallisellen zeichnet sich durch ein hochmodernes Arbeitsumfeld, erstklassige digitale Tools und flache Hierarchien aus. Wir verstehen uns als strategische Partner unserer Kunden und begleiten sie mit massgeschneiderten Lösungen in der Personalgewinnung. Zur Verstärkung unseres Teams suchen wir eine/n erfahrene/n Personalberater/in & Personalvermittler/in mit Schwerpunkt Medizin.\nIhre Aufgaben:\n• Rekrutierung von medizinischem Fachpersonal:\nSie übernehmen den gesamten Recruiting-Prozess von der Profildefinition über die Direktansprache bis zur erfolgreichen Vermittlung von Ärzten, Pflegefachkräften und weiteren medizinischen Fachspezialisten.\n• Beratung und Betreuung von Kunden:\nDurch Ihre Marktkenntnisse und Ihr Gespür für die Bedürfnisse Ihrer Auftraggeber beraten Sie Kliniken, Spitäler, Gesundheitszentren sowie Praxen professionell und erarbeiten individuelle Lösungsansätze.\n• Aufbau und Pflege eines erstklassigen Kandidatennetzwerks:\nMit Fingerspitzengefühl nutzen Sie Ihr Netzwerk, Social-Media-Kanäle und Jobportale, um Top-Kandidatinnen und -Kandidaten für anspruchsvolle Vakanzen zu finden.\n• Marktbeobachtung und Innovationsförderung:\nSie beobachten aktiv Branchentrends, identifizieren neue Rekrutierungskanäle und setzen moderne Tools ein, um unsere Dienstleistungen kontinuierlich weiterzuentwickeln.\n• Qualitäts- und Kundenorientierung:\nSie pflegen langfristige, vertrauensvolle Beziehungen zu Kunden und Kandidaten, stellen einen reibungslosen Vermittlungsprozess sicher und legen grossen Wert auf eine exzellente Candidate Experience.\nIhr Profil:\n• Erfahrung in der Personalberatung oder -vermittlung:\nMehrjährige Berufserfahrung im Recruiting, idealerweise mit Schwerpunkt Medizin oder Gesundheitswesen.\n• Fachkenntnisse & Branchenverständnis:\nEin gutes Gespür für die Besonderheiten des medizinischen Arbeitsmarkts, inkl. Kenntnis relevanter Berufsgruppen und Qualifikationsanforderungen.\n• Kommunikative Kompetenz & Empathie:\nAusgeprägte Beratungs-, Kommunikations- und Verhandlungsfähigkeiten sowie ein professionelles Auftreten. Sie verstehen es, die Bedürfnisse beider Seiten (Kunden & Kandidaten) zu erkennen und zu vermitteln.\n• Hohe Eigeninitiative & Qualitätsbewusstsein:\nUnternehmerisches Denken, Selbstständigkeit und eine strukturierte Arbeitsweise zeichnen Sie aus.\n• Sprachkenntnisse:\nDeutsch auf Muttersprachniveau; weitere Sprachkenntnisse, insbesondere Englisch oder Französisch, sind von Vorteil.\nWir bieten:\n• Festanstellung (100 %) bei der iPersonal AG in Wallisellen:\nEin sicherer Arbeitsplatz in einem innovativen Unternehmen mit klarer Wachstumsstrategie.\n• Topmodernes Arbeitsumfeld & digitale Tools:\nHochwertige technische Ausstattung, moderne Softwarelösungen und effiziente Prozesse für erfolgreiches Recruiting.\n• Attraktive, leistungsorientierte Vergütung:\nIhr Einsatz und Ihre Vermittlungserfolge werden durch sehr attraktive Konditionen honoriert.\n• Weiterbildung & Entwicklung:\nLaufende Schulungen, interne Workshops und individuelle Entwicklungsmöglichkeiten, um Ihr Fachwissen und Ihre Kompetenzen auszubauen.\n• Dynamisches Team & offene Unternehmenskultur:\nEine kollegiale Atmosphäre, kurze Entscheidungswege und Raum für neue Ideen.\nHaben wir Ihr Interesse geweckt?\nDann freuen wir uns auf Ihre aussagekräftigen Bewerbungsunterlagen!\nStarten Sie jetzt Ihre nächste Karriereetappe bei der iPersonal AG und prägen Sie die Zukunft der Personalvermittlung in der Medizinbranche!\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nBewerbung bei MediPersonal\n• 1 Online bewerben Das Inserat steht schon im Formular. Ein Konto brauchen Sie nicht.\n• 2 Gespräch Ihre Kontaktperson ruft Sie an und lädt Sie zum Kennenlernen in unser Team ein.\n• 3 Start Passen Sie zu uns, folgt der Arbeitsvertrag mit der iPersonal AG.\nMöchten Sie vorher etwas klären? Ihre Kontaktperson erreichen Sie unter 044 515 57 61. Mit der Referenz MP-ALT-16839 hat sie diese Stelle sofort vor sich.\nLieber schreiben als anrufen? Nachricht schreiben und die Referenz MP-ALT-16839 angeben.\nAuf diese Stelle bewerben\nReferenz MP-ALT-16839",
-        "fr": "Lieu de travail: notre bureau à Wallisellen\nDébut : maintenant ou par accord\nMediPersonal est un bureau temporaire spécialisé dans le placement de spécialistes dans l'industrie médicale et propose des solutions sur mesure pour les entreprises et les candidats qualifiés.\nÀ propos de nous :\nMediPersonal est une société de conseil en recrutement moderne et en croissance qui donne un nouvel élan au marché suisse avec des concepts innovants et une façon de travailler orientée vers l'avenir.\nNotre emplacement à Wallisellen se caractérise par un environnement de travail ultramoderne, des outils numériques de première classe et des hiérarchies plates. Nous nous considérons comme des partenaires stratégiques de nos clients et les accompagnons avec des solutions sur mesure dans le recrutement. Pour renforcer notre équipe, nous sommes à la recherche d'un consultant et recruteur expérimenté en médecine.\nLeurs tâches :\n• Recrutement de professionnels de la santé :\nIls reprennent l'ensemble du processus de recrutement depuis la définition du profil et l'approche directe du placement réussi de médecins, d'infirmières et d'autres spécialistes médicaux.\n• Conseils et soutien des clients:\nGrâce à vos connaissances du marché et à votre sens des besoins de vos clients, vous conseillez les cliniques, les hôpitaux, les centres de santé et les pratiques professionnelles et développez des solutions individuelles.\n• Construction et entretien d'un réseau de candidats de première classe :\nVous utilisez votre réseau, les réseaux sociaux et les portails d'emploi pour trouver les meilleurs candidats aux postes vacants.\n• Surveillance du marché et promotion de l'innovation:\nIls suivent activement les tendances de l'industrie, identifient de nouveaux canaux de recrutement et utilisent des outils modernes pour développer continuellement nos services.\n• Qualité et orientation client:\nIls entretiennent des relations de confiance à long terme avec les clients et les candidats, assurent un processus de médiation en douceur et attachent une grande importance à une excellente expérience des candidats.\nVotre profil:\n• Expérience en recrutement ou en affectation :\nPlusieurs années d'expérience professionnelle dans le recrutement, idéalement avec un accent sur la médecine ou les soins de santé.\n• Expertise et compréhension de l'industrie :\nUn bon sens des particularités du marché du travail médical, y compris la connaissance des groupes professionnels pertinents et les exigences de qualification.\n• Compétence de communication et empathie :\nFortes compétences en conseil, communication et négociation ainsi qu'une apparence professionnelle. Ils comprennent comment reconnaître et communiquer les besoins des deux parties (clients et candidats).\n• Haute initiative et sensibilisation à la qualité :\nLa pensée entrepreneuriale, le travail indépendant et une façon structurée de travailler vous distinguent.\n• Compétences linguistiques :\nL'allemand au niveau de la langue maternelle; d'autres compétences linguistiques, en particulier l'anglais ou le français, sont avantageuses.\nNous offrons:\n• Emploi permanent (100 %) chez iPersonal AG à Wallisellen:\nUn lieu de travail sûr dans une entreprise innovante avec une stratégie de croissance claire.\n• Meilleur environnement de travail moderne et outils numériques :\nÉquipement technique de haute qualité, solutions logicielles modernes et processus efficaces pour un recrutement réussi.\n• Indemnisation à prestations déterminées et attrayantes:\nVotre engagement et vos succès de médiation sont récompensés par des conditions très attrayantes.\n• Enseignement supérieur et développement:\nFormation continue, ateliers internes et possibilités de perfectionnement individuel pour développer votre expertise et vos compétences.\n• Équipe dynamique & culture d'entreprise ouverte :\nUne atmosphère collégiale, de courts chemins de décision et un espace pour de nouvelles idées.\nAvons-nous suscité votre intérêt ?\nEnsuite, nous attendons avec impatience vos documents de demande significatifs!\nCommencez votre prochaine carrière chez iPersonal AG maintenant et façonnez l'avenir du recrutement dans l'industrie médicale!\nEmploi directement chez iPersonal AG\nIls sont employés en permanence par iPersonal AG, Bahnhofplatz 1C, 8304 Wallisellen, et travaillent dans l'équipe de leur marque MediPersonal. Le contrat, la paie et l'assurance sont fournis directement par nous en tant qu'employeur.\nDemande à Medipersonal\n• 1 Postuler en ligne La liste est déjà dans le formulaire. Vous n'avez pas besoin de compte.\n• 2 Entretien Votre contact vous appelle et vous invite à connaître notre équipe.\n• 3 Start Pass à nous, suit le contrat de travail avec iPersonal AG.\nVoulez-vous d'abord clarifier quelque chose ? Vous pouvez joindre votre personne de contact au 044 515 57 61. Avec la référence MP-ALT-16839, elle a ce poste immédiatement avant elle.\nMieux vaut écrire que d'appeler ? Écrivez le message et spécifiez la référence MP-ALT-16839.\nPostuler pour ce poste\nRéférence MP-ALT-16839"
-      },
-      "location": "Wallisellen, Zürich",
-      "canton": "ZH",
-      "url": "https://med-ipersonal.ch/jobs/personalberater-in-fuer-die-medizinbranche-gesucht-m-w-d-100-in-region-baeretswil/",
-      "source": "MediPersonal Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:22.015Z",
-      "addressLocality": "Wallisellen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8304",
-      "streetAddress": "Bahnhofplatz 1C",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-26",
-      "postedDate": "2026-10-26",
-      "postingDateSource": "reported",
-      "applyUrl": "https://med-ipersonal.ch/jobs/personalberater-in-fuer-die-medizinbranche-gesucht-m-w-d-100-in-region-baeretswil/",
-      "previousSlugs": [
-        "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
-        "personalberater-in-per-la-medizinbranche-medipersonal-wallisellen",
-        "personalberater-in-per-la-medizinbranche-medipersonal-zurigo",
-        "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo",
-        "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-zurich",
-        "recruitment-consultant-for-the-medical-sector-medipersonal-zurigo",
-        "conseiller-ere-en-personnel-pour-le-secteur-medical-medipersonal-zurigo",
-        "consulente-del-personale-per-il-settore-medico-medipersonal-zurigo"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
-          "personalberater-in-per-la-medizinbranche-medipersonal-wallisellen",
-          "personalberater-in-per-la-medizinbranche-medipersonal-zurigo",
-          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-zurich",
-          "consulente-del-personale-per-il-settore-medico-medipersonal-zurigo"
-        ],
-        "en": [
-          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
-          "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo",
-          "recruitment-consultant-for-the-medical-sector-medipersonal-zurigo"
-        ],
-        "de": [
-          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
-          "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo"
-        ],
-        "fr": [
-          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
-          "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo",
-          "conseiller-ere-en-personnel-pour-le-secteur-medical-medipersonal-zurigo"
-        ]
-      },
-      "firstSeenAt": "2026-11-04T09:17:17.321Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:20:22.015Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/personalberater-in-fuer-die-medizinbranche-gesucht-m-w-d-100-in-region-baeretswil"
+      "validThrough": "2027-01-24T21:20:43.520Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-b77073a5d5a5",
@@ -530,7 +427,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-temporaerstellen-fuer-pflege-st-gallen-mit-zukunft/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:21.714Z",
+      "crawledAt": "2026-11-25T21:20:43.218Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -596,13 +493,12 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:20:21.714Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-temporaerstellen-fuer-pflege-st-gallen-mit-zukunft"
+      "validThrough": "2027-01-24T21:20:43.218Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-b6bfedc76300",
-      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-bern",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-bern-und-umgebung",
       "slugByLocale": {
         "it": "posizioni-aperte-per-l-assistenza-medipersonal-bern-und-umgebung",
         "en": "care-vacancies-medipersonal-bern-und-umgebung",
@@ -631,7 +527,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-bern-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:21.413Z",
+      "crawledAt": "2026-11-25T21:20:42.917Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -661,7 +557,8 @@
         "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung",
         "care-vacancies-medipersonal-berna",
         "emplois-vacants-medipersonal-berna",
-        "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+        "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+        "posizioni-aperte-per-l-assistenza-medipersonal-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -673,7 +570,8 @@
           "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
           "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
           "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+          "posizioni-aperte-per-l-assistenza-medipersonal-bern"
         ],
         "en": [
           "offene-stellen-fur-betreuung-medipersonal-bern-bern",
@@ -708,9 +606,8 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:20:21.413Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-bern-werde-teil-eines-engagierten-teams"
+      "validThrough": "2027-01-24T21:20:42.917Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-8a7bb81e902f",
@@ -743,7 +640,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-frauenfeld-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:21.112Z",
+      "crawledAt": "2026-11-25T21:20:42.615Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -818,9 +715,8 @@
       },
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:20:21.112Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-frauenfeld-dein-engagement-zaehlt"
+      "validThrough": "2027-01-24T21:20:42.615Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-5a0d910b7300",
@@ -853,7 +749,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-100-bern-i-2026-0006/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:20.810Z",
+      "crawledAt": "2026-11-25T21:20:42.314Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -913,9 +809,8 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:20:20.810Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-100-bern-i-2026-0006"
+      "validThrough": "2027-01-27T21:20:42.314Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-46c580292684",
@@ -948,7 +843,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-100-flawil-i-2026-0009/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:20.509Z",
+      "crawledAt": "2026-11-25T21:20:42.013Z",
       "addressLocality": "Flawil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1010,9 +905,8 @@
       },
       "streetAddress": "Flawil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:20:20.509Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-100-flawil-i-2026-0009"
+      "validThrough": "2027-02-01T21:20:42.013Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-56357df50830",
@@ -1045,7 +939,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-80-100-stein-am-rhein-i-2026-0026/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:20.207Z",
+      "crawledAt": "2026-11-25T21:20:41.712Z",
       "addressLocality": "Stein am Rhein",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1111,9 +1005,8 @@
       },
       "streetAddress": "Stein am Rhein",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:20:20.207Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-80-100-stein-am-rhein-i-2026-0026"
+      "validThrough": "2027-02-04T21:20:41.712Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-8f7c5b3fdffe",
@@ -1146,7 +1039,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-biel-bienne-i-2026-0027/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:19.906Z",
+      "crawledAt": "2026-11-25T21:20:41.411Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1208,9 +1101,8 @@
       },
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:20:19.906Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-biel-bienne-i-2026-0027"
+      "validThrough": "2027-02-04T21:20:41.411Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-7f7261a7dfa2",
@@ -1243,7 +1135,7 @@
       "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-rain-i-2026-0045/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:19.605Z",
+      "crawledAt": "2026-11-25T21:20:41.110Z",
       "addressLocality": "Rain",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1292,9 +1184,8 @@
       },
       "streetAddress": "Rain",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:20:19.605Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-rain-i-2026-0045"
+      "validThrough": "2027-02-09T21:20:41.110Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-c92e3e1ad001",
@@ -1327,7 +1218,7 @@
       "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-50-70-koppigen-i-2026-0044/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:19.304Z",
+      "crawledAt": "2026-11-25T21:20:40.809Z",
       "addressLocality": "Koppigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1376,9 +1267,8 @@
       },
       "streetAddress": "Koppigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:20:19.304Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-50-70-koppigen-i-2026-0044"
+      "validThrough": "2027-02-09T21:20:40.809Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-12db6a1fafa0",
@@ -1411,7 +1301,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-langnau-im-emmental-i-2026-0046/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:19.002Z",
+      "crawledAt": "2026-11-25T21:20:40.508Z",
       "addressLocality": "Langnau im Emmental",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1462,9 +1352,8 @@
       },
       "streetAddress": "Langnau im Emmental",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:20:19.002Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-langnau-im-emmental-i-2026-0046"
+      "validThrough": "2027-02-09T21:20:40.508Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-991286b9e792",
@@ -1485,11 +1374,11 @@
         "de": "Personalberater/in Gesundheitswesen",
         "fr": "Conseiller/Conseillère en personnel dans le secteur de la santé"
       },
-      "description": "Diese Tätigkeiten erwarten Sie\n• Sie betreuen Pflegedienstleitungen, Heimleitungen und HR-Abteilungen und gewinnen neue Institutionen dazu.\n• Sie finden Pflegefachpersonen und weitere Fachkräfte, prüfen Diplome und Anerkennungen (SRK) und vermitteln sie temporär, als Springer oder fest.\n• Sie organisieren auch kurzfristige Einsätze, wenn im Dienstplan jemand ausfällt.\nIhre Stärken\n• Erfahrung im Gesundheitswesen: als Personalberater/in im Medical-Bereich oder aus Pflege und Medizin mit langjähriger Leitungsfunktion, in der Sie selbst Personal eingestellt haben\n• Mindestens drei Jahre Berufserfahrung in dieser Rolle\n• Abgeschlossene kaufmännische Lehre oder eine höhere Ausbildung im Gesundheitswesen (z.B. HF Pflege) mit Führungserfahrung\n• Eigenes Netzwerk im Gesundheitswesen von Vorteil\n• Sehr gute PC-Kenntnisse\n• Sie sind zuverlässig und pünktlich, Institutionen und Fachpersonen vertrauen Ihnen\n• Deutsch sehr gut\nIhre Vorteile mit MediPersonal\n• Einen Lohn über dem Marktüblichen\n• Bonusmodell für Ihre Vermittlungen und einen Firmenbonus für den ganzen Betrieb\n• Die gesamte Infrastruktur und unsere eigene Vermittlungssoftware\n• Ein familiär geführtes Unternehmen, das in weitere Kantone expandiert\nIhr Arbeitsumfeld\nBerufsgruppe weitere\nArbeitszeiten nach Vereinbarung\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nMehr über die Arbeit bei MediPersonal: Jobs bei uns\nWer hinter MediPersonal steht\nMediPersonal ist die Marke der iPersonal AG für das Gesundheitswesen. Unser Team bringt Fachpersonen und Institutionen aus Pflege, Spital und Praxis zusammen. Die Firma gehört dem Verband swissstaffing an. Bei ProvenExpert bewerten Kundinnen und Kunden die iPersonal AG mit 4,33 von 5 (467 Bewertungen).",
+      "description": "Diese Tätigkeiten erwarten Sie\n• Sie betreuen Pflegedienstleitungen, Heimleitungen und HR-Abteilungen und gewinnen neue Institutionen dazu.\n• Sie finden Pflegefachpersonen und weitere Fachkräfte, prüfen Diplome und Anerkennungen (SRK) und vermitteln sie temporär, als Springer oder fest.\n• Sie organisieren auch kurzfristige Einsätze, wenn im Dienstplan jemand ausfällt.\nIhre Stärken\n• Erfahrung im Gesundheitswesen: als Personalberater/in im Medical-Bereich oder aus Pflege und Medizin mit langjähriger Leitungsfunktion, in der Sie selbst Personal eingestellt haben\n• Mindestens drei Jahre Berufserfahrung in dieser Rolle\n• Abgeschlossene kaufmännische Lehre oder eine höhere Ausbildung im Gesundheitswesen (z.B. HF Pflege) mit Führungserfahrung\n• Eigenes Netzwerk im Gesundheitswesen von Vorteil\n• Sehr gute PC-Kenntnisse\n• Sie sind zuverlässig und pünktlich, Institutionen und Fachpersonen vertrauen Ihnen\n• Deutsch sehr gut\nIhre Vorteile mit MediPersonal\n• Einen Lohn über dem Marktüblichen\n• Bonusmodell für Ihre Vermittlungen und einen Firmenbonus für den ganzen Betrieb\n• Die gesamte Infrastruktur und unsere eigene Vermittlungssoftware\n• Ein familiär geführtes Unternehmen, das in weitere Kantone expandiert\nIhr Arbeitsumfeld\nBerufsgruppe weitere\nArbeitszeiten nach Vereinbarung\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nMehr über die Arbeit bei MediPersonal: Arbeiten bei uns\nWer hinter MediPersonal steht\nMediPersonal ist die Marke der iPersonal AG für das Gesundheitswesen. Unser Team bringt Fachpersonen und Institutionen aus Pflege, Spital und Praxis zusammen. Die Firma gehört dem Verband swissstaffing an. Bei ProvenExpert bewerten Kundinnen und Kunden die iPersonal AG mit 4,33 von 5 (467 Bewertungen).",
       "descriptionByLocale": {
         "it": "Queste attività vi aspettano\n• Essi supervisionano i servizi di assistenza, la gestione domestica e i dipartimenti HR e acquisiscono nuove istituzioni.\n• Trovano infermieri e altri specialisti, esaminano diplomi e riconoscimenti (SRK) e li collocano temporaneamente, come saltatori o permanentemente.\n• Inoltre organizzano incarichi a breve termine se qualcuno è giù sul roster.\nLe loro forze\n• Esperienza nel settore sanitario: come consulente del personale nel settore medico o da infermiera e medicina con un ruolo di gestione di lunga data in cui si è assunto personale\n• Almeno tre anni di esperienza professionale in questo ruolo\n• Completato l'apprendistato commerciale o l'istruzione superiore nell'assistenza sanitaria (ad es. HF care) con esperienza di gestione\n• La propria rete nel settore sanitario è un vantaggio\n• Conoscenza del PC molto buona\n• Sono affidabili e puntuali, istituzioni e professionisti si fidano di te\n• tedesco molto buono\nI tuoi vantaggi con MediPersonal\n• Un salario al di sopra del solito mercato\n• Modello bonus per i tuoi referral e un bonus aziendale per l'intera azienda\n• L'intera infrastruttura e il nostro software di intermediazione\n• Un'azienda a conduzione familiare che si espande in altri cantoni\nIl tuo ambiente di lavoro\nGruppo professionale altri\nOre lavorative per sistemazione\nOccupazione direttamente a iPersonal AG\nSono impiegati permanentemente da iPersonal AG, Bahnhofplatz 1C, 8304 Wallisellen e lavorano nel team del loro marchio MediPersonal. Contratto, payroll e assicurazione sono forniti direttamente da noi come il vostro datore di lavoro.\nUlteriori informazioni sul lavoro a MediPersonal: Lavoro con noi\nChi è dietro MediPersonal\nMediPersonal è il marchio di iPersonal AG per il settore sanitario. Il nostro team riunisce specialisti e istituzioni di assistenza, ospedale e pratica. L'azienda appartiene all'associazione swissstaffing. A ProvenExpert, i clienti valutano iPersonal AG con 4.32 su 5 (475 recensioni).",
         "en": "These activities await you\n• They supervise care services, home management and HR departments and gain new institutions.\n• They find nurses and other specialists, examine diplomas and recognitions (SRK) and place them temporarily, as jumpers or permanently.\n• They also organize short-term assignments if someone is down on the roster.\nTheir strengths\n• Experience in the healthcare sector: as a personnel consultant in the medical sector or from nursing and medicine with a long-standing management role in which you have hired staff yourself\n• At least three years of professional experience in this role\n• Completed commercial apprenticeship or higher education in health care (e.g. HF care) with management experience\n• Own network in the healthcare sector is an advantage\n• Very good PC knowledge\n• They are reliable and punctual, institutions and professionals trust you\n• German very good\nYour advantages with MediPersonal\n• A wage above the usual market\n• Bonus model for your referrals and a company bonus for the entire company\n• The entire infrastructure and our own brokerage software\n• A family-run company expanding into other cantons\nYour working environment\nProfessional group other\nWorking hours by arrangement\nEmployment directly at iPersonal AG\nThey are permanently employed by iPersonal AG, Bahnhofplatz 1C, 8304 Wallisellen, and work in the team of their brand MediPersonal. Contract, payroll and insurance are provided directly by us as your employer.\nMore about working at MediPersonal: Jobs with us\nWho is behind MediPersonal\nMediPersonal is the brand of iPersonal AG for the healthcare sector. Our team brings together specialists and institutions from care, hospital and practice. The company belongs to the association swissstaffing. At ProvenExpert, customers rate iPersonal AG with 4.32 out of 5 (475 reviews).",
-        "de": "Diese Tätigkeiten erwarten Sie\n• Sie betreuen Pflegedienstleitungen, Heimleitungen und HR-Abteilungen und gewinnen neue Institutionen dazu.\n• Sie finden Pflegefachpersonen und weitere Fachkräfte, prüfen Diplome und Anerkennungen (SRK) und vermitteln sie temporär, als Springer oder fest.\n• Sie organisieren auch kurzfristige Einsätze, wenn im Dienstplan jemand ausfällt.\nIhre Stärken\n• Erfahrung im Gesundheitswesen: als Personalberater/in im Medical-Bereich oder aus Pflege und Medizin mit langjähriger Leitungsfunktion, in der Sie selbst Personal eingestellt haben\n• Mindestens drei Jahre Berufserfahrung in dieser Rolle\n• Abgeschlossene kaufmännische Lehre oder eine höhere Ausbildung im Gesundheitswesen (z.B. HF Pflege) mit Führungserfahrung\n• Eigenes Netzwerk im Gesundheitswesen von Vorteil\n• Sehr gute PC-Kenntnisse\n• Sie sind zuverlässig und pünktlich, Institutionen und Fachpersonen vertrauen Ihnen\n• Deutsch sehr gut\nIhre Vorteile mit MediPersonal\n• Einen Lohn über dem Marktüblichen\n• Bonusmodell für Ihre Vermittlungen und einen Firmenbonus für den ganzen Betrieb\n• Die gesamte Infrastruktur und unsere eigene Vermittlungssoftware\n• Ein familiär geführtes Unternehmen, das in weitere Kantone expandiert\nIhr Arbeitsumfeld\nBerufsgruppe weitere\nArbeitszeiten nach Vereinbarung\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nMehr über die Arbeit bei MediPersonal: Jobs bei uns\nWer hinter MediPersonal steht\nMediPersonal ist die Marke der iPersonal AG für das Gesundheitswesen. Unser Team bringt Fachpersonen und Institutionen aus Pflege, Spital und Praxis zusammen. Die Firma gehört dem Verband swissstaffing an. Bei ProvenExpert bewerten Kundinnen und Kunden die iPersonal AG mit 4,33 von 5 (467 Bewertungen).",
+        "de": "Diese Tätigkeiten erwarten Sie\n• Sie betreuen Pflegedienstleitungen, Heimleitungen und HR-Abteilungen und gewinnen neue Institutionen dazu.\n• Sie finden Pflegefachpersonen und weitere Fachkräfte, prüfen Diplome und Anerkennungen (SRK) und vermitteln sie temporär, als Springer oder fest.\n• Sie organisieren auch kurzfristige Einsätze, wenn im Dienstplan jemand ausfällt.\nIhre Stärken\n• Erfahrung im Gesundheitswesen: als Personalberater/in im Medical-Bereich oder aus Pflege und Medizin mit langjähriger Leitungsfunktion, in der Sie selbst Personal eingestellt haben\n• Mindestens drei Jahre Berufserfahrung in dieser Rolle\n• Abgeschlossene kaufmännische Lehre oder eine höhere Ausbildung im Gesundheitswesen (z.B. HF Pflege) mit Führungserfahrung\n• Eigenes Netzwerk im Gesundheitswesen von Vorteil\n• Sehr gute PC-Kenntnisse\n• Sie sind zuverlässig und pünktlich, Institutionen und Fachpersonen vertrauen Ihnen\n• Deutsch sehr gut\nIhre Vorteile mit MediPersonal\n• Einen Lohn über dem Marktüblichen\n• Bonusmodell für Ihre Vermittlungen und einen Firmenbonus für den ganzen Betrieb\n• Die gesamte Infrastruktur und unsere eigene Vermittlungssoftware\n• Ein familiär geführtes Unternehmen, das in weitere Kantone expandiert\nIhr Arbeitsumfeld\nBerufsgruppe weitere\nArbeitszeiten nach Vereinbarung\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nMehr über die Arbeit bei MediPersonal: Arbeiten bei uns\nWer hinter MediPersonal steht\nMediPersonal ist die Marke der iPersonal AG für das Gesundheitswesen. Unser Team bringt Fachpersonen und Institutionen aus Pflege, Spital und Praxis zusammen. Die Firma gehört dem Verband swissstaffing an. Bei ProvenExpert bewerten Kundinnen und Kunden die iPersonal AG mit 4,33 von 5 (467 Bewertungen).",
         "fr": "Ces activités vous attendent\n• Ils supervisent les services de soins, la gestion à domicile et les services des RH et acquièrent de nouveaux établissements.\n• Ils trouvent des infirmières et d'autres spécialistes, examinent les diplômes et les reconnaissances (SRK) et les placent temporairement, comme sauteurs ou de façon permanente.\n• Ils organisent également des affectations de courte durée si quelqu'un est sur la liste.\nLeurs forces\n• Expérience dans le secteur des soins de santé : en tant que consultant en personnel dans le secteur médical ou en soins infirmiers et en médecine avec un rôle de gestion de longue date dans lequel vous avez engagé vous-même du personnel\n• Au moins trois ans d'expérience professionnelle dans ce rôle\n• Apprentissage commercial ou enseignement supérieur dans le domaine des soins de santé (p. ex. soins de santé) avec expérience en gestion\n• Un réseau propre dans le secteur de la santé est un avantage\n• Très bonne connaissance PC\n• Ils sont fiables et ponctuels, institutions et professionnels vous font confiance\n• Allemand très bon\nVos avantages avec MediPersonal\n• Un salaire supérieur au marché habituel\n• Modèle de bonus pour vos références et un bonus d'entreprise pour toute l'entreprise\n• Toute l'infrastructure et notre propre logiciel de courtage\n• Une entreprise familiale s'étendant à d'autres cantons\nVotre environnement de travail\nGroupe professionnel autre\nHeures de travail par arrangement\nEmploi directement chez iPersonal AG\nIls sont employés en permanence par iPersonal AG, Bahnhofplatz 1C, 8304 Wallisellen, et travaillent dans l'équipe de leur marque MediPersonal. Les contrats, la paie et l'assurance sont fournis directement par notre employeur.\nEn savoir plus sur le travail chez MediPersonal: Jobs with us\nQui est derrière Medipersonal\nMediPersonal est la marque de iPersonal AG pour le secteur de la santé. Notre équipe rassemble des spécialistes et des institutions de soins, d'hôpital et de pratique. La société appartient à l'association swissstaffing. Chez ProvenExpert, les clients notent iPersonal AG avec 4.32 sur 5 (475 avis)."
       },
       "location": "Region Wallisellen (ZH)",
@@ -1497,7 +1386,7 @@
       "url": "https://med-ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-gesundheitswesen-wallisellen-i-2026-0039/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:18.699Z",
+      "crawledAt": "2026-11-25T21:20:40.207Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1544,9 +1433,8 @@
       "postalCode": "8304",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:20:18.699Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-gesundheitswesen-wallisellen-i-2026-0039"
+      "validThrough": "2027-02-10T21:20:40.207Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-f7a991b56833",
@@ -1579,7 +1467,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-stein-am-rhein-i-2026-0059/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:18.396Z",
+      "crawledAt": "2026-11-25T21:20:39.906Z",
       "addressLocality": "Stein am Rhein",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1630,9 +1518,8 @@
       },
       "streetAddress": "Stein am Rhein",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:20:18.396Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-stein-am-rhein-i-2026-0059"
+      "validThrough": "2027-02-15T21:20:39.906Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-1ad8667a25de",
@@ -1665,7 +1552,7 @@
       "url": "https://med-ipersonal.ch/jobs/experte-in-anaesthesiepflege-nds-hf-50-brugg-ag-i-2026-0062/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:18.094Z",
+      "crawledAt": "2026-11-25T21:20:39.605Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1712,17 +1599,16 @@
       "postalCode": "5000",
       "streetAddress": "Brugg AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:20:18.094Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/experte-in-anaesthesiepflege-nds-hf-50-brugg-ag-i-2026-0062"
+      "validThrough": "2027-02-16T21:20:39.605Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-350655e12cf6",
-      "slug": "medizinische-r-praxisassistent-in-cfc-medipersonal-olten-so",
+      "slug": "assistente-di-studio-medico-afc-medipersonal-olten-so",
       "slugByLocale": {
-        "de": "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so",
         "it": "assistente-di-studio-medico-afc-medipersonal-olten-so",
         "en": "medical-practice-assistant-efz-medipersonal-olten-so",
+        "de": "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so",
         "fr": "assistant-e-medical-e-cfc-medipersonal-olten-so"
       },
       "company": "MediPersonal",
@@ -1730,16 +1616,16 @@
       "companyDomain": "med-ipersonal.ch",
       "title": "Medizinische/r Praxisassistent/in EFZ",
       "titleByLocale": {
-        "de": "Medizinische/r Praxisassistent/in EFZ",
         "it": "Assistente di studio medico AFC",
         "en": "Medical Practice Assistant EFZ",
+        "de": "Medizinische/r Praxisassistent/in EFZ",
         "fr": "Assistant·e médical·e CFC"
       },
       "description": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Blutentnahmen und Laboranalysen\n• Abrechnung der Leistungen und Korrespondenz\n• Reinigen und Sterilisieren der Instrumente\n• Verbandwechsel und Wundversorgung nach Anweisung\nIhre Stärken\n• Lehrabschluss Medizinische/r Praxisassistent/in EFZ, Röntgenberechtigung eingeschlossen\n• Selbständige und genaue Arbeitsweise\n• Teamfähig\n• Deutsch auf gutem Niveau\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
       "descriptionByLocale": {
-        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Blutentnahmen und Laboranalysen\n• Abrechnung der Leistungen und Korrespondenz\n• Reinigen und Sterilisieren der Instrumente\n• Verbandwechsel und Wundversorgung nach Anweisung\nIhre Stärken\n• Lehrabschluss Medizinische/r Praxisassistent/in EFZ, Röntgenberechtigung eingeschlossen\n• Selbständige und genaue Arbeitsweise\n• Teamfähig\n• Deutsch auf gutem Niveau\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
         "it": "Dall'estero? Diploma non ancora riconosciuto? Si prega di applicare comunque. Vi aiutiamo con il riconoscimento della Croce Rossa svizzera (SRC) o MEBEKO e l'approvazione.\nQueste attività vi aspettano\n• Analisi del sangue e del laboratorio\n• Contabilità per servizi e corrispondenza\n• Pulizia e sterilizzazione degli strumenti\n• Cambio di vestire e cura delle ferite come indicato\nLe loro forze\n• Assistente medico/pratico/EFZ, certificato a raggi X incluso\n• Metodi di lavoro autonomi e precisi\n• Lavoro di squadra\n• Tedesco ad un buon livello\nI tuoi vantaggi con MediPersonal\n• Pagamento settimanale, anche per brevi incarichi\n• La tua persona di contatto a MediPersonal ti accompagna personalmente, dalla prima conversazione all'ultimo servizio\n• Servizi, carico di lavoro e posizione che pianifichiamo insieme a voi\n• Lavoro permanente più tardi nell'istituzione possibile se entrambe le parti vogliono\n• Assistenza nel riconoscimento del diploma con la SRC e nel concederlo\n• Contratto, payroll e assicurazione tramite iPersonal AG\n• Gratis per i professionisti\nIl tuo ambiente di lavoro\nPratica di gruppo professionale e MPA\nServizi secondo il calendario dell'istituzione, ne parliamo con voi in anticipo\nScoprirai il nome dell'istituzione in una conversazione personale.\nLa tua professione: Assistente medico/pratico\nCome assistente medico o assistente medico EFZ, sei il legame tra pazienti, medici e amministrazione.",
         "en": "From abroad? Diploma not yet recognized? Please apply anyway. We help you with the recognition of the Swiss Red Cross (SRC) or MEBEKO and the approval.\nThese activities await you\n• Blood sampling and laboratory analysis\n• Accounting for services and correspondence\n• Cleaning and sterilisation of instruments\n• Change of dressing and wound care as directed\nTheir strengths\n• Medical/practice assistant/EFZ degree, X-ray certificate included\n• Self-employed and precise working methods\n• Teamwork\n• German at a good level\nYour advantages with MediPersonal\n• Weekly payout, even for short assignments\n• Your contact person at MediPersonal accompanies you personally, from the first conversation to the last service\n• Services, workload and location we plan together with you\n• Later permanent employment in the institution possible if both sides want\n• Assistance in the recognition of your diploma with the SRC and in granting it\n• Contract, payroll and insurance through iPersonal AG\n• Free of charge for professionals\nYour working environment\nProfessional Group Practice and MPA\nServices according to the schedule of the institution, we discuss it with you beforehand\nYou will find out the name of the institution in a personal conversation.\nYour profession: Medical/practice assistant\nAs a medical practice assistant or medical practice assistant EFZ, you are the link between patients, doctors and administration.",
+        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Blutentnahmen und Laboranalysen\n• Abrechnung der Leistungen und Korrespondenz\n• Reinigen und Sterilisieren der Instrumente\n• Verbandwechsel und Wundversorgung nach Anweisung\nIhre Stärken\n• Lehrabschluss Medizinische/r Praxisassistent/in EFZ, Röntgenberechtigung eingeschlossen\n• Selbständige und genaue Arbeitsweise\n• Teamfähig\n• Deutsch auf gutem Niveau\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
         "fr": "De l'étranger ? Diplôme non encore reconnu? Veuillez postuler de toute façon. Nous vous aidons avec la reconnaissance de la Croix-Rouge Suisse (SRC) ou MEBEKO et l'approbation.\nCes activités vous attendent\n• Échantillonnage du sang et analyse de laboratoire\n• Comptabilisation des services et correspondance\n• Nettoyage et stérilisation des instruments\n• Changement d'habillage et de soins des plaies\nLeurs forces\n• Diplôme d'assistant médical/de pratique/EFZ, certificat de radiographie inclus\n• Indépendants et méthodes de travail précises\n• Travail d'équipe\n• Allemand à un bon niveau\nVos avantages avec MediPersonal\n• Paiement hebdomadaire, même pour les missions courtes\n• Votre contact chez MediPersonal vous accompagne personnellement, de la première conversation au dernier service\n• Services, charge de travail et emplacement que nous planifions avec vous\n• Emploi permanent ultérieur dans l'institution possible si les deux parties veulent\n• Assistance à la reconnaissance de votre diplôme auprès du SRC et à son octroi\n• Contrats, salaires et assurances par l'intermédiaire de iPersonal AG\n• Gratuit pour les professionnels\nVotre environnement de travail\nPratique professionnelle de groupe et MPA\nServices selon le calendrier de l'institution, nous en discutons avec vous au préalable\nVous trouverez le nom de l'institution dans une conversation personnelle.\nVotre profession: Assistant médical/professionnel\nEn tant qu'assistant de pratique médicale ou assistant de pratique médicale EFZ, vous êtes le lien entre les patients, les médecins et l'administration."
       },
       "location": "Olten, SO",
@@ -1747,7 +1633,7 @@
       "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-olten-i-2026-0067/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:20:17.790Z",
+      "crawledAt": "2026-11-25T21:20:39.303Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1764,6 +1650,23 @@
       "postedDate": "2026-11-20",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-olten-i-2026-0067/",
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so",
+        "medizinische-r-praxisassistent-in-cfc-medipersonal-olten-so"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so",
+          "medizinische-r-praxisassistent-in-cfc-medipersonal-olten-so"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so"
+        ]
+      },
+      "firstSeenAt": "2026-11-20T21:20:17.790Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1779,24 +1682,176 @@
       },
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:20:17.790Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:20:17.790Z",
+      "validThrough": "2027-02-18T21:20:39.303Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ipersonal-3c004d57a3f7",
+      "slug": "assistente-medico-a-afc-medipersonal-ziefen-bl",
+      "slugByLocale": {
+        "it": "assistente-medico-a-afc-medipersonal-ziefen-bl",
+        "en": "medical-practice-assistant-efz-swiss-federal-vet-diploma-medipersonal-ziefen-bl",
+        "de": "medizinische-r-praxisassistent-in-efz-medipersonal-ziefen-bl",
+        "fr": "assistant-e-medical-e-cfc-medipersonal-ziefen-bl"
+      },
+      "company": "MediPersonal",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Medizinische/r Praxisassistent/in EFZ",
+      "titleByLocale": {
+        "it": "Assistente medico/a AFC",
+        "en": "Medical Practice Assistant EFZ (Swiss Federal VET Diploma)",
+        "de": "Medizinische/r Praxisassistent/in EFZ",
+        "fr": "Assistant(e) médical(e) CFC"
+      },
+      "description": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Röntgenaufnahmen selbständig erstellen\n• Blut abnehmen und die Proben fachgerecht vorbereiten\n• Infusionen verabreichen\n• Patientendossiers korrekt und vollständig führen\n• Instrumente reinigen und sterilisieren\n• Verbände wechseln und Wunden gemäss Vorgaben versorgen\nIhre Stärken\n• Abschluss als Medizinische/r Praxisassistent/in EFZ\n• Sie können Röntgenaufnahmen eigenständig durchführen\n• Selbständige, sorgfältige Arbeitsweise\n• Belastbarkeit auch bei hohem Betrieb\n• Diskretion und Zuverlässigkeit im Umgang mit Patientendaten\nIhre Vorteile mit MediPersonal\n• Lohnauszahlung jede Woche, auch bei kurzen Einsätzen\n• Persönliche Begleitung durch Ihre Kontaktperson bei MediPersonal, vom ersten Gespräch bis zum letzten Einsatz\n• Dienste, Pensum und Einsatzort planen wir gemeinsam mit Ihnen\n• Eine spätere Festanstellung in der Institution ist möglich, sofern beide Seiten dies wünschen\n• Unterstützung bei der Anerkennung Ihres Diploms und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen werden über den Verleih abgewickelt\n• Die Vermittlung ist für Fachpersonen kostenlos\n• Persönliche Begleitung durch Ihre Kontaktperson bei MediPersonal\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+      "descriptionByLocale": {
+        "it": "Dall'estero? Diploma non ancora riconosciuto? Si prega di applicare comunque. Vi aiutiamo con il riconoscimento della Croce Rossa svizzera (SRC) o MEBEKO e l'approvazione.\nQueste attività vi aspettano\n• Crea immagini a raggi X indipendentemente\n• Prendere il sangue e preparare correttamente i campioni\n• Infusioni di amministrazione\n• Tenere i dossier dei pazienti correttamente e completamente\n• Strumenti di pulizia e sterilizzazione\n• Cambiare condimenti e fornire ferite secondo le specifiche\nLe loro forze\n• Laurea in medicina/assistente pratico/EFZ\n• È possibile fare raggi X indipendentemente\n• Metodi di lavoro autonomi e attenti\n• Resistenza anche in alto funzionamento\n• Discrezione e affidabilità nel trattare i dati dei pazienti\nI tuoi vantaggi con MediPersonal\n• Pagamenti ogni settimana, anche per brevi incarichi\n• Supporto personale della persona di contatto a MediPersonal, dalla prima intervista all'ultimo incarico\n• Servizi, carico di lavoro e posizione che pianifichiamo insieme a voi\n• Una successiva posizione permanente nell'istituzione è possibile, se entrambe le parti lo desiderano.\n• Assistenza nel riconoscimento del diploma e nella concessione\n• Contratto, payroll e assicurazione sono gestiti tramite il noleggio\n• La mediazione è gratuita per specialisti\n• Supporto personale della persona di contatto a MediPersonal\nIl tuo ambiente di lavoro\nPratica di gruppo professionale e MPA\nServizi secondo il calendario dell'istituzione, ne parliamo con voi in anticipo\nScoprirai il nome dell'istituzione in una conversazione personale.\nLa tua professione: Assistente medico/pratico\nCome assistente medico o assistente medico EFZ, sei il legame tra pazienti, medici e amministrazione.",
+        "en": "From abroad? Diploma not yet recognized? Please apply anyway. We help you with the recognition of the Swiss Red Cross (SRC) or MEBEKO and the approval.\nThese activities await you\n• Create X-ray images independently\n• Take blood and prepare the samples properly\n• Administer infusions\n• Keep patient dossiers correctly and completely\n• Cleaning and sterilising instruments\n• Change dressings and provide wounds according to specifications\nTheir strengths\n• Degree as medical/practical assistant/EFZ\n• You can do X-rays independently\n• Self-employed, careful working methods\n• Resistance even in high operation\n• Discretion and reliability in dealing with patient data\nYour advantages with MediPersonal\n• Payout every week, even for short assignments\n• Personal support by your contact person at MediPersonal, from the first interview to the last assignment\n• Services, workload and location we plan together with you\n• A later permanent position in the institution is possible, if both sides wish so.\n• Assistance in the recognition of your diploma and in granting\n• Contract, payroll and insurance are handled via the rental\n• Mediation is free of charge for specialists\n• Personal support from your contact person at MediPersonal\nYour working environment\nProfessional Group Practice and MPA\nServices according to the schedule of the institution, we discuss it with you beforehand\nYou will find out the name of the institution in a personal conversation.\nYour profession: Medical/practice assistant\nAs a medical practice assistant or medical practice assistant EFZ, you are the link between patients, doctors and administration.",
+        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Röntgenaufnahmen selbständig erstellen\n• Blut abnehmen und die Proben fachgerecht vorbereiten\n• Infusionen verabreichen\n• Patientendossiers korrekt und vollständig führen\n• Instrumente reinigen und sterilisieren\n• Verbände wechseln und Wunden gemäss Vorgaben versorgen\nIhre Stärken\n• Abschluss als Medizinische/r Praxisassistent/in EFZ\n• Sie können Röntgenaufnahmen eigenständig durchführen\n• Selbständige, sorgfältige Arbeitsweise\n• Belastbarkeit auch bei hohem Betrieb\n• Diskretion und Zuverlässigkeit im Umgang mit Patientendaten\nIhre Vorteile mit MediPersonal\n• Lohnauszahlung jede Woche, auch bei kurzen Einsätzen\n• Persönliche Begleitung durch Ihre Kontaktperson bei MediPersonal, vom ersten Gespräch bis zum letzten Einsatz\n• Dienste, Pensum und Einsatzort planen wir gemeinsam mit Ihnen\n• Eine spätere Festanstellung in der Institution ist möglich, sofern beide Seiten dies wünschen\n• Unterstützung bei der Anerkennung Ihres Diploms und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen werden über den Verleih abgewickelt\n• Die Vermittlung ist für Fachpersonen kostenlos\n• Persönliche Begleitung durch Ihre Kontaktperson bei MediPersonal\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+        "fr": "De l'étranger ? Diplôme non encore reconnu? Veuillez poser votre candidature. Nous vous aidons avec la reconnaissance de la Croix-Rouge Suisse (SRC) ou MEBEKO et l'approbation.\nCes activités vous attendent\n• Créer des images de rayons X indépendamment\n• Prenez du sang et préparez les échantillons correctement.\n• Administrer les perfusions\n• Conserver les dossiers des patients correctement et complètement\n• Instruments de nettoyage et de stérilisation\n• Changer les pansements et fournir des blessures selon les spécifications\nLeurs forces\n• Diplôme d'assistant médical/pratique/EFZ\n• Vous pouvez faire des radiographies indépendamment\n• Travailleurs indépendants, méthodes de travail prudentes\n• Résistance même en fonctionnement élevé\n• Discrétion et fiabilité dans le traitement des données du patient\nVos avantages avec Medipersonal\n• Paiement chaque semaine, même pour de courtes affectations\n• Support personnel de votre personne de contact à Medipersonal, de la première entrevue à la dernière affectation\n• Services, charge de travail et emplacement que nous planifions avec vous\n• Une position permanente ultérieure dans l'institution est possible, si les deux parties le souhaitent.\n• Aide à la reconnaissance de votre diplôme et à l'octroi\n• Le contrat, la paie et l'assurance sont traités par la location\n• La médiation est gratuite pour les spécialistes\n• Support personnel de votre personne de contact chez MediPersonal\nVotre environnement de travail\nPratique professionnelle de groupe et MPA\nServices selon le calendrier de l'institution, nous en discutons avec vous au préalable\nVous trouverez le nom de l'institution dans une conversation personnelle.\nVotre profession: Assistant médical/professionnel\nEn tant qu'assistant de pratique médicale ou assistant de pratique médicale EFZ, vous êtes le lien entre les patients, les médecins et l'administration."
+      },
+      "location": "Ziefen, BL",
+      "canton": "BL",
+      "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-ziefen-i-2026-0073/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:20:39.002Z",
+      "addressLocality": "Ziefen",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4417",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-24",
+      "postedDate": "2026-11-24",
+      "postingDateSource": "reported",
+      "applyUrl": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-ziefen-i-2026-0073/",
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-efz-medipersonal-ziefen-bl",
+        "medizinische-r-praxisassistent-in-cfc-medipersonal-ziefen-bl"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so"
+          "medizinische-r-praxisassistent-in-efz-medipersonal-ziefen-bl",
+          "medizinische-r-praxisassistent-in-cfc-medipersonal-ziefen-bl"
         ],
         "en": [
-          "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so"
+          "medizinische-r-praxisassistent-in-efz-medipersonal-ziefen-bl"
         ],
         "fr": [
-          "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so"
+          "medizinische-r-praxisassistent-in-efz-medipersonal-ziefen-bl"
         ]
       },
+      "firstSeenAt": "2026-11-24T21:17:33.395Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Ziefen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T21:20:39.002Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ipersonal-40b792e100ae",
+      "slug": "operatore-operatrice-socio-sanitaria-afc-medipersonal-region-evilard-be",
+      "slugByLocale": {
+        "it": "operatore-operatrice-socio-sanitaria-afc-medipersonal-region-evilard-be",
+        "en": "health-specialist-efz-medipersonal-region-evilard-be",
+        "de": "fachmann-frau-gesundheit-efz-medipersonal-region-evilard-be",
+        "fr": "specialiste-de-la-sante-cfc-medipersonal-region-evilard-be"
+      },
+      "company": "MediPersonal",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Fachmann/frau Gesundheit EFZ",
+      "titleByLocale": {
+        "it": "Operatore/Operatrice socio-sanitaria AFC",
+        "en": "Health Specialist EFZ",
+        "de": "Fachmann/frau Gesundheit EFZ",
+        "fr": "Spécialiste de la santé CFC"
+      },
+      "description": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Sie unterstützen das Team beim Eintritt und Austritt von Patientinnen und Patienten.\n• Sie arbeiten eng mit dem Pflegeteam zusammen.\n• Sie helfen beim Umlagern und Bewegen der Patientinnen und Patienten.\n• Sie bereiten Untersuchungen vor und begleiten die betroffenen Personen dorthin.\nIhre Stärken\n• Sie verfügen über den Abschluss als Fachmann oder Fachfrau Gesundheit EFZ.\n• Sie gehen freundlich mit Patientinnen, Patienten und Angehörigen um.\n• Sie verfügen über gute Kenntnisse der deutschen Sprache.\n• Sie bewegen sich sicher in der Pflegedokumentation.\nIhre Vorteile mit MediPersonal\n• Ihr Lohn wird jede Woche ausbezahlt, auch bei kurzen Einsätzen.\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom Erstgespräch bis zum letzten Einsatz.\n• Dienste, Pensum und Einsatzort stimmen wir gemeinsam mit Ihnen ab.\n• Eine spätere Festanstellung in der Institution ist möglich, sofern beide Seiten dies wünschen.\n• Wir unterstützen Sie bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung.\n• Vertrag, Lohnabrechnung und Versicherungen werden zentral für Sie abgewickelt.\n• Unsere Leistungen sind für Fachpersonen kostenlos.\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten.",
+      "descriptionByLocale": {
+        "it": "Dall'estero? Diploma non ancora riconosciuto? Si prega di applicare comunque. Vi aiutiamo con il riconoscimento della Croce Rossa svizzera (SRC) o MEBEKO e l'approvazione.\nQueste attività vi aspettano\n• Supportano la squadra nell'ingresso e nell'uscita dei pazienti.\n• Lavorano a stretto contatto con la squadra di cura.\n• Aiutano a spostare e spostare i pazienti.\n• Preparano le indagini e accompagnano le persone colpite.\nLe loro forze\n• Hai la laurea come specialista salute EFZ.\n• Sono amichevoli con pazienti e parenti.\n• Hai una buona conoscenza della lingua tedesca.\n• Si muovono in modo sicuro nella documentazione di cura.\nI tuoi vantaggi con MediPersonal\n• I vostri salari sono pagati ogni settimana, anche in brevi incarichi.\n• Il tuo referente di MediPersonal ti accompagna personalmente, dall'intervista iniziale all'ultimo incarico.\n• Coorghiamo i servizi, il carico di lavoro e la posizione insieme a voi.\n• Una successiva posizione permanente nell'istituzione è possibile, se entrambe le parti lo desiderano.\n• Vi sosteniamo nel riconoscimento del vostro diploma presso la SRC e nell'approvazione.\n• Contratto, payroll e assicurazione sono gestiti centralmente per voi.\n• I nostri servizi sono gratuiti per i professionisti.\nIl tuo ambiente di lavoro\nGruppo professionale\nServizi secondo il calendario dell'istituzione, ne parliamo con voi in anticipo\nScoprirai il nome dell'istituzione in una conversazione personale.\nLa vostra professione: salute professionale/donna\nCome specialista o assistenza sanitaria EFZ sei vicino alla gente. Aiutano con la cura personale, misurano segni vitali, diretti e amministrano farmaci secondo prescrizione medica, cambiano bende e documentano attentamente ciò che osservate.",
+        "en": "From abroad? Diploma not yet recognized? Please apply anyway. We help you with the recognition of the Swiss Red Cross (SRC) or MEBEKO and the approval.\nThese activities await you\n• They support the team in the entry and exit of patients.\n• They work closely with the care team.\n• They help to move and move patients.\n• They prepare investigations and accompany the affected persons there.\nTheir strengths\n• You have the degree as a specialist health EFZ.\n• They are friendly with patients and relatives.\n• You have a good knowledge of the German language.\n• They move safely in the care documentation.\nYour advantages with MediPersonal\n• Your wages are paid out every week, even on short assignments.\n• Your contact person at MediPersonal accompanies you personally, from the initial interview to the last assignment.\n• We coordinate services, workload and location together with you.\n• A later permanent position in the institution is possible, if both sides wish.\n• We support you in the recognition of your diploma at the SRC and in the approval.\n• Contract, payroll and insurance are handled centrally for you.\n• Our services are free of charge for professionals.\nYour working environment\nCare professional group\nServices according to the schedule of the institution, we discuss it with you beforehand\nYou will find out the name of the institution in a personal conversation.\nYour profession: professional/woman health\nAs a specialist or health care EFZ you are close to the people. They assist with personal care, measure vital signs, direct and administer medications according to medical prescription, change bandages and carefully document what you observe.",
+        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Sie unterstützen das Team beim Eintritt und Austritt von Patientinnen und Patienten.\n• Sie arbeiten eng mit dem Pflegeteam zusammen.\n• Sie helfen beim Umlagern und Bewegen der Patientinnen und Patienten.\n• Sie bereiten Untersuchungen vor und begleiten die betroffenen Personen dorthin.\nIhre Stärken\n• Sie verfügen über den Abschluss als Fachmann oder Fachfrau Gesundheit EFZ.\n• Sie gehen freundlich mit Patientinnen, Patienten und Angehörigen um.\n• Sie verfügen über gute Kenntnisse der deutschen Sprache.\n• Sie bewegen sich sicher in der Pflegedokumentation.\nIhre Vorteile mit MediPersonal\n• Ihr Lohn wird jede Woche ausbezahlt, auch bei kurzen Einsätzen.\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom Erstgespräch bis zum letzten Einsatz.\n• Dienste, Pensum und Einsatzort stimmen wir gemeinsam mit Ihnen ab.\n• Eine spätere Festanstellung in der Institution ist möglich, sofern beide Seiten dies wünschen.\n• Wir unterstützen Sie bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung.\n• Vertrag, Lohnabrechnung und Versicherungen werden zentral für Sie abgewickelt.\n• Unsere Leistungen sind für Fachpersonen kostenlos.\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten.",
+        "fr": "De l'étranger ? Diplôme non encore reconnu? Veuillez poser votre candidature. Nous vous aidons avec la reconnaissance de la Croix-Rouge Suisse (SRC) ou MEBEKO et l'approbation.\nCes activités vous attendent\n• Ils soutiennent l'équipe dans l'entrée et la sortie des patients.\n• Ils travaillent en étroite collaboration avec l'équipe de soins.\n• Ils aident à déplacer les patients.\n• Ils préparent les enquêtes et y accompagnent les personnes touchées.\nLeurs forces\n• Vous avez le diplôme de spécialiste en santé EFZ.\n• Ils sont amis avec les patients et les parents.\n• Vous avez une bonne connaissance de la langue allemande.\n• Ils se déplacent en toute sécurité dans la documentation des soins.\nVos avantages avec Medipersonal\n• Votre salaire est payé chaque semaine, même sur de courtes affectations.\n• Votre contact chez MediPersonal vous accompagne personnellement, de l'entrevue initiale à la dernière affectation.\n• Nous coordonnons les services, la charge de travail et l'emplacement avec vous.\n• Une position permanente ultérieure dans l'institution est possible, si les deux parties le souhaitent.\n• Nous vous soutenons dans la reconnaissance de votre diplôme au SRC et dans l'approbation.\n• Le contrat, la paie et l'assurance sont gérés centralement pour vous.\n• Nos services sont gratuits pour les professionnels.\nVotre environnement de travail\nGroupe professionnel de soins\nServices selon le calendrier de l'institution, nous en discutons avec vous au préalable\nVous trouverez le nom de l'institution dans une conversation personnelle.\nVotre profession: santé professionnelle/de la femme\nEn tant que spécialiste ou de soins de santé EFZ, vous êtes proche des gens. Ils aident aux soins personnels, mesurent les signes vitaux, dirigent et administrent les médicaments selon les prescriptions médicales, changent les bandages et documentent soigneusement ce que vous observez."
+      },
+      "location": "Region Evilard (BE)",
+      "canton": "BE",
+      "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-evilard-i-2026-0074/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:20:38.699Z",
+      "addressLocality": "Evilard",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-24",
+      "postedDate": "2026-11-24",
+      "postingDateSource": "reported",
+      "applyUrl": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-evilard-i-2026-0074/",
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-efz-medipersonal-olten-so"
+        "fachmann-frau-gesundheit-efz-medipersonal-region-evilard-be",
+        "fachmann-frau-gesundheit-cfc-medipersonal-evilard",
+        "fachmann-frau-gesundheit-cfc-medipersonal-region-evilard-be"
       ],
-      "sourceIdentity": "url:https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-olten-i-2026-0067"
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-frau-gesundheit-efz-medipersonal-region-evilard-be",
+          "fachmann-frau-gesundheit-cfc-medipersonal-evilard",
+          "fachmann-frau-gesundheit-cfc-medipersonal-region-evilard-be"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-medipersonal-region-evilard-be"
+        ],
+        "fr": [
+          "fachmann-frau-gesundheit-efz-medipersonal-region-evilard-be"
+        ]
+      },
+      "firstSeenAt": "2026-11-24T21:17:33.093Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "2533",
+      "streetAddress": "Evilard",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T21:20:38.699Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

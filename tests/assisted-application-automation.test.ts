@@ -18,11 +18,12 @@ const {
   relaunchAuthorizedOwnerTakeover,
   parseAutomationFlag,
   runAutomationSweep,
+  sweepStaleCandidateOrders,
   reconcilePortalRetrySchedule,
   reconcileFactRepairSchedule,
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
-const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS, URGENT_FIELD_DISPATCH_TIMEOUT_MS } = await import('../functions/src/assistedApplicationFlow.js');
+const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, CANDIDATE_STALE_ARCHIVE_AFTER_MS, PORTAL_AUTO_RETRY_DELAYS_MS, URGENT_FIELD_DISPATCH_TIMEOUT_MS } = await import('../functions/src/assistedApplicationFlow.js');
 const { autoRetryDelaysForFlow, portalAutoRetryAttemptsRemaining, portalRetryDueAt } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { draftRetryDueAt } = await import('../functions/src/assistedApplicationDraftRetryPolicy.js');
 const { candidateQuestionAnswerKey, rememberCandidateAnswerHistory } = await import('../functions/src/assistedApplicationCandidateEdits.js');
@@ -1079,6 +1080,39 @@ describe('sweep', () => {
     expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'draft_auto_retry' }]);
   });
 
+  it('bounds candidate-reply recovery to the per-order cap before dispatching draft_auto_retry', async () => {
+    const { CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP } = await import('../functions/src/assistedApplicationCandidateReply.js');
+    const docs: Record<string, any> = {
+      [ORDER_PATH]: { ...paidOrder(), automationState: 'owner_takeover', automationDueAt: T0 },
+      [`${ORDER_PATH}/automation/flow`]: {
+        state: 'owner_takeover', round: 2, heldBy: ['draft_failed'], draftAutoRetryCount: 0,
+        draftAutoRetryAt: T0, dispatch: { mode: 'draft', round: 2, attempts: 1 },
+      },
+      [`${ORDER_PATH}/ai_drafts/current`]: { status: 'ready', round: 1 },
+      [`${ORDER_PATH}/automation/submission`]: { r1: { state: 'failed', channel: 'portal', confirmedNotSent: true } },
+    };
+    for (let i = 0; i < 100; i += 1) {
+      const id = `re-${String(i).padStart(3, '0')}`;
+      docs[`${ORDER_PATH}/candidate_replies/${id}`] = {
+        id,
+        orderId: ORDER,
+        status: 'failed',
+        attempts: 3,
+        lastError: 'codex_http_429',
+        failedAt: T0 - 1000,
+        body: 'Disponibile subito, +39 333 123 4567',
+        subject: 'Re: candidatura',
+      };
+    }
+    store = createMemoryFirestore(docs);
+    effects = [];
+    const extractCandidateReply = vi.fn(async () => ({ phone: '+39 333 123 4567', phonePassage: '+39 333 123 4567' }));
+
+    expect(await runAutomationSweep({ db: store.db, runEffect, extractCandidateReply, nowMs: T0 })).toMatchObject({ redispatched: 1 });
+    expect(extractCandidateReply).toHaveBeenCalledTimes(CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP);
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'draft_auto_retry' }]);
+  });
+
   it('does not expose a scheduler due time after the portal retry budget is exhausted', () => {
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'],
       portalAutoRetryAt: T0, portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length })).toBeNull();
@@ -1441,5 +1475,54 @@ describe('account failure observability', () => {
       ctx: { accounts: { verificationMessageIds: vi.fn(async () => []), waitForVerification: vi.fn(async () => null) } },
     });
     expect(timedOut).toEqual({ handoff: 'account_verification_timeout', accountFailure: { code: 'verification_timeout', stage: 'verification' } });
+  });
+
+  it('archives stale >30 day candidate-held flows and missing-CV orders in sweep and unarchives on resume', async () => {
+    const dayMs = 24 * 60 * 60 * 1000;
+    const staleSince = T0 - 31 * dayMs;
+    const recentSince = T0 - 10 * dayMs;
+    store = createMemoryFirestore({
+      'assisted_applications/stale_flow': paidOrder({ orderId: 'stale_flow', automationState: 'candidate_review', automationDueAt: null }),
+      'assisted_applications/stale_flow/automation/flow': {
+        state: 'candidate_review', round: 1, heldBy: ['document:referenze'], heldSince: staleSince, deadlineAt: null, reminderAt: null, history: [{ at: staleSince, event: 'draft_ready', state: 'candidate_review' }],
+      },
+      'assisted_applications/stale_flow/ai_drafts/current': {
+        ...readyDraft(1),
+        requiredDocuments: [{ id: 'referenze', label: 'Referenze', required: true }],
+      },
+      'assisted_applications/recent_flow': paidOrder({ orderId: 'recent_flow', automationState: 'candidate_review', automationDueAt: null }),
+      'assisted_applications/recent_flow/automation/flow': {
+        state: 'candidate_review', round: 1, heldBy: ['document:referenze'], heldSince: recentSince, deadlineAt: null, reminderAt: null, history: [{ at: recentSince, event: 'draft_ready', state: 'candidate_review' }],
+      },
+      'assisted_applications/recent_flow/ai_drafts/current': readyDraft(1),
+      'assisted_applications/stale_cv': {
+        orderId: 'stale_cv', paymentStatus: 'paid', submissionStatus: 'awaiting_upload', paidAt: new Date(T0 - 35 * dayMs).toISOString(),
+      },
+      'assisted_applications/recent_cv': {
+        orderId: 'recent_cv', paymentStatus: 'paid', submissionStatus: 'awaiting_upload', paidAt: new Date(T0 - 15 * dayMs).toISOString(),
+      },
+    });
+
+    const summary = await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 });
+    expect(summary.staleArchived).toBe(2);
+    expect(store.read('assisted_applications/stale_flow')?.candidateStaleArchivedAt).toBe(T0);
+    expect(store.read('assisted_applications/stale_flow/automation/flow')?.candidateStaleArchivedAt).toBe(T0);
+    expect(store.read('assisted_applications/recent_flow')?.candidateStaleArchivedAt).toBeUndefined();
+    expect(store.read('assisted_applications/stale_cv')?.candidateStaleArchivedAt).toBe(T0);
+    expect(store.read('assisted_applications/recent_cv')?.candidateStaleArchivedAt).toBeUndefined();
+
+    // Re-running sweep is idempotent.
+    const secondSweep = await sweepStaleCandidateOrders({ db: store.db, runEffect, nowMs: T0 + 1000 });
+    expect(secondSweep.total).toBe(0);
+
+    // Candidate answering releases the archive marker and restores the flow.
+    await store.db.collection('assisted_applications').doc('stale_flow').collection('automation').doc('flow').set({
+      documents: { referenze: { files: [{ key: 'assisted-application-uploads/stale_flow/ref.pdf' }] } },
+    }, { merge: true });
+    const answered = await applyAutomationEvent({ db: store.db, orderId: 'stale_flow', event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + 2000 });
+    expect(answered.ok).toBe(true);
+    expect(answered.flow.candidateStaleArchivedAt).toBeNull();
+    expect(store.read('assisted_applications/stale_flow')?.candidateStaleArchivedAt).toBeNull();
+    expect(CANDIDATE_STALE_ARCHIVE_AFTER_MS).toBe(30 * dayMs);
   });
 });

@@ -27,7 +27,9 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isApplicat
 // waits on that acknowledgement are read again.
 // v13 (2026-11-17): current-application privacy processing and rights acknowledgements can be text inputs; existing
 // waits are read again and receive the localized affirmative consent.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v13';
+// v14 (2026-11-24): work-experience birth-year fallback for civil-status deduction, and category B licence
+// deduced from own-car evidence or verified own-car decision.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v14';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))

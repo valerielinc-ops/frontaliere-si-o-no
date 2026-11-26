@@ -109,6 +109,9 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       .resolves.toMatchObject({ ok: false, error: 'final_submit_reserved' });
     await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/search?q=REQ-42' }), {}, { snapshot: '', posting }))
       .resolves.toMatchObject({ ok: true, navigation: true });
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://career2.successfactors.eu/search?q=REQ-42' }), {}, {
+      snapshot: '', posting, allowApplicationEntry: true,
+    })).resolves.toMatchObject({ ok: false, error: 'goto_target_not_in_snapshot' });
     await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/apply?job=REQ-42' }), {}, { snapshot: '', posting }))
       .resolves.toMatchObject({ ok: false, error: 'goto_target_not_in_snapshot' });
     await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/pay?query=Payroll%20Specialist' }), {}, { snapshot: '', posting }))

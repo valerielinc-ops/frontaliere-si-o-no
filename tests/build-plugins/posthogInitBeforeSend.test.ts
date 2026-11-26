@@ -230,16 +230,8 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     expect(beforeSend(event)).toBeNull();
   });
 
-  it('drops privacy-protected Battery Status API errors (#19704)', () => {
-    const event = {
-      event: '$exception',
-      properties: {
-        $exception_values: [{
-          type: 'DOMException',
-          value: 'NotAllowedError: Battery access is blocked by privacy protection.',
-        }],
-      },
-    };
+  it('drops Firefox add-on dead-object errors on static pages (#19706)', () => {
+    const event = { event: '$exception', properties: { $exception_values: [{ type: 'TypeError', value: "can't access dead object" }] } };
     expect(beforeSend(event)).toBeNull();
   });
 

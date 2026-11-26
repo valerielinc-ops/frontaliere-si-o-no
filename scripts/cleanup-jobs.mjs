@@ -31,6 +31,7 @@ import { decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import {
   collapseDuplicateRouteEntries,
+  mergeExpiredRouteEvidence,
   mergeSourceIdentityHistory,
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
@@ -279,6 +280,7 @@ function buildExpiredEntry(job) {
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
+    canton: job.canton || undefined,
     addressLocality: job.addressLocality || '',
     descriptionByLocale: job.descriptionByLocale || {},
     slugByLocale: job.slugByLocale || {},
@@ -294,6 +296,10 @@ function buildExpiredEntry(job) {
     previousSlugsByLocale: job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
         && Object.keys(job.previousSlugsByLocale).length > 0
       ? JSON.parse(JSON.stringify(job.previousSlugsByLocale))
+      : undefined,
+    previousSlugCantonByLocale: job.previousSlugCantonByLocale && typeof job.previousSlugCantonByLocale === 'object'
+        && Object.keys(job.previousSlugCantonByLocale).length > 0
+      ? JSON.parse(JSON.stringify(job.previousSlugCantonByLocale))
       : undefined,
     // FRO-343: preserve address + salary data for rich soft-landing pages
     postalCode: job.postalCode || '',
@@ -317,6 +323,7 @@ function buildExpiredEntry(job) {
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
   if (!entry.salaryMax) delete entry.salaryMax;
+  if (!entry.canton) delete entry.canton;
   if (!entry.id) delete entry.id;
   if (entry.dedupArchive !== true) delete entry.dedupArchive;
   if (sourceIdentity) entry.sourceIdentity = sourceIdentity;
@@ -517,7 +524,20 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
     // Same rule as the aggregate archive above: a held job was never public.
     if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
-    mergeSourceIdentityHistory(entry, bySlug.get(job.slug));
+    const previous = bySlug.get(job.slug);
+    let routeCapRefused = false;
+    mergeExpiredRouteEvidence(
+      entry,
+      previous,
+      `cleanup-jobs/slice/${crawlerKey}`,
+      { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
+    );
+    if (routeCapRefused) {
+      // Keep the existing archive record: it is still the owner of the
+      // historical route evidence that the new payload could not absorb.
+      continue;
+    }
+    mergeSourceIdentityHistory(entry, previous);
     bySlug.set(job.slug, entry);
     added++;
   }

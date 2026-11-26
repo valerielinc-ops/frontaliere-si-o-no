@@ -554,6 +554,25 @@
           "monitorBuild": "9e751b0e03e41c8c0a17fc3ab162368a2a146074",
           "deployedBuild": null,
           "minimumSamples": 30
+        },
+        {
+          "date": "2026-11-25",
+          "source": "ga4",
+          "window": {
+            "startDate": "2026-11-17",
+            "endDate": "2026-11-23",
+            "days": 7,
+            "lagDays": 2,
+            "timezone": "Europe/Zurich"
+          },
+          "monitorBuild": "a2f66142df7b3481ab2692ff3d8528980526fcd6",
+          "deployedBuild": null,
+          "minimumSamples": 30,
+          "cls_p75": null,
+          "cls_n": 0,
+          "inp_p75": null,
+          "inp_n": 0,
+          "sourceUnavailable": "no target observations in 7d window"
         }
       ]
     },
@@ -977,6 +996,58 @@
             "timezone": "Europe/Zurich"
           },
           "monitorBuild": "9e751b0e03e41c8c0a17fc3ab162368a2a146074",
+          "deployedBuild": null,
+          "minimumSamples": 30
+        },
+        {
+          "date": "2026-11-25",
+          "cls_p75": 0.292,
+          "cls_n": 6,
+          "inp_p75": 160,
+          "inp_n": 6,
+          "devices": {
+            "mobile": {
+              "cls_p75": 0.088,
+              "cls_n": 4,
+              "inp_p75": 160,
+              "inp_n": 5,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "desktop": {
+              "cls_p75": 0.538,
+              "cls_n": 2,
+              "inp_p75": 136,
+              "inp_n": 1,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "tablet": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "unknown": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            }
+          },
+          "source": "ga4",
+          "window": {
+            "startDate": "2026-11-17",
+            "endDate": "2026-11-23",
+            "days": 7,
+            "lagDays": 2,
+            "timezone": "Europe/Zurich"
+          },
+          "monitorBuild": "a2f66142df7b3481ab2692ff3d8528980526fcd6",
           "deployedBuild": null,
           "minimumSamples": 30
         }
@@ -1404,6 +1475,58 @@
           "monitorBuild": "9e751b0e03e41c8c0a17fc3ab162368a2a146074",
           "deployedBuild": null,
           "minimumSamples": 30
+        },
+        {
+          "date": "2026-11-25",
+          "cls_p75": 0.188,
+          "cls_n": 10,
+          "inp_p75": 464,
+          "inp_n": 12,
+          "devices": {
+            "mobile": {
+              "cls_p75": 0.194,
+              "cls_n": 7,
+              "inp_p75": 512,
+              "inp_n": 9,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "desktop": {
+              "cls_p75": 0.139,
+              "cls_n": 3,
+              "inp_p75": 168,
+              "inp_n": 3,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "tablet": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "unknown": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            }
+          },
+          "source": "ga4",
+          "window": {
+            "startDate": "2026-11-17",
+            "endDate": "2026-11-23",
+            "days": 7,
+            "lagDays": 2,
+            "timezone": "Europe/Zurich"
+          },
+          "monitorBuild": "a2f66142df7b3481ab2692ff3d8528980526fcd6",
+          "deployedBuild": null,
+          "minimumSamples": 30
         }
       ]
     },
@@ -1827,6 +1950,58 @@
             "timezone": "Europe/Zurich"
           },
           "monitorBuild": "9e751b0e03e41c8c0a17fc3ab162368a2a146074",
+          "deployedBuild": null,
+          "minimumSamples": 30
+        },
+        {
+          "date": "2026-11-25",
+          "cls_p75": 0.971,
+          "cls_n": 3,
+          "inp_p75": 128,
+          "inp_n": 11,
+          "devices": {
+            "mobile": {
+              "cls_p75": 0.971,
+              "cls_n": 1,
+              "inp_p75": 128,
+              "inp_n": 6,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "desktop": {
+              "cls_p75": 0.171,
+              "cls_n": 2,
+              "inp_p75": 56,
+              "inp_n": 5,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "tablet": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "unknown": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            }
+          },
+          "source": "ga4",
+          "window": {
+            "startDate": "2026-11-17",
+            "endDate": "2026-11-23",
+            "days": 7,
+            "lagDays": 2,
+            "timezone": "Europe/Zurich"
+          },
+          "monitorBuild": "a2f66142df7b3481ab2692ff3d8528980526fcd6",
           "deployedBuild": null,
           "minimumSamples": 30
         }
@@ -2254,6 +2429,58 @@
           "monitorBuild": "9e751b0e03e41c8c0a17fc3ab162368a2a146074",
           "deployedBuild": null,
           "minimumSamples": 30
+        },
+        {
+          "date": "2026-11-25",
+          "cls_p75": 1.396,
+          "cls_n": 122,
+          "inp_p75": 400,
+          "inp_n": 120,
+          "devices": {
+            "mobile": {
+              "cls_p75": 1,
+              "cls_n": 82,
+              "inp_p75": 424,
+              "inp_n": 82,
+              "cls_status": "measured",
+              "inp_status": "measured"
+            },
+            "desktop": {
+              "cls_p75": 2.033,
+              "cls_n": 40,
+              "inp_p75": 360,
+              "inp_n": 38,
+              "cls_status": "measured",
+              "inp_status": "measured"
+            },
+            "tablet": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "unknown": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            }
+          },
+          "source": "ga4",
+          "window": {
+            "startDate": "2026-11-17",
+            "endDate": "2026-11-23",
+            "days": 7,
+            "lagDays": 2,
+            "timezone": "Europe/Zurich"
+          },
+          "monitorBuild": "a2f66142df7b3481ab2692ff3d8528980526fcd6",
+          "deployedBuild": null,
+          "minimumSamples": 30
         }
       ]
     },
@@ -2677,6 +2904,58 @@
             "timezone": "Europe/Zurich"
           },
           "monitorBuild": "9e751b0e03e41c8c0a17fc3ab162368a2a146074",
+          "deployedBuild": null,
+          "minimumSamples": 30
+        },
+        {
+          "date": "2026-11-25",
+          "cls_p75": 0.216,
+          "cls_n": 28,
+          "inp_p75": 208,
+          "inp_n": 37,
+          "devices": {
+            "mobile": {
+              "cls_p75": 0.228,
+              "cls_n": 17,
+              "inp_p75": 240,
+              "inp_n": 25,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "desktop": {
+              "cls_p75": 0.116,
+              "cls_n": 11,
+              "inp_p75": 112,
+              "inp_n": 12,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "tablet": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "unknown": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            }
+          },
+          "source": "ga4",
+          "window": {
+            "startDate": "2026-11-17",
+            "endDate": "2026-11-23",
+            "days": 7,
+            "lagDays": 2,
+            "timezone": "Europe/Zurich"
+          },
+          "monitorBuild": "a2f66142df7b3481ab2692ff3d8528980526fcd6",
           "deployedBuild": null,
           "minimumSamples": 30
         }
@@ -3104,6 +3383,58 @@
           "monitorBuild": "9e751b0e03e41c8c0a17fc3ab162368a2a146074",
           "deployedBuild": null,
           "minimumSamples": 30
+        },
+        {
+          "date": "2026-11-25",
+          "cls_p75": 0.987,
+          "cls_n": 115,
+          "inp_p75": 440,
+          "inp_n": 205,
+          "devices": {
+            "mobile": {
+              "cls_p75": 0.827,
+              "cls_n": 61,
+              "inp_p75": 440,
+              "inp_n": 135,
+              "cls_status": "measured",
+              "inp_status": "measured"
+            },
+            "desktop": {
+              "cls_p75": 1.056,
+              "cls_n": 54,
+              "inp_p75": 464,
+              "inp_n": 69,
+              "cls_status": "measured",
+              "inp_status": "measured"
+            },
+            "tablet": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": 72,
+              "inp_n": 1,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "unknown": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            }
+          },
+          "source": "ga4",
+          "window": {
+            "startDate": "2026-11-17",
+            "endDate": "2026-11-23",
+            "days": 7,
+            "lagDays": 2,
+            "timezone": "Europe/Zurich"
+          },
+          "monitorBuild": "a2f66142df7b3481ab2692ff3d8528980526fcd6",
+          "deployedBuild": null,
+          "minimumSamples": 30
         }
       ]
     },
@@ -3527,6 +3858,58 @@
             "timezone": "Europe/Zurich"
           },
           "monitorBuild": "9e751b0e03e41c8c0a17fc3ab162368a2a146074",
+          "deployedBuild": null,
+          "minimumSamples": 30
+        },
+        {
+          "date": "2026-11-25",
+          "cls_p75": 0.104,
+          "cls_n": 150,
+          "inp_p75": 232,
+          "inp_n": 237,
+          "devices": {
+            "mobile": {
+              "cls_p75": 0.153,
+              "cls_n": 56,
+              "inp_p75": 232,
+              "inp_n": 145,
+              "cls_status": "measured",
+              "inp_status": "measured"
+            },
+            "desktop": {
+              "cls_p75": 0.099,
+              "cls_n": 94,
+              "inp_p75": 232,
+              "inp_n": 90,
+              "cls_status": "measured",
+              "inp_status": "measured"
+            },
+            "tablet": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": 48,
+              "inp_n": 2,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            },
+            "unknown": {
+              "cls_p75": null,
+              "cls_n": 0,
+              "inp_p75": null,
+              "inp_n": 0,
+              "cls_status": "insufficient-samples",
+              "inp_status": "insufficient-samples"
+            }
+          },
+          "source": "ga4",
+          "window": {
+            "startDate": "2026-11-17",
+            "endDate": "2026-11-23",
+            "days": 7,
+            "lagDays": 2,
+            "timezone": "Europe/Zurich"
+          },
+          "monitorBuild": "a2f66142df7b3481ab2692ff3d8528980526fcd6",
           "deployedBuild": null,
           "minimumSamples": 30
         }

@@ -42,6 +42,7 @@ describe('isBenignErrorMessage()', () => {
       'TrackerStorageType is not defined',
       'No Listener: tabs:outgoing.message.ready',
       'Error: No Listener: tabs:outgoing.message.ready',
+      "TypeError: can't access dead object",
       // Microsoft Clarity internal crash (#3760)
       "TypeError: undefined is not an object (evaluating 'n.standardSelectors')",
       "Cannot read properties of undefined (reading 'standardSelectors')",

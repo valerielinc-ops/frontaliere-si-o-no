@@ -171,6 +171,8 @@ const PORTAL_STOP_RECOVERY_CONTRACT = Object.freeze({
   // Stops caused by where/how the runner connects, not by the candidate.
   'portal:navigation_unavailable': TRANSPORT_STOP,
   'transport:email_provider_unavailable': TRANSPORT_STOP,
+  'transport:codex_usage_limit': TRANSPORT_STOP,
+  'transport:codex_broker_unavailable': TRANSPORT_STOP,
   'portal:question_localization_unavailable': TRANSPORT_STOP,
   'portal:application_region_unsupported': TRANSPORT_STOP,
   'portal:swiss_runner_offline': TRANSPORT_STOP,

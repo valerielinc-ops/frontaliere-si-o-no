@@ -21,15 +21,12 @@
  * `typecheck (tsc --noEmit)` sono diventati step del job che produce
  * `VITEST_CHECK_NAME`, quindi un loro rosso fa rosso il check gating.
  *
- * `collision` invece è tornato un check-run a sé il 2026-08-26, e non è un
- * ripensamento: portava un lock `concurrency` GLOBALE (il detector scrive la
- * label su tutte le PR aperte) e, non esistendo le concurrency di step, sul
- * job fuso serializzava una suite da ~18 minuti contro quella di ogni altra PR
- * aperta — terza PR sfrattata a `cancelled`, auto-merge fermo. Resta quindi
- * NON bloccante, ed è corretto: il cancello di merge è la LABEL che applica,
- * non il suo exit code. Due dei quattro «sostanziali» che questo modulo
- * esisteva per SORVEGLIARE non esistono più come check-run separati; degli
- * altri due, uno è quello su cui la decisione si prendeva già.
+ * `collision` resta un check-run separato del workflow dedicato, e non è un
+ * ripensamento: il detector scrive la label su tutte le PR aperte e porta un
+ * lock `concurrency` GLOBALE. Tenerlo fuori dal job fuso evita di serializzare
+ * una suite da ~18 minuti contro quella di ogni altra PR aperta — terza PR
+ * sfrattata a `cancelled`, auto-merge fermo. Resta quindi NON bloccante, ed è
+ * corretto: il cancello di merge è la LABEL che applica, non il suo exit code.
  *
  * Conseguenza pratica: su una PR normale `wouldBlock` è ora quasi sempre vuoto
  * — non perché l'osservazione sia rotta, ma perché non c'è più niente da
@@ -68,11 +65,10 @@ import { VITEST_CHECK_NAME } from './constants.mjs';
  * In particolare `detect` (pr-collision-detector.yml) NON è qui: sulla stessa
  * finestra di 60 PR ha chiuso 45 volte `success` e 0 volte `failure`, quindi
  * osservarlo non produce rumore, ed è uno dei quattro sostanziali della issue.
- * NB — dal consolidamento in `tests.yml` quel check-run su PR non atterra più:
- * `pr-collision-detector.yml` gira solo su `schedule`/`workflow_dispatch` e lo
- * scan su PR è uno step del job gating. Il nome resta fuori dalla denylist
- * perché la regola («è un giudizio sul diff, non un'azione sulla PR») non è
- * cambiata, e reintrodurlo come job lo rimetterebbe sotto osservazione.
+ * NB — il check-run event-driven atterra sul percorso PR, ma il suo verdetto
+ * resta advisory: la label è la protezione che il gate di auto-merge consuma.
+ * Il nome resta fuori dalla denylist perché la regola («è un giudizio sul
+ * diff, non un'azione sulla PR») non è cambiata.
  *
  * NB — i nomi dei check-run NON sono unici per repo: il job `detect` esiste
  * anche in `quality-alerts.yml`, che però gira SOLO su `schedule`/

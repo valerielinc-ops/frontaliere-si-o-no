@@ -35,7 +35,8 @@ import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assi
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
 import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_AUTO_RETRY_DELAYS_MS as PORTAL_RETRY_DELAYS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION, SWISS_EGRESS_NETWORK_RECOVERY_VERSION, TRANSPORT_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
-import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
+import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryAttemptsRemaining, draftAutoRetryCountValue, draftRetryDelayMs, draftRetryDueAt, draftRetryMaxAttempts, isCodexUsageLimitError } from './assistedApplicationDraftRetryPolicy.js';
+import { codexBrokerInfrastructureFailure } from './assistedApplicationTransportRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
 import { refundEndsAtStart } from './assistedApplicationConstants.js';
@@ -72,6 +73,7 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
+export const CANDIDATE_STALE_ARCHIVE_AFTER_MS = 30 * 24 * 60 * 60 * 1000;
 // Expedited dispatch for unpredicted ATS screening questions: 4 hours operator escalation
 // instead of 5 days of silent wait, preventing job posting expiration in Switzerland.
 export const URGENT_FIELD_DISPATCH_TIMEOUT_MS = 4 * 60 * 60 * 1000;
@@ -106,9 +108,10 @@ const TRANSIENT_RUN_ERROR_RE = /runner_infrastructure_unavailable|portal_questio
 
 /** Codex broker refusals, timeouts, rate limits, 5xx: worth another run. */
 // runner_timeout is the watchdog's own verdict after its re-dispatches: not retried again.
+// Codex quota/usage limits won't clear within minutes and use delayed draft/transport backoff instead.
 export function isTransientRunError(error) {
   const text = String(error || '');
-  return text !== 'runner_timeout' && TRANSIENT_RUN_ERROR_RE.test(text);
+  return text !== 'runner_timeout' && !isCodexUsageLimitError(text) && TRANSIENT_RUN_ERROR_RE.test(text);
 }
 
 /** Another run for a transient failure, or null once the attempts are used up. */
@@ -218,10 +221,10 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
     locale: platformFacts?.locale, facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
     candidateAnswerSuppressedQuestionContracts,
   }).answers;
-  const candidate = questions
+  const candidate = [...new Set(questions
     .filter((question) => question.required
       && (!String(projected?.[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, projected?.[question.id])))
-    .map((question) => question.id);
+    .map((question) => question.id))];
   // A required document (school reports, a test result…) the candidate has not given yet.
   return { owner, candidate, documents: openRequiredDocuments(draft, documents, flow) };
 }
@@ -413,6 +416,7 @@ function base(flow) {
     heldBy: Array.isArray(flow?.heldBy) ? flow.heldBy : [],
     heldSince: Number(flow?.heldSince) || null,
     heldNudges: Number(flow?.heldNudges) || 0,
+    candidateStaleArchivedAt: Number(flow?.candidateStaleArchivedAt) || null,
     ...(typeof flow?.heldReason === 'string' ? { heldReason: flow.heldReason } : {}),
     ...(Array.isArray(flow?.pendingFields) ? { pendingFields: flow.pendingFields.slice(0, 20) } : {}),
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
@@ -484,6 +488,8 @@ function base(flow) {
     // An explicitly malformed persisted count must fail closed instead of
     // creating another automatic draft run.
     draftAutoRetryCount: draftAutoRetryCountValue(flow) ?? -1,
+    ...(typeof flow?.draftFailureKind === 'string' && flow.draftFailureKind
+      ? { draftFailureKind: flow.draftFailureKind } : {}),
     dispatchRecoveryAt: Number(flow?.dispatchRecoveryAt) || null,
     // An explicitly malformed count must fail closed instead of minting a
     // second retry after a pre-dispatch failure.
@@ -566,6 +572,20 @@ export function employerWithdrawalPending(flow, order = null) {
 // handed to them. One list for the flow and for the sweep, which looks at the ad before such a reminder
 // (assistedApplicationAutomation.js runAutomationSweep; review of #12366).
 export const CANDIDATE_REMINDER_STATES = new Set(['candidate_review', 'needs_candidate_action', 'candidate_handoff']);
+
+/** When a held candidate wait began (explicit heldSince, else when the current waiting state was entered). */
+export function candidateWaitSince(flow) {
+  const current = base(flow);
+  if (!CANDIDATE_REMINDER_STATES.has(current.state)) return 0;
+  // A review waiting only for the 12 h auto-approval clock dispatches itself and is not stale-held.
+  if (current.state === 'candidate_review' && current.deadlineAt && current.heldBy.length === 0) return 0;
+  if (Number(current.heldSince) > 0) return Number(current.heldSince);
+  const history = Array.isArray(current.history) ? current.history : [];
+  for (let index = history.length - 1; index >= 0; index -= 1) {
+    if (history[index]?.state !== current.state) return Number(history[index + 1]?.at) || 0;
+  }
+  return Number(history[0]?.at) || 0;
+}
 
 /**
  * The tick that is due would write to the candidate: a reminder of the questions and documents still open, of
@@ -660,6 +680,7 @@ function enterOwnerReview(next, flags, nowMs) {
 
 function enterCandidateReview(next, flags, nowMs, { resend = true, keepDeadline = null } = {}) {
   next.state = 'candidate_review';
+  next.candidateStaleArchivedAt = null;
   // The candidate is shown this round's draft: it counts among theirs (roundsShown).
   if (!next.shownRounds.includes(next.round)) next.shownRounds = [...next.shownRounds, next.round];
   next.heldBy = candidateHolds(flags);
@@ -836,7 +857,8 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
   next.reminderAt = null;
   const reason = String(event.reason || 'portal_needs_candidate');
   next.portalCodeVersion = portalCodeVersion(event.portalCodeVersion) || current.portalCodeVersion;
-  next.heldBy = [`${reason === 'email_provider_unavailable' ? 'transport' : 'portal'}:${reason.slice(0, 60)}`];
+  const prefix = reason === 'email_provider_unavailable' || reason.startsWith('codex_') ? 'transport' : 'portal';
+  next.heldBy = [`${prefix}:${reason.slice(0, 60)}`];
   const infrastructure = isInfrastructureRetryHold(next);
   const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
   const delays = autoRetryDelaysForFlow(next);
@@ -890,6 +912,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
   switch (event.type) {
     case 'draft_ready':
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
+      next.draftFailureKind = null;
       // A clean draft is safe to show to the candidate immediately. The owner
       // review remains a hard gate for fact, channel, legitimacy and posting
       // flags, but a normal CV must not wait for an owner acknowledgement just
@@ -902,6 +925,20 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       break;
     case 'draft_failed': {
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
+      if (isCodexUsageLimitError(event.error)) {
+        next.state = 'owner_takeover';
+        next.heldBy = ['draft_failed'];
+        next.draftFailureKind = 'codex_usage_limit';
+        if (draftAutoRetryAttemptsRemaining(next)) {
+          next.draftAutoRetryAt = nowMs + draftRetryDelayMs(next);
+          effects = [];
+        } else {
+          next.draftAutoRetryAt = null;
+          effects = [takeoverEmail(flow, event, 'draft')];
+        }
+        break;
+      }
+      next.draftFailureKind = null;
       // A transient failure gets another run first; the owner takes over only
       // after the last attempt, or for an error another run will not fix.
       const retry = transientRetry(flow, event, 'draft');
@@ -964,7 +1001,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       if (!retryAt || retryAt > nowMs) return ignore('draft_retry_not_due');
       if (!roundDraftMissing(current, draft)) return ignore('draft_available');
       const attempts = draftAutoRetryCountValue(current);
-      if (attempts === null || attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS) return ignore('draft_retry_limit');
+      if (attempts === null || attempts >= draftRetryMaxAttempts(current)) return ignore('draft_retry_limit');
       next.draftAutoRetryCount = attempts + 1;
       effects = redraftSameRound(next, 'draft_auto_retry');
       break;
@@ -1246,6 +1283,17 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       next.heldBy = [];
       effects = [{ type: 'mark_submitted', by: 'candidate' }];
       break;
+    case 'candidate_stale_archive': {
+      if (!CANDIDATE_REMINDER_STATES.has(state)) return ignore('not_waiting_for_candidate');
+      if (current.candidateStaleArchivedAt) return ignore('already_archived');
+      const since = candidateWaitSince(current);
+      if (!since || nowMs - since < CANDIDATE_STALE_ARCHIVE_AFTER_MS) return ignore('not_stale');
+      next.candidateStaleArchivedAt = nowMs;
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      effects = [];
+      break;
+    }
     case 'posting_closed': {
       if (!['drafting', 'regenerating', 'owner_review', 'candidate_review', 'submitting'].includes(state)) {
         return ignore('not_open');
@@ -1510,9 +1558,18 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // lib/submit.mjs) replays an application already sent, and one that may
       // have left (after the final click, or an e-mail of unknown outcome)
       // comes back as *_ambiguous, which is never retried.
+      const codexReason = codexBrokerInfrastructureFailure(event.error);
+      if (codexReason === 'codex_usage_limit') {
+        effects = [portalTakeover(next, current, { reason: codexReason }, nowMs)].filter(Boolean);
+        break;
+      }
       const retry = transientRetry(flow, event, 'submit');
       if (retry) {
         effects = retry;
+        break;
+      }
+      if (codexReason) {
+        effects = [portalTakeover(next, current, { reason: codexReason }, nowMs)].filter(Boolean);
         break;
       }
       next.state = 'owner_takeover';
@@ -1527,6 +1584,9 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
   // (an automatic or owner retry) already leaves from the Swiss runner.
   if (!requiresSwissEgress(current) && !next.egress && current.heldBy.includes(REGION_UNSUPPORTED_HOLD)) {
     next.egress = swissEgressMark({ round: current.round, nowMs, source: 'region_hold' });
+  }
+  if (!CANDIDATE_REMINDER_STATES.has(next.state)) {
+    next.candidateStaleArchivedAt = null;
   }
   // Every way out of the wait (answers given, a new round, Valerie, a closed ad) ends its reminders, and
   // leaves its mark: an ad found closed later in the round is judged knowing the candidate was awaited.

@@ -144,4 +144,40 @@ describe('admin candidature revamp', () => {
     const summary = screen.getByText('Azioni e dettagli dell’automazione');
     expect(summary.closest('details')).not.toHaveAttribute('open');
   });
+
+  it('separates stale 30+ day candidate holds out of ?azione=candidate into Archiviate (> 30 giorni)', async () => {
+    const staleOrder = {
+      ...order(null, 'Posizione ferma 40gg'),
+      orderId: 'stale_1',
+      submissionStatus: 'ready_for_manual_submission',
+      candidateStaleArchivedAt: '2026-11-26T06:00:00.000Z',
+      automation: {
+        flow: { state: 'candidate_review', round: 1, heldBy: ['document:referenze'], heldSince: Date.parse('2026-10-15T10:00:00Z'), deadlineAt: null, reminderAt: null, feedback: [], answers: {}, dispatch: null, history: [] },
+        draft: null,
+        candidateAlias: null,
+        inbox: [],
+      },
+    };
+    const activeCandidateOrder = {
+      ...order(null, 'Posizione attiva 3gg'),
+      orderId: 'active_1',
+      submissionStatus: 'awaiting_upload',
+      automation: {
+        flow: { state: 'candidate_review', round: 1, heldBy: ['question:work_permit'], heldSince: Date.parse('2026-11-23T10:00:00Z'), deadlineAt: null, reminderAt: null, feedback: [], answers: {}, dispatch: null, history: [] },
+        draft: null,
+        candidateAlias: null,
+        inbox: [],
+      },
+    };
+    mocks.queue.mockResolvedValue({ orders: [staleOrder, activeCandidateOrder], pdfRenderer: null });
+    window.history.replaceState(null, '', '/gestione-contenuti-xk9mp2q/candidature/?azione=candidate');
+    render(<AssistedApplicationAdmin />);
+    expect(await screen.findByText('Posizione attiva 3gg')).toBeInTheDocument();
+    expect(screen.queryByText('Posizione ferma 40gg')).not.toBeInTheDocument();
+
+    fireEvent.change(screen.getByRole('combobox', { name: 'Mostra candidature' }), { target: { value: 'step:archived' } });
+    expect(new URLSearchParams(window.location.search).get('azione')).toBe('archived');
+    expect(await screen.findByText('Posizione ferma 40gg')).toBeInTheDocument();
+    expect(screen.queryByText('Posizione attiva 3gg')).not.toBeInTheDocument();
+  });
 });

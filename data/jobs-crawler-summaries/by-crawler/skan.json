@@ -1,10 +1,10 @@
 {
   "key": "skan",
   "label": "Skan AG",
-  "generatedAt": "2026-11-20T21:56:59.758Z",
-  "total": 1,
-  "discovered": 5,
-  "parsed": 5,
+  "generatedAt": "2026-11-25T21:43:06.668Z",
+  "total": 2,
+  "discovered": 8,
+  "parsed": 8,
   "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "skan",
@@ -12,11 +12,27 @@
       "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
     ],
     "phase": "detail",
-    "pages": 6,
+    "pages": 9,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Automation-Engineer-EFZ/1365455957/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Field-Engineer/1374656857/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Head-Global-ICT/1378371857/"
       },
       {
         "status": 200,
@@ -32,11 +48,7 @@
       },
       {
         "status": 200,
-        "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Automation-Engineer-EFZ/1365455957/"
-      },
-      {
-        "status": 200,
-        "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/"
+        "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/"
       }
     ],
     "proxiedBy": [],
@@ -45,24 +57,85 @@
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
-  "detailCandidates": 5,
+  "written": 2,
+  "detailCandidates": 8,
   "detailGone": 0,
   "detailRejected": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13101,
-  "avgDurationMs": 13101,
+  "unchangedCount": 2,
+  "durationMs": 14893,
+  "avgDurationMs": 14893,
   "durationHistory": [
-    13101
+    14893
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "skan-26be4c75137a",
+      "slug": "commissioning-qualification-ingegnere-inhouse-onsite-skan-ag-allschwil",
+      "company": "Skan AG",
+      "companyKey": "skan",
+      "companyDomain": "jobs.skan.com",
+      "title": "Commissioning & Qualification Engineer (inhouse & onsite)",
+      "location": "Allschwil",
+      "canton": "BL",
+      "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/",
+      "source": "Skan AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-25T21:42:17.257Z",
+      "addressLocality": "Allschwil",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/",
+      "firstSeenAt": "2026-11-23T21:49:36.199Z",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "postalCode": "4123",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "SKAN AG",
+        "streetAddress": "Kreuzstrasse 5",
+        "postalCode": "4123",
+        "registeredName": "Skan AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "4123",
+        "addressLocality": "Allschwil",
+        "addressRegion": "BL",
+        "checkedAt": "2026-11-09T15:43:20.118Z"
+      },
+      "streetAddress": "Kreuzstrasse 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-22T21:42:17.257Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
     {
       "id": "skan-4ebca8c52ac9",
       "slug": "process-validation-ingegnere-skan-ag-allschwil",
@@ -75,7 +148,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:55:53.116Z",
+      "crawledAt": "2026-11-25T21:42:17.247Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -112,7 +185,7 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T21:55:53.116Z",
+      "validThrough": "2027-02-14T21:42:17.247Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -123,7 +196,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

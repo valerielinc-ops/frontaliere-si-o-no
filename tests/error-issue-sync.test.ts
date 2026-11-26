@@ -726,6 +726,15 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(isIssueDenied('No Listener: tabs:outgoing.message.readyState')).toBe(false);
   });
 
+  it('mirrors Firefox add-on dead-object noise (#19706)', () => {
+    const sample = "TypeError: can't access dead object";
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test(sample));
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+    expect(isIssueDenied(sample)).toBe(true);
+    expect(isIssueDenied("TypeError: can't access dead object while processing job data")).toBe(true);
+  });
+
   it('mirrors the Firebase auth/network-request-failed pattern from services/benignErrorPatterns.ts byte-for-byte (#4174)', () => {
     const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
       p.test('Firebase: Error (auth/network-request-failed).'),

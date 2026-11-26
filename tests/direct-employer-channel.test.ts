@@ -6,6 +6,7 @@ import {
   DIRECT_EMPLOYER_FLAG,
   PERMANENT_EMPLOYER_COLLECTION,
   PERMANENT_EMPLOYER_MAX_CANDIDATE_MARKS,
+  handleGetPermanentEmployers,
   listPermanentEmployerSignals,
   listPermanentEmployers,
   markPermanentEmployer,
@@ -15,14 +16,13 @@ import {
 import { projectPermanentEmployerFeed } from '../scripts/lib/permanentEmployerProjection.mjs';
 import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
 import { buildPermanentEmployerFeed } from '../build-plugins/adminDataPlugin';
-import { fetchAndActivate, getConfigValue } from '../services/firebase';
 import { readDirectEmployerChannelEnabled as readClientDirectEmployerChannelEnabled } from '../services/directEmployerChannelFlag';
 import {
   filterDirectEmployerSitemapXml,
   isDirectEmployerBuildEnabled,
   isDirectEmployerSeoPath,
 } from '../services/directEmployerFeature';
-import { loadPermanentEmployers } from '../services/directEmployerChannel';
+import { DIRECT_EMPLOYER_LIST_ENDPOINT, loadPermanentEmployers } from '../services/directEmployerChannel';
 import { normalizeEmployerOrigin } from '../services/employerChannelOrigin.mjs';
 
 function jsonResponse(body: unknown, status = 200) {
@@ -91,13 +91,6 @@ describe('direct employer SEO flag', () => {
     expect(RC_TO_ENV.DIRECT_EMPLOYER_CHANNEL_ENABLED).toEqual([DIRECT_EMPLOYER_FLAG]);
   });
 
-  it('keeps an enabled cached flag when activation reports no newer values', async () => {
-    vi.mocked(fetchAndActivate).mockResolvedValueOnce(false);
-    vi.mocked(getConfigValue).mockResolvedValueOnce('true');
-
-    await expect(readClientDirectEmployerChannelEnabled()).resolves.toBe(true);
-  });
-
   it('emits the prospector feed when the owner flag is enabled', () => {
     const root = mkdtempSync(join(tmpdir(), 'frontaliere-permanent-feed-'));
     const candidatesPath = join(root, 'data/prospector/candidates.json');
@@ -120,22 +113,20 @@ describe('direct employer SEO flag', () => {
   });
 
   it('keeps the enabled prospector feed visible when the runtime list is unavailable', async () => {
-    vi.mocked(fetchAndActivate).mockResolvedValueOnce(true);
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
-      if (url.includes('getPermanentEmployers')) return jsonResponse({ enabled: true, employers: [] }, 503);
+      if (url === `${DIRECT_EMPLOYER_LIST_ENDPOINT}?status=1`) return jsonResponse({ enabled: true });
+      if (url === DIRECT_EMPLOYER_LIST_ENDPOINT) return jsonResponse({ enabled: true, employers: [] }, 503);
       if (url.includes('permanent-employers.json')) {
         return jsonResponse({ employers: [{ id: 'prospector-1', companyName: 'Prospector Example SA', website: 'https://prospector.example/' }] });
       }
       throw new Error(`unexpected fetch: ${url}`);
     }));
     try {
-      vi.mocked(getConfigValue).mockResolvedValueOnce('true');
       await expect(loadPermanentEmployers()).resolves.toEqual({
         enabled: true,
         employers: [{ id: 'prospector-1', companyName: 'Prospector Example SA', website: 'https://prospector.example/' }],
       });
-      expect(fetchAndActivate).toHaveBeenCalled();
     } finally {
       vi.unstubAllGlobals();
     }
@@ -144,6 +135,128 @@ describe('direct employer SEO flag', () => {
   it('reads the flag fail-closed when Remote Config is unavailable', async () => {
     expect(await readDirectEmployerChannelEnabled(async () => 'true')).toBe(true);
     expect(await readDirectEmployerChannelEnabled(async () => { throw new Error('rc unavailable'); })).toBe(false);
+  });
+});
+
+describe('public direct employer channel flag', () => {
+  it.each([
+    [200, { enabled: true }, true],
+    [200, { enabled: false }, false],
+    [200, { enabled: 'true' }, false],
+    [200, {}, false],
+    [200, null, false],
+    [200, [{ enabled: true }], false],
+    [200, { enabled: true, employers: [] }, false],
+    [201, { enabled: true }, false],
+    [503, { enabled: true }, false],
+  ])('handles HTTP %i with body %j', async (status, body, enabled) => {
+    const fetchStatus = vi.fn().mockResolvedValue(jsonResponse(body, status));
+    vi.stubGlobal('fetch', fetchStatus);
+    try {
+      await expect(readClientDirectEmployerChannelEnabled()).resolves.toBe(enabled);
+      expect(fetchStatus.mock.calls).toEqual([[
+        `${DIRECT_EMPLOYER_LIST_ENDPOINT}?status=1`,
+        { method: 'GET', credentials: 'omit', cache: 'no-store' },
+      ]]);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('fails closed on network and JSON errors', async () => {
+    vi.stubGlobal('fetch', vi.fn()
+      .mockRejectedValueOnce(new Error('network unavailable'))
+      .mockResolvedValueOnce({ status: 200, json: vi.fn().mockRejectedValue(new SyntaxError('invalid JSON')) }));
+    try {
+      await expect(readClientDirectEmployerChannelEnabled()).resolves.toBe(false);
+      await expect(readClientDirectEmployerChannelEnabled()).resolves.toBe(false);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+});
+
+describe('GET permanent employer channel status', () => {
+  function response() {
+    return { set: vi.fn(), status: vi.fn().mockReturnThis(), json: vi.fn() };
+  }
+
+  it.each(['true', 'false', 'unavailable'])('returns only the channel flag for %s', async (value) => {
+    const read = vi.fn(async () => {
+      if (value === 'unavailable') throw new Error('flag unavailable');
+      return value;
+    });
+    const listEmployers = vi.fn();
+    const res = response();
+
+    await handleGetPermanentEmployers({ method: 'GET', query: { status: '1' } }, res, {
+      readEnabled: () => readDirectEmployerChannelEnabled(read),
+      listEmployers,
+    });
+
+    expect(read.mock.calls).toEqual([[DIRECT_EMPLOYER_FLAG]]);
+    expect(listEmployers).not.toHaveBeenCalled();
+    expect(res.set.mock.calls).toEqual([['Cache-Control', 'no-store']]);
+    expect(res.status.mock.calls).toEqual([[200]]);
+    expect(res.json.mock.calls).toEqual([[{ enabled: value === 'true' }]]);
+  });
+
+  it.each([
+    ['GET', {}],
+    ['GET', { status: ['1', '1'] }],
+    ['GET', { status: 1 }],
+    ['GET', { status: ' 1' }],
+    ['GET', { status: '１' }],
+    ['GET', { Status: '1' }],
+    ['HEAD', { status: '1' }],
+    ['POST', { status: '1' }],
+  ] as const)('preserves listing for %s with query %j', async (method, query) => {
+    const employers = [{ id: 'employer-1' }];
+    const listEmployers = vi.fn().mockResolvedValue(employers);
+    const res = response();
+
+    await handleGetPermanentEmployers({ method, query }, res, {
+      readEnabled: async () => true,
+      listEmployers,
+    });
+
+    expect(listEmployers.mock.calls).toEqual([[]]);
+    expect(res.set.mock.calls).toEqual([['Cache-Control', 'public, max-age=300, s-maxage=300']]);
+    expect(res.status.mock.calls).toEqual([[200]]);
+    expect(res.json.mock.calls).toEqual([[{ enabled: true, employers }]]);
+  });
+
+  it('returns an uncached empty list when the channel is disabled', async () => {
+    const listEmployers = vi.fn();
+    const res = response();
+
+    await handleGetPermanentEmployers({ method: 'GET', query: {} }, res, {
+      readEnabled: async () => false,
+      listEmployers,
+    });
+
+    expect(listEmployers).not.toHaveBeenCalled();
+    expect(res.set.mock.calls).toEqual([['Cache-Control', 'no-store']]);
+    expect(res.status.mock.calls).toEqual([[200]]);
+    expect(res.json.mock.calls).toEqual([[{ enabled: false, employers: [] }]]);
+  });
+
+  it('preserves the list error response when the channel is enabled', async () => {
+    const res = response();
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      await handleGetPermanentEmployers({ method: 'GET', query: {} }, res, {
+        readEnabled: async () => true,
+        listEmployers: vi.fn().mockRejectedValue(new Error('list unavailable')),
+      });
+
+      expect(log).toHaveBeenCalledWith('[getPermanentEmployers]', 'list unavailable');
+      expect(res.set).not.toHaveBeenCalled();
+      expect(res.status.mock.calls).toEqual([[503]]);
+      expect(res.json.mock.calls).toEqual([[{ enabled: true, employers: [], error: 'employers_unavailable' }]]);
+    } finally {
+      log.mockRestore();
+    }
   });
 });
 

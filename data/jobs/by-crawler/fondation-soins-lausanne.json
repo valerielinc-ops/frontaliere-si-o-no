@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fondation-soins-lausanne",
-  "assembledAt": "2026-11-20T21:58:58.314Z",
-  "runId": "44818983620",
+  "assembledAt": "2026-11-25T21:23:22.737Z",
+  "runId": "45702677976",
   "jobs": [
     {
       "id": "fondation-soins-lausanne-c0f93fa97058",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/bc61ada2-3d2e-4590-ac47-d8de46ac1bc7/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:58:32.016Z",
+      "crawledAt": "2026-11-25T21:22:23.250Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -97,9 +97,8 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:58:32.016Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/bc61ada2-3d2e-4590-ac47-d8de46ac1bc7"
+      "validThrough": "2027-02-14T21:22:23.250Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-613c5493460a",
@@ -132,7 +131,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/45442cb9-01ca-4fe0-8834-386f79e82d78/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:58:31.376Z",
+      "crawledAt": "2026-11-25T21:22:22.661Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -195,9 +194,8 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:58:31.376Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/45442cb9-01ca-4fe0-8834-386f79e82d78"
+      "validThrough": "2027-02-16T21:22:22.661Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-f85bd8346603",
@@ -231,7 +229,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/d9f5fa5f-2d2b-465b-a1d0-7b3052d2b99f/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:58:30.710Z",
+      "crawledAt": "2026-11-25T21:22:22.065Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -296,9 +294,8 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:58:30.710Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/d9f5fa5f-2d2b-465b-a1d0-7b3052d2b99f"
+      "validThrough": "2027-02-14T21:22:22.065Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-47f066e9d2ae",
@@ -332,7 +329,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/df09d1b7-bd46-4d06-bb93-cc98550f593a/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:58:30.111Z",
+      "crawledAt": "2026-11-25T21:22:21.403Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -395,9 +392,80 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:58:30.111Z",
+      "validThrough": "2027-02-14T21:22:21.403Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "fondation-soins-lausanne-e8f8bc500ee6",
+      "slug": "responsable-d-equipe-h-f-taux-d-activite-100-contrat-a-duree-determinee-de-12-mois",
+      "slugByLocale": {
+        "fr": "responsable-d-equipe-h-f-taux-d-activite-100-contrat-a-duree-determinee-de-12-mois",
+        "it": "responsable-d-equipe-h-f-taux-d-activite-100-contrat-a-duree-determinee-de-12-mois",
+        "en": "responsable-d-equipe-h-f-taux-d-activite-100-contrat-a-duree-determinee-de-12-mois",
+        "de": "responsable-d-equipe-h-f-taux-d-activite-100-contrat-a-duree-determinee-de-12-mois"
+      },
+      "company": "Fondation Soins Lausanne",
+      "companyKey": "fondation-soins-lausanne",
+      "companyDomain": "fondationsoinslausanne.ch",
+      "title": "Responsable d'équipe (H/F) Taux d'activité: 100% Contrat à durée déterminée de 12 mois",
+      "titleByLocale": {
+        "fr": "Responsable d'équipe (H/F) Taux d'activité: 100% Contrat à durée déterminée de 12 mois",
+        "it": "Team Leader (M/F) Tasso di attività: contratto fisso a 12 mesi al 100%",
+        "en": "Team Leader (M/F) Activity rate: 100% 12-month fixed-term contract",
+        "de": "Teamleiter (M/W) Aktivitätsrate: 100% 12-monatiger befristeter Vertrag"
+      },
+      "description": "Nos centres Médico-Sociaux (CMS) offrent à la population Lausannoise des prestations pluridisciplinaires de qualité et leurs interventions reposent sur des valeurs d’humanité et d’équité.\n\nDans le cadre d'une absence maladie et afin de compléter notre équipe du CMS de Chailly-Sallaz, La Fondation Soins Lausanne recherche de suite ou à convenir, pour une durée déterminée de 12 mois, un-e :\n\nResponsable d'équipe (H/F)\n Taux d'activité: 100%\n Contrat à durée déterminée de 12 mois\n\nVos principales missions:\n\n• Gérer, accompagner et soutenir une équipe pluridisciplinaire d'une douzaine de collaborateurs\n\n• Garantir une organisation opérationnelle qui permette des conditions de travail favorables et un maintien à domicile de qualité conforme aux pratiques et normes de l'institution\n\n• Collaborer activement au développement d'un environnement de travail agile, positif et bienveillant\n\n• Contribuer à assurer aux clients du CMS un accompagnement et des prestations équitables et efficientes, conformément aux valeurs, aux pratiques et aux programmes définis par l'AVASAD et par la Fondation\n\n• Participer à la mise en place de projets novateurs en équipe afin de répondre à l’évolution de la politique de santé en matière de soins à domicile\n\n• Collaborer étroitement avec le Comité de Direction en favorisant les flux de communication et l'amélioration continue\n Votre profil et vos compétences:\n\n• Bachelor en soins infirmiers (ou titre jugé équivalent), complété d'une formation supérieure en management achevée dans l'idéal\n\n• Expérience en gestion de collaborateurs ou expérience professionnelle significative qui démontre votre capacité à assumer des responsabilités managériales un atout\n\n• Connaissances approfondies du domaine socio-sanitaire vaudois\n\n• Volonté de s'engager dans un CMS en développement\n\n• Autorisation de pratiquer ou prêt à entamer les démarches - conditionnel à l'engagement\n Vos atouts:\n\n• Un style de management orienté vers la collaboration et la proximité\n\n• Du leadership participatif qui vous aide à motiver vos équipes\n\n• D'excellentes capacités de communication qui facilitent la cohésion de votre équipe et sa compréhension des enjeux internes et externes\n\n• Le sens du service public, ainsi que l'engagement et la fiabilité sont pour vous des valeurs essentielles\n Nous offrons:\n\n• Des conditions de travail et de rémunération selon la Convention Collective de Travail (CCT) dans le secteur sanitaire parapublic vaudois\n\n• Des conditions de prévoyance professionnelle qui s’étendent au-delà des prestations minimales prévues par la loi\n\n• Cinq semaines de vacances par année et six semaines dès 50 ans\n\n• Des outils de travail modernes et performants\n\n• L'Équité salariale entre femmes et hommes (certification Fair-ON-Pay)\n Entrée en fonction : dès que possible ou à convenir\n Mme Charlotte Schröder, au service des ressources humaines, se tient à votre disposition au 021 651 30 60 pour tout renseignement.\n Pour un traitement de qualité de votre candidature, nous vous prions d'adresser un dossier de candidature complet via Jobup jusqu'au 6 décembre 2026 . Le service des Ressources Humaines se fera un plaisir de vous répondre dans les meilleurs délais.",
+      "descriptionByLocale": {
+        "fr": "Nos centres Médico-Sociaux (CMS) offrent à la population Lausannoise des prestations pluridisciplinaires de qualité et leurs interventions reposent sur des valeurs d’humanité et d’équité.\n\nDans le cadre d'une absence maladie et afin de compléter notre équipe du CMS de Chailly-Sallaz, La Fondation Soins Lausanne recherche de suite ou à convenir, pour une durée déterminée de 12 mois, un-e :\n\nResponsable d'équipe (H/F)\n Taux d'activité: 100%\n Contrat à durée déterminée de 12 mois\n\nVos principales missions:\n\n• Gérer, accompagner et soutenir une équipe pluridisciplinaire d'une douzaine de collaborateurs\n\n• Garantir une organisation opérationnelle qui permette des conditions de travail favorables et un maintien à domicile de qualité conforme aux pratiques et normes de l'institution\n\n• Collaborer activement au développement d'un environnement de travail agile, positif et bienveillant\n\n• Contribuer à assurer aux clients du CMS un accompagnement et des prestations équitables et efficientes, conformément aux valeurs, aux pratiques et aux programmes définis par l'AVASAD et par la Fondation\n\n• Participer à la mise en place de projets novateurs en équipe afin de répondre à l’évolution de la politique de santé en matière de soins à domicile\n\n• Collaborer étroitement avec le Comité de Direction en favorisant les flux de communication et l'amélioration continue\n Votre profil et vos compétences:\n\n• Bachelor en soins infirmiers (ou titre jugé équivalent), complété d'une formation supérieure en management achevée dans l'idéal\n\n• Expérience en gestion de collaborateurs ou expérience professionnelle significative qui démontre votre capacité à assumer des responsabilités managériales un atout\n\n• Connaissances approfondies du domaine socio-sanitaire vaudois\n\n• Volonté de s'engager dans un CMS en développement\n\n• Autorisation de pratiquer ou prêt à entamer les démarches - conditionnel à l'engagement\n Vos atouts:\n\n• Un style de management orienté vers la collaboration et la proximité\n\n• Du leadership participatif qui vous aide à motiver vos équipes\n\n• D'excellentes capacités de communication qui facilitent la cohésion de votre équipe et sa compréhension des enjeux internes et externes\n\n• Le sens du service public, ainsi que l'engagement et la fiabilité sont pour vous des valeurs essentielles\n Nous offrons:\n\n• Des conditions de travail et de rémunération selon la Convention Collective de Travail (CCT) dans le secteur sanitaire parapublic vaudois\n\n• Des conditions de prévoyance professionnelle qui s’étendent au-delà des prestations minimales prévues par la loi\n\n• Cinq semaines de vacances par année et six semaines dès 50 ans\n\n• Des outils de travail modernes et performants\n\n• L'Équité salariale entre femmes et hommes (certification Fair-ON-Pay)\n Entrée en fonction : dès que possible ou à convenir\n Mme Charlotte Schröder, au service des ressources humaines, se tient à votre disposition au 021 651 30 60 pour tout renseignement.\n Pour un traitement de qualité de votre candidature, nous vous prions d'adresser un dossier de candidature complet via Jobup jusqu'au 6 décembre 2026 . Le service des Ressources Humaines se fera un plaisir de vous répondre dans les meilleurs délais.",
+        "it": "I nostri centri medico-sociali (CMS) offrono alla popolazione di Losanna servizi multidisciplinari di alta qualità e i loro interventi si basano su valori di umanità e correttezza.\n\nNell'ambito di un'assenza da malattia e per completare il nostro team presso il CMS di Chailly-Sallaz, la La Losanna Care Foundation sta cercando una continuazione o di concordare, per un periodo fisso di 12 mesi, a-e:\n\nTeam Leader (M/F)\n Tasso di attività: 100%\n Contratto di durata fissa di 12 mesi\n\nLe vostre missioni principali:\n\n• Gestire, supportare e supportare un team multidisciplinare di circa una dozzina di dipendenti\n\n• Assicurare un'organizzazione operativa che consenta condizioni di lavoro favorevoli e una manutenzione domestica di alta qualità secondo le pratiche e gli standard istituzionali\n\n• Collabora attivamente nello sviluppo di un ambiente di lavoro agile, positivo e curato\n\n• Contribuire a un supporto equo ed efficiente ai clienti CMS in conformità con i valori, le pratiche e i programmi definiti da AVASAD e dalla Fondazione\n\n• Partecipa allo sviluppo di progetti di team innovativi per rispondere all'evoluzione della politica sanitaria per la cura della casa\n\n• Lavorare a stretto contatto con il Comitato Esecutivo promuovendo flussi di comunicazione e miglioramento continuo\n Il tuo profilo e competenze:\n\n• Corso di laurea in allattamento (o equivalente), completato con formazione di gestione avanzata idealmente\n\n• Esperienza nella gestione dei dipendenti o esperienza professionale significativa che dimostra la tua capacità di assumere responsabilità manageriali un asset\n\n• Conoscenza approfondita del campo socio-sanitario di Vaud\n\n• Volontà di impegnarsi in uno sviluppo CMS\n\n• Autorizzazione alla pratica o pronta ad avviare la procedura - condizionale all'impresa\n I vostri beni:\n\n• Uno stile di gestione orientato alla collaborazione e alla prossimità\n\n• Leadership partecipativa che ti aiuta a motivare i tuoi team\n\n• Ottima capacità di comunicazione che facilitano la coesione del vostro team e la sua comprensione delle questioni interne ed esterne\n\n• Servizio pubblico, impegno e affidabilità sono valori essenziali per voi\n Offriamo:\n\n• Condizioni di lavoro e remunerazione secondo la Convenzione Collettiva del Lavoro (CCT) nel settore della sanità pubblica nel Vaudois\n\n• Condizioni di sicurezza sul lavoro che vanno oltre le prestazioni minime previste dalla legge\n\n• Cinque settimane di vacanza all'anno e sei settimane da 50 anni\n\n• Strumenti di lavoro moderni ed efficienti\n\n• Equità di pagamento tra donne e uomini (certificazione Fair-ON-Pay)\n Avvio: il prima possibile o da concordare\n La signora Charlotte Schröder, Risorse Umane, è a vostra disposizione al 021 651 30 60 per informazioni.\n Per l'elaborazione di qualità della vostra applicazione, si prega di inviare un file di applicazione completo tramite Jobup fino al 6 dicembre 2026. Il reparto Risorse Umane sarà lieto di rispondere il prima possibile.",
+        "en": "Our Medical-Social Centres (CMS) offer the Lausanne population high quality multidisciplinary services and their interventions are based on values of humanity and fairness.\n\nAs part of an absence from illness and in order to complete our team at the CMS of Chailly-Sallaz, The Lausanne Care Foundation is looking for a continuation or to agree, for a fixed period of 12 months, a-e:\n\nTeam Leader (M/F)\n Activity rate: 100%\n 12-month fixed-term contract\n\nYour main missions:\n\n• Manage, support and support a multi-disciplinary team of about a dozen employees\n\n• Ensure an operational organisation that allows favourable working conditions and high quality home maintenance in accordance with institutional practices and standards\n\n• Actively collaborate in developing an agile, positive and caring work environment\n\n• Contribute to fair and efficient support and services to CMS clients in accordance with the values, practices and programs defined by AVASAD and the Foundation\n\n• Participate in the development of innovative team projects to respond to the evolution of home care health policy\n\n• Working closely with the Executive Committee by promoting communication flows and continuous improvement\n Your profile and skills:\n\n• Bachelor's degree in nursing (or equivalent), completed with advanced management training ideally\n\n• Experience in employee management or significant professional experience that demonstrates your ability to assume managerial responsibilities an asset\n\n• In-depth knowledge of the socio-sanitary field of Vaud\n\n• Willingness to engage in a developing CMS\n\n• Authorization to practice or ready to initiate the proceedings - conditional on the undertaking\n Your assets:\n\n• A management style oriented towards collaboration and proximity\n\n• Participatory leadership that helps you motivate your teams\n\n• Excellent communication capabilities that facilitate the cohesion of your team and its understanding of internal and external issues\n\n• Public service, commitment and reliability are essential values for you\n We offer:\n\n• Working conditions and remuneration according to the Collective Labour Convention (CCT) in the public health sector in the Vaudois\n\n• Conditions of occupational security which extend beyond the minimum benefits provided by law\n\n• Five weeks of vacation per year and six weeks from 50 years\n\n• Modern and efficient work tools\n\n• Pay equity between women and men ( Fair-ON-Pay certification)\n Start-up: as soon as possible or to be agreed\n Mrs. Charlotte Schröder, Human Resources, is at your disposal at 021 651 30 60 for information.\n For quality processing of your application, please send a complete application file via Jobup until 6 December 2026. The Human Resources department will be happy to respond as soon as possible.",
+        "de": "Unsere medizinischen Sozialzentren (CMS) bieten der Lausanner Bevölkerung qualitativ hochwertige multidisziplinäre Dienstleistungen und ihre Interventionen basieren auf Werten von Menschlichkeit und Fairness.\n\nIm Rahmen einer Abwesenheit von Krankheit und um unser Team am CMS von Chailly-Sallaz zu vervollständigen, sucht die Lausanne Care Foundation eine Fortsetzung oder vereinbart, für einen festen Zeitraum von 12 Monaten, a-e:\n\nTeamleiter (M/W)\n Aktivitätsrate: 100%\n 12-monatiger befristeter Vertrag\n\nIhre wichtigsten Missionen:\n\n• Verwalten, unterstützen und unterstützen Sie ein multidisziplinäres Team von etwa einem Dutzend Mitarbeitern\n\n• Gewährleistung einer operativen Organisation, die günstige Arbeitsbedingungen und eine qualitativ hochwertige Hauspflege in Übereinstimmung mit institutionellen Praktiken und Standards ermöglicht\n\n• Aktive Zusammenarbeit bei der Entwicklung einer agilen, positiven und fürsorglichen Arbeitsumgebung\n\n• Beitrag zu einer fairen und effizienten Unterstützung und Dienstleistungen für CMS-Kunden in Übereinstimmung mit den von AVASAD und der Stiftung definierten Werten, Praktiken und Programmen\n\n• Beteiligen Sie sich an der Entwicklung innovativer Teamprojekte, um auf die Entwicklung der Gesundheitspolitik zu Hause zu reagieren\n\n• Enge Zusammenarbeit mit dem Exekutivkomitee durch Förderung von Kommunikationsflüssen und kontinuierlicher Verbesserung\n Ihr Profil und Ihre Fähigkeiten:\n\n• Bachelor-Abschluss in Krankenpflege (oder gleichwertig), ideal mit fortgeschrittener Managementausbildung abgeschlossen\n\n• Erfahrung im Mitarbeitermanagement oder bedeutende Berufserfahrung, die Ihre Fähigkeit zeigt, Führungsaufgaben zu übernehmen\n\n• Tiefe Kenntnisse des sozial-hygienischen Bereichs Waadt\n\n• Bereitschaft, sich an einem sich entwickelnden CMS zu beteiligen\n\n• Zulassung zur Ausübung oder Bereitschaft zur Einleitung des Verfahrens - vorbehaltlich der Verpflichtung\n Ihr Vermögen:\n\n• Ein Führungsstil, der auf Zusammenarbeit und Nähe ausgerichtet ist\n\n• Partizipative Führung, die Ihnen hilft, Ihre Teams zu motivieren\n\n• Hervorragende Kommunikationsmöglichkeiten, die den Zusammenhalt Ihres Teams und sein Verständnis für interne und externe Probleme erleichtern\n\n• Öffentlicher Dienst, Engagement und Zuverlässigkeit sind für Sie wesentliche Werte\n Wir bieten:\n\n• Arbeitsbedingungen und Entlohnung nach dem Kollektivarbeitsübereinkommen (CCT) im öffentlichen Gesundheitswesen der Waadtländer\n\n• Arbeitssicherheitsbedingungen, die über die gesetzlich vorgesehenen Mindestleistungen hinausgehen\n\n• Fünf Wochen Urlaub pro Jahr und sechs Wochen ab 50 Jahren\n\n• Moderne und effiziente Arbeitsmittel\n\n• Lohngerechtigkeit zwischen Frauen und Männern (Fair-ON-Pay-Zertifizierung)\n Start-up: so schnell wie möglich oder noch zu vereinbaren\n Frau Charlotte Schröder, Personal, steht Ihnen unter 021 651 30 60 zur Information zur Verfügung.\n Für eine qualitativ hochwertige Bearbeitung Ihrer Bewerbung senden Sie bitte bis zum 6. Dezember 2026 eine vollständige Bewerbungsdatei via Jobup. Die Personalabteilung wird gerne so schnell wie möglich antworten."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.jobup.ch/fr/emplois/detail/16ba9423-97c3-4c7d-96ba-41242dfc4a66/",
+      "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-25T21:22:20.307Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-25T10:33:56+01:00",
+      "postedDate": "2026-11-25T10:33:56+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/16ba9423-97c3-4c7d-96ba-41242dfc4a66/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "careerSiteUrl": "https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-09T21:22:20.307Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/df09d1b7-bd46-4d06-bb93-cc98550f593a"
+      "firstSeenAt": "2026-11-25T21:22:20.307Z"
     },
     {
       "id": "fondation-soins-lausanne-35a76a41d258",
@@ -430,7 +498,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7e71fe1b-95ff-4e63-bb94-26aa090ac282/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:58:29.489Z",
+      "crawledAt": "2026-11-25T21:22:19.531Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -479,9 +547,8 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:58:29.489Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/7e71fe1b-95ff-4e63-bb94-26aa090ac282"
+      "validThrough": "2027-02-14T21:22:19.531Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-b32bddc0fdf6",
@@ -502,12 +569,12 @@
         "de": "Gesundheitshilfe (M/W)",
         "fr": "Auxiliaire de santé (H/F)"
       },
-      "description": "Nos centres Médico-Sociaux (CMS) offrent à la population Lausannoise des prestations pluridisciplinaires de qualité et leurs interventions reposent sur des valeurs d’humanité et d’équité .\n En rejoignant la Fondation Soins Lausanne, vous vous engagez de manière concrète en faveur de la santé et du bien-vivre dans le canton de Vaud, au sein d’équipes expertes, motivées et enthousiastes, dans une activité variée et riche en contacts humains.\n Sur le terrain, vous intervenez sur le lieu de vie ou d’activité des bénéficiaires. Vous définissez avec les clients les solutions les plus adaptées à leurs situations et développez ainsi une connaissance fine et une relation de confiance privilégiée avec eux. Faisant partie d’une équipe soudée et soutenante, l’exercice de ces métiers permet une grande autonomie mais nécessite de grandes responsabilités et une flexibilité de la part de nos collaborateurs.\n Afin de compléter nos équipes, les CMS de la Fondation Soins Lausanne recherche de suite ou à convenir plusieurs :\n\nAuxiliaire de santé (H/F)\n\nTaux d'activité entre 50% et 80%\n Contrat fixe à durée indeterminée\n\nVotre mission\n\n• Assurer les prestations de soins de base, d’hygiène et de confort dans les activités quotidiennes et d’aide au maintien de l’ordre et de la propreté dans le milieu de vie\n\n• Surveiller l’état général des clients et transmettre des observations utiles à la prise en charge de qualité dans la continuité des soins\n\n• Stimuler et soutenir les clients et leurs proches en maintenant au maximum leur autonomie et leur qualité de vie en fonction de leurs capacités\n\n• Offrir une écoute et développer un lien relationnel et de confiance\n\n• Collaborer activement aux activités des équipes interdisciplinaires avec un rôle propre vous permettant de valoriser votre métier d’auxiliaire de santé comme partie prenante à part entière du système de santé\n\nVotre profil et vos compétences\n\n• Certificat d'auxiliaire de santé CRS 120 heures ou certification jugée équivalente (diplôme étranger reconnu par la CRS) ou volonté de suivre la formation\n\n• Intérêt marqué pour l'âge avancé et le maintien à domicile\n\n• Capacité à s'organiser de manière autonome tout en sachant collaborer en réseau et en pluridisciplinarité\n\n• Expérience dans le domaine médico-social et intérêt marqué pour la santé communautaire\n\n• Sens des responsabilités et éthique professionnelle\n\n• Maîtrise du français à l'oral et à l'écrit\n\n• Bonne aisance avec les outils informatiques et la téléphonie mobile\n\nNous offrons\n\n• Un cadre de travail stimulant et chaleureux où l'autonomie du soignant est mise en avant\n\n• Un environnement de travail qui privilègie le contact humain et l'échange\n\n• Un travail passionnant dans un cadre agréable pour le bien-être des clients\n\n• Des conditions de travail et de rémunération équitables\n\n• Des conditions de prévoyance professionnelle qui s’étendent au-delà des prestations minimales prévues par la loi\n\nLes avantages de nous rejoindre\n\n• Plan d’intégration par métier, offres de formations continues riches et variées, possibilités d’évolution professionnelle\n\n• L'équité salariale entre femmes et hommes (certification Fair-ON-Pay)\n\n• Rémunération selon la Convention Collective de Travail (CCT) du secteur sanitaire parapublic vaudois\n\n• Offres avantageuses avec tarifs préférentiels dans des sociétés de services autour du sport, santé et bien-être et loisirs divers\n\n• Politique de mobilité douce et participation aux frais de transports publics\n\n• Cinq semaines de vacances par année et six semaines dès 50 ans\n\nPour un traitement de qualité de votre candidature, nous vous prions d'adresser un dossier de candidature complet en précisant le taux d'activité souhaité via Jobup jusqu'au 1 décembre 2026. Le service des Ressources Humaines se fera un plaisir de vous répondre dans les meilleurs délais.",
+      "description": "Nos centres Médico-Sociaux (CMS) offrent à la population Lausannoise des prestations pluridisciplinaires de qualité et leurs interventions reposent sur des valeurs d’humanité et d’équité .\n En rejoignant la Fondation Soins Lausanne, vous vous engagez de manière concrète en faveur de la santé et du bien-vivre dans le canton de Vaud, au sein d’équipes expertes, motivées et enthousiastes, dans une activité variée et riche en contacts humains.\n Sur le terrain, vous intervenez sur le lieu de vie ou d’activité des bénéficiaires. Vous définissez avec les clients les solutions les plus adaptées à leurs situations et développez ainsi une connaissance fine et une relation de confiance privilégiée avec eux. Faisant partie d’une équipe soudée et soutenante, l’exercice de ces métiers permet une grande autonomie mais nécessite de grandes responsabilités et une flexibilité de la part de nos collaborateurs.\n Afin de compléter nos équipes, les CMS de la Fondation Soins Lausanne recherche de suite ou à convenir plusieurs :\n\nAuxiliaire de santé (H/F)\n\nTaux d'activité entre 50% et 80%\n Contrat fixe à durée indeterminée\n\nVotre mission\n\n• Assurer les prestations de soins de base, d’hygiène et de confort dans les activités quotidiennes et d’aide au maintien de l’ordre et de la propreté dans le milieu de vie\n\n• Surveiller l’état général des clients et transmettre des observations utiles à la prise en charge de qualité dans la continuité des soins\n\n• Stimuler et soutenir les clients et leurs proches en maintenant au maximum leur autonomie et leur qualité de vie en fonction de leurs capacités\n\n• Offrir une écoute et développer un lien relationnel et de confiance\n\n• Collaborer activement aux activités des équipes interdisciplinaires avec un rôle propre vous permettant de valoriser votre métier d’auxiliaire de santé comme partie prenante à part entière du système de santé\n\nVotre profil et vos compétences\n\n• Certificat d'auxiliaire de santé CRS 120 heures ou certification jugée équivalente (diplôme étranger reconnu par la CRS)\n\n• Intérêt marqué pour l'âge avancé et le maintien à domicile\n\n• Capacité à s'organiser de manière autonome tout en sachant collaborer en réseau et en pluridisciplinarité\n\n• Expérience dans le domaine médico-social et intérêt marqué pour la santé communautaire\n\n• Sens des responsabilités et éthique professionnelle\n\n• Maîtrise du français à l'oral et à l'écrit\n\n• Bonne aisance avec les outils informatiques et la téléphonie mobile\n\nNous offrons\n\n• Un cadre de travail stimulant et chaleureux où l'autonomie du soignant est mise en avant\n\n• Un environnement de travail qui privilègie le contact humain et l'échange\n\n• Un travail passionnant dans un cadre agréable pour le bien-être des clients\n\n• Des conditions de travail et de rémunération équitables\n\n• Des conditions de prévoyance professionnelle qui s’étendent au-delà des prestations minimales prévues par la loi\n\nLes avantages de nous rejoindre\n\n• Plan d’intégration par métier, offres de formations continues riches et variées, possibilités d’évolution professionnelle\n\n• L'équité salariale entre femmes et hommes (certification Fair-ON-Pay)\n\n• Rémunération selon la Convention Collective de Travail (CCT) du secteur sanitaire parapublic vaudois\n\n• Offres avantageuses avec tarifs préférentiels dans des sociétés de services autour du sport, santé et bien-être et loisirs divers\n\n• Politique de mobilité douce et participation aux frais de transports publics\n\n• Cinq semaines de vacances par année et six semaines dès 50 ans\n\nPour un traitement de qualité de votre candidature, nous vous prions d'adresser un dossier de candidature complet en précisant le taux d'activité souhaité via Jobup jusqu'au 1 décembre 2026. Le service des Ressources Humaines se fera un plaisir de vous répondre dans les meilleurs délais.",
       "descriptionByLocale": {
         "it": "I nostri Centri Medico-Social (CMS) offrono alla popolazione di Losanna servizi multidisciplinari di alta qualità e i loro interventi si basano sui valori dell'umanità e dell'equità.\nEntrando nella Lausanne Care Foundation, vi impegnate in modo concreto per promuovere la salute e il benessere nel cantone di Vaud, all'interno di team esperti, motivati ed entusiasti, in una variegata attività ricca di contatti umani.\nNel campo, interviene al luogo di vita o di attività dei beneficiari. Definisci con i clienti le soluzioni più adatte alle loro situazioni e sviluppi così una conoscenza raffinata e un rapporto privilegiato di fiducia con loro. Nell'ambito di un team saldato e sostenuto, l'esercizio di queste professioni consente una grande autonomia ma richiede grande responsabilità e flessibilità da parte dei nostri dipendenti.\nPer completare i nostri team, il CMS della Fondation Soins Lausanne ricerca de suite o per concordare diversi:\n\nSalute Ausiliare (M/F)\n\nTasso di partecipazione tra il 50% e l'80%\nContratto fisso con durata non determinata\n\nLa tua missione\n\n• Fornire assistenza di base, igiene e comfort nelle attività quotidiane e contribuire a mantenere l'ordine e la pulizia nell'ambiente di vita\n\n• Monitorare le condizioni generali dei clienti e fornire osservazioni utili alla gestione della qualità in continuità di cura\n\n• Stimolare e sostenere i clienti e i loro cari mantenendo la loro autonomia e qualità di vita nella misura massima possibile secondo le loro capacità\n\n• Fornire ascolto e sviluppo di una relazione e fiducia\n\n• Collabora attivamente nelle attività di team interdisciplinari con un ruolo proprio che ti permette di valorizzare il tuo professionista sanitario come una parte completa del sistema sanitario\n\nIl tuo profilo e competenze\n\n• Certificato di CRS Health Assistant 120 ore o certificazione considerata equivalente (diploma straniero riconosciuto dal CRS) o disponibilità a partecipare alla formazione\n\n• Interessi in età avanzata e cura della casa\n\n• Capacità di organizzare autonomamente collaborando in rete e multidisciplinarità\n\n• Esperienza medica e sociale e forte interesse per la salute della comunità\n\n• Responsabilità ed etica professionale\n\n• Master in francese orale e scritto\n\n• Buona facilità con strumenti informatici e telefonia mobile\n\nOffriamo\n\n• Un ambiente di lavoro stimolante e caldo in cui si sottolinea l'autonomia del caregiver\n\n• Un ambiente di lavoro che favorisce il contatto umano e lo scambio\n\n• Lavoro emozionante in un ambiente piacevole per il benessere dei clienti\n\n• Condizioni di lavoro eque e remunerazione\n\n• Condizioni di sicurezza sul lavoro che vanno oltre le prestazioni minime previste dalla legge\n\nVantaggi di unirsi a noi\n\n• Piano d'integrazione per occupazione, offerte di formazione continua ricca e variegata, opportunità di sviluppo professionale\n\n• Equità salariale di genere (certificazione familiare)\n\n• Remunerazione secondo la Convenzione Collettiva del Lavoro (CCT) del settore sanitario pubblico del voodoo\n\n• Offerte vantaggiose con tariffe preferenziali nelle aziende di servizi che circondano sport, salute e benessere e tempo libero\n\n• Politica di mobilità morbida e partecipazione ai costi dei trasporti pubblici\n\n• Cinque settimane di vacanza all'anno e sei settimane da 50 anni\n\nPer l'elaborazione di qualità della vostra applicazione, si prega di inviare un file di applicazione completo che specifica il tasso di attività desiderato tramite Jobup fino al 1 dicembre 2026. Il reparto Risorse Umane sarà lieto di rispondere il prima possibile.",
         "en": "Our Medical-Social Centres (CMS) offer the Lausanne population high-quality multidisciplinary services and their interventions are based on values of humanity and equity.\nBy joining the Lausanne Care Foundation, you are committed in a concrete way to promoting health and well-being in the canton of Vaud, within expert, motivated and enthusiastic teams, in a varied activity rich in human contacts.\nIn the field, you intervene at the place of life or activity of the beneficiaries. You define with customers the solutions best suited to their situations and thus develop a fine knowledge and a privileged relationship of trust with them. As part of a team that is welded and supported, the exercise of these professions allows for a great autonomy but requires great responsibility and flexibility on the part of our employees.\nIn order to complement our teams, the CMS of the Fondation Soins Lausanne researches de suite or to agree several:\n\nHealth Auxiliary (M/F)\n\nParticipation rate between 50% and 80%\nFixed contract with undetermined duration\n\nYour Mission\n\n• Provide basic care, hygiene and comfort in daily activities and help maintain order and cleanliness in the living environment\n\n• Monitor the general condition of clients and provide useful observations to quality management in continuity of care\n\n• Stimulate and support clients and their loved ones by maintaining their autonomy and quality of life to the maximum extent possible according to their abilities\n\n• Providing listening and developing a relationship and trust\n\n• Actively collaborate in the activities of interdisciplinary teams with a role of your own allowing you to value your health professional as a full part of the health system\n\nYour profile and skills\n\n• Certificate of CRS Health Assistant 120 hours or certification deemed equivalent (foreign diploma recognized by the CRS) or willingness to attend training\n\n• Interest in advanced age and home care\n\n• Ability to organize autonomously while collaborating in network and multidisciplinarity\n\n• Medical and social experience and strong interest in community health\n\n• Responsibility and professional ethics\n\n• Master's degree in oral and written French\n\n• Good ease with computer tools and mobile telephony\n\nWe offer\n\n• A stimulating and warm work environment where the caregiver's autonomy is emphasized\n\n• A working environment that favours human contact and exchange\n\n• Exciting work in a pleasant environment for the well-being of clients\n\n• Fair working conditions and remuneration\n\n• Conditions of occupational security which extend beyond the minimum benefits provided by law\n\nBenefits of joining us\n\n• Plan for integration by occupation, offers of rich and varied continuing training, opportunities for vocational development\n\n• Gender pay equity (fair-on-pay certification)\n\n• Remuneration according to the Collective Labour Convention (CCT) of the public health sector of voodoo\n\n• Favourable offers with preferential rates in service companies around sport, health and welfare and leisure\n\n• Soft mobility policy and participation in public transport costs\n\n• Five weeks of vacation per year and six weeks from 50 years\n\nFor quality processing of your application, please send a complete application file specifying the desired activity rate via Jobup until 1 December 2026. The Human Resources department will be happy to respond as soon as possible.",
         "de": "Unsere Medizinisch-Sozialen Zentren (CMS) bieten der Lausanner Bevölkerung qualitativ hochwertige multidisziplinäre Dienstleistungen und ihre Interventionen basieren auf Werten von Menschlichkeit und Gerechtigkeit.\nMit dem Beitritt zur Lausanne Care Foundation engagieren Sie sich konkret für die Förderung von Gesundheit und Wohlbefinden im Kanton Waadt, in kompetenten, motivierten und begeisterten Teams, in einer vielfältigen Tätigkeit, die reich an menschlichen Kontakten ist.\nIm Feld intervenieren Sie am Ort des Lebens oder der Aktivität der Begünstigten. Sie definieren mit den Kunden die für ihre Situationen am besten geeigneten Lösungen und entwickeln so ein feines Wissen und ein privilegiertes Vertrauensverhältnis zu ihnen. Als Teil eines Teams, das geschweißt und unterstützt wird, ermöglicht die Ausübung dieser Berufe eine große Autonomie, erfordert jedoch eine große Verantwortung und Flexibilität unserer Mitarbeiter.\nUm unsere Teams zu ergänzen, recherchiert das CMS der Fondation Soins Lausanne de suite oder vereinbart mehrere:\n\nGesundheitshilfe (M/W)\n\nTeilnahmequote zwischen 50% und 80%\nFestvertrag mit unbestimmter Laufzeit\n\nDeine Mission\n\n• Grundversorgung, Hygiene und Komfort bei täglichen Aktivitäten und helfen, Ordnung und Sauberkeit in der Wohnumgebung zu erhalten\n\n• Überwachen Sie den allgemeinen Zustand der Kunden und liefern Sie nützliche Beobachtungen für das Qualitätsmanagement in der Kontinuität der Pflege\n\n• Stimulieren und unterstützen Sie Kunden und ihre Lieben, indem Sie ihre Autonomie und Lebensqualität so weit wie möglich gemäß ihren Fähigkeiten beibehalten\n\n• Zuhören und Entwicklung einer Beziehung und Vertrauen\n\n• Aktive Mitarbeit in den Aktivitäten von interdisziplinären Teams mit einer eigenen Rolle, die es Ihnen ermöglicht, Ihren Gesundheitsexperten als vollständigen Teil des Gesundheitssystems zu schätzen\n\nIhr Profil und Ihre Fähigkeiten\n\n• Zertifikat des CRS Health Assistant 120 Stunden oder Zertifizierung als gleichwertig (ausländisches Diplom vom CRS anerkannt) oder Bereitschaft zur Teilnahme an Schulungen\n\n• Interesse an fortgeschrittenem Alter und häuslicher Pflege\n\n• Fähigkeit, sich autonom zu organisieren und gleichzeitig in Netzwerk und Multidisziplinarität zusammenzuarbeiten\n\n• Medizinische und soziale Erfahrung und starkes Interesse an der Gesundheit der Gemeinschaft\n\n• Verantwortung und Berufsethik\n\n• Master in mündlichem und schriftlichem Französisch\n\n• Gute Leichtigkeit mit Computer-Tools und Mobilfunk\n\nWir bieten\n\n• Eine anregende und warme Arbeitsumgebung, in der die Autonomie der Bezugsperson betont wird\n\n• Ein Arbeitsumfeld, das menschlichen Kontakt und Austausch fördert\n\n• Spannende Arbeit in einem angenehmen Umfeld für das Wohl der Kunden\n\n• Faire Arbeitsbedingungen und Vergütung\n\n• Arbeitssicherheitsbedingungen, die über die gesetzlich vorgesehenen Mindestleistungen hinausgehen\n\nVorteile, uns beizutreten\n\n• Integrationsplan durch Beruf, Angebote reichhaltiger und abwechslungsreicher Weiterbildung, Möglichkeiten der beruflichen Entwicklung\n\n• Gender Pay Equity (Fair-on-Pay-Zertifizierung)\n\n• Vergütung nach dem Kollektivarbeitsübereinkommen (CCT) des öffentlichen Gesundheitssektors von Voodoo\n\n• Günstige Angebote mit Vorzugstarifen in Dienstleistungsunternehmen rund um Sport, Gesundheit und Wohlfahrt sowie Freizeit\n\n• Weiche Mobilitätspolitik und Beteiligung an öffentlichen Verkehrskosten\n\n• Fünf Wochen Urlaub pro Jahr und sechs Wochen ab 50 Jahren\n\nFür eine qualitativ hochwertige Bearbeitung Ihrer Bewerbung senden Sie bitte bis zum 1. Dezember 2026 eine vollständige Bewerbungsdatei mit Angabe der gewünschten Aktivitätsrate via Jobup. Die Personalabteilung wird gerne so schnell wie möglich antworten.",
-        "fr": "Nos centres Médico-Sociaux (CMS) offrent à la population Lausannoise des prestations pluridisciplinaires de qualité et leurs interventions reposent sur des valeurs d’humanité et d’équité .\nEn rejoignant la Fondation Soins Lausanne, vous vous engagez de manière concrète en faveur de la santé et du bien-vivre dans le canton de Vaud, au sein d’équipes expertes, motivées et enthousiastes, dans une activité variée et riche en contacts humains.\nSur le terrain, vous intervenez sur le lieu de vie ou d’activité des bénéficiaires. Vous définissez avec les clients les solutions les plus adaptées à leurs situations et développez ainsi une connaissance fine et une relation de confiance privilégiée avec eux. Faisant partie d’une équipe soudée et soutenante, l’exercice de ces métiers permet une grande autonomie mais nécessite de grandes responsabilités et une flexibilité de la part de nos collaborateurs.\nAfin de compléter nos équipes, les CMS de la Fondation Soins Lausanne recherche de suite ou à convenir plusieurs :\n\nAuxiliaire de santé (H/F)\n\nTaux d'activité entre 50% et 80%\nContrat fixe à durée indeterminée\n\nVotre mission\n\n• Assurer les prestations de soins de base, d’hygiène et de confort dans les activités quotidiennes et d’aide au maintien de l’ordre et de la propreté dans le milieu de vie\n\n• Surveiller l’état général des clients et transmettre des observations utiles à la prise en charge de qualité dans la continuité des soins\n\n• Stimuler et soutenir les clients et leurs proches en maintenant au maximum leur autonomie et leur qualité de vie en fonction de leurs capacités\n\n• Offrir une écoute et développer un lien relationnel et de confiance\n\n• Collaborer activement aux activités des équipes interdisciplinaires avec un rôle propre vous permettant de valoriser votre métier d’auxiliaire de santé comme partie prenante à part entière du système de santé\n\nVotre profil et vos compétences\n\n• Certificat d'auxiliaire de santé CRS 120 heures ou certification jugée équivalente (diplôme étranger reconnu par la CRS) ou volonté de suivre la formation\n\n• Intérêt marqué pour l'âge avancé et le maintien à domicile\n\n• Capacité à s'organiser de manière autonome tout en sachant collaborer en réseau et en pluridisciplinarité\n\n• Expérience dans le domaine médico-social et intérêt marqué pour la santé communautaire\n\n• Sens des responsabilités et éthique professionnelle\n\n• Maîtrise du français à l'oral et à l'écrit\n\n• Bonne aisance avec les outils informatiques et la téléphonie mobile\n\nNous offrons\n\n• Un cadre de travail stimulant et chaleureux où l'autonomie du soignant est mise en avant\n\n• Un environnement de travail qui privilègie le contact humain et l'échange\n\n• Un travail passionnant dans un cadre agréable pour le bien-être des clients\n\n• Des conditions de travail et de rémunération équitables\n\n• Des conditions de prévoyance professionnelle qui s’étendent au-delà des prestations minimales prévues par la loi\n\nLes avantages de nous rejoindre\n\n• Plan d’intégration par métier, offres de formations continues riches et variées, possibilités d’évolution professionnelle\n\n• L'équité salariale entre femmes et hommes (certification Fair-ON-Pay)\n\n• Rémunération selon la Convention Collective de Travail (CCT) du secteur sanitaire parapublic vaudois\n\n• Offres avantageuses avec tarifs préférentiels dans des sociétés de services autour du sport, santé et bien-être et loisirs divers\n\n• Politique de mobilité douce et participation aux frais de transports publics\n\n• Cinq semaines de vacances par année et six semaines dès 50 ans\n\nPour un traitement de qualité de votre candidature, nous vous prions d'adresser un dossier de candidature complet en précisant le taux d'activité souhaité via Jobup jusqu'au 1 décembre 2026. Le service des Ressources Humaines se fera un plaisir de vous répondre dans les meilleurs délais."
+        "fr": "Nos centres Médico-Sociaux (CMS) offrent à la population Lausannoise des prestations pluridisciplinaires de qualité et leurs interventions reposent sur des valeurs d’humanité et d’équité .\nEn rejoignant la Fondation Soins Lausanne, vous vous engagez de manière concrète en faveur de la santé et du bien-vivre dans le canton de Vaud, au sein d’équipes expertes, motivées et enthousiastes, dans une activité variée et riche en contacts humains.\nSur le terrain, vous intervenez sur le lieu de vie ou d’activité des bénéficiaires. Vous définissez avec les clients les solutions les plus adaptées à leurs situations et développez ainsi une connaissance fine et une relation de confiance privilégiée avec eux. Faisant partie d’une équipe soudée et soutenante, l’exercice de ces métiers permet une grande autonomie mais nécessite de grandes responsabilités et une flexibilité de la part de nos collaborateurs.\nAfin de compléter nos équipes, les CMS de la Fondation Soins Lausanne recherche de suite ou à convenir plusieurs :\n\nAuxiliaire de santé (H/F)\n\nTaux d'activité entre 50% et 80%\nContrat fixe à durée indeterminée\n\nVotre mission\n\n• Assurer les prestations de soins de base, d’hygiène et de confort dans les activités quotidiennes et d’aide au maintien de l’ordre et de la propreté dans le milieu de vie\n\n• Surveiller l’état général des clients et transmettre des observations utiles à la prise en charge de qualité dans la continuité des soins\n\n• Stimuler et soutenir les clients et leurs proches en maintenant au maximum leur autonomie et leur qualité de vie en fonction de leurs capacités\n\n• Offrir une écoute et développer un lien relationnel et de confiance\n\n• Collaborer activement aux activités des équipes interdisciplinaires avec un rôle propre vous permettant de valoriser votre métier d’auxiliaire de santé comme partie prenante à part entière du système de santé\n\nVotre profil et vos compétences\n\n• Certificat d'auxiliaire de santé CRS 120 heures ou certification jugée équivalente (diplôme étranger reconnu par la CRS)\n\n• Intérêt marqué pour l'âge avancé et le maintien à domicile\n\n• Capacité à s'organiser de manière autonome tout en sachant collaborer en réseau et en pluridisciplinarité\n\n• Expérience dans le domaine médico-social et intérêt marqué pour la santé communautaire\n\n• Sens des responsabilités et éthique professionnelle\n\n• Maîtrise du français à l'oral et à l'écrit\n\n• Bonne aisance avec les outils informatiques et la téléphonie mobile\n\nNous offrons\n\n• Un cadre de travail stimulant et chaleureux où l'autonomie du soignant est mise en avant\n\n• Un environnement de travail qui privilègie le contact humain et l'échange\n\n• Un travail passionnant dans un cadre agréable pour le bien-être des clients\n\n• Des conditions de travail et de rémunération équitables\n\n• Des conditions de prévoyance professionnelle qui s’étendent au-delà des prestations minimales prévues par la loi\n\nLes avantages de nous rejoindre\n\n• Plan d’intégration par métier, offres de formations continues riches et variées, possibilités d’évolution professionnelle\n\n• L'équité salariale entre femmes et hommes (certification Fair-ON-Pay)\n\n• Rémunération selon la Convention Collective de Travail (CCT) du secteur sanitaire parapublic vaudois\n\n• Offres avantageuses avec tarifs préférentiels dans des sociétés de services autour du sport, santé et bien-être et loisirs divers\n\n• Politique de mobilité douce et participation aux frais de transports publics\n\n• Cinq semaines de vacances par année et six semaines dès 50 ans\n\nPour un traitement de qualité de votre candidature, nous vous prions d'adresser un dossier de candidature complet en précisant le taux d'activité souhaité via Jobup jusqu'au 1 décembre 2026. Le service des Ressources Humaines se fera un plaisir de vous répondre dans les meilleurs délais."
       },
       "needsRetranslation": false,
       "location": "Lausanne",
@@ -515,7 +582,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/67325630-ec58-4d81-8d14-817b59515502/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:58:28.918Z",
+      "crawledAt": "2026-11-25T21:22:18.924Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -581,9 +648,8 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:58:28.918Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/67325630-ec58-4d81-8d14-817b59515502"
+      "validThrough": "2027-02-14T21:22:18.924Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-3772eb5d0779",
@@ -616,7 +682,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/07539278-6bf0-439a-9e0b-ac4bd195851c/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:58:28.330Z",
+      "crawledAt": "2026-11-25T21:22:17.878Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -681,9 +747,8 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:58:28.330Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/07539278-6bf0-439a-9e0b-ac4bd195851c"
+      "validThrough": "2027-02-14T21:22:17.878Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-ec3926527693",
@@ -716,7 +781,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/8fa87365-d8d2-4c35-970c-91af25c2bdb3/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:58:27.776Z",
+      "crawledAt": "2026-11-25T21:22:17.286Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -763,9 +828,8 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:58:27.776Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/8fa87365-d8d2-4c35-970c-91af25c2bdb3"
+      "validThrough": "2027-02-14T21:22:17.286Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-690668a0a6cb",
@@ -798,7 +862,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/30bc4f50-d7dc-4474-bc9c-23eb86dc7849/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:58:27.197Z",
+      "crawledAt": "2026-11-25T21:22:16.604Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -855,9 +919,8 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:58:27.197Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/30bc4f50-d7dc-4474-bc9c-23eb86dc7849"
+      "validThrough": "2027-02-14T21:22:16.604Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

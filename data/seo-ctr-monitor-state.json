@@ -1,154 +1,87 @@
 {
   "families": {
     "articoli-frontaliere": {
-      "consecutiveBelowRuns": 11,
+      "consecutiveBelowRuns": 12,
       "measureVersion": "query-segmented-7cbc90b9e069:operator",
-      "lastCtr": 0.020956012144319705,
-      "lastCtrAllQueries": 0.020999449611199705,
+      "lastCtr": 0.017125080390661223,
+      "lastCtrAllQueries": 0.017121495327102804,
       "lastExcludedSegments": {
         "operator": {
-          "impressions": 40,
+          "impressions": 14,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
               "query": "site:frontaliereticino.ch",
-              "impressions": 33,
-              "clicks": 0
-            },
-            {
-              "query": "parroco stipendi after:2026-10-01 before:2026-11-01",
-              "impressions": 2,
+              "impressions": 12,
               "clicks": 0
             },
             {
               "query": "\"foie gras\" svizzera after:2026-10-19",
               "impressions": 1,
               "clicks": 0
-            }
-          ]
-        }
-      },
-      "lastPosition": 10.298905599096237,
-      "lastTargetCtr": 0.03,
-      "lastBelowCurvePages": [
-        {
-          "path": "/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere/",
-          "impressions": 815,
-          "position": 4.74601226993865,
-          "ctr": 0.0061,
-          "expectedCtr": 0.0601,
-          "lostClicks": 44
-        },
-        {
-          "path": "/articoli-frontaliere/confine-italia-svizzera-6-regole-doganali/",
-          "impressions": 1925,
-          "position": 8.852987012987013,
-          "ctr": 0.0062,
-          "expectedCtr": 0.0286,
-          "lostClicks": 43
-        },
-        {
-          "path": "/articoli-frontaliere/fine-scuole-ticino-2026/",
-          "impressions": 1376,
-          "position": 9.598837209302326,
-          "ctr": 0,
-          "expectedCtr": 0.0262,
-          "lostClicks": 36.1
-        },
-        {
-          "path": "/articoli-frontaliere/dichiarazione-redditi-ticino-2026/",
-          "impressions": 683,
-          "position": 4.437774524158126,
-          "ctr": 0.0161,
-          "expectedCtr": 0.065,
-          "lostClicks": 33.4
-        },
-        {
-          "path": "/articoli-frontaliere/multe-stradali-svizzere/",
-          "impressions": 1168,
-          "position": 7.314212328767123,
-          "ctr": 0.0068,
-          "expectedCtr": 0.0354,
-          "lostClicks": 33.4
-        }
-      ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
-      "lastError": null
-    },
-    "guida-frontaliere": {
-      "consecutiveBelowRuns": 11,
-      "measureVersion": "query-segmented-7cbc90b9e069:operator",
-      "lastCtr": 0.02110279101429544,
-      "lastCtrAllQueries": 0.02110279101429544,
-      "lastExcludedSegments": {
-        "operator": {
-          "impressions": 2,
-          "clicks": 0,
-          "ctr": 0,
-          "topQueries": [
+            },
             {
-              "query": "(\"transfer car\" or \"electric flat car\" or \"rail transfer trolley\") switzerland -site:facebook.com -site:youtube.com -site:linkedin.com -site:wikipedia.org -site:scribd.com -site:instagram.com -site:x.com -site:twitter.com -site:alibaba.com -site:made-in-china.com -site:indiamart.com -site:tradeindia.com -site:globalsources.com -site:kompass.com -site:directindustry.com -site:europages.com -site:thomasnet.com -site:wlw.de -site:taiwantrade.com",
-              "impressions": 2,
+              "query": "\"romagna riviera\" -site:bsky.app -site:tiktok.com -site:instagram.com -site:youtube.com -site:x.com -site:twitter.com -site:facebook.com -site:reddit.com -site:linkedin.com -site:threads.com",
+              "impressions": 1,
               "clicks": 0
             }
           ]
         }
       },
-      "lastPosition": 8.788427501701838,
-      "lastTargetCtr": 0.035,
+      "lastPosition": 10.47544906597269,
+      "lastTargetCtr": 0.03,
       "lastBelowCurvePages": [
         {
-          "path": "/guida-frontaliere/mappa-confine/",
-          "impressions": 2624,
-          "position": 7.5720274390243905,
-          "ctr": 0.0183,
-          "expectedCtr": 0.0341,
-          "lostClicks": 41.6
+          "path": "/articoli-frontaliere/confine-italia-svizzera-6-regole-doganali/",
+          "impressions": 2087,
+          "position": 8.623382846190704,
+          "ctr": 0.0081,
+          "expectedCtr": 0.0295,
+          "lostClicks": 44.6
         },
         {
-          "path": "/guida-frontaliere/tassa-salute-frontalieri/",
-          "impressions": 865,
-          "position": 6.195375722543353,
-          "ctr": 0.022,
-          "expectedCtr": 0.0426,
-          "lostClicks": 17.9
+          "path": "/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere/",
+          "impressions": 969,
+          "position": 4.831785345717234,
+          "ctr": 0.0155,
+          "expectedCtr": 0.0587,
+          "lostClicks": 41.9
         },
         {
-          "path": "/guida-frontaliere/trasferire-auto-svizzera/",
-          "impressions": 800,
-          "position": 10.05625,
-          "ctr": 0.0063,
-          "expectedCtr": 0.0248,
-          "lostClicks": 14.9
+          "path": "/articoli-frontaliere/fine-scuole-ticino-2026/",
+          "impressions": 1370,
+          "position": 9.532116788321169,
+          "ctr": 0,
+          "expectedCtr": 0.0264,
+          "lostClicks": 36.2
         },
         {
-          "path": "/fr/guide-frontalier/carte-frontiere/",
-          "impressions": 338,
-          "position": 7.674556213017752,
-          "ctr": 0.0089,
-          "expectedCtr": 0.0336,
-          "lostClicks": 8.4
+          "path": "/articoli-frontaliere/multe-stradali-svizzere/",
+          "impressions": 1150,
+          "position": 7.3252173913043475,
+          "ctr": 0.0096,
+          "expectedCtr": 0.0354,
+          "lostClicks": 29.7
         },
         {
-          "path": "/guida-frontaliere/quanto-incidono-figli-stipendio-netto-frontaliere/",
-          "impressions": 155,
-          "position": 4.845161290322581,
-          "ctr": 0.0194,
-          "expectedCtr": 0.0585,
-          "lostClicks": 6.1
+          "path": "/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026/",
+          "impressions": 555,
+          "position": 4.852252252252253,
+          "ctr": 0.0108,
+          "expectedCtr": 0.0584,
+          "lostClicks": 26.4
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
-    "tasse-e-pensione": {
-      "consecutiveBelowRuns": 0,
+    "guida-frontaliere": {
+      "consecutiveBelowRuns": 12,
       "measureVersion": "query-segmented-7cbc90b9e069:operator",
-      "lastCtr": 0.03862520458265139,
-      "lastCtrAllQueries": 0.03862520458265139,
+      "lastCtr": 0.015937058704861812,
+      "lastCtrAllQueries": 0.015937058704861812,
       "lastExcludedSegments": {
         "operator": {
           "impressions": 0,
@@ -157,169 +90,231 @@
           "topQueries": []
         }
       },
-      "lastPosition": 7.581996726677578,
+      "lastPosition": 9.994956626992133,
+      "lastTargetCtr": 0.035,
+      "lastBelowCurvePages": [
+        {
+          "path": "/guida-frontaliere/imposta-alla-fonte-ticino-tabelle-a-b-c-h/",
+          "impressions": 1305,
+          "position": 5.6865900383141765,
+          "ctr": 0.013,
+          "expectedCtr": 0.0478,
+          "lostClicks": 45.3
+        },
+        {
+          "path": "/guida-frontaliere/tassa-salute-frontalieri/",
+          "impressions": 797,
+          "position": 5.888331242158093,
+          "ctr": 0.0213,
+          "expectedCtr": 0.0453,
+          "lostClicks": 19.1
+        },
+        {
+          "path": "/fr/guide-frontalier/carte-frontiere/",
+          "impressions": 365,
+          "position": 7.917808219178082,
+          "ctr": 0.011,
+          "expectedCtr": 0.0324,
+          "lostClicks": 7.8
+        },
+        {
+          "path": "/guida-frontaliere/mappa-confine/",
+          "impressions": 186,
+          "position": 7.306451612903226,
+          "ctr": 0,
+          "expectedCtr": 0.0355,
+          "lostClicks": 6.6
+        },
+        {
+          "path": "/guida-frontaliere/nuovo-vs-vecchio-frontaliere-differenze-fiscali/",
+          "impressions": 164,
+          "position": 9.548780487804878,
+          "ctr": 0.0061,
+          "expectedCtr": 0.0264,
+          "lostClicks": 3.3
+        }
+      ],
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
+      "lastError": null
+    },
+    "tasse-e-pensione": {
+      "consecutiveBelowRuns": 1,
+      "measureVersion": "query-segmented-7cbc90b9e069:operator",
+      "lastCtr": 0.024366150806717154,
+      "lastCtrAllQueries": 0.024366150806717154,
+      "lastExcludedSegments": {
+        "operator": {
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "topQueries": [
+            {
+              "query": "site:frontaliereticino.ch",
+              "impressions": 1,
+              "clicks": 0
+            }
+          ]
+        }
+      },
+      "lastPosition": 7.987158379980244,
       "lastTargetCtr": 0.03,
       "lastBelowCurvePages": [
         {
+          "path": "/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/",
+          "impressions": 906,
+          "position": 5.967991169977925,
+          "ctr": 0.0143,
+          "expectedCtr": 0.0444,
+          "lostClicks": 27.2
+        },
+        {
+          "path": "/tasse-e-pensione/ristorni-fiscali/",
+          "impressions": 299,
+          "position": 4.745819397993311,
+          "ctr": 0.0334,
+          "expectedCtr": 0.0601,
+          "lostClicks": 8
+        },
+        {
+          "path": "/tasse-e-pensione/dichiarazione-redditi-svizzera/",
+          "impressions": 66,
+          "position": 11.227272727272727,
+          "ctr": 0,
+          "expectedCtr": 0.0213,
+          "lostClicks": 1.4
+        },
+        {
           "path": "/de/steuern-und-vorsorge/tessin-feiertage/",
-          "impressions": 109,
-          "position": 9.614678899082568,
+          "impressions": 56,
+          "position": 10.732142857142858,
           "ctr": 0,
-          "expectedCtr": 0.0262,
-          "lostClicks": 2.9
+          "expectedCtr": 0.0228,
+          "lostClicks": 1.3
         },
         {
-          "path": "/fr/impots-et-retraite/jours-feries-tessin/",
-          "impressions": 21,
-          "position": 11.571428571428571,
-          "ctr": 0,
-          "expectedCtr": 0.0203,
-          "lostClicks": 0.4
-        },
-        {
-          "path": "/fr/impots-et-retraite/simuler-troisieme-pilier/",
-          "impressions": 71,
-          "position": 32.225352112676056,
-          "ctr": 0,
-          "expectedCtr": 0.006,
-          "lostClicks": 0.4
-        },
-        {
-          "path": "/en/taxes-and-pension/ticino-public-holidays/",
+          "path": "/fr/impots-et-retraite/baremes-impot-a-la-source-tessin-2026/",
           "impressions": 6,
-          "position": 5.666666666666667,
+          "position": 5,
           "ctr": 0,
-          "expectedCtr": 0.048,
+          "expectedCtr": 0.056,
           "lostClicks": 0.3
-        },
-        {
-          "path": "/de/steuern-und-vorsorge/steuerberechnung-neue-grenzgaenger/",
-          "impressions": 10,
-          "position": 31.9,
-          "ctr": 0,
-          "expectedCtr": 0.006,
-          "lostClicks": 0.1
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "cerca-lavoro-ticino": {
       "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator+promo",
-      "lastCtr": 0.06558803903174956,
-      "lastCtrAllQueries": 0.0655507987282198,
+      "lastCtr": 0.06448450672666672,
+      "lastCtrAllQueries": 0.06446196184523532,
       "lastExcludedSegments": {
         "operator": {
-          "impressions": 47,
+          "impressions": 64,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
               "query": "\"das\" \"assicurazioni\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\"",
-              "impressions": 36,
+              "impressions": 49,
               "clicks": 0
             },
             {
-              "query": "site:frontaliereticino.ch",
-              "impressions": 5,
+              "query": "\"rivopharm sa\" site:ch",
+              "impressions": 6,
               "clicks": 0
             },
             {
-              "query": "novartis head engineering basel site switzerland site:linkedin.com/in/",
+              "query": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\"",
               "impressions": 3,
               "clicks": 0
             }
           ]
         },
         "promo": {
-          "impressions": 42,
-          "clicks": 1,
-          "ctr": 0.0238,
+          "impressions": 30,
+          "clicks": 2,
+          "ctr": 0.0667,
           "topQueries": [
             {
-              "query": "philipp plein outlet",
-              "impressions": 8,
-              "clicks": 1
-            },
-            {
-              "query": "lidl riazzino orari",
-              "impressions": 6,
+              "query": "lidl ascona orari",
+              "impressions": 5,
               "clicks": 0
             },
             {
-              "query": "plein outlet",
-              "impressions": 6,
+              "query": "offre voyage last minute",
+              "impressions": 5,
+              "clicks": 0
+            },
+            {
+              "query": "quali servizi di assistenza linguistica offre il network hirslanden?",
+              "impressions": 4,
               "clicks": 0
             }
           ]
         }
       },
-      "lastPosition": 8.506377958086322,
-      "lastTargetCtr": 0.049158160594953725,
+      "lastPosition": 8.618956036261448,
+      "lastTargetCtr": 0.0484196484021249,
       "lastBelowCurvePages": [
         {
           "path": "/cerca-lavoro-ticino/foglio-ufficiale-offerte-di-lavoro-ticino/",
-          "impressions": 1730,
-          "position": 6.636994219653179,
-          "ctr": 0.0208,
-          "expectedCtr": 0.0395,
-          "lostClicks": 32.4
-        },
-        {
-          "path": "/cerca-lavoro-ticino/operaio-a-a-tempo-parziale-90-presso-l-organizzazione-sociopsichiatrica-cantonale-osc/",
-          "impressions": 118,
-          "position": 1.4406779661016949,
-          "ctr": 0.0932,
-          "expectedCtr": 0.2451,
-          "lostClicks": 17.9
-        },
-        {
-          "path": "/cerca-lavoro-ticino/posizioni-di-dottorandi-usi-lugano/",
-          "impressions": 610,
-          "position": 5.545901639344263,
-          "ctr": 0.0213,
-          "expectedCtr": 0.0494,
-          "lostClicks": 17.2
+          "impressions": 1860,
+          "position": 6.796774193548387,
+          "ctr": 0.014,
+          "expectedCtr": 0.0384,
+          "lostClicks": 45.5
         },
         {
           "path": "/cerca-lavoro-ticino/azienda-lis-lugano-istituti-sociali/",
-          "impressions": 410,
-          "position": 7.070731707317073,
-          "ctr": 0.0049,
-          "expectedCtr": 0.0366,
-          "lostClicks": 13
+          "impressions": 505,
+          "position": 7.3900990099009904,
+          "ctr": 0,
+          "expectedCtr": 0.035,
+          "lostClicks": 17.7
         },
         {
           "path": "/cerca-lavoro-ticino/posizione-post-doc-usi-universita-della-svizzera-italiana-lugano/",
-          "impressions": 284,
-          "position": 5.23943661971831,
-          "ctr": 0.0106,
-          "expectedCtr": 0.0531,
-          "lostClicks": 12.1
+          "impressions": 285,
+          "position": 4.435087719298245,
+          "ctr": 0.0105,
+          "expectedCtr": 0.065,
+          "lostClicks": 15.5
+        },
+        {
+          "path": "/en/find-jobs-ticino/auxiliary-construction-technology-job-ticino-sa-lugano-bd6d876f/",
+          "impressions": 741,
+          "position": 9.759784075573549,
+          "ctr": 0.0054,
+          "expectedCtr": 0.0257,
+          "lostClicks": 15.1
+        },
+        {
+          "path": "/cerca-lavoro-ticino/azienda-lidl/",
+          "impressions": 477,
+          "position": 7.888888888888889,
+          "ctr": 0.0063,
+          "expectedCtr": 0.0326,
+          "lostClicks": 12.5
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "cerca-lavoro-svizzera": {
-      "consecutiveBelowRuns": 0,
+      "consecutiveBelowRuns": 1,
       "measureVersion": "query-segmented-7cbc90b9e069:operator+promo",
-      "lastCtr": 0.06568206229860366,
-      "lastCtrAllQueries": 0.06564058561698932,
+      "lastCtr": 0.06167628160030017,
+      "lastCtrAllQueries": 0.061647367680840094,
       "lastExcludedSegments": {
         "operator": {
-          "impressions": 3,
+          "impressions": 1,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
-            {
-              "query": "site:linkedin.com/jobs data scientist switzerland",
-              "impressions": 2,
-              "clicks": 0
-            },
             {
               "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\"",
               "impressions": 1,
@@ -328,107 +323,96 @@
           ]
         },
         "promo": {
-          "impressions": 26,
+          "impressions": 13,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
               "query": "offerta counseling",
-              "impressions": 10,
+              "impressions": 6,
               "clicks": 0
             },
             {
               "query": "offerta fielmann",
-              "impressions": 7,
+              "impressions": 2,
               "clicks": 0
             },
             {
-              "query": "offre assurance suisse",
-              "impressions": 3,
+              "query": "bcg offre servizi di assistenza all'infanzia ai collaboratori in svizzera?",
+              "impressions": 1,
               "clicks": 0
             }
           ]
         }
       },
-      "lastPosition": 13.207626208378088,
-      "lastTargetCtr": 0.06351958324382385,
+      "lastPosition": 13.14661601238216,
+      "lastTargetCtr": 0.06398692134515266,
       "lastBelowCurvePages": [
         {
-          "path": "/cerca-lavoro-svizzera/ricerca-concorso-bellinzona/",
-          "impressions": 547,
-          "position": 8.120658135283364,
-          "ctr": 0.011,
-          "expectedCtr": 0.0315,
-          "lostClicks": 11.2
-        },
-        {
           "path": "/cerca-lavoro-svizzera/ricerca-concorso-mendrisio/",
-          "impressions": 400,
-          "position": 6.2775,
-          "ctr": 0.0175,
-          "expectedCtr": 0.0421,
-          "lostClicks": 9.8
+          "impressions": 403,
+          "position": 6.80893300248139,
+          "ctr": 0.0124,
+          "expectedCtr": 0.0383,
+          "lostClicks": 10.4
         },
         {
-          "path": "/en/find-jobs-switzerland/search-software-developer-sap-commerce-cloud-java-80-interdiscount/",
-          "impressions": 93,
-          "position": 4.182795698924731,
-          "ctr": 0,
-          "expectedCtr": 0.0691,
-          "lostClicks": 6.4
+          "path": "/cerca-lavoro-svizzera/ricerca-concorso-bellinzona/",
+          "impressions": 521,
+          "position": 10.15355086372361,
+          "ctr": 0.0077,
+          "expectedCtr": 0.0245,
+          "lostClicks": 8.8
         },
         {
           "path": "/cerca-lavoro-svizzera/ricerca-rapelli-stabio/",
-          "impressions": 75,
-          "position": 6.093333333333334,
-          "ctr": 0,
-          "expectedCtr": 0.0433,
-          "lostClicks": 3.3
+          "impressions": 108,
+          "position": 6.5092592592592595,
+          "ctr": 0.0093,
+          "expectedCtr": 0.0404,
+          "lostClicks": 3.4
         },
         {
-          "path": "/cerca-lavoro-svizzera/ricerca-stipendio-medico-anestesista-responsabile-svizzera/",
-          "impressions": 68,
-          "position": 4.661764705882353,
-          "ctr": 0.0294,
-          "expectedCtr": 0.0614,
-          "lostClicks": 2.2
+          "path": "/en/find-jobs-switzerland/search-software-developer-sap-commerce-cloud-java-80-interdiscount/",
+          "impressions": 34,
+          "position": 3.735294117647059,
+          "ctr": 0,
+          "expectedCtr": 0.081,
+          "lostClicks": 2.8
+        },
+        {
+          "path": "/cerca-lavoro-svizzera/ricerca-student-fribourg/",
+          "impressions": 31,
+          "position": 3.6129032258064515,
+          "ctr": 0,
+          "expectedCtr": 0.0852,
+          "lostClicks": 2.6
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "cerca-lavoro-grigioni": {
       "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator+promo",
-      "lastCtr": 0.046432783018867926,
-      "lastCtrAllQueries": 0.04636785162287481,
+      "lastCtr": 0.05254803675856307,
+      "lastCtrAllQueries": 0.05252609603340292,
       "lastExcludedSegments": {
         "operator": {
-          "impressions": 5,
+          "impressions": 0,
           "clicks": 0,
-          "ctr": 0,
-          "topQueries": [
-            {
-              "query": "-site:facebook.com -site:fb.me -site:youtube.com -site:youtu.be -site:youtube.be -site:twitter.com -site:instagram.com -site:tiktok.com -site:vm.tiktok.com -site:t.co -site:x.com -site:reddit.com \"manor\" and (\"legionellen\" or \"stellenabbau\" or \"entlassungen\" or \"hauptsitz\" or \"filialschliessung\")",
-              "impressions": 4,
-              "clicks": 0
-            },
-            {
-              "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\"",
-              "impressions": 1,
-              "clicks": 0
-            }
-          ]
+          "ctr": null,
+          "topQueries": []
         },
         "promo": {
-          "impressions": 28,
+          "impressions": 23,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
               "query": "lidl st moritz orari",
-              "impressions": 9,
+              "impressions": 12,
               "clicks": 0
             },
             {
@@ -437,80 +421,75 @@
               "clicks": 0
             },
             {
-              "query": "boss outlet",
+              "query": "läderach landquart outlet",
               "impressions": 2,
               "clicks": 0
             }
           ]
         }
       },
-      "lastPosition": 13.850235849056604,
-      "lastTargetCtr": 0.021419339622641507,
+      "lastPosition": 13.205680868838764,
+      "lastTargetCtr": 0.02322409356725146,
       "lastBelowCurvePages": [
         {
           "path": "/cerca-lavoro-grigioni/installatore-idraulico-e-o-termoidraulico-100-caotec-sa-brusio/",
-          "impressions": 108,
-          "position": 3.888888888888889,
-          "ctr": 0,
-          "expectedCtr": 0.0758,
-          "lostClicks": 8.2
+          "impressions": 144,
+          "position": 3.1944444444444446,
+          "ctr": 0.0139,
+          "expectedCtr": 0.0994,
+          "lostClicks": 12.3
         },
         {
-          "path": "/de/jobs-in-graubunden/kaufmannischer-leiter-m-w-d-100-muntener-thomas-personal-und-a9b5e28a/",
-          "impressions": 21,
-          "position": 1.4761904761904763,
+          "path": "/cerca-lavoro-grigioni/medico-di-famiglia-specialista-fmh-in-medicina-interna-generale-csvp-poschiavo-poschiavo/",
+          "impressions": 123,
+          "position": 7.780487804878049,
           "ctr": 0,
-          "expectedCtr": 0.2393,
-          "lostClicks": 5
-        },
-        {
-          "path": "/cerca-lavoro-grigioni/wintersaison-dipl-expertin-experte-nds-notfallpflege-o-dipl-pflegefachperson-con-nachweisbarer-erfahrung-in-notfallpflege-spital-oberengadin-samedan/",
-          "impressions": 62,
-          "position": 4.258064516129032,
-          "ctr": 0,
-          "expectedCtr": 0.0679,
-          "lostClicks": 4.2
-        },
-        {
-          "path": "/en/find-jobs-graubunden/company-badrutt-s-palace-hotel-st-moritz/",
-          "impressions": 112,
-          "position": 7.723214285714286,
-          "ctr": 0,
-          "expectedCtr": 0.0334,
-          "lostClicks": 3.7
+          "expectedCtr": 0.0331,
+          "lostClicks": 4.1
         },
         {
           "path": "/cerca-lavoro-grigioni/parrucchiera-parrucchiere-kantonsspital-graubunden-chur/",
-          "impressions": 573,
-          "position": 59.153577661431065,
+          "impressions": 560,
+          "position": 63.47857142857143,
           "ctr": 0,
           "expectedCtr": 0.006,
           "lostClicks": 3.4
+        },
+        {
+          "path": "/en/find-jobs-graubunden/company-badrutt-s-palace-hotel-st-moritz/",
+          "impressions": 74,
+          "position": 7.621621621621622,
+          "ctr": 0,
+          "expectedCtr": 0.0339,
+          "lostClicks": 2.5
+        },
+        {
+          "path": "/cerca-lavoro-grigioni/addetto-a-alle-pulizie-in-hotel-hotel-7132-vals-03544841/",
+          "impressions": 39,
+          "position": 5.230769230769231,
+          "ctr": 0,
+          "expectedCtr": 0.0532,
+          "lostClicks": 2.1
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "cerca-lavoro-zurigo": {
       "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator+promo",
-      "lastCtr": 0.047792541791684524,
-      "lastCtrAllQueries": 0.04774904983673251,
+      "lastCtr": 0.04042758855973162,
+      "lastCtrAllQueries": 0.040388548057259714,
       "lastExcludedSegments": {
         "operator": {
-          "impressions": 3,
+          "impressions": 4,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
-              "query": "fornitore plc site:.ch",
-              "impressions": 1,
-              "clicks": 0
-            },
-            {
-              "query": "limmattalbahn site:ch",
-              "impressions": 1,
+              "query": "site:frontaliereticino.ch",
+              "impressions": 3,
               "clicks": 0
             },
             {
@@ -521,18 +500,18 @@
           ]
         },
         "promo": {
-          "impressions": 66,
+          "impressions": 61,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
               "query": "offerta counseling",
-              "impressions": 43,
+              "impressions": 34,
               "clicks": 0
             },
             {
               "query": "evaluate the retail & wholesale trade company denner on online exclusive offers",
-              "impressions": 12,
+              "impressions": 17,
               "clicks": 0
             },
             {
@@ -543,62 +522,62 @@
           ]
         }
       },
-      "lastPosition": 12.153129018431205,
-      "lastTargetCtr": 0.03402261037291041,
+      "lastPosition": 12.274122931710924,
+      "lastTargetCtr": 0.03358219252857224,
       "lastBelowCurvePages": [
         {
           "path": "/de/jobs-in-zurich/quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal/",
-          "impressions": 68,
+          "impressions": 75,
           "position": 3,
           "ctr": 0,
           "expectedCtr": 0.106,
-          "lostClicks": 7.2
+          "lostClicks": 8
         },
         {
           "path": "/fr/trouver-emploi-zurich/mercredis-d-assistance-scolaire-probstei-scolaire-stadt-zurich-zurich/",
-          "impressions": 77,
-          "position": 2.012987012987013,
-          "ctr": 0.0909,
-          "expectedCtr": 0.1544,
-          "lostClicks": 4.9
+          "impressions": 89,
+          "position": 2,
+          "ctr": 0.0787,
+          "expectedCtr": 0.155,
+          "lostClicks": 6.8
+        },
+        {
+          "path": "/cerca-lavoro-zurigo/cura-della-casa-assistenza-1-anno-limitato-stadt-zurich-zurich/",
+          "impressions": 41,
+          "position": 2,
+          "ctr": 0,
+          "expectedCtr": 0.155,
+          "lostClicks": 6.4
+        },
+        {
+          "path": "/en/find-jobs-zurich/funeral-services-generalist-stadt-zurich-zurich/",
+          "impressions": 45,
+          "position": 2,
+          "ctr": 0.0222,
+          "expectedCtr": 0.155,
+          "lostClicks": 6
         },
         {
           "path": "/en/find-jobs-zurich/three-doctoral-positions-in-history-and-theory-of-urban-design-and-architecture-eth-zurich/",
-          "impressions": 164,
-          "position": 7.469512195121951,
-          "ctr": 0.0061,
-          "expectedCtr": 0.0347,
-          "lostClicks": 4.7
-        },
-        {
-          "path": "/cerca-lavoro-zurigo/senior-software-sviluppatore-nvidia-ufficio-zurich-zurich/",
-          "impressions": 24,
-          "position": 1.8333333333333335,
+          "impressions": 146,
+          "position": 7.472602739726027,
           "ctr": 0,
-          "expectedCtr": 0.1818,
-          "lostClicks": 4.4
-        },
-        {
-          "path": "/en/find-jobs-zurich/claims-lawyer-personal-injury-liability-attorney-axa-svizzera-winterthur/",
-          "impressions": 83,
-          "position": 5.433734939759036,
-          "ctr": 0,
-          "expectedCtr": 0.0508,
-          "lostClicks": 4.2
+          "expectedCtr": 0.0346,
+          "lostClicks": 5.1
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "cerca-lavoro-vallese": {
       "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator+promo",
-      "lastCtr": 0.045711829189653934,
-      "lastCtrAllQueries": 0.04568237147357869,
+      "lastCtr": 0.05061172668513389,
+      "lastCtrAllQueries": 0.0505883710198431,
       "lastExcludedSegments": {
         "operator": {
-          "impressions": 10,
+          "impressions": 6,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
@@ -611,90 +590,85 @@
               "query": "site:frontaliereticino.ch",
               "impressions": 3,
               "clicks": 0
-            },
-            {
-              "query": "-site:facebook.com -site:fb.me -site:youtube.com -site:youtu.be -site:youtube.be -site:twitter.com -site:instagram.com -site:tiktok.com -site:vm.tiktok.com -site:t.co -site:x.com -site:reddit.com \"manor\" and (\"legionellen\" or \"stellenabbau\" or \"entlassungen\" or \"hauptsitz\" or \"filialschliessung\")",
-              "impressions": 2,
-              "clicks": 0
             }
           ]
         },
         "promo": {
-          "impressions": 11,
+          "impressions": 3,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
-              "query": "interdiscount rabatt",
-              "impressions": 4,
+              "query": "coop leukerbad horaire",
+              "impressions": 1,
               "clicks": 0
             },
             {
-              "query": "ottos sport outlet gamsen",
-              "impressions": 2,
+              "query": "offerta fielmann",
+              "impressions": 1,
               "clicks": 0
             },
             {
-              "query": "ascona for sale",
+              "query": "offre jouets",
               "impressions": 1,
               "clicks": 0
             }
           ]
         }
       },
-      "lastPosition": 10.675001791215877,
-      "lastTargetCtr": 0.028488993336676937,
+      "lastPosition": 8.259810710987995,
+      "lastTargetCtr": 0.03839133887349955,
       "lastBelowCurvePages": [
         {
           "path": "/fr/trouver-emploi-valais/apprentissage-de-logisticienne-logisticien-cfc-distribution-mixte-valais-francophone-la-poste-suisse-martigny/",
-          "impressions": 730,
-          "position": 5.991780821917808,
-          "ctr": 0.0178,
-          "expectedCtr": 0.0441,
-          "lostClicks": 19.2
+          "impressions": 829,
+          "position": 6.668275030156815,
+          "ctr": 0.0145,
+          "expectedCtr": 0.0393,
+          "lostClicks": 20.6
         },
         {
-          "path": "/fr/trouver-emploi-valais/apprentissage-d-employee-employe-de-commerce-cfc-services-et-administration-valais-francophone-la-poste-suisse-vetroz/",
-          "impressions": 511,
-          "position": 5.984344422700587,
-          "ctr": 0.0254,
-          "expectedCtr": 0.0442,
-          "lostClicks": 9.6
+          "path": "/fr/trouver-emploi-valais/un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante/",
+          "impressions": 177,
+          "position": 2.847457627118644,
+          "ctr": 0.0452,
+          "expectedCtr": 0.1135,
+          "lostClicks": 12.1
         },
         {
-          "path": "/cerca-lavoro-vallese/terapista-in-80-100-hopital-du-valais-brig/",
-          "impressions": 141,
-          "position": 5.397163120567376,
-          "ctr": 0.0142,
-          "expectedCtr": 0.0512,
-          "lostClicks": 5.2
+          "path": "/fr/trouver-emploi-valais/conducteur-de-travaux-batiment-genie-civil-h-f-d-das-team-ag-sion-ee6b78d2/",
+          "impressions": 108,
+          "position": 7.425925925925926,
+          "ctr": 0,
+          "expectedCtr": 0.0349,
+          "lostClicks": 3.8
+        },
+        {
+          "path": "/en/find-jobs-valais/cook-kitchen-m-f-d-coop-genossenschaft-conthey/",
+          "impressions": 95,
+          "position": 3.7157894736842105,
+          "ctr": 0.0421,
+          "expectedCtr": 0.0817,
+          "lostClicks": 3.8
         },
         {
           "path": "/de/jobs-im-wallis/quereinstieg-kundenberater-in-im-contact-center-ffs-officine-ferrovie-federali-brig/",
-          "impressions": 37,
+          "impressions": 34,
           "position": 3,
           "ctr": 0,
           "expectedCtr": 0.106,
-          "lostClicks": 3.9
-        },
-        {
-          "path": "/cerca-lavoro-vallese/capo-della-polizia-giudiziaria-canton-du-valais-sion/",
-          "impressions": 54,
-          "position": 4.222222222222222,
-          "ctr": 0,
-          "expectedCtr": 0.0684,
-          "lostClicks": 3.7
+          "lostClicks": 3.6
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "prezzi-benzina": {
       "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator",
-      "lastCtr": 0.012504946576968738,
-      "lastCtrAllQueries": 0.012504946576968738,
+      "lastCtr": 0.012546386287329916,
+      "lastCtrAllQueries": 0.012546386287329916,
       "lastExcludedSegments": {
         "operator": {
           "impressions": 0,
@@ -703,59 +677,59 @@
           "topQueries": []
         }
       },
-      "lastPosition": 8.211238622872973,
-      "lastTargetCtr": 0.008816877878907795,
+      "lastPosition": 7.720887082523414,
+      "lastTargetCtr": 0.009450944778229367,
       "lastBelowCurvePages": [
         {
           "path": "/prezzi-benzina/italia/livigno/oggi/",
-          "impressions": 4976,
-          "position": 5.80064308681672,
-          "ctr": 0.0078,
-          "expectedCtr": 0.0464,
-          "lostClicks": 191.8
+          "impressions": 4604,
+          "position": 5.245655951346655,
+          "ctr": 0.0087,
+          "expectedCtr": 0.0531,
+          "lostClicks": 204.3
         },
         {
           "path": "/prezzi-benzina/oggi/",
-          "impressions": 1882,
-          "position": 8.10308182784272,
-          "ctr": 0.0058,
-          "expectedCtr": 0.0316,
-          "lostClicks": 48.4
-        },
-        {
-          "path": "/prezzi-benzina/lugano/oggi/",
-          "impressions": 328,
-          "position": 6.798780487804878,
-          "ctr": 0.003,
-          "expectedCtr": 0.0384,
-          "lostClicks": 11.6
+          "impressions": 1731,
+          "position": 7.914500288850376,
+          "ctr": 0.0046,
+          "expectedCtr": 0.0324,
+          "lostClicks": 48.1
         },
         {
           "path": "/en/gasoline-price-switzerland/italy/como/today/",
-          "impressions": 271,
-          "position": 6.206642066420664,
+          "impressions": 556,
+          "position": 6.386690647482014,
           "ctr": 0,
-          "expectedCtr": 0.0426,
-          "lostClicks": 11.5
+          "expectedCtr": 0.0413,
+          "lostClicks": 23
         },
         {
-          "path": "/prezzi-benzina/bellinzona/oggi/",
-          "impressions": 616,
-          "position": 8.806818181818182,
-          "ctr": 0.0146,
-          "expectedCtr": 0.0288,
-          "lostClicks": 8.7
+          "path": "/prezzi-benzina/lugano/oggi/",
+          "impressions": 379,
+          "position": 8.32981530343008,
+          "ctr": 0.0026,
+          "expectedCtr": 0.0307,
+          "lostClicks": 10.6
+        },
+        {
+          "path": "/prezzi-benzina/lugano/stazioni/coop-via-cantonale/",
+          "impressions": 226,
+          "position": 6.814159292035399,
+          "ctr": 0.0088,
+          "expectedCtr": 0.0383,
+          "lostClicks": 6.7
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "prezzi-diesel": {
       "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator",
-      "lastCtr": 0.008622092077436147,
-      "lastCtrAllQueries": 0.008620689655172414,
+      "lastCtr": 0.00944822373393802,
+      "lastCtrAllQueries": 0.009446438692612885,
       "lastExcludedSegments": {
         "operator": {
           "impressions": 1,
@@ -770,59 +744,59 @@
           ]
         }
       },
-      "lastPosition": 8.080527086383603,
-      "lastTargetCtr": 0.007127525622254758,
+      "lastPosition": 8.511148904006047,
+      "lastTargetCtr": 0.006739965986394558,
       "lastBelowCurvePages": [
         {
           "path": "/prezzi-diesel/oggi/",
-          "impressions": 3053,
-          "position": 7.138879790370128,
-          "ctr": 0.0049,
-          "expectedCtr": 0.0363,
-          "lostClicks": 95.8
+          "impressions": 2731,
+          "position": 7.781398755034786,
+          "ctr": 0.0059,
+          "expectedCtr": 0.0331,
+          "lostClicks": 74.4
         },
         {
           "path": "/prezzi-diesel/italia/livigno/oggi/",
-          "impressions": 826,
-          "position": 10.36319612590799,
-          "ctr": 0.0024,
-          "expectedCtr": 0.0239,
-          "lostClicks": 17.8
-        },
-        {
-          "path": "/prezzi-diesel/lugano/oggi/",
-          "impressions": 365,
-          "position": 6.887671232876713,
-          "ctr": 0.0082,
-          "expectedCtr": 0.0378,
-          "lostClicks": 10.8
-        },
-        {
-          "path": "/de/dieselpreis-schweiz/locarno/heute/",
-          "impressions": 167,
-          "position": 7.538922155688622,
+          "impressions": 615,
+          "position": 10.967479674796747,
           "ctr": 0,
-          "expectedCtr": 0.0343,
-          "lostClicks": 5.7
+          "expectedCtr": 0.0221,
+          "lostClicks": 13.6
         },
         {
           "path": "/prezzi-diesel/chiasso/oggi/",
-          "impressions": 173,
-          "position": 5.710982658959537,
-          "ctr": 0.0173,
-          "expectedCtr": 0.0475,
-          "lostClicks": 5.2
+          "impressions": 226,
+          "position": 5.548672566371682,
+          "ctr": 0.0088,
+          "expectedCtr": 0.0494,
+          "lostClicks": 9.2
+        },
+        {
+          "path": "/prezzi-diesel/lugano/oggi/",
+          "impressions": 289,
+          "position": 6.982698961937716,
+          "ctr": 0.0069,
+          "expectedCtr": 0.0371,
+          "lostClicks": 8.7
+        },
+        {
+          "path": "/de/dieselpreis-schweiz/locarno/heute/",
+          "impressions": 146,
+          "position": 7.527397260273973,
+          "ctr": 0,
+          "expectedCtr": 0.0344,
+          "lostClicks": 5
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "cerca-lavoro-berna": {
-      "consecutiveBelowRuns": 2,
+      "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator+promo",
-      "lastCtr": 0.028313973351554493,
-      "lastCtrAllQueries": 0.028311555213937998,
+      "lastCtr": 0.031286481438244224,
+      "lastCtrAllQueries": 0.031268230078170575,
       "lastExcludedSegments": {
         "operator": {
           "impressions": 3,
@@ -847,7 +821,7 @@
           ]
         },
         "promo": {
-          "impressions": 22,
+          "impressions": 21,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
@@ -862,66 +836,66 @@
               "clicks": 0
             },
             {
-              "query": "black deals",
-              "impressions": 1,
+              "query": "coop adelboden opening hours",
+              "impressions": 3,
               "clicks": 0
             }
           ]
         }
       },
-      "lastPosition": 9.990647420567134,
+      "lastPosition": 7.594793369133785,
       "lastTargetCtr": 0.03,
       "lastBelowCurvePages": [
         {
           "path": "/de/jobs-in-bern/lehrperson-an-einer-6-klasse-mit-insgesamt-ca-90-stellenprozenten-plus-kl-funktion-zyklus-40522/",
-          "impressions": 1353,
-          "position": 2.7657058388765705,
-          "ctr": 0.0059,
-          "expectedCtr": 0.1175,
-          "lostClicks": 151
+          "impressions": 780,
+          "position": 2.8397435897435894,
+          "ctr": 0.0051,
+          "expectedCtr": 0.1139,
+          "lostClicks": 84.8
         },
         {
-          "path": "/de/jobs-in-bern/schwimmlehrperson-fur-2-lektionen-4-klasse-zyklus-2-langgasse-grosses-langgasssschulhaus-40623/",
-          "impressions": 910,
-          "position": 2.643956043956044,
-          "ctr": 0.0055,
-          "expectedCtr": 0.1234,
-          "lostClicks": 107.3
+          "path": "/en/find-jobs-bern/class-teacher-6th-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40653/",
+          "impressions": 658,
+          "position": 2.5060790273556233,
+          "ctr": 0.003,
+          "expectedCtr": 0.1302,
+          "lostClicks": 83.7
         },
         {
-          "path": "/fr/trouver-emploi-berne/enseignant-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-buhl-bei-aarberg-40467/",
-          "impressions": 880,
-          "position": 2.8647727272727272,
-          "ctr": 0.008,
-          "expectedCtr": 0.1126,
-          "lostClicks": 92.1
+          "path": "/en/find-jobs-bern/substitute-school-special-education-teacher-cycle-1-12-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40774/",
+          "impressions": 483,
+          "position": 2.6356107660455486,
+          "ctr": 0.0021,
+          "expectedCtr": 0.1239,
+          "lostClicks": 58.8
         },
         {
-          "path": "/cerca-lavoro-berna/docente-di-livello-base-13-2-lezioni-dic-gen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern/",
-          "impressions": 776,
-          "position": 2.393041237113402,
-          "ctr": 0.0193,
-          "expectedCtr": 0.1357,
-          "lostClicks": 90.3
+          "path": "/en/find-jobs-bern/teacher-in-a-6th-grade-with-a-total-of-about-90-job-percentages-plus-kl-function-ksml-kantonaler-stellenmarkt-fur-40522/",
+          "impressions": 225,
+          "position": 2.822222222222222,
+          "ctr": 0,
+          "expectedCtr": 0.1147,
+          "lostClicks": 25.8
         },
         {
-          "path": "/en/find-jobs-bern/teacher-if-bvsa-int-cycle-3-30-to-80-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40643/",
-          "impressions": 579,
-          "position": 2.5872193436960274,
-          "ctr": 0.0052,
-          "expectedCtr": 0.1262,
-          "lostClicks": 70.1
+          "path": "/de/jobs-in-bern/if-lehrperson-20-lektionen-zyklus-3-osz-orpund-orpund-40628/",
+          "impressions": 400,
+          "position": 4.1475,
+          "ctr": 0.01,
+          "expectedCtr": 0.0696,
+          "lostClicks": 23.9
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "eventi": {
       "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator",
-      "lastCtr": 0.017868263473053893,
-      "lastCtrAllQueries": 0.017868263473053893,
+      "lastCtr": 0.01540539763745581,
+      "lastCtrAllQueries": 0.015403626749432422,
       "lastExcludedSegments": {
         "operator": {
           "impressions": 5,
@@ -930,27 +904,32 @@
           "topQueries": [
             {
               "query": "glattalbahn verlängerung site:ch",
-              "impressions": 4,
+              "impressions": 1,
               "clicks": 0
             },
             {
-              "query": "\"thespiritofswitzerland.ch\" and (filetype:xls or filetype:xlsx or filetype:doc or filetype:docx or filetype:csv or filetype:txt or filetype:ppt or filetype:pptx or filetype:pdf)",
+              "query": "site:facebook.com \"alceu\" \"chat.whatsapp.com\"",
+              "impressions": 1,
+              "clicks": 0
+            },
+            {
+              "query": "site:instagram.com \"alceu\" \"chat.whatsapp.com\"",
               "impressions": 1,
               "clicks": 0
             }
           ]
         }
       },
-      "lastPosition": 8.10682634730539,
+      "lastPosition": 8.657028712672089,
       "lastTargetCtr": 0.0125,
       "lastBelowCurvePages": [
         {
           "path": "/eventi/ticino/mendrisio/fiera-di-san-martino-2026-11-11/",
-          "impressions": 11703,
-          "position": 5.715713919507818,
-          "ctr": 0.015,
-          "expectedCtr": 0.0474,
-          "lostClicks": 378.9
+          "impressions": 9146,
+          "position": 6.48906625847365,
+          "ctr": 0.0176,
+          "expectedCtr": 0.0406,
+          "lostClicks": 210.1
         },
         {
           "path": "/de/veranstaltungen/obwalden/sarnen/jodlerkonzert-2026-2026-11-14/",
@@ -961,241 +940,231 @@
           "lostClicks": 72.7
         },
         {
-          "path": "/de/veranstaltungen/obwalden/sarnen/sarner-weihnachtsmarkt-2026-11-25/",
-          "impressions": 667,
-          "position": 5.361319340329835,
-          "ctr": 0.009,
-          "expectedCtr": 0.0517,
-          "lostClicks": 28.5
-        },
-        {
-          "path": "/en/events/zurich/dubendorf/zdravko-colic-2026-11-14/",
-          "impressions": 612,
-          "position": 8.151960784313726,
-          "ctr": 0.0033,
-          "expectedCtr": 0.0314,
-          "lostClicks": 17.2
-        },
-        {
-          "path": "/de/veranstaltungen/zurich/zurich/nico-santos-2026-11-11/",
-          "impressions": 765,
-          "position": 10.901960784313726,
+          "path": "/en/events/obwalden/sarnen/sarner-weihnachtsmarkt-2026-11-25/",
+          "impressions": 239,
+          "position": 1.2510460251046025,
           "ctr": 0,
-          "expectedCtr": 0.0223,
-          "lostClicks": 17.1
+          "expectedCtr": 0.2756,
+          "lostClicks": 65.9
+        },
+        {
+          "path": "/de/veranstaltungen/obwalden/sarnen/sarner-weihnachtsmarkt-2026-11-25/",
+          "impressions": 986,
+          "position": 6.040567951318458,
+          "ctr": 0.003,
+          "expectedCtr": 0.0437,
+          "lostClicks": 40.1
+        },
+        {
+          "path": "/de/veranstaltungen/appenzell/weitere-veranstaltungen/fiera-a26-2026-11-13/",
+          "impressions": 702,
+          "position": 5.202279202279202,
+          "ctr": 0.0043,
+          "expectedCtr": 0.0536,
+          "lostClicks": 34.6
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "cerca-lavoro-ginevra": {
       "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator+promo",
-      "lastCtr": 0.05146496815286624,
-      "lastCtrAllQueries": 0.05147557666214383,
+      "lastCtr": 0.053828125,
+      "lastCtrAllQueries": 0.05385996409335727,
       "lastExcludedSegments": {
         "operator": {
-          "impressions": 5,
+          "impressions": 2,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
-              "query": "\"jsafrasarasin.com\" -site:jsafrasarasin.com -site:xybertrust.com -site:facebook.com -site:instagram.com -site:threads.com -site:threads.net -site:linkedin.com -site:x.com -site:twitter.com -site:tiktok.com -site:youtube.com -site:youtu.be -site:reddit.com -site:t.me -site:telegram.me -site:telegram.org -site:pinterest.com -site:vimeo.com",
-              "impressions": 2,
-              "clicks": 0
-            },
-            {
-              "query": "intitle:\"h-20\" -site:notindianairforce.nic.in -site:facebook.com -site:instagram.com -site:threads.com -site:threads.net -site:linkedin.com -site:x.com -site:twitter.com -site:tiktok.com -site:youtube.com -site:youtu.be -site:reddit.com -site:t.me -site:telegram.me -site:telegram.org -site:pinterest.com -site:vimeo.com",
-              "impressions": 2,
-              "clicks": 0
-            },
-            {
               "query": "\"mio-installatore.ch\" -site:mio-installatore.ch -site:se.com -site:facebook.com -site:instagram.com -site:threads.com -site:threads.net -site:linkedin.com -site:x.com -site:twitter.com -site:tiktok.com -site:youtube.com -site:youtu.be -site:reddit.com -site:t.me -site:telegram.me -site:telegram.org -site:pinterest.com -site:vimeo.com",
+              "impressions": 1,
+              "clicks": 0
+            },
+            {
+              "query": "filetype:pdf resume \"fresher\" \"product manager\" \"@protonmail.com\"",
               "impressions": 1,
               "clicks": 0
             }
           ]
         },
         "promo": {
-          "impressions": 19,
+          "impressions": 12,
           "clicks": 1,
-          "ctr": 0.0526,
+          "ctr": 0.0833,
           "topQueries": [
-            {
-              "query": "offre sport",
-              "impressions": 6,
-              "clicks": 0
-            },
             {
               "query": "offre demploi geneve",
               "impressions": 5,
               "clicks": 1
             },
             {
+              "query": "offre rituals",
+              "impressions": 2,
+              "clicks": 0
+            },
+            {
               "query": "evaluate the retail & wholesale trade company denner on online exclusive offers",
-              "impressions": 3,
+              "impressions": 1,
               "clicks": 0
             }
           ]
         }
       },
-      "lastPosition": 9.603736730360934,
+      "lastPosition": 10.021171875,
       "lastTargetCtr": 0.03,
       "lastBelowCurvePages": [
         {
-          "path": "/en/find-jobs-geneva/adviser-sales-time-interdiscount-geneve/",
-          "impressions": 343,
-          "position": 8.084548104956268,
-          "ctr": 0,
-          "expectedCtr": 0.0317,
-          "lostClicks": 10.9
+          "path": "/fr/trouver-emploi-geneve/manor-collaborateur-trice-logistique-80-geneve-1-collaborateurtrice-logistique/",
+          "impressions": 130,
+          "position": 3.6923076923076925,
+          "ctr": 0.0154,
+          "expectedCtr": 0.0825,
+          "lostClicks": 8.7
         },
         {
           "path": "/cerca-lavoro-ginevra/collaboratore-del-supermercato-boulangerie-50-manor-ag-geneve/",
-          "impressions": 82,
-          "position": 2.8658536585365857,
-          "ctr": 0.0122,
-          "expectedCtr": 0.1126,
-          "lostClicks": 8.2
-        },
-        {
-          "path": "/cerca-lavoro-ginevra/collaboratore-di-supermercato-frequent-products-50-manor-ag-geneve/",
-          "impressions": 42,
-          "position": 2.142857142857143,
-          "ctr": 0.0238,
-          "expectedCtr": 0.148,
-          "lostClicks": 5.2
-        },
-        {
-          "path": "/fr/trouver-emploi-geneve/entreprise-rituals-cosmetics-switzerland/",
-          "impressions": 135,
-          "position": 8.481481481481481,
-          "ctr": 0.0074,
-          "expectedCtr": 0.0301,
-          "lostClicks": 3.1
-        },
-        {
-          "path": "/fr/trouver-emploi-geneve/modeliste-h-f-rolex-ch/",
-          "impressions": 111,
-          "position": 9.54954954954955,
+          "impressions": 67,
+          "position": 3,
           "ctr": 0,
-          "expectedCtr": 0.0264,
-          "lostClicks": 2.9
+          "expectedCtr": 0.106,
+          "lostClicks": 7.1
+        },
+        {
+          "path": "/fr/trouver-emploi-geneve/apprentissage-de-logisticienne-logisticien-cfc-distribution-mixte-geneve-la-poste-suisse-carouge-ge/",
+          "impressions": 114,
+          "position": 6.350877192982456,
+          "ctr": 0,
+          "expectedCtr": 0.0415,
+          "lostClicks": 4.7
+        },
+        {
+          "path": "/cerca-lavoro-ginevra/collaboratore-o-collaboratore-scientifico-100-hug-geneve/",
+          "impressions": 66,
+          "position": 4.96969696969697,
+          "ctr": 0,
+          "expectedCtr": 0.0565,
+          "lostClicks": 3.7
+        },
+        {
+          "path": "/cerca-lavoro-ginevra/stage-decouverte-apprentissage-rolex-geneve/",
+          "impressions": 28,
+          "position": 3,
+          "ctr": 0,
+          "expectedCtr": 0.106,
+          "lostClicks": 3
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "cerca-lavoro-vaud": {
       "consecutiveBelowRuns": 0,
       "measureVersion": "query-segmented-7cbc90b9e069:operator+promo",
-      "lastCtr": 0.041003787878787876,
-      "lastCtrAllQueries": 0.04084705882352941,
+      "lastCtr": 0.04199761715647339,
+      "lastCtrAllQueries": 0.041976778803215244,
       "lastExcludedSegments": {
         "operator": {
-          "impressions": 4,
+          "impressions": 1,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
-              "query": "(\"equans\") after:2026-10-28 before:2026-11-01",
-              "impressions": 2,
-              "clicks": 0
-            },
-            {
               "query": "dentidenaro.ch site:docs.google.com",
-              "impressions": 2,
+              "impressions": 1,
               "clicks": 0
             }
           ]
         },
         "promo": {
-          "impressions": 74,
-          "clicks": 1,
-          "ctr": 0.0135,
+          "impressions": 15,
+          "clicks": 0,
+          "ctr": 0,
           "topQueries": [
             {
-              "query": "ouverture kiabi aigle",
-              "impressions": 61,
-              "clicks": 1
+              "query": "evaluate the retail & wholesale trade company denner on online exclusive offers",
+              "impressions": 6,
+              "clicks": 0
             },
             {
-              "query": "evaluate the retail & wholesale trade company denner on online exclusive offers",
-              "impressions": 5,
+              "query": "ouverture kiabi aigle",
+              "impressions": 3,
               "clicks": 0
             },
             {
               "query": "kiabi aigle ouverture",
-              "impressions": 2,
+              "impressions": 1,
               "clicks": 0
             }
           ]
         }
       },
-      "lastPosition": 9.593276515151516,
+      "lastPosition": 9.49751787132645,
       "lastTargetCtr": 0.03,
       "lastBelowCurvePages": [
         {
-          "path": "/fr/trouver-emploi-vaud/specialiste-en-gestion-des-identites-et-des-acces-iam-etat-de-vaud-renens-vd/",
-          "impressions": 286,
-          "position": 6.958041958041958,
-          "ctr": 0,
-          "expectedCtr": 0.0373,
-          "lostClicks": 10.7
-        },
-        {
-          "path": "/en/find-jobs-vaud/automotive-mechatronics-commercial-vehicles-also-car-3rd-tl-transports-publics-de-la-region-lausannoise-lausanne/",
-          "impressions": 124,
-          "position": 6.959677419354839,
-          "ctr": 0,
-          "expectedCtr": 0.0373,
-          "lostClicks": 4.6
-        },
-        {
-          "path": "/en/find-jobs-vaud/laboratory-technician-nestle-ch/",
-          "impressions": 39,
-          "position": 2.3076923076923075,
-          "ctr": 0.0256,
-          "expectedCtr": 0.1399,
-          "lostClicks": 4.5
-        },
-        {
           "path": "/cerca-lavoro-vaud/imparare-automatico-swc-vaud-la-poste-suisse-eclepens/",
-          "impressions": 77,
-          "position": 4.194805194805195,
-          "ctr": 0.013,
-          "expectedCtr": 0.0689,
-          "lostClicks": 4.3
+          "impressions": 68,
+          "position": 4.117647058823529,
+          "ctr": 0,
+          "expectedCtr": 0.0701,
+          "lostClicks": 4.8
         },
         {
           "path": "/cerca-lavoro-vaud/servizio-clienti-collaboratore-60-manor-ag-lausanne/",
-          "impressions": 24,
-          "position": 2,
+          "impressions": 33,
+          "position": 2.2727272727272725,
           "ctr": 0,
-          "expectedCtr": 0.155,
-          "lostClicks": 3.7
+          "expectedCtr": 0.1416,
+          "lostClicks": 4.7
+        },
+        {
+          "path": "/fr/trouver-emploi-vaud/apprentissage-d-agente-agent-d-exploitation-cfc-vaud-la-poste-suisse-vevey/",
+          "impressions": 87,
+          "position": 4.080459770114942,
+          "ctr": 0.023,
+          "expectedCtr": 0.0707,
+          "lostClicks": 4.2
+        },
+        {
+          "path": "/en/find-jobs-vaud/apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne/",
+          "impressions": 87,
+          "position": 5.919540229885057,
+          "ctr": 0,
+          "expectedCtr": 0.045,
+          "lostClicks": 3.9
+        },
+        {
+          "path": "/en/find-jobs-vaud/logistician-apprenticeship-tl-transports-publics-de-la-region-lausannoise-lausanne/",
+          "impressions": 78,
+          "position": 5.910256410256411,
+          "ctr": 0,
+          "expectedCtr": 0.0451,
+          "lostClicks": 3.5
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     },
     "aziende": {
-      "consecutiveBelowRuns": 1,
+      "consecutiveBelowRuns": 2,
       "measureVersion": "query-segmented-7cbc90b9e069:operator",
-      "lastCtr": 0.025553951948382714,
-      "lastCtrAllQueries": 0.02553877481758018,
+      "lastCtr": 0.021919574502377307,
+      "lastCtrAllQueries": 0.021900161030595812,
       "lastExcludedSegments": {
         "operator": {
-          "impressions": 7,
+          "impressions": 12,
           "clicks": 0,
           "ctr": 0,
           "topQueries": [
             {
               "query": "site:frontaliereticino.ch",
-              "impressions": 5,
+              "impressions": 10,
               "clicks": 0
             },
             {
@@ -1206,52 +1175,52 @@
           ]
         }
       },
-      "lastPosition": 13.688513456150776,
+      "lastPosition": 12.583608671125797,
       "lastTargetCtr": 0.03,
       "lastBelowCurvePages": [
         {
           "path": "/aziende/eoc-ente-ospedaliero-cantonale/",
-          "impressions": 692,
-          "position": 9.472543352601155,
-          "ctr": 0,
-          "expectedCtr": 0.0266,
-          "lostClicks": 18.4
+          "impressions": 840,
+          "position": 9.64047619047619,
+          "ctr": 0.0012,
+          "expectedCtr": 0.0261,
+          "lostClicks": 20.9
         },
         {
           "path": "/aziende/amministrazione-cantonale-ticino/",
-          "impressions": 650,
-          "position": 7.913846153846154,
-          "ctr": 0.0108,
-          "expectedCtr": 0.0324,
-          "lostClicks": 14.1
+          "impressions": 460,
+          "position": 10.263043478260869,
+          "ctr": 0.0043,
+          "expectedCtr": 0.0242,
+          "lostClicks": 9.1
+        },
+        {
+          "path": "/aziende/il-team-sa/",
+          "impressions": 262,
+          "position": 7.648854961832061,
+          "ctr": 0.0076,
+          "expectedCtr": 0.0338,
+          "lostClicks": 6.8
         },
         {
           "path": "/de/aziende/universitare-psychiatrische-dienste-bern-upd/",
-          "impressions": 229,
-          "position": 9.445414847161572,
+          "impressions": 198,
+          "position": 9.38888888888889,
           "ctr": 0,
-          "expectedCtr": 0.0267,
-          "lostClicks": 6.1
+          "expectedCtr": 0.0268,
+          "lostClicks": 5.3
         },
         {
-          "path": "/aziende/ferrovia-retica-rhb/",
-          "impressions": 131,
-          "position": 6.068702290076335,
-          "ctr": 0.0153,
-          "expectedCtr": 0.0435,
-          "lostClicks": 3.7
-        },
-        {
-          "path": "/aziende/equans-switzerland/",
+          "path": "/en/aziende/j-safra-sarasin/",
           "impressions": 122,
-          "position": 8.803278688524589,
+          "position": 8.48360655737705,
           "ctr": 0,
-          "expectedCtr": 0.0288,
-          "lostClicks": 3.5
+          "expectedCtr": 0.0301,
+          "lostClicks": 3.7
         }
       ],
-      "lastCheckedIso": "2026-11-15T20:57:34.449Z",
-      "lastCountedIso": "2026-11-15T20:57:34.449Z",
+      "lastCheckedIso": "2026-11-22T21:40:34.934Z",
+      "lastCountedIso": "2026-11-22T21:40:34.934Z",
       "lastError": null
     }
   },

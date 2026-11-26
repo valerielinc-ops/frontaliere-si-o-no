@@ -1,7 +1,7 @@
 {
   "crawlerKey": "locarno-film-festival",
-  "assembledAt": "2026-11-19T21:57:02.864Z",
-  "runId": "44619172488",
+  "assembledAt": "2026-11-22T21:35:08.931Z",
+  "runId": "45072213951",
   "jobs": [
     {
       "id": "locarno-film-festival-60e37bf7da16",
@@ -34,7 +34,7 @@
       "url": "https://www.locarnofestival.ch/it/dam/jcr:7f0ffc2a-4fcb-4c1d-ae58-af1f09b3acc0/lff80%20%20-%20%20adf%20project%20manager.pdf",
       "source": "Locarno Film Festival Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-19T21:56:55.948Z",
+      "crawledAt": "2026-11-22T21:35:01.441Z",
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -69,9 +69,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:56:55.948Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.locarnofestival.ch/it/dam/jcr:7f0ffc2a-4fcb-4c1d-ae58-af1f09b3acc0/lff80%20%20-%20%20adf%20project%20manager.pdf"
+      "validThrough": "2027-02-09T21:35:01.441Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

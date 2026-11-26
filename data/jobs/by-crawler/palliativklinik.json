@@ -1,7 +1,7 @@
 {
   "crawlerKey": "palliativklinik",
-  "assembledAt": "2026-11-20T21:22:13.983Z",
-  "runId": "44817680131",
+  "assembledAt": "2026-11-25T21:22:32.402Z",
+  "runId": "45701316696",
   "jobs": [
     {
       "id": "palliativklinik-377ce6673bae",
@@ -34,7 +34,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_Medizinstudenten_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:05.159Z",
+      "crawledAt": "2026-11-25T21:22:25.144Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -94,9 +94,8 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:22:05.159Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/pkip_medizinstudenten_dez25.pdf"
+      "validThrough": "2026-12-25T21:22:25.144Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "palliativklinik-929d0b56fc50",
@@ -130,7 +129,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflege_FAGE-fach_Nov25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:04.157Z",
+      "crawledAt": "2026-11-25T21:22:24.081Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -190,9 +189,8 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:22:04.157Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/pkip_pflege_fage-fach_nov25.pdf"
+      "validThrough": "2026-12-25T21:22:24.081Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "palliativklinik-b8a1d9e678cf",
@@ -226,7 +224,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflegefach_Nov25-1.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:03.146Z",
+      "crawledAt": "2026-11-25T21:22:23.004Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -280,9 +278,8 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:22:03.146Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/pkip_pflegefach_nov25-1.pdf"
+      "validThrough": "2026-12-25T21:22:23.004Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "palliativklinik-a1a4ff133072",
@@ -316,7 +313,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2026/04/PKiP_Spitalarzt_April-26.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:02.103Z",
+      "crawledAt": "2026-11-25T21:22:21.921Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -376,9 +373,8 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:22:02.103Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://palliativklinik.ch/wordpress/wp-content/uploads/2026/04/pkip_spitalarzt_april-26.pdf"
+      "validThrough": "2026-12-25T21:22:21.921Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "palliativklinik-b10d570313ba",
@@ -411,7 +407,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_AerztIn_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:01.045Z",
+      "crawledAt": "2026-11-25T21:22:20.823Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -471,9 +467,8 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:22:01.045Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/pkip_aerztin_dez25.pdf"
+      "validThrough": "2026-12-25T21:22:20.823Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
