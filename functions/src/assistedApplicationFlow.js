@@ -905,12 +905,12 @@ export function canOwnerHandoffToCandidate(flow, reason = '') {
 /**
  * @param {object|null} flow current flow (order.automation)
  * @param {{type:string, feedback?:string, questions?:Array, error?:string}} event
- * @param {{order?:object, draft?:object, answers?:object, documents?:object, postalPacketReady?:boolean, sendMayHaveLeft?:boolean, nowMs?:number}} context
+ * @param {{order?:object, draft?:object, answers?:object, documents?:object, postalPacketReady?:boolean, sendMayHaveLeft?:boolean, ambiguousSendOpen?:boolean, nowMs?:number}} context
  *   `sendMayHaveLeft`: the caller read a send on record, or a final click nothing proved failed
  *   (assistedApplicationEmployerWithdrawal.js sendMayHaveLeft): the employer's withdrawal then closes nothing.
  * @returns {{flow:object, effects:Array<object>, ignored?:string}}
  */
-export function transition(flow, event, { order = {}, draft = null, answers = {}, documents = {}, postalPacketReady = true, sendMayHaveLeft = false, nowMs = Date.now() } = {}) {
+export function transition(flow, event, { order = {}, draft = null, answers = {}, documents = {}, postalPacketReady = true, sendMayHaveLeft = false, ambiguousSendOpen = false, nowMs = Date.now() } = {}) {
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
@@ -1248,7 +1248,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // in the owner's review, and «retry» sent its draft to the portal, never seen by the candidate.
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
       // A send of unknown outcome is never sent again on a guess: only the owner's explicit «it did not leave».
-      if ((sendMayHaveLeft || sendOutcomeUnconfirmed(current)) && event.confirmedNotSent !== true) return ignore('send_outcome_unconfirmed');
+      if ((sendMayHaveLeft || ambiguousSendOpen || sendOutcomeUnconfirmed(current)) && event.confirmedNotSent !== true) return ignore('send_outcome_unconfirmed');
       next.ambiguousSubmit = null;
       next.portalAutoRetryAt = null;
       effects = enterSubmitting(next, 'owner_retry');
@@ -1263,7 +1263,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
       // Only the final-review recovery proved from evidence that its click did not leave; nothing else retries
       // by itself while the outcome of a send is unconfirmed.
-      if ((sendMayHaveLeft || sendOutcomeUnconfirmed(current)) && !portalFinalReviewAmbiguousRecoveryPending(current)) return ignore('send_outcome_unconfirmed');
+      if ((sendMayHaveLeft || ambiguousSendOpen || sendOutcomeUnconfirmed(current)) && !portalFinalReviewAmbiguousRecoveryPending(current)) return ignore('send_outcome_unconfirmed');
       const infrastructure = isInfrastructureRetryHold(current);
       const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
       if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length

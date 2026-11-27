@@ -29,6 +29,7 @@ import { platformAnswerProvenance, withOperationalQuestionAnswers } from './assi
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { sendOutcomeUnconfirmedFor } from './lib/applicationExistsReconciliation.js';
+import { readAmbiguousSendOpen } from './assistedApplicationAmbiguousSend.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
   AUTOMATION_SUBCOLLECTION,
@@ -229,7 +230,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       // that approval as `submittedVia: postal` because it never dispatches the electronic submit runner.
       roundSent: roundWasSent(flow) || flow.submittedVia === 'postal',
       // A send of unknown outcome: the retry needs the owner's explicit «it was NOT sent» (automationRetrySubmit.confirmedNotSent).
-      sendOutcomeUnconfirmed: sendOutcomeUnconfirmedFor({ flow, draft, submission: submissionSnapshot.data() || {} }),
+      sendOutcomeUnconfirmed: sendOutcomeUnconfirmedFor({ flow, draft, submission: submissionSnapshot.data() || {}, ambiguousSendOpen: await readAmbiguousSendOpen(db, orderId, flow.round) }),
       history: (flow.history || []).slice(-12),
     } : null,
     draft: draft ? {

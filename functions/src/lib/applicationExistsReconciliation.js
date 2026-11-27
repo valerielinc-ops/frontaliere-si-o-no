@@ -122,8 +122,8 @@ export function sendOutcomeUnconfirmed(flow) {
  * (assistedApplicationEmployerWithdrawal.js sendMayHaveLeft). Whatever it says, the panel asks for the owner's
  * «not sent» and the backend refuses a retry without it.
  */
-export function sendOutcomeUnconfirmedFor({ flow, draft = null, submission = {} } = {}) {
-  return sendOutcomeUnconfirmed(flow) || sendMayHaveLeft({ draft, submission });
+export function sendOutcomeUnconfirmedFor({ flow, draft = null, submission = {}, ambiguousSendOpen: ambiguousOpen = false } = {}) {
+  return ambiguousOpen === true || sendOutcomeUnconfirmed(flow) || sendMayHaveLeft({ draft, submission });
 }
 
 /** A click on the round's record: the live one, or the one a later claim overwrote (`priorClickedAt`). */
@@ -161,4 +161,46 @@ export function decideApplicationExistsReconciliation({
   };
   const reconcile = Object.values(criteria).every((value) => value === true);
   return { decision: reconcile ? 'reconcile' : 'unknown', criteria };
+}
+
+const AMBIGUOUS_SEND_ERROR_RE = /_ambiguous$/u;
+
+/** Milliseconds of a stored time (number, Date or Firestore Timestamp); null when it cannot be read. */
+function millisOf(value) {
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (value instanceof Date) return value.getTime();
+  if (value && typeof value.toMillis === 'function') {
+    const ms = value.toMillis();
+    return Number.isFinite(ms) ? ms : null;
+  }
+  return null;
+}
+
+/** The audit records that prove, for the events before them, that nothing was sent (never a bare release). */
+export const NOT_SENT_PROOF_EVENT_TYPES = Object.freeze(['portal_final_review_ambiguous_reconciled', 'owner_retry_submit']);
+
+/**
+ * A runner event of THIS round ended in an ambiguous send (portal/e-mail may have left), and nothing recorded
+ * after it proves otherwise. Later claims overwrite the submission record, so the event is the durable evidence.
+ * A proof is only an audit record written for it: the evidence-based final-review reconciliation, or the
+ * owner's explicit «not sent» on a retry (`confirmedNotSent`). A `confirmedNotSent` on the record, written by
+ * the release of a later attempt, is no proof: that attempt only says it did not click itself.
+ *
+ * @param {{round:number, runnerEvents?:Array<{error?:string, round?:number, createdAt?:*}>,
+ *   proofs?:Array<{eventType?:string, round?:number, confirmedNotSent?:boolean, createdAt?:*}>}} input
+ */
+export function ambiguousSendOpen({ round, runnerEvents = [], proofs = [] } = {}) {
+  const wanted = Number(round) || 1;
+  const ambiguous = runnerEvents.filter((event) => Number(event?.round) === wanted
+    && (AMBIGUOUS_SEND_ERROR_RE.test(String(event?.error || '')) || event?.error === 'submission_receipt_invalid'));
+  if (!ambiguous.length) return false;
+  const proofTimes = proofs
+    .filter((proof) => Number(proof?.round) === wanted && NOT_SENT_PROOF_EVENT_TYPES.includes(proof?.eventType)
+      && (proof.eventType !== 'owner_retry_submit' || proof.confirmedNotSent === true))
+    .map((proof) => millisOf(proof.createdAt))
+    .filter((time) => time !== null);
+  return ambiguous.some((event) => {
+    const at = millisOf(event.createdAt) ?? 0;
+    return !proofTimes.some((time) => time >= at);
+  });
 }
