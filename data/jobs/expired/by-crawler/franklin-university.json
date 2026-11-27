@@ -60,6 +60,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.fus.edu/about-franklin/job-opportunities",
-    "firstSeenAt": "2026-07-08T11:31:39.336Z"
+    "firstSeenAt": "2026-07-08T11:31:39.336Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "director-of-marketing-and-communications-sorengo-franklin-university": "TI",
+        "senior-advisor-for-academic-strategy-and-accreditation-temporary-assignment-sorengo": "TI",
+        "direttore-of-marketing-and-communications-franklin-university-switzerland-sorengo": "TI",
+        "vice-president-of-enrollment-management-sorengo-franklin-university": "TI"
+      },
+      "en": {
+        "director-of-marketing-and-communications-sorengo-franklin-university": "TI",
+        "vice-president-of-enrollment-management-sorengo-franklin-university": "TI"
+      },
+      "de": {
+        "director-of-marketing-and-communications-sorengo-franklin-university": "TI",
+        "direktor-of-marketing-and-communications-franklin-university-switzerland-sorengo": "TI"
+      },
+      "fr": {
+        "director-of-marketing-and-communications-sorengo-franklin-university": "TI",
+        "directeur-of-marketing-and-communications-franklin-university-switzerland-sorengo": "TI"
+      }
+    }
   }
 ]

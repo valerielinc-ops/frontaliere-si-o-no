@@ -1238,7 +1238,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/en/jobs/detail/13420dc8-eaae-458c-95a4-32b0f2bc6f5f?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3ajobup%7ctg%3ab2c%7ccn%3ach%7clg%3a%7cmg%3ajob-application%2cnonbrand%2cjob%7ccd%3akombi",
-    "firstSeenAt": "2026-10-16T21:21:23.008Z"
+    "firstSeenAt": "2026-10-16T21:21:23.008Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "travailleur-social-pour-les-suivis-socio-educatifs-a-domicile-60-a-80-fondation-domus-ch": "VS"
+      },
+      "en": {
+        "travailleur-social-pour-les-suivis-socio-educatifs-a-domicile-60-a-80-fondation-domus-ch": "VS"
+      },
+      "de": {
+        "travailleur-social-pour-les-suivis-socio-educatifs-a-domicile-60-a-80-fondation-domus-ch": "VS"
+      }
+    }
   },
   {
     "slug": "lavoratore-sociale-per-il-follow-up-socio-educativo-a-casa-60-80-fondation-domus-ardon-ea0b7d02",
@@ -2280,7 +2292,19 @@
         "firstSeenAt": "2026-10-07T21:33:29.618Z",
         "title": "Assistant socio-éducatif (75%)"
       }
-    ]
+    ],
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-socio-educatif-75-fondation-domus-ch": "VS"
+      },
+      "en": {
+        "assistant-socio-educatif-75-fondation-domus-ch": "VS"
+      },
+      "de": {
+        "assistant-socio-educatif-75-fondation-domus-ch": "VS"
+      }
+    }
   },
   {
     "slug": "infermiera-in-psichiatria-60-a-80-fondation-domus-ardon",

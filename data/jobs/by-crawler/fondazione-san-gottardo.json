@@ -96,7 +96,8 @@
       "streetAddress": "Lopagno",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:17:48.754Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.fsangottardo.ch/lavoro"
     }
   ]
 }
