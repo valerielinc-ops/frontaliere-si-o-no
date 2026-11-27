@@ -59,7 +59,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2896/pub/1/index.html",
-    "firstSeenAt": "2026-10-29T21:50:17.256Z"
+    "firstSeenAt": "2026-10-29T21:50:17.256Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-arbeitslosenentschadigung-kanton-gr-ch": "GR",
+        "indennita-di-disoccupazione-specialistica-kantonale-verwaltung-graubunden-chur": "GR",
+        "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "specialist-unemployment-compensation-kantonale-verwaltung-graubunden-chur": "GR",
+        "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "de": {
+        "fachspezialist-in-arbeitslosenentschadigung-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "assurance-chomage-specialisee-kantonale-verwaltung-graubunden-chur": "GR",
+        "fachspezialist-in-arbeitslosenentschadigung-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "id": "kanton-gr-46655fd86203",
@@ -113,7 +132,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2901/pub/1/index.html",
-    "firstSeenAt": "2026-11-06T21:17:48.491Z"
+    "firstSeenAt": "2026-11-06T21:17:48.491Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "koch-kochin-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "koch-kochin-kanton-gr-ch": "GR"
+      },
+      "de": {
+        "koch-kochin-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "koch-kochin-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "id": "kanton-gr-172c74c9755a",
@@ -240,7 +274,30 @@
         "firstSeenAt": "2026-08-07T01:12:32.623Z",
         "title": "Lehrstelle als Fachmann/-frau Betriebsunterhalt EFZ (Werkdienst)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-kanton-gr-ch-3": "GR",
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-kanton-gr-ch": "GR",
+        "apprendista-specializzato-in-manutenzione-veicoli-efz-servizio-tecnico-scuol-kantonale-verwaltung-graubunden-scuol": "GR",
+        "apprentice-for-vehicle-maintenance-efz-workshop-service-scuol-kantonale-verwaltung-graubunden-scuol": "GR",
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kantonale-verwaltung-graubunden-scuol": "GR",
+        "apprenti-specialise-en-maintenance-de-vehicules-efz-service-technique-scuol-kantonale-verwaltung-graubunden-scuol": "GR",
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "apprentice-for-vehicle-maintenance-efz-workshop-service-scuol-kantonale-verwaltung-graubunden-scuol": "GR",
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-kantonale-verwaltung-graubunden-scuol": "GR"
+      },
+      "de": {
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kantonale-verwaltung-graubunden-scuol": "GR"
+      },
+      "fr": {
+        "apprenti-specialise-en-maintenance-de-vehicules-efz-service-technique-scuol-kantonale-verwaltung-graubunden-scuol": "GR",
+        "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-kantonale-verwaltung-graubunden-scuol": "GR"
+      }
+    }
   },
   {
     "id": "kanton-gr-166dd468a7c5",
@@ -295,7 +352,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2889/pub/1/index.html",
-    "firstSeenAt": "2026-10-22T09:11:01.861Z"
+    "firstSeenAt": "2026-10-22T09:11:01.861Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "personalberater-in-kanton-gr-ch": "GR",
+        "personalberater-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "personalberater-in-kantonale-verwaltung-graubunden-chur": "GR",
+        "personnel-advisor-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "personalberater-in-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "id": "kanton-gr-1b60cc7d103b",
@@ -355,7 +426,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2897/pub/1/index.html",
-    "firstSeenAt": "2026-10-29T21:50:17.916Z"
+    "firstSeenAt": "2026-10-29T21:50:17.916Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-bauprojekt-management-kanton-gr-ch": "GR",
+        "responsabile-di-progetto-gestione-progetti-edili-kantonale-verwaltung-graubunden-chur": "GR",
+        "projektleiter-in-bauprojekt-management-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "projektleiter-in-bauprojekt-management-kanton-gr-ch": "GR"
+      },
+      "de": {
+        "projektleiter-in-bauprojekt-management-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "chef-cheffe-de-projet-gestion-de-projets-de-construction-kantonale-verwaltung-graubunden-chur": "GR",
+        "projektleiter-in-bauprojekt-management-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "id": "kanton-gr-46b8777d8d7b",
@@ -386,17 +475,36 @@
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-11-22T09:15:10.266Z",
     "previousSlugs": [
-      "wildhuter-in-kanton-gr-ch"
+      "wildhuter-in-kanton-gr-ch",
+      "guardacaccia-kantonale-verwaltung-graubunden-chur-c77ea7",
+      "wildhuter-in-kanton-gr-ch-58f15d25",
+      "wildhuter-in-kanton-gr-ch-2",
+      "wildlife-ranger-kantonale-verwaltung-graubunden-chur-c77ea7",
+      "wildhuter-in-kanton-gr-ch-1dyq6y",
+      "garde-faune-kantonale-verwaltung-graubunden-chur-c77ea7"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "wildhuter-in-kanton-gr-ch"
+        "wildhuter-in-kanton-gr-ch",
+        "guardacaccia-kantonale-verwaltung-graubunden-chur-c77ea7",
+        "wildhuter-in-kanton-gr-ch-58f15d25",
+        "wildhuter-in-kanton-gr-ch-2"
       ],
       "en": [
-        "wildhuter-in-kanton-gr-ch"
+        "wildhuter-in-kanton-gr-ch",
+        "wildlife-ranger-kantonale-verwaltung-graubunden-chur-c77ea7",
+        "wildhuter-in-kanton-gr-ch-2",
+        "wildhuter-in-kanton-gr-ch-58f15d25"
       ],
       "fr": [
-        "wildhuter-in-kanton-gr-ch"
+        "wildhuter-in-kanton-gr-ch",
+        "garde-faune-kantonale-verwaltung-graubunden-chur-c77ea7",
+        "wildhuter-in-kanton-gr-ch-2",
+        "wildhuter-in-kanton-gr-ch-58f15d25"
+      ],
+      "de": [
+        "wildhuter-in-kanton-gr-ch-58f15d25",
+        "wildhuter-in-kanton-gr-ch-1dyq6y"
       ]
     },
     "postalCode": "7000",
@@ -418,65 +526,32 @@
         "firstSeenAt": "2026-10-22T09:10:59.926Z",
         "title": "Wildhüter/ -in"
       }
-    ]
-  },
-  {
-    "id": "kanton-gr-60815c55f316",
-    "slug": "guardacaccia-kantonale-verwaltung-graubunden-chur-c77ea7",
-    "title": "Wildhüter/-in",
-    "titleByLocale": {
-      "it": "Guardacaccia",
-      "en": "Wildlife ranger",
-      "de": "Wildhüter/-in",
-      "fr": "Garde-faune"
-    },
-    "company": "Kantonale Verwaltung Graubünden",
-    "companyKey": "kanton-gr",
-    "location": "Chur",
-    "addressLocality": "Chur",
-    "descriptionByLocale": {
-      "it": "L'Ufficio per la caccia e la pesca è responsabile per le azioni di gioco, stock di pesce e i loro habitat nel Canton Grigioni. Molte specie come il pollo di cappero, il birkhuhn, il pollo di pietra, Wiedehopf e i corridori fluviali hanno la distribuzione si concentra in Grigioni. Negli ultimi anni, grandi predatori come il lupo e la lince o temporaneamente l'orso si sono migrati a Grigioni.\n\nCome un guardiano si lavora sotto la guida del capo distretto del guardiano e l'esercizio egeriano, la pianificazione di caccia, la pesca così come la caccia e la polizia di pesca funzioni. Conoscono bene l'area di funzionamento e le sue acque.\n\nCompiti\n• Monitoraggio della fauna selvatica e delle riserve ittiche e dei loro habitat nel comune di Vals\n\n• Monitoraggio delle diverse specie di fauna selvatica\n\n• Sostegno al lavoro amministrativo nel distretto\n\nRequisiti\n• Apprendistato completo\n\n• Fitness fisica\n\n• Esperienza pratica nella caccia e nella pesca nel Canton Grigioni\n\n• Conoscenza della fauna selvatica e delle specie ittiche e dei loro habitat\n\n• Capacità di tiro\n\n• Lavoro indipendente e responsabile\n\n• Buone capacità di comunicazione\n\n• Volontà di fornire servizi di piquetting\n\n• Patente di guida Cat. B\n\n• Rispetto al ventesimo anno di vita\n\n• La buona conoscenza di diverse lingue cantonali è vantaggiosa\n\n• Buona conoscenza dell'utente del computer",
-      "en": "The Office for Hunting and Fishing is responsible for the game stocks, fish stocks and their habitats in the Canton of Graubünden. Many species such as caper chicken, birkhuhn, stone chicken, Wiedehopf and river runners have distribution focuses in Graubünden. In recent years, large predators such as the wolf and the lynx or temporarily the bear have migrated back to Graubünden.\n\nAs a gamekeeper you work under the guidance of the gamekeeper district chief and exercise hegerian, hunting planning, fishing as well as hunting and fishing police functions. They know the intended area of operation and its waters well.\n\nTasks\n• Monitoring wildlife and fish stocks and their habitats in the municipality of Vals\n\n• Monitoring of different wildlife species\n\n• Support for administrative work in the district\n\nRequirements\n• Completed apprenticeship\n\n• Physical fitness\n\n• Practical experience in hunting and fishing in the Canton of Graubünden\n\n• Knowledge of wildlife and fish species and their habitats\n\n• Shooting skills\n\n• Independent and responsible work\n\n• Good communication skills\n\n• Willingness to provide piquetting services\n\n• Driving licence Cat. B\n\n• Compliance with the 20th Year of life\n\n• Good knowledge of several cantonal languages is advantageous\n\n• Good computer user knowledge",
-      "de": "Das Amt für Jagd und Fischerei ist für die Wildbestände, Fischbestände und dessen Lebensräume im Kanton Graubünden zuständig. Viele Arten wie Auerhuhn, Birkhuhn, Steinhuhn, Wiedehopf und Flussuferläufer haben Verbreitungsschwerpunkte in Graubünden. In den letzten Jahren sind auch Grossraubtiere wie der Wolf und der Luchs oder zeitweise auch der Bär wieder nach Graubünden eingewandert.\n\nAls Wildhüter/-in arbeiten Sie unter Anleitung des Wildhüter-Bezirkschefs und üben hegerische, jagdplanerische, fischereiwirtschaftliche sowie jagd- und fischereipolizeiliche Funktionen aus. Sie kennen das vorgesehene Einsatzgebiet und seine Gewässer gut.\n\nAufgaben\n• Überwachung der Wild- und Fischbestände sowie ihrer Lebensräume auf Gemeindegebiet Vals\n\n• Monitoring der verschiedenen Wildtierarten\n\n• Unterstützung der administrativen Arbeiten im Bezirk\n\nAnforderungen\n• Abgeschlossene Berufslehre\n\n• Körperliche Fitness\n\n• Praktische Erfahrung im Jagen und Fischen im Kanton Graubünden\n\n• Kenntnisse über die Wildtier- und Fischarten und ihre Lebensräume\n\n• Fähigkeiten im Schiessen\n\n• Selbständiges und verantwortungsbewusstes Arbeiten\n\n• gute kommunikative Fähigkeiten\n\n• Bereitschaft, Pikettdienst zu leisten\n\n• Führerausweis Kat. B\n\n• Erfüllung des 20. Lebensjahres\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Gute EDV Anwenderkenntnisse",
-      "fr": "L'Office de chasse et de pêche est responsable des stocks de gibier, des stocks de poissons et de leurs habitats dans le canton des Grisons. De nombreuses espèces telles que le poulet à câpres, le birkhuhn, le poulet en pierre, le Wiedehopf et les coureurs de rivière ont une distribution concentrée à Graubünden. Ces dernières années, de grands prédateurs comme le loup et le lynx ou temporairement l'ours ont migré vers Graubünden.\n\nEn tant que garde-chasse, vous travaillez sous la direction du chef de district du garde-chasse et exercez l'hégérien, la planification de la chasse, la pêche ainsi que la chasse et les fonctions de police de la pêche. Ils connaissent bien la zone d'exploitation prévue et ses eaux.\n\nTâche\n• Surveillance de la faune et des stocks de poissons et de leurs habitats dans la municipalité de Vals\n\n• Surveillance des différentes espèces sauvages\n\n• Appui au travail administratif dans le district\n\nExigences\n• Apprentissage terminé\n\n• Condition physique\n\n• Expérience pratique de la chasse et de la pêche dans le canton des Grisons\n\n• Connaissance de la faune et des espèces de poissons et de leurs habitats\n\n• Aptitudes à tirer\n\n• Travail indépendant et responsable\n\n• Bonnes compétences en communication\n\n• Volonté de fournir des services de piquetage\n\n• Permis de conduire Cat. B\n\n• Respect de la vingtième année de vie\n\n• Une bonne connaissance de plusieurs langues cantonales est avantageuse\n\n• Bonne connaissance de l'utilisateur d'ordinateur"
-    },
-    "slugByLocale": {
-      "it": "guardacaccia-kantonale-verwaltung-graubunden-chur-c77ea7",
-      "en": "wildlife-ranger-kantonale-verwaltung-graubunden-chur-c77ea7",
-      "de": "wildhuter-in-kanton-gr-ch-58f15d25",
-      "fr": "garde-faune-kantonale-verwaltung-graubunden-chur-c77ea7"
-    },
-    "sector": "Amministrazione Pubblica",
-    "expiredAt": "2026-11-22T09:15:10.266Z",
-    "previousSlugs": [
-      "wildhuter-in-kanton-gr-ch-2",
-      "wildhuter-in-kanton-gr-ch-1dyq6y"
     ],
-    "previousSlugsByLocale": {
-      "it": [
-        "wildhuter-in-kanton-gr-ch-58f15d25",
-        "wildhuter-in-kanton-gr-ch-2"
-      ],
-      "en": [
-        "wildhuter-in-kanton-gr-ch-2",
-        "wildhuter-in-kanton-gr-ch-58f15d25"
-      ],
-      "de": [
-        "wildhuter-in-kanton-gr-ch-1dyq6y"
-      ],
-      "fr": [
-        "wildhuter-in-kanton-gr-ch-2",
-        "wildhuter-in-kanton-gr-ch-58f15d25"
-      ]
-    },
-    "postalCode": "7000",
-    "streetAddress": "Chur",
-    "salaryMin": 57500,
-    "salaryMax": 87000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://apply.refline.ch/514915/2890/pub/1/index.html",
-    "firstSeenAt": "2026-10-22T09:10:59.926Z"
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "wildhuter-in-kanton-gr-ch": "GR",
+        "guardacaccia-kantonale-verwaltung-graubunden-chur-c77ea7": "GR",
+        "wildhuter-in-kanton-gr-ch-58f15d25": "GR",
+        "wildhuter-in-kanton-gr-ch-2": "GR"
+      },
+      "en": {
+        "wildhuter-in-kanton-gr-ch": "GR",
+        "wildlife-ranger-kantonale-verwaltung-graubunden-chur-c77ea7": "GR",
+        "wildhuter-in-kanton-gr-ch-2": "GR",
+        "wildhuter-in-kanton-gr-ch-58f15d25": "GR"
+      },
+      "fr": {
+        "wildhuter-in-kanton-gr-ch": "GR",
+        "garde-faune-kantonale-verwaltung-graubunden-chur-c77ea7": "GR",
+        "wildhuter-in-kanton-gr-ch-2": "GR",
+        "wildhuter-in-kanton-gr-ch-58f15d25": "GR"
+      },
+      "de": {
+        "wildhuter-in-kanton-gr-ch-58f15d25": "GR",
+        "wildhuter-in-kanton-gr-ch-1dyq6y": "GR"
+      }
+    }
   },
   {
     "id": "kanton-gr-853dc9d3a9d0",
@@ -556,7 +631,29 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2898/pub/1/index.html",
-    "firstSeenAt": "2026-11-19T21:17:02.452Z"
+    "firstSeenAt": "2026-11-19T21:17:02.452Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch": "GR",
+        "esperto-a-per-il-servizio-d-inchiesta-dell-autorita-di-protezione-dei-minori-e-degli-adulti-kantonale-verwaltung": "GR",
+        "fachperson-per-den-abklarungsdienst-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur": "GR",
+        "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur": "GR",
+        "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur": "GR",
+        "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch": "GR",
+        "membro-kesb-kantonale-verwaltung-graubunden-chur": "GR",
+        "kesb-member-kantonale-verwaltung-graubunden-chur": "GR",
+        "membre-kesb-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "specialist-for-the-investigation-service-child-and-adult-protection-authority-kantonale-verwaltung-graubunden-chur": "GR",
+        "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "specialiste-pour-le-service-d-enquete-de-l-autorite-de-protection-de-l-enfant-et-de-l-adulte-kantonale-verwaltung": "GR",
+        "fachperson-fur-den-abklarungsdienst-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "id": "kanton-gr-881746a696b7",
@@ -615,7 +712,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2903/pub/1/index.html",
-    "firstSeenAt": "2026-10-29T21:50:19.931Z"
+    "firstSeenAt": "2026-10-29T21:50:19.931Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-in-in-vorsorge-kanton-gr-ch": "GR",
+        "consulente-alla-clientela-previdenza-kantonale-verwaltung-graubunden-chur": "GR",
+        "kundenbetreuer-in-previdenza-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "customer-advisor-pension-provision-kantonale-verwaltung-graubunden-chur": "GR",
+        "kundenbetreuer-in-in-vorsorge-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "conseiller-conseillere-a-la-clientele-prevoyance-kantonale-verwaltung-graubunden-chur": "GR",
+        "kundenbetreuer-in-in-vorsorge-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "custode-a-stradale-kantonale-verwaltung-graubunden-thusis",
@@ -646,18 +759,25 @@
     "expiredAt": "2026-11-20T21:19:10.105Z",
     "previousSlugs": [
       "strassenwart-in-kanton-gr-ch",
-      "strassenwart-in-kanton-gr-ch-2"
+      "strassenwart-in-kanton-gr-ch-2",
+      "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+      "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+      "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
     ],
     "previousSlugsByLocale": {
       "it": [
         "strassenwart-in-kanton-gr-ch",
-        "strassenwart-in-kanton-gr-ch-2"
+        "strassenwart-in-kanton-gr-ch-2",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
       ],
       "en": [
-        "strassenwart-in-kanton-gr-ch"
+        "strassenwart-in-kanton-gr-ch",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
       ],
       "fr": [
-        "strassenwart-in-kanton-gr-ch"
+        "strassenwart-in-kanton-gr-ch",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
       ]
     },
     "postalCode": "7430",
@@ -704,7 +824,24 @@
         "firstSeenAt": "2026-11-06T21:17:53.019Z",
         "title": "Strassenwart/-in"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "strassenwart-in-kanton-gr-ch": "GR",
+        "strassenwart-in-kanton-gr-ch-2": "GR",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch": "GR"
+      },
+      "en": {
+        "strassenwart-in-kanton-gr-ch": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch": "GR"
+      },
+      "fr": {
+        "strassenwart-in-kanton-gr-ch": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch": "GR"
+      }
+    }
   },
   {
     "slug": "custode-a-stradale-kantonale-verwaltung-graubunden-thusis-68d2f3a2",
@@ -871,7 +1008,25 @@
         "firstSeenAt": "2026-09-03T13:32:29.938Z",
         "title": "Praktikant/-in"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-kanton-gr-ch": "GR",
+        "trainee-kantonale-verwaltung-graubunden-chur": "GR",
+        "praktikant-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "praktikant-in-kanton-gr-ch": "GR",
+        "trainee-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "de": {
+        "praktikant-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "stagiaire-kantonale-verwaltung-graubunden-chur": "GR",
+        "praktikant-in-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "consulente-specializzato-a-per-l-integrazione-lavorativa-kantonale-verwaltung-graubunden-chur",
@@ -923,7 +1078,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2895/pub/1/index.html",
-    "firstSeenAt": "2026-10-29T09:14:18.469Z"
+    "firstSeenAt": "2026-10-29T09:14:18.469Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachberater-in-arbeitsintegration-kanton-gr-ch": "GR",
+        "fachberater-in-arbeitsintegration-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "fachberater-in-arbeitsintegration-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "fachberater-in-arbeitsintegration-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "fachfrau-fachmann-im-finanz-e-rechnungswesen-kantonale-verwaltung-graubunden-chur",
@@ -973,7 +1141,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2883/pub/1/index.html",
-    "firstSeenAt": "2026-10-15T09:10:23.979Z"
+    "firstSeenAt": "2026-10-15T09:10:23.979Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "fachfrau-fachmann-im-finanz-und-rechnungswesen-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "impiegato-a-per-le-imposte-alla-fonte-kantonale-verwaltung-graubunden-chur",
@@ -1025,7 +1205,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2887/pub/1/index.html",
-    "firstSeenAt": "2026-10-22T09:11:02.509Z"
+    "firstSeenAt": "2026-10-22T09:11:02.509Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-quellensteuer-kanton-gr-ch": "GR",
+        "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "specialista-responsabile-r-promozione-anticipata-specialist-office-integration-kantonale-verwaltung-graubunden-chur",
@@ -1077,7 +1270,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2888/pub/1/index.html",
-    "firstSeenAt": "2026-10-22T09:10:58.505Z"
+    "firstSeenAt": "2026-10-22T09:10:58.505Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kanton-gr-ch": "GR",
+        "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "vice-coordinatore-per-la-violenza-domestica-kantonale-verwaltung-graubunden-chur",
@@ -1135,7 +1341,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2899/pub/1/index.html",
-    "firstSeenAt": "2026-10-29T21:50:20.593Z"
+    "firstSeenAt": "2026-10-29T21:50:20.593Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretung-koordinator-in-hausliche-gewalt-kanton-gr-ch": "GR",
+        "sostituto-a-coordinatore-rice-violenza-domestica-kantonale-verwaltung-graubunden-chur": "GR",
+        "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "deputy-domestic-violence-coordinator-kantonale-verwaltung-graubunden-chur": "GR",
+        "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "coordinateur-coordinatrice-suppleant-e-violence-domestique-kantonale-verwaltung-graubunden-chur": "GR",
+        "stellvertretung-koordinator-in-hausliche-gewalt-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "giurista-per-la-legislazione-kantonale-verwaltung-graubunden-chur",
@@ -1185,7 +1407,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2885/pub/1/index.html",
-    "firstSeenAt": "2026-10-22T09:11:01.220Z"
+    "firstSeenAt": "2026-10-22T09:11:01.220Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "jurist-in-rechtsetzung-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "jurist-in-rechtsetzung-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "jurist-in-rechtsetzung-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "ict-system-engineer-supporto-e-progetti-kantonale-verwaltung-graubunden-chur",
@@ -1232,7 +1466,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2880/pub/1/index.html",
-    "firstSeenAt": "2026-10-15T09:10:21.985Z"
+    "firstSeenAt": "2026-10-15T09:10:21.985Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-system-engineer-support-projekte-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "ict-system-engineer-support-projekte-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-ict-fachmann-frau-cfc-kantonale-verwaltung-graubunden-chur",
@@ -1282,7 +1525,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2773/pub/1/index.html",
-    "firstSeenAt": "2026-08-07T01:12:35.082Z"
+    "firstSeenAt": "2026-08-07T01:12:35.082Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-ict-fachmann-frau-efz-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "lehrstelle-als-ict-fachmann-frau-efz-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "lehrstelle-als-ict-fachmann-frau-efz-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "lehrperson-per-deutsch-e-deutsch-per-fremdsprachige-kantonale-verwaltung-graubunden-chur",
@@ -1332,7 +1587,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2881/pub/1/index.html",
-    "firstSeenAt": "2026-10-15T09:10:22.637Z"
+    "firstSeenAt": "2026-10-15T09:10:22.637Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "lehrperson-fur-deutsch-und-deutsch-fur-fremdsprachige-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-kantonale-verwaltung-graubunden-landquart",
@@ -1378,7 +1645,8 @@
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch-8abdf6c1",
         "apprendista-specializzato-in-gestione-alberghiera-e-domestica-efz-kantonale-verwaltung-graubunden-landquart",
         "fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
-        "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart"
+        "addetto-a-specializzato-a-in-albergo-gestione-alberghiera-cfp-kantonale-verwaltung-graubunden-landquart",
+        "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
       "en": [
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch",
@@ -1415,7 +1683,22 @@
         "firstSeenAt": "2026-08-07T01:12:35.767Z",
         "title": "Lehrstelle Fachmann/-frau Hotellerie-Hauswirtschaft EFZ"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch": "GR"
+      },
+      "de": {
+        "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur-9dd49feb4b",
@@ -1547,7 +1830,8 @@
         "personnel-scientifique-au-musee-ratische-kantonale-verwaltung-graubunden-chur": "GR",
         "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur": "GR"
       }
-    }
+    },
+    "canton": "GR"
   },
   {
     "slug": "responsabile-betrieb-kantonale-verwaltung-graubunden-mesocco",
@@ -1597,7 +1881,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2875/pub/1/index.html",
-    "firstSeenAt": "2026-10-12T09:16:14.525Z"
+    "firstSeenAt": "2026-10-12T09:16:14.525Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-betrieb-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "leiter-in-betrieb-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "leiter-in-betrieb-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "impiegato-a-amministrativo-a-divisione-scuole-medie-superiori-kantonale-verwaltung-graubunden-chur",
@@ -1649,7 +1945,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2879/pub/1/index.html",
-    "firstSeenAt": "2026-10-15T09:10:23.300Z"
+    "firstSeenAt": "2026-10-15T09:10:23.300Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-administration-abteilung-mittelschulen-kanton-gr-ch": "GR",
+        "sachbearbeiter-in-administration-abteilung-mittelschulen-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "sachbearbeiter-in-administration-abteilung-mittelschulen-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "sachbearbeiter-in-administration-abteilung-mittelschulen-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-di-cancelleria-kantonale-verwaltung-graubunden-landquart",
@@ -1701,7 +2010,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2878/pub/1/index.html",
-    "firstSeenAt": "2026-10-15T09:10:25.310Z"
+    "firstSeenAt": "2026-10-15T09:10:25.310Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kanzleimitarbeiter-in-kanton-gr-ch": "GR",
+        "kanzleimitarbeiter-in-kantonale-verwaltung-graubunden-landquart": "GR"
+      },
+      "en": {
+        "kanzleimitarbeiter-in-kantonale-verwaltung-graubunden-landquart": "GR"
+      },
+      "fr": {
+        "kanzleimitarbeiter-in-kantonale-verwaltung-graubunden-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "impiegato-a-amministrativo-a-nel-settore-della-circolazione-kantonale-verwaltung-graubunden-chur",
@@ -1753,7 +2075,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2884/pub/1/index.html",
-    "firstSeenAt": "2026-10-15T09:10:24.630Z"
+    "firstSeenAt": "2026-10-15T09:10:24.630Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-verkehrsadministration-kanton-gr-ch": "GR",
+        "sachbearbeiter-in-verkehrsadministration-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "sachbearbeiter-in-verkehrsadministration-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "sachbearbeiter-in-verkehrsadministration-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "objektleiter-in-facility-services-regionen-kantonale-verwaltung-graubunden-chur",
@@ -1803,7 +2138,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2870/pub/1/index.html",
-    "firstSeenAt": "2026-10-08T09:16:55.335Z"
+    "firstSeenAt": "2026-10-08T09:16:55.335Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "objektleiter-in-facility-services-regionen-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "objektleiter-in-facility-services-regionen-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "objektleiter-in-facility-services-regionen-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "ict-servicedesk-collaboratore-trice-in-con-schwerpunkt-knowledge-management-kantonale-verwaltung-graubunden-chur",
@@ -1847,7 +2194,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2882/pub/1/index.html",
-    "firstSeenAt": "2026-10-15T09:10:21.333Z"
+    "firstSeenAt": "2026-10-15T09:10:21.333Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-servicedesk-mitarbeiter-in-mit-schwerpunkt-knowledge-management-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "professionista-legale-presso-la-corte-regionale-plessur-kantonale-verwaltung-graubunden-chur",
@@ -1899,7 +2252,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2872/pub/1/index.html",
-    "firstSeenAt": "2026-10-08T09:16:56.030Z"
+    "firstSeenAt": "2026-10-08T09:16:56.030Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch": "GR",
+        "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "controllore-trice-procedura-di-ordinazione-trasporti-pubblici-kantonale-verwaltung-graubunden-chur",
@@ -1951,7 +2317,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2861/pub/1/index.html",
-    "firstSeenAt": "2026-09-25T14:43:11.557Z"
+    "firstSeenAt": "2026-09-25T14:43:11.557Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "controller-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch": "GR",
+        "controller-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "controller-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "controller-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "economista-a-procedura-di-ordinazione-per-i-trasporti-pubblici-kantonale-verwaltung-graubunden-chur",
@@ -2003,7 +2382,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2859/pub/1/index.html",
-    "firstSeenAt": "2026-09-25T14:43:12.237Z"
+    "firstSeenAt": "2026-09-25T14:43:12.237Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "okonom-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch": "GR",
+        "okonom-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "okonom-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "okonom-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "bauleiter-in-kantonale-verwaltung-graubunden-ilanz",
@@ -2043,7 +2435,8 @@
       "chef-de-chantier-kantonale-verwaltung-graubunden-samedan",
       "construction-manager-kantonale-verwaltung-graubunden-samedan",
       "bauleiter-in-kanton-gr-ch",
-      "construction-manager-kantonale-verwaltung-graubunden-samedan-cdd7b581"
+      "construction-manager-kantonale-verwaltung-graubunden-samedan-cdd7b581",
+      "bauleiter-in-kanton-gr-ch-8fee8d52"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2072,7 +2465,8 @@
         "bauleiter-in-kantonale-verwaltung-graubunden-thusis",
         "bauleiter-in-kantonale-verwaltung-graubunden-samedan",
         "bauleiter-in-kanton-gr-ch-8fee8d52",
-        "construction-manager-kantonale-verwaltung-graubunden-samedan"
+        "construction-manager-kantonale-verwaltung-graubunden-samedan",
+        "bauleiter-in-kanton-gr-ch"
       ]
     },
     "postalCode": "7130",
@@ -2081,7 +2475,32 @@
     "salaryMax": 140000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://apply.refline.ch/514915/2874/pub/1/index.html"
+    "sourceIdentity": "url:https://apply.refline.ch/514915/2874/pub/1/index.html",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2874/pub/1/index.html",
+        "title": "Bauleiter/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2925/pub/1/index.html",
+        "title": "Bauleiter/-in"
+      }
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bauleiter-in-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "bauleiter-in-kanton-gr-ch": "GR"
+      },
+      "de": {
+        "bauleiter-in-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "bauleiter-in-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "fachspezialist-in-previdenza-kantonale-verwaltung-graubunden-chur",
@@ -2131,7 +2550,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2803/pub/1/index.html",
-    "firstSeenAt": "2026-08-06T11:34:51.397Z"
+    "firstSeenAt": "2026-08-06T11:34:51.397Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-vorsorge-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "fachspezialist-in-vorsorge-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "fachspezialist-in-vorsorge-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "segretario-a-dell-ispettorato-scolastico-kantonale-verwaltung-graubunden-thusis",
@@ -2182,7 +2613,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2871/pub/2/index.html",
-    "firstSeenAt": "2026-10-08T09:16:54.650Z"
+    "firstSeenAt": "2026-10-08T09:16:54.650Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sekretar-in-schulinspektorat-kanton-gr-ch": "GR",
+        "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis": "GR"
+      },
+      "en": {
+        "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis": "GR"
+      },
+      "fr": {
+        "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis": "GR"
+      }
+    }
   },
   {
     "slug": "architetto-a-di-tecnologie-ict-kantonale-verwaltung-graubunden-chur",
@@ -2231,7 +2675,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2876/pub/1/index.html",
-    "firstSeenAt": "2026-10-08T09:16:48.364Z"
+    "firstSeenAt": "2026-10-08T09:16:48.364Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-technologie-architekt-in-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "ict-technologie-architekt-in-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "ict-technologie-architekt-in-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-fachmann-frau-information-e-dokumentation-cfc-kantonale-verwaltung-graubunden-chur",
@@ -2280,7 +2736,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2772/pub/1/index.html",
-    "firstSeenAt": "2026-08-07T01:12:34.263Z"
+    "firstSeenAt": "2026-08-07T01:12:34.263Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-fachmann-frau-information-und-dokumentation-efz-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "lehrstelle-als-fachmann-frau-information-und-dokumentation-efz-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "lehrstelle-als-fachmann-frau-information-und-dokumentation-efz-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "disegno-efz-engineering-construction-kantonale-verwaltung-graubunden-chur",
@@ -2331,7 +2799,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2841/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:32.442Z"
+    "firstSeenAt": "2026-09-10T23:05:32.442Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zeichner-in-efz-ingenieurbau-kanton-gr-ch": "GR",
+        "zeichner-in-cfc-ingegneria-civile-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "zeichner-in-efz-ingenieurbau-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "zeichner-in-efz-ingenieurbau-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-team-kasse-aufsicht-kantonale-verwaltung-graubunden-chur",
@@ -2380,7 +2861,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2873/pub/1/index.html",
-    "firstSeenAt": "2026-10-08T09:16:50.018Z"
+    "firstSeenAt": "2026-10-08T09:16:50.018Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-team-kasse-aufsicht-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "leiter-in-team-kasse-aufsicht-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "leiter-in-team-kasse-aufsicht-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
@@ -2532,8 +3025,6 @@
       "strassenwart-in-kanton-gr-ch-c2b2166d-a434177c",
       "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz",
       "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz",
-      "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
-      "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
       "strassenwart-in-kanton-gr-ch-21606259",
       "strassenwart-in-kanton-gr-ch-7745936b",
       "strassenwart-in-kanton-gr-ch-213fb48d",
@@ -2579,7 +3070,10 @@
       "strassenwart-in-kanton-gr-ch-8dc50fd3",
       "strassenwart-in-kanton-gr-ch-ce6c6fb5",
       "strassenwart-in-kanton-gr-ch-e3794870",
-      "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
+      "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+      "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+      "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+      "strassenwart-in-kanton-gr-ch-d4bf005c"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2715,7 +3209,9 @@
         "strassenwart-in-kanton-gr-ch-42ca8920",
         "strassenwart-in-kanton-gr-ch-8dc50fd3",
         "strassenwart-in-kanton-gr-ch-ce6c6fb5",
-        "strassenwart-in-kanton-gr-ch-e3794870"
+        "strassenwart-in-kanton-gr-ch-e3794870",
+        "strassenwart-in-kanton-gr-ch-d4bf005c",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
       ],
       "en": [
         "strassenwart-in-kanton-gr-ch-60414f28",
@@ -2831,7 +3327,10 @@
         "strassenwart-in-kanton-gr-ch-c2b2166d",
         "gardien-de-rue-kantonale-verwaltung-graubunden-ilanz",
         "strassenwart-in-kanton-gr-ch-ce6c6fb5",
-        "strassenwart-in-kanton-gr-ch-e3794870"
+        "strassenwart-in-kanton-gr-ch-e3794870",
+        "strassenwart-in-kanton-gr-ch-d4bf005c",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
       ],
       "fr": [
         "strassenwart-in-kanton-gr-ch-60414f28",
@@ -2947,7 +3446,10 @@
         "strassenwart-in-kanton-gr-ch-c2b2166d",
         "gardien-de-rue-kantonale-verwaltung-graubunden-ilanz-cac0543e",
         "strassenwart-in-kanton-gr-ch-ce6c6fb5",
-        "strassenwart-in-kanton-gr-ch-e3794870"
+        "strassenwart-in-kanton-gr-ch-e3794870",
+        "strassenwart-in-kanton-gr-ch-d4bf005c",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
       ],
       "de": [
         "strassenwart-in-kanton-gr-ch-60414f28",
@@ -3036,7 +3538,11 @@
         "strassenwart-in-kanton-gr-ch-c2b2166d-a434177c",
         "gardien-de-rue-kantonale-verwaltung-graubunden-ilanz",
         "strassenwart-in-kanton-gr-ch-ce6c6fb5",
-        "strassenwart-in-kanton-gr-ch-e3794870"
+        "strassenwart-in-kanton-gr-ch-e3794870",
+        "strassenwart-in-kanton-gr-ch-d4bf005c",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
       ]
     },
     "postalCode": "7503",
@@ -3072,7 +3578,26 @@
         "firstSeenAt": "2026-11-06T21:17:53.019Z",
         "title": "Strassenwart/-in"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "strassenwart-in-kanton-gr-ch-d4bf005c": "GR",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-a750ffac": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-6db20480": "GR"
+      },
+      "en": {
+        "strassenwart-in-kanton-gr-ch-d4bf005c": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-6db20480": "GR"
+      },
+      "de": {
+        "strassenwart-in-kanton-gr-ch-d4bf005c": "GR"
+      },
+      "fr": {
+        "strassenwart-in-kanton-gr-ch-d4bf005c": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-f91bd492": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-sociale-kantonale-verwaltung-graubunden-landquart",
@@ -3160,7 +3685,35 @@
         "firstSeenAt": "2026-08-31T16:59:57.265Z",
         "title": "Sozialarbeiter/-in"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sozialarbeiter-in-kanton-gr-ch": "GR",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis": "GR",
+        "assistente-sociale-kantonale-verwaltung-graubunden-cazis": "GR",
+        "sozialarbeiter-in-kanton-gr-ch-2": "GR",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis-14f1aa": "GR",
+        "sozialarbeiter-in-kanton-gr-ch-ajci6f": "GR"
+      },
+      "en": {
+        "sozialarbeiter-in-kanton-gr-ch": "GR",
+        "social-workers-kantonale-verwaltung-graubunden-cazis": "GR",
+        "sozialarbeiter-in-kanton-gr-ch-2": "GR",
+        "social-worker-in-kantonale-verwaltung-graubunden-cazis-14f1aa": "GR",
+        "social-worker-in-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "fr": {
+        "sozialarbeiter-in-kanton-gr-ch": "GR",
+        "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-cazis": "GR",
+        "sozialarbeiter-in-kanton-gr-ch-2": "GR",
+        "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-cazis-14f1aa": "GR"
+      },
+      "de": {
+        "sozialarbeiter-in-kanton-gr-ch-7x67hd": "GR",
+        "sozialarbeiter-in-kanton-gr-ch-ajci6f": "GR"
+      }
+    }
   },
   {
     "slug": "cura-dei-dipendenti-kantonale-verwaltung-graubunden-cazis",
@@ -3212,7 +3765,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2856/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:49:47.921Z"
+    "firstSeenAt": "2026-09-19T22:49:47.921Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-betreuung-kanton-gr-ch": "GR",
+        "collaboratore-trice-in-betreuung-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "en": {
+        "mitarbeiter-in-betreuung-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "fr": {
+        "mitarbeiter-in-betreuung-kantonale-verwaltung-graubunden-cazis": "GR"
+      }
+    }
   },
   {
     "slug": "infermieristica-specialista-hf-campo-di-psichiatria-kantonale-verwaltung-graubunden-cazis",
@@ -3264,7 +3830,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2855/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:49:48.537Z"
+    "firstSeenAt": "2026-09-19T22:49:48.537Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegefachperson-hf-fachrichtung-psychiatrie-kanton-gr-ch": "GR",
+        "pflegefachperson-hf-specializzazione-psychiatrie-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "en": {
+        "pflegefachperson-hf-fachrichtung-psychiatrie-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "fr": {
+        "pflegefachperson-hf-fachrichtung-psychiatrie-kantonale-verwaltung-graubunden-cazis": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz",
@@ -3318,7 +3897,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2854/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:49:52.375Z"
+    "firstSeenAt": "2026-09-19T22:49:52.375Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-bezirkstiefbauamt-ilanz-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz": "GR"
+      },
+      "fr": {
+        "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-delle-ricerche-kantonale-verwaltung-graubunden-chur",
@@ -3373,7 +3964,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2830/pub/1/index.html",
-    "firstSeenAt": "2026-09-03T13:32:30.582Z"
+    "firstSeenAt": "2026-09-03T13:32:30.582Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-fahndung-kanton-gr-ch": "GR",
+        "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur": "GR",
+        "case-handler-in-ricerca-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur": "GR",
+        "case-handler-in-search-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "project-manager-scienza-informatica-e-sviluppo-organizzativo-kantonale-verwaltung-graubunden-chur",
@@ -3426,7 +4032,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2845/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:14.936Z"
+    "firstSeenAt": "2026-09-10T23:05:14.936Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-informatik-und-organisationsentwicklung-kanton-gr-ch": "GR",
+        "projektleiter-in-informatik-e-organisationsentwicklung-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "project-manager-computer-science-and-organizational-development-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "projektleiter-in-informatik-und-organisationsentwicklung-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur",
@@ -3458,6 +4077,12 @@
     "previousSlugsByLocale": {
       "it": [
         "verwaltungsassistent-in-fachbereich-einreise-kanton-gr-ch"
+      ],
+      "en": [
+        "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur"
+      ],
+      "fr": [
+        "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur"
       ]
     },
     "postalCode": "7000",
@@ -3466,7 +4091,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2869/pub/1/index.html",
-    "firstSeenAt": "2026-10-01T21:10:08.478Z"
+    "firstSeenAt": "2026-10-01T21:10:08.478Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verwaltungsassistent-in-fachbereich-einreise-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "2-impiegati-impiegati-kantonale-verwaltung-graubunden-chur",
@@ -4653,7 +5290,24 @@
         "firstSeenAt": "2026-10-03T09:09:49.937Z",
         "title": "Sachbearbeiter/-in Chur/Thusis"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-chur-thusis-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "2-clerks-clerks-kantonale-verwaltung-graubunden-chur": "GR",
+        "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "de": {
+        "sachbearbeiter-in-chur-thusis-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "2-commis-commis-kantonale-verwaltung-graubunden-chur": "GR",
+        "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kantonale-verwaltung-graubunden-chur",
@@ -5238,9 +5892,22 @@
     ],
     "previousSlugCantonByLocale": {
       "it": {
-        "specialista-ict-posto-di-lavoro-digitale-e-collaborazione-kantonale-verwaltung-graubunden-chur": "GR"
+        "specialista-ict-posto-di-lavoro-digitale-e-collaborazione-kantonale-verwaltung-graubunden-chur": "GR",
+        "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "ict-specialist-digital-workplace-collaboration-kantonale-verwaltung-graubunden-chur": "GR",
+        "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch": "GR"
+      },
+      "de": {
+        "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "specialiste-tic-poste-de-travail-numerique-et-collaboration-kantonale-verwaltung-graubunden-chur": "GR",
+        "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch": "GR"
       }
-    }
+    },
+    "canton": "GR"
   },
   {
     "slug": "membro-del-consiglio-di-amministrazione-di-grischelectra-ag-rappresentazione-canonica-kantonale-verwaltung-graubunden",
@@ -5291,7 +5958,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2858/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:49:51.750Z"
+    "firstSeenAt": "2026-09-19T22:49:51.750Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitglied-des-verwaltungsrats-der-grischelectra-ag-kantonsvertretung-kanton-gr-ch": "GR",
+        "mitglied-des-verwaltungsrats-der-grischelectra-ag-kantonsvertretung-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "mitglied-des-verwaltungsrats-der-grischelectra-ag-kantonsvertretung-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "mitglied-des-verwaltungsrats-der-grischelectra-ag-kantonsvertretung-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "controllori-finanziari-con-competenze-nell-analisi-dei-dati-kantonale-verwaltung-graubunden-chur",
@@ -5342,7 +6022,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2844/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:17.447Z"
+    "firstSeenAt": "2026-09-10T23:05:17.447Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "finanzcontroller-in-mit-fachwissen-in-der-datenanalyse-kanton-gr-ch": "GR",
+        "finanzcontroller-in-mit-fachwissen-in-der-datenanalyse-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "finanzcontroller-in-mit-fachwissen-in-der-datenanalyse-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "finanzcontroller-in-mit-fachwissen-in-der-datenanalyse-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-54540461",
@@ -5529,7 +6222,109 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2853/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:49:50.517Z"
+    "firstSeenAt": "2026-09-19T22:49:50.517Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-bab-und-gewasserschutz-kanton-gr-ch": "GR",
+        "projektleiter-in-bab-e-gewasserschutz-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "projektleiter-in-bab-und-gewasserschutz-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "projektleiter-in-bab-und-gewasserschutz-kanton-gr-ch": "GR"
+      }
+    }
+  },
+  {
+    "slug": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
+    "title": "Lehrstelle als Informatiker/-in EFZ (Plattformentwicklung)",
+    "titleByLocale": {
+      "it": "Apprendistato come informatico/a AFC (sviluppo della piattaforma)",
+      "en": "Junior IT Specialist (Platform Development)",
+      "de": "Lehrstelle als Informatiker/-in EFZ (Plattformentwicklung)",
+      "fr": "Poste de junior en informatique (Développement de plateforme)"
+    },
+    "company": "Kantonale Verwaltung Graubünden",
+    "companyKey": "kanton-gr",
+    "location": "Thusis",
+    "addressLocality": "Thusis",
+    "descriptionByLocale": {
+      "it": "Questa professione versatile significa collaborazione in team e partecipazione a progetti. Contribuisci allo sviluppo di nuove soluzioni e ottimizzare i sistemi e i processi esistenti in azienda. La scienza informatica è onnipresente – quindi questa formazione è una buona base per una specializzazione successiva.\n\nCompiti\n• Lavoro di squadra\n\n• capacità di pensiero logico-astratto\n\n• Creatività nella ricerca di soluzioni\n\n• rapida comprensione\n\n• immaginazione spaziale\n\n• Capacità di concentrazione pronunciata\n\n• funzionamento sistematico\n\n• Pazienza e perseveranza\n\n• Buone competenze in inglese\n\n• Multicheck\n\nRequisiti\n• Scuola elementare completa\n\n• prestazioni molto buone nella scienza naturale e materie matematiche",
+      "en": "This versatile profession means collaboration in teams and participation in projects. You contribute to the development of new solutions and optimize existing systems and processes in the company. Computer science is ubiquitous – so this training is a good basis for a later specialization.\n\nTasks\n• Teamwork\n\n• logical-abstract thinking ability\n\n• Creativity in the search for solutions\n\n• rapid understanding\n\n• spatial imagination\n\n• Pronounced concentration ability\n\n• systematic operation\n\n• Patience and perseverance\n\n• Good English skills\n\n• Multicheck\n\nRequirements\n• Completed elementary school\n\n• very good performance in the natural science and mathematical subjects",
+      "de": "Dieser vielseitige Beruf bedeutet Zusammenarbeit in Teams und Mitarbeit in Projekten. Du wirkst mit an der Entwicklung neuer Lösungen und optimierst bestehende Systeme und Abläufe im Betrieb. Informatik ist allgegenwärtig – deshalb ist diese Ausbildung eine gute Grundlage für eine spätere Spezialisierung.\n\nAufgaben\n• Teamfähigkeit\n\n• logisch-abstraktes Denkvermögen\n\n• Kreativität bei der Lösungssuche\n\n• rasche Auffassungsgabe\n\n• räumliches Vorstellungsvermögen\n\n• ausgeprägte Konzentrationsfähigkeit\n\n• systematische Arbeitsweise\n\n• Geduld und Ausdauer\n\n• gute Englischkenntnisse\n\n• Multicheck\n\nAnforderungen\n• abgeschlossene Volksschule\n\n• sehr gute Leistungen in den naturwissenschaftlichen und mathematischen Fächern",
+      "fr": "Cette profession polyvalente implique la collaboration en équipes et la participation à des projets. Vous contribuez au développement de nouvelles solutions et optimisez les systèmes et les processus existants dans l'entreprise. L'informatique est omniprésente – cette formation est donc une bonne base pour une spécialisation ultérieure.\n\nTâches\n• Travail d'équipe\n\n• capacité de pensée logique-abstract\n\n• Créativité dans la recherche de solutions\n\n• compréhension rapide\n\n• imagination spatiale\n\n• Capacité de concentration annoncée\n\n• fonctionnement systématique\n\n• Patience et persévérance\n\n• Bonnes compétences en anglais\n\n• Vérification multiple\n\nExigences\n• École primaire achevée\n\n• très bonne performance en sciences naturelles et mathématiques"
+    },
+    "slugByLocale": {
+      "it": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
+      "en": "apprenticeship-as-computer-scientist-in-efz-platform-development-kantonale-verwaltung-graubunden-thusis",
+      "de": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch-d6896834",
+      "fr": "apprentissage-en-informatique-en-efz-developpement-d-une-plateforme-kantonale-verwaltung-graubunden-thusis"
+    },
+    "sector": "Amministrazione Pubblica",
+    "expiredAt": "2026-10-13T21:17:20.232Z",
+    "previousSlugs": [
+      "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch-d6896834",
+      "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
+      "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch",
+      "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis-2721613a",
+      "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch-cd640610",
+      "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis-e151fa4e"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch-d6896834",
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis-2721613a",
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch-cd640610"
+      ],
+      "en": [
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis-e151fa4e"
+      ],
+      "fr": [
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis-e151fa4e"
+      ],
+      "de": [
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch"
+      ]
+    },
+    "postalCode": "7430",
+    "salaryMin": 41600,
+    "salaryMax": 76000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/514915/2774/pub/1/index.html",
+    "firstSeenAt": "2026-08-07T01:12:36.444Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2774/pub/1/index.html",
+        "firstSeenAt": "2026-08-07T01:12:36.444Z",
+        "title": "Lehrstelle als Informatiker/-in EFZ (Plattformentwicklung)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2774/pub/10/index.html",
+        "firstSeenAt": "2026-08-07T01:12:36.444Z",
+        "title": "Lehrstelle als Informatiker/-in EFZ (Plattformentwicklung)"
+      }
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis": "GR"
+      },
+      "de": {
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis": "GR"
+      }
+    }
   },
   {
     "slug": "esecuzione-del-responsabile-del-progetto-direttore-di-sezione-kantonale-verwaltung-graubunden-chur",
@@ -5564,7 +6359,8 @@
       "gestionnaire-de-projet-en-execution-gestionnaire-de-la-construction-in-kantonale-verwaltung-graubunden-chur",
       "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur-ae8f1e24",
       "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
-      "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch"
+      "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
+      "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch-22ea1933"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5588,7 +6384,8 @@
       ],
       "de": [
         "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
-        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch-22ea1933"
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch-22ea1933",
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch"
       ]
     },
     "postalCode": "7000",
@@ -5597,7 +6394,35 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2852/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:49:52.993Z"
+    "firstSeenAt": "2026-09-19T22:49:52.993Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2852/pub/1/index.html",
+        "firstSeenAt": "2026-09-19T22:49:52.993Z",
+        "title": "Projektleiter/-in Ausführung (Abschnittsbauleiter/-in)"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2927/pub/1/index.html",
+        "firstSeenAt": "2026-09-19T22:49:52.993Z",
+        "title": "Projektleiter/-in Ausführung (Abschnittsbauleiter/-in)"
+      }
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch": "GR",
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "de": {
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "finanza-del-personale-kantonale-verwaltung-graubunden-chur",
@@ -5657,7 +6482,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2857/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:49:47.305Z"
+    "firstSeenAt": "2026-09-19T22:49:47.305Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-finanzen-kanton-gr-ch": "GR",
+        "sachbearbeiter-in-kanton-gr-ch-2": "GR",
+        "sachbearbeiter-in-finanzen-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "sachbearbeiter-in-finanzen-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "de": {
+        "sachbearbeiter-in-kanton-gr-ch-2": "GR"
+      },
+      "fr": {
+        "sachbearbeiter-in-finanzen-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "ingegnere-forestale-regionale-specialist-wald-wild-kantonale-verwaltung-graubunden-chur",
@@ -5708,7 +6550,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2849/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:49:51.133Z"
+    "firstSeenAt": "2026-09-19T22:49:51.133Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "regionalforstingenieur-in-spezialist-in-wald-wild-kanton-gr-ch": "GR",
+        "regionalforstingenieur-in-spezialist-in-wald-wild-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "regionalforstingenieur-in-spezialist-in-wald-wild-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "regionalforstingenieur-in-spezialist-in-wald-wild-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-tecnico-forestale-gis-dati-kantonale-verwaltung-graubunden-chur",
@@ -5761,7 +6616,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2834/pub/1/index.html",
-    "firstSeenAt": "2026-09-03T13:32:32.517Z"
+    "firstSeenAt": "2026-09-03T13:32:32.517Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technische-r-sachbearbeiter-in-forstliche-gis-daten-kanton-gr-ch": "GR",
+        "technische-r-sachbearbeiter-in-forstliche-gis-daten-kantonale-verwaltung-graubunden-chur": "GR",
+        "tecnico-r-case-handler-in-silvicoltura-gis-dati-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "technische-r-sachbearbeiter-in-forstliche-gis-daten-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "technische-r-sachbearbeiter-in-forstliche-gis-daten-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "team-leader-sicurezza-kantonale-verwaltung-graubunden-cazis",
@@ -5812,7 +6681,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2850/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:49:49.904Z"
+    "firstSeenAt": "2026-09-19T22:49:49.904Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-sicherheit-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "teamleiter-in-sicherheit-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "teamleiter-in-sicherheit-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "lehrperson-per-la-oberstufe-in-trimmis-kantonale-verwaltung-graubunden-chur",
@@ -5861,7 +6742,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2865/pub/1/index.html",
-    "firstSeenAt": "2026-09-25T14:43:14.970Z"
+    "firstSeenAt": "2026-09-25T14:43:14.970Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrperson-fur-die-oberstufe-in-trimmis-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "lehrperson-fur-die-oberstufe-in-trimmis-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "lehrperson-fur-die-oberstufe-in-trimmis-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-kaufmann-frau-cfc-kantonale-verwaltung-graubunden-chur",
@@ -5904,7 +6797,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2775/pub/1/index.html",
-    "firstSeenAt": "2026-08-10T21:48:35.180Z"
+    "firstSeenAt": "2026-08-10T21:48:35.180Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-kaufmann-frau-efz-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "dipl-infermiera-infermiera-specialista-hf-kantonale-verwaltung-graubunden-cazis",
@@ -5955,7 +6854,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2838/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:15.564Z"
+    "firstSeenAt": "2026-09-10T23:05:15.564Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachfrau-pflegefachmann-hf-kanton-gr-ch": "GR",
+        "dipl-pflegefachfrau-pflegefachmann-hf-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "en": {
+        "dipl-pflegefachfrau-pflegefachmann-hf-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "dipl-pflegefachfrau-pflegefachmann-hf-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "dipl-professionista-hf-kantonale-verwaltung-graubunden-cazis",
@@ -6006,7 +6918,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2848/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:16.194Z"
+    "firstSeenAt": "2026-09-10T23:05:16.194Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-kanton-gr-ch": "GR",
+        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis": "GR"
+      }
+    }
   },
   {
     "slug": "direttore-stradale-nella-squadra-di-pulizia-tunnel-kantonale-verwaltung-graubunden-thusis",
@@ -6208,6 +7133,1011 @@
         "firstSeenAt": "2026-09-10T23:05:20.746Z",
         "title": "Strassenwart/-in im Team Tunnelreinigung"
       }
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "strassenwart-in-im-team-tunnelreinigung-kanton-gr-ch": "GR",
+        "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis": "GR"
+      },
+      "en": {
+        "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis": "GR"
+      },
+      "de": {
+        "strassenwart-in-im-team-tunnelreinigung-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis": "GR"
+      }
+    }
+  },
+  {
+    "slug": "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-1b97eb58",
+    "title": "Strassenwart/-in",
+    "titleByLocale": {
+      "it": "Strassenwart/-in",
+      "en": "Streetkeeper",
+      "de": "Strassenwart/-in",
+      "fr": "Gardien de rue"
+    },
+    "company": "Kantonale Verwaltung Graubünden",
+    "companyKey": "kanton-gr",
+    "location": "Ilanz",
+    "addressLocality": "Ilanz",
+    "descriptionByLocale": {
+      "it": "L'ufficio di ingegneria civile è responsabile della progettazione, costruzione, manutenzione e funzionamento delle strade cantonali, nonché dell'ingegneria idraulica e del trasporto lento a Grigioni. Ci occupiamo anche della manutenzione operativa delle strade nazionali sul territorio cantonale. L’infrastruttura stradale del cantone comprende oltre 1.450 edifici artificiali, tra cui ponti ad altezze ariose fino a 90 metri e gallerie fino a 3 chilometri di lunghezza. Le sfide che la natura del nostro cantone di montagna porta in estate e in inverno rendono il nostro lavoro impegnativo e versatile. Come ufficio certificato Friendly Work Space, la salute e la soddisfazione dei nostri circa 480 dipendenti sono particolarmente importanti per noi. Per questo motivo, siamo impegnati nella gestione sistematica della salute professionale (BGM).\n\nStiamo cercando il reparto manutenzione stradale nel distretto 6 Ilanz per 1. Gennaio 2027 o su appuntamento\n\nCompiti\n• Esecuzione dei lavori di manutenzione stradale in un piccolo team di manutenzione\n\n• Servizio estivo e invernale\n\n• Lavori di pulizia e riparazione dopo eventi accidentali o naturali\n\n• Controllo delle condizioni stradali e degli impianti stradali\n\n• Pikettdienst (estate e inverno)\n\nRequisiti\n• Apprendistato completo in costruzione\n\n• Artigianato\n\n• Capacità di carico fisica\n\n• Gioia del lavoro di squadra\n\n• Categoria C patente di guida o volontà di acquisirla\n\n• Le abilità romanze sono utili",
+      "en": "The civil engineering office is responsible for the design, construction, maintenance and operation of the cantonal roads as well as the hydraulic engineering and slow transport in Graubünden. We also take care of the operational maintenance of the national roads on the cantonal territory. The canton’s road infrastructure comprises over 1,450 artificial buildings, including bridges at airy heights of up to 90 meters and tunnels of up to 3 kilometers in length. The challenges that the nature of our mountain canton brings in summer and winter make our work demanding and versatile. As a Friendly Work Space certified office, the health and satisfaction of our approximately 480 employees are particularly important to us. For this reason, we are committed to systematic occupational health management (BGM).\n\nWe are looking for the road maintenance department in district 6 Ilanz per 1. January 2027 or by appointment a road attendant\n\nTasks\n• Execution of road maintenance work in a small maintenance team\n\n• Summer and winter service\n\n• Clean-up and repair work after accidental or natural events\n\n• Control of road conditions and road installations\n\n• Pikettdienst (summer and winter)\n\nRequirements\n• Completed apprenticeship in construction\n\n• Craftsmanship\n\n• Physical load capacity\n\n• Joy of teamwork\n\n• Category C driving licence or willingness to acquire it\n\n• Romance skills are beneficial",
+      "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 6 Ilanz per 1. Januar 2027 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben\n\n• Romanischkenntnisse sind von Vorteil",
+      "fr": "Le bureau du génie civil est chargé de la conception, de la construction, de l'entretien et de l'exploitation des routes cantonales ainsi que de l'ingénierie hydraulique et du transport lent à Graubünden. Nous nous occupons également de l'entretien opérationnel des routes nationales sur le territoire cantonal. L'infrastructure routière cantonale comprend plus de 1.450 bâtiments artificiels, y compris des ponts à des hauteurs aérées allant jusqu'à 90 mètres et des tunnels pouvant atteindre 3 kilomètres de long. Les défis que la nature de notre canton de montagne apporte en été et en hiver rendent notre travail exigeant et polyvalent. En tant que bureau certifié Friendly Work Space, la santé et la satisfaction de nos quelque 480 employés sont particulièrement importantes pour nous. C'est pourquoi nous nous engageons à assurer une gestion systématique de la santé au travail.\n\nNous recherchons le service d'entretien routier dans le district 6 Ilanz par 1. Janvier 2027 ou sur rendez-vous un accompagnateur routier\n\nTâche\n• Exécution des travaux d ' entretien des routes dans une petite équipe d ' entretien\n\n• Service d'été et d'hiver\n\n• Nettoyage et réparation après des événements accidentels ou naturels\n\n• Contrôle des conditions routières et des installations routières\n\n• Pikettdienst (été et hiver)\n\nExigences\n• Apprentissage complet dans la construction\n\n• Artisanat\n\n• Capacité de charge physique\n\n• Joy de travail d'équipe\n\n• Permis de conduire de catégorie C ou volonté de l'acquérir\n\n• Les compétences romanes sont bénéfiques"
+    },
+    "slugByLocale": {
+      "it": "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-1b97eb58",
+      "en": "streetkeeper-kantonale-verwaltung-graubunden-ilanz",
+      "de": "strassenwart-in-kanton-gr-ch-c2b2166d",
+      "fr": "gardien-de-rue-kantonale-verwaltung-graubunden-ilanz"
+    },
+    "sector": "Amministrazione Pubblica",
+    "expiredAt": "2026-10-05T09:11:17.150Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "strassenwart-in-kanton-gr-ch-c2b2166d-a434177c",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-80eb4976",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-cde2831e",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-e5eaa9a1",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-b7a5657d",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-fa8c35c5",
+        "strassenwart-in-kanton-gr-ch-21606259-76921474",
+        "strassenwart-in-kanton-gr-ch-7745936b-2da95618",
+        "strassenwart-in-kanton-gr-ch-213fb48d-4f40efa2",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-e82413c1",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-9cb3e4f9",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-3eaf23ab",
+        "strassenwart-in-kanton-gr-ch-1625c57b-212f8299",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-8767abe9",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-c91d9c5d",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-b3e16e14",
+        "strassenwart-in-kanton-gr-ch-29c449e4-01539f67",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-ac57dd58",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-034b1688",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-4495a34c",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-e020db71",
+        "strassenwart-in-kanton-gr-ch-c3bab568-36cadc65",
+        "strassenwart-in-kanton-gr-ch-5d868488-ad87eec5",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-98bee4ac",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-851b3d6f",
+        "strassenwart-in-kanton-gr-ch-4f324f54-3f73ea01",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-8dc9790f",
+        "strassenwart-in-kanton-gr-ch-355a775a-21efb7b7",
+        "strassenwart-in-kanton-gr-ch-8ca77121-de29f43e",
+        "strassenwart-in-kanton-gr-ch-2320f910-90f20c5f",
+        "strassenwart-in-kanton-gr-ch-de2de493-8545e6e9",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-ddb187f3",
+        "strassenwart-in-kanton-gr-ch-2f792254-974fd55f",
+        "strassenwart-in-kanton-gr-ch-7b912974",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5",
+        "strassenwart-in-kanton-gr-ch-60414f28-05d0b373",
+        "strassenwart-in-kanton-gr-ch-5093967e-3f4c890a",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-db6a1ba1",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-eacf1fe5",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-99619caf",
+        "strassenwart-in-kanton-gr-ch-444bf67b-b73b1a89",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-f3a0d8b1",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-c6865e0e",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-e62731af",
+        "strassenwart-in-kanton-gr-ch-b1593636-0a74acb0",
+        "strassenwart-in-kanton-gr-ch-23413ec7-52fa9cd2",
+        "strassenwart-in-kanton-gr-ch-683d3be9-e3dc245b",
+        "strassenwart-in-kanton-gr-ch-efa0250a-27eb7f3c",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-19f824a1",
+        "strassenwart-in-kanton-gr-ch-42ca8920-f92170de",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-28cd61df",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-a8dc3d4f",
+        "strassenwart-in-kanton-gr-ch-e3794870-73117d84",
+        "strassenwart-in-kanton-gr-ch-9a5cb9b3",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-3b2c8045"
+      ],
+      "en": [
+        "strassenwart-in-kanton-gr-ch-c2b2166d-a434177c",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-fa8c35c5",
+        "strassenwart-in-kanton-gr-ch-21606259-76921474",
+        "strassenwart-in-kanton-gr-ch-7745936b-2da95618",
+        "strassenwart-in-kanton-gr-ch-213fb48d-4f40efa2",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-e82413c1",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-9cb3e4f9",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-3eaf23ab",
+        "strassenwart-in-kanton-gr-ch-1625c57b-212f8299",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-8767abe9",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-c91d9c5d",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-b3e16e14",
+        "strassenwart-in-kanton-gr-ch-29c449e4-01539f67",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-ac57dd58",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-034b1688",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-4495a34c",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-e020db71",
+        "strassenwart-in-kanton-gr-ch-c3bab568-36cadc65",
+        "strassenwart-in-kanton-gr-ch-5d868488-ad87eec5",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-98bee4ac",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-851b3d6f",
+        "strassenwart-in-kanton-gr-ch-4f324f54-3f73ea01",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-8dc9790f",
+        "strassenwart-in-kanton-gr-ch-355a775a-21efb7b7",
+        "strassenwart-in-kanton-gr-ch-8ca77121-de29f43e",
+        "strassenwart-in-kanton-gr-ch-2320f910-90f20c5f",
+        "strassenwart-in-kanton-gr-ch-de2de493-8545e6e9",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-ddb187f3",
+        "strassenwart-in-kanton-gr-ch-2f792254-974fd55f",
+        "strassenwart-in-kanton-gr-ch-7b912974-790d3081",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-0b5a0172",
+        "strassenwart-in-kanton-gr-ch-60414f28-7b683631",
+        "strassenwart-in-kanton-gr-ch-5093967e-1dee5a75",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-de897555",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-ef56a3cd",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-3c9e0c82",
+        "strassenwart-in-kanton-gr-ch-444bf67b-9ccddba6",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-20125b3d",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-a5fbf20e",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-1af7ad40",
+        "strassenwart-in-kanton-gr-ch-b1593636-91d0fc7e",
+        "strassenwart-in-kanton-gr-ch-23413ec7-9130420c",
+        "strassenwart-in-kanton-gr-ch-683d3be9-8b7521dd",
+        "strassenwart-in-kanton-gr-ch-efa0250a-05727686",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-70c57cbe",
+        "strassenwart-in-kanton-gr-ch-42ca8920-c12d1397",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-a6eb544f",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-6469865a",
+        "strassenwart-in-kanton-gr-ch-e3794870-3705231a",
+        "strassenwart-in-kanton-gr-ch-9a5cb9b3",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-80eb4976",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-cde2831e",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-b7a5657d",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-3b2c8045"
+      ],
+      "fr": [
+        "strassenwart-in-kanton-gr-ch-c2b2166d-a434177c",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-3b2c8045",
+        "strassenwart-in-kanton-gr-ch-21606259-76921474",
+        "strassenwart-in-kanton-gr-ch-7745936b-2da95618",
+        "strassenwart-in-kanton-gr-ch-213fb48d-4f40efa2",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-e82413c1",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-9cb3e4f9",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-3eaf23ab",
+        "strassenwart-in-kanton-gr-ch-1625c57b-212f8299",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-8767abe9",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-c91d9c5d",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-b3e16e14",
+        "strassenwart-in-kanton-gr-ch-29c449e4-01539f67",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-ac57dd58",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-034b1688",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-4495a34c",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-e020db71",
+        "strassenwart-in-kanton-gr-ch-c3bab568-36cadc65",
+        "strassenwart-in-kanton-gr-ch-5d868488-ad87eec5",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-98bee4ac",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-851b3d6f",
+        "strassenwart-in-kanton-gr-ch-4f324f54-3f73ea01",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-8dc9790f",
+        "strassenwart-in-kanton-gr-ch-355a775a-21efb7b7",
+        "strassenwart-in-kanton-gr-ch-8ca77121-de29f43e",
+        "strassenwart-in-kanton-gr-ch-2320f910-90f20c5f",
+        "strassenwart-in-kanton-gr-ch-de2de493-8545e6e9",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-ddb187f3",
+        "strassenwart-in-kanton-gr-ch-2f792254-974fd55f",
+        "strassenwart-in-kanton-gr-ch-7b912974-790d3081",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-0b5a0172",
+        "strassenwart-in-kanton-gr-ch-60414f28-7b683631",
+        "strassenwart-in-kanton-gr-ch-5093967e-1dee5a75",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-de897555",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-ef56a3cd",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-3c9e0c82",
+        "strassenwart-in-kanton-gr-ch-444bf67b-9ccddba6",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-20125b3d",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-a5fbf20e",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-1af7ad40",
+        "strassenwart-in-kanton-gr-ch-b1593636-91d0fc7e",
+        "strassenwart-in-kanton-gr-ch-23413ec7-9130420c",
+        "strassenwart-in-kanton-gr-ch-683d3be9-8b7521dd",
+        "strassenwart-in-kanton-gr-ch-efa0250a-05727686",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-70c57cbe",
+        "strassenwart-in-kanton-gr-ch-42ca8920-c12d1397",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-a6eb544f",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-6469865a",
+        "strassenwart-in-kanton-gr-ch-e3794870-3705231a",
+        "strassenwart-in-kanton-gr-ch-9a5cb9b3",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-80eb4976",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-cde2831e",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-e5eaa9a1",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-b7a5657d",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-fa8c35c5"
+      ],
+      "de": [
+        "strassenwart-in-kanton-gr-ch-c2b2166d",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-80eb4976",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-cde2831e",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-e5eaa9a1",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-b7a5657d",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-fa8c35c5",
+        "strassenwart-in-kanton-gr-ch-21606259-76921474",
+        "strassenwart-in-kanton-gr-ch-7745936b-2da95618",
+        "strassenwart-in-kanton-gr-ch-213fb48d-4f40efa2",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-e82413c1",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-9cb3e4f9",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-3eaf23ab",
+        "strassenwart-in-kanton-gr-ch-1625c57b-212f8299",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-8767abe9",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-c91d9c5d",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-b3e16e14",
+        "strassenwart-in-kanton-gr-ch-29c449e4-01539f67",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-ac57dd58",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-034b1688",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-4495a34c",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-e020db71",
+        "strassenwart-in-kanton-gr-ch-c3bab568-36cadc65",
+        "strassenwart-in-kanton-gr-ch-5d868488-ad87eec5",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-98bee4ac",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-851b3d6f",
+        "strassenwart-in-kanton-gr-ch-4f324f54-3f73ea01",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-8dc9790f",
+        "strassenwart-in-kanton-gr-ch-355a775a-21efb7b7",
+        "strassenwart-in-kanton-gr-ch-8ca77121-de29f43e",
+        "strassenwart-in-kanton-gr-ch-2320f910-90f20c5f",
+        "strassenwart-in-kanton-gr-ch-de2de493-8545e6e9",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-ddb187f3",
+        "strassenwart-in-kanton-gr-ch-2f792254-974fd55f",
+        "strassenwart-in-kanton-gr-ch-60414f28-7b683631",
+        "strassenwart-in-kanton-gr-ch-5093967e-1dee5a75",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-de897555",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-ef56a3cd",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-3c9e0c82",
+        "strassenwart-in-kanton-gr-ch-444bf67b-9ccddba6",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-20125b3d",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-a5fbf20e",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-1af7ad40",
+        "strassenwart-in-kanton-gr-ch-b1593636-91d0fc7e",
+        "strassenwart-in-kanton-gr-ch-23413ec7-9130420c",
+        "strassenwart-in-kanton-gr-ch-683d3be9-8b7521dd",
+        "strassenwart-in-kanton-gr-ch-efa0250a-05727686",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-70c57cbe",
+        "strassenwart-in-kanton-gr-ch-42ca8920-c12d1397",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-a6eb544f",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-6469865a",
+        "strassenwart-in-kanton-gr-ch-e3794870-3705231a",
+        "strassenwart-in-kanton-gr-ch-9a5cb9b3",
+        "strassenwart-in-kanton-gr-ch-7b912974-790d3081",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-0b5a0172",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-3b2c8045"
+      ]
+    },
+    "postalCode": "7130",
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/514915/2837/pub/1/index.html",
+    "firstSeenAt": "2026-08-20T22:04:47.985Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2815/pub/1/index.html",
+        "firstSeenAt": "2026-08-20T22:04:47.985Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2820/pub/6/index.html",
+        "firstSeenAt": "2026-08-28T05:16:58.362Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2837/pub/1/index.html",
+        "firstSeenAt": "2026-08-20T22:04:47.985Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2851/pub/1/index.html",
+        "firstSeenAt": "2026-09-10T23:05:21.387Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2910/pub/1/index.html",
+        "firstSeenAt": "2026-11-06T21:17:53.019Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2916/pub/1/index.html",
+        "firstSeenAt": "2026-11-06T21:17:53.019Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2926/pub/1/index.html",
+        "firstSeenAt": "2026-11-06T21:17:53.019Z",
+        "title": "Strassenwart/-in"
+      }
+    ],
+    "previousSlugs": [
+      "strassenwart-in-kanton-gr-ch-c2b2166d-a434177c",
+      "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-80eb4976",
+      "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-cde2831e",
+      "streetkeeper-kantonale-verwaltung-graubunden-ilanz-e5eaa9a1",
+      "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-b7a5657d",
+      "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-fa8c35c5",
+      "strassenwart-in-kanton-gr-ch-21606259-76921474",
+      "strassenwart-in-kanton-gr-ch-7745936b-2da95618",
+      "strassenwart-in-kanton-gr-ch-213fb48d-4f40efa2",
+      "strassenwart-in-kanton-gr-ch-f5575d8e-e82413c1",
+      "strassenwart-in-kanton-gr-ch-dc2f32ab-9cb3e4f9",
+      "strassenwart-in-kanton-gr-ch-8dc1a9e6-3eaf23ab",
+      "strassenwart-in-kanton-gr-ch-1625c57b-212f8299",
+      "strassenwart-in-kanton-gr-ch-86cd7d98-8767abe9",
+      "strassenwart-in-kanton-gr-ch-9cb4a295-c91d9c5d",
+      "strassenwart-in-kanton-gr-ch-6a581ebe-b3e16e14",
+      "strassenwart-in-kanton-gr-ch-29c449e4-01539f67",
+      "strassenwart-in-kanton-gr-ch-c0a531e7-ac57dd58",
+      "strassenwart-in-kanton-gr-ch-7ff369f9-034b1688",
+      "strassenwart-in-kanton-gr-ch-8acdfd75-4495a34c",
+      "strassenwart-in-kanton-gr-ch-2dae40ce-e020db71",
+      "strassenwart-in-kanton-gr-ch-c3bab568-36cadc65",
+      "strassenwart-in-kanton-gr-ch-5d868488-ad87eec5",
+      "strassenwart-in-kanton-gr-ch-3aeeb55f-98bee4ac",
+      "strassenwart-in-kanton-gr-ch-2f71aa8c-851b3d6f",
+      "strassenwart-in-kanton-gr-ch-4f324f54-3f73ea01",
+      "strassenwart-in-kanton-gr-ch-d6ea5989-8dc9790f",
+      "strassenwart-in-kanton-gr-ch-355a775a-21efb7b7",
+      "strassenwart-in-kanton-gr-ch-8ca77121-de29f43e",
+      "strassenwart-in-kanton-gr-ch-2320f910-90f20c5f",
+      "strassenwart-in-kanton-gr-ch-de2de493-8545e6e9",
+      "strassenwart-in-kanton-gr-ch-f8cfbb2c-ddb187f3",
+      "strassenwart-in-kanton-gr-ch-2f792254-974fd55f",
+      "strassenwart-in-kanton-gr-ch-7b912974",
+      "strassenwart-in-kanton-gr-ch-c5b1c7a5",
+      "strassenwart-in-kanton-gr-ch-60414f28-05d0b373",
+      "strassenwart-in-kanton-gr-ch-5093967e-3f4c890a",
+      "strassenwart-in-kanton-gr-ch-49c0a38c-db6a1ba1",
+      "strassenwart-in-kanton-gr-ch-d8660c4d-eacf1fe5",
+      "strassenwart-in-kanton-gr-ch-3e4f9349-99619caf",
+      "strassenwart-in-kanton-gr-ch-444bf67b-b73b1a89",
+      "strassenwart-in-kanton-gr-ch-14b0fd99-f3a0d8b1",
+      "strassenwart-in-kanton-gr-ch-e0cc8bb2-c6865e0e",
+      "strassenwart-in-kanton-gr-ch-bf22d3ee-e62731af",
+      "strassenwart-in-kanton-gr-ch-b1593636-0a74acb0",
+      "strassenwart-in-kanton-gr-ch-23413ec7-52fa9cd2",
+      "strassenwart-in-kanton-gr-ch-683d3be9-e3dc245b",
+      "strassenwart-in-kanton-gr-ch-efa0250a-27eb7f3c",
+      "strassenwart-in-kanton-gr-ch-d6f925f5-19f824a1",
+      "strassenwart-in-kanton-gr-ch-42ca8920-f92170de",
+      "strassenwart-in-kanton-gr-ch-8dc50fd3-28cd61df",
+      "strassenwart-in-kanton-gr-ch-ce6c6fb5-a8dc3d4f",
+      "strassenwart-in-kanton-gr-ch-e3794870-73117d84",
+      "strassenwart-in-kanton-gr-ch-9a5cb9b3",
+      "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-3b2c8045",
+      "strassenwart-in-kanton-gr-ch-7b912974-790d3081",
+      "strassenwart-in-kanton-gr-ch-c5b1c7a5-0b5a0172",
+      "strassenwart-in-kanton-gr-ch-60414f28-7b683631",
+      "strassenwart-in-kanton-gr-ch-5093967e-1dee5a75",
+      "strassenwart-in-kanton-gr-ch-49c0a38c-de897555",
+      "strassenwart-in-kanton-gr-ch-d8660c4d-ef56a3cd",
+      "strassenwart-in-kanton-gr-ch-3e4f9349-3c9e0c82",
+      "strassenwart-in-kanton-gr-ch-444bf67b-9ccddba6",
+      "strassenwart-in-kanton-gr-ch-14b0fd99-20125b3d",
+      "strassenwart-in-kanton-gr-ch-e0cc8bb2-a5fbf20e",
+      "strassenwart-in-kanton-gr-ch-bf22d3ee-1af7ad40",
+      "strassenwart-in-kanton-gr-ch-b1593636-91d0fc7e",
+      "strassenwart-in-kanton-gr-ch-23413ec7-9130420c",
+      "strassenwart-in-kanton-gr-ch-683d3be9-8b7521dd",
+      "strassenwart-in-kanton-gr-ch-efa0250a-05727686",
+      "strassenwart-in-kanton-gr-ch-d6f925f5-70c57cbe",
+      "strassenwart-in-kanton-gr-ch-42ca8920-c12d1397",
+      "strassenwart-in-kanton-gr-ch-8dc50fd3-a6eb544f",
+      "strassenwart-in-kanton-gr-ch-ce6c6fb5-6469865a",
+      "strassenwart-in-kanton-gr-ch-e3794870-3705231a"
+    ]
+  },
+  {
+    "slug": "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-3d5e0523",
+    "title": "Strassenwart/-in",
+    "titleByLocale": {
+      "it": "Strassenwart/-in",
+      "en": "Streetkeeper",
+      "de": "Strassenwart/-in",
+      "fr": "Gardien de rue"
+    },
+    "company": "Kantonale Verwaltung Graubünden",
+    "companyKey": "kanton-gr",
+    "location": "Ilanz",
+    "addressLocality": "Ilanz",
+    "descriptionByLocale": {
+      "it": "L'ufficio di ingegneria civile è responsabile della progettazione, costruzione, manutenzione e funzionamento delle strade cantonali, nonché dell'ingegneria idraulica e del trasporto lento a Grigioni. Ci occupiamo anche della manutenzione operativa delle strade nazionali sul territorio cantonale. L’infrastruttura stradale del cantone comprende oltre 1.450 edifici artificiali, tra cui ponti ad altezze ariose fino a 90 metri e gallerie fino a 3 chilometri di lunghezza. Le sfide che la natura del nostro cantone di montagna porta in estate e in inverno rendono il nostro lavoro impegnativo e versatile. Come ufficio certificato Friendly Work Space, la salute e la soddisfazione dei nostri circa 480 dipendenti sono particolarmente importanti per noi. Per questo motivo, siamo impegnati nella gestione sistematica della salute professionale (BGM).\n\nStiamo cercando il reparto manutenzione stradale nel distretto 6 Ilanz per 1. Gennaio 2027 o su appuntamento\n\nCompiti\n• Esecuzione dei lavori di manutenzione stradale in un piccolo team di manutenzione\n\n• Servizio estivo e invernale\n\n• Lavori di pulizia e riparazione dopo eventi accidentali o naturali\n\n• Controllo delle condizioni stradali e degli impianti stradali\n\n• Pikettdienst (estate e inverno)\n\nRequisiti\n• Apprendistato completo in costruzione\n\n• Artigianato\n\n• Capacità di carico fisica\n\n• Gioia del lavoro di squadra\n\n• Categoria C patente di guida o volontà di acquisirla\n\n• Le abilità romanze sono utili",
+      "en": "The civil engineering office is responsible for the design, construction, maintenance and operation of the cantonal roads as well as the hydraulic engineering and slow transport in Graubünden. We also take care of the operational maintenance of the national roads on the cantonal territory. The canton’s road infrastructure comprises over 1,450 artificial buildings, including bridges at airy heights of up to 90 meters and tunnels of up to 3 kilometers in length. The challenges that the nature of our mountain canton brings in summer and winter make our work demanding and versatile. As a Friendly Work Space certified office, the health and satisfaction of our approximately 480 employees are particularly important to us. For this reason, we are committed to systematic occupational health management (BGM).\n\nWe are looking for the road maintenance department in district 6 Ilanz per 1. January 2027 or by appointment a road attendant\n\nTasks\n• Execution of road maintenance work in a small maintenance team\n\n• Summer and winter service\n\n• Clean-up and repair work after accidental or natural events\n\n• Control of road conditions and road installations\n\n• Pikettdienst (summer and winter)\n\nRequirements\n• Completed apprenticeship in construction\n\n• Craftsmanship\n\n• Physical load capacity\n\n• Joy of teamwork\n\n• Category C driving licence or willingness to acquire it\n\n• Romance skills are beneficial",
+      "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 6 Ilanz per 1. Januar 2027 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben\n\n• Romanischkenntnisse sind von Vorteil",
+      "fr": "Le bureau du génie civil est chargé de la conception, de la construction, de l'entretien et de l'exploitation des routes cantonales ainsi que de l'ingénierie hydraulique et du transport lent à Graubünden. Nous nous occupons également de l'entretien opérationnel des routes nationales sur le territoire cantonal. L'infrastructure routière cantonale comprend plus de 1.450 bâtiments artificiels, y compris des ponts à des hauteurs aérées allant jusqu'à 90 mètres et des tunnels pouvant atteindre 3 kilomètres de long. Les défis que la nature de notre canton de montagne apporte en été et en hiver rendent notre travail exigeant et polyvalent. En tant que bureau certifié Friendly Work Space, la santé et la satisfaction de nos quelque 480 employés sont particulièrement importantes pour nous. C'est pourquoi nous nous engageons à assurer une gestion systématique de la santé au travail.\n\nNous recherchons le service d'entretien routier dans le district 6 Ilanz par 1. Janvier 2027 ou sur rendez-vous un accompagnateur routier\n\nTâche\n• Exécution des travaux d ' entretien des routes dans une petite équipe d ' entretien\n\n• Service d'été et d'hiver\n\n• Nettoyage et réparation après des événements accidentels ou naturels\n\n• Contrôle des conditions routières et des installations routières\n\n• Pikettdienst (été et hiver)\n\nExigences\n• Apprentissage complet dans la construction\n\n• Artisanat\n\n• Capacité de charge physique\n\n• Joy de travail d'équipe\n\n• Permis de conduire de catégorie C ou volonté de l'acquérir\n\n• Les compétences romanes sont bénéfiques"
+    },
+    "slugByLocale": {
+      "it": "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-3d5e0523",
+      "en": "streetkeeper-kantonale-verwaltung-graubunden-ilanz-928786ed",
+      "de": "strassenwart-in-kanton-gr-ch-c2b2166d-523e3942",
+      "fr": "gardien-de-rue-kantonale-verwaltung-graubunden-ilanz-d2ce222b"
+    },
+    "sector": "Amministrazione Pubblica",
+    "expiredAt": "2026-10-05T09:11:17.150Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "strassenwart-in-kanton-gr-ch-c2b2166d-523e3942",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-7ea58203",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-b5b47e7b",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-928786ed",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-7ab79fc9",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-5300ac9c",
+        "strassenwart-in-kanton-gr-ch-21606259-1f78d787",
+        "strassenwart-in-kanton-gr-ch-7745936b-4daa23cf",
+        "strassenwart-in-kanton-gr-ch-213fb48d-d94b1a21",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-ae3aa894",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-6913a3c3",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-f416c494",
+        "strassenwart-in-kanton-gr-ch-1625c57b-8d43c98b",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-2bf453f7",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-fcda33db",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-a8022a78",
+        "strassenwart-in-kanton-gr-ch-29c449e4-12cafa72",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-a61dd872",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-f3e62c31",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-f01a5709",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-4028da40",
+        "strassenwart-in-kanton-gr-ch-c3bab568-24c87c30",
+        "strassenwart-in-kanton-gr-ch-5d868488-4a64828f",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-5dd1e913",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-f6e892a3",
+        "strassenwart-in-kanton-gr-ch-4f324f54-69a7fd2c",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-a6f04353",
+        "strassenwart-in-kanton-gr-ch-355a775a-02ed34fc",
+        "strassenwart-in-kanton-gr-ch-8ca77121-7f515c7e",
+        "strassenwart-in-kanton-gr-ch-2320f910-e28081f5",
+        "strassenwart-in-kanton-gr-ch-de2de493-3b5fb833",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-4a1766d2",
+        "strassenwart-in-kanton-gr-ch-2f792254-eab7a926",
+        "strassenwart-in-kanton-gr-ch-7b912974-2e2eb3fb",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-907d8088",
+        "strassenwart-in-kanton-gr-ch-60414f28-3c52d8f4",
+        "strassenwart-in-kanton-gr-ch-5093967e-671d37c1",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-a37b0ef5",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-415e84ba",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-c7ffdcdf",
+        "strassenwart-in-kanton-gr-ch-444bf67b-2a91765e",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-c2898ee2",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-bab894e3",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-a527af1f",
+        "strassenwart-in-kanton-gr-ch-b1593636-949d31a7",
+        "strassenwart-in-kanton-gr-ch-23413ec7-6575561c",
+        "strassenwart-in-kanton-gr-ch-683d3be9-f14e3b55",
+        "strassenwart-in-kanton-gr-ch-efa0250a-1f693218",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-346385ee",
+        "strassenwart-in-kanton-gr-ch-42ca8920-ca0e4216",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-c1cfa2a5",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-adb8bb02",
+        "strassenwart-in-kanton-gr-ch-e3794870-61a68353",
+        "strassenwart-in-kanton-gr-ch-c15c9515",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-361dd023"
+      ],
+      "en": [
+        "strassenwart-in-kanton-gr-ch-c2b2166d-523e3942",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-5300ac9c",
+        "strassenwart-in-kanton-gr-ch-21606259-1f78d787",
+        "strassenwart-in-kanton-gr-ch-7745936b-4daa23cf",
+        "strassenwart-in-kanton-gr-ch-213fb48d-d94b1a21",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-ae3aa894",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-6913a3c3",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-f416c494",
+        "strassenwart-in-kanton-gr-ch-1625c57b-8d43c98b",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-2bf453f7",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-fcda33db",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-a8022a78",
+        "strassenwart-in-kanton-gr-ch-29c449e4-12cafa72",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-a61dd872",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-f3e62c31",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-f01a5709",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-4028da40",
+        "strassenwart-in-kanton-gr-ch-c3bab568-24c87c30",
+        "strassenwart-in-kanton-gr-ch-5d868488-4a64828f",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-5dd1e913",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-f6e892a3",
+        "strassenwart-in-kanton-gr-ch-4f324f54-69a7fd2c",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-a6f04353",
+        "strassenwart-in-kanton-gr-ch-355a775a-02ed34fc",
+        "strassenwart-in-kanton-gr-ch-8ca77121-7f515c7e",
+        "strassenwart-in-kanton-gr-ch-2320f910-e28081f5",
+        "strassenwart-in-kanton-gr-ch-de2de493-3b5fb833",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-4a1766d2",
+        "strassenwart-in-kanton-gr-ch-2f792254-eab7a926",
+        "strassenwart-in-kanton-gr-ch-7b912974-2e2eb3fb",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-907d8088",
+        "strassenwart-in-kanton-gr-ch-60414f28-05d0b373",
+        "strassenwart-in-kanton-gr-ch-5093967e-3f4c890a",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-db6a1ba1",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-eacf1fe5",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-99619caf",
+        "strassenwart-in-kanton-gr-ch-444bf67b-b73b1a89",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-f3a0d8b1",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-c6865e0e",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-e62731af",
+        "strassenwart-in-kanton-gr-ch-b1593636-0a74acb0",
+        "strassenwart-in-kanton-gr-ch-23413ec7-52fa9cd2",
+        "strassenwart-in-kanton-gr-ch-683d3be9-e3dc245b",
+        "strassenwart-in-kanton-gr-ch-efa0250a-27eb7f3c",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-19f824a1",
+        "strassenwart-in-kanton-gr-ch-42ca8920-f92170de",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-28cd61df",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-a8dc3d4f",
+        "strassenwart-in-kanton-gr-ch-e3794870-73117d84",
+        "strassenwart-in-kanton-gr-ch-c15c9515",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-7ea58203",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-b5b47e7b",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-928786ed",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-77b986ab",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-361dd023"
+      ],
+      "fr": [
+        "strassenwart-in-kanton-gr-ch-c2b2166d-523e3942",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-47df860c",
+        "strassenwart-in-kanton-gr-ch-21606259-1f78d787",
+        "strassenwart-in-kanton-gr-ch-7745936b-4daa23cf",
+        "strassenwart-in-kanton-gr-ch-213fb48d-d94b1a21",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-ae3aa894",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-6913a3c3",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-f416c494",
+        "strassenwart-in-kanton-gr-ch-1625c57b-8d43c98b",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-2bf453f7",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-fcda33db",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-a8022a78",
+        "strassenwart-in-kanton-gr-ch-29c449e4-12cafa72",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-a61dd872",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-f3e62c31",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-f01a5709",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-4028da40",
+        "strassenwart-in-kanton-gr-ch-c3bab568-24c87c30",
+        "strassenwart-in-kanton-gr-ch-5d868488-4a64828f",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-5dd1e913",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-f6e892a3",
+        "strassenwart-in-kanton-gr-ch-4f324f54-69a7fd2c",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-a6f04353",
+        "strassenwart-in-kanton-gr-ch-355a775a-02ed34fc",
+        "strassenwart-in-kanton-gr-ch-8ca77121-7f515c7e",
+        "strassenwart-in-kanton-gr-ch-2320f910-e28081f5",
+        "strassenwart-in-kanton-gr-ch-de2de493-3b5fb833",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-4a1766d2",
+        "strassenwart-in-kanton-gr-ch-2f792254-eab7a926",
+        "strassenwart-in-kanton-gr-ch-7b912974-2e2eb3fb",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-907d8088",
+        "strassenwart-in-kanton-gr-ch-60414f28-05d0b373",
+        "strassenwart-in-kanton-gr-ch-5093967e-3f4c890a",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-db6a1ba1",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-eacf1fe5",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-99619caf",
+        "strassenwart-in-kanton-gr-ch-444bf67b-b73b1a89",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-f3a0d8b1",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-c6865e0e",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-e62731af",
+        "strassenwart-in-kanton-gr-ch-b1593636-0a74acb0",
+        "strassenwart-in-kanton-gr-ch-23413ec7-52fa9cd2",
+        "strassenwart-in-kanton-gr-ch-683d3be9-e3dc245b",
+        "strassenwart-in-kanton-gr-ch-efa0250a-27eb7f3c",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-19f824a1",
+        "strassenwart-in-kanton-gr-ch-42ca8920-f92170de",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-28cd61df",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-a8dc3d4f",
+        "strassenwart-in-kanton-gr-ch-e3794870-73117d84",
+        "strassenwart-in-kanton-gr-ch-c15c9515",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-7ea58203",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-b5b47e7b",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-928786ed",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-77b986ab",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-5300ac9c"
+      ],
+      "de": [
+        "strassenwart-in-kanton-gr-ch-c15c9515",
+        "strassenwart-in-kanton-gr-ch-c2b2166d-523e3942",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-7ea58203",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-b5b47e7b",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-928786ed",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-77b986ab",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-5300ac9c",
+        "strassenwart-in-kanton-gr-ch-21606259-1f78d787",
+        "strassenwart-in-kanton-gr-ch-7745936b-4daa23cf",
+        "strassenwart-in-kanton-gr-ch-213fb48d-d94b1a21",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-ae3aa894",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-6913a3c3",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-f416c494",
+        "strassenwart-in-kanton-gr-ch-1625c57b-8d43c98b",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-2bf453f7",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-fcda33db",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-a8022a78",
+        "strassenwart-in-kanton-gr-ch-29c449e4-12cafa72",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-a61dd872",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-f3e62c31",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-f01a5709",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-4028da40",
+        "strassenwart-in-kanton-gr-ch-c3bab568-24c87c30",
+        "strassenwart-in-kanton-gr-ch-5d868488-4a64828f",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-5dd1e913",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-f6e892a3",
+        "strassenwart-in-kanton-gr-ch-4f324f54-69a7fd2c",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-a6f04353",
+        "strassenwart-in-kanton-gr-ch-355a775a-02ed34fc",
+        "strassenwart-in-kanton-gr-ch-8ca77121-7f515c7e",
+        "strassenwart-in-kanton-gr-ch-2320f910-e28081f5",
+        "strassenwart-in-kanton-gr-ch-de2de493-3b5fb833",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-4a1766d2",
+        "strassenwart-in-kanton-gr-ch-2f792254-eab7a926",
+        "strassenwart-in-kanton-gr-ch-60414f28-05d0b373",
+        "strassenwart-in-kanton-gr-ch-5093967e-3f4c890a",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-db6a1ba1",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-eacf1fe5",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-99619caf",
+        "strassenwart-in-kanton-gr-ch-444bf67b-b73b1a89",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-f3a0d8b1",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-c6865e0e",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-e62731af",
+        "strassenwart-in-kanton-gr-ch-b1593636-0a74acb0",
+        "strassenwart-in-kanton-gr-ch-23413ec7-52fa9cd2",
+        "strassenwart-in-kanton-gr-ch-683d3be9-e3dc245b",
+        "strassenwart-in-kanton-gr-ch-efa0250a-27eb7f3c",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-19f824a1",
+        "strassenwart-in-kanton-gr-ch-42ca8920-f92170de",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-28cd61df",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-a8dc3d4f",
+        "strassenwart-in-kanton-gr-ch-e3794870-73117d84",
+        "strassenwart-in-kanton-gr-ch-7b912974-2e2eb3fb",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-907d8088",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-361dd023"
+      ]
+    },
+    "postalCode": "7130",
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/514915/2837/pub/1/index.html",
+    "firstSeenAt": "2026-08-20T22:04:47.985Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2815/pub/1/index.html",
+        "firstSeenAt": "2026-08-20T22:04:47.985Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2820/pub/6/index.html",
+        "firstSeenAt": "2026-08-28T05:16:58.362Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2837/pub/1/index.html",
+        "firstSeenAt": "2026-08-20T22:04:47.985Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2851/pub/1/index.html",
+        "firstSeenAt": "2026-09-10T23:05:21.387Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2910/pub/1/index.html",
+        "firstSeenAt": "2026-11-06T21:17:53.019Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2916/pub/1/index.html",
+        "firstSeenAt": "2026-11-06T21:17:53.019Z",
+        "title": "Strassenwart/-in"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/514915/2926/pub/1/index.html",
+        "firstSeenAt": "2026-11-06T21:17:53.019Z",
+        "title": "Strassenwart/-in"
+      }
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-3d5e0523": "GR",
+        "strassenwart-in-kanton-gr-ch-c2b2166d-523e3942": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-7ea58203": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-b5b47e7b": "GR",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-928786ed": "GR",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-7ab79fc9": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-5300ac9c": "GR",
+        "strassenwart-in-kanton-gr-ch-21606259-1f78d787": "GR",
+        "strassenwart-in-kanton-gr-ch-7745936b-4daa23cf": "GR",
+        "strassenwart-in-kanton-gr-ch-213fb48d-d94b1a21": "GR",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-ae3aa894": "GR",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-6913a3c3": "GR",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-f416c494": "GR",
+        "strassenwart-in-kanton-gr-ch-1625c57b-8d43c98b": "GR",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-2bf453f7": "GR",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-fcda33db": "GR",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-a8022a78": "GR",
+        "strassenwart-in-kanton-gr-ch-29c449e4-12cafa72": "GR",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-a61dd872": "GR",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-f3e62c31": "GR",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-f01a5709": "GR",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-4028da40": "GR",
+        "strassenwart-in-kanton-gr-ch-c3bab568-24c87c30": "GR",
+        "strassenwart-in-kanton-gr-ch-5d868488-4a64828f": "GR",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-5dd1e913": "GR",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-f6e892a3": "GR",
+        "strassenwart-in-kanton-gr-ch-4f324f54-69a7fd2c": "GR",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-a6f04353": "GR",
+        "strassenwart-in-kanton-gr-ch-355a775a-02ed34fc": "GR",
+        "strassenwart-in-kanton-gr-ch-8ca77121-7f515c7e": "GR",
+        "strassenwart-in-kanton-gr-ch-2320f910-e28081f5": "GR",
+        "strassenwart-in-kanton-gr-ch-de2de493-3b5fb833": "GR",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-4a1766d2": "GR",
+        "strassenwart-in-kanton-gr-ch-2f792254-eab7a926": "GR",
+        "strassenwart-in-kanton-gr-ch-60414f28-3c52d8f4": "GR",
+        "strassenwart-in-kanton-gr-ch-5093967e-671d37c1": "GR",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-a37b0ef5": "GR",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-415e84ba": "GR",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-c7ffdcdf": "GR",
+        "strassenwart-in-kanton-gr-ch-444bf67b-2a91765e": "GR",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-c2898ee2": "GR",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-bab894e3": "GR",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-a527af1f": "GR",
+        "strassenwart-in-kanton-gr-ch-b1593636-949d31a7": "GR",
+        "strassenwart-in-kanton-gr-ch-23413ec7-6575561c": "GR",
+        "strassenwart-in-kanton-gr-ch-683d3be9-f14e3b55": "GR",
+        "strassenwart-in-kanton-gr-ch-efa0250a-1f693218": "GR",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-346385ee": "GR",
+        "strassenwart-in-kanton-gr-ch-42ca8920-ca0e4216": "GR",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-c1cfa2a5": "GR",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-adb8bb02": "GR",
+        "strassenwart-in-kanton-gr-ch-e3794870-61a68353": "GR",
+        "strassenwart-in-kanton-gr-ch-c15c9515": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-361dd023": "GR",
+        "strassenwart-in-kanton-gr-ch-7b912974-2e2eb3fb": "GR",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-907d8088": "GR"
+      },
+      "en": {
+        "strassenwart-in-kanton-gr-ch-c2b2166d-523e3942": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-5300ac9c": "GR",
+        "strassenwart-in-kanton-gr-ch-21606259-1f78d787": "GR",
+        "strassenwart-in-kanton-gr-ch-7745936b-4daa23cf": "GR",
+        "strassenwart-in-kanton-gr-ch-213fb48d-d94b1a21": "GR",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-ae3aa894": "GR",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-6913a3c3": "GR",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-f416c494": "GR",
+        "strassenwart-in-kanton-gr-ch-1625c57b-8d43c98b": "GR",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-2bf453f7": "GR",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-fcda33db": "GR",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-a8022a78": "GR",
+        "strassenwart-in-kanton-gr-ch-29c449e4-12cafa72": "GR",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-a61dd872": "GR",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-f3e62c31": "GR",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-f01a5709": "GR",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-4028da40": "GR",
+        "strassenwart-in-kanton-gr-ch-c3bab568-24c87c30": "GR",
+        "strassenwart-in-kanton-gr-ch-5d868488-4a64828f": "GR",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-5dd1e913": "GR",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-f6e892a3": "GR",
+        "strassenwart-in-kanton-gr-ch-4f324f54-69a7fd2c": "GR",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-a6f04353": "GR",
+        "strassenwart-in-kanton-gr-ch-355a775a-02ed34fc": "GR",
+        "strassenwart-in-kanton-gr-ch-8ca77121-7f515c7e": "GR",
+        "strassenwart-in-kanton-gr-ch-2320f910-e28081f5": "GR",
+        "strassenwart-in-kanton-gr-ch-de2de493-3b5fb833": "GR",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-4a1766d2": "GR",
+        "strassenwart-in-kanton-gr-ch-2f792254-eab7a926": "GR",
+        "strassenwart-in-kanton-gr-ch-7b912974-2e2eb3fb": "GR",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-907d8088": "GR",
+        "strassenwart-in-kanton-gr-ch-60414f28-05d0b373": "GR",
+        "strassenwart-in-kanton-gr-ch-5093967e-3f4c890a": "GR",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-db6a1ba1": "GR",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-eacf1fe5": "GR",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-99619caf": "GR",
+        "strassenwart-in-kanton-gr-ch-444bf67b-b73b1a89": "GR",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-f3a0d8b1": "GR",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-c6865e0e": "GR",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-e62731af": "GR",
+        "strassenwart-in-kanton-gr-ch-b1593636-0a74acb0": "GR",
+        "strassenwart-in-kanton-gr-ch-23413ec7-52fa9cd2": "GR",
+        "strassenwart-in-kanton-gr-ch-683d3be9-e3dc245b": "GR",
+        "strassenwart-in-kanton-gr-ch-efa0250a-27eb7f3c": "GR",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-19f824a1": "GR",
+        "strassenwart-in-kanton-gr-ch-42ca8920-f92170de": "GR",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-28cd61df": "GR",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-a8dc3d4f": "GR",
+        "strassenwart-in-kanton-gr-ch-e3794870-73117d84": "GR",
+        "strassenwart-in-kanton-gr-ch-c15c9515": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-7ea58203": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-b5b47e7b": "GR",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-77b986ab": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-361dd023": "GR",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-928786ed": "GR"
+      },
+      "de": {
+        "strassenwart-in-kanton-gr-ch-c15c9515": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-7ea58203": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-b5b47e7b": "GR",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-928786ed": "GR",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-77b986ab": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-5300ac9c": "GR",
+        "strassenwart-in-kanton-gr-ch-21606259-1f78d787": "GR",
+        "strassenwart-in-kanton-gr-ch-7745936b-4daa23cf": "GR",
+        "strassenwart-in-kanton-gr-ch-213fb48d-d94b1a21": "GR",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-ae3aa894": "GR",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-6913a3c3": "GR",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-f416c494": "GR",
+        "strassenwart-in-kanton-gr-ch-1625c57b-8d43c98b": "GR",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-2bf453f7": "GR",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-fcda33db": "GR",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-a8022a78": "GR",
+        "strassenwart-in-kanton-gr-ch-29c449e4-12cafa72": "GR",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-a61dd872": "GR",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-f3e62c31": "GR",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-f01a5709": "GR",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-4028da40": "GR",
+        "strassenwart-in-kanton-gr-ch-c3bab568-24c87c30": "GR",
+        "strassenwart-in-kanton-gr-ch-5d868488-4a64828f": "GR",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-5dd1e913": "GR",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-f6e892a3": "GR",
+        "strassenwart-in-kanton-gr-ch-4f324f54-69a7fd2c": "GR",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-a6f04353": "GR",
+        "strassenwart-in-kanton-gr-ch-355a775a-02ed34fc": "GR",
+        "strassenwart-in-kanton-gr-ch-8ca77121-7f515c7e": "GR",
+        "strassenwart-in-kanton-gr-ch-2320f910-e28081f5": "GR",
+        "strassenwart-in-kanton-gr-ch-de2de493-3b5fb833": "GR",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-4a1766d2": "GR",
+        "strassenwart-in-kanton-gr-ch-2f792254-eab7a926": "GR",
+        "strassenwart-in-kanton-gr-ch-60414f28-05d0b373": "GR",
+        "strassenwart-in-kanton-gr-ch-5093967e-3f4c890a": "GR",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-db6a1ba1": "GR",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-eacf1fe5": "GR",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-99619caf": "GR",
+        "strassenwart-in-kanton-gr-ch-444bf67b-b73b1a89": "GR",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-f3a0d8b1": "GR",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-c6865e0e": "GR",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-e62731af": "GR",
+        "strassenwart-in-kanton-gr-ch-b1593636-0a74acb0": "GR",
+        "strassenwart-in-kanton-gr-ch-23413ec7-52fa9cd2": "GR",
+        "strassenwart-in-kanton-gr-ch-683d3be9-e3dc245b": "GR",
+        "strassenwart-in-kanton-gr-ch-efa0250a-27eb7f3c": "GR",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-19f824a1": "GR",
+        "strassenwart-in-kanton-gr-ch-42ca8920-f92170de": "GR",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-28cd61df": "GR",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-a8dc3d4f": "GR",
+        "strassenwart-in-kanton-gr-ch-e3794870-73117d84": "GR",
+        "strassenwart-in-kanton-gr-ch-7b912974-2e2eb3fb": "GR",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-907d8088": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-361dd023": "GR",
+        "strassenwart-in-kanton-gr-ch-c2b2166d-523e3942": "GR"
+      },
+      "fr": {
+        "strassenwart-in-kanton-gr-ch-c2b2166d-523e3942": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-47df860c": "GR",
+        "strassenwart-in-kanton-gr-ch-21606259-1f78d787": "GR",
+        "strassenwart-in-kanton-gr-ch-7745936b-4daa23cf": "GR",
+        "strassenwart-in-kanton-gr-ch-213fb48d-d94b1a21": "GR",
+        "strassenwart-in-kanton-gr-ch-f5575d8e-ae3aa894": "GR",
+        "strassenwart-in-kanton-gr-ch-dc2f32ab-6913a3c3": "GR",
+        "strassenwart-in-kanton-gr-ch-8dc1a9e6-f416c494": "GR",
+        "strassenwart-in-kanton-gr-ch-1625c57b-8d43c98b": "GR",
+        "strassenwart-in-kanton-gr-ch-86cd7d98-2bf453f7": "GR",
+        "strassenwart-in-kanton-gr-ch-9cb4a295-fcda33db": "GR",
+        "strassenwart-in-kanton-gr-ch-6a581ebe-a8022a78": "GR",
+        "strassenwart-in-kanton-gr-ch-29c449e4-12cafa72": "GR",
+        "strassenwart-in-kanton-gr-ch-c0a531e7-a61dd872": "GR",
+        "strassenwart-in-kanton-gr-ch-7ff369f9-f3e62c31": "GR",
+        "strassenwart-in-kanton-gr-ch-8acdfd75-f01a5709": "GR",
+        "strassenwart-in-kanton-gr-ch-2dae40ce-4028da40": "GR",
+        "strassenwart-in-kanton-gr-ch-c3bab568-24c87c30": "GR",
+        "strassenwart-in-kanton-gr-ch-5d868488-4a64828f": "GR",
+        "strassenwart-in-kanton-gr-ch-3aeeb55f-5dd1e913": "GR",
+        "strassenwart-in-kanton-gr-ch-2f71aa8c-f6e892a3": "GR",
+        "strassenwart-in-kanton-gr-ch-4f324f54-69a7fd2c": "GR",
+        "strassenwart-in-kanton-gr-ch-d6ea5989-a6f04353": "GR",
+        "strassenwart-in-kanton-gr-ch-355a775a-02ed34fc": "GR",
+        "strassenwart-in-kanton-gr-ch-8ca77121-7f515c7e": "GR",
+        "strassenwart-in-kanton-gr-ch-2320f910-e28081f5": "GR",
+        "strassenwart-in-kanton-gr-ch-de2de493-3b5fb833": "GR",
+        "strassenwart-in-kanton-gr-ch-f8cfbb2c-4a1766d2": "GR",
+        "strassenwart-in-kanton-gr-ch-2f792254-eab7a926": "GR",
+        "strassenwart-in-kanton-gr-ch-7b912974-2e2eb3fb": "GR",
+        "strassenwart-in-kanton-gr-ch-c5b1c7a5-907d8088": "GR",
+        "strassenwart-in-kanton-gr-ch-60414f28-05d0b373": "GR",
+        "strassenwart-in-kanton-gr-ch-5093967e-3f4c890a": "GR",
+        "strassenwart-in-kanton-gr-ch-49c0a38c-db6a1ba1": "GR",
+        "strassenwart-in-kanton-gr-ch-d8660c4d-eacf1fe5": "GR",
+        "strassenwart-in-kanton-gr-ch-3e4f9349-99619caf": "GR",
+        "strassenwart-in-kanton-gr-ch-444bf67b-b73b1a89": "GR",
+        "strassenwart-in-kanton-gr-ch-14b0fd99-f3a0d8b1": "GR",
+        "strassenwart-in-kanton-gr-ch-e0cc8bb2-c6865e0e": "GR",
+        "strassenwart-in-kanton-gr-ch-bf22d3ee-e62731af": "GR",
+        "strassenwart-in-kanton-gr-ch-b1593636-0a74acb0": "GR",
+        "strassenwart-in-kanton-gr-ch-23413ec7-52fa9cd2": "GR",
+        "strassenwart-in-kanton-gr-ch-683d3be9-e3dc245b": "GR",
+        "strassenwart-in-kanton-gr-ch-efa0250a-27eb7f3c": "GR",
+        "strassenwart-in-kanton-gr-ch-d6f925f5-19f824a1": "GR",
+        "strassenwart-in-kanton-gr-ch-42ca8920-f92170de": "GR",
+        "strassenwart-in-kanton-gr-ch-8dc50fd3-28cd61df": "GR",
+        "strassenwart-in-kanton-gr-ch-ce6c6fb5-a8dc3d4f": "GR",
+        "strassenwart-in-kanton-gr-ch-e3794870-73117d84": "GR",
+        "strassenwart-in-kanton-gr-ch-c15c9515": "GR",
+        "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-7ea58203": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-b5b47e7b": "GR",
+        "streetkeeper-kantonale-verwaltung-graubunden-ilanz-928786ed": "GR",
+        "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-77b986ab": "GR",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-5300ac9c": "GR",
+        "gardien-de-rue-kantonale-verwaltung-graubunden-ilanz-d2ce222b": "GR"
+      }
+    },
+    "previousSlugs": [
+      "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz-7ea58203",
+      "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz-b5b47e7b",
+      "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-7ab79fc9",
+      "streetkeeper-in-kantonale-verwaltung-graubunden-davos-frauenkirch-5300ac9c",
+      "strassenwart-in-kanton-gr-ch-21606259-1f78d787",
+      "strassenwart-in-kanton-gr-ch-7745936b-4daa23cf",
+      "strassenwart-in-kanton-gr-ch-213fb48d-d94b1a21",
+      "strassenwart-in-kanton-gr-ch-f5575d8e-ae3aa894",
+      "strassenwart-in-kanton-gr-ch-dc2f32ab-6913a3c3",
+      "strassenwart-in-kanton-gr-ch-8dc1a9e6-f416c494",
+      "strassenwart-in-kanton-gr-ch-1625c57b-8d43c98b",
+      "strassenwart-in-kanton-gr-ch-86cd7d98-2bf453f7",
+      "strassenwart-in-kanton-gr-ch-9cb4a295-fcda33db",
+      "strassenwart-in-kanton-gr-ch-6a581ebe-a8022a78",
+      "strassenwart-in-kanton-gr-ch-29c449e4-12cafa72",
+      "strassenwart-in-kanton-gr-ch-c0a531e7-a61dd872",
+      "strassenwart-in-kanton-gr-ch-7ff369f9-f3e62c31",
+      "strassenwart-in-kanton-gr-ch-8acdfd75-f01a5709",
+      "strassenwart-in-kanton-gr-ch-2dae40ce-4028da40",
+      "strassenwart-in-kanton-gr-ch-c3bab568-24c87c30",
+      "strassenwart-in-kanton-gr-ch-5d868488-4a64828f",
+      "strassenwart-in-kanton-gr-ch-3aeeb55f-5dd1e913",
+      "strassenwart-in-kanton-gr-ch-2f71aa8c-f6e892a3",
+      "strassenwart-in-kanton-gr-ch-4f324f54-69a7fd2c",
+      "strassenwart-in-kanton-gr-ch-d6ea5989-a6f04353",
+      "strassenwart-in-kanton-gr-ch-355a775a-02ed34fc",
+      "strassenwart-in-kanton-gr-ch-8ca77121-7f515c7e",
+      "strassenwart-in-kanton-gr-ch-2320f910-e28081f5",
+      "strassenwart-in-kanton-gr-ch-de2de493-3b5fb833",
+      "strassenwart-in-kanton-gr-ch-f8cfbb2c-4a1766d2",
+      "strassenwart-in-kanton-gr-ch-2f792254-eab7a926",
+      "strassenwart-in-kanton-gr-ch-7b912974-2e2eb3fb",
+      "strassenwart-in-kanton-gr-ch-c5b1c7a5-907d8088",
+      "strassenwart-in-kanton-gr-ch-60414f28-3c52d8f4",
+      "strassenwart-in-kanton-gr-ch-5093967e-671d37c1",
+      "strassenwart-in-kanton-gr-ch-49c0a38c-a37b0ef5",
+      "strassenwart-in-kanton-gr-ch-d8660c4d-415e84ba",
+      "strassenwart-in-kanton-gr-ch-3e4f9349-c7ffdcdf",
+      "strassenwart-in-kanton-gr-ch-444bf67b-2a91765e",
+      "strassenwart-in-kanton-gr-ch-14b0fd99-c2898ee2",
+      "strassenwart-in-kanton-gr-ch-e0cc8bb2-bab894e3",
+      "strassenwart-in-kanton-gr-ch-bf22d3ee-a527af1f",
+      "strassenwart-in-kanton-gr-ch-b1593636-949d31a7",
+      "strassenwart-in-kanton-gr-ch-23413ec7-6575561c",
+      "strassenwart-in-kanton-gr-ch-683d3be9-f14e3b55",
+      "strassenwart-in-kanton-gr-ch-efa0250a-1f693218",
+      "strassenwart-in-kanton-gr-ch-d6f925f5-346385ee",
+      "strassenwart-in-kanton-gr-ch-42ca8920-ca0e4216",
+      "strassenwart-in-kanton-gr-ch-8dc50fd3-c1cfa2a5",
+      "strassenwart-in-kanton-gr-ch-ce6c6fb5-adb8bb02",
+      "strassenwart-in-kanton-gr-ch-e3794870-61a68353",
+      "strassenwart-in-kanton-gr-ch-c15c9515",
+      "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-361dd023",
+      "strassenwart-in-kanton-gr-ch-60414f28-05d0b373",
+      "strassenwart-in-kanton-gr-ch-5093967e-3f4c890a",
+      "strassenwart-in-kanton-gr-ch-49c0a38c-db6a1ba1",
+      "strassenwart-in-kanton-gr-ch-d8660c4d-eacf1fe5",
+      "strassenwart-in-kanton-gr-ch-3e4f9349-99619caf",
+      "strassenwart-in-kanton-gr-ch-444bf67b-b73b1a89",
+      "strassenwart-in-kanton-gr-ch-14b0fd99-f3a0d8b1",
+      "strassenwart-in-kanton-gr-ch-e0cc8bb2-c6865e0e",
+      "strassenwart-in-kanton-gr-ch-bf22d3ee-e62731af",
+      "strassenwart-in-kanton-gr-ch-b1593636-0a74acb0",
+      "strassenwart-in-kanton-gr-ch-23413ec7-52fa9cd2",
+      "strassenwart-in-kanton-gr-ch-683d3be9-e3dc245b",
+      "strassenwart-in-kanton-gr-ch-efa0250a-27eb7f3c",
+      "strassenwart-in-kanton-gr-ch-d6f925f5-19f824a1",
+      "strassenwart-in-kanton-gr-ch-42ca8920-f92170de",
+      "strassenwart-in-kanton-gr-ch-8dc50fd3-28cd61df",
+      "strassenwart-in-kanton-gr-ch-ce6c6fb5-a8dc3d4f",
+      "strassenwart-in-kanton-gr-ch-e3794870-73117d84",
+      "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-77b986ab",
+      "gardien-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch-47df860c"
     ]
   },
   {
@@ -6257,7 +8187,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2829/pub/1/index.html",
-    "firstSeenAt": "2026-09-03T13:32:31.227Z"
+    "firstSeenAt": "2026-09-03T13:32:31.227Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachperson-bodenrecht-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "fachperson-bodenrecht-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "fachperson-bodenrecht-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "interno-kantonale-verwaltung-graubunden-chur",
@@ -7277,7 +9219,29 @@
         "firstSeenAt": "2026-09-03T13:32:29.938Z",
         "title": "Praktikant/-in"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-traine-in-kantonale-verwaltung-graubunden-chur": "GR",
+        "it-trainee-in-kantonale-verwaltung-graubunden-chur": "GR",
+        "it-praktikant-in-kanton-gr-ch": "GR",
+        "stage-in-kantonale-verwaltung-graubunden-chur": "GR",
+        "praktikant-in-kanton-gr-ch-4f8ea732": "GR"
+      },
+      "en": {
+        "it-trainee-in-kantonale-verwaltung-graubunden-chur": "GR",
+        "praktikant-in-kanton-gr-ch-4f8ea732": "GR"
+      },
+      "de": {
+        "it-praktikant-in-kanton-gr-ch": "GR",
+        "praktikant-in-kanton-gr-ch-4f8ea732": "GR"
+      },
+      "fr": {
+        "stage-in-kantonale-verwaltung-graubunden-chur": "GR",
+        "praktikant-in-kanton-gr-ch-4f8ea732": "GR"
+      }
+    }
   },
   {
     "slug": "pianificatore-in-camera-come-pianificatore-distrettuale-kantonale-verwaltung-graubunden-chur",
@@ -7328,7 +9292,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2823/pub/1/index.html",
-    "firstSeenAt": "2026-09-03T13:32:33.161Z"
+    "firstSeenAt": "2026-09-03T13:32:33.161Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "raumplaner-in-als-kreisplaner-in-kanton-gr-ch": "GR",
+        "raumplaner-in-come-kreisplaner-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "raumplaner-in-als-kreisplaner-in-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "raumplaner-in-als-kreisplaner-in-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "servizio-giuridico-actuario-kantonale-verwaltung-graubunden-chur",
@@ -7387,7 +9364,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2843/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:20.117Z"
+    "firstSeenAt": "2026-09-10T23:05:20.117Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "projektleiter-in-kollaboration-e-teamentwicklung-kantonale-verwaltung-graubunden-chur",
@@ -7430,7 +9419,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2828/pub/1/index.html",
-    "firstSeenAt": "2026-08-28T05:16:57.680Z"
+    "firstSeenAt": "2026-08-28T05:16:57.680Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-kollaboration-und-teamentwicklung-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "generalsekretar-in-kantonale-verwaltung-graubunden-chur",
@@ -7462,6 +9457,12 @@
     "previousSlugsByLocale": {
       "it": [
         "generalsekretar-in-kanton-gr-ch"
+      ],
+      "en": [
+        "generalsekretar-in-kantonale-verwaltung-graubunden-chur"
+      ],
+      "fr": [
+        "generalsekretar-in-kantonale-verwaltung-graubunden-chur"
       ]
     },
     "postalCode": "7000",
@@ -7470,7 +9471,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2797/pub/1/index.html",
-    "firstSeenAt": "2026-08-13T10:26:02.196Z"
+    "firstSeenAt": "2026-08-13T10:26:02.196Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "generalsekretar-in-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "generalsekretar-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "generalsekretar-in-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "gestione-del-portafoglio-di-project-manager-kantonale-verwaltung-graubunden-chur",
@@ -7521,7 +9534,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2824/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:19.490Z"
+    "firstSeenAt": "2026-09-10T23:05:19.490Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-portfolio-management-kanton-gr-ch": "GR",
+        "projektleiter-in-portfolio-management-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "projektleiter-in-portfolio-management-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "projektleiter-in-portfolio-management-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "interno-per-i-dipartimenti-ingresso-e-soggiorno-temporaneo-per-12-mesi-kantonale-verwaltung-graubunden-chur",
@@ -7572,7 +9598,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2846/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:14.308Z"
+    "firstSeenAt": "2026-09-10T23:05:14.308Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-fur-die-ressorts-einreise-und-aufenthalt-befristet-fur-12-monate-kanton-gr": "GR",
+        "praktikant-in-per-la-ressorts-einreise-e-aufenthalt-befristet-per-12-monate-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "praktikant-in-fur-die-ressorts-einreise-und-aufenthalt-befristet-fur-12-monate-kanton-gr": "GR"
+      },
+      "fr": {
+        "praktikant-in-fur-die-ressorts-einreise-und-aufenthalt-befristet-fur-12-monate-kanton-gr": "GR"
+      }
+    }
   },
   {
     "slug": "segretario-kantonale-verwaltung-graubunden-chur",
@@ -7621,7 +9660,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2839/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:16.821Z"
+    "firstSeenAt": "2026-09-10T23:05:16.821Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sekretar-in-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "sekretar-in-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "sekretar-in-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "dipendenti-sicurezza-kantonale-verwaltung-graubunden-cazis",
@@ -7673,7 +9724,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2833/pub/1/index.html",
-    "firstSeenAt": "2026-09-03T13:32:31.871Z"
+    "firstSeenAt": "2026-09-03T13:32:31.871Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-sicherheit-kanton-gr-ch": "GR",
+        "collaboratore-trice-in-sicherheit-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "en": {
+        "mitarbeiter-in-sicherheit-kantonale-verwaltung-graubunden-cazis": "GR"
+      },
+      "fr": {
+        "mitarbeiter-in-sicherheit-kantonale-verwaltung-graubunden-cazis": "GR"
+      }
+    }
   },
   {
     "slug": "restauratore-di-volontariat-kantonale-verwaltung-graubunden-chur",
@@ -7726,7 +9790,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2835/pub/1/index.html",
-    "firstSeenAt": "2026-09-03T13:32:28.312Z"
+    "firstSeenAt": "2026-09-03T13:32:28.312Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "volontariat-restaurator-in-kanton-gr-ch": "GR",
+        "ripristino-volontario-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "volontariat-restaurator-in-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "volontariat-restaurator-in-kanton-gr-ch": "GR",
+        "restauration-volontaire-in-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "centro-di-partenza-kantonale-verwaltung-graubunden-chur",
@@ -7777,7 +9855,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2847/pub/1/index.html",
-    "firstSeenAt": "2026-09-10T23:05:13.682Z"
+    "firstSeenAt": "2026-09-10T23:05:13.682Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betreuer-in-ausreisezentrum-kanton-gr-ch": "GR",
+        "betreuer-in-ausreisezentrum-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "betreuer-in-ausreisezentrum-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "betreuer-in-ausreisezentrum-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "consulente-professionale-studio-e-carriera-kantonale-verwaltung-graubunden-chur",
@@ -7829,7 +9920,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2836/pub/1/index.html",
-    "firstSeenAt": "2026-09-03T13:32:33.807Z"
+    "firstSeenAt": "2026-09-03T13:32:33.807Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "berufs-studien-und-laufbahnberater-in-kanton-gr-ch": "GR",
+        "berufs-studien-e-laufbahnberater-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "akademische-r-collaboratore-trice-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur",
@@ -7972,7 +10076,8 @@
         "strassenwart-in-kanton-gr-ch-2-c4bd0f85",
         "road-maintenance-worker-kantonale-verwaltung-graubunden-ilanz",
         "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-2064cad2",
-        "strassenwart-in-kantonale-verwaltung-graubunden-thusis"
+        "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
+        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch"
       ],
       "en": [
         "streetkeeper-in-kantonale-verwaltung-graubunden-thusis",
@@ -8012,7 +10117,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2825/pub/1/index.html",
-    "firstSeenAt": "2026-08-28T05:16:56.999Z"
+    "firstSeenAt": "2026-08-28T05:16:56.999Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-landerwerb-kantonale-verwaltung-graubunden-chur",
@@ -8074,7 +10185,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2818/pub/1/index.html",
-    "firstSeenAt": "2026-08-20T09:48:47.429Z"
+    "firstSeenAt": "2026-08-20T09:48:47.429Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-landerwerb-kanton-gr-ch": "GR",
+        "responsabile-sekretariat-kantonale-verwaltung-graubunden-chur": "GR",
+        "head-secretary-kantonale-verwaltung-graubunden-chur": "GR",
+        "leiter-in-sekretariat-kanton-gr-ch": "GR",
+        "chef-secretaire-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "leiter-in-landerwerb-kanton-gr-ch": "GR",
+        "head-secretary-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "de": {
+        "leiter-in-sekretariat-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "leiter-in-landerwerb-kanton-gr-ch": "GR",
+        "chef-secretaire-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "dipendente-legale-presso-la-corte-regionale-plessur-kantonale-verwaltung-graubunden-chur",
@@ -8125,7 +10257,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2816/pub/1/index.html",
-    "firstSeenAt": "2026-08-20T09:48:49.912Z"
+    "firstSeenAt": "2026-08-20T09:48:49.912Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kanzleimitarbeiter-in-beim-regionalgericht-plessur-kanton-gr-ch": "GR",
+        "kanzleimitarbeiter-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "en": {
+        "kanzleimitarbeiter-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "kanzleimitarbeiter-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "jurist-in-come-gerichtsschreiber-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
@@ -8168,7 +10313,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2812/pub/1/index.html",
-    "firstSeenAt": "2026-08-13T10:26:06.259Z"
+    "firstSeenAt": "2026-08-13T10:26:06.259Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "jurist-in-als-gerichtsschreiber-in-beim-regionalgericht-plessur-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "lehrperson-per-physik-kantonale-verwaltung-graubunden-chur",
@@ -8217,7 +10368,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2826/pub/1/index.html",
-    "firstSeenAt": "2026-08-28T05:16:55.638Z"
+    "firstSeenAt": "2026-08-28T05:16:55.638Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrperson-fur-physik-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "lehrperson-fur-physik-kanton-gr-ch": "GR"
+      },
+      "fr": {
+        "lehrperson-fur-physik-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "psicologo-scolastico-psicologo-scolastico-kantonale-verwaltung-graubunden-chur",
@@ -8276,7 +10439,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2819/pub/1/index.html",
-    "firstSeenAt": "2026-08-20T09:48:48.053Z"
+    "firstSeenAt": "2026-08-20T09:48:48.053Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schulpsychologin-schulpsychologe-kantonale-verwaltung-graubunden-chur": "GR",
+        "schulpsychologin-schulpsychologe-kanton-gr-ch-bc5f7e50": "GR"
+      },
+      "en": {
+        "schulpsychologin-schulpsychologe-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "de": {
+        "schulpsychologin-schulpsychologe-kanton-gr-ch-bc5f7e50": "GR"
+      },
+      "fr": {
+        "schulpsychologin-schulpsychologe-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-amt-per-lebensmittelsicherheit-e-tiergesundheit-e-kantonstierarztin-kantonstierarzt-kantonale-verwaltung-graubunden-chur",
@@ -8325,7 +10504,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2807/pub/1/index.html",
-    "firstSeenAt": "2026-08-13T10:26:03.549Z"
+    "firstSeenAt": "2026-08-13T10:26:03.549Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-amt-fur-lebensmittelsicherheit-und-tiergesundheit-und-kantonstierarztin": "GR"
+      },
+      "en": {
+        "leiter-in-amt-fur-lebensmittelsicherheit-und-tiergesundheit-und-kantonstierarztin": "GR"
+      },
+      "fr": {
+        "leiter-in-amt-fur-lebensmittelsicherheit-und-tiergesundheit-und-kantonstierarztin": "GR"
+      }
+    }
   },
   {
     "slug": "risorse-umane-business-partner-kantonale-verwaltung-graubunden-chur",
@@ -8368,7 +10559,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2806/pub/1/index.html",
-    "firstSeenAt": "2026-08-13T10:26:04.904Z"
+    "firstSeenAt": "2026-08-13T10:26:04.904Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-business-partner-kanton-gr-ch": "GR"
+      }
+    }
   },
   {
     "slug": "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-1668f1d2",
@@ -8396,9 +10593,6 @@
     "expiredAt": "2026-09-21T23:57:26.161Z",
     "previousSlugsByLocale": {
       "it": [
-        "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-8f3c97ca",
-        "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur-2ec52ff5",
-        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e",
         "administrative-officer-kantonale-verwaltung-graubunden-chur-26f40ac9",
         "responsable-administratif-kantonale-verwaltung-graubunden-chur-a51a9b59",
         "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-92a172c5",
@@ -8412,21 +10606,31 @@
         "administrative-officer-kantonale-verwaltung-graubunden-chur-5449764f",
         "responsable-administratif-kantonale-verwaltung-graubunden-chur-484c862c",
         "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-c4001285",
-        "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-5b286c74"
+        "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-5b286c74",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-0eae8bc4",
+        "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur-4a16d2e5",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-098e3b9d",
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5755b858",
+        "responsable-administratif-kantonale-verwaltung-graubunden-chur-75f055df",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-2f8bc448",
+        "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur-2ec52ff5",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e"
       ],
       "en": [
         "administrative-officer-kantonale-verwaltung-graubunden-chur-26f40ac9",
         "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch",
         "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur",
-        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e",
         "responsable-administratif-kantonale-verwaltung-graubunden-chur",
         "administrative-officer-kantonale-verwaltung-graubunden-chur-84384ab5",
         "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-499dfedd",
         "administrative-officer-kantonale-verwaltung-graubunden-chur-5449764f",
-        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-fcf25dd4"
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-fcf25dd4",
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5755b858",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-098e3b9d",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e"
       ],
       "de": [
-        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e",
         "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur",
         "administrative-officer-kantonale-verwaltung-graubunden-chur-26f40ac9",
         "responsable-administratif-kantonale-verwaltung-graubunden-chur",
@@ -8435,20 +10639,28 @@
         "administrative-officer-kantonale-verwaltung-graubunden-chur-84384ab5",
         "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-87f2eade",
         "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-fcf25dd4",
-        "administrative-officer-kantonale-verwaltung-graubunden-chur-5449764f"
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5449764f",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-0eae8bc4",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-098e3b9d",
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5755b858",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e"
       ],
       "fr": [
         "responsable-administratif-kantonale-verwaltung-graubunden-chur-a51a9b59",
         "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch",
         "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur",
-        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e",
         "administrative-officer-kantonale-verwaltung-graubunden-chur-26f40ac9",
         "responsable-administratif-kantonale-verwaltung-graubunden-chur-1496172a",
         "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-499dfedd",
         "administrative-officer-kantonale-verwaltung-graubunden-chur-84384ab5",
         "responsable-administratif-kantonale-verwaltung-graubunden-chur-484c862c",
         "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-fcf25dd4",
-        "administrative-officer-kantonale-verwaltung-graubunden-chur-5449764f"
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5449764f",
+        "responsable-administratif-kantonale-verwaltung-graubunden-chur-75f055df",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-098e3b9d",
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5755b858",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e"
       ]
     },
     "postalCode": "7000",
@@ -8478,8 +10690,52 @@
       "administrative-officer-kantonale-verwaltung-graubunden-chur-5449764f",
       "responsable-administratif-kantonale-verwaltung-graubunden-chur-484c862c",
       "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-c4001285",
-      "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-5b286c74"
-    ]
+      "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-5b286c74",
+      "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-0eae8bc4",
+      "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur-4a16d2e5",
+      "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-098e3b9d",
+      "administrative-officer-kantonale-verwaltung-graubunden-chur-5755b858",
+      "responsable-administratif-kantonale-verwaltung-graubunden-chur-75f055df",
+      "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur",
+      "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-2f8bc448"
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-0eae8bc4": "GR",
+        "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur-4a16d2e5": "GR",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-098e3b9d": "GR",
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5755b858": "GR",
+        "responsable-administratif-kantonale-verwaltung-graubunden-chur-75f055df": "GR",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur-2f8bc448": "GR",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e": "GR"
+      },
+      "en": {
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5755b858": "GR",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur": "GR",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch": "GR",
+        "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur": "GR",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-098e3b9d": "GR",
+        "responsable-administratif-kantonale-verwaltung-graubunden-chur": "GR",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e": "GR"
+      },
+      "de": {
+        "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch-0eae8bc4": "GR",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-098e3b9d": "GR",
+        "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur": "GR",
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5755b858": "GR",
+        "responsable-administratif-kantonale-verwaltung-graubunden-chur": "GR",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e": "GR"
+      },
+      "fr": {
+        "responsable-administratif-kantonale-verwaltung-graubunden-chur-75f055df": "GR",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur": "GR",
+        "sachbearbeiter-in-wertschriftenbesteuerung-kanton-gr-ch": "GR",
+        "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur": "GR",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-098e3b9d": "GR",
+        "administrative-officer-kantonale-verwaltung-graubunden-chur-5755b858": "GR",
+        "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur-2a3ffa6e": "GR"
+      }
+    }
   },
   {
     "slug": "specialista-gis-informatics-kantonale-verwaltung-graubunden-chur",
@@ -8527,7 +10783,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2827/pub/1/index.html",
-    "firstSeenAt": "2026-08-28T05:16:56.316Z"
+    "firstSeenAt": "2026-08-28T05:16:56.316Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gis-informatikspezialist-in-kanton-gr-ch": "GR",
+        "gis-informatikspezialist-in-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "gis-informatikspezialist-in-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "strassenwart-in-kantonale-verwaltung-graubunden-davos-frauenkirch-77b986ab",
@@ -8665,7 +10931,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/514915/2814/pub/1/index.html",
-    "firstSeenAt": "2026-08-20T09:48:46.178Z"
+    "firstSeenAt": "2026-08-20T09:48:46.178Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kanton-gr-ch": "GR"
+      },
+      "en": {
+        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur": "GR"
+      },
+      "fr": {
+        "zeichner-konstrukteur-in-fachrichtung-strassenprojektierung-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "strassenwart-in-kantonale-verwaltung-graubunden-thusis-16412bdb",
@@ -8768,7 +11046,6 @@
       "assistant-juridique-kantonale-verwaltung-graubunden-chur-21cd3bc0",
       "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-vpz4te",
       "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur",
-      "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch",
       "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-vpz4te-8e9d981c",
       "administrateur-in-im-staatsarchiv-kantonale-verwaltung-graubunden-chur",
       "personnel-stockage-kantonale-verwaltung-graubunden-chur",
@@ -8795,7 +11072,8 @@
       "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-11d2d4fd",
       "strassenwart-in-kanton-gr-ch-0a2106f3",
       "strassenwart-in-kanton-gr-ch-2-0fcc7269",
-      "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-1b97eb58"
+      "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-1b97eb58",
+      "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch-0ae83481"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -8874,7 +11152,7 @@
         "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-vpz4te",
         "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-11d2d4fd",
         "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur",
-        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch",
+        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch-0ae83481",
         "strassenwart-in-kanton-gr-ch-2-524691b8",
         "strassenwart-in-kanton-gr-ch-0a2106f3",
         "strassenwart-in-kanton-gr-ch-2-0fcc7269"
@@ -9119,7 +11397,8 @@
         "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch-39122792",
         "strassenwart-in-kanton-gr-ch-2-0fcc7269",
         "strassenwart-in-kantonale-verwaltung-graubunden-ilanz-1b97eb58",
-        "strassenwart-in-kanton-gr-ch-0a2106f3"
+        "strassenwart-in-kanton-gr-ch-0a2106f3",
+        "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kanton-gr-ch-0ae83481"
       ]
     },
     "postalCode": "7430",
@@ -10688,7 +12967,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur-59f5fa49",
+    "slug": "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
     "title": "Wissenschaftliche/-r Mitarbeiter/-in, im Rätischen Museum",
     "titleByLocale": {
       "it": "Wissenschaftliche/-r Collaboratore/trice/-in, im Rätischen Museum",
@@ -10707,29 +12986,39 @@
       "fr": "Nous sommes à la recherche du Musée Rätische dans l'Office de la Culture à partir de 1. Octobre 2026 ou sur rendez-vous un employé scientifique pour nos expositions d'équipe et la médiation.\n\nTâche\n• Gestion de projet ou coopération dans la planification et la mise en œuvre d'expositions spéciales, y compris l'élaboration de contenu, la recherche d'objets et la rédaction de textes d'exposition\n\n• Organisation et mise en œuvre de programmes d'accompagnement avec visites guidées et manifestations\n\n• Répondre aux questions sur les objets de la collection et d'autres sujets liés à l'histoire des Grisons\n\n• Soutenir l'équipe dans l'expansion de la collecte et l'inventaire\n\n• Divers travaux de recherche et de texte\n\nExigences\n• Études terminées dans le domaine de l'histoire ou des sciences humaines connexes\n\n• Pratique et expérience des musées dans la transmission du contenu historique\n\n• Expérience de gestion de projet\n\n• Méthodes de travail et compétences organisationnelles indépendantes et structurées\n\n• Compétence en matière de communication et de performance\n\n• Personnalité flexible, coopérative et capable d'équipe\n\n• Allemand stylistique\n\n• Connaissance du canton et au moins une seconde langue cantonale"
     },
     "slugByLocale": {
-      "it": "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur-59f5fa49",
-      "en": "scientific-staff-in-the-ratische-museum-kantonale-verwaltung-graubunden-chur-492e0054",
-      "de": "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch-86c5667d",
-      "fr": "personnel-scientifique-au-musee-ratische-kantonale-verwaltung-graubunden-chur-1fd14832"
+      "it": "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
+      "en": "scientific-staff-in-the-ratische-museum-kantonale-verwaltung-graubunden-chur",
+      "de": "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
+      "fr": "personnel-scientifique-au-musee-ratische-kantonale-verwaltung-graubunden-chur"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-08-31T17:00:10.677Z",
     "previousSlugs": [
+      "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
       "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
+      "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur-59f5fa49",
       "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch-86c5667d",
-      "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch"
+      "scientific-staff-in-the-ratische-museum-kantonale-verwaltung-graubunden-chur-492e0054",
+      "personnel-scientifique-au-musee-ratische-kantonale-verwaltung-graubunden-chur-1fd14832"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch",
+        "wissenschaftliche-r-collaboratore-trice-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur-59f5fa49",
         "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch-86c5667d"
       ],
       "en": [
         "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
+        "scientific-staff-in-the-ratische-museum-kantonale-verwaltung-graubunden-chur-492e0054",
         "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch"
       ],
       "fr": [
         "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kantonale-verwaltung-graubunden-chur",
+        "personnel-scientifique-au-musee-ratische-kantonale-verwaltung-graubunden-chur-1fd14832",
         "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch"
+      ],
+      "de": [
+        "wissenschaftliche-r-mitarbeiter-in-im-ratischen-museum-kanton-gr-ch-86c5667d"
       ]
     },
     "postalCode": "7000",
@@ -10912,7 +13201,8 @@
     "salaryMin": 57500,
     "salaryMax": 87000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/514915/2932/pub/1/index.html"
   },
   {
     "slug": "sachbearbeiter-in-beitragswesen-e-finanzen-kantonale-verwaltung-graubunden-chur",
