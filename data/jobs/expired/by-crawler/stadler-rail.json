@@ -1,5 +1,68 @@
 [
   {
+    "id": "stadler-rail-51a1609cc970",
+    "slug": "assistente-di-risorse-umane-stadler-rail-bussnang",
+    "title": "HR Assistent:in",
+    "titleByLocale": {
+      "it": "Assistente di risorse umane",
+      "en": "HR Assistant",
+      "de": "HR Assistent:in",
+      "fr": "Assistant RH"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "canton": "TG",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "TASKS\n\n• Responsabilità per l'intera amministrazione HR lungo il ciclo di vita dei dipendenti (entri, mutazioni, uscite, ecc.)\n\n• Supporto di HR Business Partners e del team Payroll nelle operazioni quotidiane\n\n• Partecipazione ad entusiasmanti progetti HR e partecipazione attiva alle iniziative di digitalizzazione nel settore HR\n\n• Co-design e ottimizzazione continua dei nostri processi HR per aumentare efficienza e qualità\n\nPROFESSIONALE\n\n• Formazione commerciale completata con ulteriore formazione nel settore delle risorse umane\n\n• Diversi anni di esperienza professionale in una funzione paragonabile\n\n• Metodo di lavoro strutturato, indipendente e affidabile\n\n• Personalità motivata e flessibile con apertura a nuovi compiti\n\n• Molto buone competenze tedesche in parola e scrittura, inglese e francese competenze sono vantaggiose",
+      "en": "TASKS\n\n• Responsibility for the entire HR administration along the Employee Lifecycle (entries, mutations, exits, etc.)\n\n• Support of HR Business Partners and the Payroll team in day-to-day operations\n\n• Participation in exciting HR projects as well as active participation in digitalization initiatives in the HR sector\n\n• Co-design and continuous optimization of our HR processes to increase efficiency and quality\n\nPROFILE\n\n• Completed commercial training with further training in the field of human resources\n\n• Several years of professional experience in a comparable function\n\n• Structured, independent and reliable working method\n\n• Motivated, flexible personality with openness to new tasks\n\n• Very good German skills in word and writing, English and French skills are advantageous",
+      "de": "AUFGABEN\n\n• Verantwortung für die gesamte HR-Administration entlang des Employee Lifecycle (Eintritte, Mutationen, Austritte, etc.)\n\n• Unterstützung der HR Business Partner und des Payroll-Teams im operativen Tagesgeschäft\n\n• Mitarbeit an spannenden HR-Projekten sowie aktive Mitwirkung bei Digitalisierungsinitiativen im HR-Bereich\n\n• Mitgestaltung und kontinuierliche Optimierung unserer HR-Prozesse zur Steigerung der Effizienz und Qualität\n\nPROFIL\n\n• Abgeschlossene kaufmännische Ausbildung mit Weiterbildung im Bereich Human Resources\n\n• Mehrjährige Berufserfahrung in einer vergleichbaren Funktion\n\n• Strukturierte, selbstständige und zuverlässige Arbeitsweise\n\n• Motivierte, flexible Persönlichkeit mit Offenheit für neue Aufgaben\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, Englisch- und Französischkenntnisse von Vorteil",
+      "fr": "TÂCHES\n\n• Responsabilité de l'ensemble de l'administration des RH tout au long du cycle de vie des employés (entrées, mutations, sorties, etc.)\n\n• Soutien des partenaires opérationnels des RH et de l'équipe de paye dans les opérations quotidiennes\n\n• Participation à des projets de RH passionnants ainsi qu'à des initiatives de numérisation dans le secteur des RH\n\n• Co-conception et optimisation continue de nos processus RH pour augmenter l'efficacité et la qualité\n\nPROFIL\n\n• Achevé une formation commerciale avec perfectionnement dans le domaine des ressources humaines\n\n• Plusieurs années d'expérience professionnelle dans une fonction comparable\n\n• Méthode de travail structurée, indépendante et fiable\n\n• Personnalité motivée, flexible et ouverte aux nouvelles tâches\n\n• Très bonnes compétences en allemand en paroles et en écriture, compétences en anglais et en français sont avantageuses"
+    },
+    "slugByLocale": {
+      "it": "assistente-di-risorse-umane-stadler-rail-bussnang",
+      "en": "hr-assistant-stadler-rail-bussnang",
+      "de": "hr-assistent-in-stadler-rail-ch",
+      "fr": "assistant-rh-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-11-27T10:30:31.414Z",
+    "previousSlugs": [
+      "hr-assistent-in-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "hr-assistent-in-stadler-rail-ch"
+      ],
+      "en": [
+        "hr-assistent-in-stadler-rail-ch"
+      ],
+      "fr": [
+        "hr-assistent-in-stadler-rail-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-assistent-in-stadler-rail-ch": "TG"
+      },
+      "en": {
+        "hr-assistent-in-stadler-rail-ch": "TG"
+      },
+      "fr": {
+        "hr-assistent-in-stadler-rail-ch": "TG"
+      }
+    },
+    "postalCode": "9565",
+    "streetAddress": "Bussnang",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/bussnang-hr-assistentin-tg-t-9565/1368777155",
+    "firstSeenAt": "2026-09-18T14:23:33.903Z"
+  },
+  {
     "id": "stadler-rail-16a77e7d68aa",
     "slug": "addetto-al-centro-di-controllo-logistico-stadler-rail-st-margrethen",
     "title": "Sachbearbeiter:in Leitstand Logistik",
@@ -6739,7 +6802,7 @@
     "firstSeenAt": "2026-07-15T22:42:51.803Z"
   },
   {
-    "slug": "specialista-in-pittura-e-superficie-in-ingegneria-stadler-rail-st-margrethen",
+    "slug": "specialista-in-pittura-e-superficie-in-ingegneria-stadler-rail-st-margrethen-df099b93",
     "title": "Spezialist:in Lack und Oberfläche im Engineering",
     "titleByLocale": {
       "it": "Specialista in pittura e superficie in ingegneria",
@@ -6758,16 +6821,16 @@
       "fr": "PROFIL\n\n• Plusieurs années d'expérience professionnelle en ingénierie de surface dans le domaine de la peinture et/ou du revêtement en poudre\n\n• La formation de technicien en peinture est avantageuse\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Connaissance de l'anglais (niveau B2) en paroles et en écriture\n\nTÂCHES\n\n• Spécification des systèmes de peinture, sélection des fournisseurs, soutien au développement\n\n• Acceptation sur et dans le véhicule et soins pendant la période de garantie\n\n• Effectuer la procédure et effectuer l'analyse des dommages en évaluant les solutions\n\n• Coopération interdivisions avec d'autres départements (par exemple production, achat, gestion de projet, approbation, technologie de surface) et point de contact pour les questions du terrain\n\n• Responsabilité du support de nos fournisseurs et clients en matière technique\n\n• Soutien de notre production lors de l'évaluation et de la première utilisation de nouveaux produits\n\n• Échange de savoir-faire avec d'autres spécialistes de leur domaine d'expertise\n\n• Assistance à la planification et à la mise en œuvre des audits des fournisseurs, de l ' appui et des essais d ' échantillons initiaux\n\n• Effectuer et définir des analyses de dommages au moyen d'évaluations des défauts de structure et de surface ainsi que des spécifications de réparation"
     },
     "slugByLocale": {
-      "it": "specialista-in-pittura-e-superficie-in-ingegneria-stadler-rail-st-margrethen",
-      "en": "specialist-in-paint-and-surface-in-engineering-stadler-rail-st-margrethen",
-      "de": "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch",
-      "fr": "specialiste-en-peinture-et-surface-en-ingenierie-stadler-rail-st-margrethen"
+      "it": "specialista-in-pittura-e-superficie-in-ingegneria-stadler-rail-st-margrethen-df099b93",
+      "en": "specialist-in-paint-and-surface-in-engineering-stadler-rail-st-margrethen-893cadb8",
+      "de": "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch-5f846e8d",
+      "fr": "specialiste-en-peinture-et-surface-en-ingenierie-stadler-rail-st-margrethen-3cde0274"
     },
     "sector": "Rail vehicle manufacturing",
     "expiredAt": "2026-10-09T12:02:47.947Z",
     "previousSlugs": [
-      "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch",
-      "spezialist-in-lack-e-oberflache-im-engineering-stadler-rail-st-margrethen"
+      "spezialist-in-lack-e-oberflache-im-engineering-stadler-rail-st-margrethen",
+      "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6779,6 +6842,9 @@
       ],
       "fr": [
         "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch"
+      ],
+      "de": [
+        "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch-5f846e8d"
       ]
     },
     "postalCode": "9430",
@@ -7030,7 +7096,10 @@
       "ingenieur-en-genie-mecanique-stadler-rail-st-margrethen-399e1b14",
       "ingegnere-di-ingegneria-meccanica-stadler-rail-st-margrethen-fcd40b20",
       "cost-engineer-stadler-rail-ch-vyvst3-45e3f034",
-      "cost-ingenieur-stadler-rail-st-margrethen-44710384"
+      "cost-ingenieur-stadler-rail-st-margrethen-44710384",
+      "cost-engineer-stadler-rail-ch-vyvst3",
+      "cost-ingenieur-stadler-rail-st-margrethen",
+      "cost-ingegnere-stadler-rail-st-margrethen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -9438,7 +9507,8 @@
     "sector": "Rail vehicle manufacturing",
     "expiredAt": "2026-09-18T14:58:37.485Z",
     "previousSlugs": [
-      "teilprojektleiter-in-ram-lcc-stadler-rail-ch-5b4a19ce"
+      "teilprojektleiter-in-ram-lcc-stadler-rail-ch-5b4a19ce",
+      "teilprojektleiter-in-ram-lcc-stadler-rail-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -11052,7 +11122,12 @@
       "network-ingegnere-stadler-rail-wallisellen-78f53a03",
       "network-engineer-stadler-rail-ch-88604d7d",
       "qa-ingenieur-stadler-rail-wallisellen-b13d9af0",
-      "network-ingenieur-stadler-rail-wallisellen-eb55769d"
+      "network-ingenieur-stadler-rail-wallisellen-eb55769d",
+      "network-ingenieur-stadler-rail-wallisellen",
+      "network-engineer-stadler-rail-ch",
+      "network-ingegnere-stadler-rail-wallisellen",
+      "qa-ingenieur-stadler-rail-wallisellen",
+      "qa-engineer-stadler-rail-ch"
     ],
     "previousSlugsByLocale": {
       "it": [

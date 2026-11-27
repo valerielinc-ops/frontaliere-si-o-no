@@ -111,7 +111,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/492/description/1",
-    "firstSeenAt": "2026-11-04T21:25:15.588Z"
+    "firstSeenAt": "2026-11-04T21:25:15.588Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "sekretar-in-w-m-d-50-60-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "id": "klinik-im-hasel-b7559df3f1cb",
@@ -162,7 +174,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/477/description/1",
-    "firstSeenAt": "2026-09-02T13:34:38.481Z"
+    "firstSeenAt": "2026-09-02T13:34:38.481Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarzt-in-in-baden-w-m-d-60-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "oberarzt-in-in-baden-w-m-d-60-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "oberarzt-in-in-baden-w-m-d-60-100-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "assistente-medico-in-baden-m-f-d-80-100-klinik-im-hasel-gontenschwil",
@@ -212,7 +236,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/478/description/1",
-    "firstSeenAt": "2026-09-02T13:34:38.009Z"
+    "firstSeenAt": "2026-09-02T13:34:38.009Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenzarzt-in-in-baden-w-m-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "assistenzarzt-in-in-baden-w-m-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "assistenzarzt-in-in-baden-w-m-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "segretario-m-f-d-80-klinik-im-hasel-gontenschwil",
@@ -262,7 +298,8 @@
       ],
       "de": [
         "secretary-m-f-d-80-klinik-im-hasel-gontenschwil",
-        "secretaire-h-f-d-80-klinik-im-hasel-gontenschwil"
+        "secretaire-h-f-d-80-klinik-im-hasel-gontenschwil",
+        "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil"
       ]
     },
     "postalCode": "5728",
@@ -288,7 +325,24 @@
         "firstSeenAt": "2026-09-23T23:38:00.138Z",
         "title": "Sekretär:in (w/m/d), 80 %"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "secretary-m-f-d-80-klinik-im-hasel-gontenschwil": "AG",
+        "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "de": {
+        "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "secretaire-h-f-d-80-klinik-im-hasel-gontenschwil": "AG",
+        "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "interno-nel-lavoro-sociale-f-m-d-80-klinik-im-hasel-gontenschwil",
@@ -337,7 +391,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/479/description/1",
-    "firstSeenAt": "2026-09-03T13:32:49.395Z"
+    "firstSeenAt": "2026-09-03T13:32:49.395Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "addetto-a-alla-contabilita-m-f-d-80-100-klinik-im-hasel-gontenschwil",
@@ -383,7 +449,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/486/description/1",
-    "firstSeenAt": "2026-09-29T21:15:01.427Z"
+    "firstSeenAt": "2026-09-29T21:15:01.427Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "dipl-infermieristica-professionale-hf-fh-o-mpa-con-ulteriore-istruzione-m-f-d-60-klinik-im-hasel-gontenschwil",
@@ -439,7 +514,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/470/description/1",
-    "firstSeenAt": "2026-07-29T11:36:53.549Z"
+    "firstSeenAt": "2026-07-29T11:36:53.549Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel": "AG",
+        "dipl-pflegefachperson-hf-fh-o-mpa-con-weiterbildung-m-w-d-60-klinik-im-hasel-gontenschwil": "AG",
+        "dipl-pflegefachperson-hf-fh-w-m-d-60-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel": "AG"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-fh-w-m-d-60-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel": "AG"
+      }
+    }
   },
   {
     "slug": "segretariato-del-team-leader-m-f-d-ambulatoriale-80-100-klinik-im-hasel-gontenschwil",
@@ -485,7 +577,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/487/description/1",
-    "firstSeenAt": "2026-10-06T21:13:21.119Z"
+    "firstSeenAt": "2026-10-06T21:13:21.119Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "assistente-hr-ufficiale-hr-m-f-d-50-klinik-im-hasel-gontenschwil",
@@ -534,7 +635,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/485/description/1",
-    "firstSeenAt": "2026-09-23T23:37:59.450Z"
+    "firstSeenAt": "2026-09-23T23:37:59.450Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-assistent-in-hr-sachbearbeiter-in-w-m-d-50-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "hr-assistent-in-hr-sachbearbeiter-in-w-m-d-50-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "hr-assistent-in-hr-sachbearbeiter-in-w-m-d-50-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "assistente-psicologo-a-gontenschwil-m-f-d-80-klinik-im-hasel-gontenschwil",
@@ -583,7 +696,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/481/description/1",
-    "firstSeenAt": "2026-09-19T22:49:40.786Z"
+    "firstSeenAt": "2026-09-19T22:49:40.786Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenzpsycholog-in-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "assistenzpsycholog-in-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "assistenzpsycholog-in-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "infermiera-hf-fh-m-f-d-100-klinik-im-hasel-gontenschwil",
@@ -629,7 +754,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/476/description/1",
-    "firstSeenAt": "2026-08-13T10:25:00.035Z"
+    "firstSeenAt": "2026-08-13T10:25:00.035Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fh-w-m-d-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-fh-w-m-d-100-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "lavoratore-sociale-m-f-d-80-klinik-im-hasel-gontenschwil",
@@ -682,7 +816,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/482/description/1",
-    "firstSeenAt": "2026-09-19T22:49:40.134Z"
+    "firstSeenAt": "2026-09-19T22:49:40.134Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sozialarbeiter-in-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "sozialarbeiter-in-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "sozialarbeiter-in-w-m-d-80-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "dipl-terapista-occupazionale-in-f-m-d-20-klinik-im-hasel-gontenschwil",
@@ -731,7 +877,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/473/description/1",
-    "firstSeenAt": "2026-07-29T11:36:55.553Z"
+    "firstSeenAt": "2026-07-29T11:36:55.553Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-ergotherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "dipl-ergotherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "dipl-ergotherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "specialista-psicologo-in-w-m-d-60-80-klinik-im-hasel-gontenschwil",
@@ -826,7 +984,45 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/467/description/1",
-    "firstSeenAt": "2026-07-29T11:36:56.900Z"
+    "firstSeenAt": "2026-07-29T11:36:56.900Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fach-psycholog-in-w-m-d-60-80-klinik-im-hasel-gontenschwil": "AG",
+        "psicologo-a-specializzato-a-a-baden-m-f-d-60-klinik-im-hasel-gontenschwil": "AG",
+        "psychologist-specialized-in-baden-m-f-d-60-klinik-im-hasel-gontenschwil": "AG",
+        "fach-psycholog-in-in-baden-w-m-d-60-klinik-im-hasel-gontenschwil": "AG",
+        "psychologue-specialise-e-a-baden-h-f-d-60-klinik-im-hasel-gontenschwil": "AG",
+        "fach-psycholog-in-m-w-d-60-80-klinik-im-hasel-gontenschwil": "AG",
+        "psicologo-a-a-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil": "AG",
+        "psycholog-in-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil": "AG",
+        "psychologist-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil": "AG",
+        "psychologue-a-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil": "AG",
+        "psychologue-senior-en-h-f-d-80-100-klinik-im-hasel-gontenschwil": "AG",
+        "direzione-assistente-in-f-m-d-50-klinik-im-hasel-gontenschwil": "AG",
+        "directorate-assistant-in-f-m-d-50-klinik-im-hasel-gontenschwil": "AG",
+        "direktionsassistent-in-w-m-d-50-klinik-im-hasel-gontenschwil": "AG",
+        "assistant-de-direction-en-f-m-j-50-klinik-im-hasel-gontenschwil": "AG",
+        "superpsychologue-in-f-m-j-80-100-klinik-im-hasel-gontenschwil": "AG",
+        "superpsicologo-in-f-m-d-80-100-klinik-im-hasel-gontenschwil": "AG",
+        "superpsychologist-in-f-m-d-80-100-klinik-im-hasel-gontenschwil": "AG",
+        "psicologo-senior-m-f-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "en": {
+        "psychologist-specialized-in-baden-m-f-d-60-klinik-im-hasel-gontenschwil": "AG",
+        "fach-psycholog-in-w-m-d-60-80-klinik-im-hasel-gontenschwil": "AG",
+        "senior-psychologist-m-f-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "de": {
+        "fach-psycholog-in-in-baden-w-m-d-60-klinik-im-hasel-gontenschwil": "AG",
+        "oberpsycholog-in-w-m-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      },
+      "fr": {
+        "psychologue-specialise-e-a-baden-h-f-d-60-klinik-im-hasel-gontenschwil": "AG",
+        "fach-psycholog-in-w-m-d-60-80-klinik-im-hasel-gontenschwil": "AG",
+        "psychologue-senior-en-h-f-d-80-100-klinik-im-hasel-gontenschwil": "AG"
+      }
+    }
   },
   {
     "slug": "terapeuta-d-arte-m-f-d-20-klinik-im-hasel-gontenschwil",

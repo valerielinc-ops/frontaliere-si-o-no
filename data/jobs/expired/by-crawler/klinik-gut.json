@@ -51,7 +51,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen",
-    "firstSeenAt": "2026-06-29T22:54:47.985Z"
+    "firstSeenAt": "2026-06-29T22:54:47.985Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st": "GR",
+        "collaboratore-trice-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-ag-st-moritz": "GR",
+        "mitarbeiter-in-empfang-100-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st": "GR"
+      },
+      "en": {
+        "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st": "GR"
+      },
+      "fr": {
+        "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st": "GR"
+      }
+    }
   },
   {
     "slug": "servizio-tecnico-per-dipendenti-north-grisons-80-100-klinik-gut-ag-flasch",
@@ -102,7 +116,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen",
-    "firstSeenAt": "2026-06-29T22:54:47.989Z"
+    "firstSeenAt": "2026-06-29T22:54:47.989Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-technischer-dienst-nordbunden-80-100-klinik-gut-flasch": "GR",
+        "collaboratore-trice-technischer-dienst-nordbunden-80-100-klinik-gut-ag-flasch": "GR"
+      },
+      "en": {
+        "mitarbeiter-in-technischer-dienst-nordbunden-80-100-klinik-gut-flasch": "GR"
+      },
+      "fr": {
+        "mitarbeiter-in-technischer-dienst-nordbunden-80-100-klinik-gut-flasch": "GR"
+      }
+    }
   },
   {
     "slug": "diplomata-infermiera-in-professionale-hf-fh-80-100-stagione-invernale-2026-27-klinik-gut-ag-st-moritz",
@@ -145,7 +172,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen",
-    "firstSeenAt": "2026-06-29T22:54:47.979Z"
+    "firstSeenAt": "2026-06-29T22:54:47.979Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz",
@@ -202,7 +235,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen",
-    "firstSeenAt": "2026-06-29T22:54:47.981Z"
+    "firstSeenAt": "2026-06-29T22:54:47.981Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz": "GR",
+        "med-praxisassistent-in-80-100-wintersaison-2026-27-klinik-gut-st-moritz": "GR",
+        "med-assistant-pratique-60-80-saison-hivernale-2026-27-klinik-gut-ag-st-moritz": "GR",
+        "med-practical-assistant-60-80-winter-season-2026-27-klinik-gut-ag-st-moritz": "GR",
+        "med-praxisassistent-in-80-100-oder-dipl-pflegefachperson-hf-80-100-wintersaison-2026-27": "GR",
+        "med-praxisassistent-in-oder-dipl-pflegefachperson-hf-80-100-notfall-wintersaison-2026-27": "GR"
+      },
+      "de": {
+        "med-praxisassistent-in-80-100-oder-dipl-pflegefachperson-hf-80-100-wintersaison-2026-27": "GR",
+        "med-praxisassistent-in-oder-dipl-pflegefachperson-hf-80-100-notfall-wintersaison-2026-27": "GR"
+      }
+    }
   },
   {
     "slug": "anno-di-studio-elettivo-anno-pratico-klinik-gut-ag-st-moritz",

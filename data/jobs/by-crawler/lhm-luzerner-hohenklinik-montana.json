@@ -79,7 +79,8 @@
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:35:51.313Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.lhm.ch/de/allgemein/jobs/fachaerztin-arzt-allgemeine-innere-medizin"
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-e5dc0f811a97",
@@ -176,7 +177,8 @@
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:35:50.238Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.lhm.ch/de/allgemein/jobs/assistenzaerztin-assistenzarzt"
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-9541cabb9fa2",
@@ -254,7 +256,8 @@
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:35:49.204Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.lhm.ch/de/allgemein/jobs/oberaerztin-oberarzt-oder-stv"
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-98567d01b9d0",
@@ -336,7 +339,8 @@
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:35:48.142Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.lhm.ch/de/allgemein/jobs/infirmier-praticien-formateur"
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-8dc29a816c36",
@@ -462,7 +466,8 @@
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:35:47.092Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.lhm.ch/de/allgemein/jobs/pflegefachfrau-pflegefachmann-hf-fh-stationsleiterin"
     }
   ]
 }

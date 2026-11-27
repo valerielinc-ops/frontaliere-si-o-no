@@ -2964,9 +2964,9 @@
       "chef-de-rang-jack-s-brasserie-100-m-w-d-buergenstock-hotels-obburgen",
       "ottone-di-chef-de-rang-jack-100-m-f-d-burgenstock-hotels-ag-obburgen",
       "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+      "commis-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen",
       "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen",
-      "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-      "commis-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen"
+      "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4484,18 +4484,24 @@
     "previousSlugCantonByLocale": {
       "it": {
         "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-4a12a1b9": "NW",
-        "commis-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen-e5f2a89c": "NW"
+        "commis-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen-e5f2a89c": "NW",
+        "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-cfc6192e": "NW",
+        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-f8e8f27a": "NW"
       },
       "en": {
-        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-4a12a1b9": "NW"
+        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-4a12a1b9": "NW",
+        "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-cfc6192e": "NW",
+        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-f8e8f27a": "NW"
       },
       "de": {
         "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-vxouwh": "NW",
         "commis-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen": "NW",
-        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-4a12a1b9": "NW"
+        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-4a12a1b9": "NW",
+        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-f8e8f27a": "NW"
       },
       "fr": {
-        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-4a12a1b9": "NW"
+        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-4a12a1b9": "NW",
+        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-f8e8f27a": "NW"
       }
     }
   },
@@ -5423,8 +5429,8 @@
         "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-ce47b7a0",
         "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen-72a42421",
         "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen",
-        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen"
       ],
       "it": [
         "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
@@ -5754,9 +5760,9 @@
         "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-194db3cf",
         "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-ea324606",
         "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-ce47b7a0",
+        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen",
-        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen"
       ],
       "en": [
         "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
@@ -5888,8 +5894,8 @@
         "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-2253eb62",
         "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-194db3cf",
         "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-ce47b7a0",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen",
-        "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen"
       ],
       "fr": [
         "f-b-superviseur-100-w-m-i-burgenstock-hotels-ag-obburgen",
@@ -6198,18 +6204,24 @@
         "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen": "NW",
         "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen": "NW",
         "bodenbetreuer-100-w-m-i-burgenstock-hotels-ag-obburgen": "NW",
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen": "NW"
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen": "NW",
+        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-84cdf69a": "NW",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-e4dd2241": "NW"
       },
       "en": {
         "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen": "NW",
-        "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen": "NW"
+        "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen": "NW",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-e4dd2241": "NW"
       },
       "de": {
         "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen": "NW",
-        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen": "NW"
+        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen": "NW",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-e4dd2241": "NW"
       },
       "fr": {
-        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen": "NW"
+        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen": "NW",
+        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-d7e3e0d1": "NW",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-e4dd2241": "NW"
       }
     }
   },
