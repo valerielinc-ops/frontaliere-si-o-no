@@ -115,4 +115,21 @@ describe('Avature registration page: sign-in through the verified header Login r
     await expect(openVerifiedSignInNavigation(page as any, createSnapshot as any)).resolves.toBe(false);
     expect(frame.goto).toHaveBeenCalledOnce();
   });
+
+  it('refuses the whole set when more than five Login anchors are offered (a sixth differs)', async () => {
+    const header = [1, 2, 3, 4, 5].map(() => '<a href="/ExampleCareers/Login?return=A">Login</a>').join('')
+      + '<a href="/ExampleCareers/Login?return=B">Login</a>';
+    const { page, frame } = liveFrame(registerHtml({ header }));
+    await expect(openVerifiedSignInNavigation(page as any, createSnapshot as any)).resolves.toBe(false);
+    expect(frame.goto).not.toHaveBeenCalled();
+  });
+
+  it('ignores a Login anchor inside a fully transparent subtree', async () => {
+    const header = '<div style="opacity:0"><a href="/ExampleCareers/Login">Login</a></div>';
+    const { page, frame } = liveFrame(registerHtml({ header }));
+    await expect(openVerifiedSignInNavigation(page as any, createSnapshot as any)).resolves.toBe(false);
+    expect(frame.goto).not.toHaveBeenCalled();
+    const own = liveFrame(registerHtml({ header: '<a style="opacity:0" href="/ExampleCareers/Login">Login</a>' }));
+    await expect(openVerifiedSignInNavigation(own.page as any, createSnapshot as any)).resolves.toBe(false);
+  });
 });

@@ -32,7 +32,12 @@ export function readAvatureSignInRouteInPage(readProtocol) {
   const visible = (element) => {
     const box = element.getBoundingClientRect();
     const style = element.ownerDocument.defaultView.getComputedStyle(element);
-    return box.width > 0 && box.height > 0 && style.visibility !== 'hidden' && style.display !== 'none';
+    if (!(box.width > 0 && box.height > 0 && style.visibility !== 'hidden' && style.display !== 'none')) return false;
+    // A fully transparent subtree is not a control a person can see: climb the ancestors.
+    for (let node = element; node && node.nodeType === 1; node = node.parentElement) {
+      if (Number.parseFloat(element.ownerDocument.defaultView.getComputedStyle(node).opacity) === 0) return false;
+    }
+    return true;
   };
   const loginPath = `${protocol.namespace}/Login`;
   const found = [];
@@ -48,7 +53,9 @@ export function readAvatureSignInRouteInPage(readProtocol) {
       ariaLabel: anchor.getAttribute('aria-label') || '',
     });
   }
-  return { protocol, links: found.slice(0, 5) };
+  // More candidates than the bound cannot be compared one by one: refuse the whole set rather than
+  // letting a later, different destination go unchecked.
+  return { protocol, links: found.length > 5 ? [] : found };
 }
 
 export function avatureProtocolMatches(protocol, value) {
