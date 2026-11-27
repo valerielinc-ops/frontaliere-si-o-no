@@ -41,7 +41,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://app.reflinejobs.io/3316/0045/pub/29/index.html",
-    "firstSeenAt": "2026-08-12T10:20:12.754Z"
+    "firstSeenAt": "2026-08-12T10:20:12.754Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide": "GR"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-beschneiung-arosa-lenzerheide",
@@ -84,7 +90,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://app.reflinejobs.io/3316/0021/pub/16/index.html",
-    "firstSeenAt": "2026-07-12T22:16:26.830Z"
+    "firstSeenAt": "2026-07-12T22:16:26.830Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide": "GR"
+      }
+    }
   },
   {
     "slug": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
@@ -149,6 +161,11 @@
       {
         "sourceIdentity": "url:https://app.reflinejobs.io/3316/0012/pub/31/index.html",
         "firstSeenAt": "2026-09-03T13:31:26.507Z",
+        "title": "Betriebselektriker:in"
+      },
+      {
+        "sourceIdentity": "url:https://app.reflinejobs.io/3316/0012/pub/37/index.html",
+        "firstSeenAt": "2026-07-12T22:16:25.136Z",
         "title": "Betriebselektriker:in"
       },
       {

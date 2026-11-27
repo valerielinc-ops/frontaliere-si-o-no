@@ -457,7 +457,8 @@
         "directeur-immobilier-h-f-d-apleona-schweiz-ag-lugano",
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-wallisellen-a90390d8",
         "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-lugano",
-        "directeur-immobilier-h-f-d-apleona-schweiz-ag-wallisellen-ead549c8"
+        "directeur-immobilier-h-f-d-apleona-schweiz-ag-wallisellen-ead549c8",
+        "real-estate-manager-m-f-d-apleona-schweiz-ag-lugano"
       ],
       "en": [
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-wallisellen",
@@ -476,7 +477,8 @@
         "real-estate-manager-m-f-d-apleona-schweiz-ag-wallisellen-a6bc6cce",
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-wallisellen-69dbd6ea",
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-lugano",
-        "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-root"
+        "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-root",
+        "real-estate-manager-m-f-d-apleona-schweiz-ag-lugano"
       ],
       "fr": [
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-wallisellen",
@@ -494,7 +496,8 @@
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-wallisellen-830b490b",
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-wallisellen-69dbd6ea",
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-lugano",
-        "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-root"
+        "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-root",
+        "real-estate-manager-m-f-d-apleona-schweiz-ag-lugano"
       ],
       "de": [
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-wallisellen-a90390d8",
@@ -505,7 +508,8 @@
         "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-wallisellen",
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root",
         "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-lugano",
-        "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-root"
+        "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-root",
+        "real-estate-manager-m-f-d-apleona-schweiz-ag-lugano"
       ]
     },
     "previousSlugCantonByLocale": {
@@ -596,7 +600,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2594/description/1",
-    "firstSeenAt": "2026-11-06T09:45:12.913Z",
+    "firstSeenAt": "2026-08-25T10:06:15.264Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2548/description/1",
@@ -620,7 +624,7 @@
       },
       {
         "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2594/description/1",
-        "firstSeenAt": "2026-11-06T09:45:12.913Z",
+        "firstSeenAt": "2026-08-25T10:06:15.264Z",
         "title": "Immobilienbewirtschafter (m/w/d)"
       }
     ]
@@ -777,7 +781,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2589/description/1",
-    "firstSeenAt": "2026-10-19T21:36:22.226Z"
+    "firstSeenAt": "2026-10-19T21:36:22.226Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "tirocinante-zhaw-coc-centro-di-competenza-facility-management-apleona-schweiz-ag-wallisellen": "ZH",
+        "zhaw-stagiaire-coc-centre-de-competences-facility-management-apleona-schweiz-ag-wallisellen": "ZH",
+        "zhaw-praktikant-in-coc-center-of-competence-facility-management-apleona-schweiz-ag": "ZH"
+      },
+      "fr": {
+        "zhaw-stagiaire-coc-centre-de-competences-facility-management-apleona-schweiz-ag-wallisellen": "ZH"
+      }
+    }
   },
   {
     "slug": "immobilienbewirtschafter-retail-e-center-management-m-w-d-apleona-schweiz-ag-wallisellen",
@@ -874,7 +889,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2592/description/1",
-    "firstSeenAt": "2026-10-29T14:40:55.486Z"
+    "firstSeenAt": "2026-10-29T14:40:55.486Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung": "ZH"
+      },
+      "fr": {
+        "hauswart-100-m-w-d-apleona-schweiz-ag-zurich-und-umgebung": "ZH"
+      }
+    }
   },
   {
     "slug": "junior-real-estate-management-m-f-d-apleona-schweiz-ag-root",
@@ -921,7 +945,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2526/description/1",
-    "firstSeenAt": "2026-10-30T09:40:34.361Z"
+    "firstSeenAt": "2026-10-30T09:40:34.361Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-root": "LU"
+      },
+      "fr": {
+        "junior-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-root": "LU"
+      }
+    }
   },
   {
     "slug": "tecnico-di-assistenza-elettrica-in-servizio-e-manutenzione-m-f-d-apleona-schweiz-ag-schaffhausen",
@@ -975,7 +1008,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2535/description/1",
-    "firstSeenAt": "2026-10-28T20:50:45.086Z"
+    "firstSeenAt": "2026-10-28T20:50:45.086Z",
+    "canton": "SH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen": "SH",
+        "servicetechniker-elektro-im-service-e-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen": "SH"
+      },
+      "en": {
+        "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen": "SH"
+      },
+      "fr": {
+        "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen": "SH"
+      }
+    }
   },
   {
     "slug": "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen",
@@ -1008,7 +1054,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2590/description/1",
-    "firstSeenAt": "2026-10-19T21:36:21.924Z"
+    "firstSeenAt": "2026-10-19T21:36:21.924Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen"
+      ],
+      "de": [
+        "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen": "ZH"
+      },
+      "de": {
+        "zhaw-praktikant-in-key-account-management-apleona-schweiz-ag-wallisellen": "ZH"
+      }
+    }
   },
   {
     "slug": "addetto-alla-manutenzione-degli-edifici-m-f-d-apleona-schweiz-ag-spreitenbach",
@@ -1060,7 +1123,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2530/description/1",
-    "firstSeenAt": "2026-10-26T09:41:46.723Z"
+    "firstSeenAt": "2026-10-26T09:41:46.723Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach": "AG",
+        "collaboratore-trice-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach": "AG"
+      },
+      "en": {
+        "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach": "AG"
+      },
+      "fr": {
+        "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach": "AG"
+      }
+    }
   },
   {
     "slug": "direttore-immobiliare-m-f-d-80-100-apleona-schweiz-ag-koniz-liebefeld",
@@ -1110,7 +1186,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2575/description/1",
-    "firstSeenAt": "2026-10-21T09:49:04.067Z"
+    "firstSeenAt": "2026-10-21T09:49:04.067Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "immobilienbewirtschafter-m-w-d-80-100-apleona-schweiz-ag-koniz-liebefeld": "BE"
+      },
+      "en": {
+        "immobilienbewirtschafter-m-w-d-80-100-apleona-schweiz-ag-koniz-liebefeld": "BE"
+      },
+      "fr": {
+        "immobilienbewirtschafter-m-w-d-80-100-apleona-schweiz-ag-koniz-liebefeld": "BE"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-pulizie-ordinarie-m-f-d-apleona-schweiz-ag-bonigen-interlaken",
@@ -1161,7 +1249,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2577/description/1",
-    "firstSeenAt": "2026-10-14T21:31:19.485Z"
+    "firstSeenAt": "2026-10-14T21:31:19.485Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken": "BE",
+        "collaboratore-trice-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-bonigen-interlaken": "BE"
+      }
+    }
   },
   {
     "slug": "pulitori-speciali-m-f-d-apleona-schweiz-ag-basel-und-umgebung",
@@ -1210,7 +1311,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2584/description/1",
-    "firstSeenAt": "2026-10-19T09:34:21.871Z"
+    "firstSeenAt": "2026-10-19T09:34:21.871Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialreiniger-m-w-d-apleona-schweiz-ag-basel-und-umgebung": "BS"
+      },
+      "en": {
+        "spezialreiniger-m-w-d-apleona-schweiz-ag-basel-und-umgebung": "BS"
+      },
+      "fr": {
+        "spezialreiniger-m-w-d-apleona-schweiz-ag-basel-und-umgebung": "BS"
+      }
+    }
   },
   {
     "slug": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-basel",
@@ -1240,17 +1353,30 @@
     "sector": "Altro",
     "expiredAt": "2026-10-31T21:34:49.111Z",
     "previousSlugs": [
-      "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel"
+      "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel",
+      "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel",
+      "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-basel-1e92fdaa",
+      "gestionnaire-de-proprietes-h-f-d-apleona-schweiz-ag-basel",
+      "property-manager-m-f-d-apleona-schweiz-ag-basel-9285478e"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel"
+        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel",
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel",
+        "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-basel-1e92fdaa"
       ],
       "en": [
-        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel"
+        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel",
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel",
+        "property-manager-m-f-d-apleona-schweiz-ag-basel-9285478e"
       ],
       "fr": [
-        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel"
+        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel",
+        "gestionnaire-de-proprietes-h-f-d-apleona-schweiz-ag-basel",
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel"
+      ],
+      "de": [
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel"
       ]
     },
     "postalCode": "4001",
@@ -1271,7 +1397,26 @@
         "firstSeenAt": "2026-09-19T23:07:27.425Z",
         "title": "Sachbearbeiter Liegenschaftsbuchhaltung (m/w/d)"
       }
-    ]
+    ],
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel": "BS",
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel": "BS"
+      },
+      "en": {
+        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel": "BS",
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel": "BS"
+      },
+      "fr": {
+        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-basel": "BS",
+        "gestionnaire-de-proprietes-h-f-d-apleona-schweiz-ag-basel": "BS",
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel": "BS"
+      },
+      "de": {
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel": "BS"
+      }
+    }
   },
   {
     "slug": "responsabile-delle-infrastrutture-m-f-d-apleona-schweiz-ag-baden",
@@ -1320,7 +1465,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2583/description/1",
-    "firstSeenAt": "2026-10-15T21:27:27.762Z"
+    "firstSeenAt": "2026-10-15T21:27:27.762Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infrastruktureller-hauswart-m-w-d-apleona-schweiz-ag-baden": "AG"
+      },
+      "en": {
+        "infrastruktureller-hauswart-m-w-d-apleona-schweiz-ag-baden": "AG"
+      },
+      "fr": {
+        "infrastruktureller-hauswart-m-w-d-apleona-schweiz-ag-baden": "AG"
+      }
+    }
   },
   {
     "slug": "contabile-cliente-m-f-d-apleona-schweiz-ag-wallisellen-7341e4",
@@ -1536,7 +1693,22 @@
         "firstSeenAt": "2026-09-28T21:25:51.028Z",
         "title": "Kundenbuchhalter (m/w/d)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2": "ZH"
+      },
+      "en": {
+        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2": "ZH"
+      },
+      "de": {
+        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen": "ZH"
+      },
+      "fr": {
+        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2": "ZH"
+      }
+    }
   },
   {
     "slug": "business-solution-manager-m-w-d-apleona-schweiz-ag-basel-oder-bern",
@@ -1635,7 +1807,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2576/description/1",
-    "firstSeenAt": "2026-10-06T09:36:18.876Z"
+    "firstSeenAt": "2026-10-06T09:36:18.876Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "object-head-m-f-d-apleona-schweiz-ag-aarau": "AG",
+        "tete-d-objet-h-f-d-apleona-schweiz-ag-aarau": "AG",
+        "objektleiter-m-w-d-apleona-schweiz-ag-aarau": "AG"
+      },
+      "en": {
+        "objektleiter-m-w-d-apleona-schweiz-ag-aarau": "AG"
+      },
+      "fr": {
+        "objektleiter-m-w-d-apleona-schweiz-ag-aarau": "AG"
+      }
+    }
   },
   {
     "slug": "business-solution-manager-w-m-d-apleona-schweiz-ag-basel",
@@ -1759,7 +1945,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2579/description/1",
-    "firstSeenAt": "2026-10-07T09:30:17.908Z"
+    "firstSeenAt": "2026-10-07T09:30:17.908Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau": "AG"
+      },
+      "en": {
+        "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau": "AG"
+      },
+      "fr": {
+        "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau": "AG"
+      }
+    }
   },
   {
     "slug": "direttore-di-manutenzione-m-f-d-apleona-schweiz-ag-region-zug",
@@ -1808,7 +2006,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2570/description/1",
-    "firstSeenAt": "2026-10-02T21:27:46.284Z"
+    "firstSeenAt": "2026-10-02T21:27:46.284Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sektorleiter-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-region-zug": "ZG"
+      },
+      "en": {
+        "sektorleiter-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-region-zug": "ZG"
+      },
+      "fr": {
+        "sektorleiter-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-region-zug": "ZG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel",
@@ -1884,7 +2094,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2505/description/1",
-    "firstSeenAt": "2026-08-25T10:06:15.871Z"
+    "firstSeenAt": "2026-08-25T10:06:15.871Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel": "BS"
+      },
+      "en": {
+        "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel": "BS"
+      },
+      "fr": {
+        "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel": "BS"
+      }
+    }
   },
   {
     "slug": "testa-di-oggetto-m-f-d-apleona-schweiz-ag-liestal",
@@ -1941,7 +2163,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2574/description/1",
-    "firstSeenAt": "2026-09-30T21:28:03.838Z"
+    "firstSeenAt": "2026-09-30T21:28:03.838Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-della-struttura-m-f-d-apleona-schweiz-ag-liestal": "BL",
+        "facility-manager-m-f-d-apleona-schweiz-ag-liestal": "BL",
+        "responsable-de-l-installation-h-f-d-apleona-schweiz-ag-liestal": "BL",
+        "objektleiter-m-w-d-apleona-schweiz-ag-liestal": "BL"
+      },
+      "en": {
+        "facility-manager-m-f-d-apleona-schweiz-ag-liestal": "BL",
+        "objektleiter-m-w-d-apleona-schweiz-ag-liestal": "BL"
+      },
+      "fr": {
+        "responsable-de-l-installation-h-f-d-apleona-schweiz-ag-liestal": "BL",
+        "objektleiter-m-w-d-apleona-schweiz-ag-liestal": "BL"
+      }
+    }
   },
   {
     "slug": "addetti-alla-reception-per-springer-pool-m-f-d-apleona-schweiz-ag-zurich",
@@ -1992,7 +2231,65 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2533/description/1",
-    "firstSeenAt": "2026-10-07T21:49:24.570Z"
+    "firstSeenAt": "2026-10-07T21:49:24.570Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "empfangsmitarbeitende-fur-springer-pool-m-w-d-apleona-schweiz-ag-zurich": "ZH",
+        "empfangsmitarbeitende-per-springer-pool-m-w-d-apleona-schweiz-ag-zurich": "ZH"
+      },
+      "en": {
+        "empfangsmitarbeitende-fur-springer-pool-m-w-d-apleona-schweiz-ag-zurich": "ZH"
+      },
+      "fr": {
+        "empfangsmitarbeitende-fur-springer-pool-m-w-d-apleona-schweiz-ag-zurich": "ZH"
+      }
+    }
+  },
+  {
+    "slug": "elettricista-aziendale-elettricista-afc-nella-gestione-degli-edifici-m-f-d-apleona-schweiz-ag-baden",
+    "title": "Betriebselektriker / Elektroinstallateur EFZ im Gebäudemanagement (m/w/d)",
+    "titleByLocale": {
+      "it": "Elettricista aziendale/ Elettricista AFC nella gestione degli edifici (m/f/d)",
+      "en": "Company electrician / electrical installer EFZ in building management (m/f/d)",
+      "de": "Betriebselektriker / Elektroinstallateur EFZ im Gebäudemanagement (m/w/d)",
+      "fr": "Entreprise électricien / installateur électrique EFZ dans la gestion du bâtiment (h/f/d)"
+    },
+    "company": "Apleona Schweiz AG",
+    "companyKey": "apleona-schweiz-ag",
+    "location": "Baden",
+    "addressLocality": "Baden",
+    "descriptionByLocale": {
+      "it": "Compiti\n• Responsabilità per l'ingegneria elettrica nonché garantire la disponibilità operativa, la disponibilità e la sicurezza dei sistemi elettrici negli edifici e nelle aree gestite\n• Eseguire lavori di manutenzione, ispezione e riparazione su distribuzioni, sistemi di illuminazione, sistemi di commutazione, controllo e regolazione, sistemi di potenza di sicurezza e di emergenza e sistemi di automazione edili/GLT (a seconda dell'oggetto)\n• Localizzazione, analisi e correzione di guasti su sistemi elettrici e dispositivi, tra cui documentazione professionale\n• Effettuare controlli e misurazioni periodiche secondo gli standard e le normative svizzere (ad esempio NIN, NIV, linee guida SUVA)\n• Cooperazione nelle conversioni, ammodernamento e ottimizzazione dei progetti di costruzione (ad esempio efficienza energetica, conversione a LED, ottimizzazione dei carichi)\n• Sostenere altri scambi (HVAC, sanitari, tecnologia di controllo degli edifici), coordinare fornitori e fornitori di servizi esterni, nonché garantire il rispetto dei requisiti di sicurezza, ambientale e qualità\n• Partecipazione a Pikett / Prontità dopo la pianificazione operativa\n\nRequisiti\n• Apprendistato completo come installatore elettrico EFZ\n• Esperienza nelle attrezzature tecniche, idealmente nel settore della gestione degli edifici, dell'industria o dei servizi\n• Buona conoscenza delle norme e dei regolamenti svizzeri pertinenti (ad esempio NIN, NIV, ESTI requisiti, linee guida SUVA)\n• Gestione sicura dei piani di commutazione e installazione e delle attrezzature di misura e di prova\n• Esperienza con risoluzione sistematica dei problemi e risoluzione dei problemi\n• Conoscenza di base dell'automazione degli edifici / tecnologia MSR è un vantaggio\n• Titolo di guida della categoria B\n\nPerché Apleona\n• Si riceve un salario di mercato equo ed equo\n• Si può sviluppare personalmente e professionalmente\n• Puoi contribuire alle tue idee\n• Viviamo spirito di squadra\n• Siamo aperti e onesti l'uno con l'altro\n• Viviamo una du-cultura caratterizzata da rispetto e apprezzamento\n\nVantaggi\n• Vi offriamo condizioni di lavoro avanzate tra cui almeno 26 giorni festivi\n• Dove il cliente ha bisogno di consentire, avete la possibilità di lavorare part-time, nella condivisione del lavoro o nell'ufficio di casa oltre a flextime.\n• Vi sosteniamo nel vostro ulteriore sviluppo, dove necessario anche finanziariamente\n• Attraverso il fondo pensione vi offriamo una pensione ben sviluppata\n• Vantaggi per varie attività, prodotti o servizi, quali attività ricreative",
+      "en": "Tasks\n• Responsibility for electrical engineering as well as ensuring the operational readiness, availability and safety of the electrical systems in the managed buildings and areas\n• Performing maintenance, inspection and repair work on distributions, lighting systems, switchgear, control and regulation systems, safety and emergency power systems and building automation/GLT systems (depending on the object)\n• Localization, analysis and correction of faults on electrical systems and devices including professional documentation\n• Performing periodic checks and measurements in accordance with Swiss standards and regulations (e.g. NIN, NIV, SUVA guidelines)\n• Cooperation in conversions, modernizations and optimization projects in building technology (e.g. energy efficiency, LED conversion, load optimization)\n• Supporting other trades (HVAC, sanitary, building control technology), coordinating external service providers and suppliers as well as ensuring compliance with safety, environmental and quality requirements\n• Participation in Pikett/Readiness after Operational Planning\n\nRequirements\n• Completed apprenticeship as electrical installer EFZ\n• Experience in technical equipment, ideally in building management, industry or service sector\n• Good application knowledge of the relevant Swiss standards and regulations (e.g. NIN, NIV, ESTI requirements, SUVA guidelines)\n• Safe handling of switching and installation plans and measuring and test equipment\n• Experience with systematic troubleshooting and troubleshooting\n• Basic knowledge of building automation / MSR technology is an advantage\n• Category B driving licence\n\nWhy Apleona\n• You receive a fair and fair market wage\n• You can develop personally and professionally\n• You can contribute your ideas\n• We live team spirit\n• We are open and honest with each other\n• We live a du-culture characterized by respect and appreciation\n\nBenefits\n• We offer you advanced employment conditions including at least 26 days holidays\n• Where customer needs allow, you have the opportunity to work part-time, in job sharing or in the home office in addition to flextime.\n• We support you in your further development, where necessary also financially\n• Through the pension fund we offer you a well-developed pension provision\n• You benefit from benefits for various activities, products or services, such as leisure activities",
+      "de": "Aufgaben\n• Anlagenverantwortung für die Elektrotechnik sowie Sicherstellen der Betriebsbereitschaft, Verfügbarkeit und Sicherheit der elektrotechnischen Anlagen in den betreuten Gebäuden und Arealen\n• Ausführen von Wartungs-, Inspektions- und Instandsetzungsarbeiten an Verteilungen, Beleuchtungsanlagen, Schalt-, Steuer- und Regelanlagen, Sicherheits- und Notstromanlagen sowie Gebäudeautomations-/GLT-Systemen (je nach Objekt)\n• Lokalisieren, Analysieren und Beheben von Störungen an elektrischen Anlagen und Geräten inkl. fachgerechter Dokumentation\n• Durchführen von wiederkehrenden Kontrollen und Messungen gemäss Schweizer Normen und Vorschriften (z. B. NIN, NIV, SUVA-Richtlinien)\n• Mitarbeit bei Umbauten, Modernisierungen und Optimierungsprojekten in der Gebäudetechnik (z. B. Energieeffizienz, LED-Umrüstung, Lastoptimierung)\n• Unterstützen anderer Gewerke (HLK, Sanitär, Gebäudeleittechnik), Koordination von externen Dienstleistern und Lieferanten sowie Sicherstellen der Einhaltung von Sicherheits-, Umwelt- und Qualitätsvorgaben\n• Teilnahme an Pikett-/Rufbereitschaft nach Einsatzplanung\n\nAnforderungen\n• Abgeschlossene Berufslehre als Elektroinstallateur EFZ\n• Erfahrung bei technischen Anlagen, idealerweise im Gebäudemanagement, in der Industrie oder im Dienstleistungssektor\n• Gute Anwendungs-Kenntnisse der einschlägigen Schweizer Normen und Vorschriften (z.B. NIN, NIV, ESTI-Vorgaben, SUVA-Richtlinien)\n• Sicherer Umgang mit Schalt- und Installationsplänen sowie Mess- und Prüfgeräten\n• Erfahrung mit systematischer Fehlersuche und Störungsbehebung\n• Grundkenntnisse in Gebäudeautomation / MSR-Technik von Vorteil\n• Führerausweis Kategorie B\n\nWarum Apleona\n• Du erhältst einen fairen und marktgerechten Lohn\n• Du kannst dich persönlich und beruflich weiterentwickeln\n• Du kannst deine Ideen einbringen\n• Wir leben Teamgeist\n• Wir sind offen und ehrlich im Umgang miteinander\n• Wir leben eine Du-Kultur geprägt von Respekt und Wertschätzung\n\nBenefits\n• Wir bieten dir fortschrittliche Anstellungsbedingungen u.a. mindestens 26 Tage Ferien\n• Wo es die Kundenbedürfnisse zulassen, hast du neben Gleitzeit die Möglichkeit, Teilzeit, im Jobsharing oder im Home-Office zu arbeiten\n• Wir unterstützen dich bei deiner Weiterentwicklung, wo nötig auch finanziell\n• Über die Pensionskasse bieten wir dir eine gut ausgebaute Altersvorsorge\n• Du profitierst von Vergünstigungen für diverse Aktivitäten, Produkte oder Dienstleistungen, wie z. B. Freizeitangebote",
+      "fr": "Tâche\n• Responsabilité en matière de génie électrique ainsi que d'assurer la préparation opérationnelle, la disponibilité et la sécurité des systèmes électriques dans les bâtiments et les zones gérés\n• Effectuer des travaux d'entretien, d'inspection et de réparation sur les distributions, les systèmes d'éclairage, les commutateurs, les systèmes de commande et de régulation, les systèmes d'alimentation électrique de sécurité et de secours et les systèmes d'automatisation des bâtiments/GLT (selon l'objet)\n• Localisation, analyse et correction des défauts des systèmes et dispositifs électriques, y compris la documentation professionnelle\n• Effectuer des contrôles et des mesures périodiques conformément aux normes et règlements suisses (par exemple, lignes directrices NIN, NIV, VUSA)\n• Coopération dans les projets de conversion, de modernisation et d'optimisation de la technologie du bâtiment (efficacité énergétique, conversion LED, optimisation de la charge, par exemple)\n• Soutenir d'autres métiers (VAC, sanitaires, technologie de contrôle des bâtiments), coordonner les fournisseurs et fournisseurs de services externes et assurer le respect des exigences en matière de sécurité, d'environnement et de qualité\n• Participation à Pikett/préparation après la planification opérationnelle\n\nExigences\n• Apprentissage terminé en tant qu'installateur électrique EFZ\n• Expérience en équipement technique, idéalement dans la gestion du bâtiment, l'industrie ou le secteur des services\n• Bonne connaissance des normes et réglementations suisses pertinentes (par exemple NIN, NIV, exigences de l'ESTI, lignes directrices du VUSA)\n• Manipulation sécuritaire des plans de commutation et d'installation et des équipements de mesure et d'essai\n• Expérience du dépannage systématique et du dépannage\n• Connaissance de base de l'automatisation des bâtiments / La technologie MSR est un avantage\n• Permis de conduire de catégorie B\n\nPourquoi Apleona\n• Vous recevez un salaire juste et équitable du marché\n• Vous pouvez développer personnellement et professionnellement\n• Vous pouvez apporter vos idées\n• Nous vivons l'esprit d'équipe\n• Nous sommes ouverts et honnêtes les uns avec les autres\n• Nous vivons une du-culture caractérisée par le respect et l'appréciation\n\nAvantages\n• Nous vous offrons des conditions d'emploi avancées incluant au moins 26 jours de vacances\n• Lorsque les besoins du client le permettent, vous avez la possibilité de travailler à temps partiel, dans le partage d'emploi ou dans le bureau à domicile en plus du temps flexible.\n• Nous vous soutenons dans votre développement, si nécessaire aussi financièrement\n• Par l'intermédiaire de la caisse de retraite, nous vous offrons une pension bien développée\n• Vous bénéficiez d'avantages pour diverses activités, produits ou services, comme les loisirs"
+    },
+    "slugByLocale": {
+      "de": "betriebselektriker-elektroinstallateur-efz-im-gebaudemanagement-m-w-d-apleona-schweiz-ag",
+      "it": "elettricista-aziendale-elettricista-afc-nella-gestione-degli-edifici-m-f-d-apleona-schweiz-ag-baden",
+      "en": "company-electrician-electrical-installer-efz-in-building-management-m-f-d-apleona-schweiz-ag-baden",
+      "fr": "entreprise-electricien-installateur-electrique-efz-dans-la-gestion-du-batiment-h-f-d-apleona-schweiz-ag-baden"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-10-08T21:43:53.993Z",
+    "previousSlugs": [
+      "betriebselektriker-installatore-trice-elettrico-a-cfc-im-gebaudemanagement-m-w-d-apleona-schweiz-ag-baden",
+      "betriebselektriker-elektroinstallateur-efz-im-gebaudemanagement-m-w-d-apleona-schweiz-ag"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "betriebselektriker-installatore-trice-elettrico-a-cfc-im-gebaudemanagement-m-w-d-apleona-schweiz-ag-baden",
+        "betriebselektriker-elektroinstallateur-efz-im-gebaudemanagement-m-w-d-apleona-schweiz-ag"
+      ]
+    },
+    "postalCode": "5400",
+    "salaryMin": 72500,
+    "salaryMax": 110500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2525/description/1",
+    "firstSeenAt": "2026-09-29T21:28:24.303Z"
   },
   {
     "slug": "personale-di-sicurezza-in-servizio-24-ore-su-24-m-f-d-apleona-schweiz-ag-schaffhausen",
@@ -2037,7 +2334,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2573/description/1",
-    "firstSeenAt": "2026-09-29T09:29:26.545Z"
+    "firstSeenAt": "2026-09-29T09:29:26.545Z",
+    "canton": "SH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratore-trice-sicherheitsdienst-im-24-stunden-betrieb-m-w-d-apleona-schweiz-ag-schaffhausen": "SH",
+        "mitarbeiter-sicherheitsdienst-im-24-stunden-betrieb-m-w-d-apleona-schweiz-ag-schaffhausen": "SH"
+      }
+    }
   },
   {
     "slug": "amministrazione-80-100-m-f-d-apleona-schweiz-ag-zurich",
@@ -2080,7 +2384,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2554/description/1",
-    "firstSeenAt": "2026-09-28T21:25:50.722Z"
+    "firstSeenAt": "2026-09-28T21:25:50.722Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-administration-80-100-m-w-d-apleona-schweiz-ag-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "esperto-tecnico-porta-e-cancello-m-f-d-apleona-schweiz-ag-zurich",
@@ -2125,7 +2435,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2571/description/1",
-    "firstSeenAt": "2026-09-26T14:10:43.449Z"
+    "firstSeenAt": "2026-09-26T14:10:43.449Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technischer-experte-tur-e-tor-m-w-d-apleona-schweiz-ag-zurich": "ZH",
+        "technischer-experte-tur-und-tor-m-w-d-apleona-schweiz-ag-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-personnel-living-business-80-100-m-f-d-apleona-schweiz-ag-root",
@@ -2171,7 +2488,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2569/description/1",
-    "firstSeenAt": "2026-09-26T14:10:43.752Z"
+    "firstSeenAt": "2026-09-26T14:10:43.752Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-sachbearbeiter-wohnen-gewerbe-80-100-m-w-d-apleona-schweiz-ag-root": "LU"
+      },
+      "fr": {
+        "senior-sachbearbeiter-wohnen-gewerbe-80-100-m-w-d-apleona-schweiz-ag-root": "LU"
+      }
+    }
   },
   {
     "slug": "capo-della-gestione-della-struttura-m-f-d-apleona-schweiz-ag-region-zurich",
@@ -2216,7 +2542,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2568/description/1",
-    "firstSeenAt": "2026-09-23T23:52:41.833Z"
+    "firstSeenAt": "2026-09-23T23:52:41.833Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mandatsleiter-im-facility-management-m-w-d-apleona-schweiz-ag-region-zurich": "ZH"
+      },
+      "fr": {
+        "mandatsleiter-im-facility-management-m-w-d-apleona-schweiz-ag-region-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-zurich-wollishofen",
@@ -2264,7 +2599,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2562/description/1",
-    "firstSeenAt": "2026-09-19T23:07:26.512Z"
+    "firstSeenAt": "2026-09-19T23:07:26.512Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-zurich-wollishofen": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-zurich-wollishofen": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-zurich-wollishofen": "ZH"
+      }
+    }
   },
   {
     "slug": "risorse-umane-specialista-payroll-administration-w-m-d-apleona-schweiz-ag-wallisellen",
@@ -2312,55 +2659,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2566/description/1",
-    "firstSeenAt": "2026-09-19T23:07:26.822Z"
-  },
-  {
-    "slug": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-basel-1e92fdaa",
-    "title": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d)",
-    "titleByLocale": {
-      "it": "Responsabile della proprietà (m/f/d)",
-      "en": "Property Manager (m/f/d)",
-      "de": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d)",
-      "fr": "Gestionnaire de propriétés (h/f/d)"
-    },
-    "company": "Apleona Schweiz AG",
-    "companyKey": "apleona-schweiz-ag",
-    "location": "Basel",
-    "addressLocality": "Basel",
-    "descriptionByLocale": {
-      "it": "I tuoi compiti\nCon noi, sei piu' di un assistente. Sei una parte importante della gestione della proprietà e assicurarsi che tutto vada senza problemi in background, dal noleggio alla fatturazione. A breve distanza, coordinamento diretto, lavoro di squadra reale. La posizione è da riempire il 01.12.2026 o 01.01.2027.\n• Supporti la gestione commerciale e tecnica di un portafoglio immobiliare versatile e garantisci processi fluidi in background.\n• Accompagnate attivamente il re-letting – dal coordinamento e dall'attuazione delle visite alla comunicazione con le parti interessate.\n• È possibile creare contratti di noleggio, allegati e integratori per appartamenti e oggetti accessori e garantire la documentazione del contratto pulita.\n• Si organizzano e accompagnano l'accoglienza di appartamenti e proprietà, così come i trasferimenti e prendere su questi in parte indipendentemente.\n• Creare rapporti finali inquilini e supporto con ulteriori compiti amministrativi relativi alla tenacia.\n• Supporti il debitore e la gestione dei creditori mantenendo traccia dei processi aperti.\n• Siete una persona di contatto importante per inquilini, artigiani, fornitori, uffici e governatori – sia per iscritto che per via orale.\n• Si assume una varietà di compiti amministrativi e allevia i manager in attività quotidiane.\n• Siete attivamente coinvolti, pensate e affrontate quando si tratta di rendere i processi efficienti e orientati al cliente.\n\nLe vostre esigenze\n• Completato con successo la formazione di base come donna d'affari / uomo d'affari EFZ o formazione equivalente nel settore immobiliare\n• La conoscenza del settore è obbligatoria\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Gestione sicura di MS Office e esperienza ideale con GREM\n• Talenti organizzativi, iniziative e modalità professionali\n• Ricorso di una patente di guida valida e di un proprio veicolo\nLa nostra roadmap digitale avanza costantemente la gestione e si può modellare attivamente questo percorso. Interessante? Quindi applicare ora con i vostri documenti applicativi completi, comprese le vostre aspettative salariali.",
-      "en": "Your tasks\nWith us, you are more than an assistant. You are an important part of property management and ensure that everything goes smoothly in the background, from rental to billing. Short distances, direct coordination, real teamwork. The position is to be filled on 01.12.2026 or 01.01.2027.\n• You support the commercial and technical management of a versatile real estate portfolio and ensure smooth processes in the background.\n• You actively accompany the re-letting – from the coordination and implementation of visits to communication with interested parties.\n• You create rental contracts, attachments and supplements for apartments and ancillary objects and ensure clean contract documentation.\n• You organize and accompany apartment and property acceptances as well as transfers and take over these partly independently.\n• You create tenant final reports and support with further administrative tasks relating to the tenancy.\n• You support debtor and creditor management while keeping track of open processes.\n• You are an important contact person for tenants, craftsmen, suppliers, offices and housekeepers – both in writing and orally.\n• You take on a variety of administrative tasks and relieve the managers in day-to-day business.\n• You are actively involved, think and tackle when it comes to making processes efficient and customer-oriented.\n\nYour requirements\n• Successfully completed basic training as a businesswoman / businessman EFZ or equivalent training in the field of real estate\n• Industry knowledge is mandatory\n• Very good knowledge of German in word and writing\n• Secure handling of MS Office and ideally experience with GREM\n• Organizational talent, initiative and professional manners\n• Possession of a valid driving licence and own vehicle\nOur digital roadmap consistently advances management and you can actively shape this path. Interested? Then apply now with your complete application documents including your salary expectations.",
-      "de": "Deine Aufgaben\nBei uns bist du mehr als eine Assistenz. Du bist ein wichtiger Teil des Property Managements und sorgst dafür, dass im Hintergrund alles rund läuft, von der Vermietung bis zur Abrechnung. Kurze Wege, direkte Abstimmung, echtes Teamwork. Die Stelle ist per 01.12.2026 oder 01.01.2027 zu besetzen.\n• Du unterstützt die kaufmännische und technische Bewirtschaftung eines vielseitigen Immobilienportfolios und sorgst im Hintergrund für reibungslose Abläufe.\n• Du begleitest die Wiedervermietung aktiv – von der Koordination und Durchführung von Besichtigungen bis zur Kommunikation mit Interessenten.\n• Du erstellst Mietverträge, Anhänge und Nachträge für Wohnungen und Nebenobjekte und stellst eine saubere Vertragsdokumentation sicher.\n• Du organisierst und begleitest Wohnungs- und Objektabnahmen sowie -übergaben und übernimmst diese teilweise selbstständig.\n• Du erstellst Mieter-Schlussabrechnungen und unterstützt bei weiteren administrativen Aufgaben rund um die Mietverhältnisse.\n• Du unterstützt das Debitoren- und Kreditorenmanagement und behältst dabei den Überblick über offene Vorgänge.\n• Du bist eine wichtige Ansprechperson für Mieter, Handwerker, Lieferanten, Ämter und Hauswart – schriftlich wie mündlich.\n• Du übernimmst vielfältige administrative Aufgaben und entlastest die Bewirtschafter im Tagesgeschäft.\n• Du bringst dich aktiv ein, denkst mit und packst an, wenn es darum geht, Prozesse effizient und kundenorientiert zu gestalten.\n\nDeine Anforderungen\n• Erfolgreich abgeschlossene Grundbildung als Kauffrau / Kaufmann EFZ oder gleichwertige Ausbildung im Bereich Immobilien\n• Branchenkenntnisse sind zwingend erforderlich\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Sicherer Umgang mit MS Office und idealerweise Erfahrung mit GREM\n• Organisationstalent, Eigeninitiative und professionelle Umgangsformen\n• Besitz eines gültigen Führerausweis und eigenes Fahrzeug\nUnsere Digital-Roadmap bringt die Bewirtschaftung konsequent voran und du kannst diesen Weg aktiv mitgestalten. Interessiert? Dann bewirb dich jetzt mit deinen vollständigen Bewerbungsunterlagen inkl. deiner Gehaltsvorstellung.",
-      "fr": "Vos tâches\nAvec nous, vous êtes plus qu'un assistant. Vous êtes un élément important de la gestion immobilière et vous assurez que tout se passe bien en arrière-plan, de la location à la facturation. De courtes distances, coordination directe, véritable travail d'équipe. Le poste doit être pourvu au 01.12.2026 ou 01.01.2027.\n• Vous soutenez la gestion commerciale et technique d'un portefeuille immobilier polyvalent et assurez des processus en douceur en arrière-plan.\n• Vous accompagnez activement le re-lettrage – de la coordination et de la mise en œuvre des visites à la communication avec les parties intéressées.\n• Vous créez des contrats de location, des pièces jointes et des suppléments pour les appartements et les objets accessoires et assurez la documentation propre du contrat.\n• Vous organisez et accompagnez les réceptions d'appartements et de biens ainsi que les transferts et les prenez en charge en partie indépendamment.\n• Vous créez des rapports finaux de locataire et de soutien avec d'autres tâches administratives liées à la location.\n• Vous soutenez la gestion des débiteurs et des créanciers tout en gardant une trace des processus ouverts.\n• Vous êtes une personne-ressource importante pour les locataires, les artisans, les fournisseurs, les bureaux et les employés de maison, tant par écrit que oralement.\n• Vous assumez une variété de tâches administratives et de soulager les gestionnaires dans les affaires quotidiennes.\n• Vous êtes activement impliqué, réfléchissez et affrontez quand il s'agit de rendre les processus efficaces et orientés vers le client.\n\nVos besoins\n• Formation de base réussie en tant que femme d'affaires / homme d'affaires EFZ ou formation équivalente dans le domaine de l'immobilier\n• La connaissance de l'industrie est obligatoire\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Gestion sécurisée de MS Office et expérience idéale avec GREM\n• Les talents organisationnels, l'initiative et les manières professionnelles\n• Possession d'un permis de conduire et d'un véhicule en cours de validité\nNotre feuille de route numérique avance constamment la gestion et vous pouvez façonner activement cette voie. Intéressé ? Faites ensuite une demande maintenant avec vos documents de candidature complets, y compris vos attentes salariales."
-    },
-    "slugByLocale": {
-      "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel",
-      "it": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-basel-1e92fdaa",
-      "en": "property-manager-m-f-d-apleona-schweiz-ag-basel-9285478e",
-      "fr": "gestionnaire-de-proprietes-h-f-d-apleona-schweiz-ag-basel"
-    },
-    "sector": "Altro",
-    "expiredAt": "2026-10-01T09:29:14.811Z",
-    "previousSlugs": [
-      "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel"
-      ],
-      "en": [
-        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel"
-      ],
-      "fr": [
-        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-basel"
-      ]
-    },
-    "salaryMin": 85500,
-    "salaryMax": 129500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2564/description/1",
-    "firstSeenAt": "2026-09-19T23:07:27.425Z"
+    "firstSeenAt": "2026-09-19T23:07:26.822Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-specialist-payroll-administration-w-m-d-apleona-schweiz-ag-wallisellen": "ZH"
+      },
+      "de": {
+        "hr-specialist-payroll-administration-w-m-d-apleona-schweiz-ag-wallisellen": "ZH"
+      },
+      "fr": {
+        "hr-specialist-payroll-administration-w-m-d-apleona-schweiz-ag-wallisellen": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-basel",
@@ -2408,7 +2719,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2565/description/1",
-    "firstSeenAt": "2026-09-19T23:07:27.123Z"
+    "firstSeenAt": "2026-09-19T23:07:27.123Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-basel": "BS"
+      },
+      "en": {
+        "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-basel": "BS"
+      },
+      "fr": {
+        "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-basel": "BS"
+      }
+    }
   },
   {
     "slug": "responsabile-dei-servizi-di-manutenzione-zurigo-m-f-d-apleona-schweiz-ag-zurich-und-umgebung",
@@ -2456,7 +2779,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2561/description/1",
-    "firstSeenAt": "2026-09-19T23:07:27.728Z"
+    "firstSeenAt": "2026-09-19T23:07:27.728Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-unterhaltsreinigung-zurich-m-w-d-apleona-schweiz-ag-zurich-und-umgebung": "ZH"
+      },
+      "en": {
+        "leiter-unterhaltsreinigung-zurich-m-w-d-apleona-schweiz-ag-zurich-und-umgebung": "ZH"
+      },
+      "fr": {
+        "leiter-unterhaltsreinigung-zurich-m-w-d-apleona-schweiz-ag-zurich-und-umgebung": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-koniz-liebefeld",
@@ -2528,7 +2863,21 @@
         "firstSeenAt": "2026-08-25T10:06:14.944Z",
         "title": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d) 50 - 100%"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch": "BE",
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch-2": "BE",
+        "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-lugano-989812": "BE"
+      },
+      "en": {
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch-2": "BE"
+      },
+      "fr": {
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch-2": "BE"
+      }
+    }
   },
   {
     "slug": "servizio-tecnico-ventilazione-m-f-d-apleona-schweiz-ag-bischofszell",
@@ -2578,7 +2927,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2553/description/1",
-    "firstSeenAt": "2026-08-31T17:33:36.532Z"
+    "firstSeenAt": "2026-08-31T17:33:36.532Z",
+    "canton": "TG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch": "TG",
+        "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-lugano": "TG"
+      },
+      "en": {
+        "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch": "TG"
+      },
+      "fr": {
+        "servicetechniker-luftung-m-w-d-apleona-schweiz-ag-ch": "TG"
+      }
+    }
   },
   {
     "slug": "impiegato-nella-gestione-immobiliare-residenziali-commerciale-m-f-d-apleona-schweiz-ag-aarau",
@@ -2628,7 +2990,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2481/description/1",
-    "firstSeenAt": "2026-08-28T05:31:44.046Z"
+    "firstSeenAt": "2026-08-28T05:31:44.046Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch": "AG",
+        "impiegato-nella-gestione-immobiliare-residenziali-commerciale-m-f-d-apleona-schweiz-ag-lugano": "AG"
+      },
+      "en": {
+        "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch": "AG"
+      },
+      "fr": {
+        "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch": "AG"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-2027",
@@ -2670,7 +3045,8 @@
       "apprentissage-en-tant-que-commis-commercial-efz-specialise-en-fiducie-immobilier-a-compter-du-1er-aout-2027-apleona",
       "apprendistato-come-kauffrau-kaufmann-cfc-specializzazione-treuhand-immobilien-per-1-kh0ucp",
       "apprendistato-come-kauffrau-kaufmann-cfc-specializzazione-treuhand-immobilien-per-1-kh0ucq",
-      "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027-2"
+      "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027-2",
+      "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-2027"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2715,7 +3091,21 @@
         "firstSeenAt": "2026-08-25T10:06:16.478Z",
         "title": "Lehrstelle als Kauffrau / Kaufmann EFZ, Fachrichtung Treuhand / Immobilien per 1. August 2027"
       }
-    ]
+    ],
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprendistato-come-kauffrau-kaufmann-cfc-specializzazione-treuhand-immobilien-per-1-august-2027-apleona-schweiz-ag-st-gallen": "SG",
+        "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027": "SG",
+        "apprendistato-come-un-commerciante-commerciante-efz-specializzazione-treuhand-immobiliare-a-partire-da-1-agosto-0c0945": "SG"
+      },
+      "en": {
+        "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027": "SG"
+      },
+      "fr": {
+        "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027": "SG"
+      }
+    }
   },
   {
     "slug": "capo-squadra-gestione-immobiliare-m-f-d-apleona-schweiz-ag-root",
@@ -2765,7 +3155,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2551/description/1",
-    "firstSeenAt": "2026-08-26T10:17:04.294Z"
+    "firstSeenAt": "2026-08-26T10:17:04.294Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch": "LU",
+        "capo-squadra-gestione-immobiliare-m-f-d-apleona-schweiz-ag-lugano": "LU"
+      },
+      "en": {
+        "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch": "LU"
+      },
+      "fr": {
+        "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch": "LU"
+      }
+    }
   },
   {
     "slug": "tecnico-di-costruzione-sanitary-riscaldamento-tecnologia-m-f-d-scegli-la-tua-posizione-fissa-apleona-schweiz-ag-lugano",
@@ -2813,7 +3216,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2546/description/1",
-    "firstSeenAt": "2026-08-25T10:06:15.568Z"
+    "firstSeenAt": "2026-08-25T10:06:15.568Z",
+    "canton": "SH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gebaudetechniker-sanitar-heizungstechnik-m-w-d-du-wahlst-deinen-fixen-standort-apleona": "SH"
+      },
+      "en": {
+        "gebaudetechniker-sanitar-heizungstechnik-m-w-d-du-wahlst-deinen-fixen-standort-apleona": "SH"
+      },
+      "fr": {
+        "gebaudetechniker-sanitar-heizungstechnik-m-w-d-du-wahlst-deinen-fixen-standort-apleona": "SH"
+      }
+    }
   },
   {
     "slug": "manutenzione-casa-dipendente-m-f-d-apleona-schweiz-ag-spreitenbach",

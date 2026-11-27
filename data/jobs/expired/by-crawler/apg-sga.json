@@ -102,7 +102,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/crm-manager-in-zuerich/257vd61wfejffr6hvrys2vhxobz74m5bs2hxdxcrs7bd4lymbmc52gdexvquncni",
-    "firstSeenAt": "2026-11-17T08:23:00.929Z"
+    "firstSeenAt": "2026-11-17T08:23:00.929Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "crm-manager-in-80-100-zurich-apg-sga-ch": "ZH"
+      },
+      "fr": {
+        "crm-manager-in-80-100-zurich-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "id": "apg-sga-4ded1f826986",
@@ -150,7 +159,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/afficheur-in-wallisellen/fs0uv9ermm41lv2ubrrtjf7kivelnkpkahyy78yp0awsn0pxfiswej30yzwy85hz",
-    "firstSeenAt": "2026-11-05T09:27:09.715Z"
+    "firstSeenAt": "2026-11-05T09:27:09.715Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "afficheur-in-80-wallisellen-apg-sga-ch": "ZH"
+      },
+      "en": {
+        "afficheur-in-80-wallisellen-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "id": "apg-sga-72bdd698c817",
@@ -198,7 +216,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/ict-system-engineer-linux-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
-    "firstSeenAt": "2026-10-30T21:27:39.427Z"
+    "firstSeenAt": "2026-10-30T21:27:39.427Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-system-engineer-linux-80-100-zurich-apg-sga-ch": "ZH"
+      },
+      "fr": {
+        "ict-system-engineer-linux-80-100-zurich-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "business-controller-80-100-zurich-apg-sga-ch",
@@ -231,7 +258,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/business-controller-zuerich/3lsx02be41yerdi7irbbhu8s3oxeh5u7j18a5e0pcsvv1eyyr6oc2mfwuwlnsdk3",
-    "firstSeenAt": "2026-10-12T09:25:55.791Z"
+    "firstSeenAt": "2026-10-12T09:25:55.791Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "business-controller-80-100-zurich-apg-sga-ch"
+      ],
+      "de": [
+        "business-controller-80-100-zurich-apg-sga-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "business-controller-80-100-zurich-apg-sga-ch": "ZH"
+      },
+      "de": {
+        "business-controller-80-100-zurich-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "junior-software-ingegnere-java-spring-80-100-zurich-apg-sga-zurich",
@@ -278,7 +322,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/junior-software-engineer-java-spring-zuerich/5c4lusdhri8wsbixw0vcpfsisgh8c4g0tdg0vwik66vv3rjgfdu5yybrvw2y1m4g",
-    "firstSeenAt": "2026-09-23T23:45:29.841Z"
+    "firstSeenAt": "2026-09-23T23:45:29.841Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-software-engineer-java-spring-80-100-zurich-apg-sga-ch": "ZH"
+      },
+      "fr": {
+        "junior-software-engineer-java-spring-80-100-zurich-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "consiglio-di-vendita-esterno-100-losanna-apg-sga-lausanne",
@@ -328,7 +381,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/conseil-de-vente-service-externe-lausanne/n7atrp716yq5pf468ywp8kd7r4h527fvg4ao4ziopzrz2m1nb3xqquxljo8cep06",
-    "firstSeenAt": "2026-10-12T21:26:41.244Z"
+    "firstSeenAt": "2026-10-12T21:26:41.244Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseil-de-vente-service-externe-100-lausanne-apg-sga-ch": "VD"
+      },
+      "en": {
+        "conseil-de-vente-service-externe-100-lausanne-apg-sga-ch": "VD"
+      },
+      "de": {
+        "conseil-de-vente-service-externe-100-lausanne-apg-sga-ch": "VD"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-affissioni-60-winterthur-apg-sga-winterthur",
@@ -375,7 +440,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/afficheur-in-winterthur/hi5os0s3vixaka2knct0m1ltfa93z2bqfno4nyr51c3rlzddmd83zvngq70jih6j",
-    "firstSeenAt": "2026-10-13T09:28:54.565Z"
+    "firstSeenAt": "2026-10-13T09:28:54.565Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "afficheur-in-60-winterthur-apg-sga-ch": "ZH"
+      },
+      "en": {
+        "afficheur-in-60-winterthur-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "servizio-esterno-partnermanager-100-sion-apg-sga-sion",
@@ -419,7 +493,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/partnermanager-service-externe-sion/ro7drhalaoifp78qx52b60twhe2ctbngfz68t0syhkaarf3zdlrpqnsexare5b7t",
-    "firstSeenAt": "2026-10-06T09:24:16.689Z"
+    "firstSeenAt": "2026-10-06T09:24:16.689Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "partnermanager-service-externe-100-sion-apg-sga-ch": "VS"
+      }
+    }
   },
   {
     "slug": "ict-system-ingegnere-80-100-zurich-apg-sga-zurich",
@@ -462,7 +542,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/ict-system-engineer-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
-    "firstSeenAt": "2026-10-05T09:26:38.537Z"
+    "firstSeenAt": "2026-10-05T09:26:38.537Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-system-engineer-80-100-zurich-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "display-displayer-60-neuchatel-apg-sga-neuchatel",
@@ -500,7 +586,8 @@
         "afficheur-afficheuse-60-neuchatel-apg-sga-ch"
       ],
       "en": [
-        "afficheur-afficheuse-60-neuchatel-apg-sga-ch"
+        "afficheur-afficheuse-60-neuchatel-apg-sga-ch",
+        "display-displayer-60-neuchatel-apg-sga-neuchatel"
       ]
     },
     "postalCode": "2000",
@@ -509,7 +596,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/afficheur-afficheuse-neuchatel/d3yrebh2ccqhec85qi72zrhmxblp74iita7i4hl7tslahzokivyednvrz1la3xnf",
-    "firstSeenAt": "2026-10-26T21:54:52.177Z"
+    "firstSeenAt": "2026-10-26T21:54:52.177Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "afficheur-afficheuse-60-neuchatel-apg-sga-ch": "NE"
+      },
+      "en": {
+        "display-displayer-60-neuchatel-apg-sga-neuchatel": "NE",
+        "afficheur-afficheuse-60-neuchatel-apg-sga-ch": "NE"
+      },
+      "de": {
+        "afficheur-afficheuse-60-neuchatel-apg-sga-ch": "NE"
+      }
+    }
   },
   {
     "slug": "consiglio-di-vendita-servizio-interno-80-100-vernier-lausanne-apg-sga-vernier",
@@ -558,7 +658,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/conseil-de-vente-service-interne-vernier-lausanne/3l4fhbl7dqvhwcjzo8gr0icrzywk7hp8ra6mpvuqdlca36h0kwhr0x3y1abhm22x",
-    "firstSeenAt": "2026-10-12T21:26:42.225Z"
+    "firstSeenAt": "2026-10-12T21:26:42.225Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseil-de-vente-service-interne-80-100-vernier-lausanne-apg-sga-ch": "GE"
+      },
+      "en": {
+        "conseil-de-vente-service-interne-80-100-vernier-lausanne-apg-sga-ch": "GE"
+      },
+      "de": {
+        "conseil-de-vente-service-interne-80-100-vernier-lausanne-apg-sga-ch": "GE"
+      }
+    }
   },
   {
     "slug": "servizio-interno-di-gestione-partner-100-losanna-apg-sga-lausanne",
@@ -607,7 +719,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/partnermanagement-service-interne-lausanne/04q0bg7r23jh4udsts24dwpk4bqpzcc0ljihk8wxyct6x2bjtlznlrqj4ildeh63",
-    "firstSeenAt": "2026-10-13T09:28:57.769Z"
+    "firstSeenAt": "2026-10-13T09:28:57.769Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "partnermanagement-service-interne-100-lausanne-apg-sga-ch": "VD"
+      },
+      "en": {
+        "partnermanagement-service-interne-100-lausanne-apg-sga-ch": "VD"
+      },
+      "de": {
+        "partnermanagement-service-interne-100-lausanne-apg-sga-ch": "VD"
+      }
+    }
   },
   {
     "slug": "100-display-losanna-apg-sga-lausanne-25",
@@ -653,7 +777,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/afficheur-lausanne/lwjrljjcghwp1rs22cqyd0vz2602jhlye4zidtkj75qwjcv4eixgtnctqt4d6vgs",
-    "firstSeenAt": "2026-10-12T09:25:54.263Z"
+    "firstSeenAt": "2026-10-12T09:25:54.263Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "afficheur-100-lausanne-apg-sga-ch": "VD"
+      },
+      "en": {
+        "afficheur-100-lausanne-apg-sga-ch": "VD"
+      }
+    }
   },
   {
     "slug": "servizio-interno-partnermanager-100-losanna-apg-sga-lausanne",
@@ -696,7 +829,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/partnermanager-service-interne-lausanne/04q0bg7r23jh4udsts24dwpk4bqpzcc0ljihk8wxyct6x2bjtlznlrqj4ildeh63",
-    "firstSeenAt": "2026-10-12T21:26:44.233Z"
+    "firstSeenAt": "2026-10-12T21:26:44.233Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "partnermanager-service-interne-100-lausanne-apg-sga-ch": "VD"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-operations-80-100-wallisellen-apg-sga-wallisellen",
@@ -739,7 +878,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
-    "firstSeenAt": "2026-09-29T21:25:52.569Z"
+    "firstSeenAt": "2026-09-29T21:25:52.569Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-operations-80-100-wallisellen-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-prodotto-80-100-zurigo-apg-sga-zurich",
@@ -833,7 +978,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
-    "firstSeenAt": "2026-07-30T22:32:51.344Z"
+    "firstSeenAt": "2026-07-30T22:32:51.344Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "software-engineer-80-100-zurich-apg-sga-ch": "ZH"
+      },
+      "fr": {
+        "software-engineer-80-100-zurich-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendista-r-kaufmann-frau-cfc-zurich-apg-sga-zurich",
@@ -882,7 +1036,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apgsga.ch/publication/lernende-kaufmann-frau-efz-zuerich/xkgzq2jrdlmqx2722bonikgyocy76s5eicpvnct0j0w7bqclfmapniklq34qxcsh",
-    "firstSeenAt": "2026-08-18T21:38:56.519Z"
+    "firstSeenAt": "2026-08-18T21:38:56.519Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lernende-r-kaufmann-frau-efz-zurich-apg-sga-ch": "ZH"
+      },
+      "en": {
+        "lernende-r-kaufmann-frau-efz-zurich-apg-sga-ch": "ZH"
+      },
+      "fr": {
+        "lernende-r-kaufmann-frau-efz-zurich-apg-sga-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "afficheur-in-60-san-gallo-apg-sga-st-gallen",

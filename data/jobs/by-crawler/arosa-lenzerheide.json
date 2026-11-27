@@ -86,7 +86,8 @@
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:18:33.226Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://app.reflinejobs.io/3316/0051/pub/36/index.html"
     },
     {
       "id": "arosa-lenzerheide-d496bff801a2",
@@ -158,7 +159,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T21:18:32.617Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-12T22:16:25.136Z"
+      "firstSeenAt": "2026-07-12T22:16:25.136Z",
+      "sourceIdentity": "url:https://app.reflinejobs.io/3316/0012/pub/37/index.html"
     },
     {
       "id": "arosa-lenzerheide-b6b2549aa142",

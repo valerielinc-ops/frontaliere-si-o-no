@@ -42,7 +42,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=mlai",
-    "firstSeenAt": "2026-07-03T21:19:38.767Z"
+    "firstSeenAt": "2026-07-03T21:19:38.767Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aiml-research-scientist-health-apple-retail-switzerland-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "aiml-foundation-model-post-training-ricerca-scientist-apple-retail-switzerland-zurich-a9b992e7",
@@ -133,11 +139,13 @@
       "it": [
         "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch-bf494275",
         "aiml-forscher-fur-maschinelles-lernen-mlr-apple-retail-switzerland-lausanne",
-        "aiml-chercheur-en-apprentissage-automatique-mlr-apple-retail-switzerland-lausanne"
+        "aiml-chercheur-en-apprentissage-automatique-mlr-apple-retail-switzerland-lausanne",
+        "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch"
       ],
       "en": [
         "aiml-forscher-fur-maschinelles-lernen-mlr-apple-retail-switzerland-lausanne",
-        "aiml-chercheur-en-apprentissage-automatique-mlr-apple-retail-switzerland-lausanne"
+        "aiml-chercheur-en-apprentissage-automatique-mlr-apple-retail-switzerland-lausanne",
+        "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch"
       ],
       "de": [
         "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch",
@@ -174,7 +182,22 @@
         "firstSeenAt": "2026-07-03T21:19:38.768Z",
         "title": "AIML - Machine Learning Researcher, MLR"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch": "VD"
+      },
+      "en": {
+        "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch": "VD"
+      },
+      "de": {
+        "aiml-forscher-fur-maschinelles-lernen-mlr-apple-retail-switzerland-lausanne": "VD"
+      },
+      "fr": {
+        "aiml-chercheur-en-apprentissage-automatique-mlr-apple-retail-switzerland-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich-8c577e0f",
@@ -272,7 +295,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200685035/internship-machine-learning-foundation-models?team=mlai",
-    "firstSeenAt": "2026-09-25T14:45:31.200Z"
+    "firstSeenAt": "2026-09-25T14:45:31.200Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "internship-machine-learning-foundation-models-apple-retail-switzerland-ch": "ZH"
+      },
+      "fr": {
+        "internship-machine-learning-foundation-models-apple-retail-switzerland-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "ricercatore-di-vulnerabilita-sear-apple-retail-switzerland-zurich",
@@ -334,7 +366,19 @@
         "firstSeenAt": "2026-09-29T21:19:03.998Z",
         "title": "Vulnerability Researcher, SEAR"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vulnerability-researcher-sear-apple-retail-switzerland-ch": "ZH"
+      },
+      "de": {
+        "vulnerability-researcher-sear-apple-retail-switzerland-ch": "ZH"
+      },
+      "fr": {
+        "vulnerability-researcher-sear-apple-retail-switzerland-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "internship-ragion-e-capacita-agentiche-di-llm-apple-retail-switzerland-zurich-b549e96d",
@@ -487,7 +531,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200686336/internship-computer-vision-machine-learning-research?team=mlai",
-    "firstSeenAt": "2026-09-29T21:19:02.445Z"
+    "firstSeenAt": "2026-09-29T21:19:02.445Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "internship-computer-vision-machine-learning-research-apple-retail-switzerland-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "internship-computer-vision-machine-learning-ricerca-llm-efficiency-apple-retail-switzerland-zurich",
@@ -535,7 +585,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200686571/internship-computer-vision-machine-learning-research-llm-efficiency?team=mlai",
-    "firstSeenAt": "2026-09-30T21:15:42.786Z"
+    "firstSeenAt": "2026-09-30T21:15:42.786Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "internship-computer-vision-machine-learning-research-llm-efficiency-apple-retail": "ZH"
+      },
+      "fr": {
+        "internship-computer-vision-machine-learning-recherche-llm-efficiency-apple-retail-switzerland-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "staff-machine-learning-engineer-siri-attention-and-invocation-apple-retail-switzerland-ch-a44068f0",
@@ -1372,7 +1431,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200686097/vulnerability-researcher-sear?team=mlai",
-    "firstSeenAt": "2026-09-29T21:19:03.998Z"
+    "firstSeenAt": "2026-09-29T21:19:03.998Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vulnerability-researcher-sear-apple-retail-switzerland-ch-b8b6ef43": "VD"
+      },
+      "en": {
+        "vulnerability-researcher-sear-apple-retail-switzerland-ch-b8b6ef43": "VD"
+      },
+      "de": {
+        "vulnerability-researcher-sear-apple-retail-switzerland-ch-b8b6ef43": "VD"
+      },
+      "fr": {
+        "vulnerability-researcher-sear-apple-retail-switzerland-ch-b8b6ef43": "VD"
+      }
+    }
   },
   {
     "slug": "ch-specialista-m-f-d-apple-retail-switzerland-switzerland",
@@ -1606,7 +1680,20 @@
         "firstSeenAt": "2026-08-18T22:00:35.563Z",
         "title": "Security Engineer"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "security-engineer-apple-retail-switzerland-ch": "ZH",
+        "internal-security-engineer-apple-retail-switzerland-ch": "ZH"
+      },
+      "de": {
+        "security-engineer-apple-retail-switzerland-ch": "ZH"
+      },
+      "fr": {
+        "security-engineer-apple-retail-switzerland-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "ricercatore-aiml-modello-fondazione-post-training-apple-retail-switzerland-zurich",
@@ -1666,7 +1753,19 @@
         "firstSeenAt": "2026-07-21T22:58:02.620Z",
         "title": "AIML Researcher - Foundation Model, Post-Training"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch": "ZH"
+      },
+      "de": {
+        "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch": "ZH"
+      },
+      "fr": {
+        "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "gestore-ch-m-f-d-apple-retail-switzerland-glattzentrum",
@@ -1708,7 +1807,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200682657/ch-manager-m-f-d?team=appst",
-    "firstSeenAt": "2026-09-09T23:06:29.913Z"
+    "firstSeenAt": "2026-09-09T23:06:29.913Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ch-manager-m-f-d-apple-retail-switzerland-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "aiml-machine-learning-ricerca-multimodal-foundation-models-apple-retail-switzerland-zurich",
@@ -1773,7 +1878,7 @@
     ]
   },
   {
-    "slug": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich-bdbea85c",
+    "slug": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
     "title": "Computer Vision/Machine Learning Engineer",
     "titleByLocale": {
       "it": "Computer Vision/Machine Learning Ingegnere",
@@ -1792,25 +1897,32 @@
       "fr": "L'organisation Video Computer Vision travaille sur des technologies intéressantes pour le moment, comme l'Apple Vision Pro, et les futurs produits Apple. Nous sommes à la recherche d'ingénieurs hautement qualifiés et passionnés pour résoudre des problèmes difficiles à la frontière de la perception humaine et de l'intelligence de la machine."
     },
     "slugByLocale": {
-      "it": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich-bdbea85c",
-      "en": "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
+      "it": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
+      "en": "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
       "de": "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich",
-      "fr": "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich-3d9e27b1"
+      "fr": "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich"
     },
     "sector": "Retail",
     "expiredAt": "2026-09-04T23:01:28.650Z",
     "previousSlugs": [
+      "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+      "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+      "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+      "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+      "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich-bdbea85c",
       "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
       "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich-38aadf58",
       "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland-51581beb",
       "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich-8f9f6557",
-      "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
-      "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-      "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-      "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch"
+      "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich-3d9e27b1"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich-bdbea85c",
         "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
         "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich-38aadf58",
         "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland-51581beb",
@@ -1818,6 +1930,7 @@
       ],
       "en": [
         "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
         "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
         "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
       ],
@@ -1831,6 +1944,7 @@
         "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
         "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
         "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich-3d9e27b1",
         "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
       ]
     },
@@ -1927,7 +2041,7 @@
     ]
   },
   {
-    "slug": "staff-machine-learning-engineer-siri-attention-and-invocation-apple-retail-switzerland-ch-c42e60fe",
+    "slug": "staff-machine-learning-engineer-siri-attention-and-invocation-apple-retail-switzerland-ch",
     "title": "Staff Machine Learning Engineer, Siri Attention and Invocation",
     "titleByLocale": {
       "en": "Staff Machine Learning Engineer, Siri Attention and Invocation",
@@ -2015,6 +2129,35 @@
   },
   {
     "slug": "staff-machine-learning-engineer-siri-attention-and-invocation-apple-retail-switzerland-ch-bd408333",
+    "title": "Staff Machine Learning Engineer, Siri Attention and Invocation",
+    "titleByLocale": {
+      "en": "Staff Machine Learning Engineer, Siri Attention and Invocation",
+      "it": "Staff Machine Learning Ingegnere, Siri Attention and Invocation",
+      "de": "Staff Machine Learning Ingenieur, Siri Attention and Invocation",
+      "fr": "Staff Machine Learning Ingénieur, Siri Attention and Invocation"
+    },
+    "company": "Apple Retail Switzerland",
+    "companyKey": "apple-retail-switzerland",
+    "location": "Zurich",
+    "addressLocality": "Zurich",
+    "descriptionByLocale": {
+      "en": "As part of Siri Attention and Invocation, we collaborate to deliver the next revolution in human-computer interaction, to inspire and create groundbreaking technology for large-scale systems spanning speech, vision, and generative AI to overcome real-world challenges through innovation and user-centered design that improves the daily experience of millions of our customers.",
+      "it": "As part of Siri Attention and Invocation, we collaborate to deliver the next revolution in human-computer interaction, to inspire and create groundbreaking technology for large-scale systems spanning speech, vision, and generative AI to overcome real-world challenges through innovation and user-centered design that improves the daily experience of millions of our customers.",
+      "de": "As part of Siri Attention and Invocation, we collaborate to deliver the next revolution in human-computer interaction, to inspire and create groundbreaking technology for large-scale systems spanning speech, vision, and generative AI to overcome real-world challenges through innovation and user-centered design that improves the daily experience of millions of our customers.",
+      "fr": "As part of Siri Attention and Invocation, we collaborate to deliver the next revolution in human-computer interaction, to inspire and create groundbreaking technology for large-scale systems spanning speech, vision, and generative AI to overcome real-world challenges through innovation and user-centered design that improves the daily experience of millions of our customers."
+    },
+    "slugByLocale": {},
+    "sector": "Retail",
+    "expiredAt": "2026-09-02T13:36:02.746Z",
+    "salaryMin": 83000,
+    "salaryMax": 126000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200680814/staff-machine-learning-engineer-siri-attention-and-invocation?team=mlai",
+    "firstSeenAt": "2026-09-01T23:14:17.105Z"
+  },
+  {
+    "slug": "staff-machine-learning-engineer-siri-attention-and-invocation-apple-retail-switzerland-ch-c42e60fe",
     "title": "Staff Machine Learning Engineer, Siri Attention and Invocation",
     "titleByLocale": {
       "en": "Staff Machine Learning Engineer, Siri Attention and Invocation",
@@ -2268,7 +2411,7 @@
     "firstSeenAt": "2026-07-03T21:19:38.768Z"
   },
   {
-    "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich-77cb447d",
+    "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
     "title": "AIML - Machine Learning Research Engineer, Generative AI - AFM",
     "titleByLocale": {
       "it": "AIML - Machine Learning Ricerca Ingegnere, Generative AI - AFM",
@@ -2287,22 +2430,25 @@
       "fr": "Rejoignez l'équipe de l'IA à Zurich en tant qu'ingénieur d'apprentissage automatique spécialisé dans les modèles post-formation ! Notre équipe avance l'apprentissage du renforcement (RL) pour l'utilisation d'outils d'agents, la planification et le raisonnement pour améliorer les modèles de fondation d'Apple. Notre travail façonne directement les fonctionnalités d'Apple Intelligence telles que Siri, qui affecte des milliards d'utilisateurs, tout en contribuant à la recherche de pointe. Vous collaborerez avec un groupe de chercheurs dévoués à Zurich et travaillerez en étroite collaboration avec les équipes de la Fondation modèle Apple à Cupertino et NY."
     },
     "slugByLocale": {
-      "it": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich-77cb447d",
-      "en": "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch-f0052943",
-      "de": "aiml-machine-learning-forschung-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich-716ea887",
-      "fr": "aiml-machine-learning-recherche-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich-d4b72960"
+      "it": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
+      "en": "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
+      "de": "aiml-machine-learning-forschung-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich",
+      "fr": "aiml-machine-learning-recherche-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich"
     },
     "sector": "Retail",
     "expiredAt": "2026-07-27T12:49:46.216Z",
+    "previousSlugs": [
+      "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+    ],
     "previousSlugsByLocale": {
       "it": [
-        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch-f0052943"
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
       ],
       "de": [
-        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch-f0052943"
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
       ],
       "fr": [
-        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch-f0052943"
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
       ]
     },
     "salaryMin": 73500,
@@ -2496,6 +2642,51 @@
     "firstSeenAt": "2026-07-03T21:19:38.774Z"
   },
   {
+    "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich-77cb447d",
+    "title": "AIML - Machine Learning Research Engineer, Generative AI - AFM",
+    "titleByLocale": {
+      "it": "AIML - Machine Learning Ricerca Ingegnere, Generative AI - AFM",
+      "en": "AIML - Machine Learning Research Engineer, Generative AI - AFM",
+      "de": "AIML - Machine Learning Forschung Ingenieur, Generative AI - AFM",
+      "fr": "AIML - Machine Learning Recherche Ingénieur, Generative AI - AFM"
+    },
+    "company": "Apple Retail Switzerland",
+    "companyKey": "apple-retail-switzerland",
+    "location": "Zurich",
+    "addressLocality": "Zurich",
+    "descriptionByLocale": {
+      "it": "Unisciti al team AI Generativo di Apple a Zurigo come Machine Learning Engineer specializzato nel modello di fondazione post-formazione! Il nostro team avanza l'apprendimento di rinforzo (RL) per l'uso degli strumenti agentici, la pianificazione e il ragionamento per migliorare i modelli di base di Apple. Il nostro lavoro forma direttamente le caratteristiche di Apple Intelligence come Siri, che comporta miliardi di utenti, mentre contribuisce alla ricerca all'avanguardia. Collaborerai con un gruppo dedicato di ricercatori a Zurigo e lavorerai a stretto contatto con le principali squadre di Apple Foundation Model di Cupertino e NY.",
+      "en": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
+      "de": "Schließen Sie sich dem Generative AI-Team von Apple in Zürich als Machine Learning Engineer an, der sich auf das Post-Training von Grundlagenmodellen spezialisiert hat! Unser Team erweitert das Reinforcement Learning (RL) für die agentische Werkzeugnutzung, Planung und Argumentation, um Apples Grundlagenmodelle zu verbessern. Unsere Arbeit prägt Apple Intelligence-Funktionen wie Siri, die Milliarden von Benutzern betreffen, und trägt gleichzeitig zu modernster Forschung bei. Sie arbeiten mit einer engagierten Forschergruppe in Zürich zusammen und arbeiten eng mit Apples Kernteams von Foundation Model in Cupertino und NY zusammen.",
+      "fr": "Rejoignez l'équipe de l'IA à Zurich en tant qu'ingénieur d'apprentissage automatique spécialisé dans les modèles post-formation ! Notre équipe avance l'apprentissage du renforcement (RL) pour l'utilisation d'outils d'agents, la planification et le raisonnement pour améliorer les modèles de fondation d'Apple. Notre travail façonne directement les fonctionnalités d'Apple Intelligence telles que Siri, qui affecte des milliards d'utilisateurs, tout en contribuant à la recherche de pointe. Vous collaborerez avec un groupe de chercheurs dévoués à Zurich et travaillerez en étroite collaboration avec les équipes de la Fondation modèle Apple à Cupertino et NY."
+    },
+    "slugByLocale": {
+      "it": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich-77cb447d",
+      "en": "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch-f0052943",
+      "de": "aiml-machine-learning-forschung-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich-716ea887",
+      "fr": "aiml-machine-learning-recherche-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich-d4b72960"
+    },
+    "sector": "Retail",
+    "expiredAt": "2026-07-27T12:49:46.216Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch-f0052943"
+      ],
+      "de": [
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch-f0052943"
+      ],
+      "fr": [
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch-f0052943"
+      ]
+    },
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200617882/aiml-machine-learning-research-engineer-generative-ai-afm?team=mlai",
+    "firstSeenAt": "2026-07-03T21:19:38.774Z"
+  },
+  {
     "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich-7ba7f49d",
     "title": "AIML - Machine Learning Research Engineer, Generative AI - AFM",
     "titleByLocale": {
@@ -2586,7 +2777,7 @@
     "firstSeenAt": "2026-07-03T21:19:38.774Z"
   },
   {
-    "slug": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich-529f7852",
+    "slug": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich",
     "title": "AIML - Senior Machine Learning Research Scientist, AFM",
     "titleByLocale": {
       "it": "AIML - Senior Machine Learning Ricerca Scientist, AFM",
@@ -2605,22 +2796,25 @@
       "fr": "Prêt à transformer comment des milliards de personnes interagissent avec la technologie? L'équipe de la Fondation de base d'Apple est à l'origine de l'intelligence qui alimente des milliards d'appareils dans le monde entier. Notre équipe de ML appliquée basée en Europe est à la recherche d'un chercheur expérimenté de ML pour diriger des développements révolutionnaires en AI! Collaborez avec quelques-uns des esprits les plus brillants des centres Apple à New York, Seattle et Cupertino alors que nous repoussons les limites conventionnelles et redéfinissons les possibilités de l'intelligence artificielle à l'échelle mondiale. Rejoignez-nous dans un voyage inspirant où votre expertise jouera un rôle déterminant dans la prochaine phase de l'interaction numérique – une occasion extraordinaire vous attend."
     },
     "slugByLocale": {
-      "it": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich-529f7852",
-      "en": "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch-a100b0f3",
-      "de": "aiml-senior-machine-learning-forschung-scientist-afm-apple-retail-switzerland-zurich-aca49df6",
-      "fr": "aiml-senior-machine-learning-recherche-scientist-afm-apple-retail-switzerland-zurich-d38e3bee"
+      "it": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich",
+      "en": "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch",
+      "de": "aiml-senior-machine-learning-forschung-scientist-afm-apple-retail-switzerland-zurich",
+      "fr": "aiml-senior-machine-learning-recherche-scientist-afm-apple-retail-switzerland-zurich"
     },
     "sector": "Retail",
     "expiredAt": "2026-07-27T12:49:46.216Z",
+    "previousSlugs": [
+      "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
+    ],
     "previousSlugsByLocale": {
       "it": [
-        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch-a100b0f3"
+        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
       ],
       "de": [
-        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch-a100b0f3"
+        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
       ],
       "fr": [
-        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch-a100b0f3"
+        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
       ]
     },
     "salaryMin": 101500,
@@ -2756,6 +2950,51 @@
       ],
       "fr": [
         "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch-440b6a87"
+      ]
+    },
+    "salaryMin": 101500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200617889/aiml-senior-machine-learning-research-scientist-afm?team=mlai",
+    "firstSeenAt": "2026-07-03T21:19:38.775Z"
+  },
+  {
+    "slug": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich-529f7852",
+    "title": "AIML - Senior Machine Learning Research Scientist, AFM",
+    "titleByLocale": {
+      "it": "AIML - Senior Machine Learning Ricerca Scientist, AFM",
+      "en": "AIML - Senior Machine Learning Research Scientist, AFM",
+      "de": "AIML - Senior Machine Learning Forschung Scientist, AFM",
+      "fr": "AIML - Senior Machine Learning Recherche Scientist, AFM"
+    },
+    "company": "Apple Retail Switzerland",
+    "companyKey": "apple-retail-switzerland",
+    "location": "Zurich",
+    "addressLocality": "Zurich",
+    "descriptionByLocale": {
+      "it": "Pronto a trasformare come miliardi di persone interagiscono con la tecnologia? Il team Core Foundation Models di Apple sta guidando l'intelligenza che alimenta le esperienze in miliardi di dispositivi in tutto il mondo, e stiamo cercando un talento eccezionale per unirsi a noi! Il nostro team ML applicato in Europa sta cercando uno scienziato di ricerca ML esperto per lanciare sviluppi innovativi in AI! Collabora con alcune delle menti più luminose nei centri di Apple a New York, Seattle e Cupertino, mentre spingiamo oltre i limiti convenzionali e ridefiniamo le possibilità di intelligenza artificiale a livello globale. Unisciti a noi in un viaggio stimolante in cui la tua esperienza sarà strumentale nella modellazione della fase successiva dell'interazione digitale—una straordinaria opportunità attende.",
+      "en": "Ready to transform how billions of people interact with technology? Apple’s Core Foundation Models team is driving the intelligence that powers experiences across billions of devices worldwide—and we’re looking for exceptional talent to join us! Our Europe-based applied ML team is seeking an experienced ML research scientist to spearhead groundbreaking developments in AI! Collaborate with some of the brightest minds across Apple’s centers in New York, Seattle, and Cupertino as we push beyond conventional limits and redefine the possibilities of artificial intelligence globally. Join us on an inspiring journey where your expertise will be instrumental in shaping the next phase of digital interaction—an extraordinary opportunity awaits.",
+      "de": "Bereit zu transformieren, wie Milliarden von Menschen mit Technologie interagieren? Apples Core Foundation Models Team treibt die Intelligenz voran, die Erfahrungen auf Milliarden von Geräten weltweit ermöglicht – und wir suchen nach außergewöhnlichen Talenten, die sich uns anschließen! Unser in Europa ansässiges angewandtes ML-Team sucht einen erfahrenen ML-Forscher, der bahnbrechende Entwicklungen in der KI anführt! Arbeiten Sie mit einigen der klügsten Köpfe in den Apple-Zentren in New York, Seattle und Cupertino zusammen, um die konventionellen Grenzen zu überschreiten und die Möglichkeiten der künstlichen Intelligenz weltweit neu zu definieren. Begleiten Sie uns auf eine inspirierende Reise, bei der Ihre Expertise entscheidend dazu beitragen wird, die nächste Phase der digitalen Interaktion zu gestalten – eine außergewöhnliche Chance wartet.",
+      "fr": "Prêt à transformer comment des milliards de personnes interagissent avec la technologie? L'équipe de la Fondation de base d'Apple est à l'origine de l'intelligence qui alimente des milliards d'appareils dans le monde entier. Notre équipe de ML appliquée basée en Europe est à la recherche d'un chercheur expérimenté de ML pour diriger des développements révolutionnaires en AI! Collaborez avec quelques-uns des esprits les plus brillants des centres Apple à New York, Seattle et Cupertino alors que nous repoussons les limites conventionnelles et redéfinissons les possibilités de l'intelligence artificielle à l'échelle mondiale. Rejoignez-nous dans un voyage inspirant où votre expertise jouera un rôle déterminant dans la prochaine phase de l'interaction numérique – une occasion extraordinaire vous attend."
+    },
+    "slugByLocale": {
+      "it": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich-529f7852",
+      "en": "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch-a100b0f3",
+      "de": "aiml-senior-machine-learning-forschung-scientist-afm-apple-retail-switzerland-zurich-aca49df6",
+      "fr": "aiml-senior-machine-learning-recherche-scientist-afm-apple-retail-switzerland-zurich-d38e3bee"
+    },
+    "sector": "Retail",
+    "expiredAt": "2026-07-27T12:49:46.216Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch-a100b0f3"
+      ],
+      "de": [
+        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch-a100b0f3"
+      ],
+      "fr": [
+        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch-a100b0f3"
       ]
     },
     "salaryMin": 101500,
