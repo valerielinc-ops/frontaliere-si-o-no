@@ -2,12 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "cedu-condanna-svizzera-liberta-manifestazione",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/cedu-condanna-svizzera-liberta-manifestazione/",
-      "ts": "2026-05-07T14:13:35.880Z",
-      "seed": true
-    },
-    {
       "id": "spaccio-droga-busto-18mila-euro",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/spaccio-droga-busto-18mila-euro/",
       "ts": "2026-05-07T14:28:35.064Z",
@@ -6451,6 +6445,23 @@
       "copyAngleIntent": "searchable",
       "copyHook": "Lavoro da remoto oltreconfine: il contesto da inquadrare prima di scegliere.",
       "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "frontalieri-smart-working-limite-fiscale",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontalieri-smart-working-limite-fiscale/",
+      "ts": "2026-11-27T11:02:13.243Z",
+      "fbPostId": "951226518080080_122132556159272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Redditi esteri: un passaggio pratico da verificare nella guida.",
+      "copyCta": "Leggi l'approfondimento."
     }
   ]
 }
