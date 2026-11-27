@@ -31,8 +31,7 @@ import { decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import {
   collapseDuplicateRouteEntries,
-  mergeExpiredRouteEvidence,
-  mergeSourceIdentityHistory,
+  carryReplacedExpiredEntry,
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
@@ -470,7 +469,7 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
     if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
     const key = archiveKey(job);
-    mergeSourceIdentityHistory(entry, bySlug.get(key));
+    if (!carryReplacedExpiredEntry(entry, bySlug.get(key), 'cleanup-jobs/aggregate')) continue;
     bySlug.set(key, entry);
     added++;
   }
@@ -525,19 +524,7 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
     if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
     const previous = bySlug.get(job.slug);
-    let routeCapRefused = false;
-    mergeExpiredRouteEvidence(
-      entry,
-      previous,
-      `cleanup-jobs/slice/${crawlerKey}`,
-      { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
-    );
-    if (routeCapRefused) {
-      // Keep the existing archive record: it is still the owner of the
-      // historical route evidence that the new payload could not absorb.
-      continue;
-    }
-    mergeSourceIdentityHistory(entry, previous);
+    if (!carryReplacedExpiredEntry(entry, previous, `cleanup-jobs/slice/${crawlerKey}`)) continue;
     bySlug.set(job.slug, entry);
     added++;
   }
