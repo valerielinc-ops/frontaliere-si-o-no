@@ -1321,11 +1321,20 @@ function isCheckboxField(field) {
   return field?.kind === 'checkbox' || field?.inputType === 'checkbox' || field?.type === 'checkbox';
 }
 
+function isFileField(field) {
+  return field?.kind === 'file' || field?.inputType === 'file' || field?.type === 'file';
+}
+
+function checkboxActionForValue(field, value) {
+  if (!isCheckboxField(field)) return null;
+  const checked = booleanAnswer(value);
+  return checked === null ? null : checked ? 'check' : 'uncheck';
+}
+
 function privacyCheckboxAction(field, value) {
   if (!['privacy_review_ack', 'application_data_processing_consent'].includes(operationalQuestionTopic(field))
     || !isCheckboxField(field)) return null;
-  const checked = booleanAnswer(value);
-  return checked === null ? null : checked ? 'check' : 'uncheck';
+  return checkboxActionForValue(field, value);
 }
 
 function hasExplicitOperationalAnswer(candidate, field) {
@@ -2342,6 +2351,11 @@ export function guardPlan(plan, fields, candidate = null) {
       source: known.source === 'policy_default' && ownedConsent && !purePrivacyReviewAcknowledgment ? 'consent' : known.source, evidence: '' };
     }
     if (['fill', 'select'].includes(action.action)) {
+      if (isFileField(field)) {
+        rejectedActionFields.add(field.id);
+        ask(field);
+        continue;
+      }
       const known = candidateAnswerForField(candidate, field);
       if (!known && hasExplicitOperationalAnswer(candidate, field)) {
         rejectedActionFields.add(field.id);
@@ -2351,7 +2365,19 @@ export function guardPlan(plan, fields, candidate = null) {
       const knownHasValue = known && known.value !== undefined && known.value !== null && String(known.value).trim();
       const knownOption = isChoiceField(field) && field?.options?.length ? catalogOptionLabel(field, known?.value) : '';
       const knownChoiceIsListed = !isChoiceField(field) || Boolean(knownOption);
-      if (knownHasValue && knownChoiceIsListed) action = { ...action, action: privacyCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: isChoiceField(field) ? knownOption : known.value, source: known.source, evidence: '' };
+      const knownCheckboxAction = isCheckboxField(field) ? checkboxActionForValue(field, known?.value) : null;
+      if (knownHasValue && knownChoiceIsListed && (!isCheckboxField(field) || knownCheckboxAction)) {
+        action = { ...action, action: knownCheckboxAction || (isChoiceField(field) ? 'select' : 'fill'), value: isChoiceField(field) ? knownOption : known.value, source: known.source, evidence: '' };
+      } else if (isCheckboxField(field)) {
+        const directCheckboxAction = checkboxActionForValue(field, action.value);
+        if (directCheckboxAction) {
+          action = { ...action, action: directCheckboxAction };
+        } else {
+          rejectedActionFields.add(field.id);
+          if (!ownConsent(field) || hasExplicitOperationalAnswer(candidate, field)) ask(field);
+          continue;
+        }
+      }
       if (action.action === 'select' && field?.options?.length) {
         const listedOption = catalogOptionLabel(field, action.value);
         if (!listedOption) {
@@ -2479,6 +2505,7 @@ export function guardPlan(plan, fields, candidate = null) {
   // The page may expose a renamed/reworded version of a question already
   // answered in the review. Reuse it before turning the field into a new hold.
   for (const field of fields) {
+    if (isFileField(field)) continue;
     const answer = candidateAnswerForField(candidate, field);
     const exactHistoricalPermitAnswer = isPermitField(field.label)
       && isPermitHistoricalQuestion(field.label) && Boolean(answer);
@@ -2497,9 +2524,14 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
+    const checkboxAction = isCheckboxField(field) ? checkboxActionForValue(field, value) : null;
+    if (isCheckboxField(field) && !checkboxAction) {
+      if (!ownConsent(field) || hasExplicitOperationalAnswer(candidate, field)) ask(field);
+      continue;
+    }
     const recoveryAction = {
       fieldId: field.id,
-      action: privacyCheckboxAction(field, value) || (isChoiceField(field) ? 'select' : 'fill'),
+      action: checkboxAction || (isChoiceField(field) ? 'select' : 'fill'),
       value,
       document: 'none',
       source: answer.source,

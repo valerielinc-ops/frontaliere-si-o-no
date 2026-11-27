@@ -1021,4 +1021,34 @@ describe('verification tokens stay in the native sender text', () => {
     });
     expect(sendCascade).not.toHaveBeenCalled();
   });
+
+  it('captures an authenticated temporary password reset email for an active recovering portal account', async () => {
+    const host = 'recruitingapp-2800.umantis.com';
+    const { store, alias } = await setup('de', host);
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts').set({
+      recruitingapp_2800_umantis_com: {
+        host,
+        email: alias.address,
+        status: 'recovering',
+        verifiedAt: null,
+        passwordEnc: { v: 1, alg: 'aes-256-gcm', iv: 'x', tag: 'y', data: 'z' },
+        recoveryRequestedAt: 900,
+        recoveryRequestId: 'req-umantis-1',
+      },
+    });
+    const raw = plainMail({
+      subject: 'Neues Passwort',
+      text: 'Ihr Passwort wurde zurückgesetzt.\nIhr neues Passwort lautet: TempReset99!\nMit freundlichen Grüssen',
+      headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'],
+    });
+    const { inbox, sendCascade } = await deliverWithoutModel({ store, alias, raw });
+    expect(inbox).toMatchObject({
+      passwordResetHost: host,
+      passwordResetRequestId: 'req-umantis-1',
+      forwarded: { status: 'skipped', reason: 'portal_password_reset' },
+    });
+    expect(inbox.passwordResetLinkEnc).toBeTruthy();
+    expect(JSON.stringify(inbox)).not.toContain('TempReset99!');
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
 });

@@ -1165,21 +1165,64 @@ async function verificationAccountHost(orderRef, classification, sender, { authe
   return account ? String(account.host).toLowerCase() : '';
 }
 
-async function passwordResetAccount(orderRef, { authenticated, asksPasswordReset, sourceText, receivedAt } = {}) {
-  if (!authenticated || !asksPasswordReset) return null;
-  const link = soleSecureLink(String(sourceText || ''));
-  if (!link) return null;
-  let host = '';
-  try {
-    host = new URL(link).hostname.toLowerCase();
-  } catch {
-    return null;
+const TEMPORARY_RESET_PASSWORD_RE = /(?<![\p{L}\p{N}])(?:(?:neues?|tempor[äa]res?|einmaliges?)\s+(?:passwort|kennwort)|(?:passwort|kennwort)|(?:new|temporary|generated)\s+password|nouveau\s+mot\s+de\s+passe|mot\s+de\s+passe\s+temporaire|nuova\s+password|password\s+temporanea)(?:\s+(?:lautet|is|ist|est|è))?\s*[:=]\s*["'«»„“]?([^\s<>"'«»„“]{6,64})["'«»„“]?/giu;
+
+function extractTemporaryResetPassword(text) {
+  const source = normalizedMail(decodeHtmlEntities(String(text || '')));
+  TEMPORARY_RESET_PASSWORD_RE.lastIndex = 0;
+  let match;
+  while ((match = TEMPORARY_RESET_PASSWORD_RE.exec(source)) !== null) {
+    const token = String(match[1] || '').replace(/[.,;!?]+$/u, '');
+    if (token.length < 6 || /^https?:\/\//i.test(token) || /^[^\p{L}\p{N}]+$/u.test(token)) continue;
+    return token;
   }
-  const account = currentRecoveringPortalAccount(await portalAccountsForOrder(orderRef), host);
+  return '';
+}
+
+async function passwordResetAccount(orderRef, { authenticated, asksPasswordReset, sourceText, sender = '', receivedAt } = {}) {
+  if (!authenticated) return null;
+  const text = String(sourceText || '');
+  const normalized = normalizedMail(decodeHtmlEntities(text));
+  const link = soleSecureLink(text);
+  const temporaryPassword = extractTemporaryResetPassword(text);
+  const resetContext = Boolean(asksPasswordReset)
+    || (Boolean(temporaryPassword) && (PASSWORD_CHANGED_RE.test(normalized) || PASSWORD_RESET_REQUEST_RE.test(normalized)));
+  if (!resetContext || (!link && !temporaryPassword)) return null;
+  const accounts = await portalAccountsForOrder(orderRef);
   const received = Number(receivedAt);
-  if (!account || !Number.isFinite(received) || received <= Number(account.recoveryRequestedAt)
-    || !exactPortalVerificationUrl(link, account.host)) return null;
-  return { host: account.host.toLowerCase(), requestId: String(account.recoveryRequestId), url: link };
+  if (!Number.isFinite(received)) return null;
+  if (link) {
+    let host = '';
+    try {
+      host = new URL(link).hostname.toLowerCase();
+    } catch {
+      host = '';
+    }
+    const account = host ? currentRecoveringPortalAccount(accounts, host) : null;
+    if (account && received > Number(account.recoveryRequestedAt) && exactPortalVerificationUrl(link, account.host)) {
+      return {
+        host: account.host.toLowerCase(),
+        requestId: String(account.recoveryRequestId),
+        url: link,
+        ...(temporaryPassword ? { temporaryPassword } : {}),
+      };
+    }
+    if (!temporaryPassword) return null;
+  }
+  const recovering = Object.values(accounts || {})
+    .map((entry) => entry && typeof entry === 'object' ? currentRecoveringPortalAccount(accounts, entry.host) : null)
+    .filter((entry, index, list) => entry && received > Number(entry.recoveryRequestedAt)
+      && list.findIndex((other) => other?.host === entry.host) === index);
+  const senderHost = /^[^@\s]+@([^@\s]+)$/i.exec(String(sender || '').trim())?.[1]?.toLowerCase() || '';
+  const senderLabel = senderHost ? senderHost.split('.').slice(-2).join('.') : '';
+  const named = senderLabel ? recovering.filter((entry) => String(entry.host || '').toLowerCase().split('.').slice(-2).join('.') === senderLabel) : [];
+  const account = named.length === 1 ? named[0] : (recovering.length === 1 && named.length === 0 ? recovering[0] : null);
+  if (!account) return null;
+  return {
+    host: account.host.toLowerCase(),
+    requestId: String(account.recoveryRequestId),
+    temporaryPassword,
+  };
 }
 
 /**
@@ -1614,6 +1657,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       authenticated,
       asksPasswordReset: rules.asksPasswordReset,
       sourceText: rules.sourceText,
+      sender,
       receivedAt: claimed.receivedAt,
     });
     const consumedByRunner = Boolean(portalVerificationHost || passwordReset);
@@ -1776,7 +1820,10 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ...(passwordReset ? {
           passwordResetHost: passwordReset.host,
           passwordResetRequestId: passwordReset.requestId,
-          passwordResetLinkEnc: encryptJson({ url: passwordReset.url }, runKeyFrom(runKey)),
+          passwordResetLinkEnc: encryptJson({
+            ...(passwordReset.url ? { url: passwordReset.url } : {}),
+            ...(passwordReset.temporaryPassword ? { temporaryPassword: passwordReset.temporaryPassword } : {}),
+          }, runKeyFrom(runKey)),
         } : {}),
         ...(portalAccountNoticeHost ? { portalAccountNoticeHost, portalAccountNotice } : {}),
         ...(applicationReceipt ? { automaticApplicationReceipt: true } : {}),

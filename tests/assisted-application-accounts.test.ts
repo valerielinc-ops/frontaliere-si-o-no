@@ -44,6 +44,7 @@ describe('portal account pages', () => {
     'Hai già un account.',
     'Diese E-Mail-Adresse existiert bereits.',
     'Dieser Benutzer ist bereits registriert.',
+    'Dieser Login ist bereits im System vorhanden.',
     'Cette adresse e-mail est déjà utilisée.',
     'Questo indirizzo e-mail è già in uso.',
     'This email is already used.',
@@ -445,6 +446,33 @@ describe('portal account store', () => {
     });
     expect(await accounts.load(HOST)).toMatchObject({
       password: 'Reset-Synthetic-42!', status: 'pending', recoveryApplicationCheckRequired: true,
+    });
+  });
+
+  it('recovers with an encrypted temporary portal password when no reset link exists', async () => {
+    const store = createMemoryFirestore();
+    const now = 2500;
+    const accounts = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => now });
+    await accounts.save('recruitingapp-2800.umantis.com', { email: ALIAS, password: 'Old-Synthetic-1!' });
+
+    const begun = await accounts.beginRecovery('recruitingapp-2800.umantis.com', { email: ALIAS, password: 'Staged-Synthetic-2!' });
+    expect(begun).toMatchObject({ status: 'started', requestedAt: now });
+
+    const inbox = store.db.collection('assisted_applications').doc(ORDER).collection('inbox');
+    await inbox.doc('reset-temp-password').set({
+      receivedAt: now + 5,
+      passwordResetHost: 'recruitingapp-2800.umantis.com',
+      passwordResetRequestId: begun.requestId,
+      passwordResetLinkEnc: encryptJson({ temporaryPassword: 'Temp-Synthetic-99!' }, KEY),
+    });
+
+    await expect(accounts.waitForPasswordReset({ host: 'recruitingapp-2800.umantis.com', sinceMs: now, timeoutMs: 50 }))
+      .resolves.toMatchObject({ temporaryPassword: 'Temp-Synthetic-99!', messageId: 'reset-temp-password' });
+    await expect(accounts.completeRecovery('recruitingapp-2800.umantis.com', { password: 'Temp-Synthetic-99!' }))
+      .resolves.toBe(true);
+    expect(await accounts.load('recruitingapp-2800.umantis.com')).toMatchObject({
+      password: 'Temp-Synthetic-99!',
+      status: 'pending',
     });
   });
 

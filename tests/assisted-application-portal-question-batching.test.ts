@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { handleAuth, mergePortalChoiceOptions, portalRequirementsFromMissingRequired, registrationQuestionSurfaceSignature, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFields } from '../scripts/assisted-application/lib/portal/fields.mjs';
-import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { guardPlan, planPage } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 const realNow = Date.now;
 afterEach(() => { Date.now = realNow; });
@@ -1499,6 +1499,57 @@ describe('assisted portal question batching', () => {
       launch: async () => earlyBrowser,
       accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
     })).rejects.toThrow('Codex auth broker temporarily unavailable');
+  });
+
+  it('never emits fill actions on checkboxes or file controls and extracts Umantis error banners', async () => {
+    const consentField = {
+      id: 'f18', kind: 'checkbox', inputType: 'checkbox',
+      label: 'Ich bin mit der Datenschutzerklärung einverstanden', required: true, checked: false,
+      context: 'Bewerbung', section: 'Datenschutzerklärung',
+    };
+    const fileField = { id: 'f1', kind: 'file', inputType: 'file', label: 'Foto', required: true };
+    const plan = await planPage({
+      snapshot: {
+        url: 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1',
+        fields: [fileField, consentField],
+        buttons: [],
+      },
+      candidate: {
+        identity: {}, profile: {}, answers: {},
+        portalQuestionsAnswered: [
+          { question: consentField.label, answer: '✓', source: 'rule', context: consentField.context, section: consentField.section },
+          { question: fileField.label, answer: '[documento: Foto]', source: 'documents' },
+        ],
+      },
+      candidateLocale: 'it',
+      codex: async () => ({
+        actions: [
+          { fieldId: 'f1', action: 'upload', value: '', document: 'photo', source: 'documents', evidence: '' },
+          { fieldId: 'f18', action: 'skip', value: '', document: 'none', source: 'consent', evidence: '' },
+        ],
+      }),
+    });
+    expect(plan.actions.filter((a: any) => a.fieldId === 'f18').map((a: any) => a.action)).toContain('check');
+    expect(plan.actions.some((a: any) => a.action === 'fill')).toBe(false);
+
+    const dom = new JSDOM(`<!doctype html><html><body>
+      <div class="form_messagetext_errortext">Serverseitige Fehlermeldung</div>
+      <div class="form_content_right">
+        <span class="check_form_error_message">Dieser Login ist bereits im System vorhanden.</span>
+        <input id="email" type="text" value="candidate@example.test">
+      </div>
+    </body></html>`, { url: 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1' });
+    const fakeFrame = {
+      url: () => 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1',
+      evaluate: async (fn: any, arg: any) => inWindow(dom.window, () => fn(arg)),
+      childFrames: () => [],
+    };
+    const fakeEvalPage: any = { url: () => fakeFrame.url(), frames: () => [fakeFrame], mainFrame: () => fakeFrame };
+    const extracted = await extractFields(fakeEvalPage, { wait: false });
+    expect(extracted.errors).toEqual([
+      'Serverseitige Fehlermeldung',
+      'Dieser Login ist bereits im System vorhanden.',
+    ]);
   });
 });
 

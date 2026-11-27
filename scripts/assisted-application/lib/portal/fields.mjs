@@ -1919,7 +1919,7 @@ function nativeQuestionText(value, counter = null) {
   const rendered = (element) => (typeof element.checkVisibility === 'function'
     ? element.checkVisibility({ visibilityProperty: true })
     : window.getComputedStyle(element).display !== 'none' && window.getComputedStyle(element).visibility !== 'hidden');
-  const errors = [...new Set([...document.querySelectorAll('[role="alert"], [data-automation-id*="error" i], [class*="error-message" i], [class*="errorMessage"], .error, .invalid-feedback')]
+  const errors = [...new Set([...document.querySelectorAll('[role="alert"], [data-automation-id*="error" i], [class*="error-message" i], [class*="errorMessage"], .error, .invalid-feedback, .check_form_error_message, .messagetext_errortext, .form_messagetext_errortext, .form_content_error, .form_error_boundary')]
     .filter((element) => rendered(element) && !element.closest(ROUTE_ANNOUNCER))
     .map((element) => clean(element.innerText || element.textContent).slice(0, 160))
     .filter(Boolean))].slice(0, 8);
