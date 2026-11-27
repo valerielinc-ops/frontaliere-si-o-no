@@ -491,7 +491,8 @@
           w.state = 'held';
           w.release = function(showOfferwall){
             if (w.state !== 'held') return false;
-            var show = showOfferwall !== false;
+            if (showOfferwall !== false && window.__ftFcAdBlockBridge && !window.__ftAdBlock) return false;
+            var show = showOfferwall !== false && !adBlockConfirmed();
             w.state = show ? 'released' : 'suppressed';
             var h = w.held.splice(0);
             for (var i = 0; i < h.length; i++) {
