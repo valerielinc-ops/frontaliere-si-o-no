@@ -60,7 +60,7 @@ import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { reconcileSubmissionReceipt } from './assistedApplicationReceiptReconcile.js';
 import {
-  APPLICATION_EXISTS_PROOF_KIND, APPLICATION_EXISTS_REASON, applicationExistsEvidenceOf, decideApplicationExistsReconciliation,
+  APPLICATION_EXISTS_PROOF_KIND, APPLICATION_EXISTS_REASON, applicationExistsEvidenceOf, decideApplicationExistsReconciliation, sendOutcomeUnconfirmed,
 } from './lib/applicationExistsReconciliation.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { verifySubmissionReceipt } from './lib/submissionReceiptContract.js';
@@ -793,7 +793,14 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
  * proof is incomplete: the caller then applies the handoff as usual (held, no automatic retry).
  */
 async function reconcileApplicationExists({ db, orderId, eventRef, data, round, runEffect, nowMs }) {
-  const evidence = applicationExistsEvidenceOf(data.applicationExists);
+  return settleFromApplicationExists({ db, orderId, evidence: applicationExistsEvidenceOf(data.applicationExists), round, runEffect, nowMs, claimRef: eventRef });
+}
+
+/**
+ * The shared settlement: from a runner's handoff (flow `submitting`, `claimRef` = its event) or from the read-only
+ * portal inspection (flow `owner_takeover` held on an unconfirmed send, no claim). Same criteria either way.
+ */
+export async function settleFromApplicationExists({ db, orderId, evidence, round, runEffect, nowMs = Date.now(), claimRef = null, allowOwnerTakeover = false, actor = 'portal_application_exists' }) {
   if (!evidence) return null;
   const orderRef = orderRefFor(db, orderId);
   const [orderSnapshot, flowSnapshot, draftSnapshot, accountsSnapshot, submissionSnapshot, eventsSnapshot] = await Promise.all([
@@ -803,7 +810,8 @@ async function reconcileApplicationExists({ db, orderId, eventRef, data, round, 
     orderRef.collection('automation_events').where('type', '==', 'submit_failed').where('round', '==', Number(round) || 1).get(),
   ]);
   const flow = flowSnapshot.data() || {};
-  if (flow.state !== 'submitting' || (Number(flow.round) || 1) !== (Number(round) || 1)) return null;
+  const heldUnconfirmed = allowOwnerTakeover && flow.state === 'owner_takeover' && sendOutcomeUnconfirmed(flow);
+  if ((flow.state !== 'submitting' && !heldUnconfirmed) || (Number(flow.round) || 1) !== (Number(round) || 1)) return null;
   const order = orderSnapshot.data() || {};
   const draft = draftSnapshot.data() || {};
   const record = submissionSnapshot.data()?.[`r${Number(flow.round) || 1}`] || null;
@@ -823,7 +831,7 @@ async function reconcileApplicationExists({ db, orderId, eventRef, data, round, 
   const attemptId = record?.attemptId || `exists-${Math.floor(nowMs)}`;
   return applyAutomationEvent({
     db, orderId, event: { type: 'submit_acknowledged', round: Number(flow.round) || 1 },
-    actor: 'portal_application_exists', runEffect, nowMs, expectedRound: Number(flow.round) || 1, claimRef: eventRef,
+    actor, runEffect, nowMs, expectedRound: Number(flow.round) || 1, ...(claimRef ? { claimRef } : {}),
     patchFlow: () => ({ submittedVia: 'portal', ambiguousSubmit: null,
       submissionConfirmedBy: { kind: APPLICATION_EXISTS_PROOF_KIND, at: nowMs, host: evidence.host, vacancyId: evidence.vacancyId } }),
     writeSubmissionReceipt: async ({ transaction }) => guard.markSent({
