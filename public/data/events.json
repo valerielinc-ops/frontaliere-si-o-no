@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-27T19:46:57.399Z",
+  "generatedAt": "2026-11-27T20:38:29.864Z",
   "totalEvents": 18661,
   "events": [
     {
@@ -593906,7 +593906,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Milla Pluton si esibisce nel locale Le Vostok, a La Chaux-de-Fonds. La musicista ginevrina propone sonorità queer, psichedeliche e fiabesche.",
+      "descriptionByLocale": {
+        "it": "Milla Pluton si esibisce nel locale Le Vostok, a La Chaux-de-Fonds. La musicista ginevrina propone sonorità queer, psichedeliche e fiabesche.",
+        "en": "Milla Pluton performs at Le Vostok in La Chaux-de-Fonds. The Geneva musician’s sound draws on queer, psychedelic and fantastical influences.",
+        "de": "Milla Pluton tritt im Le Vostok in La Chaux-de-Fonds auf. Die Genfer Musikerin verbindet queere, psychedelische und märchenhafte Einflüsse.",
+        "fr": "Milla Pluton se produit au Vostok, à La Chaux-de-Fonds. Cette musicienne genevoise explore des sonorités queer, psychédéliques et féeriques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AWU8U5Q",
@@ -618437,7 +618445,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro ricorda Paulin Nuotclà con un momento conviviale e una mostra. È prevista anche la presentazione di un CD; la partecipazione è gratuita e non occorre iscriversi.",
+      "descriptionByLocale": {
+        "it": "L’incontro ricorda Paulin Nuotclà con un momento conviviale e una mostra. È prevista anche la presentazione di un CD; la partecipazione è gratuita e non occorre iscriversi.",
+        "en": "This gathering pays tribute to Paulin Nuotclà through a social gathering and an exhibition. A CD presentation is also planned; participation is free and advance registration is not required.",
+        "de": "Die Veranstaltung erinnert an Paulin Nuotclà und verbindet ein geselliges Beisammensein mit einer Ausstellung. Zudem wird eine CD präsentiert; die Teilnahme ist kostenlos und eine Anmeldung ist nicht nötig.",
+        "fr": "La rencontre rend hommage à Paulin Nuotclà avec un moment de partage et une exposition. Une présentation de CD est également prévue, sans frais de participation ni inscription préalable."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e392113a4d3f46e3aa509b2392238b05",
@@ -623469,7 +623485,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Basilea, il corso ICDL Base in modalità BYOD offre competenze digitali fondamentali per l’uso quotidiano del computer. Il programma comprende le basi dell’informatica e di Internet, Word ed Excel, la gestione dei file, la posta elettronica, il calendario e la navigazione sicura.",
+      "descriptionByLocale": {
+        "it": "A Basilea, il corso ICDL Base in modalità BYOD offre competenze digitali fondamentali per l’uso quotidiano del computer. Il programma comprende le basi dell’informatica e di Internet, Word ed Excel, la gestione dei file, la posta elettronica, il calendario e la navigazione sicura.",
+        "en": "In Basel, the ICDL Base BYOD course covers foundational skills for everyday computer use. Topics include computer and online basics, Word and Excel, file organization, email, calendar functions, and safer internet use.",
+        "de": "In Basel vermittelt der ICDL-Base-Kurs im BYOD-Format digitale Grundkenntnisse für den praktischen Computereinsatz. Behandelt werden Computer- und Online-Grundlagen, Word und Excel, Dateiverwaltung, E-Mail und Kalender sowie ein sicherer Umgang mit dem Internet.",
+        "fr": "À Bâle, le cours ICDL Base en formule BYOD présente des compétences numériques fondamentales pour l’usage courant de l’ordinateur. Les thèmes abordés comprennent les bases de l’informatique et d’Internet, Word et Excel, le classement des fichiers, le courrier électronique, le calendrier et la navigation sécurisée."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A8jF6R3",
@@ -722373,7 +722397,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A La Chaux-de-Fonds si tiene una mostra con vendita di opere realizzate da artiste della regione. L’iniziativa è sostenuta da un club Soroptimist locale.",
+      "descriptionByLocale": {
+        "it": "A La Chaux-de-Fonds si tiene una mostra con vendita di opere realizzate da artiste della regione. L’iniziativa è sostenuta da un club Soroptimist locale.",
+        "en": "The event in La Chaux-de-Fonds combines an art exhibition with works offered for sale by women artists from the region. A local Soroptimist club supports the initiative.",
+        "de": "In La Chaux-de-Fonds werden Werke von Künstlerinnen aus der Region ausgestellt und zum Verkauf angeboten. Die Veranstaltung wird von einem örtlichen Soroptimist-Club unterstützt.",
+        "fr": "À La Chaux-de-Fonds, l’événement réunit une exposition d’œuvres proposées à la vente par des artistes de la région. Un club Soroptimist local apporte son soutien à l’initiative."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d7bd42d0e2224352b805ac76cf0d9da8",
