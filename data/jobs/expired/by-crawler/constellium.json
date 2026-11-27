@@ -51,7 +51,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.constellium.com/job/steg-betriebsschlosser-in-tagesarbeit-vala-3940/1386046533",
-    "firstSeenAt": "2026-07-08T22:07:31.879Z"
+    "firstSeenAt": "2026-07-08T22:07:31.879Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg": "VS",
+        "betriebsschlosser-in-tagesarbeit-constellium-ch": "VS"
+      },
+      "en": {
+        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg": "VS"
+      },
+      "de": {
+        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg": "VS"
+      },
+      "fr": {
+        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg": "VS"
+      }
+    }
   },
   {
     "slug": "fabbro-di-funzionamento-m-w-d-in-4-turni-1-constellium-valais-steg",
@@ -106,7 +122,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.constellium.com/job/steg-betriebsschlosser-%28mwd%29-im-4-schicht-betrieb-1-vala-3940/1386045133",
-    "firstSeenAt": "2026-07-08T22:07:31.018Z"
+    "firstSeenAt": "2026-07-08T22:07:31.018Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg": "VS",
+        "fabbro-di-funzionamento-m-w-d-in-4-turni-1-constellium-valais-chippis": "VS",
+        "betriebsschlosser-m-w-d-im-4-schicht-betrieb-1-constellium-ch": "VS"
+      },
+      "en": {
+        "operation-locksmith-m-f-d-in-4-shift-operation-1-constellium-valais-steg": "VS"
+      },
+      "fr": {
+        "operation-de-serrurier-m-f-d-en-4-equipes-1-constellium-valais-steg": "VS"
+      }
+    }
   },
   {
     "slug": "pianificatore-maestro-al-100-constellium-valais-sierre",
