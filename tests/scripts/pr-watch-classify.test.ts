@@ -10,6 +10,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildBlockReason,
+  buildParkedNotice,
   classifyPr,
   PR_WATCH_WAIT_FOR,
   RESOLVED_STATUSES,
@@ -140,6 +141,51 @@ describe('classifyPr', () => {
     // `commented` scatta anche sugli issue_comment advisory: non e' una review.
     expect(PR_WATCH_WAIT_FOR).not.toContain('commented');
     expect(subscribeCommand({ owner: 'o', repo: 'r', number: 7 })).toContain(`--wait-for ${PR_WATCH_WAIT_FOR.join(',')}`);
+  });
+
+  it('a draft with no review on the head is parked, not resolved — also when conflicting', () => {
+    const stale = [review('OLD', '## LGTM')];
+    for (const mergeableState of ['clean', 'dirty', undefined]) {
+      const v = classifyPr({ state: 'OPEN', headSha: 'H', reviews: stale, draft: true, mergeableState });
+      expect(v.status).toBe('parked-draft');
+    }
+    expect(RESOLVED_STATUSES.has('parked-draft')).toBe(false);
+  });
+
+  it('a draft keeps the verdict of a review on its head', () => {
+    const verdict = (body: string) =>
+      classifyPr({ state: 'OPEN', headSha: 'H', reviews: [review('H', body)], draft: true, mergeableState: 'dirty' }).status;
+    expect(verdict('🔴 Important: x')).toBe('not-lgtm');
+    expect(verdict('## LGTM')).toBe('lgtm');
+  });
+
+  it('a non-draft dirty PR with no review is conflicting; other mergeable states keep waiting', () => {
+    const status = (mergeableState: string | null) =>
+      classifyPr({ state: 'OPEN', headSha: 'H', reviews: [], mergeableState }).status;
+    expect(status('dirty')).toBe('conflicting');
+    for (const other of ['unknown', 'blocked', 'behind', 'unstable', null]) {
+      expect(status(other)).toBe('awaiting-review');
+    }
+  });
+
+  it('merged and closed win over draft and conflict', () => {
+    const extra = { headSha: 'H', reviews: [], draft: true, mergeableState: 'dirty' };
+    expect(classifyPr({ state: 'MERGED', ...extra }).status).toBe('merged');
+    expect(classifyPr({ state: 'CLOSED', ...extra }).status).toBe('closed');
+  });
+
+  it('a conflicting entry is told to resolve the conflict, not to subscribe and wait', () => {
+    const ref = { owner: 'o', repo: 'r', number: 7 };
+    const reason = buildBlockReason([{ ref, verdict: { status: 'conflicting', detail: 'd' } }]);
+    expect(reason).toMatch(/risolvi il conflitto/);
+    expect(reason).not.toContain('events subscribe');
+    expect(reason).not.toContain('events listen');
+  });
+
+  it('the parked notice is one line per PR', () => {
+    const notice = buildParkedNotice([{ ref: { owner: 'o', repo: 'r', number: 7 } }]);
+    expect(notice).toMatch(/#7 .*parcheggiata in bozza.*torna a bloccare quando esce dalla bozza/);
+    expect(notice.split('\n')).toHaveLength(1);
   });
 
   it('RESOLVED_STATUSES matches exactly the statuses that let the watch drop', () => {
