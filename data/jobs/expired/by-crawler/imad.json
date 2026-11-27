@@ -48,7 +48,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000161304368-auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi",
-    "firstSeenAt": "2026-11-12T21:36:19.641Z"
+    "firstSeenAt": "2026-11-12T21:36:19.641Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "id": "imad-161620ae833f",
@@ -147,7 +159,11 @@
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ea03dca2",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-72ed916b",
-        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-17d50788"
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-17d50788",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva"
       ],
       "en": [
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-38b4e599",
@@ -166,7 +182,10 @@
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-269bed3a",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-e1ca3313",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ea03dca2",
-        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551"
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva"
       ],
       "de": [
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-38b4e599",
@@ -185,7 +204,10 @@
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-269bed3a",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-e1ca3313",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ea03dca2",
-        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551"
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva"
       ],
       "fr": [
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-38b4e599",
@@ -206,7 +228,10 @@
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ea03dca2",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-72ed916b",
-        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b448846f"
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b448846f",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva"
       ]
     },
     "previousSlugCantonByLocale": {
@@ -222,7 +247,41 @@
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-29ba5f54": "GE",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-49fc2bb8": "GE",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-17fc114b": "GE",
-        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-27773193": "GE"
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-27773193": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-00b9db80": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-bf3a5b60": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-51453b01": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-2b05cb12": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-80886295": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-cc60d31c": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-d3dd5bd9": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-258e1694": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-269bed3a": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-e1ca3313": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ea03dca2": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-72ed916b": "GE",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-17d50788": "GE",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-036702538b": "GE",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-8c936f8c": "GE",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva-9d14f52f": "GE",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva-6639776d": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-958fcbbf": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-f30f835c": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7dd27833": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b7bcd695": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-cc734295": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-5d79b673": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-4f62576a": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-2d70e0e4": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ed172276": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-24f0890d": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-f8c21551": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-864ad8f7": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b5879efc": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-6bb73955": "GE",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva-2f552159": "GE",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva-3a224c1e": "GE"
       },
       "en": {
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva": "GE",
@@ -236,7 +295,39 @@
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-29ba5f54": "GE",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-49fc2bb8": "GE",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-17fc114b": "GE",
-        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-27773193": "GE"
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-27773193": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-00b9db80": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-bf3a5b60": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-51453b01": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-2b05cb12": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-80886295": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-cc60d31c": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-d3dd5bd9": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-258e1694": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-269bed3a": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-e1ca3313": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ea03dca2": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551": "GE",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-036702538b": "GE",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-8c936f8c": "GE",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva-9d14f52f": "GE",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva-6639776d": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-958fcbbf": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-f30f835c": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7dd27833": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b7bcd695": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-cc734295": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-5d79b673": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-4f62576a": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-2d70e0e4": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ed172276": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-24f0890d": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-f8c21551": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-864ad8f7": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b5879efc": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-6bb73955": "GE",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva-2f552159": "GE",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva-3a224c1e": "GE"
       },
       "de": {
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva": "GE",
@@ -250,7 +341,39 @@
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-29ba5f54": "GE",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-49fc2bb8": "GE",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-17fc114b": "GE",
-        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-27773193": "GE"
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-27773193": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-00b9db80": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-bf3a5b60": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-51453b01": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-2b05cb12": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-80886295": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-cc60d31c": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-d3dd5bd9": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-258e1694": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-269bed3a": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-e1ca3313": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ea03dca2": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551": "GE",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-036702538b": "GE",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-8c936f8c": "GE",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva-9d14f52f": "GE",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva-6639776d": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-958fcbbf": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-f30f835c": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7dd27833": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b7bcd695": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-cc734295": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-5d79b673": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-4f62576a": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-2d70e0e4": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ed172276": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-24f0890d": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-f8c21551": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-864ad8f7": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b5879efc": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-6bb73955": "GE",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva-2f552159": "GE",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva-3a224c1e": "GE"
       },
       "fr": {
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva": "GE",
@@ -264,7 +387,41 @@
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-29ba5f54": "GE",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-49fc2bb8": "GE",
         "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-17fc114b": "GE",
-        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-27773193": "GE"
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-27773193": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-00b9db80": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-bf3a5b60": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-51453b01": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-2b05cb12": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-80886295": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-cc60d31c": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-d3dd5bd9": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-258e1694": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-269bed3a": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-e1ca3313": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ea03dca2": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7c44b551": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-72ed916b": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b448846f": "GE",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-036702538b": "GE",
+        "auditore-interno-servizio-di-controllo-interno-100-cdi-imad-geneva-8c936f8c": "GE",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva-9d14f52f": "GE",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva-6639776d": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-958fcbbf": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-f30f835c": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-7dd27833": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b7bcd695": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-cc734295": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-5d79b673": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-4f62576a": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-2d70e0e4": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-ed172276": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-24f0890d": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-f8c21551": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-864ad8f7": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-b5879efc": "GE",
+        "auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi-imad-geneva-6bb73955": "GE",
+        "internal-auditor-internal-audit-service-100-cdi-imad-geneva-2f552159": "GE",
+        "interner-auditor-internal-audit-service-100-cdi-imad-geneva-3a224c1e": "GE"
       }
     },
     "postalCode": "1204",
@@ -324,18 +481,23 @@
     "previousSlugsByLocale": {
       "it": [
         "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc-6155f5c7",
-        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva-f2e81bb6"
+        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva-f2e81bb6",
+        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
+        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
       ],
       "en": [
         "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
+        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva",
+        "apprenticeships-and-apprentices-community-care-and-health-assistant-chs-cfc-imad-geneva"
       ],
       "de": [
         "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
+        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva",
+        "lernende-fachfrauen-und-fachmanner-gesundheit-fage-efz-imad-geneva"
       ],
       "fr": [
-        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
+        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva",
+        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
       ]
     },
     "postalCode": "1204",
@@ -349,7 +511,9 @@
     "previousSlugs": [
       "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva-f2e81bb6",
       "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-      "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
+      "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva",
+      "apprenticeships-and-apprentices-community-care-and-health-assistant-chs-cfc-imad-geneva",
+      "lernende-fachfrauen-und-fachmanner-gesundheit-fage-efz-imad-geneva"
     ],
     "sourceIdentityHistory": [
       {
@@ -362,7 +526,25 @@
         "firstSeenAt": "2026-11-19T09:59:55.600Z",
         "title": "Apprenties et apprentis assistante et assistant en soins et santé communautaire (ASSC) - CFC"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc": "GE",
+        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva": "GE"
+      },
+      "en": {
+        "apprenticeships-and-apprentices-community-care-and-health-assistant-chs-cfc-imad-geneva": "GE",
+        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc": "GE"
+      },
+      "de": {
+        "lernende-fachfrauen-und-fachmanner-gesundheit-fage-efz-imad-geneva": "GE",
+        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc": "GE"
+      },
+      "fr": {
+        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc": "GE"
+      }
+    }
   },
   {
     "id": "imad-1ef1acc74d2e",
@@ -413,7 +595,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000159820808-assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi",
-    "firstSeenAt": "2026-11-05T21:24:31.798Z"
+    "firstSeenAt": "2026-11-05T21:24:31.798Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "id": "imad-0fbc6ba188d6",
@@ -503,7 +697,8 @@
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-b5239f68",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1ee66169",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction",
-        "dietista-clinica-specializzata-centre-des-pratiques-interprofessionnelles-direzione-delle-operazioni-al-100-in-cdi-imad"
+        "dietista-clinica-specializzata-centre-des-pratiques-interprofessionnelles-direzione-delle-operazioni-al-100-in-cdi-imad",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-243337ffbc"
       ],
       "en": [
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f02ae536",
@@ -522,7 +717,8 @@
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-18224217",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-b5239f68",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1ee66169",
-        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction"
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-243337ffbc"
       ],
       "de": [
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f02ae536",
@@ -541,10 +737,12 @@
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-18224217",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-b5239f68",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1ee66169",
-        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction"
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-243337ffbc"
       ],
       "fr": [
-        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0370e87e"
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0370e87e",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-243337ffbc"
       ]
     },
     "previousSlugCantonByLocale": {
@@ -554,28 +752,137 @@
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9214af06": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1282fc10": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1f0641c3": "GE",
-        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9d83c93d": "GE"
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9d83c93d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f02ae536": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-6e73b235": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-d3477c15": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-a2b40421": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0c657c0f": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-7bcfb86b": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-d8d35f49": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-773ac432": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-a87aa9c8": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-363bd3dd": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-ad328a0b": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-2294603d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-092422f5": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-18224217": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-b5239f68": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1ee66169": "GE",
+        "dietista-clinica-specializzata-centre-des-pratiques-interprofessionnelles-direzione-delle-operazioni-al-100-in-cdi-imad": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-2a334f7430": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f6c3a6fb": "GE",
+        "clinician-specialized-dietician-center-for-interprofessional-practices-operations-directorate-100-cdi-imad-69ee06e1": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-5c2cb741": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-55785f7e": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0e667ab3": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-ea993cd1": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-3dee6a1d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f011253f": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-2de97955": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-bd075ad8": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f4450c42": "GE",
+        "specialist-clinical-dietitian-center-for-interprofessional-practices-operations-department-100-on-permanent-contract": "GE",
+        "spezialisierte-klinische-ernahrungsberaterin-zentrum-fur-interprofessionelle-praktiken-operationsleitung-100": "GE"
       },
       "en": {
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9214af06": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1282fc10": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1f0641c3": "GE",
-        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9d83c93d": "GE"
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9d83c93d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f02ae536": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-6e73b235": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-d3477c15": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-a2b40421": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0c657c0f": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-7bcfb86b": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-d8d35f49": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-773ac432": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-a87aa9c8": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-363bd3dd": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-ad328a0b": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-2294603d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-092422f5": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-18224217": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-b5239f68": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1ee66169": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-243337ffbc": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-2a334f7430": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f6c3a6fb": "GE",
+        "clinician-specialized-dietician-center-for-interprofessional-practices-operations-directorate-100-cdi-imad-69ee06e1": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-5c2cb741": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-55785f7e": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0e667ab3": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-ea993cd1": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-3dee6a1d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f011253f": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-2de97955": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-bd075ad8": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f4450c42": "GE",
+        "specialist-clinical-dietitian-center-for-interprofessional-practices-operations-department-100-on-permanent-contract": "GE",
+        "spezialisierte-klinische-ernahrungsberaterin-zentrum-fur-interprofessionelle-praktiken-operationsleitung-100": "GE"
       },
       "de": {
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9214af06": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1282fc10": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1f0641c3": "GE",
-        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9d83c93d": "GE"
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9d83c93d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f02ae536": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-6e73b235": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-d3477c15": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-a2b40421": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0c657c0f": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-7bcfb86b": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-d8d35f49": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-773ac432": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-a87aa9c8": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-363bd3dd": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-ad328a0b": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-2294603d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-092422f5": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-18224217": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-b5239f68": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1ee66169": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-243337ffbc": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-2a334f7430": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f6c3a6fb": "GE",
+        "clinician-specialized-dietician-center-for-interprofessional-practices-operations-directorate-100-cdi-imad-69ee06e1": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-5c2cb741": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-55785f7e": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0e667ab3": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-ea993cd1": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-3dee6a1d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f011253f": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-2de97955": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-bd075ad8": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f4450c42": "GE",
+        "specialist-clinical-dietitian-center-for-interprofessional-practices-operations-department-100-on-permanent-contract": "GE",
+        "spezialisierte-klinische-ernahrungsberaterin-zentrum-fur-interprofessionelle-praktiken-operationsleitung-100": "GE"
       },
       "fr": {
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9214af06": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1282fc10": "GE",
         "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-1f0641c3": "GE",
-        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9d83c93d": "GE"
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-9d83c93d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0370e87e": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-243337ffbc": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-geneva-2a334f7430": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f6c3a6fb": "GE",
+        "clinician-specialized-dietician-center-for-interprofessional-practices-operations-directorate-100-cdi-imad-69ee06e1": "GE",
+        "clinico-specializzato-dieticiano-centro-per-le-pratiche-interprofessionali-direzione-operazioni-100-cdi-imad-5c2cb741": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-55785f7e": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-0e667ab3": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-ea993cd1": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-3dee6a1d": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f011253f": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-2de97955": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-bd075ad8": "GE",
+        "dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-f4450c42": "GE",
+        "specialist-clinical-dietitian-center-for-interprofessional-practices-operations-department-100-on-permanent-contract": "GE",
+        "spezialisierte-klinische-ernahrungsberaterin-zentrum-fur-interprofessionelle-praktiken-operationsleitung-100": "GE"
       }
     },
     "postalCode": "1204",
@@ -585,7 +892,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000162737210-dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-100-en-cdi",
-    "firstSeenAt": "2026-11-02T22:04:33.949Z",
+    "firstSeenAt": "2026-09-25T14:45:32.877Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000151832594-dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-100-en-cdi",
@@ -619,7 +926,7 @@
       },
       {
         "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000162737210-dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-100-en-cdi",
-        "firstSeenAt": "2026-11-02T22:04:33.949Z",
+        "firstSeenAt": "2026-09-25T14:45:32.877Z",
         "title": "Diététicienne clinicienne spécialisée / Centre des Pratiques Interprofessionnelles – Direction des opérations / à 100% / en CDI"
       }
     ]
@@ -672,7 +979,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000159125260-ergotherapeute-diplome-e-a-80-en-cdi",
-    "firstSeenAt": "2026-11-02T22:04:33.947Z"
+    "firstSeenAt": "2026-11-02T22:04:33.947Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ergotherapeute-diplome-e-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "ergotherapeute-diplome-e-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "ergotherapeute-diplome-e-a-80-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
@@ -720,6 +1039,14 @@
       ],
       "fr": [
         "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva-1e5w3g"
+      ],
+      "en": [
+        "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
+        "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva"
+      ],
+      "de": [
+        "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
+        "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva"
       ]
     },
     "postalCode": "1204",
@@ -746,7 +1073,29 @@
         "firstSeenAt": "2026-07-14T22:03:53.913Z",
         "title": "ASSC / Pool Centralisé Longue Durée (PCLD) / à 80-100% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva": "GE",
+        "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva-1e5w3g": "GE",
+        "pool-centrale-di-lungo-periodo-pcld-80-100-a-tempo-indeterminato-imad-geneva": "GE",
+        "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva": "GE",
+        "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva": "GE",
+        "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva": "GE"
+      },
+      "fr": {
+        "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva-1e5w3g": "GE"
+      },
+      "en": {
+        "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva": "GE",
+        "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva": "GE"
+      },
+      "de": {
+        "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva": "GE",
+        "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "programmatore-di-sistema-analyst-web-application-development-business-solutions-service-digital-and-information-systems",
@@ -796,7 +1145,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000158223898-analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier-direction-des-systemes-numeriques-et-informationnels-dsni-a-100-en-cdi-",
-    "firstSeenAt": "2026-10-28T09:21:38.659Z"
+    "firstSeenAt": "2026-10-28T09:21:38.659Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier": "GE"
+      },
+      "en": {
+        "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier": "GE"
+      },
+      "de": {
+        "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier": "GE"
+      }
+    }
   },
   {
     "slug": "assc-in-home-care-80-100-cdi-imad-geneva",
@@ -877,7 +1238,28 @@
         "firstSeenAt": "2026-05-19T19:53:28.560Z",
         "title": "ASSC en soins à domicile / 80-100% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assc-en-soins-a-domicile-80-100-en-cdi-imad-geneva": "GE",
+        "home-care-assistant-80-100-permanent-position-imad-geneva": "GE",
+        "assc-in-heimpflege-80-100-cdi-imad-geneva": "GE",
+        "assc-en-soins-a-domicile-80-100-en-cdi-imad-geneva-m8azh1": "GE",
+        "assc-in-assistenza-domiciliare-80-100-a-tempo-indeterminato-imad-geneva": "GE",
+        "haushaltshilfe-80-100-festanstellung-imad-geneva": "GE"
+      },
+      "en": {
+        "home-care-assistant-80-100-permanent-position-imad-geneva": "GE"
+      },
+      "de": {
+        "assc-in-heimpflege-80-100-cdi-imad-geneva": "GE",
+        "haushaltshilfe-80-100-festanstellung-imad-geneva": "GE"
+      },
+      "fr": {
+        "assc-en-soins-a-domicile-80-100-en-cdi-imad-geneva-m8azh1": "GE"
+      }
+    }
   },
   {
     "slug": "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team-3f447035",
@@ -1058,7 +1440,20 @@
         "firstSeenAt": "2026-06-04T12:23:32.617Z",
         "title": "Infirmier.ère en soins à domicile / à 80-100% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva": "GE",
+        "pflegefachfrau-pflegefachmann-spitex-80-100-unbefristet-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "infermiera-ere-eiso-interprofessional-team-specializzato-in-oncologia-80-in-cdi-imad-geneva-56e52e90a2",
@@ -1162,7 +1557,23 @@
         "firstSeenAt": "2026-10-08T21:28:36.316Z",
         "title": "Infirmier.ère EISO (Equipe Interprofessionnelle Spécialisée en Oncologie) / à 80% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad": "GE",
+        "infermiera-ere-eiso-interprofessional-team-specializzato-in-oncologia-80-in-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "nurse-ere-eiso-interprofessional-team-specialized-in-oncology-80-in-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "nurse-ere-eiso-interprofessionelles-team-spezialisiert-auf-onkologie-80-in-cdi-imad-geneva": "GE"
+      },
+      "fr": {
+        "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad": "GE"
+      }
+    }
   },
   {
     "slug": "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva-a15ddf83dd",
@@ -1195,24 +1606,31 @@
       "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2",
       "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva-6f9cb36a",
       "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80",
-      "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva"
+      "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva",
+      "nurse-ere-pool-chad-device-had-eiso-paediatric-care-and-respite-to-families-80-100-in-cdi-imad-geneva",
+      "nurse-ere-pool-chad-gerat-had-eiso-padiatrische-versorgung-und-erholung-fur-familien-80-100-in-cdi-imad-geneva"
     ],
     "previousSlugsByLocale": {
       "it": [
         "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-99d090af",
         "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2",
-        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva-6f9cb36a"
+        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva-6f9cb36a",
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80",
+        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva"
       ],
       "en": [
         "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80",
-        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva"
+        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva",
+        "nurse-ere-pool-chad-device-had-eiso-paediatric-care-and-respite-to-families-80-100-in-cdi-imad-geneva"
       ],
       "de": [
         "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80",
-        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva"
+        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva",
+        "nurse-ere-pool-chad-gerat-had-eiso-padiatrische-versorgung-und-erholung-fur-familien-80-100-in-cdi-imad-geneva"
       ],
       "fr": [
-        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva"
+        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva",
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80"
       ]
     },
     "postalCode": "1204",
@@ -1234,7 +1652,26 @@
         "firstSeenAt": "2026-10-16T09:22:35.887Z",
         "title": "Infirmier.ère / Pool CHAD / Dispositif HAD-EISO-Soins pédiatriques et répit aux familles / à 80-100% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80": "GE",
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2": "GE",
+        "infermiere-ere-vasca-chad-dispositivo-had-eiso-paediatric-cura-e-respite-a-famiglie-80-100-in-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "nurse-ere-pool-chad-device-had-eiso-paediatric-care-and-respite-to-families-80-100-in-cdi-imad-geneva": "GE",
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80": "GE"
+      },
+      "de": {
+        "nurse-ere-pool-chad-gerat-had-eiso-padiatrische-versorgung-und-erholung-fur-familien-80-100-in-cdi-imad-geneva": "GE",
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80": "GE"
+      },
+      "fr": {
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80": "GE"
+      }
+    }
   },
   {
     "slug": "infermieri-uatr-unita-di-servizio-80-in-cmd-1-x-7-mesi-e-1-x-10-mesi-imad-geneva",
@@ -1286,7 +1723,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000157398368-infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-",
-    "firstSeenAt": "2026-10-23T09:22:11.388Z"
+    "firstSeenAt": "2026-10-23T09:22:11.388Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x": "GE",
+        "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-imad-geneva": "GE"
+      },
+      "en": {
+        "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x": "GE"
+      },
+      "de": {
+        "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x": "GE"
+      }
+    }
   },
   {
     "slug": "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-238137ee90",
@@ -1317,12 +1767,33 @@
     "expiredAt": "2026-11-10T09:21:27.184Z",
     "previousSlugs": [
       "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad",
-      "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva"
+      "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva",
+      "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-911d717e75",
+      "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24",
+      "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-d2c2a40d",
+      "head-of-multidisciplinary-team-iepa-100-cdi-medication-desired-imad-geneva-87ca64a9",
+      "leiter-des-multidisziplinaren-teams-iepa-100-cdi-medikation-erwunscht-imad-geneva-9c0691d4"
     ],
     "previousSlugsByLocale": {
       "it": [
         "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad",
-        "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva"
+        "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva",
+        "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-911d717e75",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24",
+        "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-d2c2a40d"
+      ],
+      "en": [
+        "head-of-multidisciplinary-team-iepa-100-cdi-medication-desired-imad-geneva-87ca64a9",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad"
+      ],
+      "de": [
+        "leiter-des-multidisziplinaren-teams-iepa-100-cdi-medikation-erwunscht-imad-geneva-9c0691d4",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad"
+      ],
+      "fr": [
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24"
       ]
     },
     "postalCode": "1204",
@@ -1344,7 +1815,30 @@
         "firstSeenAt": "2026-10-26T09:42:58.815Z",
         "title": "Responsable d’équipe pluridisciplinaire (IEPA) / à 100% / en CDI (parcours infirmier souhaité)"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad": "GE",
+        "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva": "GE",
+        "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-911d717e75": "GE",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24": "GE",
+        "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-d2c2a40d": "GE"
+      },
+      "en": {
+        "head-of-multidisciplinary-team-iepa-100-cdi-medication-desired-imad-geneva-87ca64a9": "GE",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24": "GE",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad": "GE"
+      },
+      "de": {
+        "leiter-des-multidisziplinaren-teams-iepa-100-cdi-medikation-erwunscht-imad-geneva-9c0691d4": "GE",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24": "GE",
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad": "GE"
+      },
+      "fr": {
+        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24": "GE"
+      }
+    }
   },
   {
     "slug": "coordinatore-sociale-in-iepa-edificio-bancario-destro-100-in-cdi-percorso-sociale-desiderato-imad-geneva",
@@ -1394,7 +1888,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000155675491-coordinateur-trice-sociale-e-en-iepa-immeuble-rive-droite-a-100-en-cdi-parcours-social-souhaite-",
-    "firstSeenAt": "2026-10-15T09:28:03.264Z"
+    "firstSeenAt": "2026-10-15T09:28:03.264Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "coordinateur-trice-sociale-e-en-iepa-immeuble-rive-droite-a-100-en-cdi-parcours-social": "GE"
+      },
+      "en": {
+        "coordinateur-trice-sociale-e-en-iepa-immeuble-rive-droite-a-100-en-cdi-parcours-social": "GE"
+      },
+      "de": {
+        "coordinateur-trice-sociale-e-en-iepa-immeuble-rive-droite-a-100-en-cdi-parcours-social": "GE"
+      }
+    }
   },
   {
     "slug": "infermiera-piscina-chad-had-eiso-paediatric-dispositivi-e-respite-a-famiglie-80-in-cdm-12-mesi-imad-geneva",
@@ -1425,7 +1931,8 @@
     "expiredAt": "2026-11-03T09:26:11.611Z",
     "previousSlugs": [
       "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-f12b3936",
-      "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2-eaacaf5a"
+      "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2-eaacaf5a",
+      "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1433,10 +1940,12 @@
         "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-f12b3936"
       ],
       "en": [
-        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2-eaacaf5a"
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2-eaacaf5a",
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2"
       ],
       "de": [
-        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2-eaacaf5a"
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2-eaacaf5a",
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2"
       ],
       "fr": [
         "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-f12b3936"
@@ -1449,58 +1958,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000155913930-infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-en-cdm-12-mois",
-    "firstSeenAt": "2026-10-16T09:22:35.882Z"
-  },
-  {
-    "slug": "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-911d717e75",
-    "title": "Responsable d’équipe pluridisciplinaire (IEPA) / à 100% / en CDI (parcours infirmier souhaité)",
-    "titleByLocale": {
-      "it": "Responsabile team multidisciplinare (IEPA) / 100% / CDI (medicazione desiderata)",
-      "en": "Head of multidisciplinary team (IEPA) / 100% / CDI (medication desired)",
-      "de": "Leiter des multidisziplinären Teams (IEPA) / 100% / CDI (Medikation erwünscht)",
-      "fr": "Responsable d’équipe pluridisciplinaire (IEPA) / à 100% / en CDI (parcours infirmier souhaité)"
-    },
-    "company": "imad",
-    "companyKey": "imad",
-    "location": "Geneva",
-    "addressLocality": "Geneva",
-    "descriptionByLocale": {
-      "it": "La Direzione Community Health and Habitat (DSCH) comprende squadre della 29 IEPAs gestite dall'IMAD. I dirigenti del team IEPA sono responsabili per gli inquilini di questi edifici i cui proprietari sono fondazioni di diritto pubblico o privato o diritto comunitario.\nOgni leader del team IEPA è responsabile fino a 60 dipendenti.\nLe vostre missioni e responsabilità\n\n• Direttamente e coordinare le attività decentralizzate del servizio IEPA, sulla delegazione dalla gestione, garantendo una presenza regolare nei siti e un costante allineamento con politiche e valori istituzionali\n\n• Gestire i team nel rispetto della politica HR assicurando il funzionamento quotidiano, la coesione e le prestazioni operative\n\n• Garantire una risposta adeguata alle esigenze di supporto, sicurezza e supervisione degli inquilini, garantendo qualità e pertinenza dei servizi\n\n• Promuovere l'orientamento del cliente in tutte le azioni, promuovendo un approccio incentrato sull'inquinamento e rafforzando le pratiche interdisciplinari e la collaborazione interservizi\n\n• Organizzare, animare e monitorare i team su diversi edifici strutturando spazi di comunicazione efficienti e orientati ai risultati\n\n• Sviluppare, sviluppare e applicare direttive, procedure e standard operativi in ambienti eterogenei\n\n• Promuovere la pianificazione e l'attuazione delle azioni comunitarie nell'ambito dell'IPA sotto la responsabilità\n\n• Assicurare la gestione e il monitoraggio del bilancio in collaborazione con l'ufficiale amministrativo, in conformità con le procedure attuali\n\n• Condurre, guidare e partecipare a progetti istituzionali e gruppi di lavoro di taglio trasversale all'interno della Direzione IEPA\n\n• Collabora con le fondazioni proprietarie, i loro principi e i partner cantonali e comunali, e assicura la continuità delle attività sostituendo gli altri leader del team.\n\n• Corso di laurea in lavoro sociale HES o università ritenuto equivalente accettato o Bachelor HES-SO in allattamento\n\n• Formazione universitaria nella gestione sarebbe un bene\n\n• Minimo 5 anni di pratica nella salute della comunità o nel lavoro sociale\n\n• Dimostrata esperienza manageriale e capacità di gestire in modo multidisciplinare circa 60 collaboratori decentrati\n\n• Interessi di mobilità nel cantone e gestione di varie squadre\n\n• L'interesse per la gestione simultanea di diverse attività decentrate\n\n• Ottima organizzazione per monitorare le attività a lungo termine\n\n• Eccellente senso di comunicazione e negoziazione, buona situazione e intelligenza relazionale\n\n• Ottima conoscenza della salute e del social network di Ginevra.\n\n• Tempo di pubblicazione: 8.11.2026\n\n• Entrata in ufficio: da concordare\n\n• Si prega di allegare al file:\n• un curriculum vitae aggiornato,\n\n• una lettera di copertura,\n\n• una copia dei vostri diplomi e certificati di lavoro.\n\nConsideriamo solo applicazioni complete\nGarantiamo la completa riservatezza nel trattamento del tuo file.\nCosa offriamo\n> \"cliccate qui per conoscere i vantaggi collaborativi di IMAD\"\nColoro che fanno IMAD\n> \"cliccate qui per incontrare i nostri dipendenti\"",
-      "en": "The Community Health and Habitat Directorate (DSCH) includes teams from the 29 IEPAs operated by IMAD. The managers of the IEPA team are responsible for the tenants of these buildings whose owners are foundations of public or private law or communal law.\nEach IEPA team leader is responsible for up to 60 employees.\nYour missions and responsibilities\n\n• Direct and coordinate the decentralized activities of the IEPA service, on delegation from management, ensuring a regular presence at the sites and constant alignment with institutional policies and values\n\n• Managing teams in compliance with HR policy by ensuring daily functioning, cohesion and operational performance\n\n• Ensure adequate response to tenants' support, safety and supervision needs, ensuring quality and relevance of services\n\n• Promote customer orientation across all actions, promoting a tenant-centred approach and strengthening interdisciplinary practices and inter-service collaboration\n\n• Organize, animate and monitor teams on different buildings by structuring efficient and results-oriented communication spaces\n\n• Develop, develop and enforce directives, procedures and operating standards in heterogeneous environments\n\n• Piloting the planning and implementation of Community actions within IEPAs under responsibility\n\n• Ensure budget management and monitoring in collaboration with the administrative officer, in accordance with current procedures\n\n• Conduct, lead and participate in institutional projects and cross-cutting working groups within the IEPA Directorate\n\n• Collaborate with the owner foundations, their principals and the cantonal and communal partners, and ensure continuity of activities by replacing the other team leaders.\n\n• Bachelor in social work HES or university deemed equivalent accepted or Bachelor HES-SO in nursing\n\n• University training in management would be an asset\n\n• Minimum 5 years of practice in community health or social work\n\n• Demonstrated managerial experience and ability to manage in a multidisciplinary manner some 60 decentralized collaborators\n\n• Interest in mobility in the canton and managing various teams\n\n• There is an interest in managing several decentralised activities simultaneously\n\n• Very good organization to monitor long-term activities\n\n• Excellent sense of communication and negotiation, good situational and relational intelligence\n\n• Excellent knowledge of the Geneva health and social network.\n\n• Posting time: 8.11.2026\n\n• Entry into office: to be agreed\n\n• Please attach to your file:\n• an updated curriculum vitae,\n\n• a cover letter,\n\n• a copy of your diplomas and work certificates.\n\nWe only consider full applications\nWe guarantee complete confidentiality in the processing of your file.\nWhat We Offer\n>> \"click here to know the collaborative benefits of IMAD\"\nThose who do IMAD\n>> \"click here to meet our employees\"",
-      "de": "Die Direktion Gesundheit und Lebensraum der Gemeinschaft (DSCH) umfasst Teams aus den 29 IEPAs, die vom IMAD betrieben werden. Die Manager des IEPA-Teams sind für die Mieter dieser Gebäude verantwortlich, deren Eigentümer Stiftungen des öffentlichen oder privaten Rechts oder des Gemeinschaftsrechts sind.\nJeder IEPA-Teamleiter ist für bis zu 60 Mitarbeiter verantwortlich.\nIhre Missionen und Verantwortlichkeiten\n\n• Direkte und Koordinierung der dezentralen Aktivitäten des IEPA-Dienstes, Delegation des Managements, Gewährleistung einer regelmäßigen Präsenz an den Standorten und ständige Ausrichtung auf institutionelle Richtlinien und Werte\n\n• Management von Teams unter Einhaltung der HR-Richtlinien durch Sicherstellung des täglichen Funktionierens, der Kohäsion und der operativen Leistung\n\n• Gewährleistung einer angemessenen Reaktion auf die Unterstützungs-, Sicherheits- und Überwachungsbedürfnisse der Mieter und Gewährleistung der Qualität und Relevanz der Dienstleistungen\n\n• Förderung der Kundenorientierung über alle Maßnahmen hinweg, Förderung eines mieterzentrierten Ansatzes und Stärkung interdisziplinärer Praktiken und der Zusammenarbeit zwischen den Diensten\n\n• Organisieren, animieren und überwachen Sie Teams in verschiedenen Gebäuden, indem Sie effiziente und ergebnisorientierte Kommunikationsräume strukturieren\n\n• Entwicklung, Entwicklung und Durchsetzung von Richtlinien, Verfahren und Betriebsnormen in heterogenen Umgebungen\n\n• Pilotierung der Planung und Durchführung von Gemeinschaftsmaßnahmen innerhalb der IEPAs unter Verantwortung\n\n• Gewährleistung der Haushaltsführung und -überwachung in Zusammenarbeit mit dem Verwaltungsbeamten gemäß den geltenden Verfahren\n\n• Durchführung, Leitung und Teilnahme an institutionellen Projekten und Querschnittsarbeitsgruppen innerhalb der Direktion IEPA\n\n• Arbeiten Sie mit den Eigentümerstiftungen, ihren Auftraggebern und den kantonalen und kommunalen Partnern zusammen und sorgen Sie für die Kontinuität der Aktivitäten, indem Sie die anderen Teamleiter ersetzen.\n\n• Bachelor in Sozialarbeit HES oder Universität als gleichwertig akzeptiert oder Bachelor HES-SO in Pflege\n\n• Universitätsausbildung in Management wäre ein Gewinn\n\n• Mindestens 5 Jahre Praxis in Gemeindegesundheit oder Sozialarbeit\n\n• Nachgewiesene Managementerfahrung und Fähigkeit, rund 60 dezentrale Mitarbeiter multidisziplinär zu verwalten\n\n• Interesse an Mobilität im Kanton und Leitung verschiedener Teams\n\n• Es besteht Interesse daran, mehrere dezentrale Aktivitäten gleichzeitig zu verwalten\n\n• Sehr gute Organisation zur Überwachung langfristiger Aktivitäten\n\n• Ausgezeichneter Sinn für Kommunikation und Verhandlung, gute situative und relationale Intelligenz\n\n• Ausgezeichnete Kenntnisse des Genfer Gesundheits- und Sozialnetzwerks.\n\n• Sendezeit: 8.11.2026\n\n• Amtsantritt: noch zu vereinbaren\n\n• Bitte fügen Sie Ihrer Datei bei:\n• einen aktualisierten Lebenslauf,\n\n• ein Anschreiben,\n\n• eine Kopie Ihrer Diplome und Arbeitszertifikate.\n\nWir berücksichtigen nur vollständige Anwendungen\nWir garantieren absolute Vertraulichkeit bei der Verarbeitung Ihrer Datei.\nWas wir anbieten\n>> \"Klicken Sie hier, um die kollaborativen Vorteile von IMAD zu erfahren\"\nDiejenigen, die imad tun\n>> \"Klicken Sie hier, um unsere Mitarbeiter zu treffen\"",
-      "fr": "La Direction Santé Communautaire et Habitat (DSCH) regroupe entre autres les équipes des 29 IEPA exploités par l’IMAD. Les responsables d’équipe des IEPA ont sous leur responsabilité la prise en charge des locataires de ces immeubles dont les propriétaires sont des fondations de droit publique ou privé ou encore communales.\nChaque responsable d’équipe des IEPA a sous sa responsabilité jusqu’à 60 collaborateurs.\nVos missions et responsabilités\n\n• Diriger et coordonner les activités décentralisées du service IEPA, sur délégation de la direction, en assurant une présence régulière sur les sites et un alignement constant avec les politiques et valeurs institutionnelles\n\n• Manager les équipes dans le respect de la politique RH en garantissant le bon fonctionnement quotidien, la cohésion et la performance opérationnelle\n\n• Assurer une réponse adaptée aux besoins d’accompagnement, de sécurité et d’encadrement des locataires, en garantissant la qualité et la pertinence des prestations\n\n• Promouvoir une orientation clientèle dans l’ensemble des actions menées, en favorisant une approche centrée sur les besoins des locataires et en renforçant les pratiques interdisciplinaires ainsi que la collaboration entre services\n\n• Organiser, animer et suivre les équipes sur les différents immeubles en structurant des espaces de communication efficaces et orientés résultats\n\n• Élaborer, développer et veiller à l’application des directives, procédures et standards de fonctionnement dans des environnements hétérogènes\n\n• Piloter la planification et la réalisation des actions communautaires au sein des IEPA sous responsabilité\n\n• Assurer la gestion budgétaire et le suivi de l’activité en collaboration avec le responsable administratif, dans le respect des procédures en vigueur\n\n• Conduire, animer et participer à des projets institutionnels et groupes de travail transversaux au sein de la direction IEPA\n\n• Collaborer avec les fondations propriétaires, leurs mandants ainsi que les partenaires cantonaux et communaux, et assurer la continuité des activités en suppléant les autres responsables d’équipe.\n\n• Bachelor en travail social HES ou universitaire jugées équivalentes acceptées ou Bachelor HES-SO en soins infirmiers\n\n• Une formation universitaire en management serait un atout\n\n• 5 ans minimum de pratique dans le milieu de la santé communautaire ou dans le travail social\n\n• Expérience managériale avérée et aptitude à gérer de manière pluridisciplinaire une soixantaine de collaborateurs décentralisés\n\n• Intérêt pour la mobilité dans le canton et pour gérer des équipes variées\n\n• Aisance et intérêt à gérer plusieurs activités décentralisées simultanément\n\n• Très bonne organisation pour assurer le suivi des activités sur le long terme\n\n• Excellent sens de la communication et de la négociation, bonne intelligence situationnelle et relationnelle\n\n• Excellente connaissance du réseau sanitaire et social genevois.\n\n• Délai de postulation : 8.11.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier :\n• un curriculum vitae à jour,\n\n• une lettre de motivation,\n\n• une copie de vos diplômes et vos certificats de travail.\n\nNous considérons uniquement les dossiers de candidature complets\nNous vous garantissons une confidentialité totale dans le traitement de votre dossier.\nCe que nous offrons\n>> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\nCelles et ceux qui font l’IMAD\n>> \"cliquez ici pour rencontrer nos collaborateurs\""
-    },
-    "slugByLocale": {
-      "it": "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-911d717e75",
-      "en": "head-of-multidisciplinary-team-iepa-100-cdi-medication-desired-imad-geneva-87ca64a9",
-      "de": "leiter-des-multidisziplinaren-teams-iepa-100-cdi-medikation-erwunscht-imad-geneva-9c0691d4",
-      "fr": "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24"
-    },
-    "sector": "Sanità / Cure a domicilio",
-    "expiredAt": "2026-10-31T22:09:52.740Z",
-    "previousSlugs": [
-      "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24",
-      "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-d2c2a40d"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24",
-        "responsabile-team-multidisciplinare-iepa-100-cdi-medicazione-desiderata-imad-geneva-d2c2a40d"
-      ],
-      "en": [
-        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24"
-      ],
-      "de": [
-        "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-imad-ddd3be24"
-      ]
-    },
-    "postalCode": "1204",
-    "salaryMin": 116500,
-    "salaryMax": 162500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000157729639-responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-infirmier-souhaite-",
-    "firstSeenAt": "2026-10-26T09:42:58.815Z"
+    "firstSeenAt": "2026-10-16T09:22:35.882Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2-eaacaf5a": "GE",
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-f12b3936": "GE"
+      },
+      "en": {
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2": "GE"
+      },
+      "de": {
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-2": "GE"
+      },
+      "fr": {
+        "infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-f12b3936": "GE"
+      }
+    }
   },
   {
     "slug": "lavoratore-sociale-umus-90-cdi-imad-geneva",
@@ -1573,7 +2047,22 @@
         "firstSeenAt": "2026-10-14T09:35:28.977Z",
         "title": "Travailleur.euse social.e / UMUS / à 90% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "travailleur-euse-social-e-umus-a-90-en-cdi-imad-geneva": "GE",
+        "lavoratore-sociale-umus-90-cdi-imad-geneva-a3d172": "GE",
+        "travailleur-euse-social-e-umus-a-90-en-cdi-imad-geneva-65mq4e": "GE",
+        "sozialarbeiter-umus-90-cdi-imad-geneva-a3d172": "GE"
+      },
+      "en": {
+        "travailleur-euse-social-e-umus-a-90-en-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "travailleur-euse-social-e-umus-a-90-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "infermiere-clinico-ics-centro-per-le-pratiche-interprofessionali-cpi-100-cdi-imad-geneva",
@@ -1648,7 +2137,26 @@
         "firstSeenAt": "2026-10-06T21:28:18.815Z",
         "title": "Infirmier.ère clinicien.ne spécialisé.e (ICS) / Centre des Pratiques Interprofessionnelles (CPI) / à 100 % / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi": "GE",
+        "infermiereclinico-specializzato-ics-centre-des-pratiques-interprofessionnelles-cpi-all-80-in-contratto-a-tempo": "GE",
+        "infermiere-clinico-ics-centro-per-le-pratiche-interprofessionali-cpi-80-cdi-imad-geneva": "GE",
+        "specialized-clinical-nurse-ics-center-for-interprofessional-practices-cpi-at-80-on-permanent-contract-imad-geneva": "GE",
+        "clinician-nurse-ics-center-for-interprofessional-practices-cpi-80-cdi-imad-geneva": "GE",
+        "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi-tp5cck": "GE",
+        "klinikkrankenschwester-ics-center-for-interprofessional-practices-cpi-80-cdi-imad-geneva": "GE",
+        "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi-2sjdhs": "GE"
+      },
+      "en": {
+        "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi": "GE"
+      },
+      "de": {
+        "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi": "GE"
+      }
+    }
   },
   {
     "slug": "infermiera-rispetta-alle-famiglie-e-cura-pediatrica-80-in-cdi-imad-geneva",
@@ -1680,7 +2188,8 @@
     "previousSlugs": [
       "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
       "infermiera-rispetta-alle-famiglie-e-cura-pediatrica-80-in-cdi-imad-geneva-9yrivf",
-      "infermiere-assistenza-familiare-e-assistenza-pediatrica-80-permanente-imad-geneva"
+      "infermiere-assistenza-familiare-e-assistenza-pediatrica-80-permanente-imad-geneva",
+      "infermiera-rispetta-alle-famiglie-e-cura-pediatrica-80-in-cdi-imad-geneva"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1689,10 +2198,15 @@
         "infermiere-assistenza-familiare-e-assistenza-pediatrica-80-permanente-imad-geneva"
       ],
       "en": [
-        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
+        "infermiera-rispetta-alle-famiglie-e-cura-pediatrica-80-in-cdi-imad-geneva"
       ],
       "de": [
-        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
+        "infermiera-rispetta-alle-famiglie-e-cura-pediatrica-80-in-cdi-imad-geneva"
+      ],
+      "fr": [
+        "infermiera-rispetta-alle-famiglie-e-cura-pediatrica-80-in-cdi-imad-geneva"
       ]
     },
     "postalCode": "1204",
@@ -1723,7 +2237,19 @@
         "firstSeenAt": "2026-09-19T22:57:00.519Z",
         "title": "Infirmier.ère / Répit aux familles et soins pédiatriques / à 80% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "team-manager-del-reparto-dietetico-all-80-flessibile-in-cdm-8-mesi-imad-geneva",
@@ -1816,7 +2342,8 @@
       "fr": {
         "responsable-d-equipe-du-service-dietetique-a-80-flexible-en-cdm-8-mois-imad-geneva-n29bi5": "GE"
       }
-    }
+    },
+    "canton": "GE"
   },
   {
     "slug": "infermiereclinico-specializzato-ics-centre-des-pratiques-interprofessionnelles-cpi-all-80-in-contratto-a-tempo-22a62cc2",
@@ -1976,10 +2503,15 @@
         "carriera-emd-di-notte-al-50-in-hom-di-11-o-12-mesi-imad-geneva-el3o8n"
       ],
       "en": [
-        "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
+        "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
+        "carriera-emd-di-notte-al-50-in-hom-di-11-o-12-mesi-imad-geneva"
       ],
       "de": [
-        "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
+        "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
+        "carriera-emd-di-notte-al-50-in-hom-di-11-o-12-mesi-imad-geneva"
+      ],
+      "fr": [
+        "carriera-emd-di-notte-al-50-in-hom-di-11-o-12-mesi-imad-geneva"
       ]
     },
     "postalCode": "1204",
@@ -2005,7 +2537,19 @@
         "firstSeenAt": "2026-09-30T21:16:53.848Z",
         "title": "Aide-soignant.e / EMD de nuit / à 50% / en CDM de 11 ou 12 mois"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva": "GE"
+      },
+      "en": {
+        "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva": "GE"
+      },
+      "de": {
+        "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "infermiere-ere-uatr-unita-di-accoglienza-temporanea-di-tregua-all-80-in-cdi-imad-geneva",
@@ -2091,7 +2635,19 @@
         "firstSeenAt": "2026-09-23T23:45:08.858Z",
         "title": "Infirmier.ère UATR (Unités d’accueil temporaire de répit) / à 80% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "infirmier-ere-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "infermiera-respite-alle-famiglie-e-cura-pediatrica-80-in-cdm-12-mesi-imad-geneva",
@@ -2151,7 +2707,19 @@
         "title": "Infirmier.ère / Répit aux familles et soins pédiatriques / à 80% / en CDM 12 mois"
       }
     ],
-    "firstSeenAt": "2026-09-23T23:45:08.869Z"
+    "firstSeenAt": "2026-09-23T23:45:08.869Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdm-12-mois-imad-geneva": "GE"
+      },
+      "en": {
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdm-12-mois-imad-geneva": "GE"
+      },
+      "de": {
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdm-12-mois-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "applicazione-spontanea-per-uno-stage-imad-geneva",
@@ -2211,7 +2779,19 @@
         "firstSeenAt": "2026-09-02T13:43:38.422Z",
         "title": "Candidature spontanée pour un stage"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "candidature-spontanee-pour-un-stage-imad-geneva": "GE"
+      },
+      "en": {
+        "candidature-spontanee-pour-un-stage-imad-geneva": "GE"
+      },
+      "de": {
+        "candidature-spontanee-pour-un-stage-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "infermiera-di-collegamento-a-80-en-cdi-imad-geneva",
@@ -2268,7 +2848,16 @@
         "firstSeenAt": "2026-09-19T22:57:00.528Z",
         "title": "Infirmier-ère de liaison / à 80% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "infermiera-team-mobile-di-emergenza-emu-80-cdi-imad-geneva",
@@ -2328,7 +2917,19 @@
         "firstSeenAt": "2026-09-19T22:57:00.531Z",
         "title": "Infirmier.ère / Equipe Mobile d'Urgence (EMU) / à 80% / en CDI"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "infermeria-refer-e-a-casa-a-80-o-100-in-cdi-all-interno-del-team-centralizzato-per-missioni-di-sostituzione-a-lungo",
@@ -3224,7 +3825,28 @@
         "firstSeenAt": "2026-08-04T11:35:03.323Z",
         "title": "Infirmier.ère référent.e à domicile à 80 ou 100% en CDI au sein de l’équipe centralisée pour des missions de remplacement de longue durée (de 6 à 15 mois) avec la responsabilité d’un portefeuille de dossiers patients"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infermiere-i-di-riferimento-a-domicilio-a-tempo-pieno-o-part-time-a-tempo-indeterminato-presso-l-equipe-centralizzata": "GE",
+        "full-time-or-part-time-home-care-reference-nurse-position-in-the-centralized-team-for-long-term-substitutions-6-to-15": "GE",
+        "referenz-pflegekraft-im-homecare-bereich-in-voll-oder-teilzeit-im-zentralisierten-team-fur-langzeiteinsatze-6-bis-15": "GE",
+        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-8epn7f": "GE",
+        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-0ba9f979": "GE"
+      },
+      "en": {
+        "full-time-or-part-time-home-care-reference-nurse-position-in-the-centralized-team-for-long-term-substitutions-6-to-15": "GE",
+        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-0ba9f979": "GE"
+      },
+      "de": {
+        "referenz-pflegekraft-im-homecare-bereich-in-voll-oder-teilzeit-im-zentralisierten-team-fur-langzeiteinsatze-6-bis-15": "GE",
+        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-0ba9f979": "GE"
+      },
+      "fr": {
+        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-0ba9f979": "GE"
+      }
+    }
   },
   {
     "slug": "candidatura-spontanea-altro-imad-geneva",
@@ -3287,7 +3909,20 @@
         "firstSeenAt": "2026-05-19T19:53:28.560Z",
         "title": "Candidature spontanée / Autres"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "candidature-spontanee-autres-imad-geneva": "GE"
+      },
+      "en": {
+        "spontaneous-application-others-imad-geneva": "GE"
+      },
+      "de": {
+        "candidature-spontanee-autres-imad-geneva": "GE",
+        "initiativbewerbung-sonstiges-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "assistant-e-social-e-a-80-en-cdm-8-mois-imad-geneva",
@@ -3316,7 +3951,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000149244998-assistant-e-social-e-a-80-en-cdm-8-mois-?oga=true",
-    "firstSeenAt": "2026-09-19T22:57:00.533Z"
+    "firstSeenAt": "2026-09-19T22:57:00.533Z",
+    "canton": "GE",
+    "previousSlugsByLocale": {
+      "en": [
+        "assistant-e-social-e-a-80-en-cdm-8-mois-imad-geneva"
+      ],
+      "de": [
+        "assistant-e-social-e-a-80-en-cdm-8-mois-imad-geneva"
+      ],
+      "fr": [
+        "assistant-e-social-e-a-80-en-cdm-8-mois-imad-geneva"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "assistant-e-social-e-a-80-en-cdm-8-mois-imad-geneva": "GE"
+      },
+      "de": {
+        "assistant-e-social-e-a-80-en-cdm-8-mois-imad-geneva": "GE"
+      },
+      "fr": {
+        "assistant-e-social-e-a-80-en-cdm-8-mois-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "responsabile-del-servizio-alimentare-80-hom-8-mesi-imad-geneva",
@@ -3364,7 +4022,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000148455915-responsable-d-equipe-du-service-dietetique-a-80-en-cdm-8-mois-?oga=true",
-    "firstSeenAt": "2026-09-09T13:52:05.151Z"
+    "firstSeenAt": "2026-09-09T13:52:05.151Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-d-equipe-du-service-dietetique-a-80-en-cdm-8-mois-imad-geneva": "GE"
+      },
+      "en": {
+        "responsable-d-equipe-du-service-dietetique-a-80-en-cdm-8-mois-imad-geneva": "GE"
+      },
+      "de": {
+        "responsable-d-equipe-du-service-dietetique-a-80-en-cdm-8-mois-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "arcade-liaison-nurse-80-cdi-imad-geneva",
@@ -3401,7 +4071,8 @@
         "nurse-eere-de-liaison-a-80-en-cdi-imad-geneva"
       ],
       "en": [
-        "infirmier-ere-de-liaison-arcade-a-80-en-cdi-imad-geneva"
+        "infirmier-ere-de-liaison-arcade-a-80-en-cdi-imad-geneva",
+        "arcade-liaison-nurse-80-cdi-imad-geneva"
       ]
     },
     "salaryMin": 69200,
@@ -3409,7 +4080,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000145718479-infirmier-ere-de-liaison-arcade-a-80-en-cdi?oga=true",
-    "firstSeenAt": "2026-08-27T00:43:41.492Z"
+    "firstSeenAt": "2026-08-27T00:43:41.492Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-de-liaison-arcade-a-80-en-cdi-imad-geneva": "GE",
+        "nurse-eere-de-liaison-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "arcade-liaison-nurse-80-cdi-imad-geneva": "GE",
+        "infirmier-ere-de-liaison-arcade-a-80-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "infermiera-in-home-hospital-had-80-cdi-imad-geneva",
@@ -3457,7 +4139,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000145255180-infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi?oga=true",
-    "firstSeenAt": "2026-08-24T21:42:45.890Z"
+    "firstSeenAt": "2026-08-24T21:42:45.890Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "en": {
+        "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva": "GE"
+      },
+      "de": {
+        "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva": "GE"
+      }
+    }
   },
   {
     "slug": "infermiera-specialista-centro-per-le-pratiche-interprofessionali-direzione-operazioni-80-cdi-imad-geneva-86c510",
