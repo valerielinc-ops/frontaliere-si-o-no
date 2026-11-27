@@ -11844,8 +11844,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:19:05.795Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3889/description/1?lang=ger",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3889/description/1?lang=ger"
     },
     {
       "id": "spital-thurgau-179e40bd2b72",
@@ -14347,7 +14346,6 @@
       },
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-pflege-stgag-ch"
