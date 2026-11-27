@@ -45,7 +45,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24934",
-    "firstSeenAt": "2026-11-17T21:24:09.122Z"
+    "firstSeenAt": "2026-11-17T21:24:09.122Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdd-winter-support-w-m-hermes-ch": "BE"
+      },
+      "fr": {
+        "cdd-winter-support-w-m-hermes-ch": "BE"
+      }
+    }
   },
   {
     "slug": "cdi-talent-acquisition-specialista-h-f-hermes-le-noirmont",
@@ -92,7 +101,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24702",
-    "firstSeenAt": "2026-11-03T09:22:08.695Z"
+    "firstSeenAt": "2026-11-03T09:22:08.695Z",
+    "canton": "JU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdi-talent-acquisition-specialist-h-f-hermes-ch": "JU"
+      },
+      "de": {
+        "cdi-talent-acquisition-specialist-h-f-hermes-ch": "JU"
+      }
+    }
   },
   {
     "slug": "cdm-gestione-del-controllo-interno-e-amministrazione-m-f-hermes-brugg-be-bern-switzerland",
@@ -142,7 +160,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24472",
-    "firstSeenAt": "2026-10-28T20:05:20.282Z"
+    "firstSeenAt": "2026-10-28T20:05:20.282Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch": "BE"
+      },
+      "en": {
+        "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch": "BE"
+      },
+      "de": {
+        "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch": "BE"
+      }
+    }
   },
   {
     "slug": "intern-hospitality-animations-retail-m-f-hermes-brugg-be-bern-switzerland",
@@ -192,7 +222,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24755",
-    "firstSeenAt": "2026-11-05T09:15:16.480Z"
+    "firstSeenAt": "2026-11-05T09:15:16.480Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stagiaire-hospitalite-animations-retail-h-f-hermes-ch": "BE"
+      },
+      "en": {
+        "stagiaire-hospitalite-animations-retail-h-f-hermes-ch": "BE"
+      },
+      "de": {
+        "stagiaire-hospitalite-animations-retail-h-f-hermes-ch": "BE"
+      }
+    }
   },
   {
     "slug": "cdi-store-manager-zurich-w-m-hermes-ch",
@@ -224,6 +266,12 @@
     "previousSlugsByLocale": {
       "fr": [
         "cdi-gestionnaire-de-magasins-zurich-h-f-hermes-zurich-switzerland"
+      ],
+      "en": [
+        "cdi-store-manager-zurich-w-m-hermes-ch"
+      ],
+      "de": [
+        "cdi-store-manager-zurich-w-m-hermes-ch"
       ]
     },
     "postalCode": "8001",
@@ -244,7 +292,19 @@
         "firstSeenAt": "2026-10-10T09:13:59.462Z",
         "title": "CDI - Store Manager Zürich (W/M)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "cdi-store-manager-zurich-w-m-hermes-ch": "ZH"
+      },
+      "de": {
+        "cdi-store-manager-zurich-w-m-hermes-ch": "ZH"
+      },
+      "fr": {
+        "cdi-gestionnaire-de-magasins-zurich-h-f-hermes-zurich-switzerland": "ZH"
+      }
+    }
   },
   {
     "slug": "stage-sviluppo-sostenibile-m-f-hermes-geneve",
@@ -311,7 +371,22 @@
         "firstSeenAt": "2026-09-30T21:17:00.701Z",
         "title": "Stage - Développement Durable (F/H)"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland": "GE",
+        "stage-developpement-durable-f-h-hermes-ch": "GE"
+      },
+      "en": {
+        "stage-developpement-durable-f-h-hermes-ch": "GE",
+        "internship-sustainable-development-m-f-hermes-geneve-geneva-switzerland": "GE"
+      },
+      "de": {
+        "stage-developpement-durable-f-h-hermes-ch": "GE",
+        "praktikum-nachhaltige-entwicklung-m-w-hermes-geneve-geneva-switzerland": "GE"
+      }
+    }
   },
   {
     "slug": "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
@@ -378,7 +453,21 @@
         "firstSeenAt": "2026-09-30T21:16:59.973Z",
         "title": "Stage - Offre Produit (F/H)"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stage-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland": "GE",
+        "stage-offre-produit-f-h-hermes-ch": "GE",
+        "stage-offre-produit-m-w-d-hermes-geneve": "GE"
+      },
+      "en": {
+        "internship-product-offer-m-f-hermes-geneve-geneva-switzerland": "GE"
+      },
+      "de": {
+        "praktikum-produktangebot-m-w-hermes-geneve-geneva-switzerland": "GE"
+      }
+    }
   },
   {
     "slug": "cdi-responsabile-dipartimento-lugano-m-f-hermes-lugano",
@@ -445,7 +534,22 @@
         "firstSeenAt": "2026-10-19T09:16:36.377Z",
         "title": "CDI - Department Manager Lugano (F/H)"
       }
-    ]
+    ],
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdi-responsabile-dipartimento-lugano-m-f-hermes-lugano-ticino-switzerland": "TI",
+        "cdi-department-manager-lugano-f-h-hermes-ch": "TI"
+      },
+      "de": {
+        "cdi-department-manager-lugano-f-h-hermes-ch": "TI",
+        "cdi-abteilungsleiter-lugano-m-w-hermes-lugano-ticino-switzerland": "TI"
+      },
+      "fr": {
+        "cdi-department-manager-lugano-f-h-hermes-ch": "TI",
+        "cdi-directeur-de-departement-lugano-h-f-hermes-lugano-ticino-switzerland": "TI"
+      }
+    }
   },
   {
     "slug": "cdi-meccanico-m-f-staple-maker-hermes-le-noirmont",
@@ -512,7 +616,22 @@
         "firstSeenAt": "2026-09-04T13:27:54.190Z",
         "title": "CDI - Mécanicien Faiseur d'Étampes (H/F)"
       }
-    ]
+    ],
+    "canton": "JU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdi-meccanico-m-f-staple-maker-hermes-le-noirmont-jura-switzerland": "JU",
+        "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch": "JU"
+      },
+      "en": {
+        "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch": "JU",
+        "cdi-mechanic-m-f-staple-maker-hermes-le-noirmont-jura-switzerland": "JU"
+      },
+      "de": {
+        "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch": "JU",
+        "cdi-mechanischer-m-w-staple-maker-hermes-le-noirmont-jura-switzerland": "JU"
+      }
+    }
   },
   {
     "slug": "cdi-direttore-meccanico-m-f-hermes-le-noirmont-jura-switzerland",
@@ -561,7 +680,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/jobs/23690",
-    "firstSeenAt": "2026-09-03T13:32:40.044Z"
+    "firstSeenAt": "2026-09-03T13:32:40.044Z",
+    "canton": "JU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdi-responsable-mecanique-h-f-hermes-ch": "JU"
+      },
+      "en": {
+        "cdi-responsable-mecanique-h-f-hermes-ch": "JU"
+      },
+      "de": {
+        "cdi-responsable-mecanique-h-f-hermes-ch": "JU"
+      }
+    }
   },
   {
     "slug": "cdi-reference-stock-m-f-hermes-le-noirmont",
@@ -596,7 +727,8 @@
         "cdi-referent-stock-h-f-hermes-ch"
       ],
       "en": [
-        "cdi-referent-stock-h-f-hermes-ch"
+        "cdi-referent-stock-h-f-hermes-ch",
+        "cdi-reference-stock-m-f-hermes-le-noirmont"
       ]
     },
     "postalCode": "2340",
@@ -605,7 +737,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/jobs/24262",
-    "firstSeenAt": "2026-10-09T21:13:43.376Z"
+    "firstSeenAt": "2026-10-09T21:13:43.376Z",
+    "canton": "JU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdi-referent-stock-h-f-hermes-ch": "JU"
+      },
+      "en": {
+        "cdi-reference-stock-m-f-hermes-le-noirmont": "JU",
+        "cdi-referent-stock-h-f-hermes-ch": "JU"
+      }
+    }
   },
   {
     "slug": "cdi-product-communication-project-manager-m-f-hermes-brugg-be-bern-switzerland",
@@ -654,7 +796,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/jobs/24263",
-    "firstSeenAt": "2026-10-09T21:13:42.707Z"
+    "firstSeenAt": "2026-10-09T21:13:42.707Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdi-charge-de-projet-communication-produit-h-f-hermes-ch": "BE"
+      },
+      "en": {
+        "cdi-charge-de-projet-communication-produit-h-f-hermes-ch": "BE"
+      },
+      "de": {
+        "cdi-charge-de-projet-communication-produit-h-f-hermes-ch": "BE"
+      }
+    }
   },
   {
     "slug": "cdi-sales-advisor-orologi-e-gioielli-esperti-zurigo-m-f-hermes-zurich-switzerland",
@@ -704,7 +858,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/jobs/21857",
-    "firstSeenAt": "2026-06-10T09:03:23.277Z"
+    "firstSeenAt": "2026-06-10T09:03:23.277Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch": "ZH",
+        "cdi-verkaufsberater-experte-uhren-e-schmuck-zurich-m-w-d-hermes-zurich-switzerland": "ZH"
+      },
+      "en": {
+        "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch": "ZH"
+      },
+      "fr": {
+        "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "cdi-vendite-associate-zurich-80-m-f-hermes-zurich",
@@ -746,7 +913,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/jobs/23527",
-    "firstSeenAt": "2026-09-28T04:52:56.758Z"
+    "firstSeenAt": "2026-09-28T04:52:56.758Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdi-sales-associate-zurich-80-w-m-hermes-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland",
@@ -789,7 +962,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/jobs/22458",
-    "firstSeenAt": "2026-06-11T07:52:59.019Z"
+    "firstSeenAt": "2026-06-11T07:52:59.019Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stage-communication-1an-f-h-hermes-ch": "GE"
+      }
+    }
   },
   {
     "slug": "cdi-coordinatore-commerciale-m-f-hermes-brugg-be-bern-switzerland",

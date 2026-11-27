@@ -87,7 +87,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:26:50.644Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.hevs.ch/fr/recruitee/professeurs-hes-ou-professeures-hes-***-professoren-fh-und-professorinnen-fh-215676"
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/leitende-wissenschaftliche-mitarbeiterin-oder-leitender-wissenschaftlicher-mitarbeiter-80--215673",
@@ -175,7 +176,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:26:50.644Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.hevs.ch/fr/recruitee/leitende-wissenschaftliche-mitarbeiterin-oder-leitender-wissenschaftlicher-mitarbeiter-80--215673"
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaboratrice-administrative-ou-collaborateur-administratif-60-215618",
@@ -261,7 +263,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:26:50.644Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.hevs.ch/fr/recruitee/collaboratrice-administrative-ou-collaborateur-administratif-60-215618"
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
@@ -347,7 +350,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T21:26:50.644Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560"
     }
   ]
 }
