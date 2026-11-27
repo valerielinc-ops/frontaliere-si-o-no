@@ -998,17 +998,21 @@
     "sector": "Luxury goods / fashion / watchmaking",
     "expiredAt": "2026-09-09T13:45:05.058Z",
     "previousSlugs": [
-      "cdi-coordinateur-commercial-h-f-hermes-ch"
+      "cdi-coordinateur-commercial-h-f-hermes-ch",
+      "cdi-coordinatore-commerciale-m-f-hermes-brugg-be",
+      "cdi-kommerzieller-koordinator-m-w-hermes-brugg-be"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "cdi-coordinateur-commercial-h-f-hermes-ch"
+        "cdi-coordinateur-commercial-h-f-hermes-ch",
+        "cdi-coordinatore-commerciale-m-f-hermes-brugg-be"
       ],
       "en": [
         "cdi-coordinateur-commercial-h-f-hermes-ch"
       ],
       "de": [
-        "cdi-coordinateur-commercial-h-f-hermes-ch"
+        "cdi-coordinateur-commercial-h-f-hermes-ch",
+        "cdi-kommerzieller-koordinator-m-w-hermes-brugg-be"
       ]
     },
     "salaryMin": 68500,
@@ -1025,7 +1029,15 @@
         "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/jobs/23533",
         "title": "CDI - Coordinateur Commercial (H/F)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cdi-coordinatore-commerciale-m-f-hermes-brugg-be": "BE"
+      },
+      "de": {
+        "cdi-kommerzieller-koordinator-m-w-hermes-brugg-be": "BE"
+      }
+    }
   },
   {
     "slug": "cdi-gestionnaire-import-export-m-w-d-hermes-brugg-be-bern-switzerland",

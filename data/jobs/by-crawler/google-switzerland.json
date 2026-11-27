@@ -1,7 +1,7 @@
 {
   "crawlerKey": "google-switzerland",
-  "assembledAt": "2026-11-26T21:19:09.144Z",
-  "runId": "45895609745",
+  "assembledAt": "2026-11-27T09:27:13.171Z",
+  "runId": "45970698995",
   "jobs": [
     {
       "id": "google-switzerland-b2742d614df0",
@@ -34,7 +34,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/107667015740596934-senior-software-engineer-google-cloud-generative-ai-blackbelt-team",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:25.801Z",
+      "crawledAt": "2026-11-27T09:26:32.992Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -91,9 +91,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:18:25.801Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/107667015740596934-senior-software-engineer-google-cloud-generative-ai-blackbelt-team"
+      "validThrough": "2027-02-10T09:26:32.992Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-b8637a5f17a0",
@@ -126,7 +125,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/124361935872238278-data-cloud-sales-specialist-dach",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:25.265Z",
+      "crawledAt": "2026-11-27T09:26:32.451Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -175,9 +174,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:18:25.265Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/124361935872238278-data-cloud-sales-specialist-dach"
+      "validThrough": "2027-02-16T09:26:32.451Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-30025ee810c0",
@@ -210,7 +208,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105458081579573958-software-engineer-iii-aiml-dsphtp-optimisation",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:24.720Z",
+      "crawledAt": "2026-11-27T09:26:31.908Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -255,9 +253,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:24.720Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/105458081579573958-software-engineer-iii-aiml-dsphtp-optimisation"
+      "validThrough": "2026-12-27T09:26:31.908Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-7175faa5b9c3",
@@ -290,7 +287,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:24.191Z",
+      "crawledAt": "2026-11-27T09:26:31.325Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -334,16 +331,15 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:24.191Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027"
+      "validThrough": "2026-12-27T09:26:31.325Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-5fea6c5156d5",
       "slug": "software-engineer-iii-cloud-security-google-switzerland-zurich",
       "slugByLocale": {
-        "en": "software-engineer-iii-cloud-security-google-switzerland-zurich",
         "it": "software-engineer-iii-cloud-security-google-switzerland-zurich",
+        "en": "software-engineer-iii-cloud-security-google-switzerland-zurich",
         "de": "software-engineer-iii-cloud-security-google-switzerland-zurich",
         "fr": "software-engineer-iii-cloud-security-google-switzerland-zurich"
       },
@@ -352,24 +348,24 @@
       "companyDomain": "google.com",
       "title": "Software Engineer III, Cloud Security",
       "titleByLocale": {
-        "en": "Software Engineer III, Cloud Security",
         "it": "Software Ingegnere III, Cloud Security",
+        "en": "Software Engineer III, Cloud Security",
         "de": "Software Ingenieur III, Cloud Security",
         "fr": "Software Ingénieur III, Cloud Security"
       },
       "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\n• 2 years of experience building software for data privacy or security (e.g., identity and access management).\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with security engineering, computer and network security protocols, cloud security or security attack prevention.\n\n• Experience with modern AI tooling.\n\n• Experience with software design and architecture.\n\n• Experience building security tooling.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\n\nResponsibilities\n\n• Build tools and playbooks to accelerate the ongoing code safety efforts within Google Cloud.\n\n• Perform security reviews, research and reproduce vulnerabilities, design secure protocols and systems, and write tests and fuzzers.\n\n• Review and develop secure operational practices, and provide security guidance for engineers and support staff.\n\n• Review designs and drive towards defense in depth and security by default, both with one-time reviews and longer term engagements.\n\n• Respond to vulnerabilities with repros, variant analysis, mitigations, and hardening.",
       "descriptionByLocale": {
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\n• 2 years of experience building software for data privacy or security (e.g., identity and access management).\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with security engineering, computer and network security protocols, cloud security or security attack prevention.\n\n• Experience with modern AI tooling.\n\n• Experience with software design and architecture.\n\n• Experience building security tooling.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\n\nResponsibilities\n\n• Build tools and playbooks to accelerate the ongoing code safety efforts within Google Cloud.\n\n• Perform security reviews, research and reproduce vulnerabilities, design secure protocols and systems, and write tests and fuzzers.\n\n• Review and develop secure operational practices, and provide security guidance for engineers and support staff.\n\n• Review designs and drive towards defense in depth and security by default, both with one-time reviews and longer term engagements.\n\n• Respond to vulnerabilities with repros, variant analysis, mitigations, and hardening.",
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 2 anni di esperienza con lo sviluppo software in uno o più linguaggi di programmazione, o 1 anno di esperienza con un grado avanzato.\n\n• 2 anni di software per la costruzione di esperienze per la privacy dei dati o la sicurezza (ad esempio, l'identità e la gestione degli accessi).\n\nPreferiti:\n\n• Laurea magistrale o dottorato in Informatica o campi tecnici correlati.\n\n• 2 anni di esperienza con strutture dati e algoritmi.\n\n• Esperienza con l'ingegneria della sicurezza, i protocolli di sicurezza del computer e della rete, la sicurezza del cloud o la prevenzione degli attacchi di sicurezza.\n\n• Esperienza con moderni strumenti AI.\n\n• Esperienza con progettazione software e architettura.\n\n• Esperienza costruzione strumenti di sicurezza.\n\nRiguardo al lavoro\n Gli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e la memorizzazione dei dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. In qualità di ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\n Google Cloud accelera la capacità di ogni organizzazione di trasformare digitalmente il suo business e l'industria. Offriamo soluzioni di livello enterprise che sfruttano la tecnologia all'avanguardia di Google e gli strumenti che aiutano gli sviluppatori a costruire in modo più sostenibile. I clienti in oltre 200 paesi e territori si rivolgono a Google Cloud come partner affidabile per consentire la crescita e risolvere i loro problemi aziendali più critici.\n\nresponsabilità\n\n• Costruire strumenti e playbook per accelerare gli sforzi di sicurezza del codice in corso all'interno di Google Cloud.\n\n• Eseguire le recensioni di sicurezza, la ricerca e riprodurre le vulnerabilità, progettare protocolli e sistemi sicuri, e scrivere test e fuzzers.\n\n• Verificare e sviluppare pratiche operative sicure e fornire una guida di sicurezza per gli ingegneri e il personale di supporto.\n\n• I progetti di revisione e l'azionamento verso la difesa in profondità e sicurezza per impostazione predefinita, sia con recensioni una volta e impegni a lungo termine.\n\n• Risponde alle vulnerabilità con repro, analisi delle varianti, mitigazioni e indurimento.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen oder 1 Jahr Erfahrung mit einem fortgeschrittenen Abschluss.\n\n• 2 Jahre Erfahrung in der Erstellung von Software für Datenschutz oder Sicherheit (z. B. Identitäts- und Zugriffsmanagement).\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss oder PhD in Informatik oder verwandten technischen Bereichen.\n\n• 2 Jahre Erfahrung mit Datenstrukturen und Algorithmen.\n\n• Erfahrung mit Security Engineering, Computer- und Netzwerksicherheitsprotokollen, Cloud-Sicherheit oder Sicherheitsangriffsprävention.\n\n• Erfahrung mit modernen KI-Tools.\n\n• Erfahrung mit Software-Design und Architektur.\n\n• Erleben Sie das Building Security Tooling.\n\nÜber den Job\n Die Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Rechnen, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und enthusiastisch zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\n Google Cloud beschleunigt die Fähigkeit jedes Unternehmens, sein Geschäft und seine Branche digital zu verändern. Wir liefern Lösungen für Unternehmen, die die modernste Technologie von Google nutzen, und Tools, die Entwicklern helfen, nachhaltiger zu bauen. Kunden in mehr als 200 Ländern und Regionen wenden sich an Google Cloud als ihren vertrauenswürdigen Partner, um Wachstum zu ermöglichen und ihre wichtigsten Geschäftsprobleme zu lösen.\n\nZuständigkeiten\n\n• Erstellen Sie Tools und Playbooks, um die laufenden Code-Sicherheitsbemühungen in der Google Cloud zu beschleunigen.\n\n• Führen Sie Sicherheitsüberprüfungen durch, recherchieren und reproduzieren Sie Schwachstellen, entwerfen Sie sichere Protokolle und Systeme und schreiben Sie Tests und Fuzzer.\n\n• Überprüfen und entwickeln Sie sichere Betriebspraktiken und bieten Sie Sicherheitshinweise für Ingenieure und Supportmitarbeiter.\n\n• Überprüfen Sie Designs und fahren Sie standardmäßig in Richtung Verteidigung in Tiefe und Sicherheit, sowohl mit einmaligen Bewertungen als auch mit längerfristigen Engagements.\n\n• Reagieren Sie auf Schwachstellen mit Repros, Variantenanalyse, Minderung und Härten.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 2 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation, ou 1 an d'expérience avec un diplôme avancé.\n\n• 2 ans d'expérience dans la création de logiciels pour la protection des données ou la sécurité (p. ex. gestion de l'identité et de l'accès).\n\nTitres préférés:\n\n• Maîtrise ou doctorat en informatique ou domaines techniques connexes.\n\n• 2 ans d'expérience dans les structures de données et les algorithmes.\n\n• Expérience de l'ingénierie de sécurité, des protocoles de sécurité informatique et réseau, de la sécurité du cloud ou de la prévention des attaques de sécurité.\n\n• Expérience avec l'outil d'IA moderne.\n\n• Expérience de la conception et de l'architecture de logiciels.\n\n• Expérience de l'outillage de sécurité de construction.\n\nSur le travail\n Les ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et l'autre. Nos produits doivent traiter l'information à grande échelle et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la récupération d'information, l'informatique distribuée, la conception de systèmes à grande échelle, la mise en réseau et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur en logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google.Vous aurez l'occasion de changer d'équipes et de projets au fur et à mesure que vous et notre entreprise à rythme rapide grandirez et évoluerez. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes dans l'ensemble de la pile alors que nous continuons à faire avancer la technologie.\n Google Cloud accélère la capacité de chaque organisation à transformer numériquement ses activités et son industrie. Nous fournissons des solutions de qualité entreprise qui tirent parti de la technologie de pointe de Google, et des outils qui aident les développeurs à construire plus durablement. Les clients de plus de 200 pays et territoires se tournent vers Google Cloud en tant que partenaire de confiance pour favoriser la croissance et résoudre leurs problèmes commerciaux les plus critiques.\n\nResponsabilités\n\n• Construisez des outils et des playbooks pour accélérer les efforts de sécurité du code dans Google Cloud.\n\n• Effectuer des examens de sécurité, rechercher et reproduire les vulnérabilités, concevoir des protocoles et des systèmes sécurisés, et écrire des tests et des flous.\n\n• Examiner et élaborer des pratiques opérationnelles sécuritaires et fournir des conseils en matière de sécurité aux ingénieurs et au personnel de soutien.\n\n• Examiner les conceptions et les efforts vers la défense en profondeur et la sécurité par défaut, avec des examens ponctuels et des engagements à plus long terme.\n\n• Répondez aux vulnérabilités avec des repros, des analyses de variantes, des atténuations et des durcissements."
+        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 2 anni di esperienza con lo sviluppo software in uno o più linguaggi di programmazione, o 1 anno di esperienza con un grado avanzato.\n\n• 2 anni di software per la costruzione di esperienze per la privacy dei dati o la sicurezza (ad esempio, l'identità e la gestione degli accessi).\n\nPreferiti:\n\n• Laurea magistrale o dottorato in Informatica o campi tecnici correlati.\n\n• 2 anni di esperienza con strutture dati e algoritmi.\n\n• Esperienza con l'ingegneria della sicurezza, i protocolli di sicurezza del computer e della rete, la sicurezza del cloud o la prevenzione degli attacchi di sicurezza.\n\n• Esperienza con moderni strumenti AI.\n\n• Esperienza con progettazione software e architettura.\n\n• Esperienza costruzione strumenti di sicurezza.\n\nRiguardo al lavoro\nGli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e la memorizzazione dei dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. In qualità di ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\nGoogle Cloud accelera la capacità di ogni organizzazione di trasformare digitalmente il suo business e l'industria. Offriamo soluzioni di livello enterprise che sfruttano la tecnologia all'avanguardia di Google e gli strumenti che aiutano gli sviluppatori a costruire in modo più sostenibile. I clienti in oltre 200 paesi e territori si rivolgono a Google Cloud come partner affidabile per consentire la crescita e risolvere i loro problemi aziendali più critici.\n\nresponsabilità\n\n• Costruire strumenti e playbook per accelerare gli sforzi di sicurezza del codice in corso all'interno di Google Cloud.\n\n• Eseguire le recensioni di sicurezza, la ricerca e riprodurre le vulnerabilità, progettare protocolli e sistemi sicuri, e scrivere test e fuzzers.\n\n• Verificare e sviluppare pratiche operative sicure e fornire una guida di sicurezza per gli ingegneri e il personale di supporto.\n\n• I progetti di revisione e l'azionamento verso la difesa in profondità e sicurezza per impostazione predefinita, sia con recensioni una volta e impegni a lungo termine.\n\n• Risponde alle vulnerabilità con repro, analisi delle varianti, mitigazioni e indurimento.",
+        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\n• 2 years of experience building software for data privacy or security (e.g., identity and access management).\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with security engineering, computer and network security protocols, cloud security or security attack prevention.\n\n• Experience with modern AI tooling.\n\n• Experience with software design and architecture.\n\n• Experience building security tooling.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\nGoogle Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\n\nResponsibilities\n\n• Build tools and playbooks to accelerate the ongoing code safety efforts within Google Cloud.\n\n• Perform security reviews, research and reproduce vulnerabilities, design secure protocols and systems, and write tests and fuzzers.\n\n• Review and develop secure operational practices, and provide security guidance for engineers and support staff.\n\n• Review designs and drive towards defense in depth and security by default, both with one-time reviews and longer term engagements.\n\n• Respond to vulnerabilities with repros, variant analysis, mitigations, and hardening.",
+        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen oder 1 Jahr Erfahrung mit einem fortgeschrittenen Abschluss.\n\n• 2 Jahre Erfahrung in der Erstellung von Software für Datenschutz oder Sicherheit (z. B. Identitäts- und Zugriffsmanagement).\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss oder PhD in Informatik oder verwandten technischen Bereichen.\n\n• 2 Jahre Erfahrung mit Datenstrukturen und Algorithmen.\n\n• Erfahrung mit Security Engineering, Computer- und Netzwerksicherheitsprotokollen, Cloud-Sicherheit oder Sicherheitsangriffsprävention.\n\n• Erfahrung mit modernen KI-Tools.\n\n• Erfahrung mit Software-Design und Architektur.\n\n• Erleben Sie das Building Security Tooling.\n\nÜber den Job\nDie Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Rechnen, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und enthusiastisch zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\nGoogle Cloud beschleunigt die Fähigkeit jedes Unternehmens, sein Geschäft und seine Branche digital zu verändern. Wir liefern Lösungen für Unternehmen, die die modernste Technologie von Google nutzen, und Tools, die Entwicklern helfen, nachhaltiger zu bauen. Kunden in mehr als 200 Ländern und Regionen wenden sich an Google Cloud als ihren vertrauenswürdigen Partner, um Wachstum zu ermöglichen und ihre wichtigsten Geschäftsprobleme zu lösen.\n\nZuständigkeiten\n\n• Erstellen Sie Tools und Playbooks, um die laufenden Code-Sicherheitsbemühungen in der Google Cloud zu beschleunigen.\n\n• Führen Sie Sicherheitsüberprüfungen durch, recherchieren und reproduzieren Sie Schwachstellen, entwerfen Sie sichere Protokolle und Systeme und schreiben Sie Tests und Fuzzer.\n\n• Überprüfen und entwickeln Sie sichere Betriebspraktiken und bieten Sie Sicherheitshinweise für Ingenieure und Supportmitarbeiter.\n\n• Überprüfen Sie Designs und fahren Sie standardmäßig in Richtung Verteidigung in Tiefe und Sicherheit, sowohl mit einmaligen Bewertungen als auch mit längerfristigen Engagements.\n\n• Reagieren Sie auf Schwachstellen mit Repros, Variantenanalyse, Minderung und Härten.",
+        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 2 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation, ou 1 an d'expérience avec un diplôme avancé.\n\n• 2 ans d'expérience dans la création de logiciels pour la protection des données ou la sécurité (p. ex. gestion de l'identité et de l'accès).\n\nTitres préférés:\n\n• Maîtrise ou doctorat en informatique ou domaines techniques connexes.\n\n• 2 ans d'expérience dans les structures de données et les algorithmes.\n\n• Expérience de l'ingénierie de sécurité, des protocoles de sécurité informatique et réseau, de la sécurité du cloud ou de la prévention des attaques de sécurité.\n\n• Expérience avec l'outil d'IA moderne.\n\n• Expérience de la conception et de l'architecture de logiciels.\n\n• Expérience de l'outillage de sécurité de construction.\n\nSur le travail\nLes ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et l'autre. Nos produits doivent traiter l'information à grande échelle et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la récupération d'information, l'informatique distribuée, la conception de systèmes à grande échelle, la mise en réseau et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur en logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google.Vous aurez l'occasion de changer d'équipes et de projets au fur et à mesure que vous et notre entreprise à rythme rapide grandirez et évoluerez. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes dans l'ensemble de la pile alors que nous continuons à faire avancer la technologie.\nGoogle Cloud accélère la capacité de chaque organisation à transformer numériquement ses activités et son industrie. Nous fournissons des solutions de qualité entreprise qui tirent parti de la technologie de pointe de Google, et des outils qui aident les développeurs à construire plus durablement. Les clients de plus de 200 pays et territoires se tournent vers Google Cloud en tant que partenaire de confiance pour favoriser la croissance et résoudre leurs problèmes commerciaux les plus critiques.\n\nResponsabilités\n\n• Construisez des outils et des playbooks pour accélérer les efforts de sécurité du code dans Google Cloud.\n\n• Effectuer des examens de sécurité, rechercher et reproduire les vulnérabilités, concevoir des protocoles et des systèmes sécurisés, et écrire des tests et des flous.\n\n• Examiner et élaborer des pratiques opérationnelles sécuritaires et fournir des conseils en matière de sécurité aux ingénieurs et au personnel de soutien.\n\n• Examiner les conceptions et les efforts vers la défense en profondeur et la sécurité par défaut, avec des examens ponctuels et des engagements à plus long terme.\n\n• Répondez aux vulnérabilités avec des repros, des analyses de variantes, des atténuations et des durcissements."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.google.com/about/careers/applications/jobs/results/128322866381759174-software-engineer-iii-cloud-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:23.669Z",
+      "crawledAt": "2026-11-27T09:26:30.777Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -396,10 +392,10 @@
       "requirementsByLocale": {
         "en": [
           "Bachelor’s degree or equivalent practical experience.",
-          "2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.",
           "2 years of experience building software for data privacy or security (e.g., identity and access management)."
         ]
       },
+      "firstSeenAt": "2026-11-26T21:18:23.669Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -414,10 +410,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:18:23.669Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T21:18:23.669Z",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/128322866381759174-software-engineer-iii-cloud-security"
+      "validThrough": "2027-02-25T09:26:30.777Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-47cdd4103552",
@@ -450,7 +444,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/98438078061781702-staff-software-engineer-aai-research",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:23.078Z",
+      "crawledAt": "2026-11-27T09:26:30.220Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -508,9 +502,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:18:23.078Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/98438078061781702-staff-software-engineer-aai-research"
+      "validThrough": "2027-02-02T09:26:30.220Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-293893df0fa7",
@@ -543,7 +536,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123047855462982342-research-scientist-gemini-vision-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:22.492Z",
+      "crawledAt": "2026-11-27T09:26:29.654Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -593,9 +586,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:18:22.492Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/123047855462982342-research-scientist-gemini-vision-deepmind"
+      "validThrough": "2026-12-30T09:26:29.654Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-ac671f3856cd",
@@ -628,7 +620,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118953332948509382-senior-security-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:21.953Z",
+      "crawledAt": "2026-11-27T09:26:29.105Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -676,9 +668,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:18:21.953Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/118953332948509382-senior-security-engineer"
+      "validThrough": "2027-02-03T09:26:29.105Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-725ea41d362e",
@@ -711,7 +702,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79730131723002566-software-engineer-iii-shopping-graph-feeds-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:21.441Z",
+      "crawledAt": "2026-11-27T09:26:28.570Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -757,9 +748,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:18:21.441Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/79730131723002566-software-engineer-iii-shopping-graph-feeds-infrastructure"
+      "validThrough": "2027-01-12T09:26:28.570Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-c8c0064d1f02",
@@ -792,7 +782,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105578566418080454-applied-ml-graph-neural-network-research-software-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:20.913Z",
+      "crawledAt": "2026-11-27T09:26:28.010Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -863,9 +853,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:18:20.913Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/105578566418080454-applied-ml-graph-neural-network-research-software-engineer"
+      "validThrough": "2027-01-08T09:26:28.010Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-08237d323a7e",
@@ -898,7 +887,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102134702726357702-information-security-engineer-hardware-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:20.235Z",
+      "crawledAt": "2026-11-27T09:26:27.488Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -942,9 +931,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:18:20.235Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/102134702726357702-information-security-engineer-hardware-security"
+      "validThrough": "2027-02-09T09:26:27.488Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-8bdd16cfddf7",
@@ -977,7 +965,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/122444748370649798-senior-ux-design-manager-youtube-studio-and-support",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:19.728Z",
+      "crawledAt": "2026-11-27T09:26:26.932Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1035,9 +1023,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:18:19.728Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/122444748370649798-senior-ux-design-manager-youtube-studio-and-support"
+      "validThrough": "2027-02-16T09:26:26.932Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-4935ff59a6be",
@@ -1070,7 +1057,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/131677068336210630-senior-software-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:19.143Z",
+      "crawledAt": "2026-11-27T09:26:26.357Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1119,9 +1106,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:18:19.143Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/131677068336210630-senior-software-engineer"
+      "validThrough": "2027-02-08T09:26:26.357Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-095466b6a6de",
@@ -1154,7 +1140,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/132589149738672838-software-engineer-iii-retail-advertiser-intelligence-google-ads",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:18.609Z",
+      "crawledAt": "2026-11-27T09:26:25.800Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1198,9 +1184,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:18:18.609Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/132589149738672838-software-engineer-iii-retail-advertiser-intelligence-google-ads"
+      "validThrough": "2027-02-01T09:26:25.800Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-1d7094e08a0a",
@@ -1233,7 +1218,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/130911348950213318-software-engineer-iii-centerpiece",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:18.081Z",
+      "crawledAt": "2026-11-27T09:26:25.266Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1278,9 +1263,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:18.081Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/130911348950213318-software-engineer-iii-centerpiece"
+      "validThrough": "2026-12-27T09:26:25.266Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-0050c05dc287",
@@ -1313,7 +1297,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104587629684499142-software-engineer-iii-data-protection-acceleration",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:17.534Z",
+      "crawledAt": "2026-11-27T09:26:24.732Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1356,9 +1340,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:17.534Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/104587629684499142-software-engineer-iii-data-protection-acceleration"
+      "validThrough": "2026-12-27T09:26:24.732Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-e401602e0073",
@@ -1391,7 +1374,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81888102338962118-senior-forward-deployed-engineer-genai-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:17.017Z",
+      "crawledAt": "2026-11-27T09:26:24.060Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1438,9 +1421,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:18:17.017Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/81888102338962118-senior-forward-deployed-engineer-genai-google-cloud"
+      "validThrough": "2027-02-22T09:26:24.060Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-2dd9d5874915",
@@ -1473,7 +1455,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79120614391980742-senior-software-engineer-search-ads-in-ai-experiences",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:16.489Z",
+      "crawledAt": "2026-11-27T09:26:23.518Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1521,9 +1503,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:18:16.489Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/79120614391980742-senior-software-engineer-search-ads-in-ai-experiences"
+      "validThrough": "2027-02-24T09:26:23.518Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-e5f5c2067413",
@@ -1556,7 +1537,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/108511099220828870-staff-security-engineer-dynamic-reasoning-and-nextgen-detection-and-response",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:15.946Z",
+      "crawledAt": "2026-11-27T09:26:22.958Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1618,9 +1599,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:18:15.946Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/108511099220828870-staff-security-engineer-dynamic-reasoning-and-nextgen-detection-and-response"
+      "validThrough": "2027-02-03T09:26:22.958Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-f52840c325d2",
@@ -1653,7 +1633,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/125554354085077702-software-engineer-iii-youtube-shopping-search-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:15.429Z",
+      "crawledAt": "2026-11-27T09:26:22.414Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1697,9 +1677,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:18:15.429Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/125554354085077702-software-engineer-iii-youtube-shopping-search-ai"
+      "validThrough": "2027-02-03T09:26:22.414Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-0cd1379e1df4",
@@ -1732,7 +1711,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/97084041571771078-infotasks-productivity-agents-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:14.883Z",
+      "crawledAt": "2026-11-27T09:26:21.860Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1787,9 +1766,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:18:14.883Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/97084041571771078-infotasks-productivity-agents-deepmind"
+      "validThrough": "2027-01-18T09:26:21.860Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-aa99d0ae9f5e",
@@ -1822,7 +1800,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/135167583962702534-staff-data-scientist-tech-lead-manager-youtube-trust-and-safety",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:14.357Z",
+      "crawledAt": "2026-11-27T09:26:21.307Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1882,9 +1860,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T21:18:14.357Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/135167583962702534-staff-data-scientist-tech-lead-manager-youtube-trust-and-safety"
+      "validThrough": "2027-02-22T09:26:21.307Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-141900d55413",
@@ -1917,7 +1894,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:13.826Z",
+      "crawledAt": "2026-11-27T09:26:20.754Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1987,9 +1964,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:13.826Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027"
+      "validThrough": "2026-12-27T09:26:20.754Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-fac2097502bc",
@@ -2022,7 +1998,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/73200092168757958-senior-software-engineer-site-reliability-engineering-youtube-ml",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:13.292Z",
+      "crawledAt": "2026-11-27T09:26:20.170Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2093,9 +2069,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:18:13.292Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/73200092168757958-senior-software-engineer-site-reliability-engineering-youtube-ml"
+      "validThrough": "2027-01-19T09:26:20.170Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-aedf6682d934",
@@ -2128,7 +2103,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/100996523508015814-ux-designer-youtube-creator-ads",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:12.731Z",
+      "crawledAt": "2026-11-27T09:26:19.629Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2190,9 +2165,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:18:12.731Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/100996523508015814-ux-designer-youtube-creator-ads"
+      "validThrough": "2027-02-18T09:26:19.629Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-52d0ed67e0aa",
@@ -2225,7 +2199,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/124012647656891078-technical-program-manager-google-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:12.197Z",
+      "crawledAt": "2026-11-27T09:26:19.070Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2285,9 +2259,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:18:12.197Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/124012647656891078-technical-program-manager-google-health-and-home-infrastructure"
+      "validThrough": "2027-02-08T09:26:19.070Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-c74ff5af4062",
@@ -2320,7 +2293,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105218557964362438-staff-security-engineer-security-research",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:11.677Z",
+      "crawledAt": "2026-11-27T09:26:18.517Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2385,42 +2358,41 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:18:11.677Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/105218557964362438-staff-security-engineer-security-research"
+      "validThrough": "2027-02-09T09:26:18.517Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-faa23e4753ea",
-      "slug": "senior-research-engineer-formal-solvers-and-ai-chip-design-google-switzerland-zurich",
+      "slug": "senior-ricerca-ingegnere-formal-solvers-and-ai-chip-design-google-switzerland-zurich",
       "slugByLocale": {
+        "it": "senior-ricerca-ingegnere-formal-solvers-and-ai-chip-design-google-switzerland-zurich",
         "en": "senior-research-engineer-formal-solvers-and-ai-chip-design-google-switzerland-zurich",
-        "it": "senior-research-engineer-formal-solvers-and-ai-chip-design-google-switzerland-zurich",
-        "de": "senior-research-engineer-formal-solvers-and-ai-chip-design-google-switzerland-zurich",
-        "fr": "senior-research-engineer-formal-solvers-and-ai-chip-design-google-switzerland-zurich"
+        "de": "senior-forschung-ingenieur-formal-solvers-and-ai-chip-design-google-switzerland-zurich",
+        "fr": "senior-recherche-ingenieur-formal-solvers-and-ai-chip-design-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
       "companyDomain": "google.com",
       "title": "Senior Research Engineer, Formal Solvers and AI Chip Design",
       "titleByLocale": {
-        "en": "Senior Research Engineer, Formal Solvers and AI Chip Design",
         "it": "Senior Ricerca Ingegnere, Formal Solvers and AI Chip Design",
+        "en": "Senior Research Engineer, Formal Solvers and AI Chip Design",
         "de": "Senior Forschung Ingenieur, Formal Solvers and AI Chip Design",
         "fr": "Senior Recherche Ingénieur, Formal Solvers and AI Chip Design"
       },
       "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience programming in Python or C++.\n\n• Experience in at least two of the following: formal or optimization solvers (e.g., SAT, SMT, CP-SAT, MIP), RTL design or formal hardware verification, or machine learning.\n\nPreferred qualifications:\n\n• Experience in Machine Learning and Machine Learning Hardware Research.\n\n• Experience with the EDA tooling ecosystem that underpins chip design.\n\n• Experience with Large Language Models.\n\n• Experience in hardware design.\n\nAbout the job\n The Operations Research group develops combinatorial optimization and solver technology across Google and Alphabet. Within the OR group, our Gemini + Solvers team works at the intersection of LLMs/RL, formal and optimization solvers, and TPU chip design, with a focus on RTL transformation and equivalence checking.\n Automated RTL optimization (for timing, area, power, or pipelining) is often bottlenecked by verification: rewrites are only useful when functional equivalence can be proven, yet arithmetic datapaths, sequential retiming, and structural transformations routinely stress standard equivalence flows. Our work spans improving Gemini's ability to propose and verify RTL transformations, scaling the underlying CP-SAT and equivalence engines (including decomposition, invariants, and ML-guided search), and tightening the interaction loop between models and solvers.\n Google Research addresses challenges that define the technology of today and tomorrow. From conducting fundamental research to influencing product development, our research teams have the opportunity to impact technology used by billions of people every day.\n\nOur teams aspire to make discoveries that impact everyone, and core to our approach is sharing our research and tools to fuel progress in the field -- we publish regularly in academic journals, release projects as open source, and apply research to Google products.\n\nResponsibilities\n\n• Build verification and RL harnesses where equivalence checkers and SAT/SMT/CP-SAT solvers provide exact checks, counter examples, and reward signals for Gemini on RTL generation and circuit optimization rewrites.\n\n• Scale combinational and sequential RTL equivalence checking via solver improvements, miter simplification, cut/subproblem decomposition, invariant generation, and ML/LLM-guided heuristics.\n\n• Synthesize and curate RTL datasets, transformation pairs, and evaluation suites covering realistic hardware corner cases (datapath arithmetic, pipelining, control logic).\n\n• Develop tool interfaces and agentic harnesses connecting Gemini with formal solvers, simulators, and hardware toolchains (Verilog/SystemVerilog, XLS, etc.).\n\n• Collaborate with Google hardware and AI teams to apply Gemini + solver methods to real design and verification bottlenecks.",
       "descriptionByLocale": {
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience programming in Python or C++.\n\n• Experience in at least two of the following: formal or optimization solvers (e.g., SAT, SMT, CP-SAT, MIP), RTL design or formal hardware verification, or machine learning.\n\nPreferred qualifications:\n\n• Experience in Machine Learning and Machine Learning Hardware Research.\n\n• Experience with the EDA tooling ecosystem that underpins chip design.\n\n• Experience with Large Language Models.\n\n• Experience in hardware design.\n\nAbout the job\n The Operations Research group develops combinatorial optimization and solver technology across Google and Alphabet. Within the OR group, our Gemini + Solvers team works at the intersection of LLMs/RL, formal and optimization solvers, and TPU chip design, with a focus on RTL transformation and equivalence checking.\n Automated RTL optimization (for timing, area, power, or pipelining) is often bottlenecked by verification: rewrites are only useful when functional equivalence can be proven, yet arithmetic datapaths, sequential retiming, and structural transformations routinely stress standard equivalence flows. Our work spans improving Gemini's ability to propose and verify RTL transformations, scaling the underlying CP-SAT and equivalence engines (including decomposition, invariants, and ML-guided search), and tightening the interaction loop between models and solvers.\n Google Research addresses challenges that define the technology of today and tomorrow. From conducting fundamental research to influencing product development, our research teams have the opportunity to impact technology used by billions of people every day.\n\nOur teams aspire to make discoveries that impact everyone, and core to our approach is sharing our research and tools to fuel progress in the field -- we publish regularly in academic journals, release projects as open source, and apply research to Google products.\n\nResponsibilities\n\n• Build verification and RL harnesses where equivalence checkers and SAT/SMT/CP-SAT solvers provide exact checks, counter examples, and reward signals for Gemini on RTL generation and circuit optimization rewrites.\n\n• Scale combinational and sequential RTL equivalence checking via solver improvements, miter simplification, cut/subproblem decomposition, invariant generation, and ML/LLM-guided heuristics.\n\n• Synthesize and curate RTL datasets, transformation pairs, and evaluation suites covering realistic hardware corner cases (datapath arithmetic, pipelining, control logic).\n\n• Develop tool interfaces and agentic harnesses connecting Gemini with formal solvers, simulators, and hardware toolchains (Verilog/SystemVerilog, XLS, etc.).\n\n• Collaborate with Google hardware and AI teams to apply Gemini + solver methods to real design and verification bottlenecks.",
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 5 anni di esperienza di programmazione in Python o C++.\n\n• Esperienza in almeno due dei seguenti: risolutori formali o di ottimizzazione (ad esempio, SAT, SMT, CP-SAT, MIP), progettazione RTL o verifica formale hardware, o machine learning.\n\nPreferiti:\n\n• Esperienza nell'apprendimento delle macchine e nella ricerca dell'hardware di apprendimento delle macchine.\n\n• Esperienza con l'ecosistema di tooling EDA che sostiene il design del chip.\n\n• Esperienza con Modelli di Grande Lingua.\n\n• Esperienza nella progettazione hardware.\n\nRiguardo al lavoro\n Il gruppo Operations Research sviluppa l'ottimizzazione combinatoria e la tecnologia del risolutore su Google e Alphabet. All'interno del gruppo OR, il nostro team Gemini + Solvers lavora all'intersezione di LLMs/RL, risolutori formali e di ottimizzazione, e progettazione chip TPU, con un focus sulla trasformazione RTL e il controllo di equivalenza.\n L'ottimizzazione RTL automatizzata (per tempismo, area, potenza o pipelining) è spesso stroncata dalla verifica: i riscritti sono utili solo quando l'equivalenza funzionale può essere provata, ma i percorsi di dati aritmetici, il retiming sequenziale e le trasformazioni strutturali esercitano regolarmente lo stress dei flussi di equivalenza standard. Il nostro lavoro si estende per migliorare la capacità di Gemini di proporre e verificare trasformazioni RTL, scalare i motori CP-SAT e di equivalenza sottostanti (tra cui decomposizione, invarianti e ricerca guidata ML), e stringere il ciclo di interazione tra modelli e risolutori.\n Google Research affronta le sfide che definiscono la tecnologia di oggi e di domani. Dal condurre una ricerca fondamentale per influenzare lo sviluppo del prodotto, i nostri team di ricerca hanno l'opportunità di influenzare la tecnologia utilizzata da miliardi di persone ogni giorno.\n\nI nostri team aspirano a fare scoperte che colpiscono tutti, e core al nostro approccio sta condividendo la nostra ricerca e strumenti per alimentare il progresso nel campo -- pubblichiamo regolarmente in riviste accademiche, rilasciano progetti come open source, e applichiamo la ricerca ai prodotti di Google.\n\nresponsabilità\n\n• Costruire la verifica e le imbracature RL dove i controllori di equivalenza e i risolutori SAT/SMT/CP-SAT forniscono controlli esatti, esempi di contatori e segnali di ricompensa per Gemini sulla generazione RTL e riscrive l'ottimizzazione dei circuiti.\n\n• Equivalenza RTL combinata e sequenziale scala tramite miglioramenti del risolutore, semplificazione del mitro, decomposizione del taglio/sottoproblema, generazione invariante e euristica guidata da ML/LLM.\n\n• Synthesize e curate i dataset RTL, le coppie di trasformazione e le suite di valutazione che coprono casi di angolo hardware realistici (datapath arithmetic, pipelining, logica di controllo).\n\n• Sviluppare interfacce degli strumenti e imbracature agentiche che collegano Gemini con risolutori formali, simulatori e portautensili hardware (Verilog/SystemVerilog, XLS, ecc.).\n\n• Collaborare con i team di hardware e AI di Google per applicare i metodi di risoluzione Gemini + per progettare e verificare i colli di bottiglia.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 5 Jahre Programmiererfahrung in Python oder C++.\n\n• Erfahrung in mindestens zwei der folgenden: formale oder Optimierungslöser (z. B. SAT, SMT, CP-SAT, MIP), RTL-Design oder formale Hardware-Verifizierung oder maschinelles Lernen.\n\nBevorzugte Qualifikationen:\n\n• Erfahrung in Machine Learning und Machine Learning Hardware Research.\n\n• Erfahrung mit dem EDA-Tooling-Ökosystem, das das Chipdesign untermauert.\n\n• Erfahrung mit großen Sprachmodellen.\n\n• Erfahrung im Hardware-Design.\n\nÜber den Job\n Die Operations Research-Gruppe entwickelt kombinatorische Optimierungs- und Solver-Technologie für Google und Alphabet. Innerhalb der OR-Gruppe arbeitet unser Gemini + Solvers-Team an der Schnittstelle von LLMs / RL, formalen und Optimierungslösern und TPU-Chipdesign mit Schwerpunkt auf RTL-Transformation und Äquivalenzprüfung.\n Die automatisierte RTL-Optimierung (für Timing, Area, Power oder Pipelining) wird oft durch Verifizierung behindert: Umschreiben ist nur dann nützlich, wenn funktionelle Äquivalenz nachgewiesen werden kann, aber arithmetische Datenpfade, sequentielles Retiming und strukturelle Transformationen belasten routinemäßig Standardäquivalenzflüsse. Unsere Arbeit umfasst die Verbesserung der Fähigkeit von Gemini, RTL-Transformationen vorzuschlagen und zu verifizieren, die Skalierung der zugrunde liegenden CP-SAT- und Äquivalenz-Engines (einschließlich Zersetzung, Invarianten und ML-geführte Suche) und die Verschärfung der Interaktionsschleife zwischen Modellen und Solvern.\n Google Research adressiert Herausforderungen, die die Technologie von heute und morgen definieren. Von der Grundlagenforschung bis hin zur Beeinflussung der Produktentwicklung haben unsere Forschungsteams die Möglichkeit, die Technologie zu beeinflussen, die täglich von Milliarden von Menschen genutzt wird.\n\nUnsere Teams streben danach, Entdeckungen zu machen, die alle betreffen, und der Kern unseres Ansatzes besteht darin, unsere Forschung und Werkzeuge zu teilen, um Fortschritte in diesem Bereich zu erzielen - wir veröffentlichen regelmäßig in akademischen Zeitschriften, veröffentlichen Projekte als Open Source und wenden Forschung auf Google-Produkte an.\n\nZuständigkeiten\n\n• Bauen Sie Verifizierungs- und RL-Systeme auf, bei denen Äquivalenzprüfer und SAT / SMT / CP-SAT-Solver genaue Prüfungen, Zählerbeispiele und Belohnungssignale für Gemini bei der RTL-Generierung und Schaltungsoptimierung bereitstellen.\n\n• Skalieren Sie die kombinatorische und sequentielle RTL-Äquivalenzprüfung über Löserverbesserungen, Gehrungsvereinfachung, Cut / Subproblem-Dekomposition, invariante Generierung und ML / LLM-geführte Heuristik.\n\n• Synthetisieren und kuratieren Sie RTL-Datensätze, Transformationspaare und Evaluationssuiten, die realistische Hardware-Eckfälle abdecken (Datenpfadarithmetik, Pipelining, Steuerlogik).\n\n• Entwickeln Sie Tool-Schnittstellen und agentische Kabelbäume, die Gemini mit formalen Solvern, Simulatoren und Hardware-Toolchains (Verilog / SystemVerilog, XLS usw.) verbinden.\n\n• Arbeiten Sie mit Google-Hardware und KI-Teams zusammen, um Gemini + Solver-Methoden auf echte Design- und Verifizierungsengpässe anzuwenden.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 5 ans d'expérience en programmation Python ou C++.\n\n• Expérience d'au moins deux des solutions suivantes : solutions formelles ou d'optimisation (p. ex. SAT, SMT, CP-SAT, MIP), conception RTL ou vérification matérielle formelle, ou apprentissage automatique.\n\nTitres préférés:\n\n• Expérience de la recherche sur le matériel d'apprentissage automatique.\n\n• Expérience de l'écosystème d'outillage EDA qui sous-tend la conception des puces.\n\n• Expérience avec les modèles de grande langue.\n\n• Expérience dans la conception matérielle.\n\nSur le travail\n Le groupe de recherche opérationnelle développe l'optimisation combinatoire et la technologie de solveur à travers Google et Alphabet. Au sein du groupe OR, notre équipe Gemini + Solvers travaille à l'intersection des LLM/RL, des solveurs formels et d'optimisation, et de la conception de puces TPU, avec un accent sur la transformation RTL et la vérification d'équivalence.\n L'optimisation automatisée du RTL (pour le timing, la zone, la puissance ou la canalisation) est souvent bloquée par la vérification : les réécritures ne sont utiles que lorsque l'équivalence fonctionnelle peut être prouvée, mais les datapaths arithmétiques, le timing séquentiel et les transformations structurales contraintent systématiquement les flux d'équivalence standard. Notre travail s'étend sur l'amélioration de la capacité de Gemini à proposer et vérifier les transformations RTL, l'échelle des moteurs CP-SAT et d'équivalence (y compris la décomposition, les invariants et la recherche guidée par ML) et le resserrement de la boucle d'interaction entre les modèles et les solveurs.\n Google Research répond aux défis qui définissent la technologie d'aujourd'hui et de demain. De la recherche fondamentale à l'influence sur le développement des produits, nos équipes de recherche ont la possibilité d'influencer la technologie utilisée par des milliards de personnes chaque jour.\n\nNos équipes aspirent à faire des découvertes qui touchent tout le monde, et au cœur de notre approche est le partage de nos recherches et des outils pour alimenter les progrès dans le domaine -- nous publions régulièrement dans des revues universitaires, publions des projets comme source ouverte, et appliquons la recherche aux produits Google.\n\nResponsabilités\n\n• Construisez la vérification et les harnais RL où les vérificateurs d'équivalence et les solveurs SAT/SMT/CP-SAT fournissent des vérifications exactes, des contre-exemples et des signaux de récompense pour Gemini sur les réécritures de génération et d'optimisation de circuits RTL.\n\n• Vérification de l'équivalence RTL combinée et séquentielle à l'échelle grâce à des améliorations du solveur, à la simplification du miter, à la décomposition coupe/sous-problème, à la génération invariante et à l'heuristique guidée par ML/LLM.\n\n• Synthétiser et arranger les ensembles de données RTL, les paires de transformation et les suites d'évaluation couvrant des cas d'angles matériels réalistes (arithmétique datapath, pipeline, logique de contrôle).\n\n• Développer des interfaces d'outils et des harnais d'agents reliant Gemini à des solveurs formels, des simulateurs et des chaînes d'outils matérielles (Vérilog/SystemVérilog, XLS, etc.).\n\n• Collaborer avec les équipes Google hardware et AI pour appliquer les méthodes Gemini + solveur à de véritables goulets d'étranglement de conception et de vérification."
+        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 5 anni di esperienza di programmazione in Python o C++.\n\n• Esperienza in almeno due dei seguenti: risolutori formali o di ottimizzazione (ad esempio, SAT, SMT, CP-SAT, MIP), progettazione RTL o verifica formale hardware, o machine learning.\n\nPreferiti:\n\n• Esperienza nell'apprendimento delle macchine e nella ricerca dell'hardware di apprendimento delle macchine.\n\n• Esperienza con l'ecosistema di tooling EDA che sostiene il design del chip.\n\n• Esperienza con Modelli di Grande Lingua.\n\n• Esperienza nella progettazione hardware.\n\nRiguardo al lavoro\nIl gruppo Operations Research sviluppa l'ottimizzazione combinatoria e la tecnologia del risolutore su Google e Alphabet. All'interno del gruppo OR, il nostro team Gemini + Solvers lavora all'intersezione di LLMs/RL, risolutori formali e di ottimizzazione, e progettazione chip TPU, con un focus sulla trasformazione RTL e il controllo di equivalenza.\nL'ottimizzazione RTL automatizzata (per tempismo, area, potenza o pipelining) è spesso stroncata dalla verifica: i riscritti sono utili solo quando l'equivalenza funzionale può essere provata, ma i percorsi di dati aritmetici, il retiming sequenziale e le trasformazioni strutturali esercitano regolarmente lo stress dei flussi di equivalenza standard. Il nostro lavoro si estende per migliorare la capacità di Gemini di proporre e verificare trasformazioni RTL, scalare i motori CP-SAT e di equivalenza sottostanti (tra cui decomposizione, invarianti e ricerca guidata ML), e stringere il ciclo di interazione tra modelli e risolutori.\nGoogle Research affronta le sfide che definiscono la tecnologia di oggi e di domani. Dal condurre una ricerca fondamentale per influenzare lo sviluppo del prodotto, i nostri team di ricerca hanno l'opportunità di influenzare la tecnologia utilizzata da miliardi di persone ogni giorno.\n\nI nostri team aspirano a fare scoperte che colpiscono tutti, e core al nostro approccio sta condividendo la nostra ricerca e strumenti per alimentare il progresso nel campo -- pubblichiamo regolarmente in riviste accademiche, rilasciano progetti come open source, e applichiamo la ricerca ai prodotti di Google.\n\nresponsabilità\n\n• Costruire la verifica e le imbracature RL dove i controllori di equivalenza e i risolutori SAT/SMT/CP-SAT forniscono controlli esatti, esempi di contatori e segnali di ricompensa per Gemini sulla generazione RTL e riscrive l'ottimizzazione dei circuiti.\n\n• Equivalenza RTL combinata e sequenziale scala tramite miglioramenti del risolutore, semplificazione del mitro, decomposizione del taglio/sottoproblema, generazione invariante e euristica guidata da ML/LLM.\n\n• Synthesize e curate i dataset RTL, le coppie di trasformazione e le suite di valutazione che coprono casi di angolo hardware realistici (datapath arithmetic, pipelining, logica di controllo).\n\n• Sviluppare interfacce degli strumenti e imbracature agentiche che collegano Gemini con risolutori formali, simulatori e portautensili hardware (Verilog/SystemVerilog, XLS, ecc.).\n\n• Collaborare con i team di hardware e AI di Google per applicare i metodi di risoluzione Gemini + per progettare e verificare i colli di bottiglia.",
+        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience programming in Python or C++.\n\n• Experience in at least two of the following: formal or optimization solvers (e.g., SAT, SMT, CP-SAT, MIP), RTL design or formal hardware verification, or machine learning.\n\nPreferred qualifications:\n\n• Experience in Machine Learning and Machine Learning Hardware Research.\n\n• Experience with the EDA tooling ecosystem that underpins chip design.\n\n• Experience with Large Language Models.\n\n• Experience in hardware design.\n\nAbout the job\nThe Operations Research group develops combinatorial optimization and solver technology across Google and Alphabet. Within the OR group, our Gemini + Solvers team works at the intersection of LLMs/RL, formal and optimization solvers, and TPU chip design, with a focus on RTL transformation and equivalence checking.\nAutomated RTL optimization (for timing, area, power, or pipelining) is often bottlenecked by verification: rewrites are only useful when functional equivalence can be proven, yet arithmetic datapaths, sequential retiming, and structural transformations routinely stress standard equivalence flows. Our work spans improving Gemini's ability to propose and verify RTL transformations, scaling the underlying CP-SAT and equivalence engines (including decomposition, invariants, and ML-guided search), and tightening the interaction loop between models and solvers.\nGoogle Research addresses challenges that define the technology of today and tomorrow. From conducting fundamental research to influencing product development, our research teams have the opportunity to impact technology used by billions of people every day.\n\nOur teams aspire to make discoveries that impact everyone, and core to our approach is sharing our research and tools to fuel progress in the field -- we publish regularly in academic journals, release projects as open source, and apply research to Google products.\n\nResponsibilities\n\n• Build verification and RL harnesses where equivalence checkers and SAT/SMT/CP-SAT solvers provide exact checks, counter examples, and reward signals for Gemini on RTL generation and circuit optimization rewrites.\n\n• Scale combinational and sequential RTL equivalence checking via solver improvements, miter simplification, cut/subproblem decomposition, invariant generation, and ML/LLM-guided heuristics.\n\n• Synthesize and curate RTL datasets, transformation pairs, and evaluation suites covering realistic hardware corner cases (datapath arithmetic, pipelining, control logic).\n\n• Develop tool interfaces and agentic harnesses connecting Gemini with formal solvers, simulators, and hardware toolchains (Verilog/SystemVerilog, XLS, etc.).\n\n• Collaborate with Google hardware and AI teams to apply Gemini + solver methods to real design and verification bottlenecks.",
+        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 5 Jahre Programmiererfahrung in Python oder C++.\n\n• Erfahrung in mindestens zwei der folgenden: formale oder Optimierungslöser (z. B. SAT, SMT, CP-SAT, MIP), RTL-Design oder formale Hardware-Verifizierung oder maschinelles Lernen.\n\nBevorzugte Qualifikationen:\n\n• Erfahrung in Machine Learning und Machine Learning Hardware Research.\n\n• Erfahrung mit dem EDA-Tooling-Ökosystem, das das Chipdesign untermauert.\n\n• Erfahrung mit großen Sprachmodellen.\n\n• Erfahrung im Hardware-Design.\n\nÜber den Job\nDie Operations Research-Gruppe entwickelt kombinatorische Optimierungs- und Solver-Technologie für Google und Alphabet. Innerhalb der OR-Gruppe arbeitet unser Gemini + Solvers-Team an der Schnittstelle von LLMs / RL, formalen und Optimierungslösern und TPU-Chipdesign mit Schwerpunkt auf RTL-Transformation und Äquivalenzprüfung.\nDie automatisierte RTL-Optimierung (für Timing, Area, Power oder Pipelining) wird oft durch Verifizierung behindert: Umschreiben ist nur dann nützlich, wenn funktionelle Äquivalenz nachgewiesen werden kann, aber arithmetische Datenpfade, sequentielles Retiming und strukturelle Transformationen belasten routinemäßig Standardäquivalenzflüsse. Unsere Arbeit umfasst die Verbesserung der Fähigkeit von Gemini, RTL-Transformationen vorzuschlagen und zu verifizieren, die Skalierung der zugrunde liegenden CP-SAT- und Äquivalenz-Engines (einschließlich Zersetzung, Invarianten und ML-geführte Suche) und die Verschärfung der Interaktionsschleife zwischen Modellen und Solvern.\nGoogle Research adressiert Herausforderungen, die die Technologie von heute und morgen definieren. Von der Grundlagenforschung bis hin zur Beeinflussung der Produktentwicklung haben unsere Forschungsteams die Möglichkeit, die Technologie zu beeinflussen, die täglich von Milliarden von Menschen genutzt wird.\n\nUnsere Teams streben danach, Entdeckungen zu machen, die alle betreffen, und der Kern unseres Ansatzes besteht darin, unsere Forschung und Werkzeuge zu teilen, um Fortschritte in diesem Bereich zu erzielen - wir veröffentlichen regelmäßig in akademischen Zeitschriften, veröffentlichen Projekte als Open Source und wenden Forschung auf Google-Produkte an.\n\nZuständigkeiten\n\n• Bauen Sie Verifizierungs- und RL-Systeme auf, bei denen Äquivalenzprüfer und SAT / SMT / CP-SAT-Solver genaue Prüfungen, Zählerbeispiele und Belohnungssignale für Gemini bei der RTL-Generierung und Schaltungsoptimierung bereitstellen.\n\n• Skalieren Sie die kombinatorische und sequentielle RTL-Äquivalenzprüfung über Löserverbesserungen, Gehrungsvereinfachung, Cut / Subproblem-Dekomposition, invariante Generierung und ML / LLM-geführte Heuristik.\n\n• Synthetisieren und kuratieren Sie RTL-Datensätze, Transformationspaare und Evaluationssuiten, die realistische Hardware-Eckfälle abdecken (Datenpfadarithmetik, Pipelining, Steuerlogik).\n\n• Entwickeln Sie Tool-Schnittstellen und agentische Kabelbäume, die Gemini mit formalen Solvern, Simulatoren und Hardware-Toolchains (Verilog / SystemVerilog, XLS usw.) verbinden.\n\n• Arbeiten Sie mit Google-Hardware und KI-Teams zusammen, um Gemini + Solver-Methoden auf echte Design- und Verifizierungsengpässe anzuwenden.",
+        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 5 ans d'expérience en programmation Python ou C++.\n\n• Expérience d'au moins deux des solutions suivantes : solutions formelles ou d'optimisation (p. ex. SAT, SMT, CP-SAT, MIP), conception RTL ou vérification matérielle formelle, ou apprentissage automatique.\n\nTitres préférés:\n\n• Expérience de la recherche sur le matériel d'apprentissage automatique.\n\n• Expérience de l'écosystème d'outillage EDA qui sous-tend la conception des puces.\n\n• Expérience avec les modèles de grande langue.\n\n• Expérience dans la conception matérielle.\n\nSur le travail\nLe groupe de recherche opérationnelle développe l'optimisation combinatoire et la technologie de solveur à travers Google et Alphabet. Au sein du groupe OR, notre équipe Gemini + Solvers travaille à l'intersection des LLM/RL, des solveurs formels et d'optimisation, et de la conception de puces TPU, avec un accent sur la transformation RTL et la vérification d'équivalence.\nL'optimisation automatisée du RTL (pour le timing, la zone, la puissance ou la canalisation) est souvent bloquée par la vérification : les réécritures ne sont utiles que lorsque l'équivalence fonctionnelle peut être prouvée, mais les datapaths arithmétiques, le timing séquentiel et les transformations structurales contraintent systématiquement les flux d'équivalence standard. Notre travail s'étend sur l'amélioration de la capacité de Gemini à proposer et vérifier les transformations RTL, l'échelle des moteurs CP-SAT et d'équivalence (y compris la décomposition, les invariants et la recherche guidée par ML) et le resserrement de la boucle d'interaction entre les modèles et les solveurs.\nGoogle Research répond aux défis qui définissent la technologie d'aujourd'hui et de demain. De la recherche fondamentale à l'influence sur le développement des produits, nos équipes de recherche ont la possibilité d'influencer la technologie utilisée par des milliards de personnes chaque jour.\n\nNos équipes aspirent à faire des découvertes qui touchent tout le monde, et au cœur de notre approche est le partage de nos recherches et des outils pour alimenter les progrès dans le domaine -- nous publions régulièrement dans des revues universitaires, publions des projets comme source ouverte, et appliquons la recherche aux produits Google.\n\nResponsabilités\n\n• Construisez la vérification et les harnais RL où les vérificateurs d'équivalence et les solveurs SAT/SMT/CP-SAT fournissent des vérifications exactes, des contre-exemples et des signaux de récompense pour Gemini sur les réécritures de génération et d'optimisation de circuits RTL.\n\n• Vérification de l'équivalence RTL combinée et séquentielle à l'échelle grâce à des améliorations du solveur, à la simplification du miter, à la décomposition coupe/sous-problème, à la génération invariante et à l'heuristique guidée par ML/LLM.\n\n• Synthétiser et arranger les ensembles de données RTL, les paires de transformation et les suites d'évaluation couvrant des cas d'angles matériels réalistes (arithmétique datapath, pipeline, logique de contrôle).\n\n• Développer des interfaces d'outils et des harnais d'agents reliant Gemini à des solveurs formels, des simulateurs et des chaînes d'outils matérielles (Vérilog/SystemVérilog, XLS, etc.).\n\n• Collaborer avec les équipes Google hardware et AI pour appliquer les méthodes Gemini + solveur à de véritables goulets d'étranglement de conception et de vérification."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.google.com/about/careers/applications/jobs/results/84195066712597190-senior-research-engineer-formal-solvers-and-ai-chip-design",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:11.161Z",
+      "crawledAt": "2026-11-27T09:26:17.967Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2447,10 +2419,24 @@
       "requirementsByLocale": {
         "en": [
           "Bachelor’s degree or equivalent practical experience.",
-          "5 years of experience programming in Python or C++.",
-          "Experience in at least two of the following: formal or optimization solvers (e.g., SAT, SMT, CP-SAT, MIP), RTL design or formal hardware verification, or machine learning."
+          "5 years of experience programming in Python or C++."
         ]
       },
+      "firstSeenAt": "2026-11-26T21:18:11.161Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-research-engineer-formal-solvers-and-ai-chip-design-google-switzerland-zurich"
+        ],
+        "de": [
+          "senior-research-engineer-formal-solvers-and-ai-chip-design-google-switzerland-zurich"
+        ],
+        "fr": [
+          "senior-research-engineer-formal-solvers-and-ai-chip-design-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-research-engineer-formal-solvers-and-ai-chip-design-google-switzerland-zurich"
+      ],
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2465,10 +2451,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:18:11.161Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T21:18:11.161Z",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/84195066712597190-senior-research-engineer-formal-solvers-and-ai-chip-design"
+      "validThrough": "2027-02-25T09:26:17.967Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-9e51165d42ea",
@@ -2501,7 +2485,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111066250427146950-principal-engineer-ai-research-and-development",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:10.555Z",
+      "crawledAt": "2026-11-27T09:26:17.403Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2560,9 +2544,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:18:10.555Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/111066250427146950-principal-engineer-ai-research-and-development"
+      "validThrough": "2027-02-11T09:26:17.403Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-ed947bfe2fa6",
@@ -2595,7 +2578,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118460461828973254-product-manager-ii-youtube-ads-agentic-buyflows",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:10.000Z",
+      "crawledAt": "2026-11-27T09:26:16.807Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2648,9 +2631,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:18:10.000Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/118460461828973254-product-manager-ii-youtube-ads-agentic-buyflows"
+      "validThrough": "2027-02-15T09:26:16.807Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-020f6034f593",
@@ -2683,7 +2665,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/113172901821063878-senior-software-engineer-ai-data-protection",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:09.451Z",
+      "crawledAt": "2026-11-27T09:26:16.287Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2734,9 +2716,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:18:09.451Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/113172901821063878-senior-software-engineer-ai-data-protection"
+      "validThrough": "2027-02-17T09:26:16.287Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-49b3edd7c651",
@@ -2769,7 +2750,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/99945252952908486-software-engineer-iii-ml-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:08.930Z",
+      "crawledAt": "2026-11-27T09:26:15.718Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2814,9 +2795,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:18:08.930Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/99945252952908486-software-engineer-iii-ml-infrastructure"
+      "validThrough": "2027-02-18T09:26:15.718Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-37d259d9c249",
@@ -2849,7 +2829,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81658813362381510-staff-research-data-scientist-manager-ads-metrics",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:08.333Z",
+      "crawledAt": "2026-11-27T09:26:15.177Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2894,9 +2874,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:18:08.333Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/81658813362381510-staff-research-data-scientist-manager-ads-metrics"
+      "validThrough": "2027-01-27T09:26:15.177Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-bce07c51fb3e",
@@ -2929,7 +2908,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/78601150982431430-senior-quantitative-ux-researcher-merchant-shopping",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:07.816Z",
+      "crawledAt": "2026-11-27T09:26:14.572Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2990,9 +2969,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:18:07.816Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/78601150982431430-senior-quantitative-ux-researcher-merchant-shopping"
+      "validThrough": "2027-02-10T09:26:14.572Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-f91a594852d7",
@@ -3025,7 +3003,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79361738150945478-technical-program-manager-gemma-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:07.263Z",
+      "crawledAt": "2026-11-27T09:26:14.006Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3082,9 +3060,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:18:07.263Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/79361738150945478-technical-program-manager-gemma-deepmind"
+      "validThrough": "2027-02-10T09:26:14.006Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-c115be9b2e5a",
@@ -3117,7 +3094,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/116974862706057926-software-engineer-proof-and-verification-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:06.725Z",
+      "crawledAt": "2026-11-27T09:26:13.467Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3167,9 +3144,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:18:06.725Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/116974862706057926-software-engineer-proof-and-verification-engineer"
+      "validThrough": "2027-02-09T09:26:13.467Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-168fa53db73b",
@@ -3202,7 +3178,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86512016885195462-security-engineer-red-team",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:06.199Z",
+      "crawledAt": "2026-11-27T09:26:12.924Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3251,9 +3227,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:18:06.199Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/86512016885195462-security-engineer-red-team"
+      "validThrough": "2027-02-09T09:26:12.924Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-8d3122e82ec9",
@@ -3286,7 +3261,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/80006404152140486-director-product-management-shopping-graph-core",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:05.678Z",
+      "crawledAt": "2026-11-27T09:26:12.396Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3331,9 +3306,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T21:18:05.678Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/80006404152140486-director-product-management-shopping-graph-core"
+      "validThrough": "2027-02-12T09:26:12.396Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-d401c97db460",
@@ -3366,7 +3340,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/136295776576774854-software-engineer-iii-youtube-viewcount-and-aggregations",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:05.150Z",
+      "crawledAt": "2026-11-27T09:26:11.786Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3419,9 +3393,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:05.150Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/136295776576774854-software-engineer-iii-youtube-viewcount-and-aggregations"
+      "validThrough": "2026-12-27T09:26:11.786Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-904b17911ec4",
@@ -3454,7 +3427,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/134234751425749702-staff-forward-deployed-engineer-genai-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:04.626Z",
+      "crawledAt": "2026-11-27T09:26:11.235Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3501,9 +3474,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:18:04.626Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/134234751425749702-staff-forward-deployed-engineer-genai-google-cloud"
+      "validThrough": "2027-02-22T09:26:11.235Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-7a73c01a52af",
@@ -3536,7 +3508,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/112839964546212550-ux-designer-ads",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:04.089Z",
+      "crawledAt": "2026-11-27T09:26:10.540Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3588,89 +3560,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:18:04.089Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/112839964546212550-ux-designer-ads"
-    },
-    {
-      "id": "google-switzerland-7e66f750eac2",
-      "slug": "ai-innovation-engineer-google-cloud-google-switzerland-zurich",
-      "slugByLocale": {
-        "it": "ai-innovation-engineer-google-cloud-google-switzerland-zurich",
-        "en": "ai-innovation-engineer-google-cloud-google-switzerland-zurich",
-        "de": "ai-innovation-engineer-google-cloud-google-switzerland-zurich",
-        "fr": "ai-innovation-engineer-google-cloud-google-switzerland-zurich"
-      },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "AI Innovation Engineer, Google Cloud",
-      "titleByLocale": {
-        "it": "AI Innovation Ingegnere, Google Cloud",
-        "en": "AI Innovation Engineer, Google Cloud",
-        "de": "AI Innovation Ingenieur, Google Cloud",
-        "fr": "AI Innovation Ingénieur, Google Cloud"
-      },
-      "description": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Frankfurt am Main, Germany; Zürich, Switzerland; Munich, Germany; London, UK.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science, a related field, or equivalent practical experience.\n\n• 8 years of experience in software or data engineering, including one or more programming languages (e.g., Python, Go, Java), and with design patterns, testing frameworks, and API contract design.\n\n• Experience using machine learning methodologies (deep learning, reinforced learning), model identification, selection and AI operations (e.g., model monitoring).\n\n• Experience using Generative AI and agentic orchestration utilizing frameworks (e.g., LangChain, CrewAI, or Vertex AI Agent Builder) and vector databases.\n\nPreferred qualifications:\n\n• Experience in financial services, and with the regulatory and operational clearing, settlement, or custody.\n\n• Experience with FSI regulatory practices and data residency, encryption at rest/transit (CMEK), and \"explainable AI\" requirements in banking.\n\n• Experience with data modeling of relational, NoSQL, and analytical data modeling (Star Schema, Data Vault).\n\n• Experience in BigQuery, Vertex AI, Dataflow, and Pub/Sub with an ability to drive the discovery phase, moving from a vague business problem to a structured product requirement document (PRD) and a working technical demo.\n\n• Experience working in a high-maturity DevOps culture (e.g., trunk-based development, automated testing, blue/green deployments).\n\nAbout the job\nIn this role, you will accelerate customer value and increase adoption by delivering innovative, repeatable, and enterprise-ready solutions focused on business value. Make Google Cloud the preferred choice for customers by delivering the highest-value, industry relevant solutions. Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €150000 - €153000 (EUR) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Design and build autonomous agentic workflows utilizing Machine Learning and generative AI technologies as part of a fully autonomous or human-in-the-loop agentic workflow.\n\n• Partner with client leads (business user) to identify high-impact AI use cases. Translate these into product requirement documents (PRDs), clearly defining critical user journeys (CUJs) and success metrics.\n\n• Evaluate and integrate AI solutions with modern data foundations, including relational databases, data lake houses, and real-time streaming architectures.\n\n• Ensure all prototypes are built with a \"production-first\" mindset. Implement basic CI/CD pipelines and utilize infrastructure-as-code (IaC) (e.g., Terraform) to ensure environments are reproducible and secure.\n\n• Create clear technical guides to ensure a seamless hand-off from proof-of-concept (POC) to engineering teams.",
-      "descriptionByLocale": {
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione. Nota: Applicando a questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita da: Francoforte sul Meno, Germania; Zurigo, Svizzera; Monaco, Germania; Londra, Regno Unito.\n\nTitolo minimo:\n\n• Laurea in Informatica, un campo correlato, o esperienza pratica equivalente.\n\n• 8 anni di esperienza nel software o nell'ingegneria dei dati, tra cui uno o più linguaggi di programmazione (ad esempio, Python, Go, Java), e con modelli di progettazione, framework di test e progettazione dei contratti API.\n\n• Esperienza utilizzando metodologie di apprendimento automatico (apprendimento profondo, apprendimento rinforzato), identificazione modello, selezione e operazioni AI (ad esempio, monitoraggio dei modelli).\n\n• Esperienza utilizzando l'intelligenza artificiale Generativa e l'orchestrazione agentica utilizzando framework (ad esempio, LangChain, CrewAI, o Vertex AI Agent Builder) e database vettoriali.\n\nQualifiche preferenziali:\n\n• Esperienza nei servizi finanziari, e con la compensazione, l'insediamento o la custodia regolamentare e operativa.\n\n• Esperienza con le pratiche regolamentari FSI e la residenza dei dati, crittografia a riposo / transito (CMEK), e requisiti \"spiegabili AI\" nel settore bancario.\n\n• Esperienza con la modellazione dei dati relativi alla modellazione dei dati relazionali, NoSQL e analitici (Star Schema, Data Vault).\n\n• Esperienza in BigQuery, Vertex AI, Dataflow e Pub/Sub con la capacità di guidare la fase di scoperta, passando da un problema di business vago a un documento di requisito del prodotto strutturato (PRD) e una demo tecnica di lavoro.\n\n• Esperienza di lavoro in una cultura DevOps ad alta maturità (ad esempio, sviluppo basato sul tronco, test automatizzati, distribuzioni blu/verde).\n\nRiguardo al lavoro\nIn questo ruolo, accelererai il valore del cliente e aumenterai l'adozione offrendo soluzioni innovative, ripetibili e pronte all'impresa focalizzate sul valore aziendale. Rendere Google Cloud la scelta preferita per i clienti, offrendo le soluzioni più avanzate e rilevanti per il settore. Google Cloud accelera la capacità di ogni organizzazione di trasformare digitalmente il suo business e l'industria. Offriamo soluzioni di livello enterprise che sfruttano la tecnologia all'avanguardia di Google e gli strumenti che aiutano gli sviluppatori a costruire in modo più sostenibile. I clienti in oltre 200 paesi e territori si rivolgono a Google Cloud come partner affidabile per consentire la crescita e risolvere i loro problemi aziendali più critici.\nLa retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nGermania: € 150000 - € 153000 (EUR) + 20% target bonus + equità + prestazioni\n\nScopri di più sui vantaggi di Google .\nresponsabilità\n\n• Progettare e costruire flussi di lavoro agentici autonomi che utilizzano le tecnologie di Machine Learning e Genetive AI come parte di un flusso di lavoro completamente autonomo o umano-in-the-loop agentic.\n\n• Partner con client lead (utente commerciale) per identificare casi di utilizzo AI ad alto impatto. Traduci questi in documenti requisiti di prodotto (PRD), definendo chiaramente i viaggi degli utenti critici (CUJs) e le metriche di successo.\n\n• Valutare e integrare le soluzioni AI con le moderne basi dati, tra cui database relazionali, data lake houses e architetture di streaming in tempo reale.\n\n• Assicurarsi che tutti i prototipi sono costruiti con una mentalità \"prima produzione\". Implementare le tubazioni CI/CD di base e utilizzare l'infrastruttura-as-code (IaC) (ad esempio, Terraform) per garantire che gli ambienti siano riproducibili e sicuri.\n\n• Creare chiare guide tecniche per garantire un senza soluzione di continuità dal proof-of-concept (POC) ai team di ingegneria.",
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Frankfurt am Main, Germany; Zürich, Switzerland; Munich, Germany; London, UK.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science, a related field, or equivalent practical experience.\n\n• 8 years of experience in software or data engineering, including one or more programming languages (e.g., Python, Go, Java), and with design patterns, testing frameworks, and API contract design.\n\n• Experience using machine learning methodologies (deep learning, reinforced learning), model identification, selection and AI operations (e.g., model monitoring).\n\n• Experience using Generative AI and agentic orchestration utilizing frameworks (e.g., LangChain, CrewAI, or Vertex AI Agent Builder) and vector databases.\n\nPreferred qualifications:\n\n• Experience in financial services, and with the regulatory and operational clearing, settlement, or custody.\n\n• Experience with FSI regulatory practices and data residency, encryption at rest/transit (CMEK), and \"explainable AI\" requirements in banking.\n\n• Experience with data modeling of relational, NoSQL, and analytical data modeling (Star Schema, Data Vault).\n\n• Experience in BigQuery, Vertex AI, Dataflow, and Pub/Sub with an ability to drive the discovery phase, moving from a vague business problem to a structured product requirement document (PRD) and a working technical demo.\n\n• Experience working in a high-maturity DevOps culture (e.g., trunk-based development, automated testing, blue/green deployments).\n\nAbout the job\nIn this role, you will accelerate customer value and increase adoption by delivering innovative, repeatable, and enterprise-ready solutions focused on business value. Make Google Cloud the preferred choice for customers by delivering the highest-value, industry relevant solutions. Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €150000 - €153000 (EUR) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nResponsibilities\n\n• Design and build autonomous agentic workflows utilizing Machine Learning and generative AI technologies as part of a fully autonomous or human-in-the-loop agentic workflow.\n\n• Partner with client leads (business user) to identify high-impact AI use cases. Translate these into product requirement documents (PRDs), clearly defining critical user journeys (CUJs) and success metrics.\n\n• Evaluate and integrate AI solutions with modern data foundations, including relational databases, data lake houses, and real-time streaming architectures.\n\n• Ensure all prototypes are built with a \"production-first\" mindset. Implement basic CI/CD pipelines and utilize infrastructure-as-code (IaC) (e.g., Terraform) to ensure environments are reproducible and secure.\n\n• Create clear technical guides to ensure a seamless hand-off from proof-of-concept (POC) to engineering teams.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses. Hinweis: Wenn Sie sich auf diese Stelle bewerben, haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsstandort unter folgenden Adressen zu teilen: Frankfurt am Main, Deutschland; Zürich, Schweiz; München, Deutschland; London, Großbritannien.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss in Informatik, einem verwandten Bereich oder gleichwertige praktische Erfahrung.\n\n• 8 Jahre Erfahrung in Software oder Data Engineering, einschließlich einer oder mehrerer Programmiersprachen (z. B. Python, Go, Java) und mit Design Patterns, Testing Frameworks und API Contract Design.\n\n• Erfahrung mit Methoden des maschinellen Lernens (Deep Learning, verstärktes Lernen), Modellidentifikation, Auswahl und KI-Operationen (z. B. Modellüberwachung).\n\n• Erfahrung mit Generative AI und agentischer Orchestrierung unter Verwendung von Frameworks (z. B. LangChain, CrewAI oder Vertex AI Agent Builder) und Vektordatenbanken.\n\nBevorzugte Qualifikationen:\n\n• Erfahrung in Finanzdienstleistungen und mit der regulatorischen und operativen Clearing, Abwicklung oder Verwahrung.\n\n• Erfahrung mit FSI-Regulierungspraktiken und Datenresidenz, Verschlüsselung in Ruhe / Transit (CMEK) und \"erklärbaren KI\" -Anforderungen im Bankwesen.\n\n• Erfahrung mit Datenmodellierung von relationalen, NoSQL und analytischen Datenmodellierung (Star Schema, Data Vault).\n\n• Erfahrung in BigQuery, Vertex AI, Dataflow und Pub / Sub mit der Fähigkeit, die Entdeckungsphase zu steuern, von einem vagen Geschäftsproblem zu einem strukturierten Produktanforderungsdokument (PRD) und einer funktionierenden technischen Demo.\n\n• Erfahrung in einer DevOps-Kultur mit hoher Reife (z. B. trunkbasierte Entwicklung, automatisiertes Testen, blaue / grüne Bereitstellungen).\n\nÜber den Job\nIn dieser Rolle beschleunigen Sie den Kundenwert und erhöhen die Akzeptanz, indem Sie innovative, wiederholbare und unternehmensfähige Lösungen liefern, die sich auf den Geschäftswert konzentrieren. Machen Sie Google Cloud zur bevorzugten Wahl für Kunden, indem Sie branchenrelevante Lösungen mit dem höchsten Wert anbieten. Google Cloud beschleunigt die Fähigkeit jedes Unternehmens, sein Geschäft und seine Branche digital zu verändern. Wir liefern Lösungen für Unternehmen, die die modernste Technologie von Google nutzen, und Tools, die Entwicklern helfen, nachhaltiger zu bauen. Kunden in mehr als 200 Ländern und Regionen wenden sich an Google Cloud als ihren vertrauenswürdigen Partner, um Wachstum zu ermöglichen und ihre wichtigsten Geschäftsprobleme zu lösen.\nDie individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Bildung oder Ausbildung bestimmt.\n\nDeutschland: 150000 € - 153000 € (EUR) + 20% Bonusziel + Eigenkapital + Leistungen\n\nErfahren Sie mehr über die Vorteile bei Google.\nZuständigkeiten\n\n• Entwerfen und erstellen Sie autonome agentische Workflows unter Verwendung von Machine Learning und generativen KI-Technologien als Teil eines vollständig autonomen oder human-in-the-loop-agentischen Workflows.\n\n• Partner mit Client-Leads (Business-User), um hochwirksame KI-Anwendungsfälle zu identifizieren. Übersetzen Sie diese in Product Requirement Documents (PRDs) und definieren Sie eindeutig kritische User Journeys (CUJs) und Erfolgsmetriken.\n\n• Bewerten und integrieren Sie KI-Lösungen mit modernen Datengrundlagen, einschließlich relationaler Datenbanken, Data Lake-Häusern und Echtzeit-Streaming-Architekturen.\n\n• Stellen Sie sicher, dass alle Prototypen mit einer \"Produktion-zuerst\" Denkweise gebaut werden. Implementieren Sie grundlegende CI/CD-Pipelines und verwenden Sie Infrastructure-as-Code (IaC) (z. B. Terraform), um sicherzustellen, dass Umgebungen reproduzierbar und sicher sind.\n\n• Erstellen Sie klare technische Anleitungen, um eine nahtlose Übergabe vom Proof-of-Concept (POC) an Engineering-Teams zu gewährleisten.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche. Remarque: En postulant à ce poste, vous aurez la possibilité de partager votre lieu de travail préféré parmi les suivants: Francfort-sur-le-Main, Allemagne; Zurich, Suisse; Munich, Allemagne; Londres, Royaume-Uni.\n\nTitres minimums:\n\n• Baccalauréat en informatique, domaine connexe ou expérience pratique équivalente.\n\n• 8 ans d'expérience en ingénierie de logiciels ou de données, y compris un ou plusieurs langages de programmation (p. ex. Python, Go, Java), et avec des modèles de conception, des cadres de test et la conception de contrats API.\n\n• Expérience à l'aide de méthodologies d'apprentissage automatique (apprentissage profond, apprentissage renforcé), identification des modèles, sélection et opérations d'IA (p. ex. surveillance des modèles).\n\n• Expérience de l'utilisation de l'IA Generative et de l'orchestration agentique en utilisant des cadres (p. ex. LangChain, CrewAI ou Vertex AI Agent Builder) et des bases de données vectorielles.\n\nQualifications privilégiées:\n\n• Expérience des services financiers, ainsi que de la compensation, du règlement ou de la garde réglementaires et opérationnelles.\n\n• Expérience des pratiques réglementaires de l'ISF et de la résidence des données, du cryptage au repos/transit (CMEK) et des exigences de « l'IA expliquable » dans le secteur bancaire.\n\n• Expérience de la modélisation des données relationnelles, NoSQL et de la modélisation des données analytiques (Star Schema, Data Vault).\n\n• Expérience en BigQuery, Vertex AI, Dataflow et Pub/Sub avec une capacité de conduire la phase de découverte, passant d'un problème d'affaires vague à un document d'exigence de produit structuré (PRD) et une démo technique de travail.\n\n• Expérience de travail dans une culture DevOps à haute maturité (p. ex. développement basé sur le tronc, essais automatisés, déploiements bleu/vert).\n\nSur le travail\nDans ce rôle, vous accélérerez la valeur client et augmenterez l'adoption en offrant des solutions innovantes, répétables et prêtes à l'entreprise axées sur la valeur opérationnelle. Faites de Google Cloud le choix préféré des clients en fournissant les solutions les plus rentables et pertinentes de l'industrie. Google Cloud accélère la capacité de chaque organisation à transformer numériquement ses affaires et son industrie. Nous fournissons des solutions de qualité entreprise qui tirent parti de la technologie de pointe de Google, et des outils qui aident les développeurs à construire plus durablement. Les clients de plus de 200 pays et territoires se tournent vers Google Cloud en tant que partenaire de confiance pour favoriser la croissance et résoudre leurs problèmes commerciaux les plus critiques.\nLa rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nAllemagne: 150000€ - 153000€ (EUR) + 20% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nResponsabilités\n\n• Concevoir et construire des workflows d'agents autonomes en utilisant le Machine Learning et les technologies d'IA génériques dans le cadre d'un workflow d'agents totalement autonome ou humain dans la boucle.\n\n• Établir un partenariat avec les chefs de file du client (utilisateur d'affaires) pour identifier les cas d'utilisation d'IA à impact élevé. Traduire ces documents en documents d'exigence de produit (DPR), en définissant clairement les parcours critiques des utilisateurs (CUJ) et les mesures de succès.\n\n• Évaluer et intégrer les solutions d'IA avec les bases de données modernes, y compris les bases de données relationnelles, les data lake houses et les architectures de streaming en temps réel.\n\n• Assurez-vous que tous les prototypes sont construits avec un état d'esprit \"production-première\". Mettre en place des pipelines de base CI/CD et utiliser l'infrastructure comme code (IaC) (p. ex. Terraform) pour s'assurer que les environnements sont reproductibles et sécurisés.\n\n• Créer des guides techniques clairs afin d'assurer une transmission transparente de l'épreuve de conception (POC) aux équipes d'ingénierie."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/96799335437476550-ai-innovation-engineer-google-cloud",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:03.553Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/96799335437476550-ai-innovation-engineer-google-cloud",
-      "jobReqId": "96799335437476550",
-      "requirements": [
-        "Bachelor's degree in Computer Science, a related field, or equivalent practical experience.",
-        "8 years of experience in software or data engineering, including one or more programming languages (e.g., Python, Go, Java), and with design patterns, testing frameworks, and API contract design.",
-        "Experience using machine learning methodologies (deep learning, reinforced learning), model identification, selection and AI operations (e.g., model monitoring).",
-        "Experience using Generative AI and agentic orchestration utilizing frameworks (e.g., LangChain, CrewAI, or Vertex AI Agent Builder) and vector databases."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor's degree in Computer Science, a related field, or equivalent practical experience."
-        ]
-      },
-      "firstSeenAt": "2026-11-24T21:23:26.789Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T21:18:03.553Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/96799335437476550-ai-innovation-engineer-google-cloud"
+      "validThrough": "2027-02-25T09:26:10.540Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-bb53cce68bed",
@@ -3703,7 +3594,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/112295976873403078-software-engineer-iii-youtube-content-id-claiming",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:03.022Z",
+      "crawledAt": "2026-11-27T09:26:10.022Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3748,9 +3639,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:18:03.022Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/112295976873403078-software-engineer-iii-youtube-content-id-claiming"
+      "validThrough": "2027-02-08T09:26:10.022Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-2d8aedfa3920",
@@ -3783,7 +3673,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/93078491720753862-software-engineering-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:02.498Z",
+      "crawledAt": "2026-11-27T09:26:09.440Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3827,9 +3717,88 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:02.498Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/93078491720753862-software-engineering-phd-intern-2027"
+      "validThrough": "2026-12-27T09:26:09.440Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "google-switzerland-7e66f750eac2",
+      "slug": "ai-innovation-engineer-google-cloud-google-switzerland-zurich",
+      "slugByLocale": {
+        "it": "ai-innovation-engineer-google-cloud-google-switzerland-zurich",
+        "en": "ai-innovation-engineer-google-cloud-google-switzerland-zurich",
+        "de": "ai-innovation-engineer-google-cloud-google-switzerland-zurich",
+        "fr": "ai-innovation-engineer-google-cloud-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "AI Innovation Engineer, Google Cloud",
+      "titleByLocale": {
+        "it": "AI Innovation Ingegnere, Google Cloud",
+        "en": "AI Innovation Engineer, Google Cloud",
+        "de": "AI Innovation Ingenieur, Google Cloud",
+        "fr": "AI Innovation Ingénieur, Google Cloud"
+      },
+      "description": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Frankfurt am Main, Germany; Zürich, Switzerland; Munich, Germany; London, UK; Berlin, Germany.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science, a related field, or equivalent practical experience.\n\n• 8 years of experience in software or data engineering, including one or more programming languages (e.g., Python, Go, Java), and with design patterns, testing frameworks, and API contract design.\n\n• Experience using machine learning methodologies (deep learning, reinforced learning), model identification, selection and AI operations (e.g., model monitoring).\n\n• Experience using Generative AI and agentic orchestration utilizing frameworks (e.g., LangChain, CrewAI, or Vertex AI Agent Builder) and vector databases.\n\nPreferred qualifications:\n\n• Experience in financial services, and with the regulatory and operational clearing, settlement, or custody.\n\n• Experience with FSI regulatory practices and data residency, encryption at rest/transit (CMEK), and \"explainable AI\" requirements in banking.\n\n• Experience with data modeling of relational, NoSQL, and analytical data modeling (Star Schema, Data Vault).\n\n• Experience in BigQuery, Vertex AI, Dataflow, and Pub/Sub with an ability to drive the discovery phase, moving from a vague business problem to a structured product requirement document (PRD) and a working technical demo.\n\n• Experience working in a high-maturity DevOps culture (e.g., trunk-based development, automated testing, blue/green deployments).\n\nAbout the job\nIn this role, you will accelerate customer value and increase adoption by delivering innovative, repeatable, and enterprise-ready solutions focused on business value. Make Google Cloud the preferred choice for customers by delivering the highest-value, industry relevant solutions. Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €150000 - €153000 (EUR) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Design and build autonomous agentic workflows utilizing Machine Learning and generative AI technologies as part of a fully autonomous or human-in-the-loop agentic workflow.\n\n• Partner with client leads (business user) to identify high-impact AI use cases. Translate these into product requirement documents (PRDs), clearly defining critical user journeys (CUJs) and success metrics.\n\n• Evaluate and integrate AI solutions with modern data foundations, including relational databases, data lake houses, and real-time streaming architectures.\n\n• Ensure all prototypes are built with a \"production-first\" mindset. Implement basic CI/CD pipelines and utilize infrastructure-as-code (IaC) (e.g., Terraform) to ensure environments are reproducible and secure.\n\n• Create clear technical guides to ensure a seamless hand-off from proof-of-concept (POC) to engineering teams.",
+      "descriptionByLocale": {
+        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione. Nota: Applicando a questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita da: Francoforte sul Meno, Germania; Zurigo, Svizzera; Monaco, Germania; Londra, Regno Unito.\n\nTitolo minimo:\n\n• Laurea in Informatica, un campo correlato, o esperienza pratica equivalente.\n\n• 8 anni di esperienza nel software o nell'ingegneria dei dati, tra cui uno o più linguaggi di programmazione (ad esempio, Python, Go, Java), e con modelli di progettazione, framework di test e progettazione dei contratti API.\n\n• Esperienza utilizzando metodologie di apprendimento automatico (apprendimento profondo, apprendimento rinforzato), identificazione modello, selezione e operazioni AI (ad esempio, monitoraggio dei modelli).\n\n• Esperienza utilizzando l'intelligenza artificiale Generativa e l'orchestrazione agentica utilizzando framework (ad esempio, LangChain, CrewAI, o Vertex AI Agent Builder) e database vettoriali.\n\nQualifiche preferenziali:\n\n• Esperienza nei servizi finanziari, e con la compensazione, l'insediamento o la custodia regolamentare e operativa.\n\n• Esperienza con le pratiche regolamentari FSI e la residenza dei dati, crittografia a riposo / transito (CMEK), e requisiti \"spiegabili AI\" nel settore bancario.\n\n• Esperienza con la modellazione dei dati relativi alla modellazione dei dati relazionali, NoSQL e analitici (Star Schema, Data Vault).\n\n• Esperienza in BigQuery, Vertex AI, Dataflow e Pub/Sub con la capacità di guidare la fase di scoperta, passando da un problema di business vago a un documento di requisito del prodotto strutturato (PRD) e una demo tecnica di lavoro.\n\n• Esperienza di lavoro in una cultura DevOps ad alta maturità (ad esempio, sviluppo basato sul tronco, test automatizzati, distribuzioni blu/verde).\n\nRiguardo al lavoro\nIn questo ruolo, accelererai il valore del cliente e aumenterai l'adozione offrendo soluzioni innovative, ripetibili e pronte all'impresa focalizzate sul valore aziendale. Rendere Google Cloud la scelta preferita per i clienti, offrendo le soluzioni più avanzate e rilevanti per il settore. Google Cloud accelera la capacità di ogni organizzazione di trasformare digitalmente il suo business e l'industria. Offriamo soluzioni di livello enterprise che sfruttano la tecnologia all'avanguardia di Google e gli strumenti che aiutano gli sviluppatori a costruire in modo più sostenibile. I clienti in oltre 200 paesi e territori si rivolgono a Google Cloud come partner affidabile per consentire la crescita e risolvere i loro problemi aziendali più critici.\nLa retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nGermania: € 150000 - € 153000 (EUR) + 20% target bonus + equità + prestazioni\n\nScopri di più sui vantaggi di Google .\nresponsabilità\n\n• Progettare e costruire flussi di lavoro agentici autonomi che utilizzano le tecnologie di Machine Learning e Genetive AI come parte di un flusso di lavoro completamente autonomo o umano-in-the-loop agentic.\n\n• Partner con client lead (utente commerciale) per identificare casi di utilizzo AI ad alto impatto. Traduci questi in documenti requisiti di prodotto (PRD), definendo chiaramente i viaggi degli utenti critici (CUJs) e le metriche di successo.\n\n• Valutare e integrare le soluzioni AI con le moderne basi dati, tra cui database relazionali, data lake houses e architetture di streaming in tempo reale.\n\n• Assicurarsi che tutti i prototipi sono costruiti con una mentalità \"prima produzione\". Implementare le tubazioni CI/CD di base e utilizzare l'infrastruttura-as-code (IaC) (ad esempio, Terraform) per garantire che gli ambienti siano riproducibili e sicuri.\n\n• Creare chiare guide tecniche per garantire un senza soluzione di continuità dal proof-of-concept (POC) ai team di ingegneria.",
+        "en": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Frankfurt am Main, Germany; Zürich, Switzerland; Munich, Germany; London, UK; Berlin, Germany.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science, a related field, or equivalent practical experience.\n\n• 8 years of experience in software or data engineering, including one or more programming languages (e.g., Python, Go, Java), and with design patterns, testing frameworks, and API contract design.\n\n• Experience using machine learning methodologies (deep learning, reinforced learning), model identification, selection and AI operations (e.g., model monitoring).\n\n• Experience using Generative AI and agentic orchestration utilizing frameworks (e.g., LangChain, CrewAI, or Vertex AI Agent Builder) and vector databases.\n\nPreferred qualifications:\n\n• Experience in financial services, and with the regulatory and operational clearing, settlement, or custody.\n\n• Experience with FSI regulatory practices and data residency, encryption at rest/transit (CMEK), and \"explainable AI\" requirements in banking.\n\n• Experience with data modeling of relational, NoSQL, and analytical data modeling (Star Schema, Data Vault).\n\n• Experience in BigQuery, Vertex AI, Dataflow, and Pub/Sub with an ability to drive the discovery phase, moving from a vague business problem to a structured product requirement document (PRD) and a working technical demo.\n\n• Experience working in a high-maturity DevOps culture (e.g., trunk-based development, automated testing, blue/green deployments).\n\nAbout the job\nIn this role, you will accelerate customer value and increase adoption by delivering innovative, repeatable, and enterprise-ready solutions focused on business value. Make Google Cloud the preferred choice for customers by delivering the highest-value, industry relevant solutions. Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €150000 - €153000 (EUR) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nResponsibilities\n\n• Design and build autonomous agentic workflows utilizing Machine Learning and generative AI technologies as part of a fully autonomous or human-in-the-loop agentic workflow.\n\n• Partner with client leads (business user) to identify high-impact AI use cases. Translate these into product requirement documents (PRDs), clearly defining critical user journeys (CUJs) and success metrics.\n\n• Evaluate and integrate AI solutions with modern data foundations, including relational databases, data lake houses, and real-time streaming architectures.\n\n• Ensure all prototypes are built with a \"production-first\" mindset. Implement basic CI/CD pipelines and utilize infrastructure-as-code (IaC) (e.g., Terraform) to ensure environments are reproducible and secure.\n\n• Create clear technical guides to ensure a seamless hand-off from proof-of-concept (POC) to engineering teams.",
+        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses. Hinweis: Wenn Sie sich auf diese Stelle bewerben, haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsstandort unter folgenden Adressen zu teilen: Frankfurt am Main, Deutschland; Zürich, Schweiz; München, Deutschland; London, Großbritannien.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss in Informatik, einem verwandten Bereich oder gleichwertige praktische Erfahrung.\n\n• 8 Jahre Erfahrung in Software oder Data Engineering, einschließlich einer oder mehrerer Programmiersprachen (z. B. Python, Go, Java) und mit Design Patterns, Testing Frameworks und API Contract Design.\n\n• Erfahrung mit Methoden des maschinellen Lernens (Deep Learning, verstärktes Lernen), Modellidentifikation, Auswahl und KI-Operationen (z. B. Modellüberwachung).\n\n• Erfahrung mit Generative AI und agentischer Orchestrierung unter Verwendung von Frameworks (z. B. LangChain, CrewAI oder Vertex AI Agent Builder) und Vektordatenbanken.\n\nBevorzugte Qualifikationen:\n\n• Erfahrung in Finanzdienstleistungen und mit der regulatorischen und operativen Clearing, Abwicklung oder Verwahrung.\n\n• Erfahrung mit FSI-Regulierungspraktiken und Datenresidenz, Verschlüsselung in Ruhe / Transit (CMEK) und \"erklärbaren KI\" -Anforderungen im Bankwesen.\n\n• Erfahrung mit Datenmodellierung von relationalen, NoSQL und analytischen Datenmodellierung (Star Schema, Data Vault).\n\n• Erfahrung in BigQuery, Vertex AI, Dataflow und Pub / Sub mit der Fähigkeit, die Entdeckungsphase zu steuern, von einem vagen Geschäftsproblem zu einem strukturierten Produktanforderungsdokument (PRD) und einer funktionierenden technischen Demo.\n\n• Erfahrung in einer DevOps-Kultur mit hoher Reife (z. B. trunkbasierte Entwicklung, automatisiertes Testen, blaue / grüne Bereitstellungen).\n\nÜber den Job\nIn dieser Rolle beschleunigen Sie den Kundenwert und erhöhen die Akzeptanz, indem Sie innovative, wiederholbare und unternehmensfähige Lösungen liefern, die sich auf den Geschäftswert konzentrieren. Machen Sie Google Cloud zur bevorzugten Wahl für Kunden, indem Sie branchenrelevante Lösungen mit dem höchsten Wert anbieten. Google Cloud beschleunigt die Fähigkeit jedes Unternehmens, sein Geschäft und seine Branche digital zu verändern. Wir liefern Lösungen für Unternehmen, die die modernste Technologie von Google nutzen, und Tools, die Entwicklern helfen, nachhaltiger zu bauen. Kunden in mehr als 200 Ländern und Regionen wenden sich an Google Cloud als ihren vertrauenswürdigen Partner, um Wachstum zu ermöglichen und ihre wichtigsten Geschäftsprobleme zu lösen.\nDie individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Bildung oder Ausbildung bestimmt.\n\nDeutschland: 150000 € - 153000 € (EUR) + 20% Bonusziel + Eigenkapital + Leistungen\n\nErfahren Sie mehr über die Vorteile bei Google.\nZuständigkeiten\n\n• Entwerfen und erstellen Sie autonome agentische Workflows unter Verwendung von Machine Learning und generativen KI-Technologien als Teil eines vollständig autonomen oder human-in-the-loop-agentischen Workflows.\n\n• Partner mit Client-Leads (Business-User), um hochwirksame KI-Anwendungsfälle zu identifizieren. Übersetzen Sie diese in Product Requirement Documents (PRDs) und definieren Sie eindeutig kritische User Journeys (CUJs) und Erfolgsmetriken.\n\n• Bewerten und integrieren Sie KI-Lösungen mit modernen Datengrundlagen, einschließlich relationaler Datenbanken, Data Lake-Häusern und Echtzeit-Streaming-Architekturen.\n\n• Stellen Sie sicher, dass alle Prototypen mit einer \"Produktion-zuerst\" Denkweise gebaut werden. Implementieren Sie grundlegende CI/CD-Pipelines und verwenden Sie Infrastructure-as-Code (IaC) (z. B. Terraform), um sicherzustellen, dass Umgebungen reproduzierbar und sicher sind.\n\n• Erstellen Sie klare technische Anleitungen, um eine nahtlose Übergabe vom Proof-of-Concept (POC) an Engineering-Teams zu gewährleisten.",
+        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche. Remarque: En postulant à ce poste, vous aurez la possibilité de partager votre lieu de travail préféré parmi les suivants: Francfort-sur-le-Main, Allemagne; Zurich, Suisse; Munich, Allemagne; Londres, Royaume-Uni.\n\nTitres minimums:\n\n• Baccalauréat en informatique, domaine connexe ou expérience pratique équivalente.\n\n• 8 ans d'expérience en ingénierie de logiciels ou de données, y compris un ou plusieurs langages de programmation (p. ex. Python, Go, Java), et avec des modèles de conception, des cadres de test et la conception de contrats API.\n\n• Expérience à l'aide de méthodologies d'apprentissage automatique (apprentissage profond, apprentissage renforcé), identification des modèles, sélection et opérations d'IA (p. ex. surveillance des modèles).\n\n• Expérience de l'utilisation de l'IA Generative et de l'orchestration agentique en utilisant des cadres (p. ex. LangChain, CrewAI ou Vertex AI Agent Builder) et des bases de données vectorielles.\n\nQualifications privilégiées:\n\n• Expérience des services financiers, ainsi que de la compensation, du règlement ou de la garde réglementaires et opérationnelles.\n\n• Expérience des pratiques réglementaires de l'ISF et de la résidence des données, du cryptage au repos/transit (CMEK) et des exigences de « l'IA expliquable » dans le secteur bancaire.\n\n• Expérience de la modélisation des données relationnelles, NoSQL et de la modélisation des données analytiques (Star Schema, Data Vault).\n\n• Expérience en BigQuery, Vertex AI, Dataflow et Pub/Sub avec une capacité de conduire la phase de découverte, passant d'un problème d'affaires vague à un document d'exigence de produit structuré (PRD) et une démo technique de travail.\n\n• Expérience de travail dans une culture DevOps à haute maturité (p. ex. développement basé sur le tronc, essais automatisés, déploiements bleu/vert).\n\nSur le travail\nDans ce rôle, vous accélérerez la valeur client et augmenterez l'adoption en offrant des solutions innovantes, répétables et prêtes à l'entreprise axées sur la valeur opérationnelle. Faites de Google Cloud le choix préféré des clients en fournissant les solutions les plus rentables et pertinentes de l'industrie. Google Cloud accélère la capacité de chaque organisation à transformer numériquement ses affaires et son industrie. Nous fournissons des solutions de qualité entreprise qui tirent parti de la technologie de pointe de Google, et des outils qui aident les développeurs à construire plus durablement. Les clients de plus de 200 pays et territoires se tournent vers Google Cloud en tant que partenaire de confiance pour favoriser la croissance et résoudre leurs problèmes commerciaux les plus critiques.\nLa rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nAllemagne: 150000€ - 153000€ (EUR) + 20% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nResponsabilités\n\n• Concevoir et construire des workflows d'agents autonomes en utilisant le Machine Learning et les technologies d'IA génériques dans le cadre d'un workflow d'agents totalement autonome ou humain dans la boucle.\n\n• Établir un partenariat avec les chefs de file du client (utilisateur d'affaires) pour identifier les cas d'utilisation d'IA à impact élevé. Traduire ces documents en documents d'exigence de produit (DPR), en définissant clairement les parcours critiques des utilisateurs (CUJ) et les mesures de succès.\n\n• Évaluer et intégrer les solutions d'IA avec les bases de données modernes, y compris les bases de données relationnelles, les data lake houses et les architectures de streaming en temps réel.\n\n• Assurez-vous que tous les prototypes sont construits avec un état d'esprit \"production-première\". Mettre en place des pipelines de base CI/CD et utiliser l'infrastructure comme code (IaC) (p. ex. Terraform) pour s'assurer que les environnements sont reproductibles et sécurisés.\n\n• Créer des guides techniques clairs afin d'assurer une transmission transparente de l'épreuve de conception (POC) aux équipes d'ingénierie."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/96799335437476550-ai-innovation-engineer-google-cloud",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-27T09:26:08.855Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/96799335437476550-ai-innovation-engineer-google-cloud",
+      "jobReqId": "96799335437476550",
+      "requirements": [
+        "Bachelor's degree in Computer Science, a related field, or equivalent practical experience.",
+        "8 years of experience in software or data engineering, including one or more programming languages (e.g., Python, Go, Java), and with design patterns, testing frameworks, and API contract design.",
+        "Experience using machine learning methodologies (deep learning, reinforced learning), model identification, selection and AI operations (e.g., model monitoring).",
+        "Experience using Generative AI and agentic orchestration utilizing frameworks (e.g., LangChain, CrewAI, or Vertex AI Agent Builder) and vector databases."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor's degree in Computer Science, a related field, or equivalent practical experience."
+        ]
+      },
+      "firstSeenAt": "2026-11-24T21:23:26.789Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-23T09:26:08.855Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-a16734efb5ed",
@@ -3862,7 +3831,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102577022080819910-senior-software-engineer-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:01.958Z",
+      "crawledAt": "2026-11-27T09:26:08.289Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3907,9 +3876,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:18:01.958Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/102577022080819910-senior-software-engineer-health-and-home-infrastructure"
+      "validThrough": "2027-01-27T09:26:08.289Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-e2f5144f579d",
@@ -3942,7 +3910,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:01.421Z",
+      "crawledAt": "2026-11-27T09:26:07.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3989,9 +3957,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T21:18:01.421Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027"
+      "validThrough": "2027-01-04T09:26:07.746Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-2c2e1c0698df",
@@ -4024,7 +3991,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82143346071347910-software-engineer-iii-search-ads-quality-and-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:00.871Z",
+      "crawledAt": "2026-11-27T09:26:07.215Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4092,9 +4059,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:00.871Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/82143346071347910-software-engineer-iii-search-ads-quality-and-ai"
+      "validThrough": "2026-12-27T09:26:07.215Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-bc4a84dd95ec",
@@ -4127,7 +4093,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/74526468264075974-senior-ux-researcher-youtube-creator",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:18:00.354Z",
+      "crawledAt": "2026-11-27T09:26:06.640Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4174,9 +4140,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:18:00.354Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/74526468264075974-senior-ux-researcher-youtube-creator"
+      "validThrough": "2027-02-19T09:26:06.640Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-cb49c31d2127",
@@ -4209,7 +4174,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/103264171751023302-software-engineer-iii-security-and-privacy",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:59.640Z",
+      "crawledAt": "2026-11-27T09:26:06.087Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4254,9 +4219,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:17:59.640Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/103264171751023302-software-engineer-iii-security-and-privacy"
+      "validThrough": "2027-02-24T09:26:06.087Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-6c205a93e459",
@@ -4289,7 +4253,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/97978011902452422-senior-software-engineer-cloud-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:59.113Z",
+      "crawledAt": "2026-11-27T09:26:05.487Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4339,9 +4303,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T21:17:59.113Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/97978011902452422-senior-software-engineer-cloud-security"
+      "validThrough": "2027-02-23T09:26:05.487Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-6e2b5c6cf427",
@@ -4374,7 +4337,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72456132160824006-solution-architect-capital-markets-and-exchanges-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:58.562Z",
+      "crawledAt": "2026-11-27T09:26:04.937Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4419,9 +4382,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:17:58.562Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/72456132160824006-solution-architect-capital-markets-and-exchanges-google-cloud"
+      "validThrough": "2027-01-21T09:26:04.937Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-6ea378423f0a",
@@ -4454,7 +4416,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/77068195550110406-software-engineer-iii-full-stack",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:58.008Z",
+      "crawledAt": "2026-11-27T09:26:04.377Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4498,9 +4460,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:17:58.008Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/77068195550110406-software-engineer-iii-full-stack"
+      "validThrough": "2027-02-19T09:26:04.377Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-0d4b525bd239",
@@ -4533,7 +4494,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/93866877796655814-administrative-business-partner-iii-lcs",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:57.453Z",
+      "crawledAt": "2026-11-27T09:26:03.853Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4588,9 +4549,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:17:57.453Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/93866877796655814-administrative-business-partner-iii-lcs"
+      "validThrough": "2027-02-19T09:26:03.853Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-78e8652a8378",
@@ -4689,87 +4649,7 @@
       "validThrough": "2027-02-24T09:14:37.339Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/93202609564721862-senior-software-engineering-manager-youtube",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "google-switzerland-69ca6cd58480",
-      "slug": "software-engineer-multimodal-search-infrastructure-google-lens-google-switzerland-zurich",
-      "slugByLocale": {
-        "it": "software-engineer-multimodal-search-infrastructure-google-lens-google-switzerland-zurich",
-        "en": "software-engineer-multimodal-search-infrastructure-google-lens-google-switzerland-zurich",
-        "de": "software-engineer-multimodal-search-infrastructure-google-lens-google-switzerland-zurich",
-        "fr": "software-engineer-multimodal-search-infrastructure-google-lens-google-switzerland-zurich"
-      },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "Software Engineer, Multimodal Search Infrastructure, Google Lens",
-      "titleByLocale": {
-        "it": "Software Ingegnere, Multimodal Search Infrastructure, Google Lens",
-        "en": "Software Engineer, Multimodal Search Infrastructure, Google Lens",
-        "de": "Software Ingenieur, Multimodal Search Infrastructure, Google Lens",
-        "fr": "Software Ingénieur, Multimodal Search Infrastructure, Google Lens"
-      },
-      "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science, or a related field, or equivalent practical experience.\n\n• 5 years of experience with software development in one or more programming languages, including C++ or 1 year of experience with an advanced degree.\n\n• 3 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical field.\n\n• 8 years of experience with data structures and algorithms.\n\n• 1 year of experience in a technical leadership role.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nGoogle Lens is an AI-first visual camera for the world with the aim to make your phone's camera capable of recognizing any object in the real world (\"Search what you see\") and making it actionable in a generative experience. Google Lens use cases include: shopping, identification, text.\n As the Search Next Multimodal Infra team, we are responsible for the serving infrastructure for the visual understanding of multimodal queries that power Google Lens, re-architecting the tech stack to support an AI-first product experience, optimizing latency and cost to support the rapid growth of multimodal queries, quality evaluation systems for rapid development iterations by Lens/Search Quality, and system health (complexity reduction and reliability).\n In Google Search, we're reimagining what it means to search for information – any way and anywhere. To do that, we need to solve complex engineering challenges and expand our infrastructure, while maintaining a universally accessible and useful experience that people around the world rely on. In joining the Search team, you'll have an opportunity to make an impact on billions of people globally.\n\nResponsibilities\n\n• Improve the capabilities and quality of Google Lens/Multimodal AI Mode.\n\n• Optimize performance to help scale the product.\n\n• Develop/improve internal tooling to evaluate new product capabilities.",
-      "descriptionByLocale": {
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea in Informatica, o un campo correlato, o esperienza pratica equivalente.\n\n• 5 anni di esperienza con lo sviluppo software in uno o più linguaggi di programmazione, tra cui C++ o 1 anno di esperienza con un grado avanzato.\n\n• 3 anni di esperienza di test, manutenzione, o lancio di prodotti software, e 1 anno di esperienza con progettazione software e architettura.\n\nQualifiche preferenziali:\n\n• Laurea magistrale o dottorato in Informatica o campo tecnico correlato.\n\n• 8 anni di esperienza con strutture dati e algoritmi.\n\n• 1 anno di esperienza in un ruolo di leadership tecnica.\n\nRiguardo al lavoro\nGli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e l'archiviazione di dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. Come ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con le opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\n\nGoogle Lens è una fotocamera visiva AI-first per il mondo con l'obiettivo di rendere la fotocamera del telefono in grado di riconoscere qualsiasi oggetto nel mondo reale (\"Ricerca cosa vedi\") e rendendolo attuabile in un'esperienza generativa. I casi di utilizzo di Google Lens includono: shopping, identificazione, testo.\nCome team di Search Next Multimodal Infra, siamo responsabili dell'infrastruttura di servizio per la comprensione visiva delle query multimodali che alimentano Google Lens, ri-architecting dello stack tecnologico per supportare un'esperienza di prodotto AI-first, ottimizzando la latenza e il costo per sostenere la rapida crescita delle query multimodali, sistemi di valutazione della qualità per lo sviluppo rapido di Lens/Search Quality e salute del sistema (riduzione della complessità e affidabilità).\nIn Google Search, stiamo rivisitando ciò che significa cercare informazioni – in qualsiasi modo e ovunque. Per fare questo, dobbiamo risolvere complesse sfide ingegneristiche ed espandere la nostra infrastruttura, pur mantenendo un'esperienza universalmente accessibile e utile a cui le persone di tutto il mondo si affidano. Entrando nel team di ricerca, avrai l'opportunità di avere un impatto su miliardi di persone a livello globale.\n\nresponsabilità\n\n• Migliorare le funzionalità e la qualità di Google Lens/Multimodal AI Mode.\n\n• Ottimizzare le prestazioni per aiutare a scalare il prodotto.\n\n• Sviluppare / migliorare lo strumento interno per valutare nuove capacità di prodotto.",
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science, or a related field, or equivalent practical experience.\n\n• 5 years of experience with software development in one or more programming languages, including C++ or 1 year of experience with an advanced degree.\n\n• 3 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical field.\n\n• 8 years of experience with data structures and algorithms.\n\n• 1 year of experience in a technical leadership role.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nGoogle Lens is an AI-first visual camera for the world with the aim to make your phone's camera capable of recognizing any object in the real world (\"Search what you see\") and making it actionable in a generative experience. Google Lens use cases include: shopping, identification, text.\nAs the Search Next Multimodal Infra team, we are responsible for the serving infrastructure for the visual understanding of multimodal queries that power Google Lens, re-architecting the tech stack to support an AI-first product experience, optimizing latency and cost to support the rapid growth of multimodal queries, quality evaluation systems for rapid development iterations by Lens/Search Quality, and system health (complexity reduction and reliability).\nIn Google Search, we're reimagining what it means to search for information – any way and anywhere. To do that, we need to solve complex engineering challenges and expand our infrastructure, while maintaining a universally accessible and useful experience that people around the world rely on. In joining the Search team, you'll have an opportunity to make an impact on billions of people globally.\n\nResponsibilities\n\n• Improve the capabilities and quality of Google Lens/Multimodal AI Mode.\n\n• Optimize performance to help scale the product.\n\n• Develop/improve internal tooling to evaluate new product capabilities.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss in Informatik oder einem verwandten Bereich oder gleichwertige praktische Erfahrung.\n\n• 5 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen, einschließlich C++ oder 1 Jahr Erfahrung mit einem fortgeschrittenen Abschluss.\n\n• 3 Jahre Erfahrung beim Testen, Warten oder Starten von Softwareprodukten und 1 Jahr Erfahrung mit Softwaredesign und -architektur.\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss oder PhD in Informatik oder verwandten technischen Bereich.\n\n• 8 Jahre Erfahrung mit Datenstrukturen und Algorithmen.\n\n• 1 Jahr Erfahrung in einer technischen Führungsrolle.\n\nÜber den Job\nDie Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Computing, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und begeistert zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\n\nGoogle lens ist eine ai-erste visuelle kamera für die welt mit dem ziel, die kamera ihres telefons in der lage zu machen, jedes objekt in der realen welt zu erkennen (\"suchen sie, was sie sehen\") und es in einer generativen erfahrung umsetzbar zu machen. Zu den Anwendungsfällen von Google Lens gehören: Einkaufen, Identifikation, Text.\nAls Search Next Multimodal Infra-Team sind wir verantwortlich für die Service-Infrastruktur für das visuelle Verständnis multimodaler Abfragen, die Google Lens unterstützen, den Tech-Stack neu architekturieren, um ein AI-First-Produkterlebnis zu unterstützen, Latenz und Kosten optimieren, um das schnelle Wachstum multimodaler Abfragen zu unterstützen, Qualitätsbewertungssysteme für schnelle Entwicklungsiterationen durch Lens / Search Quality und Systemzustand (Komplexitätsreduzierung und Zuverlässigkeit).\nIn der Google-Suche überdenken wir, was es bedeutet, nach Informationen zu suchen - auf jede Weise und überall. Um dies zu erreichen, müssen wir komplexe technische Herausforderungen lösen und unsere Infrastruktur erweitern, während wir eine allgemein zugängliche und nützliche Erfahrung beibehalten, auf die sich Menschen auf der ganzen Welt verlassen. Wenn Sie dem Suchteam beitreten, haben Sie die Möglichkeit, Einfluss auf Milliarden von Menschen weltweit zu nehmen.\n\nZuständigkeiten\n\n• Verbessern Sie die Fähigkeiten und die Qualität des Google Lens / Multimodal AI-Modus.\n\n• Optimieren Sie die Leistung, um das Produkt zu skalieren.\n\n• Entwicklung/Verbesserung interner Tools zur Bewertung neuer Produktfähigkeiten.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat en informatique, ou un domaine connexe, ou une expérience pratique équivalente.\n\n• 5 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation, y compris C++ ou 1 an d'expérience avec un diplôme avancé.\n\n• 3 ans d'expérience dans la mise à l'essai, la maintenance ou le lancement de produits logiciels et 1 an d'expérience dans la conception et l'architecture de logiciels.\n\nQualifications privilégiées:\n\n• Maîtrise ou doctorat en informatique ou domaine technique connexe.\n\n• 8 ans d'expérience dans les structures de données et les algorithmes.\n\n• 1 an d'expérience dans un rôle de leadership technique.\n\nSur le travail\nLes ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et les autres. Nos produits doivent traiter l'information à grande échelle, et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la recherche d'information, l'informatique distribuée, la conception de systèmes à grande échelle, le réseautage et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google avec des occasions de changer d'équipes et de projets que vous et notre entreprise à rythme rapide croître et évoluer. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes à travers la pile pleine alors que nous continuons à faire avancer la technologie.\n\nGoogle Lens est une caméra visuelle AI-premier pour le monde dans le but de rendre la caméra de votre téléphone capable de reconnaître n'importe quel objet dans le monde réel (\"Recherche ce que vous voyez\") et de le rendre actionnable dans une expérience génératrice. Les cas d'utilisation de Google Lens incluent : achats, identification, texte.\nEn tant qu'équipe de Search Next Multimodal Infra, nous sommes responsables de l'infrastructure de service pour la compréhension visuelle des requêtes multimodales qui alimentent Google Lens, ré-architectant la pile technologique pour soutenir une expérience de premier produit AI, optimisant la latence et les coûts pour soutenir la croissance rapide des requêtes multimodales, des systèmes d'évaluation de la qualité pour les itérations de développement rapide par Lens/Search Quality, et de la santé du système (réduction de complexité et fiabilité).\nDans Google Search, nous réimaginons ce que cela signifie de rechercher des informations – de n'importe quelle façon et n'importe où. Pour ce faire, nous devons résoudre des problèmes complexes d'ingénierie et développer notre infrastructure, tout en maintenant une expérience universellement accessible et utile sur laquelle les gens du monde entier comptent. En rejoignant l'équipe de recherche, vous aurez l'occasion de faire un impact sur des milliards de personnes dans le monde.\n\nResponsabilités\n\n• Améliorer les capacités et la qualité de Google Lens/Multimodal AI Mode.\n\n• Optimiser les performances pour aider à l'échelle du produit.\n\n• Développer/améliorer l'outillage interne pour évaluer les nouvelles capacités du produit."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/81048341743313606-software-engineer-multimodal-search-infrastructure-google-lens",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:21:28.725Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/81048341743313606-software-engineer-multimodal-search-infrastructure-google-lens",
-      "jobReqId": "81048341743313606",
-      "requirements": [
-        "Bachelor's degree in Computer Science, or a related field, or equivalent practical experience.",
-        "5 years of experience with software development in one or more programming languages, including C++ or 1 year of experience with an advanced degree.",
-        "3 years of experience testing, maintaining, or launching software products, and 1 year of experience with software design and architecture."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor's degree in Computer Science, or a related field, or equivalent practical experience."
-        ]
-      },
-      "firstSeenAt": "2026-11-16T21:19:26.674Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:21:28.725Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://www.google.com/about/careers/applications/jobs/results/81048341743313606-software-engineer-multimodal-search-infrastructure-google-lens"
+      "crawlerMissStreak": 2
     }
   ]
 }
