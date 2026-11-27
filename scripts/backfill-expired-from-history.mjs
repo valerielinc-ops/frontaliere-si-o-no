@@ -262,7 +262,9 @@ function createListingIdentityCollector() {
     isAmbiguous: (identity) => ambiguous.has(identity)
       || (groupsByIdentity.get(identity)?.length || 0) > 1,
     addArchiveRow(row) {
-      addSighting(row?.sourceIdentity, row || {});
+      for (const identity of archiveRecordSourceIdentities(row)) {
+        addSighting(identity, row || {});
+      }
     },
     addVersion(jobs) {
       for (const identity of ambiguousJobIdentities(jobs)) ambiguous.add(identity);

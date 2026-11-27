@@ -343,6 +343,36 @@ describe('history backfill: one listing URL for successive postings', () => {
     expect(second).toEqual(first);
   });
 
+  it('keeps a recovered posting separate when an archived identity history retains the listing URL', () => {
+    const listingIdentity = `url:${listing}`;
+    const archived = listingRecord('archive-current', {
+      id: 'a',
+      sourceIdentity: `url:${sourceUrl(1)}`,
+      previousSlugs: ['archive-historical'],
+      sourceIdentityHistory: [{ sourceIdentity: listingIdentity }],
+    });
+    const recovered = onListing('b', 'recovered-current', {
+      sourceIdentity: listingIdentity,
+      previousSlugs: ['recovered-historical'],
+    });
+    commit({ active: [recovered], expired: [archived] });
+    commit({ active: [], expired: [archived] });
+
+    const { first, second } = runTwice();
+
+    expect(first).toHaveLength(2);
+    const routes = routesBySlug(first);
+    expect(routes['archive-current']).toEqual(expect.arrayContaining([
+      'it:archive-current', 'it:archive-historical',
+      'de:archive-historical', 'en:archive-historical', 'fr:archive-historical',
+    ]));
+    expect(routes['recovered-current']).toEqual(expect.arrayContaining([
+      'it:recovered-current', 'it:recovered-historical',
+      'de:recovered-historical', 'en:recovered-historical', 'fr:recovered-historical',
+    ]));
+    expect(second).toEqual(first);
+  });
+
   it('still folds a rename that keeps the id into one record', () => {
     commit({ active: [], expired: [listingRecord('lattoniere-faido', { id: 'a' })] });
     commit({ active: [], expired: [listingRecord('lattoniere-esperto-faido', { id: 'a', expiredAt: daysAgo(10) })] });
