@@ -77,6 +77,7 @@ type FakeWindow = {
     __ftOfferwallBootstrapComplete?: boolean;
     __ftOfferwallGateInstalled?: boolean;
   };
+  __ftFcAdBlockBridge?: boolean;
   __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean };
   __ftOfferwallGate?: { state?: string; release?: (showOfferwall?: boolean) => boolean };
 };
@@ -298,6 +299,41 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     const later = message();
     win.googlefc!.controlledMessagingFunction!(later);
     expect(later.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+  });
+
+  it('refuses release while blocker data is pending, then suppresses on a late blocker signal', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.__ftFcAdBlockBridge = true;
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const held = message();
+    win.googlefc!.controlledMessagingFunction!(held);
+
+    expect(win.__ftOfferwallGate!.release!()).toBe(false);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+    expect(held.calls).toEqual([]);
+
+    win.__ftAdBlock = { blocked: true, adsAllowed: false };
+    win.dispatchEvent({ type: 'frontaliere:adblock-data' });
+    expect(held.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('suppressed');
+  });
+
+  it('allows a later release after non-blocking bridge data arrives', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.__ftFcAdBlockBridge = true;
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const held = message();
+    win.googlefc!.controlledMessagingFunction!(held);
+
+    expect(win.__ftOfferwallGate!.release!()).toBe(false);
+    win.__ftAdBlock = { blocked: false, adsAllowed: false };
+    win.dispatchEvent({ type: 'frontaliere:adblock-data' });
+    expect(held.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+
+    expect(win.__ftOfferwallGate!.release!()).toBe(true);
+    expect(held.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('released');
   });
 
   it.each([
