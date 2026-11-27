@@ -1,4 +1,5 @@
 import { createHash, randomUUID } from 'node:crypto';
+import { APPLICATION_EXISTS_REASON, applicationExistsRoute, vacancyBoundToOrder } from '../../../../functions/src/lib/applicationExistsReconciliation.js';
 import { hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { isPhotoRequirement } from '../../../../functions/src/lib/assistedApplicationDocumentKind.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
@@ -12660,9 +12661,27 @@ export async function submitViaPortal(ctx) {
       }
     }
     const failure = serializeAccountFailure(metadata.accountFailure);
-    return { event: { type: 'submit_handoff', reason, ...(failure ? { accountFailure: failure } : {}) }, evidence };
+    return { event: { type: 'submit_handoff', reason, ...(failure ? { accountFailure: failure } : {}),
+      ...(metadata.applicationExists ? { applicationExists: metadata.applicationExists } : {}) }, evidence };
+  };
+  // The portal's own «you already applied to this vacancy» route (lib/applicationExistsReconciliation.js). It says
+  // this account has an application for the vacancy, not who sent it: the handoff carries the bound route, the
+  // backend settles the order only with its own records of a send (assistedApplicationAutomation.js). A route
+  // whose vacancy is not the order's is never read as a receipt.
+  const holdPortalApplicationExists = async () => {
+    if (!page) return null;
+    const route = applicationExistsRoute(page.url());
+    if (!route) return null;
+    const vacancyBound = vacancyBoundToOrder(route, [ctx.applyUrl, ctx.postingUrl, ctx.job?.postingUrl, ctx.job?.applyUrl]);
+    const applicationExists = { routeKind: route.routeKind, host: route.host, vacancyId: route.vacancyId, pagePath: route.pagePath, vacancyBound };
+    evidence.accountRecovery = { applicationCheck: vacancyBound
+      ? { status: 'already_applied', matchedBy: 'application_exists_route' }
+      : { status: 'uncertain_application_history', matchedBy: 'application_exists_vacancy_unbound' } };
+    return handoff(vacancyBound ? APPLICATION_EXISTS_REASON : 'account_application_history_uncertain', vacancyBound ? { applicationExists } : {});
   };
   const holdRecoveredDuplicateApplication = async (view) => {
+    const applicationExistsStop = await holdPortalApplicationExists();
+    if (applicationExistsStop) return applicationExistsStop;
     if (!accountRecoveryUsed && typeof ctx.accounts?.load === 'function') {
       try {
         const host = new URL(page.url()).hostname;
@@ -13831,6 +13850,8 @@ export async function submitViaPortal(ctx) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
+      const applicationExistsStop = await holdPortalApplicationExists();
+      if (applicationExistsStop) return applicationExistsStop;
       const observedReceipt = await confirmedReceipt(snapshot);
       if (observedReceipt) return observedReceipt;
       let agentSubmitRefForPage = '';

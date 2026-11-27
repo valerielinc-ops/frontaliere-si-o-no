@@ -201,6 +201,8 @@ async function applyReconciliation({ db, ref, source, sourcePath, sourceStartedA
       portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length,
       portalAutoRetryAt: dueAt,
       portalFinalReviewAmbiguousRecoveryVersion: RECOVERY_VERSION,
+      // Proven from the page evidence that the click did not leave: the standing doubt on the round is cleared.
+      ambiguousSubmit: null,
       updatedAt: nowMs,
     }, { merge: true });
     transaction.set(ref, { automationDueAt: dueAt, automationUpdatedAt: new Date(nowMs) }, { merge: true });

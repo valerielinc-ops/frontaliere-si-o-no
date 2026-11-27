@@ -620,7 +620,9 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
         const factCheckAcknowledgedTokens = factCheckTokens((await draftRef.get()).data()?.factCheck);
         await draftRef.set({ factCheckAcknowledgedAt: nowMs, factCheckAcknowledgedTokens, acknowledgedBy: adminEmail }, { merge: true });
       }
-      return apply({ type: 'owner_retry_submit' });
+      // After a send of unknown outcome the robot leaves again only when the owner confirms, by name, that
+      // the application did NOT reach the employer (checked on the portal's own account page).
+      return apply({ type: 'owner_retry_submit', ...(raw.confirmedNotSent === true ? { confirmedNotSent: true } : {}) });
     case 'automationHandoff':
       return apply({ type: 'owner_handoff' });
     case 'automationEditDraft':
