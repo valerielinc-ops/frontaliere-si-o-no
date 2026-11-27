@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hpjob-ch",
-  "assembledAt": "2026-11-26T21:22:36.955Z",
-  "runId": "45895871343",
+  "assembledAt": "2026-11-27T09:18:53.575Z",
+  "runId": "45970991038",
   "jobs": [
     {
       "id": "hpjob-ch-3ee7c2f9df93",
@@ -34,7 +34,7 @@
       "url": "https://hpjob.ch/jobs/servicetechniker-fuer-digitale-druckmaschinen-im-weltweiten-einsatz-st-74850",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:22:06.321Z",
+      "crawledAt": "2026-11-27T09:18:45.705Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:22:06.321Z",
+      "validThrough": "2027-02-23T09:18:45.705Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://hpjob.ch/jobs/servicetechniker-fuer-digitale-druckmaschinen-im-weltweiten-einsatz-st-74850"
     },
@@ -118,7 +118,7 @@
       "url": "https://hpjob.ch/jobs/automatiker-elektromechaniker-servicemonteur-diepoldsau-887c9",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:22:06.320Z",
+      "crawledAt": "2026-11-27T09:18:45.702Z",
       "addressLocality": "Diepoldsau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -137,9 +137,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://hpjob.ch/jobs/automatiker-elektromechaniker-servicemonteur-diepoldsau-887c9",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "automatiker-elektromechaniker-servicemonteur-diepoldsau-st-gallen-hpjob-ch-ch"
@@ -162,7 +160,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:22:06.320Z",
+      "validThrough": "2027-02-24T09:18:45.702Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T21:22:06.320Z",
       "sourceIdentity": "url:https://hpjob.ch/jobs/automatiker-elektromechaniker-servicemonteur-diepoldsau-887c9"
@@ -198,7 +196,7 @@
       "url": "https://hpjob.ch/jobs/inbetriebnahmetechniker-monteur-mwd-st-margrethen-1fb88",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:22:06.320Z",
+      "crawledAt": "2026-11-27T09:18:45.703Z",
       "addressLocality": "St. Margrethen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -217,9 +215,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://hpjob.ch/jobs/inbetriebnahmetechniker-monteur-mwd-st-margrethen-1fb88",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "inbetriebnahmetechniker-monteur-m-w-d-st-margrethen-st-gallen-hpjob-ch-ch"
@@ -242,7 +238,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:22:06.320Z",
+      "validThrough": "2027-02-24T09:18:45.703Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T21:22:06.320Z",
       "sourceIdentity": "url:https://hpjob.ch/jobs/inbetriebnahmetechniker-monteur-mwd-st-margrethen-1fb88"
@@ -278,7 +274,7 @@
       "url": "https://hpjob.ch/jobs/konstrukteur-techniker-fuer-produktmanagement-au-de7ce",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:22:06.319Z",
+      "crawledAt": "2026-11-27T09:18:45.700Z",
       "addressLocality": "Au",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -297,9 +293,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://hpjob.ch/jobs/konstrukteur-techniker-fuer-produktmanagement-au-de7ce",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "konstrukteur-techniker-fur-produktmanagement-au-st-gallen-hpjob-ch-ch"
@@ -322,7 +316,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:22:06.319Z",
+      "validThrough": "2027-02-24T09:18:45.700Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T21:22:06.319Z",
       "sourceIdentity": "url:https://hpjob.ch/jobs/konstrukteur-techniker-fuer-produktmanagement-au-de7ce"
@@ -404,7 +398,7 @@
       "validThrough": "2027-02-23T09:27:37.454Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://hpjob.ch/jobs/verkaufs-sachbearbeiter-mit-technischem-flair-gossau-sg-c642b",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "hpjob-ch-5d7066a9c9af",
@@ -489,7 +483,7 @@
       "validThrough": "2027-02-23T09:27:37.454Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://hpjob.ch/jobs/polymechaniker-efz-cnc-programmierer-5-achs-haag-c81de",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "hpjob-ch-65274209d9ce",
@@ -568,7 +562,7 @@
       "validThrough": "2027-02-23T09:27:37.453Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://hpjob.ch/jobs/mitarbeiter-technischer-kundendienst-mit-elektrobackground-st-gallen-8a1f1",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

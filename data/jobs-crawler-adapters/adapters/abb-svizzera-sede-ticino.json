@@ -19,7 +19,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00046744EXTERNALENGLOBAL/R-D-Engineer--f-m-d--80-100-_JR00046744-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00047028EXTERNALENGLOBAL/Research-Scientist-in-Operational-Technology--OT--Cybersecurity--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00048597EXTERNALENGLOBAL/Field-Service-Technician--80---100----f-m-d",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00048851EXTERNALENGLOBAL/XMLNAME--80--100---R-D-Electronics-Hardware--Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049886EXTERNALENGLOBAL/Modelling-and-Experimental-scientist--80---100---f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049984EXTERNALENGLOBAL/Service-Technician-f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050689EXTERNALENGLOBAL/Continuous-Improvement-Specialist--80-100",
@@ -28,7 +27,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050802EXTERNALENGLOBAL/Technical-Training-Manager--f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050875EXTERNALENGLOBAL/Experimental-Physicist--80---100---f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050926EXTERNALENGLOBAL/XMLNAME--80---100---Senior-Technical-Specialist",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051419EXTERNALENGLOBAL/R-D-Testing---Lab-Specialist--m-w-d--80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051474EXTERNALENGLOBAL/Digital-Project-Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051559EXTERNALENGLOBAL/Datacenter-Senior-Automation---Control-Engineer--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051784EXTERNALENGLOBAL/Operations-Manager--m-w-d---80-100",
@@ -50,7 +48,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00054172EXTERNALENGLOBAL/Customer-Quality-Electronics-Specialist--80---100"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-11-26T21:23:05.532Z",
+  "updatedAt": "2026-11-27T09:23:57.349Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050875EXTERNALENGLOBAL/Experimental-Physicist--80---100---f-m-d": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
@@ -79,14 +77,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00045788EXTERNALENGLOBAL/Record-to-Report-Project-Management-Office-Lead": {
       "location": "Zurich, Zurich, Switzerland",
       "canton": "ZH",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00048851EXTERNALENGLOBAL/XMLNAME--80--100---R-D-Electronics-Hardware--Engineer": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -175,14 +165,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00052740EXTERNALENGLOBAL/R-D-Team-Lead": {
       "location": "Untersiggenthal, Aargau, Switzerland",
       "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051419EXTERNALENGLOBAL/R-D-Testing---Lab-Specialist--m-w-d--80--100": {
-      "location": "Schaffhausen, Schaffhausen, Switzerland",
-      "canton": "SH",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -340,17 +322,17 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00054172EXTERNALENGLOBAL/Customer-Quality-Electronics-Specialist--80---100": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00053481EXTERNALENGLOBAL/Mitarbeiter-in-Produktionslogistik-w-m-d--80-100": {
+      "location": "Untersiggenthal, Aargau, Switzerland",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00053481EXTERNALENGLOBAL/Mitarbeiter-in-Produktionslogistik-w-m-d--80-100": {
-      "location": "Untersiggenthal, Aargau, Switzerland",
-      "canton": "AG",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00054172EXTERNALENGLOBAL/Customer-Quality-Electronics-Specialist--80---100": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
