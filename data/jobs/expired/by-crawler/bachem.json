@@ -151,7 +151,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-project-director-grossprojekte-%28a%29%2c-100-bl-4416/1388636633",
-    "firstSeenAt": "2026-05-19T19:53:25.529Z"
+    "firstSeenAt": "2026-05-19T19:53:25.529Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "project-director-grossprojekte-a-100-bachem-bubendorf": "BL",
+        "projektleiter-gro-projekte-w-m-d-100-bachem-ag-bubendorf": "BL",
+        "project-director-grossprojekte-w-m-d-100-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "projektleiter-gro-projekte-w-m-d-100-bachem-ag-bubendorf": "BL"
+      }
+    }
   },
   {
     "id": "bachem-727ddcd0b66c",
@@ -199,7 +209,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-project-manager-supply-chain-applications-cold-chain-monitorning-&-visibility-%28ccmv%29-%28a%29%2c-80-100-bl-4416/1440807633",
-    "firstSeenAt": "2026-09-24T14:26:41.108Z"
+    "firstSeenAt": "2026-09-24T14:26:41.108Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "project-manager-supply-chain-applications-cold-chain-monitorning-visibility-ccmv-a-80-100": "BL"
+      },
+      "fr": {
+        "project-manager-supply-chain-applications-cold-chain-monitorning-visibility-ccmv-a-80-100": "BL"
+      }
+    }
   },
   {
     "id": "bachem-8d61ef7bc992",
@@ -250,7 +269,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-maintenance-technician-heizungs-%2c-sanit%c3%a4r-und-druckluftanlagen-%28wmd%29%2c-100-bl-4416/1289321401",
-    "firstSeenAt": "2026-07-08T11:39:57.872Z"
+    "firstSeenAt": "2026-07-08T11:39:57.872Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "maintenance-technician-heizungs-sanitar-und-druckluftanlagen-w-m-d-100-bachem-bubendorf": "BL"
+      },
+      "en": {
+        "maintenance-technician-heizungs-sanitar-und-druckluftanlagen-w-m-d-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "maintenance-technician-heizungs-sanitar-und-druckluftanlagen-w-m-d-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "id": "bachem-04c2341b19f3",
@@ -344,7 +375,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/stein-ag-lead-quality-control-%28qc%29-sisslerfeld-site-develepoment-%28a%29-100-ag-4332/1446145633",
-    "firstSeenAt": "2026-10-09T21:30:06.355Z"
+    "firstSeenAt": "2026-10-09T21:30:06.355Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-quality-control-qc-sisslerfeld-site-develepoment-a-100-bachem-stein-ag": "AG"
+      }
+    }
   },
   {
     "id": "bachem-5cc585211668",
@@ -389,7 +426,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/stein-ag-quality-engineering-%28qe%29-manager-csv-sisslerfeld-%28a%29-100-ag-4332/1446145133",
-    "firstSeenAt": "2026-10-09T21:30:06.983Z"
+    "firstSeenAt": "2026-10-09T21:30:06.983Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "quality-engineering-qe-manager-csv-sisslerfeld-a-100-bachem-stein-ag": "AG"
+      }
+    }
   },
   {
     "id": "bachem-233180c367c2",
@@ -437,7 +480,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-scientist-qc-ipc-%28a%29-%2880-100%29-bl-4416/1458286933",
-    "firstSeenAt": "2026-11-18T09:26:39.024Z"
+    "firstSeenAt": "2026-11-18T09:26:39.024Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "scientist-qc-ipc-a-80-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "scientist-qc-ipc-a-80-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "id": "bachem-b3a1f1e6504e",
@@ -485,7 +537,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/vionnaz-senior-specialist-qa-vala-1895/1455079233",
-    "firstSeenAt": "2026-11-06T21:47:06.307Z"
+    "firstSeenAt": "2026-11-06T21:47:06.307Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-qa-bachem-vionnaz": "VS"
+      },
+      "de": {
+        "senior-specialist-qa-bachem-vionnaz": "VS"
+      }
+    }
   },
   {
     "id": "bachem-8dcaf2fa729a",
@@ -530,7 +591,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-supply-chain-manager-tech-transfers-%28a%29%2c-80-100-bl-4416/1452189733",
-    "firstSeenAt": "2026-10-28T20:14:37.989Z"
+    "firstSeenAt": "2026-10-28T20:14:37.989Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "supply-chain-manager-tech-transfers-a-80-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "scienziato-qc-fase-tardiva-a-100-bachem-ag-bubendorf",
@@ -577,7 +644,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-scientist-qc-late-phase-%28a%29%2c-100-bl-4416/1447502433",
-    "firstSeenAt": "2026-10-15T09:27:31.712Z"
+    "firstSeenAt": "2026-10-15T09:27:31.712Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "scientist-qc-late-phase-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "scientist-qc-late-phase-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "scienziato-qc-sviluppo-analitico-a-100-bachem-ag-bubendorf",
@@ -624,7 +700,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-scientist-qc-analytical-development-%28a%29%2c-100-bl-4416/1449346333",
-    "firstSeenAt": "2026-10-20T21:26:57.440Z"
+    "firstSeenAt": "2026-10-20T21:26:57.440Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "scientist-qc-analytical-development-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "scientist-qc-analytical-development-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "especialista-hse-progetti-m-w-d-bachem-ag-bubendorf",
@@ -681,7 +766,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-hse-specialist-80-100-%28a%29-bl-4416/1387986133",
-    "firstSeenAt": "2026-05-19T19:53:51.450Z"
+    "firstSeenAt": "2026-05-19T19:53:51.450Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hse-specialist-80-100-m-w-d-bachem-bubendorf": "BL",
+        "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf": "BL",
+        "hse-cluster-specialist-a-100-bachem-bubendorf": "BL",
+        "hse-specialist-80-100-a-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "hse-spezialist-80-100-m-w-d-bachem-ag-bubendorf": "BL"
+      },
+      "fr": {
+        "hse-cluster-specialist-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "addetto-a-qa-conformita-dei-lotti-a-100-bachem-ag-bubendorf",
@@ -728,7 +828,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-qa-associate-batch-compliance-%28a%29-100-bl-4416/1448961533",
-    "firstSeenAt": "2026-10-19T21:33:52.406Z"
+    "firstSeenAt": "2026-10-19T21:33:52.406Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "qa-associate-batch-compliance-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "qa-associate-batch-compliance-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "cae-system-specialist-a-80-100-bachem-bubendorf",
@@ -764,6 +873,9 @@
       ],
       "it": [
         "cad-cae-engineer-a-80-100-fur-die-abteilung-engineering-services-bachem-bubendorf"
+      ],
+      "en": [
+        "cae-system-specialist-a-80-100-bachem-bubendorf"
       ]
     },
     "postalCode": "4416",
@@ -773,7 +885,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-cad-&-cae-engineer-%28a%29-%2880-100%29-f%c3%bcr-die-abteilung-engineering-services-bl-4416/1396693433",
-    "firstSeenAt": "2026-07-22T12:51:49.771Z"
+    "firstSeenAt": "2026-07-22T12:51:49.771Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cad-cae-engineer-a-80-100-fur-die-abteilung-engineering-services-bachem-bubendorf": "BL"
+      },
+      "en": {
+        "cae-system-specialist-a-80-100-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "cad-cae-engineer-a-80-100-fur-die-abteilung-engineering-services-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "controllo-di-qualita-della-spettrometria-di-massa-qc-a-100-bachem-ag-bubendorf",
@@ -817,7 +941,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-lab-technician-mass-spectrometry-quality-control-%28qc%29-%28a%29%2c-100-bl-4416/1446690833",
-    "firstSeenAt": "2026-10-14T09:42:56.375Z"
+    "firstSeenAt": "2026-10-14T09:42:56.375Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lab-technician-mass-spectrometry-quality-control-qc-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "lab-technician-qc-fase-precoce-100-a-bachem-ag-bubendorf",
@@ -861,7 +991,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-lab-technician-qc-early-phase-100-%28a%29-bl-4416/1434837833",
-    "firstSeenAt": "2026-09-08T13:47:38.070Z"
+    "firstSeenAt": "2026-09-08T13:47:38.070Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lab-technician-qc-early-phase-100-a-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "manager-qa-sistemi-di-gestione-della-qualita-qms-100-a-bachem-ag-bubendorf",
@@ -905,7 +1041,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-manager-qa-quality-management-systems-%28qms%29-100-%28a%29-bl-4416/1452454533",
-    "firstSeenAt": "2026-10-29T21:30:16.762Z"
+    "firstSeenAt": "2026-10-29T21:30:16.762Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "manager-qa-quality-management-systems-qms-100-a-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "specialista-senior-di-processo-produzione-e-tecnologia-di-processo-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
@@ -956,7 +1098,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/stein-ag-senior-process-specialist-manufacturing-&-process-technology-sisslerfeld-site-development-%28a%29-100-ag-4332/1447517733",
-    "firstSeenAt": "2026-10-15T09:27:53.567Z"
+    "firstSeenAt": "2026-10-15T09:27:53.567Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-process-specialist-manufacturing-process-technology-sisslerfeld-site-development-a": "AG"
+      },
+      "de": {
+        "senior-prozessspezialisten-in-fertigung-verfahrenstechnik-standortentwicklung-sisslerfeld-a-100-bachem-ag-stein-ag": "AG"
+      },
+      "fr": {
+        "senior-process-specialist-manufacturing-process-technology-sisslerfeld-site-development-a": "AG"
+      }
+    }
   },
   {
     "slug": "sviluppo-del-sito-di-sisslerfeld-a-100-bachem-ag-stein-ag",
@@ -1004,7 +1158,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/stein-ag-system-expert-materials-management-sisslerfeld-site-development-%28a%29-100-ag-4332/1441729733",
-    "firstSeenAt": "2026-09-28T21:24:07.877Z"
+    "firstSeenAt": "2026-09-28T21:24:07.877Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag": "AG"
+      },
+      "fr": {
+        "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag-cc8f6ea1",
@@ -1237,7 +1400,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-senior-project-procurement-lead-%28a%29-100-sisslerfeld-bl-4416/1431440133",
-    "firstSeenAt": "2026-08-31T17:19:20.896Z"
+    "firstSeenAt": "2026-08-31T17:19:20.896Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-project-procurement-lead-a-100-sisslerfeld-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "senior-scientist-research-development-oligonucleotides-a-100-bachem-bubendorf",
@@ -1268,7 +1437,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-senior-scientist-research-&-development-oligonucleotides-%28a%29%2c-100-bl-4416/1449857033",
-    "firstSeenAt": "2026-10-22T09:37:37.386Z"
+    "firstSeenAt": "2026-10-22T09:37:37.386Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "senior-scientist-research-development-oligonucleotides-a-100-bachem-bubendorf"
+      ],
+      "de": [
+        "senior-scientist-research-development-oligonucleotides-a-100-bachem-bubendorf"
+      ],
+      "fr": [
+        "senior-scientist-research-development-oligonucleotides-a-100-bachem-bubendorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "senior-scientist-research-development-oligonucleotides-a-100-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "senior-scientist-research-development-oligonucleotides-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "senior-scientist-research-development-oligonucleotides-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "tecnico-di-laboratorio-r-s-a-80-100-bachem-ag-bubendorf",
@@ -1312,7 +1504,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-lab-technician-r&d-%28a%29%2c-80-100-bl-4416/1453055933",
-    "firstSeenAt": "2026-10-30T21:22:22.317Z"
+    "firstSeenAt": "2026-10-30T21:22:22.317Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lab-technician-r-d-a-80-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "scienziato-associato-qc-sample-management-100-a-bachem-ag-bubendorf",
@@ -1356,7 +1554,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-associate-scientist-%28qc-sample-management%29-100-%28a%29-bl-4416/1411677133",
-    "firstSeenAt": "2026-05-19T19:53:53.011Z"
+    "firstSeenAt": "2026-05-19T19:53:53.011Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "associate-scientist-qc-sample-management-100-a-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "validazione-di-pulizia-specialistica-a-100-bachem-ag-bubendorf-e3ce794c",
@@ -1472,7 +1676,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/stein-ag-expert-process-specialist-manufacturing-&-process-technology-sisslerfeld-site-development-%28a%29-100-ag-4332/1447527333",
-    "firstSeenAt": "2026-06-17T12:21:40.906Z"
+    "firstSeenAt": "2026-06-17T12:21:40.906Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "expert-process-specialist-manufacturing-process-technology-sisslerfeld-site-development-a": "AG"
+      },
+      "de": {
+        "experte-fur-prozessspezialisten-in-der-fertigungs-und-verfahrenstechnik-sisslerfeld-site-development-a-100-bachem-ag": "AG"
+      },
+      "fr": {
+        "expert-process-specialist-manufacturing-process-technology-sisslerfeld-site-development-a": "AG"
+      }
+    }
   },
   {
     "slug": "communications-business-partner-a-80-100-bachem-bubendorf",
@@ -1506,7 +1722,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-communications%e2%80%afbusiness-partner%e2%80%af%28a%29%2c-80-100-bl-4416/1453443033",
-    "firstSeenAt": "2026-11-02T21:30:12.666Z"
+    "firstSeenAt": "2026-11-02T21:30:12.666Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "communications-business-partner-a-80-100-bachem-bubendorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "communications-business-partner-a-80-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "controllo-della-qualita-degli-scienziati-a-100-bachem-ag-bubendorf",
@@ -1550,7 +1777,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-scientist-quality-control-%28a%29%2c-100-bl-4416/1443154133",
-    "firstSeenAt": "2026-10-08T21:30:36.362Z"
+    "firstSeenAt": "2026-10-08T21:30:36.362Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "scientist-quality-control-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "data-scientist-digital-manufacturing-a-100-bachem-bubendorf",
@@ -1584,7 +1817,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-data-scientist-digital-manufacturing-%28a%29-100-bl-4416/1452470833",
-    "firstSeenAt": "2026-10-29T21:29:50.385Z"
+    "firstSeenAt": "2026-10-29T21:29:50.385Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "data-scientist-digital-manufacturing-a-100-bachem-bubendorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "data-scientist-digital-manufacturing-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "chemical-pharmatechnologist-nel-funzionamento-a-turni-produzione-di-ingredienti-attivi-liofilizzazione-a-100-bachem-ag",
@@ -1645,7 +1889,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-chemie-&-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-&-lyophilisation-%28a%29-100-bl-4416/1436669133",
-    "firstSeenAt": "2026-09-17T06:56:19.946Z"
+    "firstSeenAt": "2026-09-17T06:56:19.946Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem": "BL"
+      },
+      "en": {
+        "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem": "BL",
+        "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem-ag-bubendorf": "BL"
+      },
+      "fr": {
+        "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem": "BL"
+      }
+    }
   },
   {
     "slug": "sistemi-e-servizi-di-qualita-della-testa-globale-a-100-bachem-ag-bubendorf",
@@ -1689,7 +1946,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-global-head-quality-systems-&-services-%28a%29%2c-100-bl-4416/1447234133",
-    "firstSeenAt": "2026-10-14T09:42:22.053Z"
+    "firstSeenAt": "2026-10-14T09:42:22.053Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "global-head-quality-systems-services-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "leader-del-gruppo-qc-bachem-ag-bubendorf",
@@ -1736,7 +1999,134 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-group-leader-qc-bl-4416/1450647733",
-    "firstSeenAt": "2026-10-23T09:33:42.182Z"
+    "firstSeenAt": "2026-10-23T09:33:42.182Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "group-leader-qc-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "group-leader-qc-bachem-bubendorf": "BL"
+      }
+    }
+  },
+  {
+    "slug": "chimico-a-100-bachem-ag-bubendorf",
+    "title": "Chemist (a), 100%",
+    "titleByLocale": {
+      "it": "Chimico/a, 100%",
+      "en": "Chemist (a), 100%",
+      "de": "Chemist (a), 100%",
+      "fr": "Chimiste (a), 100%"
+    },
+    "company": "Bachem AG",
+    "companyKey": "bachem",
+    "location": "Bubendorf",
+    "addressLocality": "Bubendorf",
+    "descriptionByLocale": {
+      "it": "Al fine di guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il nostro team, stiamo cercando un chimico dedicato (a), 100% .\n\nI loro compiti\n\n• Responsabilità per la produzione tempestiva e la consegna di un prodotto peptide commerciale\n\n• Garantire un dosaggio regolare nella produzione, nel controllo della qualità e nella garanzia della qualità\n\n• Monitoraggio delle prestazioni del prodotto, qualità, rendimento e tempi di consegna\n\n• Analisi dei dati di processo e di produzione e identificazione del potenziale di ottimizzazione\n\n• Assistenza nel trattamento delle deviazioni, casi OOS/OE e misure CAPA\n\n• Cooperazione nel miglioramento continuo dei processi e dei processi produttivi\n\n• stretta collaborazione con la produzione, QA, QC, supply chain, TechOps e altre interfacce\n\n• Supporto per audit, ispezioni e richieste dei clienti\n\n• Collaborazione nel ciclo di vita e nelle attività di gestione dei cambiamenti\n\n• Partecipazione attiva a progetti multisettoriali per garantire una produzione efficiente e conforme a GMP\n\nIl tuo profilo\n\n• Laurea in chimica (università o università di scienze applicate)\n\n• Comprensione approfondita delle attrezzature tecniche e degli interessi interdisciplinari\n\n• La conoscenza nella formulazione e nell'automazione dei processi produttivi (ad esempio PCS7) è un vantaggio\n\n• Capacità di leadership professionali e legate al progetto\n\n• Metodi di lavoro pratici, concettuali e analitici\n\n• Forte capacità di lavoro di squadra e comunicazione\n\n• Affidabilità, un elevato senso di responsabilità e metodi di lavoro precisi\n\n• Ottima conoscenza del tedesco e buona conoscenza dell'inglese\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con lo sviluppo interno e ulteriori opportunità di istruzione\n\n• Azienda-internal KITA sul Bachem Campus Bubendorf\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso a piattaforme vantaggiose con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul campus di Bachem\n\nVuoi guidare l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i tuoi documenti applicativi siano completi tramite il nostro portale.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!",
+      "en": "In order to drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team, we are looking for a dedicated Chemist (a), 100% .\n\nTheir tasks\n\n• Responsibility for the timely production and delivery of a commercial peptide product\n\n• Ensuring smooth batch-through in production, quality control and quality assurance\n\n• Monitoring of product performance, quality, yield and delivery deadlines\n\n• Analysis of process and production data as well as identification of optimization potential\n\n• Assistance in handling deviations, OOS/OOE cases and CAPA measures\n\n• Cooperation in the continuous improvement of processes and production processes\n\n• Close cooperation with production, QA, QC, supply chain, TechOps and other interfaces\n\n• Support for audits, inspections and customer inquiries\n\n• Collaboration in product-related lifecycle and change management activities\n\n• Active participation in cross-sectoral projects to ensure efficient and GMP-compliant production\n\nYour profile\n\n• Chemistry degree (university or university of applied sciences)\n\n• In-depth understanding of technical equipment and interdisciplinary interest\n\n• Knowledge in the formulation and automation of production processes (e.g. PCS7) is an advantage\n\n• Professional and project-related leadership skills\n\n• Practical, conceptual and analytical working methods\n\n• Strong teamwork and communication skills\n\n• Reliability, a high sense of responsibility and exact working methods\n\n• Excellent knowledge of German and good knowledge of English\n\nOur offer:\n\n• A dynamic and rapidly growing working environment with internal development and further education opportunities\n\n• Company-internal KITA on the Bachem Campus Bubendorf\n\n• 60% takeover of pension fund contributions by Bachem AG as well as possibility for over-compulsory provision with our elective savings plan\n\n• Access to advantage platforms with discounts from external partners\n\n• Fresh, healthy and diverse food in our staff restaurant\n\n• Various free sports activities on the Bachem Campus\n\nDo you want to drive innovation together with us?\n\nHave we aroused your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and be inspired by our inspiring working environment at our location in Bubendorf!",
+      "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams suchen wir eine/n engagierte/n Chemist (a), 100% .\n\nIhre Aufgaben\n\n• Verantwortung für die termingerechte Herstellung und Auslieferung eines kommerziellen Peptidprodukts\n\n• Sicherstellung eines reibungslosen Batch-Durchlaufs in Produktion, Qualitätskontrolle und Qualitätssicherung\n\n• Überwachung von Produktperformance, Qualität, Ausbeute und Liefertermintreue\n\n• Analyse von Prozess- und Produktionsdaten sowie Identifikation von Optimierungspotenzialen\n\n• Unterstützung bei der Bearbeitung von Abweichungen, OOS-/OOE-Fällen und CAPA-Massnahmen\n\n• Mitarbeit bei der kontinuierlichen Verbesserung von Prozessen und Produktionsabläufen\n\n• Enge Zusammenarbeit mit Produktion, QA, QC, Supply Chain, TechOps und weiteren Schnittstellen\n\n• Unterstützung bei Audits, Inspektionen und Kundenanfragen\n\n• Mitarbeit bei produktbezogenen Lifecycle- und Change-Management-Aktivitäten\n\n• Aktive Mitwirkung in bereichsübergreifenden Projekten zur Sicherstellung einer effizienten und GMP-konformen Produktion\n\nIhr Profil\n\n• Abgeschlossenes Chemiestudium (Universität oder Fachhochschule)\n\n• Tiefes Verständnis für technische Anlagen sowie fachübergreifendes Interesse\n\n• Kenntnisse in der Rezeptierung und Automatisierung von Produktionsprozessen (z. B. PCS7) sind von Vorteil\n\n• Fachliche und projektbezogene Führungskompetenz\n\n• Praktische, konzeptionelle und analytische Arbeitsweise\n\n• Ausgeprägte Teamfähigkeit sowie kommunikative Fähigkeiten\n\n• Zuverlässigkeit, hohes Verantwortungsbewusstsein und exakte Arbeitsweise\n\n• Ausgezeichnete Deutschkenntnisse sowie gute Englischkenntnisse\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+      "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer notre équipe, nous recherchons un chimiste dédié (a), 100% .\n\nLeurs tâches\n\n• Responsabilité de la production et de la livraison en temps opportun d'un produit peptide commercial\n\n• Veiller à ce que la production, le contrôle de la qualité et l'assurance de la qualité soient en douceur par lots\n\n• Surveillance des performances, de la qualité, du rendement et des délais de livraison des produits\n\n• Analyse des données de procédé et de production ainsi que identification du potentiel d'optimisation\n\n• Assistance pour le traitement des écarts, des cas OOS/OOE et des mesures CAPA\n\n• Coopération à l'amélioration continue des procédés et des procédés de production\n\n• Coopération étroite avec la production, QA, QC, chaîne d'approvisionnement, TechOps et autres interfaces\n\n• Appui aux audits, inspections et demandes de renseignements des clients\n\n• Collaboration dans les activités liées au cycle de vie des produits et à la gestion du changement\n\n• Participation active à des projets intersectoriels visant à assurer une production efficace et conforme aux BPF\n\nVotre profil\n\n• Diplôme de chimie (université ou université des sciences appliquées)\n\n• Compréhension approfondie du matériel technique et de l'intérêt interdisciplinaire\n\n• La connaissance de la formulation et de l'automatisation des processus de production (par exemple PCS7) est un avantage\n\n• Compétences professionnelles et compétences en leadership liées aux projets\n\n• Méthodes de travail pratiques, conceptuelles et analytiques\n\n• Compétences solides en travail d'équipe et en communication\n\n• Fiabilité, sens élevé des responsabilités et méthodes de travail exactes\n\n• Excellente connaissance de l'allemand et bonne connaissance de l'anglais\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec développement interne et possibilités de formation continue\n\n• Société-interne KITA sur le campus Bachem Bubendorf\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision trop obligatoire avec notre régime d'épargne facultative\n\n• Accès à des plateformes avantageuses avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous stimuler l'innovation avec nous ?\n\nAvons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
+    },
+    "slugByLocale": {
+      "it": "chimico-a-100-bachem-ag-bubendorf",
+      "en": "chemist-a-100-bachem-bubendorf-c1122fd6",
+      "de": "chemist-a-100-bachem-bubendorf-c1122fd6",
+      "fr": "chimiste-a-100-bachem-ag-bubendorf"
+    },
+    "sector": "Biotecnologia / Farmaceutica",
+    "expiredAt": "2026-11-05T09:23:32.762Z",
+    "previousSlugs": [
+      "chimico-a-100-bachem-ag-bubendorf-5275e5",
+      "chemist-a-100-bachem-ag-bubendorf",
+      "avvocato-brevetti-a-80-100-bachem-ag-bubendorf",
+      "patent-counsel-a-80-100-bachem-bubendorf",
+      "patentanwalt-a-80-100-bachem-ag-bubendorf",
+      "conseiller-en-brevets-a-80-100-bachem-ag-bubendorf",
+      "chemist-w-m-d-100-pmc-ii-bachem-bubendorf",
+      "chemist-a-100-bachem-bubendorf-0gk32a",
+      "chimiste-p-m-j-100-pmc-ii-bachem-ag-bubendorf",
+      "chemist-a-100-bachem-bubendorf",
+      "chemist-a-100-bachem-bubendorf-c1122fd6",
+      "chimico-a-100-bachem-ag-bubendorf-b59e8ecd"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "chemist-a-100-bachem-bubendorf-c1122fd6",
+        "chimico-a-100-bachem-ag-bubendorf-5275e5",
+        "chemist-a-100-bachem-ag-bubendorf",
+        "avvocato-brevetti-a-80-100-bachem-ag-bubendorf",
+        "patent-counsel-a-80-100-bachem-bubendorf",
+        "patentanwalt-a-80-100-bachem-ag-bubendorf",
+        "conseiller-en-brevets-a-80-100-bachem-ag-bubendorf",
+        "chemist-w-m-d-100-pmc-ii-bachem-bubendorf",
+        "chimico-a-100-bachem-ag-bubendorf-b59e8ecd",
+        "chemist-a-100-bachem-bubendorf"
+      ],
+      "en": [
+        "patent-counsel-a-80-100-bachem-bubendorf",
+        "chemist-w-m-d-100-pmc-ii-bachem-bubendorf",
+        "chemist-a-100-bachem-bubendorf-0gk32a",
+        "chemist-a-100-bachem-bubendorf"
+      ],
+      "de": [
+        "patentanwalt-a-80-100-bachem-ag-bubendorf",
+        "patent-counsel-a-80-100-bachem-bubendorf",
+        "chemist-w-m-d-100-pmc-ii-bachem-bubendorf",
+        "chemist-a-100-bachem-bubendorf"
+      ],
+      "fr": [
+        "conseiller-en-brevets-a-80-100-bachem-ag-bubendorf",
+        "patent-counsel-a-80-100-bachem-bubendorf",
+        "chimiste-p-m-j-100-pmc-ii-bachem-ag-bubendorf",
+        "chemist-a-100-bachem-bubendorf-c1122fd6",
+        "chemist-a-100-bachem-bubendorf"
+      ]
+    },
+    "postalCode": "4416",
+    "streetAddress": "Hauptstrasse 144",
+    "salaryMin": 72500,
+    "salaryMax": 110500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-chemist-%28a%29%2c-100-bl-4416/1440910633",
+    "firstSeenAt": "2026-05-28T22:15:02.225Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-chemist-%28a%29%2c-100-bl-4416/1398367933",
+        "firstSeenAt": "2026-05-28T22:15:02.225Z",
+        "title": "Chemist (a), 100%"
+      },
+      {
+        "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-chemist-%28a%29%2c-100-bl-4416/1440910633",
+        "firstSeenAt": "2026-05-28T22:15:02.225Z",
+        "title": "Chemist (a), 100%"
+      },
+      {
+        "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-chemist-%28a%29%2c-100-bl-4416/1456848933",
+        "firstSeenAt": "2026-05-28T22:15:02.225Z",
+        "title": "Chemist (a), 100%"
+      },
+      {
+        "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-patent-counsel-%28a%29%2c-80-100-bl-4416/1413129833",
+        "firstSeenAt": "2026-07-09T12:31:10.557Z",
+        "title": "Patent Counsel (a), 80 - 100%"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chemist-a-100-bachem-ag-bubendorf": "BL",
+        "chemist-a-100-bachem-bubendorf": "BL",
+        "chimico-a-100-bachem-ag-bubendorf-5275e5": "BL"
+      },
+      "en": {
+        "chemist-a-100-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "chemist-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "hse-specialista-bachem-ag-vionnaz",
@@ -1795,7 +2185,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/vionnaz-hse-specialist-%28a%29-100-vala-1895/1442735433",
-    "firstSeenAt": "2026-09-30T21:25:07.219Z"
+    "firstSeenAt": "2026-09-30T21:25:07.219Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hse-specialist-bachem-vionnaz": "VS",
+        "hse-specialist-a-100-bachem-vionnaz": "VS"
+      },
+      "en": {
+        "hse-specialist-bachem-vionnaz": "VS",
+        "hse-specialist-a-100-bachem-ag-vionnaz": "VS"
+      },
+      "de": {
+        "hse-specialist-bachem-vionnaz": "VS"
+      },
+      "fr": {
+        "hse-specialist-bachem-vionnaz": "VS",
+        "hse-specialiste-a-100-bachem-ag-vionnaz": "VS"
+      }
+    }
   },
   {
     "slug": "tecnico-di-processo-chimico-e-farmaceutico-in-turno-cromatografia-w-m-d-100-pmc-iii-bachem-ag-bubendorf",
@@ -1842,7 +2250,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-chemie-&-pharmatechnologe-im-schichtbetrieb-chromatographie-%28a%29-100-%28pmc-iii%29-bl-4416/1376655233",
-    "firstSeenAt": "2026-05-19T19:53:44.522Z"
+    "firstSeenAt": "2026-05-19T19:53:44.522Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chemie-pharmatechnologe-im-schichtbetrieb-chromatographie-a-100-pmc-iii-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "chemie-pharmatechnologe-im-schichtbetrieb-chromatographie-a-100-pmc-iii-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "data-ingegnere-a-80-100-bachem-ag-stein-ag",
@@ -1886,7 +2303,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/stein-ag-data-engineer-%28a%29%2c-80-100-ag-4332/1437412233",
-    "firstSeenAt": "2026-09-17T06:56:01.445Z"
+    "firstSeenAt": "2026-09-17T06:56:01.445Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "data-engineer-a-80-100-bachem-stein-ag": "AG"
+      }
+    }
   },
   {
     "slug": "laboratorio-chimico-oligo-r-d-a-100-bachem-ag-bubendorf",
@@ -1935,7 +2358,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-chemielaborantin-oligo-r&d-%28a%29%2c-100-bl-4416/1445473533",
-    "firstSeenAt": "2026-10-08T21:31:12.301Z"
+    "firstSeenAt": "2026-10-08T21:31:12.301Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf": "BL"
+      },
+      "en": {
+        "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag-8473ca97",
@@ -2067,7 +2502,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-qa-review-manager-%28a%29-%28100%29-bl-4416/1444683033",
-    "firstSeenAt": "2026-10-06T21:40:48.052Z"
+    "firstSeenAt": "2026-10-06T21:40:48.052Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gestionnaire-de-l-examen-de-l-aq-a-100-bachem-ag-bubendorf": "BL",
+        "qa-review-manager-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "qa-review-manager-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "senior-project-manager-engineering-a-100-bachem-bubendorf",
@@ -2154,7 +2599,65 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/stein-ag-senior-project-manager-automation-%28a%29%2c-100-ag-4332/1398906233",
-    "firstSeenAt": "2026-09-17T06:55:59.925Z"
+    "firstSeenAt": "2026-09-17T06:55:59.925Z",
+    "canton": "AG"
+  },
+  {
+    "slug": "gestione-delle-costruzioni-lead-f-m-d-100-bachem-ag-bubendorf",
+    "title": "Construction Management Lead (a), 100%",
+    "titleByLocale": {
+      "it": "Gestione delle costruzioni Lead (f/m/d), 100%",
+      "en": "Construction Management Lead (a), 100%",
+      "de": "Construction Management Lead (a), 100%",
+      "fr": "Chef de la gestion de la construction (f/m/j), 100 %"
+    },
+    "company": "Bachem AG",
+    "companyKey": "bachem",
+    "location": "Bubendorf",
+    "addressLocality": "Bubendorf",
+    "descriptionByLocale": {
+      "it": "Al fine di guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati.\n\nPer rafforzare il nostro team nel dipartimento di Ingegneria Globale, siamo alla ricerca di un leader di gestione delle costruzioni dedicato (m/f/d), 100%.\n\nI loro compiti:\n\n• Sviluppo, standardizzazione e applicazione degli standard di costruzione, HSE e qualità\n\n• Consultare i team di progetto su temi tecnici, organizzativi e normativi, compresi i test di costruttività\n\n• Monitoraggio dell'intero paesaggio del progetto, identificazione dei rischi e aumento alla gestione\n\n• Controllo dei processi di costruzione, degli scambi, dei responsabili specializzati dell'edilizia e dei partner esterni nell'ambiente GMP\n\n• Esame di piani, piani di costruzione, rapporti di progresso e conformità ai requisiti normativi\n\n• Condurre ispezioni di sicurezza, analisi dei rischi e applicazione delle norme di sicurezza in conformità con SIA 118\n\n• Garantire la documentazione conforme a GMP, tra cui diario di costruzione, accettazione, report di prova e completamento meccanico\n\n• Interfaccia principale a costruttori, pianificatori, JV e fornitori, nonché moderazione di riunioni di coordinamento e risoluzione dei conflitti\n\nIl tuo profilo:\n\n• Studi tecnici completi in ingegneria civile, architettura, ingegneria dei processi o direzione simile\n\n• Diversi anni di esperienza nella gestione delle costruzioni di grandi progetti industriali o infrastrutturali\n\n• L'esperienza nell'ambiente GMP da farmaceutico, biotecnologico o chimica è un vantaggio\n\n• Conoscenza delle strutture EPC/EPCM e degli ambienti di stakeholder complessi\n\n• Conoscenza della normativa svizzera per la costruzione e la sicurezza\n\n• Forte capacità di leadership e governance e competenze di esecuzione diplomatica\n\n• Modo di lavoro strutturato, proattivo e orientato alla soluzione con la capacità di controllare più livelli di progetto in parallelo\n\n• Esperienza nella gestione dei mandati CM esterni o degli appaltatori generali, nonché buona conoscenza del tedesco e dell'inglese\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con lo sviluppo interno e ulteriori opportunità di istruzione\n\n• Azienda-internal KITA sul Bachem Campus Bubendorf\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso a piattaforme vantaggiose con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul campus di Bachem\n\nVuoi guidare l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i vostri documenti applicativi completi tramite il nostro portale di applicazioni.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!",
+      "en": "In order to drive our continuous organic growth, we are constantly looking for highly qualified professionals.\n\nTo strengthen our team in the Global Engineering department, we are looking for a dedicated Construction Management Lead (m/f/d), 100%.\n\nTheir tasks:\n\n• Development, standardization and enforcement of construction, HSE and quality standards\n\n• Advising project teams on technical, organisational and regulatory topics, including constructability tests\n\n• Monitoring the entire project landscape, identifying risks and escalating to management\n\n• Control of construction processes, trades, specialist construction managers and external partners in the GMP environment\n\n• Examination of plans, construction schedule, progress reports and compliance with regulatory requirements\n\n• Conduct safety inspections, risk analysis and enforcement of safety rules in accordance with SIA 118\n\n• Ensuring GMP-compliant documentation including building diary, acceptances, test reports and mechanical completion\n\n• Main interface to builders, planners, JVs and suppliers as well as moderation of coordination meetings and conflict resolution\n\nYour profile:\n\n• Completed technical studies in civil engineering, architecture, process engineering or similar direction\n\n• Several years of experience in the construction management of large industrial or infrastructure projects\n\n• Experience in the GMP environment from pharmaceutical, biotech or chemistry is an advantage\n\n• Knowledge of EPC/EPCM structures and complex stakeholder environments\n\n• Sound knowledge of Swiss construction and safety regulations\n\n• Strong leadership and governance skills and diplomatic enforcement skills\n\n• Structured, proactive and solution-oriented way of working with the ability to control multiple project levels in parallel\n\n• Experience in managing external CM mandates or general contractors as well as very good knowledge of German and English\n\nOur offer:\n\n• A dynamic and rapidly growing working environment with internal development and further education opportunities\n\n• Company-internal KITA on the Bachem Campus Bubendorf\n\n• 60% takeover of pension fund contributions by Bachem AG as well as possibility for over-compulsory provision with our elective savings plan\n\n• Access to advantage platforms with discounts from external partners\n\n• Fresh, healthy and diverse food in our staff restaurant\n\n• Various free sports activities on the Bachem Campus\n\nDo you want to drive innovation together with us?\n\nHave we aroused your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and be inspired by our inspiring working environment at our location in Bubendorf!",
+      "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften.\n\nZur Verstärkung unseres Teams in der Global Engineering Abteilung suchen wir eine/n engagierte/n Construction Management Lead (w/m/d), 100%.\n\nIhre Aufgaben:\n\n• Entwicklung, Standardisierung und Durchsetzung von Construction‑, HSE‑ und Qualitätsstandards\n\n• Beratung der Projektteams zu technischen, organisatorischen und regulatorischen Themen inklusive Baubarkeitsprüfungen\n\n• Überwachung der gesamten Projektlandschaft, Identifikation von Risiken und Eskalation an das Management\n\n• Steuerung von Bauabläufen, Gewerken, Fachbauleitern und externen Partnern im GMP‑Umfeld\n\n• Prüfung von Plänen, Bauzeitplanung, Fortschrittsberichten und Einhaltung regulatorischer Anforderungen\n\n• Durchführung von Sicherheitsbegehungen, Risikoanalysen und Durchsetzung von Sicherheitsregeln gemäß SIA 118\n\n• Sicherstellung GMP‑konformer Dokumentation inklusive Bautagebuch, Abnahmen, Prüfberichten und Mechanical Completion\n\n• Hauptschnittstelle zu Bauherr, Planern, GU und Lieferanten sowie Moderation von Koordinationssitzungen und Konfliktlösung\n\nIhr Profil:\n\n• Abgeschlossenes technisches Studium im Bauingenieurwesen, Architektur, Verfahrenstechnik oder vergleichbarer Richtung\n\n• Mehrjährige Erfahrung im Construction Management großer Industrie‑ oder Infrastrukturprojekte\n\n• Erfahrung im GMP‑Umfeld aus Pharma, Biotech oder Chemie von Vorteil\n\n• Kenntnisse in EPC/EPCM‑Strukturen und komplexen Stakeholder‑Umgebungen\n\n• Fundierte Kenntnisse der Schweizer Bau‑ und Sicherheitsvorschriften\n\n• Ausgeprägte Führungs‑ und Governance‑Kompetenz sowie diplomatisches Durchsetzungsvermögen\n\n• Strukturierte, proaktive und lösungsorientierte Arbeitsweise mit Fähigkeit, mehrere Projektebenen parallel zu steuern\n\n• Erfahrung in der Steuerung externer CM‑Mandate oder Generalunternehmer sowie sehr gute Deutsch‑ und Englischkenntnisse\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+      "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés.\n\nPour renforcer notre équipe dans le département d'Ingénierie Globale, nous sommes à la recherche d'un Leader de Gestion de Construction (h/f/d), 100%.\n\nLeurs tâches:\n\n• Développement, normalisation et application des normes de construction, d ' hygiène et de qualité\n\n• Conseiller les équipes de projet sur des sujets techniques, organisationnels et réglementaires, y compris les essais de constructibilité\n\n• Surveillance de l'ensemble du paysage du projet, identification des risques et augmentation de la gestion\n\n• Contrôle des processus de construction, des métiers, des gestionnaires de construction spécialisés et des partenaires externes dans l'environnement des BPF\n\n• Examen des plans, du calendrier de construction, des rapports d'étape et de la conformité aux exigences réglementaires\n\n• Effectuer des inspections de sécurité, une analyse des risques et l'application des règles de sécurité conformément à la norme SIA 118\n\n• Veiller à ce que la documentation conforme aux BPF, y compris le journal du bâtiment, les acceptations, les rapports d'essais et l'achèvement mécanique, soit conforme aux BPF\n\n• Interface principale avec les constructeurs, les planificateurs, les JV et les fournisseurs, ainsi que modération des réunions de coordination et résolution des conflits\n\nVotre profil:\n\n• Études techniques terminées en génie civil, architecture, génie des procédés ou direction similaire\n\n• Plusieurs années d'expérience dans la gestion de construction de grands projets industriels ou d'infrastructures\n\n• L'expérience dans l'environnement des BPF de produits pharmaceutiques, de biotechnologie ou de chimie est un avantage\n\n• Connaissance des structures EPC/EPCM et des environnements d'intervenants complexes\n\n• Bonne connaissance des réglementations suisses en matière de construction et de sécurité\n\n• Compétences solides en matière de leadership et de gouvernance et compétences diplomatiques en matière d ' application\n\n• Mode structuré, proactif et axé sur la solution de travailler avec la capacité de contrôler plusieurs niveaux de projet en parallèle\n\n• Expérience dans la gestion des mandats externes ou des entrepreneurs généraux ainsi que très bonne connaissance de l'allemand et de l'anglais\n\nNotre offre:\n\n• Un environnement de travail dynamique et en croissance rapide avec développement interne et possibilités de formation continue\n\n• Société-interne KITA sur le campus Bachem Bubendorf\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision sur-obligatoire avec notre régime d'épargne facultative\n\n• Accès à des plates-formes avantageuses avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous stimuler l'innovation avec nous?\n\nAvons-nous suscité votre intérêt? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
+    },
+    "slugByLocale": {
+      "it": "gestione-delle-costruzioni-lead-f-m-d-100-bachem-ag-bubendorf",
+      "en": "construction-management-lead-f-m-d-100-bachem-bubendorf",
+      "de": "construction-management-lead-f-m-d-100-bachem-bubendorf",
+      "fr": "chef-de-la-gestion-de-la-construction-f-m-j-100-bachem-ag-bubendorf"
+    },
+    "sector": "Biotecnologia / Farmaceutica",
+    "expiredAt": "2026-10-29T09:30:04.910Z",
+    "previousSlugs": [
+      "construction-management-lead-f-m-d-100-bachem-bubendorf",
+      "construction-management-lead-a-100-bachem-bubendorf"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "construction-management-lead-f-m-d-100-bachem-bubendorf",
+        "construction-management-lead-a-100-bachem-bubendorf"
+      ],
+      "fr": [
+        "construction-management-lead-f-m-d-100-bachem-bubendorf"
+      ]
+    },
+    "postalCode": "4416",
+    "salaryMin": 99500,
+    "salaryMax": 151000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-construction-management-lead-%28a%29%2c-100-bl-4416/1398896633",
+    "firstSeenAt": "2026-05-29T22:11:27.435Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "construction-management-lead-f-m-d-100-bachem-bubendorf": "BL",
+        "construction-management-lead-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "construction-management-lead-f-m-d-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "bio-chimico-a-come-product-steward-a-nel-settore-della-produzione-di-oligonucleotidi-100-bachem-ag-bubendorf",
@@ -2207,7 +2710,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-%28bio-%29-chemiker-als-product-steward-%28a%29-im-bereich-oligonukleotid-produktion-%28100%29-bl-4416/1445877133",
-    "firstSeenAt": "2026-10-09T09:26:19.156Z"
+    "firstSeenAt": "2026-10-09T09:26:19.156Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem": "BL",
+        "bio-chemiker-come-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf": "BL"
+      },
+      "en": {
+        "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem": "BL",
+        "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf": "BL"
+      },
+      "fr": {
+        "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem": "BL"
+      }
+    }
   },
   {
     "slug": "tecnologo-nella-produzione-chimica-e-farmaceutica-bachem-ag-vionnaz",
@@ -2252,7 +2769,60 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/vionnaz-technologue-en-production-chimique-et-pharmaceutique-%28a%29-100-vala-1895/1411424933",
-    "firstSeenAt": "2026-07-03T21:23:57.875Z"
+    "firstSeenAt": "2026-07-03T21:23:57.875Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-ag-vionnaz": "VS",
+        "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-vionnaz": "VS"
+      }
+    }
+  },
+  {
+    "slug": "senior-documentation-manager-a-80-100-per-engineering-services-bachem-ag-bubendorf",
+    "title": "Senior Documentation Manager (a) (80 -100%) für Engineering Services",
+    "titleByLocale": {
+      "it": "Senior Documentation Manager (a) (80 -100%) per Engineering Services",
+      "en": "Senior Documentation Manager (a) (80 -100%) for Engineering Services",
+      "de": "Senior Documentation Manager (a) (80 -100%) für Engineering Services",
+      "fr": "Gestionnaire principal de la documentation (a) (80 -100 %) pour les services d'ingénierie"
+    },
+    "company": "Bachem AG",
+    "companyKey": "bachem",
+    "location": "Bubendorf",
+    "addressLocality": "Bubendorf",
+    "descriptionByLocale": {
+      "it": "Al fine di guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il nostro team in Servizi di Ingegneria, stiamo cercando un responsabile della documentazione dedicato (a) (80 -100%)\n\nI loro compiti:\n\n• Responsabilità per la gestione strutturata, lo stoccaggio e l'archiviazione della documentazione tecnica in forma elettronica e fisica\n\n• Garantire il rispetto degli standard GMP, HSE e documentazione interna, nonché l'archiviazione dei documenti a prova di audit\n\n• Leader professionale dei team di gestione dei documenti in progetti di ingegneria e CAPEX\n\n• Creazione e realizzazione di concetti di gestione dei documenti, processi di test e concetti di formazione\n\n• Coordinamento delle consegne di documenti e controllo dei processi di revisione, approvazione e cambiamento\n\n• Creazione e manutenzione di piani di documentazione, registri di documenti e dashboard di reporting\n\n• Creazione, revisione e attuazione di SOP, politiche e standard nella gestione dei documenti\n\n• Consulenza team di progetto e supporto per audit, ispezioni e richieste da parte delle autorità\n\n• Contatto centrale per argomenti di documentazione e interfaccia per ingegneria, HSE, garanzia di qualità, CQV, manutenzione e operazioni\n\nIl tuo profilo:\n\n• Formazione tecnica o scientifica o formazione professionale rilevante\n\n• Almeno 5 anni di esperienza professionale nell'industria chimica, farmaceutica o delle scienze della vita\n\n• Buona conoscenza dei requisiti GMP e HSE e delle relative normative e norme tecniche\n\n• Esperienza con documentazione tecnica e conforme a GMP e strutture documentali e di archiviazione\n\n• Forte capacità di comunicazione, analisi e risoluzione dei problemi nonché un approccio sicuro ai diversi stakeholder\n\n• Utilizzo sicuro di Microsoft Office; Esperienza con i sistemi di gestione dei documenti e SAP è un vantaggio\n\n• Buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con lo sviluppo interno e ulteriori opportunità di istruzione\n\n• Ore di lavoro flessibili con la possibilità di ufficio domestico e la possibilità di acquistare vacanze aggiuntive con carico di lavoro ridotto\n\n• Azienda-internal KITA sul Bachem Campus Bubendorf\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso a piattaforme vantaggiose con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul campus di Bachem\n\nVuoi guidare l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i tuoi documenti applicativi siano completi tramite il nostro portale.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!",
+      "en": "In order to drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in Engineering Services, we are looking for a dedicated Documentation Manager (a) (80 -100%)\n\nTheir tasks:\n\n• Responsibility for the structured management, storage and archiving of technical documentation in electronic and physical form\n\n• Ensuring compliance with GMP, HSE and internal documentation standards as well as audit-proof document storage\n\n• Professional leadership of document management teams in engineering and CAPEX projects\n\n• Creation and implementation of document management concepts, testing processes and training concepts\n\n• Coordination of document deliveries and control of review, approval and change processes\n\n• Creation and maintenance of documentation plans, document registers and reporting dashboards\n\n• Creation, revision and implementation of SOPs, policies and standards in document management\n\n• Advising project teams as well as support for audits, inspections and requests from authorities\n\n• Central contact for documentation topics and interface to engineering, HSE, quality assurance, CQV, maintenance and operations\n\nYour profile:\n\n• Technical or scientific training or relevant professional background\n\n• At least 5 years of professional experience in the chemical, pharmaceutical or life sciences industry\n\n• Good knowledge of GMP and HSE requirements and relevant technical regulations and standards\n\n• Experience with technical and GMP-compliant documentation as well as document and filing structures\n\n• Strong communication, analysis and problem-solving skills as well as a secure approach to different stakeholders\n\n• Safe use of Microsoft Office; Experience with document management systems and SAP is an advantage\n\n• Good knowledge of German and English in word and writing\n\nOur offer:\n\n• A dynamic and rapidly growing working environment with internal development and further education opportunities\n\n• Flexible working hours with the option of home office and the option to purchase additional holidays with reduced workload\n\n• Company-internal KITA on the Bachem Campus Bubendorf\n\n• 60% takeover of pension fund contributions by Bachem AG as well as possibility for over-compulsory provision with our elective savings plan\n\n• Access to advantage platforms with discounts from external partners\n\n• Fresh, healthy and diverse food in our staff restaurant\n\n• Various free sports activities on the Bachem Campus\n\nDo you want to drive innovation together with us?\n\nHave we aroused your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and be inspired by our inspiring working environment at our location in Bubendorf!",
+      "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Teams im Engineering Services suchen wir eine/n engagierte/n Documentation Manager (a) (80 -100%)\n\nIhre Aufgaben:\n\n• Verantwortung für die strukturierte Verwaltung, Ablage und Archivierung technischer Dokumentationen in elektronischer und physischer Form\n\n• Sicherstellung der Einhaltung von GMP-, HSE- und internen Dokumentationsstandards sowie einer revisionssicheren Dokumentenablage\n\n• Fachliche Führung von Dokumentenmanagement-Teams in Engineering- und CAPEX-Projekten\n\n• Erstellung und Implementierung von Dokumentenmanagement-Konzepten, Prüfprozessen und Schulungskonzepten\n\n• Koordination von Dokumentenlieferungen sowie Steuerung von Review-, Freigabe- und Änderungsprozessen\n\n• Erstellung und Pflege von Dokumentationsplänen, Dokumentenregistern und Reporting-Dashboards\n\n• Erstellung, Überarbeitung und Implementierung von SOPs, Richtlinien und Standards im Dokumentenmanagement\n\n• Beratung der Projektteams sowie Unterstützung bei Audits, Inspektionen und Behördenanfragen\n\n• Zentrale Ansprechperson für Dokumentationsthemen und Schnittstelle zu Engineering, HSE, Quality Assurance, CQV, Maintenance und Operations\n\nIhr Profil:\n\n• Technische oder naturwissenschaftliche Ausbildung bzw. entsprechender fachlicher Hintergrund\n\n• Mindestens 5 Jahre Berufserfahrung in der Chemie-, Pharma- oder Life-Sciences-Industrie\n\n• Gute Kenntnisse der GMP- und HSE-Anforderungen sowie relevanter technischer Vorschriften und Normen\n\n• Erfahrung mit technischer und GMP-konformer Dokumentation sowie Dokumenten- und Ablagestrukturen\n\n• Ausgeprägte Kommunikations-, Analyse- und Problemlösungsfähigkeiten sowie ein sicherer Umgang mit unterschiedlichen Stakeholdern\n\n• Sicherer Umgang mit Microsoft Office; Erfahrung mit Dokumentenmanagement-Systemen und SAP von Vorteil\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungs- und Weiterbildungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Möglichkeit für Home-Office und Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Firmeninterne KITA auf dem Bachem Campus Bubendorf\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+      "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer notre équipe de services d'ingénierie, nous sommes à la recherche d'un gestionnaire de documentation dédié (a) (80 -100%)\n\nLeurs tâches :\n\n• Responsabilité de la gestion structurée, du stockage et de l'archivage de la documentation technique sous forme électronique et physique\n\n• Assurer le respect des normes de BPF, de HSE et de documentation interne ainsi que le stockage des documents à l'épreuve de la vérification\n\n• Leadership professionnel des équipes de gestion de documents dans les projets d'ingénierie et CAPEX\n\n• Création et mise en œuvre de concepts de gestion documentaire, de processus d'essai et de concepts de formation\n\n• Coordination des livraisons de documents et contrôle des processus d'examen, d'approbation et de changement\n\n• Création et tenue à jour de plans de documentation, de registres de documents et de tableaux de bord\n\n• Création, révision et mise en œuvre de PON, de politiques et de normes dans la gestion des documents\n\n• Conseiller les équipes de projet ainsi que le soutien aux audits, inspections et demandes des autorités\n\n• Contact central pour les sujets de documentation et l'interface à l'ingénierie, HSE, assurance qualité, CQV, maintenance et opérations\n\nVotre profil:\n\n• Formation technique ou scientifique ou formation professionnelle pertinente\n\n• Au moins 5 ans d'expérience professionnelle dans l'industrie chimique, pharmaceutique ou des sciences de la vie\n\n• Bonne connaissance des exigences en matière de BPF et de HSE et des règlements et normes techniques pertinents\n\n• Expérience de la documentation technique et conforme aux BPF ainsi que des structures de documentation et de classement\n\n• Compétences solides en matière de communication, d'analyse et de résolution de problèmes, ainsi qu'une approche sûre pour les différentes parties prenantes\n\n• Utilisation sûre de Microsoft Office; Expérience des systèmes de gestion de documents et SAP est un avantage\n\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec développement interne et possibilités de formation continue\n\n• Heures de travail flexibles avec possibilité de bureau à domicile et possibilité d'acheter des vacances supplémentaires avec une charge de travail réduite\n\n• Société-interne KITA sur le campus Bachem Bubendorf\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision trop obligatoire avec notre régime d'épargne facultative\n\n• Accès à des plateformes avantageuses avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous stimuler l'innovation avec nous ?\n\nAvons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
+    },
+    "slugByLocale": {
+      "it": "senior-documentation-manager-a-80-100-per-engineering-services-bachem-ag-bubendorf",
+      "en": "senior-documentation-manager-a-80-100-fur-engineering-services-bachem-bubendorf",
+      "de": "senior-documentation-manager-a-80-100-fur-engineering-services-bachem-bubendorf",
+      "fr": "gestionnaire-principal-de-la-documentation-a-80-100-pour-les-services-d-ingenierie-bachem-ag-bubendorf"
+    },
+    "sector": "Biotecnologia / Farmaceutica",
+    "expiredAt": "2026-10-28T09:27:39.987Z",
+    "previousSlugs": [
+      "senior-documentation-manager-a-80-100-fur-engineering-services-bachem-bubendorf"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "senior-documentation-manager-a-80-100-fur-engineering-services-bachem-bubendorf"
+      ],
+      "fr": [
+        "senior-documentation-manager-a-80-100-fur-engineering-services-bachem-bubendorf"
+      ]
+    },
+    "postalCode": "4416",
+    "salaryMin": 99500,
+    "salaryMax": 151000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-senior-documentation-manager-%28a%29-%2880-100%29-f%c3%bcr-engineering-services-bl-4416/1440824133",
+    "firstSeenAt": "2026-09-24T14:27:05.576Z"
   },
   {
     "slug": "senior-process-specialist-manufacturing-process-technology-a-100-bachem-bubendorf",
@@ -2284,7 +2854,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-senior-process-specialist-manufacturing-&-process-technology-%28a%29%2c-100-bl-4416/1394530433",
-    "firstSeenAt": "2026-05-19T19:53:54.034Z"
+    "firstSeenAt": "2026-05-19T19:53:54.034Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "senior-process-specialist-manufacturing-process-technology-a-100-bachem-bubendorf"
+      ],
+      "fr": [
+        "senior-process-specialist-manufacturing-process-technology-a-100-bachem-bubendorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "senior-process-specialist-manufacturing-process-technology-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "senior-process-specialist-manufacturing-process-technology-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "responsabile-del-progetto-analitico-qc-a-100-bachem-ag-bubendorf",
@@ -2333,7 +2920,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-analytical-project-manager-qc-%28a%29-100-bl-4416/1448314533",
-    "firstSeenAt": "2026-10-16T09:27:20.677Z"
+    "firstSeenAt": "2026-10-16T09:27:20.677Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "analytical-project-manager-qc-a-100-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "analytical-project-manager-qc-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "analytical-project-manager-qc-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "tecnico-di-laboratorio-qc-fase-tardiva-100-w-m-d-bachem-ag-bubendorf",
@@ -2415,12 +3014,14 @@
         "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "lab-technician-qc-late-phase-100-a-bachem-bubendorf",
         "tecnico-di-laboratorio-qc-fase-tardiva-100-bachem-ag-bubendorf",
-        "lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf"
+        "lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
+        "scientist-qc-late-phase-100-a-bachem-bubendorf"
       ],
       "en": [
         "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
-        "lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf"
+        "lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
+        "scientist-qc-late-phase-100-a-bachem-bubendorf"
       ],
       "de": [
         "labortechniker-qualitatskontrolle-spatphase-100-mit-lauf-tage-bachem-ag-bubendorf",
@@ -2429,7 +3030,8 @@
         "labortechniker-qc-spate-phase-100-w-m-d-bachem-ag-bubendorf",
         "lab-technician-qc-early-phase-100-m-w-d-bachem-bubendorf",
         "lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
-        "labortechniker-qc-late-phase-100-m-w-d-bachem-ag-bubendorf"
+        "labortechniker-qc-late-phase-100-m-w-d-bachem-ag-bubendorf",
+        "scientist-qc-late-phase-100-a-bachem-bubendorf"
       ],
       "fr": [
         "lab-technician-qc-late-phase-100-w-m-d-bachem-bubendorf",
@@ -2437,7 +3039,8 @@
         "technicien-de-laboratoire-qc-senior-phase-tardive-100-m-f-d-bachem-ag-bubendorf",
         "technicien-de-laboratoire-qc-phase-tardive-100-h-f-bachem-ag-bubendorf",
         "technicien-de-laboratoire-qc-phase-initiale-100-bachem-ag-bubendorf",
-        "technicien-de-laboratoire-qc-phase-tardive-100-bachem-ag-bubendorf"
+        "technicien-de-laboratoire-qc-phase-tardive-100-bachem-ag-bubendorf",
+        "scientist-qc-late-phase-100-a-bachem-bubendorf"
       ]
     },
     "postalCode": "4416",
@@ -2458,7 +3061,56 @@
         "firstSeenAt": "2026-05-19T19:53:27.134Z",
         "title": "Lab Technician QC-Late Phase 100% (a)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "scientist-qc-late-phase-100-a-bachem-bubendorf": "BL",
+        "senior-tecnico-di-laboratorio-qc-fase-tardiva-u-m-d-bachem-ag-bubendorf": "BL",
+        "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf": "BL",
+        "senior-labortechniker-qc-spate-phase-100-m-w-d-bachem-ag-bubendorf": "BL",
+        "technicien-de-laboratoire-qc-senior-phase-tardive-100-m-f-d-bachem-ag-bubendorf": "BL",
+        "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf": "BL",
+        "senior-lab-technician-qc-fase-ultima-100-m-w-d-bachem-ag-bubendorf": "BL",
+        "senior-lab-technician-qc-late-phase-100-a-bachem-bubendorf": "BL",
+        "labortechniker-qc-spate-phase-100-w-m-d-bachem-ag-bubendorf": "BL",
+        "technicien-de-laboratoire-qc-phase-tardive-100-h-f-bachem-ag-bubendorf": "BL",
+        "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf": "BL",
+        "lab-technician-qc-fase-tardiva-100-w-m-d-terminata-12-mesi-bachem-ag-bubendorf": "BL",
+        "lab-technician-qc-late-phase-100-a-befristet-12-monate-bachem-bubendorf": "BL",
+        "tecnico-di-laboratorio-qc-fase-avanzata-100-f-m-d-prima-di-12-monate-bachem-ag-bubendorf": "BL",
+        "associate-scientist-qc-a-100-bachem-bubendorf": "BL",
+        "tecnico-di-laboratorio-qc-fase-iniziale-100-bachem-ag-bubendorf": "BL",
+        "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf": "BL",
+        "lab-technician-qc-late-phase-100-a-bachem-bubendorf": "BL",
+        "scientist-qc-fase-sviluppo-tardiva-100-u-m-d-bachem-ag-bubendorf": "BL",
+        "lab-technician-qc-early-phase-100-a-bachem-bubendorf-8e1f9bf5": "BL"
+      },
+      "en": {
+        "scientist-qc-late-phase-100-a-bachem-bubendorf": "BL",
+        "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf": "BL",
+        "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf": "BL",
+        "scientist-qc-fase-sviluppo-tardiva-100-u-m-d-bachem-ag-bubendorf": "BL"
+      },
+      "de": {
+        "scientist-qc-late-phase-100-a-bachem-bubendorf": "BL",
+        "labortechniker-qualitatskontrolle-spatphase-100-mit-lauf-tage-bachem-ag-bubendorf": "BL",
+        "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf": "BL",
+        "senior-labortechniker-qc-spate-phase-100-m-w-d-bachem-ag-bubendorf": "BL",
+        "labortechniker-qc-spate-phase-100-w-m-d-bachem-ag-bubendorf": "BL",
+        "lab-technician-qc-early-phase-100-m-w-d-bachem-bubendorf": "BL",
+        "scientist-qc-fase-sviluppo-tardiva-100-u-m-d-bachem-ag-bubendorf": "BL"
+      },
+      "fr": {
+        "scientist-qc-late-phase-100-a-bachem-bubendorf": "BL",
+        "lab-technician-qc-late-phase-100-w-m-d-bachem-bubendorf": "BL",
+        "scientifique-qc-phase-avancee-100-l-f-d-bachem-ag-bubendorf": "BL",
+        "technicien-de-laboratoire-qc-senior-phase-tardive-100-m-f-d-bachem-ag-bubendorf": "BL",
+        "technicien-de-laboratoire-qc-phase-tardive-100-h-f-bachem-ag-bubendorf": "BL",
+        "technicien-de-laboratoire-qc-phase-initiale-100-bachem-ag-bubendorf": "BL",
+        "scientist-qc-fase-sviluppo-tardiva-100-u-m-d-bachem-ag-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "meccanico-a-100-con-opzione-sul-funzionamento-a-turni-cambio-anteriore-lato-bachem-ag-bubendorf",
@@ -2571,7 +3223,13 @@
         "firstSeenAt": "2026-05-19T19:53:34.090Z",
         "title": "Mitarbeiter*in Dispensation (a) 100% im Schichtbetrieb (Früh/Spätschicht)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mechaniker-a-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "group-leader-techops-laboratories-a-100-bachem-vionnaz",
@@ -2614,7 +3272,8 @@
         "group-leader-techops-laboratories-bachem-vionnaz"
       ],
       "fr": [
-        "group-leader-techops-laboratories-bachem-vionnaz"
+        "group-leader-techops-laboratories-bachem-vionnaz",
+        "group-leader-techops-laboratories-a-100-bachem-vionnaz"
       ],
       "en": [
         "group-leader-techops-laboratories-bachem-vionnaz"
@@ -2638,7 +3297,22 @@
         "firstSeenAt": "2026-09-30T21:25:09.567Z",
         "title": "Group Leader TechOps Laboratories"
       }
-    ]
+    ],
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "capo-gruppo-techops-laboratories-bachem-ag-vionnaz": "VS",
+        "gruppenleiter-techops-laboratories-bachem-ag-vionnaz": "VS",
+        "group-leader-techops-laboratories-bachem-vionnaz": "VS"
+      },
+      "de": {
+        "gruppenleiter-techops-laboratories-bachem-ag-vionnaz": "VS"
+      },
+      "fr": {
+        "group-leader-techops-laboratories-a-100-bachem-vionnaz": "VS",
+        "group-leader-techops-laboratories-bachem-vionnaz": "VS"
+      }
+    }
   },
   {
     "slug": "autore-tecnico-peptide-manufacturing-a-100-temp-12-mesi-bachem-ag-bubendorf",
@@ -2709,7 +3383,13 @@
         "firstSeenAt": "2026-05-19T19:53:40.387Z",
         "title": "Technical Author Peptide Manufacturing (a), 100% (Temp. 12 Monate)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technical-author-peptide-manufacturing-a-100-temp-12-monate-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "laboratorio-tecnico-qc-ipc-a-100-bachem-ag-bubendorf",
@@ -2838,7 +3518,13 @@
         "firstSeenAt": "2026-05-20T11:01:12.075Z",
         "title": "Lab Technician QC - Raw & Startings (a) 100%"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lab-technician-qc-ipc-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "associate-cmc-project-manager-bachem-bubendorf",
@@ -2871,7 +3557,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-associate-cmc-project-manager-bl-4416/1447583833",
-    "firstSeenAt": "2026-10-15T09:27:17.882Z"
+    "firstSeenAt": "2026-10-15T09:27:17.882Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "associate-cmc-project-manager-bachem-bubendorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "associate-cmc-project-manager-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "recensione-di-batchdocument-a-100-bachem-ag-bubendorf",
@@ -2914,7 +3611,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-batchdocument-reviewer-%28a%29%2c-100-bl-4416/1425152933",
-    "firstSeenAt": "2026-08-11T10:20:59.607Z"
+    "firstSeenAt": "2026-08-11T10:20:59.607Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "batchdocument-reviewer-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
@@ -2991,7 +3694,28 @@
         "firstSeenAt": "2026-08-18T09:56:04.993Z",
         "title": "Scientist Peptidwirkstoffe R&D Flow-Chemie (a), 100%"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chemiker-optimierungs-e-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-ag-bubendorf": "BL",
+        "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf": "BL",
+        "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf": "BL",
+        "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf": "BL",
+        "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf": "BL"
+      },
+      "en": {
+        "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf": "BL",
+        "scientist-peptide-ingredients-r-d-flow-chemistry-a-100-bachem-ag-bubendorf": "BL",
+        "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-analitico-qc-bachem-ag-vionnaz",
@@ -3051,7 +3775,17 @@
         "firstSeenAt": "2026-09-30T21:25:10.775Z",
         "title": "QC Analytical Project Manager"
       }
-    ]
+    ],
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "qc-analytical-project-manager-bachem-vionnaz": "VS",
+        "qc-analytical-project-manager-a-100-bachem-vionnaz": "VS"
+      },
+      "de": {
+        "qc-analytical-project-manager-bachem-vionnaz": "VS"
+      }
+    }
   },
   {
     "slug": "manager-fornitura-esterna-qa-a-100-temporanea-12-mesi-bachem-ag-bubendorf",
@@ -3094,7 +3828,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-manager-external-supply-qa-%28a%29-100-%28temporary%2c-12-month%29-bl-4416/1438103933",
-    "firstSeenAt": "2026-09-19T23:01:50.016Z"
+    "firstSeenAt": "2026-09-19T23:01:50.016Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "manager-external-supply-qa-a-100-temporary-12-month-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "scienziato-associato-qc-r-s-a-100-bachem-ag-bubendorf",
@@ -3137,7 +3877,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-associate-scientist-qc-r&s-%28a%29-100-bl-4416/1432590833",
-    "firstSeenAt": "2026-09-01T14:19:29.674Z"
+    "firstSeenAt": "2026-09-01T14:19:29.674Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "associate-scientist-qc-r-s-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "supporto-amministrativo-produzione-a-100-bachem-ag-bubendorf",
@@ -3199,7 +3945,14 @@
         "firstSeenAt": "2026-06-10T22:13:47.876Z",
         "title": "Admin Support Manufacturing (a) 100%"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "admin-support-manufacturing-a-100-bachem-bubendorf": "BL",
+        "admin-support-manufacturing-a-100-12-monate-befristet-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "tecnico-di-laboratorio-qc-bachem-ag-vionnaz",
@@ -3256,7 +4009,14 @@
         "firstSeenAt": "2026-09-30T21:25:07.802Z",
         "title": "QC Lab Technician"
       }
-    ]
+    ],
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "qc-lab-technician-bachem-vionnaz": "VS",
+        "qc-lab-technician-a-100-bachem-vionnaz": "VS"
+      }
+    }
   },
   {
     "slug": "produttivita-di-stage-ai-a-80-temporaneo-12-mesi-bachem-ag-bubendorf",
@@ -3299,7 +4059,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-internship-productivity-ai-%28a%29%2c-80-temporary-12-months-bl-4416/1439579533",
-    "firstSeenAt": "2026-09-21T16:08:09.845Z"
+    "firstSeenAt": "2026-09-21T16:08:09.845Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "internship-productivity-ai-a-80-temporary-12-months-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "autore-tecnico-a-100-bachem-ag-vionnaz",
@@ -3364,7 +4130,18 @@
         "firstSeenAt": "2026-09-30T21:25:10.188Z",
         "title": "Technical Author"
       }
-    ]
+    ],
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technical-author-bachem-vionnaz": "VS",
+        "technical-author-bachem-ag-vionnaz": "VS",
+        "autore-tecnico-bachem-ag-vionnaz": "VS",
+        "autore-tecnico-a-al-100-bachem-ag-vionnaz": "VS",
+        "technical-author-a-100-bachem-ag-vionnaz": "VS",
+        "technical-author-a-100-bachem-vionnaz": "VS"
+      }
+    }
   },
   {
     "slug": "senior-quality-compliance-manager-in-manufacturing-a-100-bachem-bubendorf",
@@ -3394,7 +4171,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-senior-quality-&-compliance-manager-in-manufacturing-%28a%29%2c-100-bl-4416/1422946333",
-    "firstSeenAt": "2026-08-04T22:29:00.453Z"
+    "firstSeenAt": "2026-08-04T22:29:00.453Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "senior-quality-compliance-manager-in-manufacturing-a-100-bachem-bubendorf"
+      ],
+      "de": [
+        "senior-quality-compliance-manager-in-manufacturing-a-100-bachem-bubendorf"
+      ],
+      "fr": [
+        "senior-quality-compliance-manager-in-manufacturing-a-100-bachem-bubendorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "senior-quality-compliance-manager-in-manufacturing-a-100-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "senior-quality-compliance-manager-in-manufacturing-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "senior-quality-compliance-manager-in-manufacturing-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "specialista-di-processo-e-responsabile-della-formazione-cromatografia-uomo-donna-bachem-ag-bubendorf",
@@ -3461,7 +4261,16 @@
         "firstSeenAt": "2026-05-19T19:53:52.497Z",
         "title": "Process Specialist & Training Leader Chromatography (w/m/d) (Neubau Gebäude K), 100%"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialista-processi-e-leader-formazione-cromatografia-uomo-donna-diverso-bachem-ag-bubendorf": "BL",
+        "prozessspezialist-ausbildungsleiter-chromatographie-w-m-d-neubau-gebaude-k-100-bachem-ag-bubendorf": "BL",
+        "specialiste-de-processus-et-responsable-de-la-formation-chromatographie-h-f-100-batiment-k-nouveau-bachem-ag-bubendorf": "BL",
+        "process-specialist-training-leader-chromatography-a-neubau-gebaude-k-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "it-enterprise-architect-manufacturing-operations-a-80-100-bachem-bubendorf",
@@ -3493,7 +4302,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-it-enterprise-architect%2c-manufacturing-&-operations-%28a%29%2c-80-100-bl-4416/1417171433",
-    "firstSeenAt": "2026-07-21T12:33:48.737Z"
+    "firstSeenAt": "2026-07-21T12:33:48.737Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "it-enterprise-architect-manufacturing-operations-a-80-100-bachem-bubendorf"
+      ],
+      "fr": [
+        "it-enterprise-architect-manufacturing-operations-a-80-100-bachem-bubendorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "it-enterprise-architect-manufacturing-operations-a-80-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "it-enterprise-architect-manufacturing-operations-a-80-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "responsabile-dell-erogazione-dei-servizi-it-a-80-100-bachem-ag-bubendorf",
@@ -3539,7 +4365,8 @@
         "gestionnaire-de-la-prestation-des-services-de-ti-a-80-100-bachem-ag-bubendorf",
         "responsabile-della-consegna-dei-servizi-it-a-80-100-bachem-ag-bubendorf-7ed4e8",
         "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpkmqp",
-        "it-service-delivery-manager-a-80-100-bachem-bubendorf-2"
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf-2",
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf"
       ],
       "en": [
         "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpknhe",
@@ -3549,10 +4376,12 @@
         "it-servicebereitstellungsmanager-a-80-100-bachem-ag-bubendorf-7ed4e8",
         "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpknhe",
         "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpkmqp",
-        "it-service-delivery-manager-a-80-100-bachem-bubendorf-2"
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf-2",
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf"
       ],
       "fr": [
-        "gestionnaire-de-la-prestation-des-services-informatiques-a-80-100-bachem-ag-bubendorf"
+        "gestionnaire-de-la-prestation-des-services-informatiques-a-80-100-bachem-ag-bubendorf",
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf"
       ]
     },
     "postalCode": "4416",
@@ -3580,11 +4409,13 @@
         "gestionnaire-de-la-prestation-des-services-de-ti-a-80-100-bachem-ag-bubendorf": "BL",
         "responsabile-della-consegna-dei-servizi-it-a-80-100-bachem-ag-bubendorf-7ed4e8": "BL",
         "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpkmqp": "BL",
-        "it-service-delivery-manager-a-80-100-bachem-bubendorf": "BL"
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf": "BL",
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpknhe": "BL"
       },
       "en": {
         "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpkmqp": "BL",
-        "it-service-delivery-manager-a-80-100-bachem-bubendorf": "BL"
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf": "BL",
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpknhe": "BL"
       },
       "de": {
         "it-servicebereitstellungsmanager-a-80-100-bachem-ag-bubendorf-7ed4e8": "BL",
@@ -3594,7 +4425,51 @@
         "gestionnaire-de-la-prestation-des-services-informatiques-a-80-100-bachem-ag-bubendorf": "BL",
         "it-service-delivery-manager-a-80-100-bachem-bubendorf": "BL"
       }
-    }
+    },
+    "canton": "BL"
+  },
+  {
+    "slug": "senior-manager-trasformazione-globale-qms-a-100-bachem-ag-bubendorf",
+    "title": "Senior Manager Global QMS Transformation (a) - 100%",
+    "titleByLocale": {
+      "it": "Senior Manager Trasformazione Globale QMS (a) - 100%",
+      "en": "Senior Manager Global QMS Transformation (a) - 100%",
+      "de": "Senior Manager Globale QMS-Transformation (a) - 100%",
+      "fr": "Gestionnaire principal Transformation globale du SGQ (a) - 100 %"
+    },
+    "company": "Bachem AG",
+    "companyKey": "bachem",
+    "location": "Bubendorf",
+    "addressLocality": "Bubendorf",
+    "descriptionByLocale": {
+      "it": "Stiamo cercando un Senior Manager altamente capace – Global QMS Transformation per svolgere un ruolo chiave nella fornitura di un programma di trasformazione della qualità globale, tra cui l'implementazione di una piattaforma di qualità aziendale basata su Veeva Vault.\n\nIn questo ruolo, si agirà come il leader di esecuzione giorno per giorno e partner affidabile per il Direttore, Global QMS Transformation, possedere l'esecuzione dell'implementazione e garantire che offre un valore aziendale misurabile.\n\nI tuoi compiti\n\nGuidare la trasformazione globale\n\n• Gestire l'esecuzione quotidiana di un programma globale di implementazione QMS\n\n• Tradurre obiettivi strategici in piani strutturati e attuabili\n\n• Assicurare la consegna in tutte le fasi, tra cui progettazione, costruzione, test e distribuzione\n\n• Monitorare il progresso, supervisionare i rischi, risolvere i problemi e mantenere il momento del programma generale\n\n• Collabora con gli stakeholder globali e locali per definire e implementare processi QMS armonizzati\n\n• Equilibrare i requisiti aziendali con soluzioni di sistema scalabili e sostenibili\n\n• Allineare l'unità attraverso funzioni e siti durante la navigazione della complessità\n\nGestire Partner e Consegna\n\n• Coordinare e supervisionare fornitori esterni e integratori di sistema\n\n• Assicurare elevati standard di qualità della consegna, responsabilità e collaborazione\n\n• Mantenere un approccio pragmatico e orientato ai risultati all'esecuzione\n\nAssicurare l'integrazione di conformità e la disponibilità aziendale\n\n• I requisiti di conformità incorporati nell'esecuzione del programma in collaborazione con gli stakeholder interni\n\n• Guidare la prontezza aziendale e l'implementazione di successo guidando e coordinando le attività di gestione, comunicazione e formazione dei cambiamenti\n\nIl tuo profilo\n\n• 8-10 anni di esperienza nelle industrie farmaceutiche o biotecnologiche\n\n• Esperienza comprovata che supporta o conduce implementazioni di sistema e/o programmi di trasformazione, idealmente in un ambiente globale\n\n• Solida comprensione dei sistemi di gestione della qualità (QMS) e dei framework GMP\n\n• Esperienza di lavoro tra le parti interessate interfunzionali\n\n• Esperienza di applicazione Veeva Vault (o altri sistemi di qualità digitale)\n\n• Forte messa a fuoco di esecuzione con una capacità dimostrata di fornire risultati\n\n• Capacità di gestire la complessità e priorità in modo efficace in un ambiente dinamico\n\n• Eccellente capacità di gestione e comunicazione degli stakeholder\n\n• Certificazione come PMP (Project Management Professional) e/o Lean Six Sigma piacevole da avere\n\n• La familiarità con la convalida del sistema informatico (CSV) in ambienti regolamentati sarebbe un plus\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con opportunità di sviluppo interno\n\n• Ore lavorative flessibili con i giorni di ufficio e l'opzione per ottenere ulteriori giorni di vacanza attraverso la riduzione del carico di lavoro\n\n• Sviluppo dei dipendenti attraverso numerose opportunità di formazione interna ed esterna\n\n• 60% di copertura dei contributi dei fondi pensione da parte di Bachem AG e l'opzione per la fornitura di pensione extra-obbligatoria con il nostro Piano Pensione Plus\n\n• Accesso alla piattaforma di benefici Swibeco con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Una vasta gamma di attività sportive gratuite sul Bachem Campus\n\nVuoi guidare l'innovazione insieme a noi?\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora di ricevere i tuoi documenti applicativi completi tramite il nostro portale.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nella nostra posizione a Bubendorf!",
+      "en": "We are seeking a highly capable Senior Manager – Global QMS Transformation to play a key role in delivering a global quality transformation program, including the implementation of a Veeva Vault-based enterprise quality platform.\n\nIn this role, you will act as the day-to-day execution lead and trusted partner to the Director, Global QMS Transformation, owning the execution of the implementation and ensuring it delivers measurable business value.\n\nYour tasks\n\nDrive Global Transformation\n\n• Manage day-to-day execution of a global QMS implementation program\n\n• Translate strategic objectives into structured, actionable plans\n\n• Ensure delivery across all phases, including design, build, testing, and deployment\n\n• Monitor progress, oversee risks, resolve issues, and maintain overall program momentum\n\n• Collaborate with global and local stakeholders to define and implement harmonized QMS processes\n\n• Balance business requirements with scalable and sustainable system solutions\n\n• Drive alignment across functions and sites while navigating complexity\n\nManage Partners and Delivery\n\n• Coordinate and oversee external vendors and system integrators\n\n• Ensure high standards of delivery quality, accountability, and collaboration\n\n• Maintain a pragmatic, results-oriented approach to execution\n\nEnsure Compliance Integration and Business Readiness\n\n• Embed compliance requirements into program execution in partnership with internal stakeholders\n\n• Drive business readiness and successful deployment by leading and coordinating change management, communication, and training activities\n\nYour Profile\n\n• 8–10+ years of experience in pharmaceutical or biotechnology industries\n\n• Proven experience supporting or leading system implementations and/or transformation programs, ideally in a global environment\n\n• Solid understanding of Quality Management Systems (QMS) and GMP frameworks\n\n• Experience working across cross-functional stakeholders\n\n• Experience implementing Veeva Vault (or other digital quality systems)\n\n• Strong execution focus with a demonstrated ability to deliver results\n\n• Ability to manage complexity and prioritize effectively in a dynamic environment\n\n• Excellent stakeholder management and communication skills\n\n• Certification such as PMP (Project Management Professional) and/or Lean Six Sigma nice to have\n\n• Familiarity with computer system validation (CSV) in regulated environments would be a plus\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to the Swibeco benefits platform with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nHave we aroused your interest? Then we look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and be inspired by our inspiring working environment at our location in Bubendorf!",
+      "de": "Wir suchen einen hochqualifizierten Senior Manager – Global QMS Transformation, der eine Schlüsselrolle bei der Bereitstellung eines globalen Qualitätstransformationsprogramms spielt, einschließlich der Implementierung einer Veeva Vault-basierten Enterprise Quality Plattform.\n\nIn dieser Rolle fungieren Sie als täglicher Ausführungsleiter und vertrauenswürdiger Partner des Director Global QMS Transformation, der die Durchführung der Implementierung übernimmt und sicherstellt, dass sie einen messbaren Geschäftswert liefert.\n\nIhre Aufgaben\n\nGlobale Transformation vorantreiben\n\n• Verwalten Sie die tägliche Ausführung eines globalen QMS-Implementierungsprogramms\n\n• Strategische Ziele in strukturierte, umsetzbare Pläne übersetzen\n\n• Sicherstellung der Lieferung über alle Phasen hinweg, einschließlich Design, Build, Test und Deployment\n\n• Überwachung des Fortschritts, Überwachung von Risiken, Behebung von Problemen und Aufrechterhaltung der Gesamtdynamik des Programms\n\n• Zusammenarbeit mit globalen und lokalen Stakeholdern zur Definition und Implementierung harmonisierter QMS-Prozesse\n\n• Balance der Geschäftsanforderungen mit skalierbaren und nachhaltigen Systemlösungen\n\n• Ausrichtung über Funktionen und Standorte hinweg steuern und gleichzeitig die Komplexität steuern\n\nVerwalten von Partnern und Lieferung\n\n• Koordinieren und beaufsichtigen Sie externe Anbieter und Systemintegratoren\n\n• Gewährleistung hoher Standards in Bezug auf Lieferqualität, Verantwortlichkeit und Zusammenarbeit\n\n• Behalten Sie einen pragmatischen, ergebnisorientierten Ansatz für die Ausführung bei\n\nStellen Sie Compliance-Integration und Geschäftsbereitschaft sicher\n\n• Einbetten von Compliance-Anforderungen in die Programmausführung in Partnerschaft mit internen Stakeholdern\n\n• Förderung der Geschäftsbereitschaft und des erfolgreichen Einsatzes durch Leitung und Koordination von Change Management-, Kommunikations- und Schulungsaktivitäten\n\nIhr Profil\n\n• 8-10+ Jahre Erfahrung in der pharmazeutischen oder biotechnologischen Industrie\n\n• Nachgewiesene Erfahrung in der Unterstützung oder Leitung von Systemimplementierungen und / oder Transformationsprogrammen, idealerweise in einer globalen Umgebung\n\n• Solides Verständnis von Qualitätsmanagementsystemen (QMS) und GMP Frameworks\n\n• Erfahrung in der Arbeit mit funktionsübergreifenden Stakeholdern\n\n• Erfahrung in der Implementierung von Veeva Vault (oder anderen digitalen Qualitätssystemen)\n\n• Starker Ausführungsfokus mit nachgewiesener Fähigkeit, Ergebnisse zu liefern\n\n• Fähigkeit, Komplexität zu verwalten und in einer dynamischen Umgebung effektiv zu priorisieren\n\n• Exzellentes Stakeholder-Management und Kommunikationsfähigkeiten\n\n• Zertifizierung wie PMP (Project Management Professional) und/oder Lean Six Sigma nice to have\n\n• Vertrautheit mit Computersystemvalidierung (CSV) in regulierten Umgebungen wäre ein Plus\n\nUnser Angebot:\n\n• Ein dynamisches und schnell wachsendes Arbeitsumfeld mit internen Entwicklungsmöglichkeiten\n\n• Flexible Arbeitszeiten mit Home-Office-Tagen und eine Option für zusätzliche Urlaubstage durch Arbeitsbelastungsreduzierung\n\n• Mitarbeiterentwicklung durch zahlreiche interne und externe Weiterbildungsmöglichkeiten\n\n• 60% Deckung von Pensionskassenbeiträgen durch die Bachem AG sowie Option auf außerobligatorische Vorsorge mit unserem Pensionsplan Plus\n\n• Zugang zur Swibeco Benefits Plattform mit Rabatten von externen Partnern\n\n• Frisches, gesundes und abwechslungsreiches Essen in unserem Personalrestaurant\n\n• Breites Angebot an kostenlosen Sportangeboten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Group und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf inspirieren!",
+      "fr": "Nous recherchons un cadre supérieur hautement compétent – Global QMS Transformation pour jouer un rôle clé dans la mise en œuvre d'un programme mondial de transformation de la qualité, y compris la mise en place d'une plateforme de qualité d'entreprise basée sur Veeva Vault.\n\nDans ce rôle, vous jouerez le rôle de chef de file de l'exécution quotidienne et de partenaire de confiance auprès du directeur, Transformation QMS globale, qui possède l'exécution de la mise en œuvre et s'assure qu'elle offre une valeur opérationnelle mesurable.\n\nVos tâches\n\nConduire la transformation mondiale\n\n• Gérer l'exécution quotidienne d'un programme global de mise en œuvre du SGQ\n\n• Traduire les objectifs stratégiques en plans structurés et réalisables\n\n• Assurer l'exécution de toutes les phases, y compris la conception, la construction, les essais et le déploiement\n\n• Surveiller les progrès, surveiller les risques, résoudre les problèmes et maintenir l'élan global du programme\n\n• Collaborer avec les acteurs mondiaux et locaux pour définir et mettre en œuvre des processus harmonisés de SGQ\n\n• Équilibrer les besoins opérationnels avec des solutions de système évolutives et durables\n\n• Conduire l'alignement entre les fonctions et les sites tout en naviguant sur la complexité\n\nGérer les partenaires et la prestation\n\n• Coordonner et superviser les fournisseurs externes et les intégrateurs de systèmes\n\n• Assurer des normes élevées de qualité de prestation, de responsabilisation et de collaboration\n\n• Maintenir une approche pragmatique et axée sur les résultats en matière d ' exécution\n\nAssurer l'intégration de la conformité et la préparation aux affaires\n\n• Intégrer les exigences de conformité à l'exécution du programme en partenariat avec les intervenants internes\n\n• Favoriser la préparation opérationnelle et le déploiement réussi en dirigeant et en coordonnant des activités de gestion du changement, de communication et de formation\n\nVotre profil\n\n• 8 à 10 ans d'expérience dans les industries pharmaceutiques ou biotechnologiques\n\n• Expérience éprouvée soutenant ou dirigeant des programmes de mise en œuvre et/ou de transformation du système, idéalement dans un environnement mondial\n\n• Une bonne compréhension des systèmes de gestion de la qualité (SGQ) et des cadres des BPF\n\n• Expérience de travail entre parties prenantes interfonctionnelles\n\n• Expérience de la mise en œuvre de Veeva Vault (ou d'autres systèmes de qualité numérique)\n\n• Forte concentration d'exécution avec une capacité démontrée d'obtenir des résultats\n\n• Capacité à gérer la complexité et à établir des priorités efficaces dans un environnement dynamique\n\n• Excellentes compétences en gestion des parties prenantes et en communication\n\n• Certification comme PMP (Project Management Professional) et/ou Lean Six Sigma agréable à avoir\n\n• La connaissance de la validation du système informatique (CSV) dans les environnements réglementés serait un plus\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne\n\n• Heures de travail flexibles avec les jours de bureau à domicile et une option pour obtenir des jours de vacances supplémentaires grâce à la réduction de la charge de travail\n\n• Développement des employés grâce à de nombreuses possibilités de formation internes et externes\n\n• 60 % de la couverture des cotisations de la caisse de retraite par Bachem AG, ainsi que l'option pour les prestations de retraite extra-obligatoires avec notre Régime de retraite Plus\n\n• Accès à la plateforme d'avantages Swibeco avec des rabais de partenaires externes\n\n• Des aliments frais, sains et variés dans notre restaurant du personnel\n\n• Un large éventail d'activités sportives gratuites sur le campus de Bachem\n\nAimeriez-vous stimuler l'innovation avec nous ?\n\nAvons-nous suscité votre intérêt ? Ensuite, nous sommes impatients de recevoir vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et être inspiré par notre environnement de travail inspirant à notre emplacement à Bubendorf!"
+    },
+    "slugByLocale": {
+      "it": "senior-manager-trasformazione-globale-qms-a-100-bachem-ag-bubendorf",
+      "en": "senior-manager-global-qms-transformation-a-100-bachem-bubendorf",
+      "de": "senior-manager-global-qms-transformation-a-100-bachem-bubendorf",
+      "fr": "gestionnaire-principal-transformation-globale-du-sgq-a-100-bachem-ag-bubendorf"
+    },
+    "sector": "Biotecnologia / Farmaceutica",
+    "expiredAt": "2026-10-13T21:28:18.920Z",
+    "previousSlugs": [
+      "senior-manager-global-qms-transformation-a-100-bachem-bubendorf"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "senior-manager-global-qms-transformation-a-100-bachem-bubendorf"
+      ]
+    },
+    "postalCode": "4416",
+    "salaryMin": 99500,
+    "salaryMax": 151000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-senior-manager-global-qms-transformation-%28a%29-100-bl-4416/1410380233",
+    "firstSeenAt": "2026-07-01T21:49:04.588Z"
   },
   {
     "slug": "controllo-di-qualita-tecnico-del-laboratorio-100-a-bachem-ag-bubendorf",
@@ -3637,7 +4512,56 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-lab-technician-quality-control-100-%28a%29-bl-4416/1423401933",
-    "firstSeenAt": "2026-08-05T22:45:48.926Z"
+    "firstSeenAt": "2026-08-05T22:45:48.926Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lab-technician-quality-control-100-a-bachem-bubendorf": "BL"
+      }
+    }
+  },
+  {
+    "slug": "responsabile-progetti-qa-a-100-bachem-ag-bubendorf",
+    "title": "Manager QA Projects (a), 100%",
+    "titleByLocale": {
+      "it": "Responsabile Progetti QA (a), 100%",
+      "en": "Manager QA Projects (a), 100%",
+      "de": "Manager QA Projekte (a), 100%",
+      "fr": "Gestionnaire des projets d'AQ (a), 100 %"
+    },
+    "company": "Bachem AG",
+    "companyKey": "bachem",
+    "location": "Bubendorf",
+    "addressLocality": "Bubendorf",
+    "descriptionByLocale": {
+      "it": "Per guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il team di Quality Assurance, siamo alla ricerca di un Manager dedicato ed esperto QA Projects (a), 100%.\n\nI vostri compiti:\n\n• Rappresentare QA in progetti relativi ai prodotti presso il sito Bubendorf.\n\n• Valutare e prendere decisioni su argomenti pertinenti QA all'interno di singoli progetti.\n\n• Coordinare i compiti specifici del progetto all'interno dei dipartimenti QA e agire come un contatto chiave per altri dipartimenti (ad esempio, Produzione, Controllo di qualità, Project Management) per quanto riguarda la conformità cGMP e la risoluzione dei problemi.\n\n• Definire le strategie di controllo e le strategie globali del ciclo di vita dallo sviluppo di GMP attraverso la validazione dei processi per supportare la produzione commerciale.\n\n• Verificare e approvare documenti GMP, modifiche, report di deviazione e CAPAs.\n\n• Servire come punto di contatto per gli stakeholder interni ed esterni in materia di QA e rappresentare QA nelle riunioni tra Bachem e i clienti.\n\nIl tuo profilo:\n\n• Master o Ph.D. in chimica, biologia, farmacia o un campo tecnico comparabile.\n\n• Minimo di 2 anni di esperienza professionale nella gestione del progetto e garanzia di qualità nell'industria chimica/farmaceutica.\n\n• Forte comprensione di argomenti QA, solida conoscenza cGMP (EU-GMP, FDA), e l'esperienza nel sostenere le validazioni di processo, compresa la gestione del rischio.\n\n• Professionista strutturato e orientato alla soluzione con un alto livello di comprensione e forti capacità comunicative, capace di trasmettere in modo chiaro argomenti complessi internamente ed esternamente.\n\n• Un apprendimento rapido con una personalità resiliente, orientata al servizio e flessibile che prospera negli ambienti di squadra e prende decisioni sicure.\n\n• Eccellente capacità di comunicazione verbale e scritta sia in tedesco che in inglese.\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con opportunità di sviluppo e formazione interne\n\n• Ore lavorative flessibili con i giorni di ufficio e l'opzione per ottenere ulteriori giorni di vacanza attraverso la riduzione del carico di lavoro\n\n• Centro diurno gestito dall'azienda sul campus di Bachem a Bubendorf\n\n• 60% di copertura dei contributi dei fondi pensione da parte di Bachem AG e l'opzione per la fornitura di pensione extra-obbligatoria con il nostro Piano Pensione Plus\n\n• Accesso a piattaforme di benefici con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Una vasta gamma di attività sportive gratuite sul Bachem Campus\n\nVuoi guidare l'innovazione insieme a noi?\n\nNon vediamo l'ora di ricevere i tuoi documenti applicativi completi tramite il nostro portale.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro emozionante nella nostra posizione a Bubendorf!",
+      "en": "To drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen Quality Assurance team, we are looking for a dedicated and experienced Manager QA Projects (a), 100%.\n\nYour tasks:\n\n• Represent QA in product-related projects at the Bubendorf site.\n\n• Assess and make decisions on QA-relevant topics within individual projects.\n\n• Coordinate project-specific tasks within QA departments and act as a key contact for other departments (e.g., Production, Quality Control, Project Management) regarding cGMP compliance and troubleshooting.\n\n• Define control strategies and overall lifecycle strategies from GMP development through process validation to support commercial manufacturing.\n\n• Review and approve GMP documents, changes, deviation reports, and CAPAs.\n\n• Serve as the contact point for internal and external stakeholders on QA-related matters and represent QA in meetings between Bachem and clients.\n\nYour profile:\n\n• Master’s or Ph.D. in chemistry, biology, pharmacy, or a comparable technical field.\n\n• Minimum of 2 years of professional experience in project management and quality assurance within the chemical/pharmaceutical industry.\n\n• Strong understanding of QA topics, solid cGMP knowledge (EU-GMP, FDA), and experience in supporting process validations including risk management.\n\n• Structured and solution-oriented professional with a high level of comprehension and strong communication skills, capable of clearly conveying complex topics internally and externally.\n\n• A quick learner with a resilient, service-minded, and flexible personality who thrives in team environments and makes confident decisions.\n\n• Excellent verbal and written communication skills in both German and English.\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development and training opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Company‑run daycare center on the Bachem Campus in Bubendorf\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platforms with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our location in Bubendorf!",
+      "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, sind wir ständig auf der Suche nach hochqualifizierten Fachkräften. Um das Qualitätssicherungsteam zu stärken, suchen wir einen engagierten und erfahrenen Manager QA Projects (a), 100%.\n\nIhre Aufgaben:\n\n• Repräsentieren Sie QA in produktbezogenen Projekten am Standort Bubendorf.\n\n• Bewerten und treffen Sie Entscheidungen zu QA-relevanten Themen innerhalb einzelner Projekte.\n\n• Koordinieren Sie projektspezifische Aufgaben innerhalb von QA-Abteilungen und fungieren Sie als Ansprechpartner für andere Abteilungen (z.B. Produktion, Qualitätskontrolle, Projektmanagement) in Bezug auf cGMP Compliance und Troubleshooting.\n\n• Definieren Sie Kontrollstrategien und Gesamtlebenszyklusstrategien von der GMP-Entwicklung bis hin zur Prozessvalidierung, um die kommerzielle Fertigung zu unterstützen.\n\n• Überprüfen und genehmigen Sie GMP-Dokumente, Änderungen, Abweichungsberichte und CAPAs.\n\n• Dienen Sie als Anlaufstelle für interne und externe Stakeholder in QA-bezogenen Angelegenheiten und vertreten Sie QA in Treffen zwischen Bachem und Kunden.\n\nIhr Profil:\n\n• Master oder Ph.D. in Chemie, Biologie, Pharmazie oder einem vergleichbaren technischen Bereich.\n\n• Mindestens 2 Jahre Berufserfahrung im Projektmanagement und in der Qualitätssicherung in der chemischen/pharmazeutischen Industrie.\n\n• Starkes Verständnis von QA-Themen, solides cGMP-Wissen (EU-GMP, FDA) und Erfahrung in der Unterstützung von Prozessvalidierungen einschließlich Risikomanagement.\n\n• Strukturierter und lösungsorientierter Fachmann mit einem hohen Verständnis und starken Kommunikationsfähigkeiten, der in der Lage ist, komplexe Themen intern und extern klar zu vermitteln.\n\n• Ein schneller Lernender mit einer belastbaren, serviceorientierten und flexiblen Persönlichkeit, der in Teamumgebungen lebt und selbstbewusste Entscheidungen trifft.\n\n• Hervorragende verbale und schriftliche Kommunikationsfähigkeiten in Deutsch und Englisch.\n\nUnser Angebot:\n\n• Ein dynamisches und schnell wachsendes Arbeitsumfeld mit internen Entwicklungsmöglichkeiten\n\n• Flexible Arbeitszeiten mit Home-Office-Tagen und eine Option für zusätzliche Urlaubstage durch Arbeitsbelastungsreduzierung\n\n• Betriebsgeführte Kindertagesstätte auf dem Bachem Campus in Bubendorf\n\n• 60% Deckung von Pensionskassenbeiträgen durch die Bachem AG sowie Option auf außerobligatorische Vorsorge mit unserem Pensionsplan Plus\n\n• Zugang zu Leistungsplattformen mit Rabatten von externen Partnern\n\n• Frisches, gesundes und abwechslungsreiches Essen in unserem Personalrestaurant\n\n• Breites Angebot an kostenlosen Sportangeboten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Group und lassen Sie sich von unserem spannenden Arbeitsumfeld an unserem Standort in Bubendorf inspirieren!",
+      "fr": "Pour stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer l'équipe d'assurance de la qualité, nous recherchons un gestionnaire d'assurance de la qualité dévoué et expérimenté (a), 100%.\n\nVos tâches:\n\n• Représenter l'AQ dans les projets liés aux produits sur le site de Bubendorf.\n\n• Évaluer et prendre des décisions sur des sujets pertinents à l'AQ dans le cadre de projets individuels.\n\n• Coordonner les tâches propres à un projet au sein des ministères de l'AQ et agir à titre de contact clé pour d'autres ministères (p. ex. production, contrôle de la qualité, gestion de projet) en ce qui concerne la conformité aux BPFC et le dépannage.\n\n• Définir des stratégies de contrôle et des stratégies globales de cycle de vie depuis le développement des BPF jusqu'à la validation des procédés pour soutenir la fabrication commerciale.\n\n• Examiner et approuver les documents sur les BPF, les changements, les rapports d'écart et les APC.\n\n• Servir de point de contact pour les intervenants internes et externes sur les questions liées à l'AQ et représenter l'AQ dans les réunions entre Bachem et les clients.\n\nVotre profil:\n\n• Maîtrise ou doctorat en chimie, biologie, pharmacie, ou un domaine technique comparable.\n\n• Minimum de 2 ans d'expérience professionnelle dans la gestion de projet et l'assurance de la qualité dans l'industrie chimique/pharmaceutique.\n\n• Une bonne compréhension des sujets de l'AQ, une solide connaissance des BPFC (UE-BPF, FDA) et une expérience dans le soutien des validations de processus, y compris la gestion des risques.\n\n• Professionnels structurés et orientés vers la solution avec un haut niveau de compréhension et des compétences de communication solides, capables de transmettre clairement des sujets complexes à l'intérieur et à l'extérieur.\n\n• Un apprenant rapide doté d'une personnalité résiliente, d'esprit de service et flexible qui prospère en équipe et prend des décisions confiantes.\n\n• Excellentes compétences en communication orale et écrite en allemand et en anglais.\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne et de formation\n\n• Heures de travail flexibles avec les jours de bureau à domicile et une option pour obtenir des jours de vacances supplémentaires grâce à la réduction de la charge de travail\n\n• Centre de garderie géré par l'entreprise sur le campus Bachem à Bubendorf\n\n• 60 % de la couverture des cotisations de la caisse de retraite par Bachem AG, ainsi que l'option pour les prestations de retraite extra-obligatoires avec notre Régime de retraite Plus\n\n• Accès aux plateformes d'avantages avec des rabais de partenaires externes\n\n• Des aliments frais, sains et variés dans notre restaurant du personnel\n\n• Un large éventail d'activités sportives gratuites sur le campus de Bachem\n\nAimeriez-vous stimuler l'innovation avec nous ?\n\nNous sommes impatients de recevoir vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et s'inspirer de notre environnement de travail passionnant à notre emplacement à Bubendorf!"
+    },
+    "slugByLocale": {
+      "it": "responsabile-progetti-qa-a-100-bachem-ag-bubendorf",
+      "en": "manager-qa-projects-a-100-bachem-bubendorf",
+      "de": "manager-qa-projekte-a-100-bachem-ag-bubendorf",
+      "fr": "gestionnaire-des-projets-d-aq-a-100-bachem-ag-bubendorf"
+    },
+    "sector": "Biotecnologia / Farmaceutica",
+    "expiredAt": "2026-10-09T09:26:44.288Z",
+    "previousSlugs": [
+      "manager-qa-projects-a-100-bachem-bubendorf"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "manager-qa-projects-a-100-bachem-bubendorf"
+      ]
+    },
+    "postalCode": "4416",
+    "salaryMin": 99500,
+    "salaryMax": 151000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-manager-qa-projects-%28a%29%2c-100-bl-4416/1443374433",
+    "firstSeenAt": "2026-10-01T21:21:55.393Z"
   },
   {
     "slug": "lab-technician-r-d-scale-up-e-kleinmengenproduktion-m-w-d-100-a-bachem-ag-bubendorf",
@@ -3695,7 +4619,16 @@
         "firstSeenAt": "2026-08-11T10:20:58.604Z",
         "title": "Lab Technician R&D Scale-up und Kleinmengenproduktion (w/m/d), 100% (a)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lab-technician-r-d-scale-up-und-kleinmengenproduktion-w-m-d-100-a-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "lab-technician-r-d-scale-up-und-kleinmengenproduktion-w-m-d-100-a-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "autore-tecnico-a-100-bachem-ag-stein-ag",
@@ -3743,7 +4676,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/stein-ag-technical-author-%28a%29-100-ag-4332/1441283133",
-    "firstSeenAt": "2026-09-25T14:54:38.934Z"
+    "firstSeenAt": "2026-09-25T14:54:38.934Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technical-author-a-100-bachem-stein-ag": "AG",
+        "technical-author-a-100-bachem-ag-stein-ag": "AG"
+      },
+      "fr": {
+        "technical-author-a-100-bachem-stein-ag": "AG"
+      }
+    }
   },
   {
     "slug": "capo-squadra-spark-a-100-bachem-ag-bubendorf",
@@ -3794,7 +4737,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-teamleader-spark-%28a%29%2c-100-bl-4416/1405921833",
-    "firstSeenAt": "2026-06-18T11:52:31.039Z"
+    "firstSeenAt": "2026-06-18T11:52:31.039Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleader-spark-a-100-bachem-bubendorf": "BL",
+        "caposquadra-spark-a-100-bachem-ag-bubendorf": "BL"
+      },
+      "en": {
+        "teamleader-spark-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "teamleader-spark-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "risorse-umane-business-partner-a-100-befristet-per-7-8-monate-bachem-ag-bubendorf",
@@ -3843,7 +4799,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-hr-business-partner-%28a%29%2c-100-befristet-f%c3%bcr-7-8-monate-bl-4416/1424699533",
-    "firstSeenAt": "2026-08-10T10:58:31.763Z"
+    "firstSeenAt": "2026-08-10T10:58:31.763Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-business-partner-a-100-befristet-fur-7-8-monate-bachem-bubendorf": "BL"
+      },
+      "en": {
+        "hr-business-partner-a-100-befristet-fur-7-8-monate-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "hr-business-partner-a-100-befristet-fur-7-8-monate-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "hse-specialista-bachem-ag-vionnaz-ddb1ca52",
@@ -4021,7 +4989,21 @@
         "firstSeenAt": "2026-07-10T10:33:14.142Z",
         "title": "Scientist Peptidwirkstoffe R&D LPPS/TAPS (a), 100%"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "scientist-peptidwirkstoffe-downstream-r-d-a-100-bachem-bubendorf": "BL",
+        "scientist-peptidwirkstoffe-r-d-lpps-taps-a-100-bachem-bubendorf": "BL"
+      },
+      "en": {
+        "scientist-peptidwirkstoffe-downstream-r-d-a-100-bachem-bubendorf": "BL",
+        "scientist-peptidwirkstoffe-r-d-lpps-taps-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "scientist-peptidwirkstoffe-downstream-r-d-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "ingegnere-della-biblioteca-pcs-a-100-bachem-ag-stein-ag",
@@ -4066,7 +5048,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/stein-ag-pcs-library-engineer-sisslerfeld-site-development%28a%29-100-ag-4332/1402158433",
-    "firstSeenAt": "2026-06-09T12:21:55.807Z"
+    "firstSeenAt": "2026-06-09T12:21:55.807Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pcs-library-engineer-a-100-bachem-stein-ag": "AG",
+        "pcs-library-engineer-sisslerfeld-site-development-a-100-bachem-stein-ag": "AG"
+      }
+    }
   },
   {
     "slug": "operazioni-tecniche-di-laboratorio-bachem-ag-vionnaz",
@@ -4109,7 +5098,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/vionnaz-lab-technician-technical-operations-vala-1895/1434374133",
-    "firstSeenAt": "2026-09-21T16:08:30.979Z"
+    "firstSeenAt": "2026-09-21T16:08:30.979Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lab-technician-technical-operations-bachem-vionnaz": "VS"
+      }
+    }
   },
   {
     "slug": "responsabile-qa-a-al-100-bachem-ag-bubendorf",
@@ -4236,7 +5231,18 @@
         "firstSeenAt": "2026-06-04T21:53:24.282Z",
         "title": "Senior Manager QA 100% (a)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-manager-qa-100-a-bachem-bubendorf": "BL",
+        "manager-qa-100-a-bachem-bubendorf": "BL",
+        "manager-qa-a-100-bachem-bubendorf": "BL"
+      },
+      "en": {
+        "senior-manager-qa-100-a-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "supporto-di-laboratorio-qc-raw-a-a-80-100-bachem-ag-bubendorf",
@@ -4279,7 +5285,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-lab-support-qc-raw-&-startings-%28a%29-80-100-bl-4416/1428573833",
-    "firstSeenAt": "2026-08-21T10:05:19.907Z"
+    "firstSeenAt": "2026-08-21T10:05:19.907Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lab-support-qc-raw-startings-a-80-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "senior-capex-project-controller-a-100-bachem-bubendorf",
@@ -4315,6 +5327,12 @@
         "senior-controllore-di-progetti-capex-a-100-bachem-ag-bubendorf",
         "controleur-principal-de-projet-capex-a-100-bachem-ag-bubendorf",
         "contr-ileur-de-projets-capex-senior-a-100-bachem-ag-bubendorf"
+      ],
+      "en": [
+        "senior-capex-project-controller-a-100-bachem-bubendorf"
+      ],
+      "de": [
+        "senior-capex-project-controller-a-100-bachem-bubendorf"
       ]
     },
     "postalCode": "4416",
@@ -4323,7 +5341,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-senior-capex-project-controller-%28a%29%2c-100-bl-4416/1400657033",
-    "firstSeenAt": "2026-06-04T11:11:23.877Z"
+    "firstSeenAt": "2026-06-04T11:11:23.877Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-controllore-di-progetti-capex-a-100-bachem-ag-bubendorf": "BL",
+        "controleur-principal-de-projet-capex-a-100-bachem-ag-bubendorf": "BL",
+        "contr-ileur-de-projets-capex-senior-a-100-bachem-ag-bubendorf": "BL"
+      },
+      "en": {
+        "senior-capex-project-controller-a-100-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "senior-capex-project-controller-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "controllo-qualita-dello-scienziato-associato-100-a-bachem-ag-bubendorf",
@@ -4366,7 +5398,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-associate-scientist-quality-control-100-%28a%29-bl-4416/1423408133",
-    "firstSeenAt": "2026-08-05T22:45:48.339Z"
+    "firstSeenAt": "2026-08-05T22:45:48.339Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "associate-scientist-quality-control-100-a-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "scientist-qc-late-phase-a-befristet-12-monate-bachem-ag-bubendorf",
@@ -4417,7 +5455,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-scientist-qc-late-phase-%28a%29-%28befristet-12-monate%29-bl-4416/1429969933",
-    "firstSeenAt": "2026-08-26T10:28:48.573Z"
+    "firstSeenAt": "2026-08-26T10:28:48.573Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "scientist-qc-late-phase-a-befristet-12-monate-bachem-bubendorf": "BL",
+        "scienziato-qc-fase-tarda-a-temporanea-12-mesi-bachem-ag-bubendorf": "BL"
+      },
+      "en": {
+        "scientist-qc-late-phase-a-befristet-12-monate-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "scientist-qc-late-phase-a-befristet-12-monate-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "scienziato-qc-fase-precoce-a-100-bachem-ag-bubendorf",
@@ -4463,7 +5514,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-scientist-qc-early-phase-%28a%29-100-bl-4416/1428709933",
-    "firstSeenAt": "2026-08-21T21:56:32.779Z"
+    "firstSeenAt": "2026-08-21T21:56:32.779Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "scientist-qc-early-phase-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "scientist-qc-early-phase-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "ingegnere-di-piattaforma-f-m-d-100-bachem-ag-bubendorf",
@@ -4523,7 +5583,17 @@
         "firstSeenAt": "2026-05-19T19:53:40.923Z",
         "title": "Platform Engineer (a), 100%"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "devops-platform-engineer-a-100-bachem-bubendorf": "BL",
+        "platform-engineer-a-100-bachem-bubendorf": "BL"
+      },
+      "en": {
+        "devops-platform-engineer-a-100-bachem-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "ingegnere-di-automazione-ingegnere-di-progetto-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf",
@@ -4605,7 +5675,35 @@
         "firstSeenAt": "2026-05-28T11:45:42.147Z",
         "title": "Automation Engineer/Project Engineer: Digital Manufacturing and Data Lab 100% (m/w/d)"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem": "BL",
+        "automazione-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf": "BL",
+        "ingegnere-di-automazione-ingegnere-di-progetto-produzione-digitale-e-laboratorio-di-dati-100-a-bachem-ag-bubendorf": "BL",
+        "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-a-bachem": "BL",
+        "ingegnere-di-automazione-ingegnere-di-progetto-produzione-digitale-e-laboratorio-dati-100-a-bachem-ag-bubendorf": "BL",
+        "automation-ingegnere-project-ingegnere-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf": "BL"
+      },
+      "de": {
+        "automatisierungsingenieur-projektingenieur-digitale-fertigung-und-datenlabor-100-m-w-d-bachem-ag-bubendorf": "BL",
+        "automatisierungstechniker-projektingenieur-digitales-manufacturing-und-data-lab-100-bachem-ag-bubendorf": "BL",
+        "automatisierungsingenieur-projektingenieur-digitale-fertigung-und-datenlabor-100-a-bachem-ag-bubendorf": "BL",
+        "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem": "BL",
+        "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-a-bachem": "BL",
+        "automation-ingegnere-project-ingegnere-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf": "BL"
+      },
+      "fr": {
+        "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf": "BL",
+        "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf": "BL",
+        "ingenieur-en-automatisation-ingenieur-de-projet-manufacture-numerique-et-data-lab-100-bachem-ag-bubendorf": "BL",
+        "automation-ingegnere-project-ingegnere-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf": "BL"
+      },
+      "en": {
+        "automation-ingegnere-project-ingegnere-digital-manufacturing-and-data-lab-100-a-bachem-ag-bubendorf": "BL"
+      }
+    }
   },
   {
     "slug": "head-of-engineering-innovation-a-100-bachem-bubendorf",
@@ -4635,7 +5733,73 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-head-of-engineering-innovation-%28a%29-%28100%29-bl-4416/1426428833",
-    "firstSeenAt": "2026-08-14T10:36:14.468Z"
+    "firstSeenAt": "2026-08-14T10:36:14.468Z",
+    "canton": "BL",
+    "previousSlugsByLocale": {
+      "en": [
+        "head-of-engineering-innovation-a-100-bachem-bubendorf"
+      ],
+      "de": [
+        "head-of-engineering-innovation-a-100-bachem-bubendorf"
+      ],
+      "fr": [
+        "head-of-engineering-innovation-a-100-bachem-bubendorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "head-of-engineering-innovation-a-100-bachem-bubendorf": "BL"
+      },
+      "de": {
+        "head-of-engineering-innovation-a-100-bachem-bubendorf": "BL"
+      },
+      "fr": {
+        "head-of-engineering-innovation-a-100-bachem-bubendorf": "BL"
+      }
+    }
+  },
+  {
+    "slug": "supporto-del-laboratorio-qc-sampling-environmental-monitoring-gmp-a-100-bachem-ag-bubendorf",
+    "title": "Lab Support QC - Sampling & Environmental Monitoring (GMP) (a) 100%",
+    "titleByLocale": {
+      "it": "Supporto del laboratorio QC - Sampling & Environmental Monitoring (GMP) (a) 100%",
+      "en": "Lab Support QC - Sampling & Environmental Monitoring (GMP) (a) 100%",
+      "de": "Lab Support QC - Sampling & Environmental Monitoring (GMP) (a) 100%",
+      "fr": "Soutien au laboratoire QC - Échantillonnage et surveillance environnementale (BPF) (a) 100 %"
+    },
+    "company": "Bachem AG",
+    "companyKey": "bachem",
+    "location": "Bubendorf",
+    "addressLocality": "Bubendorf",
+    "descriptionByLocale": {
+      "it": "Per la creazione del nostro nuovo gruppo di campionamento, siamo alla ricerca di personalità dedicate che vogliono dare un contributo importante per garantire la qualità del prodotto e la conformità GMP.\n\nIl nostro gruppo di campionamento svolge un ruolo centrale nel monitoraggio di cleanroom, aree di produzione e sistemi idrici. Attraverso una stretta collaborazione con la produzione, il controllo della qualità e altri settori specializzati, si ottiene una panoramica completa dei processi GMP e contribuire attivamente alla qualità dei nostri prodotti.\n\nCerchiamo consapevolmente specialisti GMP esperti e giovani talenti motivati. Siamo convinti che un team forte beneficia di esperienze diverse e promuove l'apprendimento reciproco.\n\nI loro compiti\n\n• Attuazione delle misure di monitoraggio dell'aria della camera pulita microbiologica (collezione attiva dei germi dell'aria e piastre di sedimentazione)\n\n• Attuazione del monitoraggio delle superfici mediante piastre di bloccaggio\n\n• Effettuare misurazioni delle particelle nelle stanze pulite delle aree di produzione\n\n• Documentazione conforme a GMP di tutti i campionamenti\n\n• Documentazione secondo i requisiti GMP applicabili\n\n• Gestione di attività analitiche selezionate\n\n• Sostegno alla valutazione e alla valutazione della tendenza dei risultati del monitoraggio\n\n• Cooperazione nelle indagini sulle deviazioni e sugli eventi OOS/OOT nel settore della responsabilità\n\n• Stabilimento e manutenzione dei protocolli di campionamento\n\n• Etichettatura e fornitura di materiali\n\n• Disposizione e garanzia della disponibilità di materiali di consumo e attrezzature\n\n• Supporto per la gestione dei materiali e la logistica\n\n• Sostegno ai compiti generali di laboratorio e operativi\n\nIl tuo profilo\n\n• Formazione scientifica, farmaceutica, biologica o equivalente\n\n• L'esperienza in ambiente GMP-regolamentato è benefica, idealmente nella produzione, microbiologia, controllo di qualità o monitoraggio ambientale\n\n• In alternativa, offriamo motivati starter di carriera con un'elevata disponibilità a imparare l'opportunità di familiarizzare con questa funzione versatile.\n\n• Forte affidabilità, integrità e alto senso di responsabilità\n\n• Metodo di lavoro attento e strutturato con standard di alta qualità\n\n• Alta capacità di carico e flessibilità in un ambiente di produzione dinamico\n\n• Buone capacità di comunicazione e divertimento di lavorare con diverse interfacce\n\n• Proattiva mentalità hands-on così come la volontà di affrontare le sfide in modo indipendente\n\n• Spirito di squadra e motivazione per partecipare alla costruzione di nuove strutture e processi\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura; le competenze inglesi sono benefiche\n\nLa nostra offerta:\n\n• Traduzione:",
+      "en": "For the establishment of our new sampling group, we are looking for dedicated personalities who want to make an important contribution to ensuring product quality and GMP compliance.\n\nOur sampling group plays a central role in monitoring cleanrooms, production areas and water systems. Through close cooperation with production, quality control and other specialist areas, you get a comprehensive insight into GMP processes and actively contribute to the quality of our products.\n\nWe are consciously looking for experienced GMP specialists as well as motivated young talents. We are convinced that a strong team benefits from different experiences and promotes mutual learning.\n\nTheir tasks\n\n• Implementation of microbiological clean room air monitoring measures (active air germ collection and sedimentation plates)\n\n• Implementation of surface monitoring by means of clapper plates\n\n• Carrying out particle measurements in clean rooms of production areas\n\n• GMP-compliant documentation of all sampling\n\n• Documentation in accordance with applicable GMP requirements\n\n• Conduct of selected analytical activities\n\n• Support in the evaluation and trend evaluation of monitoring results\n\n• Cooperation in investigations of deviations and OOS/OOT events in the area of responsibility\n\n• Establishment and maintenance of sampling protocols\n\n• Labelling and provision of materials\n\n• Provision and assurance of availability of consumables and equipment\n\n• Support for material management and logistics\n\n• Support for general laboratory and operational tasks\n\nYour profile\n\n• Completed scientific, pharmaceutical, biological or equivalent training\n\n• Experience in GMP-regulated environment is beneficial, ideally in production, microbiology, quality control or environmental monitoring\n\n• Alternatively, we offer motivated career starters with a high willingness to learn the opportunity to familiarize themselves with this versatile function.\n\n• Strong reliability, integrity and a high sense of responsibility\n\n• Careful and structured working method with high quality standards\n\n• High load capacity and flexibility in a dynamic production environment\n\n• Good communication skills and enjoyment of working with different interfaces\n\n• Proactive hands-on mentality as well as the willingness to tackle challenges independently\n\n• Team spirit and motivation to participate in building new structures and processes\n\n• Good knowledge of German in words and writing; English skills are beneficial\n\nOur offer:\n\n• <span style=\"font-fa\"",
+      "de": "Für den Aufbau unserer neuen Sampling-Gruppe suchen wir engagierte Persönlichkeiten, die einen wichtigen Beitrag zur Sicherstellung der Produktqualität und GMP-Compliance leisten möchten.\n\nUnsere Sampling-Gruppe übernimmt eine zentrale Rolle bei der Überwachung von Reinräumen, Produktionsbereichen und Wassersystemen. Durch die enge Zusammenarbeit mit Produktion, Qualitätskontrolle und weiteren Fachbereichen erhalten Sie einen umfassenden Einblick in GMP-Prozesse und tragen aktiv zur Qualität unserer Produkte bei.\n\nDabei suchen wir bewusst sowohl erfahrene GMP-Fachkräfte als auch motivierte Nachwuchstalente. Wir sind überzeugt, dass ein starkes Team von unterschiedlichen Erfahrungen profitiert und gegenseitiges Lernen fördert.\n\nIhre Aufgaben\n\n• Durchführung mikrobiologischer Überwachungsmaßnahmen der Reinraumluft (aktive Luftkeimsammlung und Sedimentationsplatten)\n\n• Durchführung von Oberflächenmonitoring mittels Abklatschplatten\n\n• Durchführung von Partikelmessungen in Reinräumen der Produktionsbereichen\n\n• GMP-konforme Dokumentation aller Probenahmen\n\n• Dokumentation gemäß geltender GMP-Anforderungen\n\n• Durchführung ausgewählter analytischer Tätigkeiten\n\n• Unterstützung bei der Auswertung und Trendbewertung von Monitoring-Ergebnissen\n\n• Mitarbeit bei Untersuchungen von Abweichungen und OOS-/OOT-Ereignissen im Aufgabenbereich\n\n• Erstellung und Pflege von Probenahmeprotokollen\n\n• Etikettierung und Bereitstellung von Materialien\n\n• Bereitstellung und Sicherstellung der Verfügbarkeit von Verbrauchsmaterialien und Equipment\n\n• Unterstützung bei Materialmanagement und Logistik\n\n• Unterstützung bei allgemeinen Labor- und Betriebsaufgaben\n\nIhr Profil\n\n• Abgeschlossene Ausbildung im naturwissenschaftlichen, pharmazeutischen, biologischen oder vergleichbaren Bereich\n\n• Erfahrung im GMP-regulierten Umfeld ist von Vorteil, idealerweise in Produktion, Mikrobiologie, Qualitätskontrolle oder Environmental Monitoring\n\n• Alternativ bieten wir motivierten Berufseinsteigerinnen und Berufseinsteigern mit hoher Lernbereitschaft die Möglichkeit, sich in diese vielseitige Funktion einzuarbeiten\n\n• Ausgeprägte Zuverlässigkeit, Integrität und ein hohes Verantwortungsbewusstsein\n\n• Sorgfältige und strukturierte Arbeitsweise mit hohem Qualitätsanspruch\n\n• Hohe Belastbarkeit und Flexibilität in einem dynamischen Produktionsumfeld\n\n• Gute Kommunikationsfähigkeit und Freude an der Zusammenarbeit mit unterschiedlichen Schnittstellen\n\n• Proaktive Hands-on-Mentalität sowie die Bereitschaft, Herausforderungen eigenständig anzugehen\n\n• Teamgeist und die Motivation, beim Aufbau neuer Strukturen und Prozesse mitzuwirken\n\n• Gute Deutschkenntnisse in Wort und Schrift; Englischkenntnisse sind von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Flexible Arbeitszeitgestaltung mit Option zum Bezug zusätzlicher Ferientage mit reduziertem Arbeitspensum\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zur Vorteilsplattform Swibeco mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!",
+      "fr": "Pour la création de notre nouveau groupe d'échantillonnage, nous recherchons des personnalités dédiées qui veulent apporter une contribution importante à la qualité des produits et à la conformité aux BPF.\n\nNotre groupe d'échantillonnage joue un rôle central dans la surveillance des salles propres, des zones de production et des systèmes d'eau. Grâce à une collaboration étroite avec la production, le contrôle de la qualité et d'autres domaines spécialisés, vous obtenez un aperçu complet des processus BPF et contribuez activement à la qualité de nos produits.\n\nNous recherchons consciemment des spécialistes expérimentés en BPF ainsi que de jeunes talents motivés. Nous sommes convaincus qu'une équipe forte bénéficie de différentes expériences et favorise l'apprentissage mutuel.\n\nLeurs tâches\n\n• Mise en œuvre de mesures microbiologiques de surveillance de l'air ambiant propre (collecte de germes d'air actif et plaques de sédimentation)\n\n• Mise en œuvre de la surveillance de surface au moyen de plaques de clapet\n\n• Effectuer des mesures de particules dans des locaux propres des zones de production\n\n• Documentation conforme aux BPF de tous les échantillons\n\n• Documentation conforme aux exigences applicables en matière de BPF\n\n• Réalisation de certaines activités analytiques\n\n• Appui à l'évaluation et à l'évaluation des tendances des résultats du suivi\n\n• Coopération dans les enquêtes sur les écarts et les événements OOS/OOT dans le domaine de responsabilité\n\n• Établissement et maintien de protocoles d'échantillonnage\n\n• Étiquetage et fourniture de matériaux\n\n• Fourniture et assurance de la disponibilité des consommables et du matériel\n\n• Appui à la gestion du matériel et à la logistique\n\n• Appui aux tâches générales de laboratoire et d'exploitation\n\nVotre profil\n\n• Formation scientifique, pharmaceutique, biologique ou équivalente terminée\n\n• Expérience dans l'environnement réglementé par les BPF est bénéfique, idéalement dans la production, la microbiologie, le contrôle de la qualité ou la surveillance de l'environnement\n\n• Par ailleurs, nous offrons aux débutants motivés une grande volonté d'apprendre à se familiariser avec cette fonction polyvalente.\n\n• Forte fiabilité, intégrité et sens élevé des responsabilités\n\n• Méthode de travail soignée et structurée avec des normes de qualité élevées\n\n• Capacité de charge élevée et flexibilité dans un environnement de production dynamique\n\n• Bonnes compétences en communication et plaisir de travailler avec différentes interfaces\n\n• Une mentalité pratique proactive et la volonté de relever les défis de façon indépendante\n\n• Esprit d'équipe et motivation à participer à la construction de nouvelles structures et processus\n\n• Bonne connaissance de l'allemand en mots et en écriture; les compétences en anglais sont bénéfiques\n\nNotre offre :\n\n• <span style=\"font-fa\""
+    },
+    "slugByLocale": {
+      "it": "supporto-del-laboratorio-qc-sampling-environmental-monitoring-gmp-a-100-bachem-ag-bubendorf",
+      "en": "lab-support-qc-sampling-environmental-monitoring-gmp-a-100-bachem-ag-bubendorf",
+      "de": "lab-support-qc-sampling-environmental-monitoring-gmp-a-100-bachem-bubendorf",
+      "fr": "soutien-au-laboratoire-qc-echantillonnage-et-surveillance-environnementale-bpf-a-100-bachem-ag-bubendorf"
+    },
+    "sector": "Biotecnologia / Farmaceutica",
+    "expiredAt": "2026-09-21T16:08:34.583Z",
+    "previousSlugs": [
+      "lab-support-qc-sampling-environmental-monitoring-gmp-a-100-bachem-bubendorf"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lab-support-qc-sampling-environmental-monitoring-gmp-a-100-bachem-bubendorf"
+      ]
+    },
+    "postalCode": "4416",
+    "salaryMin": 72500,
+    "salaryMax": 110500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-lab-support-qc-sampling-&-environmental-monitoring-%28gmp%29-%28a%29-100-bl-4416/1414785333",
+    "firstSeenAt": "2026-07-14T12:24:02.657Z"
   },
   {
     "slug": "it-cloud-ingegnere-a-80-100-bachem-ag-bubendorf",
@@ -5260,6 +6424,38 @@
         "title": "Lab Technician QC - Early Phase 100% (m/w/d)"
       }
     ]
+  },
+  {
+    "slug": "group-treasury-corporate-finance-manager-a-90-100-bachem-bubendorf",
+    "title": "Group Treasury & Corporate Finance Manager (a), 90 - 100%",
+    "titleByLocale": {
+      "it": "Group Treasury & Corporate Finanza Manager (a), 90 - 100%",
+      "en": "Group Treasury & Corporate Finance Manager (a), 90 - 100%",
+      "de": "Group Treasury & Corporate Finanzen Manager (a), 90 - 100%",
+      "fr": "Groupe Trésorerie et finances d'entreprise Gestionnaire (a), 90 - 100 %"
+    },
+    "company": "Bachem AG",
+    "companyKey": "bachem",
+    "location": "Bubendorf",
+    "addressLocality": "Bubendorf",
+    "descriptionByLocale": {
+      "en": "In order to drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our Global Accounting Team in Bubendorf/BL, we are looking for a Group Treasury & Corporate Finance Manager (a), 90-100%.\n\nThey support the implementation of the Bachem Group’s global liquidity and financing strategy. They ensure access to capital, manage financial risks and support management in strategic decisions regarding financing, capital structure and financial management of the Group. In addition, you will take on selected tasks in the areas of corporate finance and group accounting and support the preparation and analysis of the Group’s consolidated financial reporting. They also support the responsible insurance department and act as the central contact person for insurance issues, policy management and claims within the group.\n\nTheir tasks:\n\n• Responsibility for short- and long-term Group-wide liquidity planning\n\n• Management of the Group’s cash management, further development of cash forecasts and treasury processes\n\n• Monitoring worldwide banking relationships and bank accounts\n\n• Introduction of a Treasury Management System (TMS)\n\n• Analysis of foreign exchange and interest rate risks and monitoring of Treasury policy\n\n• Supervision of the syndicated credit agreement\n\n• Monitoring of covenants and financing indicators and support for future financing transactions\n\n• Support for Group consolidation according to Swiss GAAP FER\n\n• Cooperation in cash flow, financing and balance sheet analyses\n\n• Support and further development of the global insurance portfolio\n\n• Coordination of claims cases\n\n• Cooperation with brokers and insurers\n\n• Support for international insurance issues\n\nYour profile:\n\n• Further studies in finance, accounting, economics, auditing or comparable training\n\n• Treasury certification or training beneficial\n\n• Several years of experience in the corporate treasury of an international company\n\n• Experience in cash management, financing, relationship management with banks, risk analysis\n\n• Good knowledge of group accounting and consolidation processes\n\n• SAP and Treasury System Experience Benefits\n\n• Insurance knowledge is beneficial\n\n• High willingness to take responsibility, flexibility and team spirit\n\n• Motivation to actively shape processes and drive change\n\n• Structured, independent and service-oriented working methods\n\n• Very good knowledge of German and English in words and writing, French is an advantage\n\nOur offer:\n\n• A dynamic and rapidly growing working environment with internal development opportunities\n\n• Employee support through numerous internal and external training offers\n\n• 60% takeover of pension fund contributions by Bachem AG as well as possibility for over-compulsory provision with our elective savings plan\n\n• Access to advantage platforms with discounts from external partners\n\n• Fresh, healthy and diverse food in our staff restaurant\n\n• Various free sports activities on the Bachem Campus\n\nDo you want to live and promote innovation together with us? Learn more about Bachem and be inspired by the exciting impressions of our location in Bubendorf!\n\nHave we aroused your interest? Then we look forward to your complete application documents via our application portal.",
+      "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften. Zur Verstärkung unseres Global Accounting Teams in Bubendorf/BL suchen wir per sofort eine / einen Group Treasury & Corporate Finance Manager (a), 90-100%.\n\nSie unterstützen die Umsetzung der globalen Liquiditäts- und Finanzierungsstrategie der Bachem Gruppe. Sie stellen den Zugang zu Kapital sicher, steuern finanzielle Risiken und unterstützen das Management bei strategischen Entscheidungen rund um Finanzierung, Kapitalstruktur und finanzielle Steuerung des Konzerns. Ergänzend übernehmen Sie ausgewählte Aufgaben im Bereich Corporate Finance und Konzernrechnungswesen und unterstützen die Erstellung sowie Analyse der konsolidierten Finanzberichterstattung der Gruppe. Sie unterstützen zudem den Bereichsverantwortlichen Versicherungen und fungieren als zentrale Ansprechperson für Versicherungsfragen, Policen Management und Schadenfälle innerhalb der Gruppe.\n\nIhre Aufgaben:\n\n• Verantwortung für die kurz- und langfristige konzernweite Liquiditätsplanung\n\n• Steuerung des Cash Managements der Gruppe, Weiterentwicklung der Cash-Forecasts und Treasury-Prozesse\n\n• Überwachung der weltweiten Bankbeziehungen und Bankkonten\n\n• Einführung eines Treasury Management Systems (TMS)\n\n• Analyse von Fremdwährungs- und Zinsrisiken sowie Überwachung der Treasury Policy\n\n• Betreuung des syndizierten Kreditvertrags\n\n• Monitoring von Covenants und Finanzierungskennzahlen und Unterstützung bei zukünftigen Finanzierungstransaktionen\n\n• Unterstützung der Konzernkonsolidierung nach Swiss GAAP FER\n\n• Mitarbeit bei Cashflow-, Finanzierungs- und Bilanzanalysen\n\n• Betreuung und Weiterentwicklung des globalen Versicherungsportfolios\n\n• Koordination von Schadenfällen\n\n• Zusammenarbeit mit Brokern und Versicherern\n\n• Unterstützung internationaler Versicherungsthemen\n\nIhr Profil:\n\n• Weiterführendes Studium in Finance, Accounting, Economics, Wirtschaftsprüfung oder vergleichbare Ausbildungen\n\n• Treasury-Zertifizierung oder Ausbildung von Vorteil\n\n• Mehrjährige Erfahrung im Corporate Treasury eines internationalen Unternehmens\n\n• Erfahrung im Bereich Cash Management, Finanzierung, Beziehungspflege mit Banken, Risikoanalysen\n\n• Gute Kenntnisse im Konzernrechnungswesen und in Konsolidierungsprozessen\n\n• SAP- und Treasury-System-Erfahrung von Vorteil\n\n• Versicherungskenntnisse von Vorteil\n\n• Hohe Verantwortungsbereitschaft, Flexibilität und Teamgeist\n\n• Motivation, Prozesse aktiv mitzugestalten und Veränderungen voranzutreiben\n\n• Strukturierte, selbständige und dienstleistungsorientierte Arbeitsweise\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil\n\nUnser Angebot:\n\n• Ein dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\n• Mitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n• 60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\n• Zugang zu Vorteilsplattformen mit Rabatten bei externen Partnern\n\n• Frisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\n• Vielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovation leben und vorantreiben? Erfahren Sie mehr über Bachem und lassen Sie sich von den spannenden Eindrücken unseres an unserem Standort in Bubendorf inspirieren!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.",
+      "it": "Al fine di guidare la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati. Per rafforzare il nostro Global Accounting Team a Bubendorf/BL, stiamo cercando un Group Treasury & Corporate Finance Manager (a), 90-100%.\n\nEssi sostengono l’attuazione della strategia globale di liquidità e finanziamento del Gruppo Bachem. Garantiscono l'accesso al capitale, la gestione dei rischi finanziari e la gestione del supporto nelle decisioni strategiche in materia di finanziamento, struttura dei capitali e gestione finanziaria del Gruppo. Inoltre, si assumeranno compiti selezionati nei settori della finanza aziendale e della contabilità di gruppo e sostenere la preparazione e l’analisi del reporting finanziario consolidato del Gruppo. Essi sostengono anche il dipartimento di assicurazione responsabile e agiscono come persona di contatto centrale per questioni di assicurazione, gestione delle politiche e reclami all'interno del gruppo.\n\nI loro compiti:\n\n• Responsabilità per la pianificazione della liquidità a breve e lungo termine del Gruppo\n\n• Gestione del cash management del Gruppo, ulteriore sviluppo delle previsioni in denaro e dei processi di tesoreria\n\n• Monitoraggio delle relazioni bancarie mondiali e dei conti bancari\n\n• Introduzione di un sistema di gestione del Tesoro (TMS)\n\n• Analisi dei rischi di cambio e tasso di interesse e monitoraggio della politica del Tesoro\n\n• Supervisione dell'accordo di credito\n\n• Monitoraggio delle convenzioni e degli indicatori di finanziamento e sostegno alle future operazioni di finanziamento\n\n• Supporto per il consolidamento del Gruppo secondo la Svizzera GAAP FER\n\n• Cooperazione in materia di cash flow, finanziamento e bilanci\n\n• Supporto e ulteriore sviluppo del portafoglio assicurativo globale\n\n• Coordinamento dei casi di reclamo\n\n• Cooperazione con i broker e gli assicuratori\n\n• Supporto per le questioni assicurative internazionali\n\nIl tuo profilo:\n\n• Ulteriori studi in finanza, contabilità, economia, audit o formazione comparabile\n\n• Certificazione del Tesoro o formazione benefica\n\n• Diversi anni di esperienza nel tesoro aziendale di una società internazionale\n\n• Esperienza in cash management, finanziamento, gestione delle relazioni con le banche, analisi dei rischi\n\n• Buona conoscenza dei processi di contabilità e consolidamento del gruppo\n\n• Vantaggi dell'esperienza del sistema SAP e del Tesoro\n\n• La conoscenza dell'assicurazione è utile\n\n• Alta disponibilità ad assumersi responsabilità, flessibilità e spirito di squadra\n\n• Motivazione per modellare attivamente i processi e il cambiamento di unità\n\n• Metodi di lavoro strutturati, indipendenti e orientati al servizio\n\n• Molto buona conoscenza del tedesco e inglese in parole e scrittura, il francese è un vantaggio\n\nLa nostra offerta:\n\n• Un ambiente di lavoro dinamico e in rapida crescita con opportunità di sviluppo interno\n\n• Supporto dei dipendenti attraverso numerose offerte di formazione interna ed esterna\n\n• Il 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettivo\n\n• Accesso a piattaforme vantaggiose con sconti da partner esterni\n\n• Cibo fresco, sano e vario nel nostro ristorante personale\n\n• Varie attività sportive gratuite sul campus di Bachem\n\nVuoi vivere e promuovere l'innovazione insieme a noi? Scopri di più su Bachem e ispirati alle impressioni emozionanti della nostra posizione a Bubendorf!\n\nAbbiamo suscitato il vostro interesse? Quindi non vediamo l'ora che i vostri documenti applicativi completi tramite il nostro portale di applicazioni.",
+      "fr": "Afin de stimuler notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés. Pour renforcer notre équipe de comptabilité mondiale à Bubendorf/BL, nous sommes à la recherche d'un Groupe Trésorerie & Finance (a), 90-100%.\n\nIls soutiennent la mise en œuvre de la stratégie globale de liquidité et de financement du groupe Bachem. Ils assurent l'accès au capital, gèrent les risques financiers et soutiennent la gestion des décisions stratégiques concernant le financement, la structure du capital et la gestion financière du Groupe. En outre, vous assumerez des tâches sélectionnées dans les domaines de la finance d'entreprise et de la comptabilité de groupe et soutiendra la préparation et l'analyse des rapports financiers consolidés du Groupe. Ils appuient également le service d'assurance responsable et agissent en tant que personne-ressource centrale pour les questions d'assurance, la gestion des polices et les réclamations au sein du groupe.\n\nLeurs tâches:\n\n• Responsabilité de la planification des liquidités à court et à long terme à l'échelle du Groupe\n\n• Gestion de la trésorerie du Groupe, poursuite du développement des prévisions de trésorerie et des processus de trésorerie\n\n• Suivi des relations bancaires et des comptes bancaires mondiaux\n\n• Introduction d ' un système de gestion de la trésorerie\n\n• Analyse des risques de change et de taux d'intérêt et suivi de la politique de trésorerie\n\n• Surveillance du contrat de crédit syndiqué\n\n• Suivi des pactes et des indicateurs de financement et appui aux opérations de financement futures\n\n• Soutien à la consolidation du Groupe selon Swiss GAAP FER\n\n• Coopération dans les analyses des flux de trésorerie, du financement et du bilan\n\n• Appui et développement du portefeuille mondial des assurances\n\n• Coordination des réclamations\n\n• Coopération avec les courtiers et les assureurs\n\n• Appui aux questions d ' assurance internationale\n\nVotre profil:\n\n• Études complémentaires en finance, comptabilité, économie, audit ou formation comparable\n\n• Certification de trésorerie ou formation utile\n\n• Plusieurs années d'expérience dans la trésorerie d'une entreprise internationale\n\n• Expérience en gestion de trésorerie, financement, gestion des relations avec les banques, analyse des risques\n\n• Bonne connaissance des processus de comptabilité de groupe et de consolidation\n\n• Avantages liés au PAS et au système de trésorerie\n\n• Les connaissances en assurance sont bénéfiques\n\n• Haute volonté d'assumer la responsabilité, la flexibilité et l'esprit d'équipe\n\n• Motivation pour façonner activement les processus et provoquer le changement\n\n• Méthodes de travail structurées, indépendantes et axées sur les services\n\n• Très bonne connaissance de l'allemand et de l'anglais en mots et en écriture, le français est un avantage\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne\n\n• Soutien aux employés grâce à de nombreuses offres de formation internes et externes\n\n• Prise en charge de 60% des cotisations des caisses de retraite par Bachem AG ainsi que possibilité d'une provision sur-obligatoire avec notre régime d'épargne facultative\n\n• Accès à des plates-formes avantageuses avec des réductions de partenaires externes\n\n• Des aliments frais, sains et divers dans notre restaurant du personnel\n\n• Diverses activités sportives gratuites sur le campus de Bachem\n\nVoulez-vous vivre et promouvoir l'innovation avec nous ? En savoir plus sur Bachem et être inspiré par les impressions passionnantes de notre emplacement à Bubendorf!\n\nAvons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications."
+    },
+    "slugByLocale": {
+      "fr": "groupe-tresorerie-et-finances-d-entreprise-gestionnaire-a-90-100-bachem-ag-bubendorf"
+    },
+    "sector": "Biotecnologia / Farmaceutica",
+    "expiredAt": "2026-09-07T15:16:18.106Z",
+    "postalCode": "4416",
+    "salaryMin": 99500,
+    "salaryMax": 151000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.bachem.com/job/bubendorf-group-treasury-&-corporate-finance-manager-%28a%29%2c-90-100-bl-4416/1429463433",
+    "firstSeenAt": "2026-08-25T10:13:52.477Z"
   },
   {
     "slug": "responsabile-dei-documenti-di-progetto-pcm-responsabile-a-100-bachem-ag-bubendorf",

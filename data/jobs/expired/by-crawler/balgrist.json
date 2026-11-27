@@ -557,11 +557,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/mitarbeiterin-mitarbeiter-empfang-telefonzentrale-m-w-d/3c46db9f-b5c5-4b66-966d-f8c8cfe47483",
-    "firstSeenAt": "2026-08-24T21:56:46.229Z",
+    "firstSeenAt": "2026-07-27T22:23:52.607Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/mitarbeiterin-mitarbeiter-empfang-telefonzentrale-m-w-d/3c46db9f-b5c5-4b66-966d-f8c8cfe47483",
-        "firstSeenAt": "2026-08-24T21:56:46.229Z",
+        "firstSeenAt": "2026-07-27T22:23:52.607Z",
         "title": "Mitarbeiterin/Mitarbeiter Empfang/Telefonzentrale 60 % (m/w/d)"
       },
       {
@@ -625,7 +625,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/sprechstundenassistentin-sprechstundenassistent-w-m-d/6767b2f6-ac00-4852-84c0-794ed6d13288",
-    "firstSeenAt": "2026-10-29T14:30:24.333Z"
+    "firstSeenAt": "2026-10-29T14:30:24.333Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sprechstundenassistentin-sprechstundenassistent-w-m-d-100-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "sprechstundenassistentin-sprechstundenassistent-w-m-d-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "sprechstundenassistentin-sprechstundenassistent-w-m-d-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "id": "balgrist-2031c0440a14",
@@ -703,7 +715,18 @@
         "firstSeenAt": "2026-08-31T17:15:01.704Z",
         "title": "Leitung Physician Associate (m/w/d) 80–100 %"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leitung-physician-associate-m-w-d-80-100-balgrist-zurich": "ZH",
+        "responsabile-del-medico-associato-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "responsabile-del-medico-associato-m-f-d-80-100-universitatsklinik-balgrist-zurich-112b6d2047": "ZH",
+        "responsabile-del-medico-associato-m-f-d-80-100-universitatsklinik-balgrist-zurich-48eb8889": "ZH",
+        "leitung-physician-associate-m-w-d-80-100-balgrist-zurich-270a9fbc": "ZH",
+        "responsable-du-physicien-associe-h-f-d-80-100-universitatsklinik-balgrist-zurich-1fc24d47": "ZH"
+      }
+    }
   },
   {
     "id": "balgrist-e58cb827482c",
@@ -737,7 +760,8 @@
       "it": [
         "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich-4644f1d1",
         "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich-af96fef7",
-        "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich"
+        "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich",
+        "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich"
       ],
       "en": [
         "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich-4644f1d1",
@@ -750,7 +774,8 @@
         "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich"
       ],
       "de": [
-        "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich"
+        "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich",
+        "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich"
       ]
     },
     "postalCode": "8001",
@@ -765,7 +790,35 @@
       "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich",
       "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich",
       "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich-af96fef7"
-    ]
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d/39a1bae7-4198-4882-9cf0-88808426ddab",
+        "firstSeenAt": "2026-10-20T21:17:04.548Z",
+        "title": "Wundexpertin/Wundexperten oder Wundmanagerin/Wundmanager (m/w/d) 80 %"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d/e8db53d9-4559-4cc8-affa-490e068e1160",
+        "firstSeenAt": "2026-10-20T21:17:04.548Z",
+        "title": "Wundexpertin/Wundexperten oder Wundmanagerin/Wundmanager (m/w/d) 80 %"
+      }
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich": "ZH",
+        "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "id": "balgrist-0c73bee0313e",
@@ -813,7 +866,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/platform-operator-w-m-d/b0445881-3d5a-45ae-8c74-45aa0c28a4d7",
-    "firstSeenAt": "2026-11-02T21:54:19.951Z"
+    "firstSeenAt": "2026-11-02T21:54:19.951Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "platform-operator-w-m-d-40-60-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "platform-operator-w-m-d-40-60-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "mitarbeiterin-collaboratore-trice-gastronomie-m-w-d-auf-abruf-universitatsklinik-balgrist-zurich",
@@ -863,7 +925,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/mitarbeiterin-mitarbeiter-gastronomie-m-w-d-auf-abruf/9b665da7-efa9-4e5e-b2bc-f46132fd5af5",
-    "firstSeenAt": "2026-10-07T21:31:22.858Z"
+    "firstSeenAt": "2026-10-07T21:31:22.858Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-gastronomie-m-w-d-auf-abruf-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-gastronomie-m-w-d-auf-abruf-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-gastronomie-m-w-d-auf-abruf-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "esperto-di-cura-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich",
@@ -915,7 +989,8 @@
         "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich-l6nxel",
         "esperta-infermieristica-esperto-infermieristico-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich-6efba581",
         "experte-en-soins-infirmiers-cns-h-f-d-80-100-universitatsklinik-balgrist-zurich",
-        "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich"
+        "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich",
+        "esperta-infermieristica-esperto-infermieristico-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich"
       ],
       "en": [
         "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich",
@@ -937,7 +1012,8 @@
         "expert-en-soins-infirmiers-snc-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "experte-en-soins-infirmiers-cns-h-f-d-80-100-universitatsklinik-balgrist-zurich-eb948e8b",
         "esperta-infermieristica-esperto-infermieristico-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich",
-        "nursing-expert-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich"
+        "nursing-expert-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "experte-en-soins-infirmiers-cns-h-f-d-80-100-universitatsklinik-balgrist-zurich"
       ]
     },
     "postalCode": "8001",
@@ -964,7 +1040,31 @@
         "firstSeenAt": "2026-08-14T21:36:52.066Z",
         "title": "Pflegeexpertin/Pflegeexperten CNS (m/w/d) 80–100 %"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich": "ZH",
+        "esperto-infermieristico-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "nursing-expert-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "expert-en-soins-infirmiers-snc-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich-l6nxel": "ZH",
+        "esperta-infermieristica-esperto-infermieristico-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich": "ZH",
+        "nursing-expert-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich": "ZH",
+        "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich-g8ws01": "ZH"
+      },
+      "fr": {
+        "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich": "ZH",
+        "expert-en-soins-infirmiers-snc-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "experte-en-soins-infirmiers-cns-h-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "hr-business-partner-m-w-d-80-100-balgrist-zurich",
@@ -995,7 +1095,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/hr-business-partner-m-w-d/c42f6bae-f07f-44f5-bade-bf90721bf6f4",
-    "firstSeenAt": "2026-11-02T21:54:19.923Z"
+    "firstSeenAt": "2026-11-02T21:54:19.923Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "hr-business-partner-m-w-d-80-100-balgrist-zurich"
+      ],
+      "de": [
+        "hr-business-partner-m-w-d-80-100-balgrist-zurich"
+      ],
+      "fr": [
+        "hr-business-partner-m-w-d-80-100-balgrist-zurich"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "hr-business-partner-m-w-d-80-100-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "hr-business-partner-m-w-d-80-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "hr-business-partner-m-w-d-80-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-professionista-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
@@ -1072,7 +1195,8 @@
         "infermiera-diplomata-ic-fh-lunedi-f-d-50-100-universitatsklinik-balgrist-zurich",
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-h36uc9",
         "diplomato-a-della-cura-infermieristica-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-r6greb"
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-r6greb",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
       ],
       "en": [
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-universitatsklinik-balgrist-zurich",
@@ -1082,7 +1206,8 @@
         "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
         "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
-        "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-96208f"
+        "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-96208f",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
       ],
       "de": [
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-h36uc9",
@@ -1099,7 +1224,8 @@
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
         "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-58a2aa",
-        "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich"
+        "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
       ]
     },
     "postalCode": "8001",
@@ -1149,17 +1275,21 @@
       },
       "en": {
         "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich": "ZH",
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich": "ZH"
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich": "ZH",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-universitatsklinik-balgrist-zurich": "ZH",
+        "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich": "ZH"
       },
       "de": {
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-000svw": "ZH",
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich": "ZH"
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich": "ZH",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-h36uc9": "ZH"
       },
       "fr": {
         "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-2a686d": "ZH",
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich": "ZH"
       }
-    }
+    },
+    "canton": "ZH"
   },
   {
     "slug": "posto-di-apprendistato-come-tecnologo-a-di-dispositivi-medici-afc-m-f-d-universitatsklinik-balgrist-zurich",
@@ -1211,7 +1341,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d/d9d22d39-c48a-423b-b468-113819cced6b",
-    "firstSeenAt": "2026-11-03T09:26:53.757Z"
+    "firstSeenAt": "2026-11-03T09:26:53.757Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich": "ZH",
+        "apprendistato-come-medizinproduktetechnologe-in-cfc-m-w-d-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "lehrstelle-als-medizinproduktetechnologe-in-efz-w-m-d-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-senior-dei-social-media-m-f-d-80-100-universitatsklinik-balgrist-zurich",
@@ -1274,7 +1417,16 @@
         "firstSeenAt": "2026-05-21T21:45:25.228Z",
         "title": "Senior Social Media Manager/in (m/w/d) 80 – 100%"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-social-media-manager-in-m-w-d-80-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "senior-social-media-manager-in-m-w-d-80-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "segretario-medico-m-f-d-spinal-center-100-universitatsklinik-balgrist-zurich",
@@ -1324,7 +1476,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/arztsekretaerin-arztsekretaer-w-m-d-wirbelsaeulenzentrum/b0b683e8-1ebb-476d-b8a4-1c98b77495de",
-    "firstSeenAt": "2026-10-23T21:19:46.857Z"
+    "firstSeenAt": "2026-10-23T21:19:46.857Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "arztsekretarin-arztsekretar-w-m-d-wirbelsaulenzentrum-100-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "arztsekretarin-arztsekretar-w-m-d-wirbelsaulenzentrum-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "arztsekretarin-arztsekretar-w-m-d-wirbelsaulenzentrum-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "direzione-negozio-sanitario-e-vendita-al-dettaglio-m-f-d-100-universitatsklinik-balgrist-zurich",
@@ -1396,7 +1560,8 @@
       "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-9d868217",
       "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-01978d70",
       "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-43746ac0",
-      "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-cec4f7d5"
+      "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-cec4f7d5",
+      "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1429,7 +1594,8 @@
         "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-febe6c7e",
         "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-9d868217",
         "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-01978d70",
-        "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-43746ac0"
+        "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-43746ac0",
+        "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich"
       ],
       "en": [
         "consultant-principal-m-m-j-80-universitatsklinik-balgrist-zurich",
@@ -1514,7 +1680,43 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/leitung-sanitaetsshop-retail-m-w-d/9878f63c-6e87-42a3-a146-c83e21a45864",
-    "firstSeenAt": "2026-06-05T11:25:43.994Z"
+    "firstSeenAt": "2026-06-05T11:25:43.994Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-collaboratore-trice-patientenservice-m-w-d-70-universitatsklinik-balgrist-zurich": "ZH",
+        "responsabile-retail-sanitatsshop-m-w-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "head-of-retail-sanitatsshop-m-w-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "leitung-retail-sanitatsshop-m-w-d-100-balgrist-zurich": "ZH",
+        "mitarbeiterin-collaboratore-trice-patientenservice-m-w-d-80-universitatsklinik-balgrist-zurich": "ZH",
+        "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich": "ZH",
+        "segretaria-medica-del-team-di-spalla-w-m-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "medical-secretary-shoulder-team-w-m-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "secretaire-medical-du-team-de-l-epaule-w-m-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-op-am-tag-m-w-d-45-universitatsklinik-balgrist-zurich": "ZH",
+        "consulente-senior-m-w-d-45-universitatsklinik-balgrist-zurich": "ZH",
+        "consulente-senior-m-m-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "leitung-sanitatsshop-retail-m-w-d-100-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "consultant-principal-m-m-j-80-universitatsklinik-balgrist-zurich": "ZH",
+        "senior-consultant-m-w-d-70-universitatsklinik-balgrist-zurich": "ZH",
+        "consultant-principal-m-m-j-70-universitatsklinik-balgrist-zurich": "ZH",
+        "senior-consultant-m-w-d-80-universitatsklinik-balgrist-zurich": "ZH",
+        "senior-consultant-m-m-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "consultant-principal-m-m-j-100-universitatsklinik-balgrist-zurich": "ZH",
+        "senior-consultant-m-w-d-45-universitatsklinik-balgrist-zurich": "ZH",
+        "consultant-principal-m-m-j-45-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-80-balgrist-zurich": "ZH",
+        "mitarbeiterin-mitarbeiter-patientenservice-m-w-d-70-balgrist-zurich": "ZH",
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-op-am-tag-m-w-d-45-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "responsable-du-commerce-de-detail-et-de-l-assainissement-m-m-j-100-universitatsklinik-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-informatikerin-informatiker-cfc-m-w-d-universitatsklinik-balgrist-zurich",
@@ -1581,7 +1783,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/lehrstelle-als-informatikerin-informatiker-efz-m-w-d/3c673f5e-1aee-408f-88db-52056b52a822",
-    "firstSeenAt": "2026-08-05T11:43:40.609Z"
+    "firstSeenAt": "2026-08-05T11:43:40.609Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-informatikerin-informatiker-efz-m-w-d-balgrist-zurich": "ZH",
+        "apprenticeship-as-computer-scientist-informatician-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH",
+        "apprentissage-en-tant-que-informaticiens-informaticiens-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH",
+        "apprendistato-come-orthopala-schuhmacherin-schumacher-cfc-m-w-d-universitatsklinik-balgrist-zurich": "ZH",
+        "apprenticeship-as-orthopaedic-shoemaker-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH",
+        "lehrstelle-als-orthopadie-schuhmacherin-schumacher-efz-m-w-d-balgrist-zurich": "ZH",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "lehrstelle-als-informatikerin-informatiker-efz-m-w-d-balgrist-zurich": "ZH",
+        "apprenticeship-as-orthopaedic-shoemaker-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "lehrstelle-als-orthopadie-schuhmacherin-schumacher-efz-m-w-d-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "lehrstelle-als-informatikerin-informatiker-efz-m-w-d-balgrist-zurich": "ZH",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "segretario-medico-m-f-d-100-universitatsklinik-balgrist-zurich",
@@ -1631,7 +1856,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/arztsekretaerin-arztsekretaer-w-m-d/35c7d673-9b5c-434f-a5b3-6bda8b8707b7",
-    "firstSeenAt": "2026-09-23T23:44:41.530Z"
+    "firstSeenAt": "2026-09-23T23:44:41.530Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "arztsekretarin-arztsekretar-w-m-d-100-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "arztsekretarin-arztsekretar-w-m-d-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "arztsekretarin-arztsekretar-w-m-d-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "psicologo-clinico-psicologo-m-f-d-min-60-universitatsklinik-balgrist-zurich",
@@ -1681,7 +1918,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/klinische-r-psychologin-psychologe-w-m-d-min/d2a1e216-e8ab-4cc8-b75c-e1cfdfecd67f",
-    "firstSeenAt": "2026-09-07T15:14:14.896Z"
+    "firstSeenAt": "2026-09-07T15:14:14.896Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "klinische-r-psychologin-psychologe-w-m-d-min-60-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "klinische-r-psychologin-psychologe-w-m-d-min-60-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "klinische-r-psychologin-psychologe-w-m-d-min-60-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-orthopala-schuhmacherin-schumacher-cfc-m-w-d-universitatsklinik-balgrist-zurich-14bc5cac",
@@ -1736,7 +1985,88 @@
       "apprenticeship-as-orthopaedic-shoemaker-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-8ad5469b",
       "apprendistato-come-orthopala-schuhmacherin-schumacher-cfc-m-w-d-universitatsklinik-balgrist-zurich-adbd5dd4",
       "lehrstelle-als-orthopadie-schuhmacherin-schumacher-efz-m-w-d-balgrist-zurich-3140fcee",
-      "apprenticeship-as-orthopaedic-shoemaker-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0e9cc065"
+      "apprenticeship-as-orthopaedic-shoemaker-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0e9cc065",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-be38b56b",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a37e21e0",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-d239855b",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-26efb67b",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-3f326c41",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-b8761258",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a2e795a2",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-6bd4e4c8",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-920405b0",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-8efa2dd4",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-99be995e",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-d4fe4075",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-7d33094e",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-026d7462",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-cdea6ee0",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-3e197e75",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e11da963",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-cd885dd1",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-fc99892f",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-419d23a0",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a0881bd6",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-aeb09fb8",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-8e317317",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-1545265e",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0a6182aa",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-b8cb58ff",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-d008915a",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-02fbf87c",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-368bb58c",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-ae13343a",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-34e49aa7",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e6998452",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-4b334131",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e66a3379",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-6dfaea76",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-eca0e44d",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-7cef8d35",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-1d861c1b",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-18987422",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-f45f59de",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-f1ca85a1",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-7a7aa2d5",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-7737c3e6",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-316fb45e",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0b2e3bd3",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-410356bf",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-2c613d83",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-4549eaac",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-cd6a815e",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-6b0c7f76",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-66d08d7d",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-09dd63db",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a305a73b",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-52ba57e4",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-9355236f",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-26c6921b",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-57c7c10b",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-ae79fd30",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-bb1b7bca",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-276719bd",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e7f4183d",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-34ff14ab",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-f693996d",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-17104956",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-cda6e66e",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0141053e",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-16f1d85b",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-406008e8",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-19e6cfcb",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-9287da9e",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-07489369",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-2a2f8313",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-47f28d23",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0259c772",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-87356ee7",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-9ad628d0",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-850befcb",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-fe9a9f31",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-89352b3f",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e1c0fe64",
+      "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a27d2d26"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1772,7 +2102,88 @@
       ],
       "fr": [
         "lehrstelle-als-orthopadie-schuhmacherin-schumacher-efz-m-w-d-balgrist-zurich-cceb738c",
-        "lehrstelle-als-orthopadie-schuhmacherin-schumacher-efz-m-w-d-balgrist-zurich"
+        "lehrstelle-als-orthopadie-schuhmacherin-schumacher-efz-m-w-d-balgrist-zurich",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-be38b56b",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a37e21e0",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-d239855b",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-26efb67b",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-3f326c41",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-b8761258",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a2e795a2",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-6bd4e4c8",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-920405b0",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-8efa2dd4",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-99be995e",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-d4fe4075",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-7d33094e",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-026d7462",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-cdea6ee0",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-3e197e75",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e11da963",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-cd885dd1",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-fc99892f",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-419d23a0",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a0881bd6",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-aeb09fb8",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-8e317317",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-1545265e",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0a6182aa",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-b8cb58ff",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-d008915a",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-02fbf87c",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-368bb58c",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-ae13343a",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-34e49aa7",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e6998452",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-4b334131",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e66a3379",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-6dfaea76",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-eca0e44d",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-7cef8d35",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-1d861c1b",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-18987422",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-f45f59de",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-f1ca85a1",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-7a7aa2d5",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-7737c3e6",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-316fb45e",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0b2e3bd3",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-410356bf",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-2c613d83",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-4549eaac",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-cd6a815e",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-6b0c7f76",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-66d08d7d",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-09dd63db",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a305a73b",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-52ba57e4",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-9355236f",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-26c6921b",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-57c7c10b",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-ae79fd30",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-bb1b7bca",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-276719bd",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e7f4183d",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-34ff14ab",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-f693996d",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-17104956",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-cda6e66e",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0141053e",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-16f1d85b",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-406008e8",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-19e6cfcb",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-9287da9e",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-07489369",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-2a2f8313",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-47f28d23",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-0259c772",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-87356ee7",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-9ad628d0",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-850befcb",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-fe9a9f31",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-89352b3f",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-e1c0fe64",
+        "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich-a27d2d26"
       ],
       "de": [
         "lehrstelle-als-orthopadie-schuhmacherin-schumacher-efz-m-w-d-balgrist-zurich-96456774",
@@ -2060,7 +2471,22 @@
       "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-e4048728",
       "b-apprentissage-en-tant-que-cuisinier-chef-efz-h-f-d-b-universitatsklinik-balgrist-zurich-15c743c5",
       "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
-      "b-apprentissage-en-tant-que-cuisinier-chef-efz-h-f-d-b-universitatsklinik-balgrist-zurich"
+      "b-apprentissage-en-tant-que-cuisinier-chef-efz-h-f-d-b-universitatsklinik-balgrist-zurich",
+      "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich-05h4wk-a56e1b25",
+      "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-5973f007",
+      "cuocere-100-m-f-d-universitatsklinik-balgrist-zurich-65d44270",
+      "cook-100-m-f-d-universitatsklinik-balgrist-zurich-1dbfaa32",
+      "kochin-koch-100-m-w-d-balgrist-zurich-1fa5ea1a",
+      "cuire-100-h-f-d-universitatsklinik-balgrist-zurich-582b6e36",
+      "regolatore-m-f-d-80-100-universitatsklinik-balgrist-zurich-736cc5ea",
+      "controller-m-f-d-80-100-universitatsklinik-balgrist-zurich-6a6a6864",
+      "controllerin-controller-m-w-d-80-100-balgrist-zurich-99bae4e6",
+      "controleur-m-f-d-80-100-universitatsklinik-balgrist-zurich-ecd59d78",
+      "controleur-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich-44790593",
+      "controller-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich-222c972f",
+      "hr-controller-m-f-d-80-100-universitatsklinik-balgrist-zurich-b9d43963",
+      "hr-controllerin-controller-m-w-d-80-100-balgrist-zurich-11a24437",
+      "b-apprentissage-en-tant-que-cuisinier-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich-7f3888af"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2176,7 +2602,22 @@
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-d7af14d5",
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-de19deda",
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-e4048728",
-        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich"
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
+        "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich-05h4wk-a56e1b25",
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-5973f007",
+        "cuocere-100-m-f-d-universitatsklinik-balgrist-zurich-65d44270",
+        "cook-100-m-f-d-universitatsklinik-balgrist-zurich-1dbfaa32",
+        "kochin-koch-100-m-w-d-balgrist-zurich-1fa5ea1a",
+        "cuire-100-h-f-d-universitatsklinik-balgrist-zurich-582b6e36",
+        "regolatore-m-f-d-80-100-universitatsklinik-balgrist-zurich-736cc5ea",
+        "controller-m-f-d-80-100-universitatsklinik-balgrist-zurich-6a6a6864",
+        "controllerin-controller-m-w-d-80-100-balgrist-zurich-99bae4e6",
+        "controleur-m-f-d-80-100-universitatsklinik-balgrist-zurich-ecd59d78",
+        "controleur-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich-44790593",
+        "controller-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich-222c972f",
+        "hr-controller-m-f-d-80-100-universitatsklinik-balgrist-zurich-b9d43963",
+        "hr-controllerin-controller-m-w-d-80-100-balgrist-zurich-11a24437",
+        "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich"
       ],
       "en": [
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-c907130c",
@@ -2260,7 +2701,22 @@
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-d7af14d5",
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-de19deda",
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-e4048728",
-        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich"
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-5973f007",
+        "cook-100-m-f-d-universitatsklinik-balgrist-zurich-1dbfaa32",
+        "kochin-koch-100-m-w-d-balgrist-zurich-1fa5ea1a",
+        "controller-m-f-d-80-100-universitatsklinik-balgrist-zurich-6a6a6864",
+        "controllerin-controller-m-w-d-80-100-balgrist-zurich-99bae4e6",
+        "hr-controller-m-f-d-80-100-universitatsklinik-balgrist-zurich-b9d43963",
+        "hr-controllerin-controller-m-w-d-80-100-balgrist-zurich-11a24437",
+        "cuocere-100-m-f-d-universitatsklinik-balgrist-zurich",
+        "cuire-100-h-f-d-universitatsklinik-balgrist-zurich",
+        "regolatore-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "controleur-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "controleur-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "controller-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich-fb805470",
+        "b-apprenticeship-as-cook-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich"
       ],
       "fr": [
         "b-apprentissage-en-tant-que-cuisinier-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich",
@@ -2414,7 +2870,22 @@
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-e4048728",
         "b-apprentissage-en-tant-que-cuisinier-chef-efz-h-f-d-b-universitatsklinik-balgrist-zurich-15c743c5",
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
-        "b-apprentissage-en-tant-que-cuisinier-chef-efz-h-f-d-b-universitatsklinik-balgrist-zurich"
+        "b-apprentissage-en-tant-que-cuisinier-chef-efz-h-f-d-b-universitatsklinik-balgrist-zurich",
+        "b-apprentissage-en-tant-que-cuisinier-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich-7f3888af",
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-5973f007",
+        "cuire-100-h-f-d-universitatsklinik-balgrist-zurich-582b6e36",
+        "kochin-koch-100-m-w-d-balgrist-zurich-1fa5ea1a",
+        "controleur-m-f-d-80-100-universitatsklinik-balgrist-zurich-ecd59d78",
+        "controllerin-controller-m-w-d-80-100-balgrist-zurich-99bae4e6",
+        "controleur-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich-44790593",
+        "cuocere-100-m-f-d-universitatsklinik-balgrist-zurich",
+        "cook-100-m-f-d-universitatsklinik-balgrist-zurich",
+        "regolatore-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "controller-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "controller-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "hr-controller-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "hr-controllerin-controller-m-w-d-80-100-balgrist-zurich",
+        "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich-fb805470"
       ],
       "de": [
         "kochin-koch-100-m-w-d-balgrist-zurich",
@@ -2470,7 +2941,21 @@
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-b61057a1",
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-863f12b7",
         "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-b19082f3",
-        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich"
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich-ecec00d3",
+        "kochin-koch-100-m-w-d-balgrist-zurich-1fa5ea1a",
+        "controllerin-controller-m-w-d-80-100-balgrist-zurich-99bae4e6",
+        "hr-controllerin-controller-m-w-d-80-100-balgrist-zurich-11a24437",
+        "cuocere-100-m-f-d-universitatsklinik-balgrist-zurich",
+        "cook-100-m-f-d-universitatsklinik-balgrist-zurich",
+        "cuire-100-h-f-d-universitatsklinik-balgrist-zurich",
+        "regolatore-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "controller-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "controleur-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "controleur-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "controller-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "hr-controller-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich-fb805470"
       ]
     },
     "postalCode": "8001",
@@ -2512,7 +2997,40 @@
         "firstSeenAt": "2026-08-11T22:27:51.301Z",
         "title": "Köchin/Koch 100 % (m/w/d)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich": "ZH",
+        "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich-05h4wk": "ZH",
+        "b-apprenticeship-as-cook-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich": "ZH",
+        "b-apprentissage-en-tant-que-cuisinier-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich": "ZH",
+        "cuocere-100-m-f-d-universitatsklinik-balgrist-zurich": "ZH",
+        "cook-100-m-f-d-universitatsklinik-balgrist-zurich": "ZH",
+        "kochin-koch-100-m-w-d-balgrist-zurich": "ZH",
+        "cuire-100-h-f-d-universitatsklinik-balgrist-zurich": "ZH",
+        "regolatore-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "controller-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "controllerin-controller-m-w-d-80-100-balgrist-zurich": "ZH",
+        "controleur-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "controleur-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "controller-hr-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "hr-controller-m-f-d-80-100-universitatsklinik-balgrist-zurich": "ZH",
+        "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "b-apprenticeship-as-cook-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich": "ZH",
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "b-apprentissage-en-tant-que-cuisinier-chef-efz-h-f-d-b-universitatsklinik-balgrist-zurich": "ZH",
+        "b-apprentissage-en-tant-que-cuisinier-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich": "ZH",
+        "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "risorse-umane-business-partner-m-w-d-80-100-befristet-bis-ende-2027-con-option-auf-verlangerung-universitatsklinik-balgrist-zurich",
@@ -2573,7 +3091,19 @@
         "firstSeenAt": "2026-09-23T23:44:41.534Z",
         "title": "HR Business Partner (m/w/d) 80-100 % - befristet bis Ende 2027, mit Option auf Verlängerung"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung": "ZH"
+      },
+      "en": {
+        "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung": "ZH"
+      },
+      "fr": {
+        "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung": "ZH"
+      }
+    }
   },
   {
     "slug": "fisioterapista-m-f-d-90-100-universitatsklinik-balgrist-zurich",
@@ -2682,7 +3212,22 @@
         "firstSeenAt": "2026-05-19T13:47:10.403Z",
         "title": "Physiotherapeutin/Physiotherapeut (w/m/d) 90 - 100 %"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "international-vip-office-manager-100-m-w-d-balgrist-zurich",
@@ -2714,7 +3259,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/international-vip-office-manager-m-w-d/5f79e78a-8f45-42de-95d3-4506038b64e7",
-    "firstSeenAt": "2026-06-01T22:52:33.024Z"
+    "firstSeenAt": "2026-06-01T22:52:33.024Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "international-vip-office-manager-100-m-w-d-balgrist-zurich"
+      ],
+      "de": [
+        "international-vip-office-manager-100-m-w-d-balgrist-zurich"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "international-vip-office-manager-100-m-w-d-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "international-vip-office-manager-100-m-w-d-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "servizio-di-pulizia-su-richiesta-m-f-d-universitatsklinik-balgrist-zurich",
@@ -3626,7 +4188,25 @@
         "firstSeenAt": "2026-09-19T22:59:13.220Z",
         "title": "Mitarbeiterin/Mitarbeiter Hauswirtschaft auf Abruf (w/ m/d)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich": "ZH",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-auf-abruf-m-w-d-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "employee-housekeeping-on-demand-m-f-d-universitatsklinik-balgrist-zurich": "ZH",
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "personnel-de-menage-sur-demande-h-f-d-universitatsklinik-balgrist-zurich": "ZH",
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "gestione-dei-sistemi-aziendali-e-sviluppo-aziendale-m-f-d-80-100-universitatsklinik-balgrist-zurich",
@@ -3672,7 +4252,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/manager-business-systems-unternehmensentwicklung-m-w-d-80/5c6c1ac6-be40-4dff-b8c6-0680c62e36bd",
-    "firstSeenAt": "2026-10-01T21:24:42.058Z"
+    "firstSeenAt": "2026-10-01T21:24:42.058Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "manager-business-systems-unternehmensentwicklung-m-w-d-80-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "manager-business-systems-unternehmensentwicklung-m-w-d-80-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-experten-intensivpflege-o-dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-m-w-d-50-100-universitatsklinik-balgrist-zurich",
@@ -3725,7 +4314,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachpersonen-hf-ndk-ueberwachungspflege-w-m-d-50/b00d8d93-5b66-47df-970f-aeb246725140",
-    "firstSeenAt": "2026-06-10T22:15:11.012Z"
+    "firstSeenAt": "2026-06-10T22:15:11.012Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-experten-intensivpflege-oder-dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-w-m-d": "ZH"
+      },
+      "en": {
+        "dipl-experten-intensivpflege-oder-dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-w-m-d": "ZH"
+      },
+      "de": {
+        "dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-w-m-d-50-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "dipl-experten-intensivpflege-oder-dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-w-m-d": "ZH"
+      }
+    }
   },
   {
     "slug": "lehrstellen-come-fachfrau-fachmann-gesundheit-cfc-m-w-d-universitatsklinik-balgrist-zurich",
@@ -3787,7 +4391,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/lehrstellen-als-fachfrau-fachmann-gesundheit-efz-m-w-d/3c494a6b-6453-4e27-ba30-e5219d189a5b",
-    "firstSeenAt": "2026-07-31T22:26:44.009Z"
+    "firstSeenAt": "2026-07-31T22:26:44.009Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-m-w-d-balgrist-zurich": "ZH",
+        "apprendistato-come-kochin-koch-cfc-m-w-d-universitatsklinik-balgrist-zurich": "ZH",
+        "apprenticeship-as-cook-chef-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH",
+        "lehrstelle-als-kochin-koch-efz-m-w-d-balgrist-zurich": "ZH",
+        "apprentissage-en-tant-que-cuisinier-chef-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-m-w-d-balgrist-zurich": "ZH",
+        "apprenticeship-as-cook-chef-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "lehrstelle-als-kochin-koch-efz-m-w-d-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-m-w-d-balgrist-zurich": "ZH",
+        "apprentissage-en-tant-que-cuisinier-chef-efz-m-f-d-universitatsklinik-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "medico-associato-specialista-clinica-specialista-clinica-m-f-d-60-100-universitatsklinik-balgrist-zurich-e7ae66b8",
@@ -3918,7 +4543,19 @@
         "firstSeenAt": "2026-05-19T13:47:10.420Z",
         "title": "Sachbearbeiterin/Sachbearbeiter Patientenadministration Notfall (m/w/d) 80–100 %"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiterin-sachbearbeiter-patientenadministration-notfall-m-w-d-80-100-balgrist": "ZH"
+      },
+      "en": {
+        "sachbearbeiterin-sachbearbeiter-patientenadministration-notfall-m-w-d-80-100-balgrist": "ZH"
+      },
+      "fr": {
+        "sachbearbeiterin-sachbearbeiter-patientenadministration-notfall-m-w-d-80-100-balgrist": "ZH"
+      }
+    }
   },
   {
     "slug": "mitarbeiterin-collaboratore-trice-kuche-m-w-d-100-universitatsklinik-balgrist-zurich",
@@ -3967,7 +4604,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/mitarbeiterin-mitarbeiter-kueche-m-w-d/865e19bc-3acd-4c4e-85e1-bca6bf60f20c",
-    "firstSeenAt": "2026-10-07T09:21:30.465Z"
+    "firstSeenAt": "2026-10-07T09:21:30.465Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-kuche-m-w-d-100-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-kuche-m-w-d-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-kuche-m-w-d-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-specialista-gestione-delle-prestazioni-m-f-d-80-100-universitatsklinik-balgrist-zurich",
@@ -4057,7 +4706,19 @@
         "firstSeenAt": "2026-05-19T13:47:10.387Z",
         "title": "Fachspezialistin/Fachspezialist Leistungsmanagement (m/w/d) 80-100 %"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialistin-fachspezialist-leistungsmanagement-m-w-d-80-100-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "fachspezialistin-fachspezialist-leistungsmanagement-m-w-d-80-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "fachspezialistin-fachspezialist-leistungsmanagement-m-w-d-80-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-60-m-w-d-universitatsklinik-balgrist-zurich-215eae88",
@@ -4854,7 +5515,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/ernaehrungsberaterin-ernaehrungsberater-bsc-m-w-d/19a57b03-7406-4c56-a7a6-ea6ed30e2101",
-    "firstSeenAt": "2026-09-19T22:59:13.213Z"
+    "firstSeenAt": "2026-09-19T22:59:13.213Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "mitarbeiterin-collaboratore-trice-hauswirtschaft-stationen-m-w-d-100-universitatsklinik-balgrist-zurich",
@@ -4905,7 +5578,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-m-w-d/eb025bfa-4037-40b2-81b5-5e1556b7cd45",
-    "firstSeenAt": "2026-10-01T21:24:42.042Z"
+    "firstSeenAt": "2026-10-01T21:24:42.042Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-m-w-d-100-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-m-w-d-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "postes-d-entretien-menager-des-employes-h-f-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-m-w-d-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "cure-respiratorie-per-esperti-m-f-d-80-100-universitatsklinik-balgrist-zurich",
@@ -4948,7 +5634,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/expertin-experten-respiratory-care-m-w-d-80/e14bcad5-1470-4593-9a97-e176a27d0f41",
-    "firstSeenAt": "2026-08-14T21:36:52.062Z"
+    "firstSeenAt": "2026-08-14T21:36:52.062Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "expertin-experten-respiratory-care-m-w-d-80-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "esperta-di-settore-in-infermieristica-m-f-d-50-100-universitatsklinik-balgrist-zurich",
@@ -4991,7 +5683,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/fachexpertin-fachexperten-pflege-m-w-d-50/659c3f17-2db9-4923-bdcf-cdffd6138c76",
-    "firstSeenAt": "2026-05-19T13:47:10.445Z"
+    "firstSeenAt": "2026-05-19T13:47:10.445Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachexpertin-fachexperten-pflege-m-w-d-50-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "medico-anziano-mev-caso-specialista-ortopedia-traumatologia-60-80-universitatsklinik-balgrist-zurich",
@@ -5034,7 +5732,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/oberaerztin-oberarzt-mev-fachnotfall-orthopaedie-traumatologie/c2fd5b13-baef-4aed-ad41-f240961ee70c",
-    "firstSeenAt": "2026-07-10T22:56:34.250Z"
+    "firstSeenAt": "2026-07-10T22:56:34.250Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarztin-oberarzt-mev-fachnotfall-orthopadie-traumatologie-60-80-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "physiotherapist-sport-physiotherapist-m-f-d-100-universitatsklinik-balgrist-zurich",
@@ -5085,7 +5789,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/sport-physiotherapeutin-sport-physiotherapeut-w-m-d/d95bfb67-5147-4585-bdf3-6ee79f691b58",
-    "firstSeenAt": "2026-08-27T00:44:06.092Z"
+    "firstSeenAt": "2026-08-27T00:44:06.092Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sport-physiotherapeutin-sport-physiotherapeut-w-m-d-100-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "sport-physiotherapeutin-sport-physiotherapeut-w-m-d-100-balgrist-zurich": "ZH",
+        "sport-physiotherapeutin-sport-physiotherapeut-w-m-d-100-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "sport-physiotherapeutin-sport-physiotherapeut-w-m-d-100-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "hr-business-partner-m-f-d-80-100-temporaneo-fino-alla-fine-del-2027-con-opzione-di-estensione-universitatsklinik",
@@ -5263,13 +5980,13 @@
       "risorse-umane-business-partner-m-w-d-80-100-befristet-bis-ende-2027-con-option-auf-verlangerung-a69f79f2",
       "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-4f07138e",
       "risorse-umane-business-partner-m-w-d-80-100-befristet-bis-ende-2027-con-option-auf-verlangerung-9e491beb",
-      "risorse-umane-business-partner-m-w-d-80-100-befristet-bis-ende-2027-con-option-auf-verlangerung-universitatsklinik-balgrist-zurich",
       "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-b45923f3",
       "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-75e77027",
       "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-168d6726",
       "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-0bbc149e",
       "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-40956cea",
-      "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-8e289cd9"
+      "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-8e289cd9",
+      "risorse-umane-business-partner-m-w-d-80-100-befristet-bis-ende-2027-con-option-auf-verlangerung-universitatsklinik-balgrist-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5624,7 +6341,23 @@
         "firstSeenAt": "2026-09-23T23:44:41.534Z",
         "title": "HR Business Partner (m/w/d) 80-100 % - befristet bis Ende 2027, mit Option auf Verlängerung"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-d7634fb5": "ZH",
+        "risorse-umane-business-partner-m-w-d-80-100-befristet-bis-ende-2027-con-option-auf-verlangerung-eb4fdae1": "ZH"
+      },
+      "en": {
+        "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-d7634fb5": "ZH"
+      },
+      "de": {
+        "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-d7634fb5": "ZH"
+      },
+      "fr": {
+        "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung-d7634fb5": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-della-salute-m-f-d-80-100-universitatsklinik-balgrist-zurich",
@@ -6018,7 +6751,27 @@
         "firstSeenAt": "2026-05-19T13:47:10.408Z",
         "title": "Fachperson Gesundheit (m/w/d) 80–100 %"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachperson-gesundheit-m-w-d-80-100-balgrist-zurich": "ZH",
+        "specialista-della-salute-m-f-d-50-100-universitatsklinik-balgrist-zurich": "ZH",
+        "healthcare-specialist-m-f-d-50-100-universitatsklinik-balgrist-zurich": "ZH",
+        "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich": "ZH",
+        "specialiste-de-la-sante-m-f-d-50-100-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "healthcare-specialist-m-f-d-50-100-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "fachperson-gesundheit-m-w-d-50-100-balgrist-zurich": "ZH",
+        "fachperson-gesundheit-m-w-d-80-100-balgrist-zurich-59sr72": "ZH"
+      },
+      "fr": {
+        "specialiste-de-la-sante-m-f-d-50-100-universitatsklinik-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-infermiera-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich",
@@ -6094,7 +6847,28 @@
         "firstSeenAt": "2026-07-28T12:03:24.350Z",
         "title": "Dipl. Pflegefachperson HF/FH (m/w/d) 60 %"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich": "ZH",
+        "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich": "ZH",
+        "dipl-nurse-hf-fh-80-100-m-f-d-in-ambulatory-neuro-urology-universitatsklinik-balgrist-zurich": "ZH",
+        "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich": "ZH",
+        "c-est-quoi-infirmiere-hf-fh-80-100-m-f-j-en-neuro-urologie-ambulatoire-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich": "ZH",
+        "dipl-nurse-hf-fh-80-100-m-f-d-in-ambulatory-neuro-urology-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich": "ZH",
+        "c-est-quoi-infirmiere-hf-fh-80-100-m-f-j-en-neuro-urologie-ambulatoire-universitatsklinik-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "employee-orthopaedic-engineering-focus-production-orthetics-m-f-d-100-universitatsklinik-balgrist-zurich",
@@ -6131,7 +6905,8 @@
         "mitarbeiterin-collaboratore-trice-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-universitatsklinik-balgrist-zurich"
       ],
       "en": [
-        "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist"
+        "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist",
+        "employee-orthopaedic-engineering-focus-production-orthetics-m-f-d-100-universitatsklinik-balgrist-zurich"
       ],
       "fr": [
         "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist"
@@ -6143,7 +6918,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/mitarbeiterin-mitarbeiter-orthopaedietechnik-fokus-produktion-orthetik-m-w-d/0264f09c-6856-4066-842d-3dae226fbe32",
-    "firstSeenAt": "2026-09-01T23:14:03.125Z"
+    "firstSeenAt": "2026-09-01T23:14:03.125Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist": "ZH",
+        "mitarbeiterin-collaboratore-trice-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "employee-orthopaedic-engineering-focus-production-orthetics-m-f-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist": "ZH"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist": "ZH"
+      }
+    }
   },
   {
     "slug": "stv-head-of-education-care-m-f-d-100-universitatsklinik-balgrist-zurich",
@@ -6219,7 +7008,28 @@
         "firstSeenAt": "2026-07-30T22:25:03.839Z",
         "title": "Stv. Leitung Bildung Pflege (m/w/d) 100 %"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stv-leitung-bildung-pflege-m-w-d-100-balgrist-zurich": "ZH",
+        "testa-di-sviluppo-della-cura-m-f-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "head-of-care-development-m-f-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "leitung-pflegeentwicklung-m-w-d-100-balgrist-zurich": "ZH",
+        "chef-du-developpement-des-soins-m-f-j-100-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "head-of-care-development-m-f-d-100-universitatsklinik-balgrist-zurich": "ZH",
+        "stv-leitung-bildung-pflege-m-w-d-100-balgrist-zurich": "ZH"
+      },
+      "de": {
+        "leitung-pflegeentwicklung-m-w-d-100-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "stv-leitung-bildung-pflege-m-w-d-100-balgrist-zurich": "ZH",
+        "chef-du-developpement-des-soins-m-f-j-100-universitatsklinik-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "terapeuta-professionale-f-m-d-90-universitatsklinik-balgrist-zurich",
@@ -6274,7 +7084,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/ergotherapeutin-ergotherapeut-w-m-d/8dbba373-95d7-4566-a544-d7f9f23eedd2",
-    "firstSeenAt": "2026-07-21T12:38:12.421Z"
+    "firstSeenAt": "2026-07-21T12:38:12.421Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ergotherapeutin-ergotherapeut-w-m-d-90-balgrist-zurich": "ZH"
+      },
+      "en": {
+        "ergotherapeutin-ergotherapeut-w-m-d-90-balgrist-zurich": "ZH",
+        "ergotherapeutin-ergotherapeut-w-m-d-90-universitatsklinik-balgrist-zurich": "ZH",
+        "occupational-therapist-f-m-d-90-universitatsklinik-balgrist-zurich": "ZH",
+        "occupational-therapist-m-f-d-90-universitatsklinik-balgrist-zurich": "ZH"
+      },
+      "fr": {
+        "ergotherapeutin-ergotherapeut-w-m-d-90-balgrist-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "consulente-specializzato-in-salute-e-continenza-m-f-d-60-100-per-il-nostro-business-specializzato-in-medicina",
@@ -6878,6 +7703,80 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/ict-service-desk-specialist-m-w-d/aac49a0f-de2b-4429-8bf8-4dda02da103c",
     "firstSeenAt": "2026-08-03T12:39:26.294Z"
+  },
+  {
+    "slug": "dipl-expert-dipl-anestesia-esperta-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+    "title": "Dipl. Expertin/Dipl. Experten Anästhesiepflege NDS HF (m/w/d) 80–100 %",
+    "titleByLocale": {
+      "it": "Dipl. Expert/Dipl. Anestesia esperta NDS HF (m/f/d) 80–100 %",
+      "en": "Dipl. Expert/Dipl. Expert anesthesia care NDS HF (m/f/d) 80–100 %",
+      "de": "Dipl. Expertin/Dipl. Experten Anästhesiepflege NDS HF (m/w/d) 80–100 %",
+      "fr": "Dipl. Expert/Dipl. Expert anesthésie soins NDS HF (m/f/j) 80–100 %"
+    },
+    "company": "Universitätsklinik Balgrist",
+    "companyKey": "balgrist",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate in Svizzera con un centro affiliato per la paraplegia e il riconoscimento internazionale. <br/> <br/ > Cerchiamo uno per il nostro reparto di cura dell'anestesia su appuntamento\n\nCompiti:\n• Responsabile per la preparazione indipendente, la cura e il monitoraggio dei pazienti in anestesia regionale e generale in collaborazione con uno specialista\n\n• Assistenza nelle consuete tecniche di anestesia\n\n• Assistenza paziente perioperativa competente\n\n• Fornitura, manutenzione e gestione tecnica di varie attrezzature\n\nRequisiti\n• Hai completato la formazione come esperto in anestesia cura NDS HF o formazione completa come dipl. Cura dell'anestesia HF\n\n• È possibile regolare rapidamente le attività e le situazioni cambianti\n\n• Essi hanno capacità di comunicazione appropriate e differenziate della situazione e un'elevata disponibilità a svolgere e collaborare\n\n• Come giocatore di squadra, fornisci un'atmosfera di lavoro costruttiva e motivata\n\n• Siete pronti a fornire servizi di turni e incarichi per il fine settimana\n\nOffriamo:\n• Hai la possibilità di partecipare a una prestigiosa clinica ortopedica universitaria con un'ottima reputazione\n\n• Vi offriamo lavoro indipendente e auto-responsabile dopo una conoscenza completa\n\n• Puoi aspettarti un team potente, impegnato e altamente motivato in un ambiente di lavoro dinamico.\n\n• Vi offriamo orari di lavoro flessibili e rispondere alle vostre esigenze individuali\n\n• Hai solo tre o quattro fine settimana dell'anno, Picettdienst\n\n• Sostegno superiore alla media per l'ulteriore istruzione e formazione\n\n• 50 % di sconto sul bonus pass ZVV o contributo annuale a un abbonamento generale\n\n• Regalato giorno libero per compleanno\n\n• 20% di sconto su Balgrist Apotheke AG\n\n• Luogo di lavoro in una posizione attraente a Zurigo con ottimi collegamenti con i trasporti pubblici\nUlteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
+      "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with an affiliated centre for paraplegia and international recognition. <br/><br/ >We are looking for one/one for our anesthesia care department by appointment\n\nTasks:\n• Responsible for the independent preparation, care and monitoring of patients in regional and general anesthesia in cooperation with a specialist\n\n• Assistance in the usual anesthesia techniques\n\n• Competent perioperative patient care\n\n• Provision, maintenance and technical handling of various equipment\n\nRequirements\n• You have completed training as an expert in anesthesia care NDS HF or completed training as a dipl. Anesthesia care HF\n\n• You can quickly adjust to changing activities and situations\n\n• They have situation-appropriate and differentiated communication skills and a high willingness to perform and cooperate\n\n• As a team player, you provide a constructive and motivated working atmosphere\n\n• You are ready to provide shift services and weekend assignments\n\nWe offer:\n• You have the opportunity to participate in a prestigious university orthopaedic clinic with an excellent reputation\n\n• We offer you independent and self-responsible work after a comprehensive familiarization\n\n• You can expect a powerful, committed and highly motivated team in a dynamic working environment.\n\n• We offer you flexible working hours and respond to your individual needs\n\n• You have only three to four weekends of the year, Picettdienst\n\n• Above-average support for further education and training\n\n• 50 % discount on the ZVV bonus pass or annual contribution to a general subscription\n\n• Gifted free day for birthday\n\n• 20% discount in Balgrist Apotheke AG\n\n• Place of work in an attractive location in Zurich with very good connections to public transport\nFurther advantages are just one click away: Attractive offers for our employees",
+      "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie und internationaler Anerkennung. <br/><br/>Wir suchen für unsere Abteilung Anästhesiepflege nach Vereinbarung eine/einen\n\nAufgaben:\n• Verantwortlich für die selbständige Vorbereitung, Betreuung und Überwachung der Patienten bei Regional- und Allgemeinanästhesien in Zusammenarbeit mit einer Fachärztin/einem Facharzt\n\n• Assistenz bei den üblichen Anästhesietechniken\n\n• Fachkompetente perioperative Patientenbetreuung\n\n• Bereitstellung, Unterhalt und technische Handhabung der verschiedenen Geräte\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung zur Expertin/zum Experten Anästhesiepflege NDS HF oder eine abgeschlossene Ausbildung zur dipl. Anästhesiepflege HF\n\n• Sie können sich schnell auf wechselnde Tätigkeiten sowie Situationen einstellen\n\n• Sie besitzen situationsgerechte und differenzierte Kommunikationsfähigkeit und haben eine hohe Leistungs- und Kooperationsbereitschaft\n\n• Als Teamplayer sorgen Sie für eine konstruktive sowie motivierte Arbeitsatmosphäre\n\n• Sie sind bereit Schichtdienste und Wochenendeinsätze zu leisten\n\nWir bieten:\n• Sie haben die Möglichkeit an einer angesehenen universitären orthopädischen Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• Wir bieten Ihnen ein selbstständiges und eigenverantwortliches Arbeiten nach einer umfassenden Einarbeitung\n\n• Es erwartet Sie ein leistungsstarkes, engagiertes und hoch motiviertes Team in einem dynamischen Arbeitsumfeld\n\n• Wir bieten Ihnen flexible Arbeitszeiten und gehen auf Ihre individuellen Bedürfnisse ein\n\n• Sie haben lediglich an drei bis vier Wochenenden im Jahr Pikettdienst\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
+      "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées en Suisse avec un centre affilié pour la paraplégie et la reconnaissance internationale. <br/><br/ > Nous recherchons un/un pour notre service de soins anesthésiques sur rendez-vous\n\nTâches :\n• Responsable de la préparation, des soins et du suivi indépendants des patients en anesthésie régionale et générale en collaboration avec un spécialiste\n\n• Assistance aux techniques habituelles d'anesthésie\n\n• Soins périopératoires compétents\n\n• Fourniture, entretien et manutention technique de divers équipements\n\nExigences\n• Vous avez suivi une formation d'expert en soins anesthésiques NDS HF ou une formation de dipl. Soins anesthésiques HF\n\n• Vous pouvez rapidement vous adapter aux activités et situations changeantes\n\n• Ils possèdent des compétences de communication adaptées à la situation et différenciées et une grande volonté de travailler et de coopérer.\n\n• En tant que joueur d'équipe, vous offrez une atmosphère de travail constructive et motivée\n\n• Vous êtes prêt à fournir des services de poste et des affectations de fin de semaine\n\nNous offrons:\n• Vous avez la possibilité de participer à une prestigieuse clinique orthopédique universitaire avec une excellente réputation\n\n• Nous vous offrons un travail indépendant et autonome après une familiarisation complète\n\n• Vous pouvez vous attendre à une équipe puissante, engagée et très motivée dans un environnement de travail dynamique.\n\n• Nous vous offrons des horaires flexibles et répondons à vos besoins individuels\n\n• Vous n'avez que trois à quatre week-ends de l'année, Picettdienst\n\n• Soutien supérieur à la moyenne à la formation continue\n\n• Réduction de 50 % sur la prime ZVV ou contribution annuelle à un abonnement général\n\n• Journée offerte pour l'anniversaire\n\n• 20% de réduction dans Balgrist Apotheke AG\n\n• Lieu de travail dans un endroit attrayant à Zurich avec de très bonnes connexions aux transports en commun\nD'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
+    },
+    "slugByLocale": {
+      "it": "dipl-expert-dipl-anestesia-esperta-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "en": "dipl-expert-dipl-expert-anesthesia-care-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "de": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-m-w-d-80-100-balgrist-zurich",
+      "fr": "dipl-expert-dipl-expert-anesthesie-soins-nds-hf-m-f-j-80-100-universitatsklinik-balgrist-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-22T21:42:27.070Z",
+    "previousSlugs": [
+      "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-m-w-d-80-100-balgrist-zurich",
+      "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-m-w-d-80-100-universitatsklinik-balgrist-zurich",
+      "esperta-esparto-di-anestesia-infermieristica-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "dipl-expert-in-anesthesia-nursing-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "expert-e-en-soins-anesthesiques-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-m-w-d-80-100-balgrist-zurich",
+        "esperta-esparto-di-anestesia-infermieristica-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich"
+      ],
+      "en": [
+        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-m-w-d-80-100-balgrist-zurich",
+        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-m-w-d-80-100-universitatsklinik-balgrist-zurich",
+        "dipl-expert-in-anesthesia-nursing-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich"
+      ],
+      "fr": [
+        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-m-w-d-80-100-balgrist-zurich",
+        "expert-e-en-soins-anesthesiques-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich"
+      ]
+    },
+    "postalCode": "8008",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/dipl-expertin-dipl-experten-anaesthesiepflege-nds-hf-m-w-d-80/72e8dc34-4ad0-480c-ac54-ad684b93224f",
+    "firstSeenAt": "2026-05-19T13:47:10.447Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/dipl-expertin-dipl-experten-anaesthesiepflege-nds-hf-m-w-d-80/72e8dc34-4ad0-480c-ac54-ad684b93224f",
+        "firstSeenAt": "2026-05-19T13:47:10.447Z",
+        "title": "Dipl. Expertin/Dipl. Experten Anästhesiepflege NDS HF (m/w/d) 80–100 %"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/dipl-expertin-dipl-experten-anaesthesiepflege-nds-hf-m-w-d-80/e79ee1fd-6b6a-4f12-a49e-577171d769a0",
+        "firstSeenAt": "2026-09-23T23:44:41.532Z",
+        "title": "Dipl. Expertin/Dipl. Experten Anästhesiepflege NDS HF (m/w/d) 80–100 %"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/dipl-expertin-dipl-experten-anaesthesiepflege-nds-hf-m-w-d-80/f911dc99-a4ba-4e4f-bc91-2b23651516b1",
+        "firstSeenAt": "2026-07-21T12:38:12.428Z",
+        "title": "Dipl. Expertin/Dipl. Experten Anästhesiepflege NDS HF (m/w/d) 80–100 %"
+      }
+    ]
   },
   {
     "slug": "mitarbeiterin-collaboratore-trice-stationare-patientenaufnahme-kostensicherung-m-w-d-100-universitatsklinik-balgrist-zurich",
@@ -8180,6 +9079,66 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/orthopaedie-schuhmachermeisterin-schuhmachermeister-m-w-d/fc6d3914-bd9b-4e5d-8dac-6e64178f9f1c",
     "firstSeenAt": "2026-05-19T13:47:10.453Z"
+  },
+  {
+    "slug": "infermiere-diplomata-hf-fh-50-100-universitatsklinik-balgrist-zurich",
+    "title": "Dipl. Pflegefachperson HF/FH 50–100 %",
+    "titleByLocale": {
+      "it": "Infermiere diplomata HF/FH 50–100 %",
+      "en": "Dipl. Care professional HF/FH 50–100 %",
+      "de": "Dipl. Pflegefachperson HF/FH 50–100 %",
+      "fr": "Infirmier(e) diplômé(e) HF/FH 50–100 %"
+    },
+    "company": "Universitätsklinik Balgrist",
+    "companyKey": "balgrist",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Siamo più vicini: alla ricerca, alle terapie di domani, alla vita - in un'atmosfera familiare nel centro di Zurigo. Il Centro per la paraplegia dell'Ospedale universitario di Balgrist garantisce un'assistenza completa alle persone affette da paraplegia. Cerchiamo su appuntamento compiti per i reparti letto per paraplegici:\n• Ti prendi cura di pazienti con malattie para- e tetraplegiche o neurologiche in situazioni acute e nel processo di riabilitazione\n• Come badante controlli attivamente il processo di riabilitazione dei pazienti e scambi regolarmente informazioni sulle fasi di sviluppo e sugli obiettivi nel team interdisciplinare\n• Sostieni i pazienti e i parenti nella loro situazione difficile, accompagni il processo di trattamento e fornisci supporto nel reinserimento nella vita quotidiana\n• Contribuisci a prevenire complicazioni, educare i pazienti e anche accompagnare e istruire parenti Requisiti:\n• Possedere un diploma qualificato. Specialista infermieristico HF/FH, possibilmente hai esperienza professionale\n• Sei impegnato in rapporti professionali a lungo termine con i pazienti e i loro parenti nella combinazione di cure acute e riabilitative\n• Ti piace lavorare in un grande team infermieristico, hai un alto livello di orientamento al cliente e apprezzi la stretta collaborazione in un team interdisciplinare\n• Mostri un grande interesse per il coinvolgimento nelle innovazioni e ti piace provare nuovi approcci\n• Apprezzi la promozione mirata delle risorse dei pazienti nell'assistenza quotidiana\n• Hai una buona conoscenza della lingua tedesca e hai un'elevata capacità di comunicazione su We offrono:\n• l'opportunità di lavorare in una clinica universitaria rispettata con un'eccellente reputazione\n• un compito interessante e vario in un'azienda innovativa con un clima di lavoro riconoscente e una cultura manageriale aperta\n• stretta collaborazione interprofessionale con diversi team altamente specializzati\n• supporto superiore alla media per ulteriori studi e perfezionamenti\n• standard infermieristici e assistenziali basati sulle più recenti conoscenze scientifiche e pratiche nonché la possibilità di prendersi cura di pazienti completamente e parzialmente ventilati\n• apertura a modelli di lavoro individuali\n• sconto di viaggio del 50% sul bonus ZVV o sul contributo annuale all'abbonamento generale\n• 5 giorni liberi aggiuntivi all'anno e un'interessante indennità per l'assistenza dei nostri pazienti paraplegici\n• Giorno libero gratuito per il compleanno\n• 20% di sconto presso la Balgrist Apotheke AG\n• Sede di lavoro in una bella località di Zurigo con ottimi collegamenti con i trasporti pubblici Altri vantaggi a portata di clic: Offerte interessanti per i nostri dipendenti",
+      "en": "We are closer: to research, to the therapies of tomorrow, to life - with a family atmosphere in the middle of Zurich. The Center for Paraplegia at Balgrist University Hospital guarantees comprehensive care for people with paraplegia. We are looking for tasks for the paraplegia bed wards by appointment:\n• You look after patients with para- and tetraplegic or neurological diseases in acute situations and in the rehabilitation process\n• As a caregiver, you actively control the patients' rehabilitation process and regularly exchange information about the development steps and objectives in the interdisciplinary team\n• You support patients and relatives in their difficult situation, accompany the processing process and provide support with the reintegration into everyday life\n• You have an impact prevent complications, carry out patient education and also accompany and instruct relatives Requirements:\n• You have a qualified diploma. Nursing specialist HF/FH, ideally you have professional experience\n• You are committed to professional, long-term relationships with patients and their relatives in the combination of acute and rehabilitation care\n• You enjoy working in a large nursing team, have a high level of customer orientation and appreciate the close cooperation in an interdisciplinary team\n• You show a great interest in being involved in innovations and like to try out new approaches\n• You value the targeted promotion of patients' resources in everyday care\n• You have good knowledge of German and have a high communication skills on We offer:\n• The opportunity to work at a respected university clinic with an excellent reputation\n• An interesting, varied task in an innovative company with an appreciative working atmosphere and an open management culture\n• Close interprofessional collaboration with various highly specialized teams\n• Above-average support for further education and training\n• Nursing and care standards based on the latest scientific and practical findings as well as the opportunity to take on the care of fully and partially ventilated patients\n• Openness to individual working models\n• Travel discount of 50% on the ZVV bonus pass or annual contribution to a general subscription\n• 5 additional days off per year and an attractive allowance for the care of our paraplegic patients\n• Free day off for a birthday\n• 20% discount at Balgrist Apotheke AG\n• Work location in an attractive location in Zurich with very good connections to public transport Other benefits are just a click away: Attractive offers for our employees",
+      "de": "Wir sind näher dran: An der Forschung, an den Therapien von morgen, am Leben – mit familiärer Atmosphäre mitten in Zürich. Das Zentrum für Paraplegie der Universitätsklinik Balgrist garantiert querschnittgelähmten Menschen eine umfassende Versorgung.<br/><br/>Wir suchen für die Bettenstationen Paraplegie nach Vereinbarung eine\n\nAufgaben:\n• Sie betreuen Patientinnen und Patienten mit para- und tetraplegischen oder neurologischen Krankheiten in Akutsituationen und im Rehabilitationsprozess\n\n• Als Bezugspflegende steuern Sie den Rehabilitationsprozess der Patientinnen und Patienten aktiv mit und tauschen sich regelmässig im interdisziplinären Team über die Entwicklungsschritte und Zielsetzungen aus\n\n• Sie unterstützen Patienten und Angehörige in ihrer schwierigen Situation, begleiten den Verarbeitungsprozess und leisten Support bei der Wiedereingliederung in den Alltag\n\n• Sie wirken präventiv gegen Komplikationen, führen Patientenedukationen durch und begleiten und instruieren auch Angehörige\n\nAnforderungen:\n• Sie verfügen über einen Abschluss als dipl. Pflegefachperson HF/FH, idealerweise bringen Sie Berufserfahrung mit\n\n• Sie engagieren sich für eine professionelle, langfristige Beziehungsgestaltung bei Patienten und deren Angehörigen in der Kombination von Akut- und Rehabilitationspflege\n\n• Sie arbeiten gerne in einem grossen Pflegeteam, bringen eine hohe Kundenorientierung mit und schätzen die nahe Zusammenarbeit im interdisziplinären Team\n\n• Sie zeigen grosses Interesse an Innovationen mitzuwirken und probieren gerne neue Vorgehensweisen aus\n\n• Sie schätzen es, Ressourcen der Patientinnen und Patienten im Pflegealltag gezielt zu fördern\n\n• Sie bringen gute Deutschkenntnisse mit und weisen eine hohe Kommunikationsfähigkeit auf\n\nWir bieten:\n• Die Möglichkeit an einer angesehenen universitären Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• Eine interessante, vielseitige Aufgabe in einem innovativen Betrieb mit wertschätzendem Arbeitsklima und offener Führungskultur\n\n• Enge interprofessionelle Zusammenarbeit mit verschiedenen hochspezialisierten Teams\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Pflege- und Betreuungsstandards nach neuesten Erkenntnissen der Wissenschaft und Praxis sowie die Möglichkeit, die Pflege von voll- und teilbeatmeten Patientinnen und Patienten zu übernehmen\n\n• Offenheit für individuelle Arbeitsmodelle\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• 5 zusätzliche freie Tage im Jahr und eine attraktive Zulage für die Betreuung unserer Paraplegischen Patientinnen und Patienten\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
+      "fr": "Nous sommes plus proches : de la recherche, des thérapies de demain, de la vie - dans une ambiance familiale au cœur de Zurich. Le Centre pour paraplégiques de l'hôpital universitaire Balgrist garantit une prise en charge complète des personnes paraplégiques. Nous recherchons des tâches pour les services de paraplégie sur rendez-vous :\n• Vous soignez des patients atteints de maladies para- et tétraplégiques ou neurologiques dans des situations aiguës et dans le processus de réadaptation.\n• En tant que soignant, vous contrôlez activement le processus de réadaptation des patients et échangez régulièrement des informations sur les étapes de développement et les objectifs au sein de l'équipe interdisciplinaire.\n• Vous soutenez les patients et leurs proches dans leur situation difficile, accompagnez le processus de traitement et apportez un soutien à la réintégration dans la vie quotidienne. Vous disposez d'un diplôme qualifié. Spécialiste en soins infirmiers HF/FH, vous avez idéalement une expérience professionnelle\n• Vous vous engagez dans des relations professionnelles à long terme avec les patients et leurs proches dans la combinaison des soins aigus et de réadaptation\n• Vous aimez travailler dans une grande équipe de soins infirmiers, avez un haut niveau d'orientation client et appréciez la coopération étroite au sein d'une équipe interdisciplinaire\n• Vous faites preuve d'un grand intérêt pour l'innovation et aimez essayer de nouvelles approches\n• Vous appréciez la promotion ciblée des ressources des patients dans les soins quotidiens\n• Vous avez une bonne connaissance de l'allemand et de grandes compétences en communication sur Nous offrons :\n• L'opportunité travailler dans une clinique universitaire respectée avec une excellente réputation\n• Une tâche intéressante et variée dans une entreprise innovante avec une atmosphère de travail agréable et une culture de gestion ouverte\n• Une collaboration interprofessionnelle étroite avec diverses équipes hautement spécialisées\n• Un soutien supérieur à la moyenne pour la formation continue\n• Des normes de soins et de soins basées sur les dernières connaissances scientifiques et pratiques ainsi que la possibilité de prendre en charge des patients entièrement ou partiellement ventilés\n• Ouverture à des modèles de travail individuels\n• Réduction de voyage de 50% sur le pass bonus ZVV ou contribution annuelle à un abonnement général\n• 5 jours de congé supplémentaires par an et une allocation intéressante pour les soins de nos patients paraplégiques\n• Jour de congé gratuit pour un anniversaire\n• 20% de réduction chez Balgrist Apotheke AG\n• Lieu de travail dans un endroit attrayant de Zurich avec de très bonnes liaisons avec les transports publics D'autres avantages sont à portée de clic : Offres attractives pour nos collaborateurs"
+    },
+    "slugByLocale": {
+      "it": "infermiere-diplomata-hf-fh-50-100-universitatsklinik-balgrist-zurich",
+      "en": "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich-9704ef",
+      "de": "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich",
+      "fr": "infirmier-e-diplome-e-hf-fh-50-100-universitatsklinik-balgrist-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-13T22:48:20.271Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich",
+      "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
+      ],
+      "en": [
+        "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich",
+        "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
+      ]
+    },
+    "postalCode": "8008",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-50/d29f80f7-1bea-44cd-9328-31b8a96225e5",
+    "firstSeenAt": "2026-05-19T13:47:10.433Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-50/5ff9077b-1b64-467e-912d-28ed3afc01a2",
+        "firstSeenAt": "2026-07-14T22:20:58.778Z",
+        "title": "Dipl. Pflegefachperson HF/FH 50–100 %"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-50/d29f80f7-1bea-44cd-9328-31b8a96225e5",
+        "firstSeenAt": "2026-05-19T13:47:10.433Z",
+        "title": "Dipl. Pflegefachperson HF/FH 50–100 %"
+      }
+    ]
   },
   {
     "slug": "manager-unita-trial-clinici-f-m-d-80-100-universitatsklinik-balgrist-zurich",
@@ -10377,6 +11336,47 @@
       "it": [
         "fachfrau-fachmann-finanz-und-rechnungswesen-m-w-d-50-60-balgrist-zurich",
         "specialista-in-finanza-e-contabilita-m-f-d-50-60-universitatsklinik-balgrist-zurich"
+      ]
+    },
+    "postalCode": "8008",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "dipl-infermiere-a-hf-fh-sorveglianza-infermieristica-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+    "title": "Dipl. Pflegefachperson HF/FH Überwachungspflege (m/w/d) 80–100 %",
+    "titleByLocale": {
+      "it": "Dipl. Infermiere/a HF/FH Sorveglianza infermieristica (m/f/d) 80-100%",
+      "en": "Dipl. Nursing Professional HF/FH Post-Operative Care (m/f/d) 80-100%",
+      "de": "Dipl. Pflegefachperson HF/FH Überwachungspflege (m/w/d) 80–100 %",
+      "fr": "Diplômé(e) en soins infirmiers HF/FH Surveillance post-opératoire (H/F) 80-100%"
+    },
+    "company": "Universitätsklinik Balgrist",
+    "companyKey": "balgrist",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "L'Ospedale Universitario Balgrist è una delle cliniche ortopediche più rinomate della Svizzera con un centro affiliato per la paraplegia e riconoscimento internazionale. Cerchiamo incarichi per la nostra sala risveglio e ambulatorio diurno a partire dal 1 luglio 2026 o su appuntamento:\n• Responsabile dell'assistenza olistica e professionale del paziente nella sala risveglio e nell'ambulatorio diurno\n• Effettuare un'adeguata gestione del dolore secondo prescrizione medica\n• Monitoraggio, cura e stabilizzazione dei pazienti monitorati nella fase postoperatoria vulnerabile\n• Accompagnare e formare pazienti e parenti durante il loro soggiorno ambulatoriale e/o ospedaliero\n• Condurre una documentazione continua, tempestiva e priva di valore Requisiti:\n• Diploma qualificato. Specialista infermieristico HF/FH con esperienza in area acuta\n• Completamento del programma di monitoraggio infermieristico NDK o disponibilità a completarlo (cofinanziato dall'ospedale universitario di Balgrist)\n• Personalità comunicativa, aperta e orientata al team\n• Modo di lavorare indipendente e responsabile, nonché una forte consapevolezza della qualità e del servizio\n• Capacità organizzative e pensiero e azione interdisciplinari\n• Buona conoscenza del tedesco parlato e scritto Offriamo:\n• Hai l'opportunità di lavorare in una clinica ortopedica universitaria rispettata con un'eccellente reputazione\n• Un compito versatile in un team impegnato, motivato e dinamico\n• Stretta collaborazione interprofessionale con diversi reparti e professioni\n• Standard di assistenza e supporto basati sulle più recenti conoscenze scientifiche e pratiche\n• Orario di lavoro dal lunedì al venerdì\n• Supporto superiore alla media per corsi di perfezionamento e perfezionamento\n• Giorno libero gratuito per il tuo compleanno\n• Sconto di viaggio del 50% sull'abbonamento bonus ZVV o contributo annuale per un abbonamento generale\n• Sconto del 20% presso Balgrist Apotheke AG\n• Sede di lavoro in una bella posizione di Zurigo con ottimi collegamenti con il pubblico trasporto. Altri vantaggi a portata di clic: Offerte interessanti per i nostri dipendenti",
+      "en": "The Balgrist University Hospital is one of the most renowned orthopedic clinics in Switzerland with an affiliated center for paraplegia and international recognition. We are looking for tasks for our recovery room and day clinic as of July 1, 2026 or by appointment:\n• Responsible for holistic and professional patient care in the recovery room and day clinic\n• Carrying out adequate pain management according to medical prescription\n• Monitoring, care and stabilization of monitored patients in the vulnerable postoperative phase\n• Accompanying and training patients and relatives during their outpatient and/or inpatient stay\n• Leading a seamless, timely and value-free documentation Requirements:\n• Qualified diploma. Nursing specialist HF/FH with experience in the acute area\n• Completion of the NDK monitoring nursing or the willingness to complete it (co-financed by the Balgrist University Hospital)\n• Communicative, open and team-oriented personality\n• Independent and responsible way of working as well as a strong awareness of quality and service\n• Organizational skills and interdisciplinary thinking and acting\n• Good knowledge of spoken and written German We offer:\n• You have the opportunity to work at a respected university orthopedic clinic with an excellent reputation\n• A versatile task in a committed, motivated and dynamic team\n• Close interprofessional collaboration with various departments and professions\n• Care and support standards based on the latest scientific and practical findings\n• Working hours from Monday to Friday\n• Above-average support for further training and further education\n• Free day off for your birthday\n• Travel discount of 50% on the ZVV bonus pass or annual contribution to a general subscription\n• 20 % discount at Balgrist Apotheke AG\n• Work location in an attractive location in Zurich with very good connections to public transport. Other benefits are just a click away: Attractive offers for our employees",
+      "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie und internationaler Anerkennung.<br/><br/>Wir suchen für unseren Aufwachraum und unsere Tagesklinik per 1. Juli 2026 oder nach Vereinbarung eine Aufgaben:\n• Verantwortlich für eine ganzheitliche und fachkompetente Patientenbetreuung im Aufwachraum und in der Tagesklinik\n• Ausführen eines adäquaten Schmerzmanagements nach ärztlicher Verordnung\n• Überwachung, Betreuung und Stabilisierung von monitorisierten Patienten in der vulnerablen postoperativen Phase\n• Begleitung und Schulung von Patienten und Angehörigen während ihres ambulanten und/ oder stationären Aufenthaltes\n• Führen einer lückenlosen, zeitnahen und wertfreien Dokumentation Anforderungen:\n• Abschluss als dipl. Pflegefachfrau/-mann HF/FH mit Erfahrung im Akutbereich\n• Abschluss des NDK Überwachungspflege oder die Bereitschaft diesen zu absolvieren (mitfinanziert durch die Universitätsklinik Balgrist)\n• Kommunikative, offene und teamfähige Persönlichkeit\n• Selbständige und eigenverantwortliche Arbeitsweise sowie ausgeprägtes Qualitäts- und Dienstleistungsbewusstsein\n• Organisatorische Fähigkeiten und interdisziplinäres Denken und Handeln\n• Gute Deutschkenntnisse in Wort und Schrift Wir bieten:\n• Sie haben die Möglichkeit an einer angesehenen universitären orthopädischen Klinik mit ausgezeichnetem Ruf mitzuwirken\n• Eine vielseitige Aufgabe in einem engagierten, motivierten und dynamischen Team\n• Enge interprofessionelle Zusammenarbeit mit verschiedenen Fachbereichen und Professionen\n• Pflege- und Betreuungsstandards nach neusten Erkenntnissen der Wissenschaft und Praxis\n• Arbeitszeiten von Montag bis Freitag\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n• Geschenkter freier Tag zum Geburtstag\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n• 20 % Rabatt in der Balgrist Apotheke AG\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
+      "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées de Suisse avec un centre affilié pour la paraplégie et une reconnaissance internationale. Nous recherchons des tâches pour notre salle de réveil et clinique de jour à partir du 1er juillet 2026 ou sur rendez-vous :\n• Responsable de la prise en charge holistique et professionnelle des patients en salle de réveil et clinique de jour\n• Effectuer une gestion adéquate de la douleur selon la prescription médicale\n• Surveillance, soins et stabilisation des patients surveillés en phase postopératoire vulnérable\n• Accompagner et former les patients et leurs proches pendant leur séjour ambulatoire et/ou hospitalier\n• Diriger une documentation transparente, opportune et sans valeur Exigences :\n• Diplôme qualifié. Infirmière spécialisée HF/FH avec expérience dans le domaine aigu\n• Achèvement des soins infirmiers de surveillance NDK ou volonté de le compléter (cofinancé par l'hôpital universitaire Balgrist)\n• Personnalité communicative, ouverte et orientée vers l'équipe\n• Mode de travail indépendant et responsable ainsi qu'une forte conscience de la qualité et du service\n• Compétences organisationnelles et réflexion et action interdisciplinaires\n• Bonne connaissance de l'allemand parlé et écrit Nous vous offrons :\n• Vous avez la possibilité de travailler dans une clinique orthopédique universitaire respectée avec une excellente réputation\n• Une tâche polyvalente dans une équipe engagée, motivée et dynamique\n• Collaboration interprofessionnelle étroite avec différents départements et professions\n• Normes de soins et d'accompagnement basées sur les connaissances scientifiques et pratiques les plus récentes\n• Horaires de travail du lundi au vendredi\n• Soutien supérieur à la moyenne pour la formation continue et le perfectionnement\n• Jour de congé gratuit pour votre anniversaire\n• Réduction de voyage de 50 % sur le pass bonus ZVV ou la contribution annuelle à un abonnement général\n• 20 % de réduction chez Balgrist Apotheke AG\n• Lieu de travail dans un endroit attrayant à Zurich avec de très bonnes liaisons avec les transports publics. D’autres avantages sont à portée de clic : Des offres attractives pour nos collaborateurs"
+    },
+    "slugByLocale": {
+      "it": "dipl-infermiere-a-hf-fh-sorveglianza-infermieristica-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "en": "dipl-nursing-professional-hf-fh-post-operative-care-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "de": "dipl-pflegefachperson-hf-fh-uberwachungspflege-m-w-d-80-100-balgrist-zurich",
+      "fr": "diplome-e-en-soins-infirmiers-hf-fh-surveillance-post-operatoire-h-f-80-100-universitatsklinik-balgrist-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-19T21:36:39.734Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-uberwachungspflege-m-w-d-80-100-balgrist-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachperson-hf-fh-uberwachungspflege-m-w-d-80-100-balgrist-zurich"
       ]
     },
     "postalCode": "8008",

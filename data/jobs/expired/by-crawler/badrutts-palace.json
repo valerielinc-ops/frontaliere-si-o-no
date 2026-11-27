@@ -41,7 +41,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
-    "firstSeenAt": "2026-07-13T13:19:32.662Z"
+    "firstSeenAt": "2026-07-13T13:19:32.662Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "maggiordomo-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -91,7 +97,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8653778-butler-m-f-d",
-    "firstSeenAt": "2026-11-02T21:50:11.149Z"
+    "firstSeenAt": "2026-11-02T21:50:11.149Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "butler-m-f-d-badrutts-palace-ch": "GR"
+      },
+      "de": {
+        "butler-m-f-d-badrutts-palace-ch": "GR"
+      },
+      "fr": {
+        "butler-m-f-d-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "ricevitore-di-cibo-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -143,7 +161,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/6165453-food-receiver-m-f-d",
-    "firstSeenAt": "2026-10-19T21:33:29.664Z"
+    "firstSeenAt": "2026-10-19T21:33:29.664Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "food-receiver-m-f-d-badrutts-palace-ch": "GR"
+      },
+      "de": {
+        "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "food-receiver-m-f-d-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "hairstylist-m-f-d-stagione-di-punta-badrutt-s-palace-hotel-st-moritz",
@@ -189,6 +220,9 @@
       "fr": [
         "hairstylist-m-f-d-peak-season-badrutts-palace-ch-588559de",
         "hairstylist-m-f-d-peak-season-badrutts-palace-ch"
+      ],
+      "en": [
+        "hairstylist-m-f-d-peak-season-badrutts-palace-ch"
       ]
     },
     "postalCode": "7500",
@@ -197,7 +231,29 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/6185658-hairstylist-m-f-d-peak-season",
-    "firstSeenAt": "2026-09-01T00:46:37.073Z"
+    "firstSeenAt": "2026-09-01T00:46:37.073Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/6185658-hairstylist-m-f-d-peak-season",
+        "firstSeenAt": "2026-09-01T00:46:37.073Z",
+        "title": "Hairstylist (m/f/d) - peak season"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8800996-hairstylist-m-f-d-peak-season",
+        "firstSeenAt": "2026-09-01T00:46:37.073Z",
+        "title": "Hairstylist (m/f/d) - peak season"
+      }
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hairstylist-m-f-d-peak-season-badrutt-s-palace-hotel-st-moritz": "GR",
+        "hairstylist-m-f-d-peak-season-badrutts-palace-ch": "GR"
+      },
+      "en": {
+        "hairstylist-m-f-d-peak-season-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -291,7 +347,9 @@
         "chef-de-partie-m-f-d-badrutts-palace-ch",
         "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "painter-m-f-d-badrutts-palace-ch",
-        "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz"
+        "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz",
+        "chef-de-partie-m-w-d-badrutts-palace-ch",
+        "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "de": [
         "maler-m-w-d-badrutt-s-palace-hotel-st-moritz",
@@ -301,7 +359,9 @@
         "indischer-spezialitatenkoch-m-w-d-badrutts-palace-ch",
         "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
         "spontaneous-application-badrutts-palace-ch",
-        "painter-m-f-d-badrutts-palace-ch"
+        "painter-m-f-d-badrutts-palace-ch",
+        "chef-de-partie-m-w-d-badrutts-palace-ch",
+        "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "en": [
         "spontaneous-application-badrutt-s-palace-hotel-st-moritz",
@@ -384,7 +444,17 @@
         "firstSeenAt": "2026-06-24T10:50:10.926Z",
         "title": "Painter (m/f/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "chef-de-partie-m-f-d-badrutts-palace-ch": "GR"
+      },
+      "de": {
+        "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "del-pizzaiolo-badrutt-s-palace-hotel-st-moritz",
@@ -443,15 +513,19 @@
     "previousSlugCantonByLocale": {
       "it": {
         "herstellen-aus-vormaterialien-jeder-position-ausgenommen-aus-vormaterialien-derselben-position-wie-die-hergestellte-ware": "GR",
-        "pizzaiolo-badrutt-s-palace-hotel-st-moritz": "GR"
+        "pizzaiolo-badrutt-s-palace-hotel-st-moritz": "GR",
+        "pizzaiolo-badrutts-palace-ch": "GR",
+        "pizzaiolo-m-f-d-badrutts-palace-ch": "GR"
       },
       "en": {
-        "pizzaiolo-m-f-d-badrutts-palace-ch": "GR"
+        "pizzaiolo-m-f-d-badrutts-palace-ch": "GR",
+        "pizzaiolo-badrutt-s-palace-hotel-st-moritz": "GR"
       },
       "de": {
         "pizzaiolo-m-f-d-badrutts-palace-ch": "GR"
       }
-    }
+    },
+    "canton": "GR"
   },
   {
     "slug": "del-pizzaiolo-badrutt-s-palace-hotel-st-moritz-5d8dde4e",
@@ -604,7 +678,35 @@
         "firstSeenAt": "2026-06-24T10:50:10.933Z",
         "title": "Fitness Trainer (m/w/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "plumber-m-w-d-badrutts-palace-ch": "GR",
+        "istruttore-fitness-m-f-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "fitness-trainer-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "fitnesstrainer-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "entraineur-fitness-m-f-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "fitness-trainer-m-w-d-badrutts-palace-ch": "GR",
+        "klempner-badrutt-s-palace-hotel-st-moritz": "GR",
+        "legname-badrutt-s-palace-hotel-st-moritz": "GR",
+        "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz": "GR",
+        "plumber-badrutts-palace-ch": "GR",
+        "plumber-m-f-d-badrutts-palace-ch": "GR"
+      },
+      "en": {
+        "fitness-trainer-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "fitnesstrainer-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "plumber-m-f-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "plumber-m-w-d-badrutts-palace-ch": "GR",
+        "entraineur-fitness-m-f-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "direttore-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz",
@@ -647,7 +749,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8106841-director-of-food-beverage-m-w-d",
-    "firstSeenAt": "2026-07-22T12:22:28.664Z"
+    "firstSeenAt": "2026-07-22T12:22:28.664Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "supervisore-ai-piani-alloggi-del-personale-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -690,7 +798,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8395281-floor-supervisor-staff-housing-m-f-d",
-    "firstSeenAt": "2026-09-18T23:21:57.375Z"
+    "firstSeenAt": "2026-09-18T23:21:57.375Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "food-beverage-coordinatore-m-w-d-badrutt-s-palace-hotel-st-moritz",
@@ -766,7 +880,24 @@
         "firstSeenAt": "2026-07-15T11:51:40.953Z",
         "title": "Food & Beverage Coordinator (m/w/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ricevitore-di-cibo-storekeeper-m-f-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "food-receiver-storekeeper-m-f-d-badrutts-palace-ch": "GR",
+        "food-receiver-storekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "lebensmittelempfanger-lagerhalter-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "recepteur-d-aliments-entreposeur-m-f-d-badrutt-s-palace-hotel-st-moritz": "GR",
+        "food-amp-beverage-coordinator-m-w-d-badrutts-palace-ch": "GR"
+      },
+      "en": {
+        "food-receiver-storekeeper-m-f-d-badrutts-palace-ch": "GR"
+      },
+      "fr": {
+        "food-receiver-storekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "assistant-restaurant-manager-per-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -809,7 +940,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8271523-assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d",
-    "firstSeenAt": "2026-08-27T00:50:41.134Z"
+    "firstSeenAt": "2026-08-27T00:50:41.134Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -883,7 +1020,20 @@
         "firstSeenAt": "2026-05-17T09:42:03.479Z",
         "title": "Reservations Manager (m/w/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-reservations-manager-m-w-d-badrutts-palace-ch": "GR",
+        "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "assistant-reservations-manager-m-w-d-badrutts-palace-ch": "GR"
+      },
+      "fr": {
+        "assistant-reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "night-concierge-m-w-d-badrutt-s-palace-hotel-st-moritz",
@@ -929,7 +1079,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8224117-night-concierge-m-w-d",
-    "firstSeenAt": "2026-08-16T10:10:50.894Z"
+    "firstSeenAt": "2026-08-16T10:10:50.894Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "night-concierge-m-w-d-badrutts-palace-ch": "GR"
+      },
+      "fr": {
+        "night-concierge-m-w-d-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "auditore-notturno-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -983,7 +1142,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/6296060-night-auditor-m-w-d",
-    "firstSeenAt": "2026-09-01T00:46:37.071Z"
+    "firstSeenAt": "2026-09-01T00:46:37.071Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "night-auditor-m-w-d-badrutts-palace-ch": "GR"
+      },
+      "en": {
+        "night-auditor-m-w-d-badrutts-palace-ch": "GR"
+      },
+      "de": {
+        "night-auditor-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "night-auditor-m-w-d-badrutts-palace-ch": "GR",
+        "night-auditor-m-w-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -1033,7 +1208,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/3725042-reservations-supervisor-m-w-d",
-    "firstSeenAt": "2026-07-09T22:37:46.175Z"
+    "firstSeenAt": "2026-07-09T22:37:46.175Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "reservations-agent-m-w-d-badrutts-palace-ch": "GR",
+        "reservations-supervisor-m-w-d-badrutts-palace-ch": "GR",
+        "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "reservations-agent-m-w-d-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz",
@@ -1083,7 +1269,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8101488-nurse-m-f-d-also-part-time",
-    "firstSeenAt": "2026-07-21T12:47:05.189Z"
+    "firstSeenAt": "2026-07-21T12:47:05.189Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "nurse-m-f-d-also-part-time-badrutts-palace-ch": "GR"
+      },
+      "de": {
+        "nurse-m-f-d-also-part-time-badrutts-palace-ch": "GR"
+      },
+      "fr": {
+        "nurse-m-f-d-also-part-time-badrutt-s-palace-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "sushi-chef-per-il-nostro-ristorante-matsuhisa-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -1126,7 +1324,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/7235883-sushi-chef-for-our-matsuhisa-restaurant-m-f-d",
-    "firstSeenAt": "2026-07-17T11:51:29.585Z"
+    "firstSeenAt": "2026-07-17T11:51:29.585Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sushi-chef-for-our-matsuhisa-restaurant-m-f-d-badrutts-palace-ch": "GR"
+      }
+    }
   },
   {
     "slug": "assistant-executive-housekeeper-m-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -2723,7 +2927,8 @@
     "salaryPeriod": "YEAR",
     "previousSlugsByLocale": {
       "it": [
-        "commis-patissier-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "commis-patissier-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "commis-patissier-m-w-d-badrutts-palace-ch"
       ],
       "en": [
         "commis-patissier-m-w-d-badrutts-palace-ch"
@@ -2770,7 +2975,8 @@
     "previousSlugsByLocale": {
       "it": [
         "guest-experience-executive-m-f-d-part-time-50-badrutt-s-palace-hotel-st-moritz",
-        "guest-experience-executive-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "guest-experience-executive-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch"
       ],
       "de": [
         "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch"
