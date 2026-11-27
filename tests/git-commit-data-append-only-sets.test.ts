@@ -784,3 +784,93 @@ exec "$GIT_REAL" "$@"
     }
   });
 });
+
+describe('git-commit-data.sh preserved slugs never narrow a flat-only route', () => {
+  const ACTIVE_IT = 'magazziniere-turno-serale-acme-lugano';
+  const ACTIVE_OTHER = 'lagermitarbeiter-spaetschicht-acme-lugano';
+  const OLD_IT = 'addetto-magazzino-serale-acme-lugano';
+  const OLD_EN = 'evening-warehouse-clerk-acme-lugano';
+  const OLD_FR = 'magasinier-du-soir-acme-lugano';
+  const NEW_IT = 'magazziniere-notte-acme-lugano';
+  const OLD_SLUGS = [ACTIVE_OTHER, OLD_IT, OLD_EN, OLD_FR];
+
+  const withBuckets = () => job({
+    slug: ACTIVE_IT,
+    slugByLocale: { it: ACTIVE_IT, en: ACTIVE_OTHER, de: ACTIVE_OTHER, fr: ACTIVE_OTHER },
+    previousSlugs: [...OLD_SLUGS],
+    previousSlugsByLocale: { it: [ACTIVE_OTHER, OLD_IT], en: [OLD_EN], fr: [OLD_FR] },
+  });
+  // The incoming writer keeps three old slugs only in the flat array, where
+  // each one is served under all four locales.
+  const flatOnly = () => job({
+    ...withBuckets(),
+    previousSlugs: [...OLD_SLUGS, NEW_IT],
+    previousSlugsByLocale: { it: [ACTIVE_OTHER, NEW_IT] },
+  });
+
+  const publishedJob = (h: Harness): JobRecord => readFromOrigin<{ jobs: JobRecord[] }>(h, SLICE).jobs[0];
+  const missing = (expected: Set<string>, actual: Set<string>): string[] =>
+    [...expected].filter((route) => !actual.has(route));
+
+  function publish(base: JobRecord, local: JobRecord, remote?: JobRecord): Harness {
+    const h = initHarness();
+    writeJson(h.repoDir, SLICE, { jobs: [base] });
+    commitAndPush(h.repoDir, 'seed slice');
+    pushFromConcurrentWriter(
+      h,
+      (dir) => {
+        if (remote) writeJson(dir, SLICE, { jobs: [remote] });
+        else writeFileSync(join(dir, 'remote-only.txt'), 'remote change\n');
+      },
+      'concurrent writer',
+    );
+    writeJson(h.repoDir, SLICE, { jobs: [local] });
+    runScript(h, [], SLICE);
+    return h;
+  }
+
+  it('keeps every locale of a slug the incoming result holds flat-only', () => {
+    const h = publish(withBuckets(), flatOnly());
+    try {
+      expect(missing(localeRouteKeys(flatOnly()), localeRouteKeys(publishedJob(h)))).toEqual([]);
+    } finally {
+      cleanup(h);
+    }
+  });
+
+  it('keeps them when the merge result is the remote side (local equals base)', () => {
+    const h = publish(withBuckets(), withBuckets(), flatOnly());
+    try {
+      expect(missing(localeRouteKeys(flatOnly()), localeRouteKeys(publishedJob(h)))).toEqual([]);
+    } finally {
+      cleanup(h);
+    }
+  });
+
+  it('keeps them through a field-by-field merge when the history arrays do not conflict', () => {
+    const h = publish(withBuckets(), flatOnly(), { ...withBuckets(), crawledAt: daysAgo(0) });
+    try {
+      expect(missing(localeRouteKeys(flatOnly()), localeRouteKeys(publishedJob(h)))).toEqual([]);
+    } finally {
+      cleanup(h);
+    }
+  });
+
+  it('still restores the bucket when it is the only evidence left for that slug', () => {
+    // The stale writer dropped the history entirely: the buckets only survive
+    // on the other side and must be banked back.
+    const dropped = job({ ...withBuckets(), previousSlugs: [], previousSlugsByLocale: {} });
+    const h = publish(withBuckets(), dropped);
+    try {
+      const published = publishedJob(h);
+      // `it:<ACTIVE_OTHER>` is skipped by the older "active in any locale" rule,
+      // with or without the flat-only check.
+      expect(missing(localeRouteKeys(withBuckets()), localeRouteKeys(published))).toEqual([`it:${ACTIVE_OTHER}`]);
+      expect(published.previousSlugsByLocale.it).toEqual([OLD_IT]);
+      expect(published.previousSlugsByLocale.en).toEqual([OLD_EN]);
+      expect(published.previousSlugsByLocale.fr).toEqual([OLD_FR]);
+    } finally {
+      cleanup(h);
+    }
+  });
+});

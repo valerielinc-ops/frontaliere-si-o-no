@@ -1447,6 +1447,23 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
     }
   }
 
+  // A flat entry with no locale bucket is served under all four locales
+  // (getPreviousSlugsForLocale). Adding it to one bucket would narrow it to
+  // that locale and retire the other three routes. Decide on the result as it
+  // stands BEFORE any addition below: a slug the result does not hold at all
+  // is not in this set, so its incoming bucket is still banked back.
+  const bucketed = new Set();
+  if (isPlainObject(merged.previousSlugsByLocale)) {
+    for (const arr of Object.values(merged.previousSlugsByLocale)) {
+      if (Array.isArray(arr)) for (const v of arr) if (typeof v === 'string') bucketed.add(v.trim());
+    }
+  }
+  const flatOnly = new Set(
+    (Array.isArray(merged.previousSlugs) ? merged.previousSlugs : [])
+      .filter((v) => typeof v === 'string' && !bucketed.has(v.trim()))
+      .map((v) => v.trim()),
+  );
+
   // Newest position: a slug that was live until this very merge is the most
   // recent entry in the history. capSlugArray keeps the newest `cap`.
   const bank = (slug, locale) => {
@@ -1477,7 +1494,7 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
     if (!norm || activeSlugs.has(norm) || isRestoreDenylisted(norm)) return;
     let added = false;
     reachable.add(norm);
-    if (locale) {
+    if (locale && !flatOnly.has(norm)) {
       if (!isPlainObject(merged.previousSlugsByLocale)) merged.previousSlugsByLocale = {};
       if (!Array.isArray(merged.previousSlugsByLocale[locale])) merged.previousSlugsByLocale[locale] = [];
       if (!merged.previousSlugsByLocale[locale].includes(norm)) {
