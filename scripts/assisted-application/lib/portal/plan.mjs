@@ -1194,11 +1194,20 @@ function ownedRecordedAnswer(item, question, metadata) {
   // a modern cross-scope record must remain explicitly owned.
   const legacyUntyped = !item?.source && !hasAddressContextOwnership(metadata) && !hasAddressContextOwnership(item);
   const legacyAnswerId = item?.source === 'answer-id' && !hasAddressContextOwnership(metadata) && !hasAddressContextOwnership(item);
-  if (!legacyUntyped && !legacyAnswerId && !['answers', 'candidate', 'user'].includes(item?.source)) return false;
+  if (!legacyUntyped && !legacyAnswerId && !['answers', 'candidate', 'user', 'answer-id'].includes(item?.source)) return false;
   const current = addressContextContract(metadata);
   const previous = addressContextContract(item);
   if (current === undefined && previous === undefined) return true; // legacy exact-context questions
-  if (!hasAddressContextOwnership(metadata) || !hasAddressContextOwnership(item)) return false;
+  if (!hasAddressContextOwnership(metadata)) return false;
+  if (!hasAddressContextOwnership(item)) {
+    const liveTopic = questionTopic(question, metadata?.context || '', metadata);
+    const candidateResidenceField = /^(?:address|address_street|address_house_number|residence_(?:postal_code|city|country))$/.test(liveTopic);
+    if (!candidateResidenceField || Object.hasOwn(item || {}, 'addressContext')) return false;
+    if (item?.source === 'answer-id') return current?.unknown === false;
+    const itemSection = comparableContext(item?.section);
+    const owners = [current?.section, ...(current?.owners || [])].map(comparableContext).filter(Boolean);
+    return Boolean(itemSection && owners.includes(itemSection));
+  }
   return JSON.stringify(current) === JSON.stringify(previous);
 }
 
@@ -1243,7 +1252,21 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
     const sameLanguage = topic.startsWith('language:') && itemTopic.startsWith('language:')
       && topic.split(':')[1] === itemTopic.split(':')[1]
       && isNoLanguageAnswer(item.answer);
-    const sameTopic = itemTopic === topic && (!topicNeedsMatchingContext(topic) || sameContext(item));
+    const metadataOwnership = addressContextContract(metadata);
+    const ownedFallbackSection = comparableContext(item.section);
+    const ownedSectionMatch = ownedFallbackSection
+      && (ownedFallbackSection === requestedSection || (Array.isArray(metadataOwnership?.owners)
+        && metadataOwnership.owners.map(comparableContext).includes(ownedFallbackSection)))
+      && (!String(item.context || '').trim() || comparableContext(item.context) === requestedContext);
+    const unownedResidenceMatch = /^residence_(?:country|city|postal_code)$/.test(topic)
+      && itemTopic === topic
+      && metadataOwnership != null
+      && metadataOwnership.unknown === false
+      && hasAddressContextOwnership(metadata)
+      && !Object.hasOwn(item || {}, 'addressContext')
+      && ((item.source === 'answer-id' && !String(item.context || '').trim() && !String(item.section || '').trim())
+        || (['answers', 'candidate', 'user'].includes(item?.source) && ownedSectionMatch));
+    const sameTopic = itemTopic === topic && (!topicNeedsMatchingContext(topic) || sameContext(item) || unownedResidenceMatch);
     return (sameTopic || sameLanguage)
       && (!['permit', 'nationality'].includes(topic) || item.source !== 'answer-id');
   });

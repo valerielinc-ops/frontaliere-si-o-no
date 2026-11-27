@@ -1274,6 +1274,40 @@ describe('submit mode', () => {
     expect((runner.mock.calls as any)[0][0]).toMatchObject({ applyUrl: career, postingUrl: pdf, channelType: 'employer_site' });
   });
 
+  it('keeps an already resolved non-Job-Room employer_site applyUrl instead of reverting to job-room.ch', async () => {
+    const jobId = 'hotel-de-la-paix-a5ed5d82';
+    const jobRoomUrl = 'https://www.job-room.ch/job-search/a5ed5d82-1111-2222-3333-444455556666';
+    const careerUrl = 'https://delapaix.ch/it/lavora-con-noi/';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      if (url === detailUrl) return new Response(null, { status: 404 });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (init.method === 'HEAD') return new Response(null, { status: 200 });
+      if (url === jobRoomUrl) return new Response(`<main><p>${'Chef de Partie presso Hotel de la Paix Lugano. '.repeat(12)}</p></main>`, { status: 200, headers: { 'content-type': 'text/html' } });
+      return new Response(`<main><p>${'Lavora con noi Hotel de la Paix. '.repeat(20)}</p><form><input name="name"></form></main>`, { status: 200, headers: { 'content-type': 'text/html' } });
+    });
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    await submitApplication({
+      order: { ...order, jobId, jobUrl: jobRoomUrl, jobTitle: 'Chef de Partie', companyName: 'Hotel de la Paix' },
+      orderId: ORDER_ID,
+      draft: {
+        ...baseDraft,
+        channel: { type: 'employer_site', applyUrl: careerUrl, host: 'delapaix.ch', requiresAccount: false },
+        job: { postingUrl: jobRoomUrl, applyUrl: careerUrl, jobRoomChannelResolved: true },
+      },
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      cvBuffer: cvPdf(), cvType: 'pdf', bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns,
+      fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    expect(runner).toHaveBeenCalledTimes(1);
+    expect((runner.mock.calls as any)[0][0]).toMatchObject({
+      applyUrl: careerUrl,
+      channelType: 'employer_site',
+    });
+  });
+
   it('re-resolves a synthesized SuccessFactors URL from the current published posting', async () => {
     const jobId = 'stadt-zuerich-bd8c02aa73de';
     const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';

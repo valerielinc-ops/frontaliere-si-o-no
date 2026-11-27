@@ -522,6 +522,7 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const resolvedSalary = baseSalary?.annual || !(uploadedSalaryNum >= 10000 && uploadedSalaryNum <= 1000000)
     ? baseSalary
     : { ...baseSalary, annual: uploadedSalaryNum, monthly: Math.round(uploadedSalaryNum / 12), source: 'candidate_upload' };
+  const drivingLicenceBRejected = hasDrivingLicenceBRejection({ order, profile, cvText, questions, answers });
   return {
     version: PLATFORM_DEFAULTS_VERSION,
     locale: language,
@@ -571,7 +572,10 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     // The candidate's own answers at CV upload, '' when the order predates them (owner decision 2026-11-10).
     criminalRecord: legalRecordAnswer(uploaded.criminalRecord),
     debtRecord: legalRecordAnswer(uploaded.debtRecord),
-    drivingLicenceB: hasDrivingLicenceBFact({ order, profile, cvText, questions, answers, decisionAnswers }),
+    drivingLicenceBProven: hasDrivingLicenceBFact({ order, profile, cvText, questions, answers, decisionAnswers }),
+    drivingLicenceBRejected,
+    drivingLicenceB: !drivingLicenceBRejected,
+    physicalFitnessRejected: hasPhysicalFitnessRejection({ questions, answers }),
   };
 }
 
@@ -623,6 +627,41 @@ function hasDrivingLicenceBFact({ order = {}, profile = {}, cvText = '', questio
   return false;
 }
 
+const CLAUSE_LICENCE_NEGATION = /\b(?:no|non(?:\s+(?:possied\w*|dispong\w*|deteng\w*|ho|sono\s+in\s+possesso))?|not|do\s+not\s+(?:have|hold|possess)|don\s*t\s+(?:have|hold|possess)|without|lack\s+of|senza|priv[oa]\s+di|mancanza\s+di|nessun[ao]?|kein\w*|nicht(?:\s+(?:vorhanden|im\s+besitz|besitz\w*))?|habe\s+kein\w*|besitze\s+kein\w*|ohne|ne\s+(?:possede|detiens|dispos\w*)\s+pas|pas\s+de|aucun\w*|sans)\b/;
+const SUFFIX_LICENCE_NEGATION = /^\s*(?:di\s+categoria\s+b\s+|cat(?:egori[ae]|egory)?\.?\s*b\s+|kat(?:egorie)?\.?\s*b\s+|classe?\s*b\s+|b\s+)?(?:no|non\s+(?:presente|possedut\w*|disponibil\w*|valida)|none|assente|mancante|nein|nicht\s+vorhanden|non\s+disponible|absent\w*)\b/;
+
+function hasDrivingLicenceBRejection({ order = {}, profile = {}, cvText = '', questions = [], answers = {} } = {}) {
+  if (profile?.drivingLicence === false || order?.candidateFacts?.drivingLicence === false) return true;
+  const structured = fold([profile?.drivingLicence, order?.candidateFacts?.drivingLicence].filter(Boolean).join(' '));
+  if (structured && (
+    /^(?:no|none|nessun[ao]?|kein\w*|aucun\w*|non)\b/.test(structured)
+    || /\b(?:senza\s+patente|non\s+patentat\w*|kein\w*\s+fuhr(?:er)?(?:ausweis|schein)|ohne\s+fuhr(?:er)?(?:ausweis|schein)|sans\s+permis|no\s+driv(?:ing|er'?s?)\s+licen[cs]e)\b/.test(structured)
+  )) {
+    return true;
+  }
+  for (const q of Array.isArray(questions) ? questions : []) {
+    if (!isDrivingLicenceBQuestion(q)) continue;
+    const candidateAns = answers?.[q.id];
+    if (candidateAns === false || (typeof candidateAns === 'string' && NO.test(fold(candidateAns)))) return true;
+  }
+  const sources = [cvText, order?.candidateNotes, profile?.summary].filter((value) => typeof value === 'string' && value.trim());
+  for (const source of sources) {
+    for (const rawClause of source.split(/[\r\n.;,!?()]+/)) {
+      const folded = fold(rawClause);
+      if (!folded) continue;
+      for (const subClause of folded.split(/\b(?:ma|but|aber|mais|e|and|und|et)\b/)) {
+        const fieldRe = new RegExp(DRIVING_LICENCE_B_FIELD.source, 'g');
+        for (const match of subClause.matchAll(fieldRe)) {
+          const prefix = subClause.slice(Math.max(0, match.index - 40), match.index);
+          const suffix = subClause.slice(match.index + match[0].length, match.index + match[0].length + 40);
+          if (CLAUSE_LICENCE_NEGATION.test(prefix) || SUFFIX_LICENCE_NEGATION.test(suffix)) return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
 function isDrivingLicenceBQuestion(question) {
   if (!isBinary(question)) return false;
   const text = label(question);
@@ -631,6 +670,24 @@ function isDrivingLicenceBQuestion(question) {
     return false;
   }
   return DRIVING_LICENCE_CAT_B.test(text) || /\b(?:licenza\s+di\s+condurre|patente(?:\s+di\s+guida)?|fuhrerausweis|fuhrerschein|permis\s+de\s+conduire|driv(?:ing|er'?s?)\s+licen[cs]e)\b/.test(text);
+}
+
+const PHYSICAL_FITNESS_POSITIVE = /\b(?:(?:buon[aeo]?|ottim[aeo]?|san[aeo]?)\s+(?:e\s+robust[aeo]?\s+)?(?:(?:forma|condizion[ei])\s+fisic\w*|costituzion[ei](?:\s+fisic\w*)?)|fisicamente\s+idone\w*|idone\w*\s+fisicamente|idoneita\s+fisica|fisic\w*\s+adatt\w*\s+(?:a|al|alle|ai|allo|agli|per)\b|(?:gute|guter)\s+korperliche\w*\s+(?:verfassung|kondition|fitness|belastbarkeit)|korperlich\w*\s+(?:fit|belastbar|geeignet|leistungsfahig|tauglich)|(?:bonne|excellente)\s+(?:condition|aptitude)\s+physique|physiquement\s+(?:apte|capable|en\s+forme)|aptitude\s+physique|physically\s+(?:fit|able|capable|suited)|good\s+physical\s+(?:fitness|condition))\b/;
+const PHYSICAL_FITNESS_EXCLUSION = /\b(?:certific\w*|attestat\w*|autocertific\w*|dichiarazione\s+medica|allega\w*|upload\w*|caric\w*|copia|copy|kopie|copie|scan\w*|pdf|file|datei\w*|fichier\w*|visita\s+medic\w*|esame\s+medic\w*|accertament\w*|refert\w*|medic\w*|doctor|arzt\w*|medecin|sanitar\w*|psic\w*|psych\w*|mental\w*|moral\w*|condott\w*|casellario|penal\w*|criminal\w*|strafregister\w*|casier|leumund\w*|judiciaire|malatt\w*|krankheit\w*|maladie\w*|illness\w*|disease\w*|infortun\w*|disabil\w*|invalid\w*|handicap\w*|behinder\w*|patolog\w*|allerg\w*|gravidanz\w*|pregnan\w*|schwanger\w*|grossesse|vaccin\w*|inabilita|incapacit\w*|limitazion\w*|limitation\w*|einschrankung\w*|restriction\w*|problemi|problem\w*|difficolt\w*|disturb\w*|schwierigkeit\w*|beschwerden|douleur\w*|impairment\w*|gewicht|weight|peso|poids|altezza|height|taille)\b/;
+
+function isPhysicalFitnessQuestion(question) {
+  if (!isBinary(question)) return false;
+  const text = label(question);
+  return PHYSICAL_FITNESS_POSITIVE.test(text) && !PHYSICAL_FITNESS_EXCLUSION.test(text);
+}
+
+function hasPhysicalFitnessRejection({ questions = [], answers = {} } = {}) {
+  for (const q of Array.isArray(questions) ? questions : []) {
+    if (!isPhysicalFitnessQuestion(q)) continue;
+    const candidateAns = answers?.[q.id];
+    if (candidateAns === false || (typeof candidateAns === 'string' && NO.test(fold(candidateAns)))) return true;
+  }
+  return false;
 }
 
 /** The countries bordering Switzerland: a resident who works in Switzerland is a cross-border commuter. */
@@ -1699,6 +1756,7 @@ function classifyPlatformSubject(question) {
   if ((id === 'shift_flexibility' || (SHIFT_SCHEDULE.test(text) && SHIFT_WORK_CONTEXT.test(text) && SHIFT_AVAILABLE.test(text)))
     && !SHIFT_NOT_FLEXIBILITY.test(text) && !/\d+\s*%/.test(raw) && isBinary(question)) return 'shift_flexibility';
   if (SUITABILITY.test(text) && APPLIED_FUNCTION.test(text) && !NOT_SUITABILITY.test(text) && isBinary(question)) return 'function_suitability';
+  if (isPhysicalFitnessQuestion(question)) return 'physical_fitness';
   const languages = languageCodesIn(text);
   if (languages.length === 1 && LANGUAGE_LEVEL.test(text)) return `language:${languages[0]}`;
   if (isSwissArmyQuestion(question)) return 'swiss_army_service';
@@ -2234,9 +2292,9 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     }
     case 'birth_date': value = dateValue(question, known.dateOfBirth, lang); break;
     case 'driving_licence_b':
-      if (known.drivingLicenceB) {
+      if (!known.drivingLicenceBRejected && known.drivingLicenceB !== false) {
         value = yesValue(question, lang);
-        basis = 'deduced';
+        if (known.drivingLicenceBProven) basis = 'deduced';
       }
       break;
     case 'birth_day': value = known.dateOfBirth ? choose(question, String(Number(known.dateOfBirth.slice(8, 10)))) || choose(question, `${Number(known.dateOfBirth.slice(8, 10))}.`) : ''; break;
@@ -2317,6 +2375,9 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       value = holds ? yesValue(question, lang) : noValue(question, lang);
       break;
     }
+    case 'physical_fitness':
+      if (!known.physicalFitnessRejected) value = yesValue(question, lang);
+      break;
     case 'recording_consent':
     case 'on_call':
     case 'hybrid':

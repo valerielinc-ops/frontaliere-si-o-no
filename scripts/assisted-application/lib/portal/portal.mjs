@@ -4892,7 +4892,15 @@ function verifiedDirectApplicationUrl(stageContext, currentUrl) {
   }
 }
 
-const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
+const normalizeWords = (text) => String(text || '')
+  .toLowerCase()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  // Split concatenated DOM text runs (e.g. "Zürich16.", "Kundendienst80%")
+  // while keeping short alphanumeric brand tokens like 3M or S2 intact.
+  .replace(/([a-z]{3,})(?=\d)/g, '$1 ')
+  .replace(/(\d)(?=[a-z]{3,})/g, '$1 ')
+  .replace(/[^a-z0-9]+/g, ' ');
 // Legal forms and short words name no company: "Ospedale ABC SA" is "ospedale abc",
 // "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
 const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'llp', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
@@ -5125,6 +5133,7 @@ const FORM_VOCABULARY = new Set([
   'job', 'jobs', 'detail', 'details', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
+  'lavora', 'noi', 'spontanea', 'arbeiten', 'rejoignez', 'nous', 'vous',
   // Italian SuccessFactors section controls and first fields are form chrome,
   // not an employer or role heading.
   'opzioni', 'esplodi', 'comprimi', 'tutte', 'sezioni', 'profilo', 'specifiche', 'visualizza', 'salva', 'lingua', 'appellativo',
@@ -5583,8 +5592,23 @@ function hasUnexplainedEmployerCommaHeading(value, job = {}) {
 // The exact Stadt Zürich detail shell can put its tenant marker and the
 // posting URL in the form text. They are route evidence, not a second
 // employer; remove only those proven shell tokens before the conflict guard.
+function isJobRoomPostingRoute({ pageUrl = '', postingUrl = '' } = {}) {
+  return [pageUrl, postingUrl].some((value) => {
+    try {
+      const parsed = new URL(String(value || ''));
+      return /^(?:www\.)?job-room\.ch$/i.test(parsed.hostname) && /^\/job-search\//i.test(parsed.pathname);
+    } catch {
+      return false;
+    }
+  });
+}
+
 function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = '' } = {}) {
   const text = String(formText || '');
+  if (isJobRoomPostingRoute({ pageUrl, postingUrl })) {
+    const stripped = text.replace(/^\s*Header\s+Contact\s+Registration\s+info\s+Login\s+work\s*\.swiss\s*$/gimu, '').trim();
+    if (stripped !== text) return stripped;
+  }
   const firstLine = text.split(/\r?\n/, 1)[0];
   if (!isStadtZurichPostingRoute({ pageUrl, postingUrl })
     || !/\bSTZH\b/iu.test(firstLine)
@@ -6312,7 +6336,9 @@ export function formPostingMatch(formText, job = {}, {
   const verifiedEmployerFormRoute = verifiedApplicationEntryRoute
     && Boolean(String(pageUrl || '').trim() && String(postingUrl || paidPostingUrl || '').trim())
     && currentFormUrlCarriesEmployerHost(pageUrl, job);
-  const identityFormText = formIdentityTextWithoutUrls(formText);
+  const identityFormText = isJobRoomPostingRoute({ pageUrl, postingUrl: formPostingUrl })
+    ? formIdentityTextWithoutUrls(formText).replace(/^\s*Header\s+Contact\s+Registration\s+info\s+Login\s+work\s*\.swiss\s*\r?\n?/gimu, '')
+    : formIdentityTextWithoutUrls(formText);
   const rawFormTitleLine = identityFormText.split(/\r?\n/, 1)[0];
   if ([...headingCandidates, rawFormTitleLine].some((heading) => hasUnexplainedEmployerCommaHeading(heading, job))) return 'unknown';
   const ambiguousBrandHeading = [...headingCandidates, rawFormTitleLine]
@@ -6405,13 +6431,19 @@ export function formPostingMatch(formText, job = {}, {
   // caption; the explicit heading/role conflict checks above remain authoritative.
   if (successFactorsRouteBound && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
+  const allowBoundEmployerLocation = postingLocationBound
+    || (direct === 'match' && [formPostingUrl, applyUrl, paidPostingUrl]
+      .some((url) => Boolean(url) && samePostingAddress(pageUrl, url)));
+  const employerConflictText = (sameBoundPosting || isJobRoomPostingRoute({ pageUrl, postingUrl: formPostingUrl }))
+    ? boundPostingConflictText(employerTextWithoutNativeQuestionLines, job, { pageUrl, postingUrl: formPostingUrl })
+    : employerTextWithoutNativeQuestionLines;
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
       : (headingConflict || (!boundPinpointApplication
-        && namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
+        && namesAnotherEmployer(employerConflictText, job, { allowPostingLocation: allowBoundEmployerLocation }))))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
@@ -6482,10 +6514,10 @@ export function formPostingMatch(formText, job = {}, {
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
   // A conflicting employer identity on the form: no fallback to the role.
   if (successFactorsBound) return 'match';
-  if (namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound })
+  if (namesAnotherEmployer(employerConflictText, job, { allowPostingLocation: allowBoundEmployerLocation })
     || (/\bhttps?:\/\//iu.test(formText)
       && !formTextMentionsEmployerHost(formText, job)
-      && namesAnotherEmployer(formText, job, { allowPostingLocation: postingLocationBound }))) return 'mismatch';
+      && namesAnotherEmployer(formText, job, { allowPostingLocation: allowBoundEmployerLocation }))) return 'mismatch';
   if (roleHeading === 'mismatch') return 'mismatch';
   // A verified posting can expose a generic application shell whose heading
   // normalizer deliberately remains uncertain (for example across languages),
