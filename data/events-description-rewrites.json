@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-27T02:22:55.284Z",
+  "generatedAt": "2026-11-27T04:28:14.167Z",
   "model": "gpt-6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -150492,6 +150492,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T11:36:42.105Z"
     },
+    "myswitzerland:b01095f7b3cc49f49873177f63fbd90f::bfd06129019a99c630b60caef6256d7a2e75472d7e76e8793cda610857107c6d": {
+      "id": "myswitzerland:b01095f7b3cc49f49873177f63fbd90f",
+      "sourceDescriptionHash": "bfd06129019a99c630b60caef6256d7a2e75472d7e76e8793cda610857107c6d",
+      "description": "A Langnau i.E. si tiene una lettura con Malwina Ledniowska. Il testo del suo esordio racconta una notte in un reparto psichiatrico per acuti.",
+      "descriptionByLocale": {
+        "it": "A Langnau i.E. si tiene una lettura con Malwina Ledniowska. Il testo del suo esordio racconta una notte in un reparto psichiatrico per acuti.",
+        "en": "Malwina Ledniowska gives a reading in Langnau i.E. Her debut work portrays a night in an acute psychiatric ward.",
+        "de": "In Langnau i.E. liest Malwina Ledniowska aus ihrem Debüt vor. Darin geht es um das Erleben einer Nacht in einer psychiatrischen Akutstation.",
+        "fr": "Malwina Ledniowska propose une lecture à Langnau i.E. Son premier livre évoque le déroulement d’une nuit dans une unité psychiatrique de soins aigus."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T04:23:24.750Z"
+    },
     "myswitzerland:b0187838949c404fb528c4cfdadb7436::fc141c4698b514ff4f3d8eaa548bc14bf153b53bcd1db10213bc3b14267cc07a": {
       "id": "myswitzerland:b0187838949c404fb528c4cfdadb7436",
       "sourceDescriptionHash": "fc141c4698b514ff4f3d8eaa548bc14bf153b53bcd1db10213bc3b14267cc07a",
@@ -203090,6 +203104,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-26T23:58:11.181Z"
     },
+    "tio-agenda:65210::b5c5f04b898588bacf70b7f7109f16fdfa8805843983bc4dad2584c39a735093": {
+      "id": "tio-agenda:65210",
+      "sourceDescriptionHash": "b5c5f04b898588bacf70b7f7109f16fdfa8805843983bc4dad2584c39a735093",
+      "description": "Diamante si esibisce al Ristorante Hollywood Live Music nei panni di Sibilla Rouge, con brani cantati dal vivo su accompagnamento elettronico. La serata comprende anche momenti di cabaret e interventi vocali di ospiti durante i cambi d’abito.",
+      "descriptionByLocale": {
+        "it": "Diamante si esibisce al Ristorante Hollywood Live Music nei panni di Sibilla Rouge, con brani cantati dal vivo su accompagnamento elettronico. La serata comprende anche momenti di cabaret e interventi vocali di ospiti durante i cambi d’abito.",
+        "en": "At Ristorante Hollywood Live Music, Diamante performs as Sibilla Rouge, singing live over electronic backing. The programme also includes cabaret and guest vocal performances during costume changes.",
+        "de": "Im Ristorante Hollywood Live Music tritt Diamante als Sibilla Rouge auf und singt live zu elektronischer Begleitung. Zum Programm gehören außerdem Kabaretteinlagen und Gesangsbeiträge von Gästen während der Kostümwechsel.",
+        "fr": "Au Ristorante Hollywood Live Music, Diamante se produit sous les traits de Sibilla Rouge et chante en direct sur un accompagnement électronique. La soirée comprend également des passages de cabaret et des interventions vocales d’invités pendant les changements de tenue."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T04:21:11.880Z"
+    },
     "tio-agenda:65211::f87011aca18b7a77dad8f97128cccac224792eef1ac91716275c81bac1a4fae9": {
       "id": "tio-agenda:65211",
       "sourceDescriptionHash": "f87011aca18b7a77dad8f97128cccac224792eef1ac91716275c81bac1a4fae9",
@@ -203540,8 +203568,8 @@
       "id": "ge-agenda:cine-gouter-mystere-2021-duree-1h23",
       "sourceDescriptionHash": "d6fff55f7d7a97e14b71cb61d66ec687a544827dbec51a2588700ff08761662c",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:40:19.624Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:20:08.435Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203585,8 +203613,8 @@
       "id": "ge-agenda:concert-caritatif-noel",
       "sourceDescriptionHash": "065fc8d2a37ad92ec4f585a3cdaec77c46fb7f4d175cce46167903b960a87455",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:33:27.903Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:19:32.665Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203666,8 +203694,8 @@
       "id": "ge-agenda:fete-escalade-100e-anniversaire-compagnie",
       "sourceDescriptionHash": "b1064e66644a9a952ca22cda0a3abc0bbd98a53fc13aece015e295958bb5c5c9",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:39:01.072Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:20:20.888Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -204088,9 +204116,9 @@
     "ge-agenda:variation-piano-polystyrene-goupil-kosmao::e469f3c448f48ef9f2909515314e0c480f0771bc1b89dce2f6876b0ddb86cfc9": {
       "id": "ge-agenda:variation-piano-polystyrene-goupil-kosmao",
       "sourceDescriptionHash": "e469f3c448f48ef9f2909515314e0c480f0771bc1b89dce2f6876b0ddb86cfc9",
-      "code": "promotional-language",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:34:16.312Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:20:33.715Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209480,8 +209508,8 @@
       "id": "myswitzerland:abcfe655b37141f684bd3273cece5f51",
       "sourceDescriptionHash": "ada998a580515e384cae10a84c2ba3c99137309cbfb4448992a418e9d83069cf",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:38:12.020Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:19:25.393Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209527,15 +209555,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T21:21:37.144Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:b01095f7b3cc49f49873177f63fbd90f::bfd06129019a99c630b60caef6256d7a2e75472d7e76e8793cda610857107c6d": {
-      "id": "myswitzerland:b01095f7b3cc49f49873177f63fbd90f",
-      "sourceDescriptionHash": "bfd06129019a99c630b60caef6256d7a2e75472d7e76e8793cda610857107c6d",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:37:27.790Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211253,8 +211272,8 @@
       "id": "tio-agenda:62997",
       "sourceDescriptionHash": "6facd99e9c5c63043025837229ace0da41a2f0204873d93101c525adf18998d6",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:39:18.583Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:19:20.629Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211469,8 +211488,8 @@
       "id": "tio-agenda:63950",
       "sourceDescriptionHash": "409bc3c25981135bc951eee7b79d07662a39c2a9fd667da95740db4e8b6601a5",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:38:16.362Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:23:00.747Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -212050,15 +212069,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "tio-agenda:65210::b5c5f04b898588bacf70b7f7109f16fdfa8805843983bc4dad2584c39a735093": {
-      "id": "tio-agenda:65210",
-      "sourceDescriptionHash": "b5c5f04b898588bacf70b7f7109f16fdfa8805843983bc4dad2584c39a735093",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:33:46.962Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "tio-agenda:65218::e997e3a499472aac22da1093b48aa979545da6144751dcfe51101a25af0d8881": {
       "id": "tio-agenda:65218",
       "sourceDescriptionHash": "e997e3a499472aac22da1093b48aa979545da6144751dcfe51101a25af0d8881",
@@ -212071,9 +212081,9 @@
     "tio-agenda:65219::219ef1e838671c74d3e560190d404c709ccd27820cadadbb5ce22afa3342ce61": {
       "id": "tio-agenda:65219",
       "sourceDescriptionHash": "219ef1e838671c74d3e560190d404c709ccd27820cadadbb5ce22afa3342ce61",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:35:59.451Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:21:55.816Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -212081,17 +212091,17 @@
       "id": "tio-agenda:65234",
       "sourceDescriptionHash": "7502a243482acf2099b883dbf924f49e89e8f8e5742fb3fb05e09e7355d4450b",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:34:30.192Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:21:57.475Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65256::b5fd67a5564929f0f10f6742f4d1498f5c6a13617def9991a915f00f07200fc4": {
       "id": "tio-agenda:65256",
       "sourceDescriptionHash": "b5fd67a5564929f0f10f6742f4d1498f5c6a13617def9991a915f00f07200fc4",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T01:34:12.731Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T04:21:09.797Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }

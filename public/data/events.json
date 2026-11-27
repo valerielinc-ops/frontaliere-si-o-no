@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-27T02:35:26.109Z",
+  "generatedAt": "2026-11-27T04:36:39.162Z",
   "totalEvents": 18481,
   "events": [
     {
@@ -549568,7 +549568,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Diamante si esibisce al Ristorante Hollywood Live Music nei panni di Sibilla Rouge, con brani cantati dal vivo su accompagnamento elettronico. La serata comprende anche momenti di cabaret e interventi vocali di ospiti durante i cambi d’abito.",
+      "descriptionByLocale": {
+        "it": "Diamante si esibisce al Ristorante Hollywood Live Music nei panni di Sibilla Rouge, con brani cantati dal vivo su accompagnamento elettronico. La serata comprende anche momenti di cabaret e interventi vocali di ospiti durante i cambi d’abito.",
+        "en": "At Ristorante Hollywood Live Music, Diamante performs as Sibilla Rouge, singing live over electronic backing. The programme also includes cabaret and guest vocal performances during costume changes.",
+        "de": "Im Ristorante Hollywood Live Music tritt Diamante als Sibilla Rouge auf und singt live zu elektronischer Begleitung. Zum Programm gehören außerdem Kabaretteinlagen und Gesangsbeiträge von Gästen während der Kostümwechsel.",
+        "fr": "Au Ristorante Hollywood Live Music, Diamante se produit sous les traits de Sibilla Rouge et chante en direct sur un accompagnement électronique. La soirée comprend également des passages de cabaret et des interventions vocales d’invités pendant les changements de tenue."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e48bc62ad9504c83816156068866b889",
@@ -657536,7 +657544,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Langnau i.E. si tiene una lettura con Malwina Ledniowska. Il testo del suo esordio racconta una notte in un reparto psichiatrico per acuti.",
+      "descriptionByLocale": {
+        "it": "A Langnau i.E. si tiene una lettura con Malwina Ledniowska. Il testo del suo esordio racconta una notte in un reparto psichiatrico per acuti.",
+        "en": "Malwina Ledniowska gives a reading in Langnau i.E. Her debut work portrays a night in an acute psychiatric ward.",
+        "de": "In Langnau i.E. liest Malwina Ledniowska aus ihrem Debüt vor. Darin geht es um das Erleben einer Nacht in einer psychiatrischen Akutstation.",
+        "fr": "Malwina Ledniowska propose une lecture à Langnau i.E. Son premier livre évoque le déroulement d’une nuit dans une unité psychiatrique de soins aigus."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0f13801519924179b59454abade4f145",
