@@ -105,11 +105,16 @@ describe('submit preserves raw candidate provenance through automatic projection
       ...ownedField,
       addressContext: { section: 'Karrierechancen: Konto anlegen', owners: [], unknown: true },
     };
+    const unknownOwnedField = {
+      ...ownedField,
+      addressContext: { section: 'Karrierechancen: Konto anlegen', owners: ['Karrierechancen:Konto anlegen'], unknown: true },
+    };
 
     const candidate = { answers: { portal_residence_country: 'Deutschland' }, portalQuestionsAnswered: [], profile: {} };
     assert.deepEqual(candidateAnswerForField(candidate, ownedField), { value: 'Deutschland', source: 'answers' });
     assert.equal(candidateAnswerForField(candidate, employerField), null);
     assert.equal(candidateAnswerForField(candidate, unknownField), null);
+    assert.equal(candidateAnswerForField(candidate, unknownOwnedField), null);
 
     const priorSectionCandidate = {
       answers: {},

@@ -693,6 +693,26 @@ describe('birth-year fallback from experience and category B driving licence ded
     });
     expect(cvNo.drivingLicenceB).toBe(false);
     expect(platformDefaultAnswer(licenceBQ, cvNo, { locale: 'it' })).toBeNull();
+
+    for (const denialText of [
+      'Non possiedo la patente B.',
+      'Patente B: no.',
+      'Führerausweis B nicht vorhanden',
+    ]) {
+      const denied = platformCandidateFacts({ cvText: denialText, questions: [licenceBQ], answers: {}, nowMs: NOW, locale: 'it' });
+      expect(denied.drivingLicenceB, denialText).toBe(false);
+      expect(platformDefaultAnswer(licenceBQ, denied, { locale: 'it' }), denialText).toBeNull();
+    }
+
+    const noCarHasLicence = platformCandidateFacts({
+      cvText: 'Non possiedo auto propria, ma possiedo la patente B.',
+      questions: [licenceBQ],
+      answers: {},
+      nowMs: NOW,
+      locale: 'it',
+    });
+    expect(noCarHasLicence.drivingLicenceB).toBe(true);
+    expect(platformDefaultAnswer(licenceBQ, noCarHasLicence, { locale: 'it' })?.value).toBe('Sì');
   });
 
   it('defaults binary physical fitness declarations to yes while excluding medical certificates and negative health questions', () => {

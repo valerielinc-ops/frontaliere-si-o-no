@@ -5367,7 +5367,7 @@ function postingLocationSuffixWords(formText, ours, locationWords) {
   return neutral;
 }
 
-const NAVIGATION_TITLE_LINE_RE = /^(?:(?:open|close)(?: main)? navigation(?: menu)?|(?:open|close) menu|(?:main )?menu|navigation menu|skip(?: to)? (?:main )?(?:content|navigation)|jump to (?:main )?content|(?:salta|vai) al contenuto(?: (?:principale|generale))?|(?:weiter )?zum (?:haupt)?inhalt(?: springen)?|(?:springe|springen) zum (?:haupt)?inhalt|(?:aller|passer) au contenu(?: principal)?|accéder au contenu(?: principal)?|header\s+contact\s+registration\s+info\s+login\s+work\s*\.swiss)[.!…:]*$/i;
+const NAVIGATION_TITLE_LINE_RE = /^(?:(?:open|close)(?: main)? navigation(?: menu)?|(?:open|close) menu|(?:main )?menu|navigation menu|skip(?: to)? (?:main )?(?:content|navigation)|jump to (?:main )?content|(?:salta|vai) al contenuto(?: (?:principale|generale))?|(?:weiter )?zum (?:haupt)?inhalt(?: springen)?|(?:springe|springen) zum (?:haupt)?inhalt|(?:aller|passer) au contenu(?: principal)?|accéder au contenu(?: principal)?)[.!…:]*$/i;
 // Split compact title lines only on visual title separators. Commas and full
 // stops also occur in ordinary prose («Bank Cler, giovane affiliata…») and
 // must not turn the words around the selected employer into another company.
@@ -5606,8 +5606,8 @@ function isJobRoomPostingRoute({ pageUrl = '', postingUrl = '' } = {}) {
 function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = '' } = {}) {
   const text = String(formText || '');
   if (isJobRoomPostingRoute({ pageUrl, postingUrl })) {
-    const stripped = text.replace(/^\s*Header\s+Contact\s+Registration\s+info\s+Login\s+work\s*\.swiss\s*$/gimu, '');
-    if (stripped !== text) return stripped.trim();
+    const stripped = text.replace(/^\s*Header\s+Contact\s+Registration\s+info\s+Login\s+work\s*\.swiss\s*$/gimu, '').trim();
+    if (stripped !== text) return stripped;
   }
   const firstLine = text.split(/\r?\n/, 1)[0];
   if (!isStadtZurichPostingRoute({ pageUrl, postingUrl })
@@ -6336,7 +6336,9 @@ export function formPostingMatch(formText, job = {}, {
   const verifiedEmployerFormRoute = verifiedApplicationEntryRoute
     && Boolean(String(pageUrl || '').trim() && String(postingUrl || paidPostingUrl || '').trim())
     && currentFormUrlCarriesEmployerHost(pageUrl, job);
-  const identityFormText = formIdentityTextWithoutUrls(formText);
+  const identityFormText = isJobRoomPostingRoute({ pageUrl, postingUrl: formPostingUrl })
+    ? formIdentityTextWithoutUrls(formText).replace(/^\s*Header\s+Contact\s+Registration\s+info\s+Login\s+work\s*\.swiss\s*\r?\n?/gimu, '')
+    : formIdentityTextWithoutUrls(formText);
   const rawFormTitleLine = identityFormText.split(/\r?\n/, 1)[0];
   if ([...headingCandidates, rawFormTitleLine].some((heading) => hasUnexplainedEmployerCommaHeading(heading, job))) return 'unknown';
   const ambiguousBrandHeading = [...headingCandidates, rawFormTitleLine]

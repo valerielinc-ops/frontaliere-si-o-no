@@ -627,6 +627,9 @@ function hasDrivingLicenceBFact({ order = {}, profile = {}, cvText = '', questio
   return false;
 }
 
+const CLAUSE_LICENCE_NEGATION = /\b(?:no|non(?:\s+(?:possied\w*|dispong\w*|deteng\w*|ho|sono\s+in\s+possesso))?|not|do\s+not\s+(?:have|hold|possess)|don\s*t\s+(?:have|hold|possess)|without|lack\s+of|senza|priv[oa]\s+di|mancanza\s+di|nessun[ao]?|kein\w*|nicht(?:\s+(?:vorhanden|im\s+besitz|besitz\w*))?|habe\s+kein\w*|besitze\s+kein\w*|ohne|ne\s+(?:possede|detiens|dispos\w*)\s+pas|pas\s+de|aucun\w*|sans)\b/;
+const SUFFIX_LICENCE_NEGATION = /^\s*(?:di\s+categoria\s+b\s+|cat(?:egori[ae]|egory)?\.?\s*b\s+|kat(?:egorie)?\.?\s*b\s+|classe?\s*b\s+|b\s+)?(?:no|non\s+(?:presente|possedut\w*|disponibil\w*|valida)|none|assente|mancante|nein|nicht\s+vorhanden|non\s+disponible|absent\w*)\b/;
+
 function hasDrivingLicenceBRejection({ order = {}, profile = {}, cvText = '', questions = [], answers = {} } = {}) {
   if (profile?.drivingLicence === false || order?.candidateFacts?.drivingLicence === false) return true;
   const structured = fold([profile?.drivingLicence, order?.candidateFacts?.drivingLicence].filter(Boolean).join(' '));
@@ -641,12 +644,19 @@ function hasDrivingLicenceBRejection({ order = {}, profile = {}, cvText = '', qu
     const candidateAns = answers?.[q.id];
     if (candidateAns === false || (typeof candidateAns === 'string' && NO.test(fold(candidateAns)))) return true;
   }
-  const narrative = fold([cvText, order?.candidateNotes, profile?.summary].filter((value) => typeof value === 'string' && value.trim()).join(' \n '));
-  if (narrative) {
-    const fieldRe = new RegExp(DRIVING_LICENCE_B_FIELD.source, 'g');
-    for (const match of narrative.matchAll(fieldRe)) {
-      const prefix = narrative.slice(Math.max(0, match.index - 24), match.index);
-      if (LICENCE_NEGATION.test(prefix)) return true;
+  const sources = [cvText, order?.candidateNotes, profile?.summary].filter((value) => typeof value === 'string' && value.trim());
+  for (const source of sources) {
+    for (const rawClause of source.split(/[\r\n.;,!?()]+/)) {
+      const folded = fold(rawClause);
+      if (!folded) continue;
+      for (const subClause of folded.split(/\b(?:ma|but|aber|mais|e|and|und|et)\b/)) {
+        const fieldRe = new RegExp(DRIVING_LICENCE_B_FIELD.source, 'g');
+        for (const match of subClause.matchAll(fieldRe)) {
+          const prefix = subClause.slice(Math.max(0, match.index - 40), match.index);
+          const suffix = subClause.slice(match.index + match[0].length, match.index + match[0].length + 40);
+          if (CLAUSE_LICENCE_NEGATION.test(prefix) || SUFFIX_LICENCE_NEGATION.test(suffix)) return true;
+        }
+      }
     }
   }
   return false;

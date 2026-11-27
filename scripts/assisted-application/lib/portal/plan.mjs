@@ -1252,13 +1252,16 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
     const sameLanguage = topic.startsWith('language:') && itemTopic.startsWith('language:')
       && topic.split(':')[1] === itemTopic.split(':')[1]
       && isNoLanguageAnswer(item.answer);
+    const metadataOwnership = addressContextContract(metadata);
     const ownedFallbackSection = comparableContext(item.section);
     const ownedSectionMatch = ownedFallbackSection
-      && (ownedFallbackSection === requestedSection || (Array.isArray(metadata?.addressContext?.owners)
-        && metadata.addressContext.owners.map(comparableContext).includes(ownedFallbackSection)))
+      && (ownedFallbackSection === requestedSection || (Array.isArray(metadataOwnership?.owners)
+        && metadataOwnership.owners.map(comparableContext).includes(ownedFallbackSection)))
       && (!String(item.context || '').trim() || comparableContext(item.context) === requestedContext);
     const unownedResidenceMatch = /^residence_(?:country|city|postal_code)$/.test(topic)
       && itemTopic === topic
+      && metadataOwnership != null
+      && metadataOwnership.unknown === false
       && hasAddressContextOwnership(metadata)
       && !Object.hasOwn(item || {}, 'addressContext')
       && ((item.source === 'answer-id' && !String(item.context || '').trim() && !String(item.section || '').trim())
