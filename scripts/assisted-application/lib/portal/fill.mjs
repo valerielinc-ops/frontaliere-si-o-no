@@ -1255,6 +1255,19 @@ export const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatur
 // SuccessFactors (Coop, 2026-10-03): «Bitte korrigieren Sie die folgenden Fehler.», «Anrede ist erforderlich».
 export const VALIDATION_RE = /(this field is required|required field|is required|pflichtfeld|bitte (füllen|geben|korrigieren) sie|ist erforderlich|campo (obbligatorio|richiesto)|è obbligatori[oa]|correggi gli errori|indicare\s+(?:la\s+)?data\s+(?:nel|in)\s+formato\s+(?:indicato|corretto|richiesto)|inserire\s+(?:la\s+)?data\s+(?:nel|in)\s+formato\s+(?:indicato|corretto|richiesto)|date\s+(?:in|au)\s+(?:the\s+)?(?:indicated|specified|correct)\s+format|datum\s+im\s+(?:angegebenen|korrekten)\s+format|champ (obligatoire|requis)|est (obligatoire|requis)|corrigez les erreurs|please (fill|complete|enter|correct))/i;
 
+/** Whether any line matching VALIDATION_RE appeared only after the final click (ignoring unchanged pre-submit legends like "* Champ obligatoire"). */
+export function hasNewValidationText(text = '', preSubmitText = '') {
+  const after = String(text || '');
+  if (!VALIDATION_RE.test(after)) return false;
+  if (!preSubmitText) return true;
+  const previousLines = new Set(
+    String(preSubmitText).split(/\r?\n/u).map((line) => line.replace(/\s+/gu, ' ').trim()).filter(Boolean),
+  );
+  return after.split(/\r?\n/u)
+    .map((line) => line.replace(/\s+/gu, ' ').trim())
+    .some((line) => line && !previousLines.has(line) && VALIDATION_RE.test(line));
+}
+
 /**
  * First enabled button matching the pattern (a disabled one is returned only when asked). One of the page's
  * own before one of the site's header, navigation or footer (`chrome`, fields.mjs): of two «Sign In» the

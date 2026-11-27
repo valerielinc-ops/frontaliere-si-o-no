@@ -557,6 +557,7 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
 export function applicationStage(snapshot, {
   url = snapshot?.url,
   applyUrl,
+  submissionUrl = undefined,
   postingUrl = '',
   sourceProtocol = null,
   postingEntry = false,
@@ -603,7 +604,7 @@ export function applicationStage(snapshot, {
   // intermediate gate before the generic receipt/confirmation classifiers can
   // interpret that sentence as a completed application.
   if (brassRingPrivacyGate) return { kind: 'application_start', control: brassRingPrivacyGate };
-  if (applicationReceipt(snapshot, { url, applyUrl, sourceProtocol, postingEntry, job })) return { kind: 'receipt' };
+  if (applicationReceipt(snapshot, { url, applyUrl, submissionUrl, sourceProtocol, postingEntry, job })) return { kind: 'receipt' };
   const mismatchedJob = parsed(url)?.origin === parsed(applyUrl)?.origin
     && portalJobKey(url) && portalJobKey(applyUrl, sourceProtocol) && portalJobKey(url) !== portalJobKey(applyUrl, sourceProtocol);
   if (mismatchedJob) return { kind: 'posting_mismatch' };

@@ -6,7 +6,7 @@ import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFile
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileDateQuestionsCanUseProfile, profileEntriesForSection, profileEntryAnswer, removalsOf, shouldReopenAfterAuth, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS, workdayProfileControl } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, hasNewValidationText, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileDateQuestionsCanUseProfile, profileEntriesForSection, profileEntryAnswer, removalsOf, shouldReopenAfterAuth, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS, workdayProfileControl } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -4256,5 +4256,13 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
       { text: 'Verified', fields: [], buttons: [{ text: 'Continue', disabled: false }] },
       'https://example.wd3.myworkdayjobs.com/en-US/Jobs/job/Role/apply',
     )).toBe(false);
+  });
+
+  it('ignores unchanged pre-submit required-field legends while catching new validation errors after submit', () => {
+    const preSubmitLegend = '* Champ obligatoire\nNom\nPostuler';
+    expect(hasNewValidationText(preSubmitLegend, preSubmitLegend)).toBe(false);
+    expect(hasNewValidationText('* Champ obligatoire\nLe champ CV est obligatoire\nPostuler', preSubmitLegend)).toBe(true);
+    expect(hasNewValidationText('Bitte füllen Sie alle Pflichtfelder aus.', preSubmitLegend)).toBe(true);
+    expect(hasNewValidationText(preSubmitLegend, '')).toBe(true);
   });
 });

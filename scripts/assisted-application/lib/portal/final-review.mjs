@@ -1,4 +1,4 @@
-import { SUBMIT_RE, VALIDATION_RE } from './fill.mjs';
+import { SUBMIT_RE, hasNewValidationText } from './fill.mjs';
 import { applicationStage, finalReviewStageChecks } from './stages.mjs';
 
 /**
@@ -6,12 +6,12 @@ import { applicationStage, finalReviewStageChecks } from './stages.mjs';
  * words say that a later Submit/Apply is still required. Keep this predicate
  * pure so the runner and evidence reconciliation use the same stage contract.
  */
-export function advancedToFinalReviewChecks(snapshot, { url, submissionUrl, applyUrl, sourceProtocol = null, job = {} } = {}) {
+export function advancedToFinalReviewChecks(snapshot, { url, submissionUrl, applyUrl, sourceProtocol = null, job = {}, preSubmitText = '' } = {}) {
   const snapshotAvailable = Boolean(snapshot);
   const pageMoved = Boolean(url && submissionUrl && url !== submissionUrl);
   const validationClear = snapshotAvailable && !(snapshot.errors || []).length
     && !(snapshot.fields || []).some(field => field?.invalid === true)
-    && !VALIDATION_RE.test(String(snapshot.text || ''));
+    && !hasNewValidationText(String(snapshot.text || ''), preSubmitText);
   const finalControlPresent = Boolean(snapshotAvailable && (snapshot.buttons || []).some(button => !button?.chrome
     && SUBMIT_RE.test(String(button?.text || ''))));
   const stageChecks = finalReviewStageChecks(snapshot, { url, applyUrl, sourceProtocol });
