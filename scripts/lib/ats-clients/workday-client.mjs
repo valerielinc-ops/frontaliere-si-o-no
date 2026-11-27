@@ -47,6 +47,7 @@ import {
 import { KNOWN_CANTON_CODES } from '../job-location-display.mjs';
 import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
 import { withSingleFlightLockAsync } from '../single-flight-lock.mjs';
+import { fetchSourceViaRelay } from '../source-relay-fetch.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
@@ -458,8 +459,10 @@ async function fetchJsonWithRetry(url, options = {}) {
       && isRetryBudgetExhaustedError(err);
     // An exhausted 429 stays on the direct transport: the tenant circuit in
     // createWorkdayRequestContext surfaces it without replaying through the
-    // same-egress browser fallback. Connection failures and other retryable
-    // HTTP responses can still use that fallback.
+    // same-egress browser fallback (#19723). The only path left for a 429 is
+    // the source relay, a DIFFERENT egress, reached from the request context
+    // once the circuit is open (see rescueThroughRelay). Connection failures
+    // and other retryable HTTP responses can still use the browser fallback.
     const rateLimited = Number(err?.statusCode ?? err?.status) === 429;
     if (browserFallback && !rateLimited && (connectionLevelFailure || retryBudgetExhausted)) {
       try {
@@ -617,11 +620,76 @@ async function withRunnerWorkdayEgress(operation, {
   }
 }
 
+// Contract of #19723, unchanged: no browser (or any other) replay of an
+// exhausted 429 on the SAME egress. A request that reached the source relay
+// leaves from another egress (Cloud Run europe-west6, not a GitHub runner), so
+// it does not repeat the 429 on the same egress and does not amend #19723. The
+// relay stays admitted only with the direct circuit open, strictly sequential
+// per tenant, within the finite budgets below, and halted at the first 429
+// (relay-own or tenant) or any relay failure. Empirical basis for the choice of
+// egress: #20279 (the same tenants answer 200 from non-runner IPs).
 // Two consecutive 429s prove that changing only the Workday URL cannot clear
 // a tenant/egress limit. With the existing two-minute Retry-After cap, this
 // keeps the worst bounded exit below five minutes (2 x 120s).
 const DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD = 2;
 const implicitRateLimitStates = new Map();
+
+// Source-relay budgets (see rescueThroughRelay), counted per tenant for the
+// whole process and across request contexts, so several crawlers or parsers of
+// one tenant cannot each spend a fresh allowance. Calibration: the Swiss
+// listings of the affected tenants are 1 page and <= ~10 postings (group-22
+// proof run 45924044578); 25 listing pages and 40 details leave a wide margin.
+const DEFAULT_LISTING_RELAY_BUDGET = 25;
+const DEFAULT_DETAIL_RELAY_BUDGET = 40;
+const MAX_RELAY_BUDGET = 100;
+// The relay enforces 1 request/s per tenant host; stay above it.
+const DEFAULT_RELAY_BACKOFF_MS = 1_500;
+const MAX_RELAY_BACKOFF_MS = 30_000;
+// Aggregate wall-clock of the whole relay fallback per tenant and process. The
+// check runs before each request: worst case is the budget plus one backoff
+// and one relay request timeout.
+const DEFAULT_RELAY_WALL_BUDGET_MS = 600_000;
+const MAX_RELAY_WALL_BUDGET_MS = 900_000;
+const relayLedgers = new Map();
+
+function sanitizeRelayBudget(name, value, fallback) {
+  if (value === null || value === undefined) return fallback;
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) {
+    throw new TypeError(`createWorkdayRequestContext: ${name} must be a finite number >= 0 (got ${String(value)})`);
+  }
+  return Math.min(Math.floor(value), MAX_RELAY_BUDGET);
+}
+
+function sanitizeRelayDuration(name, value, fallback, max) {
+  if (value === null || value === undefined) return fallback;
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > max) {
+    throw new TypeError(`createWorkdayRequestContext: ${name} must be a finite number between 0 and ${max} (got ${String(value)})`);
+  }
+  return value;
+}
+
+function relayLedger(apiBase) {
+  const key = tenantKey(apiBase);
+  if (!relayLedgers.has(key)) {
+    relayLedgers.set(key, {
+      listing: 0, detail: 0, halted: false, lastRequestAt: 0, wallSpentMs: 0, queue: Promise.resolve(),
+    });
+  }
+  return relayLedgers.get(key);
+}
+
+// Default relay transport: on only when the workflow wired the relay for this
+// member (JOBS_SOURCE_RELAY_URL), so local runs and tests keep the direct-only
+// behavior. One attempt: this module owns the retry/stop policy.
+function defaultRelayFallback() {
+  if (!String(process.env.JOBS_SOURCE_RELAY_URL || '').trim()) return null;
+  return ({ url, method, body, timeoutMs }) => fetchSourceViaRelay(url, {
+    method,
+    body,
+    maxAttempts: 1,
+    timeoutMs,
+  });
+}
 
 // URL-equivalent spellings of one tenant (host case, default port, trailing
 // slash, fragment) must share one budget ledger and one implicit 429 state.
@@ -642,6 +710,9 @@ function newRateLimitState(apiBase) {
     lastRateLimitUrl: apiBase,
     queue: Promise.resolve(),
     observedRateLimits: new WeakSet(),
+    // True once the source relay answered a request after the direct circuit
+    // opened (log-once marker; the circuit itself keeps routing to the relay).
+    relayEngaged: false,
   };
 }
 
@@ -656,6 +727,7 @@ function implicitRateLimitState(apiBase) {
 /** Test isolation for the process-wide policy used by legacy no-context callers. */
 export function resetWorkdayImplicitRateLimitStateForTests() {
   implicitRateLimitStates.clear();
+  relayLedgers.clear();
 }
 
 /**
@@ -669,7 +741,11 @@ export function resetWorkdayImplicitRateLimitStateForTests() {
  *
  * @param {string} apiBase
  * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object, egressStateDir?: string|null, egressMinDelayMs?: number }} [options]
- * @param {{ browserFallback?: Function|null, publicUrl?: string, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object }} [options]
+ * @param {{ browserFallback?: Function|null, publicUrl?: string, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object, relayFallback?: Function|null, listingRelayBudget?: number, detailRelayBudget?: number, relayBackoffMs?: number, relayWallBudgetMs?: number, relayNow?: () => number, relaySleep?: (ms: number) => Promise<void> }} [options]
+ *   Source-relay fallback (different egress, #19723-compatible): after the direct 429 circuit opens, requests go
+ *   through `relayFallback({ url, method, body, timeoutMs })` (default: the jobs source relay when
+ *   JOBS_SOURCE_RELAY_URL is set; `null` disables it), sequential per tenant, within per-tenant/per-process budgets
+ *   (listing pages / details / wall clock), spaced by `relayBackoffMs`, halted at the first 429 or relay failure.
  * @returns {{ request: (url: string, options?: object) => Promise<any>, close: () => Promise<void> }}
  */
 export function createWorkdayRequestContext(apiBase, options = {}) {
@@ -684,6 +760,19 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || defaultWorkdayEgressStateDir(),
     egressMinDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
   } = options;
+  const relayFallback = options.relayFallback === undefined
+    ? defaultRelayFallback()
+    : options.relayFallback;
+  const listingRelayBudget = sanitizeRelayBudget('listingRelayBudget', options.listingRelayBudget, DEFAULT_LISTING_RELAY_BUDGET);
+  const detailRelayBudget = sanitizeRelayBudget('detailRelayBudget', options.detailRelayBudget, DEFAULT_DETAIL_RELAY_BUDGET);
+  const relayBackoffMs = sanitizeRelayDuration('relayBackoffMs', options.relayBackoffMs, DEFAULT_RELAY_BACKOFF_MS, MAX_RELAY_BACKOFF_MS);
+  const relayWallBudgetMs = sanitizeRelayDuration('relayWallBudgetMs', options.relayWallBudgetMs, DEFAULT_RELAY_WALL_BUDGET_MS, MAX_RELAY_WALL_BUDGET_MS);
+  // Injectable clock and sleep for the relay budget and backoff (tests).
+  const relayNow = typeof options.relayNow === 'function' ? options.relayNow : Date.now;
+  const relaySleep = typeof options.relaySleep === 'function'
+    ? options.relaySleep
+    : (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const ledger = relayLedger(apiBase);
   let browserSession = null;
   let closed = false;
   const rateLimitState = options.rateLimitState ?? newRateLimitState(apiBase);
@@ -765,7 +854,113 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
   const request = (url, requestOptions = {}) => {
     if (closed) return Promise.reject(new Error('Workday request context is already closed'));
 
+    // The direct stack is rate limited for this tenant (circuit open), so the
+    // rest of the crawl is lost with it. The relay leaves from another egress
+    // and is admitted only inside the bounds in the contract comment above:
+    // circuit open, strictly sequential (the tenant ledger queue), finite
+    // budgets and wall clock, a backoff between requests, and a stop at the
+    // first 429 or relay failure, always surfaced as the typed error.
+    const rescueThroughRelay = async (terminalError) => {
+      const method = String(requestOptions.method || 'GET').toUpperCase();
+      const kind = method === 'POST' ? 'listing' : 'detail';
+      const budget = kind === 'listing' ? listingRelayBudget : detailRelayBudget;
+      // A single terminal 429 (retry budget 0, short Retry-After) never qualifies.
+      if (
+        !relayFallback
+        || ledger.halted
+        || ledger[kind] >= budget
+        || rateLimitState.consecutiveRateLimits < circuitThreshold
+      ) {
+        throw terminalError || rateLimitError(url);
+      }
+      const serial = ledger.queue.then(() => runRelayRequest(), () => runRelayRequest());
+      ledger.queue = serial.catch(() => {});
+      return serial;
+
+      async function runRelayRequest() {
+        if (ledger.halted || ledger[kind] >= budget || ledger.wallSpentMs >= relayWallBudgetMs) {
+          throw terminalError || rateLimitError(url);
+        }
+        ledger[kind] += 1;
+        const startedAt = relayNow();
+        const stopTenant = (reason) => {
+          ledger.halted = true;
+          console.warn(`⚠️ Workday source relay stopped for ${tenantKey(apiBase)} (${reason}): ${url}`);
+        };
+        try {
+          const backoffWait = ledger.lastRequestAt + relayBackoffMs - relayNow();
+          if (backoffWait > 0) await relaySleep(backoffWait);
+          ledger.lastRequestAt = relayNow();
+          let result;
+          try {
+            result = await relayFallback({
+              url,
+              method,
+              body: requestOptions.body,
+              timeoutMs: requestOptions.timeoutMs || DEFAULT_TIMEOUT_MS,
+            });
+          } catch (relayErr) {
+            result = null;
+            console.warn(`⚠️ Workday source relay request failed: ${relayErr?.message || relayErr}`);
+          }
+          ledger.lastRequestAt = relayNow();
+          // Not configured, unauthenticated, capped, timed out: no other path.
+          if (!result || !Number.isFinite(Number(result.status))) {
+            stopTenant('relay unavailable');
+            throw terminalError || rateLimitError(url);
+          }
+          const status = Number(result.status);
+          if (status === 429) {
+            // The relay (or the tenant behind it) is throttled too: the limit is
+            // not the runner egress alone, so no further relay request of this
+            // tenant. Surface the typed error and keep the direct circuit open.
+            stopTenant('HTTP 429');
+            rateLimitState.consecutiveRateLimits = Math.max(rateLimitState.consecutiveRateLimits, circuitThreshold);
+            throw rateLimitError(url, { retryExhausted: true });
+          }
+          if (!result.upstream) {
+            stopTenant(`relay error HTTP ${status}`);
+            throw terminalError || rateLimitError(url);
+          }
+          if (status === 401 || status === 403) {
+            throw new WorkdayAuthError(`Workday auth/anti-bot block (HTTP ${status}) via relay for ${url}`, status, url);
+          }
+          if (status < 200 || status >= 300) {
+            const err = new WorkdayApiError(`Workday API error HTTP ${status} via relay for ${url}`, status, url);
+            err.status = status;
+            err.retryable = RETRYABLE_STATUS.has(status);
+            throw err;
+          }
+          let data;
+          try {
+            data = JSON.parse(result.text);
+          } catch (parseErr) {
+            const err = new WorkdayApiError(
+              `Workday API returned non-JSON body via relay for ${url}: ${parseErr?.message || parseErr}`,
+              status,
+              url,
+            );
+            err.retryable = true;
+            throw err;
+          }
+          if (!rateLimitState.relayEngaged) {
+            console.warn(`⚠️ Workday ${kind} recovered through the source relay after direct HTTP 429: ${url}`);
+          }
+          rateLimitState.relayEngaged = true;
+          return data;
+        } finally {
+          ledger.wallSpentMs += Math.max(0, relayNow() - startedAt);
+        }
+      }
+    };
+
     const run = async () => {
+      // The relay already answered while the direct circuit is open: do not
+      // send more direct requests that are known to be 429.
+      if (relayFallback && !ledger.halted
+          && rateLimitState.consecutiveRateLimits >= circuitThreshold) {
+        return rescueThroughRelay(null);
+      }
       try {
         const data = await fetchJsonWithRetry(url, {
           ...requestOptions,
@@ -783,6 +978,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
           }),
         });
         rateLimitState.consecutiveRateLimits = 0;
+        rateLimitState.relayEngaged = false;
         return data;
       } catch (err) {
         if (err instanceof WorkdayRateLimitError) {
@@ -795,11 +991,11 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
               circuitThreshold,
               Number(err.consecutiveFailures) || 0,
             );
-            throw rateLimitError(url, err);
+            return rescueThroughRelay(rateLimitError(url, err));
           }
-          throw err;
+          return rescueThroughRelay(err);
         }
-        if (observeRateLimit(err)) throw rateLimitError(url, err);
+        if (observeRateLimit(err)) return rescueThroughRelay(rateLimitError(url, err));
         rateLimitState.consecutiveRateLimits = 0;
         throw err;
       }
@@ -849,6 +1045,13 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     rateLimitCircuitThreshold,
     egressStateDir,
     egressMinDelayMs,
+    relayFallback,
+    listingRelayBudget,
+    detailRelayBudget,
+    relayBackoffMs,
+    relayWallBudgetMs,
+    relayNow,
+    relaySleep,
     ...requestOptions
   } = options;
   const requestContext = createWorkdayRequestContext(apiBase, {
@@ -859,6 +1062,13 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     rateLimitCircuitThreshold,
     egressStateDir,
     egressMinDelayMs,
+    relayFallback,
+    listingRelayBudget,
+    detailRelayBudget,
+    relayBackoffMs,
+    relayWallBudgetMs,
+    relayNow,
+    relaySleep,
     rateLimitState: implicitRateLimitState(apiBase),
   });
 

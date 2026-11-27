@@ -135,10 +135,11 @@ function relayErrorCode(text) {
  * and, when that header is present, forwards the Authorization header untouched
  * to the handler, which verifies the GitHub OIDC token (second factor).
  */
-function relayRequestHeaders(githubToken, env) {
+function relayRequestHeaders(githubToken, env, { json = false } = {}) {
   const headers = {
     Authorization: `Bearer ${githubToken}`,
     Accept: 'text/html, application/json',
+    ...(json ? { 'Content-Type': 'application/json' } : {}),
   };
   const googleIdToken = envValue(env, SOURCE_RELAY_ID_TOKEN_ENV);
   if (googleIdToken) headers['X-Serverless-Authorization'] = `Bearer ${googleIdToken}`;
@@ -265,6 +266,9 @@ export async function fetchSourceViaRelay(
     audience = SOURCE_RELAY_OIDC_AUDIENCE,
     timeoutMs,
     retryDelayMs = SOURCE_RELAY_RETRY_DELAY_MS,
+    method = 'GET',
+    body,
+    maxAttempts = SOURCE_RELAY_MAX_ATTEMPTS,
   } = {},
 ) {
   const configuredRelayUrl = envValue(
@@ -285,29 +289,36 @@ export async function fetchSourceViaRelay(
       return null;
     }
 
+    if (method !== 'GET' && method !== 'POST') throw new Error('relay_method_not_supported');
+    if (method === 'POST' && typeof body !== 'string') throw new Error('relay_post_body_missing');
     endpoint.searchParams.set('url', sourceUrl);
-    let response = await fetchWithinRelayDeadline(fetchImpl, endpoint, {
-      method: 'GET',
+    const relayRequest = () => fetchWithinRelayDeadline(fetchImpl, endpoint, {
+      method,
       redirect: 'error',
-      headers: relayRequestHeaders(token, env),
+      headers: relayRequestHeaders(token, env, { json: method === 'POST' }),
+      ...(method === 'POST' ? { body } : {}),
     }, deadline);
+    // Set by the relay on responses whose status/body come from the source
+    // itself, as opposed to the relay's own auth, cap or timeout errors.
+    const relayResult = (res, bodyText) => ({
+      status: res?.status,
+      text: bodyText,
+      ...(responseHeader(res, 'x-relay-source') === 'upstream' ? { upstream: true } : {}),
+    });
+    let response = await relayRequest();
     let text = await readRelayBody(response, deadline);
 
-    for (let attempt = 1; attempt < SOURCE_RELAY_MAX_ATTEMPTS && response?.status === 429; attempt += 1) {
+    for (let attempt = 1; attempt < maxAttempts && response?.status === 429; attempt += 1) {
       const errorCode = relayErrorCode(text);
       if (errorCode === 'daily_cap') return null;
-      if (errorCode !== 'rate_limited') return { status: response?.status, text };
+      if (errorCode !== 'rate_limited') return relayResult(response, text);
       await sleepWithinRelayDeadline(retryAfterMs(response, retryDelayMs), deadline);
-      response = await fetchWithinRelayDeadline(fetchImpl, endpoint, {
-        method: 'GET',
-        redirect: 'error',
-        headers: relayRequestHeaders(token, env),
-      }, deadline);
+      response = await relayRequest();
       text = await readRelayBody(response, deadline);
     }
 
     if (response?.status === 429 && relayErrorCode(text) === 'daily_cap') return null;
-    return { status: response?.status, text };
+    return relayResult(response, text);
   } catch (error) {
     console.warn(`  ⚠️ Source relay fetch failed: ${error?.message || error}`);
     return null;

@@ -622,3 +622,191 @@ describe('source relay crawler client', () => {
     expect(has).toContain('setTimeout(r, DETAIL_DELAY_MS)');
   });
 });
+
+// #20279: the relay is also the different-egress path for the Workday CXS API
+// (POST listing, GET detail), kept as narrow as the three static sources.
+describe('jobsSourceRelay: Workday CXS (#20279)', () => {
+  const WD_LISTING = 'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs';
+  const WD_DETAIL = 'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/job/Zurich/Engineer_R-1';
+  const LISTING_BODY = {
+    appliedFacets: { locationCountry: ['187134fccb084a0ea9b4b95f23890dbe'] },
+    limit: 20,
+    offset: 0,
+    searchText: '',
+  };
+
+  function postRequest(url: string, body: unknown) {
+    return { ...request(url, { method: 'POST' }), body };
+  }
+
+  it('allows the listing as POST and the detail as GET, and nothing else on the tenant', () => {
+    expect(parseAllowedRelayTarget(WD_LISTING)).toMatchObject({ methods: ['POST'], upstream: 'workday' });
+    expect(parseAllowedRelayTarget(WD_DETAIL)).toMatchObject({ methods: ['GET'], upstream: 'workday' });
+    for (const url of [
+      'https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs?x=1',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs#frag',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/admin',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/job',
+      'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs/../../x',
+      'https://alcon.wd5.myworkdayjobs.com:8443/wday/cxs/alcon/careers_alcon/jobs',
+      'https://user@alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs',
+      'http://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs',
+      'https://alcon.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs',
+      'https://evil.example/wday/cxs/alcon/careers_alcon/jobs',
+      'https://alcon.wd5.myworkdayjobs.com.evil.example/wday/cxs/alcon/careers_alcon/jobs',
+      'https://wd5.myworkdaysite.com/wday/cxs/alcon/careers_alcon/jobs',
+    ]) {
+      expect(parseAllowedRelayTarget(url), url).toBeNull();
+    }
+  });
+
+  it('forwards a validated listing body as POST and marks the response as upstream', async () => {
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({ total: 1, jobPostings: [] }), {
+      status: 200,
+      headers: { 'content-type': 'application/json;charset=utf-8' },
+    }));
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl, { rateLimiter: { allow: () => true } });
+    const res = responseRecorder();
+
+    try {
+      await handler(postRequest(WD_LISTING, { ...LISTING_BODY }), res);
+    } finally {
+      logSpy.mockRestore();
+    }
+
+    expect(res.statusCode).toBe(200);
+    expect(res.headers['x-relay-source']).toBe('upstream');
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    const [calledUrl, init] = fetchImpl.mock.calls[0] as unknown as [URL, RequestInit];
+    expect(String(calledUrl)).toBe(WD_LISTING);
+    expect(init.method).toBe('POST');
+    expect(init.redirect).toBe('manual');
+    expect(JSON.parse(String(init.body))).toEqual(LISTING_BODY);
+    expect((init.headers as Record<string, string>)['Content-Type']).toBe('application/json');
+  });
+
+  it.each([
+    ['an unknown field', { ...LISTING_BODY, extra: 1 }],
+    ['an oversized limit', { ...LISTING_BODY, limit: 5000 }],
+    ['a negative offset', { ...LISTING_BODY, offset: -1 }],
+    ['a non-string facet value', { ...LISTING_BODY, appliedFacets: { locationCountry: [1] } }],
+    ['an array body', []],
+    ['an oversized searchText', { ...LISTING_BODY, searchText: 'x'.repeat(201) }],
+  ])('rejects %s with 400 before any upstream call', async (_label, body) => {
+    const fetchImpl = vi.fn();
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl as unknown as typeof fetch, { rateLimiter: { allow: () => true } });
+    const res = responseRecorder();
+    try {
+      await handler(postRequest(WD_LISTING, body), res);
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(res.statusCode).toBe(400);
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it('keeps the method contract per target: no GET on the listing, no POST on a detail or a static source', async () => {
+    const fetchImpl = vi.fn();
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl as unknown as typeof fetch, { rateLimiter: { allow: () => true } });
+    try {
+      for (const req of [
+        request(WD_LISTING),
+        postRequest(WD_DETAIL, LISTING_BODY),
+        postRequest(CHUR_URL, LISTING_BODY),
+      ]) {
+        const res = responseRecorder();
+        await handler(req, res);
+        expect(res.statusCode).toBe(405);
+      }
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it('answers a tenant 429 with a distinct upstream-marked 429 whatever its content type', async () => {
+    const fetchImpl = vi.fn(async () => new Response('slow down', { status: 429, headers: { 'content-type': 'text/plain' } }));
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl, { rateLimiter: { allow: () => true } });
+    const res = responseRecorder();
+    try {
+      await handler(request(WD_DETAIL), res);
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(res.statusCode).toBe(429);
+    expect(res.body).toContain('upstream_rate_limited');
+    expect(res.headers['x-relay-source']).toBe('upstream');
+  });
+
+  it('never replays a POST against a redirect', async () => {
+    const fetchImpl = vi.fn(async () => new Response('', {
+      status: 307,
+      headers: { location: WD_LISTING },
+    }));
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl, { rateLimiter: { allow: () => true } });
+    const res = responseRecorder();
+    try {
+      await handler(postRequest(WD_LISTING, LISTING_BODY), res);
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(res.statusCode).toBe(403);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps the Workday daily ledger separate from the three static sources', async () => {
+    const fetchImpl = vi.fn(async (input: URL | string) => new Response(
+      String(input).includes('myworkdayjobs') ? '{"ok":true}' : '<html></html>',
+      {
+        status: 200,
+        headers: { 'content-type': String(input).includes('myworkdayjobs') ? 'application/json' : 'text/html' },
+      },
+    ));
+    const exhausted = { isExhausted: () => true, tryAcquire: () => false };
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const handler = authenticatedHandler(fetchImpl as unknown as typeof fetch, {
+      rateLimiter: { allow: () => true },
+      workdayDailyUpstreamCap: exhausted,
+    });
+    const workday = responseRecorder();
+    const chur = responseRecorder();
+    try {
+      await handler(request(WD_DETAIL), workday);
+      await handler(request(CHUR_URL), chur);
+    } finally {
+      logSpy.mockRestore();
+    }
+    expect(workday.statusCode).toBe(429);
+    expect(workday.body).toContain('daily_cap');
+    expect(chur.statusCode).toBe(200);
+  });
+
+  it('the client sends a POST through the relay with its body and reports an upstream response', async () => {
+    const relayFetch = vi.fn(async (input: URL | string) => {
+      if (String(input).startsWith('https://token.actions.githubusercontent.com/')) {
+        return new Response(JSON.stringify({ value: 'oidc' }), { status: 200 });
+      }
+      return new Response('{"total":0}', { status: 200, headers: { 'x-relay-source': 'upstream' } });
+    });
+    const result = await fetchSourceViaRelay(WD_LISTING, {
+      relayUrl: 'https://relay.example.run.app',
+      fetchImpl: relayFetch as unknown as typeof fetch,
+      env: RELAY_ENV,
+      method: 'POST',
+      body: JSON.stringify(LISTING_BODY),
+      maxAttempts: 1,
+    });
+    expect(result).toEqual({ status: 200, text: '{"total":0}', upstream: true });
+    const call = relayFetch.mock.calls.find(([input]) => String(input).startsWith('https://relay.example.run.app')) as unknown as [URL, RequestInit];
+    expect(call[1].method).toBe('POST');
+    expect(call[1].body).toBe(JSON.stringify(LISTING_BODY));
+    expect((call[1].headers as Record<string, string>)['Content-Type']).toBe('application/json');
+    expect(new URL(String(call[0])).searchParams.get('url')).toBe(WD_LISTING);
+  });
+});
