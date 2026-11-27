@@ -1148,7 +1148,6 @@
       "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne-c1a69e8b",
       "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne-8eee6131",
       "health-auxiliary-m-f-fondation-soins-lausanne-lausanne-ceb2ab8a",
-      "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne",
       "ergoterapist-m-f-fondation-soins-lausanne-lausanne-755b7868",
       "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-27cab70e",
       "assistente-sanitario-m-f-fondation-soins-lausanne-lausanne",
@@ -1156,7 +1155,9 @@
       "gesundheitsassistent-m-w-fondation-soins-lausanne-lausanne",
       "ergotherapeute-m-w-d-fondation-soins-lausanne",
       "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
-      "ergotherapeut-m-w-fondation-soins-lausanne-lausanne-daec14b7"
+      "ergotherapeut-m-w-fondation-soins-lausanne-lausanne-daec14b7",
+      "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne",
+      "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne-6cf562d5"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1169,7 +1170,7 @@
         "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne-c1a69e8b",
         "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne-8eee6131",
         "health-auxiliary-m-f-fondation-soins-lausanne-lausanne-ceb2ab8a",
-        "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne",
+        "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne-6cf562d5",
         "ergoterapist-m-f-fondation-soins-lausanne-lausanne-755b7868",
         "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-27cab70e",
         "assistente-sanitario-m-f-fondation-soins-lausanne-lausanne",
@@ -1178,13 +1179,19 @@
         "ergotherapeute-m-w-d-fondation-soins-lausanne",
         "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
         "ergotherapeut-m-w-fondation-soins-lausanne-lausanne-daec14b7",
-        "health-auxiliaries-m-f-fondation-soins-lausanne-lausanne"
+        "health-auxiliaries-m-f-fondation-soins-lausanne-lausanne",
+        "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne"
       ],
       "en": [
-        "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne"
+        "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne",
+        "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne"
       ],
       "de": [
-        "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne"
+        "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne",
+        "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne-6cf562d5"
+      ],
+      "fr": [
+        "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne"
       ]
     },
     "postalCode": "1003",
@@ -1219,7 +1226,6 @@
         "infirmier-coordinateur-h-f-fondation-soins-lausanne-lausanne": "VD",
         "nurse-coordinator-m-f-fondation-soins-lausanne-lausanne": "VD",
         "pflegekoordinator-m-w-fondation-soins-lausanne-lausanne": "VD",
-        "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne": "VD",
         "assistente-sanitario-m-f-fondation-soins-lausanne-lausanne": "VD",
         "health-assistant-m-f-fondation-soins-lausanne-lausanne": "VD",
         "gesundheitsassistent-m-w-fondation-soins-lausanne-lausanne": "VD",
@@ -1232,13 +1238,15 @@
         "health-auxiliary-m-f-fondation-soins-lausanne-lausanne-ceb2ab8a": "VD",
         "ergoterapist-m-f-fondation-soins-lausanne-lausanne-755b7868": "VD",
         "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-27cab70e": "VD",
-        "ergotherapeut-m-w-fondation-soins-lausanne-lausanne-daec14b7": "VD"
+        "ergotherapeut-m-w-fondation-soins-lausanne-lausanne-daec14b7": "VD",
+        "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne-6cf562d5": "VD"
       },
       "en": {
         "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne": "VD"
       },
       "de": {
-        "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne": "VD"
+        "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne": "VD",
+        "gesundheitshilfskrafte-m-w-fondation-soins-lausanne-lausanne-6cf562d5": "VD"
       }
     }
   },

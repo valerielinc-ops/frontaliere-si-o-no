@@ -1,7 +1,7 @@
 {
   "crawlerKey": "city-pop",
-  "assembledAt": "2026-11-26T21:30:38.733Z",
-  "runId": "45896893954",
+  "assembledAt": "2026-11-27T09:32:17.147Z",
+  "runId": "45972185344",
   "jobs": [
     {
       "id": "city-pop-0f55e4bf8abf",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/5e424093-b70a-4bfc-9797-db08aee48ab8/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:30:30.233Z",
+      "crawledAt": "2026-11-27T09:32:04.763Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "City Pop, Militärstrasse 106, 8004 Zürich",
@@ -84,9 +84,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:30:30.233Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/5e424093-b70a-4bfc-9797-db08aee48ab8"
+      "validThrough": "2027-02-12T09:32:04.763Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "city-pop-b465e8c4d6e3",
@@ -119,7 +118,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/f005cb73-dad5-4cfb-b13f-f828ea5a2d9d/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:30:29.822Z",
+      "crawledAt": "2026-11-27T09:32:04.408Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
@@ -169,9 +168,81 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:30:29.822Z",
+      "validThrough": "2027-02-08T09:32:04.408Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "city-pop-47302ecce4ab",
+      "slug": "techniker-allrounder-city-pop-zurich",
+      "slugByLocale": {
+        "en": "techniker-allrounder-city-pop-zurich",
+        "it": "techniker-allrounder-city-pop-zurich",
+        "de": "techniker-allrounder-city-pop-zurich",
+        "fr": "techniker-allrounder-city-pop-zurich"
+      },
+      "company": "City Pop",
+      "companyKey": "city-pop",
+      "companyDomain": "citypop.com",
+      "title": "Techniker Allrounder",
+      "titleByLocale": {
+        "en": "Techniker Allrounder",
+        "it": "Techniker Allrounder",
+        "de": "Techniker Allrounder",
+        "fr": "Techniker Allrounder"
+      },
+      "description": "Join City Pop AG as a Techniker Allrounder in Zurich! Enjoy a supportive work culture and long-term career growth.\n\nTasks\n\n• Perform various technical repairs and maintenance tasks.\n\n• Conduct regular inspections of building systems like HVAC.\n\n• Ensure all technical equipment is in good condition and documented.\n\nSkills\n\n• Experience in technical and maintenance work is required.\n\n• Ability to manage time and prioritize tasks effectively.\n\n• Fluent in German with basic English knowledge preferred.\n\n🔧 Technician Allrounder (100%) – City Pop | Zurich\n\nWe are looking for an experienced and versatile technician to strengthen our team in the long term. If you combine manual skills with technical know-how and enjoy working independently – then you are exactly right with us.\n\n🛠️ Your Tasks\n\n• Carrying out technical repairs (electrical, manual)\n\n• Ongoing maintenance and inspection of our properties (including equipment, outdoor areas)\n\n• Rapid fault analysis and troubleshooting\n\n• Regular inspections of building systems (heating, ventilation, air conditioning etc.)\n\n• Ensuring flawless technical condition of all systems\n\n• General building maintenance\n\n• Documentation of work and reporting to supervisors\n\n• Collaboration with internal departments\n\n• Contact person for technical concerns of our customers\n\n• Participation in the 24/7 on-call duty in rotation\n\n• Compliance with emergency processes and safety standards\n\n✅ Your Profile\n\n• Experience in the technical field / facility management\n\n• Knowledge in several areas (electrics, plumbing, assembly, painting etc.)\n\n• Independent, reliable and structured working style\n\n• Good organisational skills (e.g. warehouse & spare parts)\n\n• Willingness to work emergency services outside working hours\n\n• Preferably age in active professional phase\n\n• Residence in Zurich or surrounding area\n\n• Driving licence category B\n\n• Good German skills + basic English knowledge (or vice versa)\n\n💼 We Offer\n\n• Permanent full-time position (100%)\n\n• Attractive and performance-based remuneration\n\n• Modern work equipment & company vehicle\n\n• Pleasant, collegial working atmosphere\n\n• Training and development opportunities\n\n• Long-term perspective in a growing company\n\n• Clear advancement opportunities within City Pop\n\n💡 Why City Pop?\n With us, you work in a dynamic environment with real development opportunities. We value quality, teamwork and long-term collaboration.\n\n👉 Interested?\n Then we look forward to your application!",
+      "descriptionByLocale": {
+        "en": "Join City Pop AG as a Techniker Allrounder in Zurich! Enjoy a supportive work culture and long-term career growth.\n\nTasks\n\n• Perform various technical repairs and maintenance tasks.\n\n• Conduct regular inspections of building systems like HVAC.\n\n• Ensure all technical equipment is in good condition and documented.\n\nSkills\n\n• Experience in technical and maintenance work is required.\n\n• Ability to manage time and prioritize tasks effectively.\n\n• Fluent in German with basic English knowledge preferred.\n\n🔧 Technician Allrounder (100%) – City Pop | Zurich\n\nWe are looking for an experienced and versatile technician to strengthen our team in the long term. If you combine manual skills with technical know-how and enjoy working independently – then you are exactly right with us.\n\n🛠️ Your Tasks\n\n• Carrying out technical repairs (electrical, manual)\n\n• Ongoing maintenance and inspection of our properties (including equipment, outdoor areas)\n\n• Rapid fault analysis and troubleshooting\n\n• Regular inspections of building systems (heating, ventilation, air conditioning etc.)\n\n• Ensuring flawless technical condition of all systems\n\n• General building maintenance\n\n• Documentation of work and reporting to supervisors\n\n• Collaboration with internal departments\n\n• Contact person for technical concerns of our customers\n\n• Participation in the 24/7 on-call duty in rotation\n\n• Compliance with emergency processes and safety standards\n\n✅ Your Profile\n\n• Experience in the technical field / facility management\n\n• Knowledge in several areas (electrics, plumbing, assembly, painting etc.)\n\n• Independent, reliable and structured working style\n\n• Good organisational skills (e.g. warehouse & spare parts)\n\n• Willingness to work emergency services outside working hours\n\n• Preferably age in active professional phase\n\n• Residence in Zurich or surrounding area\n\n• Driving licence category B\n\n• Good German skills + basic English knowledge (or vice versa)\n\n💼 We Offer\n\n• Permanent full-time position (100%)\n\n• Attractive and performance-based remuneration\n\n• Modern work equipment & company vehicle\n\n• Pleasant, collegial working atmosphere\n\n• Training and development opportunities\n\n• Long-term perspective in a growing company\n\n• Clear advancement opportunities within City Pop\n\n💡 Why City Pop?\n With us, you work in a dynamic environment with real development opportunities. We value quality, teamwork and long-term collaboration.\n\n👉 Interested?\n Then we look forward to your application!",
+        "it": "Join City Pop AG as a Techniker Allrounder in Zurich! Enjoy a supportive work culture and long-term career growth.\n\nTasks\n\n• Perform various technical repairs and maintenance tasks.\n\n• Conduct regular inspections of building systems like HVAC.\n\n• Ensure all technical equipment is in good condition and documented.\n\nSkills\n\n• Experience in technical and maintenance work is required.\n\n• Ability to manage time and prioritize tasks effectively.\n\n• Fluent in German with basic English knowledge preferred.\n\n🔧 Technician Allrounder (100%) – City Pop | Zurich\n\nWe are looking for an experienced and versatile technician to strengthen our team in the long term. If you combine manual skills with technical know-how and enjoy working independently – then you are exactly right with us.\n\n🛠️ Your Tasks\n\n• Carrying out technical repairs (electrical, manual)\n\n• Ongoing maintenance and inspection of our properties (including equipment, outdoor areas)\n\n• Rapid fault analysis and troubleshooting\n\n• Regular inspections of building systems (heating, ventilation, air conditioning etc.)\n\n• Ensuring flawless technical condition of all systems\n\n• General building maintenance\n\n• Documentation of work and reporting to supervisors\n\n• Collaboration with internal departments\n\n• Contact person for technical concerns of our customers\n\n• Participation in the 24/7 on-call duty in rotation\n\n• Compliance with emergency processes and safety standards\n\n✅ Your Profile\n\n• Experience in the technical field / facility management\n\n• Knowledge in several areas (electrics, plumbing, assembly, painting etc.)\n\n• Independent, reliable and structured working style\n\n• Good organisational skills (e.g. warehouse & spare parts)\n\n• Willingness to work emergency services outside working hours\n\n• Preferably age in active professional phase\n\n• Residence in Zurich or surrounding area\n\n• Driving licence category B\n\n• Good German skills + basic English knowledge (or vice versa)\n\n💼 We Offer\n\n• Permanent full-time position (100%)\n\n• Attractive and performance-based remuneration\n\n• Modern work equipment & company vehicle\n\n• Pleasant, collegial working atmosphere\n\n• Training and development opportunities\n\n• Long-term perspective in a growing company\n\n• Clear advancement opportunities within City Pop\n\n💡 Why City Pop?\n With us, you work in a dynamic environment with real development opportunities. We value quality, teamwork and long-term collaboration.\n\n👉 Interested?\n Then we look forward to your application!",
+        "de": "Join City Pop AG as a Techniker Allrounder in Zurich! Enjoy a supportive work culture and long-term career growth.\n\nTasks\n\n• Perform various technical repairs and maintenance tasks.\n\n• Conduct regular inspections of building systems like HVAC.\n\n• Ensure all technical equipment is in good condition and documented.\n\nSkills\n\n• Experience in technical and maintenance work is required.\n\n• Ability to manage time and prioritize tasks effectively.\n\n• Fluent in German with basic English knowledge preferred.\n\n🔧 Technician Allrounder (100%) – City Pop | Zurich\n\nWe are looking for an experienced and versatile technician to strengthen our team in the long term. If you combine manual skills with technical know-how and enjoy working independently – then you are exactly right with us.\n\n🛠️ Your Tasks\n\n• Carrying out technical repairs (electrical, manual)\n\n• Ongoing maintenance and inspection of our properties (including equipment, outdoor areas)\n\n• Rapid fault analysis and troubleshooting\n\n• Regular inspections of building systems (heating, ventilation, air conditioning etc.)\n\n• Ensuring flawless technical condition of all systems\n\n• General building maintenance\n\n• Documentation of work and reporting to supervisors\n\n• Collaboration with internal departments\n\n• Contact person for technical concerns of our customers\n\n• Participation in the 24/7 on-call duty in rotation\n\n• Compliance with emergency processes and safety standards\n\n✅ Your Profile\n\n• Experience in the technical field / facility management\n\n• Knowledge in several areas (electrics, plumbing, assembly, painting etc.)\n\n• Independent, reliable and structured working style\n\n• Good organisational skills (e.g. warehouse & spare parts)\n\n• Willingness to work emergency services outside working hours\n\n• Preferably age in active professional phase\n\n• Residence in Zurich or surrounding area\n\n• Driving licence category B\n\n• Good German skills + basic English knowledge (or vice versa)\n\n💼 We Offer\n\n• Permanent full-time position (100%)\n\n• Attractive and performance-based remuneration\n\n• Modern work equipment & company vehicle\n\n• Pleasant, collegial working atmosphere\n\n• Training and development opportunities\n\n• Long-term perspective in a growing company\n\n• Clear advancement opportunities within City Pop\n\n💡 Why City Pop?\n With us, you work in a dynamic environment with real development opportunities. We value quality, teamwork and long-term collaboration.\n\n👉 Interested?\n Then we look forward to your application!",
+        "fr": "Join City Pop AG as a Techniker Allrounder in Zurich! Enjoy a supportive work culture and long-term career growth.\n\nTasks\n\n• Perform various technical repairs and maintenance tasks.\n\n• Conduct regular inspections of building systems like HVAC.\n\n• Ensure all technical equipment is in good condition and documented.\n\nSkills\n\n• Experience in technical and maintenance work is required.\n\n• Ability to manage time and prioritize tasks effectively.\n\n• Fluent in German with basic English knowledge preferred.\n\n🔧 Technician Allrounder (100%) – City Pop | Zurich\n\nWe are looking for an experienced and versatile technician to strengthen our team in the long term. If you combine manual skills with technical know-how and enjoy working independently – then you are exactly right with us.\n\n🛠️ Your Tasks\n\n• Carrying out technical repairs (electrical, manual)\n\n• Ongoing maintenance and inspection of our properties (including equipment, outdoor areas)\n\n• Rapid fault analysis and troubleshooting\n\n• Regular inspections of building systems (heating, ventilation, air conditioning etc.)\n\n• Ensuring flawless technical condition of all systems\n\n• General building maintenance\n\n• Documentation of work and reporting to supervisors\n\n• Collaboration with internal departments\n\n• Contact person for technical concerns of our customers\n\n• Participation in the 24/7 on-call duty in rotation\n\n• Compliance with emergency processes and safety standards\n\n✅ Your Profile\n\n• Experience in the technical field / facility management\n\n• Knowledge in several areas (electrics, plumbing, assembly, painting etc.)\n\n• Independent, reliable and structured working style\n\n• Good organisational skills (e.g. warehouse & spare parts)\n\n• Willingness to work emergency services outside working hours\n\n• Preferably age in active professional phase\n\n• Residence in Zurich or surrounding area\n\n• Driving licence category B\n\n• Good German skills + basic English knowledge (or vice versa)\n\n💼 We Offer\n\n• Permanent full-time position (100%)\n\n• Attractive and performance-based remuneration\n\n• Modern work equipment & company vehicle\n\n• Pleasant, collegial working atmosphere\n\n• Training and development opportunities\n\n• Long-term perspective in a growing company\n\n• Clear advancement opportunities within City Pop\n\n💡 Why City Pop?\n With us, you work in a dynamic environment with real development opportunities. We value quality, teamwork and long-term collaboration.\n\n👉 Interested?\n Then we look forward to your application!"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.jobs.ch/en/vacancies/detail/21e69afe-9b32-4875-b679-5278ef8d2e9b/",
+      "source": "City Pop Dedicated Parser (jobs.ch)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-27T09:32:04.037Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Bernerstrasse Süd 169",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Immobiliare / Micro-living / Ospitalità",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-27T09:54:12+01:00",
+      "postedDate": "2026-11-27T09:54:12+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/21e69afe-9b32-4875-b679-5278ef8d2e9b/",
+      "hiringOrganizationName": "City Pop AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 134500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-25T09:32:04.037Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/f005cb73-dad5-4cfb-b13f-f828ea5a2d9d"
+      "firstSeenAt": "2026-11-09T21:20:14.395Z"
     }
   ]
 }
