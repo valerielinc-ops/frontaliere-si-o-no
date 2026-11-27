@@ -43,6 +43,9 @@
       ],
       "de": [
         "decorateur-angleur-h-f-d-chopard-fleurier-e67a3847"
+      ],
+      "fr": [
+        "decorateur-angleur-h-f-d-chopard-fleurier"
       ]
     },
     "streetAddress": "Fleurier",
@@ -54,10 +57,13 @@
     "firstSeenAt": "2026-07-10T22:09:12.285Z",
     "previousSlugCantonByLocale": {
       "it": {
-        "decorateur-angleur-h-f-d-chopard-fleurier-e67a3847": "GE"
+        "decorateur-angleur-h-f-d-chopard-fleurier-e67a3847": "GE",
+        "decorateur-angleur-h-f-d-chopard-fleurier-2": "GE",
+        "decorateur-angleur-h-f-d-chopard-fleurier": "GE"
       },
       "fr": {
-        "decorateur-angleur-h-f-d-chopard-fleurier-e67a3847": "GE"
+        "decorateur-angleur-h-f-d-chopard-fleurier-e67a3847": "GE",
+        "decorateur-angleur-h-f-d-chopard-fleurier": "GE"
       },
       "en": {
         "decorateur-angleur-h-f-d-chopard-fleurier-e67a3847": "GE"
@@ -65,7 +71,24 @@
       "de": {
         "decorateur-angleur-h-f-d-chopard-fleurier-e67a3847": "GE"
       }
-    }
+    },
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-us",
+        "firstSeenAt": "2026-07-10T22:09:12.285Z",
+        "title": "Décorateur/Angleur (H/F/D)"
+      },
+      {
+        "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2636?c=chopard&lang=en-us",
+        "firstSeenAt": "2026-07-10T22:09:12.285Z",
+        "title": "Décorateur Angleur (H/F/D)"
+      },
+      {
+        "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2713?c=chopard&lang=en-us",
+        "firstSeenAt": "2026-07-10T22:09:12.285Z",
+        "title": "Décorateur Angleur (H/F/D)"
+      }
+    ]
   },
   {
     "slug": "apprentice-micromechanic-m-f-d-chopard-fleurier",
@@ -98,6 +121,9 @@
     "previousSlugsByLocale": {
       "it": [
         "apprenti-micromecanicien-h-f-d-chopard-fleurier"
+      ],
+      "en": [
+        "apprentice-micromechanic-m-f-d-chopard-fleurier"
       ]
     },
     "streetAddress": "Fleurier",
@@ -106,7 +132,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-us",
-    "firstSeenAt": "2026-08-26T10:06:48.576Z"
+    "firstSeenAt": "2026-08-26T10:06:48.576Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprenti-micromecanicien-h-f-d-chopard-fleurier": "GE"
+      },
+      "en": {
+        "apprentice-micromechanic-m-f-d-chopard-fleurier": "GE"
+      }
+    }
   },
   {
     "slug": "global-responsabile-crm-chopard-meyrin",
@@ -150,7 +185,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-us",
-    "firstSeenAt": "2026-09-19T22:49:40.321Z"
+    "firstSeenAt": "2026-09-19T22:49:40.321Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "global-head-of-crm-chopard-meyrin": "GE"
+      }
+    }
   },
   {
     "slug": "agent-qualite-production-h-f-d-chopard-fleurier",
@@ -183,7 +224,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-us",
-    "firstSeenAt": "2026-08-14T10:22:43.317Z"
+    "firstSeenAt": "2026-08-14T10:22:43.317Z",
+    "canton": "GE",
+    "previousSlugsByLocale": {
+      "fr": [
+        "agent-qualite-production-h-f-d-chopard-fleurier"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "fr": {
+        "agent-qualite-production-h-f-d-chopard-fleurier": "GE"
+      }
+    }
   },
   {
     "slug": "operateur-en-polissage-h-f-d-chopard-fleurier",
@@ -215,7 +267,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2685?c=chopard&lang=en-us",
-    "firstSeenAt": "2026-10-16T21:17:28.484Z"
+    "firstSeenAt": "2026-10-16T21:17:28.484Z",
+    "canton": "GE",
+    "previousSlugsByLocale": {
+      "fr": [
+        "operateur-en-polissage-h-f-d-chopard-fleurier"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "fr": {
+        "operateur-en-polissage-h-f-d-chopard-fleurier": "GE"
+      }
+    }
   },
   {
     "slug": "programmeur-cnc-h-f-d-chopard-fleurier",
@@ -247,7 +310,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-us",
-    "firstSeenAt": "2026-07-16T22:17:04.829Z"
+    "firstSeenAt": "2026-07-16T22:17:04.829Z",
+    "canton": "GE",
+    "previousSlugsByLocale": {
+      "fr": [
+        "programmeur-cnc-h-f-d-chopard-fleurier"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "fr": {
+        "programmeur-cnc-h-f-d-chopard-fleurier": "GE"
+      }
+    }
   },
   {
     "slug": "decorateur-angleur-h-f-d-chopard-fleurier-2-5aa31a0e",
@@ -454,7 +528,6 @@
       "decorator-angleur-h-f-d-chopard-fleurier",
       "dekorateur-angleur-h-f-d-chopard-fleurier",
       "decorator-angleur-h-f-d-chopard-fleurier-b8fa1a34",
-      "decorateur-angleur-h-f-d-chopard-fleurier",
       "decorateur-angleur-f-m-d-chopard-fleurier-185b434320",
       "dekorateur-angleur-h-f-d-chopard-fleurier-f4d4874f"
     ],
@@ -701,7 +774,6 @@
         "decorateur-angleur-h-f-d-chopard-fleurier-d1fa56fc",
         "decorateur-angleur-h-f-d-chopard-fleurier-cbf89aac",
         "decorateur-angleur-h-f-d-chopard-fleurier-55038e6a",
-        "decorateur-angleur-h-f-d-chopard-fleurier",
         "decorateur-angleur-f-m-d-chopard-fleurier-185b434320",
         "decorator-angleur-h-f-d-chopard-fleurier",
         "dekorateur-angleur-h-f-d-chopard-fleurier"
@@ -779,7 +851,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-us",
-    "firstSeenAt": "2026-08-14T10:22:43.269Z"
+    "firstSeenAt": "2026-08-14T10:22:43.269Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "financial-controlling-intern-chopard-meyrin": "GE"
+      },
+      "de": {
+        "financial-controlling-intern-chopard-meyrin": "GE"
+      },
+      "fr": {
+        "financial-controlling-intern-chopard-meyrin": "GE"
+      }
+    }
   },
   {
     "slug": "agent-methodes-industrialisation-h-f-d-chopard-fleurier",

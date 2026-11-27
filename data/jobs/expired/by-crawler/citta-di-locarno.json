@@ -33,7 +33,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://locarno.pi-asp.de/bewerber-web?company=100-firma-id&tenant=&lang=i",
-    "firstSeenAt": "2026-10-02T09:10:41.179Z"
+    "firstSeenAt": "2026-10-02T09:10:41.179Z",
+    "canton": "TI"
   },
   {
     "slug": "operaio-ii-giardiniere-afc-giardiniera-afc-servizi-sportivi-e-servizio-verde-locarno",
@@ -64,7 +65,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://locarno.pi-asp.de/bewerber-web?company=100-firma-id&tenant=&lang=i",
-    "firstSeenAt": "2026-07-09T22:41:46.298Z"
+    "firstSeenAt": "2026-07-09T22:41:46.298Z",
+    "canton": "TI"
   },
   {
     "slug": "operaio-iii-locarno",
@@ -92,7 +94,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://locarno.pi-asp.de/bewerber-web?company=100-firma-id&tenant=&lang=i",
-    "firstSeenAt": "2026-07-09T22:41:46.298Z"
+    "firstSeenAt": "2026-07-09T22:41:46.298Z",
+    "canton": "TI",
+    "previousSlugsByLocale": {
+      "de": [
+        "operaio-iii-locarno"
+      ],
+      "fr": [
+        "operaio-iii-locarno"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "de": {
+        "operaio-iii-locarno": "TI"
+      },
+      "fr": {
+        "operaio-iii-locarno": "TI"
+      }
+    }
   },
   {
     "slug": "una-o-un-capo-servizio-iii-manutenzione-stabili-100-locarno",
