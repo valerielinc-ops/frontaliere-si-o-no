@@ -140,6 +140,7 @@ function authError(message, observed) {
 
 function safeClaim(value) {
   if (typeof value === 'string') return value.slice(0, 120);
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
   if (Array.isArray(value)) return value.slice(0, 5).map((item) => String(item).slice(0, 120));
   return typeof value;
 }
