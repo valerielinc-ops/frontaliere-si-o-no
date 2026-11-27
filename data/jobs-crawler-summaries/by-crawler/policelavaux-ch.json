@@ -1,7 +1,7 @@
 {
   "key": "policelavaux-ch",
   "label": "Police Lavaux",
-  "generatedAt": "2026-11-26T21:57:40.104Z",
+  "generatedAt": "2026-11-27T09:42:39.660Z",
   "total": 2,
   "discovered": 3,
   "parsed": 2,
@@ -31,6 +31,8 @@
         "url": "https://www.policelavaux.ch/emplois/offres-demploi/un-e-assistant-e-de-securite-publique/"
       }
     ],
+    "listingTerminalStatus": 200,
+    "listingCompletion": "complete",
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": null
@@ -48,10 +50,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7706,
-  "avgDurationMs": 7706,
+  "durationMs": 7082,
+  "avgDurationMs": 7082,
   "durationHistory": [
-    7706
+    7082
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -69,7 +71,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-se-developpe-et-recrute",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:57:20.966Z",
+      "crawledAt": "2026-11-27T09:42:27.435Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -93,7 +95,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:57:20.966Z",
+      "validThrough": "2027-01-28T09:42:27.435Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -115,7 +117,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-recrute-des-sous-officierere-superieure",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:57:20.963Z",
+      "crawledAt": "2026-11-27T09:42:27.434Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -139,7 +141,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:57:20.963Z",
+      "validThrough": "2027-01-28T09:42:27.434Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -150,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

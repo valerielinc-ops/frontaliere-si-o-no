@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medimeo-ch",
-  "assembledAt": "2026-11-26T22:03:55.883Z",
-  "runId": "45897771969",
+  "assembledAt": "2026-11-27T09:45:32.270Z",
+  "runId": "45973230963",
   "jobs": [
     {
       "id": "medimeo-ch-d43b310dd478",
@@ -82,7 +82,7 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T10:20:19.407Z",
       "sourceIdentity": "url:https://medimeo.ch/job/erfahrener-facharzt-fuer-kinder-und-jugendmedizin-m-w-d-60-100-in-der-schweiz-paediatrie-aufbauen-wo-andere-urlaub-machen-3834",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
