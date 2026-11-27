@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { hydrateGhBodyFileArgs } from './helpers/ghBodyFile';
 
 // Incidente 2026-11-27: un ramo di PR chiusa senza merge (`fix/issue-…`) ha pushato
 // `${{ runner.temp }}` nell'`env:` di job di 25 workflow `workflow_call`-only → startup
@@ -14,7 +15,7 @@ vi.mock('node:child_process', () => {
         && String(args[1]).includes('/runs?status=success&event=schedule')) {
         return JSON.stringify({ workflow_runs: [] });
       }
-      return execFileSync(cmd, args, ...rest);
+      return execFileSync(cmd, hydrateGhBodyFileArgs(args), ...rest);
     },
   };
   return { ...mock, default: mock };
