@@ -117,8 +117,8 @@ async function fetchGa4Today(date) {
       pageViews: rows.reduce((sum, r) => sum + Number(r.metricValues[1].value), 0),
       lastHour: rows.reduce((max, r) => Math.max(max, Number(r.dimensionValues[0].value)), -1),
     };
-  } catch (error) {
-    console.error(`[adsense-hourly] GA4 non disponibile: ${error.message}`);
+  } catch {
+    console.error('[adsense-hourly] GA4 non disponibile; dettagli omessi');
     return null;
   }
 }
@@ -166,7 +166,7 @@ async function ack(db, keys) {
   const batch = db.batch();
   for (const key of keys) batch.set(db.collection(ALERT_COLLECTION).doc(key), { notifiedAt: new Date().toISOString() });
   await batch.commit();
-  console.error(`[adsense-hourly] allarmi notificati: ${keys.join(', ')}`);
+  console.error('[adsense-hourly] stato allarme aggiornato; dettagli omessi');
 }
 
 async function main() {
@@ -217,12 +217,12 @@ async function main() {
       '',
     ].join('\n'));
   }
-  console.error(`[adsense-hourly] ${clock.date} earnings=${snapshot.earnings} pv=${snapshot.pageViews} status=${decision.status}`);
+  console.error(`[adsense-hourly] status=${decision.status}; measurements withheld`);
 }
 
 if (process.argv[1] && pathToFileURL(realpathSync(process.argv[1])).href === import.meta.url) {
-  main().catch((error) => {
-    console.error(`[adsense-hourly] misura fallita: ${error.message}`);
+  main().catch(() => {
+    console.error('[adsense-hourly] measurement failed; details withheld');
     process.exit(1);
   });
 }

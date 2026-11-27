@@ -12,12 +12,8 @@
  * #2176). Mirroring that gate here: only declare a regression when the
  * ARPU ratio drops AND same-day revenue also drops vs its own baseline.
  *
- * Unlike RPM (a CHF/day figure with years of history to calibrate an
- * absolute floor), the 3 new user-scoped GA4 dimensions this metric will
- * eventually segment by only went live 2026-07-17 — there isn't yet a
- * settled ARPU range to hang an absolute floor on. `DEFAULT_ABSOLUTE_FLOOR`
- * is left at the generic module's disabled default (0) so this canary
- * starts ratio-only; revisit once a few weeks of history exist.
+ * The absolute floor remains disabled until an owner-approved calibration is
+ * available; this canary currently requires the ratio and revenue signals.
  */
 
 import {

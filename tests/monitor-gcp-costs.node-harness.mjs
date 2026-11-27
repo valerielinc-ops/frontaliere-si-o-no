@@ -4,9 +4,7 @@ import {
   COST_DRIVERS,
   dailyGrowth,
   evaluateCostDrivers,
-  FIRESTORE_READ_ATTRIBUTION_METRIC,
   GCP_COST_ISSUE_TITLE,
-  measureFirestoreReadAttribution,
   measureCostDrivers,
   renderCostReport,
   STORAGE_DRIVER,
@@ -14,39 +12,40 @@ import {
 } from '../scripts/monitor-gcp-costs.mjs';
 
 const GIB = 1024 ** 3;
-const point = (value, endTime = '2026-10-01T18:00:00Z') => ({ interval: { endTime }, value: { int64Value: String(value) } });
+const point = (value, endTime = '2020-01-08T00:00:00Z') => ({ interval: { endTime }, value: { int64Value: String(value) } });
 const series = (service, ...values) => ({ resource: { labels: { service_name: service } }, points: values.map((value) => point(value)) });
-const incidentDay = {
-  'firestore-reads': { value: 75_430_000 },
-  'firestore-writes': { value: 257_769 },
-  'cloud-run-egress': { value: 12.73 * GIB, breakdown: [{ name: 'getplateauctions', value: 12.68 * GIB }] },
-  'cloud-run-requests': { value: 140_000, breakdown: [{ name: 'api', value: 90_000 }] },
-  'cloud-run-instance-time': { value: 39_323, breakdown: [{ name: 'getplateauctions', value: 24_174 }, { name: 'getpublicconfig', value: 3_085 }] },
-  'firebase-storage-egress': { value: 1.2 * GIB, breakdown: [{ name: 'frontaliere-ticino.firebasestorage.app', value: 1.2 * GIB }] },
-  'firestore-storage-growth': { value: 1.33 * GIB, level: 27.47 * GIB },
+const threshold = (key) => COST_DRIVERS.find((driver) => driver.key === key).threshold;
+const syntheticOverThreshold = {
+  'firestore-reads': { value: threshold('firestore-reads') + 1, breakdown: [{ name: 'synthetic-private-caller-marker', value: 1 }] },
+  'firestore-writes': { value: 0 },
+  'cloud-run-egress': { value: threshold('cloud-run-egress') + 1, breakdown: [{ name: 'synthetic-private-service-marker', value: 1 }] },
+  'cloud-run-requests': { value: 0 },
+  'cloud-run-instance-time': { value: threshold('cloud-run-instance-time') + 1, breakdown: [{ name: 'synthetic-private-service-marker', value: 1 }] },
+  'firebase-storage-egress': { value: 0 },
+  'firestore-storage-growth': { value: 0, level: 0 },
 };
 
-async function testIncidentEvaluation() {
-  const evaluation = evaluateCostDrivers(incidentDay);
+async function testOverThresholdEvaluation() {
+  const evaluation = evaluateCostDrivers(syntheticOverThreshold);
   assert.deepEqual(evaluation.breaches.map((row) => row.driver.key), ['firestore-reads', 'cloud-run-egress', 'cloud-run-instance-time']);
   assert.deepEqual(evaluation.missing, []);
 }
 
 async function testNormalEvaluation() {
   const evaluation = evaluateCostDrivers({
-    'firestore-reads': { value: 800_000 },
-    'firestore-writes': { value: 250_000 },
-    'cloud-run-egress': { value: 0.15 * GIB },
-    'cloud-run-requests': { value: 70_000 },
-    'cloud-run-instance-time': { value: 10_000 },
-    'firebase-storage-egress': { value: 1.2 * GIB },
-    'firestore-storage-growth': { value: 0.4 * GIB, level: 9 * GIB },
+    'firestore-reads': { value: 1 },
+    'firestore-writes': { value: 1 },
+    'cloud-run-egress': { value: 1 },
+    'cloud-run-requests': { value: 1 },
+    'cloud-run-instance-time': { value: 1 },
+    'firebase-storage-egress': { value: 1 },
+    'firestore-storage-growth': { value: 0, level: 1 },
   });
   assert.deepEqual(evaluation.breaches, []);
 }
 
 async function testMissingDriver() {
-  const { 'firestore-writes': _omitted, ...partial } = incidentDay;
+  const { 'firestore-writes': _omitted, ...partial } = syntheticOverThreshold;
   const evaluation = evaluateCostDrivers(partial);
   assert.deepEqual(evaluation.missing.map((row) => row.driver.key), ['firestore-writes']);
 }
@@ -56,43 +55,23 @@ async function testStableIssueTitle() {
 }
 
 async function testReportContributors() {
-  const report = renderCostReport(evaluateCostDrivers(incidentDay), { windowEnd: '2026-10-01T18:34:36Z' });
-  assert.ok(report.includes('| Letture Firestore | 75.43 M | 5.00 M | 26.33 |'));
-  assert.ok(report.includes('**Egress internet di Cloud Run, primi contributori:** `getplateauctions` 12.68 GiB'));
-  assert.ok(report.includes('**Servizi Cloud Run con più tempo istanza nelle 24 h:** `getplateauctions`'));
-  assert.ok(report.includes('Storage Firestore attuale: 27.47 GiB.'));
-  assert.ok(report.includes('non distingue l’egress Internet'));
-  assert.ok(report.includes('**1-CAUSA (ipotesi):**'));
+  const report = renderCostReport(evaluateCostDrivers(syntheticOverThreshold));
+  assert.ok(report.includes('GCP cost monitor alert'));
+  assert.ok(report.includes('measurements and diagnostics are withheld'));
+  assert.ok(!report.includes('synthetic-private-caller-marker'));
+  assert.ok(!report.includes('synthetic-private-service-marker'));
 }
 
 async function testHealthyReport() {
   const report = renderCostReport(evaluateCostDrivers({
-    ...incidentDay,
+    ...syntheticOverThreshold,
     'firestore-reads': { value: 1 },
     'cloud-run-egress': { value: 1 },
     'cloud-run-instance-time': { value: 10_000 },
-    'firestore-storage-growth': { value: 1, level: 27 * GIB },
+    'firestore-storage-growth': { value: 1, level: 1 },
   }));
   assert.equal(report.includes('1-CAUSA'), false);
   assert.equal(report.includes('più tempo istanza'), false);
-}
-
-async function testFirestoreAttributionReport() {
-  const report = renderCostReport(evaluateCostDrivers(incidentDay), {
-    windowEnd: '2026-10-01T18:34:36Z',
-    totalFirestoreReads: 75_430_000,
-    firestoreAttribution: {
-      callers: [
-        { name: 'workflow=nightly;run=42;script=scan.mjs', value: 70_000_000 },
-        { name: 'workflow=hourly;run=43;script=report.mjs', value: 4_000_000 },
-      ],
-      attributed: 74_000_000,
-    },
-  });
-  assert.ok(report.includes('**Attribuzione letture Firestore, primi 5 chiamanti:**'));
-  assert.ok(report.includes('`workflow=nightly;run=42;script=scan.mjs` 70.00 M'));
-  assert.ok(report.includes('**Quota non attribuita:** 1.43 M (totale 75.43 M meno attribuito 74.00 M)'));
-  assert.ok(report.includes('Cloud Functions o browser'));
 }
 
 async function testSeriesSum() {
@@ -107,36 +86,9 @@ async function testSeriesBreakdown() {
 }
 
 async function testDailyGrowth() {
-  const growth = dailyGrowth([{ points: [point(10 * GIB, '2026-09-24T00:00:00Z'), point(17 * GIB, '2026-10-01T00:00:00Z')] }]);
-  assert.equal(growth.level, 17 * GIB);
-  assert.ok(Math.abs(growth.perDay - GIB) < 1e-6 * GIB);
-}
-
-async function testAttributionMetricQuery() {
-  const result = await measureFirestoreReadAttribution({
-    token: 't',
-    start: new Date('2026-10-01T00:00:00Z'),
-    end: new Date('2026-10-02T00:00:00Z'),
-    fetchImpl: async (url) => {
-      const parsed = new URL(url);
-      assert.ok(parsed.searchParams.get('filter').includes(`metric.type="${FIRESTORE_READ_ATTRIBUTION_METRIC}"`));
-      return {
-        ok: true,
-        status: 200,
-        json: async () => ({
-          timeSeries: [
-            { metric: { labels: { caller: 'workflow=one;run=1;script=a.mjs' } }, points: [point(7)] },
-            { metric: { labels: { caller: 'workflow=two;run=2;script=b.mjs' } }, points: [point(3)] },
-          ],
-        }),
-      };
-    },
-  });
-  assert.equal(result.attributed, 10);
-  assert.deepEqual(result.callers.map((item) => item.name), [
-    'workflow=one;run=1;script=a.mjs',
-    'workflow=two;run=2;script=b.mjs',
-  ]);
+  const growth = dailyGrowth([{ points: [point(10, '2020-01-01T00:00:00Z'), point(17, '2020-01-08T00:00:00Z')] }]);
+  assert.equal(growth.level, 17);
+  assert.ok(Math.abs(growth.perDay - 1) < 1e-6);
 }
 
 async function testCostDriverPaging() {
@@ -151,17 +103,17 @@ async function testCostDriverPaging() {
       : filter.includes('read_ops_count')
         ? { timeSeries: [series('x', 2_000_000)] }
         : filter.includes('data_and_index_storage_bytes')
-          ? { timeSeries: [{ points: [point(20 * GIB, '2026-09-24T00:00:00Z'), point(27 * GIB, '2026-10-01T00:00:00Z')] }] }
+        ? { timeSeries: [{ points: [point(20, '2020-01-01T00:00:00Z'), point(27, '2020-01-08T00:00:00Z')] }] }
           : filter.includes('request_count')
-            ? { timeSeries: [series('api', 140_000)] }
+            ? { timeSeries: [series('synthetic-service', 14)] }
             : filter.includes('storage.googleapis.com/network/sent_bytes_count')
-              ? { timeSeries: [{ resource: { labels: { bucket_name: 'frontaliere-ticino.firebasestorage.app' } }, points: [point(Math.round(1.2 * GIB))] }] }
-          : { timeSeries: [series('getplateauctions', 10)] };
+              ? { timeSeries: [{ resource: { labels: { bucket_name: 'synthetic-bucket' } }, points: [point(12)] }] }
+          : { timeSeries: [series('synthetic-service', 10)] };
     return { ok: true, status: 200, json: async () => body };
   };
-  const { measurements } = await measureCostDrivers({ fetchImpl, token: 't', now: new Date('2026-10-01T18:00:00Z') });
-  assert.equal(measurements['firestore-reads'].value, 6_000_000);
-  assert.ok(Math.abs(measurements[STORAGE_DRIVER.key].value - GIB) < 1e-6 * GIB);
+  const { measurements } = await measureCostDrivers({ fetchImpl, token: 't', now: new Date('2020-01-08T00:00:00Z') });
+  assert.equal(measurements['firestore-reads'].value, 6);
+  assert.ok(Math.abs(measurements[STORAGE_DRIVER.key].value - 1) < 1e-6);
   const egressUrl = urls.find((url) => url.includes('sent_bytes_count')) || '';
   assert.ok(new URL(egressUrl).searchParams.get('filter').includes('metric.label.kind="internet"'));
   const requestUrl = urls.find((url) => url.includes('request_count')) || '';
@@ -169,8 +121,8 @@ async function testCostDriverPaging() {
   assert.ok(new URL(requestUrl).searchParams.getAll('aggregation.groupByFields').includes('resource.label.service_name'));
   const storageUrl = urls.find((url) => new URL(url).searchParams.get('filter')?.includes('storage.googleapis.com/network/sent_bytes_count')) || '';
   assert.ok(new URL(storageUrl).searchParams.get('filter').includes('resource.labels.bucket_name="frontaliere-ticino.firebasestorage.app"'));
-  assert.equal(measurements['cloud-run-requests'].value, 140_000);
-  assert.ok(Math.abs(measurements['firebase-storage-egress'].value - 1.2 * GIB) < 1);
+  assert.equal(measurements['cloud-run-requests'].value, 14);
+  assert.equal(measurements['firebase-storage-egress'].value, 12);
   assert.equal(urls.length, COST_DRIVERS.length + 2);
 }
 
@@ -185,7 +137,7 @@ async function testMonitoringApiError() {
 const healthyBody = (url) => {
   const filter = new URL(url).searchParams.get('filter') || '';
   return filter.includes('data_and_index_storage_bytes')
-    ? { timeSeries: [{ points: [point(20 * GIB, '2026-09-24T00:00:00Z'), point(21 * GIB, '2026-10-01T00:00:00Z')] }] }
+    ? { timeSeries: [{ points: [point(20, '2020-01-01T00:00:00Z'), point(21, '2020-01-08T00:00:00Z')] }] }
     : { timeSeries: [series('svc', 1)] };
 };
 
@@ -244,14 +196,14 @@ async function testMissingSeries() {
   const { measurements } = await measureCostDrivers({ fetchImpl, token: 't' });
   const evaluation = evaluateCostDrivers(measurements);
   assert.deepEqual(evaluation.missing.map((row) => row.driver.key), ['firestore-writes']);
-  assert.ok(renderCostReport(evaluation).includes('| Scritture Firestore | n/d | 1.00 M | n/d | ~250 k/giorno (09/2026) | MANCANTE |'));
+  assert.ok(renderCostReport(evaluation).includes('measurements and diagnostics are withheld'));
 }
 
 async function testSingleStorageObservation() {
   const fetchImpl = async (url) => ({
     ok: true,
     status: 200,
-    json: async () => (url.includes('data_and_index_storage_bytes') ? { timeSeries: [{ points: [point(27 * GIB)] }] } : healthyBody(url)),
+    json: async () => (url.includes('data_and_index_storage_bytes') ? { timeSeries: [{ points: [point(27)] }] } : healthyBody(url)),
   });
   const { measurements } = await measureCostDrivers({ fetchImpl, token: 't' });
   assert.deepEqual(evaluateCostDrivers(measurements).missing.map((row) => row.driver.key), [STORAGE_DRIVER.key]);
@@ -260,7 +212,7 @@ async function testSingleStorageObservation() {
 async function testUnreadablePoint() {
   assert.equal(Number.isNaN(sumSeries([{ points: [{ value: {} }] }])), true);
   assert.equal(Number.isNaN(sumSeries([])), true);
-  const evaluation = evaluateCostDrivers({ ...incidentDay, 'firestore-reads': { value: sumSeries([{ points: [{ value: { int64Value: 'x' } }] }]) } });
+  const evaluation = evaluateCostDrivers({ ...syntheticOverThreshold, 'firestore-reads': { value: sumSeries([{ points: [{ value: { int64Value: 'x' } }] }]) } });
   assert.deepEqual(evaluation.missing.map((row) => row.driver.key), ['firestore-reads']);
 }
 
@@ -271,7 +223,7 @@ async function testUnreadableJson() {
 
 async function testProjectTotals() {
   const egress = (...gib) => evaluateCostDrivers({
-    ...incidentDay,
+    ...syntheticOverThreshold,
     'firestore-reads': { value: 1 },
     'cloud-run-egress': { value: gib.reduce((sum, value) => sum + value, 0) * GIB },
     'cloud-run-instance-time': { value: 10_000 },
@@ -283,28 +235,26 @@ async function testProjectTotals() {
 
 async function testRequestAndStorageThresholds() {
   const evaluation = evaluateCostDrivers({
-    ...incidentDay,
+    ...syntheticOverThreshold,
     'firestore-reads': { value: 1 },
     'cloud-run-egress': { value: 1 },
     'cloud-run-instance-time': { value: 10_000 },
     'cloud-run-requests': { value: 190_000 },
-    'firebase-storage-egress': { value: 2.1 * GIB, breakdown: [{ name: 'frontaliere-ticino.firebasestorage.app', value: 2.1 * GIB }] },
+    'firebase-storage-egress': { value: 2.1 * GIB, breakdown: [{ name: 'synthetic-bucket', value: 2.1 * GIB }] },
   });
   assert.deepEqual(evaluation.breaches.map((row) => row.driver.key), ['firebase-storage-egress']);
 }
 
 const tests = [
-  ['incident evaluation', testIncidentEvaluation],
+  ['synthetic over-threshold evaluation', testOverThresholdEvaluation],
   ['normal evaluation', testNormalEvaluation],
   ['missing driver', testMissingDriver],
   ['stable issue title', testStableIssueTitle],
   ['report contributors', testReportContributors],
   ['healthy report', testHealthyReport],
-  ['Firestore attribution report', testFirestoreAttributionReport],
   ['series sum', testSeriesSum],
   ['series breakdown', testSeriesBreakdown],
   ['daily growth', testDailyGrowth],
-  ['attribution metric query', testAttributionMetricQuery],
   ['cost driver paging', testCostDriverPaging],
   ['monitoring API error', testMonitoringApiError],
   ['transient Monitoring timeout retry', testTransientMonitoringTimeoutRetry],

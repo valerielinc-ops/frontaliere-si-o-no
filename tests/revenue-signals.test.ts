@@ -4,10 +4,6 @@
  *
  * Pinned here:
  * - the detector on synthetic weeks (windows, persistence, low volume, baseline);
- * - two real GA4 cases (tests/fixtures/revenue-signals-ga4-hours.json, hourly
- *   Italy+Switzerland counts): the 2026-09-27 CMP suppression must fire on
- *   consent at the 14h run, the 2026-09-28 afternoon (GA4 lag on the last
- *   hours, reported by the owner as "slowing down") must not;
  * - the issue lifecycle: fixed title outside close-recovered-failure-issues,
  *   body in the bl-planner card shape, open/resolve gated on the run status.
  * - GA4 gaps stay pending instead of becoming zero, while a real zero still
@@ -38,7 +34,6 @@ import { earliestHourNeeded, fetchHourlyCounts, runMonitor } from '../scripts/mo
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const workflow = readFileSync(resolve(REPO_ROOT, '.github/workflows/revenue-signal-monitor.yml'), 'utf8');
-const realHours = JSON.parse(readFileSync(resolve(REPO_ROOT, 'tests/fixtures/revenue-signals-ga4-hours.json'), 'utf8'));
 
 type Counts = Record<string, number>;
 
@@ -170,21 +165,7 @@ describe('evaluateRevenueSignals on synthetic weeks', () => {
   });
 });
 
-describe('real GA4 hours (Italy + Switzerland)', () => {
-  it('fires consent at the 14h run of the 2026-09-27 CMP suppression (#9974)', () => {
-    const r = evaluateRevenueSignals({ hours: realHours, currentHour: '2026092714' });
-    expect(r.alarms.map((a) => a.signal)).toEqual(['consent']);
-    expect(r.alarms[0].ratio).toBeCloseTo(0.22, 1);
-  });
-
-  it('does not fire on the 2026-09-28 afternoon the owner read as slowing down', () => {
-    const r = evaluateRevenueSignals({ hours: realHours, currentHour: '2026092816' });
-    expect(r.alarms).toEqual([]);
-    expect(r.checks.every((c) => c.status === 'ok')).toBe(true);
-  });
-});
-
-// CMP decisions at zero on 2026-09-27 11-16h, the shape of the #9974 suppression.
+// Synthetic consent drop used to verify that the detector raises the matching signal.
 const collapsed = () => degrade(syntheticWeeks(), '2026092711', '2026092716', (c) => ({ ...c, ad_consent_granted: 0, ad_consent_denied: 0 }));
 
 describe('monitorDecision', () => {
@@ -212,15 +193,20 @@ describe('issue lifecycle', () => {
     expect(TITLE_RE.test(ISSUE_TITLE)).toBe(false);
   });
 
-  it('writes the bl-planner card, the replay command and real code paths', () => {
-    const hours = collapsed();
-    const body = buildIssueBody({ decision: monitorDecision({ hours, currentHour: '2026092714' }), runUrl: 'https://example.test/run/1' });
+  it('writes a status-only bl-planner card without exposing measurements or diagnostics', () => {
+    const body = buildIssueBody({ decision: { evaluation: { alarms: [{
+      signal: 'revenue', current: 987654.321, baseline: 123456.789, ratio: 0.12345,
+      timestamp: 'SYNTHETIC_PRIVATE_TIMESTAMP', diagnostic: 'SYNTHETIC_PRIVATE_DIAGNOSTIC',
+    }] } } as never, runUrl: 'https://example.test/run/1' });
     for (const field of ['SCHEDA:', '1-CAUSA:', '2-FIX:', '3-METRICA:', '4-OSSERVATORE:', '5-FALLIMENTO:']) expect(body).toContain(field);
-    expect(body).toContain('ipotesi da verificare, non accertata');
-    expect(body).toContain('node scripts/monitor-revenue-signals.mjs --current-hour=2026092714');
-    expect(body).toContain('node scripts/probe-live-consent-message.mjs');
+    expect(body).toContain('Raw GA4 values');
+    expect(body).toContain('authorized private runtime');
+    expect(body).not.toContain('987654.321');
+    expect(body).not.toContain('123456.789');
+    expect(body).not.toContain('0.12345');
+    expect(body).not.toContain('SYNTHETIC_PRIVATE_TIMESTAMP');
+    expect(body).not.toContain('SYNTHETIC_PRIVATE_DIAGNOSTIC');
     expect(body).toContain('## Suggested action');
-    expect(body).toContain('`build-plugins/constants.ts`');
     // check-workflows-scope.mjs routes the fixer from the body: no workflow path in it.
     expect(body).not.toMatch(/\.github\/workflows\//);
     expect(body).toContain(`5-FALLIMENTO: "${ISSUE_TITLE}"`);
@@ -231,7 +217,8 @@ describe('issue lifecycle', () => {
     for (const key of Object.keys(hours)) if (key >= '2026092810') delete hours[key];
     const body = buildIssueBody({ decision: monitorDecision({ hours, currentHour: '2026092816' }) });
     expect(body).toContain('ga4_freshness');
-    expect(body).toContain('attesa<=6h');
+    expect(body).toContain('Raw GA4 values');
+    expect(body).not.toContain('2026092816');
     expect(body).not.toContain('undefined');
   });
 });

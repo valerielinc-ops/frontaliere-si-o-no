@@ -11,10 +11,8 @@
  *   - intraday: cumulato di oggi contro quello alla stessa ora di sette giorni
  *     prima. Richiede una settimana di snapshot.
  *
- * Backtest giugno-ottobre 2026 sui giorni chiusi, agosto-ottobre (91 giorni):
- * -20% in 6 giorni, -30% in 1, due giorni di fila in 1. Il -20% singolo e' quindi
- * rumore frequente (25 e 26/10 senza alcun guasto): apre la issue a priorita'
- * media, e sale ad alta solo se il calo e' profondo o persiste.
+ * Thresholds and persistence are conservative because the daily AdSense totals
+ * are revised after publication and short-lived dips can be noisy.
  */
 
 export const ADSENSE_TIME_ZONE = 'Europe/Rome';
@@ -25,9 +23,7 @@ export const SNAPSHOT_RETENTION_DAYS = 14;
 export const DEFAULT_CONFIG = Object.freeze({
   dropThreshold: 0.2,
   severeDropThreshold: 0.3,
-  // Replay sulle ore GA4 di 70 giorni fino al 30/10/2026: con 5 euro scattano 14
-  // giorni, molti alle 10-11 su pochi euro; con 12 sono 7 e resta rilevato
-  // l'incidente reale del 27/09 (che con 15 euro o 4 conferme si perde).
+  // Ignore comparisons whose previous-week revenue is too small to be useful.
   minBaselineEarnings: 12,
   confirmRuns: 3,
   matchToleranceMinutes: 45,
@@ -220,24 +216,12 @@ export function diagnose(alarm) {
 
 export function buildIssueBody({ decision, runUrl = '' }) {
   const lines = [
-    '## Revenue AdSense sotto la settimana precedente',
+    '## AdSense monitor alert',
     '',
-    '| Controllo | Periodo | Revenue | Baseline | Variazione | Pageview | RPM |',
-    '|---|---|---:|---:|---:|---:|---:|',
+    'The monitor detected an alert. Financial measurements and diagnostics are withheld from this public issue.',
+    '',
+    'Use the authorized private runtime to review the underlying measurements.',
   ];
-  const notes = [];
-  for (const alarm of decision.alarms) {
-    if (alarm.kind === 'stale') {
-      lines.push(`| stale | ${alarm.key.slice(6)} | - | - | - | - | - |`);
-    } else {
-      const label = alarm.kind === 'closed' ? 'giorno chiuso' : 'cumulato intraday';
-      lines.push(`| ${label} | ${alarm.date} vs ${alarm.baselineDate} | ${alarm.earnings.toFixed(2)} | ${alarm.baselineEarnings.toFixed(2)} | ${percent(alarm.change)} | ${percent(alarm.pageViewsChange)} | ${percent(alarm.rpmChange)} |`);
-    }
-    notes.push(`- ${diagnose(alarm)}`);
-  }
-  lines.push('', ...notes, '');
-  lines.push('Soglia -20% contro lo stesso giorno della settimana precedente; un singolo giorno sotto soglia capita circa 2 volte al mese senza guasti (backtest in `scripts/lib/adsense-hourly.mjs`).');
-  lines.push(`Storico: collezione Firestore \`${SNAPSHOT_COLLECTION}\`. Controlla anche \`revenue-signal-monitor\` e \`rpm-canary\`.`);
   if (runUrl) lines.push('', `**Run:** ${runUrl}`);
   return lines.join('\n');
 }

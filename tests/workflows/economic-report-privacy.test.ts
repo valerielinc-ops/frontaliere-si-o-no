@@ -12,6 +12,7 @@ const amount = '987654.321';
 const diagnostic = 'SYNTHETIC_PRIVATE_DIAGNOSTIC';
 const experiment = 'synthetic-private-experiment';
 const retiredWorkflows = ['revenue-monitor', 'funnel-metrics-snapshot', 'adsense-format-ab-report'];
+const publicMonitorWorkflows = ['adsense-hourly-monitor', 'revenue-signal-monitor', 'rpm-canary', 'user-value-canary', 'analytics', 'monitor-gcp-costs'];
 
 function workflowSource(workflow: string): string {
   return readFileSync(`.github/workflows/${workflow}.yml`, 'utf8');
@@ -34,6 +35,47 @@ describe('economic history migration', () => {
     expect(document.jobs.retired.steps[0].run).toContain('private operator report');
     expect(source).not.toMatch(/schedule:|contents:\s*write|issues:\s*write|secrets\.|actions\/checkout/);
     expect(source).not.toMatch(/data\/(?:revenue-monitor|funnel-metrics|adsense-format-ab)-history/);
+  });
+
+  it.each(publicMonitorWorkflows)('%s keeps financial output out of public summaries and artifacts', (workflow) => {
+    const source = workflowSource(workflow);
+    const document = YAML.parse(source);
+    const steps = Object.values(document.jobs).flatMap((job: { steps?: Step[] }) => job.steps ?? []);
+
+    expect(source).toContain('withheld from the public run');
+    expect(source).not.toMatch(/cat\s+(?:adsense-hourly|revenue-signals|rpm-canary-result|user-value-canary-result)/);
+    expect(steps.some(step => step.uses?.includes('upload-artifact'))).toBe(false);
+    if (workflow === 'analytics') {
+      expect(source).toContain('RUNNER_TEMP/analytics-report.log');
+      expect(source).toContain('RUNNER_TEMP/landing-value-report.log');
+      expect(source).not.toContain('job-application-funnel.json\n            reports/landing-value-by-template.json');
+    }
+    if (workflow === 'monitor-gcp-costs') {
+      expect(source).toContain('RUNNER_TEMP/gcp-cost-monitor.log');
+    }
+  });
+
+  it('builds status-only AdSense and user-value issues from metric-bearing input', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'public-monitor-'));
+    try {
+      const input = join(dir, 'private-result.json');
+      writeFileSync(input, JSON.stringify({
+        timestamp: 'SYNTHETIC_PRIVATE_TIMESTAMP', amount, experiment,
+        current: { earnings: amount, revenue: amount, arpu: amount, activeUsers: amount },
+        baseline: { earnings: amount, revenue: amount, arpu: amount },
+        ratio: amount, reasons: [diagnostic], rows: [{ date: 'SYNTHETIC_PRIVATE_DATE', earnings: amount }],
+      }));
+
+      for (const script of ['build-rpm-canary-issue-body.mjs', 'build-user-value-canary-issue-body.mjs']) {
+        const body = execFileSync(process.execPath, [`scripts/${script}`, input], {
+          encoding: 'utf8', env: { RUN_URL: 'https://example.test/run/123' },
+        });
+        assertPrivate(body);
+        expect(body).toContain('withheld from this public issue');
+      }
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('publishes only a status artifact for the private L8 loop', () => {

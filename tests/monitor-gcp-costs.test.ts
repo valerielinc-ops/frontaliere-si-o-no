@@ -4,9 +4,7 @@ import {
   COST_DRIVERS,
   dailyGrowth,
   evaluateCostDrivers,
-  FIRESTORE_READ_ATTRIBUTION_METRIC,
   GCP_COST_ISSUE_TITLE,
-  measureFirestoreReadAttribution,
   measureCostDrivers,
   renderCostReport,
   STORAGE_DRIVER,
@@ -14,42 +12,42 @@ import {
 } from '../scripts/monitor-gcp-costs.mjs';
 
 const GIB = 1024 ** 3;
-const point = (value: number, endTime = '2026-10-01T18:00:00Z') => ({ interval: { endTime }, value: { int64Value: String(value) } });
+const point = (value: number, endTime = '2020-01-08T00:00:00Z') => ({ interval: { endTime }, value: { int64Value: String(value) } });
 const series = (service: string, ...values: number[]) => ({ resource: { labels: { service_name: service } }, points: values.map((value) => point(value)) });
 
-// The 24 h ending 2026-10-01 18:34 UTC, measured live with this script.
-const incidentDay = {
-  'firestore-reads': { value: 75_430_000 },
-  'firestore-writes': { value: 257_769 },
-  'cloud-run-egress': { value: 12.73 * GIB, breakdown: [{ name: 'getplateauctions', value: 12.68 * GIB }] },
-  'cloud-run-requests': { value: 140_000, breakdown: [{ name: 'api', value: 90_000 }] },
-  'cloud-run-instance-time': { value: 39_323, breakdown: [{ name: 'getplateauctions', value: 24_174 }, { name: 'getpublicconfig', value: 3_085 }] },
-  'firebase-storage-egress': { value: 1.2 * GIB, breakdown: [{ name: 'frontaliere-ticino.firebasestorage.app', value: 1.2 * GIB }] },
-  'firestore-storage-growth': { value: 1.33 * GIB, level: 27.47 * GIB },
+const threshold = (key: string) => COST_DRIVERS.find((driver) => driver.key === key)!.threshold;
+const syntheticOverThreshold = {
+  'firestore-reads': { value: threshold('firestore-reads') + 1, breakdown: [{ name: 'synthetic-private-caller-marker', value: 1 }] },
+  'firestore-writes': { value: 0 },
+  'cloud-run-egress': { value: threshold('cloud-run-egress') + 1, breakdown: [{ name: 'synthetic-private-service-marker', value: 1 }] },
+  'cloud-run-requests': { value: 0 },
+  'cloud-run-instance-time': { value: threshold('cloud-run-instance-time') + 1, breakdown: [{ name: 'synthetic-private-service-marker', value: 1 }] },
+  'firebase-storage-egress': { value: 0 },
+  'firestore-storage-growth': { value: 0, level: 0 },
 };
 
 describe('GCP cost monitor: evaluation', () => {
-  it('catches the incident instance time after the lower 20k-second guard', () => {
-    const evaluation = evaluateCostDrivers(incidentDay);
+  it('detects synthetic values above the configured guards', () => {
+    const evaluation = evaluateCostDrivers(syntheticOverThreshold);
     expect(evaluation.breaches.map((row) => row.driver.key)).toEqual(['firestore-reads', 'cloud-run-egress', 'cloud-run-instance-time']);
     expect(evaluation.missing).toEqual([]);
   });
 
-  it('keeps a normal early-September day under every threshold', () => {
+  it('keeps synthetic values under every threshold', () => {
     const evaluation = evaluateCostDrivers({
-      'firestore-reads': { value: 800_000 },
-      'firestore-writes': { value: 250_000 },
-      'cloud-run-egress': { value: 0.15 * GIB },
-      'cloud-run-requests': { value: 70_000 },
-      'cloud-run-instance-time': { value: 10_000 },
-      'firebase-storage-egress': { value: 1.2 * GIB },
-      'firestore-storage-growth': { value: 0.4 * GIB, level: 9 * GIB },
+      'firestore-reads': { value: 1 },
+      'firestore-writes': { value: 1 },
+      'cloud-run-egress': { value: 1 },
+      'cloud-run-requests': { value: 1 },
+      'cloud-run-instance-time': { value: 1 },
+      'firebase-storage-egress': { value: 1 },
+      'firestore-storage-growth': { value: 0, level: 1 },
     });
     expect(evaluation.breaches).toEqual([]);
   });
 
   it('reports a driver without a measurement as missing, never as healthy', () => {
-    const { 'firestore-writes': _omitted, ...partial } = incidentDay;
+    const { 'firestore-writes': _omitted, ...partial } = syntheticOverThreshold;
     const evaluation = evaluateCostDrivers(partial);
     expect(evaluation.missing.map((row) => row.driver.key)).toEqual(['firestore-writes']);
   });
@@ -73,19 +71,17 @@ describe('GCP cost monitor: evaluation', () => {
 });
 
 describe('GCP cost monitor: report', () => {
-  it('names the over-threshold drivers, their main contributors and the heaviest services', () => {
-    const report = renderCostReport(evaluateCostDrivers(incidentDay), { windowEnd: '2026-10-01T18:34:36Z' });
-    expect(report).toContain('| Letture Firestore | 75.43 M | 5.00 M | 26.33 |');
-    expect(report).toContain('**Egress internet di Cloud Run, primi contributori:** `getplateauctions` 12.68 GiB');
-    expect(report).toContain('**Servizi Cloud Run con più tempo istanza nelle 24 h:** `getplateauctions`');
-    expect(report).toContain('Storage Firestore attuale: 27.47 GiB.');
-    expect(report).toContain('non distingue l’egress Internet');
-    expect(report).toContain('**1-CAUSA (ipotesi):**');
+  it('keeps measurements and diagnostics out of the public issue body', () => {
+    const report = renderCostReport(evaluateCostDrivers(syntheticOverThreshold));
+    expect(report).toContain('GCP cost monitor alert');
+    expect(report).toContain('measurements and diagnostics are withheld');
+    expect(report).not.toContain('synthetic-private-caller-marker');
+    expect(report).not.toContain('synthetic-private-service-marker');
   });
 
   it('omits the investigation card on a healthy day', () => {
     const report = renderCostReport(evaluateCostDrivers({
-      ...incidentDay,
+      ...syntheticOverThreshold,
       'firestore-reads': { value: 1 },
       'cloud-run-egress': { value: 1 },
       'cloud-run-instance-time': { value: 10_000 },
@@ -95,24 +91,6 @@ describe('GCP cost monitor: report', () => {
     expect(report).not.toContain('più tempo istanza');
   });
 
-  it('reports the top Firestore callers and the unallocated quota', () => {
-    const report = renderCostReport(evaluateCostDrivers(incidentDay), {
-      windowEnd: '2026-10-01T18:34:36Z',
-      totalFirestoreReads: 75_430_000,
-      firestoreAttribution: {
-        callers: [
-          { name: 'workflow=nightly;run=42;script=scan.mjs', value: 70_000_000 },
-          { name: 'workflow=hourly;run=43;script=report.mjs', value: 4_000_000 },
-        ],
-        attributed: 74_000_000,
-      },
-    });
-
-    expect(report).toContain('**Attribuzione letture Firestore, primi 5 chiamanti:**');
-    expect(report).toContain('`workflow=nightly;run=42;script=scan.mjs` 70.00 M');
-    expect(report).toContain('**Quota non attribuita:** 1.43 M (totale 75.43 M meno attribuito 74.00 M)');
-    expect(report).toContain('Cloud Functions o browser');
-  });
 });
 
 describe('GCP cost monitor: series helpers', () => {
@@ -126,41 +104,13 @@ describe('GCP cost monitor: series helpers', () => {
   });
 
   it('measures storage growth per day between the oldest and newest point', () => {
-    const growth = dailyGrowth([{ points: [point(10 * GIB, '2026-09-24T00:00:00Z'), point(17 * GIB, '2026-10-01T00:00:00Z')] }]);
-    expect(growth.level).toBe(17 * GIB);
-    expect(growth.perDay).toBeCloseTo(GIB, 6);
+    const growth = dailyGrowth([{ points: [point(10, '2020-01-01T00:00:00Z'), point(17, '2020-01-08T00:00:00Z')] }]);
+    expect(growth.level).toBe(17);
+    expect(growth.perDay).toBeCloseTo(1, 6);
   });
 });
 
 describe('GCP cost monitor: Cloud Monitoring calls', () => {
-  it('groups the custom Firestore read metric by caller', async () => {
-    const result = await measureFirestoreReadAttribution({
-      token: 't',
-      start: new Date('2026-10-01T00:00:00Z'),
-      end: new Date('2026-10-02T00:00:00Z'),
-      fetchImpl: async (url: string) => {
-        const parsed = new URL(url);
-        expect(parsed.searchParams.get('filter')).toContain(`metric.type="${FIRESTORE_READ_ATTRIBUTION_METRIC}"`);
-        return {
-          ok: true,
-          status: 200,
-          json: async () => ({
-            timeSeries: [
-              { metric: { labels: { caller: 'workflow=one;run=1;script=a.mjs' } }, points: [point(7)] },
-              { metric: { labels: { caller: 'workflow=two;run=2;script=b.mjs' } }, points: [point(3)] },
-            ],
-          }),
-        };
-      },
-    });
-
-    expect(result.attributed).toBe(10);
-    expect(result.callers.map((item) => item.name)).toEqual([
-      'workflow=one;run=1;script=a.mjs',
-      'workflow=two;run=2;script=b.mjs',
-    ]);
-  });
-
   it('pages every driver and scopes request and Storage metrics to their resources', async () => {
     const urls: string[] = [];
     const fetchImpl = async (url: string) => {
@@ -173,17 +123,17 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
         : filter.includes('read_ops_count')
           ? { timeSeries: [series('x', 2_000_000)] }
           : filter.includes('data_and_index_storage_bytes')
-            ? { timeSeries: [{ points: [point(20 * GIB, '2026-09-24T00:00:00Z'), point(27 * GIB, '2026-10-01T00:00:00Z')] }] }
+            ? { timeSeries: [{ points: [point(20, '2020-01-01T00:00:00Z'), point(27, '2020-01-08T00:00:00Z')] }] }
           : filter.includes('request_count')
-            ? { timeSeries: [series('api', 140_000)] }
+            ? { timeSeries: [series('synthetic-service', 14)] }
             : filter.includes('storage.googleapis.com/network/sent_bytes_count')
-              ? { timeSeries: [{ resource: { labels: { bucket_name: 'frontaliere-ticino.firebasestorage.app' } }, points: [point(Math.round(1.2 * GIB))] }] }
-            : { timeSeries: [series('getplateauctions', 10)] };
+              ? { timeSeries: [{ resource: { labels: { bucket_name: 'synthetic-bucket' } }, points: [point(12)] }] }
+            : { timeSeries: [series('synthetic-service', 10)] };
       return { ok: true, status: 200, json: async () => body };
     };
-    const { measurements } = await measureCostDrivers({ fetchImpl: fetchImpl as never, token: 't', now: new Date('2026-10-01T18:00:00Z') });
-    expect(measurements['firestore-reads'].value).toBe(6_000_000);
-    expect(measurements[STORAGE_DRIVER.key].value).toBeCloseTo(GIB, 6);
+    const { measurements } = await measureCostDrivers({ fetchImpl: fetchImpl as never, token: 't', now: new Date('2020-01-08T00:00:00Z') });
+    expect(measurements['firestore-reads'].value).toBe(6);
+    expect(measurements[STORAGE_DRIVER.key].value).toBeCloseTo(1, 6);
     const egressUrl = urls.find((url) => url.includes('sent_bytes_count')) || '';
     expect(new URL(egressUrl).searchParams.get('filter')).toContain('metric.label.kind="internet"');
     const requestUrl = urls.find((url) => url.includes('request_count')) || '';
@@ -191,8 +141,8 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
     expect(new URL(requestUrl).searchParams.getAll('aggregation.groupByFields')).toContain('resource.label.service_name');
     const storageUrl = urls.find((url) => new URL(url).searchParams.get('filter')?.includes('storage.googleapis.com/network/sent_bytes_count')) || '';
     expect(new URL(storageUrl).searchParams.get('filter')).toContain('resource.labels.bucket_name="frontaliere-ticino.firebasestorage.app"');
-    expect(measurements['cloud-run-requests'].value).toBe(140_000);
-    expect(measurements['firebase-storage-egress'].value).toBeCloseTo(1.2 * GIB, 0);
+    expect(measurements['cloud-run-requests'].value).toBe(14);
+    expect(measurements['firebase-storage-egress'].value).toBe(12);
     expect(urls).toHaveLength(COST_DRIVERS.length + 2);
   });
 
@@ -206,7 +156,7 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
   const healthyBody = (url: string) => {
     const filter = new URL(url).searchParams.get('filter') || '';
     return filter.includes('data_and_index_storage_bytes')
-      ? { timeSeries: [{ points: [point(20 * GIB, '2026-09-24T00:00:00Z'), point(21 * GIB, '2026-10-01T00:00:00Z')] }] }
+      ? { timeSeries: [{ points: [point(20, '2020-01-01T00:00:00Z'), point(21, '2020-01-08T00:00:00Z')] }] }
       : { timeSeries: [series('svc', 1)] };
   };
 
@@ -259,17 +209,17 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
     const { measurements } = await measureCostDrivers({ fetchImpl: fetchImpl as never, token: 't' });
     const evaluation = evaluateCostDrivers(measurements);
     expect(evaluation.missing.map((row) => row.driver.key)).toEqual(['firestore-writes']);
-    expect(renderCostReport(evaluation)).toContain('| Scritture Firestore | n/d | 1.00 M | n/d | ~250 k/giorno (09/2026) | MANCANTE |');
+    expect(renderCostReport(evaluation)).toContain('measurements and diagnostics are withheld');
   });
 
   it('keeps request volume below the guard but alarms on excess bucket egress', () => {
     const evaluation = evaluateCostDrivers({
-      ...incidentDay,
+      ...syntheticOverThreshold,
       'firestore-reads': { value: 1 },
       'cloud-run-egress': { value: 1 },
       'cloud-run-instance-time': { value: 10_000 },
       'cloud-run-requests': { value: 190_000 },
-      'firebase-storage-egress': { value: 2.1 * GIB, breakdown: [{ name: 'frontaliere-ticino.firebasestorage.app', value: 2.1 * GIB }] },
+      'firebase-storage-egress': { value: 2.1 * GIB, breakdown: [{ name: 'synthetic-bucket', value: 2.1 * GIB }] },
     });
     expect(evaluation.breaches.map((row) => row.driver.key)).toEqual(['firebase-storage-egress']);
   });
@@ -278,7 +228,7 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
     const fetchImpl = async (url: string) => ({
       ok: true,
       status: 200,
-      json: async () => (url.includes('data_and_index_storage_bytes') ? { timeSeries: [{ points: [point(27 * GIB)] }] } : healthyBody(url)),
+      json: async () => (url.includes('data_and_index_storage_bytes') ? { timeSeries: [{ points: [point(27)] }] } : healthyBody(url)),
     });
     const { measurements } = await measureCostDrivers({ fetchImpl: fetchImpl as never, token: 't' });
     expect(evaluateCostDrivers(measurements).missing.map((row) => row.driver.key)).toEqual([STORAGE_DRIVER.key]);
@@ -287,7 +237,7 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
   it('reports a point without a readable value as missing', () => {
     expect(Number.isNaN(sumSeries([{ points: [{ value: {} }] }]))).toBe(true);
     expect(Number.isNaN(sumSeries([]))).toBe(true);
-    expect(evaluateCostDrivers({ ...incidentDay, 'firestore-reads': { value: sumSeries([{ points: [{ value: { int64Value: 'x' } }] }]) } })
+    expect(evaluateCostDrivers({ ...syntheticOverThreshold, 'firestore-reads': { value: sumSeries([{ points: [{ value: { int64Value: 'x' } }] }]) } })
       .missing.map((row) => row.driver.key)).toEqual(['firestore-reads']);
   });
 
@@ -300,7 +250,7 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
 describe('GCP cost monitor: thresholds apply to the project total', () => {
   // The bill counts the total: two services at 3 GiB cost as much as one at 6.
   const egress = (...gib: number[]) => evaluateCostDrivers({
-    ...incidentDay,
+    ...syntheticOverThreshold,
     'firestore-reads': { value: 1 },
     'cloud-run-egress': { value: gib.reduce((sum, value) => sum + value, 0) * GIB },
     'cloud-run-instance-time': { value: 10_000 },

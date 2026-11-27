@@ -5,14 +5,8 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  * (Cloud Scheduler, see functions/src/gcpCostMonitorDispatch.js) over a
  * rolling 24-hour window.
  *
- * Why: in September 2026 Firestore reads went from 0.3-1 M a day to 75-90 M
- * (getPlateAuctions rebuilt a 17'613-row snapshot per request for a crawler),
- * 225 M reads and 75.61 CHF on the "Cloud Firestore Read Ops Zurich" SKU, and
- * nobody noticed: the only alarm was the 10 CHF billing budget, whose email
- * goes to the billing-account admins. The project's alarm channel is a GitHub
- * issue, so this monitor reads Cloud Monitoring for the last 24 hours and
- * opens (or comments) one stable-title issue when a driver is over its daily
- * threshold, and resolves it once every driver is back under.
+ * The project's alert channel is a stable-title GitHub issue. Public output
+ * contains alert status only; usage, thresholds and cost estimates stay private.
  *
  * Auth: FIREBASE_SERVICE_ACCOUNT_JSON (or GOOGLE_APPLICATION_CREDENTIALS
  * pointing at the same JSON), scope monitoring.read. Missing credentials fail
@@ -20,13 +14,12 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  *
  * Usage: node scripts/monitor-gcp-costs.mjs [--dry-run]
  */
-import { appendFileSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { getServiceAccountAccessToken } from './lib/google-service-account-token.mjs';
 import { fetchWithRetry } from './lib/transient-fetch.mjs';
 
 export const GCP_COST_ISSUE_TITLE = 'Costi GCP sopra la soglia giornaliera (monitor-gcp-costs)';
 export const GCP_PROJECT_ID = 'frontaliere-ticino';
-export const FIRESTORE_READ_ATTRIBUTION_METRIC = 'custom.googleapis.com/firestore/reads_by_caller';
 const MONITORING_SCOPE = 'https://www.googleapis.com/auth/monitoring.read';
 const MONITORING_API = 'https://monitoring.googleapis.com/v3';
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -36,13 +29,8 @@ const MONITORING_RETRIES = 1;
 const MONITORING_RETRY_BASE_MS = 1_000;
 
 /**
- * Thresholds sit above the current normal day and below the incidents they
- * guard against, so one bad night opens the issue.
- * Every threshold applies to the PROJECT TOTAL, because that is what the bill
- * counts: two services at 3 GiB of egress cost as much as one at 6 GiB.
- * `breakdownBy` only names the main contributors in the report.
- * Prices are list prices in CHF (Billing Catalog, europe-west6) and only size
- * the estimate in the report: the invoice stays the authority.
+ * Thresholds apply to project totals so the alert tracks aggregate usage.
+ * `breakdownBy` groups usage internally by its provider resource.
  */
 export const COST_DRIVERS = [
   {
@@ -51,8 +39,6 @@ export const COST_DRIVERS = [
     metric: 'firestore.googleapis.com/document/read_ops_count',
     threshold: 5_000_000,
     unit: 'count',
-    chfPerUnit: 0.349 / 1e6,
-    normal: '0,3-1 M/giorno (1-12/09/2026)',
   },
   {
     key: 'firestore-writes',
@@ -60,8 +46,6 @@ export const COST_DRIVERS = [
     metric: 'firestore.googleapis.com/document/write_ops_count',
     threshold: 1_000_000,
     unit: 'count',
-    chfPerUnit: 1.048 / 1e6,
-    normal: '~250 k/giorno (09/2026)',
   },
   {
     key: 'cloud-run-egress',
@@ -71,8 +55,6 @@ export const COST_DRIVERS = [
     breakdownBy: 'resource.label.service_name',
     threshold: 5 * GIB,
     unit: 'bytes',
-    chfPerUnit: 0.087 / GIB,
-    normal: '~0,15 GiB/giorno senza getPlateAuctions (09/2026)',
   },
   {
     key: 'cloud-run-requests',
@@ -83,8 +65,6 @@ export const COST_DRIVERS = [
     threshold: 200_000,
     unit: 'count',
     // Diagnostic volume only; billed Cloud Run use is counted by instance time/egress.
-    chfPerUnit: 0,
-    normal: '~70 k/giorno (10/2026); ~115-140 k/giorno oggi',
   },
   {
     key: 'cloud-run-instance-time',
@@ -93,8 +73,6 @@ export const COST_DRIVERS = [
     breakdownBy: 'resource.label.service_name',
     threshold: 20_000,
     unit: 'seconds',
-    chfPerUnit: 2.94e-5,
-    normal: '~10.000 s/giorno prima dell\'incidente',
   },
   {
     key: 'firebase-storage-egress',
@@ -105,15 +83,12 @@ export const COST_DRIVERS = [
     threshold: 2 * GIB,
     unit: 'bytes',
     // Directional only: this metric includes same-location traffic as well as internet egress.
-    chfPerUnit: 0.098 / GIB,
-    normal: '~1,2 GiB/giorno (~35 GiB/30 giorni)',
   },
 ];
 
 /**
- * Storage is a level, not a daily flow: the guard is on its growth. It grew
- * ~1.3 GiB/day in September 2026, a known slow creep reported on every run;
- * the threshold catches a new runaway on top of it.
+ * Storage is a level, not a daily flow: the guard measures growth rather than
+ * total size to avoid repeating alerts for an existing large collection.
  */
 export const STORAGE_DRIVER = {
   key: 'firestore-storage-growth',
@@ -121,8 +96,6 @@ export const STORAGE_DRIVER = {
   metric: 'firestore.googleapis.com/storage/data_and_index_storage_bytes',
   threshold: 2 * GIB,
   unit: 'bytes/day',
-  chfPerUnit: 0.175 / GIB,
-  normal: '~1,3 GiB/giorno (09/2026), da 9,1 a 27,5 GiB',
 };
 
 // Unreadable telemetry is NaN, never zero: a zero would read as a healthy day
@@ -185,13 +158,12 @@ export function evaluateCostDrivers(measurements, drivers = [...COST_DRIVERS, ST
   const rows = drivers.map((driver) => {
     const measured = measurements[driver.key];
     if (!measured || !Number.isFinite(measured.value)) {
-      return { driver, status: 'missing', value: null, chf: null, breakdown: [] };
+      return { driver, status: 'missing', value: null, breakdown: [] };
     }
     return {
       driver,
       status: measured.value > driver.threshold ? 'over' : 'ok',
       value: measured.value,
-      chf: Math.max(0, measured.value) * driver.chfPerUnit,
       breakdown: measured.breakdown || [],
       level: measured.level,
     };
@@ -203,82 +175,17 @@ export function evaluateCostDrivers(measurements, drivers = [...COST_DRIVERS, ST
   };
 }
 
-export function formatAmount(value, unit) {
-  if (value === null || value === undefined) return 'n/d';
-  if (unit === 'bytes' || unit === 'bytes/day') return `${(value / GIB).toFixed(2)} GiB${unit === 'bytes/day' ? '/giorno' : ''}`;
-  if (unit === 'seconds') return `${Math.round(value).toLocaleString('it-CH')} s`;
-  if (value >= 1e6) return `${(value / 1e6).toFixed(2)} M`;
-  return Math.round(value).toLocaleString('it-CH');
-}
-
-function markdownSafe(value) {
-  return String(value).replace(/[|`\r\n]/g, '_');
-}
-
-function renderFirestoreReadAttribution(lines, evaluation, { firestoreAttribution, totalFirestoreReads } = {}) {
-  const readsRow = evaluation.rows.find((row) => row.driver.key === 'firestore-reads');
-  if (readsRow?.status !== 'over') return;
-
-  const total = Number.isFinite(totalFirestoreReads) ? totalFirestoreReads : readsRow.value;
-  const attributed = Number.isFinite(firestoreAttribution?.attributed) ? firestoreAttribution.attributed : 0;
-  const unallocated = Math.max(0, total - attributed);
-  const callers = firestoreAttribution?.callers || [];
-  const callerText = callers.length
-    ? callers.map((item) => `\`${markdownSafe(item.name)}\` ${formatAmount(item.value, 'count')}`).join(', ')
-    : 'nessun chiamante nella metrica';
-  lines.push(
-    '',
-    `**Attribuzione letture Firestore, primi 5 chiamanti:** ${callerText}.`,
-    `**Quota non attribuita:** ${formatAmount(unallocated, 'count')} (totale ${formatAmount(total, 'count')} meno attribuito ${formatAmount(attributed, 'count')}); comprende chiamanti fuori contabilità, per esempio Cloud Functions o browser.`,
-  );
-  if (firestoreAttribution?.unavailable) {
-    lines.push('La metrica custom non era leggibile in questa finestra: tutta la quota resta quindi non attribuita.');
-  }
-}
-
 /** Markdown report used for the step summary and as the issue body. */
-export function renderCostReport(evaluation, {
-  windowEnd,
-  runUrl,
-  firestoreAttribution,
-  totalFirestoreReads,
-} = {}) {
+export function renderCostReport(evaluation, { runUrl } = {}) {
+  const alert = evaluation.breaches.length > 0;
   const lines = [
-    `Finestra: 24 h fino a ${windowEnd || 'adesso'} (Cloud Monitoring, progetto \`${GCP_PROJECT_ID}\`).`,
+    alert ? '## GCP cost monitor alert' : '## GCP cost monitor status',
     '',
-    '| Voce | Ultime 24 h | Soglia | Stima CHF | Normale | Stato |',
-    '|---|---|---|---|---|---|',
+    alert
+      ? 'One or more cost thresholds were exceeded. Billing measurements and diagnostics are withheld from this public issue.'
+      : 'The monitor completed. Billing measurements and diagnostics are withheld from public output.',
+    'Review underlying measurements only in an authorized private Google Cloud session.',
   ];
-  for (const row of evaluation.rows) {
-    const { driver } = row;
-    lines.push(`| ${driver.label} | ${formatAmount(row.value, driver.unit)} | ${formatAmount(driver.threshold, driver.unit)} | ${row.chf === null ? 'n/d' : row.chf.toFixed(2)} | ${driver.normal} | ${row.status === 'over' ? 'SOPRA' : row.status === 'missing' ? 'MANCANTE' : 'ok'} |`);
-  }
-  if (evaluation.rows.some((row) => row.driver.key === 'firebase-storage-egress')) {
-    lines.push('', 'La stima CHF del bucket è indicativa: `network/sent_bytes_count` misura tutti i byte inviati e non distingue l’egress Internet dal traffico Google Cloud nella stessa località.');
-  }
-  const storage = evaluation.rows.find((row) => row.driver.key === STORAGE_DRIVER.key);
-  if (storage?.level !== undefined) lines.push('', `Storage Firestore attuale: ${formatAmount(storage.level, 'bytes')}.`);
-  for (const row of evaluation.breaches) {
-    if (!row.breakdown.length) continue;
-    lines.push('', `**${row.driver.label}, primi contributori:** ${row.breakdown.map((item) => `\`${item.name}\` ${formatAmount(item.value, row.driver.unit)}`).join(', ')}`);
-  }
-  renderFirestoreReadAttribution(lines, evaluation, { firestoreAttribution, totalFirestoreReads });
-
-  // Show instance-time contributors alongside any over-threshold driver:
-  // request volume explains calls, while instance time explains work per call.
-  const instanceTime = evaluation.rows.find((row) => row.driver.key === 'cloud-run-instance-time');
-  if (instanceTime?.breakdown.length && evaluation.breaches.length) {
-    lines.push('', `**Servizi Cloud Run con più tempo istanza nelle 24 h:** ${instanceTime.breakdown.map((item) => `\`${item.name}\` ${formatAmount(item.value, 'seconds')}`).join(', ')}`);
-  }
-  if (evaluation.breaches.length) {
-    lines.push(
-      '',
-      '**1-CAUSA (ipotesi):** richieste Cloud Run in aumento, lavoro più pesante per richiesta, letture Firestore non attribuite o download ripetuti dal bucket Firebase Storage. I breakdown per servizio e bucket aiutano a isolare la curva; i Data Access audit log Firestore sono spenti.',
-      `**3-METRICA:** soglie e valori nella tabella. Comando: \`node scripts/monitor-gcp-costs.mjs --dry-run\` con \`FIREBASE_SERVICE_ACCOUNT_JSON\`.`,
-      '**4-OSSERVATORE:** questo monitor gira ogni 6 ore e chiude la issue da solo quando tutte le voci rientrano.',
-      '**Precedente:** settembre 2026, `getPlateAuctions` da 75-90 M letture/giorno (PR #10800).',
-    );
-  }
   if (runUrl) lines.push('', `Run: ${runUrl}`);
   return lines.join('\n');
 }
@@ -368,24 +275,6 @@ async function listTimeSeries(fetchImpl, token, { metric, filter, start, end, al
   return series;
 }
 
-/** Read script-side Firestore attribution only when the total reads breach. */
-export async function measureFirestoreReadAttribution({ fetchImpl = fetch, token, start, end, retryOptions }) {
-  const series = await listTimeSeries(fetchImpl, token, {
-    metric: FIRESTORE_READ_ATTRIBUTION_METRIC,
-    start,
-    end,
-    alignmentSeconds: DAY_MS / 1000,
-    aligner: 'ALIGN_SUM',
-    reducer: 'REDUCE_SUM',
-    groupBy: ['metric.label.caller'],
-  }, retryOptions);
-  const attributed = sumSeries(series);
-  return {
-    callers: breakdownSeries(series, 'metric.label.caller', 5),
-    attributed: Number.isFinite(attributed) ? attributed : 0,
-  };
-}
-
 /** Measure every driver over the 24 hours ending at `now`. */
 export async function measureCostDrivers({ fetchImpl = fetch, token, now = new Date(), retryOptions }) {
   const end = new Date(now.getTime());
@@ -425,38 +314,18 @@ async function main(argv = process.argv.slice(2)) {
   const credentials = await readCredentials();
   if (!credentials) throw new Error('FIREBASE_SERVICE_ACCOUNT_JSON is missing or is not a service account JSON');
   const token = await getServiceAccountAccessToken(credentials, MONITORING_SCOPE);
-  const { measurements, windowStart, windowEnd } = await measureCostDrivers({ token });
+  const { measurements } = await measureCostDrivers({ token });
   const evaluation = evaluateCostDrivers(measurements);
-  let firestoreAttribution = null;
-  const firestoreReads = evaluation.rows.find((row) => row.driver.key === 'firestore-reads');
-  if (firestoreReads?.status === 'over') {
-    try {
-      firestoreAttribution = await measureFirestoreReadAttribution({
-        token,
-        start: new Date(windowStart),
-        end: new Date(windowEnd),
-      });
-    } catch (error) {
-      console.warn(`[monitor-gcp-costs] Firestore caller metric unavailable: ${error instanceof Error ? error.message : String(error)}`);
-      firestoreAttribution = { callers: [], attributed: 0, unavailable: true };
-    }
-  }
   const runUrl = process.env.GITHUB_RUN_ID
     ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
     : undefined;
-  const report = renderCostReport(evaluation, {
-    windowEnd,
-    runUrl,
-    firestoreAttribution,
-    totalFirestoreReads: firestoreReads?.value,
-  });
+  const report = renderCostReport(evaluation, { runUrl });
   console.log(report);
-  if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Costi GCP\n\n${report}\n`);
   if (evaluation.missing.length) {
-    throw new Error(`Cost drivers without a measurement: ${evaluation.missing.map((row) => row.driver.key).join(', ')}`);
+    throw new Error('Cost monitor could not measure one or more drivers');
   }
   if (dryRun) {
-    console.log(`[monitor-gcp-costs] dry run: ${evaluation.breaches.length} driver(s) over threshold, no issue written`);
+    console.log('[monitor-gcp-costs] dry run completed; no issue written');
     return;
   }
   const { createGithubIssue, resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
@@ -468,8 +337,8 @@ async function main(argv = process.argv.slice(2)) {
 }
 
 if (isInvokedDirectly(import.meta.url)) {
-  main().catch((error) => {
-    console.error(`[monitor-gcp-costs] ${error instanceof Error ? error.message : String(error)}`);
+  main().catch(() => {
+    console.error('[monitor-gcp-costs] measurement failed; details withheld');
     process.exit(1);
   });
 }
