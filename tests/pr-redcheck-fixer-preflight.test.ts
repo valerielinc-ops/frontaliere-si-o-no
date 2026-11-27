@@ -65,7 +65,8 @@ function runPreflight(
     runPrHeadSha,
     runStatus = 'completed',
     runConclusion = 'failure',
-  }: { dispatch?: boolean; failedRuns?: string; runId?: string; latestMode?: Mode; runHeadSha?: string; runPrHeadSha?: string; runStatus?: string; runConclusion?: string | null } = {},
+    expectedHeadSha = '',
+  }: { dispatch?: boolean; failedRuns?: string; runId?: string; latestMode?: Mode; runHeadSha?: string; runPrHeadSha?: string; runStatus?: string; runConclusion?: string | null; expectedHeadSha?: string } = {},
 ) {
   const prHead = dispatch ? DISPATCH_HEAD : 'headsha';
   const selectedRunHeadSha = runHeadSha ?? prHead;
@@ -172,6 +173,7 @@ exit 1
       REPO: 'owner/repo',
       DISPATCH_PR: dispatch ? '42' : '',
       DISPATCH_RUN_ID: runId,
+      DISPATCH_EXPECTED_HEAD_SHA: expectedHeadSha,
       PR_HEAD_SHA: prHead,
       RUN_HEAD_SHA: selectedRunHeadSha,
       RUN_PR_HEAD_SHA: selectedRunPrHeadSha,
@@ -192,6 +194,26 @@ exit 1
 }
 
 describe('pr-redcheck-fixer preflight classifies the consolidated tests job', () => {
+  it('skips the fixer when the dispatcher SHA no longer matches the current PR head', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('review-gate', {
+      dispatch: true,
+      expectedHeadSha: 'f'.repeat(40),
+    });
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(result.stdout).toMatch(/target obsoleto/);
+    expect(githubOutput).toContain('actionable=false');
+    expect(ghCalls).not.toMatch(/check-runs|pr (comment|edit)/);
+  });
+
+  it('rejects a malformed expected dispatcher SHA before the fixer can run', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('review-gate', {
+      expectedHeadSha: 'not-a-sha',
+    });
+    expect(result.status).not.toBe(0);
+    expect(githubOutput).not.toContain('actionable=true');
+    expect(ghCalls).not.toMatch(/check-runs|pr (comment|edit)/);
+  });
+
   it.each([
     ['current all-events body contract', 'body-contract'],
     ['origin/main pull-requests body contract', 'body-contract-compat'],
