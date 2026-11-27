@@ -1,16 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-11-27T09:24:02.354Z",
+  "generatedAt": "2026-11-27T21:25:28.408Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 2500,
-  "avgDurationMs": 2500,
+  "durationMs": 2996,
+  "avgDurationMs": 2996,
   "durationHistory": [
-    2500
+    2996
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "2026-12-27T09:23:45.233Z",
+      "validThrough": "2026-12-27T21:25:14.357Z",
       "benefits": [
         "Being part of a company where innovation, collaboration, and impact aren’t just values — they’re how we work every day",
         "Partner with teams across disciplines, at the forefront of oncology and anti-infective development",
@@ -58,7 +58,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-27T09:23:45.233Z",
+      "crawledAt": "2026-11-27T21:25:14.357Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -89,7 +89,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "2026-12-27T09:23:45.233Z",
+      "validThrough": "2026-12-27T21:25:14.357Z",
       "benefits": [
         "International, highly dynamic environment with a long-term vision.",
         "Cross-functional collaboration at the forefront of the most advanced scientific developments in oncology and anti-bacterial industry",
@@ -111,7 +111,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-27T09:23:45.233Z",
+      "crawledAt": "2026-11-27T21:25:14.357Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -142,7 +142,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "2026-12-27T09:23:45.233Z",
+      "validThrough": "2026-12-27T21:25:14.357Z",
       "benefits": [],
       "id": "debiopharm-60b50584043a",
       "salaryMin": 86500,
@@ -157,7 +157,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-27T09:23:45.233Z",
+      "crawledAt": "2026-11-27T21:25:14.357Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -188,7 +188,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "2026-12-27T09:23:45.233Z",
+      "validThrough": "2026-12-27T21:25:14.357Z",
       "benefits": [],
       "id": "debiopharm-da23c8b1f25f",
       "salaryMin": 68000,
@@ -203,7 +203,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-27T09:23:45.233Z",
+      "crawledAt": "2026-11-27T21:25:14.357Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -234,7 +234,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "2026-12-27T09:23:45.233Z",
+      "validThrough": "2026-12-27T21:25:14.357Z",
       "benefits": [
         "Being part of a company where innovation, collaboration, and impact aren’t just values — they’re how we work every day",
         "Partner with teams across disciplines, at the forefront of oncology and anti-infective development",
@@ -255,7 +255,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-27T09:23:45.233Z",
+      "crawledAt": "2026-11-27T21:25:14.357Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -266,5 +266,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

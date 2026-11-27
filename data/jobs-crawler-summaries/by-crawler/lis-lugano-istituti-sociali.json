@@ -1,74 +1,22 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-11-27T09:24:50.255Z",
+  "generatedAt": "2026-11-27T21:23:13.235Z",
   "total": 14,
   "discovered": 14,
   "parsed": 14,
   "lastFetchOutcome": "ok",
   "abortKind": null,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 76253,
-  "avgDurationMs": 76253,
+  "durationMs": 60903,
+  "avgDurationMs": 60903,
   "durationHistory": [
-    76253
+    60903
   ],
-  "newJobs": [
-    {
-      "title": "Caposezione Risorse Umane",
-      "company": "LIS – Lugano Istituti Sociali",
-      "companyKey": "lis-lugano-istituti-sociali",
-      "companyDomain": "lugano-lis.ch",
-      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=51-caposezione-risorse-umane-pregassona&language=it",
-      "slug": "caposezione-risorse-umane-lis-lugano-istituti-sociali-pregassona",
-      "location": "Pregassona",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6963",
-      "streetAddress": "Via alla Bozzoreda 15",
-      "crawledAt": "2026-11-27T09:23:15.074Z",
-      "datePosted": "2026-11-27",
-      "postedDate": "2026-11-27",
-      "postingDateSource": "reported",
-      "validThrough": "2026-12-20T23:59:59.999Z",
-      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Sanità",
-      "source": "arca24",
-      "salaryMin": 99591,
-      "salaryMax": 136102,
-      "salaryCurrency": "CHF",
-      "salaryClass": "19",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "currency": "CHF",
-      "salaryExtraction": {
-        "strategyVersion": "lis_salary_v2",
-        "textHash": "9ec59d27657d806ea681",
-        "source": "lis_regex_text",
-        "confidence": 0.98,
-        "extractedAt": "2026-11-27T09:24:29.332Z"
-      },
-      "id": "lis-lugano-istituti-sociali-cb9620d95274",
-      "salarySource": "reported",
-      "addressLocality": "Pregassona",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=51-caposezione-risorse-umane-pregassona&language=it",
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-11-27T09:23:15.074Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -91,7 +39,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-11-27T09:23:25.857Z",
+      "crawledAt": "2026-11-27T21:22:07.985Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -143,7 +91,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-11-27T09:23:24.656Z",
+      "crawledAt": "2026-11-27T21:22:06.794Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -187,7 +135,7 @@
       "country": "CH",
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
-      "crawledAt": "2026-11-27T09:23:16.272Z",
+      "crawledAt": "2026-11-27T21:21:58.516Z",
       "datePosted": "2026-11-20",
       "postedDate": "2026-11-20",
       "postingDateSource": "reported",
@@ -225,6 +173,57 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "title": "Caposezione Risorse Umane",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=51-caposezione-risorse-umane-pregassona&language=it",
+      "slug": "caposezione-risorse-umane-lis-lugano-istituti-sociali-pregassona",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "crawledAt": "2026-11-27T21:21:57.341Z",
+      "datePosted": "2026-11-27",
+      "postedDate": "2026-11-27",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-20T23:59:59.999Z",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Sanità",
+      "source": "arca24",
+      "salaryMin": 115340,
+      "salaryMax": 136102,
+      "salaryCurrency": "CHF",
+      "salaryClass": "19",
+      "sourceLang": "it",
+      "currency": "CHF",
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "9ec59d27657d806ea681",
+        "source": "lis_regex_text",
+        "confidence": 0.98,
+        "extractedAt": "2026-11-27T09:24:29.332Z"
+      },
+      "id": "lis-lugano-istituti-sociali-cb9620d95274",
+      "salarySource": "reported",
+      "addressLocality": "Pregassona",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=51-caposezione-risorse-umane-pregassona&language=it",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-27T09:23:15.074Z",
+      "sourceIdentity": "url:https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=51-caposezione-risorse-umane-pregassona&language=it",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ],
   "removedJobs": [],
@@ -250,7 +249,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-11-27T09:23:30.651Z",
+      "crawledAt": "2026-11-27T21:22:12.695Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -302,7 +301,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-11-27T09:23:29.471Z",
+      "crawledAt": "2026-11-27T21:22:11.513Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -354,7 +353,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-11-27T09:23:28.269Z",
+      "crawledAt": "2026-11-27T21:22:10.342Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -406,7 +405,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-11-27T09:23:27.063Z",
+      "crawledAt": "2026-11-27T21:22:09.163Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -458,7 +457,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-11-27T09:23:23.467Z",
+      "crawledAt": "2026-11-27T21:22:05.632Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -510,7 +509,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-11-27T09:23:22.269Z",
+      "crawledAt": "2026-11-27T21:22:04.439Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -562,7 +561,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-11-27T09:23:21.054Z",
+      "crawledAt": "2026-11-27T21:22:03.267Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -614,7 +613,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-11-27T09:23:19.850Z",
+      "crawledAt": "2026-11-27T21:22:02.085Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -666,7 +665,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-11-27T09:23:18.641Z",
+      "crawledAt": "2026-11-27T21:22:00.891Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -718,7 +717,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-11-27T09:23:17.452Z",
+      "crawledAt": "2026-11-27T21:21:59.712Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -750,5 +749,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

@@ -992,22 +992,23 @@
     },
     "slugByLocale": {
       "it": "client-consulente-panerai-zurich",
-      "en": "client-advisor-richemont-zurich",
+      "en": "client-advisor-richemont-zurich-afc8faed",
       "de": "client-berater-panerai-zurich",
       "fr": "client-conseiller-panerai-zurich"
     },
     "sector": "Lusso / Orologeria",
     "expiredAt": "2026-11-22T13:04:50.766Z",
     "previousSlugs": [
-      "client-advisor-richemont-zurich",
       "client-consulente-iwc-zurich",
       "client-berater-iwc-zurich",
-      "client-conseiller-iwc-zurich"
+      "client-conseiller-iwc-zurich",
+      "client-advisor-richemont-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "client-advisor-richemont-zurich",
-        "client-consulente-iwc-zurich"
+        "client-advisor-richemont-zurich-afc8faed",
+        "client-consulente-iwc-zurich",
+        "client-advisor-richemont-zurich"
       ],
       "de": [
         "client-advisor-richemont-zurich",
@@ -1016,6 +1017,9 @@
       "fr": [
         "client-advisor-richemont-zurich",
         "client-conseiller-iwc-zurich"
+      ],
+      "en": [
+        "client-advisor-richemont-zurich-afc8faed"
       ]
     },
     "postalCode": "8001",
@@ -1028,13 +1032,16 @@
     "canton": "ZH",
     "previousSlugCantonByLocale": {
       "it": {
-        "client-advisor-richemont-zurich": "ZH"
+        "client-advisor-richemont-zurich-afc8faed": "ZH"
       },
       "de": {
         "client-advisor-richemont-zurich": "ZH"
       },
       "fr": {
         "client-advisor-richemont-zurich": "ZH"
+      },
+      "en": {
+        "client-advisor-richemont-zurich-afc8faed": "ZH"
       }
     }
   },
@@ -9065,7 +9072,6 @@
     "expiredAt": "2026-10-29T09:40:14.383Z",
     "previousSlugs": [
       "test-management-intern-richemont-meyrin",
-      "program-management-tirocinante-richemont-meyrin",
       "program-management-intern-richemont-meyrin-3d90a8bb",
       "programmmanagement-praktikant-richemont-meyrin",
       "stage-di-gestione-del-programma-richemont-meyrin",
@@ -9083,12 +9089,15 @@
       "tirocinante-in-program-management-richemont-meyrin",
       "program-management-intern-richemont-meyrin-bc490483",
       "program-management-intern-richemont-meyrin-11b3db02",
-      "program-management-intern-richemont-meyrin"
+      "program-management-tirocinante-richemont-meyrin",
+      "program-management-intern-richemont-meyrin",
+      "program-management-tirocinante-richemont-meyrin-42e6452d",
+      "program-management-intern-richemont-meyrin-3bfd9d72"
     ],
     "previousSlugsByLocale": {
       "it": [
         "test-management-intern-richemont-meyrin",
-        "program-management-tirocinante-richemont-meyrin",
+        "program-management-tirocinante-richemont-meyrin-42e6452d",
         "program-management-intern-richemont-meyrin-3d90a8bb",
         "programmmanagement-praktikant-richemont-meyrin",
         "stage-di-gestione-del-programma-richemont-meyrin",
@@ -9106,7 +9115,18 @@
         "tirocinante-in-program-management-richemont-meyrin",
         "program-management-intern-richemont-meyrin-bc490483",
         "program-management-intern-richemont-meyrin-11b3db02",
+        "program-management-intern-richemont-meyrin-3bfd9d72",
+        "program-management-tirocinante-richemont-meyrin",
         "program-management-intern-richemont-meyrin"
+      ],
+      "en": [
+        "program-management-tirocinante-richemont-meyrin"
+      ],
+      "de": [
+        "program-management-tirocinante-richemont-meyrin"
+      ],
+      "fr": [
+        "program-management-tirocinante-richemont-meyrin"
       ]
     },
     "postalCode": "1217",
@@ -21335,7 +21355,8 @@
       "it-procurement-intern-richemont-meyrin-54654f85",
       "technology-procurement-tirocinante-richemont-meyrin-302b65d8",
       "technology-procurement-intern-richemont-meyrin-6d47c1cd",
-      "technology-procurement-praktikant-richemont-meyrin-ecefd60c"
+      "technology-procurement-praktikant-richemont-meyrin-ecefd60c",
+      "technology-procurement-tirocinante-richemont-meyrin"
     ],
     "previousSlugCantonByLocale": {
       "it": {

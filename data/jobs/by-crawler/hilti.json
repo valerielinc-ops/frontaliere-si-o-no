@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hilti",
-  "assembledAt": "2026-11-27T09:22:14.191Z",
-  "runId": "45971584184",
+  "assembledAt": "2026-11-27T21:20:57.359Z",
+  "runId": "46068595992",
   "jobs": [
     {
       "id": "hilti-16758-en",
@@ -34,7 +34,7 @@
       "url": "https://careers.hilti.group/en/jobs/16758-en/intern-quality-management-technical-analysis-data-scientist-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:50.230Z",
+      "crawledAt": "2026-11-27T21:20:44.138Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -83,10 +83,8 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:17:50.230Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/16758-en/intern-quality-management-technical-analysis-data-scientist-m-f-x",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T21:20:44.138Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-19175-en",
@@ -119,7 +117,7 @@
       "url": "https://careers.hilti.group/en/jobs/19175-en/intern-it-controlling-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:50.229Z",
+      "crawledAt": "2026-11-27T21:20:44.134Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -168,89 +166,8 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:17:50.229Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/19175-en/intern-it-controlling-m-f-x",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "hilti-14822-en",
-      "slug": "stagista-data-ai-product-owner-m-f-x-hilti-buchs",
-      "slugByLocale": {
-        "it": "stagista-data-ai-product-owner-m-f-x-hilti-buchs",
-        "en": "intern-data-ai-product-owner-m-f-x-hilti-ch",
-        "de": "praktikant-data-ai-product-owner-m-w-d-hilti-buchs",
-        "fr": "stagiaire-data-ai-product-owner-h-f-x-hilti-buchs"
-      },
-      "company": "Hilti",
-      "companyKey": "hilti",
-      "companyDomain": "hilti.group",
-      "title": "Intern – Data & AI Product Owner (m/f/x)",
-      "titleByLocale": {
-        "it": "Tirocinante – Data & AI Product Owner (m/f/x)",
-        "en": "Intern – Data & AI Product Owner (m/f/x)",
-        "de": "Praktikant – Data & AI Product Owner (m/f/x)",
-        "fr": "Stagiaire – Data & AI Product Owner (m/f/x)"
-      },
-      "description": "What's the role?\n\nThe Data & AI Product Owner team is part of the Analytics Center of Excellence at Hilti and plays a key role in unlocking the value of our data for Hilti and our customers. Working closely together with business functions, we help shape the vision and roadmap for data and AI solutions across different business areas and actively develop the solution portfolio at Hilti. As a Data & AI Product Owner Intern you will get the opportunity to shape data and AI products around real business needs, working on some of the most relevant use cases in a large organization that is leading the digital transformation in the construction sector.\n\nThis is a full‑time internship position. Start date is in February 2027. Duration for at least 6 months. No travel is foreseen for this position.\n\nWhat You’ll Bring\n\n• Enrolled in a Master’s or PhD program in Information Systems, Business Analytics, Data Science, Digital Business or a related field throughout the full internship duration\n\n• Ability to translate business needs into actionable requirements for data and AI solutions\n\n• Understanding of modern data, AI and cloud technologies in a business context\n\n• Ownership mindset with the ability to influence stakeholders without formal authority\n\nLegal Notice\n\nFor further questions, please feel free to contact Jessica Michels (AI & Analytics Business Solution Owner) or Kimberly Caetano (Talent Acquisition Intern) at InternshipHQ.HiltiTeam@hilti.com.\n\nFor non-EU/ EFTA citizens: Please state your eligibility status to work in Switzerland/ Liechtenstein and note that if you do not own a valid Swiss/ Liechtenstein work permit, Hilti cannot guarantee your final employment due to authority regulations.\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together.\n\nWhy Hilti\n\nHilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.\n\nAt our global headquarters in Schaan, Nendeln, Buchs, and nearby hubs, we shape Hilti’s digital strategy and enterprise platforms worldwide. Our cross-functional teams in product IT, data & analytics, cybersecurity, ERP, and digital customer platforms work side-by-side with business leaders to design, build, and run solutions at global scale. HQ offers a collaborative environment where architecture decisions, platform reliability, and secure-by-design engineering translate into real impact for our customers and teams.",
-      "descriptionByLocale": {
-        "it": "Qual e' il ruolo?\n\nIl team Data & AI Product Owner fa parte del Centro di Eccellenza di Analytics di Hilti e svolge un ruolo chiave nello sbloccare il valore dei nostri dati per Hilti e i nostri clienti. Lavorando a stretto contatto con le funzioni aziendali, aiutiamo a modellare la visione e la roadmap per i dati e le soluzioni AI in diversi settori aziendali e a sviluppare attivamente il portafoglio soluzioni di Hilti. In qualità di Data & AI Visiting Product Owner Intern avrai l'opportunità di lavorare sui più rilevanti casi di utilizzo basati su AI presenti in una grande organizzazione che sta conducendo la trasformazione digitale nel settore delle costruzioni.\n\nQuesta è una posizione di tirocinio a tempo pieno. La data di inizio è flessibile. Durata per almeno 6 mesi. Nessun viaggio è previsto per questa posizione.\n\nCosa porterai\n\n• Iscritti in un Master o PhD programma in Data Science, Sistemi Informativi o un campo correlato durante tutta la durata di stage\n\n• Capacità di tradurre le esigenze aziendali in dati e soluzioni AI\n\n• Comprensione di dati moderni, tecnologie AI e cloud\n\n• Mindset di proprietà con la capacità di influenzare senza autorità formale\n\nAvviso legale\n\nPer ulteriori domande, non esitate a contattare Jessica Michels (AI & Analytics Business Solution Owner) o Kimberly Caetano (Talent Acquisition Intern) presso InternshipHQ.HiltiTeam@hilti.com.\n\nPer i cittadini extra UE/EFTA: Si prega di indicare lo stato di eleggibilità per lavorare in Svizzera/ Liechtenstein e si noti che se non possiedi un valido Swiss/ Il permesso di lavoro del Liechtenstein, Hilti non può garantire il vostro lavoro finale a causa di regolamenti di autorità.\n\nImpegno all'inclusione\n\nA Hilti, l'inclusione è un focus fondamentale nel modo in cui lavoriamo, guidiamo e cresciamo insieme. Ci impegniamo ad abbracciare la diversità del pensiero e creare un ambiente inclusivo di tutti, ovunque. Ci sforziamo continuamente per garantire che ogni voce sia apprezzata e ogni membro del team si sente in grado di contribuire. Costruire su questa fondazione, rafforziamo i nostri team, la nostra innovazione e il nostro impatto, rendendo la costruzione migliore insieme.\n\nPerché Hilti\n\nHilti è leader globale nell'innovazione delle costruzioni, con oltre 34.000 membri del team in 120 paesi. Guidato dal nostro scopo, Rendere la costruzione migliore, siamo spinti a continuare a imparare, crescere e trovare nuovi modi per fare un impatto duraturo. Qui, sarete autorizzati a utilizzare i vostri punti di forza, lavorare con un team globale e inclusivo, e affrontare sfide significative. A Hilti avrai la possibilità di realizzare le tue idee, i tuoi successi e la tua crescita attraverso lo scopo, la passione e il lavoro di squadra.\n\nNella nostra sede globale a Schaan, Nendeln, Buchs, e nelle vicinanze hub, formiamo le piattaforme digitali di Hilti e le piattaforme aziendali in tutto il mondo. I nostri team multifunzionali nel prodotto IT, dati e analisi, sicurezza informatica, ERP e piattaforme digitali dei clienti lavorano fianco a fianco con i leader aziendali per progettare, costruire e eseguire soluzioni su scala globale. HQ offre un ambiente collaborativo in cui le decisioni di architettura, l'affidabilità della piattaforma e l'ingegneria sicura-by-design si traducono in effetti per i nostri clienti e team.",
-        "en": "What's the role?\n\nThe Data & AI Product Owner team is part of the Analytics Center of Excellence at Hilti and plays a key role in unlocking the value of our data for Hilti and our customers. Working closely together with business functions, we help shape the vision and roadmap for data and AI solutions across different business areas and actively develop the solution portfolio at Hilti. As a Data & AI Product Owner Intern you will get the opportunity to shape data and AI products around real business needs, working on some of the most relevant use cases in a large organization that is leading the digital transformation in the construction sector.\n\nThis is a full‑time internship position. Start date is in February 2027. Duration for at least 6 months. No travel is foreseen for this position.\n\nWhat You’ll Bring\n\n• Enrolled in a Master’s or PhD program in Information Systems, Business Analytics, Data Science, Digital Business or a related field throughout the full internship duration\n\n• Ability to translate business needs into actionable requirements for data and AI solutions\n\n• Understanding of modern data, AI and cloud technologies in a business context\n\n• Ownership mindset with the ability to influence stakeholders without formal authority\n\nLegal Notice\n\nFor further questions, please feel free to contact Jessica Michels (AI & Analytics Business Solution Owner) or Kimberly Caetano (Talent Acquisition Intern) at InternshipHQ.HiltiTeam@hilti.com.\n\nFor non-EU/ EFTA citizens: Please state your eligibility status to work in Switzerland/ Liechtenstein and note that if you do not own a valid Swiss/ Liechtenstein work permit, Hilti cannot guarantee your final employment due to authority regulations.\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together.\n\nWhy Hilti\n\nHilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.\n\nAt our global headquarters in Schaan, Nendeln, Buchs, and nearby hubs, we shape Hilti’s digital strategy and enterprise platforms worldwide. Our cross-functional teams in product IT, data & analytics, cybersecurity, ERP, and digital customer platforms work side-by-side with business leaders to design, build, and run solutions at global scale. HQ offers a collaborative environment where architecture decisions, platform reliability, and secure-by-design engineering translate into real impact for our customers and teams.",
-        "de": "Was ist die Rolle?\n\nDas Data & AI Product Owner Team ist Teil des Analytics Center of Excellence bei Hilti und spielt eine Schlüsselrolle bei der Wertschöpfung unserer Daten für Hilti und unsere Kunden. In enger Zusammenarbeit mit Geschäftsfunktionen gestalten wir die Vision und Roadmap für Daten- und KI-Lösungen in verschiedenen Geschäftsbereichen mit und entwickeln das Lösungsportfolio bei Hilti aktiv weiter. Als Data & AI Visiting Product Owner Intern erhalten Sie die Möglichkeit, an den relevantesten daten- und ki-getriebenen Anwendungsfällen einer großen Organisation zu arbeiten, die die digitale Transformation im Bausektor anführt.\n\nDies ist eine Vollzeit-Praktikumsstelle. Der Starttermin ist flexibel. Dauer von mindestens 6 Monaten. Für diese Position ist keine Fahrt vorgesehen.\n\nWas du mitbringen wirst\n\n• Eingeschrieben in einem Master- oder PhD-Programm in Data Science, Information Systems oder einem verwandten Bereich während der gesamten Praktikumsdauer\n\n• Fähigkeit, Geschäftsanforderungen in Daten und KI-Lösungen zu übersetzen\n\n• Verständnis moderner Daten, KI und Cloud-Technologien\n\n• Ownership Mindset mit der Fähigkeit, ohne formale Autorität zu beeinflussen\n\nRechtliche Hinweise\n\nFür weitere Fragen kontaktieren Sie bitte Jessica Michels (AI & Analytics Business Solution Owner) oder Kimberly Caetano (Talent Acquisition Intern) unter InternshipHQ.HiltiTeam@hilti.com.\n\nFür Nicht-EU-/EFTA-Bürger: Bitte geben Sie Ihren Status als Arbeitnehmer in der Schweiz/Liechtenstein an und beachten Sie, dass Sie keine gültige Schweizer/EFTA-Bürgerin besitzen. Liechtenstein Arbeitserlaubnis, Hilti kann Ihre endgültige Beschäftigung aufgrund von behördlichen Vorschriften nicht garantieren.\n\nEngagement für Inklusion\n\nBei Hilti ist Inklusion ein wichtiger Fokus darauf, wie wir zusammenarbeiten, führen und wachsen. Wir setzen uns dafür ein, die Vielfalt des Denkens zu akzeptieren und ein Umfeld zu schaffen, das alle und überall einschließt. Wir sind ständig bestrebt, sicherzustellen, dass jede Stimme geschätzt wird und jedes Teammitglied sich ermächtigt fühlt, einen Beitrag zu leisten. Indem wir auf dieser Grundlage aufbauen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein weltweit führender Anbieter von Bauinnovationen mit mehr als 34.000 Teammitgliedern in 120 Ländern. Geleitet von unserem Ziel, das Bauen besser zu machen, sind wir bestrebt, weiter zu lernen, zu wachsen und neue Wege zu finden, um nachhaltig etwas zu bewirken. Hier werden Sie befähigt, Ihre Stärken zu nutzen, mit einem globalen und integrativen Team zu arbeiten und sich bedeutungsvollen Herausforderungen zu stellen. Bei Hilti haben Sie die Möglichkeit, Ihre Ideen, Erfolge und Ihr Wachstum durch Zweck, Leidenschaft und Teamwork zu verwirklichen.\n\nAn unserem globalen Hauptsitz in Schaan, Nendeln, Buchs und nahe gelegenen Hubs gestalten wir Hiltis digitale Strategie und Unternehmensplattformen weltweit. Unsere funktionsübergreifenden Teams in den Bereichen Produkt-IT, Daten & Analysen, Cybersicherheit, ERP und digitale Kundenplattformen arbeiten Seite an Seite mit Führungskräften, um Lösungen auf globaler Ebene zu entwerfen, zu bauen und auszuführen. HQ bietet eine kollaborative Umgebung, in der Architekturentscheidungen, Plattformzuverlässigkeit und Secure-by-Design-Engineering zu echten Auswirkungen für unsere Kunden und Teams führen.",
-        "fr": "Quel est le rôle ?\n\nL'équipe propriétaire du produit Data & AI fait partie du centre d'excellence de Hilti et joue un rôle clé dans le déblocage de la valeur de nos données pour Hilti et nos clients. En étroite collaboration avec les fonctions commerciales, nous contribuons à façonner la vision et la feuille de route des solutions de données et d'IA dans différents domaines d'activité et développons activement le portefeuille de solutions chez Hilti. En tant que titulaire de produit de visite de données et d'IA, vous aurez la possibilité de travailler sur les cas d'utilisation de données et d'IA les plus pertinents trouvés dans une grande organisation qui dirige la transformation numérique dans le secteur de la construction.\n\nIl s'agit d'un poste de stagiaire à temps plein. La date de début est flexible. Durée d'au moins 6 mois. Aucun voyage n'est prévu pour ce poste.\n\nCe que vous apporterez\n\n• Engagé dans un programme de maîtrise ou de doctorat en sciences des données, systèmes d'information ou un domaine connexe pendant toute la durée du stage\n\n• Capacité de traduire les besoins des entreprises en solutions de données et d'IA\n\n• Compréhension des technologies modernes de données, d'IA et de cloud\n\n• Esprit de propriété avec la capacité d'influence sans autorité formelle\n\nAvis juridique\n\nPour d'autres questions, n'hésitez pas à contacter Jessica Michels (propriétaire de solutions d'affaires d'AI & Analytics) ou Kimberly Caetano (interne d'acquisition detalent) à InternshipHQ.HiltiTeam@hilti.com.\n\nPour les citoyens non membres de l'UE/AELE: Veuillez indiquer votre statut d'éligibilité pour travailler en Suisse/ Liechtenstein et noter que si vous ne possédez pas de Suisse/ Liechtenstein permis de travail, Hilti ne peut pas garantir votre emploi final en raison de la réglementation de l'autorité.\n\nEngagement en faveur de l'inclusion\n\nÀ Hilti, l'inclusion est un élément clé de notre façon de travailler, de diriger et de grandir ensemble. Nous nous engageons à embrasser la diversité de pensée et à créer un environnement qui soit inclusif pour tous, partout. Nous nous efforçons continuellement de faire en sorte que chaque voix soit appréciée et que chaque membre de l'équipe se sente habilité à contribuer. En s'appuyant sur ces bases, nous renforçons nos équipes, notre innovation et notre impact, en améliorant la construction.\n\nPourquoi Hilti\n\nHilti est un leader mondial de l'innovation en construction, avec plus de 34 000 membres d'équipe dans 120 pays. Guidé par notre but, Améliorer la construction, nous sommes poussés à continuer à apprendre, à grandir et à trouver de nouvelles façons d'avoir un impact durable. Ici, vous serez habilité à utiliser vos forces, travailler avec une équipe globale et inclusive, et relever des défis significatifs. Chez Hilti, vous aurez la chance de faire en sorte que vos idées, vos réalisations et votre croissance soient réelles grâce au but, à la passion et au travail d'équipe.\n\nAu siège mondial de Schaan, Nendeln, Buchs et les hubs voisins, nous formons la stratégie numérique et les plateformes d'entreprise Hilti. Nos équipes interfonctionnelles en TI de produits, données et analyses, cybersécurité, ERP et plateformes client numériques travaillent côte à côte avec les chefs d'entreprise pour concevoir, construire et exécuter des solutions à l'échelle mondiale. HQ offre un environnement collaboratif où les décisions d'architecture, la fiabilité de la plateforme et l'ingénierie sécurisée par la conception se traduisent par un impact réel pour nos clients et équipes."
-      },
-      "location": "Buchs, St. Gallen",
-      "canton": "SG",
-      "url": "https://careers.hilti.group/en/jobs/14822-en/intern-data-ai-product-owner-m-f-x/",
-      "source": "Hilti Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:50.228Z",
-      "addressLocality": "Buchs",
-      "postalCode": "9470",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Construction tools & fastening technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-24T05:04:00+00:00",
-      "postedDate": "2026-09-24T05:04:00+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.hilti.group/en/jobs/14822-en/intern-data-ai-product-owner-m-f-x/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "intern-data-ai-product-owner-m-f-x-hilti-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "intern-data-ai-product-owner-m-f-x-hilti-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:55:38.629Z",
-      "salaryMin": 54000,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54000,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Buchs",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:17:50.228Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/14822-en/intern-data-ai-product-owner-m-f-x",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T21:20:44.134Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-19799-en",
@@ -283,7 +200,7 @@
       "url": "https://careers.hilti.group/en/jobs/19799-en/intern-cybersecurity-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:50.228Z",
+      "crawledAt": "2026-11-27T21:20:44.132Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -332,10 +249,85 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:17:50.228Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/19799-en/intern-cybersecurity-m-f-x",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T21:20:44.132Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "hilti-14822-en",
+      "slug": "stagista-data-ai-product-owner-m-f-x-hilti-buchs",
+      "slugByLocale": {
+        "it": "stagista-data-ai-product-owner-m-f-x-hilti-buchs",
+        "en": "intern-data-ai-product-owner-m-f-x-hilti-ch",
+        "de": "praktikant-data-ai-product-owner-m-w-d-hilti-buchs",
+        "fr": "stagiaire-data-ai-product-owner-h-f-x-hilti-buchs"
+      },
+      "company": "Hilti",
+      "companyKey": "hilti",
+      "companyDomain": "hilti.group",
+      "title": "Intern – Data & AI Product Owner (m/f/x)",
+      "titleByLocale": {
+        "it": "Tirocinante – Data & AI Product Owner (m/f/x)",
+        "en": "Intern – Data & AI Product Owner (m/f/x)",
+        "de": "Praktikant – Data & AI Product Owner (m/f/x)",
+        "fr": "Stagiaire – Data & AI Product Owner (m/f/x)"
+      },
+      "description": "What's the role?\n\nThe Data & AI Product Owner team is part of the Analytics Center of Excellence at Hilti and plays a key role in unlocking the value of our data for Hilti and our customers. Working closely together with business functions, we help shape the vision and roadmap for data and AI solutions across different business areas and actively develop the solution portfolio at Hilti. As a Data & AI Product Owner Intern you will get the opportunity to shape data and AI products around real business needs, working on some of the most relevant use cases in a large organization that is leading the digital transformation in the construction sector.\n\nThis is a full‑time internship position. Start date is in February 2027. Duration for at least 6 months. No travel is foreseen for this position.\n\nWhat You’ll Bring\n\n• Enrolled in a Master’s or PhD program in Information Systems, Business Analytics, Data Science, Digital Business or a related field throughout the full internship duration\n\n• Ability to translate business needs into actionable requirements for data and AI solutions\n\n• Understanding of modern data, AI and cloud technologies in a business context\n\n• Ownership mindset with the ability to influence stakeholders without formal authority\n\nLegal Notice\n\nFor further questions, please feel free to contact Jessica Michels (AI & Analytics Business Solution Owner) or Kimberly Caetano (Talent Acquisition Intern) at InternshipHQ.HiltiTeam@hilti.com.\n\nFor non-EU/ EFTA citizens: Please state your eligibility status to work in Switzerland/ Liechtenstein and note that if you do not own a valid Swiss/ Liechtenstein work permit, Hilti cannot guarantee your final employment due to authority regulations.\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together.\n\nWhy Hilti\n\nHilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.\n\nAt our global headquarters in Schaan, Nendeln, Buchs, and nearby hubs, we shape Hilti’s digital strategy and enterprise platforms worldwide. Our cross-functional teams in product IT, data & analytics, cybersecurity, ERP, and digital customer platforms work side-by-side with business leaders to design, build, and run solutions at global scale. HQ offers a collaborative environment where architecture decisions, platform reliability, and secure-by-design engineering translate into real impact for our customers and teams.",
+      "descriptionByLocale": {
+        "it": "Qual e' il ruolo?\n\nIl team Data & AI Product Owner fa parte del Centro di Eccellenza di Analytics di Hilti e svolge un ruolo chiave nello sbloccare il valore dei nostri dati per Hilti e i nostri clienti. Lavorando a stretto contatto con le funzioni aziendali, aiutiamo a modellare la visione e la roadmap per i dati e le soluzioni AI in diversi settori aziendali e a sviluppare attivamente il portafoglio soluzioni di Hilti. In qualità di Data & AI Visiting Product Owner Intern avrai l'opportunità di lavorare sui più rilevanti casi di utilizzo basati su AI presenti in una grande organizzazione che sta conducendo la trasformazione digitale nel settore delle costruzioni.\n\nQuesta è una posizione di tirocinio a tempo pieno. La data di inizio è flessibile. Durata per almeno 6 mesi. Nessun viaggio è previsto per questa posizione.\n\nCosa porterai\n\n• Iscritti in un Master o PhD programma in Data Science, Sistemi Informativi o un campo correlato durante tutta la durata di stage\n\n• Capacità di tradurre le esigenze aziendali in dati e soluzioni AI\n\n• Comprensione di dati moderni, tecnologie AI e cloud\n\n• Mindset di proprietà con la capacità di influenzare senza autorità formale\n\nAvviso legale\n\nPer ulteriori domande, non esitate a contattare Jessica Michels (AI & Analytics Business Solution Owner) o Kimberly Caetano (Talent Acquisition Intern) presso InternshipHQ.HiltiTeam@hilti.com.\n\nPer i cittadini extra UE/EFTA: Si prega di indicare lo stato di eleggibilità per lavorare in Svizzera/ Liechtenstein e si noti che se non possiedi un valido Swiss/ Il permesso di lavoro del Liechtenstein, Hilti non può garantire il vostro lavoro finale a causa di regolamenti di autorità.\n\nImpegno all'inclusione\n\nA Hilti, l'inclusione è un focus fondamentale nel modo in cui lavoriamo, guidiamo e cresciamo insieme. Ci impegniamo ad abbracciare la diversità del pensiero e creare un ambiente inclusivo di tutti, ovunque. Ci sforziamo continuamente per garantire che ogni voce sia apprezzata e ogni membro del team si sente in grado di contribuire. Costruire su questa fondazione, rafforziamo i nostri team, la nostra innovazione e il nostro impatto, rendendo la costruzione migliore insieme.\n\nPerché Hilti\n\nHilti è leader globale nell'innovazione delle costruzioni, con oltre 34.000 membri del team in 120 paesi. Guidato dal nostro scopo, Rendere la costruzione migliore, siamo spinti a continuare a imparare, crescere e trovare nuovi modi per fare un impatto duraturo. Qui, sarete autorizzati a utilizzare i vostri punti di forza, lavorare con un team globale e inclusivo, e affrontare sfide significative. A Hilti avrai la possibilità di realizzare le tue idee, i tuoi successi e la tua crescita attraverso lo scopo, la passione e il lavoro di squadra.\n\nNella nostra sede globale a Schaan, Nendeln, Buchs, e nelle vicinanze hub, formiamo le piattaforme digitali di Hilti e le piattaforme aziendali in tutto il mondo. I nostri team multifunzionali nel prodotto IT, dati e analisi, sicurezza informatica, ERP e piattaforme digitali dei clienti lavorano fianco a fianco con i leader aziendali per progettare, costruire e eseguire soluzioni su scala globale. HQ offre un ambiente collaborativo in cui le decisioni di architettura, l'affidabilità della piattaforma e l'ingegneria sicura-by-design si traducono in effetti per i nostri clienti e team.",
+        "en": "What's the role?\n\nThe Data & AI Product Owner team is part of the Analytics Center of Excellence at Hilti and plays a key role in unlocking the value of our data for Hilti and our customers. Working closely together with business functions, we help shape the vision and roadmap for data and AI solutions across different business areas and actively develop the solution portfolio at Hilti. As a Data & AI Product Owner Intern you will get the opportunity to shape data and AI products around real business needs, working on some of the most relevant use cases in a large organization that is leading the digital transformation in the construction sector.\n\nThis is a full‑time internship position. Start date is in February 2027. Duration for at least 6 months. No travel is foreseen for this position.\n\nWhat You’ll Bring\n\n• Enrolled in a Master’s or PhD program in Information Systems, Business Analytics, Data Science, Digital Business or a related field throughout the full internship duration\n\n• Ability to translate business needs into actionable requirements for data and AI solutions\n\n• Understanding of modern data, AI and cloud technologies in a business context\n\n• Ownership mindset with the ability to influence stakeholders without formal authority\n\nLegal Notice\n\nFor further questions, please feel free to contact Jessica Michels (AI & Analytics Business Solution Owner) or Kimberly Caetano (Talent Acquisition Intern) at InternshipHQ.HiltiTeam@hilti.com.\n\nFor non-EU/ EFTA citizens: Please state your eligibility status to work in Switzerland/ Liechtenstein and note that if you do not own a valid Swiss/ Liechtenstein work permit, Hilti cannot guarantee your final employment due to authority regulations.\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together.\n\nWhy Hilti\n\nHilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.\n\nAt our global headquarters in Schaan, Nendeln, Buchs, and nearby hubs, we shape Hilti’s digital strategy and enterprise platforms worldwide. Our cross-functional teams in product IT, data & analytics, cybersecurity, ERP, and digital customer platforms work side-by-side with business leaders to design, build, and run solutions at global scale. HQ offers a collaborative environment where architecture decisions, platform reliability, and secure-by-design engineering translate into real impact for our customers and teams.",
+        "de": "Was ist die Rolle?\n\nDas Data & AI Product Owner Team ist Teil des Analytics Center of Excellence bei Hilti und spielt eine Schlüsselrolle bei der Wertschöpfung unserer Daten für Hilti und unsere Kunden. In enger Zusammenarbeit mit Geschäftsfunktionen gestalten wir die Vision und Roadmap für Daten- und KI-Lösungen in verschiedenen Geschäftsbereichen mit und entwickeln das Lösungsportfolio bei Hilti aktiv weiter. Als Data & AI Visiting Product Owner Intern erhalten Sie die Möglichkeit, an den relevantesten daten- und ki-getriebenen Anwendungsfällen einer großen Organisation zu arbeiten, die die digitale Transformation im Bausektor anführt.\n\nDies ist eine Vollzeit-Praktikumsstelle. Der Starttermin ist flexibel. Dauer von mindestens 6 Monaten. Für diese Position ist keine Fahrt vorgesehen.\n\nWas du mitbringen wirst\n\n• Eingeschrieben in einem Master- oder PhD-Programm in Data Science, Information Systems oder einem verwandten Bereich während der gesamten Praktikumsdauer\n\n• Fähigkeit, Geschäftsanforderungen in Daten und KI-Lösungen zu übersetzen\n\n• Verständnis moderner Daten, KI und Cloud-Technologien\n\n• Ownership Mindset mit der Fähigkeit, ohne formale Autorität zu beeinflussen\n\nRechtliche Hinweise\n\nFür weitere Fragen kontaktieren Sie bitte Jessica Michels (AI & Analytics Business Solution Owner) oder Kimberly Caetano (Talent Acquisition Intern) unter InternshipHQ.HiltiTeam@hilti.com.\n\nFür Nicht-EU-/EFTA-Bürger: Bitte geben Sie Ihren Status als Arbeitnehmer in der Schweiz/Liechtenstein an und beachten Sie, dass Sie keine gültige Schweizer/EFTA-Bürgerin besitzen. Liechtenstein Arbeitserlaubnis, Hilti kann Ihre endgültige Beschäftigung aufgrund von behördlichen Vorschriften nicht garantieren.\n\nEngagement für Inklusion\n\nBei Hilti ist Inklusion ein wichtiger Fokus darauf, wie wir zusammenarbeiten, führen und wachsen. Wir setzen uns dafür ein, die Vielfalt des Denkens zu akzeptieren und ein Umfeld zu schaffen, das alle und überall einschließt. Wir sind ständig bestrebt, sicherzustellen, dass jede Stimme geschätzt wird und jedes Teammitglied sich ermächtigt fühlt, einen Beitrag zu leisten. Indem wir auf dieser Grundlage aufbauen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein weltweit führender Anbieter von Bauinnovationen mit mehr als 34.000 Teammitgliedern in 120 Ländern. Geleitet von unserem Ziel, das Bauen besser zu machen, sind wir bestrebt, weiter zu lernen, zu wachsen und neue Wege zu finden, um nachhaltig etwas zu bewirken. Hier werden Sie befähigt, Ihre Stärken zu nutzen, mit einem globalen und integrativen Team zu arbeiten und sich bedeutungsvollen Herausforderungen zu stellen. Bei Hilti haben Sie die Möglichkeit, Ihre Ideen, Erfolge und Ihr Wachstum durch Zweck, Leidenschaft und Teamwork zu verwirklichen.\n\nAn unserem globalen Hauptsitz in Schaan, Nendeln, Buchs und nahe gelegenen Hubs gestalten wir Hiltis digitale Strategie und Unternehmensplattformen weltweit. Unsere funktionsübergreifenden Teams in den Bereichen Produkt-IT, Daten & Analysen, Cybersicherheit, ERP und digitale Kundenplattformen arbeiten Seite an Seite mit Führungskräften, um Lösungen auf globaler Ebene zu entwerfen, zu bauen und auszuführen. HQ bietet eine kollaborative Umgebung, in der Architekturentscheidungen, Plattformzuverlässigkeit und Secure-by-Design-Engineering zu echten Auswirkungen für unsere Kunden und Teams führen.",
+        "fr": "Quel est le rôle ?\n\nL'équipe propriétaire du produit Data & AI fait partie du centre d'excellence de Hilti et joue un rôle clé dans le déblocage de la valeur de nos données pour Hilti et nos clients. En étroite collaboration avec les fonctions commerciales, nous contribuons à façonner la vision et la feuille de route des solutions de données et d'IA dans différents domaines d'activité et développons activement le portefeuille de solutions chez Hilti. En tant que titulaire de produit de visite de données et d'IA, vous aurez la possibilité de travailler sur les cas d'utilisation de données et d'IA les plus pertinents trouvés dans une grande organisation qui dirige la transformation numérique dans le secteur de la construction.\n\nIl s'agit d'un poste de stagiaire à temps plein. La date de début est flexible. Durée d'au moins 6 mois. Aucun voyage n'est prévu pour ce poste.\n\nCe que vous apporterez\n\n• Engagé dans un programme de maîtrise ou de doctorat en sciences des données, systèmes d'information ou un domaine connexe pendant toute la durée du stage\n\n• Capacité de traduire les besoins des entreprises en solutions de données et d'IA\n\n• Compréhension des technologies modernes de données, d'IA et de cloud\n\n• Esprit de propriété avec la capacité d'influence sans autorité formelle\n\nAvis juridique\n\nPour d'autres questions, n'hésitez pas à contacter Jessica Michels (propriétaire de solutions d'affaires d'AI & Analytics) ou Kimberly Caetano (interne d'acquisition detalent) à InternshipHQ.HiltiTeam@hilti.com.\n\nPour les citoyens non membres de l'UE/AELE: Veuillez indiquer votre statut d'éligibilité pour travailler en Suisse/ Liechtenstein et noter que si vous ne possédez pas de Suisse/ Liechtenstein permis de travail, Hilti ne peut pas garantir votre emploi final en raison de la réglementation de l'autorité.\n\nEngagement en faveur de l'inclusion\n\nÀ Hilti, l'inclusion est un élément clé de notre façon de travailler, de diriger et de grandir ensemble. Nous nous engageons à embrasser la diversité de pensée et à créer un environnement qui soit inclusif pour tous, partout. Nous nous efforçons continuellement de faire en sorte que chaque voix soit appréciée et que chaque membre de l'équipe se sente habilité à contribuer. En s'appuyant sur ces bases, nous renforçons nos équipes, notre innovation et notre impact, en améliorant la construction.\n\nPourquoi Hilti\n\nHilti est un leader mondial de l'innovation en construction, avec plus de 34 000 membres d'équipe dans 120 pays. Guidé par notre but, Améliorer la construction, nous sommes poussés à continuer à apprendre, à grandir et à trouver de nouvelles façons d'avoir un impact durable. Ici, vous serez habilité à utiliser vos forces, travailler avec une équipe globale et inclusive, et relever des défis significatifs. Chez Hilti, vous aurez la chance de faire en sorte que vos idées, vos réalisations et votre croissance soient réelles grâce au but, à la passion et au travail d'équipe.\n\nAu siège mondial de Schaan, Nendeln, Buchs et les hubs voisins, nous formons la stratégie numérique et les plateformes d'entreprise Hilti. Nos équipes interfonctionnelles en TI de produits, données et analyses, cybersécurité, ERP et plateformes client numériques travaillent côte à côte avec les chefs d'entreprise pour concevoir, construire et exécuter des solutions à l'échelle mondiale. HQ offre un environnement collaboratif où les décisions d'architecture, la fiabilité de la plateforme et l'ingénierie sécurisée par la conception se traduisent par un impact réel pour nos clients et équipes."
+      },
+      "location": "Buchs, St. Gallen",
+      "canton": "SG",
+      "url": "https://careers.hilti.group/en/jobs/14822-en/intern-data-ai-product-owner-m-f-x/",
+      "source": "Hilti Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-27T21:20:44.131Z",
+      "addressLocality": "Buchs",
+      "postalCode": "9470",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Construction tools & fastening technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-24T05:04:00+00:00",
+      "postedDate": "2026-09-24T05:04:00+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.hilti.group/en/jobs/14822-en/intern-data-ai-product-owner-m-f-x/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "intern-data-ai-product-owner-m-f-x-hilti-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-data-ai-product-owner-m-f-x-hilti-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T07:55:38.629Z",
+      "salaryMin": 54000,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54000,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Buchs",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T21:20:44.131Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-19408-en",
@@ -368,7 +360,7 @@
       "url": "https://careers.hilti.group/en/jobs/19408-en/solution-owner-ai-analytics-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:50.227Z",
+      "crawledAt": "2026-11-27T21:20:44.127Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -414,98 +406,8 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:17:50.227Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/19408-en/solution-owner-ai-analytics-m-f-x",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "hilti-21654-de",
-      "slug": "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich",
-      "slugByLocale": {
-        "it": "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich",
-        "en": "career-start-marketing-sales-switzerland-m-f-d-hilti-zurich",
-        "de": "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
-        "fr": "carriere-debut-marketing-vente-suisse-h-f-d-hilti-zurich"
-      },
-      "company": "Hilti",
-      "companyKey": "hilti",
-      "companyDomain": "hilti.group",
-      "title": "Career Start Marketing & Sales Schweiz (m/w/d)",
-      "titleByLocale": {
-        "it": "Carriera Avvio Marketing e Vendite Svizzera (m/f/d)",
-        "en": "Career Start Marketing & Sales Switzerland (m/f/d)",
-        "de": "Career Start Marketing & Sales Schweiz (m/w/d)",
-        "fr": "Carrière Début Marketing & Vente Suisse (h/f/d)"
-      },
-      "description": "Der beste Start für Deine Karriere bei Hilti\n\nDu hast Deinen Masterabschluss erfolgreich abgeschlossen und möchtest nicht einfach einen Job starten, sondern die Grundlage für eine langfristige Karriere legen? Im zweijährigen Career Start Programm, das in der gesamten Schweiz durchgeführt wird, übernimmst Du früh Verantwortung für Dein eigenes Verkaufsgebiet. Dabei lernst Du unser Business direkt bei Kund:innen kennen und entwickelst die Fähigkeiten für zukünftige Führungsrollen bei Hilti. Wir sind überzeugt: Wer Kund:innen, Märkte und Geschäftsmodelle versteht, schafft die Basis für nachhaltigen Erfolg. Deshalb startest Du Deine Karriere dort, wo Hilti den grössten Unterschied macht: im direkten Kundenkontakt. Dafür benötigst Du keine Branchenerfahrung – viel wichtiger ist die Begeisterung für die Marke Hilti und Dein Interesse für die Baubranche. In unserem Onboarding wirst Du fit für Deinen Career Start gemacht.\n\nDein Profil\n\n• Erfolgreicher Bachelor- oder Masterabschluss (Universität, ETH/EPFL oder Fachhochschule)\n\n• Praktische Berufserfahrung durch Praktika oder Werkstudierendentätigkeiten, idealerweise ergänzt durch anspruchsvolle Nebenprojekte oder Ehrenamt\n\n• Du begeisterst Dich für den Direktvertrieb und unser Geschäftsmodell und identifizierst Dich damit, dass wir als inhabergeführte Unternehmung langfristig agieren\n\n• Flexibilität bezüglich Einsatzort innerhalb der Schweiz sowie Umzugsbereitschaft\n\n• Motivation, langfristig Verantwortung zu übernehmen und Dich in eine Führungsrolle zu entwickeln\n\n• Fliessende Deutsch- und Englischkenntnisse, Verständnis von Schweizerdeutsch sowie Führerausweis Kategorie B\n\nImpressum\n\nHaben wir Dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf Deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Ulrike Samer, Senior HR Talent Partner, freut sich auf Dein Anschreiben.\n\nWas kannst Du erwarten, wenn Du Dich bei Hilti bewirbst?\n\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n\n• Sobald Du Deine Bewerbung eingereicht hast, erhältst Du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n\n• Du kannst davon ausgehen, dass Du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n\n• Wir wünschen Dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest Du in unseren häufig gestellten Fragen zur Karriere.\n\nSollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
-      "descriptionByLocale": {
-        "it": "Il miglior inizio della tua carriera a Hilti\n\nHai completato con successo il tuo master e non solo vuoi iniziare un lavoro, ma gettare le basi per una carriera a lungo termine? Nel programma Career Start di due anni, che si svolge in tutta la Svizzera, si assume la responsabilità della propria area di vendita in una fase iniziale. Potrai conoscere il nostro business direttamente a Kund:innen e sviluppare le competenze per i futuri ruoli di leadership a Hilti. Siamo convinti che coloro che comprendono clienti, mercati e modelli di business creino la base per un successo sostenibile. Ecco perché si inizia la tua carriera dove Hilti fa la più grande differenza: nel contatto diretto con i clienti. Non avete bisogno di alcuna esperienza di settore – molto più importante è l'entusiasmo per il marchio Hilti e il vostro interesse per l'industria edile. Nella nostra onboarding sarete adattati per il vostro inizio di carriera.\n\nIl tuo profilo\n\n• Laurea di successo o laurea magistrale (Università, ETH/EPFL o Università di Scienze Applicate)\n\n• Esperienza professionale pratica attraverso stage o attività di studio di lavoro, idealmente completato da progetti collaterali impegnativi o volontariato\n\n• Sei entusiasta delle vendite dirette e del nostro modello di business e ti identifichiamo con il fatto che agiamo come azienda proprietaria per il lungo periodo.\n\n• Flessibilità in termini di posizione all'interno della Svizzera e disponibilità a muoversi\n\n• Motivazione per assumere responsabilità a lungo termine e svilupparsi in un ruolo di leadership\n\n• Conoscenza della lingua tedesca e inglese, comprensione della lingua tedesca svizzera e patente di guida categoria B\n\nImprint\n\nAbbiamo suscitato il vostro interesse a lavorare per uno dei migliori datori di lavoro in Svizzera? Quindi non vediamo l'ora della vostra applicazione online significativa. Accettiamo i vostri documenti completi (lettera di motivazione, CV, certificati) esclusivamente tramite il nostro strumento di carriera online. La signora Ulrike Samer, Senior HR Talent Partner, non vede l'ora di ricevere la sua lettera di copertura.\n\nCosa puoi aspettarti quando ti applichi a Hilti?\n\n• Ci impegniamo ad avere tutte le applicazioni esaminate da una persona. Anche se nessuno è infallibile, siamo al nostro approccio incentrato sulla persona a tutto ciò che facciamo.\n\n• Una volta presentata la vostra domanda, riceverete notifiche automatiche dal nostro sistema (triggered dal nostro team di reclutamento).\n\n• Le applicazioni che non lo rendono all'intervista con un responsabile dell'assunzione non ricevono feedback personalizzati.\n\n• Ci si può aspettare di sentire da noi entro 2-3 settimane (in media) indipendentemente dal risultato. L'intero processo di reclutamento può richiedere tra 5 e 6 settimane.\n\n• Vi auguriamo ogni successo nel vostro processo di applicazione. Suggerimenti per l'applicazione e l'intervista possono essere trovati nelle nostre domande frequenti di carriera.\n\nSe si verificano problemi tecnici durante l'applicazione, contattare mycareer-techsupport@hilti.com.\n\nImpegno all'inclusione\n\nA Hilti, l'inclusione è un aspetto centrale del nostro modo di lavorare, del nostro stile di leadership e della nostra crescita condivisa. Siamo attivamente impegnati nella diversità del pensiero e di un ambiente che è inclusivo per tutti e ovunque. Continuiamo a sforzarci di sentire ogni voce e per ogni membro del team di sentirsi in grado di contribuire. Costruire questa fondazione, rafforziamo i nostri team, la nostra innovazione e il nostro impatto per migliorare collettivamente la costruzione.\n\nPerché Hilti\n\nHilti è leader globale nell'innovazione costruttiva con oltre 34.000 membri del team in 120 paesi. Il nostro obiettivo è migliorare la costruzione. Ecco perché ci interessa imparare, crescere e trovare nuovi modi per avere un impatto duraturo. Qui puoi contribuire ai tuoi punti di forza, lavorare con un team globale e inclusivo e affrontare sfide significative. A Hilti, puoi trasformare le tue idee in realizzazioni e crescita reali attraverso azioni mirate, passione e lavoro di squadra.",
-        "en": "The best start to your career at Hilti\n\nYou have successfully completed your master’s degree and do not just want to start a job, but lay the foundation for a long-term career? In the two-year Career Start program, which is carried out throughout Switzerland, you take responsibility for your own sales area at an early stage. You will get to know our business directly at Kund:innen and develop the skills for future leadership roles at Hilti. We are convinced that those who understand customers, markets and business models create the basis for sustainable success. That’s why you start your career where Hilti makes the biggest difference: in direct customer contact. You do not need any industry experience – much more important is the enthusiasm for the Hilti brand and your interest in the construction industry. In our onboarding you will be made fit for your career start.\n\nYour profile\n\n• Successful Bachelor's or Master's degree (University, ETH/EPFL or University of Applied Sciences)\n\n• Practical professional experience through internships or work study activities, ideally complemented by challenging side projects or volunteer work\n\n• You are enthusiastic about direct sales and our business model and identify yourself with the fact that we act as an owner-managed company for the long term.\n\n• Flexibility in terms of location within Switzerland and willingness to move\n\n• Motivation to take on long-term responsibility and develop into a leadership role\n\n• Flowing knowledge of German and English, understanding of Swiss German and driving licence category B\n\nImprint\n\nHave we aroused your interest in working for one of the best employers in Switzerland? Then we look forward to your meaningful online application. We accept your complete documents (motivation letter, CV, certificates) exclusively via our online career tool. Ms. Ulrike Samer, Senior HR Talent Partner, is looking forward to receiving your cover letter.\n\nWhat can you expect when applying to Hilti?\n\n• We undertake to have all applications reviewed by one person. Even if no one is infallible, we stand by our person-centered approach to everything we do.\n\n• Once you have submitted your application, you will receive automatic notifications from our system (triggered by our recruitment team).\n\n• Applications that do not make it to the interview with a hiring manager do not receive personalized feedback.\n\n• You can expect to hear from us within 2–3 weeks (on average) regardless of the result. The entire recruitment process can take between 5 and 6 weeks.\n\n• We wish you every success in your application process. Tips for applying and interviewing can be found in our frequently asked career questions.\n\nIf technical problems occur during the application, please contact mycareer-techsupport@hilti.com.\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a central aspect of our way of working, our leadership style and our shared growth. We are actively committed to diversity of thought and an environment that is inclusive for everyone and everywhere. We continue to strive for every voice to be heard and for every team member to feel empowered to contribute. By building this foundation, we strengthen our teams, our innovation and our impact to collectively improve construction.\n\nWhy Hilti\n\nHilti is a global leader in construction innovation with more than 34,000 team members in 120 countries. Our goal is to improve construction. That’s why we care about learning, growing and finding new ways to make a lasting impact. Here you can contribute your strengths, work with a global and inclusive team and face meaningful challenges. At Hilti, you can turn your ideas into real achievements and growth through purposeful action, passion and teamwork.",
-        "de": "Der beste Start für Deine Karriere bei Hilti\n\nDu hast Deinen Masterabschluss erfolgreich abgeschlossen und möchtest nicht einfach einen Job starten, sondern die Grundlage für eine langfristige Karriere legen? Im zweijährigen Career Start Programm, das in der gesamten Schweiz durchgeführt wird, übernimmst Du früh Verantwortung für Dein eigenes Verkaufsgebiet. Dabei lernst Du unser Business direkt bei Kund:innen kennen und entwickelst die Fähigkeiten für zukünftige Führungsrollen bei Hilti. Wir sind überzeugt: Wer Kund:innen, Märkte und Geschäftsmodelle versteht, schafft die Basis für nachhaltigen Erfolg. Deshalb startest Du Deine Karriere dort, wo Hilti den grössten Unterschied macht: im direkten Kundenkontakt. Dafür benötigst Du keine Branchenerfahrung – viel wichtiger ist die Begeisterung für die Marke Hilti und Dein Interesse für die Baubranche. In unserem Onboarding wirst Du fit für Deinen Career Start gemacht.\n\nDein Profil\n\n• Erfolgreicher Bachelor- oder Masterabschluss (Universität, ETH/EPFL oder Fachhochschule)\n\n• Praktische Berufserfahrung durch Praktika oder Werkstudierendentätigkeiten, idealerweise ergänzt durch anspruchsvolle Nebenprojekte oder Ehrenamt\n\n• Du begeisterst Dich für den Direktvertrieb und unser Geschäftsmodell und identifizierst Dich damit, dass wir als inhabergeführte Unternehmung langfristig agieren\n\n• Flexibilität bezüglich Einsatzort innerhalb der Schweiz sowie Umzugsbereitschaft\n\n• Motivation, langfristig Verantwortung zu übernehmen und Dich in eine Führungsrolle zu entwickeln\n\n• Fliessende Deutsch- und Englischkenntnisse, Verständnis von Schweizerdeutsch sowie Führerausweis Kategorie B\n\nImpressum\n\nHaben wir Dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf Deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Ulrike Samer, Senior HR Talent Partner, freut sich auf Dein Anschreiben.\n\nWas kannst Du erwarten, wenn Du Dich bei Hilti bewirbst?\n\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n\n• Sobald Du Deine Bewerbung eingereicht hast, erhältst Du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n\n• Du kannst davon ausgehen, dass Du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n\n• Wir wünschen Dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest Du in unseren häufig gestellten Fragen zur Karriere.\n\nSollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
-        "fr": "Le meilleur début de votre carrière chez Hilti\n\nVous avez réussi votre master et ne voulez pas seulement commencer un emploi, mais jeter les bases d'une carrière à long terme? Dans le cadre du programme de démarrage de carrière de deux ans, qui est réalisé dans toute la Suisse, vous assumez la responsabilité de votre propre zone de vente à un stade précoce. Vous apprendrez à connaître notre entreprise directement chez Kund:innen et développerez les compétences pour les futurs rôles de leadership chez Hilti. Nous sommes convaincus que ceux qui comprennent les clients, les marchés et les modèles commerciaux créent la base d'un succès durable. C'est pourquoi vous commencez votre carrière où Hilti fait la plus grande différence: en contact direct avec le client. Vous n'avez pas besoin d'expérience de l'industrie – beaucoup plus important est l'enthousiasme pour la marque Hilti et votre intérêt pour l'industrie de la construction. Dans notre embarquement, vous serez rendu apte pour votre début de carrière.\n\nVotre profil\n\n• Baccalauréat ou maîtrise (Université, ETH/EPFL ou Université des sciences appliquées)\n\n• Expérience professionnelle pratique par le biais de stages ou d'activités d'études de travail, idéalement complétée par des projets parallèles ou du bénévolat\n\n• Vous êtes enthousiaste au sujet des ventes directes et de notre modèle d'affaires et vous identifiez avec le fait que nous agissons comme une entreprise gérée par le propriétaire pour le long terme.\n\n• Flexibilité en termes de localisation en Suisse et volonté de déménager\n\n• Motivation à assumer une responsabilité à long terme et à devenir un rôle de leadership\n\n• Connaissance de l'allemand et de l'anglais, compréhension de l'allemand suisse et de la catégorie de permis de conduire B\n\nEmpreinte\n\nAvons-nous suscité votre intérêt pour travailler pour l'un des meilleurs employeurs de Suisse? Ensuite, nous attendons avec impatience votre application en ligne significative. Nous acceptons vos documents complets (lettre de motivation, CV, certificats) exclusivement via notre outil de carrière en ligne. Mme Ulrike Samer, Senior HR Talent Partner, est impatiente de recevoir votre lettre de présentation.\n\nÀ quoi pouvez-vous vous attendre pour postuler à Hilti?\n\n• Nous nous engageons à faire examiner toutes les demandes par une seule personne. Même si personne n'est infaillible, nous nous tenons à notre approche centrée sur la personne de tout ce que nous faisons.\n\n• Une fois votre candidature soumise, vous recevrez des notifications automatiques de notre système (déclenchement par notre équipe de recrutement).\n\n• Les demandes qui n'arrivent pas à l'entrevue avec un gestionnaire d'embauche ne reçoivent pas de rétroaction personnalisée.\n\n• Vous pouvez vous attendre à recevoir des nouvelles de nous dans les 2-3 semaines (en moyenne) quel que soit le résultat. Le processus de recrutement peut prendre entre 5 et 6 semaines.\n\n• Nous vous souhaitons plein succès dans votre processus de candidature. Des conseils pour postuler et interviewer se trouvent dans nos questions de carrière fréquemment posées.\n\nSi des problèmes techniques surviennent pendant l'application, veuillez contacter mycareer-techsupport@hilti.com.\n\nEngagement en faveur de l'inclusion\n\nÀ Hilti, l'inclusion est un aspect central de notre façon de travailler, de notre style de leadership et de notre croissance partagée. Nous sommes activement attachés à la diversité des pensées et à un environnement inclusif pour tous et partout. Nous continuons de nous efforcer de faire entendre chaque voix et de faire en sorte que chaque membre de l'équipe se sente habilité à contribuer. En construisant cette fondation, nous renforçons nos équipes, notre innovation et notre impact pour améliorer collectivement la construction.\n\nPourquoi Hilti\n\nHilti est un leader mondial de l'innovation dans le secteur de la construction avec plus de 34 000 membres d'équipe dans 120 pays. Notre objectif est d'améliorer la construction. C'est pourquoi nous nous soucions d'apprendre, de grandir et de trouver de nouvelles façons d'avoir un impact durable. Ici, vous pouvez apporter vos forces, travailler avec une équipe globale et inclusive et relever des défis significatifs. Chez Hilti, vous pouvez transformer vos idées en réalisations réelles et en croissance grâce à une action délibérée, à la passion et au travail d'équipe."
-      },
-      "location": "Zurigo",
-      "canton": "ZH",
-      "url": "https://careers.hilti.group/en/jobs/21654-de/career-start-marketing-sales-schweiz-m-w-d/",
-      "source": "Hilti Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:06.454Z",
-      "addressLocality": "Zürich",
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Construction tools & fastening technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-16T09:47:00+00:00",
-      "postedDate": "2026-10-16T09:47:00+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.hilti.group/en/jobs/21654-de/career-start-marketing-sales-schweiz-m-w-d/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
-        "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich-zurich",
-        "carriere-debut-marketing-vente-suisse-h-f-d-hilti-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
-          "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich-zurich"
-        ],
-        "en": [
-          "career-start-marketing-sales-schweiz-m-w-d-hilti-ch"
-        ],
-        "fr": [
-          "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
-          "carriere-debut-marketing-vente-suisse-h-f-d-hilti-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-16T21:17:17.112Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:22:06.454Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/21654-de/career-start-marketing-sales-schweiz-m-w-d"
+      "validThrough": "2026-12-27T21:20:44.127Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-21354-de",
@@ -526,19 +428,19 @@
         "de": "Verkaufsberater im Aussendienst, Baubranche (m/w/d)",
         "fr": "Consultants en ventes dans le secteur, construction (h/f/d)"
       },
-      "description": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld!\n\nBei uns gehst Du über klassischen Vertrieb hinaus. Du entwickelst Dein Gebiet wie ein eigenes Geschäft, baust langfristige Kundenbeziehungen auf und trägst aktiv dazu bei, die Baubranche produktiver, sicherer und nachhaltiger zu machen. Hilti bietet Dir ein Umfeld, das Vielfalt und Gleichberechtigung aktiv fördert und in dem Du Dich wirklich einbringen kannst.\nAls Teil unseres Teams betreust Du Kund:innen in Deinem Gebiet und wirst zur verlässlichen Partnerin für innovative Lösungen in der Baubranche.\n\nDein Profil\n\n• Freude an persönlichem Kundenkontakt und Motivation, Deinen Markt eigenverantwortlich zu entwickeln\n\n• Erfahrung im Verkauf oder in der Baubranche von Vorteil\n\n• Eine abgeschlossene technische Ausbildung von Vorteil\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n\n• Führerausweis Kategorie B\n\nImpressum\n\nHaben wir Dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf Deine Bewerbung. Deine Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir über unser Online-Karrieretool entgegen. Frau Joèlle Ochsner, HR Talent Partner, freut sich auf Dein Anschreiben.\n\nWas kannst Du erwarten, wenn du Dich bei Hilti bewirbst?\n\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n\n• Sobald Du Deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n\n• Du kannst davon ausgehen, dass Du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\nWir wünschen Dir viel Erfolg in deinem Bewerbungsverfahren.\nSollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+      "description": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld!\n\nBei uns gehst Du über klassischen Vertrieb hinaus. Du entwickelst Dein Gebiet wie ein eigenes Geschäft, baust langfristige Kundenbeziehungen auf und trägst aktiv dazu bei, die Baubranche produktiver, sicherer und nachhaltiger zu machen. Hilti bietet Dir ein Umfeld, das Vielfalt und Gleichberechtigung aktiv fördert und in dem Du Dich wirklich einbringen kannst.\nAls Teil unseres Teams betreust Du Kund:innen in Deinem Gebiet und wirst zur verlässlichen Partnerin für innovative Lösungen in der Baubranche.\n\nDein Profil\n\n• Freude an persönlichem Kundenkontakt und Motivation, Deinen Markt eigenverantwortlich zu entwickeln\n\n• Erfahrung im Verkauf oder in der Baubranche von Vorteil\n\n• Eine abgeschlossene technische Ausbildung von Vorteil\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n\n• Führerausweis Kategorie B\n\nImpressum\n\nHaben wir Dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf Deine Bewerbung. Deine Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir über unser Online-Karrieretool entgegen. Frau Joèlle Ochsner, HR Talent Partner, freut sich auf Dein Anschreiben.\n\nWas kannst Du erwarten, wenn du Dich bei Hilti bewirbst?\n\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n\n• Sobald Du Deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n\n• Du kannst davon ausgehen, dass Du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n Wir wünschen Dir viel Erfolg in deinem Bewerbungsverfahren.\nSollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
       "descriptionByLocale": {
         "it": "Consigliare, convincere, vendere – La tua possibilità nell'ambiente dell'edificio!\n\nCon noi, si va oltre le vendite classiche. Sviluppi il tuo campo come il tuo business, costruisci relazioni con i clienti a lungo termine e contribuisci attivamente a rendere il settore delle costruzioni più produttivo, sicuro e sostenibile. Hilti vi offre un ambiente che promuove attivamente la diversità e l'uguaglianza e in cui si può davvero coinvolgere.\nNell'ambito del nostro team, supporterai i clienti nella tua zona e diventerai un partner affidabile per soluzioni innovative nel settore delle costruzioni.\n\nIl tuo profilo\n\n• Gioia del contatto personale del cliente e motivazione per sviluppare il vostro mercato indipendentemente\n\n• L'esperienza nelle vendite o nella costruzione è utile\n\n• La formazione tecnica completa è utile\n\n• Metodo di lavoro indipendente, strutturato e affidabile\n\n• Conoscenze di flusso di tedesco e svizzero\n\n• Titolo di guida della categoria B\n\nImprint\n\nAbbiamo suscitato il vostro interesse a lavorare per uno dei migliori datori di lavoro in Svizzera? Attendiamo con ansia la vostra applicazione. Accettiamo i vostri documenti (lettera di motivazione, CV, certificati) tramite il nostro strumento di carriera online. La signora Joèlle Ochsner, HR Talent Partner, non vede l'ora di ricevere la sua lettera di presentazione.\n\nCosa puoi aspettarti quando ti applichi a Hilti?\n\n• Ci impegniamo ad avere tutte le applicazioni esaminate da una persona. Anche se nessuno è infallibile, siamo al nostro approccio incentrato sulla persona a tutto ciò che facciamo.\n\n• Una volta presentata la vostra domanda, riceverete notifiche automatiche dal nostro sistema (triggered dal nostro team di reclutamento).\n\n• Le applicazioni che non lo rendono all'intervista con un responsabile dell'assunzione non ricevono feedback personalizzati.\n\n• Ci si può aspettare di sentire da noi entro 2-3 settimane (in media) indipendentemente dal risultato. L'intero processo di reclutamento può richiedere tra 5 e 6 settimane.\nVi auguriamo ogni successo nel vostro processo di applicazione.\nSe si verificano problemi tecnici durante l'applicazione, contattare mycareer-techsupport@hilti.com.\n\nImpegno all'inclusione\n\nA Hilti, l'inclusione è un aspetto centrale del nostro modo di lavorare, del nostro stile di leadership e della nostra crescita condivisa. Siamo attivamente impegnati nella diversità del pensiero e di un ambiente che è inclusivo per tutti e ovunque. Continuiamo a sforzarci di sentire ogni voce e per ogni membro del team di sentirsi in grado di contribuire. Costruire questa fondazione, rafforziamo i nostri team, la nostra innovazione e il nostro impatto per migliorare collettivamente la costruzione.\n\nPerché Hilti\n\nHilti è leader globale nell'innovazione costruttiva con oltre 34.000 membri del team in 120 paesi. Il nostro obiettivo è migliorare la costruzione. Ecco perché ci interessa imparare, crescere e trovare nuovi modi per avere un impatto duraturo. Qui puoi contribuire ai tuoi punti di forza, lavorare con un team globale e inclusivo e affrontare sfide significative. A Hilti, puoi trasformare le tue idee in realizzazioni e crescita reali attraverso azioni mirate, passione e lavoro di squadra.",
         "en": "Advise, convince, sell – Your chance in the building environment!\n\nWith us, you go beyond classic sales. You develop your field like your own business, build long-term customer relationships and actively contribute to making the construction industry more productive, safe and sustainable. Hilti offers you an environment that actively promotes diversity and equality and in which you can really get involved.\nAs part of our team, you will support customers in your area and become a reliable partner for innovative solutions in the construction industry.\n\nYour profile\n\n• Joy of personal customer contact and motivation to develop your market independently\n\n• Experience in sales or construction is beneficial\n\n• Completed technical training is beneficial\n\n• Independent, structured and reliable working method\n\n• Flowing knowledge of German and Swiss\n\n• Category B driving licence\n\nImprint\n\nHave we aroused your interest in working for one of the best employers in Switzerland? We look forward to your application. We accept your documents (motivation letter, CV, certificates) via our online career tool. Ms. Joèlle Ochsner, HR Talent Partner, is looking forward to receiving your cover letter.\n\nWhat can you expect when applying to Hilti?\n\n• We undertake to have all applications reviewed by one person. Even if no one is infallible, we stand by our person-centered approach to everything we do.\n\n• Once you have submitted your application, you will receive automatic notifications from our system (triggered by our recruitment team).\n\n• Applications that do not make it to the interview with a hiring manager do not receive personalized feedback.\n\n• You can expect to hear from us within 2–3 weeks (on average) regardless of the result. The entire recruitment process can take between 5 and 6 weeks.\nWe wish you every success in your application process.\nIf technical problems occur during the application, please contact mycareer-techsupport@hilti.com.\n\nCommitment to inclusion\n\nAt Hilti, inclusion is a central aspect of our way of working, our leadership style and our shared growth. We are actively committed to diversity of thought and an environment that is inclusive for everyone and everywhere. We continue to strive for every voice to be heard and for every team member to feel empowered to contribute. By building this foundation, we strengthen our teams, our innovation and our impact to collectively improve construction.\n\nWhy Hilti\n\nHilti is a global leader in construction innovation with more than 34,000 team members in 120 countries. Our goal is to improve construction. That’s why we care about learning, growing and finding new ways to make a lasting impact. Here you can contribute your strengths, work with a global and inclusive team and face meaningful challenges. At Hilti, you can turn your ideas into real achievements and growth through purposeful action, passion and teamwork.",
         "de": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld!\n\nBei uns gehst Du über klassischen Vertrieb hinaus. Du entwickelst Dein Gebiet wie ein eigenes Geschäft, baust langfristige Kundenbeziehungen auf und trägst aktiv dazu bei, die Baubranche produktiver, sicherer und nachhaltiger zu machen. Hilti bietet Dir ein Umfeld, das Vielfalt und Gleichberechtigung aktiv fördert und in dem Du Dich wirklich einbringen kannst.\nAls Teil unseres Teams betreust Du Kund:innen in Deinem Gebiet und wirst zur verlässlichen Partnerin für innovative Lösungen in der Baubranche.\n\nDein Profil\n\n• Freude an persönlichem Kundenkontakt und Motivation, Deinen Markt eigenverantwortlich zu entwickeln\n\n• Erfahrung im Verkauf oder in der Baubranche von Vorteil\n\n• Eine abgeschlossene technische Ausbildung von Vorteil\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Fliessende Deutsch- und Schweizerdeutschkenntnisse\n\n• Führerausweis Kategorie B\n\nImpressum\n\nHaben wir Dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf Deine Bewerbung. Deine Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir über unser Online-Karrieretool entgegen. Frau Joèlle Ochsner, HR Talent Partner, freut sich auf Dein Anschreiben.\n\nWas kannst Du erwarten, wenn du Dich bei Hilti bewirbst?\n\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n\n• Sobald Du Deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n\n• Du kannst davon ausgehen, dass Du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\nWir wünschen Dir viel Erfolg in deinem Bewerbungsverfahren.\nSollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
         "fr": "Conseiller, convaincre, vendre – Votre chance dans l'environnement du bâtiment!\n\nAvec nous, vous allez au-delà des ventes classiques. Vous développez votre domaine comme votre propre entreprise, créez des relations client à long terme et contribuez activement à rendre l'industrie de la construction plus productive, sûre et durable. Hilti vous offre un environnement qui promeut activement la diversité et l'égalité et dans lequel vous pouvez vraiment vous impliquer.\nDans le cadre de notre équipe, vous accompagnerez les clients de votre région et deviendrez un partenaire fiable pour des solutions innovantes dans le secteur de la construction.\n\nVotre profil\n\n• Joy du contact avec le client et de la motivation pour développer votre marché indépendamment\n\n• L'expérience dans les ventes ou la construction est bénéfique\n\n• La formation technique terminée est bénéfique\n\n• Méthode de travail indépendante, structurée et fiable\n\n• Connaissance de l'allemand et du suisse\n\n• Permis de conduire de catégorie B\n\nEmpreinte\n\nAvons-nous suscité votre intérêt à travailler pour l'un des meilleurs employeurs de Suisse? Nous attendons avec impatience votre candidature. Nous acceptons vos documents (lettre de motivation, CV, certificats) via notre outil de carrière en ligne. Mme Joëlle Ochsner, associée de talent RH, est impatiente de recevoir votre lettre de présentation.\n\nQu'attendez-vous de votre candidature à Hilti ?\n\n• Nous nous engageons à faire examiner toutes les demandes par une seule personne. Même si personne n'est infaillible, nous nous tenons à notre approche centrée sur la personne de tout ce que nous faisons.\n\n• Une fois votre candidature soumise, vous recevrez des notifications automatiques de notre système (démarrées par notre équipe de recrutement).\n\n• Les demandes qui n'arrivent pas à l'entrevue avec un gestionnaire d'embauche ne reçoivent pas de rétroaction personnalisée.\n\n• Vous pouvez vous attendre à recevoir des nouvelles de nous dans les 2-3 semaines (en moyenne) quel que soit le résultat. Tout le processus de recrutement peut prendre entre 5 et 6 semaines.\nNous vous souhaitons plein succès dans votre processus de candidature.\nSi des problèmes techniques surviennent pendant l'application, veuillez contacter mycareer-techsupport@hilti.com.\n\nEngagement en faveur de l'inclusion\n\nÀ Hilti, l'inclusion est un aspect central de notre façon de travailler, de notre style de leadership et de notre croissance partagée. Nous sommes activement attachés à la diversité de pensée et à un environnement inclusif pour tous et partout. Nous continuons de nous efforcer de faire entendre chaque voix et de permettre à chaque membre de l'équipe de se sentir habilité à contribuer. En construisant cette fondation, nous renforçons nos équipes, notre innovation et notre impact pour améliorer collectivement la construction.\n\nPourquoi Hilti\n\nHilti est un leader mondial de l'innovation dans la construction avec plus de 34 000 membres d'équipe dans 120 pays. Notre objectif est d'améliorer la construction. Voilà pourquoi nous nous intéressons à l'apprentissage, à la croissance et à la recherche de nouvelles façons d'avoir un impact durable. Ici, vous pouvez apporter vos forces, travailler avec une équipe globale et inclusive et relever des défis significatifs. Chez Hilti, vous pouvez transformer vos idées en réalisations réelles et en croissance par l'action délibérée, la passion et le travail d'équipe."
       },
-      "location": "Visp, Wallis, Schweiz",
+      "location": "Visp, Wallis",
       "canton": "VS",
       "url": "https://careers.hilti.group/en/jobs/21354-de/verkaufsberater-im-aussendienst-baubranche-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:06.456Z",
+      "crawledAt": "2026-11-27T21:20:44.123Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressRegion": "VS",
@@ -606,9 +508,95 @@
       },
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:22:06.456Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/21354-de/verkaufsberater-im-aussendienst-baubranche-m-w-d"
+      "validThrough": "2027-01-13T21:20:44.123Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "hilti-21654-de",
+      "slug": "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich",
+      "slugByLocale": {
+        "it": "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich",
+        "en": "career-start-marketing-sales-switzerland-m-f-d-hilti-zurich",
+        "de": "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
+        "fr": "carriere-debut-marketing-vente-suisse-h-f-d-hilti-zurich"
+      },
+      "company": "Hilti",
+      "companyKey": "hilti",
+      "companyDomain": "hilti.group",
+      "title": "Career Start Marketing & Sales Schweiz (m/w/d)",
+      "titleByLocale": {
+        "it": "Carriera Avvio Marketing e Vendite Svizzera (m/f/d)",
+        "en": "Career Start Marketing & Sales Switzerland (m/f/d)",
+        "de": "Career Start Marketing & Sales Schweiz (m/w/d)",
+        "fr": "Carrière Début Marketing & Vente Suisse (h/f/d)"
+      },
+      "description": "Der beste Start für Deine Karriere bei Hilti\n\nDu hast Deinen Masterabschluss erfolgreich abgeschlossen und möchtest nicht einfach einen Job starten, sondern die Grundlage für eine langfristige Karriere legen? Im zweijährigen Career Start Programm, das in der gesamten Schweiz durchgeführt wird, übernimmst Du früh Verantwortung für Dein eigenes Verkaufsgebiet. Dabei lernst Du unser Business direkt bei Kund:innen kennen und entwickelst die Fähigkeiten für zukünftige Führungsrollen bei Hilti. Wir sind überzeugt: Wer Kund:innen, Märkte und Geschäftsmodelle versteht, schafft die Basis für nachhaltigen Erfolg. Deshalb startest Du Deine Karriere dort, wo Hilti den grössten Unterschied macht: im direkten Kundenkontakt. Dafür benötigst Du keine Branchenerfahrung – viel wichtiger ist die Begeisterung für die Marke Hilti und Dein Interesse für die Baubranche. In unserem Onboarding wirst Du fit für Deinen Career Start gemacht.\n\nDein Profil\n\n• Erfolgreicher Bachelor- oder Masterabschluss (Universität, ETH/EPFL oder Fachhochschule)\n\n• Praktische Berufserfahrung durch Praktika oder Werkstudierendentätigkeiten, idealerweise ergänzt durch anspruchsvolle Nebenprojekte oder Ehrenamt\n\n• Du begeisterst Dich für den Direktvertrieb und unser Geschäftsmodell und identifizierst Dich damit, dass wir als inhabergeführte Unternehmung langfristig agieren\n\n• Flexibilität bezüglich Einsatzort innerhalb der Schweiz sowie Umzugsbereitschaft\n\n• Motivation, langfristig Verantwortung zu übernehmen und Dich in eine Führungsrolle zu entwickeln\n\n• Fliessende Deutsch- und Englischkenntnisse, Verständnis von Schweizerdeutsch sowie Führerausweis Kategorie B\n\nImpressum\n\nHaben wir Dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf Deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Ulrike Samer, Senior HR Talent Partner, freut sich auf Dein Anschreiben.\n\nWas kannst Du erwarten, wenn Du Dich bei Hilti bewirbst?\n\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n\n• Sobald Du Deine Bewerbung eingereicht hast, erhältst Du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n\n• Du kannst davon ausgehen, dass Du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n\n• Wir wünschen Dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest Du in unseren häufig gestellten Fragen zur Karriere.\n\nSollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+      "descriptionByLocale": {
+        "it": "Il miglior inizio della tua carriera a Hilti\n\nHai completato con successo il tuo master e non solo vuoi iniziare un lavoro, ma gettare le basi per una carriera a lungo termine? Nel programma Career Start di due anni, che si svolge in tutta la Svizzera, si assume la responsabilità della propria area di vendita in una fase iniziale. Potrai conoscere il nostro business direttamente a Kund:innen e sviluppare le competenze per i futuri ruoli di leadership a Hilti. Siamo convinti che coloro che comprendono clienti, mercati e modelli di business creino la base per un successo sostenibile. Ecco perché si inizia la tua carriera dove Hilti fa la più grande differenza: nel contatto diretto con i clienti. Non avete bisogno di alcuna esperienza di settore – molto più importante è l'entusiasmo per il marchio Hilti e il vostro interesse per l'industria edile. Nella nostra onboarding sarete adattati per il vostro inizio di carriera.\n\nIl tuo profilo\n\n• Laurea di successo o laurea magistrale (Università, ETH/EPFL o Università di Scienze Applicate)\n\n• Esperienza professionale pratica attraverso stage o attività di studio di lavoro, idealmente completato da progetti collaterali impegnativi o volontariato\n\n• Sei entusiasta delle vendite dirette e del nostro modello di business e ti identifichiamo con il fatto che agiamo come azienda proprietaria per il lungo periodo.\n\n• Flessibilità in termini di posizione all'interno della Svizzera e disponibilità a muoversi\n\n• Motivazione per assumere responsabilità a lungo termine e svilupparsi in un ruolo di leadership\n\n• Conoscenza della lingua tedesca e inglese, comprensione della lingua tedesca svizzera e patente di guida categoria B\n\nImprint\n\nAbbiamo suscitato il vostro interesse a lavorare per uno dei migliori datori di lavoro in Svizzera? Quindi non vediamo l'ora della vostra applicazione online significativa. Accettiamo i vostri documenti completi (lettera di motivazione, CV, certificati) esclusivamente tramite il nostro strumento di carriera online. La signora Ulrike Samer, Senior HR Talent Partner, non vede l'ora di ricevere la sua lettera di copertura.\n\nCosa puoi aspettarti quando ti applichi a Hilti?\n\n• Ci impegniamo ad avere tutte le applicazioni esaminate da una persona. Anche se nessuno è infallibile, siamo al nostro approccio incentrato sulla persona a tutto ciò che facciamo.\n\n• Una volta presentata la vostra domanda, riceverete notifiche automatiche dal nostro sistema (triggered dal nostro team di reclutamento).\n\n• Le applicazioni che non lo rendono all'intervista con un responsabile dell'assunzione non ricevono feedback personalizzati.\n\n• Ci si può aspettare di sentire da noi entro 2-3 settimane (in media) indipendentemente dal risultato. L'intero processo di reclutamento può richiedere tra 5 e 6 settimane.\n\n• Vi auguriamo ogni successo nel vostro processo di applicazione. Suggerimenti per l'applicazione e l'intervista possono essere trovati nelle nostre domande frequenti di carriera.\n\nSe si verificano problemi tecnici durante l'applicazione, contattare mycareer-techsupport@hilti.com.\n\nImpegno all'inclusione\n\nA Hilti, l'inclusione è un aspetto centrale del nostro modo di lavorare, del nostro stile di leadership e della nostra crescita condivisa. Siamo attivamente impegnati nella diversità del pensiero e di un ambiente che è inclusivo per tutti e ovunque. Continuiamo a sforzarci di sentire ogni voce e per ogni membro del team di sentirsi in grado di contribuire. Costruire questa fondazione, rafforziamo i nostri team, la nostra innovazione e il nostro impatto per migliorare collettivamente la costruzione.\n\nPerché Hilti\n\nHilti è leader globale nell'innovazione costruttiva con oltre 34.000 membri del team in 120 paesi. Il nostro obiettivo è migliorare la costruzione. Ecco perché ci interessa imparare, crescere e trovare nuovi modi per avere un impatto duraturo. Qui puoi contribuire ai tuoi punti di forza, lavorare con un team globale e inclusivo e affrontare sfide significative. A Hilti, puoi trasformare le tue idee in realizzazioni e crescita reali attraverso azioni mirate, passione e lavoro di squadra.",
+        "en": "The best start to your career at Hilti\n\nYou have successfully completed your master’s degree and do not just want to start a job, but lay the foundation for a long-term career? In the two-year Career Start program, which is carried out throughout Switzerland, you take responsibility for your own sales area at an early stage. You will get to know our business directly at Kund:innen and develop the skills for future leadership roles at Hilti. We are convinced that those who understand customers, markets and business models create the basis for sustainable success. That’s why you start your career where Hilti makes the biggest difference: in direct customer contact. You do not need any industry experience – much more important is the enthusiasm for the Hilti brand and your interest in the construction industry. In our onboarding you will be made fit for your career start.\n\nYour profile\n\n• Successful Bachelor's or Master's degree (University, ETH/EPFL or University of Applied Sciences)\n\n• Practical professional experience through internships or work study activities, ideally complemented by challenging side projects or volunteer work\n\n• You are enthusiastic about direct sales and our business model and identify yourself with the fact that we act as an owner-managed company for the long term.\n\n• Flexibility in terms of location within Switzerland and willingness to move\n\n• Motivation to take on long-term responsibility and develop into a leadership role\n\n• Flowing knowledge of German and English, understanding of Swiss German and driving licence category B\n\nImprint\n\nHave we aroused your interest in working for one of the best employers in Switzerland? Then we look forward to your meaningful online application. We accept your complete documents (motivation letter, CV, certificates) exclusively via our online career tool. Ms. Ulrike Samer, Senior HR Talent Partner, is looking forward to receiving your cover letter.\n\nWhat can you expect when applying to Hilti?\n\n• We undertake to have all applications reviewed by one person. Even if no one is infallible, we stand by our person-centered approach to everything we do.\n\n• Once you have submitted your application, you will receive automatic notifications from our system (triggered by our recruitment team).\n\n• Applications that do not make it to the interview with a hiring manager do not receive personalized feedback.\n\n• You can expect to hear from us within 2–3 weeks (on average) regardless of the result. The entire recruitment process can take between 5 and 6 weeks.\n\n• We wish you every success in your application process. Tips for applying and interviewing can be found in our frequently asked career questions.\n\nIf technical problems occur during the application, please contact mycareer-techsupport@hilti.com.\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a central aspect of our way of working, our leadership style and our shared growth. We are actively committed to diversity of thought and an environment that is inclusive for everyone and everywhere. We continue to strive for every voice to be heard and for every team member to feel empowered to contribute. By building this foundation, we strengthen our teams, our innovation and our impact to collectively improve construction.\n\nWhy Hilti\n\nHilti is a global leader in construction innovation with more than 34,000 team members in 120 countries. Our goal is to improve construction. That’s why we care about learning, growing and finding new ways to make a lasting impact. Here you can contribute your strengths, work with a global and inclusive team and face meaningful challenges. At Hilti, you can turn your ideas into real achievements and growth through purposeful action, passion and teamwork.",
+        "de": "Der beste Start für Deine Karriere bei Hilti\n\nDu hast Deinen Masterabschluss erfolgreich abgeschlossen und möchtest nicht einfach einen Job starten, sondern die Grundlage für eine langfristige Karriere legen? Im zweijährigen Career Start Programm, das in der gesamten Schweiz durchgeführt wird, übernimmst Du früh Verantwortung für Dein eigenes Verkaufsgebiet. Dabei lernst Du unser Business direkt bei Kund:innen kennen und entwickelst die Fähigkeiten für zukünftige Führungsrollen bei Hilti. Wir sind überzeugt: Wer Kund:innen, Märkte und Geschäftsmodelle versteht, schafft die Basis für nachhaltigen Erfolg. Deshalb startest Du Deine Karriere dort, wo Hilti den grössten Unterschied macht: im direkten Kundenkontakt. Dafür benötigst Du keine Branchenerfahrung – viel wichtiger ist die Begeisterung für die Marke Hilti und Dein Interesse für die Baubranche. In unserem Onboarding wirst Du fit für Deinen Career Start gemacht.\n\nDein Profil\n\n• Erfolgreicher Bachelor- oder Masterabschluss (Universität, ETH/EPFL oder Fachhochschule)\n\n• Praktische Berufserfahrung durch Praktika oder Werkstudierendentätigkeiten, idealerweise ergänzt durch anspruchsvolle Nebenprojekte oder Ehrenamt\n\n• Du begeisterst Dich für den Direktvertrieb und unser Geschäftsmodell und identifizierst Dich damit, dass wir als inhabergeführte Unternehmung langfristig agieren\n\n• Flexibilität bezüglich Einsatzort innerhalb der Schweiz sowie Umzugsbereitschaft\n\n• Motivation, langfristig Verantwortung zu übernehmen und Dich in eine Führungsrolle zu entwickeln\n\n• Fliessende Deutsch- und Englischkenntnisse, Verständnis von Schweizerdeutsch sowie Führerausweis Kategorie B\n\nImpressum\n\nHaben wir Dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf Deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Ulrike Samer, Senior HR Talent Partner, freut sich auf Dein Anschreiben.\n\nWas kannst Du erwarten, wenn Du Dich bei Hilti bewirbst?\n\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n\n• Sobald Du Deine Bewerbung eingereicht hast, erhältst Du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n\n• Du kannst davon ausgehen, dass Du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n\n• Wir wünschen Dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest Du in unseren häufig gestellten Fragen zur Karriere.\n\nSollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+        "fr": "Le meilleur début de votre carrière chez Hilti\n\nVous avez réussi votre master et ne voulez pas seulement commencer un emploi, mais jeter les bases d'une carrière à long terme? Dans le cadre du programme de démarrage de carrière de deux ans, qui est réalisé dans toute la Suisse, vous assumez la responsabilité de votre propre zone de vente à un stade précoce. Vous apprendrez à connaître notre entreprise directement chez Kund:innen et développerez les compétences pour les futurs rôles de leadership chez Hilti. Nous sommes convaincus que ceux qui comprennent les clients, les marchés et les modèles commerciaux créent la base d'un succès durable. C'est pourquoi vous commencez votre carrière où Hilti fait la plus grande différence: en contact direct avec le client. Vous n'avez pas besoin d'expérience de l'industrie – beaucoup plus important est l'enthousiasme pour la marque Hilti et votre intérêt pour l'industrie de la construction. Dans notre embarquement, vous serez rendu apte pour votre début de carrière.\n\nVotre profil\n\n• Baccalauréat ou maîtrise (Université, ETH/EPFL ou Université des sciences appliquées)\n\n• Expérience professionnelle pratique par le biais de stages ou d'activités d'études de travail, idéalement complétée par des projets parallèles ou du bénévolat\n\n• Vous êtes enthousiaste au sujet des ventes directes et de notre modèle d'affaires et vous identifiez avec le fait que nous agissons comme une entreprise gérée par le propriétaire pour le long terme.\n\n• Flexibilité en termes de localisation en Suisse et volonté de déménager\n\n• Motivation à assumer une responsabilité à long terme et à devenir un rôle de leadership\n\n• Connaissance de l'allemand et de l'anglais, compréhension de l'allemand suisse et de la catégorie de permis de conduire B\n\nEmpreinte\n\nAvons-nous suscité votre intérêt pour travailler pour l'un des meilleurs employeurs de Suisse? Ensuite, nous attendons avec impatience votre application en ligne significative. Nous acceptons vos documents complets (lettre de motivation, CV, certificats) exclusivement via notre outil de carrière en ligne. Mme Ulrike Samer, Senior HR Talent Partner, est impatiente de recevoir votre lettre de présentation.\n\nÀ quoi pouvez-vous vous attendre pour postuler à Hilti?\n\n• Nous nous engageons à faire examiner toutes les demandes par une seule personne. Même si personne n'est infaillible, nous nous tenons à notre approche centrée sur la personne de tout ce que nous faisons.\n\n• Une fois votre candidature soumise, vous recevrez des notifications automatiques de notre système (déclenchement par notre équipe de recrutement).\n\n• Les demandes qui n'arrivent pas à l'entrevue avec un gestionnaire d'embauche ne reçoivent pas de rétroaction personnalisée.\n\n• Vous pouvez vous attendre à recevoir des nouvelles de nous dans les 2-3 semaines (en moyenne) quel que soit le résultat. Le processus de recrutement peut prendre entre 5 et 6 semaines.\n\n• Nous vous souhaitons plein succès dans votre processus de candidature. Des conseils pour postuler et interviewer se trouvent dans nos questions de carrière fréquemment posées.\n\nSi des problèmes techniques surviennent pendant l'application, veuillez contacter mycareer-techsupport@hilti.com.\n\nEngagement en faveur de l'inclusion\n\nÀ Hilti, l'inclusion est un aspect central de notre façon de travailler, de notre style de leadership et de notre croissance partagée. Nous sommes activement attachés à la diversité des pensées et à un environnement inclusif pour tous et partout. Nous continuons de nous efforcer de faire entendre chaque voix et de faire en sorte que chaque membre de l'équipe se sente habilité à contribuer. En construisant cette fondation, nous renforçons nos équipes, notre innovation et notre impact pour améliorer collectivement la construction.\n\nPourquoi Hilti\n\nHilti est un leader mondial de l'innovation dans le secteur de la construction avec plus de 34 000 membres d'équipe dans 120 pays. Notre objectif est d'améliorer la construction. C'est pourquoi nous nous soucions d'apprendre, de grandir et de trouver de nouvelles façons d'avoir un impact durable. Ici, vous pouvez apporter vos forces, travailler avec une équipe globale et inclusive et relever des défis significatifs. Chez Hilti, vous pouvez transformer vos idées en réalisations réelles et en croissance grâce à une action délibérée, à la passion et au travail d'équipe."
+      },
+      "location": "Zürich, Zürich",
+      "canton": "ZH",
+      "url": "https://careers.hilti.group/en/jobs/21654-de/career-start-marketing-sales-schweiz-m-w-d/",
+      "source": "Hilti Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T21:20:44.120Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Construction tools & fastening technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-16T09:47:00+00:00",
+      "postedDate": "2026-10-16T09:47:00+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.hilti.group/en/jobs/21654-de/career-start-marketing-sales-schweiz-m-w-d/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
+        "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich-zurich",
+        "carriere-debut-marketing-vente-suisse-h-f-d-hilti-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
+          "carriera-avvio-marketing-e-vendite-svizzera-m-f-d-hilti-zurich-zurich"
+        ],
+        "en": [
+          "career-start-marketing-sales-schweiz-m-w-d-hilti-ch"
+        ],
+        "fr": [
+          "career-start-marketing-sales-schweiz-m-w-d-hilti-ch",
+          "carriere-debut-marketing-vente-suisse-h-f-d-hilti-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-16T21:17:17.112Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T21:20:44.120Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-21397-de",
@@ -641,7 +629,7 @@
       "url": "https://careers.hilti.group/en/jobs/21397-de/sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:06.451Z",
+      "crawledAt": "2026-11-27T21:20:44.103Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -709,9 +697,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:22:06.451Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/21397-de/sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d"
+      "validThrough": "2027-01-18T21:20:44.103Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-21636-en",
@@ -744,7 +731,7 @@
       "url": "https://careers.hilti.group/en/jobs/21636-en/it-product-owner-subscription-selling-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:22:06.449Z",
+      "crawledAt": "2026-11-27T21:20:44.101Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -793,9 +780,8 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:22:06.449Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/21636-en/it-product-owner-subscription-selling-m-f-x"
+      "validThrough": "2027-01-18T21:20:44.101Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-21637-en",
@@ -828,7 +814,7 @@
       "url": "https://careers.hilti.group/en/jobs/21637-en/red-team-specialist/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:22:06.448Z",
+      "crawledAt": "2026-11-27T21:20:44.098Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -877,9 +863,8 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:22:06.448Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/21637-en/red-team-specialist"
+      "validThrough": "2027-01-21T21:20:44.098Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-22022-de",
@@ -912,7 +897,7 @@
       "url": "https://careers.hilti.group/en/jobs/22022-de/verkaufsberater-hilti-store-winterthur-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:06.447Z",
+      "crawledAt": "2026-11-27T21:20:44.096Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "addressRegion": "ZH",
@@ -961,9 +946,8 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:22:06.447Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/22022-de/verkaufsberater-hilti-store-winterthur-m-w-d"
+      "validThrough": "2027-01-27T21:20:44.096Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-20552-fr",
@@ -996,7 +980,7 @@
       "url": "https://careers.hilti.group/en/jobs/20552-fr/conseiller-de-vente-externe-h-f-d-100/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:22:06.445Z",
+      "crawledAt": "2026-11-27T21:20:44.094Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressRegion": "FR",
@@ -1031,9 +1015,8 @@
       },
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:22:06.445Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/20552-fr/conseiller-de-vente-externe-h-f-d-100"
+      "validThrough": "2027-02-09T21:20:44.094Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-22392-de",
@@ -1066,7 +1049,7 @@
       "url": "https://careers.hilti.group/en/jobs/22392-de/key-account-verkaufsberater-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:06.444Z",
+      "crawledAt": "2026-11-27T21:20:44.093Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -1115,9 +1098,8 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:22:06.444Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/22392-de/key-account-verkaufsberater-m-w-d"
+      "validThrough": "2027-02-15T21:20:44.093Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-22371-fr",
@@ -1150,7 +1132,7 @@
       "url": "https://careers.hilti.group/en/jobs/22371-fr/conseiller-de-vente-externe-construction-metallique/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:22:06.442Z",
+      "crawledAt": "2026-11-27T21:20:44.088Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressRegion": "FR",
@@ -1199,9 +1181,8 @@
       },
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:22:06.442Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/22371-fr/conseiller-de-vente-externe-construction-metallique"
+      "validThrough": "2027-02-15T21:20:44.088Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-22501-en",
@@ -1234,7 +1215,7 @@
       "url": "https://careers.hilti.group/en/jobs/22501-en/head-of-it-architecture-security-quality-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:22:06.439Z",
+      "crawledAt": "2026-11-27T21:20:44.084Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -1283,9 +1264,8 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:22:06.439Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/22501-en/head-of-it-architecture-security-quality-m-f-x"
+      "validThrough": "2027-02-17T21:20:44.084Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilti-20720-de",
@@ -1318,7 +1298,7 @@
       "url": "https://careers.hilti.group/en/jobs/20720-de/reparaturexperte-fur-elektrowerkzeuge-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:06.437Z",
+      "crawledAt": "2026-11-27T21:20:44.079Z",
       "addressLocality": "Zürich Adliswil",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -1368,9 +1348,80 @@
       },
       "streetAddress": "Zürich Adliswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:22:06.437Z",
+      "validThrough": "2027-02-18T21:20:44.079Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "hilti-22946-en",
+      "slug": "internship-ai-solutions-developer-business-intelligence-solutions-m-f-x-hilti-ch",
+      "slugByLocale": {
+        "en": "internship-ai-solutions-developer-business-intelligence-solutions-m-f-x-hilti-ch",
+        "it": "internship-ai-solutions-developer-business-intelligence-solutions-m-f-x-hilti-ch",
+        "de": "internship-ai-solutions-developer-business-intelligence-solutions-m-f-x-hilti-ch",
+        "fr": "internship-ai-solutions-developer-business-intelligence-solutions-m-f-x-hilti-ch"
+      },
+      "company": "Hilti",
+      "companyKey": "hilti",
+      "companyDomain": "hilti.group",
+      "title": "Internship – AI Solutions Developer (Business Intelligence Solutions) (m/f/x)",
+      "titleByLocale": {
+        "en": "Internship – AI Solutions Developer (Business Intelligence Solutions) (m/f/x)",
+        "it": "Internship – AI Solutions Sviluppatore (Business Intelligence Solutions) (m/f/x)",
+        "de": "Internship – AI Solutions Entwickler (Business Intelligence Solutions) (m/f/x)",
+        "fr": "Internship – AI Solutions Développeur (Business Intelligence Solutions) (m/f/x)"
+      },
+      "description": "FROM IDEA TO AI. FROM AI TO IMPACT.\n\nExplore, experiment with and build enterprise-level AI solutions and Microsoft automation that change how people at Hilti work with data and with each other. Working directly with the Head of Business Intelligence Solutions and his team, you’ll take ideas from the first spark to working solutions in daily use.\n\nThis internship is preferably full-time, with a flexible start date and a duration that depends on how many months you can commit. No travel is required.\n\nWhat You’ll Bring\n\n• Self-driven ownership mindset\n\n• Entrepreneurial mindset focused on building solutions that get used\n\n• An open mind and the ability to learn fast\n\n• Resourceful approach to working things out using AI-enabled support\n\n• Strong communication skills in English\n\nLegal Notice\n\nFor further questions, please feel free to contact Vladimir Drabik (Head of BI Solutions) or Kimberly Caetano (Talent Acquisition Intern) at InternshipHQ.HiltiTeam@hilti.com.\n\n​For non-EU/ EFTA citizens: Please state your eligibility status to work in Switzerland/ Liechtenstein and note that if you do not own a valid Swiss/ Liechtenstein work permit, Hilti cannot guarantee your final employment due to authority regulations.​\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together.\n\nWhy Hilti\n\n​​Hilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.\n\n​At our global headquarters in Schaan, Nendeln, Buchs, and nearby hubs, we shape Hilti’s digital strategy and enterprise platforms worldwide. Our cross‑functional teams in product IT, data & analytics, cybersecurity, ERP, and digital customer platforms work side‑by‑side with business leaders to design, build, and run solutions at global scale. HQ offers a collaborative environment where architecture decisions, platform reliability, and secure-by-design engineering translate into real impact for our customers and teams.",
+      "descriptionByLocale": {
+        "en": "FROM IDEA TO AI. FROM AI TO IMPACT.\n\nExplore, experiment with and build enterprise-level AI solutions and Microsoft automation that change how people at Hilti work with data and with each other. Working directly with the Head of Business Intelligence Solutions and his team, you’ll take ideas from the first spark to working solutions in daily use.\n\nThis internship is preferably full-time, with a flexible start date and a duration that depends on how many months you can commit. No travel is required.\n\nWhat You’ll Bring\n\n• Self-driven ownership mindset\n\n• Entrepreneurial mindset focused on building solutions that get used\n\n• An open mind and the ability to learn fast\n\n• Resourceful approach to working things out using AI-enabled support\n\n• Strong communication skills in English\n\nLegal Notice\n\nFor further questions, please feel free to contact Vladimir Drabik (Head of BI Solutions) or Kimberly Caetano (Talent Acquisition Intern) at InternshipHQ.HiltiTeam@hilti.com.\n\n​For non-EU/ EFTA citizens: Please state your eligibility status to work in Switzerland/ Liechtenstein and note that if you do not own a valid Swiss/ Liechtenstein work permit, Hilti cannot guarantee your final employment due to authority regulations.​\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together.\n\nWhy Hilti\n\n​​Hilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.\n\n​At our global headquarters in Schaan, Nendeln, Buchs, and nearby hubs, we shape Hilti’s digital strategy and enterprise platforms worldwide. Our cross‑functional teams in product IT, data & analytics, cybersecurity, ERP, and digital customer platforms work side‑by‑side with business leaders to design, build, and run solutions at global scale. HQ offers a collaborative environment where architecture decisions, platform reliability, and secure-by-design engineering translate into real impact for our customers and teams.",
+        "it": "FROM IDEA TO AI. FROM AI TO IMPACT.\n\nExplore, experiment with and build enterprise-level AI solutions and Microsoft automation that change how people at Hilti work with data and with each other. Working directly with the Head of Business Intelligence Solutions and his team, you’ll take ideas from the first spark to working solutions in daily use.\n\nThis internship is preferably full-time, with a flexible start date and a duration that depends on how many months you can commit. No travel is required.\n\nWhat You’ll Bring\n\n• Self-driven ownership mindset\n\n• Entrepreneurial mindset focused on building solutions that get used\n\n• An open mind and the ability to learn fast\n\n• Resourceful approach to working things out using AI-enabled support\n\n• Strong communication skills in English\n\nLegal Notice\n\nFor further questions, please feel free to contact Vladimir Drabik (Head of BI Solutions) or Kimberly Caetano (Talent Acquisition Intern) at InternshipHQ.HiltiTeam@hilti.com.\n\n​For non-EU/ EFTA citizens: Please state your eligibility status to work in Switzerland/ Liechtenstein and note that if you do not own a valid Swiss/ Liechtenstein work permit, Hilti cannot guarantee your final employment due to authority regulations.​\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together.\n\nWhy Hilti\n\n​​Hilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.\n\n​At our global headquarters in Schaan, Nendeln, Buchs, and nearby hubs, we shape Hilti’s digital strategy and enterprise platforms worldwide. Our cross‑functional teams in product IT, data & analytics, cybersecurity, ERP, and digital customer platforms work side‑by‑side with business leaders to design, build, and run solutions at global scale. HQ offers a collaborative environment where architecture decisions, platform reliability, and secure-by-design engineering translate into real impact for our customers and teams.",
+        "de": "FROM IDEA TO AI. FROM AI TO IMPACT.\n\nExplore, experiment with and build enterprise-level AI solutions and Microsoft automation that change how people at Hilti work with data and with each other. Working directly with the Head of Business Intelligence Solutions and his team, you’ll take ideas from the first spark to working solutions in daily use.\n\nThis internship is preferably full-time, with a flexible start date and a duration that depends on how many months you can commit. No travel is required.\n\nWhat You’ll Bring\n\n• Self-driven ownership mindset\n\n• Entrepreneurial mindset focused on building solutions that get used\n\n• An open mind and the ability to learn fast\n\n• Resourceful approach to working things out using AI-enabled support\n\n• Strong communication skills in English\n\nLegal Notice\n\nFor further questions, please feel free to contact Vladimir Drabik (Head of BI Solutions) or Kimberly Caetano (Talent Acquisition Intern) at InternshipHQ.HiltiTeam@hilti.com.\n\n​For non-EU/ EFTA citizens: Please state your eligibility status to work in Switzerland/ Liechtenstein and note that if you do not own a valid Swiss/ Liechtenstein work permit, Hilti cannot guarantee your final employment due to authority regulations.​\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together.\n\nWhy Hilti\n\n​​Hilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.\n\n​At our global headquarters in Schaan, Nendeln, Buchs, and nearby hubs, we shape Hilti’s digital strategy and enterprise platforms worldwide. Our cross‑functional teams in product IT, data & analytics, cybersecurity, ERP, and digital customer platforms work side‑by‑side with business leaders to design, build, and run solutions at global scale. HQ offers a collaborative environment where architecture decisions, platform reliability, and secure-by-design engineering translate into real impact for our customers and teams.",
+        "fr": "FROM IDEA TO AI. FROM AI TO IMPACT.\n\nExplore, experiment with and build enterprise-level AI solutions and Microsoft automation that change how people at Hilti work with data and with each other. Working directly with the Head of Business Intelligence Solutions and his team, you’ll take ideas from the first spark to working solutions in daily use.\n\nThis internship is preferably full-time, with a flexible start date and a duration that depends on how many months you can commit. No travel is required.\n\nWhat You’ll Bring\n\n• Self-driven ownership mindset\n\n• Entrepreneurial mindset focused on building solutions that get used\n\n• An open mind and the ability to learn fast\n\n• Resourceful approach to working things out using AI-enabled support\n\n• Strong communication skills in English\n\nLegal Notice\n\nFor further questions, please feel free to contact Vladimir Drabik (Head of BI Solutions) or Kimberly Caetano (Talent Acquisition Intern) at InternshipHQ.HiltiTeam@hilti.com.\n\n​For non-EU/ EFTA citizens: Please state your eligibility status to work in Switzerland/ Liechtenstein and note that if you do not own a valid Swiss/ Liechtenstein work permit, Hilti cannot guarantee your final employment due to authority regulations.​\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a key focus in how we work, lead, and grow together. We are committed to embracing diversity of thought and creating an environment that is inclusive of everyone, everywhere. We continuously strive to ensure every voice is valued and every team member feels empowered to contribute. By building on this foundation, we strengthen our teams, our innovation, and our impact, making construction better together.\n\nWhy Hilti\n\n​​Hilti is a global leader in construction innovation, with more than 34,000 team members across 120 countries. Guided by our purpose, Making Construction Better, we’re driven to keep learning, growing, and finding new ways to make a lasting impact. Here, you’ll be empowered to use your strengths, work with a global and inclusive team, and take on meaningful challenges. At Hilti, you’ll have the chance to make your ideas, achievements, and growth real through purpose, passion, and teamwork.\n\n​At our global headquarters in Schaan, Nendeln, Buchs, and nearby hubs, we shape Hilti’s digital strategy and enterprise platforms worldwide. Our cross‑functional teams in product IT, data & analytics, cybersecurity, ERP, and digital customer platforms work side‑by‑side with business leaders to design, build, and run solutions at global scale. HQ offers a collaborative environment where architecture decisions, platform reliability, and secure-by-design engineering translate into real impact for our customers and teams."
+      },
+      "location": "Buchs, St. Gallen",
+      "canton": "SG",
+      "url": "https://careers.hilti.group/en/jobs/22946-en/internship-ai-solutions-developer-business-intelligence-solutions-m-f-x/",
+      "source": "Hilti Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-27T21:20:44.065Z",
+      "addressLocality": "Buchs",
+      "postalCode": "9470",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Construction tools & fastening technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-27T16:30:00+00:00",
+      "postedDate": "2026-11-27T16:30:00+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.hilti.group/en/jobs/22946-en/internship-ai-solutions-developer-business-intelligence-solutions-m-f-x/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Buchs",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T21:20:44.065Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.hilti.group/en/jobs/20720-de/reparaturexperte-fur-elektrowerkzeuge-m-w-d"
+      "firstSeenAt": "2026-11-27T21:20:44.065Z"
     }
   ]
 }
