@@ -69,7 +69,9 @@ jobs:
             scripts/lib/expired-archive-html-invariant.mjs
             scripts/lib/expired-job-edge-dataset.mjs
             scripts/lib/flat-string.mjs
+            scripts/lib/html-attr.mjs
             scripts/lib/is-invoked-directly.mjs
+            scripts/lib/mid-plugins-flag.mjs
             scripts/lib/sitemap-family-coverage.mjs
             scripts/lib/sitemap-snapshot.mjs
             scripts/lib/section-shard-slugs.json
