@@ -58,7 +58,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.mountains.ch/de/offene-stellen/receptionist",
-    "firstSeenAt": "2026-11-06T22:06:09.994Z"
+    "firstSeenAt": "2026-11-06T22:06:09.994Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "reception-ist-7500-st-moritz-mountains-ch-ch": "GR",
+        "ricevitore-engadin-st-moritz-mountains-ag-st-moritz": "GR"
+      },
+      "en": {
+        "reception-ist-7500-st-moritz-mountains-ch-ch": "GR",
+        "receptionist-engadin-st-moritz-mountains-ag-st-moritz": "GR"
+      },
+      "de": {
+        "reception-ist-engadin-st-moritz-mountains-ag-st-moritz": "GR"
+      },
+      "fr": {
+        "reception-ist-7500-st-moritz-mountains-ch-ch": "GR",
+        "receptionniste-engadin-st-moritz-mountains-ag-st-moritz": "GR"
+      }
+    }
   },
   {
     "id": "mountains-ch-c70b5beba287",
@@ -114,6 +132,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.mountains.ch/de/offene-stellen/leiter-corporate-services-cfo",
-    "firstSeenAt": "2026-11-04T21:50:30.507Z"
+    "firstSeenAt": "2026-11-04T21:50:30.507Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-corporate-services-cfo-7500-st-moritz-mountains-ch-ch": "GR",
+        "leiter-corporate-services-cfo-engadin-st-moritz-mountains-ag-st-moritz": "GR"
+      },
+      "en": {
+        "leiter-corporate-services-cfo-7500-st-moritz-mountains-ch-ch": "GR"
+      },
+      "de": {
+        "leiter-corporate-services-cfo-engadin-st-moritz-mountains-ag-st-moritz": "GR"
+      },
+      "fr": {
+        "leiter-corporate-services-cfo-7500-st-moritz-mountains-ch-ch": "GR"
+      }
+    }
   }
 ]
