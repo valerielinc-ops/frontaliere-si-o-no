@@ -47,6 +47,7 @@ function harness({ postTo = loginUrl, formAction = loginUrl, signedInPage = exis
   const page: any = {
     url: () => currentUrl,
     mainFrame: () => page,
+    frames: () => [page],
     goto: async (url: string) => {
       await fire(url);
       if (signedIn) { await fire(signedInPage); currentUrl = signedInPage; state.snapshot = signedInPage === existsUrl ? existsPage() : loginPage(); }
