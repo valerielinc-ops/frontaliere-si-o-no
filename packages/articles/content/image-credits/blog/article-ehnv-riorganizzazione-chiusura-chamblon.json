@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "cover": "/images/blog/article-ehnv-riorganizzazione-chiusura-chamblon.webp",
+  "source": "generated-provider",
+  "commons": {
+    "title": "Generated editorial illustration",
+    "pageUrl": "https://openai.com/policies/terms-of-use/",
+    "width": 1200,
+    "height": 675,
+    "revision": "2026-11-27T17:36:13.295Z"
+  },
+  "author": {
+    "text": "frontaliereticino.ch",
+    "name": "frontaliereticino.ch",
+    "url": null,
+    "type": "Organization"
+  },
+  "attribution": null,
+  "licence": {
+    "name": "Generated media — provider terms apply",
+    "family": "other-attribution",
+    "attributionRequired": true,
+    "url": "https://openai.com/policies/terms-of-use/"
+  },
+  "restrictions": [
+    "illustrative-only",
+    "no-real-recognizable-foreground-person",
+    "no-public-figure-face",
+    "no-logo-brand-or-text",
+    "no-specific-real-event-photojournalism"
+  ],
+  "modified": "resized",
+  "fetchedAt": "2026-11-27",
+  "status": "ok",
+  "curation": null,
+  "generated": {
+    "schema": 1,
+    "assetId": "article-ehnv-riorganizzazione-chiusura-chamblon",
+    "kind": "generated",
+    "provider": "openai-codex",
+    "model": "gpt-image-2",
+    "executorModel": "gpt-6-luna",
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "promptHash": "ec27619557013d8187f769cc8c73358f761b17ef177aa61ac71779b68d1b5a86",
+    "license": "generated-provider",
+    "licenseUrl": "https://openai.com/policies/terms-of-use/",
+    "credit": "frontaliereticino.ch",
+    "sha256": "382a2567d4866a5386b9cb432b3115c9bd33a7f0c23349f4e43c5811f0c0a095",
+    "bytes": 175682,
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "generatedAt": "2026-11-27T17:36:13.295Z",
+    "verifiedAt": "2026-11-27T17:36:22.109Z",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "scope": "article-hero",
+    "imageUrl": "/images/blog/article-ehnv-riorganizzazione-chiusura-chamblon.webp",
+    "area": "Swiss border region",
+    "season": "all seasons",
+    "variant": "article hero",
+    "vision": {
+      "ok": true,
+      "contains_text": false,
+      "contains_logo": false,
+      "contains_recognizable_face": false,
+      "contains_recognizable_foreground_person": false,
+      "looks_like_specific_real_event": false,
+      "is_photograph": false,
+      "is_topic_relevant": true,
+      "notes": "Generic modern hospital exterior; no people, readable text, logos, or event-specific details."
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "cover": "/images/blog/article-svitto-microsoft-365-amministrazione.webp",
+  "source": "generated-provider",
+  "commons": {
+    "title": "Generated editorial illustration",
+    "pageUrl": "https://openai.com/policies/terms-of-use/",
+    "width": 1200,
+    "height": 675,
+    "revision": "2026-11-27T16:18:17.152Z"
+  },
+  "author": {
+    "text": "frontaliereticino.ch",
+    "name": "frontaliereticino.ch",
+    "url": null,
+    "type": "Organization"
+  },
+  "attribution": null,
+  "licence": {
+    "name": "Generated media — provider terms apply",
+    "family": "other-attribution",
+    "attributionRequired": true,
+    "url": "https://openai.com/policies/terms-of-use/"
+  },
+  "restrictions": [
+    "illustrative-only",
+    "no-real-recognizable-foreground-person",
+    "no-public-figure-face",
+    "no-logo-brand-or-text",
+    "no-specific-real-event-photojournalism"
+  ],
+  "modified": "resized",
+  "fetchedAt": "2026-11-27",
+  "status": "ok",
+  "curation": null,
+  "generated": {
+    "schema": 1,
+    "assetId": "article-svitto-microsoft-365-amministrazione",
+    "kind": "generated",
+    "provider": "openai-codex",
+    "model": "gpt-image-2",
+    "executorModel": "gpt-6-luna",
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "promptHash": "b15ed8d0df9020fef3753ac724053f617a9a4e1fa99808e463bb53f378281d43",
+    "license": "generated-provider",
+    "licenseUrl": "https://openai.com/policies/terms-of-use/",
+    "credit": "frontaliereticino.ch",
+    "sha256": "0bb6fc760c0e63530dc6673212cc7350848e72a2ec43c1efd542905c6dfc1c81",
+    "bytes": 72692,
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "generatedAt": "2026-11-27T16:18:17.152Z",
+    "verifiedAt": "2026-11-27T16:18:35.995Z",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "scope": "article-hero",
+    "imageUrl": "/images/blog/article-svitto-microsoft-365-amministrazione.webp",
+    "area": "Swiss border region",
+    "season": "all seasons",
+    "variant": "article hero",
+    "vision": {
+      "ok": true,
+      "contains_text": false,
+      "contains_logo": false,
+      "contains_recognizable_face": false,
+      "contains_recognizable_foreground_person": false,
+      "looks_like_specific_real_event": false,
+      "is_photograph": false,
+      "is_topic_relevant": true,
+      "notes": "Generic synthetic administrative office scene with a desktop computer and documents; the Swiss flag supports the Swiss administration context. No readable text, logos, or people are visible."
+    }
+  }
+}
