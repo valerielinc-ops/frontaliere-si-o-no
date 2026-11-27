@@ -113,10 +113,9 @@ export async function persistLivePortalRequirementsDetailed({ db, orderRef, expe
   const rawDocuments = Array.isArray(event.documents) ? event.documents : [];
   const incomingDocuments = rawDocuments.filter(document => document && typeof document === 'object');
   const merged = mergeLivePortalQuestions(expected.draft.questions || [], incoming);
-  if (merged.ambiguous) return { ok: false, reason: 'ambiguous_identity' };
   const requiredDocuments = mergeRequiredDocuments(expected.draft.requiredDocuments || [], incomingDocuments);
   const patch = {};
-  if (incoming.length) patch.questions = merged.questions;
+  if (!merged.ambiguous && incoming.length) patch.questions = merged.questions;
   if (incomingDocuments.length) patch.requiredDocuments = requiredDocuments;
   const draftRef = orderRef.collection('ai_drafts').doc('current');
   const flowRef = orderRef.collection('automation').doc('flow');
@@ -146,6 +145,9 @@ export async function persistLivePortalRequirementsDetailed({ db, orderRef, expe
     if (!same(flowContext(flow, !validateExecutionInTransaction), flowContext(expected.flow, !validateExecutionInTransaction))
       || !documentsStillPresent(expected.flow?.documents, flow?.documents)) return 'flow_changed';
     if (!same(pick(draft, DRAFT_CONTEXT_KEYS), pick(expected.draft, DRAFT_CONTEXT_KEYS))) return 'draft_changed';
+    // Last: a superseded run must report a transient context change, never a terminal identity verdict
+    // computed from a stale snapshot.
+    if (merged.ambiguous) return 'ambiguous_identity';
     if (Object.keys(patch).length) tx.set(draftRef, patch, { merge: true });
     return null;
   });

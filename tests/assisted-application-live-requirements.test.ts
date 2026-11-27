@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { mergeLivePortalQuestions, persistLivePortalRequirements, persistLivePortalRequirementsDetailed } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
-import { transition } from '../functions/src/assistedApplicationFlow.js';
+import { transition, isTransientRunError } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
 const base = 'assisted_applications/live_contract_fixture';
@@ -240,6 +240,21 @@ describe('current runner updates a previously stored portal question contract', 
       expect(await persistLivePortalRequirementsDetailed({ ...store, round: 1, event: event() })).toEqual({ ok: false, reason: 'ambiguous_identity' });
       expect(store.read(`${base}/ai_drafts/current`)).toEqual(before);
       expect(await persistLivePortalRequirements({ ...store, round: 1, event: event() })).toBe(false);
+    });
+
+    it('reports a superseded run as transient even when its mapping is ambiguous', async () => {
+      const store = fixture();
+      store.expected.draft.questions = [{ ...old, source: 'cv_match' }];
+      store.expected.flow.executionId = 'e0';
+      await store.orderRef.collection('automation').doc('flow').set({ executionId: 'e1' }, { merge: true });
+      const stale = await persistLivePortalRequirementsDetailed({ ...store, round: 1, event: event() });
+      expect(stale).toEqual({ ok: false, reason: 'flow_changed' });
+      const attested = await persistLivePortalRequirementsDetailed({ ...store, round: 1, event: event(), validateExecutionInTransaction: async () => null });
+      expect(attested).toEqual({ ok: false, reason: 'execution_superseded' });
+      const flow = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+      expect(isTransientRunError(`requirement_context_changed:${stale.reason}`)).toBe(true);
+      expect(isTransientRunError(`requirement_context_changed:${attested.reason}`)).toBe(true);
+      expect(transition(flow, { type: 'submit_failed', error: `requirement_context_changed:${stale.reason}` }, { draft: { verdict: 'good', job: { source: 'job_detail' }, channel: { type: 'lever' }, factCheck: { ok: true, unsupported: [] }, questions: [] }, nowMs: 1 }).flow.state).toBe('submitting');
     });
 
     it('reports a superseded execution', async () => {
