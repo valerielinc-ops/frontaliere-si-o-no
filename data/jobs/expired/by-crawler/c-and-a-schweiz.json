@@ -42,7 +42,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-cdi-100-balexert-67952-en-gb",
-    "firstSeenAt": "2026-11-03T21:31:46.201Z"
+    "firstSeenAt": "2026-11-03T21:31:46.201Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-f-m-d-cdi-100-balexert-c-and-a-schweiz-ch": "GE"
+      }
+    }
   },
   {
     "id": "c-and-a-schweiz-1bc651889839",
@@ -190,7 +196,9 @@
         "ch-sales-assistant-service-c-and-a-schweiz-ch-be05bd49",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-60ef9d75",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-c08db930",
-        "ch-sales-assistant-service-c-and-a-schweiz-ch-9661f354"
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-9661f354",
+        "ch-sales-assistant-service-c-and-a-schweiz-ch",
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-3"
       ],
       "en": [
         "ch-sales-assistant-service-c-and-a-schweiz-ch-edaaafc4",
@@ -218,7 +226,8 @@
         "ch-sales-assistant-service-c-and-a-schweiz-ch-6464eb25",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-d7807bc5",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-aca75ed6",
-        "ch-sales-assistant-service-c-and-a-schweiz-ch"
+        "ch-sales-assistant-service-c-and-a-schweiz-ch",
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-2"
       ]
     },
     "postalCode": "1003",
@@ -265,7 +274,21 @@
         "firstSeenAt": "2026-08-31T17:28:59.553Z",
         "title": "CH_Sales Assistant - Service"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch": "VD",
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-2": "VD"
+      },
+      "de": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch": "VD",
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-3": "VD"
+      },
+      "fr": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-2": "VD"
+      }
+    }
   },
   {
     "slug": "mitarbeiterin-vendita-m-w-d-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-c-a-schweiz-luzern",
@@ -328,7 +351,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiterin-verkauf-mwd-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-66805-de-de",
-    "firstSeenAt": "2026-07-23T22:06:20.159Z"
+    "firstSeenAt": "2026-07-23T22:06:20.159Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-verkauf-m-w-d-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-c": "LU",
+        "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens": "LU",
+        "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens": "LU",
+        "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb": "LU",
+        "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens": "LU"
+      },
+      "en": {
+        "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens": "LU",
+        "mitarbeiterin-verkauf-m-w-d-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-c": "LU"
+      },
+      "de": {
+        "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb": "LU"
+      },
+      "fr": {
+        "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens": "LU",
+        "mitarbeiterin-verkauf-m-w-d-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-c": "LU"
+      }
+    }
   },
   {
     "slug": "addetta-alle-vendite-m-f-d-tempo-indeterminato-20-il-sabato-lausanne-c-a-schweiz-lausanne-ch",
@@ -378,7 +422,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-fmd-cdi-20-samedi-lausanne-67955-en-gb",
-    "firstSeenAt": "2026-11-03T21:31:46.541Z"
+    "firstSeenAt": "2026-11-03T21:31:46.541Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch": "VD"
+      },
+      "de": {
+        "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch": "VD"
+      },
+      "fr": {
+        "collaboratrice-de-vente-f-m-d-cdi-20-samedi-lausanne-c-and-a-schweiz-ch": "VD"
+      }
+    }
   },
   {
     "slug": "dipendenti-in-vendita-m-f-d-50-per-chur-c-a-schweiz-chur-ch",
@@ -434,7 +490,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-fur-chur-67179-de-de",
-    "firstSeenAt": "2026-09-01T14:27:20.337Z"
+    "firstSeenAt": "2026-09-01T14:27:20.337Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch": "GR",
+        "collaboratore-trice-im-vendita-m-w-d-50-per-chur-c-a-schweiz-chur": "GR"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch": "GR",
+        "mitarbeiter-im-sales-m-w-d-50-fur-chur-c-a-schweiz-chur-ch": "GR"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-chur-c-and-a-schweiz-ch": "GR",
+        "mitarbeiter-im-vente-m-w-d-50-fur-chur-c-a-schweiz-chur-ch": "GR"
+      }
+    }
   },
   {
     "slug": "negozio-visual-merchandiser-f-m-d-80-100-chur-c-a-schweiz-chur",
@@ -478,7 +549,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-80-100-chur-66218-de-de",
-    "firstSeenAt": "2026-07-03T21:31:32.684Z"
+    "firstSeenAt": "2026-07-03T21:31:32.684Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-f-m-d-80-100-chur-c-and-a-schweiz-ch": "GR"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-30-per-wurenlingen-c-a-schweiz-wurenlingen",
@@ -528,7 +605,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-wmd-30-fur-wurenlingen-67804-de-de",
-    "firstSeenAt": "2026-10-26T09:33:52.219Z"
+    "firstSeenAt": "2026-10-26T09:33:52.219Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch": "AG"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch": "AG"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch": "AG"
+      }
+    }
   },
   {
     "slug": "operaio-di-vendita-50-cdd-m-f-d-c-a-schweiz-avry-sur-matran-ch",
@@ -578,7 +667,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-50-cdd-mfd-67831-fr-fr",
-    "firstSeenAt": "2026-10-23T21:12:34.571Z"
+    "firstSeenAt": "2026-10-23T21:12:34.571Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch": "FR"
+      },
+      "en": {
+        "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch": "FR"
+      },
+      "de": {
+        "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch": "FR"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-vendite-m-f-d-40-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach-ch",
@@ -630,7 +731,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-tivoli-spreitenbach-67986-de-de",
-    "firstSeenAt": "2026-11-04T21:29:58.413Z"
+    "firstSeenAt": "2026-11-04T21:29:58.413Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG",
+        "collaboratore-trice-im-vendita-m-w-d-40-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-20-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
@@ -684,7 +798,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-tivoli-spreitenbach-67713-de-de",
-    "firstSeenAt": "2026-10-16T21:20:36.357Z"
+    "firstSeenAt": "2026-10-16T21:20:36.357Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG",
+        "sales-associate-m-f-d-20-for-tivoli-spreitenbach-c-a-schweiz-spreitenbach-ch": "AG"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG",
+        "collaborateur-trice-de-vente-h-f-d-20-pour-tivoli-spreitenbach-c-a-schweiz-spreitenbach-ch": "AG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-60-im-volkiland-c-a-schweiz-volketswil",
@@ -734,7 +862,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-60-im-volkiland-66910-de-de",
-    "firstSeenAt": "2026-08-10T21:45:02.527Z"
+    "firstSeenAt": "2026-08-10T21:45:02.527Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch": "ZH"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-50-per-pilatusmarkt-befristet-bis-ende-februar-2027-c-a-schweiz-kriens",
@@ -784,7 +924,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-pilatusmarkt-befristet-bis-ende-februar-2027-67850-de-de",
-    "firstSeenAt": "2026-10-26T21:41:12.872Z"
+    "firstSeenAt": "2026-10-26T21:41:12.872Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-w-m-d-50-fur-pilatusmarkt-befristet-bis-ende-februar-2027-c-and-a": "LU"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-w-m-d-50-fur-pilatusmarkt-befristet-bis-ende-februar-2027-c-and-a": "LU"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-w-m-d-50-fur-pilatusmarkt-befristet-bis-ende-februar-2027-c-and-a": "LU"
+      }
+    }
   },
   {
     "slug": "store-visual-merchandiser-m-w-d-100-per-st-gallen-arena-c-a-schweiz-st-gallen",
@@ -831,7 +983,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-st-gallen-arena-66648-de-de",
-    "firstSeenAt": "2026-07-13T13:03:25.994Z"
+    "firstSeenAt": "2026-07-13T13:03:25.994Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-m-w-d-100-fur-st-gallen-arena-c-and-a-schweiz-ch": "SG"
+      },
+      "fr": {
+        "store-visual-merchandiser-m-w-d-100-fur-st-gallen-arena-c-and-a-schweiz-ch": "SG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-80-per-sihlcity-befristet-bis-ende-dezember-2026-c-a-schweiz-zurich",
@@ -880,7 +1041,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-80-fur-sihlcity-befristet-bis-ende-dezember-2026-67758-de-de",
-    "firstSeenAt": "2026-10-20T21:17:46.328Z"
+    "firstSeenAt": "2026-10-20T21:17:46.328Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a": "ZH"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-40-per-sihlcity-befristet-bis-ende-dezember-2026-c-a-schweiz-zurich",
@@ -929,7 +1102,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-fur-sihlcity-befristet-bis-ende-dezember-2026-67759-de-de",
-    "firstSeenAt": "2026-10-20T21:17:46.668Z"
+    "firstSeenAt": "2026-10-20T21:17:46.668Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a": "ZH"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a": "ZH"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-vendite-m-f-d-contratto-a-tempo-determinato-50-marin-1-c-a-schweiz-marin-ch",
@@ -977,7 +1162,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaborateur-de-vente-fmd-cdd-50-marin-1-67661-en-gb",
-    "firstSeenAt": "2026-10-13T09:20:09.128Z"
+    "firstSeenAt": "2026-10-13T09:20:09.128Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch": "NE",
+        "collaborateur-de-vente-m-w-d-cdd-50-marin-1-c-a-schweiz-marin": "NE"
+      },
+      "de": {
+        "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch": "NE"
+      }
+    }
   },
   {
     "slug": "ch-sales-assistant-servizio-c-a-schweiz-geneve",
@@ -1181,7 +1376,6 @@
       "ch-sales-assistant-servizio-c-a-schweiz-lausanne-d42adbad",
       "ch-sales-assistent-service-c-a-schweiz-lausanne-43d09cbd",
       "ch-sales-assistant-service-c-and-a-schweiz-ch-2-bdd2a4e4",
-      "ch-sales-assistant-service-c-and-a-schweiz-ch-2",
       "ch-sales-assistant-servizio-c-a-schweiz-lausanne-05639c28",
       "ch-sales-assistent-service-c-a-schweiz-lausanne-39fe1549",
       "ch-sales-assistant-servizio-c-a-schweiz-lausanne-af90d206",
@@ -1467,7 +1661,6 @@
         "ch-sales-assistant-service-c-and-a-schweiz-ch-2-c6a5278d",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-2-236a56a4",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-2-c1285be1",
-        "ch-sales-assistant-service-c-and-a-schweiz-ch-2",
         "ch-sales-assistant-servizio-c-a-schweiz-lausanne",
         "ch-sales-assistent-service-c-a-schweiz-lausanne"
       ],
@@ -1505,7 +1698,23 @@
         "firstSeenAt": "2026-08-31T17:28:59.553Z",
         "title": "CH_Sales Assistant - Service"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-9c8ec56f": "GE",
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-2-b42ad411": "GE"
+      },
+      "en": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-9c8ec56f": "GE"
+      },
+      "fr": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-2-b42ad411": "GE"
+      },
+      "de": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-2-b42ad411": "GE"
+      }
+    }
   },
   {
     "slug": "addetta-alle-vendite-m-f-d-contratto-a-tempo-determinato-50-balexert-c-a-schweiz-geneve-ch",
@@ -1551,7 +1760,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-fmd-cdd-50-balexert-67518-en-gb",
-    "firstSeenAt": "2026-10-02T21:15:41.638Z"
+    "firstSeenAt": "2026-10-02T21:15:41.638Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-f-m-d-cdd-50-balexert-c-and-a-schweiz-ch": "GE"
+      },
+      "de": {
+        "collaboratrice-de-vente-f-m-d-cdd-50-balexert-c-and-a-schweiz-ch": "GE"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-40-per-oftringen-perry-center-befristet-von-11-26-bis-02-27-c-a-schweiz-oftringen",
@@ -1600,7 +1818,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-oftringen-perry-center-befristet-von-1126-bis-0227-67560-de-de",
-    "firstSeenAt": "2026-10-16T21:20:37.470Z"
+    "firstSeenAt": "2026-10-16T21:20:37.470Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-von-11-26-bis-02-27-c": "AG"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-von-11-26-bis-02-27-c": "AG"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-von-11-26-bis-02-27-c": "AG"
+      }
+    }
   },
   {
     "slug": "dipendenti-in-vendita-m-f-d-50-per-basilea-c-a-schweiz-basel-ch",
@@ -1651,7 +1881,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-fur-basel-67374-de-de",
-    "firstSeenAt": "2026-09-23T19:50:15.510Z"
+    "firstSeenAt": "2026-09-23T19:50:15.510Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-basel-c-and-a-schweiz-ch": "BS",
+        "collaboratore-trice-im-vendita-m-w-d-50-per-basel-c-a-schweiz-basel": "BS"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-basel-c-and-a-schweiz-ch": "BS"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-basel-c-and-a-schweiz-ch": "BS"
+      }
+    }
   },
   {
     "slug": "i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich-ch",
@@ -1724,7 +1967,34 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-80-mit-schwerpunkt-service-in-zurich-city-67327-de-de",
-    "firstSeenAt": "2026-09-19T23:11:31.978Z"
+    "firstSeenAt": "2026-09-19T23:11:31.978Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch": "ZH",
+        "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich": "ZH",
+        "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch": "ZH",
+        "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch": "ZH",
+        "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich": "ZH",
+        "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich": "ZH",
+        "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch": "ZH",
+        "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch": "ZH",
+        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich": "ZH",
+        "collaboratore-trice-im-vendita-m-w-d-80-con-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich": "ZH"
+      },
+      "en": {
+        "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch": "ZH",
+        "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch": "ZH"
+      },
+      "de": {
+        "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch": "ZH",
+        "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch": "ZH"
+      },
+      "fr": {
+        "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich": "ZH",
+        "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "store-visual-merchandiser-m-w-d-60-80-per-basel-c-a-schweiz-basel",
@@ -1770,7 +2040,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-60-80-fur-basel-67188-de-de",
-    "firstSeenAt": "2026-09-23T19:50:20.973Z"
+    "firstSeenAt": "2026-09-23T19:50:20.973Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-m-w-d-60-80-fur-basel-c-and-a-schweiz-ch": "BS"
+      },
+      "fr": {
+        "store-visual-merchandiser-m-w-d-60-80-fur-basel-c-and-a-schweiz-ch": "BS"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-60-befristet-bis-ende-juni-2028-in-wadenswil-c-a-schweiz-wadenswil",
@@ -1819,7 +2098,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-60-befristet-bis-ende-juni-2028-in-wadenswil-67455-de-de",
-    "firstSeenAt": "2026-09-28T21:16:46.562Z"
+    "firstSeenAt": "2026-09-28T21:16:46.562Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-befristet-bis-ende-juni-2028-in": "ZH"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-befristet-bis-ende-juni-2028-in": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-befristet-bis-ende-juni-2028-in": "ZH"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-vendite-m-f-d-30-per-wurenlingen-c-a-schweiz-wurenlingen-ch",
@@ -1870,7 +2161,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-wurenlingen-67804-de-de",
-    "firstSeenAt": "2026-10-23T09:26:31.208Z"
+    "firstSeenAt": "2026-10-23T09:26:31.208Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch": "AG",
+        "collaboratore-trice-im-vendita-m-w-d-30-per-wurenlingen-c-a-schweiz-wurenlingen": "AG"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch": "AG"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch": "AG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-50-per-aarau-befristet-bis-28-02-2027-c-a-schweiz-aarau",
@@ -1921,7 +2225,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-fur-aarau-befristet-bis-28022027-67543-de-de",
-    "firstSeenAt": "2026-10-16T21:20:37.105Z"
+    "firstSeenAt": "2026-10-16T21:20:37.105Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-aarau-befristet-bis-28-02-2027-c-and-a-schweiz-ch": "AG"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-aarau-befristet-bis-28-02-2027-c-and-a-schweiz-ch": "AG",
+        "sales-associate-m-f-d-50-for-aarau-fixed-term-until-february-28-2027-c-a-schweiz-aarau-ch": "AG"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-aarau-befristet-bis-28-02-2027-c-and-a-schweiz-ch": "AG"
+      }
+    }
   },
   {
     "slug": "store-visual-merchandiser-m-w-d-80-per-st-jakob-park-c-a-schweiz-basel",
@@ -1967,7 +2284,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-st-jakob-park-66586-de-de",
-    "firstSeenAt": "2026-07-03T21:31:26.328Z"
+    "firstSeenAt": "2026-07-03T21:31:26.328Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-m-w-d-80-fur-st-jakob-park-c-and-a-schweiz-ch": "BS"
+      },
+      "fr": {
+        "store-visual-merchandiser-m-w-d-80-fur-st-jakob-park-c-and-a-schweiz-ch": "BS"
+      }
+    }
   },
   {
     "slug": "mitarbeiterin-vendita-m-w-d-60-befristet-bis-ende-februar-con-schwerpunkt-service-c-a-schweiz-emmenbrucke",
@@ -2133,7 +2459,24 @@
         "firstSeenAt": "2026-07-03T21:31:29.667Z",
         "title": "Mitarbeiter im Verkauf (w/m/d) 50% für Aarau"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-aarau-c-and-a-schweiz-ch": "AG",
+        "dipendenti-in-vendita-m-f-d-50-per-aarau-c-a-schweiz-aarau-ch": "AG"
+      },
+      "en": {
+        "employees-in-sales-m-f-d-50-for-aarau-c-a-schweiz-aarau-ch": "AG",
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-aarau-c-and-a-schweiz-ch": "AG",
+        "mitarbeiter-im-sales-m-w-d-50-fur-aarau-c-a-schweiz-aarau": "AG"
+      },
+      "fr": {
+        "employes-en-vente-h-f-d-50-pour-aarau-c-a-schweiz-aarau-ch": "AG",
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-aarau-c-and-a-schweiz-ch": "AG",
+        "mitarbeiter-im-vente-m-w-d-50-fur-aarau-c-a-schweiz-aarau": "AG"
+      }
+    }
   },
   {
     "slug": "store-leader-assistant-m-w-d-100-per-emmen-c-a-schweiz-emmenbrucke",
@@ -2246,7 +2589,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-regensdorf-65298-de-de",
-    "firstSeenAt": "2026-07-03T21:31:42.352Z"
+    "firstSeenAt": "2026-07-03T21:31:42.352Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-f-m-d-60-in-regensdorf-c-and-a-schweiz-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-vendite-m-w-d-50-con-schwerpunkt-service-in-gaupark-c-a-schweiz-egerkingen",
@@ -2295,7 +2644,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-fmd-50-mit-schwerpunkt-service-in-gaupark-65300-de-de",
-    "firstSeenAt": "2026-07-03T21:31:44.517Z"
+    "firstSeenAt": "2026-07-03T21:31:44.517Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch": "SO"
+      },
+      "en": {
+        "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch": "SO"
+      },
+      "fr": {
+        "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch": "SO"
+      }
+    }
   },
   {
     "slug": "apprendistato-afp-cfc-commercio-al-dettaglio-tivoli-spreitenbach-start-1-august-2027-c-a-schweiz-spreitenbach",
@@ -2341,7 +2702,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/lehrstelle-ebaefz-detailhandel-tivoli-spreitenbach-start-1-august-2027-67070-de-de",
-    "firstSeenAt": "2026-08-20T21:32:23.669Z"
+    "firstSeenAt": "2026-08-20T21:32:23.669Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch": "AG"
+      },
+      "fr": {
+        "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch": "AG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-40-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
@@ -3183,7 +3553,35 @@
         "firstSeenAt": "2026-07-03T21:31:38.299Z",
         "title": "Mitarbeiter im Verkauf (w/m/d) 25% in Tivoli Spreitenbach"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG",
+        "collaboratore-trice-im-vendita-m-w-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG",
+        "mitarbeiter-im-sales-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG",
+        "mitarbeiter-im-verkauf-w-m-d-25-in-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG",
+        "mitarbeiter-im-vente-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG",
+        "mitarbeiter-im-sales-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG",
+        "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG",
+        "collaboratore-trice-im-vendita-m-w-d-20-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach-956a4a05": "AG",
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch-f3ab12b6": "AG"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG",
+        "mitarbeiter-im-sales-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG"
+      },
+      "de": {
+        "mitarbeiter-im-verkauf-w-m-d-25-in-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG",
+        "mitarbeiter-im-sales-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG",
+        "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG",
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch-f3ab12b6": "AG"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch": "AG",
+        "mitarbeiter-im-vente-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach": "AG"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-40-per-oftringen-perry-center-c-a-schweiz-oftringen",
@@ -3232,7 +3630,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-oftringen-perry-center-67560-de-de",
-    "firstSeenAt": "2026-10-12T21:21:06.693Z"
+    "firstSeenAt": "2026-10-12T21:21:06.693Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-c-and-a-schweiz-ch": "AG"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-c-and-a-schweiz-ch": "AG"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-c-and-a-schweiz-ch": "AG"
+      }
+    }
   },
   {
     "slug": "collaboratore-di-vendita-m-f-d-csd-40-rennaz-c-a-schweiz-rennaz-ch",
@@ -3283,7 +3693,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-fmd-cdd-40-rennaz-67231-fr-fr",
-    "firstSeenAt": "2026-09-07T15:25:14.841Z"
+    "firstSeenAt": "2026-09-07T15:25:14.841Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-f-m-d-cdd-40-rennaz-c-and-a-schweiz-ch": "VD",
+        "collaboratrice-de-vente-m-w-d-cdd-40-rennaz-c-a-schweiz-rennaz": "VD"
+      },
+      "en": {
+        "collaboratrice-de-vente-f-m-d-cdd-40-rennaz-c-and-a-schweiz-ch": "VD"
+      },
+      "de": {
+        "collaboratrice-de-vente-f-m-d-cdd-40-rennaz-c-and-a-schweiz-ch": "VD"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-50-in-egerkingen-befristet-c-a-schweiz-egerkingen",
@@ -3332,7 +3755,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-in-egerkingen-befristet-67373-de-de",
-    "firstSeenAt": "2026-09-25T14:41:23.951Z"
+    "firstSeenAt": "2026-09-25T14:41:23.951Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-50-in-egerkingen-befristet-c-and-a-schweiz-ch": "SO"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-50-in-egerkingen-befristet-c-and-a-schweiz-ch": "SO"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-50-in-egerkingen-befristet-c-and-a-schweiz-ch": "SO"
+      }
+    }
   },
   {
     "slug": "collaboratore-vendite-student-20-c-a-schweiz-sierre-ch",
@@ -3383,7 +3818,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaborateurtrice-vente-etudiante-20-67301-fr-fr",
-    "firstSeenAt": "2026-09-19T23:11:32.695Z"
+    "firstSeenAt": "2026-09-19T23:11:32.695Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch": "VS",
+        "collaborateur-trice-vente-etudiant-e-20-c-a-schweiz-sierre": "VS"
+      },
+      "en": {
+        "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch": "VS"
+      },
+      "de": {
+        "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch": "VS"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-50-befristet-bis-ende-dezember-in-sursee-c-a-schweiz-sursee",
@@ -3432,7 +3880,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-befristet-bis-ende-dezember-in-sursee-67454-de-de",
-    "firstSeenAt": "2026-09-24T14:25:25.143Z"
+    "firstSeenAt": "2026-09-24T14:25:25.143Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-w-m-d-50-befristet-bis-ende-dezember-in-sursee-c-and-a-schweiz-ch": "LU"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-w-m-d-50-befristet-bis-ende-dezember-in-sursee-c-and-a-schweiz-ch": "LU"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-w-m-d-50-befristet-bis-ende-dezember-in-sursee-c-and-a-schweiz-ch": "LU"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-40-con-schlusselfunktion-in-heerbrugg-befristet-bis-ende-feb-2027-c-a-schweiz-heerbrugg",
@@ -3597,7 +4057,42 @@
         "firstSeenAt": "2026-07-03T21:31:44.868Z",
         "title": "Mitarbeiter im Verkauf (w/m/d) 60% mit Schlüsselfunktion für Luzern"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-w-m-d-40-mit-schlusselfunktion-in-regensdorf-c-and-a-schweiz-ch": "ZH",
+        "collaboratore-trice-im-vendita-m-w-d-40-con-schlusselfunktion-in-regensdorf-befristet-bis-ende-feb-2027-c-a-schweiz-regensdorf": "ZH",
+        "mitarbeiter-im-sales-w-m-d-40-mit-schlusselfunktion-in-regensdorf-befristet-bis-ende-feb-2027-c-a-schweiz-regensdorf": "ZH",
+        "mitarbeiter-im-verkauf-w-m-d-40-mit-schlusselfunktion-in-regensdorf-befristet-bis-ende-feb": "ZH",
+        "mitarbeiter-im-vente-w-m-d-40-mit-schlusselfunktion-in-regensdorf-befristet-bis-ende-feb-2027-c-a-schweiz-regensdorf": "ZH",
+        "collaboratore-trice-im-vendita-m-w-d-50-con-schlusselfunktion-per-regensdorf-c-a-schweiz-regensdorf": "ZH",
+        "mitarbeiter-im-sales-w-m-d-50-mit-schlusselfunktion-fur-regensdorf-c-a-schweiz-regensdorf": "ZH",
+        "mitarbeiter-im-verkauf-w-m-d-50-mit-schlusselfunktion-fur-regensdorf-c-and-a-schweiz-ch": "ZH",
+        "mitarbeiter-im-vente-w-m-d-50-mit-schlusselfunktion-fur-regensdorf-c-a-schweiz-regensdorf": "ZH",
+        "collaboratore-trice-im-vendita-m-w-d-60-con-schlusselfunktion-per-luzern-c-a-schweiz-luzern": "ZH",
+        "mitarbeiter-im-sales-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern": "ZH",
+        "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch": "ZH",
+        "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern": "ZH"
+      },
+      "en": {
+        "mitarbeiter-im-sales-w-m-d-40-mit-schlusselfunktion-in-regensdorf-befristet-bis-ende-feb-2027-c-a-schweiz-regensdorf": "ZH",
+        "mitarbeiter-im-verkauf-w-m-d-40-mit-schlusselfunktion-in-regensdorf-c-and-a-schweiz-ch": "ZH"
+      },
+      "de": {
+        "mitarbeiter-im-verkauf-w-m-d-40-mit-schlusselfunktion-in-regensdorf-befristet-bis-ende-feb": "ZH",
+        "mitarbeiter-im-sales-w-m-d-50-mit-schlusselfunktion-fur-regensdorf-c-a-schweiz-regensdorf": "ZH",
+        "mitarbeiter-im-verkauf-w-m-d-50-mit-schlusselfunktion-fur-regensdorf-c-and-a-schweiz-ch": "ZH",
+        "mitarbeiter-im-vente-w-m-d-50-mit-schlusselfunktion-fur-regensdorf-c-a-schweiz-regensdorf": "ZH",
+        "mitarbeiter-im-sales-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern": "ZH",
+        "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch": "ZH",
+        "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-im-vente-w-m-d-40-mit-schlusselfunktion-in-regensdorf-befristet-bis-ende-feb-2027-c-a-schweiz-regensdorf": "ZH",
+        "mitarbeiter-im-verkauf-w-m-d-40-mit-schlusselfunktion-in-regensdorf-c-and-a-schweiz-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-40-im-volkiland-c-a-schweiz-volketswil",
@@ -3646,7 +4141,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-im-volkiland-66278-de-de",
-    "firstSeenAt": "2026-07-03T21:31:34.171Z"
+    "firstSeenAt": "2026-07-03T21:31:34.171Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch": "ZH"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern-ghscob",
@@ -3785,7 +4292,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-30-fur-dietlikon-67007-de-de",
-    "firstSeenAt": "2026-08-14T21:28:26.168Z"
+    "firstSeenAt": "2026-08-14T21:28:26.168Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch": "ZH"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-20-per-schaffhausen-herblingen-c-a-schweiz-schaffhausen",
@@ -3834,7 +4353,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-schaffhausen-herblingen-67008-de-de",
-    "firstSeenAt": "2026-08-14T21:28:26.506Z"
+    "firstSeenAt": "2026-08-14T21:28:26.506Z",
+    "canton": "SH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch": "SH"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch": "SH"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch": "SH"
+      }
+    }
   },
   {
     "slug": "store-visual-merchandiser-m-w-d-80-per-aarau-c-a-schweiz-aarau",
@@ -3880,7 +4411,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-aarau-67178-de-de",
-    "firstSeenAt": "2026-09-23T19:50:21.633Z"
+    "firstSeenAt": "2026-09-23T19:50:21.633Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-m-w-d-80-fur-aarau-c-and-a-schweiz-ch": "AG"
+      },
+      "fr": {
+        "store-visual-merchandiser-m-w-d-80-fur-aarau-c-and-a-schweiz-ch": "AG"
+      }
+    }
   },
   {
     "slug": "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier",
@@ -3929,7 +4469,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-67028-fr-fr",
-    "firstSeenAt": "2026-08-18T09:46:04.894Z"
+    "firstSeenAt": "2026-08-18T09:46:04.894Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch": "VD",
+        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier": "VD"
+      },
+      "en": {
+        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch": "VD"
+      },
+      "de": {
+        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch": "VD"
+      }
+    }
   },
   {
     "slug": "collaboratore-di-vendita-m-f-d-focus-service-20-cdd-3-mesi-crack-c-a-schweiz-crissier-ch",
@@ -3980,25 +4533,29 @@
         "sales-collaborator-focus-service-f-m-d-50-csd-3-months-vevey-c-a-schweiz-vevey-ch",
         "sales-collaborator-focus-service-w-m-d-50-csd-3-monate-vevey-c-a-schweiz-vevey-ch",
         "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch",
-        "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch"
+        "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch",
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey"
       ],
       "en": [
         "sales-collaborator-40-focus-service-csd-1-month-sion-c-a-schweiz-sion-ch",
         "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch",
         "collaboratrice-de-vente-focus-service-a-40-cdd-1-mois-sion-c-and-a-schweiz-ch",
         "sales-collaborator-focus-service-f-m-d-50-csd-3-months-vevey-c-a-schweiz-vevey-ch",
-        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch"
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch",
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey"
       ],
       "de": [
         "sales-collaborator-40-focus-service-csd-1-monat-sion-c-a-schweiz-sion-ch",
         "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch",
         "collaboratrice-de-vente-focus-service-a-40-cdd-1-mois-sion-c-and-a-schweiz-ch",
         "sales-collaborator-focus-service-w-m-d-50-csd-3-monate-vevey-c-a-schweiz-vevey-ch",
-        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch"
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch",
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey"
       ],
       "fr": [
         "collaboratrice-de-vente-focus-service-a-40-cdd-1-mois-sion-c-and-a-schweiz-ch",
-        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch"
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch",
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey"
       ]
     },
     "postalCode": "1023",
@@ -4024,7 +4581,37 @@
         "firstSeenAt": "2026-07-03T21:31:28.906Z",
         "title": "Collaboratrice de vente ( m/f/d) - Focus Service 20% CDD 3 mois - Crissier"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vendite-collaboratore-40-focus-service-csd-1-mese-sion-c-a-schweiz-sion-ch": "VD",
+        "sales-collaborator-40-focus-service-csd-1-month-sion-c-a-schweiz-sion-ch": "VD",
+        "sales-collaborator-40-focus-service-csd-1-monat-sion-c-a-schweiz-sion-ch": "VD",
+        "collaboratrice-de-vente-focus-service-a-40-cdd-1-mois-sion-c-and-a-schweiz-ch": "VD",
+        "collaboratore-di-vendita-servizio-di-messa-a-fuoco-f-m-d-50-csd-3-mesi-vevey-c-a-schweiz-vevey-ch": "VD",
+        "sales-collaborator-focus-service-f-m-d-50-csd-3-months-vevey-c-a-schweiz-vevey-ch": "VD",
+        "sales-collaborator-focus-service-w-m-d-50-csd-3-monate-vevey-c-a-schweiz-vevey-ch": "VD",
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch": "VD",
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey": "VD",
+        "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch": "VD"
+      },
+      "en": {
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey": "VD",
+        "sales-collaborator-40-focus-service-csd-1-month-sion-c-a-schweiz-sion-ch": "VD",
+        "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch": "VD"
+      },
+      "de": {
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey": "VD",
+        "sales-collaborator-40-focus-service-csd-1-monat-sion-c-a-schweiz-sion-ch": "VD",
+        "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch": "VD"
+      },
+      "fr": {
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey": "VD",
+        "collaboratrice-de-vente-focus-service-a-40-cdd-1-mois-sion-c-and-a-schweiz-ch": "VD",
+        "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch": "VD"
+      }
+    }
   },
   {
     "slug": "concentrazione-di-gestione-del-prodotto-m-f-d-30-cdi-c-a-schweiz-marin-ch",
@@ -4167,7 +4754,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-50-cdd-4-mois-67181-fr-fr",
-    "firstSeenAt": "2026-09-02T13:54:12.016Z"
+    "firstSeenAt": "2026-09-02T13:54:12.016Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch": "FR",
+        "collaboratrice-de-vente-50-cdd-4-mois-c-a-schweiz-avry-sur-matran": "FR"
+      },
+      "en": {
+        "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch": "FR"
+      },
+      "de": {
+        "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch": "FR"
+      }
+    }
   },
   {
     "slug": "vendite-collaboratore-focus-gestione-della-merchandise-30-c-a-schweiz-marin-ch",
@@ -4267,7 +4867,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-fmd-50-in-egerkingen-66237-de-de",
-    "firstSeenAt": "2026-07-03T21:31:33.048Z"
+    "firstSeenAt": "2026-07-03T21:31:33.048Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch": "SO"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch": "SO"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch": "SO",
+        "mitarbeiter-im-vente-f-m-d-50-in-egerkingen-c-a-schweiz-egerkingen-ch": "SO"
+      }
+    }
   },
   {
     "slug": "collaboratore-di-vendita-50-csd-3-mesi-c-a-schweiz-bulle-ch",
@@ -4318,7 +4931,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-50-cdd-3-mois-67281-fr-fr",
-    "firstSeenAt": "2026-09-19T23:11:34.134Z"
+    "firstSeenAt": "2026-09-19T23:11:34.134Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch": "FR",
+        "collaboratrice-de-vente-50-cdd-3-mois-c-a-schweiz-bulle": "FR"
+      },
+      "en": {
+        "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch": "FR"
+      },
+      "de": {
+        "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch": "FR"
+      }
+    }
   },
   {
     "slug": "vendite-associate-50-csd-3-mesi-c-a-schweiz-bulle-ch",
@@ -4369,7 +4995,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaborateurrice-de-vente-50-cdd-3-mois-67280-fr-fr",
-    "firstSeenAt": "2026-09-19T23:11:33.799Z"
+    "firstSeenAt": "2026-09-19T23:11:33.799Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch": "FR",
+        "collaborateur-rice-de-vente-50-cdd-3-mois-c-a-schweiz-bulle": "FR"
+      },
+      "en": {
+        "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch": "FR"
+      },
+      "de": {
+        "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch": "FR"
+      }
+    }
   },
   {
     "slug": "collaboratore-di-vendita-60-csd-3-mesi-c-a-schweiz-yverdon-les-bains-ch",
@@ -4422,7 +5061,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-60-cdd-3-mois-67226-fr-fr",
-    "firstSeenAt": "2026-09-07T15:25:14.143Z"
+    "firstSeenAt": "2026-09-07T15:25:14.143Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-60-cdd-3-mois-c-and-a-schweiz-ch": "VD",
+        "vendite-collaboratore-60-csd-3-mesi-c-a-schweiz-yverdon-les-bains-ch": "VD",
+        "collaboratrice-de-vente-60-cdd-3-mois-c-a-schweiz-yverdon-les-bains": "VD"
+      },
+      "en": {
+        "collaboratrice-de-vente-60-cdd-3-mois-c-and-a-schweiz-ch": "VD"
+      },
+      "de": {
+        "collaboratrice-de-vente-60-cdd-3-mois-c-and-a-schweiz-ch": "VD"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-20-per-olten-befristet-c-a-schweiz-olten",
@@ -4471,7 +5124,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-olten-befristet-67438-de-de",
-    "firstSeenAt": "2026-09-25T14:41:24.289Z"
+    "firstSeenAt": "2026-09-25T14:41:24.289Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-olten-befristet-c-and-a-schweiz-ch": "SO"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-olten-befristet-c-and-a-schweiz-ch": "SO"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-olten-befristet-c-and-a-schweiz-ch": "SO"
+      }
+    }
   },
   {
     "slug": "dipendenti-nelle-vendite-m-f-d-50-con-funzione-chiave-per-emmen-c-a-schweiz-emmenbrucke-ch",
@@ -4565,7 +5230,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/40-verkaufsperson-67347-en-gb",
-    "firstSeenAt": "2026-09-19T23:11:32.348Z"
+    "firstSeenAt": "2026-09-19T23:11:32.348Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "40-verkaufsperson-c-and-a-schweiz-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratrice-di-vendita-con-funzione-portatrice-di-chiavi-specializzazione-servizi-h-f-d-al-60-bienne-c-a-schweiz-biel",
@@ -4615,7 +5286,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-fmd-a-60-bienne-67189-en-gb",
-    "firstSeenAt": "2026-09-02T13:54:12.370Z"
+    "firstSeenAt": "2026-09-02T13:54:12.370Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c": "BE"
+      },
+      "de": {
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-60-bienne-c": "BE",
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-m-w-d-a-60-bienne-c-a-schweiz-biel-bienne": "BE",
+        "kooperationspartner-mit-schlusseldienstfunktion-focus-services-m-w-d-zu-60-biel-c-a-schweiz-biel-bienne": "BE"
+      }
+    }
   },
   {
     "slug": "ch-sales-assistant-servizio-c-a-schweiz-biel-bienne",
@@ -5542,7 +6224,8 @@
         "ch-sales-assistant-service-c-and-a-schweiz-ch-bc5445c4",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-8528ae5d",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-84e30d23",
-        "ch-sales-assistant-service-c-and-a-schweiz-ch-c6cc4f0b"
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-c6cc4f0b",
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-3140c52a"
       ],
       "de": [
         "ch-sales-assistent-service-c-a-schweiz-geneve-04027db7",
@@ -5835,7 +6518,8 @@
         "ch-sales-assistant-service-c-and-a-schweiz-ch-f690f103",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-a43d58d9",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-ad59ecf2",
-        "ch-sales-assistant-service-c-and-a-schweiz-ch-30fbacaa"
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-30fbacaa",
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-3140c52a"
       ]
     },
     "postalCode": "2504",
@@ -5891,7 +6575,19 @@
         "firstSeenAt": "2026-08-31T17:28:59.553Z",
         "title": "CH_Sales Assistant - Service"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-3140c52a": "BE"
+      },
+      "en": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-3140c52a": "BE"
+      },
+      "fr": {
+        "ch-sales-assistant-service-c-and-a-schweiz-ch-3140c52a": "BE"
+      }
+    }
   },
   {
     "slug": "store-visual-merchandiser-m-w-d-100-per-thun-c-a-schweiz-thun",
@@ -5934,7 +6630,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-thun-67136-de-de",
-    "firstSeenAt": "2026-08-31T17:28:59.973Z"
+    "firstSeenAt": "2026-08-31T17:28:59.973Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-m-w-d-100-fur-thun-c-and-a-schweiz-ch": "BE"
+      }
+    }
   },
   {
     "slug": "vendita-dipendente-m-f-d-60-temporaneo-fino-alla-fine-di-febbraio-con-servizio-di-messa-a-fuoco-c-a-schweiz-emmenbrucke",
@@ -6059,7 +6761,24 @@
         "firstSeenAt": "2026-09-01T10:24:51.076Z",
         "title": "Collaborateur de vente-CDD 50 %- Lausanne"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch": "VD",
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2": "VD",
+        "collaborateur-de-vente-cdd-50-lausanne-c-a-schweiz-lausanne": "VD"
+      },
+      "en": {
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2": "VD"
+      },
+      "de": {
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2": "VD"
+      },
+      "fr": {
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch": "VD"
+      }
+    }
   },
   {
     "slug": "collaboratori-di-vendita-con-funzione-portachiavi-50-m-f-d-focus-sul-servizio-neuchatel-c-a-schweiz-neuchatel-ch",
@@ -6107,7 +6826,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-fmd-a-50-neuchatel-66987-en-gb",
-    "firstSeenAt": "2026-08-12T10:18:24.065Z"
+    "firstSeenAt": "2026-08-12T10:18:24.065Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel": "NE"
+      },
+      "de": {
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-f-m-d-a-50-neuchatel": "NE",
+        "collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-m-w-d-a-50-neuchatel-c-a-schweiz-neuchatel": "NE"
+      }
+    }
   },
   {
     "slug": "store-visual-merchandiser-m-w-d-100-per-aarau-c-a-schweiz-aarau",
@@ -6179,7 +6908,23 @@
         "firstSeenAt": "2026-07-03T21:31:36.807Z",
         "title": "Store Visual Merchandiser (w/m/d) 60-80% für Brugg"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-m-w-d-100-fur-aarau-c-and-a-schweiz-ch": "AG",
+        "store-visual-merchandiser-m-w-d-60-80-per-brugg-c-a-schweiz-brugg": "AG",
+        "store-visual-merchandiser-w-m-d-60-80-fur-brugg-c-and-a-schweiz-ch": "AG",
+        "magasiner-le-marchandiseur-visuel-f-m-d-60-80-pour-brugg-c-a-schweiz-brugg-ch": "AG"
+      },
+      "de": {
+        "store-visual-merchandiser-w-m-d-60-80-fur-brugg-c-and-a-schweiz-ch": "AG"
+      },
+      "fr": {
+        "magasiner-le-marchandiseur-visuel-f-m-d-60-80-pour-brugg-c-a-schweiz-brugg-ch": "AG",
+        "store-visual-merchandiser-m-w-d-100-fur-aarau-c-and-a-schweiz-ch": "AG"
+      }
+    }
   },
   {
     "slug": "store-visual-merchandiser-m-w-d-80-per-basel-c-a-schweiz-basel",
@@ -6225,7 +6970,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-basel-67188-de-de",
-    "firstSeenAt": "2026-09-04T23:18:34.030Z"
+    "firstSeenAt": "2026-09-04T23:18:34.030Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "store-visual-merchandiser-m-w-d-80-fur-basel-c-and-a-schweiz-ch": "BS"
+      },
+      "fr": {
+        "store-visual-merchandiser-m-w-d-80-fur-basel-c-and-a-schweiz-ch": "BS"
+      }
+    }
   },
   {
     "slug": "ch-dipendenti-vendite-50-con-funzione-chiave-servizio-di-messa-a-fuoco-c-a-schweiz-emmenbrucke-ch",
@@ -6325,7 +7079,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-fur-sihlcity-65701-de-de",
-    "firstSeenAt": "2026-07-03T21:31:41.653Z"
+    "firstSeenAt": "2026-07-03T21:31:41.653Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch": "ZH"
+      },
+      "en": {
+        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
@@ -6457,7 +7223,35 @@
         "firstSeenAt": "2026-07-03T21:31:25.966Z",
         "title": "Mitarbeiter im Verkauf (w/m/d) 40% mit Schlüsselfunktion in Frauenfeld - befristet bis Ende Feb 2027"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a": "LU",
+        "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens": "LU",
+        "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens": "LU",
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab": "LU",
+        "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens": "LU",
+        "collaboratore-trice-im-vendita-m-w-d-30-per-pilatusmarkt-c-a-schweiz-kriens": "LU",
+        "mitarbeiter-im-sales-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens": "LU",
+        "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch": "LU",
+        "mitarbeiter-im-vente-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens": "LU"
+      },
+      "en": {
+        "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens": "LU",
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a": "LU",
+        "mitarbeiter-im-sales-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens": "LU"
+      },
+      "de": {
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab": "LU",
+        "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch": "LU"
+      },
+      "fr": {
+        "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens": "LU",
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a": "LU",
+        "mitarbeiter-im-vente-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens": "LU"
+      }
+    }
   },
   {
     "slug": "dipendenti-nelle-vendite-m-f-d-60-per-mythoscenter-schwyz-c-a-schweiz-ibach-ch",
@@ -6670,9 +7464,6 @@
     "expiredAt": "2026-09-17T17:47:24.674Z",
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-10911a2b",
-        "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-fce6b45c",
-        "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-55602675",
         "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-6a76cd09",
         "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-10104ecc",
         "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-d6c3d918",
@@ -6686,7 +7477,15 @@
         "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-faa558d5",
         "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-f4ac312f",
         "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-e9a72821",
-        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-f0b91b85"
+        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-f0b91b85",
+        "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-d190948c",
+        "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-5d72a5ae",
+        "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-faa45696",
+        "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-8769d388",
+        "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-622dd682",
+        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-defbb049",
+        "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-fce6b45c",
+        "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-55602675"
       ],
       "en": [
         "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
@@ -6695,7 +7494,8 @@
         "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
         "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
         "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-9b2f58d8",
-        "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-3cfebd8a"
+        "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-3cfebd8a",
+        "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-78007882"
       ],
       "de": [
         "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-6a76cd09",
@@ -6705,7 +7505,9 @@
         "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-caa3d0d3",
         "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-f2c59e40",
         "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-c5737fb4",
-        "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-e9a72821"
+        "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-e9a72821",
+        "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-5d72a5ae",
+        "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-622dd682"
       ],
       "fr": [
         "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
@@ -6714,7 +7516,8 @@
         "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
         "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
         "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-31fc07fa",
-        "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-b1d1bd00"
+        "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-b1d1bd00",
+        "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-c3b568c3"
       ]
     },
     "postalCode": "8001",
@@ -6762,7 +7565,15 @@
       "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-e9a72821",
       "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-f0b91b85",
       "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-3cfebd8a",
-      "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-b1d1bd00"
+      "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-b1d1bd00",
+      "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-d190948c",
+      "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-5d72a5ae",
+      "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-faa45696",
+      "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-8769d388",
+      "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch-622dd682",
+      "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-defbb049",
+      "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch-78007882",
+      "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-c3b568c3"
     ]
   },
   {
@@ -6990,6 +7801,66 @@
     "firstSeenAt": "2026-09-07T15:25:14.488Z"
   },
   {
+    "slug": "collaboratore-trice-im-vendita-m-w-d-50-per-bern-c-a-schweiz-bern",
+    "title": "Mitarbeiter im Verkauf (w/m/d) 50% für Bern",
+    "titleByLocale": {
+      "it": "Dipendenti in vendita (m/f/d) 50% per Bern",
+      "en": "Employees in sales (m/f/d) 50% for Bern",
+      "de": "Mitarbeiter im Verkauf (w/m/d) 50% für Bern",
+      "fr": "Employés en vente (h/f/d) 50% pour Berne"
+    },
+    "company": "C&A Schweiz",
+    "companyKey": "c-and-a-schweiz",
+    "location": "Bern (CH)",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Il futuro ti assomiglia I tuoi compiti\n• Contatto proattivo del cliente\n• Consulenza professionale\n• Assicurare una presenza di un negozio ben curato\n• Ambasciatori del nostro marchio\n• Condividi la responsabilità di aprire e chiudere il negozio Cosa porti\n• Passione per la moda e le persone\n• Flessibile in termini di tempi operativi\n• Molto buone capacità di comunicazione\n• Esperienza di vendita nel settore della moda è vantaggioso Cosa offriamo\n• Ambiente di lavoro emozionante e dinamico\n• 30% di sconto sui dipendenti in tutti i nostri negozi\n• 20% di sconto sui dipendenti nel nostro negozio online\n• Portale Vantaggio con offerte dai migliori fornitori di marchi\n• Bonus e compensazione degli straordinari\n• 5 settimane di vacanza\n• Feedback cultura e opportunità di sviluppo Non discriviamo in base all'età, alla disabilità, all'identità di genere, all'orientamento sessuale, all'origine etnica, al colore, alla religione o alla fede, allo stato genitore o coniugale o a qualsiasi altra proprietà protetta. Accogliamo con favore le domande di donne, uomini e persone non-binary di tutti i background etnici e socio-economici. Incoraggiamo particolarmente le persone provenienti da gruppi sottorappresentati ad applicare. Anche se non si soddisfa ogni esigenza, ma si veda nel ruolo e vuole contribuire, applicare e aiutarci a costruire una comunità inclusiva.",
+      "en": "The future looks like you Your tasks\n• Proactive customer contact\n• Professional advice\n• Ensure a well-kept store presence\n• Ambassadors of our brand\n• Share responsibility for opening and closing the store What you bring\n• Passion for fashion and people\n• Flexible in terms of operating times\n• Very good communication skills\n• Sales experience in the fashion industry is beneficial What we offer\n• Exciting and dynamic working environment\n• 30% employee discount in all our stores\n• 20% employee discount in our online shop\n• Advantage portal with offers from top brand providers\n• Bonus and compensation of overtime\n• 5 weeks holiday\n• Feedback culture and development opportunities We do not discriminate on the basis of age, disability, gender identity, sexual orientation, ethnic origin, colour, religion or belief, parenthood or marital status or any other protected property. We welcome applications from women, men and non-binary persons of all ethnic and socio-economic backgrounds. We particularly encourage people from underrepresented groups to apply. Even if you do not meet every requirement, but see yourself in the role and want to contribute, apply and help us build an inclusive community.",
+      "de": "The future looks like you\n\nDeine Aufgaben\n\n• Proaktiver Kundenkontakt\n\n• Professionelle Beratung\n\n• Sicherstellen eines gepflegten Store-Auftritts\n\n• Botschafter unserer Marke\n\n• Mitverantwortung für das Öffnen und Schliessen des Stores\n\nWas du mitbringst\n\n• Leidenschaft für Mode und Menschen\n\n• Flexibel in Bezug auf Einsatzzeiten\n\n• Sehr gute Kommunikationsfähigkeit\n\n• Verkaufserfahrung in der Modebranche von Vorteil\n\nWas wir bieten\n\n• Spannendes und dynamisches Arbeitsumfeld\n\n• 30% Mitarbeiterrabatt in allen unseren Stores\n\n• 20% Mitarbeiterrabatt in unserem Onlineshop\n\n• Vorteilsportal mit Angeboten von Top-Markenanbietern\n\n• Bonus und Kompensierung von Überstunden\n\n• 5 Wochen Ferien\n\n• Feedbackkultur und Entwicklungsmöglichkeiten\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Herkunft, Hautfarbe, Religion oder Weltanschauung, Elternschaft oder Familienstand oder einer anderen geschützten Eigenschaft. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Personen aller ethnischen und sozioökonomischen Hintergründe.\nWir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\nAuch wenn Du nicht jede Anforderung erfüllst, aber Dich in der Rolle siehst und einen Beitrag leisten möchtest, bewirb Dich gerne und hilf uns, eine inklusive Gemeinschaft aufzubauen",
+      "fr": "Le futur te ressemble Vos tâches\n• Contact client proactif\n• Conseils professionnels\n• Assurer une bonne présence dans les magasins\n• Ambassadeurs de notre marque\n• Partager la responsabilité d'ouvrir et de fermer le magasin Ce que vous apportez\n• Passion pour la mode et les gens\n• Flexible en termes de temps d'exploitation\n• Très bonnes compétences en communication\n• L'expérience des ventes dans l'industrie de la mode est bénéfique Ce que nous offrons\n• Environnement de travail passionnant et dynamique\n• 30% de réduction des employés dans tous nos magasins\n• 20% de réduction pour les employés dans notre boutique en ligne\n• Portail d'avantages avec des offres de fournisseurs haut de gamme\n• Prime et rémunération des heures supplémentaires\n• 5 semaines de vacances\n• Rétroaction sur la culture et les possibilités de développement Nous ne faisons pas de discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'origine ethnique, la couleur, la religion ou les convictions, la paternité ou l'état matrimonial ou tout autre bien protégé. Nous accueillons favorablement les candidatures des femmes, des hommes et des non-binaires de toutes origines ethniques et socioéconomiques. Nous encourageons particulièrement les personnes appartenant à des groupes sous-représentés à présenter leur candidature. Même si vous ne répondez pas à toutes les exigences, mais voyez-vous dans le rôle et voulez contribuer, appliquer et nous aider à bâtir une communauté inclusive."
+    },
+    "slugByLocale": {
+      "it": "collaboratore-trice-im-vendita-m-w-d-50-per-bern-c-a-schweiz-bern",
+      "en": "mitarbeiter-im-sales-w-m-d-50-fur-bern-c-a-schweiz-bern-ch",
+      "de": "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch",
+      "fr": "mitarbeiter-im-vente-w-m-d-50-fur-bern-c-a-schweiz-bern-ch"
+    },
+    "sector": "Commercio al dettaglio",
+    "expiredAt": "2026-09-09T15:45:28.348Z",
+    "previousSlugs": [
+      "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch",
+      "collaboratore-trice-im-vendita-m-w-d-50-per-bern-c-a-schweiz-bern-f922b77d",
+      "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch-9f2f4a4e",
+      "mitarbeiter-im-sales-w-m-d-50-fur-bern-c-a-schweiz-bern-ch-3252628f",
+      "mitarbeiter-im-vente-w-m-d-50-fur-bern-c-a-schweiz-bern-ch-25325d4a"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-50-per-bern-c-a-schweiz-bern-f922b77d",
+        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch-9f2f4a4e"
+      ],
+      "en": [
+        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch",
+        "mitarbeiter-im-sales-w-m-d-50-fur-bern-c-a-schweiz-bern-ch-3252628f"
+      ],
+      "fr": [
+        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch",
+        "mitarbeiter-im-vente-w-m-d-50-fur-bern-c-a-schweiz-bern-ch-25325d4a"
+      ],
+      "de": [
+        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch-9f2f4a4e"
+      ]
+    },
+    "postalCode": "3000",
+    "salaryMin": 38800,
+    "salaryMax": 59300,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-bern-66271-de-de",
+    "firstSeenAt": "2026-07-03T21:31:33.424Z"
+  },
+  {
     "slug": "collaboratore-trice-im-vendita-m-w-d-50-per-bern-c-a-schweiz-bern-18a13157",
     "title": "Mitarbeiter im Verkauf (w/m/d) 50% für Bern",
     "titleByLocale": {
@@ -7028,56 +7899,6 @@
       ],
       "fr": [
         "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch-5af7992e"
-      ]
-    },
-    "postalCode": "3000",
-    "salaryMin": 38800,
-    "salaryMax": 59300,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-bern-66271-de-de",
-    "firstSeenAt": "2026-07-03T21:31:33.424Z"
-  },
-  {
-    "slug": "collaboratore-trice-im-vendita-m-w-d-50-per-bern-c-a-schweiz-bern-f922b77d",
-    "title": "Mitarbeiter im Verkauf (w/m/d) 50% für Bern",
-    "titleByLocale": {
-      "it": "Dipendenti in vendita (m/f/d) 50% per Bern",
-      "en": "Employees in sales (m/f/d) 50% for Bern",
-      "de": "Mitarbeiter im Verkauf (w/m/d) 50% für Bern",
-      "fr": "Employés en vente (h/f/d) 50% pour Berne"
-    },
-    "company": "C&A Schweiz",
-    "companyKey": "c-and-a-schweiz",
-    "location": "Bern (CH)",
-    "addressLocality": "Bern",
-    "descriptionByLocale": {
-      "it": "Il futuro ti assomiglia I tuoi compiti\n• Contatto proattivo del cliente\n• Consulenza professionale\n• Assicurare una presenza di un negozio ben curato\n• Ambasciatori del nostro marchio\n• Condividi la responsabilità di aprire e chiudere il negozio Cosa porti\n• Passione per la moda e le persone\n• Flessibile in termini di tempi operativi\n• Molto buone capacità di comunicazione\n• Esperienza di vendita nel settore della moda è vantaggioso Cosa offriamo\n• Ambiente di lavoro emozionante e dinamico\n• 30% di sconto sui dipendenti in tutti i nostri negozi\n• 20% di sconto sui dipendenti nel nostro negozio online\n• Portale Vantaggio con offerte dai migliori fornitori di marchi\n• Bonus e compensazione degli straordinari\n• 5 settimane di vacanza\n• Feedback cultura e opportunità di sviluppo Non discriviamo in base all'età, alla disabilità, all'identità di genere, all'orientamento sessuale, all'origine etnica, al colore, alla religione o alla fede, allo stato genitore o coniugale o a qualsiasi altra proprietà protetta. Accogliamo con favore le domande di donne, uomini e persone non-binary di tutti i background etnici e socio-economici. Incoraggiamo particolarmente le persone provenienti da gruppi sottorappresentati ad applicare. Anche se non si soddisfa ogni esigenza, ma si veda nel ruolo e vuole contribuire, applicare e aiutarci a costruire una comunità inclusiva.",
-      "en": "The future looks like you Your tasks\n• Proactive customer contact\n• Professional advice\n• Ensure a well-kept store presence\n• Ambassadors of our brand\n• Share responsibility for opening and closing the store What you bring\n• Passion for fashion and people\n• Flexible in terms of operating times\n• Very good communication skills\n• Sales experience in the fashion industry is beneficial What we offer\n• Exciting and dynamic working environment\n• 30% employee discount in all our stores\n• 20% employee discount in our online shop\n• Advantage portal with offers from top brand providers\n• Bonus and compensation of overtime\n• 5 weeks holiday\n• Feedback culture and development opportunities We do not discriminate on the basis of age, disability, gender identity, sexual orientation, ethnic origin, colour, religion or belief, parenthood or marital status or any other protected property. We welcome applications from women, men and non-binary persons of all ethnic and socio-economic backgrounds. We particularly encourage people from underrepresented groups to apply. Even if you do not meet every requirement, but see yourself in the role and want to contribute, apply and help us build an inclusive community.",
-      "de": "The future looks like you\n\nDeine Aufgaben\n\n• Proaktiver Kundenkontakt\n\n• Professionelle Beratung\n\n• Sicherstellen eines gepflegten Store-Auftritts\n\n• Botschafter unserer Marke\n\n• Mitverantwortung für das Öffnen und Schliessen des Stores\n\nWas du mitbringst\n\n• Leidenschaft für Mode und Menschen\n\n• Flexibel in Bezug auf Einsatzzeiten\n\n• Sehr gute Kommunikationsfähigkeit\n\n• Verkaufserfahrung in der Modebranche von Vorteil\n\nWas wir bieten\n\n• Spannendes und dynamisches Arbeitsumfeld\n\n• 30% Mitarbeiterrabatt in allen unseren Stores\n\n• 20% Mitarbeiterrabatt in unserem Onlineshop\n\n• Vorteilsportal mit Angeboten von Top-Markenanbietern\n\n• Bonus und Kompensierung von Überstunden\n\n• 5 Wochen Ferien\n\n• Feedbackkultur und Entwicklungsmöglichkeiten\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Herkunft, Hautfarbe, Religion oder Weltanschauung, Elternschaft oder Familienstand oder einer anderen geschützten Eigenschaft. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Personen aller ethnischen und sozioökonomischen Hintergründe.\nWir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\nAuch wenn Du nicht jede Anforderung erfüllst, aber Dich in der Rolle siehst und einen Beitrag leisten möchtest, bewirb Dich gerne und hilf uns, eine inklusive Gemeinschaft aufzubauen",
-      "fr": "Le futur te ressemble Vos tâches\n• Contact client proactif\n• Conseils professionnels\n• Assurer une bonne présence dans les magasins\n• Ambassadeurs de notre marque\n• Partager la responsabilité d'ouvrir et de fermer le magasin Ce que vous apportez\n• Passion pour la mode et les gens\n• Flexible en termes de temps d'exploitation\n• Très bonnes compétences en communication\n• L'expérience des ventes dans l'industrie de la mode est bénéfique Ce que nous offrons\n• Environnement de travail passionnant et dynamique\n• 30% de réduction des employés dans tous nos magasins\n• 20% de réduction pour les employés dans notre boutique en ligne\n• Portail d'avantages avec des offres de fournisseurs haut de gamme\n• Prime et rémunération des heures supplémentaires\n• 5 semaines de vacances\n• Rétroaction sur la culture et les possibilités de développement Nous ne faisons pas de discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'origine ethnique, la couleur, la religion ou les convictions, la paternité ou l'état matrimonial ou tout autre bien protégé. Nous accueillons favorablement les candidatures des femmes, des hommes et des non-binaires de toutes origines ethniques et socioéconomiques. Nous encourageons particulièrement les personnes appartenant à des groupes sous-représentés à présenter leur candidature. Même si vous ne répondez pas à toutes les exigences, mais voyez-vous dans le rôle et voulez contribuer, appliquer et nous aider à bâtir une communauté inclusive."
-    },
-    "slugByLocale": {
-      "it": "collaboratore-trice-im-vendita-m-w-d-50-per-bern-c-a-schweiz-bern-f922b77d",
-      "en": "mitarbeiter-im-sales-w-m-d-50-fur-bern-c-a-schweiz-bern-ch-3252628f",
-      "de": "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch-9f2f4a4e",
-      "fr": "mitarbeiter-im-vente-w-m-d-50-fur-bern-c-a-schweiz-bern-ch-25325d4a"
-    },
-    "sector": "Commercio al dettaglio",
-    "expiredAt": "2026-09-09T15:45:28.348Z",
-    "previousSlugs": [
-      "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch-9f2f4a4e",
-      "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch-9f2f4a4e"
-      ],
-      "en": [
-        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch"
-      ],
-      "fr": [
-        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch"
       ]
     },
     "postalCode": "3000",
@@ -8526,21 +9347,26 @@
         "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-eabc12a3",
         "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-49c39f21",
         "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-3726faa4",
-        "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-0f5567a4"
+        "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-0f5567a4",
+        "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-aaea91b3",
+        "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-a59e33e2"
       ],
       "en": [
         "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb",
         "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-3710dc30",
-        "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-c7b952c6"
+        "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-c7b952c6",
+        "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-cb840d9b"
       ],
       "fr": [
         "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb",
         "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-7e8d662a",
-        "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-c0c2a08d"
+        "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-c0c2a08d",
+        "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-90a85b22"
       ],
       "de": [
         "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-49c39f21",
-        "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-0f5567a4"
+        "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-0f5567a4",
+        "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-a59e33e2"
       ]
     },
     "postalCode": "6010",
@@ -8560,7 +9386,11 @@
       "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-3726faa4",
       "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-0f5567a4",
       "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-c7b952c6",
-      "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-c0c2a08d"
+      "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-c0c2a08d",
+      "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-aaea91b3",
+      "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-a59e33e2",
+      "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-cb840d9b",
+      "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens-90a85b22"
     ]
   },
   {
@@ -8662,7 +9492,7 @@
     "firstSeenAt": "2026-07-03T21:31:28.184Z"
   },
   {
-    "slug": "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen-4dfcbc9d",
+    "slug": "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen",
     "title": "Mitarbeiter im Verkauf mit Schlüsselfunktion (w/m/d) 20% in Lachen",
     "titleByLocale": {
       "it": "Collaboratore/trice im vendita con Schlüsselfunktion (w/m/d) 20% in Lachen",
@@ -8681,26 +9511,36 @@
       "fr": "Le futur te ressemble Vos tâches\n• Contact client proactif\n• Conseils professionnels\n• Assurer une bonne présence dans les magasins\n• Ambassadeurs de notre marque\n• Partager la responsabilité d'ouvrir et de fermer le magasin Ce que vous apportez\n• Passion pour la mode et les gens\n• Flexible en termes de temps d'exploitation\n• Très bonnes compétences en communication\n• L'expérience des ventes dans l'industrie de la mode est bénéfique Ce que nous offrons\n• Environnement de travail passionnant et dynamique\n• 30% de réduction des employés dans tous nos magasins\n• 20% de réduction pour les employés dans notre boutique en ligne\n• Portail d'avantages avec des offres de fournisseurs haut de gamme\n• Prime et rémunération des heures supplémentaires\n• 5 semaines de vacances\n• Rétroaction sur la culture et les possibilités de développement Nous ne faisons pas de discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'origine ethnique, la couleur, la religion ou les convictions, la paternité ou l'état matrimonial ou tout autre bien protégé. Nous accueillons favorablement les candidatures des femmes, des hommes et des non-binaires de toutes origines ethniques et socioéconomiques. Nous encourageons particulièrement les personnes appartenant à des groupes sous-représentés à présenter leur candidature. Même si vous ne répondez pas à toutes les exigences, mais voyez-vous dans le rôle et voulez contribuer, appliquer et nous aider à bâtir une communauté inclusive."
     },
     "slugByLocale": {
-      "it": "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen-4dfcbc9d",
-      "en": "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen-8a9bdfa1",
-      "de": "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch-e1948400",
-      "fr": "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen-c8796336"
+      "it": "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen",
+      "en": "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
+      "de": "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch",
+      "fr": "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen"
     },
     "sector": "Commercio al dettaglio",
     "expiredAt": "2026-07-18T10:44:38.723Z",
     "previousSlugs": [
+      "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch",
+      "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen-4dfcbc9d",
       "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch-e1948400",
-      "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch"
+      "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen-8a9bdfa1",
+      "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen-c8796336"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen-4dfcbc9d",
         "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch-e1948400"
       ],
       "en": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch",
+        "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen-8a9bdfa1"
       ],
       "fr": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch",
+        "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen-c8796336"
+      ],
+      "de": [
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch-e1948400"
       ]
     },
     "postalCode": "8853",
@@ -8857,6 +9697,53 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiterin-verkauf-schwerpunkt-service-30-befristet-66350-de-de",
     "firstSeenAt": "2026-07-03T21:31:31.225Z"
+  },
+  {
+    "slug": "collaboratore-trice-im-vendita-m-w-d-60-con-schlusselfunktion-per-luzern-c-a-schweiz-luzern",
+    "title": "Mitarbeiter im Verkauf (w/m/d) 60% mit Schlüsselfunktion für Luzern",
+    "titleByLocale": {
+      "it": "Collaboratore/trice im vendita (w/m/d) 60% con Schlüsselfunktion per Luzern",
+      "en": "Mitarbeiter im Sales (w/m/d) 60% mit Schlüsselfunktion für Luzern",
+      "de": "Mitarbeiter im Verkauf (w/m/d) 60% mit Schlüsselfunktion für Luzern",
+      "fr": "Mitarbeiter im Vente (w/m/d) 60% mit Schlüsselfunktion für Luzern"
+    },
+    "company": "C&A Schweiz",
+    "companyKey": "c-and-a-schweiz",
+    "location": "Luzern (CH)",
+    "addressLocality": "Luzern",
+    "descriptionByLocale": {
+      "it": "Il futuro ti assomiglia I tuoi compiti\n• Contatto proattivo del cliente\n• Consulenza professionale\n• Assicurare una presenza di un negozio ben curato\n• Ambasciatori del nostro marchio\n• Condividi la responsabilità di aprire e chiudere il negozio Cosa porti\n• Passione per la moda e le persone\n• Flessibile in termini di tempi operativi\n• Molto buone capacità di comunicazione\n• Esperienza di vendita nel settore della moda è vantaggioso Cosa offriamo\n• Ambiente di lavoro emozionante e dinamico\n• 30% di sconto sui dipendenti in tutti i nostri negozi\n• 20% di sconto sui dipendenti nel nostro negozio online\n• Portale Vantaggio con offerte dai migliori fornitori di marchi\n• Bonus e compensazione degli straordinari\n• 5 settimane di vacanza\n• Feedback cultura e opportunità di sviluppo Non discriviamo in base all'età, alla disabilità, all'identità di genere, all'orientamento sessuale, all'origine etnica, al colore, alla religione o alla fede, allo stato genitore o coniugale o a qualsiasi altra proprietà protetta. Accogliamo con favore le domande di donne, uomini e persone non-binary di tutti i background etnici e socio-economici. Incoraggiamo particolarmente le persone provenienti da gruppi sottorappresentati ad applicare. Anche se non si soddisfa ogni esigenza, ma si veda nel ruolo e vuole contribuire, applicare e aiutarci a costruire una comunità inclusiva.",
+      "en": "The future looks like you Your tasks\n• Proactive customer contact\n• Professional advice\n• Ensure a well-kept store presence\n• Ambassadors of our brand\n• Share responsibility for opening and closing the store What you bring\n• Passion for fashion and people\n• Flexible in terms of operating times\n• Very good communication skills\n• Sales experience in the fashion industry is beneficial What we offer\n• Exciting and dynamic working environment\n• 30% employee discount in all our stores\n• 20% employee discount in our online shop\n• Advantage portal with offers from top brand providers\n• Bonus and compensation of overtime\n• 5 weeks holiday\n• Feedback culture and development opportunities We do not discriminate on the basis of age, disability, gender identity, sexual orientation, ethnic origin, colour, religion or belief, parenthood or marital status or any other protected property. We welcome applications from women, men and non-binary persons of all ethnic and socio-economic backgrounds. We particularly encourage people from underrepresented groups to apply. Even if you do not meet every requirement, but see yourself in the role and want to contribute, apply and help us build an inclusive community.",
+      "de": "The future looks like you\n\nDeine Aufgaben\n\n• Proaktiver Kundenkontakt\n\n• Professionelle Beratung\n\n• Sicherstellen eines gepflegten Store-Auftritts\n\n• Botschafter unserer Marke\n\n• Mitverantwortung für das Öffnen und Schliessen des Stores\n\nWas du mitbringst\n\n• Leidenschaft für Mode und Menschen\n\n• Flexibel in Bezug auf Einsatzzeiten\n\n• Sehr gute Kommunikationsfähigkeit\n\n• Verkaufserfahrung in der Modebranche von Vorteil\n\nWas wir bieten\n\n• Spannendes und dynamisches Arbeitsumfeld\n\n• 30% Mitarbeiterrabatt in allen unseren Stores\n\n• 20% Mitarbeiterrabatt in unserem Onlineshop\n\n• Vorteilsportal mit Angeboten von Top-Markenanbietern\n\n• Bonus und Kompensierung von Überstunden\n\n• 5 Wochen Ferien\n\n• Feedbackkultur und Entwicklungsmöglichkeiten\n\nWir diskriminieren nicht aufgrund von Alter, Behinderung, Geschlechtsidentität, sexueller Orientierung, ethnischer Herkunft, Hautfarbe, Religion oder Weltanschauung, Elternschaft oder Familienstand oder einer anderen geschützten Eigenschaft. Wir freuen uns über Bewerbungen von Frauen, Männern und nicht-binären Personen aller ethnischen und sozioökonomischen Hintergründe.\nWir ermutigen insbesondere Menschen aus unterrepräsentierten Gruppen, sich zu bewerben.\nAuch wenn Du nicht jede Anforderung erfüllst, aber Dich in der Rolle siehst und einen Beitrag leisten möchtest, bewirb Dich gerne und hilf uns, eine inklusive Gemeinschaft aufzubauen",
+      "fr": "Le futur te ressemble Vos tâches\n• Contact client proactif\n• Conseils professionnels\n• Assurer une bonne présence dans les magasins\n• Ambassadeurs de notre marque\n• Partager la responsabilité d'ouvrir et de fermer le magasin Ce que vous apportez\n• Passion pour la mode et les gens\n• Flexible en termes de temps d'exploitation\n• Très bonnes compétences en communication\n• L'expérience des ventes dans l'industrie de la mode est bénéfique Ce que nous offrons\n• Environnement de travail passionnant et dynamique\n• 30% de réduction des employés dans tous nos magasins\n• 20% de réduction pour les employés dans notre boutique en ligne\n• Portail d'avantages avec des offres de fournisseurs haut de gamme\n• Prime et rémunération des heures supplémentaires\n• 5 semaines de vacances\n• Rétroaction sur la culture et les possibilités de développement Nous ne faisons pas de discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'origine ethnique, la couleur, la religion ou les convictions, la paternité ou l'état matrimonial ou tout autre bien protégé. Nous accueillons favorablement les candidatures des femmes, des hommes et des non-binaires de toutes origines ethniques et socioéconomiques. Nous encourageons particulièrement les personnes appartenant à des groupes sous-représentés à présenter leur candidature. Même si vous ne répondez pas à toutes les exigences, mais voyez-vous dans le rôle et voulez contribuer, appliquer et nous aider à bâtir une communauté inclusive."
+    },
+    "slugByLocale": {
+      "it": "collaboratore-trice-im-vendita-m-w-d-60-con-schlusselfunktion-per-luzern-c-a-schweiz-luzern",
+      "en": "mitarbeiter-im-sales-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern",
+      "de": "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch",
+      "fr": "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern"
+    },
+    "sector": "Commercio al dettaglio",
+    "expiredAt": "2026-07-15T22:09:03.083Z",
+    "previousSlugs": [
+      "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch"
+      ],
+      "en": [
+        "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch"
+      ],
+      "fr": [
+        "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch"
+      ]
+    },
+    "postalCode": "6004",
+    "salaryMin": 41700,
+    "salaryMax": 63600,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "collaboratore-trice-im-vendita-m-w-d-60-con-schlusselfunktion-per-luzern-c-a-schweiz-luzern-48f2005b",
