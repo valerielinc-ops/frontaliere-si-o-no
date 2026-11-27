@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-26T22:27:44.688Z",
+  "generatedAt": "2026-11-27T04:32:22.939Z",
   "records": {
     "it-msal-3907": {
-      "checkedAt": "2026-11-26T22:27:44.688Z",
+      "checkedAt": "2026-11-27T04:32:22.939Z",
       "phone": "+390332227362",
       "openingHours": [
         {
@@ -108,7 +108,7 @@
           "url": "https://www.ats-insubria.it/documentazione?catid=1048&id=3760&m=0&task=download.send",
           "label": "ATS Insubria — elenco farmacie (luglio 2025)",
           "sourceType": "official",
-          "checkedAt": "2026-11-26T22:27:44.688Z",
+          "checkedAt": "2026-11-27T04:32:22.939Z",
           "fields": [
             "phone"
           ],
@@ -118,7 +118,7 @@
           "url": "https://atoka.io/public/it/azienda/farmacia-internazionale-di-casciago-del-dott-massimo-de-bernardi-c-sas/7601ad2f09a8",
           "label": "Atoka — scheda impresa pubblica",
           "sourceType": "directory",
-          "checkedAt": "2026-11-26T22:27:44.688Z",
+          "checkedAt": "2026-11-27T04:32:22.939Z",
           "fields": [
             "vatNumber"
           ],
@@ -128,7 +128,9 @@
       "googlePlaceId": "ChIJTyMvHid_hkcRGsfc2a7YeOc"
     }
   },
-  "warnings": [],
+  "warnings": [
+    "casciago-municipality: Failed to fetch https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/ (timeout): fetch failed"
+  ],
   "providerUsage": {
     "month": "2026-11",
     "googlePlaces": {
