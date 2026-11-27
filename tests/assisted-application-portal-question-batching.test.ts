@@ -1575,9 +1575,10 @@ describe('assisted portal question batching', () => {
   });
 
   it.each([
-    { label: 'preserves full 51-char email when login input sets maxlength="50"', acceptedValueLen: 51, expectedSubmits: 1 },
-    { label: 'falls back to maxlength-truncated prefix when backend stored truncated email', acceptedValueLen: 50, expectedSubmits: 2 },
-  ])('$label', async ({ acceptedValueLen, expectedSubmits }) => {
+    { label: 'preserves full 51-char email when login input sets maxlength="50"', acceptedValueLen: 51, expectedSubmits: 1, inputLabel: 'Benutzername:' },
+    { label: 'preserves full 51-char email when login input is labeled "Phone or email" with maxlength="50"', acceptedValueLen: 51, expectedSubmits: 1, inputLabel: 'Phone or email' },
+    { label: 'falls back to maxlength-truncated prefix when backend stored truncated email', acceptedValueLen: 50, expectedSubmits: 2, inputLabel: 'Benutzername:' },
+  ])('$label', async ({ acceptedValueLen, expectedSubmits, inputLabel }) => {
     const alias50 = 'candidato.rossi12@candidature.frontaliereticino.ch';
     expect(alias50).toHaveLength(50);
     const overLimit = 'candidato.rossi123@candidature.frontaliereticino.ch';
@@ -1596,7 +1597,7 @@ describe('assisted portal question batching', () => {
     const renderLoginForm = (err = '') => {
       window.document.body.innerHTML = `${err ? `<div class="error">${err}</div>` : ''}
       <form id="login-form">
-        <label for="input_UserName">Benutzername:</label>
+        <label for="input_UserName">${inputLabel}</label>
         <input id="input_UserName" type="text" name="UserName" maxlength="50">
         <label for="input_password">Passwort:</label>
         <input id="input_password" type="password" name="PassWord" maxlength="50">

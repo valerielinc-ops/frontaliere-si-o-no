@@ -1212,14 +1212,13 @@ export async function applyActions(page, fields, actions, files, {
         // and chosen again, it would be the chosen value that gets clicked.
       } else {
         // A long text is shortened at a sentence end, never cut in the middle of one.
-        const topic = questionTopic(field.label, field.context, field);
-        const value = topic === 'phone'
-          ? formatPhoneForField(action.value, {
-            maxLength: field.maxLength,
-            ...separatePhonePrefixMetadata(field, fields, action.value),
-          })
-          : action.preserveFullValue
-            ? String(action.value ?? '')
+        const value = action.preserveFullValue
+          ? String(action.value ?? '')
+          : questionTopic(field.label, field.context, field) === 'phone'
+            ? formatPhoneForField(action.value, {
+              maxLength: field.maxLength,
+              ...separatePhonePrefixMetadata(field, fields, action.value),
+            })
             : fitToLength(action.value, field.maxLength);
         if (action.preserveFullValue && Number.isFinite(field.maxLength) && field.maxLength > 0
           && value.length > field.maxLength && typeof locator?.evaluate === 'function') {
