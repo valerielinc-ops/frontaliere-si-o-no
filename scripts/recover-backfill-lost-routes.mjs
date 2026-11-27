@@ -17,6 +17,13 @@
  * never removes a record or a route. Every file is checked against
  * `assertAdditiveRecovery` and the size ceiling before anything is written.
  *
+ * A second manifest (scripts/data/residual-lost-routes-20261127.json, all
+ * removal causes) proves ownership by the posting-specific source token every
+ * historical holder of the route declared; pass it with `--manifest=<path>`.
+ * A target with `state: "active"` has no archived record: its routes go to the
+ * active record through `addPreviousSlugForLocale`, and a route whose locale
+ * bucket is already at DEFAULT_PREV_SLUG_CAP is skipped, never swapped for one.
+ *
  * Usage:
  *   node scripts/recover-backfill-lost-routes.mjs             # dry run
  *   node scripts/recover-backfill-lost-routes.mjs --write
@@ -34,6 +41,8 @@ import {
   addExpiredRoutes,
   localeRouteKeys,
 } from './lib/expired-jobs-archive.mjs';
+import { addPreviousSlugForLocale, DEFAULT_PREV_SLUG_CAP } from './lib/dedicated-crawler-common.mjs';
+import { setExpiredRouteCanton } from './lib/expired-route-canton.mjs';
 import { readExpiredSliceShards } from './lib/expired-slice-store.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
@@ -100,6 +109,28 @@ export function assertAdditiveRecovery(before, after, { allowed, heldKeys }) {
 }
 
 /**
+ * The canonical live-record capture, one route at a time. It stops at the cap:
+ * going past it would make the writer evict an older route of the same bucket.
+ *
+ * @returns {Set<string>} the keys left out because their bucket is full
+ */
+function addActiveRoutes(record, routeKeys, cantons = {}) {
+  const full = new Set();
+  for (const key of routeKeys) {
+    const separator = key.indexOf(':');
+    const locale = key.slice(0, separator);
+    const slug = key.slice(separator + 1);
+    if ((record.previousSlugsByLocale?.[locale]?.length || 0) >= DEFAULT_PREV_SLUG_CAP) {
+      full.add(key);
+      continue;
+    }
+    addPreviousSlugForLocale(record, locale, slug, DEFAULT_PREV_SLUG_CAP, 'recover-backfill-lost-routes', { syncLegacy: false });
+    if (cantons[locale]?.[slug]) setExpiredRouteCanton(record, locale, slug, cantons[locale][slug]);
+  }
+  return full;
+}
+
+/**
  * Add the unheld routes of `targets` to `rows` (one crawler's archive). `rows`
  * is not mutated; `heldKeys` (every route served today) is not mutated either.
  */
@@ -119,14 +150,16 @@ export function recoverCrawlerRows(rows, targets, heldKeys) {
       continue;
     }
     const [record] = matches;
-    addExpiredRoutes(record, wanted, { cantons: target.cantons, source: 'recover-backfill-lost-routes' });
+    let capFull = new Set();
+    if (target.state === 'active') capFull = addActiveRoutes(record, wanted, target.cantons);
+    else addExpiredRoutes(record, wanted, { cantons: target.cantons, source: 'recover-backfill-lost-routes' });
     const served = localeRouteKeys(record);
     for (const key of wanted) {
       if (served.has(key)) {
         allowed.add(key);
         taken.add(key);
       } else {
-        skipped.push({ key, reason: 'unrepresentable' });
+        skipped.push({ key, reason: capFull.has(key) ? 'cap-full' : 'unrepresentable' });
       }
     }
   }
@@ -135,6 +168,26 @@ export function recoverCrawlerRows(rows, targets, heldKeys) {
 }
 
 const gitBlobId = (bytes) => createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
+
+const sliceDirOf = (expiredDir, state) => (state === 'active' ? path.resolve(expiredDir, '..', '..', 'by-crawler') : expiredDir);
+
+function sliceNames(dir, crawlerKey) {
+  const own = (name) => name === `${crawlerKey}.json`
+    || (name.startsWith(`${crawlerKey}.shard-`) && /^\.shard-\d+\.json$/.test(name.slice(crawlerKey.length)));
+  return fs.existsSync(dir) ? fs.readdirSync(dir).filter(own).sort() : [];
+}
+
+/** The slices of one crawler: archive shards, or the active envelope(s). */
+function readTargetShards(expiredDir, crawlerKey, state) {
+  if (state !== 'active') return readExpiredSliceShards(crawlerKey, { dir: expiredDir });
+  const dir = sliceDirOf(expiredDir, state);
+  return sliceNames(dir, crawlerKey).map((name) => {
+    const file = path.join(dir, name);
+    const envelope = JSON.parse(fs.readFileSync(file, 'utf8'));
+    if (!Array.isArray(envelope.jobs)) throw new Error(`${file} is not an active job slice`);
+    return { path: file, rows: envelope.jobs, envelope };
+  });
+}
 
 function parseSliceRows(file, text) {
   const parsed = JSON.parse(text);
@@ -152,18 +205,20 @@ function parseSliceRows(file, text) {
  * @param {Set<string>} heldKeys
  */
 function planRecovery(manifest, readShards, heldKeys) {
-  const byCrawler = new Map();
+  const bySlices = new Map();
   for (const target of manifest.targets) {
-    if (!byCrawler.has(target.crawlerKey)) byCrawler.set(target.crawlerKey, []);
-    byCrawler.get(target.crawlerKey).push(target);
+    const state = target.state === 'active' ? 'active' : 'expired';
+    const group = `${state}/${target.crawlerKey}`;
+    if (!bySlices.has(group)) bySlices.set(group, { crawlerKey: target.crawlerKey, state, targets: [] });
+    bySlices.get(group).targets.push(target);
   }
   const held = new Set(heldKeys);
   const files = [];
   const crawlers = [];
   const added = [];
   const skipped = [];
-  for (const [crawlerKey, targets] of byCrawler) {
-    const shards = readShards(crawlerKey);
+  for (const { crawlerKey, state, targets } of bySlices.values()) {
+    const shards = readShards(crawlerKey, state);
     const rows = shards.flatMap((shard) => shard.rows);
     const result = recoverCrawlerRows(rows, targets, held);
     skipped.push(...result.skipped);
@@ -179,7 +234,8 @@ function planRecovery(manifest, readShards, heldKeys) {
       offset += shard.rows.length;
       if (JSON.stringify(slice) === JSON.stringify(shard.rows)) continue;
       assertExpiredSliceSize(shard.path, slice);
-      files.push({ path: shard.path, rows: slice });
+      // An active slice is an envelope around its rows; only the rows change.
+      files.push({ path: shard.path, rows: slice, payload: shard.envelope ? { ...shard.envelope, jobs: slice } : slice });
     }
     crawlers.push(crawlerKey);
   }
@@ -229,7 +285,7 @@ export function collectHeldRoutes(rootDir, { manifest = { targets: [] } } = {}) 
 
   const expiredDir = path.join(rootDir, 'data', 'jobs', 'expired', 'by-crawler');
   const relative = (file) => path.relative(rootDir, file).split(path.sep).join('/');
-  const plan = planRecovery(manifest, (crawlerKey) => readExpiredSliceShards(crawlerKey, { dir: expiredDir })
+  const plan = planRecovery(manifest, (crawlerKey, state) => readTargetShards(expiredDir, crawlerKey, state)
     .map((shard) => ({ ...shard, rows: modified.get(relative(shard.path))?.rows ?? shard.rows })), held);
   const own = new Map(plan.files.map((file) => [relative(file.path), JSON.stringify(file.rows)]));
   for (const [file, { disk }] of modified) {
@@ -246,32 +302,30 @@ export function collectHeldRoutes(rootDir, { manifest = { targets: [] } } = {}) 
 export function runRecovery({ manifest, expiredDir, heldKeys, write = false }) {
   const { files, crawlers, added, skipped } = planRecovery(
     manifest,
-    (crawlerKey) => readExpiredSliceShards(crawlerKey, { dir: expiredDir }),
+    (crawlerKey, state) => readTargetShards(expiredDir, crawlerKey, state),
     heldKeys,
   );
   // Nothing is written until every crawler passed its checks.
-  if (write) for (const file of files) writeJsonAtomic(file.path, file.rows);
+  if (write) for (const file of files) writeJsonAtomic(file.path, file.payload);
   return { added, skipped, crawlers };
 }
 
 export function main(argv, { rootDir = ROOT, manifestPath = DEFAULT_MANIFEST_PATH } = {}) {
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  const chosen = argv.find((arg) => arg.startsWith('--manifest='))?.slice('--manifest='.length);
+  const manifest = JSON.parse(fs.readFileSync(chosen ? path.resolve(rootDir, chosen) : manifestPath, 'utf8'));
   const expiredDir = path.join(rootDir, 'data', 'jobs', 'expired', 'by-crawler');
+  const git = (args) => execFileSync('git', args, { cwd: rootDir, encoding: 'utf8', maxBuffer: 1 << 26 });
+  const targetFiles = [...new Set(manifest.targets.flatMap((target) => {
+    const dir = target.state === 'active' ? 'data/jobs/by-crawler' : 'data/jobs/expired/by-crawler';
+    return git(['ls-files', '--', `${dir}/${target.crawlerKey}.json`, `${dir}/${target.crawlerKey}.shard-*.json`]).split('\n').filter(Boolean);
+  }))];
   if (argv.includes('--list-files')) {
-    const keys = [...new Set(manifest.targets.map((target) => target.crawlerKey))];
-    const tracked = execFileSync('git', ['ls-files', '--', 'data/jobs/expired/by-crawler'], { cwd: rootDir, encoding: 'utf8', maxBuffer: 1 << 26 });
-    for (const file of tracked.split('\n')) {
-      const name = path.basename(file).replace(/(\.shard-\d+)?\.json$/, '');
-      if (keys.includes(name)) console.log(file);
-    }
+    for (const file of targetFiles) console.log(file);
     return;
   }
   // A slice present in the index but absent on disk would be read as empty.
-  for (const key of new Set(manifest.targets.map((target) => target.crawlerKey))) {
-    const tracked = execFileSync('git', ['ls-files', '--', `data/jobs/expired/by-crawler/${key}.json`, `data/jobs/expired/by-crawler/${key}.shard-*.json`], { cwd: rootDir, encoding: 'utf8' });
-    const missing = tracked.split('\n').filter((file) => file && !fs.existsSync(path.join(rootDir, file)));
-    if (missing.length > 0) throw new Error(`materialise first (--list-files): ${missing.join(', ')}`);
-  }
+  const missing = targetFiles.filter((file) => !fs.existsSync(path.join(rootDir, file)));
+  if (missing.length > 0) throw new Error(`materialise first (--list-files): ${missing.join(', ')}`);
   const write = argv.includes('--write');
   const result = runRecovery({ manifest, expiredDir, heldKeys: collectHeldRoutes(rootDir, { manifest }), write });
   const reasons = {};

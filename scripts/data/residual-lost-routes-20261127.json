@@ -1,0 +1,1781 @@
+{
+ "baseCommit": "6ad2a15f4fd",
+ "analysedCommit": "129a2cc157f",
+ "evidence": "every record that ever held the route in git history between the two commits declares one company and one posting-specific source token; the target is the only archived record with that token (or the only one whose slug a holder had), else the only active record with it",
+ "targets": [
+  {
+   "crawlerKey": "aldi-suisse",
+   "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-arbon-13abfc5f",
+   "companyKey": "aldi-suisse",
+   "sourceIdentity": "url:https://www.jobs.aldi.ch/job/1429450133",
+   "proof": {
+    "postingTokens": [
+     "num:1429450133"
+    ],
+    "rules": [
+     "severalExpired:removalHolderSlug / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "mitarbeiter-verkauf-m-w-d-aldi-suisse-75f03c1e"
+    ],
+    "en": [
+     "mitarbeiter-verkauf-m-w-d-aldi-suisse-75f03c1e"
+    ],
+    "fr": [
+     "mitarbeiter-verkauf-m-w-d-aldi-suisse-75f03c1e"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "balgrist",
+   "slug": "consulente-senior-m-m-d-100-universitatsklinik-balgrist-zurich-05dd8db3",
+   "companyKey": "balgrist",
+   "sourceIdentity": "url:https://jobs.balgrist.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-team-w-m-d/6db44814-5468-49dd-93eb-9a3f2e0c439a",
+   "proof": {
+    "postingTokens": [
+     "uuid:6db44814-5468-49dd-93eb-9a3f2e0c439a"
+    ],
+    "rules": [
+     "severalExpired:removalHolderSlug / removed by recover-prev-slugs 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-168ad8c7"
+    ],
+    "en": [
+     "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-168ad8c7"
+    ],
+    "fr": [
+     "arztsekretarin-arztsekretar-schulter-team-w-m-d-100-balgrist-zurich-168ad8c7"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "bcv",
+   "slug": "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle-4c41e1a8",
+   "companyKey": "bcv",
+   "sourceIdentity": "url:https://jobs.bcv.ch/job/aigle-conseiller-pme-sp%c3%a9cialis%c3%a9-chablais/1407738733",
+   "proof": {
+    "postingTokens": [
+     "num:1407738733"
+    ],
+    "rules": [
+     "severalExpired:removalHolderSlug / removed by recover-prev-slugs 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "conseiller-pme-specialise-chablais-bcv-aigle-04b785b0"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "bcv",
+   "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne-3e47e8c6",
+   "companyKey": "bcv",
+   "sourceIdentity": "url:https://jobs.bcv.ch/job/lausanne-corporate-sales-rates-&-fx/1277101301",
+   "proof": {
+    "postingTokens": [
+     "num:1277101301"
+    ],
+    "rules": [
+     "severalExpired:historyHolderSlug / removed by backfill 1d69ad33b41"
+    ]
+   },
+   "routes": {
+    "it": [
+     "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
+     "corporate-sales-rates-fx-bcv-lausanne-989a5626",
+     "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+     "fx-sales-banque-cantonale-vaudoise-lausanne",
+     "fx-sales-bcv-lausanne-843f3a60",
+     "fx-vendite-banque-cantonale-vaudoise-lausanne-374593a3",
+     "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
+    ],
+    "en": [
+     "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f13b460c",
+     "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
+     "corporate-sales-rates-fx-bcv-lausanne",
+     "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+     "fx-sales-banque-cantonale-vaudoise-lausanne-ad80851a",
+     "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
+    ],
+    "de": [
+     "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f952169b",
+     "corporate-sales-rates-fx-bcv-lausanne",
+     "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-ed4f6f86",
+     "fx-sales-banque-cantonale-vaudoise-lausanne",
+     "fx-sales-bcv-lausanne-843f3a60",
+     "fx-verkaufe-banque-cantonale-vaudoise-lausanne-8398cba8",
+     "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-c6b27877"
+    ],
+    "fr": [
+     "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
+     "corporate-sales-rates-fx-bcv-lausanne-989a5626",
+     "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+     "fx-sales-banque-cantonale-vaudoise-lausanne",
+     "fx-sales-bcv-lausanne-843f3a60",
+     "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne": "VD",
+     "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne": "VD",
+     "fx-sales-banque-cantonale-vaudoise-lausanne": "VD",
+     "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne": "VD",
+     "fx-vendite-banque-cantonale-vaudoise-lausanne-374593a3": "VD",
+     "fx-sales-bcv-lausanne-843f3a60": "VD",
+     "corporate-sales-rates-fx-bcv-lausanne-989a5626": "VD"
+    },
+    "en": {
+     "fx-sales-banque-cantonale-vaudoise-lausanne-ad80851a": "VD",
+     "corporate-sales-rates-fx-bcv-lausanne": "VD",
+     "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne": "VD",
+     "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne": "VD",
+     "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne": "VD",
+     "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne-f13b460c": "VD"
+    },
+    "de": {
+     "corporate-sales-rates-fx-bcv-lausanne": "VD",
+     "fx-sales-banque-cantonale-vaudoise-lausanne": "VD",
+     "fx-sales-bcv-lausanne-843f3a60": "VD",
+     "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne-ed4f6f86": "VD",
+     "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne-c6b27877": "VD",
+     "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne-f952169b": "VD",
+     "fx-verkaufe-banque-cantonale-vaudoise-lausanne-8398cba8": "VD"
+    },
+    "fr": {
+     "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne": "VD",
+     "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne": "VD",
+     "fx-sales-banque-cantonale-vaudoise-lausanne": "VD",
+     "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne": "VD",
+     "fx-sales-bcv-lausanne-843f3a60": "VD",
+     "corporate-sales-rates-fx-bcv-lausanne-989a5626": "VD"
+    }
+   }
+  },
+  {
+   "crawlerKey": "bkw",
+   "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-brig-glis-74a96fcd",
+   "companyKey": "bkw",
+   "sourceIdentity": "url:https://job.bkw.com/offene-stellen/lehrstelle-elektroinstallateur-in-efz-alle/e34c8113-feef-420f-8ffb-566ad9f34edb",
+   "proof": {
+    "postingTokens": [
+     "uuid:e34c8113-feef-420f-8ffb-566ad9f34edb"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5-8951ffda",
+     "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-c2748939"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "bkw",
+   "slug": "apprendistato-montage-elektriker-in-cfc-alle-bkw-brig-glis-03721369",
+   "companyKey": "bkw",
+   "sourceIdentity": "url:https://job.bkw.com/offene-stellen/lehrstelle-montage-elektriker-in-efz-alle/6a11a386-7347-4099-b448-85c7796a4cf2",
+   "proof": {
+    "postingTokens": [
+     "uuid:6a11a386-7347-4099-b448-85c7796a4cf2"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-281a60b2"
+    ],
+    "en": [
+     "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-281a60b2"
+    ],
+    "fr": [
+     "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-281a60b2"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-281a60b2": "VS"
+    },
+    "en": {
+     "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-281a60b2": "VS"
+    },
+    "fr": {
+     "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-281a60b2": "VS"
+    }
+   }
+  },
+  {
+   "crawlerKey": "bkw",
+   "slug": "apprendistato-sanitarpraktiker-in-afp-alle-bkw-luzern-0ed36e10",
+   "companyKey": "bkw",
+   "sourceIdentity": "url:https://job.bkw.com/offene-stellen/lehrstelle-sanitaerpraktiker-in-eba-alle/82c451d9-dee6-42a1-a957-6d5f1dc4314e",
+   "proof": {
+    "postingTokens": [
+     "uuid:82c451d9-dee6-42a1-a957-6d5f1dc4314e"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-d66ac1ae"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "concara",
+   "slug": "team-leader-nella-cura-80-100-concara-domicil-spitex-bern-bern-3f1ca8",
+   "companyKey": "concara",
+   "sourceIdentity": "url:https://jobs.domicilbern.ch/offene-stellen/teamleiter-in-pflege/2f24a810-01cf-4eed-8203-010bc48a091b",
+   "proof": {
+    "postingTokens": [
+     "uuid:2f24a810-01cf-4eed-8203-010bc48a091b"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "teamleiter-in-pflege-80-100-concara-bern-ae17eaef"
+    ],
+    "en": [
+     "teamleiter-in-pflege-80-100-concara-bern-ae17eaef"
+    ],
+    "fr": [
+     "teamleiter-in-pflege-80-100-concara-bern-ae17eaef"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "concordia",
+   "slug": "consulente-assicurativo-a-80-100-a-berna-concordia-bern",
+   "companyKey": "concordia",
+   "sourceIdentity": "url:https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-80-in-bern/32ca1d32-1039-4b69-a942-c755d764d3b5",
+   "proof": {
+    "postingTokens": [
+     "uuid:32ca1d32-1039-4b69-a942-c755d764d3b5"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "versicherungsberater-in-80-100-in-bern-concordia-bern-f35b1d4a"
+    ],
+    "en": [
+     "versicherungsberater-in-80-100-in-bern-concordia-bern-f35b1d4a"
+    ],
+    "fr": [
+     "versicherungsberater-in-80-100-in-bern-concordia-bern-f35b1d4a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "concordia",
+   "slug": "consulente-clienti-100-a-zurigo-concordia-zurich",
+   "companyKey": "concordia",
+   "sourceIdentity": "url:https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zuerich/b127bf65-4aa2-4233-a37a-c65fe2090b77",
+   "proof": {
+    "postingTokens": [
+     "uuid:b127bf65-4aa2-4233-a37a-c65fe2090b77"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "kundenberater-in-100-in-zurich-concordia-zurich-8e9190a2"
+    ],
+    "en": [
+     "kundenberater-in-100-in-zurich-concordia-zurich-8e9190a2"
+    ],
+    "fr": [
+     "kundenberater-in-100-in-zurich-concordia-zurich-8e9190a2"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "addetto-a-vendita-food-coop-genossenschaft-unterseen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/f007b40b-efd0-47aa-af6e-14257830bcae",
+   "proof": {
+    "postingTokens": [
+     "uuid:f007b40b-efd0-47aa-af6e-14257830bcae"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-unterseen-bern-yf8ssx"
+    ],
+    "en": [
+     "verkaufer-in-food-coop-unterseen-bern-yf8ssx"
+    ],
+    "fr": [
+     "verkaufer-in-food-coop-unterseen-bern-yf8ssx"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "franchising-partner-a-coop-pronto-senza-stazione-a-gas-famiglia-business-coop-genossenschaft-allschwil-177079",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb/f7c24466-34d8-4b52-bd68-01c022092e24",
+   "proof": {
+    "postingTokens": [
+     "uuid:f7c24466-34d8-4b52-bd68-01c022092e24"
+    ],
+    "rules": [
+     "severalExpired:removalHolderSlug / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-0ywa13"
+    ],
+    "en": [
+     "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-0ywa13"
+    ],
+    "fr": [
+     "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-0ywa13"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-horgen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/94f2b285-16df-424e-a71b-339be2bbc986",
+   "proof": {
+    "postingTokens": [
+     "uuid:94f2b285-16df-424e-a71b-339be2bbc986"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-horgen-zurich-vcqy26"
+    ],
+    "en": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-horgen-zurich-vcqy26"
+    ],
+    "fr": [
+     "metzger-in-fleischfachfrau-fleischfachmann-coop-horgen-zurich-vcqy26"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "mitarbeiter-in-gastronomie-coop-ristorante-belp",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/dab74188-f6cd-42c1-b387-37b7f0f108a2",
+   "proof": {
+    "postingTokens": [
+     "uuid:dab74188-f6cd-42c1-b387-37b7f0f108a2"
+    ],
+    "rules": [
+     "uniqueExpired / removed by crawler f27993c6ee0"
+    ]
+   },
+   "routes": {
+    "en": [
+     "associate-gastronomie-coop-genossenschaft-belp"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "vendita-prodotti-alimentari-coop-genossenschaft-biel",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a48c2b1e-7a45-4afd-97ed-83e10314fe3b",
+   "proof": {
+    "postingTokens": [
+     "uuid:a48c2b1e-7a45-4afd-97ed-83e10314fe3b"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-food-coop-biel-1ky6lv"
+    ],
+    "en": [
+     "verkaufer-in-food-coop-biel-1ky6lv"
+    ],
+    "fr": [
+     "verkaufer-in-food-coop-biel-1ky6lv"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-in-food-coop-biel-1ky6lv": "BE"
+    },
+    "en": {
+     "verkaufer-in-food-coop-biel-1ky6lv": "BE"
+    },
+    "fr": {
+     "verkaufer-in-food-coop-biel-1ky6lv": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "vendita-prodotti-alimentari-coop-genossenschaft-luzern-318504-24b74c11",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/1be1c320-9864-4f79-a0c3-4d0b19639214",
+   "proof": {
+    "postingTokens": [
+     "uuid:1be1c320-9864-4f79-a0c3-4d0b19639214"
+    ],
+    "rules": [
+     "uniqueExpired / removed by backfill 0729c40bbab"
+    ]
+   },
+   "routes": {
+    "it": [
+     "aliments-pour-vendeurs-coop-genossenschaft-luzern-e96b25"
+    ],
+    "en": [
+     "aliments-pour-vendeurs-coop-genossenschaft-luzern-e96b25"
+    ],
+    "de": [
+     "aliments-pour-vendeurs-coop-genossenschaft-luzern-e96b25"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "venditore-in-cassa-servizi-coop-genossenschaft-zumikon",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/c7ff279f-3888-4f0b-8b7c-58264b205822",
+   "proof": {
+    "postingTokens": [
+     "uuid:c7ff279f-3888-4f0b-8b7c-58264b205822"
+    ],
+    "rules": [
+     "severalExpired:removalHolderSlug / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-coop-zumikon-zurich-4576r6"
+    ],
+    "en": [
+     "verkaufer-in-kassen-services-coop-zumikon-zurich-4576r6"
+    ],
+    "fr": [
+     "verkaufer-in-kassen-services-coop-zumikon-zurich-4576r6"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "venditore-in-cassa-servizi-coop-genossenschaft-zurich-b597c2",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/d472a35e-70ae-4c4d-bb46-cb705fe67d15",
+   "proof": {
+    "postingTokens": [
+     "uuid:d472a35e-70ae-4c4d-bb46-cb705fe67d15"
+    ],
+    "rules": [
+     "severalExpired:removalHolderSlug / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-in-kassen-services-coop-zurich-prm6n0"
+    ],
+    "en": [
+     "verkaufer-in-kassen-services-coop-zurich-prm6n0"
+    ],
+    "fr": [
+     "verkaufer-in-kassen-services-coop-zurich-prm6n0"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "coop-ticino",
+   "slug": "verkaufer-in-fisch-coop-sarnen",
+   "companyKey": "coop-ticino",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-fisch/2c9aabd3-aa63-4017-8b97-1fc507ade5d3",
+   "proof": {
+    "postingTokens": [
+     "uuid:2c9aabd3-aa63-4017-8b97-1fc507ade5d3"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "en": [
+     "pesce-di-venditore-coop-genossenschaft-sarnen-a895f251"
+    ],
+    "de": [
+     "pesce-di-venditore-coop-genossenschaft-sarnen-a895f251"
+    ],
+    "fr": [
+     "pesce-di-venditore-coop-genossenschaft-sarnen-a895f251"
+    ]
+   },
+   "cantons": {
+    "en": {
+     "pesce-di-venditore-coop-genossenschaft-sarnen-a895f251": "OW"
+    },
+    "de": {
+     "pesce-di-venditore-coop-genossenschaft-sarnen-a895f251": "OW"
+    },
+    "fr": {
+     "pesce-di-venditore-coop-genossenschaft-sarnen-a895f251": "OW"
+    }
+   }
+  },
+  {
+   "crawlerKey": "emmi",
+   "slug": "meccanica-aziendale-in-emmi-bischofszell-thurgau",
+   "companyKey": "emmi",
+   "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/e9bddc2f-6de7-4820-b9f1-8a75cd57ba48",
+   "proof": {
+    "postingTokens": [
+     "uuid:e9bddc2f-6de7-4820-b9f1-8a75cd57ba48"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "betriebsmechaniker-in-emmi-ch-b3d1a45d"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "epi-stiftung",
+   "slug": "operatrice-operatore-sociosanitario-afc-schweizerische-epilepsie-stiftung-epi-zurich",
+   "companyKey": "epi-stiftung",
+   "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/d1b98bfd-ba2a-47c1-b2f5-d547ca35fa41",
+   "proof": {
+    "postingTokens": [
+     "uuid:d1b98bfd-ba2a-47c1-b2f5-d547ca35fa41"
+    ],
+    "rules": [
+     "severalExpired:removalHolderSlug / removed by recover-prev-slugs 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-121bddf4"
+    ],
+    "en": [
+     "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-121bddf4"
+    ],
+    "fr": [
+     "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-121bddf4"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "equans",
+   "slug": "construction-manager-r-installer-elektro-equans-switzerland-chur-145016a06f",
+   "companyKey": "equans",
+   "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/8be0a7c0-f5da-44d8-9582-47a9e9504d53",
+   "proof": {
+    "postingTokens": [
+     "uuid:8be0a7c0-f5da-44d8-9582-47a9e9504d53"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "bauleitende-r-installateur-in-elektro-equans-chur-ea9c8e97"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "equans",
+   "slug": "housekeeper-in-equans-switzerland-basel-9347dc",
+   "companyKey": "equans",
+   "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/762854b2-f571-44aa-ab51-8a1131c63474",
+   "proof": {
+    "postingTokens": [
+     "uuid:762854b2-f571-44aa-ab51-8a1131c63474"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs 21e9cc7d373"
+    ]
+   },
+   "routes": {
+    "it": [
+     "hauswart-in-equans-basel-4904c1fd"
+    ],
+    "en": [
+     "hauswart-in-equans-basel-4904c1fd"
+    ],
+    "fr": [
+     "hauswart-in-equans-basel-4904c1fd"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "equans",
+   "slug": "tagliatori-sanitari-equans-switzerland-chur-334c435dd7",
+   "companyKey": "equans",
+   "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/d5268711-9529-4b43-adc1-e71fdf21e980",
+   "proof": {
+    "postingTokens": [
+     "uuid:d5268711-9529-4b43-adc1-e71fdf21e980"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "sanitarmonteur-in-equans-chur-6ccef11c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "costruttore-trice-metallico-a-per-il-montaggio-e-le-costruzioni-in-acciaio-fachkraft-ch-gmbh-aarau-382343eb79",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/metallbauer-in-aarau-temporaer-313624",
+   "proof": {
+    "postingTokens": [
+     "num:313624"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metallbauer-in-fur-montage-und-stahlbau-aarau-aargau-fachkraft-ch-f9e26b6c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "falegname-per-il-servizio-e-l-assemblaggio-fachkraft-ch-gmbh-zurich-zurich",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/schreiner-in-zuerich-dauerstelle-297115",
+   "proof": {
+    "postingTokens": [
+     "num:297115"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "schreiner-in-fur-service-und-montage-zurich-zurich-fachkraft-ch-f728a8e8"
+    ],
+    "en": [
+     "schreiner-in-fur-service-und-montage-zurich-zurich-fachkraft-ch-f728a8e8"
+    ],
+    "fr": [
+     "schreiner-in-fur-service-und-montage-zurich-zurich-fachkraft-ch-f728a8e8"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "officina-tuttofare-per-lavoratori-fachkraft-ch-gmbh-kreuzlingen-thurgau",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/metallbauer-in-kreuzlingen-dauerstelle-302828",
+   "proof": {
+    "postingTokens": [
+     "num:302828"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-6137e678"
+    ],
+    "en": [
+     "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-6137e678"
+    ],
+    "fr": [
+     "metallbauer-in-allrounder-werkstatt-kreuzlingen-thurgau-fachkraft-ch-6137e678"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "fachkraft",
+   "slug": "zimmermann-camera-per-installazione-professionale-all-interno-fachkraft-ch-gmbh-zurich-zurich-372184de",
+   "companyKey": "fachkraft",
+   "sourceIdentity": "url:https://www.fachkraft.ch/stellen/zimmermann-zimmerin-zuerich-dauerstelle-290513",
+   "proof": {
+    "postingTokens": [
+     "num:290513"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "zimmermann-zimmerin-fur-fachgerechte-montage-im-innenausbau-zurich-zurich-fachkraft-ch-35d4830d"
+    ],
+    "en": [
+     "zimmermann-zimmerin-fur-fachgerechte-montage-im-innenausbau-zurich-zurich-fachkraft-ch-35d4830d"
+    ],
+    "fr": [
+     "zimmermann-zimmerin-fur-fachgerechte-montage-im-innenausbau-zurich-zurich-fachkraft-ch-35d4830d"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "helvetia",
+   "slug": "ausiliario-gestione-sinistri-autoveicoli-con-esperienza-assicurativa-m-f-d-part-time-full-time-helvetia-versicherungen",
+   "companyKey": "helvetia",
+   "sourceIdentity": "url:https://jobs.helvetia.com/offene-stellen/aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit-vollzeit/baffed67-08bb-4e4b-917b-5ffa378542b1",
+   "proof": {
+    "postingTokens": [
+     "uuid:baffed67-08bb-4e4b-917b-5ffa378542b1"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit-33936569"
+    ],
+    "en": [
+     "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit-33936569"
+    ],
+    "fr": [
+     "aushilfe-schadenbearbeitung-motorfahrzeug-mit-versicherungserfahrung-w-m-d-teilzeit-33936569"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "hirslanden",
+   "slug": "assistente-infermieristico-a-80-hirslanden-klinik-hirslanden-salem-spital",
+   "companyKey": "hirslanden",
+   "sourceIdentity": "url:https://careers.mediclinic.com/hirslanden/job/hirslanden-salem-spital-pflegeassistentin-pflegeassistent-%28a%29-80-bern-3013/1451151633",
+   "proof": {
+    "postingTokens": [
+     "num:1451151633"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+    ],
+    "en": [
+     "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+    ],
+    "fr": [
+     "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital": "BE"
+    },
+    "en": {
+     "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital": "BE"
+    },
+    "fr": {
+     "pflegeassistentin-pflegeassistent-a-80-hirslanden-hirslanden-salem-spital": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "hirslanden",
+   "slug": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-klinik-bern-besetzung-per-sofort-oder-nach-vereinbarung-35e986e3",
+   "companyKey": "hirslanden",
+   "sourceIdentity": "url:https://careers.mediclinic.com/hirslanden/job/hirslanden-klinik-beau-site-z-pflegeassistentin-pflegeassistent-%28a%29-80-100-bern-3013/1410650933",
+   "proof": {
+    "postingTokens": [
+     "num:1410650933"
+    ],
+    "rules": [
+     "severalExpired:removalHolderSlug / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder-9c2dea7b"
+    ],
+    "en": [
+     "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder-9c2dea7b"
+    ],
+    "fr": [
+     "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder-9c2dea7b"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "hitachi-energy",
+   "slug": "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich",
+   "companyKey": "hitachi-energy",
+   "sourceIdentity": "url:https://www.hitachienergy.com/careers/open-jobs/details/jid3-216989",
+   "proof": {
+    "postingTokens": [
+     "num:216989"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland"
+    ],
+    "de": [
+     "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland"
+    ],
+    "fr": [
+     "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland": "ZH"
+    },
+    "de": {
+     "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland": "ZH"
+    },
+    "fr": {
+     "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland": "ZH"
+    }
+   }
+  },
+  {
+   "crawlerKey": "hoch-health",
+   "slug": "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-317fe7",
+   "companyKey": "hoch-health",
+   "sourceIdentity": "url:https://jobs.h-och.ch/job/st_-gallen-dipl_-pflegefachfrau-mann-80-100/1280116501",
+   "proof": {
+    "postingTokens": [
+     "num:1280116501"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-d0ce1ff4"
+    ],
+    "en": [
+     "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-d0ce1ff4"
+    ],
+    "fr": [
+     "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-d0ce1ff4"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "hoch-health",
+   "slug": "dipl-professionista-50-100-hoch-health-ostschweiz-wil",
+   "companyKey": "hoch-health",
+   "sourceIdentity": "url:https://jobs.h-och.ch/job/wil-dipl_-pflegefachfrau-mann-50-100/1434674433",
+   "proof": {
+    "postingTokens": [
+     "num:1434674433"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-pflegefachfrau-mann-50-100-hoch-health-wil-ea0a43ec"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "hug",
+   "slug": "medico-interno-presso-il-servizio-ematologia-100-hug-geneve",
+   "companyKey": "hug",
+   "sourceIdentity": "url:https://jobs.smartrecruiters.com/hug/744000150614001-medecin-interne-au-service-d-hematologie-100-",
+   "proof": {
+    "postingTokens": [
+     "num:744000150614001"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "medecin-interne-au-service-d-hematologie-100-hug-geneve-d31be508"
+    ],
+    "en": [
+     "medecin-interne-au-service-d-hematologie-100-hug-geneve-d31be508"
+    ],
+    "de": [
+     "medecin-interne-au-service-d-hematologie-100-hug-geneve-d31be508"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "interdiscount",
+   "slug": "vendita-di-assistenza-di-natale-interdiscount-bern",
+   "companyKey": "interdiscount",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/weihnachtsaushilfe-verkauf/87af5a2c-a0df-425c-af6d-30318090fa19",
+   "proof": {
+    "postingTokens": [
+     "uuid:87af5a2c-a0df-425c-af6d-30318090fa19"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "weihnachtsaushilfe-verkauf-interdiscount-bern-a63d4914"
+    ],
+    "en": [
+     "weihnachtsaushilfe-verkauf-interdiscount-bern-a63d4914"
+    ],
+    "fr": [
+     "weihnachtsaushilfe-verkauf-interdiscount-bern-a63d4914"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "jumbo",
+   "slug": "consulente-alla-vendita-deco-jumbo-chur-19232ddd2c",
+   "companyKey": "jumbo",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/a1207f81-8f7b-464c-b8fb-7dcc0479f8ea",
+   "proof": {
+    "postingTokens": [
+     "uuid:a1207f81-8f7b-464c-b8fb-7dcc0479f8ea"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufsberater-in-deco-jumbo-chur-e21492f3"
+    ],
+    "en": [
+     "verkaufsberater-in-deco-jumbo-chur-e21492f3"
+    ],
+    "fr": [
+     "verkaufsberater-in-deco-jumbo-chur-e21492f3"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "jumbo",
+   "slug": "giardino-conduttore-rayon-jumbo-thalwil-36b715b5",
+   "companyKey": "jumbo",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-garden/44304e1a-46b2-4a11-bbac-657859ee3d54",
+   "proof": {
+    "postingTokens": [
+     "uuid:44304e1a-46b2-4a11-bbac-657859ee3d54"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-garden-jumbo-thalwil-d48587b5"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "jumbo",
+   "slug": "responsabile-di-reparto-garden-inclusa-la-sostituzione-della-direzione-jumbo-mels",
+   "companyKey": "jumbo",
+   "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-garden-inkl-stellvertretung-der-geschaeftsfuehrung/f5aac0df-497a-4aa6-a071-f1585cf537a2",
+   "proof": {
+    "postingTokens": [
+     "uuid:f5aac0df-497a-4aa6-a071-f1585cf537a2"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "rayonleiter-in-garden-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-mels-52a9aa2a"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-basel-landschaft",
+   "slug": "corte-di-giustizia-kantonale-verwaltung-basel-landschaft-liestal",
+   "companyKey": "kanton-basel-landschaft",
+   "sourceIdentity": "url:https://jobs.baselland.ch/offene-stellen/gerichtsschreiberin-gerichtsschreiber/6d91eeaf-8ab7-4080-b6a9-a8d9818db966",
+   "proof": {
+    "postingTokens": [
+     "uuid:6d91eeaf-8ab7-4080-b6a9-a8d9818db966"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "gerichtsschreiberin-gerichtsschreiber-kanton-basel-landschaft-liestal-d830215c"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-zuerich",
+   "slug": "capogruppo-progetti-di-riduzione-del-rumore-kantonale-verwaltung-zurich-zurich-9c4e4c7b91",
+   "companyKey": "kanton-zuerich",
+   "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4088759",
+   "proof": {
+    "postingTokens": [
+     "num:4088759"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "gruppenleiter-in-larmschutzprojekte-kanton-zuerich-zurich-ef811be3"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "kanton-zuerich",
+   "slug": "tasse-speciali-per-gli-analisti-aziendali-kantonale-verwaltung-zurich-zurich",
+   "companyKey": "kanton-zuerich",
+   "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4066508",
+   "proof": {
+    "postingTokens": [
+     "num:4066508"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich-c37c8c46"
+    ],
+    "en": [
+     "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich-c37c8c46"
+    ],
+    "fr": [
+     "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich-c37c8c46"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "ksw",
+   "slug": "medico-senior-medico-senior-kantonsspital-winterthur-ksw-winterthur-020a80",
+   "companyKey": "ksw",
+   "sourceIdentity": "url:https://live.solique.ch/ksw/job/details/4061178",
+   "proof": {
+    "postingTokens": [
+     "num:4061178"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "oberarztin-oberarzt-ksw-ch-c842fe31"
+    ],
+    "en": [
+     "oberarztin-oberarzt-ksw-ch-c842fe31"
+    ],
+    "fr": [
+     "oberarztin-oberarzt-ksw-ch-c842fe31"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "lidl-svizzera",
+   "state": "active",
+   "slug": "venditore-m-w-d-40-60-lidl-svizzera-lausanne",
+   "companyKey": "lidl-svizzera",
+   "sourceIdentity": "url:https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-60-lausanne-766107",
+   "proof": {
+    "postingTokens": [
+     "num:766107"
+    ],
+    "rules": [
+     "activeOnly / removed by backfill 1d69ad33b41"
+    ]
+   },
+   "routes": {
+    "en": [
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-10693098",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-4b22627a",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-746a294c",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-b6129c8b",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-e7e0bc4f",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-ee5418d0",
+     "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
+    ],
+    "de": [
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-10693098",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-4b22627a",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-746a294c",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-b6129c8b",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-e7e0bc4f",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-ee5418d0",
+     "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
+    ],
+    "fr": [
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-10693098",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-4b22627a",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-746a294c",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-b6129c8b",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-e7e0bc4f",
+     "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-ee5418d0",
+     "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "lidl-svizzera",
+   "slug": "venditore-venditore-m-f-d-40-60-ostermundigen-lidl-svizzera-ostermundigen",
+   "companyKey": "lidl-svizzera",
+   "sourceIdentity": "url:https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-ostermundigen-768958",
+   "proof": {
+    "postingTokens": [
+     "num:768958"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs d9857760b21"
+    ]
+   },
+   "routes": {
+    "it": [
+     "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ostermundigen-o6tr91"
+    ],
+    "en": [
+     "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ostermundigen-o6tr91"
+    ],
+    "fr": [
+     "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ostermundigen-o6tr91"
+    ]
+   },
+   "cantons": {
+    "it": {
+     "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ostermundigen-o6tr91": "BE"
+    },
+    "en": {
+     "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ostermundigen-o6tr91": "BE"
+    },
+    "fr": {
+     "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-ostermundigen-o6tr91": "BE"
+    }
+   }
+  },
+  {
+   "crawlerKey": "livit",
+   "slug": "gestore-immobiliare-livit-ag-st-gallen",
+   "companyKey": "livit",
+   "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/cd3de174-ce2d-454b-b571-9b48748f6cb7",
+   "proof": {
+    "postingTokens": [
+     "uuid:cd3de174-ce2d-454b-b571-9b48748f6cb7"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "immobilienbewirtschafter-in-livit-st-gallen-b80701a9"
+    ],
+    "en": [
+     "immobilienbewirtschafter-in-livit-st-gallen-b80701a9"
+    ],
+    "fr": [
+     "immobilienbewirtschafter-in-livit-st-gallen-b80701a9"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "lonza",
+   "slug": "ingegnere-cqv-ingegnere-di-qualificazione-e-convalida-80-100-m-f-d-lonza-ch",
+   "companyKey": "lonza",
+   "sourceIdentity": "url:https://lonza.wd3.myworkdayjobs.com/en/lonza_careers/job/ch---visp/cqv-engineer---qualification---validation-engineer-80-100---m-f-d-_r76279-1",
+   "proof": {
+    "postingTokens": [
+     "req:lonza.wd3.myworkdayjobs.com:r76279-1"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "cqv-engineer-qualification-validation-engineer-80-100-m-f-d-lonza-ch-ce883691"
+    ],
+    "de": [
+     "cqv-engineer-qualification-validation-engineer-80-100-m-f-d-lonza-ch-ce883691"
+    ],
+    "fr": [
+     "cqv-engineer-qualification-validation-engineer-80-100-m-f-d-lonza-ch-ce883691"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "medartis",
+   "slug": "ispettore-di-qualita-100-medartis-basel-842b67",
+   "companyKey": "medartis",
+   "sourceIdentity": "url:https://careers.medartis.com/job/quality-inspector-100/1431467833",
+   "proof": {
+    "postingTokens": [
+     "num:1431467833"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "quality-inspector-100-medartis-basel-5eb47ad7"
+    ],
+    "fr": [
+     "quality-inspector-100-medartis-basel-5eb47ad7"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "paraplegie",
+   "slug": "apprendistato-specializzato-settore-alberghiero-efz-schweizer-paraplegiker-gruppe-nottwil",
+   "companyKey": "paraplegie",
+   "sourceIdentity": "url:https://jobs.paraplegie.ch/offene-stellen/lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz/f3f72279-c010-405d-9192-3f08ceb4d534",
+   "proof": {
+    "postingTokens": [
+     "uuid:f3f72279-c010-405d-9192-3f08ceb4d534"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-paraplegie-nottwil-2a8616a8"
+    ],
+    "en": [
+     "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-paraplegie-nottwil-2a8616a8"
+    ],
+    "fr": [
+     "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-paraplegie-nottwil-2a8616a8"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "paraplegie",
+   "slug": "pflegeexpert-in-apn-clinical-nurse-specialist-schweizer-paraplegiker-gruppe-nottwil",
+   "companyKey": "paraplegie",
+   "sourceIdentity": "url:https://jobs.paraplegie.ch/offene-stellen/pflegeexpert-in-apn-clinical-nurse-specialist/99b0eb11-3b15-4c6e-856b-66ff83f36a48",
+   "proof": {
+    "postingTokens": [
+     "uuid:99b0eb11-3b15-4c6e-856b-66ff83f36a48"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil-5dbe7fc4"
+    ],
+    "en": [
+     "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil-5dbe7fc4"
+    ],
+    "fr": [
+     "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil-5dbe7fc4"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "raiffeisen",
+   "slug": "consulenti-clienti-raiffeisen-windisch",
+   "companyKey": "raiffeisen",
+   "sourceIdentity": "url:https://jobs.raiffeisen.ch/offene-stellen/kundenberater-in/725b6c00-4b87-4a53-a49c-0e8f5203fb8d",
+   "proof": {
+    "postingTokens": [
+     "uuid:725b6c00-4b87-4a53-a49c-0e8f5203fb8d"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "kundenberater-in-raiffeisen-windisch-93ba3b36"
+    ],
+    "en": [
+     "kundenberater-in-raiffeisen-windisch-93ba3b36"
+    ],
+    "fr": [
+     "kundenberater-in-raiffeisen-windisch-93ba3b36"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "rolex",
+   "slug": "gestione-logistica-h-f-rolex-geneve-39cf354b",
+   "companyKey": "rolex",
+   "sourceIdentity": "url:https://www.carrieres-rolex.com/rolex/job/gen%c3%a8ve-gestionnaire-logistique-%28hf%29-gen%c3%a8/1458129133",
+   "proof": {
+    "postingTokens": [
+     "num:1458129133"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "en": [
+     "gestionnaire-logistique-h-f-rolex-ch-1622b539"
+    ],
+    "de": [
+     "gestionnaire-logistique-h-f-rolex-ch-1622b539"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "schulthess-klinik",
+   "slug": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
+   "companyKey": "schulthess-klinik",
+   "sourceIdentity": "url:https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/325df460-7ca5-4c5f-8931-d867bd6bd673",
+   "proof": {
+    "postingTokens": [
+     "uuid:325df460-7ca5-4c5f-8931-d867bd6bd673"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess-195c1ead"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "soh-solothurner-spitaeler",
+   "slug": "bp-da-chef-dietetico-in-addestramento-f-m-d-solothurner-spitaler-ag-soh-olten-c773c919",
+   "companyKey": "soh-solothurner-spitaeler",
+   "sourceIdentity": "url:https://jobs.so-h.ch/offene-stellen/diaetkoechin-diaetkoch-efa-w-m-d/66b05033-ec53-4eb9-a9d3-d2a901e6831f",
+   "proof": {
+    "postingTokens": [
+     "uuid:66b05033-ec53-4eb9-a9d3-d2a901e6831f"
+    ],
+    "rules": [
+     "severalExpired:removalHolderSlug / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "diatkochin-diatkoch-bp-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten-e4d27e0d"
+    ],
+    "en": [
+     "diatkochin-diatkoch-bp-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten-e4d27e0d"
+    ],
+    "fr": [
+     "diatkochin-diatkoch-bp-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten-e4d27e0d"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "spitaeler-schaffhausen",
+   "slug": "sub-assistente-sub-assistente-chirurgia-100-spitaler-schaffhausen-schaffhausen-5d84e490df",
+   "companyKey": "spitaeler-schaffhausen",
+   "sourceIdentity": "url:https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-chirurgie/b213f578-6919-4fce-9456-7c0e8facc201",
+   "proof": {
+    "postingTokens": [
+     "uuid:b213f578-6919-4fce-9456-7c0e8facc201"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen-38e73d42"
+    ],
+    "en": [
+     "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen-38e73d42"
+    ],
+    "fr": [
+     "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen-38e73d42"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "spital-buelach",
+   "slug": "dipl-infermieristica-professionale-stazione-privata-spital-bulach-bulach-00516f73d6",
+   "companyKey": "spital-buelach",
+   "sourceIdentity": "url:https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-privatstation/f30e45de-c38f-492e-a231-56bb9f3f9bb9",
+   "proof": {
+    "postingTokens": [
+     "uuid:f30e45de-c38f-492e-a231-56bb9f3f9bb9"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-pflegefachperson-privatstation-spital-buelach-bulach-44e011cf"
+    ],
+    "en": [
+     "dipl-pflegefachperson-privatstation-spital-buelach-bulach-44e011cf"
+    ],
+    "fr": [
+     "dipl-pflegefachperson-privatstation-spital-buelach-bulach-44e011cf"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "sro",
+   "slug": "dipl-terapia-professionale-fh-50-100-sro-ag-spital-region-oberaargau-langenthal",
+   "companyKey": "sro",
+   "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/27629b39-cf8d-4e51-80f0-d7773012ed4c",
+   "proof": {
+    "postingTokens": [
+     "uuid:27629b39-cf8d-4e51-80f0-d7773012ed4c"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0"
+    ],
+    "en": [
+     "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0"
+    ],
+    "fr": [
+     "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "sro",
+   "slug": "infermiere-a-diplomato-a-sss-sup-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal-4da42550",
+   "companyKey": "sro",
+   "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/b690a522-ca97-4757-84fb-31320e36ad9c",
+   "proof": {
+    "postingTokens": [
+     "uuid:b690a522-ca97-4757-84fb-31320e36ad9c"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-7c4498c6"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "stellenpartner",
+   "slug": "giardiniere-a-giardinaggio-e-paesaggistica-per-nuove-realizzazioni-stellenpartner-ag-winterthur-zurich-e834716f",
+   "companyKey": "stellenpartner",
+   "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/gaertner-in-garten-und-landschaftsbau-winterthur-dauerstelle-112638",
+   "proof": {
+    "postingTokens": [
+     "num:112638"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-winterthur-zurich-stellenpartner-ch-f541e18f"
+    ],
+    "en": [
+     "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-winterthur-zurich-stellenpartner-ch-f541e18f"
+    ],
+    "fr": [
+     "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-winterthur-zurich-stellenpartner-ch-f541e18f"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "stellentreff",
+   "slug": "installatore-installatrice-di-impianti-sanitari-con-competenze-di-leadership-stellentreff-ag-sursee",
+   "companyKey": "stellentreff",
+   "sourceIdentity": "url:https://www.stellentreff.ch/stellen/sanitaerinstallateur-in-sursee-dauerstelle-118723",
+   "proof": {
+    "postingTokens": [
+     "num:118723"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "sanitarinstallateur-in-mit-fuhrungskompetenz-sursee-luzern-stellentreff-ch-c0ad72df"
+    ],
+    "en": [
+     "sanitarinstallateur-in-mit-fuhrungskompetenz-sursee-luzern-stellentreff-ch-c0ad72df"
+    ],
+    "fr": [
+     "sanitarinstallateur-in-mit-fuhrungskompetenz-sursee-luzern-stellentreff-ch-c0ad72df"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "unispital-basel",
+   "slug": "medico-senior-angiologia-universitatsspital-basel-basel-302d9adc",
+   "companyKey": "unispital-basel",
+   "sourceIdentity": "url:https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-angiologie/3990387e-4204-43bc-a2c9-778247db2fee",
+   "proof": {
+    "postingTokens": [
+     "uuid:3990387e-4204-43bc-a2c9-778247db2fee"
+    ],
+    "rules": [
+     "severalExpired:historyHolderSlug / removed by backfill 1d69ad33b41"
+    ]
+   },
+   "routes": {
+    "it": [
+     "leitende-arztin-leitender-arzt-angiologie-unispital-basel-ch",
+     "leitende-arztin-leitender-arzt-oder-kaderarztin-kaderarzt-angiologie-unispital-basel-ch",
+     "medecin-principal-angiologie-universitatsspital-basel-basel-85c655",
+     "medico-senior-angiologia-universitatsspital-basel-basel-85c655",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-01291fde",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-03404a41",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-07c7c5a7",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-09b51cf3",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-0a643be0",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-145b0b0a",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-1bb9778e",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-1daddc1c",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-290af655",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-2bed6183",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-3157a222",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-3167ba65",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-32595f94",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-327cecde",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-3828ab0d",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-3ae6bc49",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-3d49bba9",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-42ebc3f7",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-46ff4acf",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-47720ad4",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-48f6a916",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-48fea538",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-4db8d685",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-53999f61",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-53c17f49",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-58952c96",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-5a6739c3",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-5ab2df8e",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-5fba47f2",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-61eff159",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-63c34fbf",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-645c98b0",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-69705145",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-6b049242",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-6b5f21d5",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-6ceb227d",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-6dc6fce3",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-6e654ee0",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-6e99689f",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-7251a525",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-73192bff",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-74966454",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-7b90a512",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-7edcbfca",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-7f3f599b",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-8736baa8",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-87f9b851",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-89f785d8",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-8d6798ae",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-90765f8e",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-913b41cb",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-964495d8",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-980da34f",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-982ce4b3",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-9a68103f",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-9b0378b0",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-9b2b3e73",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-9b6f19eb",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-a07bd178",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-a2568286",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-a26ee2fe",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-a2965358",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-a446bdda",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-a9e655c3",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-ad448c77",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-af2c6889",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-b351eb95",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-b897cf81",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-c76b3918",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-caa7a9a4",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-cb566baf",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-cc90ee3b",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-cf3cfca3",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-d04e00ad",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-d2559ce9",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-d2c4c3df",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-d6780221",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-d7e0c2f1",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-dc3b80b5",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-dea85c6c",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-e00d4271",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-e178605b",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-e7154d2f",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-e9f9cd9f",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-efb697b7",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-f2ead5a2",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-f58e94a3",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-fad19c3e",
+     "medico-senior-cardiologia-universitatsspital-basel-basel-fb5f439f",
+     "senior-physician-angiology-universitatsspital-basel-basel-85c655"
+    ],
+    "en": [
+     "senior-physician-angiology-universitatsspital-basel-basel-85c655"
+    ],
+    "de": [
+     "leitende-arztin-leitender-arzt-angiologie-unispital-basel-ch",
+     "oberarztin-oberarzt-angiologie-unispital-basel-ch-0756782e",
+     "oberarztin-oberarzt-angiologie-unispital-basel-ch-9a6c3080"
+    ],
+    "fr": [
+     "medecin-principal-angiologie-universitatsspital-basel-basel-85c655"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "usz",
+   "slug": "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich-07d25eb5",
+   "companyKey": "usz",
+   "sourceIdentity": "url:https://jobs.usz.ch/offene-stellen/pflegefachperson-fuer-die-kardiologie-und-herzchirurgie/f7e47fc6-03c9-47f0-982a-f0144b46412c",
+   "proof": {
+    "postingTokens": [
+     "uuid:f7e47fc6-03c9-47f0-982a-f0144b46412c"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch-4f834450"
+    ],
+    "en": [
+     "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch-4f834450"
+    ],
+    "fr": [
+     "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch-4f834450"
+    ]
+   },
+   "cantons": {}
+  },
+  {
+   "crawlerKey": "usz",
+   "slug": "medico-assistente-medico-assistente-m-f-d-clinica-di-immunologia-80-100-universitatsspital-zurich-usz-zurich",
+   "companyKey": "usz",
+   "sourceIdentity": "url:https://jobs.usz.ch/offene-stellen/assistenzaerztin-assistenzarzt-w-m-d-klinik-fuer-immunologie/cca11374-6059-460e-881f-b446a42580ac",
+   "proof": {
+    "postingTokens": [
+     "uuid:cca11374-6059-460e-881f-b446a42580ac"
+    ],
+    "rules": [
+     "uniqueExpired / removed by recover-prev-slugs cb19d473d19"
+    ]
+   },
+   "routes": {
+    "it": [
+     "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch-56de6c55"
+    ]
+   },
+   "cantons": {}
+  }
+ ]
+}
