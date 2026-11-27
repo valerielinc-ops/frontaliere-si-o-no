@@ -423,9 +423,10 @@ describe('approval flow', () => {
 
     step = transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_OWNER_NOTICE_AFTER_MS });
     expect(step.effects).toEqual([{ type: 'email', kind: 'owner_candidate_silent', since: T0, days: 5, nudges: 2 }]);
-    // The order keeps waiting for the answers, with no clock left: Valerie decides.
-    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['question:rate'], heldNudges: 3, reminderAt: null, deadlineAt: null });
-    expect(transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + 30 * 24 * 60 * 60_000 }).ignored).toBe('nothing_due');
+    // The order keeps waiting for the answers; from here on a weekly reminder (owner decision 2026-11-27).
+    const day = 24 * 60 * 60_000;
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['question:rate'], heldNudges: 3, reminderAt: T0 + 12 * day, deadlineAt: null });
+    expect(transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + 12 * day - 1 }).ignored).toBe('nothing_due');
 
     // The last answer ends the wait and starts the 12 h clock, with its own reminder.
     const answeredAt = T0 + 6 * 24 * 60 * 60_000;
