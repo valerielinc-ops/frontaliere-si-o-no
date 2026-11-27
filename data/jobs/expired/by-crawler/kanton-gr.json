@@ -2037,12 +2037,13 @@
       "capo-cantiere-kantonale-verwaltung-graubunden-samedan",
       "bauleiter-in-kanton-gr-ch-2",
       "construction-manager-kantonale-verwaltung-graubunden-thusis",
-      "construction-manager-kantonale-verwaltung-graubunden-samedan",
       "bauleiter-in-kantonale-verwaltung-graubunden-thusis",
       "bauleiter-in-kantonale-verwaltung-graubunden-samedan",
       "chef-de-chantier-kantonale-verwaltung-graubunden-thusis",
       "chef-de-chantier-kantonale-verwaltung-graubunden-samedan",
-      "bauleiter-in-kanton-gr-ch"
+      "construction-manager-kantonale-verwaltung-graubunden-samedan",
+      "bauleiter-in-kanton-gr-ch",
+      "construction-manager-kantonale-verwaltung-graubunden-samedan-cdd7b581"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2050,11 +2051,13 @@
         "capo-cantiere-kantonale-verwaltung-graubunden-thusis",
         "capo-cantiere-kantonale-verwaltung-graubunden-samedan",
         "bauleiter-in-kanton-gr-ch-2",
+        "construction-manager-kantonale-verwaltung-graubunden-samedan",
         "bauleiter-in-kanton-gr-ch"
       ],
       "en": [
         "bauleiter-in-kanton-gr-ch-8fee8d52",
         "construction-manager-kantonale-verwaltung-graubunden-thusis",
+        "construction-manager-kantonale-verwaltung-graubunden-samedan-cdd7b581",
         "construction-manager-kantonale-verwaltung-graubunden-samedan",
         "bauleiter-in-kanton-gr-ch"
       ],
@@ -2062,11 +2065,14 @@
         "bauleiter-in-kanton-gr-ch-8fee8d52",
         "chef-de-chantier-kantonale-verwaltung-graubunden-thusis",
         "chef-de-chantier-kantonale-verwaltung-graubunden-samedan",
+        "construction-manager-kantonale-verwaltung-graubunden-samedan",
         "bauleiter-in-kanton-gr-ch"
       ],
       "de": [
         "bauleiter-in-kantonale-verwaltung-graubunden-thusis",
-        "bauleiter-in-kantonale-verwaltung-graubunden-samedan"
+        "bauleiter-in-kantonale-verwaltung-graubunden-samedan",
+        "bauleiter-in-kanton-gr-ch-8fee8d52",
+        "construction-manager-kantonale-verwaltung-graubunden-samedan"
       ]
     },
     "postalCode": "7130",
@@ -4848,7 +4854,8 @@
       "specialiste-tic-poste-de-travail-numerique-et-collaboration-kantonale-verwaltung-graubunden-chur-b6e38215",
       "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch",
       "ict-specialist-digital-workplace-collaboration-kantonale-verwaltung-graubunden-chur",
-      "specialiste-tic-poste-de-travail-numerique-et-collaboration-kantonale-verwaltung-graubunden-chur"
+      "specialiste-tic-poste-de-travail-numerique-et-collaboration-kantonale-verwaltung-graubunden-chur",
+      "specialista-ict-posto-di-lavoro-digitale-e-collaborazione-kantonale-verwaltung-graubunden-chur"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4913,7 +4920,8 @@
         "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch-15352f6c",
         "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch-4023efa6",
         "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch-c33653d5",
-        "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch"
+        "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch",
+        "specialista-ict-posto-di-lavoro-digitale-e-collaborazione-kantonale-verwaltung-graubunden-chur"
       ],
       "en": [
         "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch-b44e1f84",
@@ -5227,7 +5235,12 @@
         "firstSeenAt": "2026-11-06T21:17:47.872Z",
         "title": "ICT-Spezialist/-in Digitaler Arbeitsplatz & Kollaboration"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialista-ict-posto-di-lavoro-digitale-e-collaborazione-kantonale-verwaltung-graubunden-chur": "GR"
+      }
+    }
   },
   {
     "slug": "membro-del-consiglio-di-amministrazione-di-grischelectra-ag-rappresentazione-canonica-kantonale-verwaltung-graubunden",
@@ -5549,9 +5562,9 @@
       "project-manager-in-esecuzione-sezione-direttore-in-kantonale-verwaltung-graubunden-chur",
       "project-manager-in-execution-sectional-construction-manager-in-kantonale-verwaltung-graubunden-chur",
       "gestionnaire-de-projet-en-execution-gestionnaire-de-la-construction-in-kantonale-verwaltung-graubunden-chur",
+      "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur-ae8f1e24",
       "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
-      "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch",
-      "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur-ae8f1e24"
+      "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5574,7 +5587,8 @@
         "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
       ],
       "de": [
-        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur"
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kantonale-verwaltung-graubunden-chur",
+        "projektleiter-in-ausfuhrung-abschnittsbauleiter-in-kanton-gr-ch-22ea1933"
       ]
     },
     "postalCode": "7000",
@@ -5615,8 +5629,8 @@
     "previousSlugs": [
       "sachbearbeiter-in-finanzen-kanton-gr-ch",
       "sachbearbeiter-in-finanzen-kantonale-verwaltung-graubunden-chur",
-      "sachbearbeiter-in-kanton-gr-ch-2",
-      "sachbearbeiter-in-kanton-gr-ch-2-e9a85059"
+      "sachbearbeiter-in-kanton-gr-ch-2-e9a85059",
+      "sachbearbeiter-in-kanton-gr-ch-2"
     ],
     "previousSlugsByLocale": {
       "it": [
