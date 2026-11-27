@@ -1411,7 +1411,11 @@
       "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-f18c4bdd",
       "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-ba8511a9",
       "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de",
-      "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch"
+      "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch",
+      "infermiere-a-diplomato-a-ssr-kantonsspital-aarau-ksa-aarau",
+      "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch",
+      "dipl-nursing-professional-nursing-professional-hr-kantonsspital-aarau-ksa-aarau",
+      "infirmiere-diplomee-infirmier-diplome-rh-kantonsspital-aarau-ksa-aarau"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1432,19 +1436,30 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-f18c4bdd",
         "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-ba8511a9",
         "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de",
-        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch",
+        "infermiere-a-diplomato-a-ssr-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch",
+        "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
       ],
       "en": [
         "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch",
+        "dipl-nursing-professional-nursing-professional-hr-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de"
       ],
       "de": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de"
       ],
       "fr": [
         "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
         "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch",
+        "infirmiere-diplomee-infirmier-diplome-rh-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de"
       ]
     },
     "postalCode": "5000",
@@ -1470,17 +1485,28 @@
     "canton": "AG",
     "previousSlugCantonByLocale": {
       "it": {
-        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch": "AG"
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch": "AG",
+        "infermiere-a-diplomato-a-ssr-kantonsspital-aarau-ksa-aarau": "AG",
+        "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch": "AG",
+        "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau": "AG"
       },
       "en": {
-        "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau": "AG"
+        "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau": "AG",
+        "dipl-nursing-professional-nursing-professional-hr-kantonsspital-aarau-ksa-aarau": "AG",
+        "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch": "AG",
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de": "AG"
       },
       "de": {
-        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch": "AG"
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch": "AG",
+        "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch": "AG",
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de": "AG"
       },
       "fr": {
         "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau": "AG",
-        "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau": "AG"
+        "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau": "AG",
+        "infirmiere-diplomee-infirmier-diplome-rh-kantonsspital-aarau-ksa-aarau": "AG",
+        "dipl-pflegefachfrau-pflegefachmann-hr-ksa-ch": "AG",
+        "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de": "AG"
       }
     }
   },
@@ -5156,22 +5182,26 @@
     "canton": "AG",
     "previousSlugCantonByLocale": {
       "it": {
-        "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau": "AG",
         "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau": "AG",
-        "mitarbeiter-in-sicherheitsdienst-ksa-ch": "AG",
         "collaboratore-trice-guest-relations-kantonsspital-aarau-ksa-aarau": "AG",
         "mitarbeiter-in-guest-relations-ksa-ch": "AG",
         "mitarbeiter-in-gastbeziehungen-kantonsspital-aarau-ksa-aarau": "AG",
         "collaboratore-trice-zentrale-zytostatikaherstellung-kantonsspital-aarau-ksa-aarau": "AG",
-        "mitarbeiter-in-zentrale-zytostatikaherstellung-ksa-ch": "AG"
+        "mitarbeiter-in-zentrale-zytostatikaherstellung-ksa-ch": "AG",
+        "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau-0b1eb865": "AG",
+        "mitarbeiter-in-sicherheitsdienst-ksa-ch-c649d035": "AG"
       },
       "de": {
-        "mitarbeiter-in-sicherheitsdienst-ksa-ch": "AG",
         "mitarbeiter-in-guest-relations-ksa-ch": "AG",
-        "mitarbeiter-in-gastbeziehungen-kantonsspital-aarau-ksa-aarau": "AG"
+        "mitarbeiter-in-gastbeziehungen-kantonsspital-aarau-ksa-aarau": "AG",
+        "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau-d7b3e68d": "AG",
+        "mitarbeiter-in-sicherheitsdienst-ksa-ch-c649d035": "AG"
       },
       "fr": {
-        "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau": "AG"
+        "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau-d7b3e68d": "AG"
+      },
+      "en": {
+        "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau-d7b3e68d": "AG"
       }
     }
   },
