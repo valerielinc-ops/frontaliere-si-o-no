@@ -46,7 +46,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.scandit.com/careers/job-description?gh_jid=8300273",
-    "firstSeenAt": "2026-10-19T09:28:23.314Z"
+    "firstSeenAt": "2026-10-19T09:28:23.314Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-machine-learning-engineer-video-understanding-scandit-ch": "ZH"
+      },
+      "de": {
+        "senior-machine-learning-engineer-video-understanding-scandit-ch": "ZH"
+      },
+      "fr": {
+        "senior-machine-learning-engineer-video-understanding-scandit-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "studente-di-lavoro-assistente-di-convalida-del-caso-di-utilizzo-scandit-ag-zurich",
@@ -97,7 +109,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.scandit.com/careers/job-description?gh_jid=8143595",
-    "firstSeenAt": "2026-09-24T00:08:02.243Z"
+    "firstSeenAt": "2026-09-24T00:08:02.243Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "working-student-use-case-validation-assistant-scandit-ch": "ZH"
+      },
+      "de": {
+        "working-student-use-case-validation-assistant-scandit-ch": "ZH"
+      },
+      "fr": {
+        "working-student-use-case-validation-assistant-scandit-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-computer-vision-ingegnere-scandit-ag-zurich",
@@ -147,7 +171,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.scandit.com/careers/job-description?gh_jid=7588975",
-    "firstSeenAt": "2026-07-03T23:25:08.449Z"
+    "firstSeenAt": "2026-07-03T23:25:08.449Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-computer-vision-engineer-scandit-ch": "ZH",
+        "senior-computer-vision-engineer-action-recognition-scandit-ch": "ZH"
+      },
+      "de": {
+        "senior-computer-vision-engineer-scandit-ch": "ZH"
+      },
+      "fr": {
+        "senior-computer-vision-engineer-scandit-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-product-manager-shelfview-scandit-ch",

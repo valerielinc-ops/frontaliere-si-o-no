@@ -29,19 +29,32 @@
     "previousSlugs": [
       "mitarbeiter-in-technischer-dienst-salina-rheinfelden-8ca1613f",
       "collaboratore-trice-in-technischer-dienst-salina-rehaklinik-rheinfelden",
-      "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden-43b1acdf"
+      "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden-43b1acdf",
+      "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
+      "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden",
+      "technical-services-employee-salina-rehaklinik-rheinfelden-rheinfelden",
+      "collaborateur-rice-du-service-technique-salina-rehaklinik-rheinfelden-rheinfelden"
     ],
     "previousSlugsByLocale": {
       "it": [
         "mitarbeiter-in-technischer-dienst-salina-rheinfelden-8ca1613f",
         "collaboratore-trice-in-technischer-dienst-salina-rehaklinik-rheinfelden",
-        "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden-43b1acdf"
+        "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden-43b1acdf",
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
+        "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden"
       ],
       "en": [
-        "mitarbeiter-in-technischer-dienst-salina-rheinfelden-8ca1613f"
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden-8ca1613f",
+        "technical-services-employee-salina-rehaklinik-rheinfelden-rheinfelden",
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden"
       ],
       "fr": [
-        "mitarbeiter-in-technischer-dienst-salina-rheinfelden-8ca1613f"
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden-8ca1613f",
+        "collaborateur-rice-du-service-technique-salina-rehaklinik-rheinfelden-rheinfelden",
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden"
+      ],
+      "de": [
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden"
       ]
     },
     "postalCode": "4310",
@@ -51,7 +64,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/xd3eodbxyi2rvy274uzib5fhttsijaxiqvoq3ylfgl0hq260qp7soazjoqlpbv6e",
-    "firstSeenAt": "2026-11-05T21:14:07.686Z"
+    "firstSeenAt": "2026-11-05T21:14:07.686Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden": "AG",
+        "collaboratore-trice-in-technischer-dienst-salina-rehaklinik-rheinfelden": "AG",
+        "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden": "AG"
+      },
+      "en": {
+        "technical-services-employee-salina-rehaklinik-rheinfelden-rheinfelden": "AG",
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden": "AG"
+      },
+      "de": {
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden": "AG"
+      },
+      "fr": {
+        "collaborateur-rice-du-service-technique-salina-rehaklinik-rheinfelden-rheinfelden": "AG",
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden": "AG"
+      }
+    }
   },
   {
     "slug": "addetto-al-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden",
@@ -103,7 +135,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/mitarbeiter-technischer-dienst/xd3eodbxyi2rvy274uzib5fhttsijaxiqvoq3ylfgl0hq260qp7soazjoqlpbv6e",
-    "firstSeenAt": "2026-11-04T21:25:15.585Z"
+    "firstSeenAt": "2026-11-04T21:25:15.585Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-technischer-dienst-salina-rheinfelden": "AG",
+        "collaboratore-trice-technischer-dienst-salina-rehaklinik-rheinfelden": "AG"
+      },
+      "en": {
+        "mitarbeiter-technischer-dienst-salina-rheinfelden": "AG"
+      },
+      "fr": {
+        "mitarbeiter-technischer-dienst-salina-rheinfelden": "AG"
+      }
+    }
   },
   {
     "slug": "medico-specialista-ambulatoriale-60-100-salina-rehaklinik-rheinfelden-rheinfelden",
@@ -146,7 +191,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
-    "firstSeenAt": "2026-05-20T06:04:07.242Z"
+    "firstSeenAt": "2026-05-20T06:04:07.242Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "facharzt-facharztin-ambulant-60-100-salina-rheinfelden": "AG"
+      }
+    }
   },
   {
     "slug": "dipendenti-in-terapia-disposizione-salina-rehaklinik-rheinfelden-rheinfelden",
@@ -197,7 +248,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://link.ostendis.com/publication/mitarbeiter-in-therapiedisposition/duj0xkxsyw3h0wwr6gad30q5if75p0z725in3tqso2se1c74fobo8fezw014255f",
-    "firstSeenAt": "2026-09-03T13:35:09.816Z"
+    "firstSeenAt": "2026-09-03T13:35:09.816Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-therapiedisposition-salina-rheinfelden": "AG",
+        "collaboratore-trice-in-therapiedisposition-salina-rehaklinik-rheinfelden": "AG"
+      },
+      "en": {
+        "mitarbeiter-in-therapiedisposition-salina-rheinfelden": "AG"
+      },
+      "fr": {
+        "mitarbeiter-in-therapiedisposition-salina-rheinfelden": "AG"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-medizinische-r-praxisassistent-in-mpa-cfc-salina-rehaklinik-rheinfelden",
