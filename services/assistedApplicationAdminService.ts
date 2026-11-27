@@ -175,6 +175,8 @@ export interface AssistedApplicationAutomationView {
     dispatch: { mode: string; round: number; requestedAt: number; attempts: number; reason: string | null } | null;
     /** The round reached its sending: the candidate approved it, so the robot may be asked to send it again. */
     roundSent?: boolean;
+    /** A send of unknown outcome stands on the round: the retry needs the owner's explicit «not sent». */
+    sendOutcomeUnconfirmed?: boolean;
     history: Array<{ at: number; event: string; state: string }>;
   } | null;
   draft: {

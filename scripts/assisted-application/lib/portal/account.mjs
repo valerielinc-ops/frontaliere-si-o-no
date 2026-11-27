@@ -23,6 +23,7 @@ import { randomBytes, randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from '../../../../functions/src/assistedApplicationConstants.js';
 import { aliasLocalPart } from '../../../../functions/src/assistedApplicationAlias.js';
 import { sameSite, exactPortalVerificationUrl, currentPendingPortalAccount, PORTAL_ACCOUNT_NOTICES_CONFIRMING } from '../../../../functions/src/assistedApplicationPortalSites.js';
+import { portalAccountHostKey } from '../../../../functions/src/lib/applicationExistsReconciliation.js';
 import { decryptJson, encryptJson } from '../secure-run.mjs';
 
 export const VERIFICATION_TIMEOUT_MS = 10 * 60 * 1000;
@@ -425,7 +426,8 @@ export function newPortalPassword({ portal = '', bytes = randomBytes(24) } = {})
 
 /** Firestore map key for a host (no dots in a field name). */
 export function hostKey(host) {
-  return String(host || '').toLowerCase().replace(/[^a-z0-9-]/g, '_').slice(0, 120);
+  // Same rule as the backend's reader of this map (functions/src/lib/applicationExistsReconciliation.js).
+  return portalAccountHostKey(host);
 }
 
 const hasOwn = (value, key) => Object.prototype.hasOwnProperty.call(value || {}, key);

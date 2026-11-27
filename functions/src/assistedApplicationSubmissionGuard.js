@@ -45,7 +45,7 @@ export const ACCOUNT_FAILURE_CODES = Object.freeze([
 ]);
 export const ACCOUNT_FAILURE_STAGES = Object.freeze(['login', 'registration', 'verification', 'application', 'unknown']);
 const ACCOUNT_FAILURE_FIELDS = Object.freeze(['code', 'stage']);
-const EXTERNAL_PROOF_KINDS = new Set(['employer_acknowledgement', 'owner_confirmation', 'candidate_confirmation']);
+const EXTERNAL_PROOF_KINDS = new Set(['employer_acknowledgement', 'portal_application_exists', 'owner_confirmation', 'candidate_confirmation']);
 
 /** Serialize only the finite admin/read-only account diagnostic shape. */
 export function serializeAccountFailure(value) {
@@ -176,7 +176,10 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
           return;
         }
         const attemptId = current?.state === 'sending' && current.attemptId ? current.attemptId : newAttemptId;
-        transaction.set(ref, { [key]: { state: 'sending', channel, attemptId, startedAt: nowMs, clickedAt: null, confirmedNotSent: false } }, { merge: true });
+        // A new claim wipes `clickedAt`; the click of an earlier attempt stays on record as `priorClickedAt`, so a
+        // later «the portal says it has the application» page can still be tied to a send of this round.
+        const priorClickedAt = Number(current?.clickedAt) || Number(current?.priorClickedAt) || null;
+        transaction.set(ref, { [key]: { state: 'sending', channel, attemptId, startedAt: nowMs, clickedAt: null, confirmedNotSent: false, ...(priorClickedAt ? { priorClickedAt } : {}) } }, { merge: true });
         outcome = { status: 'claimed', resumed: current?.state === 'sending', attemptId };
       });
       activeAttemptId = outcome?.status === 'claimed' ? outcome.attemptId : null;
@@ -223,6 +226,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       }
       if ((proofKind === 'email_provider_accepted' && channel !== 'email')
         || (proofKind === 'portal_success_page' && ['email', 'whatsapp', 'owner', 'owner_extension', 'candidate'].includes(channel))
+        || (proofKind === 'portal_application_exists' && channel !== 'portal')
         || (proofKind === 'candidate_handoff_link' && channel !== 'whatsapp')
         || (proofKind === 'owner_confirmation' && !['owner', 'owner_extension'].includes(channel))
         || (proofKind === 'candidate_confirmation' && channel !== 'candidate')

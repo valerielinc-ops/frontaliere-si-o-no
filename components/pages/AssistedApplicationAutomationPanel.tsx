@@ -305,6 +305,7 @@ export default function AssistedApplicationAutomationPanel({
     setPostalSubmission(LOSONE_POSTAL_SUBMISSION);
   };
 
+  const [notSentConfirmed, setNotSentConfirmed] = useState(false);
   const retrySubmit = async () => {
     const confirmed = await requestConfirmation({
       title: 'Riprova invio candidatura',
@@ -314,7 +315,12 @@ export default function AssistedApplicationAutomationPanel({
       expectedDuration: 'pochi minuti',
       confirmLabel: 'Riprova l’invio',
     });
-    if (confirmed) await act('automationRetrySubmit', {}, 'Invio automatico rilanciato: parte entro pochi minuti.');
+    // Separate, explicit gesture (the checkbox next to the button), never a default: with a send of unknown
+    // outcome the robot leaves again only when the owner states that the application did NOT reach the employer.
+    if (confirmed) {
+      const done = await act('automationRetrySubmit', flow?.sendOutcomeUnconfirmed && notSentConfirmed ? { confirmedNotSent: true } : {}, 'Invio automatico rilanciato: parte entro pochi minuti.');
+      if (done) setNotSentConfirmed(false);
+    }
   };
 
   const markSubmitted = async () => {
@@ -930,7 +936,13 @@ export default function AssistedApplicationAutomationPanel({
             && flow.postalSubmission?.enabled !== true
             && !repairingFacts && !isCaptchaPortalHold(flow) && (
             <>
-              <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void retrySubmit(); }}>
+              {flow.sendOutcomeUnconfirmed && (
+                <label className="flex w-full items-start gap-2 text-xs text-muted">
+                  <input type="checkbox" className="mt-0.5" checked={notSentConfirmed} disabled={Boolean(busy)} onChange={(event) => setNotSentConfirmed(event.target.checked)} />
+                  <span>L’esito dell’invio precedente è incerto. Ho verificato sul portale (account della candidatura) che la candidatura NON è stata inviata: solo così il robot può riprovare.</span>
+                </label>
+              )}
+              <button type="button" className={primary} disabled={Boolean(busy) || (Boolean(flow.sendOutcomeUnconfirmed) && !notSentConfirmed)} onClick={() => { void retrySubmit(); }}>
                 {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
               </button>
             </>
