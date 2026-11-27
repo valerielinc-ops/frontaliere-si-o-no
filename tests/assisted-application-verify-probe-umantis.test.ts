@@ -8,7 +8,7 @@ vi.mock('../scripts/assisted-application/lib/portal/fill.mjs', async importOrigi
   ...await importOriginal<any>(), applyActions: async (_page: any, fields: any[]) => { state.filled = fields; return []; },
 }));
 import { verifyPortalApplication } from '../scripts/assisted-application/lib/portal/verify.mjs';
-import { applicationExistsProbeEntry } from '../functions/src/lib/applicationExistsReconciliation.js';
+import { applicationExistsProbeEntry, applicationExistsProbeNavigation } from '../functions/src/lib/applicationExistsReconciliation.js';
 
 const HOST = 'recruitingapp-0000.umantis.com';
 const applyUrl = `https://${HOST}/Vacancies/6604/Description/1`;
