@@ -1,7 +1,7 @@
 {
   "crawlerKey": "stiftung-kind-autismus",
-  "assembledAt": "2026-11-26T21:42:37.979Z",
-  "runId": "45897518485",
+  "assembledAt": "2026-11-27T09:58:01.521Z",
+  "runId": "45972935525",
   "jobs": [
     {
       "id": "stiftung-kind-autismus-a8888267502c",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:42:29.790Z",
+      "crawledAt": "2026-11-27T09:57:54.560Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -100,9 +100,8 @@
       },
       "streetAddress": "Bergstrasse 28",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T21:42:29.790Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/2044/0108/pub/102/index.html"
+      "validThrough": "2026-12-29T09:57:54.560Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-kind-autismus-30a978247924",
@@ -135,7 +134,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:42:29.256Z",
+      "crawledAt": "2026-11-27T09:57:54.036Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -201,9 +200,8 @@
       },
       "streetAddress": "Bergstrasse 28",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:42:29.256Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/2044/0105/pub/101/index.html"
+      "validThrough": "2026-12-27T09:57:54.036Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
