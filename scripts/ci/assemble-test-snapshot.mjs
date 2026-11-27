@@ -390,7 +390,15 @@ if ((() => { try { return import.meta.url === pathToFileURL(fs.realpathSync(proc
   } else if (command === 'prepare') {
     prepare();
   } else if (command === 'cache-key') {
-    writeOutput('key', snapshotCacheKeyFromMetadata());
+    try {
+      writeOutput('key', snapshotCacheKeyFromMetadata());
+    } catch (error) {
+      // The PR workflow reads this to tell a stale snapshot from an
+      // incompatible one; the step still fails.
+      writeOutput('error', error instanceof Error ? error.message : error);
+      console.error(error);
+      process.exitCode = 1;
+    }
   } else if (command === 'restore') {
     restore();
   } else {

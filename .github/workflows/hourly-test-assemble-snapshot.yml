@@ -1,11 +1,23 @@
 name: Hourly test assemble snapshot
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Hourly test assemble snapshot [loop-clock {0}]', inputs.loop_clock) || 'Hourly test assemble snapshot' }}
 
 on:
   schedule:
-    # Assemble can take 8–12 minutes and freshness is measured from checkout;
-    # a single run per hour leaves a gap before the next snapshot is published.
-    - cron: '7,37 * * * *'
+    # Safety net only. GitHub created about 3 of the 48 slots a day of the old
+    # `7,37` cron (39 scheduled runs in 12.3 days), so the cadence is owned by
+    # the external loop clock (`site-test-assemble-snapshot`, 60 minutes). The
+    # guard below keeps a native tick from seeding right after a clock run.
+    - cron: '41 * * * *'
   workflow_dispatch:
+    inputs:
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        default: ''
+        type: string
 
 permissions:
   actions: write
@@ -22,20 +34,90 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      # First step, before any checkout: at most one seed an hour. A run that
+      # finds another seed in flight, or a real seed that succeeded in the
+      # last 50 minutes, ends here with success and skips every later step. A
+      # failed earlier run never blocks. If the API cannot be read the guard
+      # proceeds: the concurrency group still serializes the assembly.
+      # "Real" means the run published the manifest artifact: a run that was
+      # skipped by this guard is green too, but holds no snapshot, and counting
+      # it would let a chain of skipped runs starve the seeding for ever.
+      - name: Skip when a recent seed already ran
+        id: guard
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const WINDOW_MS = 50 * 60 * 1000;
+            const MANIFEST_ARTIFACT = 'assemble-test-snapshot-manifest';
+            const proceed = (value, reason) => {
+              core.setOutput('proceed', String(value));
+              core.info(`${value ? 'Seeding' : 'Skipping'}: ${reason}`);
+            };
+            try {
+              const { data } = await github.rest.actions.listWorkflowRuns({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'hourly-test-assemble-snapshot.yml',
+                branch: 'main',
+                per_page: 30,
+              });
+              const now = Date.now();
+              const mine = Number(context.runId);
+              const myCreatedAt = Date.parse(
+                (data.workflow_runs.find((run) => run.id === mine) || {}).created_at || '',
+              );
+              const others = data.workflow_runs.filter((run) => run.id !== mine);
+              // Only an older run in flight blocks this one: a newer queued run
+              // is waiting for this run to end, and blocking on it would let the
+              // two skip each other.
+              const inFlight = others.find((run) => ['queued', 'in_progress', 'waiting', 'pending'].includes(run.status)
+                && (!Number.isFinite(myCreatedAt) || Date.parse(run.created_at) <= myCreatedAt));
+              if (inFlight) {
+                proceed(false, `seed run ${inFlight.id} is ${inFlight.status}`);
+                return;
+              }
+              const recent = others.filter((run) => run.status === 'completed'
+                && run.conclusion === 'success'
+                && now - Date.parse(run.created_at) <= WINDOW_MS);
+              for (const run of recent) {
+                const { data: artifacts } = await github.rest.actions.listWorkflowRunArtifacts({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  run_id: run.id,
+                  name: MANIFEST_ARTIFACT,
+                  per_page: 1,
+                });
+                if (artifacts.total_count > 0) {
+                  proceed(false, `seed run ${run.id} succeeded at ${run.created_at}, within the last 50 minutes`);
+                  return;
+                }
+              }
+              proceed(true, 'no seed in flight and none succeeded in the last 50 minutes');
+            } catch (error) {
+              core.warning(`Could not inspect earlier seed runs: ${error.message}`);
+              proceed(true, 'guard failed open');
+            }
+
+      # Recorded before the checkout (about 3.5 minutes): the snapshot age is
+      # measured from here, so it is never newer than the main state captured.
+      - name: Record snapshot source time
+        id: snapshot_source_time
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
+        run: printf 'captured_at=%s\n' "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_OUTPUT"
+
       - name: Checkout main
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 1
 
-      - name: Record snapshot source time
-        id: snapshot_source_time
-        run: printf 'captured_at=%s\n' "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_OUTPUT"
-
       - name: Set up Node and install dependencies
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         uses: ./.github/actions/ci-npm-setup
 
       - name: Compute exact assemble-jobs cache key
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         id: assemble_cache_key
         uses: ./.github/actions/assemble-jobs-cache-key
         with:
@@ -43,13 +125,14 @@ jobs:
 
       - name: Restore exact assemble-jobs cache
         id: assemble_cache
-        if: ${{ steps.assemble_cache_key.outputs.key != '' }}
+        if: ${{ steps.guard.outputs.proceed == 'true' && (steps.assemble_cache_key.outputs.key != '') }}
         uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       - name: Assemble test dataset
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         env:
           NODE_OPTIONS: --max-old-space-size=8192
         run: node scripts/assemble-jobs-dataset.mjs --stats
@@ -58,7 +141,7 @@ jobs:
       # The test snapshot has its own key and manifest; this keeps deploys and
       # other consumers on the existing exact-input cache contract.
       - name: Save exact assemble-jobs cache
-        if: ${{ steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        if: ${{ steps.guard.outputs.proceed == 'true' && (steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '') }}
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
@@ -66,6 +149,7 @@ jobs:
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       - name: Prepare hourly test snapshot
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         id: prepare_snapshot
         env:
           ASSEMBLE_TEST_SNAPSHOT_SOURCE_AT: ${{ steps.snapshot_source_time.outputs.captured_at }}
@@ -75,10 +159,12 @@ jobs:
         run: node scripts/ci/assemble-test-snapshot.mjs prepare
 
       - name: Compute snapshot compatibility fingerprint
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         id: snapshot_fingerprint
         run: node scripts/ci/assemble-test-snapshot.mjs fingerprint
 
       - name: Compute stable hourly snapshot cache key
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         id: snapshot_cache_key
         env:
           ASSEMBLE_TEST_SNAPSHOT_METADATA_FILE: .cache/assemble-jobs-test-snapshot/test-snapshot.json
@@ -88,12 +174,14 @@ jobs:
         run: node scripts/ci/assemble-test-snapshot.mjs cache-key
 
       - name: Save hourly test snapshot
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         uses: actions/cache/save@v6
         with:
           path: .cache/assemble-jobs-test-snapshot
           key: ${{ steps.snapshot_cache_key.outputs.key }}
 
       - name: Publish latest snapshot manifest
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         uses: actions/upload-artifact@v7
         with:
           name: assemble-test-snapshot-manifest
@@ -104,6 +192,7 @@ jobs:
       # Snapshot caches are immutable. Keep the current content key even when
       # unchanged inputs reuse an older entry, plus the two newest prior keys.
       - name: Prune older hourly test snapshots
+        if: ${{ steps.guard.outputs.proceed == 'true' }}
         continue-on-error: true
         uses: actions/github-script@v9
         with:
