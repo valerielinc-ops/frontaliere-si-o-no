@@ -273,9 +273,14 @@ async function checkAssistedApplicationAnswers(input) {
 // 300/h, 1 req/s per host and 400/day contract (#19723); concurrency keeps them
 // shared. The limiter checks are synchronous, so concurrent requests cannot
 // overshoot them.
+// Service account the GitHub runners impersonate through WIF
+// (scripts/generate-crawler-group-workflows.mjs SOURCE_RELAY_SERVICE_ACCOUNT).
+// A bare 'private' makes every deploy reset the Cloud Run IAM policy to empty,
+// so the runners got 403 (#20279): the invoker binding must be declared here.
+export const SOURCE_RELAY_INVOKER_SERVICE_ACCOUNT = 'jobs-source-relay-ci@frontaliere-ticino.iam.gserviceaccount.com';
 export const jobsSourceRelay = onRequest(
   {
-    invoker: 'private',
+    invoker: [SOURCE_RELAY_INVOKER_SERVICE_ACCOUNT],
     region: 'europe-west6',
     memory: '256MiB',
     timeoutSeconds: 15,
