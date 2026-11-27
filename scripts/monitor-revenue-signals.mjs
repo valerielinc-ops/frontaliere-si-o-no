@@ -11,9 +11,7 @@ import { realpathSync } from 'node:fs';
  * they are never synthesized as zero.
  *
  * It fills the gap the daily canaries leave (rpm-canary.yml, user-value-canary.yml
- * read settled DAYS): on 2026-09-27 the CMP was suppressed from 12h and ad
- * revenue fell ~75% for six hours; nothing noticed until a person did. GA4's
- * intraday lag is variable, so incomplete windows wait for their own rows and
+ * read settled days). GA4's intraday lag is variable, so incomplete windows wait for their own rows and
  * only a report stale beyond the configured threshold raises a freshness alarm.
  *
  * The alarm travels in the output, never in the exit code: 0 whenever the run
@@ -22,7 +20,7 @@ import { realpathSync } from 'node:fs';
  *
  * Usage:
  *   node scripts/monitor-revenue-signals.mjs                       # evaluate the current hour
- *   node scripts/monitor-revenue-signals.mjs --current-hour=2026092714   # replay a past run
+ *   node scripts/monitor-revenue-signals.mjs --current-hour=2020010100   # replay a fixture hour
  *   node scripts/monitor-revenue-signals.mjs --out=result.json --body-out=issue.md
  *
  * Env: GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON (GA4 read),
@@ -111,7 +109,7 @@ export async function fetchHourlyCounts({ token, currentHour, config = DEFAULT_C
   return hours;
 }
 
-const defaultGetToken = () => getServiceAccountToken([GA4_READONLY_SCOPE], { logInfo: () => {}, logError: console.error });
+const defaultGetToken = () => getServiceAccountToken([GA4_READONLY_SCOPE], { logInfo: () => {}, logError: () => {} });
 
 /**
  * One monitor run; resolves to the process exit code. `status=` reaches
@@ -139,10 +137,10 @@ export async function runMonitor({ argv = [], env = process.env, now = new Date(
     else log.log(json);
     if (bodyOut && decision.status === 'alarm') writeFileSync(bodyOut, `${buildIssueBody({ decision, runUrl: env.RUN_URL || '' })}\n`);
     if (env.GITHUB_OUTPUT) appendFileSync(env.GITHUB_OUTPUT, `status=${result.status}\nalarms=${result.alarms.join(',')}\n`);
-    log.error(`[revenue-signals] ${currentHour} status=${result.status} ${result.checks.map((c) => `${c.signal}:${c.status}${c.ratio != null ? `(${c.ratio.toFixed(2)})` : ''}`).join(' ')}`);
+    log.error(`[revenue-signals] status=${result.status}; measurements withheld`);
     return 0;
   } catch (error) {
-    log.error(`::error::[revenue-signals] could not measure: ${error?.stack || error}`);
+    log.error('::error::[revenue-signals] could not measure; details withheld');
     return 1;
   }
 }

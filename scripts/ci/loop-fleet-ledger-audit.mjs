@@ -29,6 +29,10 @@ import { listLoopFleetLedgerFiles, LOOP_FLEET_LEDGER_FILES } from '../lib/loop-f
 export const EXPECTED_RETENTION_DAYS = 90;
 export const LEDGER_FILES = LOOP_FLEET_LEDGER_FILES;
 const BASE_LEDGER_TYPES = Object.freeze(['observation', 'decision', 'health']);
+// L8 monetization and L9 employer activation are privately measured. Durable
+// public ledger branches may still contain historical records for either, so
+// exclude them before public validation, aggregation, or report generation.
+const PRIVATE_LOOP_IDS = new Set(['L8', 'L9']);
 const RECORD_TYPES = Object.freeze({
   observation: 'observation',
   decision: 'decision',
@@ -185,12 +189,13 @@ function lifecycleSummary(events, now) {
 /** Audit canonical files and their bounded shards by execution. */
 export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
   const validatedRegistry = validateLoopRegistry(registry);
-  const rows = Object.fromEntries(validatedRegistry.loops.map((loop) => [loop.loopId, emptyLoop(loop.loopId)]));
-  const runGroups = Object.fromEntries(validatedRegistry.loops.map((loop) => [loop.loopId, new Map()]));
-  const lifecycleEvents = Object.fromEntries(validatedRegistry.loops.map((loop) => [loop.loopId, []]));
+  const publicLoops = validatedRegistry.loops.filter((loop) => !PRIVATE_LOOP_IDS.has(loop.loopId));
+  const rows = Object.fromEntries(publicLoops.map((loop) => [loop.loopId, emptyLoop(loop.loopId)]));
+  const runGroups = Object.fromEntries(publicLoops.map((loop) => [loop.loopId, new Map()]));
+  const lifecycleEvents = Object.fromEntries(publicLoops.map((loop) => [loop.loopId, []]));
   const errors = [];
   const seenIds = Object.fromEntries(Object.keys(LEDGER_FILES).map((type) => [type, new Map()]));
-  const uniqueRecordIds = Object.fromEntries(validatedRegistry.loops.map((loop) => [loop.loopId, new Set()]));
+  const uniqueRecordIds = Object.fromEntries(publicLoops.map((loop) => [loop.loopId, new Set()]));
   const recordingLatencyValues = [];
 
   for (const [type, fileName] of Object.entries(LEDGER_FILES)) {
@@ -200,6 +205,7 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
       errors.push(...parsed.errors);
       for (const { line, value: record } of parsed.records) {
         const loopId = text(record?.loopId);
+        if (PRIVATE_LOOP_IDS.has(loopId)) continue;
         const row = rows[loopId];
         if (row) row.recordCounts[type] += 1;
         const recordId = text(record?.recordId);
@@ -250,7 +256,7 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
     }
   }
 
-  for (const loop of validatedRegistry.loops) {
+  for (const loop of publicLoops) {
     const row = rows[loop.loopId];
     const groups = [...runGroups[loop.loopId].values()];
     const completeRuns = groups.filter((group) => BASE_LEDGER_TYPES.every((type) => group.types.has(type)));
@@ -308,7 +314,7 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
   });
   const status = errors.length
     ? 'error'
-    : (completeLoopCount === validatedRegistry.loops.length ? 'observed' : (completeLoopCount ? 'partial' : 'unmeasurable'));
+    : (completeLoopCount === publicLoops.length ? 'observed' : (completeLoopCount ? 'partial' : 'unmeasurable'));
   return {
     ledgerDir: path.resolve(ledgerDir),
     generatedAt: now.toISOString(),
@@ -316,9 +322,9 @@ export function auditLedger({ ledgerDir, registry, now = new Date() } = {}) {
     errors,
     summary: {
       status,
-      loopCount: validatedRegistry.loops.length,
+      loopCount: publicLoops.length,
       completeLoopCount,
-      coverageRate: completeLoopCount / validatedRegistry.loops.length,
+      coverageRate: publicLoops.length ? completeLoopCount / publicLoops.length : 0,
       independentOutcomeLoopCount,
       lifecycleCandidateCount: loopRows.reduce((sum, row) => sum + row.lifecycle.candidateCount, 0),
       lifecycleCompleteCandidateCount: loopRows.reduce((sum, row) => sum + row.lifecycle.completeCandidateCount, 0),
@@ -541,7 +547,7 @@ export function auditLoopFleet({ registryPath, ledgerDir, workflowDir, artifacts
     summary: {
       quality: errors.length ? 'error' : (fullyObserved ? 'observed' : (hasMeasuredData ? 'partial' : 'unmeasurable')),
       errorCount: errors.length,
-      loopCount: registry.loops.length,
+      loopCount: ledger.summary.loopCount,
       ledgerCoverageRate: ledger.summary.coverageRate,
       configuredRetentionCompliant: workflows.summary.compliantCount === workflows.summary.loopCount,
       liveRetentionMeasured: artifacts.summary.measuredLoopCount === artifacts.loops.length,

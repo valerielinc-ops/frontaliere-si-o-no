@@ -1,60 +1,14 @@
 #!/usr/bin/env node
 /**
- * canary-rpm.mjs — AdSense RPM crash detector.
+ * canary-rpm.mjs — AdSense RPM and ad-request coverage canary.
  *
- * Pulls daily AdSense PAGE_VIEWS_RPM for the last 14 days, computes a
- * trailing 7-day baseline (days T-9..T-3), compares the latest fully-closed
- * day against it, and exits non-zero only when BOTH hold:
- *   - the RPM signal fires — RPM below `--ratio-floor` × baseline
- *     (default 0.65) OR below `--absolute-floor` CHF (default 1.0), AND
- *   - earnings confirm it — current-day earnings below `--earnings-floor`
- *     × baseline earnings (default 0.65).
+ * Reads settled daily data, compares RPM and earnings with a moving baseline,
+ * and checks ad-request coverage against a fixed floor. The ratio check catches
+ * sudden changes; the coverage check can detect a sustained decline. The
+ * classifier is in scripts/lib/canaryRpmClassify.mjs.
  *
- * The earnings gate exists because RPM is a ratio (earnings ÷ page views):
- * a page-view spike with healthy earnings halves RPM without losing a
- * cent (issue #2176, 2026-06-15..17 — earnings ~5.5 CHF/day while PV
- * spiked to 3625, so RPM "crashed" to 1.51 with zero lost revenue). A
- * REAL incident collapses earnings, so gating on earnings keeps the catch
- * while silencing benign traffic spikes. The classification (and the
- * "never measure the still-open current UTC day" rule) lives in the
- * unit-tested lib scripts/lib/canaryRpmClassify.mjs.
- *
- * SECOND, COMPLEMENTARY check (issue #4610, added 2026-08-25): the ratio
- * gate above compares against a 7-day MOVING baseline, which adapts to a
- * degradation once it has lasted longer than that window — #4610 fired once
- * (2026-07-20) and self-closed the next day, then stayed silent for weeks
- * while AdSense account coverage kept falling (58%→41%→21%, June→August)
- * because the baseline had drifted down alongside it. `classifyCoverage`
- * catches that: it averages AD_REQUESTS_COVERAGE over the last
- * `--coverage-sustain-days` fully-closed days and compares against a FIXED
- * absolute floor (`--coverage-floor`, default 0.45) that never adapts. This
- * is additive — it can fail the canary even when the RPM/earnings gate is
- * green, and vice versa.
- *
- * Why exists: incident 2026-05-28 — AdSense RPM crashed 3.04 → 1.74
- * CHF/day in 48h because ~2,540 of ~2,607 articles started serving a
- * 1.7 KB infinite-redirect stub (no SPA bundle, no ad slots) — earnings
- * cratered alongside RPM, so the earnings gate still fires. The
- * upstream cause is caught at dist-time by `audit:no-dotfile-html` and
- * at content-time by `article-content-canary.yml`. This RPM canary is
- * the LAST line of defense: catches ANY revenue-affecting regression
- * (article stubs, AdSense policy hit, ad slot misconfig, ads.txt
- * issues, demand-side market drops) within ~24h of impact by watching
- * the EFFECT (revenue) rather than any particular CAUSE.
- *
- * Auth: same as scripts/revenue-monitor.mjs — uses ADSENSE_REFRESH_TOKEN
- * + GSC_CLIENT_ID/SECRET (the OAuth client is shared with GSC), loaded
- * from Firebase Remote Config via scripts/load-rc-env.mjs.
- *
- * Exit codes:
- *   0 — RPM is healthy (above all thresholds, or insufficient data)
- *   1 — RPM regression detected; details on stdout (JSON when --json)
- *   2 — Auth / API failure (do not treat as a real regression)
- *
- * Usage:
- *   node scripts/canary-rpm.mjs
- *   node scripts/canary-rpm.mjs --json
- *   node scripts/canary-rpm.mjs --ratio-floor=0.7 --absolute-floor=1.5 --earnings-floor=0.6
+ * Authentication uses AdSense and Search Console OAuth credentials from
+ * Firebase Remote Config. The current UTC day is excluded until its data settles.
  */
 
 import process from "node:process";
@@ -186,8 +140,8 @@ async function main() {
         result.verdict = "coverage-regression";
       }
     }
-  } catch (err) {
-    console.error(`[canary-rpm] auth/API failure: ${err.message || err}`);
+  } catch {
+    console.error('[canary-rpm] auth/API failure; details withheld');
     process.exit(2);
   }
   result.timestamp = new Date().toISOString();

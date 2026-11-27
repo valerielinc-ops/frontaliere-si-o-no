@@ -1,19 +1,11 @@
 /**
  * Pure detector for ad-revenue incidents, evaluated hourly on GA4 data
- * restricted to Italy + Switzerland (bot fleets from elsewhere inflate
- * sessions without ever requesting an ad: 2,000 sessions in 30 minutes from
- * Singapore on 2026-09-28, zero ads).
+ * restricted to Italy + Switzerland to keep unrelated traffic out of the signal.
  *
  * Every signal is a RATIO of the same window, compared with the median of
  * the same hours on the same weekday 1, 2 and 3 weeks earlier: ratios survive
  * GA4's intraday lag (numerator and denominator arrive together) and weekday
  * matching absorbs the weekend and night shape.
- *
- * Backtest on 2026-09-07..28 (521 hourly runs, real GA4 data): three
- * episodes and no alarm on ordinary days. 2026-09-27 CMP suppression (#9974)
- * fires on consent at the 14h run (onset 12h), then fill and revenue;
- * 2026-09-09 18-22h (zero consent decisions, revenue -40%) fires at 21h;
- * 2026-09-12 23h a two-hour fill dip.
  *
  * The CLI is scripts/monitor-revenue-signals.mjs, the workflow
  * .github/workflows/revenue-signal-monitor.yml.
@@ -36,10 +28,7 @@ export const DEFAULT_CONFIG = Object.freeze({
   minPageViews: 200,
   minRevenuePageViews: 300,
   thresholds: { consent: 0.4, fill: 0.35, revenue: 0.5, traffic: 0.5 },
-  // Consecutive hourly runs a signal must stay below its threshold. Consent
-  // fires at once (the 2026-09-27 CMP suppression: 0.02-0.22 of baseline, no
-  // false alarm in three weeks); fill and revenue need two runs because the
-  // slots per page change with layout and single hours dip.
+  // Require persistence for noisy ratios; consent changes are evaluated sooner.
   persistence: { consent: 1, fill: 2, revenue: 2, traffic: 2 },
   // The monitor closes its issue only after this many consecutive measured
   // hourly runs without an alarm: the backlog gets a day to verify the cause.
@@ -259,72 +248,28 @@ export function monitorDecision({ hours, currentHour, config = DEFAULT_CONFIG })
   return { status: anyMeasured ? 'recovered' : 'quiet', evaluation };
 }
 
-const HYPOTHESES = {
-  consent: {
-    cause:
-      'il messaggio di consenso Funding Choices non raggiunge i nuovi visitatori: gate Offerwall (`index.html`, `FC_JOBBOARD_OFFERWALL_GATE_JS` e `OFFERWALL_FC_SNIPPET` in `build-plugins/constants.ts`), loader CDN o deploy parziale',
-    check:
-      '`node scripts/probe-live-consent-message.mjs` (un `fail` la conferma; serve Chromium completo, non chrome-headless-shell), poi `curl -s https://frontaliereticino.ch/commit-hash.txt` per sapere quale codice è online',
-  },
-  fill: {
-    cause:
-      'gli slot vengono richiesti ma restano vuoti: domanda AdSense, slot o layout cambiati, oppure i loader non chiedono gli annunci dopo il consenso (`BOT_GATE_FN` in `build-plugins/constants.ts`, `services/botPatterns.ts`)',
-    check:
-      'con i consensi normali, GA4 `ad_collapsed` e `ad_filled` per `pagePath` nelle stesse ore; su una pagina, clic su `.fc-cta-consent` e conteggio delle richieste `pagead/ads` (bloccale: nessuna impression)',
-  },
-  revenue: {
-    cause: 'revenue per pagina crollata con fill normale: domanda o prezzi lato AdSense, oppure impression filtrate come non valide',
-    check: '`node scripts/canary-rpm.mjs --json` (RPM e copertura richieste AdSense) e confronto GA4 fra `publisherAdImpressions` e `ad_filled` nelle stesse ore',
-  },
-  traffic: {
-    cause: 'calo delle visite umane IT+CH: clic organici (SEO, indicizzazione) o sito irraggiungibile',
-    check: 'Search Console `searchAnalytics` per ora (`dataState: HOURLY_ALL`) sulle stesse ore e `curl -sI https://frontaliereticino.ch/`',
-  },
-  [GA4_FRESHNESS_SIGNAL]: {
-    cause: 'GA4 non ha ancora pubblicato righe per le ore recenti: il dato potrebbe essere ancora in elaborazione oppure la raccolta/reporting GA4 è fermo',
-    check: 'confronto della `latestAvailableHour` nel JSON del monitor con il ritardo osservato nella proprietà GA4; se supera la soglia, verifica Data API e raccolta eventi',
-  },
-};
-
-const fmtHour = (key) => `${key.slice(6, 8)}-${key.slice(4, 6)} ${key.slice(8, 10)}h`;
-const fmtNum = (n, digits = 3) => (n === null || n === undefined ? '—' : Number(n).toFixed(digits));
-
 /** Issue body in the bl-planner card shape (.claude/agents/bl-planner.md): the consumer is the backlog loop. */
 export function buildIssueBody({ decision, runUrl = '' }) {
   const { evaluation } = decision;
-  const alarms = evaluation.alarms;
-  const ratioAlarms = alarms.filter((alarm) => alarm.ratio !== null && alarm.ratio !== undefined);
-  const worst = ratioAlarms.reduce((a, b) => (a && a.ratio <= b.ratio ? a : b), null) || alarms[0] || null;
-  const replay = `node scripts/monitor-revenue-signals.mjs --current-hour=${evaluation.currentHour}`;
-  const rows = evaluation.checks.map((c) => {
-    const digits = SIGNALS[c.signal]?.digits ?? 1;
-    return `| ${c.label} | ${fmtHour(c.window[0])}–${fmtHour(c.window[1])} | ${fmtNum(c.current, digits)} | ${fmtNum(c.baseline, digits)} | ${fmtNum(c.ratio, 2)} | ${c.threshold ?? '—'} | ${c.status} |`;
-  });
-  const metric = worst?.ratio !== null && worst?.ratio !== undefined
-    ? `prima=${fmtNum(worst.ratio, 2)} (${worst.signal}, rapporto sulla baseline) atteso>=${worst.threshold}`
-    : `età=${fmtNum(worst?.ageHours, 1)}h (${worst?.signal}) attesa<=${worst?.threshold}h`;
+  const alarms = Array.isArray(evaluation.alarms) ? evaluation.alarms : [];
+  const signals = [...new Set(alarms.map((alarm) => alarm.signal).filter((signal) => typeof signal === 'string'))];
   return [
     '<!-- revenue-signal-monitor -->',
-    `Run delle ${fmtHour(evaluation.currentHour)} (Europe/Zurich)${runUrl ? ` · ${runUrl}` : ''}. Dati GA4 solo Italia e Svizzera; baseline = mediana delle stesse ore, stesso giorno della settimana, 1-3 settimane prima.`,
+    `A revenue-related monitoring alert was detected.${runUrl ? ` Workflow run: ${runUrl}` : ''}`,
     '',
-    '| Segnale | Finestra | Valore | Baseline | Rapporto | Soglia | Stato |',
-    '|---|---|---|---|---|---|---|',
-    ...rows,
+    'Raw GA4 values, baselines, ratios, timestamps and diagnostics are withheld from this public issue.',
+    'Review the underlying measurements only in an authorized private runtime.',
+    signals.length ? `Signal categories: ${signals.join(', ')}.` : '',
     '',
     'SCHEDA: revenue-signal-monitor',
-    `1-CAUSA: ipotesi da verificare, non accertata — ${alarms.map((a) => `${a.signal}: ${HYPOTHESES[a.signal].cause}`).join(' / ')}`,
-    '2-FIX: da decidere dopo aver confermato la causa col comando della sua ipotesi | REPO: sito | MODE: non-nel-manifest',
-    `3-METRICA: ${metric} | COMANDO: \`${replay}\``,
+    '1-CAUSA: stato di allarme del monitor; i valori di misura restano privati.',
+    '2-FIX: da decidere dopo una verifica privata della causa | REPO: sito | MODE: non-nel-manifest',
+    '3-METRICA: verificare il monitor in un runtime autorizzato, senza pubblicare valori GA4 | COMANDO: `node scripts/monitor-revenue-signals.mjs`',
     // No workflow path here: check-workflows-scope.mjs reads the body to route the fixer.
-    '4-OSSERVATORE: il workflow «Revenue signal monitor» (cron orario) — commenta a ogni run in allarme, chiude dopo 24 run consecutive misurabili senza allarme; `pending` è neutro',
+    '4-OSSERVATORE: il workflow «Revenue signal monitor» (cron orario) — mantiene il ciclo di allarme e recupero senza esporre misure.',
     `5-FALLIMENTO: "${ISSUE_TITLE}"`,
     '',
-    '## Ipotesi e comandi che le confermano o le smentiscono',
-    ...alarms.map((a) => `- **${a.signal}** (${a.ratio !== null && a.ratio !== undefined ? `${fmtNum(a.ratio, 2)} della baseline` : `${fmtNum(a.ageHours, 1)}h dall’ultima riga`}): ${HYPOTHESES[a.signal].cause}. Verifica: ${HYPOTHESES[a.signal].check}.`),
-    '',
     '## Suggested action',
-    "- Verifica prima l'ipotesi del segnale peggiore col suo comando; se si conferma, i punti del codice sono `build-plugins/constants.ts` (gate Offerwall, loader AdSense e GPT, `BOT_GATE_FN`), `index.html` (gate inline della homepage), `services/botPatterns.ts`, `scripts/probe-live-consent-message.mjs`.",
-    `- Riproduci la valutazione con \`${replay}\` (serve \`GOOGLE_APPLICATION_CREDENTIALS\`).`,
-    '- Se GA4 non ha ancora elaborato la giornata, sessioni e canali possono risultare falsati; conteggi di eventi e page view restano affidabili.',
+    '- Review the alert using an authorized private analytics session; keep measurements out of public comments and artifacts.',
   ].join('\n');
 }

@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { hasL9PrivateEvidence, L9_PRIVATE_EVIDENCE } from '../lib/l9-artifact-privacy.mjs';
 import { realpathSync } from 'node:fs';
 
 /**
@@ -23,6 +22,7 @@ import { pathToFileURL } from 'node:url';
 import { createdSinceFilter, newestFirst } from './lib/run-listing-window.mjs';
 import { canonicalJson as canonicalRecordContent } from '../lib/canonical-json-digest.mjs';
 import { listLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
+import { hasL9PrivateEvidence, L9_PRIVATE_EVIDENCE } from '../lib/l9-artifact-privacy.mjs';
 
 export const SOURCE_LOOPS = Object.freeze([
   ['L0', 'loop-l0-data-truth.yml', 'loop-l0-data-truth'],
@@ -34,7 +34,6 @@ export const SOURCE_LOOPS = Object.freeze([
   ['L6', 'loop-l6-content-factuality.yml', 'loop-l6-content-factuality'],
   ['L7', 'loop-l7-experiment-allocator.yml', 'loop-l7-experiment-allocator'],
   ['L8', 'loop-l8-revenue-attribution.yml', 'loop-l8-revenue-attribution'],
-  ['L9', 'loop-l9-employer-activation.yml', 'loop-l9-employer-activation'],
   ['L10', 'loop-l10-fleet-control.yml', 'loop-l10-fleet-control'],
   ['L11', 'technical-operations-supervisor.yml', 'technical-operations-audit'],
 ].map(([loopId, workflowFile, artifactPrefix]) => Object.freeze({ loopId, workflowFile, artifactPrefix })));
@@ -154,9 +153,6 @@ export function durableRecordIds(ledgerDir) {
  * incomplete artifacts are reported as unavailable, never as already saved.
  */
 export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, sha } = {}) {
-  if (loopId === 'L9' && hasL9PrivateEvidence(inputDir)) {
-    return { ok: false, reason: L9_PRIVATE_EVIDENCE, missing: [] };
-  }
   const summaryFile = findFile(inputDir, 'loop-fleet-evidence.json');
   if (!summaryFile) return { ok: false, reason: 'loop-fleet-evidence.json is missing', missing: [] };
   const summary = parseJson(fs.readFileSync(summaryFile, 'utf8'));
@@ -164,6 +160,9 @@ export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, s
       || String(summary.run?.runId || '') !== String(runId)
       || String(summary.run?.sha || '').toLowerCase() !== String(sha || '').toLowerCase()) {
     return { ok: false, reason: 'evidence summary provenance does not match the source run', missing: [] };
+  }
+  if (loopId === 'L9' && hasL9PrivateEvidence(inputDir)) {
+    return { ok: false, reason: L9_PRIVATE_EVIDENCE, missing: [] };
   }
 
   let durable;

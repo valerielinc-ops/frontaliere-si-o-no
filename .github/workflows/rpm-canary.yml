@@ -1,34 +1,9 @@
 name: rpm-canary
 
-# AdSense RPM crash detector — the "watch on the effect" companion to
-# `article-content-canary.yml` (which watches the cause).
-#
-# Runs once a day, pulls daily PAGE_VIEWS_RPM via the AdSense API, and
-# opens a deduplicated GitHub issue only when the latest fully-closed
-# day's RPM is down AND earnings confirm it:
-#   - RPM < 65% of the trailing 7-day baseline (T-9..T-3) OR < 1.00 CHF, AND
-#   - earnings < 65% of the baseline earnings.
-#
-# The earnings gate kills false alarms from page-view spikes: RPM is
-# earnings ÷ page views, so a traffic spike with healthy earnings halves
-# RPM without losing a cent (issue #2176, 2026-06-15..17). A real incident
-# collapses earnings too, so the catch is preserved. The still-open current
-# UTC day is never measured (its earnings aren't settled). See
-# scripts/lib/canaryRpmClassify.mjs for the unit-tested classifier.
-#
-# SECOND, COMPLEMENTARY check (issue #4610): the ratio gate above compares
-# against a trailing 7-day MOVING baseline, which adapts once a degradation
-# outlasts that window — #4610 fired once (2026-07-20) and stayed green for
-# weeks afterward while AdSense account AD_REQUESTS_COVERAGE kept falling
-# (58%→41%→21%, June→August 2026), because the baseline had drifted down
-# alongside it. This canary also averages AD_REQUESTS_COVERAGE over the
-# last 3 fully-closed days and compares it to a FIXED floor (default 45%)
-# that never adapts — either check failing fails the run.
-#
-# Catches ANY revenue-affecting regression within ~24h — article stubs,
-# ads.txt issues, AdSense policy hits, ad slot misconfig, demand drops.
-# Incident 2026-05-28 (3.04 → 1.74 CHF/day) would have triggered the
-# morning of 2026-05-28: both RPM and earnings cratered (stubs served no ads).
+# Daily AdSense canary for revenue per page view and ad request coverage.
+# It measures only the latest settled day, writes status-only issues, and
+# uses both a moving comparison and a fixed coverage floor. See
+# scripts/lib/canaryRpmClassify.mjs for the classifier.
 #
 # Why daily (not hourly): AdSense daily data is only available ~10h
 # after UTC midnight. Hourly cadence would burn API quota on identical
@@ -126,6 +101,7 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          umask 077
           if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
@@ -156,28 +132,9 @@ jobs:
             > rpm-canary-result.json 2> rpm-canary.log
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
-      - name: Upload canary result artifact
+      - name: Append private-data status to job log
         if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: rpm-canary-${{ github.run_id }}
-          path: |
-            rpm-canary-result.json
-            rpm-canary.log
-          if-no-files-found: ignore
-          retention-days: 90
-
-      - name: Append summary to job log
-        if: always()
-        run: |
-          if [ -s rpm-canary-result.json ]; then
-            {
-              echo "## RPM canary"
-              echo '```json'
-              cat rpm-canary-result.json
-              echo '```'
-            } >> "$GITHUB_STEP_SUMMARY"
-          fi
+        run: echo 'RPM canary completed; financial measurements are withheld from the public run.' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Build issue body
         if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'
@@ -218,5 +175,5 @@ jobs:
       - name: Fail the workflow if a regression was detected
         if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'
         run: |
-          echo "::error::AdSense RPM regression (acute or sustained coverage) detected — see GitHub issue + artifact"
+          echo "::error::AdSense monitoring regression detected — see the status-only GitHub issue"
           exit 1

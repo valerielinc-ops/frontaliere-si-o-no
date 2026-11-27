@@ -270,9 +270,22 @@ function runDownloadRetryClassifier(output: string): boolean {
 }
 
 describe('loop fleet workflow contract', () => {
-  it('records canonical evidence for every loop with a read-only contents token', () => {
+  it('records canonical evidence for executable loops with a read-only contents token', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      if (name === 'loop-l9-employer-activation.yml') {
+        expect(source, name).toContain('measurement is withheld');
+        expect(source, name).not.toContain('record-loop-fleet-evidence.mjs');
+        expect(source, name).not.toContain('actions/upload-artifact');
+        continue;
+      }
+      if (name === 'loop-l8-revenue-attribution.yml') {
+        expect(source, name).toContain('Upload L8 status');
+        expect(source, name).toContain('retention-days: 90');
+        expect(source, name).not.toContain('record-loop-fleet-evidence.mjs');
+        expect(source, name).not.toMatch(/contents:\s*write/u);
+        continue;
+      }
       expect(source, name).toContain('record-loop-fleet-evidence.mjs');
       expect(source, name).toContain('--registry data/loop-fleet/loop-registry.json');
       expect(source, name).toContain('retention-days: 90');
@@ -281,53 +294,39 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
-  it('runs L9 on relevant main pushes, on schedule, or after a successful profile refresh', () => {
+  it('runs the public L9 status on schedule, manual dispatch, and its own main push', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l9-employer-activation.yml'), 'utf8');
-    expect(source).toMatch(/\n  push:\n/u);
-    expect(source).toContain('workflow_run:');
-    expect(source).toContain('Refresh Employer Profiles');
-    expect(source).toContain("github.event.workflow_run.conclusion == 'success'");
-    expect(source).toContain("github.event.workflow_run.head_branch == 'main'");
-    expect(source).toContain("github.event_name == 'workflow_run' && 'main'");
-    expect(source).toContain("github.event_name == 'schedule' || github.event_name == 'workflow_run'");
+    const workflow = YAML.parse(source);
+    expect(workflow.on.schedule).toEqual([{ cron: '13 12 * * 1' }]);
+    expect(workflow.on.push).toEqual({
+      branches: ['main'],
+      paths: ['.github/workflows/loop-l9-employer-activation.yml'],
+    });
+    expect(workflow.on.workflow_dispatch).toEqual({});
+    expect(workflow.on.workflow_run).toBeUndefined();
+    expect(workflow.permissions).toEqual({ contents: 'read' });
   });
 
-  it('treats an empty but valid L9 sample as awaiting-sample, not an unreported failure', () => {
+  it('does not inspect or report a public L9 sample', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l9-employer-activation.yml'), 'utf8');
-    const auditStep = source.match(/- name: Audit employer activation\n([\s\S]*?)(?=\n      - name: Validate runner-local L9 outcome export)/u)?.[0] ?? '';
-
-    expect(auditStep).toContain('.quality == "zero"');
-    expect(auditStep).toContain('.issueCount == 0');
-    expect(auditStep).toContain('.outcomeLedgerMissing == false');
-    expect(auditStep).toContain('.profileInventoryComplete == true');
-    expect(auditStep).toContain('awaiting the first eligible account');
+    const steps = workflowJobs('loop-l9-employer-activation.yml').flatMap(([, workflowSteps]) => workflowSteps);
+    expect(steps).toHaveLength(1);
+    expect(source).toContain('measurement is withheld');
+    expect(source).not.toMatch(/\.quality|issueCount|outcomeLedger|profileInventory|Firestore|employer-profiles/);
   });
 
-  it('publishes only the explicit L9 report and fleet evidence files', () => {
+  it('publishes no L9 measurement or fleet evidence artifacts', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l9-employer-activation.yml'), 'utf8');
-    const uploaded = source.split('path: |\n').at(-1)?.match(/loop-fleet-l9\/[^\s]+/gu);
-    expect(uploaded).toEqual([
-      'loop-fleet-l9/l9-observation.json',
-      'loop-fleet-l9/l9-decision.json',
-      'loop-fleet-l9/l9-outcome.json',
-      'loop-fleet-l9/l9-actions.json',
-      'loop-fleet-l9/l9-result.json',
-      'loop-fleet-l9/l9-report.md',
-      'loop-fleet-l9/loop-fleet-evidence.json',
-      'loop-fleet-l9/loop-fleet-outcome.json',
-      'loop-fleet-l9/loop-observations.jsonl',
-      'loop-fleet-l9/loop-decisions.jsonl',
-      'loop-fleet-l9/loop-health-history.jsonl',
-      'loop-fleet-l9/lifecycle-events.jsonl',
-    ]);
-    for (const kind of ['export', 'audit', 'evidence']) {
-      expect(source).toContain(`> "$RUNNER_TEMP/l9-${kind}.log" 2>&1`);
-    }
+    expect(source).not.toContain('actions/upload-artifact');
+    expect(source).not.toContain('loop-fleet-l9/');
+    expect(source).not.toContain('l9-observation.json');
+    expect(source).not.toContain('loop-observations.jsonl');
   });
 
-  it('starts every loop with explicit operational telemetry declarations', () => {
+  it('starts every executable loop with explicit operational telemetry declarations', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      if (name === 'loop-l8-revenue-attribution.yml' || name === 'loop-l9-employer-activation.yml') continue;
       expect(source, name).toContain('LOOP_FLEET_STARTED_AT=');
       expect(source, name).toContain('LOOP_FLEET_QUOTA_UNITS=0');
       expect(source, name).toContain('LOOP_FLEET_COLLISIONS=0');
@@ -390,6 +389,10 @@ describe('loop fleet workflow contract', () => {
     for (const name of numberedLoopWorkflows()) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       expect(source, name).not.toMatch(/ga4-custom-dimensions|customDimensions|analytics\.edit/u);
+      if (name === 'loop-l8-revenue-attribution.yml' || name === 'loop-l9-employer-activation.yml') {
+        expect(source).not.toMatch(/\bnode scripts\/|secrets\.|actions\/checkout/u);
+        continue;
+      }
       const scripts = new Set([...source.matchAll(/\bnode (scripts\/[\w./-]+\.mjs)/gu)].map((match) => match[1]));
       expect(scripts.size, name).toBeGreaterThan(0);
       for (const script of scripts) {
@@ -452,7 +455,6 @@ describe('loop fleet workflow contract', () => {
   it('gates repaired loops on a runner-local fail-closed outcome export', () => {
     const contracts = [
       ['loop-l5-decision-moments.yml', 'l5-outcome.json', 'publishedDataUntouched', 'validate_l5_outcome'],
-      ['loop-l8-revenue-attribution.yml', 'l8-outcome.json', 'externalCommercialStateUntouched', 'validate_l8_outcome'],
       ['loop-l10-fleet-control.yml', 'l10-outcome.json', 'ledgerWriteMode', 'validate_l10_outcome'],
     ];
     for (const [name, outcomeFile, marker, validatorId] of contracts) {
@@ -463,6 +465,16 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain(`id: ${validatorId}`);
       expect(source, name).toContain(`steps.${validatorId}.outcome == 'success'`);
     }
+  });
+
+  it('keeps L8 public workflow status-only while its evidence remains private', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l8-revenue-attribution.yml'), 'utf8');
+    expect(source).toContain('quality: "unmeasurable"');
+    expect(source).toContain('privateEvidence: true');
+    expect(source).toContain('outcome:');
+    expect(source).not.toMatch(/data\/(?:revenue-monitor-history|revenue-authorized-export)/u);
+    expect(source).not.toMatch(/FIREBASE_SERVICE_ACCOUNT_JSON|GH_TOKEN|secrets\.|issues:\s*write/u);
+    expect(source).toContain('path: ${{ runner.temp }}/l8-public/loop-fleet-evidence.json');
   });
 
   it('records L2 and L3 evidence even when their local outcome validator fails', () => {
@@ -550,7 +562,7 @@ describe('loop fleet workflow contract', () => {
 
   it('uploads lifecycle evidence for loops with a public ledger', () => {
     for (const name of loopWorkflows) {
-      if (name === 'loop-l8-revenue-attribution.yml') continue;
+      if (name === 'loop-l8-revenue-attribution.yml' || name === 'loop-l9-employer-activation.yml') continue;
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
       expect(uploadsWholeDirectory || source.includes('lifecycle-events.jsonl'), name).toBe(true);
@@ -559,7 +571,7 @@ describe('loop fleet workflow contract', () => {
 
   it('uploads canonical outcomes for loops with public evidence', () => {
     for (const name of loopWorkflows) {
-      if (name === 'loop-l8-revenue-attribution.yml') continue;
+      if (name === 'loop-l8-revenue-attribution.yml' || name === 'loop-l9-employer-activation.yml') continue;
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
       expect(uploadsWholeDirectory || source.includes('loop-fleet-outcome.json'), name).toBe(true);

@@ -281,7 +281,7 @@ function readDurableHealth(ledgerDir, registry) {
         if (!health || health.recordType !== 'health' || !text(health.loopId)) {
           throw new Error(`${path.basename(file)} line ${index + 1} is not a health record`);
         }
-        if (health.loopId === 'L8') continue;
+        if (health.loopId === 'L8' || health.loopId === 'L9') continue;
         validateActionClassAgainstPolicy(registry, health.loopId, health.actionClass);
         validateHistoricalOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
         if (!health.execution?.runId || !/^[0-9a-f]{40}$/iu.test(String(health.execution.sha))) {
@@ -319,7 +319,7 @@ function readDurableLifecycle(ledgerDir, registry, now = new Date()) {
         } catch (error) {
           throw new Error(`${path.basename(file)} line ${index + 1} is invalid JSON: ${error.message}`);
         }
-        if (event?.loopId === 'L8') continue;
+        if (event?.loopId === 'L8' || event?.loopId === 'L9') continue;
         validateHistoricalLifecycleEvent(registry, event.loopId, event);
         if (!object(event.execution) || !text(event.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(event.execution.sha || ''))) {
           throw new Error(`${path.basename(file)} line ${index + 1} has no durable execution identity`);
@@ -434,6 +434,20 @@ function publicL8Evidence(evidence, run) {
   };
 }
 
+function publicL9Evidence(run) {
+  return {
+    run: run ? { runId: run.databaseId, sha: run.headSha } : null,
+    privateEvidence: true,
+    quality: 'unmeasurable',
+    evidenceComplete: false,
+    outcome: {
+      status: 'unmeasurable',
+      independent: false,
+      reason: 'Employer activation measures and canonical evidence are private.',
+    },
+  };
+}
+
 export function buildStatusRows(registry, runResults = {}, evidenceResults = {}, { now = new Date() } = {}) {
   const validated = validateLoopRegistry(registry);
   return validated.loops.map((policy) => {
@@ -442,6 +456,9 @@ export function buildStatusRows(registry, runResults = {}, evidenceResults = {},
     const evidenceResult = policy.loopId === 'L8' ? {
       evidence: publicL8Evidence(rawEvidenceResult.evidence, runResult.run),
       error: 'L8 canonical evidence is runner-local; durable evidence is unavailable',
+    } : policy.loopId === 'L9' ? {
+      evidence: publicL9Evidence(runResult.run),
+      error: 'L9 employer-activation evidence is private',
     } : rawEvidenceResult;
     const durableHealth = evidenceResult.canonicalHealth || null;
     const lifecycleEvents = evidenceResult.canonicalLifecycle || evidenceResult.lifecycleEvents || null;
@@ -715,7 +732,9 @@ export function collectStatus({
     const workflow = workflowForPolicy(policy);
     const runResult = ghRun(workflow);
     runResults[policy.loopId] = runResult;
-    const artifactResult = runResult.run
+    const artifactResult = policy.loopId === 'L9'
+      ? { evidence: null, error: 'L9 employer-activation evidence is private' }
+      : runResult.run
       ? download(policy.loopId, runResult.run, tempRoot, registry, now)
       : { evidence: null, error: runResult.error };
     evidenceResults[policy.loopId] = {

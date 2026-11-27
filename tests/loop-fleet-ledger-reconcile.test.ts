@@ -40,14 +40,16 @@ function writeJsonl(root: string, name: string, records: unknown[]) {
 
 describe('loop-fleet-ledger-reconcile', () => {
   it('declares one exact source workflow and artifact family for every loop', () => {
-    expect(SOURCE_LOOPS).toHaveLength(12);
-    expect(new Set(SOURCE_LOOPS.map((definition: any) => definition.loopId)).size).toBe(12);
+    expect(SOURCE_LOOPS).toHaveLength(11);
+    expect(new Set(SOURCE_LOOPS.map((definition: any) => definition.loopId)).size).toBe(11);
     expect(sourceDefinition('L11')).toMatchObject({
       workflowFile: 'technical-operations-supervisor.yml',
       artifactPrefix: 'technical-operations-audit',
     });
     expect(sourceArtifactName('L3', 456)).toBe('loop-l3-job-quality-456');
     expect(sourceArtifactName('L11', 456)).toBe('technical-operations-audit-456');
+    expect(sourceDefinition('L9')).toBeNull();
+    expect(sourceArtifactName('L9', 456)).toBeNull();
     expect(sourceArtifactName('L99', 456)).toBeNull();
   });
 

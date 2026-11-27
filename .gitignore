@@ -39,6 +39,11 @@ google search console/
 # Analytics reports (generated locally via --save flag)
 reports/
 .tmp/
+data/article-performance.json
+# Business-report histories live in the private operator store.
+data/funnel-metrics-history.json
+data/revenue-monitor-history.jsonl
+data/adsense-format-ab-history.jsonl
 
 # News sitemap cleanup audit logs (timestamped)
 data/news-sitemap-cleanup-*.json
@@ -190,6 +195,7 @@ public/images/events/*
 changed-paths.txt
 changed-paths-status.txt
 data/pharmacy-data-health-report.json
+data/user-value-report.json
 .scratch/
 # Interrupted atomic pharmacy-history writes are never refresh-PR payloads.
 /data/pharmacy-duty-week-history/*.tmp

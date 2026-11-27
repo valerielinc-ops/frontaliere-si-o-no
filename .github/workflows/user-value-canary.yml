@@ -1,21 +1,9 @@
 name: user-value-canary
 
-# User-value (ARPU) crash detector — the "watch on per-user monetization"
-# companion to `rpm-canary.yml` (which watches per-pageview monetization).
-#
-# Runs once a day, pulls daily totalAdRevenue/activeUsers via the GA4 Data
-# API, and opens a deduplicated GitHub issue only when the latest
-# fully-closed day's ARPU is down AND revenue confirms it:
-#   - ARPU < 65% of the trailing 7-day baseline (T-9..T-3), AND
-#   - revenue < 65% of the baseline revenue.
-#
-# The revenue gate kills false alarms from active-user spikes: ARPU is
-# revenue ÷ activeUsers, so a traffic spike with healthy revenue halves
-# ARPU without losing a cent — the same false-alarm shape rpm-canary.yml's
-# earnings gate was built to silence (issue #2176). The still-open current
-# UTC day is never measured. See scripts/lib/arpuCanaryClassify.mjs for
-# the unit-tested classifier (a thin wrapper over the same shared core
-# rpm-canary.yml uses, scripts/lib/canaryRegressionClassify.mjs).
+# Daily GA4 canary for ad revenue per active user. It measures only the
+# latest settled day and requires both ARPU and total revenue to breach the
+# configured comparison before it opens a status-only issue. See
+# scripts/lib/arpuCanaryClassify.mjs for the classifier.
 #
 # Why daily (not hourly): GA4 daily aggregates only settle a few hours
 # after UTC midnight. Hourly cadence would burn quota on identical numbers;
@@ -102,6 +90,7 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
+          umask 077
           if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
@@ -128,28 +117,9 @@ jobs:
             > user-value-canary-result.json 2> user-value-canary.log
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
-      - name: Upload canary result artifact
+      - name: Append private-data status to job log
         if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: user-value-canary-${{ github.run_id }}
-          path: |
-            user-value-canary-result.json
-            user-value-canary.log
-          if-no-files-found: ignore
-          retention-days: 90
-
-      - name: Append summary to job log
-        if: always()
-        run: |
-          if [ -s user-value-canary-result.json ]; then
-            {
-              echo "## User-value (ARPU) canary"
-              echo '```json'
-              cat user-value-canary-result.json
-              echo '```'
-            } >> "$GITHUB_STEP_SUMMARY"
-          fi
+        run: echo 'User-value canary completed; GA4 measurements are withheld from the public run.' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Build issue body
         if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'
@@ -190,5 +160,5 @@ jobs:
       - name: Fail the workflow if ARPU regression detected
         if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'
         run: |
-          echo "::error::User-value (ARPU) regression detected — see GitHub issue + artifact"
+          echo "::error::User-value monitoring regression detected — see the status-only GitHub issue"
           exit 1
