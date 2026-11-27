@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 712,
+  "crawlerCount": 713,
   "groups": {
     "10": [
       "atec-personal",
@@ -664,7 +664,8 @@
       "spital-uster",
       "srg-ssr",
       "swatchgroup",
-      "transgourmet"
+      "transgourmet",
+      "vtmpersonal-ch"
     ],
     "07": [
       "anker-swiss",
@@ -1462,6 +1463,7 @@
     "volksschule-luzern": "data/jobs/by-crawler/volksschule-luzern.json",
     "vontobel": "data/jobs/by-crawler/vontobel.json",
     "vtg": "data/jobs/by-crawler/vtg.json",
+    "vtmpersonal-ch": "data/jobs/by-crawler/vtmpersonal-ch.json",
     "vz-vermoegenszentrum": "data/jobs/by-crawler/vz-vermoegenszentrum.json",
     "wagerenhof": "data/jobs/by-crawler/wagerenhof.json",
     "walter-zoo-ag-gossau": "data/jobs/by-crawler/walter-zoo-ag-gossau.json",
@@ -1480,5 +1482,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:0f432838ba1c5e73a861b3b2ab1ba658f3d6dcb4dbe85af31e0633de043ceacb"
+  "digest": "sha256:b463c1753db4d3570860bfe8aa101fed18a926f7fe5cb90f9e2e4eb21e6c807d"
 }

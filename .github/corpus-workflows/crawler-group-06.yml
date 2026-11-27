@@ -274,7 +274,7 @@ jobs:
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 30 silent push failures."
+            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 31 silent push failures."
             exit 1
           fi
           git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
@@ -3598,6 +3598,111 @@ jobs:
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch vtmpersonal-ch
+        id: crawler-launch-vtmpersonal-ch
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-vtmpersonal-ch.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_VTMPERSONAL_CH_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: vtmpersonal-ch
+          JOBS_SLICE_FILE: data/jobs/by-crawler/vtmpersonal-ch.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          # shellcheck disable=SC2016,SC1003
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-06"
+          mkdir -p "$state_dir/slots"
+          script_path="$state_dir/vtmpersonal-ch.sh"
+          launcher_path="$state_dir/launcher.sh"
+          log_path="$state_dir/vtmpersonal-ch.log"
+          pid_path="$state_dir/vtmpersonal-ch.pid"
+          status_path="$state_dir/vtmpersonal-ch.status"
+          started_path="$state_dir/vtmpersonal-ch.started"
+          watchdog_path="$state_dir/vtmpersonal-ch.watchdog"
+          rm -f "$script_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/vtmpersonal-ch.crawl-exit"
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          # ---- vtmpersonal-ch: run crawler (verbatim from original workflow) ----
+          node scripts/update-vtmpersonal-ch-jobs.mjs
+          crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::vtmpersonal-ch: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
+          git_commit_exit=0
+          housekeeping_exit=0
+          report_exit=0
+
+          # ---- vtmpersonal-ch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs)
+            housekeeping_exit=$?
+          fi
+
+          # ---- vtmpersonal-ch: Commit and push (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ] && [ "$housekeeping_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update VTM Dienstleistung AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          # ---- vtmpersonal-ch: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
+              --title "Crawler Failure: Run vtmpersonal-ch" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run vtmpersonal-ch"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed vtmpersonal-ch"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::vtmpersonal-ch: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ vtmpersonal-ch: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::vtmpersonal-ch: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ vtmpersonal-ch: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::vtmpersonal-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ vtmpersonal-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
+          fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::vtmpersonal-ch: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ vtmpersonal-ch: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
+
+          (( git_commit_exit == 45 )) && exit 45
+          if (( (crawler_exit != 0 && crawler_exit != 143) || housekeeping_exit != 0 || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 44 && git_commit_exit != 143) )) || (( report_exit != 0 )); then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          export CRAWLER_LAUNCH_DIR="$state_dir" CRAWLER_LAUNCH_SLUG='vtmpersonal-ch'
+          export CRAWLER_LAUNCH_MINUTES=74 CRAWLER_LAUNCH_PARALLEL=4
+          export CRAWLER_LAUNCH_WATCHDOG_FILE='vtmpersonal-ch.watchdog'
+          export CRAWLER_LAUNCH_CRAWL_EXIT='vtmpersonal-ch.crawl-exit'
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Run merian-iselin
         id: crawler-merian-iselin
         if: always()
@@ -5248,6 +5353,61 @@ jobs:
             exit 1
           fi
           exit "$status"
+      - name: Run vtmpersonal-ch
+        id: crawler-vtmpersonal-ch
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-vtmpersonal-ch'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-06"
+          status_file="$state_dir/vtmpersonal-ch.status"
+          pid_file="$state_dir/vtmpersonal-ch.pid"
+          log_file="$state_dir/vtmpersonal-ch.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::vtmpersonal-ch: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::vtmpersonal-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::vtmpersonal-ch: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::vtmpersonal-ch: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::vtmpersonal-ch: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::vtmpersonal-ch: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::vtmpersonal-ch: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
       - name: Aggregate crawler outcomes
         id: crawler_aggregate
         if: always()
@@ -5340,6 +5500,7 @@ jobs:
           aggregate_crawler_member 'mueller-steinmaur'
           aggregate_crawler_member 'siegfried'
           aggregate_crawler_member 'hpjob-ch'
+          aggregate_crawler_member 'vtmpersonal-ch'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -5410,7 +5571,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"abb-svizzera-sede-ticino","primarySlice":"data/jobs/by-crawler/abb-svizzera-sede-ticino.json"},{"crawlerId":"arsante-clinique-de-carouge","primarySlice":"data/jobs/by-crawler/arsante-clinique-de-carouge.json"},{"crawlerId":"croix-rouge-fribourgeoise","primarySlice":"data/jobs/by-crawler/croix-rouge-fribourgeoise.json"},{"crawlerId":"denner","primarySlice":"data/jobs/by-crawler/denner.json"},{"crawlerId":"ehnv","primarySlice":"data/jobs/by-crawler/ehnv.json"},{"crawlerId":"epi-stiftung","primarySlice":"data/jobs/by-crawler/epi-stiftung.json"},{"crawlerId":"fincons-group","primarySlice":"data/jobs/by-crawler/fincons-group.json"},{"crawlerId":"gmo","primarySlice":"data/jobs/by-crawler/gmo.json"},{"crawlerId":"grand-resort-bad-ragaz","primarySlice":"data/jobs/by-crawler/grand-resort-bad-ragaz.json"},{"crawlerId":"hochgebirgsklinik-davos","primarySlice":"data/jobs/by-crawler/hochgebirgsklinik-davos.json"},{"crawlerId":"hopital-de-lavaux","primarySlice":"data/jobs/by-crawler/hopital-de-lavaux.json"},{"crawlerId":"hopital-du-valais","primarySlice":"data/jobs/by-crawler/hopital-du-valais.json"},{"crawlerId":"hoval","primarySlice":"data/jobs/by-crawler/hoval.json"},{"crawlerId":"hpjob-ch","primarySlice":"data/jobs/by-crawler/hpjob-ch.json"},{"crawlerId":"julius-baer","primarySlice":"data/jobs/by-crawler/julius-baer.json"},{"crawlerId":"merian-iselin","primarySlice":"data/jobs/by-crawler/merian-iselin.json"},{"crawlerId":"migrolino","primarySlice":"data/jobs/by-crawler/migrolino.json"},{"crawlerId":"modellstation-somosa","primarySlice":"data/jobs/by-crawler/modellstation-somosa.json"},{"crawlerId":"mueller-steinmaur","primarySlice":"data/jobs/by-crawler/mueller-steinmaur.json"},{"crawlerId":"palliativklinik","primarySlice":"data/jobs/by-crawler/palliativklinik.json"},{"crawlerId":"planzer","primarySlice":"data/jobs/by-crawler/planzer.json"},{"crawlerId":"privatklinik-bethanien","primarySlice":"data/jobs/by-crawler/privatklinik-bethanien.json"},{"crawlerId":"privatklinik-hohenegg","primarySlice":"data/jobs/by-crawler/privatklinik-hohenegg.json"},{"crawlerId":"reha-andeer","primarySlice":"data/jobs/by-crawler/reha-andeer.json"},{"crawlerId":"rolex","primarySlice":"data/jobs/by-crawler/rolex.json"},{"crawlerId":"siegfried","primarySlice":"data/jobs/by-crawler/siegfried.json"},{"crawlerId":"spital-uster","primarySlice":"data/jobs/by-crawler/spital-uster.json"},{"crawlerId":"srg-ssr","primarySlice":"data/jobs/by-crawler/srg-ssr.json"},{"crawlerId":"swatchgroup","primarySlice":"data/jobs/by-crawler/swatchgroup.json"},{"crawlerId":"transgourmet","primarySlice":"data/jobs/by-crawler/transgourmet.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"abb-svizzera-sede-ticino","primarySlice":"data/jobs/by-crawler/abb-svizzera-sede-ticino.json"},{"crawlerId":"arsante-clinique-de-carouge","primarySlice":"data/jobs/by-crawler/arsante-clinique-de-carouge.json"},{"crawlerId":"croix-rouge-fribourgeoise","primarySlice":"data/jobs/by-crawler/croix-rouge-fribourgeoise.json"},{"crawlerId":"denner","primarySlice":"data/jobs/by-crawler/denner.json"},{"crawlerId":"ehnv","primarySlice":"data/jobs/by-crawler/ehnv.json"},{"crawlerId":"epi-stiftung","primarySlice":"data/jobs/by-crawler/epi-stiftung.json"},{"crawlerId":"fincons-group","primarySlice":"data/jobs/by-crawler/fincons-group.json"},{"crawlerId":"gmo","primarySlice":"data/jobs/by-crawler/gmo.json"},{"crawlerId":"grand-resort-bad-ragaz","primarySlice":"data/jobs/by-crawler/grand-resort-bad-ragaz.json"},{"crawlerId":"hochgebirgsklinik-davos","primarySlice":"data/jobs/by-crawler/hochgebirgsklinik-davos.json"},{"crawlerId":"hopital-de-lavaux","primarySlice":"data/jobs/by-crawler/hopital-de-lavaux.json"},{"crawlerId":"hopital-du-valais","primarySlice":"data/jobs/by-crawler/hopital-du-valais.json"},{"crawlerId":"hoval","primarySlice":"data/jobs/by-crawler/hoval.json"},{"crawlerId":"hpjob-ch","primarySlice":"data/jobs/by-crawler/hpjob-ch.json"},{"crawlerId":"julius-baer","primarySlice":"data/jobs/by-crawler/julius-baer.json"},{"crawlerId":"merian-iselin","primarySlice":"data/jobs/by-crawler/merian-iselin.json"},{"crawlerId":"migrolino","primarySlice":"data/jobs/by-crawler/migrolino.json"},{"crawlerId":"modellstation-somosa","primarySlice":"data/jobs/by-crawler/modellstation-somosa.json"},{"crawlerId":"mueller-steinmaur","primarySlice":"data/jobs/by-crawler/mueller-steinmaur.json"},{"crawlerId":"palliativklinik","primarySlice":"data/jobs/by-crawler/palliativklinik.json"},{"crawlerId":"planzer","primarySlice":"data/jobs/by-crawler/planzer.json"},{"crawlerId":"privatklinik-bethanien","primarySlice":"data/jobs/by-crawler/privatklinik-bethanien.json"},{"crawlerId":"privatklinik-hohenegg","primarySlice":"data/jobs/by-crawler/privatklinik-hohenegg.json"},{"crawlerId":"reha-andeer","primarySlice":"data/jobs/by-crawler/reha-andeer.json"},{"crawlerId":"rolex","primarySlice":"data/jobs/by-crawler/rolex.json"},{"crawlerId":"siegfried","primarySlice":"data/jobs/by-crawler/siegfried.json"},{"crawlerId":"spital-uster","primarySlice":"data/jobs/by-crawler/spital-uster.json"},{"crawlerId":"srg-ssr","primarySlice":"data/jobs/by-crawler/srg-ssr.json"},{"crawlerId":"swatchgroup","primarySlice":"data/jobs/by-crawler/swatchgroup.json"},{"crawlerId":"transgourmet","primarySlice":"data/jobs/by-crawler/transgourmet.json"},{"crawlerId":"vtmpersonal-ch","primarySlice":"data/jobs/by-crawler/vtmpersonal-ch.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-06-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs

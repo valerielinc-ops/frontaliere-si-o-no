@@ -4,27 +4,27 @@
   "generatorSha256": "c464aa87ea5cb2476be08c910b48bfcafb54d1662eaea601982188313f1cbaca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "aa906573a1d7c917a15920150c8e7480adfd379e",
-  "sourceCommitVerified": true,
+  "sourceCommit": "58742b50597df6fdcd0abc0f8fed34a6073520cf",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "c464aa87ea5cb2476be08c910b48bfcafb54d1662eaea601982188313f1cbaca",
     "sourceRef": "main",
-    "sourceCommit": "aa906573a1d7c917a15920150c8e7480adfd379e"
+    "sourceCommit": "58742b50597df6fdcd0abc0f8fed34a6073520cf"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 712,
+  "crawlerCount": 713,
   "crawlerRosterCardinality": {
-    "sourceCommit": "aa906573a1d7c917a15920150c8e7480adfd379e",
+    "sourceCommit": "58742b50597df6fdcd0abc0f8fed34a6073520cf",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 712
+    "crawlerCount": 713
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:0f432838ba1c5e73a861b3b2ab1ba658f3d6dcb4dbe85af31e0633de043ceacb",
+    "rosterDigest": "sha256:b463c1753db4d3570860bfe8aa101fed18a926f7fe5cb90f9e2e4eb21e6c807d",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -661,6 +661,7 @@
     "scripts/update-viva-luzern-jobs.mjs",
     "scripts/update-volksschule-luzern-jobs.mjs",
     "scripts/update-vontobel-jobs.mjs",
+    "scripts/update-vtmpersonal-ch-jobs.mjs",
     "scripts/update-vz-vermoegenszentrum-jobs.mjs",
     "scripts/update-wagerenhof-jobs.mjs",
     "scripts/update-walter-zoo-ag-gossau-jobs.mjs",
@@ -915,8 +916,8 @@
     {
       "file": "crawler-group-06.yml",
       "sourceLogic": "crawler-group-06-logic.yml",
-      "sourceSha256": "dcdb4f8980b8ba5bd05c08a25600d703b1960a57a72c8217999efe66f9b30a19",
-      "artifactSha256": "6f157e6c09d4b4a4a961f587c6a5a1ce1e79d4a588d9e75ab9d0276ca791f50e",
+      "sourceSha256": "29c64d68b6a3f5e2bcbda10c76c3d57b5a5eaf2772492cf898c1eb4f53db8398",
+      "artifactSha256": "cff836435a5905f3f011ff4fa68f41f5dd131d6b0bb108a410a2c198f6bafa11",
       "generatorSha256": "c464aa87ea5cb2476be08c910b48bfcafb54d1662eaea601982188313f1cbaca",
       "members": [
         "merian-iselin",
@@ -948,7 +949,8 @@
         "ehnv",
         "mueller-steinmaur",
         "siegfried",
-        "hpjob-ch"
+        "hpjob-ch",
+        "vtmpersonal-ch"
       ]
     },
     {
