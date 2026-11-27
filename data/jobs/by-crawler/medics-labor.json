@@ -86,7 +86,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:57:22.189Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://app.reflinejobs.io/1474/0156/pub/113/index.html"
     },
     {
       "id": "medics-labor-a5e240ae8d9b",
@@ -173,7 +174,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:57:21.597Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://app.reflinejobs.io/1474/0153/pub/111/index.html"
     },
     {
       "id": "medics-labor-5c7b15764558",
@@ -266,7 +268,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:57:20.989Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://app.reflinejobs.io/1474/0147/pub/109/index.html"
     }
   ]
 }
