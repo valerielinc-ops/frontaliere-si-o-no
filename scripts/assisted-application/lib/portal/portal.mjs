@@ -10338,8 +10338,9 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
     });
     return { ...signedIn, accountRecovered: true };
   }
-  const resetContext = /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|password_?reset_?token|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
-    .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
+  const resetContext = /[?&](?:password_?)?reset_?token=/i.test(pageUrl.search || '')
+    || /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
+      .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
   if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
     return accountHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
       ? 'account_recovery_rejected' : 'account_recovery_timeout',

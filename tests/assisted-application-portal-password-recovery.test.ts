@@ -519,11 +519,46 @@ describe('bounded Workday password-reset request surface', () => {
     expect(events).toContain('fill:pass:temp');
   });
 
-  it('sets a new password on an Umantis PasswordResetToken page and falls back to resolvedSignInUrl when confirmation leaves login fields absent', async () => {
+  it.each([
+    {
+      label: 'Umantis PasswordResetToken page',
+      tokenPath: '/?PasswordResetToken=Tok_Abc123&customer=2800&lang=ger',
+      tokenTitle: 'Passwort setzen',
+      tokenHeading: 'Neues Passwort setzen',
+      tokenText: 'Bitte geben Sie Ihr neues Passwort ein.',
+      newName: 'new-pw',
+      newLabel: 'Passwort',
+      repName: 'rep-pw',
+      repLabel: 'Passwort wiederholen',
+      submitText: 'Passwort setzen',
+    },
+    {
+      label: 'neutral landing page identified only by ?reset_token=abc',
+      tokenPath: '/auth?reset_token=abc',
+      tokenTitle: 'Portal',
+      tokenHeading: 'Account',
+      tokenText: 'Choose a value below.',
+      newName: 'new_value',
+      newLabel: 'Secret',
+      repName: 'confirm_value',
+      repLabel: 'Confirm secret',
+      submitText: 'Confirm',
+    },
+  ])('sets a new password on a $label and falls back to resolvedSignInUrl when confirmation leaves login fields absent', async ({
+    tokenPath,
+    tokenTitle,
+    tokenHeading,
+    tokenText,
+    newName,
+    newLabel,
+    repName,
+    repLabel,
+    submitText,
+  }) => {
     const umantisHost = 'recruitingapp-2800.umantis.com';
     const umantisLoginUrl = `https://${umantisHost}/Vacancies/6604/Application/Login/1`;
     const umantisForgotUrl = `https://${umantisHost}/Password/PWForgotten`;
-    const umantisTokenUrl = `https://${umantisHost}/?PasswordResetToken=Tok_Abc123&customer=2800&lang=ger`;
+    const umantisTokenUrl = `https://${umantisHost}${tokenPath}`;
     const umantisAppUrl = `https://${umantisHost}/Vacancies/6604/Application/New/1`;
     let currentUrl = umantisLoginUrl;
     let stagedPassword = '';
@@ -552,21 +587,21 @@ describe('bounded Workday password-reset request surface', () => {
     });
     const setPwSnap = () => ({
       url: umantisTokenUrl,
-      title: 'Passwort setzen',
-      heading: 'Neues Passwort setzen',
-      text: 'Bitte geben Sie Ihr neues Passwort ein.',
+      title: tokenTitle,
+      heading: tokenHeading,
+      text: tokenText,
       fields: [
-        { id: 'new-pw', kind: 'text', inputType: 'password', label: 'Passwort', frame: 0, formId: 'set-form', value: '' },
-        { id: 'rep-pw', kind: 'text', inputType: 'password', label: 'Passwort wiederholen', frame: 0, formId: 'set-form', value: '' },
+        { id: 'new-pw', kind: 'text', inputType: 'password', name: newName, label: newLabel, frame: 0, formId: 'set-form', value: '' },
+        { id: 'rep-pw', kind: 'text', inputType: 'password', name: repName, label: repLabel, frame: 0, formId: 'set-form', value: '' },
       ],
-      buttons: [{ id: 'set-submit', frame: 0, formId: 'set-form', text: 'Passwort setzen', disabled: false }],
+      buttons: [{ id: 'set-submit', frame: 0, formId: 'set-form', text: submitText, disabled: false }],
       links: [], dialogs: [], errors: [], captcha: false, passwordVisible: true,
     });
     const setDoneSnap = () => ({
       url: umantisTokenUrl,
-      title: 'Passwort gesetzt',
-      heading: 'Passwort gesetzt',
-      text: 'Ihr Passwort wurde gespeichert.',
+      title: 'Saved',
+      heading: 'Saved',
+      text: 'Done.',
       fields: [], buttons: [], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false,
     });
     const signedInSnap = () => ({
@@ -595,7 +630,7 @@ describe('bounded Workday password-reset request surface', () => {
         currentUrl = href;
         recoveryState.snapshot = href.includes('PWForgotten')
           ? forgotSnap()
-          : href.includes('PasswordResetToken')
+          : href === umantisTokenUrl
             ? setPwSnap()
             : loginSnap();
       }),
@@ -609,7 +644,7 @@ describe('bounded Workday password-reset request surface', () => {
             tagName: id === 'forgot-link' ? 'A' : 'BUTTON',
             role: '',
             href: id === 'forgot-link' ? umantisForgotUrl : null,
-            text: id === 'forgot-link' ? 'Ich habe mein Passwort vergessen' : id === 'reset-submit' ? 'Neues Passwort senden' : id === 'set-submit' ? 'Passwort setzen' : 'Login',
+            text: id === 'forgot-link' ? 'Ich habe mein Passwort vergessen' : id === 'reset-submit' ? 'Neues Passwort senden' : id === 'set-submit' ? submitText : 'Login',
             ariaLabel: '', title: '', labelledBy: '', dataAutomationId: '',
             formId: id === 'reset-submit' ? 'pw-form' : id === 'set-submit' ? 'set-form' : id === 'login-btn' ? 'login-form' : '',
             formIdentityFields: [], formHasPassword: false,
