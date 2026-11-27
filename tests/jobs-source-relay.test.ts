@@ -787,6 +787,14 @@ describe('jobsSourceRelay: Workday CXS (#20279)', () => {
     expect(chur.statusCode).toBe(200);
   });
 
+  it('keeps a single relay instance so the per-host and daily ledgers stay shared (#19723 contract)', () => {
+    const index = readFileSync('functions/index.js', 'utf8');
+    const start = index.indexOf('export const jobsSourceRelay = onRequest(');
+    const config = index.slice(start, index.indexOf('handleJobsSourceRelay', start));
+    expect(config).toContain('maxInstances: 1,');
+    expect(config).toContain('concurrency: 4,');
+  });
+
   it('the client sends a POST through the relay with its body and reports an upstream response', async () => {
     const relayFetch = vi.fn(async (input: URL | string) => {
       if (String(input).startsWith('https://token.actions.githubusercontent.com/')) {
