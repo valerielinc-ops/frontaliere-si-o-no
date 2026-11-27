@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pks-bewerbung-ch",
-  "assembledAt": "2026-11-27T00:01:43.704Z",
-  "runId": "45912100809",
+  "assembledAt": "2026-11-27T02:15:40.602Z",
+  "runId": "45924044578",
   "jobs": [
     {
       "id": "pks-bewerbung-ch-a08c935471a7",
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T00:01:38.557Z",
+      "crawledAt": "2026-11-27T02:15:35.819Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -89,7 +89,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T00:01:38.557Z",
+      "validThrough": "2027-02-16T02:15:35.819Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +123,7 @@
       "url": "https://www.pks-personal.ch/stellen/payroll-specialist-schweiz-de-fr-80-100/basel/hrm/e30f7470",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T00:01:38.556Z",
+      "crawledAt": "2026-11-27T02:15:35.817Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T00:01:38.556Z",
+      "validThrough": "2027-02-23T02:15:35.817Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -1,7 +1,7 @@
 {
   "key": "rh-expert-ch",
   "label": "RH-Expert",
-  "generatedAt": "2026-11-26T23:58:51.280Z",
+  "generatedAt": "2026-11-27T02:08:11.993Z",
   "total": 9,
   "discovered": 16,
   "parsed": 9,
@@ -102,10 +102,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 21528,
-  "avgDurationMs": 21528,
+  "durationMs": 21074,
+  "avgDurationMs": 21074,
   "durationHistory": [
-    21528
+    21074
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -124,7 +124,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/plongeur",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T23:58:38.782Z",
+      "crawledAt": "2026-11-27T02:07:58.817Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -160,7 +160,7 @@
       },
       "streetAddress": "Rue François-Bonivard 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T23:58:38.782Z",
+      "validThrough": "2027-01-18T02:07:58.817Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -183,7 +183,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/lingere-repasseuse",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T23:58:38.782Z",
+      "crawledAt": "2026-11-27T02:07:58.817Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -219,7 +219,7 @@
       },
       "streetAddress": "Rue François-Bonivard 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T23:58:38.782Z",
+      "validThrough": "2027-01-18T02:07:58.817Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -242,7 +242,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T23:58:38.781Z",
+      "crawledAt": "2026-11-27T02:07:58.816Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -278,7 +278,7 @@
       },
       "streetAddress": "Rue François-Bonivard 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T23:58:38.781Z",
+      "validThrough": "2027-01-18T02:07:58.816Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -301,7 +301,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/shift-leader-receptionniste",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T23:58:38.781Z",
+      "crawledAt": "2026-11-27T02:07:58.816Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -337,7 +337,7 @@
       },
       "streetAddress": "Rue François-Bonivard 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T23:58:38.781Z",
+      "validThrough": "2027-01-18T02:07:58.816Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -360,7 +360,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/chefs-de-rang-hf-hotel-5",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T23:58:38.781Z",
+      "crawledAt": "2026-11-27T02:07:58.816Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -396,7 +396,7 @@
       },
       "streetAddress": "Rue François-Bonivard 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T23:58:38.781Z",
+      "validThrough": "2027-01-18T02:07:58.816Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -419,7 +419,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/garcon-doffice",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T23:58:38.781Z",
+      "crawledAt": "2026-11-27T02:07:58.816Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -455,7 +455,7 @@
       },
       "streetAddress": "Rue François-Bonivard 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T23:58:38.781Z",
+      "validThrough": "2027-01-18T02:07:58.816Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -478,7 +478,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/portier-detage-valet-de-chambre-5",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T23:58:38.780Z",
+      "crawledAt": "2026-11-27T02:07:58.815Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -514,7 +514,7 @@
       },
       "streetAddress": "Rue François-Bonivard 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T23:58:38.780Z",
+      "validThrough": "2027-01-18T02:07:58.815Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -537,7 +537,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/test-2",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T23:58:38.779Z",
+      "crawledAt": "2026-11-27T02:07:58.814Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -573,7 +573,7 @@
       },
       "streetAddress": "Rue François-Bonivard 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T23:58:38.779Z",
+      "validThrough": "2027-01-18T02:07:58.814Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -596,7 +596,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/maitre-dhotel",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T23:58:38.778Z",
+      "crawledAt": "2026-11-27T02:07:58.813Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -632,7 +632,7 @@
       },
       "streetAddress": "Rue François-Bonivard 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T23:58:38.778Z",
+      "validThrough": "2027-01-18T02:07:58.813Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -643,5 +643,5 @@
       }
     }
   ],
-  "codeCommit": "33e620d4fe742fd610c394c1f3e47545e19f8be4"
+  "codeCommit": "82a13ff820a52b1fd566366458c7138e8a19df8e"
 }
