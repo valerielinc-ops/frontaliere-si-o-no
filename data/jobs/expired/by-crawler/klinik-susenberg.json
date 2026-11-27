@@ -50,7 +50,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/05-diaetkoch_diaetkoechin_80_2026-10-16.pdf",
-    "firstSeenAt": "2026-10-16T21:38:56.937Z"
+    "firstSeenAt": "2026-10-16T21:38:56.937Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "diatkoch-diatkochin-80-klinik-susenberg-zurich": "ZH",
+        "diatkoch-diatkochin-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "en": {
+        "diatkoch-diatkochin-80-klinik-susenberg-zurich": "ZH"
+      },
+      "fr": {
+        "diatkoch-diatkochin-80-klinik-susenberg-zurich": "ZH"
+      }
+    }
   },
   {
     "id": "klinik-susenberg-df6f28edbb03",
@@ -101,7 +114,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/06-koch_koechin-efz-erfahrung-im-diaetbereich_80-100_2026-10-16.pdf",
-    "firstSeenAt": "2026-10-16T21:38:57.122Z"
+    "firstSeenAt": "2026-10-16T21:38:57.122Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "koch-kochin-efz-mit-erfahrung-im-diatbereich-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "en": {
+        "koch-kochin-efz-mit-erfahrung-im-diatbereich-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "fr": {
+        "koch-kochin-efz-mit-erfahrung-im-diatbereich-80-100-klinik-susenberg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "personale-80-100-klinik-susenberg-zurich-0477a9e4cf",
@@ -133,18 +158,23 @@
     "previousSlugsByLocale": {
       "it": [
         "mitarbeiterin-80-100-klinik-susenberg-zurich-51fa9dfe",
-        "personale-80-100-klinik-susenberg-zurich-43589905"
+        "personale-80-100-klinik-susenberg-zurich-43589905",
+        "mitarbeiterin-80-100-klinik-susenberg-zurich",
+        "personale-80-100-klinik-susenberg-zurich"
       ],
       "en": [
         "mitarbeiterin-80-100-klinik-susenberg-zurich",
-        "personale-80-100-klinik-susenberg-zurich"
+        "personale-80-100-klinik-susenberg-zurich",
+        "staff-80-100-klinik-susenberg-zurich"
       ],
       "fr": [
         "mitarbeiterin-80-100-klinik-susenberg-zurich",
-        "personale-80-100-klinik-susenberg-zurich"
+        "personale-80-100-klinik-susenberg-zurich",
+        "personnel-80-100-klinik-susenberg-zurich"
       ],
       "de": [
-        "personale-80-100-klinik-susenberg-zurich"
+        "personale-80-100-klinik-susenberg-zurich",
+        "mitarbeiterin-80-100-klinik-susenberg-zurich"
       ]
     },
     "postalCode": "8001",
@@ -158,7 +188,9 @@
     "previousSlugs": [
       "personale-80-100-klinik-susenberg-zurich-43589905",
       "mitarbeiterin-80-100-klinik-susenberg-zurich",
-      "personale-80-100-klinik-susenberg-zurich"
+      "personale-80-100-klinik-susenberg-zurich",
+      "staff-80-100-klinik-susenberg-zurich",
+      "personnel-80-100-klinik-susenberg-zurich"
     ],
     "sourceIdentityHistory": [
       {
@@ -171,7 +203,25 @@
         "firstSeenAt": "2026-11-04T22:00:40.998Z",
         "title": "Mitarbeiterin, 80% - 100%"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-80-100-klinik-susenberg-zurich": "ZH",
+        "personale-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "en": {
+        "staff-80-100-klinik-susenberg-zurich": "ZH",
+        "mitarbeiterin-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "de": {
+        "mitarbeiterin-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "fr": {
+        "personnel-80-100-klinik-susenberg-zurich": "ZH",
+        "mitarbeiterin-80-100-klinik-susenberg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-hr-80-100-klinik-susenberg-zurich",
@@ -221,7 +271,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/09-hr-fachfrau_80-100.-2026-11-11.pdf",
-    "firstSeenAt": "2026-11-11T09:53:21.974Z"
+    "firstSeenAt": "2026-11-11T09:53:21.974Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-fachfrau-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "en": {
+        "hr-fachfrau-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "fr": {
+        "hr-fachfrau-80-100-klinik-susenberg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "segretario-a-medico-a-80-100-klinik-susenberg-zurich",
@@ -271,7 +333,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/03-arztsekretaerin_80-100-2026-10-14.pdf",
-    "firstSeenAt": "2026-10-14T09:41:27.976Z"
+    "firstSeenAt": "2026-10-14T09:41:27.976Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "arztsekretar-in-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "en": {
+        "arztsekretar-in-80-100-klinik-susenberg-zurich": "ZH"
+      },
+      "fr": {
+        "arztsekretar-in-80-100-klinik-susenberg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "ottobre-a-dicembre-2026-klinik-susenberg-zurich-e261c75e",
@@ -421,7 +495,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/05-koch-koechin-50-60_befristetjuni2027-2026-09-03.pdf",
-    "firstSeenAt": "2026-09-03T23:29:52.589Z"
+    "firstSeenAt": "2026-09-03T23:29:52.589Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "koch-kochin-efz-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich": "ZH"
+      },
+      "en": {
+        "koch-kochin-efz-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich": "ZH"
+      },
+      "fr": {
+        "koch-kochin-efz-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "cooker-cooker-efz-100-klinik-susenberg-zurich",
@@ -465,7 +551,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/06-koch-koechin-100-2026-08-28.pdf",
-    "firstSeenAt": "2026-08-31T17:35:13.834Z"
+    "firstSeenAt": "2026-08-31T17:35:13.834Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "koch-kochin-efz-100-klinik-susenberg-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "gestione-operativa-amministrazione-e-servizi-klinik-susenberg-zurich-0917ff",
