@@ -56,7 +56,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fernuni.ch/jobs/mehr/wissenschaftliche-mitarbeiterin-lift",
-    "firstSeenAt": "2026-11-09T09:44:20.943Z"
+    "firstSeenAt": "2026-11-09T09:44:20.943Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "wissenschaftliche-mitarbeiter-in-20-70-brig-teilweise-homeoffice-moglich-arbeitsbeginn-ab": "VS",
+        "wissenschaftliche-collaboratore-trice-20-70-unidistance-suisse-brig": "VS",
+        "collaboratore-trice-scientifico-a-20-70-unidistance-suisse-vallese": "VS"
+      },
+      "en": {
+        "wissenschaftliche-mitarbeiter-in-20-70-unidistance-suisse-brig": "VS"
+      },
+      "de": {
+        "wissenschaftliche-mitarbeiter-in-20-70-brig-teilweise-homeoffice-moglich-arbeitsbeginn-ab": "VS"
+      },
+      "fr": {
+        "wissenschaftliche-mitarbeiter-in-20-70-unidistance-suisse-brig": "VS"
+      }
+    }
   },
   {
     "slug": "assistente-o-borsista-post-dottorato-in-diritto-privato-unidistance-suisse-brig-arbeitsbeginn-sofort-oder-nach",
@@ -115,7 +132,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fernuni.ch/jobs/mehr/assistent-in-oder-postdoktorand-in-im-privatrecht",
-    "firstSeenAt": "2026-11-09T09:44:20.955Z"
+    "firstSeenAt": "2026-11-09T09:44:20.955Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistent-in-oder-postdoktorand-in-im-privatrecht-brig-arbeitsbeginn-sofort-oder-nach": "VS",
+        "assistent-in-o-postdoktorand-in-im-privatrecht-unidistance-suisse-brig": "VS",
+        "assistent-in-oder-postdoktorand-in-im-privatrecht-brig-unidistance-ch-ch": "VS"
+      },
+      "en": {
+        "assistent-in-oder-postdoktorand-in-im-privatrecht-brig-arbeitsbeginn-sofort-oder-nach": "VS"
+      },
+      "de": {
+        "assistent-in-oder-postdoktorand-in-im-privatrecht-brig-arbeitsbeginn-sofort-oder-nach": "VS"
+      },
+      "fr": {
+        "assistent-in-oder-postdoktorand-in-im-privatrecht-brig-arbeitsbeginn-sofort-oder-nach": "VS",
+        "assistant-e-ou-postdoctorant-e-en-droit-prive-unidistance-suisse-brig-arbeitsbeginn-sofort-oder-nach-vereinbarung": "VS"
+      }
+    }
   },
   {
     "slug": "direzione-e-coordinamento-del-progetto-alumni-80-unidistance-suisse-brig-arbeitsbeginn-ab-sofort-oder-nach-vereinbarung",
@@ -167,6 +202,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fernuni.ch/jobs/mehr/alumni-projektleitung-und-koordination",
-    "firstSeenAt": "2026-11-09T09:44:20.936Z"
+    "firstSeenAt": "2026-11-09T09:44:20.936Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "alumni-projektleitung-und-koordination-80-brig-arbeitsbeginn-ab-sofort-oder-nach": "VS",
+        "alumni-projektleitung-e-koordination-80-unidistance-suisse-brig": "VS"
+      },
+      "en": {
+        "alumni-projektleitung-und-koordination-80-brig-arbeitsbeginn-ab-sofort-oder-nach": "VS"
+      },
+      "fr": {
+        "alumni-projektleitung-und-koordination-80-brig-arbeitsbeginn-ab-sofort-oder-nach": "VS"
+      }
+    }
   }
 ]
