@@ -225,6 +225,10 @@ import {
 } from './src/plateAuctions.js';
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
+import {
+ JOB_ALERT_PRIMARY_CLOUD_SCHEDULE,
+ dispatchJobAlerts as dispatchJobAlertsWorkflow,
+} from './src/jobAlertCronDispatch.js';
 import { GCP_COST_MONITOR_CLOUD_SCHEDULE, dispatchGcpCostMonitorWorkflow } from './src/gcpCostMonitorDispatch.js';
 import { LOOP_CLOCK_CLOUD_SCHEDULE, dispatchLoopClock as runLoopClock } from './src/loopClockDispatch.js';
 import { handleGenerationSlotClaimRequest } from './src/generationSlotLedger.js';
@@ -3992,6 +3996,25 @@ export const dispatchCrawlerOrchestrator = onSchedule(
  async (event) => {
   const result = await dispatchOrchestrator({ scheduledAt: event.scheduleTime });
   console.log('[dispatchCrawlerOrchestrator]', JSON.stringify(result));
+ },
+);
+
+// The primary job-alert slot used to be GitHub's `33 0 * * *`, which the
+// scheduled-dispatch backlog created 6-10 hours late (30-day median 394 min,
+// p90 492; last week 490-580 min). Cloud Scheduler fixes the send at 05:00 UTC;
+// the native 12:07 UTC slot remains the same-day safety net. The shared claim
+// and marked-run lookup prevent a retry from sending the primary slot twice.
+export const dispatchJobAlerts = onSchedule(
+ {
+  region: 'europe-west6',
+  schedule: JOB_ALERT_PRIMARY_CLOUD_SCHEDULE,
+  timeZone: 'UTC',
+  retryCount: 2,
+  minBackoffSeconds: 60,
+ },
+ async (event) => {
+  const result = await dispatchJobAlertsWorkflow({ scheduledAt: event.scheduleTime });
+  console.log('[dispatchJobAlerts]', JSON.stringify(result));
  },
 );
 

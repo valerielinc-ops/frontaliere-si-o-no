@@ -112,14 +112,15 @@ permissions:
   actions: read
 
 # GATE (perf-plan email senders, C3). A `workflow_run` fires for every completed
-# "Send Job Alert Emails" run, but only the primary scheduled slot carries the
-# handoff marker; the secondary slot (and every failed or manual completion) is
-# INERT. Those inert runs used to pay a full checkout, `npm ci` and the dataset
-# assembly before discovering they had nothing to do, and — worse — they sat in the
-# workflow-level concurrency group, where GitHub keeps ONE pending run: an inert
-# trigger could replace a legitimate pending one. Now a light `gate` job (no
-# checkout, no Node) decides, and only a run that must proceed enters the
-# `newsletter` concurrency group.
+# "Send Job Alert Emails" run, but only the successful, non-dry-run primary
+# Cloud Scheduler dispatch carries the handoff marker; the 12:07 fallback slot
+# (and every failed or manual/dry-run completion) is INERT. Those inert runs used
+# to pay a full checkout, `npm ci` and the dataset assembly before discovering
+# they had nothing to do, and — worse — they sat in the workflow-level
+# concurrency group, where GitHub keeps ONE pending run: an inert trigger could
+# replace a legitimate pending one. Now a light `gate` job (no checkout, no Node)
+# decides, and only a run that must proceed enters the `newsletter` concurrency
+# group.
 #
 # The daily cron remains the safety net. The primary job-alert handoff enters the
 # same serialized group, and cancel-in-progress=false preserves a queued
@@ -130,12 +131,12 @@ permissions:
 jobs:
   gate:
     # `workflow_run` fires for every completed source run, including failed
-    # runs and manual dispatches. Only successful scheduled runs can carry the
-    # primary handoff marker; keep the other events as a clean no-op before
-    # any artifact lookup or checkout.
+    # runs and manual dispatches. Only successful workflow_dispatch runs can
+    # carry the primary handoff marker; keep failures out before any artifact
+    # lookup, while the marker validation keeps manual/dry-run runs inert.
     if: >-
       github.event_name != 'workflow_run'
-      || (github.event.workflow_run.event == 'schedule'
+      || (github.event.workflow_run.event == 'workflow_dispatch'
           && github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -144,9 +145,10 @@ jobs:
       allow_workflow_run: ${{ steps.newsletter_trigger.outputs.allow_workflow_run }}
       trigger_key: ${{ steps.newsletter_trigger.outputs.trigger_key }}
     steps:
-      # The primary marker is intentionally absent from the secondary
-      # job-alert slot. Probe first so actions/download-artifact never emits a
-      # misleading error annotation for that expected no-op.
+      # The primary marker is intentionally absent from the 12:07 secondary
+      # job-alert slot, manual dispatches and dry runs. Probe first so
+      # actions/download-artifact never emits a misleading error annotation for
+      # those expected no-ops.
       - name: Locate primary job-alert handoff
         id: locate_jobalert_handoff
         if: github.event_name == 'workflow_run'
@@ -203,6 +205,7 @@ jobs:
           SOURCE_CONCLUSION: ${{ github.event.workflow_run.conclusion || '' }}
           SOURCE_BRANCH: ${{ github.event.workflow_run.head_branch || '' }}
           SOURCE_WORKFLOW: ${{ github.event.workflow_run.name || '' }}
+          SOURCE_DISPLAY_TITLE: ${{ github.event.workflow_run.display_title || '' }}
         run: |
           if [ "$EVENT_NAME" != "workflow_run" ]; then
             echo "allow_run=true" >> "$GITHUB_OUTPUT"
@@ -228,21 +231,26 @@ jobs:
             --arg source_conclusion "$SOURCE_CONCLUSION" \
             --arg source_branch "$SOURCE_BRANCH" \
             --arg source_workflow "$SOURCE_WORKFLOW" \
+            --arg source_display_title "$SOURCE_DISPLAY_TITLE" \
             '(
-              .schema_version == 1
+              .schema_version == 2
               and .kind == "newsletter-jobalert-handoff"
-              and .schedule == "33 0 * * *"
+              and .schedule == "job-alert-primary"
               and .source_workflow == "Send Job Alert Emails"
               and .source_workflow_path == ".github/workflows/send-job-alerts.yml"
-              and .source_event == "schedule"
+              and .source_event == "workflow_dispatch"
               and .source_conclusion == "success"
+              and .trigger_source == "cloud-scheduler"
+              and .dry_run == "false"
+              and (.scheduled_slot | test("^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:00\\.000Z$"))
               and .source_run_id == $source_run_id
               and .source_run_attempt == $source_run_attempt
               and .source_branch == $source_branch
-              and $source_event == "schedule"
+              and $source_event == "workflow_dispatch"
               and $source_conclusion == "success"
               and $source_branch == "main"
               and $source_workflow == "Send Job Alert Emails"
+              and ($source_display_title | contains("[cloud-scheduler "))
               and (.newsletter_key | test("^[0-9]{4}-[0-9]{2}-[0-9]{2}$"))
             )' "$handoff_file" >/dev/null 2>&1; then
             echo "::notice::Primary job-alert handoff failed validation; this workflow_run stays inert."

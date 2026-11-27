@@ -3,21 +3,22 @@ import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 
 /**
- * Guardiano delle slot di orchestrate-crawlers.
+ * Guardiano delle slot Cloud Scheduler di orchestrate-crawlers e send-job-alerts.
  *
  * Il workflow principale invia la wave e possiede gia' il proprio report di
  * errore. Questo controllo risponde a una domanda diversa: esiste almeno una
  * run per l'ultima slot dovuta? Una slot saltata non ha una run che possa
  * fallire, quindi senza questo heartbeat resta invisibile.
  *
- * Dal 2026-09-28 l'orologio e' Cloud Scheduler (dispatchCrawlerOrchestrator in
- * functions/index.js), che crea la run come `workflow_dispatch` pochi secondi
- * dopo la slot; il cron GitHub, che la creava con 2,5-5 h di ritardo mediano,
- * e' stato tolto. Contano quindi le run `workflow_dispatch` col marcatore
+ * Dal 2026-09-28 l'orologio e' Cloud Scheduler (dispatchCrawlerOrchestrator e
+ * dispatchJobAlerts in functions/index.js), che crea le run come
+ * `workflow_dispatch` pochi secondi dopo la slot; i cron GitHub rimossi le
+ * creavano ore dopo. Contano quindi le run `workflow_dispatch` col marcatore
  * `[cloud-scheduler <slot>]` nel run-name (un dispatch manuale o dry-run non
- * basta) e le vecchie run `schedule`. Il grace period di default scende da 600 a 120 minuti: il
- * margine copriva il ritardo del cron GitHub, che non c'e' piu'; due ore
- * assorbono i retry di Cloud Scheduler e un deploy delle functions in corso.
+ * basta). Per il crawler restano riconosciute anche le vecchie run `schedule`;
+ * per job alert il fallback nativo delle 12:07 non prova il primario. Il grace
+ * period di default e' 120 minuti: due ore assorbono i retry di Cloud Scheduler
+ * e un deploy delle functions in corso.
  *
  * L'API viene letta con una pagina limitata e la risposta viene validata prima
  * di essere considerata vuota. Una slot completamente assente viene pagata con
@@ -32,16 +33,29 @@ import path from 'node:path';
 
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 import { readBoundedResponseBytes } from '../lib/bounded-response-body.mjs';
+import {
+  JOB_ALERT_PRIMARY_INTRODUCED_AT,
+  JOB_ALERT_PRIMARY_SLOT_UTC,
+  JOB_ALERT_WORKFLOW,
+} from '../../functions/src/jobAlertSchedule.js';
+import {
+  SCHEDULER_RUN_MARKER_PREFIX as SHARED_SCHEDULER_RUN_MARKER_PREFIX,
+} from '../../functions/src/cloudSchedulerWorkflowContract.js';
 import { normalizeOrchestratorSlot } from '../../functions/src/lib/orchestratorSlot.js';
 
 export const ORCHESTRATOR_WORKFLOW_FILE = 'orchestrate-crawlers.yml';
 export const ORCHESTRATOR_WORKFLOW_PATH = `.github/workflows/${ORCHESTRATOR_WORKFLOW_FILE}`;
 export const DEFAULT_SCHEDULE_SLOTS = Object.freeze(['09:00', '21:00']);
+export const JOB_ALERT_WORKFLOW_FILE = JOB_ALERT_WORKFLOW;
+export const JOB_ALERT_WORKFLOW_PATH = `.github/workflows/${JOB_ALERT_WORKFLOW_FILE}`;
+export const JOB_ALERT_SCHEDULE_SLOTS = Object.freeze([JOB_ALERT_PRIMARY_SLOT_UTC]);
 export const DEFAULT_GRACE_MINUTES = 120;
 export const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 
 export const MISSING_ISSUE_TITLE = 'Orchestrator heartbeat: scheduled run missing';
 export const API_ISSUE_TITLE = 'Orchestrator heartbeat: Actions API unavailable';
+export const JOB_ALERT_MISSING_ISSUE_TITLE = 'Job alert heartbeat: primary scheduled run missing';
+export const JOB_ALERT_API_ISSUE_TITLE = 'Job alert heartbeat: Actions API unavailable';
 
 const ACTIVE_STATUSES = new Set(['queued', 'requested', 'waiting', 'pending', 'in_progress']);
 
@@ -114,12 +128,12 @@ function parseRunCreatedAt(run) {
 // (`[cloud-scheduler <slot ISO>]`, never set on a dry run): an unmarked manual
 // or dry-run dispatch must not hide a slot the scheduler missed. `schedule`
 // covers the runs created before the GitHub cron was removed. The marker is
-// kept in parity with functions/src/orchestratorCronDispatch.js by a test.
-export const SCHEDULER_RUN_MARKER_PREFIX = '[cloud-scheduler ';
+// shared with both Cloud Scheduler dispatchers by construction.
+export const SCHEDULER_RUN_MARKER_PREFIX = SHARED_SCHEDULER_RUN_MARKER_PREFIX;
 
-function isTargetRun(run) {
-  if (run?.path !== ORCHESTRATOR_WORKFLOW_PATH) return false;
-  if (run?.event === 'schedule') return true;
+function isTargetRun(run, { workflowPath, acceptScheduleEvent }) {
+  if (run?.path !== workflowPath) return false;
+  if (acceptScheduleEvent && run?.event === 'schedule') return true;
   return run?.event === 'workflow_dispatch'
     && String(run?.display_title ?? '').includes(SCHEDULER_RUN_MARKER_PREFIX);
 }
@@ -156,16 +170,20 @@ export function classifyHeartbeat({
   runs = [],
   scheduleSlots = DEFAULT_SCHEDULE_SLOTS,
   graceMinutes = DEFAULT_GRACE_MINUTES,
+  workflowPath = ORCHESTRATOR_WORKFLOW_PATH,
+  acceptScheduleEvent = true,
+  introducedAt = null,
 } = {}) {
   const checkedAt = validDate(now, 'now');
   const grace = Number(graceMinutes);
   if (!Number.isFinite(grace) || grace < 0 || grace > 24 * 60) {
     throw new RangeError('graceMinutes must be between 0 and 1440');
   }
+  const introduction = introducedAt == null ? null : validDate(introducedAt, 'introducedAt');
   const due = latestDueSlot(checkedAt, scheduleSlots);
   const graceEnds = new Date(due.at.getTime() + grace * 60 * 1_000);
   const candidates = (Array.isArray(runs) ? runs : [])
-    .filter(isTargetRun)
+    .filter((run) => isTargetRun(run, { workflowPath, acceptScheduleEvent }))
     .filter((run) => {
       const createdAt = parseRunCreatedAt(run);
       return createdAt && createdAt >= due.at && createdAt < due.nextAt;
@@ -174,9 +192,12 @@ export function classifyHeartbeat({
   const latestRun = candidates[0] ?? null;
   const observed = latestRun !== null;
   const active = observed && ACTIVE_STATUSES.has(String(latestRun.status ?? ''));
-  const state = observed
-    ? (active ? 'running' : 'observed')
-    : (checkedAt < graceEnds ? 'within_grace' : 'missing');
+  const notYetIntroduced = introduction !== null && due.at < introduction;
+  const state = notYetIntroduced
+    ? 'not_yet_introduced'
+    : observed
+      ? (active ? 'running' : 'observed')
+      : (checkedAt < graceEnds ? 'within_grace' : 'missing');
 
   return {
     checkedAt: checkedAt.toISOString(),
@@ -189,12 +210,25 @@ export function classifyHeartbeat({
     graceMinutes: grace,
     state,
     alert: state === 'missing',
-    reason: observed
-      ? (active ? 'scheduled_run_in_progress' : 'scheduled_run_observed')
-      : (state === 'within_grace' ? 'waiting_for_cron_dispatch' : 'no_scheduled_run_for_due_slot'),
+    reason: notYetIntroduced
+      ? 'slot_before_introduction'
+      : observed
+        ? (active ? 'scheduled_run_in_progress' : 'scheduled_run_observed')
+        : (state === 'within_grace' ? 'waiting_for_cron_dispatch' : 'no_scheduled_run_for_due_slot'),
     latestRun: publicRun(latestRun),
     observedRunCount: candidates.length,
   };
+}
+
+/** Classify the primary job-alert slot; its native fallback must not count. */
+export function classifyJobAlertHeartbeat(options = {}) {
+  return classifyHeartbeat({
+    ...options,
+    scheduleSlots: options.scheduleSlots ?? JOB_ALERT_SCHEDULE_SLOTS,
+    workflowPath: JOB_ALERT_WORKFLOW_PATH,
+    acceptScheduleEvent: false,
+    introducedAt: JOB_ALERT_PRIMARY_INTRODUCED_AT,
+  });
 }
 
 function apiBaseUrl(value) {
@@ -220,6 +254,7 @@ async function readJsonBounded(response) {
 }
 
 export async function fetchScheduledRuns({
+  workflowFile = ORCHESTRATOR_WORKFLOW_FILE,
   apiUrl = process.env.GITHUB_API_URL,
   repository = process.env.GITHUB_REPOSITORY,
   token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN,
@@ -228,7 +263,7 @@ export async function fetchScheduledRuns({
   const base = apiBaseUrl(apiUrl);
   const repo = repositoryPath(repository);
   if (typeof token !== 'string' || token.length === 0) throw new TypeError('GH_TOKEN is required');
-  const endpoint = `${base}/repos/${repo}/actions/workflows/${encodeURIComponent(ORCHESTRATOR_WORKFLOW_FILE)}/runs?per_page=100`;
+  const endpoint = `${base}/repos/${repo}/actions/workflows/${encodeURIComponent(workflowFile)}/runs?per_page=100`;
   const response = await fetchImpl(endpoint, {
     method: 'GET',
     redirect: 'error',
@@ -250,12 +285,16 @@ export async function runHeartbeat(options = {}) {
     fetchImpl = fetch,
     scheduleSlots = DEFAULT_SCHEDULE_SLOTS,
     graceMinutes = Number(process.env.ORCHESTRATOR_HEARTBEAT_GRACE_MINUTES ?? DEFAULT_GRACE_MINUTES),
+    workflowFile = ORCHESTRATOR_WORKFLOW_FILE,
+    workflowPath = ORCHESTRATOR_WORKFLOW_PATH,
+    acceptScheduleEvent = true,
+    classifier = classifyHeartbeat,
     ...fetchOptions
   } = options;
   try {
-    const fetched = await fetchScheduledRuns({ ...fetchOptions, fetchImpl });
+    const fetched = await fetchScheduledRuns({ ...fetchOptions, workflowFile, fetchImpl });
     return {
-      ...classifyHeartbeat({ now, runs: fetched.runs, scheduleSlots, graceMinutes }),
+      ...classifier({ now, runs: fetched.runs, scheduleSlots, graceMinutes, workflowPath, acceptScheduleEvent }),
       api: { endpoint: fetched.endpoint, totalCount: fetched.totalCount },
     };
   } catch (error) {
@@ -270,7 +309,37 @@ export async function runHeartbeat(options = {}) {
   }
 }
 
-function descriptionFor(report) {
+export async function runJobAlertHeartbeat(options = {}) {
+  return runHeartbeat({
+    ...options,
+    workflowFile: JOB_ALERT_WORKFLOW_FILE,
+    workflowPath: JOB_ALERT_WORKFLOW_PATH,
+    scheduleSlots: options.scheduleSlots ?? JOB_ALERT_SCHEDULE_SLOTS,
+    acceptScheduleEvent: false,
+    classifier: classifyJobAlertHeartbeat,
+  });
+}
+
+/** Run both independent Cloud Scheduler watches in one heartbeat invocation. */
+export async function runAllHeartbeats(options = {}) {
+  const {
+    now = new Date(),
+    graceMinutes = Number(process.env.ORCHESTRATOR_HEARTBEAT_GRACE_MINUTES ?? DEFAULT_GRACE_MINUTES),
+    ...fetchOptions
+  } = options;
+  const [orchestrator, jobAlerts] = await Promise.all([
+    runHeartbeat({ ...fetchOptions, now, graceMinutes }),
+    runJobAlertHeartbeat({ ...fetchOptions, now, graceMinutes }),
+  ]);
+  return {
+    checkedAt: validDate(now, 'now').toISOString(),
+    alert: orchestrator.alert || jobAlerts.alert,
+    orchestrator,
+    jobAlerts,
+  };
+}
+
+function descriptionFor(report, workflowLabel) {
   const lines = [
     `**Stato:** \`${report.state}\``,
     `**Slot attesa:** ${report.expectedSlot?.label ?? 'n/d'} (${report.expectedSlot?.at ?? 'n/d'})`,
@@ -280,26 +349,31 @@ function descriptionFor(report) {
   ];
   if (report.latestRun?.url) lines.push(`**Run osservata:** ${report.latestRun.url}`);
   if (report.error) lines.push(`**Errore API:** \`${report.error}\``);
-  lines.push('', 'Il heartbeat controlla solo la presenza di una run per la slot (Cloud Scheduler \u2192 workflow_dispatch); gli errori interni della run restano responsabilita\u0300 del workflow orchestratore.');
+  lines.push('', `Il heartbeat controlla solo la presenza di una run marcata per ${workflowLabel} (Cloud Scheduler \u2192 workflow_dispatch); gli errori interni della run restano responsabilita\u0300 del workflow chiamato.`);
   return lines.join('\n');
 }
 
-async function reportState(report) {
+async function reportState(report, {
+  missingIssueTitle,
+  apiIssueTitle,
+  workflowLabel,
+} = {}) {
+  if (report.state === 'not_yet_introduced') return;
   if (report.state === 'missing') {
     await createGithubIssue({
-      title: MISSING_ISSUE_TITLE,
-      description: descriptionFor(report),
+      title: missingIssueTitle,
+      description: descriptionFor(report, workflowLabel),
       priority: 2,
       labels: ['Bug', 'workflow-watchdog'],
       workflow: 'orchestrator-heartbeat',
     });
-    resolveGithubIssue(API_ISSUE_TITLE, { workflow: 'orchestrator-heartbeat' });
+    resolveGithubIssue(apiIssueTitle, { workflow: 'orchestrator-heartbeat' });
     return;
   }
   if (report.state === 'inconclusive') {
     await createGithubIssue({
-      title: API_ISSUE_TITLE,
-      description: descriptionFor(report),
+      title: apiIssueTitle,
+      description: descriptionFor(report, workflowLabel),
       priority: 2,
       labels: ['Bug', 'workflow-watchdog'],
       workflow: 'orchestrator-heartbeat',
@@ -307,11 +381,11 @@ async function reportState(report) {
     return;
   }
   if (report.state === 'observed' || report.state === 'running') {
-    resolveGithubIssue(MISSING_ISSUE_TITLE, {
+    resolveGithubIssue(missingIssueTitle, {
       workflow: 'orchestrator-heartbeat',
       runUrl: report.latestRun?.url,
     });
-    resolveGithubIssue(API_ISSUE_TITLE, { workflow: 'orchestrator-heartbeat' });
+    resolveGithubIssue(apiIssueTitle, { workflow: 'orchestrator-heartbeat' });
   }
 }
 
@@ -322,7 +396,7 @@ function argumentValue(args, flag) {
 
 async function main() {
   const output = argumentValue(process.argv.slice(2), '--output');
-  const report = await runHeartbeat();
+  const report = await runAllHeartbeats();
   if (output) {
     const absolute = path.resolve(output);
     fs.mkdirSync(path.dirname(absolute), { recursive: true });
@@ -331,7 +405,16 @@ async function main() {
     fs.renameSync(temporary, absolute);
   }
   console.log(JSON.stringify(report));
-  await reportState(report);
+  await reportState(report.orchestrator, {
+    missingIssueTitle: MISSING_ISSUE_TITLE,
+    apiIssueTitle: API_ISSUE_TITLE,
+    workflowLabel: ORCHESTRATOR_WORKFLOW_FILE,
+  });
+  await reportState(report.jobAlerts, {
+    missingIssueTitle: JOB_ALERT_MISSING_ISSUE_TITLE,
+    apiIssueTitle: JOB_ALERT_API_ISSUE_TITLE,
+    workflowLabel: JOB_ALERT_WORKFLOW_FILE,
+  });
   if (report.alert) process.exitCode = 1;
 }
 

@@ -6,9 +6,10 @@ run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '
 
 # A scheduled run that never gets created cannot fail and cannot notify the
 # owner. This independent 15-minute read-only watchdog detects that hole after
-# a short grace, while orchestrate-crawlers remains the single
-# writer/dispatcher for the crawler wave. Its clock is Cloud Scheduler
-# (dispatchCrawlerOrchestrator in functions/index.js), not a GitHub cron.
+# a short grace, while orchestrate-crawlers and send-job-alerts remain the
+# single writer/dispatcher for their own workflows. Their primary clocks are
+# Cloud Scheduler (dispatchCrawlerOrchestrator and dispatchJobAlerts in
+# functions/index.js), not GitHub crons.
 on:
   schedule:
     - cron: '*/15 * * * *'
@@ -45,12 +46,14 @@ jobs:
             scripts/ci/lib/run-listing-window.mjs
             scripts/lib/bounded-response-body.mjs
             scripts/lib/github-issue-creator.mjs
+            functions/src/cloudSchedulerWorkflowContract.js
+            functions/src/jobAlertSchedule.js
             functions/src/lib/orchestratorSlot.js
             functions/src/loopClockTable.js
             functions/src/loopClockIssueCondition.js
           sparse-checkout-cone-mode: false
 
-      - name: Check latest orchestrator cron slot
+      - name: Check latest Cloud Scheduler slots
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
