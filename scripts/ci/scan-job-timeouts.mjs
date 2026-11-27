@@ -811,6 +811,79 @@ export function hasScannerSignature(body) {
   return String(body ?? '').includes(`\`${JOB_TIMEOUT_REPORT_SIGNATURE}\``);
 }
 
+/**
+ * Una run fuori da `main` va segnalata come issue? Puro: PR e ref arrivano dal chiamante.
+ *
+ * Una startup failure su un ramo di PR e' il segnale del check di PR (es.
+ * `validate-modified-workflows.yml`), non un guasto del repository: se la PR e'
+ * aperta lo dice gia' il check, se e' chiusa/mergiata o il ramo e' stato eliminato
+ * la run non ha piu' nessuno che la possa correggere. L'incidente 2026-11-27 (#20294-#20319):
+ * 25 issue per una PR chiusa senza merge. `main` non e' mai filtrato.
+ *
+ *   pulls  elenco delle PR con quel ramo di testa (tutti gli stati), o `null` se illeggibile
+ *   refs   ref che combaciano col ramo (heads e tags), o `null` se illeggibili
+ *
+ * Fail-closed: lettura fallita → `report: true`, come prima di questa guardia.
+ *
+ * @returns {{ report: boolean, state: 'main'|'open'|'closed'|'gone'|'no-pr'|'unknown', reason: string }}
+ */
+export function decideOffMainReport({ headBranch, pulls, refs } = {}) {
+  if (!headBranch || headBranch === RECURRENCE_GATE_BRANCH) {
+    return { report: true, state: 'main', reason: 'ramo main' };
+  }
+  if (!Array.isArray(pulls)) return { report: true, state: 'unknown', reason: 'PR del ramo illeggibili' };
+  if (pulls.length > 0) {
+    const open = pulls.find((pr) => pr?.state === 'open');
+    if (open) {
+      return { report: false, state: 'open', reason: `PR #${open.number ?? '?'} aperta: il segnale e' del check di PR` };
+    }
+    return { report: false, state: 'closed', reason: `PR #${pulls[0]?.number ?? '?'} chiusa o mergiata` };
+  }
+  if (!Array.isArray(refs)) return { report: true, state: 'unknown', reason: 'ref del ramo illeggibili' };
+  if (refs.length === 0) return { report: false, state: 'gone', reason: 'nessuna PR e ramo eliminato' };
+  return { report: true, state: 'no-pr', reason: 'ramo esistente senza PR' };
+}
+
+/**
+ * Il workflow dichiara `event` sotto `on:`? Lettura testuale e prudente (nessun import YAML:
+ * questo file scende `identical` nel corpus). `true`/`false` solo quando la forma e' una delle
+ * tre canoniche (`on: evento`, `on: [a, b]`, mappa o lista a blocchi); altrimenti `null` e il
+ * chiamante tiene la issue aperta.
+ */
+export function workflowDeclaresEvent(text, event) {
+  const lines = String(text ?? '').replace(/\r/g, '').split('\n')
+    .map((l) => l.replace(/(^|\s)#.*$/, '').replace(/\s+$/, ''));
+  const at = lines.findIndex((l) => /^["']?on["']?\s*:/.test(l));
+  if (at < 0 || !event) return null;
+  const inline = lines[at].replace(/^["']?on["']?\s*:\s*/, '').trim();
+  const clean = (v) => v.trim().replace(/^["']|["']$/g, '');
+  if (inline) {
+    if (inline.startsWith('{')) return null;
+    if (inline.startsWith('[')) {
+      if (!inline.endsWith(']')) return null;
+      return inline.slice(1, -1).split(',').map(clean).filter(Boolean).includes(event);
+    }
+    if (/^[|>&*!]/.test(inline)) return null;
+    return clean(inline) === event;
+  }
+  const names = [];
+  let indent = null;
+  for (let i = at + 1; i < lines.length; i += 1) {
+    const l = lines[i];
+    if (!l.trim()) continue;
+    const m = /^(\s+)(.*)$/.exec(l);
+    if (!m) break;
+    if (indent === null) indent = m[1].length;
+    if (m[1].length !== indent) continue;
+    const item = /^-\s+(.+)$/.exec(m[2]);
+    const key = /^["']?([\w.-]+)["']?\s*:/.exec(m[2]);
+    if (item) names.push(clean(item[1]));
+    else if (key) names.push(key[1]);
+    else return null;
+  }
+  return names.length > 0 ? names.includes(event) : null;
+}
+
 function findTimeoutAnnotation(job) {
   if (job.conclusion !== 'cancelled' || !job.check_run_url) return null;
   const annotations = readPaginatedAnnotations(job);
@@ -991,7 +1064,9 @@ export function classifyRunForResolve(run, { jobsData, readAnnotations, nowMs = 
  *           classify: (run: object) => {verdict: string, detail?: string},
  *           k?: number }} input
  */
-export function decideScopedTimeoutResolution({ title, issueCreatedAt, runs, classify, k = RESOLVE_CLEAN_RUNS }) {
+export function decideScopedTimeoutResolution({
+  title, issueCreatedAt, runs, classify, k = RESOLVE_CLEAN_RUNS, readSettlement,
+}) {
   const parsed = parseScopedTimeoutTitle(title);
   if (!parsed) return { action: 'keep', reason: 'titolo fuori dalla famiglia', counted: [], ignored: 0 };
   const openedMs = Date.parse(issueCreatedAt || '');
@@ -1007,6 +1082,7 @@ export function decideScopedTimeoutResolution({ title, issueCreatedAt, runs, cla
 
   const counted = [];
   let ignored = 0;
+  let blocking = null;
   for (const run of population) {
     const { verdict, detail } = classify(run);
     if (verdict === 'ignored') { ignored += 1; continue; }
@@ -1019,12 +1095,31 @@ export function decideScopedTimeoutResolution({ title, issueCreatedAt, runs, cla
     }
     const where = run?.url || run?.databaseId || '?';
     const label = verdict === 'unknown' ? 'run illeggibile' : `run ${verdict}`;
-    return {
-      action: 'keep',
-      reason: `${label} ${where}${detail ? ` (${detail})` : ''} prima di ${k} run pulite`,
-      counted,
-      ignored,
-    };
+    blocking = `${label} ${where}${detail ? ` (${detail})` : ''} prima di ${k} run pulite`;
+    break;
+  }
+  if (blocking) return { action: 'keep', reason: blocking, counted, ignored };
+
+  // Un workflow che su `main` non dichiara l'evento del titolo (es. solo `workflow_call`, titolo
+  // `(push)`) non riceve mai run di quell'evento: «zero run pulite» e' lo stato sano, non un'assenza
+  // di prova. Si chiude quando OGNI run che ha aperto la issue (o l'ha rinnovata) sta su un ramo di PR
+  // chiusa/mergiata o eliminato, e il file su `main` non dichiara l'evento. Dipendenze iniettate e pigre
+  // (nessuna chiamata finche' la strada normale non basta); illeggibile o dubbio → resta aperta.
+  if (typeof readSettlement === 'function') {
+    let settlement = null;
+    try { settlement = readSettlement(); } catch { settlement = null; }
+    const origin = Array.isArray(settlement?.originRuns) ? settlement.originRuns : [];
+    if (settlement?.declaresEvent === false && origin.length > 0
+      && origin.every((r) => r?.settled === 'closed' || r?.settled === 'gone')) {
+      return {
+        action: 'close',
+        kind: 'branch-settled',
+        reason: `workflow senza l'evento \`${parsed.event}\` su main; ${origin.length} run d'origine su rami di PR chiusa o eliminati`,
+        counted,
+        ignored,
+        originRuns: origin,
+      };
+    }
   }
   return {
     action: 'keep',
@@ -1039,6 +1134,20 @@ export const RESOLVE_EVIDENCE_MARKER = '<!-- scan-job-timeouts:resolve -->';
 
 /** Il commento che accompagna la chiusura: le run che la giustificano, senza tacere i rossi. */
 export function resolveEvidenceComment({ event, workflow, decision }) {
+  if (decision?.kind === 'branch-settled') {
+    const rows = (decision.originRuns || []).map((r) => `- ${r.url || `run ${r.databaseId ?? '?'}`} — ramo \`${r.headBranch}\`: `
+      + `${r.settled === 'gone' ? 'ramo eliminato' : 'PR chiusa o mergiata'}`);
+    return [
+      RESOLVE_EVIDENCE_MARKER,
+      `✅ Causa fuori da \`main\`: «${workflow}» non dichiara l'evento \`${event}\` nel file su \`main\` `
+        + '(non riceve run di quel tipo, quindi zero run è lo stato sano) e tutte le run che hanno aperto o '
+        + 'rinnovato questa issue appartengono a rami di PR chiuse o eliminati.',
+      '',
+      ...rows,
+      '',
+      'Chiusa da `scripts/ci/scan-job-timeouts.mjs --resolve`; se il guasto torna su `main`, lo scan la riapre.',
+    ].join('\n');
+  }
   const lines = [
     RESOLVE_EVIDENCE_MARKER,
     `✅ Timeout non più osservato: le ultime ${decision.counted.length} run di «${workflow}» `
@@ -1132,6 +1241,33 @@ function findIssueReportingRun(title, runUrl) {
   return null;
 }
 
+const branchStateCache = new Map();
+
+/**
+ * Stato di un ramo di run per `decideOffMainReport`: legge le PR con quel ramo di testa
+ * (`pulls?head=<owner>:<ramo>&state=all`) e, solo senza PR, i ref heads/tags. Memoizzato per
+ * ramo (25 workflow dello stesso commit = una lettura). Ogni lettura fallita resta `null`.
+ */
+function readBranchState(headBranch, ownerLogin) {
+  const owner = ownerLogin || REPO.split('/')[0] || '{owner}';
+  const key = `${owner}:${headBranch}`;
+  if (branchStateCache.has(key)) return branchStateCache.get(key);
+  const pulls = ghJson(repoPath(`pulls?head=${encodeURIComponent(key)}&state=all&per_page=10`));
+  let refs;
+  if (Array.isArray(pulls) && pulls.length === 0) {
+    const seg = String(headBranch).split('/').map(encodeURIComponent).join('/');
+    const heads = ghJson(repoPath(`git/matching-refs/heads/${seg}`));
+    const tags = Array.isArray(heads) && heads.length === 0
+      ? ghJson(repoPath(`git/matching-refs/tags/${seg}`)) : [];
+    refs = Array.isArray(heads) && Array.isArray(tags)
+      ? [...heads, ...tags].filter((r) => r?.ref === `refs/heads/${headBranch}` || r?.ref === `refs/tags/${headBranch}`)
+      : null;
+  }
+  const decision = decideOffMainReport({ headBranch, pulls, refs });
+  branchStateCache.set(key, decision);
+  return decision;
+}
+
 export async function main() {
   const nowMs = Date.now();
   // Once the base already reaches the ceiling, the previous successful start
@@ -1186,6 +1322,17 @@ export async function main() {
       return null;
     }
     return { ...run, workflow_name: workflow };
+  };
+
+  let offMainSuppressedReports = 0;
+  const offMainSuppressed = (run, kind) => {
+    const state = readBranchState(run?.head_branch, run?.head_repository?.owner?.login);
+    if (state.report) return false;
+    offMainSuppressedReports += 1;
+    console.log(
+      `[scan-job-timeouts] ${kind} ${run?.id} su «${run?.head_branch}»: ${state.reason} — issue non aperta.`,
+    );
+    return true;
   };
 
   // title → issue ref already opened/matched during THIS scan. See the DEDUP note
@@ -1341,6 +1488,11 @@ export async function main() {
   // (B) startup failure — Actions could not materialize the workflow, so there
   // are no jobs and no in-workflow reporter can ever run. A readable zero-job
   // response is required: an API error is not evidence of a startup failure.
+  // Fuori da `main` la run e' del check di PR, non del repository: vedi `decideOffMainReport`.
+  // Le run dello stesso commit (stesso `head_sha`, evento e ramo) hanno una sola causa:
+  // UNA issue con l'elenco dei workflow, intestata al primo per nome. Il titolo per-workflow
+  // resta il contratto di `--resolve`/`parseScopedTimeoutTitle`, quindi non cambia forma.
+  const startupGroups = new Map();
   for (const run of startupFailureRuns) {
     const jobsData = jobsForRun(run);
     if (!jobsData || jobsData.jobs.length !== 0 || Number(jobsData.total_count) !== 0) {
@@ -1351,8 +1503,32 @@ export async function main() {
       continue;
     }
     startupFailureReports += 1;
+    if (offMainSuppressed(run, 'startup_failure')) continue;
     const reportRun = reportableRun(run);
     if (!reportRun) continue;
+    const key = run.head_sha ? `${run.head_sha}|${run.event}|${run.head_branch}` : `run:${run.id}`;
+    if (!startupGroups.has(key)) startupGroups.set(key, []);
+    startupGroups.get(key).push({ run, reportRun, jobsData });
+  }
+  for (const members of startupGroups.values()) {
+    members.sort((a, b) => String(a.reportRun.workflow_name).localeCompare(String(b.reportRun.workflow_name))
+      || Number(a.run.id) - Number(b.run.id));
+    const { run, reportRun, jobsData } = members[0];
+    const sameCause = members.length > 1
+      ? [
+        `**Stesso commit (\`${String(run.head_sha).slice(0, 12)}\`), ${members.length} workflow in startup failure:**`,
+        ...members.map((m) => `- ${m.reportRun.workflow_name}: ${m.run.html_url}`),
+        '',
+        'Una sola causa per tutti: questa issue li raccoglie, non serve una issue per workflow.',
+        '',
+      ]
+      : [];
+    if (members.length > 1) {
+      console.log(
+        `[scan-job-timeouts] startup_failure: ${members.length} workflow sullo stesso commit `
+          + `${String(run.head_sha).slice(0, 12)} → una sola issue («${reportRun.workflow_name}»).`,
+      );
+    }
     const rawDescription = [
       '## Workflow failure prima della creazione dei job',
       '',
@@ -1362,6 +1538,7 @@ export async function main() {
       `**Ref:** ${run.head_branch}`,
       `**Job restituiti da Actions:** ${jobsData.jobs.length}`,
       '',
+      ...sameCause,
       'La run è terminata in `startup_failure`: Actions non ha potuto caricare o '
         + 'avviare il workflow, quindi nessun job (compreso il reporter di errore) '
         + 'ha avuto la possibilità di eseguire.',
@@ -1393,6 +1570,7 @@ export async function main() {
     }
     if (jobsData.jobs.length === 0 && Number(jobsData.total_count) === 0) {
       zeroJobFailureReports += 1;
+      if (offMainSuppressed(run, 'failure senza job')) continue;
       const reportRun = reportableRun(run);
       if (!reportRun) continue;
       const rawDescription = [
@@ -1489,7 +1667,8 @@ export async function main() {
   console.log(
     `[scan-job-timeouts] startup summary — ${startupFailureReports} startup_failure + `
       + `${zeroJobFailureReports} failure senza job segnalate `
-      + `(${failedUnreadable} failure illeggibili, ${workflowIdentityUnreadable} identità workflow illeggibili).`,
+      + `(${failedUnreadable} failure illeggibili, ${workflowIdentityUnreadable} identità workflow illeggibili, `
+      + `${offMainSuppressedReports} su rami di PR chiusa/aperta o eliminati, senza issue).`,
   );
   console.log(`[scan-job-timeouts] done — ${reported} dead job(s) reported (dry-run=${DRY_RUN}).`);
 }
@@ -1510,6 +1689,39 @@ function listScopedRuns(workflow, event, sinceIso) {
   } catch {
     return null;
   }
+}
+
+const ORIGIN_RUNS_CAP = 30;
+
+/**
+ * Per `decideScopedTimeoutResolution`: le run citate dal body e dai commenti di ricorrenza
+ * (quelle che hanno aperto o rinnovato la issue), lo stato del loro ramo e se il file del
+ * workflow su `main` dichiara l'evento. Ogni lettura che fallisce → `declaresEvent: null` o
+ * nessuna run d'origine: la decisione resta `keep`.
+ */
+function readOriginSettlement({ event, body, comments }) {
+  const text = [body, ...comments.filter((c) => !String(c?.body ?? '').includes(RESOLVE_EVIDENCE_MARKER)).map((c) => c?.body)]
+    .filter(Boolean).join('\n');
+  const ids = [...new Set([...text.matchAll(/\/actions\/runs\/(\d+)/g)].map((m) => m[1]))];
+  if (ids.length === 0 || ids.length > ORIGIN_RUNS_CAP) return null;
+  const originRuns = [];
+  let workflowPath = null;
+  for (const id of ids) {
+    const run = ghJson(repoPath(`actions/runs/${id}`));
+    if (!run || typeof run !== 'object' || !run.head_branch) return null;
+    if (run.event !== event) return null;
+    workflowPath ??= typeof run.path === 'string' ? run.path.replace(/@.*$/, '') : null;
+    const state = readBranchState(run.head_branch, run.head_repository?.owner?.login);
+    originRuns.push({
+      databaseId: run.id,
+      url: run.html_url,
+      headBranch: run.head_branch,
+      settled: state.state === 'closed' || state.state === 'gone' ? state.state : null,
+    });
+  }
+  if (!workflowPath || !/^\.github\/workflows\/[\w.-]+\.ya?ml$/.test(workflowPath)) return null;
+  const file = ghRead(['api', '-H', 'Accept: application/vnd.github.raw', repoPath(`contents/${workflowPath}?ref=${RECURRENCE_GATE_BRANCH}`)]);
+  return { originRuns, declaresEvent: file ? workflowDeclaresEvent(file, event) : null };
 }
 
 /**
@@ -1590,6 +1802,7 @@ export async function resolveScopedTimeoutIssues({ dryRun = DRY_RUN, nowMs = Dat
         readAnnotations: readPaginatedAnnotations,
         nowMs,
       }),
+      readSettlement: () => readOriginSettlement({ event, body, comments }),
     });
     console.log(
       `[scan-job-timeouts] --resolve: ${tag} → ${decision.action} (${decision.reason}; `
@@ -1622,7 +1835,7 @@ export async function resolveScopedTimeoutIssues({ dryRun = DRY_RUN, nowMs = Dat
       const result = resolveGithubIssueByNumber(issue.number, {
         expectedTitle: issue.title,
         workflow,
-        runUrl: decision.counted[0]?.run?.url,
+        runUrl: decision.counted[0]?.run?.url ?? decision.originRuns?.[0]?.url,
       });
       if (result?.persisted === true) closed += 1;
       else if (result?.skipped === 'not-open' || result?.skipped === 'title-changed') {
