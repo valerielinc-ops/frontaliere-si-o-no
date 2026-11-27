@@ -771,6 +771,9 @@ export async function submitApplication(ctx) {
         company: order.companyName || '',
         location: draft.job?.location || order.location || '',
         organization: liveness.organization || '',
+        // The pages the posting itself names as its way to apply: a generic employer form there (with a position
+        // field) is this posting's form (stages.mjs isDesignatedGenericApplicationForm).
+        declaredApplyUrls: [...new Set([channel.applyUrl, draft.job?.applyUrl].filter((url) => typeof url === 'string' && url))],
       };
       let { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,

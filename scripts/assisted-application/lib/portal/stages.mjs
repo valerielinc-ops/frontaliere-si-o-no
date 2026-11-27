@@ -305,8 +305,37 @@ export function isApplicationRegionUnsupported(text = '') {
   return APPLICATION_REGION_UNSUPPORTED_PATTERNS.some(pattern => pattern.test(normalized));
 }
 
+// A form field that asks which position/role the candidate applies for (delapaix.ch: «Posizione *», free text).
+const POSITION_FIELD_RE = /^\W*(?:posizione(?:\s+(?:desiderata|richiesta|per\s+cui\s+ti\s+candidi))?|ruolo|funzione|figura\s+professionale|position(?:\s+(?:applied\s+for|desired|sought))?|desired\s+position|job\s+title|role|stelle|gew[uü]nschte\s+stelle|gew[uü]nschte\s+position|funktion|poste(?:\s+(?:souhait[eé]|recherch[eé]|vis[eé]))?|fonction|puesto|cargo)\W*$/iu;
+
+const designatedAddress = (value) => {
+  try {
+    const url = new URL(String(value || ''));
+    return `${url.origin}${url.pathname.replace(/\/+$/u, '')}${url.search}`;
+  } catch {
+    return '';
+  }
+};
+
+/**
+ * The page is the application page the POSTING ITSELF names (its declared apply URL, from the channel or the job)
+ * and its form asks for the position: a generic employer form (even one titled «candidatura spontanea») is then
+ * this posting's form, the position field takes the posting's title. Any other URL, or a form with no position
+ * field, stays what it was (fail-closed). A same-URL page that holds no form is not designated.
+ */
+export function isDesignatedGenericApplicationForm(snapshot = {}, designatedUrls = []) {
+  const current = designatedAddress(snapshot?.url);
+  if (!current) return false;
+  if (!(Array.isArray(designatedUrls) ? designatedUrls : [designatedUrls]).some((url) => designatedAddress(url) === current)) return false;
+  return (snapshot?.fields || []).some((field) => field?.chrome !== true && field?.kind !== 'file'
+    && field?.kind !== 'checkbox' && field?.kind !== 'radio'
+    && [field?.label, field?.applicationQuestion, field?.placeholder]
+      .some((value) => POSITION_FIELD_RE.test(String(value || '').replace(/\s+/gu, ' ').trim())));
+}
+
 /** Page-level evidence that the current destination is a talent pool, unsolicited application, or job alert. */
-export function applicationDestinationDiversionHint(snapshot = {}) {
+export function applicationDestinationDiversionHint(snapshot = {}, { designatedUrls = [] } = {}) {
+  if (designatedUrls.length && isDesignatedGenericApplicationForm(snapshot, designatedUrls)) return '';
   const title = String(snapshot?.title || '').replace(/\s+/gu, ' ').trim();
   const text = String(snapshot?.text || '');
   const explicitPageHeadings = [snapshot?.pageHeading, snapshot?.heading, snapshot?.h1,
@@ -339,7 +368,8 @@ export function applicationDestinationDiversionHint(snapshot = {}) {
 }
 
 /** A diversion cue for the navigation agent; it is never a submission stop by itself. */
-export function applicationDiversionHint(snapshot = {}) {
+export function applicationDiversionHint(snapshot = {}, { designatedUrls = [] } = {}) {
+  if (designatedUrls.length && isDesignatedGenericApplicationForm(snapshot, designatedUrls)) return '';
   const destinationHint = applicationDestinationDiversionHint(snapshot);
   if (destinationHint) return destinationHint;
   const title = String(snapshot?.title || '').replace(/\s+/gu, ' ').trim();

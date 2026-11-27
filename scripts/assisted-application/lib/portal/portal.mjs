@@ -33,7 +33,7 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
 import { challengeState, passChallenge } from '../../../lib/challenge-pass.mjs';
-import { EXPAND_ALL_RE, applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, isApplicationRouteBound, portalJobKey } from './stages.mjs';
+import { EXPAND_ALL_RE, applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, isApplicationRouteBound, isDesignatedGenericApplicationForm, portalJobKey } from './stages.mjs';
 import { BRASSRING_HOME_WITH_PRELOAD_RE, brassRingActiveFields, isBrassRingPrivacyGateText, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
@@ -4401,6 +4401,11 @@ async function recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
  * "Manuell bewerben"; a cookie banner can come back on each page). A new tab
  * opened by the apply button is followed.
  */
+/** The apply URLs the posting itself declares (channel and job): the only pages a generic form can be designated on. */
+function declaredApplyUrlsOf(job) {
+  return Array.isArray(job?.declaredApplyUrls) ? job.declaredApplyUrls.filter((url) => typeof url === 'string' && url) : [];
+}
+
 async function openApplicationForm(context, page, snapshot, stageContext = null) {
   // Keep provenance separate from URL binding. A posting can legitimately
   // open a generic ATS form that names neither the role nor the employer, but
@@ -4507,7 +4512,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     url: page.url(),
     pageHeadings: await postingMainHeadings(page),
     text: await pageText(page).catch(() => String(current?.text || '')),
-  });
+  }, { designatedUrls: declaredApplyUrlsOf(stageContext?.job) });
   const hasPostApplicationEntryEvidence = async (current, {
     brassRingEntryProven = brassRingApplicationEntryProven,
     followedControlSignature = '',
@@ -13435,7 +13440,7 @@ export async function submitViaPortal(ctx) {
       const text = await pageText(page).catch(() => '');
       const diversionHint = applicationDestinationDiversionHint({
         ...transitionSnapshot, title, url: targetUrl, pageHeadings: await postingMainHeadings(page), text,
-      });
+      }, { designatedUrls: declaredApplyUrlsOf(ctx.job) });
       applicationEntryUrl = applicationEntryUrlAfterTransition({
         applicationEntryUrl,
         sourceUrl: sameOriginAuthTransition ? applicationEntryUrl : sourceUrl,
@@ -13815,7 +13820,9 @@ export async function submitViaPortal(ctx) {
               || workdayJobRoute(ctx.applyUrl)?.requisitionSlug || portalJobKey(ctx.applyUrl, sourceProtocol) || ''),
             postingUrl: ctx.postingUrl || '',
             applyUrl: ctx.applyUrl || '',
-            diversionHint: applicationDiversionHint({ ...current, text: await pageText(page) }),
+            diversionHint: applicationDiversionHint({ ...current, text: await pageText(page) }, { designatedUrls: declaredApplyUrlsOf(ctx.job) }),
+            // The page IS the application page the posting itself names (declared apply URL) and asks for the position.
+            designatedApplicationPage: isDesignatedGenericApplicationForm({ ...current, url: page.url() }, declaredApplyUrlsOf(ctx.job)),
           },
           reservedButtons,
           stopForAccountSurface: reservedButtons?.length ? null : shouldHandOffAccountSurface,
@@ -13980,7 +13987,7 @@ export async function submitViaPortal(ctx) {
         url: page.url(),
         pageHeadings: await postingMainHeadings(page),
         text: await pageText(page).catch(() => ''),
-      });
+      }, { designatedUrls: declaredApplyUrlsOf(ctx.job) });
       if (destinationDiversion) {
         if (diversionRetry) return { result: await handoff('posting_unbound') };
         const retryHint = hint === 'posting_mismatch' ? 'application_stage_unknown' : 'posting_mismatch';
@@ -14097,14 +14104,14 @@ export async function submitViaPortal(ctx) {
       let agentSubmitRefForPage = '';
       agentSubmitRefForPage = retainedAgentSubmitRef;
       const currentText = await pageText(page);
-      const diversionHint = applicationDiversionHint({ ...snapshot, text: currentText });
+      const diversionHint = applicationDiversionHint({ ...snapshot, text: currentText }, { designatedUrls: declaredApplyUrlsOf(ctx.job) });
       const destinationDiversionHint = applicationDestinationDiversionHint({
         ...snapshot,
         title: await page.title().catch(() => ''),
         url: page.url(),
         pageHeadings: await postingMainHeadings(page),
         text: currentText,
-      });
+      }, { designatedUrls: declaredApplyUrlsOf(ctx.job) });
       const currentAccountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(codeField(snapshot));
       const currentApplicationSurface = hasApplicationSurface(snapshot, {
         pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch,
@@ -15180,7 +15187,7 @@ export async function submitViaPortal(ctx) {
         url: page.url(),
         pageHeadings: await postingMainHeadings(page),
         text: finalText,
-      });
+      }, { designatedUrls: declaredApplyUrlsOf(ctx.job) });
       const finalBindingValid = finalBinding.status === POSTING_BINDING_STATUS.BOUND && !finalDiversionHint;
       if (!finalBindingValid) {
         // Which guard decided, for every portal: the form matcher's own, or the one of the final binding.
