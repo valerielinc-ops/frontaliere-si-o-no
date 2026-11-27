@@ -1218,7 +1218,21 @@ export async function applyActions(page, fields, actions, files, {
             maxLength: field.maxLength,
             ...separatePhonePrefixMetadata(field, fields, action.value),
           })
-          : fitToLength(action.value, field.maxLength);
+          : action.preserveFullValue
+            ? String(action.value ?? '')
+            : fitToLength(action.value, field.maxLength);
+        if (action.preserveFullValue && Number.isFinite(field.maxLength) && field.maxLength > 0
+          && value.length > field.maxLength && typeof locator?.evaluate === 'function') {
+          // Some portal login inputs (e.g. Umantis #input_UserName maxlength="50") clamp client
+          // typing shorter than the address stored at registration; raise the DOM cap so the full
+          // login email reaches the backend unchanged.
+          await locator.evaluate((element, required) => {
+            const limit = Number(element?.getAttribute?.('maxlength'));
+            if (Number.isFinite(limit) && limit > 0 && limit < required) {
+              element.setAttribute('maxlength', String(required));
+            }
+          }, value.length).catch(() => {});
+        }
         await fillText(locator, value);
         if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value);
       }
