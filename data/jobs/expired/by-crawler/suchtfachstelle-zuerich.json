@@ -49,7 +49,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suchtfachstelle.zuerich/stellenausschreibung-fachperson-fuer-psychotherapie-60-80",
-    "firstSeenAt": "2026-09-11T13:49:09.473Z"
+    "firstSeenAt": "2026-09-11T13:49:09.473Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zuerich": "ZH",
+        "fachperson-per-psychotherapie-e-suchtberatung-60-80-suchtfachstelle-zurich": "ZH"
+      },
+      "en": {
+        "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zurich-zurich": "ZH"
+      },
+      "fr": {
+        "fachperson-fur-psychotherapie-und-suchtberatung-60-80-suchtfachstelle-zurich-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "oggetto-di-prevenzione-60-suchtfachstelle-zurich-zurich",
