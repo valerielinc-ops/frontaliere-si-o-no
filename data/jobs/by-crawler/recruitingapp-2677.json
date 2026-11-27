@@ -1,7 +1,7 @@
 {
   "crawlerKey": "recruitingapp-2677",
-  "assembledAt": "2026-11-27T09:20:35.673Z",
-  "runId": "45972033471",
+  "assembledAt": "2026-11-27T21:21:03.494Z",
+  "runId": "46068949649",
   "jobs": [
     {
       "id": "recruitingapp-2677-6c562fdc855c",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2013/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:20:03.971Z",
+      "crawledAt": "2026-11-27T21:20:40.529Z",
       "addressLocality": "Vaduz oder Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -83,9 +83,8 @@
       "postalCode": "9000",
       "streetAddress": "Vaduz oder Uznach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:20:03.971Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2677.umantis.com/vacancies/2013/description/1"
+      "validThrough": "2027-02-04T21:20:40.529Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-2677-9091ecfa79c7",
@@ -118,7 +117,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2022/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:20:03.668Z",
+      "crawledAt": "2026-11-27T21:20:40.227Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -153,9 +152,8 @@
       "postalCode": "8853",
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:20:03.668Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2677.umantis.com/vacancies/2022/description/1"
+      "validThrough": "2027-02-24T21:20:40.227Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-2677-b1e84cb2af91",
@@ -188,7 +186,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2024/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:20:03.366Z",
+      "crawledAt": "2026-11-27T21:20:39.925Z",
       "addressLocality": "Vaduz oder Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -231,9 +229,8 @@
       "postalCode": "9000",
       "streetAddress": "Vaduz oder Uznach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:20:03.366Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2677.umantis.com/vacancies/2024/description/1"
+      "validThrough": "2027-02-24T21:20:39.925Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-2677-964bf0b0da88",
@@ -249,16 +246,16 @@
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Plattform Engineer Banking Operations",
       "titleByLocale": {
-        "de": "Plattform Engineer Banking Operations",
         "it": "Plattform Ingegnere Banking Operations",
         "en": "Platform Engineer Banking Operations",
+        "de": "Plattform Engineer Banking Operations",
         "fr": "Plattform Ingénieur Banking Operations"
       },
       "description": "Plattform Engineer Banking Operations\n80-100% ◆ Eschen oder Zürich ◆ w / m / d\nIhre Rolle:\n• Sie stellen den stabilen Betrieb und die kontinuierliche Weiterentwicklung unserer containerisierten Bankenplattform sowie angebundener Avaloq- und Drittsysteme sicher (inkl. Release- und Incident-Management)\n• Sie bauen Monitoring und Logging mit Prometheus, Grafana und dem ELK Stack aus und erhöhen damit Transparenz, Verfügbarkeit und Betriebsqualität\n• Sie entwickeln CI/CD-Pipelines, automatisierte Deployments und Integrationstests mit GitLab, Argo CD und Infrastructure as Code weiter\n• Sie beraten Entwicklung, Betrieb und Fachbereiche und bringen technische Anforderungen in eine sichere, skalierbare und betreibbare Plattformarchitektur ein\nIhre Ausbildung und Erfahrung:\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation mit mehrjähriger Berufserfahrung im Plattform- oder Applikationsbetrieb\n• Praxis mit GitLab, Argo CD, CI/CD, sowie Erfahrung mit autom. Release- und Deploymentprozessen und Verständnis für Hochverfügbarkeit, Skalierung, Performance und Security\n• Fundierte Erfahrung mit OpenShift/Kubernetes und Kafka bzw. Event-Streaming/Messaging und Rest APIs - sowie mit Monitoring und Observability. Avaloq Know How ist ein Plus\nIhre Arbeitsweise:\n• Sie übernehmen Verantwortung, zeigen Eigeninitiative und arbeiten strukturiert und lösungsorientiert, sowie qualitätsbewusst.\n• Sie bringen Ihre Position klar ein, handeln kooperativ und erzielen tragfähige Lösungen mit unterschiedlichen Anspruchsgruppen\nIhr Team:\nSie arbeiten in einem erfahrenen und engagierten Team innerhalb von IT Application Operations. Das Team agiert an zwei Standorten (Eschen bzw. Zürich) und verantwortet zentrale Plattformen und Integrationskomponenten. Wir freuen uns, mit Ihnen unsere moderne Plattform gemeinsam weiterzuentwickeln.\nIhre Perspektive bei uns:\nDie LLB bietet Ihnen die Möglichkeit, ein technisch anspruchsvolles und abwechslungsreiches Aufgabenfeld aktiv mitzugestalten. Sie verbinden operativen Plattformbetrieb mit moderner Automatisierung, Observability und leisten damit einen direkten Beitrag zu Stabilität, Sicherheit und Weiterentwicklung unserer Bankenplattform.\nDabei können Sie Ihren breiten Erfahrungsschatz einbringen und sich fachlich kontinuierlich weiterentwickeln.\nSie sind dabei?\nNachfolgend finden Sie mehr zu uns als Arbeitgeberin und Thomas Kornexl (+423 236 95 02) aus dem HR Team beantwortet gerne Ihre Fragen.\nJetzt online bewerben\nDie LLB als Arbeitgeberin\nUnsere Benefits\nIhre Ansprechpartner",
       "descriptionByLocale": {
-        "de": "Plattform Engineer Banking Operations\n80-100% ◆ Eschen oder Zürich ◆ w / m / d\nIhre Rolle:\n• Sie stellen den stabilen Betrieb und die kontinuierliche Weiterentwicklung unserer containerisierten Bankenplattform sowie angebundener Avaloq- und Drittsysteme sicher (inkl. Release- und Incident-Management)\n• Sie bauen Monitoring und Logging mit Prometheus, Grafana und dem ELK Stack aus und erhöhen damit Transparenz, Verfügbarkeit und Betriebsqualität\n• Sie entwickeln CI/CD-Pipelines, automatisierte Deployments und Integrationstests mit GitLab, Argo CD und Infrastructure as Code weiter\n• Sie beraten Entwicklung, Betrieb und Fachbereiche und bringen technische Anforderungen in eine sichere, skalierbare und betreibbare Plattformarchitektur ein\nIhre Ausbildung und Erfahrung:\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation mit mehrjähriger Berufserfahrung im Plattform- oder Applikationsbetrieb\n• Praxis mit GitLab, Argo CD, CI/CD, sowie Erfahrung mit autom. Release- und Deploymentprozessen und Verständnis für Hochverfügbarkeit, Skalierung, Performance und Security\n• Fundierte Erfahrung mit OpenShift/Kubernetes und Kafka bzw. Event-Streaming/Messaging und Rest APIs - sowie mit Monitoring und Observability. Avaloq Know How ist ein Plus\nIhre Arbeitsweise:\n• Sie übernehmen Verantwortung, zeigen Eigeninitiative und arbeiten strukturiert und lösungsorientiert, sowie qualitätsbewusst.\n• Sie bringen Ihre Position klar ein, handeln kooperativ und erzielen tragfähige Lösungen mit unterschiedlichen Anspruchsgruppen\nIhr Team:\nSie arbeiten in einem erfahrenen und engagierten Team innerhalb von IT Application Operations. Das Team agiert an zwei Standorten (Eschen bzw. Zürich) und verantwortet zentrale Plattformen und Integrationskomponenten. Wir freuen uns, mit Ihnen unsere moderne Plattform gemeinsam weiterzuentwickeln.\nIhre Perspektive bei uns:\nDie LLB bietet Ihnen die Möglichkeit, ein technisch anspruchsvolles und abwechslungsreiches Aufgabenfeld aktiv mitzugestalten. Sie verbinden operativen Plattformbetrieb mit moderner Automatisierung, Observability und leisten damit einen direkten Beitrag zu Stabilität, Sicherheit und Weiterentwicklung unserer Bankenplattform.\nDabei können Sie Ihren breiten Erfahrungsschatz einbringen und sich fachlich kontinuierlich weiterentwickeln.\nSie sind dabei?\nNachfolgend finden Sie mehr zu uns als Arbeitgeberin und Thomas Kornexl (+423 236 95 02) aus dem HR Team beantwortet gerne Ihre Fragen.\nJetzt online bewerben\nDie LLB als Arbeitgeberin\nUnsere Benefits\nIhre Ansprechpartner",
         "it": "Piattaforma Ingegnere operazioni bancarie\n80-100% ◆ Ash o Zurich ◆ m/f/d\nIl loro ruolo:\n• Garantiscono il funzionamento stabile e lo sviluppo continuo della nostra piattaforma bancaria containerizzata, nonché i sistemi connessi Avaloq e di terze parti (compresa la gestione del rilascio e degli incidenti)\n• Amplia il monitoraggio e logging con Prometheus, Grafana e ELK Stack, aumentando la trasparenza, la disponibilità e la qualità operativa\n• Sviluppare le condotte CI/CD, implementazioni automatizzate e test di integrazione con GitLab, Argo CD e Infrastructure come Codice\n• Essi consigliano lo sviluppo, le operazioni e le aree specializzate e portano i requisiti tecnici in un'architettura di piattaforma sicura, scalabile e funzionale\nLa tua istruzione e esperienza:\n• Formazione informatica completata o qualificazione comparabile con diversi anni di esperienza professionale nelle operazioni di piattaforma o applicazione\n• Praticare con GitLab, Argo CD, CI / CD, così come l'esperienza con autom. Processi di rilascio e distribuzione e comprensione di elevata disponibilità, scaling, prestazioni e sicurezza\n• Esperienza approfondita con OpenShift/Kubernetes e Kafka Event streaming/messaging API e riposo - nonché monitoraggio e osservabilità. Avaloq Sapere come è un Plus\nIl loro modo di lavorare:\n• Essi si assumono la responsabilità, mostrano la propria iniziativa e lavorano in modo strutturato e orientato alla soluzione, così come la qualità-cosciente.\n• Porti la tua posizione chiaramente, agisci in modo cooperativo e ottieni soluzioni sostenibili con diversi stakeholder\nLa tua squadra:\nLavori in un team esperto e dedicato all'interno delle operazioni di applicazioni IT. Il team opera in due sedi (Eschen e Zurigo) ed è responsabile delle piattaforme centrali e dei componenti di integrazione. Saremo lieti di sviluppare la nostra piattaforma moderna insieme a voi.\nLa tua prospettiva con noi:\nLLB vi offre l'opportunità di plasmare attivamente un campo di lavoro tecnicamente impegnativo e vario. Combinano le operazioni della piattaforma operativa con l'automazione moderna e l'osservabilità e danno quindi un contributo diretto alla stabilità, alla sicurezza e all'ulteriore sviluppo della nostra piattaforma bancaria.\nIn questo modo, puoi contribuire alla tua grande ricchezza di esperienze e svilupparti continuamente ulteriormente.\nCi sei?\nQui di seguito troverete di più su di noi come datore di lavoro e Thomas Kornexl (+423 236 95 02) dal team HR felice di rispondere alle vostre domande.\nApplicare online ora\nLLB come datore di lavoro\nI nostri vantaggi\nI tuoi contatti",
         "en": "Platform Engineer Banking Operations\n80-100% ◆ Ash or Zurich ◆ m/f/d\nTheir role:\n• They ensure the stable operation and continuous development of our containerized banking platform as well as connected Avaloq and third-party systems (including release and incident management)\n• Expand monitoring and logging with Prometheus, Grafana and the ELK Stack, increasing transparency, availability and operational quality\n• Develop CI/CD pipelines, automated deployments and integration tests with GitLab, Argo CD and Infrastructure as Code\n• They advise development, operations and specialist areas and bring technical requirements into a secure, scalable and operable platform architecture\nYour education and experience:\n• Completed computer science training or comparable qualification with several years of professional experience in platform or application operations\n• Practice with GitLab, Argo CD, CI/CD, as well as experience with autom. Release and deployment processes and understanding of high availability, scaling, performance and security\n• In-depth experience with OpenShift/Kubernetes and Kafka Event streaming/messaging and rest APIs - as well as monitoring and observability. Avaloq Know How is a Plus\nTheir way of working:\n• They take responsibility, show their own initiative and work in a structured and solution-oriented way, as well as quality-consciously.\n• You bring your position clearly, act cooperatively and achieve sustainable solutions with different stakeholders\nYour team:\nYou work in an experienced and dedicated team within IT Application Operations. The team operates at two locations (Eschen and Zurich) and is responsible for central platforms and integration components. We look forward to developing our modern platform together with you.\nYour perspective with us:\nLLB offers you the opportunity to actively shape a technically demanding and varied field of work. They combine operational platform operations with modern automation and observability and thus make a direct contribution to the stability, security and further development of our banking platform.\nIn doing so, you can contribute your broad wealth of experience and continuously develop yourself further.\nAre you there?\nBelow you will find more about us as an employer and Thomas Kornexl (+423 236 95 02) from the HR team happy to answer your questions.\nApply online now\nLLB as an employer\nOur Benefits\nYour contacts",
+        "de": "Plattform Engineer Banking Operations\n80-100% ◆ Eschen oder Zürich ◆ w / m / d\nIhre Rolle:\n• Sie stellen den stabilen Betrieb und die kontinuierliche Weiterentwicklung unserer containerisierten Bankenplattform sowie angebundener Avaloq- und Drittsysteme sicher (inkl. Release- und Incident-Management)\n• Sie bauen Monitoring und Logging mit Prometheus, Grafana und dem ELK Stack aus und erhöhen damit Transparenz, Verfügbarkeit und Betriebsqualität\n• Sie entwickeln CI/CD-Pipelines, automatisierte Deployments und Integrationstests mit GitLab, Argo CD und Infrastructure as Code weiter\n• Sie beraten Entwicklung, Betrieb und Fachbereiche und bringen technische Anforderungen in eine sichere, skalierbare und betreibbare Plattformarchitektur ein\nIhre Ausbildung und Erfahrung:\n• Abgeschlossene Informatikausbildung oder vergleichbare Qualifikation mit mehrjähriger Berufserfahrung im Plattform- oder Applikationsbetrieb\n• Praxis mit GitLab, Argo CD, CI/CD, sowie Erfahrung mit autom. Release- und Deploymentprozessen und Verständnis für Hochverfügbarkeit, Skalierung, Performance und Security\n• Fundierte Erfahrung mit OpenShift/Kubernetes und Kafka bzw. Event-Streaming/Messaging und Rest APIs - sowie mit Monitoring und Observability. Avaloq Know How ist ein Plus\nIhre Arbeitsweise:\n• Sie übernehmen Verantwortung, zeigen Eigeninitiative und arbeiten strukturiert und lösungsorientiert, sowie qualitätsbewusst.\n• Sie bringen Ihre Position klar ein, handeln kooperativ und erzielen tragfähige Lösungen mit unterschiedlichen Anspruchsgruppen\nIhr Team:\nSie arbeiten in einem erfahrenen und engagierten Team innerhalb von IT Application Operations. Das Team agiert an zwei Standorten (Eschen bzw. Zürich) und verantwortet zentrale Plattformen und Integrationskomponenten. Wir freuen uns, mit Ihnen unsere moderne Plattform gemeinsam weiterzuentwickeln.\nIhre Perspektive bei uns:\nDie LLB bietet Ihnen die Möglichkeit, ein technisch anspruchsvolles und abwechslungsreiches Aufgabenfeld aktiv mitzugestalten. Sie verbinden operativen Plattformbetrieb mit moderner Automatisierung, Observability und leisten damit einen direkten Beitrag zu Stabilität, Sicherheit und Weiterentwicklung unserer Bankenplattform.\nDabei können Sie Ihren breiten Erfahrungsschatz einbringen und sich fachlich kontinuierlich weiterentwickeln.\nSie sind dabei?\nNachfolgend finden Sie mehr zu uns als Arbeitgeberin und Thomas Kornexl (+423 236 95 02) aus dem HR Team beantwortet gerne Ihre Fragen.\nJetzt online bewerben\nDie LLB als Arbeitgeberin\nUnsere Benefits\nIhre Ansprechpartner",
         "fr": "Ingénieur plate-forme Opérations bancaires\n80-100% ◆ Ash ou Zurich ◆ h/f/d\nLeur rôle:\n• Ils assurent le fonctionnement stable et le développement continu de notre plate-forme bancaire containerized ainsi que les systèmes liés Avaloq et tiers (y compris la gestion des rejets et des incidents)\n• Développer la surveillance et l'enregistrement avec Prométheus, Grafana et l'ELK Stack, en augmentant la transparence, la disponibilité et la qualité opérationnelle\n• Élaborer des pipelines CI/CD, des déploiements automatisés et des tests d'intégration avec GitLab, Argo CD et Infrastructure comme code\n• Ils conseillent le développement, les opérations et les domaines spécialisés et intègrent les exigences techniques dans une architecture de plate-forme sûre, évolutive et opérationnelle\nVotre éducation et votre expérience:\n• Formation en informatique ou qualification comparable avec plusieurs années d'expérience professionnelle dans les opérations de plateforme ou d'application\n• Pratiquer avec GitLab, Argo CD, CI/CD, ainsi que l'expérience avec autom. Processus de lancement et de déploiement et compréhension de la grande disponibilité, de l'ampleur, des performances et de la sécurité\n• Expérience approfondie avec OpenShift/Kubernetes et Kafka Event streaming/messagerie et API de repos - ainsi que surveillance et observabilité. Avaloq sait comment est un Plus\nLeur façon de travailler:\n• Ils prennent leurs responsabilités, montrent leur propre initiative et travaillent d'une manière structurée et orientée vers la solution, ainsi que la qualité consciente.\n• Vous apportez votre position clairement, agissez en coopération et obtenez des solutions durables avec différents intervenants\nVotre équipe:\nVous travaillez dans une équipe expérimentée et dévouée au sein des Opérations d'applications informatiques. L'équipe opère sur deux sites (Eschen et Zurich) et est responsable des plateformes centrales et des composants d'intégration. Nous sommes impatients de développer notre plateforme moderne avec vous.\nVotre point de vue avec nous:\nLLB vous offre la possibilité de façonner activement un domaine de travail techniquement exigeant et varié. Ils combinent les opérations de plate-forme opérationnelle avec l'automatisation et l'observabilité modernes et contribuent ainsi directement à la stabilité, à la sécurité et au développement de notre plateforme bancaire.\nCe faisant, vous pouvez contribuer à la richesse de votre expérience et vous développer continuellement.\nVous êtes là?\nCi-dessous vous trouverez plus d'informations sur nous en tant qu'employeur et Thomas Kornexl (+423 236 95 02) de l'équipe RH heureux de répondre à vos questions.\nPostulez en ligne maintenant\nLLB en tant qu'employeur\nNos avantages\nVos contacts"
       },
       "location": "Eschen oder Zürich",
@@ -266,7 +263,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2025/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:20:03.061Z",
+      "crawledAt": "2026-11-27T21:20:39.622Z",
       "addressLocality": "Eschen oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -283,9 +280,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/2025/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-27T09:20:03.061Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -302,10 +298,8 @@
       "postalCode": "8001",
       "streetAddress": "Eschen oder Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:20:03.061Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T09:20:03.061Z",
-      "sourceIdentity": "url:https://recruitingapp-2677.umantis.com/vacancies/2025/description/1"
+      "validThrough": "2027-02-25T21:20:39.622Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

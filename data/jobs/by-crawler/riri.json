@@ -1,7 +1,7 @@
 {
   "crawlerKey": "riri",
-  "assembledAt": "2026-11-27T09:23:00.524Z",
-  "runId": "45972033471",
+  "assembledAt": "2026-11-27T21:19:19.810Z",
+  "runId": "46068949649",
   "jobs": [
     {
       "id": "riri-83c0db6110e6",
@@ -49,7 +49,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Marketing-Specialist-TI-6850/1454662233/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-27T09:22:54.950Z",
+      "crawledAt": "2026-11-27T21:19:14.719Z",
       "firstSeenAt": "2026-11-05T21:36:17.966Z",
       "salaryMin": 50500,
       "salaryMax": 89000,
@@ -67,9 +67,8 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:22:54.950Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.oerlikon.com/job/mendrisio-marketing-specialist-ti-6850/1454662233?feedid=null&utm_source=j2wrss&utm_medium=rss&utm_campaign=j2w_rss"
+      "validThrough": "2027-02-04T21:19:14.719Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-11-27T09:20:50.577Z",
+  "generatedAt": "2026-11-27T21:21:09.799Z",
   "total": 4,
   "discovered": 26,
   "parsed": 4,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 59964,
-  "avgDurationMs": 59964,
+  "durationMs": 51327,
+  "avgDurationMs": 51327,
   "durationHistory": [
-    59964
+    51327
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "recruitingapp-2677-964bf0b0da88",
       "slug": "plattform-engineer-banking-operations-recruitingapp-2677-ch",
@@ -35,7 +36,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2025/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:20:03.061Z",
+      "crawledAt": "2026-11-27T21:20:39.622Z",
       "addressLocality": "Eschen oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -51,26 +52,24 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/2025/Description/1",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T09:20:03.061Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "8001",
       "streetAddress": "Eschen oder Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:20:03.061Z",
+      "validThrough": "2027-02-25T21:20:39.622Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T09:20:03.061Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +84,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2013/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:20:03.971Z",
+      "crawledAt": "2026-11-27T21:20:40.529Z",
       "addressLocality": "Vaduz oder Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -108,7 +107,7 @@
       "postalCode": "9000",
       "streetAddress": "Vaduz oder Uznach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:20:03.971Z",
+      "validThrough": "2027-02-04T21:20:40.529Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -130,7 +129,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2022/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:20:03.668Z",
+      "crawledAt": "2026-11-27T21:20:40.227Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -153,7 +152,7 @@
       "postalCode": "8853",
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:20:03.668Z",
+      "validThrough": "2027-02-24T21:20:40.227Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -175,7 +174,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2024/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:20:03.366Z",
+      "crawledAt": "2026-11-27T21:20:39.925Z",
       "addressLocality": "Vaduz oder Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -198,7 +197,7 @@
       "postalCode": "9000",
       "streetAddress": "Vaduz oder Uznach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:20:03.366Z",
+      "validThrough": "2027-02-24T21:20:39.925Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -209,5 +208,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }
