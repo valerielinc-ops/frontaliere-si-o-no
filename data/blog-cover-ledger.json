@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1221,
+      "5": 1226,
       "6": 5062
     },
-    "publishedCovers": 7964,
+    "publishedCovers": 7969,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -220433,6 +220433,171 @@
         "provider": "openai-codex",
         "assetId": "article-sg-politica-fondiaria-attiva",
         "imageUrl": "/images/blog/article-sg-politica-fondiaria-attiva.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cyberattacco-basilea-campagna": {
+      "cover": "/images/blog/article-cyberattacco-basilea-campagna.webp",
+      "hash": "9842eaf4ccfed256ba023bb866451e6201e297594830e12e30f810c50d9b1fd1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "cyberattacco-basilea-campagna",
+          "category": "pratico",
+          "date": "2026-11-27T18:31:36.508Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cyberattacco-basilea-campagna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cyberattacco-basilea-campagna",
+        "imageUrl": "/images/blog/article-cyberattacco-basilea-campagna.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ehnv-riorganizzazione-chiusura-chamblon": {
+      "cover": "/images/blog/article-ehnv-riorganizzazione-chiusura-chamblon.webp",
+      "hash": "382a2567d4866a5386b9cb432b3115c9bd33a7f0c23349f4e43c5811f0c0a095",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "ehnv-riorganizzazione-chiusura-chamblon",
+          "category": "novita",
+          "date": "2026-11-27T17:36:22.846Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ehnv-riorganizzazione-chiusura-chamblon.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ehnv-riorganizzazione-chiusura-chamblon",
+        "imageUrl": "/images/blog/article-ehnv-riorganizzazione-chiusura-chamblon.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-nuovo-sistema-stipendi-insegnanti": {
+      "cover": "/images/blog/article-nuovo-sistema-stipendi-insegnanti.webp",
+      "hash": "dc089b672dc5042ad65c16d96c201f1d7cc79f19b005d7d26141096d91949a21",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "nuovo-sistema-stipendi-insegnanti",
+          "category": "novita",
+          "date": "2026-11-27T16:26:04.350Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-nuovo-sistema-stipendi-insegnanti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-nuovo-sistema-stipendi-insegnanti",
+        "imageUrl": "/images/blog/article-nuovo-sistema-stipendi-insegnanti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-risposta-petizione-fisioterapia-berna": {
+      "cover": "/images/blog/article-risposta-petizione-fisioterapia-berna.webp",
+      "hash": "3d427836002bd5f1e05c7f75085d45399f2346aa3a11557ef743efca515dd2ef",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "risposta-petizione-fisioterapia-berna",
+          "category": "novita",
+          "date": "2026-11-27T18:50:20.097Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-risposta-petizione-fisioterapia-berna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-risposta-petizione-fisioterapia-berna",
+        "imageUrl": "/images/blog/article-risposta-petizione-fisioterapia-berna.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-svitto-microsoft-365-amministrazione": {
+      "cover": "/images/blog/article-svitto-microsoft-365-amministrazione.webp",
+      "hash": "0bb6fc760c0e63530dc6673212cc7350848e72a2ec43c1efd542905c6dfc1c81",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sz",
+          "id": "svitto-microsoft-365-amministrazione",
+          "category": "novita",
+          "date": "2026-11-27T16:18:36.750Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-svitto-microsoft-365-amministrazione.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-svitto-microsoft-365-amministrazione",
+        "imageUrl": "/images/blog/article-svitto-microsoft-365-amministrazione.webp",
         "evidence": "generated-engine-record"
       }
     }
