@@ -691,6 +691,21 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
       input: 'Vedi x](a](/rel/{ID}/y) (titolo %COMPANY% e basta.',
       expected: 'Vedi x](a](/rel/{ID}/y) (titolo e basta.',
     },
+    {
+      name: 'relative destination with nested parentheses continuing to end of line',
+      input: 'Vedi [offerta {COMPANY}](/cta_(assistita_(online))/apply%COMPANY%',
+      expected: 'Vedi [offerta](/cta_(assistita_(online))/apply%COMPANY%',
+    },
+    {
+      name: 'relative destination without nested parentheses still ends at line end',
+      input: '[COMPANY](/candidati/apply%COMPANY%',
+      expected: '[](/candidati/apply%COMPANY%',
+    },
+    {
+      name: 'an unlabelled near-match stays open to the placeholder scrubber',
+      input: 'x](/candidati/apply%COMPANY%',
+      expected: 'x](/candidati/apply',
+    },
   ] as const;
 
   it.each(OPAQUE_SPAN_CASES)('preserves the opaque destination: $name', ({ input, expected }) => {
@@ -1114,6 +1129,21 @@ describe('translation glossary — a placeholder used as link text', () => {
     for (const input of ['Vedi [x](https://h/a_(b)/tail%COMPANY% fine', 'Vedi [x](https://h/a_(b)/tail%COMPANY%']) {
       expect(stripPlaceholderTokens(input)).toBe(input);
     }
+  });
+
+  it('keeps the label and destination opaque when a Markdown title or outer delimiter is incomplete', () => {
+    for (const input of [
+      '[go](/citta%COMPANY% "titolo)',
+      '[%COMPANY%](/%COMPANY% "titolo"',
+    ]) {
+      expect(stripPlaceholderTokens(input)).toBe(input);
+    }
+  });
+
+  it('keeps an over-cap unclosed Markdown destination opaque through its boundary', () => {
+    const destination = `/${'x'.repeat(512)}{COMPANY}`;
+    const input = `[%COMPANY%](${destination} dopo %COMPANY%`;
+    expect(stripPlaceholderTokens(input)).toBe(`[](${destination} dopo`);
   });
 
   it('returns a label no placeholder touches identical, to the byte', () => {

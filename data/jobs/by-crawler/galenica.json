@@ -749,7 +749,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-67763a8c6c70",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -866,7 +865,7 @@
       "sourceLang": "de",
       "slug": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
       "slugByLocale": {
-        "it": "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf",
+        "it": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
         "en": "project-manager-project-manager-logistics-supply-chain-m-f-d-galenica-galenica-burgdorf",
         "de": "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
         "fr": "chef-de-projet-cheffe-de-projet-logistique-chaine-d-approvisionnement-h-f-d-galenica-galenica-burgdorf"
@@ -882,12 +881,14 @@
       "id": "galenica-70edf8af43c1",
       "previousSlugs": [
         "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+        "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+          "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
         ],
         "en": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf"
@@ -7286,7 +7287,7 @@
       "sourceLang": "fr",
       "slug": "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon",
       "slugByLocale": {
-        "it": "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon",
+        "it": "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon",
         "en": "assistant-pharmacist-assistant-pharmacist-m-f-d-galenica-galenica-nyon",
         "de": "assistenzapotheker-assistenzapotheker-m-w-d-galenica-galenica-nyon",
         "fr": "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon"
@@ -7303,13 +7304,15 @@
       "previousSlugs": [
         "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon",
         "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon",
-        "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon-nwjltz"
+        "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon-nwjltz",
+        "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon",
           "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon",
-          "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon-nwjltz"
+          "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon-nwjltz",
+          "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon"
         ],
         "en": [
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon"

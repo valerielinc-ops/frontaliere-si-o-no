@@ -37,8 +37,12 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { mergeUrlKey } from './lib/job-url-key.mjs';
 import {
   collapseDuplicateRouteEntries,
+  createSameIdentityArchiveIndex,
+  localeRouteKeys,
   mergeExpiredRouteEvidence,
   mergeSourceIdentityHistory,
   normalizeExpiredEntryTitles,
@@ -52,8 +56,8 @@ import {
 } from './lib/expired-slice-store.mjs';
 import { historySinceArgs } from './ci/prefetch-history-blobs.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
-import { buildStableJobIdentity } from './lib/job-identity.mjs';
-import { createFirstSeenMetadataIndex } from './lib/first-seen-history.mjs';
+import { archiveRecordSourceIdentities, buildStableJobIdentity } from './lib/job-identity.mjs';
+import { ambiguousJobIdentities, createFirstSeenMetadataIndex } from './lib/first-seen-history.mjs';
 import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -72,9 +76,9 @@ const envKeys = String(process.env.CRAWLER_KEYS || '')
   .filter(Boolean);
 const onlyKeys = new Set([...argv, ...envKeys]);
 
-function git(args, { quiet = false } = {}) {
+function git(args, { quiet = false, cwd = ROOT } = {}) {
   return execFileSync('git', args, {
-    cwd: ROOT,
+    cwd,
     encoding: 'utf-8',
     maxBuffer: 256 * 1024 * 1024,
     ...(quiet ? { stdio: ['ignore', 'pipe', 'ignore'] } : {}),
@@ -176,9 +180,9 @@ function listSliceFiles() {
     .filter((f) => (onlyKeys.size === 0 ? true : onlyKeys.has(path.basename(f, '.json'))));
 }
 
-function listHistoryCommits(relPath) {
+function listHistoryCommits(relPath, cwd) {
   try {
-    return git(['log', '--all', '--follow', ...historySinceArgs(), '--format=%ct %H', '--', relPath])
+    return git(['log', '--all', '--follow', ...historySinceArgs(), '--format=%ct %H', '--', relPath], { cwd })
       .trim()
       .split('\n')
       .filter(Boolean)
@@ -193,18 +197,114 @@ function listHistoryCommits(relPath) {
   }
 }
 
-function processSlice(sliceFile) {
+/**
+ * Whether a `url:` source identity carries a posting-specific token in its last
+ * path segment or its query. A token only in an ancestor segment names a board
+ * or a tenant. Identities that are not URLs are declared per posting.
+ */
+function namesOnePosting(identity) {
+  if (!identity.startsWith('url:')) return true;
+  const url = identity.slice(4).toLowerCase().replace(/\/+$/, '');
+  const key = mergeUrlKey(url);
+  // `url:` = no token; `req:<host>:num:…` = the vendor rules' tenant fallback.
+  if (key.startsWith('url:') || /:(?:num|hex|url):/.test(key)) return false;
+  if (key.startsWith('req:')) return true;
+  const token = key.slice(key.indexOf(':') + 1);
+  const [beforeQuery, ...query] = url.split('#')[0].split('?');
+  return `${beforeQuery.split('/').pop()}?${query.join('?')}`.includes(token);
+}
+
+/**
+ * Collect the identities that name a page, not a posting (a listing URL). Such
+ * an identity never proves on its own that a recovered payload is already
+ * archived. Three signals:
+ *   - two postings under it in one version of the slice;
+ *   - two `#fragment`s under it over history;
+ *   - for a URL without a posting token, sightings anywhere in history or in the
+ *     archive that no chain of shared ids or slugs connects: successive
+ *     postings of a one-vacancy listing are never open in the same version.
+ * A URL that names one posting needs no link, so a rename that also changes the
+ * id is still recognised.
+ */
+function createListingIdentityCollector() {
+  const ambiguous = new Set();
+  const fragmentByIdentity = new Map();
+  const groupsByIdentity = new Map(); // identity -> disjoint Set<id/slug key>[]
+  const seenSightings = new Set();
+
+  const addSighting = (identity, record) => {
+    if (!identity || namesOnePosting(identity)) return;
+    const slugs = [
+      record.slug,
+      ...Object.values(record.slugByLocale || {}),
+      ...(record.previousSlugs || []),
+      ...Object.values(record.previousSlugsByLocale || {}).flat(),
+    ].filter(Boolean);
+    const keys = [
+      ...(record.id ? [`id:${record.id}`] : []),
+      ...slugs.map((slug) => `slug:${slug}`),
+    ];
+    if (keys.length === 0) return;
+    // Most versions repeat the previous one.
+    const signature = JSON.stringify([identity, keys]);
+    if (seenSightings.has(signature)) return;
+    seenSightings.add(signature);
+    const merged = new Set(keys);
+    const apart = [];
+    for (const group of groupsByIdentity.get(identity) || []) {
+      if (keys.some((key) => group.has(key))) for (const key of group) merged.add(key);
+      else apart.push(group);
+    }
+    groupsByIdentity.set(identity, [...apart, merged]);
+  };
+
+  return {
+    isAmbiguous: (identity) => ambiguous.has(identity)
+      || (groupsByIdentity.get(identity)?.length || 0) > 1,
+    addArchiveRow(row) {
+      for (const identity of archiveRecordSourceIdentities(row)) {
+        addSighting(identity, row || {});
+      }
+    },
+    addVersion(jobs) {
+      for (const identity of ambiguousJobIdentities(jobs)) ambiguous.add(identity);
+      for (const job of jobs) {
+        const url = String(job?.url || '');
+        const hashAt = url.indexOf('#');
+        const fragment = hashAt < 0 ? null : url.slice(hashAt);
+        for (const identity of new Set([job?.sourceIdentity, buildStableJobIdentity(job || {})])) {
+          if (!identity) continue;
+          addSighting(identity, job || {});
+          if (fragment === null) continue;
+          const seen = fragmentByIdentity.get(identity);
+          if (seen === undefined) fragmentByIdentity.set(identity, fragment);
+          else if (seen !== fragment) ambiguous.add(identity);
+        }
+      }
+    },
+  };
+}
+
+/**
+ * Backfill one crawler's expired archive. The directories are parameters so a
+ * test can run the real history walk inside a throwaway git repository.
+ */
+export function processSlice(sliceFile, {
+  rootDir = ROOT,
+  byCrawlerDir = path.join(rootDir, 'data', 'jobs', 'by-crawler'),
+  expiredDir = path.join(rootDir, 'data', 'jobs', 'expired', 'by-crawler'),
+} = {}) {
   const crawlerKey = path.basename(sliceFile, '.json');
   const currentRel = `data/jobs/by-crawler/${sliceFile}`;
   // The archive is the monolith plus its `<key>.shard-NNN.json` files
   // (scripts/lib/expired-slice-store.mjs): walk the history of each of them.
   const expiredRels = [
     `data/jobs/expired/by-crawler/${sliceFile}`,
-    ...listExpiredSliceFiles(crawlerKey, { dir: EXPIRED_DIR })
+    ...listExpiredSliceFiles(crawlerKey, { dir: expiredDir })
       .filter((file) => file.index > 0)
       .map((file) => `data/jobs/expired/by-crawler/${file.name}`),
   ];
-  const currentPath = path.join(BY_CRAWLER_DIR, sliceFile);
+  const currentPath = path.join(byCrawlerDir, sliceFile);
   if (!fs.existsSync(currentPath)) return null;
 
   const currentBlob = fs.readFileSync(currentPath, 'utf-8');
@@ -225,8 +325,8 @@ function processSlice(sliceFile) {
   // entry even though its source posting remains recoverable in Git.
   const commitBySha = new Map();
   for (const commit of [
-    ...listHistoryCommits(currentRel),
-    ...expiredRels.flatMap((expiredRel) => listHistoryCommits(expiredRel)),
+    ...listHistoryCommits(currentRel, rootDir),
+    ...expiredRels.flatMap((expiredRel) => listHistoryCommits(expiredRel, rootDir)),
   ]) {
     const prior = commitBySha.get(commit.sha);
     if (!prior || commit.timestamp > prior.timestamp) commitBySha.set(commit.sha, commit);
@@ -247,15 +347,21 @@ function processSlice(sliceFile) {
   const heldLostIds = new Set();
   const historicalExpiredBySlug = new Map();
   const historicalIndex = createFirstSeenMetadataIndex();
+  const listingIdentities = createListingIdentityCollector();
+  listingIdentities.addVersion(currentJobs);
+  let previousActiveBlob = null;
   for (const sha of sliceCommits) {
     let blob = null;
     try {
-      blob = git(['show', `${sha}:${currentRel}`], { quiet: true });
+      blob = git(['show', `${sha}:${currentRel}`], { quiet: true, cwd: rootDir });
     } catch {
       // File didn't exist at that commit (rename predecessor) — skip
     }
     if (blob != null) {
       const jobs = readJobsFromSlice(blob);
+      // Most commits touch only the archive: do not re-scan an unchanged slice.
+      if (blob !== previousActiveBlob) listingIdentities.addVersion(jobs);
+      previousActiveBlob = blob;
       for (const job of jobs) {
         historicalIndex.add(job);
         if (!job?.id || !job?.slug) continue;
@@ -273,7 +379,7 @@ function processSlice(sliceFile) {
     for (const expiredRel of expiredRels) {
       let expiredBlob = null;
       try {
-        expiredBlob = git(['show', `${sha}:${expiredRel}`], { quiet: true });
+        expiredBlob = git(['show', `${sha}:${expiredRel}`], { quiet: true, cwd: rootDir });
       } catch {
         // The per-crawler archive (or this shard) did not exist at that commit.
       }
@@ -296,7 +402,7 @@ function processSlice(sliceFile) {
   // PR #703 or earlier cleanup-jobs runs that we shouldn't downgrade).
   // Monolith + shards through the store. An unreadable file fails the run:
   // starting fresh would rewrite it with only the recovered rows.
-  const existingShards = readExpiredSliceShards(crawlerKey, { dir: EXPIRED_DIR });
+  const existingShards = readExpiredSliceShards(crawlerKey, { dir: expiredDir });
   const existing = existingShards.flatMap((shard) => shard.rows);
 
   const bySlug = new Map();
@@ -304,37 +410,83 @@ function processSlice(sliceFile) {
     if (ej?.slug) bySlug.set(ej.slug, ej);
   }
 
-  let recoveredFromHistory = 0;
-  for (const entry of historicalExpiredBySlug.values()) {
+  // Every sighting is in before the first identity lookup. Archive rows count
+  // too: a bounded history may know a departed posting only from them.
+  for (const row of [...existing, ...historicalExpiredBySlug.values()]) {
+    listingIdentities.addArchiveRow(row);
+  }
+
+  // What the archive serves before this run: none of it may disappear below.
+  const routesServedBefore = existing.flatMap((entry) => [...localeRouteKeys(entry || {})]);
+  const indexArchive = () => createSameIdentityArchiveIndex([...bySlug.values()], {
+    activeJobs: currentJobs,
+    isAmbiguousIdentity: listingIdentities.isAmbiguous,
+  });
+
+  /**
+   * Fold one recovered payload (historical archive row or lost active job) into
+   * the archive. Both merge directions carry the loser's routes: the newer
+   * payload wins the content, never the right to forget a served URL. Work done
+   * on an already-archived posting is counted in `recoveredFromHistory`.
+   *
+   * @returns {boolean} whether `entry` became a new record
+   */
+  const recover = (entry, identityIndex) => {
     const previous = bySlug.get(entry.slug);
+    // The slug alone is not the posting. Unless its holder declares this source
+    // posting, look for the record that does (a rename or a collision alias).
+    if (!previous || !archiveRecordSourceIdentities(previous).has(entry.sourceIdentity)) {
+      const absorbed = identityIndex.absorb(entry);
+      if (absorbed) {
+        if (absorbed.changed) recoveredFromHistory++;
+        return false;
+      }
+    }
     if (!previous) {
       bySlug.set(entry.slug, entry);
-      recoveredFromHistory++;
-    } else if (compareExpiredAt(previous.expiredAt, entry.expiredAt) < 0) {
+      identityIndex.add(entry);
+      return true;
+    }
+    const source = `backfill-expired-from-history/${sliceFile}`;
+    if (compareExpiredAt(previous.expiredAt, entry.expiredAt) < 0) {
       let routeCapRefused = false;
       mergeExpiredRouteEvidence(
         entry,
         previous,
-        `backfill-expired-from-history/${sliceFile}`,
+        source,
         { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
       );
-      if (routeCapRefused) {
-        // The existing record remains the proven owner of its older routes;
-        // replacing it would turn a cap refusal into an archive 404.
-        continue;
-      }
+      // The existing record remains the proven owner of its older routes;
+      // replacing it would turn a cap refusal into an archive 404.
+      if (routeCapRefused) return false;
+      identityIndex.remove(previous);
       mergeSourceIdentityHistory(entry, previous);
       bySlug.set(entry.slug, entry);
+      identityIndex.add(entry);
       recoveredFromHistory++;
-    } else {
-      const routeEvidenceChanged = mergeExpiredRouteEvidence(
-        previous,
-        entry,
-        `backfill-expired-from-history/${sliceFile}`,
-      );
+      return false;
+    }
+    identityIndex.update(previous, () => {
+      const routeEvidenceChanged = mergeExpiredRouteEvidence(previous, entry, source);
       const sourceIdentityChanged = mergeSourceIdentityHistory(previous, entry);
       if (routeEvidenceChanged || sourceIdentityChanged) recoveredFromHistory++;
-    }
+    });
+    return false;
+  };
+
+  // Newest first: of several recovered payloads of one posting, the latest
+  // becomes the record and the older ones only add what it does not serve.
+  const newestFirst = (a, b) => compareExpiredAt(b.expiredAt, a.expiredAt);
+  let recoveredFromHistory = 0;
+  const historicalIdentityIndex = indexArchive();
+  // Rows whose slug the archive still holds go first, so that their routes count
+  // as served when the vanished slugs are examined.
+  const historicalEntries = [...historicalExpiredBySlug.values()].sort(newestFirst);
+  for (const entry of [
+    ...historicalEntries.filter((candidate) => bySlug.has(candidate.slug)),
+    ...historicalEntries.filter((candidate) => !bySlug.has(candidate.slug)),
+  ]) {
+    if (recover(entry, historicalIdentityIndex)) recoveredFromHistory++;
   }
 
   // Older archives predate sourceIdentity/firstSeenAt. Enrich them from the
@@ -352,20 +504,10 @@ function processSlice(sliceFile) {
   }
 
   let added = 0;
-  for (const job of lostById.values()) {
-    const entry = buildExpiredEntry(job);
-    const prev = bySlug.get(entry.slug);
-    if (!prev) {
-      bySlug.set(entry.slug, entry);
-      added++;
-    } else if (compareExpiredAt(prev.expiredAt, entry.expiredAt) < 0) {
-      // Existing entry is older — refresh with newer historical data (rare
-      // edge case: the same slug came/went multiple times).
-      mergeSourceIdentityHistory(entry, prev);
-      bySlug.set(entry.slug, entry);
-    } else {
-      mergeSourceIdentityHistory(prev, entry);
-    }
+  // Indexed after the enrichment, which gives legacy rows their sourceIdentity.
+  const lostIdentityIndex = indexArchive();
+  for (const entry of [...lostById.values()].map(buildExpiredEntry).sort(newestFirst)) {
+    if (recover(entry, lostIdentityIndex)) added++;
   }
 
   // Repair AFTER the historical merge, never before: stamping the run
@@ -405,9 +547,30 @@ function processSlice(sliceFile) {
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
     { source: 'backfill-expired-from-history' },
   ).entries;
+  // Last boundary before the write: whatever step caused it, a route the
+  // archive served on entry and nobody serves now would become a 404. Keep the
+  // archive on disk untouched and say which routes were at stake.
+  const servedAfter = new Set([...archived, ...currentJobs].flatMap((entry) => [...localeRouteKeys(entry)]));
+  const droppedRoutes = [...new Set(routesServedBefore)].filter((routeKey) => !servedAfter.has(routeKey));
+  if (droppedRoutes.length > 0) {
+    console.error(
+      `::error::backfill-expired-from-history/${sliceFile}: refusing to write the archive, `
+      + `${droppedRoutes.length} served route(s) would be lost (${droppedRoutes.slice(0, 10).join(', ')})`,
+    );
+    return {
+      crawlerKey,
+      scannedCommits: sliceCommits.length,
+      lost: lostById.size,
+      added: 0,
+      recovered: 0,
+      enriched: 0,
+      activeEnriched: activeMetadata.enrichedEntries,
+      refusedRoutes: droppedRoutes.length,
+    };
+  }
   if (!DRY_RUN) {
     // Shard placement + the 90 MB ceiling on every file.
-    writeExpiredSliceRows(crawlerKey, archived, { dir: EXPIRED_DIR, existing: existingShards });
+    writeExpiredSliceRows(crawlerKey, archived, { dir: expiredDir, existing: existingShards });
   }
   return {
     crawlerKey,
@@ -443,6 +606,7 @@ function main() {
     activeEnrichedTotal: 0,
     lostTotal: 0,
     scannedTotal: 0,
+    refusedArchives: 0,
   };
   for (const file of files) {
     const result = processSlice(file);
@@ -451,6 +615,7 @@ function main() {
     summary.scannedTotal += result.scannedCommits;
     if (result.lost > 0) summary.withDrops++;
     summary.lostTotal += result.lost;
+    if (result.refusedRoutes > 0) summary.refusedArchives++;
     summary.addedTotal += result.added;
     summary.recoveredTotal += result.recovered;
     summary.enrichedTotal += result.enriched;
@@ -469,6 +634,8 @@ function main() {
   console.log(`   Archives enriched: ${summary.enrichedTotal} entries across ${summary.withMetadata} crawlers`);
   console.log(`   Active slices enriched: ${summary.activeEnrichedTotal} jobs`);
   console.log(`   Total commits scanned: ${summary.scannedTotal}`);
+  console.log(`   Archives left untouched (route loss refused): ${summary.refusedArchives}`);
 }
 
-main();
+// Importing the module (tests) must not start a repository-wide backfill.
+if (isInvokedDirectly(import.meta.url)) main();

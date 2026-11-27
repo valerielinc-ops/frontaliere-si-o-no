@@ -904,25 +904,30 @@ function scanAngleDestination(context, start) {
 }
 
 /**
- * Scan a Markdown link/image beginning at its `](` delimiter; index after the
- * closing `)`, or -1.
+ * Scan a Markdown link/image beginning at its `](` delimiter; returns the end
+ * and whether a matching label may be processed, or null. When the caller has
+ * already confirmed a matching label and the outer delimiter is incomplete,
+ * the safe destination boundary can still be returned. An incomplete title
+ * protects the whole prefix instead: its label is not yet a confirmed link
+ * label.
  *
  * A final matched `)` can be the outer link close even when the destination
  * contains a lone `(`; this keeps the previous permissive behavior for URL
  * paths such as `a(b/slug`.
  */
-function scanMarkdownLink(context, start) {
-  if (lastOnLine(context, ')') < start + 2) return -1;
+function scanMarkdownLink(context, start, allowUnclosedDestination = false) {
+  if (!allowUnclosedDestination && lastOnLine(context, ')') < start + 2) return null;
   const { text, lineEnd } = context;
   let cursor = skipHorizontalWhitespace(text, start + 2);
-  if (cursor >= lineEnd) return -1;
+  if (cursor >= lineEnd) return null;
   const destinationStart = cursor;
+  let destinationEnd = -1;
   let depth = 0;
   let lastClose = -1;
 
   if (text[cursor] === '<') {
-    const destinationEnd = scanAngleDestination(context, cursor);
-    if (destinationEnd < 0) return -1;
+    destinationEnd = scanAngleDestination(context, cursor);
+    if (destinationEnd < 0) return null;
     cursor = destinationEnd;
   } else {
     const limit = Math.min(lineEnd, cursor + MAX_LINK_PART_LENGTH);
@@ -941,16 +946,22 @@ function scanMarkdownLink(context, start) {
         continue;
       }
       if (character === ')') {
-        if (depth === 0) return cursor + 1;
+        if (depth === 0) return { end: cursor + 1, stripLabel: true };
         depth -= 1;
         lastClose = cursor;
         cursor += 1;
         continue;
       }
-      if (character === '<') return -1;
+      if (character === '<') return null;
       cursor += 1;
     }
-    if (cursor >= limit && limit < lineEnd) return -1;
+    if (cursor >= limit && limit < lineEnd) {
+      if (!allowUnclosedDestination) return null;
+      // The cap bounds delimiter parsing, but once a matching label is known,
+      // keep the destination opaque through its next whitespace boundary.
+      while (cursor < lineEnd && !isHorizontalWhitespace(text[cursor])) cursor += 1;
+    }
+    destinationEnd = cursor;
   }
 
   cursor = skipHorizontalWhitespace(text, cursor);
@@ -960,11 +971,18 @@ function scanMarkdownLink(context, start) {
       const titleEnd = character === '('
         ? scanParenthesizedSpan(context, cursor)
         : scanQuotedSpan(context, cursor, character);
-      if (titleEnd < 0) return -1;
+      if (titleEnd < 0) {
+        return allowUnclosedDestination
+          ? { end: destinationEnd, stripLabel: false }
+          : null;
+      }
       cursor = skipHorizontalWhitespace(text, titleEnd);
-      return cursor < lineEnd && text[cursor] === ')' ? cursor + 1 : -1;
+      if (cursor < lineEnd && text[cursor] === ')') return { end: cursor + 1, stripLabel: true };
+      return allowUnclosedDestination
+        ? { end: destinationEnd, stripLabel: false }
+        : null;
     }
-    if (character === ')') return cursor + 1;
+    if (character === ')') return { end: cursor + 1, stripLabel: true };
   }
 
   // Keep the old permissive handling of a lone `(` in a Markdown destination:
@@ -976,10 +994,26 @@ function scanMarkdownLink(context, start) {
       // That `)` was balanced inside the destination: when a URL of the
       // destination runs past it (`](https://h/a_(b)/c`), the span must not
       // end before the URL does, or its tail would be left to the strip.
-      return Math.max(lastClose + 1, lastOpaqueUrlEnd(text, destinationStart, lastClose + 1));
+      return {
+        end: Math.max(
+          lastClose + 1,
+          destinationEnd,
+          lastOpaqueUrlEnd(text, destinationStart, lastClose + 1),
+        ),
+        stripLabel: true,
+      };
     }
   }
-  return -1;
+
+  // A destination is still an opaque Markdown construct when its outer link
+  // delimiter or title is incomplete. Returning only the destination keeps
+  // the valid label boundary protected without swallowing prose after its
+  // first blank. This also covers relative destinations whose bytes do not
+  // qualify for the bare-URL scanner, including paths with nested parentheses
+  // that continue to the end of the line.
+  return destinationEnd > destinationStart
+    ? { end: destinationEnd, stripLabel: true }
+    : null;
 }
 
 /**
@@ -1251,17 +1285,21 @@ function findOpaqueSpans(text) {
     }
 
     if (character === ']' && text[index + 1] === '(') {
-      const end = scanMarkdownLink(context, index);
-      if (end > 0) {
+      const open = matchingOpenBracket(text, index);
+      const link = scanMarkdownLink(context, index, open >= 0);
+      if (link && link.end > 0) {
+        const { end } = link;
         // The whole link is one opaque span and its label is stripped as a
-        // text of its own (see `stripLinkLabel`).
-        const open = matchingOpenBracket(text, index);
+        // text of its own when the link syntax confirms that label. An
+        // incomplete title keeps the entire known prefix opaque.
         let outside = spans.length;
         while (open >= 0 && outside > 0 && spans[outside - 1].start > open) outside -= 1;
         if (open >= 0 && (outside === 0 || spans[outside - 1].end <= open)) {
           // What was found inside the label so far is handed over to its pass.
           spans.length = outside;
-          spans.push({ start: open, end, labelEnd: index });
+          spans.push(link.stripLabel
+            ? { start: open, end, labelEnd: index }
+            : { start: open, end });
         } else {
           // The opening bracket is out of reach, or inside a span already
           // protected: the label stays in the outer pass with everything
