@@ -721,7 +721,7 @@ describe('--head result cache lock', () => {
 describe('artefatti generati: non sono né sorgente di token né candidati', () => {
   const SCRIPT = resolve(import.meta.dirname, '..', 'scripts/ci/check-sibling-patterns.mjs');
   const SLUG = 'acme-widgets-corp';
-  const GEN_TOKEN = 'GENERATOR_ONLY_CONSTANT';
+  const EXPR = 'const result = { description: copy.description };';
   let repo = '';
 
   const run = (args: string[] = []) => JSON.parse(execFileSync('node', [SCRIPT, '--json', ...args], {
@@ -741,18 +741,18 @@ describe('artefatti generati: non sono né sorgente di token né candidati', () 
     git('init', '-q', '-b', 'main');
     git('config', 'user.email', 'test@example.com');
     git('config', 'user.name', 'test');
-    write('scripts/generate-crawler-group-workflows.mjs', 'export const base = 1;\n');
+    write('scripts/generate-crawler-group-workflows.mjs', `${EXPR}\n`);
     write('.github/workflows/crawler-group-01-logic.yml', `run: echo '${SLUG}' # old\n`);
-    write('.github/workflows/crawler-group-02.yml', `run: echo '${SLUG}'\nconst ${GEN_TOKEN} = 1;\n`);
-    write('.github/corpus-workflows/crawler-group-03.yml', `run: echo '${SLUG}'\nconst ${GEN_TOKEN} = 1;\n`);
-    write('scripts/real-sibling.mjs', `export const slug = '${SLUG}';\nexport const ${GEN_TOKEN} = 1;\n`);
+    write('.github/workflows/crawler-group-02.yml', `run: echo '${SLUG}'\n${EXPR}\n`);
+    write('.github/corpus-workflows/crawler-group-03.yml', `run: echo '${SLUG}'\n${EXPR}\n`);
+    write('scripts/real-sibling.mjs', `export const slug = '${SLUG}';\n${EXPR}\n`);
     git('add', '-A');
     git('commit', '-q', '-m', 'base');
     git('update-ref', 'refs/remotes/origin/main', 'HEAD');
     git('checkout', '-q', '-b', 'feature');
     write('.github/workflows/crawler-group-01-logic.yml', `run: echo '${SLUG}' # new\n`);
     if (featureTouchesGenerator) {
-      write('scripts/generate-crawler-group-workflows.mjs', `export const base = 1;\nexport const ${GEN_TOKEN} = 2;\n`);
+      write('scripts/generate-crawler-group-workflows.mjs', 'const result = { description: sanitize(copy.description) };\n');
     }
     git('add', '-A');
     git('commit', '-q', '-m', 'feature');
