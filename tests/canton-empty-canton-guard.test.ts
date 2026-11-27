@@ -1,3 +1,4 @@
+// probe: verifica restore dello snapshot test (PR draft, non mergiare)
 /**
  * Canton empty-fill regression guard.
  *
