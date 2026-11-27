@@ -46,7 +46,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/badmeisterin-saison-100-de-j1738.html",
-    "firstSeenAt": "2026-11-09T09:27:11.909Z"
+    "firstSeenAt": "2026-11-09T09:27:11.909Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "badmeister-in-saison-100-stadt-chur-1738": "GR"
+      },
+      "en": {
+        "badmeister-in-saison-100-stadt-chur-1738": "GR"
+      }
+    }
   },
   {
     "id": "stadt-chur-968df692c179",
@@ -83,7 +91,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/controllerin-80-100-de-j1731.html",
-    "firstSeenAt": "2026-10-16T21:27:21.748Z"
+    "firstSeenAt": "2026-10-16T21:27:21.748Z",
+    "canton": "GR"
   },
   {
     "id": "stadt-chur-e98a7f9a464c",
@@ -134,7 +143,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/immobilienbewirtschafterin-100-de-j1737.html",
-    "firstSeenAt": "2026-11-06T09:23:11.417Z"
+    "firstSeenAt": "2026-11-06T09:23:11.417Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "immobilienbewirtschafter-in-100-stadt-chur-1737": "GR"
+      },
+      "en": {
+        "immobilienbewirtschafter-in-100-stadt-chur-1737": "GR"
+      },
+      "fr": {
+        "immobilienbewirtschafter-in-100-stadt-chur-1737": "GR"
+      }
+    }
   },
   {
     "id": "stadt-chur-e35a314d1759",
@@ -185,7 +206,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/lehrperson-heilpaedagogik-shp-schuleinheit-herold-de-j1733.html",
-    "firstSeenAt": "2026-10-28T20:16:10.495Z"
+    "firstSeenAt": "2026-10-28T20:16:10.495Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrperson-heilpadagogik-shp-schuleinheit-herold-stadt-chur-1733": "GR"
+      },
+      "en": {
+        "lehrperson-heilpadagogik-shp-schuleinheit-herold-stadt-chur-1733": "GR"
+      },
+      "fr": {
+        "lehrperson-heilpadagogik-shp-schuleinheit-herold-stadt-chur-1733": "GR"
+      }
+    }
   },
   {
     "id": "stadt-chur-e7e6484f80c9",
@@ -236,7 +269,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/praktikantin-kinderbetreuung-80-de-j1739.html",
-    "firstSeenAt": "2026-11-09T21:21:45.627Z"
+    "firstSeenAt": "2026-11-09T21:21:45.627Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-kinderbetreuung-80-stadt-chur-1739": "GR"
+      },
+      "en": {
+        "praktikant-in-kinderbetreuung-80-stadt-chur-1739": "GR"
+      },
+      "fr": {
+        "praktikant-in-kinderbetreuung-80-stadt-chur-1739": "GR"
+      }
+    }
   },
   {
     "id": "stadt-chur-79b03fb839af",
@@ -289,7 +334,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/ict-system-administratorin-fokus-modern-workplace-80-100-de-j1736.html",
-    "firstSeenAt": "2026-10-28T20:18:24.442Z"
+    "firstSeenAt": "2026-10-28T20:18:24.442Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-system-administrator-in-fokus-modern-workplace-80-100-stadt-chur-chur": "GR",
+        "ict-system-administrator-in-fokus-modern-workplace-80-100-stadt-chur-1736": "GR"
+      },
+      "en": {
+        "ict-system-administrator-in-fokus-modern-workplace-80-100-stadt-chur-1736": "GR"
+      },
+      "fr": {
+        "ict-system-administrator-in-fokus-modern-workplace-80-100-stadt-chur-1736": "GR"
+      }
+    }
   },
   {
     "id": "stadt-chur-6f93a04b7839",
@@ -342,7 +400,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/grundbuchverwalter-stellvertreterin-und-sachbearbeiterin-g-de-j1735.html",
-    "firstSeenAt": "2026-10-28T09:31:04.085Z"
+    "firstSeenAt": "2026-10-28T09:31:04.085Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "grundbuchverwalter-stellvertreter-in-e-sachbearbeiter-in-grundbuch-stadt-chur": "GR",
+        "grundbuchverwalter-stellvertreter-in-und-sachbearbeiter-in-grundbuch-stadt-chur-1735": "GR"
+      },
+      "en": {
+        "grundbuchverwalter-stellvertreter-in-und-sachbearbeiter-in-grundbuch-stadt-chur-1735": "GR"
+      },
+      "fr": {
+        "grundbuchverwalter-stellvertreter-in-und-sachbearbeiter-in-grundbuch-stadt-chur-1735": "GR"
+      }
+    }
   },
   {
     "slug": "stage-commerciale-a-breve-termine-hms-3-1-100-1-mese-stadt-chur-chur",
@@ -392,7 +463,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/kaufmaennisches-kurzzeitpraktikum-hms-31-100-1-monat-de-j1723.html",
-    "firstSeenAt": "2026-10-07T09:24:27.005Z"
+    "firstSeenAt": "2026-10-07T09:24:27.005Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kaufmannisches-kurzzeitpraktikum-hms-3-1-100-1-monat-stadt-chur-1723": "GR"
+      },
+      "en": {
+        "kaufmannisches-kurzzeitpraktikum-hms-3-1-100-1-monat-stadt-chur-1723": "GR"
+      },
+      "fr": {
+        "kaufmannisches-kurzzeitpraktikum-hms-3-1-100-1-monat-stadt-chur-1723": "GR"
+      }
+    }
   },
   {
     "slug": "insegnante-di-classe-3a-classe-unita-di-scuola-masans-stadt-chur-chur",
@@ -442,7 +525,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/klassenlehrperson-3-klasse-schuleinheit-masans-de-j1734.html",
-    "firstSeenAt": "2026-10-27T21:28:12.461Z"
+    "firstSeenAt": "2026-10-27T21:28:12.461Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "klassenlehrperson-3-klasse-schuleinheit-masans-stadt-chur-1734": "GR"
+      },
+      "en": {
+        "klassenlehrperson-3-klasse-schuleinheit-masans-stadt-chur-1734": "GR"
+      },
+      "fr": {
+        "klassenlehrperson-3-klasse-schuleinheit-masans-stadt-chur-1734": "GR"
+      }
+    }
   },
   {
     "slug": "addetto-a-alla-tecnica-dei-parchimetri-e-alla-logistica-stadt-chur-chur",
@@ -494,7 +589,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/mitarbeiterin-parkuhrentechnik-und-logistik-de-j1730.html",
-    "firstSeenAt": "2026-10-16T09:27:16.819Z"
+    "firstSeenAt": "2026-10-16T09:27:16.819Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratore-trice-parkuhrentechnik-e-logistik-stadt-chur": "GR",
+        "mitarbeiter-in-parkuhrentechnik-und-logistik-stadt-chur-1730": "GR"
+      },
+      "en": {
+        "mitarbeiter-in-parkuhrentechnik-und-logistik-stadt-chur-1730": "GR"
+      },
+      "fr": {
+        "mitarbeiter-in-parkuhrentechnik-und-logistik-stadt-chur-1730": "GR"
+      }
+    }
   },
   {
     "slug": "addetto-a-amministrativo-a-suolo-pubblico-eventi-esercizi-pubblici-stadt-chur-chur",
@@ -544,7 +652,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/sachbearbeiterin-oeffentlicher-grund-veranstaltungen-gastw-de-j1729.html",
-    "firstSeenAt": "2026-10-16T09:26:09.843Z"
+    "firstSeenAt": "2026-10-16T09:26:09.843Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-offentlicher-grund-veranstaltungen-gastwirtschaften-stadt-chur-1729": "GR"
+      },
+      "en": {
+        "sachbearbeiter-in-offentlicher-grund-veranstaltungen-gastwirtschaften-stadt-chur-1729": "GR"
+      },
+      "fr": {
+        "sachbearbeiter-in-offentlicher-grund-veranstaltungen-gastwirtschaften-stadt-chur-1729": "GR"
+      }
+    }
   },
   {
     "slug": "manutenzione-operativa-del-caposquadra-con-vice-responsabile-dell-area-funzionale-100-stadt-chur-chur",
@@ -593,7 +713,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/vorarbeiterin-betrieblicher-unterhalt-mit-stellvertretungs-de-j1724.html",
-    "firstSeenAt": "2026-10-07T09:25:33.965Z"
+    "firstSeenAt": "2026-10-07T09:25:33.965Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertretungsfunktion-bereichsleiter-100-stadt-chur-1724": "GR"
+      },
+      "en": {
+        "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertretungsfunktion-bereichsleiter-100-stadt-chur-1724": "GR"
+      },
+      "fr": {
+        "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertretungsfunktion-bereichsleiter-100-stadt-chur-1724": "GR"
+      }
+    }
   },
   {
     "slug": "dipendente-delle-operazioni-di-impianto-autista-gatto-c-stadt-chur-chur",
@@ -644,7 +776,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/mitarbeiterin-werkbetrieb-chauffeurin-kat-c-de-j1722.html",
-    "firstSeenAt": "2026-10-07T09:23:20.046Z"
+    "firstSeenAt": "2026-10-07T09:23:20.046Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratore-trice-werkbetrieb-chauffeur-in-kat-c-stadt-chur": "GR",
+        "mitarbeiter-in-werkbetrieb-chauffeur-in-kat-c-stadt-chur-1722": "GR"
+      },
+      "en": {
+        "mitarbeiter-in-werkbetrieb-chauffeur-in-kat-c-stadt-chur-1722": "GR"
+      },
+      "fr": {
+        "mitarbeiter-in-werkbetrieb-chauffeur-in-kat-c-stadt-chur-1722": "GR"
+      }
+    }
   },
   {
     "slug": "custode-al-100-stadt-chur-chur",
@@ -693,7 +838,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/hauswartin-100-de-j1726.html",
-    "firstSeenAt": "2026-10-07T09:22:13.064Z"
+    "firstSeenAt": "2026-10-07T09:22:13.064Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hauswart-in-100-stadt-chur-1726": "GR"
+      },
+      "en": {
+        "hauswart-in-100-stadt-chur-1726": "GR"
+      },
+      "fr": {
+        "hauswart-in-100-stadt-chur-1726": "GR"
+      }
+    }
   },
   {
     "slug": "addetto-a-alle-pulizie-stadt-chur-chur",
@@ -744,7 +901,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/mitarbeiterin-raumpflege-de-j1732.html",
-    "firstSeenAt": "2026-10-19T21:26:38.664Z"
+    "firstSeenAt": "2026-10-19T21:26:38.664Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratore-trice-raumpflege-stadt-chur": "GR",
+        "mitarbeiter-in-raumpflege-stadt-chur-1732": "GR"
+      },
+      "en": {
+        "mitarbeiter-in-raumpflege-stadt-chur-1732": "GR"
+      },
+      "fr": {
+        "mitarbeiter-in-raumpflege-stadt-chur-1732": "GR"
+      }
+    }
   },
   {
     "slug": "assistenza-professionale-temporaneo-stadt-chur-chur",
@@ -797,7 +967,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/fachperson-betreuung-befristet-de-j1727.html",
-    "firstSeenAt": "2026-10-07T09:21:06.096Z"
+    "firstSeenAt": "2026-10-07T09:21:06.096Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachperson-betreuung-befristet-stadt-chur-chur": "GR",
+        "fachperson-betreuung-befristet-stadt-chur": "GR",
+        "fachperson-betreuung-befristet-stadt-chur-1727": "GR"
+      },
+      "en": {
+        "fachperson-betreuung-befristet-stadt-chur-1727": "GR"
+      },
+      "fr": {
+        "fachperson-betreuung-befristet-stadt-chur-1727": "GR"
+      }
+    }
   },
   {
     "slug": "tavolo-da-pranzo-del-dipendente-20-30-stadt-chur-chur",
@@ -846,7 +1030,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/mitarbeitende-mittagstisch-2030--de-j1728.html",
-    "firstSeenAt": "2026-10-07T21:41:04.693Z"
+    "firstSeenAt": "2026-10-07T21:41:04.693Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeitende-mittagstisch-20-30-stadt-chur-1728": "GR"
+      },
+      "en": {
+        "mitarbeitende-mittagstisch-20-30-stadt-chur-1728": "GR"
+      },
+      "fr": {
+        "mitarbeitende-mittagstisch-20-30-stadt-chur-1728": "GR"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-fachfrau-fachmann-betreuung-cfc-specializzazione-kinderbetreuung-stadt-chur",
@@ -894,7 +1090,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtun-de-j1705.html",
-    "firstSeenAt": "2026-08-04T11:40:04.481Z"
+    "firstSeenAt": "2026-08-04T11:40:04.481Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705": "GR"
+      },
+      "en": {
+        "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705": "GR"
+      },
+      "fr": {
+        "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705": "GR"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-commerciante-commerciante-pubblica-amministrazione-efz-stadt-chur-chur",
@@ -944,7 +1152,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/lehrstelle-als-kauffrau-kaufmann-oeffentliche-verwaltung-e-de-j1713.html",
-    "firstSeenAt": "2026-08-27T00:53:00.007Z"
+    "firstSeenAt": "2026-08-27T00:53:00.007Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprendistato-come-kauffrau-kaufmann-offentliche-verwaltung-cfc-stadt-chur": "GR",
+        "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713": "GR"
+      },
+      "en": {
+        "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713": "GR"
+      },
+      "fr": {
+        "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713": "GR"
+      }
+    }
   },
   {
     "slug": "insegnante-healing-education-shp-se-haldenstein-stadt-chur-chur",
@@ -992,7 +1213,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/lehrperson-heilpaedagogik-shp-se-haldenstein-de-j1719.html",
-    "firstSeenAt": "2026-09-21T16:12:03.129Z"
+    "firstSeenAt": "2026-09-21T16:12:03.129Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrperson-heilpadagogik-shp-se-haldenstein-stadt-chur-1719": "GR"
+      },
+      "en": {
+        "lehrperson-heilpadagogik-shp-se-haldenstein-stadt-chur-1719": "GR"
+      },
+      "fr": {
+        "lehrperson-heilpadagogik-shp-se-haldenstein-stadt-chur-1719": "GR"
+      }
+    }
   },
   {
     "slug": "polizeiaspirantinnen-e-polizeiaspiranten-stadt-chur",
@@ -1041,7 +1274,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/polizeiaspirantinnen-und-polizeiaspiranten-de-j1446.html",
-    "firstSeenAt": "2026-08-31T17:28:30.211Z"
+    "firstSeenAt": "2026-08-31T17:28:30.211Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446": "GR"
+      },
+      "en": {
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur": "GR"
+      },
+      "fr": {
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur": "GR"
+      }
+    }
   },
   {
     "slug": "professore-di-classe-aggiunto-bilingue-3a-4a-classe-italiano-93-stadt-chur-chur",
@@ -1089,7 +1334,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/stellvertretung-klassenlehrperson-zweisprachiger-klassenzu-de-j1712.html",
-    "firstSeenAt": "2026-08-27T00:51:53.245Z"
+    "firstSeenAt": "2026-08-27T00:51:53.245Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712": "GR"
+      },
+      "en": {
+        "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712": "GR"
+      },
+      "fr": {
+        "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712": "GR"
+      }
+    }
   },
   {
     "slug": "stage-commerciale-hms-3-1-stadt-chur-chur",
@@ -1137,7 +1394,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/kaufmaennische-praktikumsstelle-hms-31-de-j1709.html",
-    "firstSeenAt": "2026-09-01T00:58:37.556Z"
+    "firstSeenAt": "2026-09-01T00:58:37.556Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709": "GR"
+      },
+      "en": {
+        "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709": "GR"
+      },
+      "fr": {
+        "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709": "GR"
+      }
+    }
   },
   {
     "slug": "stv-responsabile-stadtgartnerei-e-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur",
@@ -1185,7 +1454,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/stv-leiterin-stadtgaertnerei-und-bereichsleiter-in-friedho-de-j1716.html",
-    "firstSeenAt": "2026-09-21T16:10:56.368Z"
+    "firstSeenAt": "2026-09-21T16:10:56.368Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stv-leiter-in-stadtgartnerei-und-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur-1716": "GR"
+      },
+      "en": {
+        "stv-leiter-in-stadtgartnerei-und-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur-1716": "GR"
+      },
+      "fr": {
+        "stv-leiter-in-stadtgartnerei-und-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur-1716": "GR"
+      }
+    }
   },
   {
     "slug": "immobilienbewirtschafter-in-100-stadt-chur-1720",
@@ -1214,7 +1495,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/immobilienbewirtschafterin-100-de-j1720.html",
-    "firstSeenAt": "2026-09-28T21:25:58.835Z"
+    "firstSeenAt": "2026-09-28T21:25:58.835Z",
+    "canton": "GR",
+    "previousSlugsByLocale": {
+      "en": [
+        "immobilienbewirtschafter-in-100-stadt-chur-1720"
+      ],
+      "de": [
+        "immobilienbewirtschafter-in-100-stadt-chur-1720"
+      ],
+      "fr": [
+        "immobilienbewirtschafter-in-100-stadt-chur-1720"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "immobilienbewirtschafter-in-100-stadt-chur-1720": "GR"
+      },
+      "de": {
+        "immobilienbewirtschafter-in-100-stadt-chur-1720": "GR"
+      },
+      "fr": {
+        "immobilienbewirtschafter-in-100-stadt-chur-1720": "GR"
+      }
+    }
   },
   {
     "slug": "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur",
@@ -1256,6 +1560,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.chur.ch/sachbearbeiterin-immobilienbewirtschaftung-80-100-befriste-de-j1721.html",
-    "firstSeenAt": "2026-09-28T21:27:05.598Z"
+    "firstSeenAt": "2026-09-28T21:27:05.598Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur-1721": "GR",
+        "sachbearbeiter-in-immobilienbewirtschaftung-80-100-befristet-stadt-chur": "GR"
+      }
+    }
   }
 ]
