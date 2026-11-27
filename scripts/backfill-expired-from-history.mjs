@@ -269,6 +269,10 @@ function createListingIdentityCollector() {
     addVersion(jobs) {
       for (const identity of ambiguousJobIdentities(jobs)) ambiguous.add(identity);
       for (const job of jobs) {
+        // The record built from this job also declares its identity history, and
+        // the index matches on it. Sightings only: the job's own `#fragment`
+        // says nothing about those older identities.
+        for (const identity of archiveRecordSourceIdentities(job)) addSighting(identity, job);
         const url = String(job?.url || '');
         const hashAt = url.indexOf('#');
         const fragment = hashAt < 0 ? null : url.slice(hashAt);

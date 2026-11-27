@@ -373,6 +373,31 @@ describe('history backfill: one listing URL for successive postings', () => {
     expect(second).toEqual(first);
   });
 
+  it('keeps apart a lost job that declares the listing identity only in its history', () => {
+    // `a` has its own detail page today and the listing URL in its history; the
+    // older `b` is identified by the listing URL. Never open together.
+    const ownDetail = 'https://jobs.example.invalid/jobs/a';
+    commit({ active: [onListing('b', 'new', { crawledAt: daysAgo(40) })] });
+    commit({
+      active: [onListing('a', 'old', {
+        url: ownDetail,
+        sourceIdentityHistory: [{ sourceIdentity: `url:${listing}` }],
+        crawledAt: daysAgo(3),
+      })],
+    });
+    commit({ active: [] });
+
+    const { first, second } = runTwice();
+    commit({});
+    run();
+
+    expect(routesBySlug(first)).toEqual({ old: ['it:old'], new: ['it:new'] });
+    expect(routesBySlug(second)).toEqual(routesBySlug(first));
+    // The second run only completes `a`'s identity history with its own primary
+    // identity (the existing same-slug merge); from there nothing moves.
+    expect(readArchive()).toEqual(second);
+  });
+
   it('still folds a rename that keeps the id into one record', () => {
     commit({ active: [], expired: [listingRecord('lattoniere-faido', { id: 'a' })] });
     commit({ active: [], expired: [listingRecord('lattoniere-esperto-faido', { id: 'a', expiredAt: daysAgo(10) })] });
