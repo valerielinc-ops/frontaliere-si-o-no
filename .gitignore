@@ -40,6 +40,10 @@ google search console/
 reports/
 .tmp/
 data/article-performance.json
+# Business-report histories live in the private operator store.
+data/funnel-metrics-history.json
+data/revenue-monitor-history.jsonl
+data/adsense-format-ab-history.jsonl
 
 # News sitemap cleanup audit logs (timestamped)
 data/news-sitemap-cleanup-*.json

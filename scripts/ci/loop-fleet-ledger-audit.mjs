@@ -29,10 +29,10 @@ import { listLoopFleetLedgerFiles, LOOP_FLEET_LEDGER_FILES } from '../lib/loop-f
 export const EXPECTED_RETENTION_DAYS = 90;
 export const LEDGER_FILES = LOOP_FLEET_LEDGER_FILES;
 const BASE_LEDGER_TYPES = Object.freeze(['observation', 'decision', 'health']);
-// L9 employer activation is privately measured. Durable public ledger branches
-// may still contain historical L9 records, so exclude them before any public
-// validation, aggregation, or report generation.
-const PRIVATE_LOOP_IDS = new Set(['L9']);
+// L8 monetization and L9 employer activation are privately measured. Durable
+// public ledger branches may still contain historical records for either, so
+// exclude them before public validation, aggregation, or report generation.
+const PRIVATE_LOOP_IDS = new Set(['L8', 'L9']);
 const RECORD_TYPES = Object.freeze({
   observation: 'observation',
   decision: 'decision',

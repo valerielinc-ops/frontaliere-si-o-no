@@ -961,7 +961,6 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   { file: "tests/readingTime.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/reconcile-crawler-company-ownership.test.ts", roots: ["data/jobs/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/retired-runaway-articles-redirects.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/scripts/adsense-format-ab-report.test.ts", roots: ["data/adsense-format-ab-history.jsonl"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/scripts/prompt-placeholder-guard.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/scripts/publish-article-chunks-companions.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/submit-indexnow-batch.test.ts", roots: ["public/sitemap-guides.xml"], since: "2026-09-19", evidence: "review", runtime: true },

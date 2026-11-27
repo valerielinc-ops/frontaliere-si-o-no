@@ -11,7 +11,6 @@ import YAML from 'yaml';
 // tests/scripts/revenue-monitor.test.ts.
 import * as reportModule from '../../scripts/adsense-format-ab-report.mjs';
 import * as planModule from '../../scripts/lib/adsense-format-ab-plan.mjs';
-import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const {
@@ -148,18 +147,6 @@ describe('adsense-format-ab-report / identifiers', () => {
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
-  });
-
-  // Dato vivo: data/adsense-format-ab-history.jsonl, a cui il report settimanale appende una riga per run.
-  it.skipIf(SKIP_LIVE_DATA)('keeps every checked-in history row explicitly attributed', () => {
-    const entries = readFileSync(path.resolve(REPO_ROOT, 'data/adsense-format-ab-history.jsonl'), 'utf8')
-      .trim()
-      .split('\n')
-      .map((line) => JSON.parse(line));
-
-    expect(entries.length).toBeGreaterThanOrEqual(3);
-    expect(entries.every((entry) => typeof entry.experimentId === 'string' && entry.experimentId.length > 0)).toBe(true);
-    expect(entries.slice(0, 2).map((entry) => entry.experimentId)).toEqual(['basilea-lucerna', 'basilea-lucerna']);
   });
 
   it('classifies pre, mixed and clean post-treatment reporting windows', () => {

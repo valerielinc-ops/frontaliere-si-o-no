@@ -47,7 +47,7 @@ describe('loop-fleet-ledger-audit', () => {
     writeJsonl(ledgerDir, 'loop-health-history-run-100.jsonl', [seedRecord('health')]);
     const audit = auditLedger({ ledgerDir, registry, now: NOW });
     expect(audit.errors).toEqual([]);
-    expect(audit.summary).toMatchObject({ loopCount: 11, completeLoopCount: 1, coverageRate: 1 / 11 });
+    expect(audit.summary).toMatchObject({ loopCount: 10, completeLoopCount: 1, coverageRate: 1 / 10 });
     expect(audit.loops.find((row: any) => row.loopId === 'L0')).toMatchObject({
       coverageState: 'complete', completeRunCount: 1, missingRecordTypes: [],
     });
@@ -59,25 +59,25 @@ describe('loop-fleet-ledger-audit', () => {
     });
   });
 
-  it('excludes private L9 ledger records before public aggregation and rendering', () => {
+  it('excludes private L8 and L9 ledger records before public aggregation and rendering', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-audit-private-'));
     const ledgerDir = path.join(root, 'ledger');
     fs.mkdirSync(ledgerDir);
-    const privateRecord = {
+    const privateRecord = (loopId: 'L8' | 'L9') => ({
       ...seedRecord('health'),
-      loopId: 'L9',
-      recordId: 'private-l9-record-id',
-      execution: { ...seedRecord('health').execution, loopId: 'L9', runId: 'private-l9-run' },
-      privateMetric: 'private-l9-value',
-    };
-    writeJsonl(ledgerDir, 'loop-health-history.jsonl', [seedRecord('health'), privateRecord]);
+      loopId,
+      recordId: `private-${loopId.toLowerCase()}-record-id`,
+      execution: { ...seedRecord('health').execution, loopId, runId: `private-${loopId.toLowerCase()}-run` },
+      privateMetric: `private-${loopId.toLowerCase()}-value`,
+    });
+    writeJsonl(ledgerDir, 'loop-health-history.jsonl', [seedRecord('health'), privateRecord('L8'), privateRecord('L9')]);
     const audit = auditLedger({ ledgerDir, registry, now: NOW });
     const serialized = JSON.stringify(audit);
     expect(audit.errors).toEqual([]);
-    expect(audit.summary).toMatchObject({ loopCount: 11, totalRecords: 1 });
-    expect(audit.loops.some((row: any) => row.loopId === 'L9')).toBe(false);
+    expect(audit.summary).toMatchObject({ loopCount: 10, totalRecords: 1 });
+    expect(audit.loops.some((row: any) => ['L8', 'L9'].includes(row.loopId))).toBe(false);
+    expect(serialized).not.toContain('private-l8');
     expect(serialized).not.toContain('private-l9');
-    expect(serialized).not.toContain('private-l9-value');
   });
 
   it('fails closed on malformed JSON and conflicting duplicate record IDs', () => {
