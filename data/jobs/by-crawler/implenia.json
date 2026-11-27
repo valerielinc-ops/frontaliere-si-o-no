@@ -1,7 +1,7 @@
 {
   "crawlerKey": "implenia",
-  "assembledAt": "2026-11-26T21:31:41.093Z",
-  "runId": "45897259725",
+  "assembledAt": "2026-11-27T09:43:14.449Z",
+  "runId": "45972626071",
   "jobs": [
     {
       "id": "implenia-13df7187e229",
@@ -34,7 +34,7 @@
       "url": "https://jobs.implenia.com/job/Projektassistenz-GUTU-%28wmd%29%2C-Gisikon%2C-80-100/14101-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:27.373Z",
+      "crawledAt": "2026-11-27T09:42:38.950Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "Gisikon",
@@ -77,7 +77,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T21:31:27.373Z",
+      "validThrough": "2027-02-12T09:42:38.950Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektassistenz-gutu-%28wmd%29%2c-gisikon%2c-80-100/14101-de_de"
     },
@@ -112,7 +112,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Elektrotechnik-%28wmd%29/13245-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:27.033Z",
+      "crawledAt": "2026-11-27T09:42:38.669Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -162,7 +162,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:27.033Z",
+      "validThrough": "2026-12-27T09:42:38.669Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/leiter-elektrotechnik-%28wmd%29/13245-de_de"
     },
@@ -242,7 +242,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-26T21:31:25.528Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/projektingenieur-%28wmd%29-civil%2c-structural-&-architectural-data-center/13775-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/projektingenieur-%28wmd%29-civil%2c-structural-&-architectural-data-center/13775-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-bb1e544b4819",
@@ -275,7 +276,7 @@
       "url": "https://jobs.implenia.com/job/%28Junior%29-Immobilienbewirtschafter-%28mwd%29%2C-Basel-Grosspeteranlage%2C-70-100/13868-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:28.268Z",
+      "crawledAt": "2026-11-27T09:42:41.669Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Grosspeteranlage 5+7",
@@ -332,7 +333,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T21:31:28.268Z",
+      "validThrough": "2027-02-23T09:42:41.669Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/%28junior%29-immobilienbewirtschafter-%28mwd%29%2c-basel-grosspeteranlage%2c-70-100/13868-de_de"
     },
@@ -367,7 +368,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Angebotsentwicklung-Modernisierung-%28wmd%29%2C-80-100%2C-Opfikon/14135-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:25.246Z",
+      "crawledAt": "2026-11-27T09:42:40.920Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -418,7 +419,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:31:25.246Z",
+      "validThrough": "2027-02-18T09:42:40.920Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-angebotsentwicklung-modernisierung-%28wmd%29%2c-80-100%2c-opfikon/14135-de_de"
     },
@@ -453,7 +454,7 @@
       "url": "https://jobs.implenia.com/job/Immobilienbewirtschafter-%28mwd%29%2C-Wallisellen%2C-80-100/14169-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:26.369Z",
+      "crawledAt": "2026-11-27T09:42:40.019Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 43",
@@ -502,7 +503,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T21:31:26.369Z",
+      "validThrough": "2027-02-23T09:42:40.019Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/immobilienbewirtschafter-%28mwd%29%2c-wallisellen%2c-80-100/14169-de_de"
     },
@@ -537,7 +538,7 @@
       "url": "https://jobs.implenia.com/job/Health-and-Safety-Manager-%28mwd%29%2C-Opfikon%2C-100/14064-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:49:28.650Z",
+      "crawledAt": "2026-11-27T09:42:38.456Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -586,10 +587,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:49:28.650Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/health-and-safety-manager-%28mwd%29%2c-opfikon%2c-100/14064-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2027-02-22T09:42:38.456Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-8541298e579f",
@@ -622,7 +621,7 @@
       "url": "https://jobs.implenia.com/job/Bau-Projektleiter%28wmd%29-f%C3%BCr-Hotelbau%2C-Andermatt/13686-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:24.449Z",
+      "crawledAt": "2026-11-27T09:42:38.257Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "Gisikon",
@@ -667,7 +666,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:24.449Z",
+      "validThrough": "2026-12-27T09:42:38.257Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/bau-projektleiter%28wmd%29-f%c3%bcr-hotelbau%2c-andermatt/13686-de_de"
     },
@@ -702,7 +701,7 @@
       "url": "https://jobs.implenia.com/job/Baulogistikplaner-%28mwd%29%2C-Opfikon%2C-80-100/13564-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:24.133Z",
+      "crawledAt": "2026-11-27T09:42:37.972Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -745,7 +744,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:24.133Z",
+      "validThrough": "2026-12-27T09:42:37.972Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/baulogistikplaner-%28mwd%29%2c-opfikon%2c-80-100/13564-de_de"
     },
@@ -780,7 +779,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Neubau-Gisikon-%28wmd%29/13685-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:24.985Z",
+      "crawledAt": "2026-11-27T09:42:37.678Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "Gisikon",
@@ -828,7 +827,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:24.985Z",
+      "validThrough": "2026-12-27T09:42:37.678Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/bauf%c3%bchrer-neubau-gisikon-%28wmd%29/13685-de_de"
     },
@@ -863,7 +862,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-Baumeister-Aarau-%28mwd%29/11078-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:24.669Z",
+      "crawledAt": "2026-11-27T09:42:37.487Z",
       "addressLocality": "Aarau",
       "postalCode": "5000",
       "streetAddress": "Aarau",
@@ -910,7 +909,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:24.669Z",
+      "validThrough": "2026-12-27T09:42:37.487Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-neubau-baumeister-aarau-%28mwd%29/11078-de_de"
     },
@@ -918,7 +917,7 @@
       "id": "implenia-d0ca2c2701bf",
       "slug": "project-manager-contatto-centro-trasformazione-m-w-d-winterthur-80-100-implenia-winterthur-roter-turm",
       "slugByLocale": {
-        "it": "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-winterthur-roter-turm",
+        "it": "project-manager-contatto-centro-trasformazione-m-w-d-winterthur-80-100-implenia-winterthur-roter-turm",
         "en": "project-manager-contact-center-transformation-m-f-d-winterthur-80-100-implenia-winterthur-roter-turm",
         "de": "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-ch",
         "fr": "gestionnaire-de-projet-centre-de-contact-transformation-h-f-d-winterthur-80-100-implenia-winterthur-roter-turm"
@@ -945,7 +944,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Contact-Center-Transformation-%28mwd%29%2C-Winterthur%2C-80-100/14165-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:27.338Z",
+      "crawledAt": "2026-11-27T09:42:29.591Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -967,12 +966,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-ch",
-        "project-manager-contatto-centro-trasformazione-m-f-d-winterthur-80-100-implenia-winterthur-roter-turm"
+        "project-manager-contatto-centro-trasformazione-m-f-d-winterthur-80-100-implenia-winterthur-roter-turm",
+        "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-winterthur-roter-turm"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-ch",
-          "project-manager-contatto-centro-trasformazione-m-f-d-winterthur-80-100-implenia-winterthur-roter-turm"
+          "project-manager-contatto-centro-trasformazione-m-f-d-winterthur-80-100-implenia-winterthur-roter-turm",
+          "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-winterthur-roter-turm"
         ],
         "en": [
           "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-ch"
@@ -996,10 +997,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:49:27.338Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-contact-center-transformation-%28mwd%29%2c-winterthur%2c-80-100/14165-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2027-02-22T09:42:29.591Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-97ac7c77942b",
@@ -1032,7 +1031,7 @@
       "url": "https://jobs.implenia.com/job/G%C3%A9rant-d'immeubles-commerciaux-%28hfx%29%2C-Gen%C3%A8ve%2C-80-100/13849-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:49:26.860Z",
+      "crawledAt": "2026-11-27T09:42:27.157Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "streetAddress": "Avenue Louis-Aubert 20",
@@ -1087,10 +1086,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:49:26.860Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/g%c3%a9rant-d'immeubles-commerciaux-%28hfx%29%2c-gen%c3%a8ve%2c-80-100/13849-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-31T09:42:27.157Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-bf178c8de8f2",
@@ -1123,7 +1120,7 @@
       "url": "https://jobs.implenia.com/job/Immobilienbewirtschafter-Junior-bis-Senior-%28mwd%29%2C-Basel-Claraturm%2C-80-100/13979-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:26.087Z",
+      "crawledAt": "2026-11-27T09:42:31.145Z",
       "addressLocality": "Basel Wohnen 1",
       "postalCode": "4057",
       "streetAddress": "Drahtzugstrasse 62",
@@ -1189,10 +1186,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:49:26.087Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/immobilienbewirtschafter-junior-bis-senior-%28mwd%29%2c-basel-claraturm%2c-80-100/13979-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2027-02-19T09:42:31.145Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-9c044da1068d",
@@ -1225,7 +1220,7 @@
       "url": "https://jobs.implenia.com/job/%28Senior%29-Legal-Counsel-%28mwd%29%2C-Opfikon%2C-80-100/13724-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:25.565Z",
+      "crawledAt": "2026-11-27T09:42:30.342Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1276,10 +1271,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:49:25.565Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/%28senior%29-legal-counsel-%28mwd%29%2c-opfikon%2c-80-100/13724-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2027-01-29T09:42:30.342Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-b1477be2b20d",
@@ -1312,7 +1305,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-%28mwd%29%2C-Gisikon%2C-80-100/12487-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:25.315Z",
+      "crawledAt": "2026-11-27T09:42:28.854Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "Gisikon",
@@ -1355,10 +1348,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:49:25.315Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/bauf%c3%bchrer-%28mwd%29%2c-gisikon%2c-80-100/12487-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T09:42:28.854Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-8e19b606e044",
@@ -1391,7 +1382,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiterin-Lehrger%C3%BCstbau-und-Br%C3%BCckenbau%2C-80-100/12594-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:25.079Z",
+      "crawledAt": "2026-11-27T09:42:27.853Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1434,10 +1425,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:49:25.079Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiterin-lehrger%c3%bcstbau-und-br%c3%bcckenbau%2c-80-100/12594-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T09:42:27.853Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-364beda0858e",
@@ -1470,7 +1459,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Ausf%C3%BChrung-Instandsetzung-%28wmd%29/13602-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:24.836Z",
+      "crawledAt": "2026-11-27T09:42:28.547Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "Gisikon",
@@ -1520,10 +1509,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:49:24.836Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/leiter-ausf%c3%bchrung-instandsetzung-%28wmd%29/13602-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T09:42:28.547Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-97bd43b55aa1",
@@ -1556,7 +1543,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Kalkulation-Zentralschweiz-%28wmd%29%2C-80-100/12911-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:24.625Z",
+      "crawledAt": "2026-11-27T09:42:28.207Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "Gisikon",
@@ -1601,10 +1588,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:49:24.625Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/leiter-kalkulation-zentralschweiz-%28wmd%29%2c-80-100/12911-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T09:42:28.207Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-d21861e6d09d",
@@ -1691,7 +1676,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-28T21:31:19.576Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/senior-project-risk-&-value-manager-%28mwd%29%2c-opfikon%2c-80-100/13794-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/senior-project-risk-&-value-manager-%28mwd%29%2c-opfikon%2c-80-100/13794-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-6757e4009d22",
@@ -1775,7 +1761,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:31:20.169Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-baumanagement-%28mwd%29%2c-basel%2c-80-100/14100-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-baumanagement-%28mwd%29%2c-basel%2c-80-100/14100-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-1b20c57afdde",
@@ -1866,7 +1853,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T21:31:16.700Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/immobilienbuchhalter-%28mwd%29%2c-olten-und-bern%2c-60/13663-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/immobilienbuchhalter-%28mwd%29%2c-olten-und-bern%2c-60/13663-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-8a20167dca65",
@@ -1950,7 +1938,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T21:31:15.981Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/sachbearbeiter-immobilienbewirtschaftung-%28mwd%29%2c-zug%2c-70-100/13437-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/sachbearbeiter-immobilienbewirtschaftung-%28mwd%29%2c-zug%2c-70-100/13437-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-7bd0da05a42f",
@@ -2031,7 +2020,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:31:14.783Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/kaufm%c3%a4nnischer-leiter-senior-bewirtschafter-%28mwd%29%2c-zentrum-regensdorf%2c-60-100/13557-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/kaufm%c3%a4nnischer-leiter-senior-bewirtschafter-%28mwd%29%2c-zentrum-regensdorf%2c-60-100/13557-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-01bb46e1fd6e",
@@ -2128,7 +2118,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:31:14.086Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/senior-bewirtschafter-gewerbeimmobilien-stv_-standortleitung-%28mwd%29%2c-olten%2c-80-100/14036-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/senior-bewirtschafter-gewerbeimmobilien-stv_-standortleitung-%28mwd%29%2c-olten%2c-80-100/14036-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-6620966555fe",
@@ -2161,7 +2152,7 @@
       "url": "https://jobs.implenia.com/job/Lernender-Fachfrau-mann-Kundendialog/13491-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:13.562Z",
+      "crawledAt": "2026-11-27T09:42:34.858Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -2204,7 +2195,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:13.562Z",
+      "validThrough": "2026-12-27T09:42:34.858Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/lernender-fachfrau-mann-kundendialog/13491-de_de"
     },
@@ -2239,7 +2230,7 @@
       "url": "https://jobs.implenia.com/job/Customer-Consultant-Bewirtschaftung-%28mwd%29%2C-Winterthur%2C-60-100/12689-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:13.033Z",
+      "crawledAt": "2026-11-27T09:42:34.187Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -2282,7 +2273,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:13.033Z",
+      "validThrough": "2026-12-27T09:42:34.187Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/customer-consultant-bewirtschaftung-%28mwd%29%2c-winterthur%2c-60-100/12689-de_de"
     },
@@ -2317,7 +2308,7 @@
       "url": "https://jobs.implenia.com/job/Workforce-Manager-%28mwd%29%2C-Winterthur%2C-80-100/13898-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:12.367Z",
+      "crawledAt": "2026-11-27T09:42:33.396Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -2363,7 +2354,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:31:12.367Z",
+      "validThrough": "2027-01-12T09:42:33.396Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/workforce-manager-%28mwd%29%2c-winterthur%2c-80-100/13898-de_de"
     },
@@ -2398,7 +2389,7 @@
       "url": "https://jobs.implenia.com/job/Immobilienbewirtschafter-%28mwd%29%2C-Olten%2C-70/13959-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:11.830Z",
+      "crawledAt": "2026-11-27T09:42:18.103Z",
       "addressLocality": "Aarauerstrasse 11 Postfach-4601 Olten",
       "postalCode": "4600",
       "streetAddress": "Aarauerstrasse 11 Postfach-4601 Olten",
@@ -2452,7 +2443,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:31:11.830Z",
+      "validThrough": "2027-02-03T09:42:18.103Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/immobilienbewirtschafter-%28mwd%29%2c-olten%2c-70/13959-de_de"
     },
@@ -2487,7 +2478,7 @@
       "url": "https://jobs.implenia.com/job/Projektleitung-Immobilienbuchhaltung-%28mwd%29%2C-Winterthur-oder-Opfikon%2C-60-100/13858-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:11.075Z",
+      "crawledAt": "2026-11-27T09:42:17.139Z",
       "addressLocality": "Technikumstrasse 61 Postfach-8400 Winterthur",
       "postalCode": "8400",
       "streetAddress": "Technikumstrasse 61 Postfach-8400 Winterthur",
@@ -2536,7 +2527,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:31:11.075Z",
+      "validThrough": "2027-01-05T09:42:17.139Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleitung-immobilienbuchhaltung-%28mwd%29%2c-winterthur-oder-opfikon%2c-60-100/13858-de_de"
     },
@@ -2571,7 +2562,7 @@
       "url": "https://jobs.implenia.com/job/Zimmermann-EFZ-%28mwd%29%2C-80-100/13057-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:09.874Z",
+      "crawledAt": "2026-11-27T09:42:15.096Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Rümlang",
@@ -2614,7 +2605,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:09.874Z",
+      "validThrough": "2026-12-27T09:42:15.096Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/zimmermann-efz-%28mwd%29%2c-80-100/13057-de_de"
     },
@@ -2649,7 +2640,7 @@
       "url": "https://jobs.implenia.com/job/Collaborateur-g%C3%A9rance-%28fhx%29%2C-Lausanne%2C-50/14142-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:31:19.033Z",
+      "crawledAt": "2026-11-27T09:42:32.500Z",
       "addressLocality": "Av",
       "postalCode": "1003",
       "streetAddress": "Av",
@@ -2700,7 +2691,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:31:19.033Z",
+      "validThrough": "2027-02-18T09:42:32.500Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/collaborateur-g%c3%a9rance-%28fhx%29%2c-lausanne%2c-50/14142-de_de"
     },
@@ -2735,7 +2726,7 @@
       "url": "https://jobs.implenia.com/job/IT-Business-Partner-%28mwd%29%2C-Opfikon%2C-80-100/13797-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:21.473Z",
+      "crawledAt": "2026-11-27T09:42:31.859Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2795,7 +2786,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:31:21.473Z",
+      "validThrough": "2027-01-29T09:42:31.859Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/it-business-partner-%28mwd%29%2c-opfikon%2c-80-100/13797-de_de"
     },
@@ -2875,7 +2866,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:31:18.477Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/bauleiter-neubau-gutu-gisikon-%28wmd%29/12703-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/bauleiter-neubau-gutu-gisikon-%28wmd%29/12703-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-d8915d1b9191",
@@ -2960,7 +2952,7 @@
       "validThrough": "2027-02-18T09:49:17.116Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektassistenz-gutu-80-100-%28wmd%29%2c-opfikon/14134-de_de",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-7803783c62eb",
@@ -3038,7 +3030,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:31:20.959Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/junior-technischer-leiterin-%28mwd%29%2c-z%c3%bcrich%2c-80/14078-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/junior-technischer-leiterin-%28mwd%29%2c-z%c3%bcrich%2c-80/14078-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-a2ef864469e6",
@@ -3071,7 +3064,7 @@
       "url": "https://jobs.implenia.com/job/Real-Estate-Site-Manager-%28mwd%29%2C-Zentralschweiz%2C-80-100/14038-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:10.421Z",
+      "crawledAt": "2026-11-27T09:42:16.245Z",
       "addressLocality": "Lucerna",
       "postalCode": "6010",
       "streetAddress": "Lucerna",
@@ -3120,7 +3113,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:31:10.421Z",
+      "validThrough": "2027-02-17T09:42:16.245Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/real-estate-site-manager-%28mwd%29%2c-zentralschweiz%2c-80-100/14038-de_de"
     },
@@ -3155,7 +3148,7 @@
       "url": "https://jobs.implenia.com/job/Bewirtschafter-Gewerbeimmobilien-%28mwd%29%2C-Bern-PostParc%2C-80/12436-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:14.684Z",
+      "crawledAt": "2026-11-27T09:42:26.185Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Bogenschützenstrasse 9B",
@@ -3203,10 +3196,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:49:14.684Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/bewirtschafter-gewerbeimmobilien-%28mwd%29%2c-bern-postparc%2c-80/12436-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2027-01-20T09:42:26.185Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-bcc4c483a283",
@@ -3291,7 +3282,7 @@
       "validThrough": "2027-01-28T09:49:14.174Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/vermietungsspezialist-immobilien-%28mwd%29%2c-bern%2c-80-100/14035-de_de",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-35f94a1871b3",
@@ -3324,7 +3315,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-GUTU-Z%C3%BCrich-%28wmd%29/13772-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:09.641Z",
+      "crawledAt": "2026-11-27T09:42:14.798Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3379,7 +3370,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:09.641Z",
+      "validThrough": "2026-12-27T09:42:14.798Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/bauleiter-gutu-z%c3%bcrich-%28wmd%29/13772-de_de"
     },
@@ -3414,7 +3405,7 @@
       "url": "https://jobs.implenia.com/job/Kaufm%C3%A4nnischer-Projektleiter-%28wmd%29%2C-80-100%2C-Opfikon/14125-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:17.221Z",
+      "crawledAt": "2026-11-27T09:42:25.409Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3462,7 +3453,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:31:17.221Z",
+      "validThrough": "2027-02-18T09:42:25.409Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/kaufm%c3%a4nnischer-projektleiter-%28wmd%29%2c-80-100%2c-opfikon/14125-de_de"
     },
@@ -3497,7 +3488,7 @@
       "url": "https://jobs.implenia.com/job/Teamleitung-HLKSE-%28mwd%29%2C-Opfikon%2C-80-100/13574-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:17.694Z",
+      "crawledAt": "2026-11-27T09:42:24.068Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3543,7 +3534,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:31:17.694Z",
+      "validThrough": "2027-02-18T09:42:24.068Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/teamleitung-hlkse-%28mwd%29%2c-opfikon%2c-80-100/13574-de_de"
     },
@@ -3578,7 +3569,7 @@
       "url": "https://jobs.implenia.com/job/Junior-Fachspezialist-Bauphysik-&-Akustik-%28mwd%29%2C-Opfikon%2C-80-100/12967-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:17.466Z",
+      "crawledAt": "2026-11-27T09:42:23.706Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3627,7 +3618,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:31:17.466Z",
+      "validThrough": "2027-01-20T09:42:23.706Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/junior-fachspezialist-bauphysik-&-akustik-%28mwd%29%2c-opfikon%2c-80-100/12967-de_de"
     },
@@ -3662,7 +3653,7 @@
       "url": "https://jobs.implenia.com/job/Initiativbewerbung/12287-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:09.161Z",
+      "crawledAt": "2026-11-27T09:42:14.225Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Opfikon",
@@ -3718,7 +3709,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:09.161Z",
+      "validThrough": "2026-12-27T09:42:14.225Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/initiativbewerbung/12287-de_de"
     },
@@ -3753,7 +3744,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Tunnelbau-%28mwd%29-80-100/9854-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:08.950Z",
+      "crawledAt": "2026-11-27T09:42:13.942Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Opfikon",
@@ -3814,7 +3805,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:08.950Z",
+      "validThrough": "2026-12-27T09:42:13.942Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/kalkulator-tunnelbau-%28mwd%29-80-100/9854-de_de"
     },
@@ -3849,7 +3840,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Tunnelbau-%28mwd%29-80-100/10973-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:08.736Z",
+      "crawledAt": "2026-11-27T09:42:13.643Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Opfikon",
@@ -3892,7 +3883,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:08.736Z",
+      "validThrough": "2026-12-27T09:42:13.643Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-tunnelbau-%28mwd%29-80-100/10973-de_de"
     },
@@ -3927,7 +3918,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Umbau-%28wmd%29/10421-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:08.465Z",
+      "crawledAt": "2026-11-27T09:42:23.433Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Opfikon",
@@ -3974,7 +3965,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:08.465Z",
+      "validThrough": "2026-12-27T09:42:23.433Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-umbau-%28wmd%29/10421-de_de"
     },
@@ -4009,7 +4000,7 @@
       "url": "https://jobs.implenia.com/job/Juniorprojektleiter-Elektro-%28mwd%29%2C-Gisikon%2C-80-100/13043-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:08.238Z",
+      "crawledAt": "2026-11-27T09:42:23.154Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "An der Reuss 5",
@@ -4057,7 +4048,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:08.238Z",
+      "validThrough": "2026-12-27T09:42:23.154Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/juniorprojektleiter-elektro-%28mwd%29%2c-gisikon%2c-80-100/13043-de_de"
     },
@@ -4092,7 +4083,7 @@
       "url": "https://jobs.implenia.com/job/Immobilienbewirtschafter-%28mwd%29%2C-Baden%2C-80-100/14066-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:07.682Z",
+      "crawledAt": "2026-11-27T09:42:22.505Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Badstrasse 4",
@@ -4141,7 +4132,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T21:31:07.682Z",
+      "validThrough": "2027-02-12T09:42:22.505Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/immobilienbewirtschafter-%28mwd%29%2c-baden%2c-80-100/14066-de_de"
     },
@@ -4176,7 +4167,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Elektroplanung-%28mwd%29%2C-Gisikon-Opfikon-Bern%29/13041-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:07.061Z",
+      "crawledAt": "2026-11-27T09:42:21.785Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "Gisikon",
@@ -4227,7 +4218,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:31:07.061Z",
+      "validThrough": "2027-01-05T09:42:21.785Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-elektroplanung-%28mwd%29%2c-gisikon-opfikon-bern%29/13041-de_de"
     },
@@ -4262,7 +4253,7 @@
       "url": "https://jobs.implenia.com/job/Sicherheitsw%C3%A4rter-Sicherheitschef/12496-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:06.839Z",
+      "crawledAt": "2026-11-27T09:42:21.482Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Opfikon",
@@ -4313,7 +4304,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:06.839Z",
+      "validThrough": "2026-12-27T09:42:21.482Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/sicherheitsw%c3%a4rter-sicherheitschef/12496-de_de"
     },
@@ -4348,7 +4339,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Baumeister-Neu-undoder-Umbau-%28wmd%29/11598-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:06.703Z",
+      "crawledAt": "2026-11-27T09:42:21.286Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Opfikon",
@@ -4393,7 +4384,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:06.703Z",
+      "validThrough": "2026-12-27T09:42:21.286Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/kalkulator-baumeister-neu-undoder-umbau-%28wmd%29/11598-de_de"
     },
@@ -4428,7 +4419,7 @@
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-mit-Vermietungsaufgaben-%28mwd%29%2C-Baden%2C-50/14060-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:06.155Z",
+      "crawledAt": "2026-11-27T09:42:20.558Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Badstrasse 4",
@@ -4477,7 +4468,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T21:31:06.155Z",
+      "validThrough": "2027-02-12T09:42:20.558Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-%28mwd%29%2c-baden%2c-50/14060-de_de"
     },
@@ -4512,7 +4503,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Projektleiterin-Spezialtiefbau%2C-80-100/11845-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:05.357Z",
+      "crawledAt": "2026-11-27T09:42:19.716Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Opfikon",
@@ -4574,7 +4565,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:05.357Z",
+      "validThrough": "2026-12-27T09:42:19.716Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/senior-projektleiterin-spezialtiefbau%2c-80-100/11845-de_de"
     },
@@ -4609,7 +4600,7 @@
       "url": "https://jobs.implenia.com/job/Kaufm%C3%A4nnischer-Projektmitarbeiter-bilingual-%28mwd%29-Opfikon-%28Z%C3%BCrich%29-oder-Onex-Gen%C3%A8ve/14067-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:23.896Z",
+      "crawledAt": "2026-11-27T09:42:19.419Z",
       "addressLocality": "Onex",
       "postalCode": "1213",
       "streetAddress": "Onex",
@@ -4652,7 +4643,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:31:23.896Z",
+      "validThrough": "2027-02-08T09:42:19.419Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/kaufm%c3%a4nnischer-projektmitarbeiter-bilingual-%28mwd%29-opfikon-%28z%c3%bcrich%29-oder-onex-gen%c3%a8ve/14067-de_de"
     },
@@ -4687,7 +4678,7 @@
       "url": "https://jobs.implenia.com/job/Werkstudent-Tax-Compliance-%28mwd%29%2C-Opfikon%2C-60/14013-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:09.419Z",
+      "crawledAt": "2026-11-27T09:42:14.524Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4730,7 +4721,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:31:09.419Z",
+      "validThrough": "2027-01-29T09:42:14.524Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/werkstudent-tax-compliance-%28mwd%29%2c-opfikon%2c-60/14013-de_de"
     },
@@ -4765,7 +4756,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-GUTU-Spezialprojekte-%28wmd%29/13876-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:23.196Z",
+      "crawledAt": "2026-11-27T09:42:37.144Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4832,7 +4823,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:31:23.196Z",
+      "validThrough": "2027-02-03T09:42:37.144Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-gutu-spezialprojekte-%28wmd%29/13876-de_de"
     },
@@ -4867,7 +4858,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Sanit%C3%A4r-%28mwd%29%2C-Opfikon%2C-100/13680-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:22.889Z",
+      "crawledAt": "2026-11-27T09:42:36.950Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4915,7 +4906,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:22.889Z",
+      "validThrough": "2026-12-27T09:42:36.950Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-sanit%c3%a4r-%28mwd%29%2c-opfikon%2c-100/13680-de_de"
     },
@@ -4950,7 +4941,7 @@
       "url": "https://jobs.implenia.com/job/Polier-im-Lehrger%C3%BCst-und-Br%C3%BCckenbau-100-%28wm%29/12585-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:22.626Z",
+      "crawledAt": "2026-11-27T09:42:36.660Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -5007,7 +4998,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:22.626Z",
+      "validThrough": "2026-12-27T09:42:36.660Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/polier-im-lehrger%c3%bcst-und-br%c3%bcckenbau-100-%28wm%29/12585-de_de"
     },
@@ -5042,7 +5033,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Bauphysik-&-Nachhaltigkeit-%28mwd%29/13800-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:22.383Z",
+      "crawledAt": "2026-11-27T09:42:36.375Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -5087,7 +5078,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:22.383Z",
+      "validThrough": "2026-12-27T09:42:36.375Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-bauphysik-&-nachhaltigkeit-%28mwd%29/13800-de_de"
     },
@@ -5122,7 +5113,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Cost-Manager-Data-Center-%28mwd%29%2C-Opfikon%2C-80-100/13859-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:22.138Z",
+      "crawledAt": "2026-11-27T09:42:36.080Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -5179,7 +5170,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T21:31:22.138Z",
+      "validThrough": "2027-01-07T09:42:36.080Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/senior-cost-manager-data-center-%28mwd%29%2c-opfikon%2c-80-100/13859-de_de"
     },
@@ -5214,7 +5205,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Umbau-%28wmd%29/13922-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:21.901Z",
+      "crawledAt": "2026-11-27T09:42:35.887Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -5263,7 +5254,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:21.901Z",
+      "validThrough": "2026-12-27T09:42:35.887Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-umbau-%28wmd%29/13922-de_de"
     },
@@ -5298,7 +5289,7 @@
       "url": "https://jobs.implenia.com/job/Polier-Schadstoffsanierung-%28wmd%29/12756-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:21.693Z",
+      "crawledAt": "2026-11-27T09:42:35.689Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -5378,7 +5369,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:21.693Z",
+      "validThrough": "2026-12-27T09:42:35.689Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/polier-schadstoffsanierung-%28wmd%29/12756-de_de"
     },
@@ -5467,7 +5458,7 @@
       "validThrough": "2027-01-10T09:49:06.208Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-baumeister-opfikon-%28wmd%29/13901-de_de",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-d9664f210264",
@@ -5552,7 +5543,7 @@
       "validThrough": "2027-01-10T09:49:05.941Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/bauf%c3%bchrer-neubau-opfikon-%28wmd%29/13900-de_de",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-fd91e9705541",
@@ -5633,7 +5624,7 @@
       "validThrough": "2026-12-26T09:49:05.697Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/zeichner-baulogistik-%28mwd%29%2c-opfikon%2c-80-100/13568-de_de",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-c3184f4370f7",
@@ -5666,7 +5657,7 @@
       "url": "https://jobs.implenia.com/job/Zimmermann-EFZ%2C-Feinarbeiten-Montage-Service%2C-80-100/12022-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:05.455Z",
+      "crawledAt": "2026-11-27T09:42:13.368Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -5709,10 +5700,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:49:05.455Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/zimmermann-efz%2c-feinarbeiten-montage-service%2c-80-100/12022-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T09:42:13.368Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-1222ea180b6f",
@@ -5745,7 +5734,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-GUTU-Gisikon-%28wmd%29/12695-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:05.286Z",
+      "crawledAt": "2026-11-27T09:42:13.070Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "Gisikon",
@@ -5790,10 +5779,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:49:05.286Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-neubau-gutu-gisikon-%28wmd%29/12695-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T09:42:13.070Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-df5ca5794e6e",
@@ -5826,7 +5813,7 @@
       "url": "https://jobs.implenia.com/job/Polier-Holzbau-%28mwd%29%2C-80-100/12918-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:05.036Z",
+      "crawledAt": "2026-11-27T09:42:12.758Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -5871,10 +5858,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:49:05.036Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/polier-holzbau-%28mwd%29%2c-80-100/12918-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T09:42:12.758Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-c5de849571f2",
@@ -5907,7 +5892,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Heizung-%28mwd%29%2C-Gisikon%2C-80-100/10333-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:04.886Z",
+      "crawledAt": "2026-11-27T09:42:12.262Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "An der Reuss 5",
@@ -5952,10 +5937,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:49:04.886Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-heizung-%28mwd%29%2c-gisikon%2c-80-100/10333-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-30T09:42:12.262Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-9e6a835a50f7",
@@ -5988,7 +5971,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Holzbau%2C-%28mwd%29%2C-80-100/12872-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:04.732Z",
+      "crawledAt": "2026-11-27T09:42:11.975Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -6035,10 +6018,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:49:04.732Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/kalkulator-holzbau%2c-%28mwd%29%2c-80-100/12872-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-31T09:42:11.975Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-9cadaec37d47",
@@ -6071,7 +6052,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Baumeister-Luzern-%28wmd%29/12839-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:04.534Z",
+      "crawledAt": "2026-11-27T09:42:11.693Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "Gisikon",
@@ -6116,10 +6097,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:49:04.534Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/projektleiter-baumeister-luzern-%28wmd%29/12839-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T09:42:11.693Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-95ef097ca0d2",
@@ -6152,7 +6131,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Holzbau%2C-%28mwd%29%2C-80-100/10512-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:49:04.281Z",
+      "crawledAt": "2026-11-27T09:42:11.419Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Rümlang",
@@ -6199,10 +6178,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:49:04.281Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/bauf%c3%bchrer-holzbau%2c-%28mwd%29%2c-80-100/10512-de_de",
-      "crawlerMissStreak": 1
+      "validThrough": "2026-12-27T09:42:11.419Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "implenia-39de7516dd80",
@@ -6235,7 +6212,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-Umbau-%28wmd%29-Z%C3%BCrich/13438-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:23.412Z",
+      "crawledAt": "2026-11-27T09:42:18.818Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -6278,7 +6255,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:31:23.412Z",
+      "validThrough": "2026-12-27T09:42:18.818Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/bauleiter-umbau-%28wmd%29-z%c3%bcrich/13438-de_de"
     },
@@ -6360,7 +6337,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-26T21:31:18.240Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/bauleiter-%28wmd%29-rohbau%2c-ausbau-und-architektur-data-center/13774-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/bauleiter-%28wmd%29-rohbau%2c-ausbau-und-architektur-data-center/13774-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-2c40cca21778",
@@ -6438,7 +6416,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-26T21:31:17.981Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/bauleiter-hlks-f%c3%bcr-datacenter-%28wmd%29/13777-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/bauleiter-hlks-f%c3%bcr-datacenter-%28wmd%29/13777-de_de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-a8fc6a9d2289",
@@ -6471,7 +6450,7 @@
       "url": "https://jobs.implenia.com/job/Vorarbeiter-Holzbau-%28mwd%29%2C-80-100/12920-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:23.660Z",
+      "crawledAt": "2026-11-27T09:42:19.103Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Rümlang",
@@ -6528,18 +6507,18 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:23.660Z",
+      "validThrough": "2026-12-27T09:42:19.103Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.implenia.com/job/vorarbeiter-holzbau-%28mwd%29%2c-80-100/12920-de_de"
     },
     {
       "id": "implenia-16dc7a8ca739",
-      "slug": "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
+      "slug": "ingegnere-a-in-costruzioni-in-legno-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
-        "de": "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
+        "it": "ingegnere-a-in-costruzioni-in-legno-m-f-d-80-100-implenia-rumlang",
         "en": "engineer-holzbau-m-f-d-80-100-implenia-rumlang",
-        "it": "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-        "fr": "ingenieur-holzbau-m-w-d-80-100-implenia-ch"
+        "de": "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
+        "fr": "ingenieur-en-construction-bois-h-f-d-80-100-implenia-rumlang"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -6563,7 +6542,7 @@
       "url": "https://jobs.implenia.com/job/Ingenieur-Holzbau%2C-%28mwd%29-80-100/9584-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:31:27.628Z",
+      "crawledAt": "2026-11-27T09:42:39.300Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Rümlang",
@@ -6582,9 +6561,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.implenia.com/job/Ingenieur-Holzbau%2C-%28mwd%29-80-100/9584-de_DE",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6599,10 +6576,21 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:31:27.628Z",
+      "validThrough": "2026-12-27T09:42:39.300Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-07-08T22:13:13.335Z",
-      "sourceIdentity": "url:https://jobs.implenia.com/job/ingenieur-holzbau%2c-%28mwd%29-80-100/9584-de_de"
+      "sourceIdentity": "url:https://jobs.implenia.com/job/ingenieur-holzbau%2c-%28mwd%29-80-100/9584-de_de",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
+          "ingenieur-holzbau-m-w-d-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-holzbau-m-w-d-80-100-implenia-ch"
+      ]
     }
   ]
 }
