@@ -8,6 +8,10 @@ import { JSDOM } from 'jsdom';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, startsApplication } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { NOT_ADVANCE_RE } from '../scripts/assisted-application/lib/portal/agent.mjs';
+// Static import on purpose: it puts fields.mjs, optional-autofill.mjs and applicationConsent.js
+// in this test's import graph, so the related-tests selector runs the drift check below
+// when one of them changes (it was skipped when only a subprocess named the generator).
+import { RUNNER_FIELDS_PATH } from '../scripts/assisted-application/extension/build-runner-fields.mjs';
 
 const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'scripts/assisted-application/extension');
 const applyControlSource = readFileSync(resolve(extension, 'apply-control.js'), 'utf8');
@@ -1088,6 +1092,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
     // Plain Node renders it: a test bundler may print the function differently.
     const check = spawnSync(process.execPath, [resolve(extension, 'build-runner-fields.mjs'), '--check'], { encoding: 'utf8' });
     expect(`${check.status} ${check.stdout}${check.stderr}`.trim()).toBe('0 runner-fields.js up to date');
+    expect(resolve(RUNNER_FIELDS_PATH)).toBe(resolve(extension, 'runner-fields.js'));
   });
 
   it('keeps runner ownership aligned for required marketing and role-form shell controls', () => {
