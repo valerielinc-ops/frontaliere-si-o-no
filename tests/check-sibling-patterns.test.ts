@@ -25,7 +25,7 @@
  * before a `writeJson`/`writeFileSync` persists it, reimplemented per-script
  * with no shared token (see worked example in the script's registry doc).
  */
-import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll, afterEach } from 'vitest';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, utimesSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -41,6 +41,7 @@ import {
   cacheLockIsStale,
   tryClaimCacheLock,
   candidateStrength,
+  isGeneratedArtifact,
 } from '../scripts/ci/check-sibling-patterns.mjs';
 
 describe('extractTokens — SCREAMING_SNAKE_CASE constants', () => {
@@ -714,5 +715,72 @@ describe('--head result cache lock', () => {
     const elevenMinutesAgo = (Date.now() - 11 * 60 * 1000) / 1000;
     utimesSync(old, elevenMinutesAgo, elevenMinutesAgo);
     expect(cacheLockIsStale(old)).toBe(true);
+  });
+});
+
+describe('artefatti generati: non sono né sorgente di token né candidati', () => {
+  const SCRIPT = resolve(import.meta.dirname, '..', 'scripts/ci/check-sibling-patterns.mjs');
+  const SLUG = 'acme-widgets-corp';
+  const EXPR = 'const result = { description: copy.description };';
+  let repo = '';
+
+  const run = (args: string[] = []) => JSON.parse(execFileSync('node', [SCRIPT, '--json', ...args], {
+    cwd: repo,
+    encoding: 'utf8',
+    stdio: ['pipe', 'pipe', 'ignore'],
+    env: { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' },
+  })) as { candidates: Array<{ file: string; tokens: string[] }>; changedCode: string[] };
+
+  const setup = (featureTouchesGenerator: boolean) => {
+    repo = mkdtempSync(join(tmpdir(), 'sibling-generated-'));
+    const git = (...a: string[]) => execFileSync('git', a, { cwd: repo, stdio: 'ignore' });
+    const write = (rel: string, body: string) => {
+      mkdirSync(dirname(join(repo, rel)), { recursive: true });
+      writeFileSync(join(repo, rel), body, 'utf8');
+    };
+    git('init', '-q', '-b', 'main');
+    git('config', 'user.email', 'test@example.com');
+    git('config', 'user.name', 'test');
+    write('scripts/generate-crawler-group-workflows.mjs', `${EXPR}\n`);
+    write('.github/workflows/crawler-group-01-logic.yml', `run: echo '${SLUG}' # old\n`);
+    write('.github/workflows/crawler-group-02.yml', `run: echo '${SLUG}'\n${EXPR}\n`);
+    write('.github/corpus-workflows/crawler-group-03.yml', `run: echo '${SLUG}'\n${EXPR}\n`);
+    write('scripts/real-sibling.mjs', `export const slug = '${SLUG}';\n${EXPR}\n`);
+    git('add', '-A');
+    git('commit', '-q', '-m', 'base');
+    git('update-ref', 'refs/remotes/origin/main', 'HEAD');
+    git('checkout', '-q', '-b', 'feature');
+    write('.github/workflows/crawler-group-01-logic.yml', `run: echo '${SLUG}' # new\n`);
+    if (featureTouchesGenerator) {
+      write('scripts/generate-crawler-group-workflows.mjs', 'const result = { description: sanitize(copy.description) };\n');
+    }
+    git('add', '-A');
+    git('commit', '-q', '-m', 'feature');
+  };
+  afterEach(() => {
+    if (repo) rmSync(repo, { recursive: true, force: true });
+    repo = '';
+  });
+
+  it('un diff di soli artefatti generati non produce candidati dalle loro righe', () => {
+    setup(false);
+    const result = run(['--head', 'feature']);
+    expect(result.changedCode).toEqual([]);
+    expect(result.candidates).toEqual([]);
+  });
+
+  it('il sorgente del generatore resta codice normale; un artefatto generato non è mai un candidato', () => {
+    setup(true);
+    const result = run(['--head', 'feature']);
+    expect(result.changedCode).toEqual(['scripts/generate-crawler-group-workflows.mjs']);
+    expect(result.candidates.map((c) => c.file)).toEqual(['scripts/real-sibling.mjs']);
+  });
+
+  it('isGeneratedArtifact usa il registro: generati sì, generatore e sorgenti no', () => {
+    expect(isGeneratedArtifact('.github/workflows/crawler-group-14-logic.yml')).toBe(true);
+    expect(isGeneratedArtifact('.github/corpus-workflows/contract.json')).toBe(true);
+    expect(isGeneratedArtifact('scripts/ci/crawler-generation-roster.json')).toBe(true);
+    expect(isGeneratedArtifact('scripts/generate-crawler-group-workflows.mjs')).toBe(false);
+    expect(isGeneratedArtifact('.github/workflows/tests.yml')).toBe(false);
   });
 });

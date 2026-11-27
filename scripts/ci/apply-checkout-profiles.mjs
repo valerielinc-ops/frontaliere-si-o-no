@@ -61,6 +61,12 @@ export const GLOBAL_TESTS_REQUIRED_SPARSE_PATHS = Object.freeze([
   '/package.json',
   '/scripts/ci/check-below-floor-bridge.mjs',
   '/scripts/ci/check-sibling-patterns.mjs',
+  // check-sibling-patterns.mjs importa il registro dei file generati e la sua chiusura.
+  '/scripts/ci/generated-files-registry.mjs',
+  '/scripts/ci/prepare-crawler-workflow-corpus-sync.mjs',
+  '/scripts/ci/translate-watchdog-pin.mjs',
+  '/scripts/lib/crawler-generation-group-ids.mjs',
+  '/scripts/lib/canonical-json-digest.mjs',
   '/scripts/ci/identical-twin-import-gate.mjs',
   '/scripts/ci/sample-mem-during.sh',
   '/data/blog-articles-data.ts',
