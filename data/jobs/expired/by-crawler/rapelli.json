@@ -43,7 +43,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.orior.ch/job/stabio-supply-chain-planner%2c-100-ti/1375868733",
-    "firstSeenAt": "2026-07-14T12:02:51.962Z"
+    "firstSeenAt": "2026-07-14T12:02:51.962Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pianificatore-della-supply-chain-al-100-rapelli-orior-food-ag-stabio": "TI"
+      },
+      "en": {
+        "the-total-number-of-employees-in-the-union-is-eur-5-million-rapelli-orior-food-ag-stabio": "TI"
+      }
+    }
   },
   {
     "slug": "hr-operations-general-services-80-100-rapelli-stabio",
@@ -79,6 +88,12 @@
         "hr-admin-general-services-80-100-rapelli-stabio",
         "hr-operations-general-services-80-100-rapelli-orior-food-ag-stabio",
         "hr-admin-general-services-80-100-m-f-d-rapelli-stabio"
+      ],
+      "en": [
+        "hr-operations-general-services-80-100-rapelli-stabio"
+      ],
+      "fr": [
+        "hr-operations-general-services-80-100-rapelli-stabio"
       ]
     },
     "salaryMin": 55500,
@@ -86,7 +101,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.orior.ch/job/stabio-hr-admin-&-general-services-80-100-%28mfd%29-ti/1410412533",
-    "firstSeenAt": "2026-07-07T12:05:14.994Z"
+    "firstSeenAt": "2026-07-07T12:05:14.994Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-admin-general-services-80-100-rapelli-stabio": "TI",
+        "hr-operations-general-services-80-100-rapelli-orior-food-ag-stabio": "TI",
+        "hr-admin-general-services-80-100-m-f-d-rapelli-stabio": "TI"
+      },
+      "en": {
+        "hr-operations-general-services-80-100-rapelli-stabio": "TI"
+      },
+      "fr": {
+        "hr-operations-general-services-80-100-rapelli-stabio": "TI"
+      }
+    }
   },
   {
     "slug": "hr-payroll-assistant-m-f-d-50-70-rapelli-stabio",
@@ -120,7 +149,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.orior.ch/job/stabio-hr-payroll-assistant-%28mfd%29%2c-50-70-ti/1431685933",
-    "firstSeenAt": "2026-08-31T17:32:25.492Z"
+    "firstSeenAt": "2026-08-31T17:32:25.492Z",
+    "canton": "TI"
   },
   {
     "slug": "buyer-ingredienti-trade-100-rapelli-stabio",
