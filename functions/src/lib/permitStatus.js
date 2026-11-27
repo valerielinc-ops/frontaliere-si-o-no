@@ -468,3 +468,14 @@ export function isNationalityField(label) {
 export function asksHeldStatus(label) {
   return !NEEDS.test(String(label ?? ''));
 }
+
+// «Risiedi in Svizzera, o sei in possesso di un regolare permesso di lavoro?»: a yes/no that is true when EITHER clause
+// holds. A permit the candidate holds (any status but «none») proves the second clause, so «yes» is demonstrated; a
+// candidate with no permit may still live in Switzerland, so «no» is never derived from the status and stays a
+// question. Read on the folded (accent-less) text of the question.
+export const RESIDENCE_OR_PERMIT_RE = new RegExp([
+  String.raw`^(?:risiedi|risiede|abiti|abita|vivi|vive|sei\s+residente|e\s+residente)\s+(?:in|nella)\s+(?:svizzera|confederazione(?:\s+svizzera)?)`,
+  String.raw`^(?:wohnen\s+sie|wohnst\s+du|sind\s+sie\s+wohnhaft|bist\s+du\s+wohnhaft)\s+in\s+der\s+schweiz`,
+  String.raw`^(?:do\s+you|are\s+you)\s+(?:live|living|reside|residing|resident)\s+in\s+switzerland`,
+  String.raw`^(?:habitez|residez)[- ]vous\s+en\s+suisse`,
+].map((head) => `(?:${head})\\s*[,;]?\\s*(?:o|oder|or|ou)\\s+(?:sei|bist|haben\\s+sie|hast|have\\s+you|do\\s+you|are\\s+you|avez[- ]vous|etes[- ]vous|possiedi|detieni)\\b[^?]*\\b(?:permesso|\\w*bewilligung|permit|permis)\\b`).join('|'), 'i');

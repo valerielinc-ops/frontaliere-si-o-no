@@ -69,7 +69,7 @@ import { isWorkHistoryContext } from './lib/workHistoryContext.js';
 import { isOngoingPeriod, isoDateOf, parseEndpoint } from './lib/cvPeriod.js';
 import { languageCodesIn } from './lib/languageFacts.js';
 import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
-import { asksHeldStatus, isNationalityField, isPermitField, nationalityCodes, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
+import { asksHeldStatus, isNationalityField, isPermitField, nationalityCodes, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf, RESIDENCE_OR_PERMIT_RE } from './lib/permitStatus.js';
 import { phoneCountryCode } from './lib/phoneNormalization.js';
 import { isUnknownAnswer } from './lib/unknownAnswer.js';
 import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
@@ -97,9 +97,11 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // questions; a passport stated at upload remains the higher-priority fact, and an unknown nationality stays open.
 // v14 (2026-11-12): passport questions share one fact; verified platform answers plus a foreign permit can
 // establish EU/EFTA, while an explicit candidate blank keeps the passport unknown.
+// v16 (2026-11-27): «Risiedi in Svizzera?» answered from the stated address country, and a residence-or-permit
+// question answered yes only by a held permit (never no from the lack of one): the waits on them are read again.
 // v15 (2026-11-24): deduce birth-year estimate from work experience when education lacks dates (unblocking
 // civil-status deduction), and deduce category B driving licence from own-car evidence or decision.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v15';
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v16';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -1695,6 +1697,17 @@ export function withCandidateAddress(facts, statements = {}) {
   return { ...facts, address: { ...address, candidateStated: true } };
 }
 
+// «Risiedi in Svizzera?» alone (every caption of the field says only that): where the candidate lives is the
+// address country the CV or the candidate stated, never a guess. A condition («…o in zona di frontiera»), a
+// duration or a second ask makes it another question and stays unanswered.
+const RESIDENCE_IN_SWITZERLAND = /^(?:(?:risiedi|abiti|vivi|sei residente)\s+(?:attualmente\s+)?(?:in|nella)\s+(?:svizzera|confederazione svizzera)|(?:wohnen sie|wohnst du)\s+(?:derzeit\s+|aktuell\s+)?in der schweiz|(?:do you|are you)\s+(?:currently\s+)?(?:live|living|reside|residing|resident)\s+in switzerland|(?:habitez|residez)[- ]vous\s+(?:actuellement\s+)?en suisse)$/;
+function isResidenceInSwitzerlandQuestion(question) {
+  if (!isBinary(question)) return false;
+  const captions = [question?.applicationQuestion, question?.question, question?.label]
+    .filter((value) => typeof value === 'string' && value.trim()).map(fold);
+  return captions.length > 0 && captions.every((caption) => RESIDENCE_IN_SWITZERLAND.test(caption));
+}
+
 function classifyPlatformSubject(question) {
   const text = label(question);
   if (!text) return null;
@@ -1719,6 +1732,7 @@ function classifyPlatformSubject(question) {
   }
   if (isCivilStatusField(text)) return 'civil_status';
   if (isDrivingLicenceBQuestion(question)) return 'driving_licence_b';
+  if (isResidenceInSwitzerlandQuestion(question)) return 'residence_in_switzerland';
   const raw = [question?.applicationQuestion, question?.question, question?.label].filter(Boolean).join(' ');
   const permitOptions = optionsOf(question).filter((option) => permitCodeOf(option)).length;
   if ((isPermitField(raw) && asksHeldStatus(raw)) || permitOptions >= 2) return 'work_permit';
@@ -2307,8 +2321,15 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       value = options.length ? civilStatusOption(options, localized) || civilStatusOption(options, civilStatusOptions('en')[index]) : localized;
       break;
     }
+    case 'residence_in_switzerland':
+      // The address country the CV or the candidate stated (explicit, or the directory's for a town and its code).
+      if (address.country) value = address.country === 'CH' ? yesValue(question, lang) : noValue(question, lang);
+      break;
     case 'work_permit': {
       const status = known.permitStatus;
+      // «Risiedi in Svizzera, o sei in possesso di un permesso di lavoro?» is true when either clause holds: a held
+      // permit makes it yes, but without one the candidate may still live in Switzerland: no answer is derived.
+      if (isBinary(question) && RESIDENCE_OR_PERMIT_RE.test(label(question)) && (!status || status === 'none')) break;
       if (!status && (isBinary(question) || !options.length || !known.passport)) break;
       if (options.length && !isBinary(question)) value = (status ? pickOption(question, (option) => permitCodeOf(option) === status) : '')
         || permitOptionFallback(question, status, known.passport);
