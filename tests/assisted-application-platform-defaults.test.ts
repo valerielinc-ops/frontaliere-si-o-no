@@ -459,10 +459,11 @@ describe('wiring', () => {
         { id: 'portal_birth', question: 'Qual è la tua data di nascita?', type: 'date', required: true, source: 'portal' },
         { id: 'salary_expectation', question: 'Qual è la tua aspettativa salariale?', type: 'text', required: true, source: 'match' },
         { id: 'licence', question: 'È in possesso di una patente di guida valida di categoria B?', type: 'yes_no', required: true, source: 'match' },
+        { id: 'licence_c', question: 'Possiede la patente di categoria C?', type: 'yes_no', required: true, source: 'match' },
       ],
     };
     const order = { userId: 'user-1', applicantName: 'Giulia Rossi', salaryMax: 88000 };
-    expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual(['licence']);
+    expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual(['licence_c']);
   });
 
   it('fills the form candidate, never the profile the letter is written from', () => {
@@ -657,7 +658,7 @@ describe('birth-year fallback from experience and category B driving licence ded
     expect(platformDefaultAnswer(maritalQuestion, facts, { locale: 'it' })?.value).toBe('Sposato/a (Svizzera)');
   });
 
-  it('deduces category B driving licence from own-car answer or verified decision, while respecting an explicit No', () => {
+  it('defaults category B driving licence to yes even without own car, while respecting an explicit No', () => {
     const ownCarQ = { id: 'own_car', source: 'match', type: 'yes_no', question: 'Sei automunito/a?', options: ['Sì', 'No'] };
     const licenceBQ = { id: 'driving_licence_b', source: 'match', type: 'yes_no', question: 'Possiedi una licenza di condurre di categoria B?', options: ['Sì', 'No'] };
     const licenceCQ = { id: 'driving_licence_c', source: 'match', type: 'yes_no', question: 'Possiedi la patente di categoria C?', options: ['Sì', 'No'] };
@@ -665,28 +666,73 @@ describe('birth-year fallback from experience and category B driving licence ded
     expect(platformQuestionTopic(licenceBQ)).toBe('driving_licence_b');
     expect(platformQuestionTopic(licenceCQ)).toBeNull();
 
-    const fromDecision = platformCandidateFacts({
+    const defaultWithoutOwnCar = platformCandidateFacts({
       questions: [ownCarQ, licenceBQ],
-      answers: {},
-      decisionAnswers: { own_car: { value: 'Sì', principle: 'application_success' } },
+      answers: { own_car: 'No' },
       nowMs: NOW,
       locale: 'it',
     });
-    expect(fromDecision.drivingLicenceB).toBe(true);
-    expect(platformDefaultAnswer(licenceBQ, fromDecision, { locale: 'it' })?.value).toBe('Sì');
+    expect(defaultWithoutOwnCar.drivingLicenceB).toBe(true);
+    expect(platformDefaultAnswer(licenceBQ, defaultWithoutOwnCar, { locale: 'it' })?.value).toBe('Sì');
 
     const explicitNo = platformCandidateFacts({
-      profile: { ownCar: true },
-      order: { candidateFacts: { ownCar: true } },
-      cvText: 'Persona automunita disponibile subito.',
       questions: [ownCarQ, licenceBQ],
-      answers: { own_car: 'No' },
-      decisionAnswers: { own_car: { value: 'Sì', principle: 'application_success' } },
+      answers: { own_car: 'Sì', driving_licence_b: 'No' },
       nowMs: NOW,
       locale: 'it',
     });
     expect(explicitNo.drivingLicenceB).toBe(false);
     expect(platformDefaultAnswer(licenceBQ, explicitNo, { locale: 'it' })).toBeNull();
+
+    const cvNo = platformCandidateFacts({
+      cvText: 'Disponibile subito, senza patente di guida B.',
+      questions: [licenceBQ],
+      answers: {},
+      nowMs: NOW,
+      locale: 'it',
+    });
+    expect(cvNo.drivingLicenceB).toBe(false);
+    expect(platformDefaultAnswer(licenceBQ, cvNo, { locale: 'it' })).toBeNull();
+  });
+
+  it('defaults binary physical fitness declarations to yes while excluding medical certificates and negative health questions', () => {
+    const facts = platformCandidateFacts({ nowMs: NOW, locale: 'it' });
+    for (const q of [
+      { id: 'physical_fitness', type: 'yes_no', question: 'Sei in buona forma fisica per svolgere le mansioni di saldatore?', options: ['Sì', 'No'] },
+      { id: 'sana_costituzione_fisica', type: 'yes_no', question: 'Dichiara di essere fisicamente idonea a svolgere le mansioni di addetta alle pulizie?', options: ['Sì', 'No'] },
+      { id: 'fit_costituzione', type: 'yes_no', question: 'Gode di sana e robusta costituzione fisica?', options: ['Sì', 'No'] },
+    ]) {
+      expect(platformQuestionTopic(q)).toBe('physical_fitness');
+      expect(platformDefaultAnswer(q, facts, { locale: 'it' })?.value).toBe('Sì');
+    }
+
+    expect(platformDefaultAnswer({
+      id: 'fit_de', type: 'yes_no', question: 'Sind Sie körperlich fit und belastbar für diese Tätigkeit?', options: ['Ja', 'Nein'],
+    }, facts, { locale: 'de' })?.value).toBe('Ja');
+    expect(platformDefaultAnswer({
+      id: 'fit_fr', type: 'yes_no', question: 'Êtes-vous physiquement apte à exercer cette fonction?', options: ['Oui', 'Non'],
+    }, facts, { locale: 'fr' })?.value).toBe('Oui');
+    expect(platformDefaultAnswer({
+      id: 'fit_en', type: 'yes_no', question: 'Are you physically fit to perform the duties of a cleaner?', options: ['Yes', 'No'],
+    }, facts, { locale: 'en' })?.value).toBe('Yes');
+
+    for (const excluded of [
+      { id: 'cert_med', type: 'yes_no', question: 'Hai il certificato medico di idoneità fisica?', options: ['Sì', 'No'] },
+      { id: 'limits', type: 'yes_no', question: 'Ha limitazioni fisiche per svolgere la mansione?', options: ['Sì', 'No'] },
+      { id: 'moral_psycho', type: 'yes_no', question: 'Buona condotta morale e stato psicofisico?', options: ['Sì', 'No'] },
+    ]) {
+      expect(platformQuestionTopic(excluded)).toBeNull();
+    }
+
+    const rejected = platformCandidateFacts({
+      questions: [{ id: 'physical_fitness', type: 'yes_no', question: 'Sei in buona forma fisica?', options: ['Sì', 'No'] }],
+      answers: { physical_fitness: 'No' },
+      nowMs: NOW,
+      locale: 'it',
+    });
+    expect(platformDefaultAnswer({
+      id: 'physical_fitness', type: 'yes_no', question: 'Sei in buona forma fisica?', options: ['Sì', 'No'],
+    }, rejected, { locale: 'it' })).toBeNull();
   });
 
   it('deduces neighbouring DE/FR/AT/LI countries from unambiguous locality or CV dateline while keeping cross-border ambiguity closed', () => {

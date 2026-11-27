@@ -546,4 +546,42 @@ describe('PinpointHQ New Application title and route binding', () => {
       applyUrl: postingUrl,
     })).toBe('mismatch');
   });
+
+  it('matches concatenated DOM spans, career-page CTAs, and Job-Room chrome while rejecting real conflicts', () => {
+    const migrosJob = {
+      company: 'Genossenschaft Migros Zürich',
+      title: 'Addetto a alla vendita di fiori e al servizio clienti',
+      sourceTitle: 'Verkäufer*in Blumen und Kundendienst 80 – 100%',
+    };
+    expect(formPostingMatch(
+      'Genossenschaft Migros Zürich16. November 2026\nVerkäufer*in Blumen und Kundendienst80 – 100%\nBewerbung',
+      migrosJob,
+      { pageUrl: 'https://jobs.migros.ch/de/jobs/123456' },
+    )).toBe('match');
+
+    const delapaixJob = { company: 'Hotel de la Paix', title: 'Chef de Partie', location: 'Lugano' };
+    expect(formPostingMatch(
+      'Lavora con noi - Hotel de la Paix\nHotel de la Paix Lugano\nCandidatura spontanea\nNome\nCognome',
+      delapaixJob,
+      {
+        pageUrl: 'https://delapaix.ch/it/lavora-con-noi/',
+        postingUrl: 'https://www.job-room.ch/job-search/a5ed5d82-1111-2222-3333-444455556666',
+        applyUrl: 'https://delapaix.ch/it/lavora-con-noi/',
+      },
+    )).toBe('match');
+
+    expect(formPostingMatch(
+      'Header Contact Registration info Login work .swiss\nChef de Partie\nHotel de la Paix\nVia Silvio Calloni 18\n6900 Lugano\nApply',
+      delapaixJob,
+      {
+        pageUrl: 'https://www.job-room.ch/job-search/a5ed5d82-1111-2222-3333-444455556666',
+        postingUrl: 'https://www.job-room.ch/job-search/a5ed5d82-1111-2222-3333-444455556666',
+      },
+    )).toBe('match');
+
+    // A different brand remains a mismatch even on an employer-style title.
+    expect(formPostingMatch('Lavora con noi - Grand Hotel Eden\nNome\nCognome', delapaixJob, {
+      pageUrl: 'https://delapaix.ch/it/lavora-con-noi/',
+    })).toBe('mismatch');
+  });
 });

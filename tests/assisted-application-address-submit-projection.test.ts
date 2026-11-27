@@ -85,4 +85,42 @@ describe('submit preserves raw candidate provenance through automatic projection
       dom.window.close();
     }
   });
+
+  it('reuses a candidate-answered portal_residence_country for owned SuccessFactors account residence selectors while isolating employer/unknown scopes', () => {
+    const ownedField = {
+      id: 'portal_land_region_des_wohnorts_2eo4i3_17on3pj',
+      kind: 'select',
+      label: 'Land/Region des Wohnorts:*',
+      section: 'Karrierechancen: Konto anlegen',
+      context: 'Karrierechancen:Konto anlegen · Land/Region des Wohnorts:*',
+      addressContext: { section: 'Karrierechancen: Konto anlegen', owners: ['Karrierechancen:Konto anlegen'], unknown: false },
+      options: ['Bitte wählen', 'Schweiz', 'Deutschland', 'Österreich'],
+    };
+    const employerField = {
+      ...ownedField,
+      label: 'Country:*',
+      addressContext: { section: 'Employer', owners: ['Employer'], unknown: false },
+    };
+    const unknownField = {
+      ...ownedField,
+      addressContext: { section: 'Karrierechancen: Konto anlegen', owners: [], unknown: true },
+    };
+
+    const candidate = { answers: { portal_residence_country: 'Deutschland' }, portalQuestionsAnswered: [], profile: {} };
+    assert.deepEqual(candidateAnswerForField(candidate, ownedField), { value: 'Deutschland', source: 'answers' });
+    assert.equal(candidateAnswerForField(candidate, employerField), null);
+    assert.equal(candidateAnswerForField(candidate, unknownField), null);
+
+    const priorSectionCandidate = {
+      answers: {},
+      portalQuestionsAnswered: [{
+        question: 'Land / Region des Wohnorts',
+        section: 'Karrierechancen: Konto anlegen',
+        answer: 'Deutschland',
+        source: 'answers',
+      }],
+      profile: {},
+    };
+    assert.deepEqual(candidateAnswerForField(priorSectionCandidate, ownedField), { value: 'Deutschland', source: 'answers' });
+  });
 });
