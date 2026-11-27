@@ -27,7 +27,7 @@
       "fr": "home-office-construction-ingenieur-casale-sa-lugano-ticino-gpc4qj"
     },
     "sector": "Ingegneria / Chimica",
-    "expiredAt": "2026-11-26T07:03:04.771Z",
+    "expiredAt": "2026-11-27T04:16:57.606Z",
     "previousSlugs": [
       "home-office-construction-ingegnere-casale-sa-lugano"
     ],
@@ -35,6 +35,12 @@
       "it": [
         "home-office-construction-ingegnere-casale-sa-lugano"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "home-office-construction-ingegnere-casale-sa-lugano": "TI",
+        "home-office-construction-engineer-casale-lugano": "TI"
+      }
     },
     "postalCode": "6900",
     "streetAddress": "Via Giulio Pocobelli 6",
@@ -90,7 +96,8 @@
         "expediter-casale-sa-lugano-ticino",
         "search-casale-sa-lugano-ticino",
         "expediter-casale-sa-lugano",
-        "expediter-casale-sa-lugano-ticino-qj6jpx"
+        "expediter-casale-sa-lugano-ticino-qj6jpx",
+        "expediter-casale-lugano"
       ],
       "de": [
         "expediter-casale-sa-lugano-ticino-qj6jpx",
@@ -110,7 +117,34 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruit.casale.ch/o/expediter-1",
-    "firstSeenAt": "2026-04-13T21:19:25.409Z"
+    "firstSeenAt": "2026-04-13T21:19:25.409Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "expediter-casale-sa-lugano-ticino-qj6jpx": "TI",
+        "expediter-casale-sa-lugano-ticino": "TI",
+        "search-casale-sa-lugano-ticino": "TI",
+        "spedizione-casale-sa-lugano-ticino": "TI",
+        "spedizione-casale-sa-lugano": "TI"
+      },
+      "en": {
+        "expediter-casale-lugano": "TI",
+        "expediter-casale-sa-lugano-ticino": "TI",
+        "search-casale-sa-lugano-ticino": "TI",
+        "expediter-casale-sa-lugano": "TI",
+        "expediter-casale-sa-lugano-ticino-qj6jpx": "TI"
+      },
+      "de": {
+        "expediter-casale-sa-lugano-ticino-qj6jpx": "TI",
+        "expediter-casale-sa-lugano-ticino": "TI",
+        "search-casale-sa-lugano-ticino": "TI"
+      },
+      "fr": {
+        "expediter-casale-sa-lugano-ticino-qj6jpx": "TI",
+        "expediter-casale-sa-lugano-ticino": "TI",
+        "search-casale-sa-lugano-ticino": "TI"
+      }
+    }
   },
   {
     "slug": "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-lugano",
@@ -190,7 +224,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruit.casale.ch/o/junior-software-engineer-internship-program",
-    "firstSeenAt": "2026-06-29T21:57:33.193Z"
+    "firstSeenAt": "2026-06-29T21:57:33.193Z",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "hse-specialista-casale-sa-lugano",

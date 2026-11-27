@@ -49,7 +49,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.orior.ch/job/b%c3%b6ckten-weihnachtsaushilfe-produktion-70-100-bl/1457896933",
-    "firstSeenAt": "2026-11-17T09:20:00.866Z"
+    "firstSeenAt": "2026-11-17T09:20:00.866Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "weihnachtsaushilfe-produktion-70-100-careers-ch": "BL",
+        "weihnachtsaushilfe-produktion-70-100-lepatron-bockten": "BL"
+      },
+      "en": {
+        "weihnachtsaushilfe-produktion-70-100-lepatron-bockten": "BL"
+      },
+      "fr": {
+        "weihnachtsaushilfe-produktion-70-100-lepatron-bockten": "BL"
+      }
+    }
   },
   {
     "slug": "team-leader-leader-delle-piante-100-lepatron-bockten-fda71101",
@@ -151,7 +164,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.orior.ch/job/b%c3%b6ckten-praktikantin-product-manager-convenience%2c-80-100-bl/1431816433",
-    "firstSeenAt": "2026-08-31T17:12:06.514Z"
+    "firstSeenAt": "2026-08-31T17:12:06.514Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-product-manager-convenience-80-100-careers-ch": "BL"
+      },
+      "fr": {
+        "praktikant-in-product-manager-convenience-80-100-lepatron-lugano": "BL",
+        "praktikant-in-product-manager-convenience-80-100-lepatron-bockten": "BL",
+        "stagiaire-dans-product-manager-commodity-80-100-lepatron-bockten": "BL"
+      }
+    }
   },
   {
     "slug": "meccanico-operativo-in-manutenzione-80-100-lepatron-bockten",
@@ -209,6 +233,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.orior.ch/job/b%c3%b6ckten-betriebsmechaniker-in-instandhaltung%2c-80-100-bl/1402889733",
-    "firstSeenAt": "2026-08-24T10:28:48.595Z"
+    "firstSeenAt": "2026-08-24T10:28:48.595Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano": "BL",
+        "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano": "BL",
+        "betriebsmechaniker-in-instandhaltung-80-100-careers-ch": "BL"
+      },
+      "en": {
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano": "BL"
+      },
+      "de": {
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano": "BL",
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-bockten": "BL"
+      },
+      "fr": {
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano": "BL"
+      }
+    }
   }
 ]
