@@ -200,3 +200,45 @@ export function manifestDownloader({ github, owner, repo }) {
     }
   };
 }
+
+// Validates a candidate manifest with the `node` of the JOB, never with the
+// runtime of actions/github-script: the validator compares the manifest's
+// nodeMajor with process.versions.node, and github-script runs on its own Node
+// (observed: every candidate rejected as "output contract changed" although
+// manifest and PR agreed on Node 22). The `cache-key` command is the code the
+// restore path already uses; the reason is read back from its `error=` output
+// line, so it stays classifiable. `execFile` is injectable for tests.
+export function jobNodeValidator({
+  cwd, compatibilityFingerprint, execFile = execFileSync, env = process.env, tmpRoot,
+}) {
+  return ({ manifestText, runId, runAttempt }) => {
+    const dir = fs.mkdtempSync(path.join(tmpRoot || env.RUNNER_TEMP || os.tmpdir(), 'snapshot-candidate-'));
+    try {
+      const manifestFile = path.join(dir, MANIFEST_FILE_NAME);
+      const outputFile = path.join(dir, 'github-output');
+      fs.writeFileSync(manifestFile, manifestText);
+      fs.writeFileSync(outputFile, '');
+      try {
+        execFile('node', ['scripts/ci/assemble-test-snapshot.mjs', 'cache-key'], {
+          cwd,
+          env: {
+            ...env,
+            ASSEMBLE_TEST_SNAPSHOT_METADATA_FILE: manifestFile,
+            ASSEMBLE_TEST_SNAPSHOT_RUN_ID: String(runId),
+            ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT: String(runAttempt),
+            ASSEMBLE_TEST_SNAPSHOT_COMPATIBILITY_FINGERPRINT: compatibilityFingerprint,
+            GITHUB_OUTPUT: outputFile,
+          },
+          stdio: ['ignore', 'ignore', 'ignore'],
+          timeout: 120_000,
+        });
+        return '';
+      } catch (error) {
+        const line = fs.readFileSync(outputFile, 'utf8').split('\n').find((entry) => entry.startsWith('error='));
+        return line ? line.slice('error='.length) : `validator failed: ${error.message}`;
+      }
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  };
+}

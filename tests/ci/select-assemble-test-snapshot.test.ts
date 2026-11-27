@@ -1,7 +1,10 @@
 import { describe, expect, it, vi } from 'vitest';
+import fs from 'node:fs';
+import YAML from 'yaml';
 import {
   findRecentTrustedManifest,
   isTrustedProducerRun,
+  jobNodeValidator,
   selectAssembleTestSnapshot,
 } from '../../scripts/ci/select-assemble-test-snapshot.mjs';
 
@@ -209,5 +212,69 @@ describe('findRecentTrustedManifest', () => {
     const { github } = harness([]);
     github.rest.actions.listArtifactsForRepo.mockRejectedValue(new Error('boom'));
     await expect(findRecentTrustedManifest({ ...base, github, withinMs: 1000 })).rejects.toThrow('boom');
+  });
+});
+
+describe('jobNodeValidator', () => {
+  const fingerprint = 'c'.repeat(64);
+  const make = (execFile: any) => jobNodeValidator({ cwd: '/work', compatibilityFingerprint: fingerprint, execFile, env: { PATH: '/bin', GITHUB_OUTPUT: 'ignored' } });
+
+  it('runs cache-key with the job node and the candidate identity, and accepts on exit 0', () => {
+    const execFile = vi.fn((_cmd: string, _args: string[], options: any) => {
+      expect(fs.readFileSync(options.env.ASSEMBLE_TEST_SNAPSHOT_METADATA_FILE, 'utf8')).toBe('{"m":1}');
+      return Buffer.from('');
+    });
+    expect(make(execFile)({ manifestText: '{"m":1}', runId: '42', runAttempt: '2' })).toBe('');
+    const [cmd, args, options] = execFile.mock.calls[0] as any[];
+    expect(cmd).toBe('node');
+    expect(args).toEqual(['scripts/ci/assemble-test-snapshot.mjs', 'cache-key']);
+    expect(options.cwd).toBe('/work');
+    expect(options.env).toMatchObject({
+      ASSEMBLE_TEST_SNAPSHOT_RUN_ID: '42',
+      ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT: '2',
+      ASSEMBLE_TEST_SNAPSHOT_COMPATIBILITY_FINGERPRINT: fingerprint,
+    });
+    expect(options.env.GITHUB_OUTPUT).not.toBe('ignored');
+  });
+
+  it('returns the error= line the command wrote, so the reason stays classifiable', () => {
+    const execFile = vi.fn((_c: string, _a: string[], options: any) => {
+      fs.appendFileSync(options.env.GITHUB_OUTPUT, 'error=snapshot is older than 60 minutes or has an invalid timestamp\n');
+      throw new Error('exit 1');
+    });
+    const reason = make(execFile)({ manifestText: '{}', runId: '1', runAttempt: '1' });
+    expect(reason).toBe('snapshot is older than 60 minutes or has an invalid timestamp');
+  });
+
+  it('rejects when the command fails without an error line', () => {
+    const execFile = vi.fn(() => { throw new Error('spawn node ENOENT'); });
+    expect(make(execFile)({ manifestText: '{}', runId: '1', runAttempt: '1' })).toContain('spawn node ENOENT');
+  });
+
+  it('does not depend on the Node that runs the caller', () => {
+    const execFile = vi.fn(() => Buffer.from(''));
+    const original = Object.getOwnPropertyDescriptor(process.versions, 'node');
+    Object.defineProperty(process.versions, 'node', { value: '99.0.0', configurable: true });
+    try {
+      expect(make(execFile)({ manifestText: '{}', runId: '1', runAttempt: '1' })).toBe('');
+    } finally {
+      if (original) Object.defineProperty(process.versions, 'node', original);
+    }
+  });
+});
+
+describe('github-script never imports the snapshot validator', () => {
+  it('keeps assemble-test-snapshot.mjs out of the selector module and out of every github-script block', () => {
+    const selector = fs.readFileSync(new URL('../../scripts/ci/select-assemble-test-snapshot.mjs', import.meta.url), 'utf8');
+    expect(selector).not.toMatch(/^import .*assemble-(test-snapshot|jobs-dataset)/mu);
+    for (const file of ['tests.yml', 'hourly-test-assemble-snapshot.yml']) {
+      const workflow = YAML.parse(fs.readFileSync(new URL(`../../.github/workflows/${file}`, import.meta.url), 'utf8')) as any;
+      for (const job of Object.values<any>(workflow.jobs)) {
+        for (const step of job.steps ?? []) {
+          if (!String(step.uses ?? '').startsWith('actions/github-script')) continue;
+          expect(String(step.with.script), `${file}: ${step.name}`).not.toMatch(/(?<!select-)assemble-test-snapshot\.mjs|assemble-jobs-dataset/u);
+        }
+      }
+    }
   });
 });

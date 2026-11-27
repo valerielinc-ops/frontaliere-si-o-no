@@ -2771,7 +2771,6 @@ jobs:
         with:
           script: |
             const fs = require('node:fs');
-            const os = require('node:os');
             const path = require('node:path');
             const { pathToFileURL } = require('node:url');
             const workspace = process.env.GITHUB_WORKSPACE;
@@ -2783,31 +2782,15 @@ jobs:
             };
             try {
               const selector = await import(pathToFileURL(`${workspace}/scripts/ci/select-assemble-test-snapshot.mjs`).href);
-              const snapshot = await import(pathToFileURL(`${workspace}/scripts/ci/assemble-test-snapshot.mjs`).href);
               const owner = context.repo.owner;
               const repo = context.repo.repo;
-              // The same code the restore path uses, on a scratch copy of the
-              // candidate manifest.
-              const validate = ({ manifestText, runId, runAttempt, now }) => {
-                const dir = fs.mkdtempSync(path.join(process.env.RUNNER_TEMP || os.tmpdir(), 'snapshot-candidate-'));
-                try {
-                  const file = path.join(dir, 'test-snapshot.json');
-                  fs.writeFileSync(file, manifestText);
-                  snapshot.snapshotCacheKeyFromMetadata({
-                    metadataPath: file,
-                    expectedRunId: runId,
-                    expectedRunAttempt: runAttempt,
-                    compatibilityFingerprint: process.env.SNAPSHOT_COMPATIBILITY_FINGERPRINT,
-                    runnerOs: process.env.RUNNER_OS || 'Linux',
-                    now,
-                  });
-                  return '';
-                } catch (error) {
-                  return error instanceof Error ? error.message : String(error);
-                } finally {
-                  fs.rmSync(dir, { recursive: true, force: true });
-                }
-              };
+              // The same `cache-key` command the restore path uses, run with the
+              // job's own node: importing the validator here would compare the
+              // manifest's nodeMajor with the Node of github-script.
+              const validate = selector.jobNodeValidator({
+                cwd: workspace,
+                compatibilityFingerprint: process.env.SNAPSHOT_COMPATIBILITY_FINGERPRINT,
+              });
               const result = await selector.selectAssembleTestSnapshot({
                 github,
                 owner,
