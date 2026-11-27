@@ -122,6 +122,10 @@ import {
   normalizeFetchOutcome,
 } from './lib/crawler-fetch-outcome.mjs';
 import { detailDropFromSummary, detailDropAdvisoryReason } from './lib/crawler-detail-drop.mjs';
+import {
+  WORKDAY_COOLDOWN_OUTCOME,
+  normalizeWorkdayCooldownRecord,
+} from './lib/workday-rate-limit-cooldown.mjs';
 import { flapFromSummary, flapAdvisoryReason } from './lib/crawler-flap.mjs';
 import {
   EMPTY_OK_CRAWLERS,
@@ -446,6 +450,7 @@ async function inspectCrawler(slug) {
     abortKind,
     earlyExit,
     exitCode,
+    workdayRateLimit: normalizeWorkdayCooldownRecord(summary?.workdayRateLimit),
     codeCommit: observedCodeCommit(summary),
   };
 }
@@ -569,6 +574,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     abortKind,
     earlyExit,
     exitCode,
+    workdayRateLimit: normalizeWorkdayCooldownRecord(summary?.workdayRateLimit),
     codeCommit: observedCodeCommit(summary),
   };
 }
@@ -1117,10 +1123,25 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     lastObservedJobs === previous._lastObservedJobs &&
     emptyOk === previousEmptyOk;
 
+  // Workday tenant in a declared cross-run cooldown (#20279): the run closed
+  // in 429 (or skipped the tenant on purpose) and the previous slice is still
+  // live. This is a named, bounded wait with a next attempt, not a crawler to
+  // repair, so it neither feeds the empty streak nor reads as `broken`. The
+  // same floor as the transport aborts ends the leniency: a series older than
+  // that is a tenant that does not come back and falls into the broken path.
+  const rateLimit = normalizeWorkdayCooldownRecord(observation.workdayRateLimit);
+  const rateLimitSeriesAgeMs = rateLimit ? nowMs - Date.parse(rateLimit.firstRateLimitedAt) : 0;
+  const rateLimitedCooldown =
+    rateLimit !== null &&
+    abortedRun &&
+    lastObservedJobs === 0 &&
+    !summaryMissing &&
+    rateLimitSeriesAgeMs <= TRANSPORT_ABORT_STALE_FLOOR_MS;
+
   const consecutiveEmptyRuns = isRepeatObservation
     ? (previous.consecutiveEmptyRuns ?? 0)
-    : lastObservedJobs > 0 || emptyOk
-      ? 0
+    : lastObservedJobs > 0 || emptyOk || rateLimitedCooldown
+      ? (rateLimitedCooldown ? (previous.consecutiveEmptyRuns ?? 0) : 0)
       : (previous.consecutiveEmptyRuns ?? 0) + 1;
 
   // Unlike `consecutiveEmptyRuns` above, this counts EVERY empty observation
@@ -1202,6 +1223,10 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   if (freshnessAgeDays > STALE_AFTER_DAYS) {
     status = 'stale';
     reason = `crawler not run in ${Math.round(freshnessAgeDays)} days (freshnessAt=${freshnessAt ?? 'unknown'}, source=${freshnessSource})`;
+  } else if (rateLimitedCooldown) {
+    status = 'rate-limited-cooldown';
+    const dueNote = Date.parse(rateLimit.nextAttemptAfter) <= nowMs ? ' (retry due on the next run)' : '';
+    reason = `tenant ${rateLimit.tenant} answered HTTP 429 for ${rateLimit.consecutiveRuns} consecutive run(s) since ${rateLimit.firstRateLimitedAt}; ${rateLimit.outcome === WORKDAY_COOLDOWN_OUTCOME ? 'last run skipped it (rate-limited-cooldown)' : 'last run was rate limited'}, next attempt after ${rateLimit.nextAttemptAfter}${dueNote} (abortKind=${abortKind ?? 'retryable-http-response'}) — a declared cooldown, the previous slice is still live; it clears by itself on the first successful run`;
   } else if (fetchFailed) {
     // FIRST observation, no streak. The empty-streak gate needs three runs
     // because `total: 0` on its own is ambiguous — anti-bot block, dead
@@ -1326,6 +1351,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _authoritativeEmptySnapshot: authoritativeEmpty,
       _lastObservedFetchOutcome: fetchOutcome,
       _lastObservedAbortKind: abortKind,
+      _lastObservedRateLimit: rateLimit,
       // Non entra in OBSERVATION_DIAGNOSTIC_FIELDS di proposito: il commit
       // descrive l'osservazione vincente, e ereditarlo da quella scartata
       // attribuirebbe a una run il codice di un'altra.
@@ -1433,7 +1459,7 @@ async function main() {
     const { state, status, reason } = evaluation;
     nextCrawlers[slug] = state;
 
-    if (status === 'stale' || status === 'broken' || state.advisory) {
+    if (status === 'stale' || status === 'broken' || status === 'rate-limited-cooldown' || state.advisory) {
       // `state.advisory` fires while `status` is still 'healthy' (the
       // EMPTY_OK_CRAWLERS design is intentionally not overridden) — surface
       // it as its own issue status so it doesn't read as stale/broken.
@@ -1446,6 +1472,7 @@ async function main() {
         consecutiveEmptyRuns: state.consecutiveEmptyRuns,
         codeCommit: state._lastObservedCodeCommit ?? null,
         abortKind: state._lastObservedAbortKind ?? null,
+        ...(status === 'rate-limited-cooldown' ? { rateLimit: state._lastObservedRateLimit } : {}),
       };
       // La scheda viaggia nel file, non nel workflow: la condizione di chiusura
       // di questa issue vive nel codice del closer (lo step "Close recovered
@@ -1670,7 +1697,20 @@ export async function groupSharedFamilyIssues(issues, resolveFamily) {
 export function buildAggregateIssue({ family, abortKind, repairPoint, members }) {
   const title = aggregateTitle(family, abortKind);
   const sorted = [...members].sort((a, b) => a.slug.localeCompare(b.slug));
-  const status = sorted.some((m) => m.status === 'broken') ? 'broken' : 'stale';
+  const status = sorted.some((m) => m.status === 'broken')
+    ? 'broken'
+    : sorted.every((m) => m.status === 'rate-limited-cooldown') ? 'rate-limited-cooldown' : 'stale';
+  const cooling = sorted.filter((m) => m.rateLimit);
+  const nextAttempts = cooling.length === 0
+    ? []
+    : [
+      '',
+      '## Prossimi tentativi (cooldown tra le run)',
+      '',
+      ...cooling.map((m) => `- \`${m.slug}\` — tenant \`${m.rateLimit.tenant}\`: prossimo tentativo dopo ${m.rateLimit.nextAttemptAfter} (${m.rateLimit.consecutiveRuns} run consecutive in 429, dal ${m.rateLimit.firstRateLimitedAt})`),
+      '',
+      'Un tenant in cooldown non viene contattato prima della scadenza (6 h, 12 h, 24 h, tetto 24 h); il cooldown si azzera al primo successo e la issue resta aperta finche\' i tenant non tornano sani.',
+    ];
   const list = sorted.map((m) => `- \`${m.slug}\` (${m.status}) — ${m.reason}`).join('\n');
   const body = [
     aggregateMarker(family, abortKind),
@@ -1682,6 +1722,7 @@ export function buildAggregateIssue({ family, abortKind, repairPoint, members })
     '## Crawler colpiti',
     '',
     list,
+    ...nextAttempts,
     '',
     'Triage:',
     `0. Leggi la Reason: con \`abortKind=${abortKind}\` la sorgente non e' stata osservata vuota; il difetto e' nel trasporto o nel bail-out della libreria condivisa, non in un selettore.`,

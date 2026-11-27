@@ -122,6 +122,7 @@ import { readJsonFile } from './lib/read-large-json.mjs';
 import { readExpiredSliceRows } from './lib/expired-slice-store.mjs';
 import { createExpiredDescriptionSpill, withoutDescriptions } from './lib/expired-description-spill.mjs';
 import { startHeapPhase } from './lib/heap-phase-monitor.mjs';
+import { hydrateWorkdayCooldown, workdayCooldownSummaryField } from './lib/workday-rate-limit-cooldown.mjs';
 import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
 import { decontaminateEntries, decontaminateJobs, readFleetForSingleOwner } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
@@ -310,6 +311,20 @@ export function markCrawlerSummaryAbortKind(kind) {
 }
 
 /**
+ * Load the previous run's Workday rate-limit record (#20279) from this
+ * crawler's own summary slice, so the client can skip a tenant still in
+ * cooldown. Best-effort and fail-open: no file, no field or bad JSON means
+ * no cooldown. The text pre-check keeps the common case free of a JSON parse.
+ */
+function hydrateWorkdayCooldownFromSummary(key) {
+  try {
+    const text = fs.readFileSync(path.join(SUMMARIES_SLICES_DIR, `${key}.json`), 'utf8');
+    if (!text.includes('"workdayRateLimit"')) return;
+    hydrateWorkdayCooldown(JSON.parse(text).workdayRateLimit);
+  } catch { /* no previous summary: contact the tenant as usual */ }
+}
+
+/**
  * Register a process-exit guard that writes a minimal summary if the crawler
  * exits (via early return, process.exit, or uncaught error) before calling
  * writeSummaryCrawlerSlice().
@@ -327,6 +342,7 @@ export function markCrawlerSummaryAbortKind(kind) {
  *   crawler hasn't been instrumented — behaviour is unchanged.
  */
 export function registerCrawlerSummaryGuard(key, label, counts = null) {
+  hydrateWorkdayCooldownFromSummary(key);
   process.on('exit', (code) => {
     if (_summaryWritten) return;
     try {
@@ -3796,6 +3812,11 @@ export function writeSummaryCrawlerSlice(summaryEntry, options = {}) {
     }
   }
   const stripped = stampCodeCommit(entryForSlice);
+  // Cross-run Workday cooldown (#20279): absent unless the run closed (or was
+  // skipped) in 429, so the first successful run clears it by omission.
+  const workdayRateLimit = workdayCooldownSummaryField();
+  if (workdayRateLimit) stripped.workdayRateLimit = workdayRateLimit;
+  else delete stripped.workdayRateLimit;
   for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
     if (Array.isArray(stripped[listKey])) {
       stripped[listKey] = stripped[listKey].map(stripJob);
