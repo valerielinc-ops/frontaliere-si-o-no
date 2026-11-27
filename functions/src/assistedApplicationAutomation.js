@@ -96,6 +96,12 @@ const RUNNER_EVENT_TYPES = new Set([
   'submit_needs_candidate',
   'submit_failed',
 ]);
+// An order already sent, withdrawn or refunded never takes a runner outcome that would reopen it, nor a retry.
+const CLOSED_ORDER_STATUSES = new Set(['submitted', 'withdrawn', 'refunded']);
+const CLOSED_ORDER_IGNORED_EVENTS = new Set([
+  'submit_handoff', 'submit_failed', 'submit_needs_candidate',
+  'portal_auto_retry', 'owner_retry_submit', 'draft_auto_retry',
+]);
 const STARTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const SUPPORTED_CV_TYPES = new Set(['pdf', 'docx', 'doc']);
 const PORTAL_NETWORK_FAILURE_KINDS = new Set(['access_blocked', 'chrome_error', 'connection_failure', 'navigation_unavailable']);
@@ -503,6 +509,13 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const order = orderSnapshot.data() || {};
     const storedFlow = flowSnapshot.data() || {};
+    // The queue (or the owner's extension) closed the order while a run was out, or a retry came due after:
+    // the outcome is recorded as ignored, never applied.
+    if (CLOSED_ORDER_IGNORED_EVENTS.has(event.type) && CLOSED_ORDER_STATUSES.has(order.submissionStatus)) {
+      claim('ignored:order_closed');
+      outcome = { ok: false, ignored: 'order_closed', state: storedFlow.state };
+      return;
+    }
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
     const flow = transitionFlowPatch
       ? { ...storedFlow, ...(transitionFlowPatch({ order, flow: storedFlow, draft, orderId }) || {}) }

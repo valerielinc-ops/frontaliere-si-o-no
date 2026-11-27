@@ -156,6 +156,8 @@ export const FLOW_STATES = Object.freeze([
 ]);
 
 export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed', 'withdrawn']);
+// The states an order Valerie sent herself can leave: held by her or the robot, not waiting for the candidate.
+export const OWNER_SUBMITTED_STATES = new Set(['submitting', 'owner_review', 'operator_expedited_review', 'owner_takeover', 'candidate_handoff', 'failed']);
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
 const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry', 'draft_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
@@ -1266,8 +1268,13 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
     case 'owner_submitted':
       // Valerie sent it herself on the portal (the fill extension, or by
       // hand), after the robot stopped: the candidate paid for the sending,
-      // so it is never handed to them (owner decision 2026-10-01).
-      if (!['owner_takeover', 'candidate_handoff'].includes(state)) return ignore('not_taken_over');
+      // so it is never handed to them (owner decision 2026-10-01). The same
+      // fact closes the flow wherever the robot or the owner holds it, also a
+      // run still `submitting` (the robot relaunched while she sent by hand):
+      // leaving the flow open let that run report a handoff later and reopen
+      // an order already sent. Closing it also fences the run: its claim and
+      // its final-click mark need `submitting` (assistedApplicationSubmissionGuard.js).
+      if (!OWNER_SUBMITTED_STATES.has(state)) return ignore('not_taken_over');
       if (isPostalSubmission(flow)) return ignore('postal_submission_requires_candidate');
       next.state = 'submitted';
       next.deadlineAt = null;
