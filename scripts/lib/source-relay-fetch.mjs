@@ -13,17 +13,16 @@ const GITHUB_OIDC_REQUEST_HOSTS = new Set([
   'pipelines.actions.githubusercontent.com',
 ]);
 // Hosted runners get a regional runtime host (e.g. pipelinesghubeus22.…)
-// under GitHub's own actions.githubusercontent.com zone, so the exact-match
-// list above rejected every real ACTIONS_ID_TOKEN_REQUEST_URL (#20279: the
-// relay never got its token, for Workday and for stadt-chur alike). Any
-// subdomain of that zone is GitHub-controlled; the https, authority, userinfo
-// and port checks below still apply.
-const GITHUB_OIDC_REQUEST_ZONE_SUFFIX = '.actions.githubusercontent.com';
+// directly under GitHub's own actions.githubusercontent.com zone, so the
+// exact-match list above rejected every real ACTIONS_ID_TOKEN_REQUEST_URL
+// (#20279: the relay never got its token, for Workday and for stadt-chur
+// alike). Exactly ONE label under that zone is accepted: nested names such as
+// evil.pipelines.actions.githubusercontent.com stay rejected. The https,
+// authority, userinfo and port checks below still apply.
+const GITHUB_OIDC_REGIONAL_HOST_RE = /^[a-z0-9][a-z0-9-]*\.actions\.githubusercontent\.com$/u;
 
 function isGithubOidcRequestHost(hostname) {
-  return GITHUB_OIDC_REQUEST_HOSTS.has(hostname)
-    || (hostname.endsWith(GITHUB_OIDC_REQUEST_ZONE_SUFFIX)
-      && /^[a-z0-9][a-z0-9.-]*$/u.test(hostname));
+  return GITHUB_OIDC_REQUEST_HOSTS.has(hostname) || GITHUB_OIDC_REGIONAL_HOST_RE.test(hostname);
 }
 /** Workflow flag set only on the relay members' launch steps (see the crawler group generator). */
 export const SOURCE_RELAY_REQUIRED_ENV = 'JOBS_SOURCE_RELAY_REQUIRED';

@@ -847,6 +847,7 @@ describe('source relay client: GitHub OIDC request host (#20279)', () => {
     'https://user@pipelinesghubeus22.actions.githubusercontent.com/idtoken',
     'https://pipelinesghubeus22.actions.githubusercontent.com:8443/idtoken',
     'https://actions.githubusercontent.com/idtoken',
+    'https://evil.pipelinesghubeus22.actions.githubusercontent.com/idtoken',
   ])('still refuses %s without sending the request token', async (requestUrl) => {
     const fetchImpl = vi.fn();
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
