@@ -55,7 +55,6 @@
       "jobReqId": "744000163846589",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-programme-transformations-organisationnelles-coordination-strategique-100-cdi",
@@ -408,7 +407,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -503,7 +501,7 @@
       "id": "epi-geneve-f6ab81683648",
       "slug": "quattro-assistenti-socio-educativi-piscina-di-rinforzo-a-80-etablissements-publics-pour-l-integration-thonex",
       "slugByLocale": {
-        "fr": "quatre-assistants-es-socio-educatifs-tives-pool-de-renforcement-a-80-epi-geneve-thonex-ge",
+        "fr": "quatre-assistants-es-socio-educatifs-tives-pool-de-renforcement-a-80-epi-geneve-thonex-ge-t70h2a",
         "it": "quattro-assistenti-socio-educativi-piscina-di-rinforzo-a-80-etablissements-publics-pour-l-integration-thonex",
         "en": "four-socio-educational-assistants-pool-of-reinforcement-a-80-etablissements-publics-pour-l-integration-thonex",
         "de": "vier-sozialpadagogische-assistenten-verstarkungspool-a-80-etablissements-publics-pour-l-integration-thonex"
@@ -553,6 +551,9 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "quatre-assistants-es-socio-educatifs-tives-pool-de-renforcement-a-80-epi-geneve-thonex-ge"
+        ],
+        "fr": [
           "quatre-assistants-es-socio-educatifs-tives-pool-de-renforcement-a-80-epi-geneve-thonex-ge"
         ]
       },
