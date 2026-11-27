@@ -20,10 +20,13 @@ const opts = {
 
 describe('SuccessFactors final page on the route proven for the posting', () => {
   it('binds the form that shows the role with the requisition of the proven route', () => {
-    // The tenant titles its page with its own name: an employer heading and a role-like first line.
-    const text = form('Zürcher Stellen', 'Zürcher Stellen', `${role} (52113)`);
-    expect(formPostingMatch(text, job, { ...opts, pageHeading: 'Zürcher Stellen', pageHeadings: ['Zürcher Stellen'] })).toBe('match');
-    expect(formPostingMatch(form('Karriere Stadt Zürich', `${role} (52113)`), job, { ...opts, pageHeadings: ['Karriere Stadt Zürich'] })).toBe('match');
+    expect(formPostingMatch(form('Karriere', `${role} (52113)`), job, { ...opts, pageHeadings: ['Karriere'] })).toBe('match');
+    expect(formPostingMatch(form('Karriere', `${role} (52113)`), job, opts)).toBe('match');
+  });
+
+  it('keeps a heading that names another employer a conflict, even with the proven requisition', () => {
+    const heading = 'Bewerbung bei Siemens AG';
+    expect(formPostingMatch(form(heading, `${role} (52113)`), job, { ...opts, pageHeadings: [heading] })).toBe('mismatch');
   });
 
   it('stays a mismatch when the requisition, the role or the route is not the proven one', () => {

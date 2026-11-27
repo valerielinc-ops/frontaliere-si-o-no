@@ -6457,10 +6457,10 @@ export function formPostingMatch(formText, job = {}, {
   // requisition id is the identity: a tenant hosts many employers and titles
   // its pages with its own portal name, which the employer/role heading guards
   // below read as «another employer» or «another role» on the right form
-  // (Stadt Zürich, 2026-11-27: `posting_unbound`, `formMatch: mismatch`). A page
-  // with another requisition, another role, a different route or no proof never
-  // takes this path.
-  if (successFactorsRouteBound
+  // (Stadt Zürich, 2026-11-27: `posting_unbound`, `formMatch: mismatch`). A heading
+  // that names another employer is explicit contrary evidence and stays a
+  // conflict; so do another requisition, another role, a different route or no proof.
+  if (successFactorsRouteBound && !headingConflict
     && (successFactorsBound || successFactorsRequisitionShown(formText, job, successFactorsRoute))) return 'match';
   const explicitRoleConflict = roleHeading === 'unknown'
     && rawDirect === 'mismatch'
