@@ -1,0 +1,25 @@
+{
+  "companyKey": "jpr",
+  "companyName": "J/PR",
+  "companyHost": "jpr.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://jpr.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Account Director",
+    "Join the Talent Pool",
+    "Senior Account Supervisor",
+    "Senior Publicist",
+    "Spring 2027 PR and Social Media Internship Program"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-27T14:50:47.980Z",
+  "candidateKey": "jpr@applytojob.com"
+}

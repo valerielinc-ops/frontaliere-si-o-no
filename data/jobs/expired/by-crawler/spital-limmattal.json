@@ -75,14 +75,18 @@
       },
       "en": {
         "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital": "ZH",
-        "dipl-nursing-professional-hf-fh-for-a-surgical-or-medical-ward-spital-limmattal-schlieren": "ZH"
+        "dipl-nursing-professional-hf-fh-for-a-surgical-or-medical-ward-spital-limmattal-schlieren": "ZH",
+        "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-96d217d5": "ZH",
+        "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-dc80e433": "ZH"
       },
       "de": {
         "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-96d217d5": "ZH"
       },
       "fr": {
         "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital": "ZH",
-        "dipl-infirmier-ere-hf-fh-pour-un-service-de-lits-chirurgical-ou-medical-spital-limmattal-schlieren": "ZH"
+        "dipl-infirmier-ere-hf-fh-pour-un-service-de-lits-chirurgical-ou-medical-spital-limmattal-schlieren": "ZH",
+        "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-96d217d5": "ZH",
+        "dipl-pflegefachperson-hf-fh-fur-eine-chirurgische-oder-medizinische-bettenstation-spital-dc80e433": "ZH"
       }
     },
     "postalCode": "8952",
@@ -155,7 +159,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0899/pub/1/index.html",
-    "firstSeenAt": "2026-11-02T21:26:16.766Z"
+    "firstSeenAt": "2026-11-02T21:26:16.766Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleitung-handchirurige-100-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "teamleitung-handchirurige-100-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "teamleitung-handchirurige-100-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "id": "spital-limmattal-2d2696b89bee",
@@ -206,7 +222,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0878/pub/1/index.html",
-    "firstSeenAt": "2026-10-02T21:12:27.657Z"
+    "firstSeenAt": "2026-10-02T21:12:27.657Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "tagesverantwortung-spezialreinigung-und-entsorgung-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "tagesverantwortung-spezialreinigung-und-entsorgung-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "tagesverantwortung-spezialreinigung-und-entsorgung-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "id": "spital-limmattal-031167c14bbd",
@@ -377,7 +405,45 @@
         "praktikant-in-notfallstation-spital-limmattal-ch-e025161c": "ZH",
         "praktikant-in-notfallstation-spital-limmattal-ch-6973f2d9": "ZH",
         "praktikant-in-notfallstation-spital-limmattal-ch-7f04a5b9": "ZH",
-        "praktikant-in-notfallstation-spital-limmattal-ch-f292a545": "ZH"
+        "praktikant-in-notfallstation-spital-limmattal-ch-f292a545": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-5e6f9ac8": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-c8e175d2": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-f53b95bc": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-53c0119a": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-8e0d635f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-577618c4": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-0516942b": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-53b5f499": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-59abcdd1": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-33be0726": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-a5a96bad": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-c13b3f9d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-bf85356f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-9ab7149d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-16341f1c": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-ffbd51b0": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-2fbcdcff": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-50cc86fe": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch": "ZH",
+        "interno-in-stazione-di-emergenza-spital-limmattal-schlieren": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-21f6dbbf": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-5b4a5cc6": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-e2461d1d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-4bb3a2e4": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-fde267de": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-ddbf0c8a": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-7aa7f2f4": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-cab171fc": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-31bade9f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-f9dae12f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-a4846cd7": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-db5c128d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-c013b908": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-df07a1ea": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-32220ef2": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-cfd81a3c": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-376c8e07": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-671dd881": "ZH"
       },
       "en": {
         "praktikant-in-notfallstation-spital-limmattal-ch-e59c8b58": "ZH",
@@ -407,7 +473,27 @@
         "praktikant-in-notfallstation-spital-limmattal-ch-e025161c": "ZH",
         "praktikant-in-notfallstation-spital-limmattal-ch-6973f2d9": "ZH",
         "praktikant-in-notfallstation-spital-limmattal-ch-7f04a5b9": "ZH",
-        "praktikant-in-notfallstation-spital-limmattal-ch-f292a545": "ZH"
+        "praktikant-in-notfallstation-spital-limmattal-ch-f292a545": "ZH",
+        "intern-in-emergency-station-spital-limmattal-schlieren": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-21f6dbbf": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-5b4a5cc6": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-e2461d1d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-4bb3a2e4": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-fde267de": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-ddbf0c8a": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-7aa7f2f4": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-cab171fc": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-31bade9f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-f9dae12f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-a4846cd7": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-db5c128d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-c013b908": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-df07a1ea": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-32220ef2": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-cfd81a3c": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-376c8e07": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-671dd881": "ZH"
       },
       "de": {
         "praktikant-in-notfallstation-spital-limmattal-ch-e59c8b58": "ZH",
@@ -437,7 +523,30 @@
         "praktikant-in-notfallstation-spital-limmattal-ch-e025161c": "ZH",
         "praktikant-in-notfallstation-spital-limmattal-ch-6973f2d9": "ZH",
         "praktikant-in-notfallstation-spital-limmattal-ch-7f04a5b9": "ZH",
-        "praktikant-in-notfallstation-spital-limmattal-ch-f292a545": "ZH"
+        "praktikant-in-notfallstation-spital-limmattal-ch-f292a545": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-5e6f9ac8": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-c8e175d2": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-f53b95bc": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-53c0119a": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-8e0d635f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-21f6dbbf": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-5b4a5cc6": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-e2461d1d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-4bb3a2e4": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-fde267de": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-ddbf0c8a": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-7aa7f2f4": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-cab171fc": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-31bade9f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-f9dae12f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-a4846cd7": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-db5c128d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-c013b908": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-df07a1ea": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-32220ef2": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-cfd81a3c": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-376c8e07": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-671dd881": "ZH"
       },
       "fr": {
         "praktikant-in-notfallstation-spital-limmattal-ch-e59c8b58": "ZH",
@@ -467,7 +576,28 @@
         "praktikant-in-notfallstation-spital-limmattal-ch-e025161c": "ZH",
         "praktikant-in-notfallstation-spital-limmattal-ch-6973f2d9": "ZH",
         "praktikant-in-notfallstation-spital-limmattal-ch-7f04a5b9": "ZH",
-        "praktikant-in-notfallstation-spital-limmattal-ch-f292a545": "ZH"
+        "praktikant-in-notfallstation-spital-limmattal-ch-f292a545": "ZH",
+        "stagiaire-a-la-station-d-urgence-spital-limmattal-schlieren-337bba91": "ZH",
+        "stagiaire-en-poste-d-urgence-spital-limmattal-schlieren": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-21f6dbbf": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-5b4a5cc6": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-e2461d1d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-4bb3a2e4": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-fde267de": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-ddbf0c8a": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-7aa7f2f4": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-cab171fc": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-31bade9f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-f9dae12f": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-a4846cd7": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-db5c128d": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-c013b908": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-df07a1ea": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-32220ef2": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-cfd81a3c": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-376c8e07": "ZH",
+        "praktikant-in-notfallstation-spital-limmattal-ch-671dd881": "ZH"
       }
     },
     "postalCode": "8952",
@@ -540,7 +670,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0877/pub/1/index.html",
-    "firstSeenAt": "2026-10-02T21:12:25.870Z"
+    "firstSeenAt": "2026-10-02T21:12:25.870Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bereichsleitung-hausdienst-bettenstationen-und-bettenzentrale-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "bereichsleitung-hausdienst-bettenstationen-und-bettenzentrale-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "bereichsleitung-hausdienst-bettenstationen-und-bettenzentrale-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "id": "spital-limmattal-bb54889aef3c",
@@ -705,7 +847,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0872/pub/1/index.html",
-    "firstSeenAt": "2026-10-02T21:12:25.425Z"
+    "firstSeenAt": "2026-10-02T21:12:25.425Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "arztsekretar-in-fur-chefarztsekretariat-anasthesie-60-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "arztsekretar-in-fur-chefarztsekretariat-anasthesie-60-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "arztsekretar-in-fur-chefarztsekretariat-anasthesie-60-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "id": "spital-limmattal-9341221d4d86",
@@ -756,7 +910,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0876/pub/1/index.html",
-    "firstSeenAt": "2026-10-02T21:12:26.312Z"
+    "firstSeenAt": "2026-10-02T21:12:26.312Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bereichsleitung-hausdienst-risikobereiche-und-abendreinigung-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "bereichsleitung-hausdienst-risikobereiche-und-abendreinigung-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "bereichsleitung-hausdienst-risikobereiche-und-abendreinigung-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "id": "spital-limmattal-4fc67529f8c3",
@@ -807,7 +973,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0870/pub/1/index.html",
-    "firstSeenAt": "2026-10-02T21:12:26.763Z"
+    "firstSeenAt": "2026-10-02T21:12:26.763Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chefarztsekretarin-anasthesie-100-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "chefarztsekretarin-anasthesie-100-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "chefarztsekretarin-anasthesie-100-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "id": "spital-limmattal-e59747443729",
@@ -858,7 +1036,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0879/pub/1/index.html",
-    "firstSeenAt": "2026-10-05T09:09:26.699Z"
+    "firstSeenAt": "2026-10-05T09:09:26.699Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "klinische-fachspezialistin-klinischer-fachspezialist-chirurgie-anasthesiesprechstunde": "ZH"
+      },
+      "en": {
+        "klinische-fachspezialistin-klinischer-fachspezialist-chirurgie-anasthesiesprechstunde": "ZH"
+      },
+      "fr": {
+        "klinische-fachspezialistin-klinischer-fachspezialist-chirurgie-anasthesiesprechstunde": "ZH"
+      }
+    }
   },
   {
     "id": "spital-limmattal-29510a954175",
@@ -931,7 +1121,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0782/pub/1/index.html",
-    "firstSeenAt": "2026-07-15T10:57:41.210Z"
+    "firstSeenAt": "2026-07-15T10:57:41.210Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch": "ZH",
+        "lehrstelle-fachfrau-mann-gesundheit-efz-fage-im-akutspital-spital-limmattal-ch": "ZH",
+        "apprendistato-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-schlieren": "ZH",
+        "apprenticeship-professional-health-fage-u2013-in-the-nursing-center-spital-limmattal-schlieren": "ZH",
+        "lehrstelle-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-ch": "ZH",
+        "la-sante-professionnelle-de-l-apprentissage-fage-u2013-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren": "ZH",
+        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch": "ZH",
+        "apprenticeship-professional-health-fage-u2013-in-the-nursing-center-spital-limmattal-schlieren": "ZH"
+      },
+      "de": {
+        "lehrstelle-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch": "ZH",
+        "la-sante-professionnelle-de-l-apprentissage-fage-u2013-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "id": "spital-limmattal-152c7d38cd9c",
@@ -991,7 +1204,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0903/pub/1/index.html",
-    "firstSeenAt": "2026-11-19T09:24:03.455Z"
+    "firstSeenAt": "2026-11-19T09:24:03.455Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch": "ZH",
+        "professional-specialiste-genie-operationnel-hf-spital-limmattal-schlieren": "ZH",
+        "specialista-in-ingegneria-operativa-hf-spital-limmattal-schlieren": "ZH",
+        "specialist-in-operations-engineering-hf-spital-limmattal-schlieren": "ZH",
+        "specialiste-en-ingenierie-des-operations-hf-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch": "ZH",
+        "professional-specialiste-genie-operationnel-hf-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "id": "spital-limmattal-b65b195b414f",
@@ -1623,7 +1853,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0898/pub/1/index.html",
-    "firstSeenAt": "2026-11-06T21:23:28.247Z"
+    "firstSeenAt": "2026-11-06T21:23:28.247Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "arztsekretarin-onkologie-80-spital-limmattal-ch": "ZH",
+        "arztsekretarin-onkologie-80-100-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "arztsekretarin-onkologie-80-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "arztsekretarin-onkologie-80-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "berufsbildner-in-dipl-pflegefachperson-hf-o-fh-per-medizinische-bettenstation-spital-limmattal-schlieren",
@@ -1673,7 +1916,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0896/pub/1/index.html",
-    "firstSeenAt": "2026-10-29T09:16:19.452Z"
+    "firstSeenAt": "2026-10-29T09:16:19.452Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "berufsbildner-in-dipl-pflegefachperson-hf-oder-fh-fur-medizinische-bettenstation-spital": "ZH"
+      },
+      "en": {
+        "berufsbildner-in-dipl-pflegefachperson-hf-oder-fh-fur-medizinische-bettenstation-spital": "ZH"
+      },
+      "fr": {
+        "berufsbildner-in-dipl-pflegefachperson-hf-oder-fh-fur-medizinische-bettenstation-spital": "ZH"
+      }
+    }
   },
   {
     "slug": "soccorritore-trice-diplomato-a-hf-per-il-nostro-reparto-di-emergenza-40-70-spital-limmattal-schlieren",
@@ -1731,7 +1986,8 @@
       ],
       "de": [
         "dipl-rettungssanitater-in-hf-per-unsere-notfallstation-40-70-spital-limmattal-schlieren",
-        "ambulancier-ere-diplome-e-es-pour-notre-service-des-urgences-40-70-spital-limmattal-schlieren"
+        "ambulancier-ere-diplome-e-es-pour-notre-service-des-urgences-40-70-spital-limmattal-schlieren",
+        "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch"
       ]
     },
     "postalCode": "8952",
@@ -1758,7 +2014,24 @@
         "firstSeenAt": "2026-06-30T23:19:47.706Z",
         "title": "Dipl. Rettungssanitäter:in HF für unsere Notfallstation (40-70%)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch": "ZH",
+        "dipl-rettungssanitater-in-hf-per-unsere-notfallstation-40-70-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch": "ZH"
+      },
+      "de": {
+        "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "ambulancier-ere-diplome-e-es-pour-notre-service-des-urgences-40-70-spital-limmattal-schlieren": "ZH",
+        "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "ausiliario-a-di-cura-in-oncologia-40-mercoledi-e-venerdi-spital-limmattal-schlieren",
@@ -1808,7 +2081,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0902/pub/1/index.html",
-    "firstSeenAt": "2026-11-06T09:14:46.276Z"
+    "firstSeenAt": "2026-11-06T09:14:46.276Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegehelfer-in-onkologie-40-mittwoch-freitag-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "pflegehelfer-in-onkologie-40-mittwoch-freitag-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "pflegehelfer-in-onkologie-40-mittwoch-freitag-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "centro-di-assistenza-sanitaria-professionale-per-la-piscina-50-100-spital-limmattal-schlieren",
@@ -1860,7 +2145,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0866/pub/1/index.html",
-    "firstSeenAt": "2026-09-23T23:37:01.870Z"
+    "firstSeenAt": "2026-09-23T23:37:01.870Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-mann-gesundheit-pflegezentrum-fur-den-pool-50-100-spital-limmattal-ch": "ZH",
+        "fachfrau-mann-gesundheit-pflegezentrum-per-den-pool-50-100-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "fachfrau-mann-gesundheit-pflegezentrum-fur-den-pool-50-100-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "fachfrau-mann-gesundheit-pflegezentrum-fur-den-pool-50-100-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "pulizia-dei-dipendenti-inizialmente-temporanea-in-salari-orari-spital-limmattal-schlieren",
@@ -1912,7 +2210,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0845/pub/1/index.html",
-    "firstSeenAt": "2026-09-04T22:55:38.166Z"
+    "firstSeenAt": "2026-09-04T22:55:38.166Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-reinigung-zunachst-befristet-im-stundenlohn-spital-limmattal-ch": "ZH",
+        "collaboratore-trice-reinigung-zunachst-befristet-im-stundenlohn-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "mitarbeiter-in-reinigung-zunachst-befristet-im-stundenlohn-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-in-reinigung-zunachst-befristet-im-stundenlohn-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-notfall-befristet-per-1-jahr-spital-limmattal-schlieren",
@@ -1974,7 +2285,19 @@
         "firstSeenAt": "2026-09-23T23:37:04.677Z",
         "title": "Pflegehilfe SRK / Assistent:in Gesundheit und Soziales / Notfall - befristet für 1 Jahr"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital": "ZH"
+      },
+      "en": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital": "ZH"
+      },
+      "fr": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital": "ZH"
+      }
+    }
   },
   {
     "slug": "gestione-delle-prestazioni-del-personale-spital-limmattal-schlieren",
@@ -2024,7 +2347,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0855/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:48:50.168Z"
+    "firstSeenAt": "2026-09-19T22:48:50.168Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-leistungsmanagement-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-in-leistungsmanagement-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-in-leistungsmanagement-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "performance-manager-50-80-spital-limmattal-schlieren",
@@ -2078,7 +2413,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0864/pub/1/index.html",
-    "firstSeenAt": "2026-09-23T23:37:03.408Z"
+    "firstSeenAt": "2026-09-23T23:37:03.408Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leistungsmanager-in-50-80-spital-limmattal-ch": "ZH",
+        "leistungsmanager-in-50-80-spital-limmattal-schlieren": "ZH",
+        "leistungsmanager-in-80-spital-limmattal-ch": "ZH"
+      },
+      "de": {
+        "leistungsmanager-in-50-80-spital-limmattal-schlieren": "ZH"
+      },
+      "fr": {
+        "leistungsmanager-in-50-80-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "stage-in-centro-di-allattamento-spital-limmattal-schlieren",
@@ -2232,7 +2581,22 @@
         "firstSeenAt": "2026-07-29T22:03:30.064Z",
         "title": "Praktikant:in Pflegezentrum"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-pflegezentrum-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "praktikant-in-pflegezentrum-spital-limmattal-ch": "ZH"
+      },
+      "de": {
+        "praktikant-in-pflegezentrum-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "praktikant-in-pflegezentrum-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "contabilita-del-personale-spital-limmattal-schlieren",
@@ -2292,7 +2656,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0795/pub/2/index.html",
-    "firstSeenAt": "2026-07-18T10:25:15.678Z"
+    "firstSeenAt": "2026-07-18T10:25:15.678Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "personnel-patient-accounting-spital-limmattal-schlieren": "ZH",
+        "comptabilite-du-personnel-patient-spital-limmattal-schlieren": "ZH",
+        "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-in-patientenabrechnung-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "segretario-medico-gastroenterologia-80-100-spital-limmattal-schlieren",
@@ -2342,7 +2720,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0841/pub/1/index.html",
-    "firstSeenAt": "2026-08-19T09:45:18.974Z"
+    "firstSeenAt": "2026-08-19T09:45:18.974Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "arztsekretarin-gastroenterologie-80-100-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "arztsekretarin-gastroenterologie-80-100-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "arztsekretarin-gastroenterologie-80-100-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "segreteria-medica-disposizione-letto-coordinamento-delle-po-80-spital-limmattal-schlieren",
@@ -2392,7 +2782,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0850/pub/1/index.html",
-    "firstSeenAt": "2026-09-03T23:17:21.308Z"
+    "firstSeenAt": "2026-09-03T23:17:21.308Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-soccorso-sanitarioater-in-hf-fur-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
@@ -2775,7 +3177,31 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0579/pub/5/index.html",
-    "firstSeenAt": "2026-06-30T23:19:47.706Z"
+    "firstSeenAt": "2026-06-30T23:19:47.706Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch": "ZH",
+        "dipl-soccorso-sanitario-u00e4ter-in-hf-f-u00fcr-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren": "ZH",
+        "dipl-rettungssanitater-in-hf-per-la-nostra-notfallstation-40-70-spital-limmattal-schlieren": "ZH",
+        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-schlieren": "ZH",
+        "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch-c45ecfaf": "ZH"
+      },
+      "en": {
+        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch": "ZH",
+        "dipl-rescue-sanit-u00e4ter-in-hf-f-u00fcr-our-emergency-station-40-70-spital-limmattal-schlieren": "ZH",
+        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-schlieren": "ZH"
+      },
+      "de": {
+        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch": "ZH",
+        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-schlieren": "ZH"
+      },
+      "fr": {
+        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch": "ZH",
+        "dipl-sain-de-sauvetage-u00e4ter-en-hf-f-u00fcr-notre-station-d-urgence-40-70-spital-limmattal-schlieren": "ZH",
+        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "certificato-di-cura-cas-mas-apn-che-si-concentra-sulla-cura-a-lungo-termine-geriatria-spital-limmattal-schlieren",
@@ -3165,7 +3591,29 @@
         "firstSeenAt": "2026-11-02T10:20:16.366Z",
         "title": "Pflegexperte/-in (CAS/MAS/APN) mit Schwerpunkt Langzeitpflege/ Geriatrie"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegexperte-in-cas-mas-apn-con-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-schlieren": "ZH",
+        "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch": "ZH",
+        "care-xperte-in-cas-mas-apn-with-focus-on-long-term-care-geriatric-spital-limmattal-schlieren": "ZH",
+        "soins-xperte-in-cas-mas-apn-axes-sur-les-soins-de-longue-duree-geriatrie-spital-limmattal-schlieren": "ZH"
+      },
+      "de": {
+        "pflegexperte-in-cas-mas-apn-mit-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-ch": "ZH",
+        "care-xperte-in-cas-mas-apn-with-focus-on-long-term-care-geriatric-spital-limmattal-schlieren": "ZH",
+        "soins-xperte-in-cas-mas-apn-axes-sur-les-soins-de-longue-duree-geriatrie-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "care-xperte-in-cas-mas-apn-with-focus-on-long-term-care-geriatric-spital-limmattal-schlieren": "ZH",
+        "soins-xperte-in-cas-mas-apn-axes-sur-les-soins-de-longue-duree-geriatrie-spital-limmattal-schlieren": "ZH"
+      },
+      "fr": {
+        "care-xperte-in-cas-mas-apn-with-focus-on-long-term-care-geriatric-spital-limmattal-schlieren": "ZH",
+        "soins-xperte-in-cas-mas-apn-axes-sur-les-soins-de-longue-duree-geriatrie-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "formazione-per-diventare-soccorritore-trice-diplomato-a-sss-spital-limmattal-schlieren",
@@ -3208,7 +3656,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0873/pub/1/index.html",
-    "firstSeenAt": "2026-10-01T21:11:16.326Z"
+    "firstSeenAt": "2026-10-01T21:11:16.326Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "persona-responsabile-del-caso-paziente-40-spital-limmattal-schlieren",
@@ -3257,7 +3711,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0867/pub/1/index.html",
-    "firstSeenAt": "2026-09-25T14:40:10.555Z"
+    "firstSeenAt": "2026-09-25T14:40:10.555Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-in-patientenadministration-40-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "esperto-a-diplomato-a-in-assistenza-anestesiologica-nds-hf-50-100-spital-limmattal-schlieren",
@@ -3306,7 +3772,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0857/pub/1/index.html",
-    "firstSeenAt": "2026-10-15T09:13:23.229Z"
+    "firstSeenAt": "2026-10-15T09:13:23.229Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-experte-in-anasthesiepflege-nds-hf-50-100-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "dipl-experte-in-anasthesiepflege-nds-hf-50-100-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "dipl-experte-in-anasthesiepflege-nds-hf-50-100-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "fachfrau-mann-gesundheit-cfc-anasthesie-50-100-spital-limmattal-schlieren",
@@ -3355,7 +3833,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0858/pub/1/index.html",
-    "firstSeenAt": "2026-10-15T09:13:23.710Z"
+    "firstSeenAt": "2026-10-15T09:13:23.710Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-mann-gesundheit-efz-anasthesie-50-100-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "fachfrau-mann-gesundheit-efz-anasthesie-50-100-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "fachfrau-mann-gesundheit-efz-anasthesie-50-100-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "professionale-mann-health-care-center-spital-limmattal-schlieren-f4c7b3",
@@ -3552,7 +4042,8 @@
       "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
       "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren",
       "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
-      "professional-mann-health-care-center-spital-limmattal-schlieren"
+      "professional-mann-health-care-center-spital-limmattal-schlieren",
+      "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3715,7 +4206,10 @@
         "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren-aa70a549",
         "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a-3c477720",
         "healthcare-specialist-care-center-spital-limmattal-schlieren",
-        "assistant-en-soins-et-sante-communautaire-centre-de-soins-spital-limmattal-schlieren"
+        "assistant-en-soins-et-sante-communautaire-centre-de-soins-spital-limmattal-schlieren",
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-schlieren",
+        "professionale-mann-health-care-center-spital-limmattal-schlieren"
       ],
       "en": [
         "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch-6837e26a",
@@ -3802,7 +4296,9 @@
         "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
         "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren",
         "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
-        "assistant-en-soins-et-sante-communautaire-centre-de-soins-spital-limmattal-schlieren"
+        "assistant-en-soins-et-sante-communautaire-centre-de-soins-spital-limmattal-schlieren",
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
+        "professional-mann-health-care-center-spital-limmattal-schlieren"
       ],
       "fr": [
         "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch-6837e26a",
@@ -3889,7 +4385,9 @@
         "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren",
         "professional-mann-health-care-center-spital-limmattal-schlieren",
         "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
-        "healthcare-specialist-care-center-spital-limmattal-schlieren"
+        "healthcare-specialist-care-center-spital-limmattal-schlieren",
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch",
+        "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren"
       ],
       "de": [
         "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-schlieren",
@@ -3950,7 +4448,8 @@
         "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren",
         "operatore-trice-sociosanitario-a-del-centro-di-cura-spital-limmattal-schlieren-9f3f6fa15a",
         "healthcare-specialist-care-center-spital-limmattal-schlieren",
-        "assistant-en-soins-et-sante-communautaire-centre-de-soins-spital-limmattal-schlieren"
+        "assistant-en-soins-et-sante-communautaire-centre-de-soins-spital-limmattal-schlieren",
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch"
       ]
     },
     "postalCode": "8952",
@@ -3981,7 +4480,26 @@
         "firstSeenAt": "2026-09-19T22:48:51.435Z",
         "title": "Fachfrau:mann Gesundheit Pflegezentrum"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch": "ZH",
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-schlieren": "ZH",
+        "professionale-mann-health-care-center-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch": "ZH",
+        "professional-mann-health-care-center-spital-limmattal-schlieren": "ZH"
+      },
+      "de": {
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "fachfrau-mann-gesundheit-pflegezentrum-spital-limmattal-ch": "ZH",
+        "professionnel-centre-de-soins-de-santemann-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "magazzino-chirurgico-specializzato-100-spital-limmattal-schlieren",
@@ -4030,7 +4548,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0871/pub/1/index.html",
-    "firstSeenAt": "2026-09-30T21:12:27.217Z"
+    "firstSeenAt": "2026-09-30T21:12:27.217Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachperson-op-lagerung-100-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "fachperson-op-lagerung-100-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "fachperson-op-lagerung-100-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "assistente-per-la-cura-a-lungo-termine-per-la-piscina-spital-limmattal-schlieren",
@@ -4081,7 +4611,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0733/pub/7/index.html",
-    "firstSeenAt": "2026-09-23T23:37:04.255Z"
+    "firstSeenAt": "2026-09-23T23:37:04.255Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch": "ZH",
+        "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "assistenza-a-lungo-termine-per-il-servizio-notturno-permanente-60-100-spital-limmattal-schlieren",
@@ -4132,7 +4675,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0865/pub/1/index.html",
-    "firstSeenAt": "2026-09-23T23:37:03.833Z"
+    "firstSeenAt": "2026-09-23T23:37:03.833Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegehelfer-in-langzeitpflege-fur-den-dauernachtdienst-60-100-spital-limmattal-ch": "ZH",
+        "pflegehelfer-in-langzeitpflege-per-den-dauernachtdienst-60-100-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "pflegehelfer-in-langzeitpflege-fur-den-dauernachtdienst-60-100-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "pflegehelfer-in-langzeitpflege-fur-den-dauernachtdienst-60-100-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren-502d6098",
@@ -4238,7 +4794,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0881/pub/1/index.html",
-    "firstSeenAt": "2026-10-08T09:12:38.270Z"
+    "firstSeenAt": "2026-10-08T09:12:38.270Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "arztsekretarin-notfall-60-montag-mittwoch-freitag-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "arztsekretarin-notfall-60-montag-mittwoch-freitag-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "arztsekretarin-notfall-60-montag-mittwoch-freitag-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "social-media-content-creator-w-m-d-80-spital-limmattal-ch",
@@ -4270,7 +4838,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0869/pub/1/index.html",
-    "firstSeenAt": "2026-10-02T09:11:07.956Z"
+    "firstSeenAt": "2026-10-02T09:11:07.956Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "social-media-content-creator-w-m-d-80-spital-limmattal-ch"
+      ],
+      "de": [
+        "social-media-content-creator-w-m-d-80-spital-limmattal-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "social-media-content-creator-w-m-d-80-spital-limmattal-ch": "ZH"
+      },
+      "de": {
+        "social-media-content-creator-w-m-d-80-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-infermieristica-mann-mpa-endoscopia-in-gastroenterologia-60-100-spital-limmattal-schlieren",
@@ -4563,7 +5148,172 @@
         "firstSeenAt": "2026-09-19T22:48:50.590Z",
         "title": "Dipl. Pflegefachfrau:mann / MPA Endoskopie in der Gastroenterologie 60 - 100%"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal": "ZH",
+        "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal": "ZH"
+      },
+      "de": {
+        "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal": "ZH"
+      },
+      "fr": {
+        "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal": "ZH"
+      }
+    }
+  },
+  {
+    "slug": "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
+    "title": "Fachfrau:mann Gesundheit EFZ für eine medizinische oder chirurgische Bettenstation",
+    "titleByLocale": {
+      "it": "Specialista sanitario EFZ per una stazione di letto medico o chirurgico",
+      "en": "Health specialist EFZ for a medical or surgical bed station",
+      "de": "Fachfrau:mann Gesundheit EFZ für eine medizinische oder chirurgische Bettenstation",
+      "fr": "Professionnel: Santé EFZ pour un lit médical ou chirurgical"
+    },
+    "company": "Spital Limmattal",
+    "companyKey": "spital-limmattal",
+    "location": "Schlieren",
+    "addressLocality": "Schlieren",
+    "descriptionByLocale": {
+      "it": "80% - 100%, d'accordo\nLe nostre infermiere sono le persone di contatto diretto durante il soggiorno dei nostri circa 96'000 pazienti all'anno. Sono responsabili della cura professionale e individuale. Il focus della cura è sempre il benessere e il recupero dell'indipendenza dei nostri pazienti: dentro. Il servizio di cura è strettamente collegato a tutte le aree dell'ospedale e lavora a stretto contatto con il servizio medico, le terapie e le altre aree.\nGli uffici di reclutamento esterni non sono considerati.\nQui si impegnano\n• Cura dei pazienti: interni e parenti in collaborazione con infermieri qualificati nel sistema a 3 turni\n• Organizzazione indipendente e responsabilità per la propria area di lavoro in base alle competenze\n• Supporto per garantire la qualità della cura\n• Cooperazione costruttiva con vari gruppi professionali\nVedi anche:\n• hanno completato la formazione come professionista sanitario EFZ\n• sono una personalità affidabile, orientata al team e responsabile\n• Al meglio, hanno già la loro prima esperienza professionale in cura acuta.\n• hanno una buona conoscenza del tedesco nelle parole e nella scrittura (min. B2)\nIl tuo nuovo posto di lavoro\nLa nostra posizione top (Limmattalbahn, 4 S-Bahn, 1 linea bus nelle immediate vicinanze) è completata dal concetto di mobilità LIMMI:\n• Parcheggio ridotto dei dipendenti\n• Parcheggio moto, parcheggio biciclette chiuso\n• Con ZVV Bonus Pass / Z-Bonus Pass offriamo un attraente abbonamento di trasporto pubblico per i dipendenti\ns'LIMMI: Il tuo partner per la vita\nCome importante partner sanitario con un mandato di formazione completo, l'Associazione Ospedale Limmattal assume l'assistenza medica di base estesa di oltre 98'000 pazienti ogni anno, in tutte le fasi della vita. L'LIMMI è ampiamente specializzato e offre cure mediche di alta qualità, nonché conoscenze approfondite di esperti in numerose discipline chirurgiche, mediche e infermieristiche e specialistiche. L'associazione ospedaliera ha 188 posti letto nel settore della cura acuta, 126 posti letto in assistenza a lungo termine, un servizio di emergenza ospedaliero e nove sale operatorie e otto strutture di assistenza intensiva. Più di 1.600 dipendenti da 57 nazioni forniscono servizi eccellenti e diversificati ogni giorno.",
+      "en": "80% - 100%, by agreement\nOur nurses are the direct contact persons during the stay of our approximately 96'000 patients per year. They are responsible for professional and individual care. The focus of care is always the well-being and the recovery of the independence of our patients: inside. The nursing service is closely networked with all areas of the hospital and works closely with the medical service, the therapies and the other areas.\nExternal recruitment offices shall not be considered.\nHere they engage\n• Care of patients: inside and relatives in cooperation with qualified nurses in the 3-shift system\n• Independent organization and responsibility for your own work area according to competencies\n• Support for ensuring quality of care\n• Constructive cooperation with various professional groups\nSee also:\n• have completed training as a health professional EFZ\n• are a reliable, team-oriented and responsible personality\n• At best, they already have their first professional experience in acute care.\n• have very good knowledge of German in words and writing (min. B2)\nYour new place of work\nOur top location (Limmattalbahn, 4 S-Bahn, 1 bus line in the immediate vicinity) is complemented by the LIMMI mobility concept:\n• Reduced employee parking\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive public transport subscription for employees\ns'LIMMI: Your partner for life\nAs an important health partner with a comprehensive training mandate, the Hospital Association Limmattal takes over the extended basic medical care of more than 98’000 patients every year, in all phases of life. The LIMMI is broadly specialized and offers high-quality medical care as well as in-depth expert knowledge in numerous surgical, medical and nursing specialist and specialist disciplines. The hospital association has 188 beds in the acute care sector, 126 beds in long-term care, a hospital-bound emergency service as well as nine operating rooms and eight intensive care facilities. More than 1,600 employees from 57 nations provide excellent and diverse services every day.",
+      "de": "80% - 100%, nach Vereinbarung\nUnsere Pflegefachkräfte sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 96'000 Patient:innen pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen immer das Wohlbefinden und die Wiedererlangung der Selbständigkeit unserer Patient:innen. Der Pflegedienst ist eng vernetzt mit allen Bereichen des Spitals und arbeitet eng mit dem ärztlichen Dienst, den Therapien sowie den anderen Bereichen zusammen.\nExterne Stellenvermittlungsbüros werden nicht berücksichtigt.\nHier engagieren Sie sich\n• Betreuung von Patient: innen und Angehörigen in Zusammenarbeit mit diplomierte Pflegefachpersonen im 3- Schichtsystem\n• Selbstständige Organisation und Verantwortung für den eigenen Arbeitsbereich gemäss Kompetenzen\n• Unterstützung bei der Sicherstellung der Pflegequalität\n• Konstruktive Zusammenarbeit mit verschiedenen Berufsgruppen\nSie\n• haben eine abgeschlossene Ausbildung als Fachperson Gesundheit EFZ\n• sind eine zuverlässige, teamorientierte und verantwortungsbewusste Persönlichkeit\n• besitzen bestenfalls schon erste Berufserfahrung in der Akutpflege.\n• verfügen über sehr gute Deutschkenntnisse in Wort und Schrift (mind. B2)\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 98’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’600 Mitarbeitende aus 57 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+      "fr": "80% - 100%, par accord\nNos infirmières sont les personnes-ressources directes pendant le séjour de nos quelque 96'000 patients par an. Ils sont responsables des soins professionnels et individuels. Les soins sont toujours axés sur le bien-être et la récupération de l'indépendance de nos patients : à l'intérieur. Le service infirmier est étroitement en réseau avec tous les secteurs de l'hôpital et travaille en étroite collaboration avec le service médical, les thérapies et les autres secteurs.\nLes bureaux de recrutement extérieurs ne sont pas considérés.\nIci ils s'engagent\n• Prise en charge des patients: au sein de la famille et en collaboration avec des infirmières qualifiées dans le système de 3 équipes\n• Organisation indépendante et responsabilité pour votre propre domaine de travail selon les compétences\n• Soutien à la qualité des soins\n• Coopération constructive avec divers groupes professionnels\nVoir aussi:\n• ont suivi une formation professionnelle EFZ\n• sont une personnalité fiable, orientée vers l'équipe et responsable\n• Au mieux, ils ont déjà leur première expérience professionnelle en soins actifs.\n• avoir une très bonne connaissance de l'allemand dans les mots et l'écriture (min. B2)\nVotre nouveau lieu de travail\nNotre emplacement privilégié (Limmattalbahn, 4 S-Bahn, 1 ligne de bus à proximité immédiate) est complété par le concept de mobilité LIMMI :\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement de transport public attrayant pour les employés\ns'LIMMI: Votre partenaire pour la vie\nEn tant que partenaire important de la santé ayant un mandat de formation complet, l'Association des hôpitaux de Limmattal prend en charge les soins médicaux de base prolongés de plus de 98 000 patients chaque année, à toutes les phases de la vie. Le LIMMI est largement spécialisé et offre des soins médicaux de haute qualité ainsi que des connaissances spécialisées approfondies dans de nombreuses disciplines spécialisées en chirurgie, médecine et soins infirmiers. L'association hospitalière compte 188 lits dans le secteur des soins actifs, 126 lits dans les soins de longue durée, un service d'urgence hospitalier, ainsi que neuf salles d'opération et huit centres de soins intensifs. Plus de 1 600 employés de 57 pays offrent chaque jour des services excellents et diversifiés."
+    },
+    "slugByLocale": {
+      "it": "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
+      "en": "professional-mann-health-efz-for-a-medical-or-surgical-bed-station-spital-limmattal-schlieren",
+      "de": "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e4942f29",
+      "fr": "professionnel-sante-efz-pour-un-lit-medical-ou-chirurgical-spital-limmattal-schlieren"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-15T09:13:24.290Z",
+    "previousSlugs": [
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e4942f29",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-591c6933",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-784c41a3",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-457af45e",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ad672ef1",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-2b0f5837",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-18084389",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-858a9f8b",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ea196f34",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-99fc6fb8",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-4577d234",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-495ff726",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-19430d90",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-7b44558d",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-1e7ac960",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e0ebf562",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
+      "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren-4132b47e",
+      "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-5d04f9e1"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e4942f29",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-591c6933",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-784c41a3",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-457af45e",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ad672ef1",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-2b0f5837",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-18084389",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-858a9f8b",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ea196f34",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-99fc6fb8",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-4577d234",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-495ff726",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-19430d90",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-7b44558d",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-1e7ac960",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e0ebf562",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
+        "fachfrau-mann-gesundheit-cfc-per-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren-4132b47e",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-5d04f9e1"
+      ],
+      "en": [
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e4942f29",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-591c6933",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-784c41a3",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-457af45e",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ad672ef1",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-2b0f5837",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-18084389",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-858a9f8b",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ea196f34",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-99fc6fb8",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-4577d234",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-495ff726",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-19430d90",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-7b44558d",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-1e7ac960",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e0ebf562",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-5d04f9e1"
+      ],
+      "fr": [
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e4942f29",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-591c6933",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-784c41a3",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-457af45e",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ad672ef1",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-2b0f5837",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-18084389",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-858a9f8b",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-ea196f34",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-99fc6fb8",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-4577d234",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-495ff726",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-19430d90",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-7b44558d",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-1e7ac960",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-e0ebf562",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital",
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-5d04f9e1"
+      ],
+      "de": [
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital"
+      ]
+    },
+    "postalCode": "8952",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/486538/0749/pub/4/index.html",
+    "firstSeenAt": "2026-08-31T17:00:54.874Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/486538/0749/pub/4/index.html",
+        "firstSeenAt": "2026-08-31T17:00:54.874Z",
+        "title": "Fachfrau:mann Gesundheit EFZ für eine medizinische oder chirurgische Bettenstation"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/486538/0749/pub/5/index.html",
+        "firstSeenAt": "2026-08-31T17:00:54.874Z",
+        "title": "Fachfrau:mann Gesundheit EFZ für eine medizinische oder chirurgische Bettenstation"
+      }
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital": "ZH"
+      },
+      "en": {
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital": "ZH"
+      },
+      "de": {
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital": "ZH"
+      },
+      "fr": {
+        "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital": "ZH"
+      }
+    }
   },
   {
     "slug": "interno-in-stazione-a-letto-spital-limmattal-schlieren",
@@ -4670,59 +5420,6 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "praktikant-in-bettenstation-spital-limmattal-ch-6617e20d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-485b3ed5",
-        "praktikant-in-bettenstation-spital-limmattal-ch-40d34b61",
-        "praktikant-in-bettenstation-spital-limmattal-ch-b508b0f6",
-        "praktikant-in-bettenstation-spital-limmattal-ch-e7168e24",
-        "praktikant-in-bettenstation-spital-limmattal-ch-5b3b3a4a",
-        "praktikant-in-bettenstation-spital-limmattal-ch-f8664375",
-        "praktikant-in-bettenstation-spital-limmattal-ch-f4cd5895",
-        "praktikant-in-bettenstation-spital-limmattal-ch-c47bde00",
-        "praktikant-in-bettenstation-spital-limmattal-ch-30e0d20d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-bc758eb6",
-        "praktikant-in-bettenstation-spital-limmattal-ch-186b1b5d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-26875888",
-        "praktikant-in-bettenstation-spital-limmattal-ch-67f626a4",
-        "praktikant-in-bettenstation-spital-limmattal-ch-d8161314",
-        "praktikant-in-bettenstation-spital-limmattal-ch-780103c9",
-        "praktikant-in-bettenstation-spital-limmattal-ch-be9e032d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-8811b507",
-        "interno-in-bettenstation-spital-limmattal-schlieren",
-        "praktikant-in-bettenstation-spital-limmattal-ch-1efa476e",
-        "praktikant-in-bettenstation-spital-limmattal-ch-870091d1",
-        "praktikant-in-bettenstation-spital-limmattal-ch-c93c0df3",
-        "praktikant-in-bettenstation-spital-limmattal-ch-f27490ce",
-        "praktikant-in-bettenstation-spital-limmattal-ch-7827ef87",
-        "praktikant-in-bettenstation-spital-limmattal-ch-03c3ea08",
-        "praktikant-in-bettenstation-spital-limmattal-ch-22e13727",
-        "praktikant-in-bettenstation-spital-limmattal-ch-1d718250",
-        "praktikant-in-bettenstation-spital-limmattal-ch-42ef3b3c",
-        "praktikant-in-bettenstation-spital-limmattal-ch-e24caa7f",
-        "praktikant-in-bettenstation-spital-limmattal-ch-6fa2dce9",
-        "praktikant-in-bettenstation-spital-limmattal-ch-ef8b2e85",
-        "praktikant-in-bettenstation-spital-limmattal-ch-aca354c9",
-        "praktikant-in-bettenstation-spital-limmattal-ch-8823fd41",
-        "praktikant-in-bettenstation-spital-limmattal-ch-487e5079",
-        "praktikant-in-bettenstation-spital-limmattal-ch-940167c6",
-        "praktikant-in-bettenstation-spital-limmattal-ch-1f278455",
-        "praktikant-in-bettenstation-spital-limmattal-ch-c3483a2d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-79fb30cc",
-        "praktikant-in-bettenstation-spital-limmattal-ch-54e10869",
-        "praktikant-in-bettenstation-spital-limmattal-ch-339c6d3d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-2af8ea14",
-        "praktikant-in-bettenstation-spital-limmattal-ch-a3d1426b",
-        "praktikant-in-bettenstation-spital-limmattal-ch-6326ac61",
-        "praktikant-in-bettenstation-spital-limmattal-ch-cf1a8daa",
-        "praktikant-in-bettenstation-spital-limmattal-ch-0019516b",
-        "praktikant-in-bettenstation-spital-limmattal-ch-f071c4a4",
-        "praktikant-in-bettenstation-spital-limmattal-ch-7214747d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-0287c6d1",
-        "praktikant-in-bettenstation-spital-limmattal-ch-5f1455d5",
-        "praktikant-in-bettenstation-spital-limmattal-ch-e2400139",
-        "praktikant-in-bettenstation-spital-limmattal-ch-da227d1e",
-        "praktikant-in-bettenstation-spital-limmattal-ch-c24c053d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3",
         "praktikant-in-bettenstation-spital-limmattal-ch-ea93c292",
         "praktikant-in-bettenstation-spital-limmattal-ch",
         "praktikant-in-bettenstation-spital-limmattal-ch-4cbe865c",
@@ -4740,9 +5437,8 @@
         "praktikant-in-bettenstation-spital-limmattal-ch-aa4ddca3",
         "praktikant-in-bettenstation-spital-limmattal-ch-8936dbf2",
         "praktikant-in-bettenstation-spital-limmattal-ch-7f8e20b8",
-        "praktikant-in-bettenstation-spital-limmattal-ch-1d5fd1ed"
-      ],
-      "en": [
+        "praktikant-in-bettenstation-spital-limmattal-ch-1d5fd1ed",
+        "interno-in-bettenstation-spital-limmattal-schlieren",
         "praktikant-in-bettenstation-spital-limmattal-ch-6617e20d",
         "praktikant-in-bettenstation-spital-limmattal-ch-485b3ed5",
         "praktikant-in-bettenstation-spital-limmattal-ch-40d34b61",
@@ -4794,7 +5490,9 @@
         "praktikant-in-bettenstation-spital-limmattal-ch-e2400139",
         "praktikant-in-bettenstation-spital-limmattal-ch-da227d1e",
         "praktikant-in-bettenstation-spital-limmattal-ch-c24c053d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3",
+        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3"
+      ],
+      "en": [
         "praktikant-in-bettenstation-spital-limmattal-ch-ea93c292",
         "praktikant-in-bettenstation-spital-limmattal-ch",
         "intern-in-bettenstation-spital-limmattal-schlieren",
@@ -4813,9 +5511,7 @@
         "praktikant-in-bettenstation-spital-limmattal-ch-aa4ddca3",
         "praktikant-in-bettenstation-spital-limmattal-ch-8936dbf2",
         "praktikant-in-bettenstation-spital-limmattal-ch-7f8e20b8",
-        "praktikant-in-bettenstation-spital-limmattal-ch-1d5fd1ed"
-      ],
-      "fr": [
+        "praktikant-in-bettenstation-spital-limmattal-ch-1d5fd1ed",
         "praktikant-in-bettenstation-spital-limmattal-ch-6617e20d",
         "praktikant-in-bettenstation-spital-limmattal-ch-485b3ed5",
         "praktikant-in-bettenstation-spital-limmattal-ch-40d34b61",
@@ -4867,7 +5563,9 @@
         "praktikant-in-bettenstation-spital-limmattal-ch-e2400139",
         "praktikant-in-bettenstation-spital-limmattal-ch-da227d1e",
         "praktikant-in-bettenstation-spital-limmattal-ch-c24c053d",
-        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3",
+        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3"
+      ],
+      "fr": [
         "praktikant-in-bettenstation-spital-limmattal-ch-ea93c292",
         "praktikant-in-bettenstation-spital-limmattal-ch",
         "stagiaire-dans-la-station-lit-spital-limmattal-schlieren",
@@ -4887,9 +5585,7 @@
         "praktikant-in-bettenstation-spital-limmattal-ch-aa4ddca3",
         "praktikant-in-bettenstation-spital-limmattal-ch-8936dbf2",
         "praktikant-in-bettenstation-spital-limmattal-ch-7f8e20b8",
-        "praktikant-in-bettenstation-spital-limmattal-ch-1d5fd1ed"
-      ],
-      "de": [
+        "praktikant-in-bettenstation-spital-limmattal-ch-1d5fd1ed",
         "praktikant-in-bettenstation-spital-limmattal-ch-6617e20d",
         "praktikant-in-bettenstation-spital-limmattal-ch-485b3ed5",
         "praktikant-in-bettenstation-spital-limmattal-ch-40d34b61",
@@ -4924,6 +5620,26 @@
         "praktikant-in-bettenstation-spital-limmattal-ch-8823fd41",
         "praktikant-in-bettenstation-spital-limmattal-ch-487e5079",
         "praktikant-in-bettenstation-spital-limmattal-ch-940167c6",
+        "praktikant-in-bettenstation-spital-limmattal-ch-1f278455",
+        "praktikant-in-bettenstation-spital-limmattal-ch-c3483a2d",
+        "praktikant-in-bettenstation-spital-limmattal-ch-79fb30cc",
+        "praktikant-in-bettenstation-spital-limmattal-ch-54e10869",
+        "praktikant-in-bettenstation-spital-limmattal-ch-339c6d3d",
+        "praktikant-in-bettenstation-spital-limmattal-ch-2af8ea14",
+        "praktikant-in-bettenstation-spital-limmattal-ch-a3d1426b",
+        "praktikant-in-bettenstation-spital-limmattal-ch-6326ac61",
+        "praktikant-in-bettenstation-spital-limmattal-ch-cf1a8daa",
+        "praktikant-in-bettenstation-spital-limmattal-ch-0019516b",
+        "praktikant-in-bettenstation-spital-limmattal-ch-f071c4a4",
+        "praktikant-in-bettenstation-spital-limmattal-ch-7214747d",
+        "praktikant-in-bettenstation-spital-limmattal-ch-0287c6d1",
+        "praktikant-in-bettenstation-spital-limmattal-ch-5f1455d5",
+        "praktikant-in-bettenstation-spital-limmattal-ch-e2400139",
+        "praktikant-in-bettenstation-spital-limmattal-ch-da227d1e",
+        "praktikant-in-bettenstation-spital-limmattal-ch-c24c053d",
+        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3"
+      ],
+      "de": [
         "praktikant-in-bettenstation-spital-limmattal-ch",
         "praktikant-in-bettenstation-spital-limmattal-ch-4cbe865c",
         "praktikant-in-bettenstation-spital-limmattal-ch-e04bce7f",
@@ -4940,7 +5656,41 @@
         "praktikant-in-bettenstation-spital-limmattal-ch-aa4ddca3",
         "praktikant-in-bettenstation-spital-limmattal-ch-8936dbf2",
         "praktikant-in-bettenstation-spital-limmattal-ch-7f8e20b8",
-        "praktikant-in-bettenstation-spital-limmattal-ch-1d5fd1ed"
+        "praktikant-in-bettenstation-spital-limmattal-ch-1d5fd1ed",
+        "praktikant-in-bettenstation-spital-limmattal-ch-6617e20d",
+        "praktikant-in-bettenstation-spital-limmattal-ch-485b3ed5",
+        "praktikant-in-bettenstation-spital-limmattal-ch-40d34b61",
+        "praktikant-in-bettenstation-spital-limmattal-ch-b508b0f6",
+        "praktikant-in-bettenstation-spital-limmattal-ch-e7168e24",
+        "praktikant-in-bettenstation-spital-limmattal-ch-5b3b3a4a",
+        "praktikant-in-bettenstation-spital-limmattal-ch-f8664375",
+        "praktikant-in-bettenstation-spital-limmattal-ch-f4cd5895",
+        "praktikant-in-bettenstation-spital-limmattal-ch-c47bde00",
+        "praktikant-in-bettenstation-spital-limmattal-ch-30e0d20d",
+        "praktikant-in-bettenstation-spital-limmattal-ch-bc758eb6",
+        "praktikant-in-bettenstation-spital-limmattal-ch-186b1b5d",
+        "praktikant-in-bettenstation-spital-limmattal-ch-26875888",
+        "praktikant-in-bettenstation-spital-limmattal-ch-67f626a4",
+        "praktikant-in-bettenstation-spital-limmattal-ch-d8161314",
+        "praktikant-in-bettenstation-spital-limmattal-ch-780103c9",
+        "praktikant-in-bettenstation-spital-limmattal-ch-be9e032d",
+        "praktikant-in-bettenstation-spital-limmattal-ch-8811b507",
+        "praktikant-in-bettenstation-spital-limmattal-ch-1efa476e",
+        "praktikant-in-bettenstation-spital-limmattal-ch-870091d1",
+        "praktikant-in-bettenstation-spital-limmattal-ch-c93c0df3",
+        "praktikant-in-bettenstation-spital-limmattal-ch-f27490ce",
+        "praktikant-in-bettenstation-spital-limmattal-ch-7827ef87",
+        "praktikant-in-bettenstation-spital-limmattal-ch-03c3ea08",
+        "praktikant-in-bettenstation-spital-limmattal-ch-22e13727",
+        "praktikant-in-bettenstation-spital-limmattal-ch-1d718250",
+        "praktikant-in-bettenstation-spital-limmattal-ch-42ef3b3c",
+        "praktikant-in-bettenstation-spital-limmattal-ch-e24caa7f",
+        "praktikant-in-bettenstation-spital-limmattal-ch-6fa2dce9",
+        "praktikant-in-bettenstation-spital-limmattal-ch-ef8b2e85",
+        "praktikant-in-bettenstation-spital-limmattal-ch-aca354c9",
+        "praktikant-in-bettenstation-spital-limmattal-ch-8823fd41",
+        "praktikant-in-bettenstation-spital-limmattal-ch-487e5079",
+        "praktikant-in-bettenstation-spital-limmattal-ch-940167c6"
       ]
     },
     "postalCode": "8952",
@@ -4961,7 +5711,39 @@
         "firstSeenAt": "2026-11-04T21:22:57.916Z",
         "title": "Praktikant:in Bettenstation"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-bettenstation-spital-limmattal-ch": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-8823fd41": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-487e5079": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-940167c6": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3": "ZH"
+      },
+      "en": {
+        "praktikant-in-bettenstation-spital-limmattal-ch": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-8823fd41": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-487e5079": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-940167c6": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3": "ZH"
+      },
+      "de": {
+        "praktikant-in-bettenstation-spital-limmattal-ch": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-8823fd41": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-487e5079": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-940167c6": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3": "ZH"
+      },
+      "fr": {
+        "praktikant-in-bettenstation-spital-limmattal-ch": "ZH",
+        "stagiaire-dans-la-station-lit-spital-limmattal-schlieren": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-8823fd41": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-487e5079": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-940167c6": "ZH",
+        "praktikant-in-bettenstation-spital-limmattal-ch-b356e7a3": "ZH"
+      }
+    }
   },
   {
     "slug": "assistenza-infermieristica-srk-assistente-salute-e-affari-sociali-emergenza-temporaneo-per-1-anno-spital-limmattal",
@@ -5992,7 +6774,23 @@
         "firstSeenAt": "2026-09-23T23:37:04.677Z",
         "title": "Pflegehilfe SRK / Assistent:in Gesundheit und Soziales / Notfall - befristet für 1 Jahr"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital-2b8c7d03": "ZH",
+        "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-notfall-befristet-per-1-jahr-spital-limmattal-schlieren-26f076b2": "ZH"
+      },
+      "en": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital-2b8c7d03": "ZH"
+      },
+      "de": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital-2b8c7d03": "ZH"
+      },
+      "fr": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr-spital-2b8c7d03": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-pflegefachperson-hf-o-med-praxisassistentin-pneumologie-spital-limmattal-schlieren",
@@ -6041,7 +6839,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0844/pub/1/index.html",
-    "firstSeenAt": "2026-08-27T19:54:53.207Z"
+    "firstSeenAt": "2026-08-27T19:54:53.207Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-oder-med-praxisassistentin-pneumologie-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-oder-med-praxisassistentin-pneumologie-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-oder-med-praxisassistentin-pneumologie-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "vice-r-direttore-della-stazione-in-centro-di-assistenza-spital-limmattal-schlieren",
@@ -6119,7 +6929,31 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0796/pub/3/index.html",
-    "firstSeenAt": "2026-07-24T22:06:40.382Z"
+    "firstSeenAt": "2026-07-24T22:06:40.382Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch": "ZH",
+        "vice-direttore-della-stazione-centro-di-assistenza-spital-limmattal-schlieren": "ZH",
+        "deputy-r-station-manager-in-care-center-spital-limmattal-schlieren": "ZH",
+        "directeur-adjoint-centre-de-soins-spital-limmattal-schlieren": "ZH",
+        "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren": "ZH",
+        "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch": "ZH",
+        "direttore-della-stazione-nel-centro-di-cura-spital-limmattal-schlieren": "ZH",
+        "station-manager-in-the-nursing-centre-spital-limmattal-schlieren": "ZH",
+        "stationsleiter-in-im-pflegezentrum-spital-limmattal-ch": "ZH",
+        "gestionnaire-de-poste-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren": "ZH",
+        "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch-04q97i": "ZH"
+      },
+      "en": {
+        "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch": "ZH",
+        "deputy-r-station-manager-in-care-center-spital-limmattal-schlieren": "ZH"
+      },
+      "fr": {
+        "stellvertretende-r-stationsleiter-in-pflegezentrum-spital-limmattal-ch": "ZH",
+        "directeur-adjoint-centre-de-soins-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "mpa-clinica-femminile-spital-limmattal-schlieren",
@@ -6232,6 +7066,94 @@
     "firstSeenAt": "2026-09-09T13:44:41.204Z"
   },
   {
+    "slug": "dipl-specialista-di-cura-hf-fh-pronto-soccorso-spital-limmattal-schlieren",
+    "title": "Dipl. Pflegefachperson HF/FH Notfallstation",
+    "titleByLocale": {
+      "it": "Dipl. Specialista di cura HF/FH pronto soccorso",
+      "en": "Dipl. Care specialist HF/FH emergency department",
+      "de": "Dipl. Pflegefachperson HF/FH Notfallstation",
+      "fr": "Dipl. Spécialiste des soins HF/FH service d'urgence"
+    },
+    "company": "Spital Limmattal",
+    "companyKey": "spital-limmattal",
+    "location": "Schlieren",
+    "addressLocality": "Schlieren",
+    "descriptionByLocale": {
+      "it": "• Dipl. Specialista di cura HF/FH pronto soccorso\n\n60% - 100%, immediato o di accordo\n\nApplicare ora\n\n365 giorni all'anno, 24 ore al giorno, il centro di emergenza è responsabile per l'assistenza medica di più di 35.000 pazienti di emergenza ogni anno. Siamo orgogliosi della nostra cura efficiente, efficace e coordinata, completa e completa per i nostri pazienti. Non vediamo l'ora di vederti come nuovo membro della nostra squadra.\n\nIl nostro reparto di emergenza comprende 14 stazioni di monitoraggio e uno shock room con 2 stazioni e una pratica di emergenza integrata con 4 sale di trattamento.\n\nLe domande dirette sono preferite, gli uffici di reclutamento esterni non sono trattati come una priorità.\n\nQui si impegnano\n\n• Trattamento e monitoraggio dei pazienti con varie malattie mediche e chirurgiche in funzionamento a tre turni\n• Documentazione indipendente e registrazione delle prestazioni\n• Funzionamento e manutenzione indipendenti, adeguati, nonché manutenzione di attrezzature specifiche per il reparto\n• Cooperazione interdisciplinare orientata alle soluzioni\n• hanno completato la formazione come Dipl. Infermiera HF/FH in un ospedale acuto\n• Desideri. 1 anno di esperienza professionale in un ospedale acuto\n• hanno lavoro di squadra, flessibilità e indipendenza\n• In caso di interesse e di idoneità, c'è la possibilità di\n• Parcheggio ridotto dei dipendenti\n• Parcheggio moto, parcheggio biciclette chiuso\n• Con ZVV Bonus Pass / Z-Bonus Pass offriamo un attraente e un abbonamento V per i dipendenti",
+      "en": "• Dipl. Care specialist HF/FH emergency department\n\n60% - 100%, immediately or by agreement\n\nApply now\n\n365 days a year, 24 hours a day, the emergency center is responsible for the medical emergency care of more than 35,000 emergency patients every year. We are proud of our efficient, effective and coordinated, comprehensive and comprehensive care for our patients. We look forward to seeing you as a new member of our team.\n\nOur emergency department comprises 14 monitoring stations and a shock room with 2 stations as well as an integrated emergency practice with 4 treatment rooms.\n\nDirect applications are preferred, external recruitment offices are not treated as a priority.\n\nHere they engage\n\n• Treating and monitoring patients with various medical and surgical diseases in three-shift operation\n• Independent documentation and performance recording\n• Independent, proper operation and maintenance, as well as maintenance of department-specific equipment\n• Solution-oriented interdisciplinary cooperation\n• have completed training as a Dipl. Nurse HF/FH in an acute hospital\n• Wise mind. 1 year of professional experience in an acute hospital\n• have teamwork, flexibility and independence\n• In the case of interest and suitability, there is the possibility of\n• Reduced employee parking\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive ÖV subscription for employees",
+      "de": "60% - 100%, per sofort oder nach Vereinbarung\n365 Tage im Jahr, 24 Stunden pro Tag ist das Notfallzentrum für die medizinische Notfallversorgung von über 35'000 Notfallpatient:innen jährlich zuständig. Wir sind stolz auf unsere effiziente, effektive und auf unsere Patient:innen abgestimmte, gesamtheitliche und umfassende Betreuung. Wir freuen uns auf Sie als neues Mitglied in unserem Team.\nUnsere Notfallstation umfasst 14 Überwachungsplätze und einen Schockraum mit 2 Plätzen sowie eine integrierte Notfallpraxis mit 4 Behandlungsräumen.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• Behandeln und Überwachen von Patientinnen und Patienten mit verschiedenen medizinischen und chirurgischen Krankheitsbildern im Dreischichtbetrieb\n• Selbständige Dokumentation und Leistungserfassung\n• Selbständige, sachgerechte Bedienung und Wartung, sowie Instandhaltung abteilungsspezifischer Geräte\n• Lösungsorientierte interdisziplinäre Zusammenarbeit\nSie\n• haben eine abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH in einem Akutspital\n• weisen mind. 1 Jahr Berufserfahrung in einem Akutspital auf\n• besitzen Teamfähigkeit, Flexibilität und Selbständigkeit\n• Bei Interesse und Eignung besteht die Möglichkeit das Nach\nBei Interesse und Eignung besteht die Möglichkeit das Nachdiplomstudium Notfallpflege zu absolvieren\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 98’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’600 Mitarbeitende aus 57 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
+      "fr": "• Dipl. Spécialiste des soins HF/FH service d'urgence\n\n60% - 100%, immédiatement ou par accord\n\nAppliquer maintenant\n\n365 jours par an, 24 heures par jour, le centre d'urgence est responsable des soins médicaux d'urgence de plus de 35 000 patients d'urgence chaque année. Nous sommes fiers de nos soins efficaces, coordonnés, complets et complets pour nos patients. Nous nous réjouissons de vous voir comme un nouveau membre de notre équipe.\n\nNotre service d'urgence comprend 14 stations de surveillance et une salle de choc avec 2 stations ainsi qu'une pratique d'urgence intégrée avec 4 salles de traitement.\n\nLes candidatures directes sont privilégiées, les bureaux de recrutement externes ne sont pas considérés comme prioritaires.\n\nIci ils s'engagent\n\n• Traitement et suivi des patients atteints de diverses maladies médicales et chirurgicales en trois équipes\n• Documentation indépendante et enregistrement des performances\n• Exploitation et entretien indépendants et adéquats, ainsi que l'entretien du matériel propre au département\n• Coopération interdisciplinaire orientée vers la solution\n• ont terminé la formation en tant que Dipl. Infirmière HF/FH dans un hôpital aigu\n• Un esprit sage. 1 an d'expérience professionnelle dans un hôpital aigu\n• avoir du travail d'équipe, de la flexibilité et de l'indépendance\n• Dans le cas de l'intérêt et de l'adéquation, il est possible\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement attrayant ÖV pour les employés"
+    },
+    "slugByLocale": {
+      "it": "dipl-specialista-di-cura-hf-fh-pronto-soccorso-spital-limmattal-schlieren",
+      "en": "dipl-care-specialist-hf-fh-emergency-department-spital-limmattal-schlieren",
+      "de": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+      "fr": "dipl-specialiste-des-soins-hf-fh-service-d-urgence-spital-limmattal-schlieren"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-10T21:13:15.984Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+      "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren-8bd127d8",
+      "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren",
+      "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch-2aacb148",
+      "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren",
+      "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren-a8697865",
+      "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren-7c9da6be",
+      "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren",
+      "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren-9f06095a"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+        "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren-8bd127d8",
+        "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren",
+        "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch-2aacb148",
+        "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren",
+        "dipl-pflegefachperson-hf-fh-per-onkologie-hamatologie-spital-limmattal-schlieren-a8697865"
+      ],
+      "en": [
+        "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+        "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren-7c9da6be",
+        "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren",
+        "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch-2aacb148",
+        "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch-2aacb148",
+        "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren",
+        "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren",
+        "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren"
+      ],
+      "fr": [
+        "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+        "dipl-infirmiere-hf-fh-pour-l-oncologie-hematologie-spital-limmattal-schlieren-9f06095a",
+        "dipl-infermiera-hf-fh-per-oncologia-ematologia-spital-limmattal-schlieren",
+        "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch-2aacb148",
+        "dipl-nurse-hf-fh-for-oncology-haematology-spital-limmattal-schlieren"
+      ]
+    },
+    "postalCode": "8952",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/486538/0505/pub/10/index.html",
+    "firstSeenAt": "2026-08-11T21:48:37.741Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/486538/0505/pub/10/index.html",
+        "firstSeenAt": "2026-08-11T21:48:37.741Z",
+        "title": "Dipl. Pflegefachperson HF/FH Notfallstation"
+      },
+      {
+        "sourceIdentity": "url:https://apply.refline.ch/486538/0887/pub/1/index.html",
+        "firstSeenAt": "2026-08-11T21:48:37.741Z",
+        "title": "Dipl. Pflegefachperson HF/FH Notfallstation"
+      }
+    ]
+  },
+  {
     "slug": "hf-luogo-di-studio-acute-somatics-3-jahr-istruzione-dall-autunno-2026-spital-limmattal-schlieren",
     "title": "HF Studienplatz Akutsomatik 3-jährige Ausbildung ab Herbst 2026",
     "titleByLocale": {
@@ -6292,7 +7214,38 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0662/pub/1/index.html",
-    "firstSeenAt": "2026-06-10T12:55:33.914Z"
+    "firstSeenAt": "2026-06-10T12:55:33.914Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch": "ZH",
+        "hf-luogo-di-studio-acute-somatics-3-j-u00e4hr-istruzione-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-jahrige-ausbildung-ab-herbst-2026-spital-limmattal-ch": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch": "ZH",
+        "hf-study-place-acute-somatics-3-j-u00e4hr-education-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH"
+      },
+      "de": {
+        "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH"
+      },
+      "fr": {
+        "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch": "ZH",
+        "etude-hf-place-somatique-aigue-3-j-u00e4hr-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-akutsomatik-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "hf-luogo-di-studio-assistenza-a-lungo-termine-3jahr-formazione-dall-autunno-2026-spital-limmattal-schlieren",
@@ -6356,7 +7309,38 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0664/pub/1/index.html",
-    "firstSeenAt": "2026-06-10T12:55:34.331Z"
+    "firstSeenAt": "2026-06-10T12:55:34.331Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal": "ZH",
+        "hf-luogo-di-studio-assistenza-a-lungo-termine-3j-u00e4hr-formazione-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-langzeitpflege-3-jahrige-ausbildung-ab-herbst-2026-spital-limmattal-ch": "ZH",
+        "hf-studienplatz-assistenza-a-lungo-termine-3j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-long-term-care-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-soins-de-longue-duree-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal": "ZH",
+        "hf-study-place-long-term-care-3-j-u00e4hr-training-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-assistenza-a-lungo-termine-3j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-long-term-care-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-soins-de-longue-duree-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH"
+      },
+      "de": {
+        "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-c": "ZH",
+        "hf-studienplatz-assistenza-a-lungo-termine-3j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-long-term-care-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-soins-de-longue-duree-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH"
+      },
+      "fr": {
+        "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal": "ZH",
+        "l-etude-hf-place-les-soins-de-longue-duree-3-j-u00e4h-formation-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-assistenza-a-lungo-termine-3j-u00e4h-istruzione-a-partire-dall-autunno-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-long-term-care-3-j-u00e4h-education-from-autumn-2026-spital-limmattal-schlieren": "ZH",
+        "hf-studienplatz-soins-de-longue-duree-3-j-u00e4h-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "cucina-dei-dipendenti-occupazione-temporanea-per-6-mesi-spital-limmattal-schlieren",
@@ -6407,7 +7391,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0863/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:48:53.538Z"
+    "firstSeenAt": "2026-09-19T22:48:53.538Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-kuche-befristete-anstellung-fur-6-monate-spital-limmattal-ch": "ZH",
+        "collaboratore-trice-kuche-befristete-anstellung-per-6-monate-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "mitarbeiter-in-kuche-befristete-anstellung-fur-6-monate-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-in-kuche-befristete-anstellung-fur-6-monate-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "giorno-responsabile-r-lavoro-a-casa-80-100-spital-limmattal-schlieren",
@@ -6460,7 +7457,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0806/pub/2/index.html",
-    "firstSeenAt": "2026-09-03T13:32:24.805Z"
+    "firstSeenAt": "2026-09-03T13:32:24.805Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "day-responsible-r-housework-80-100-spital-limmattal-schlieren": "ZH",
+        "jour-responsable-r-travaux-menagers-80-100-spital-limmattal-schlieren": "ZH",
+        "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "stv-responsabile-notfallpflege-spital-limmattal-schlieren",
@@ -6515,7 +7526,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0817/pub/3/index.html",
-    "firstSeenAt": "2026-07-29T11:33:52.846Z"
+    "firstSeenAt": "2026-07-29T11:33:52.846Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stv-leiter-in-notfallpflege-spital-limmattal-ch": "ZH",
+        "stv-responsabile-notfallpflege-spital-limmattal-schlieren-hbc5eg": "ZH",
+        "stv-leiter-in-emergency-care-spital-limmattal-schlieren": "ZH",
+        "stv-leiter-dans-les-soins-d-urgence-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "stv-leiter-in-notfallpflege-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "stv-leiter-in-notfallpflege-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendistato-kauffrau-kaufmann-kv-gesundheit-spital-limmattal-schlieren",
@@ -6566,7 +7592,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0838/pub/2/index.html",
-    "firstSeenAt": "2026-08-14T10:12:15.509Z"
+    "firstSeenAt": "2026-08-14T10:12:15.509Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-kauffrau-kaufmann-kv-gesundheit-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "lehrstelle-kauffrau-kaufmann-kv-gesundheit-spital-limmattal-ch": "ZH",
+        "kauffrau-kaufmann-kv-health-spital-limmattal-schlieren": "ZH"
+      },
+      "fr": {
+        "lehrstelle-kauffrau-kaufmann-kv-gesundheit-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "dipendenti-guest-relations-lavoro-temporaneo-per-9-mesi-spital-limmattal-schlieren",
@@ -6617,7 +7656,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0861/pub/1/index.html",
-    "firstSeenAt": "2026-09-19T22:48:51.856Z"
+    "firstSeenAt": "2026-09-19T22:48:51.856Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-guest-relations-befristete-anstellung-fur-9-monate-spital-limmattal-ch": "ZH",
+        "collaboratore-trice-guest-relations-befristete-anstellung-per-9-monate-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "mitarbeiter-in-guest-relations-befristete-anstellung-fur-9-monate-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-in-guest-relations-befristete-anstellung-fur-9-monate-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "servizio-paziente-dipendente-temporaneo-con-opzione-di-lavoro-permanente-spital-limmattal-schlieren-644725",
@@ -6694,7 +7746,28 @@
         "firstSeenAt": "2026-09-10T23:04:36.346Z",
         "title": "Mitarbeiter:in Patientenservice, befristet mit Option zur Festanstellung"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-patientenservice-befristet-mit-option-zur-festanstellung-spital-limmattal": "ZH",
+        "collaboratore-trice-patientenservice-befristet-con-option-zur-festanstellung-spital-limmattal-schlieren": "ZH",
+        "collaboratore-trice-patientenservice-befristet-con-option-zur-festanstellung-spital-w6fo1v": "ZH",
+        "patient-service-associate-fixed-term-with-option-for-permanent-employment-spital-limmattal-schlieren": "ZH",
+        "employe-e-du-service-patients-contrat-a-duree-determinee-avec-option-d-embauche-permanente-spital-limmattal-schlieren": "ZH",
+        "servizio-paziente-dipendente-temporaneo-con-opzione-di-lavoro-permanente-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "mitarbeiter-in-patientenservice-befristet-mit-option-zur-festanstellung-spital-limmattal": "ZH",
+        "patient-service-associate-fixed-term-with-option-for-permanent-employment-spital-limmattal-schlieren": "ZH",
+        "employee-patient-service-temporary-with-permanent-employment-option-spital-limmattal-schlieren": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-in-patientenservice-befristet-mit-option-zur-festanstellung-spital-limmattal": "ZH",
+        "employe-e-du-service-patients-contrat-a-duree-determinee-avec-option-d-embauche-permanente-spital-limmattal-schlieren": "ZH",
+        "service-patient-salarie-temporaire-avec-option-d-emploi-permanent-spital-limmattal-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "segretariato-medicoar-in-fur-segretariato-medico-capo-anasthesie-80-giorni-lavorativi-dal-lunedi-al-giovedi-spital",
@@ -6752,7 +7825,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0812/pub/1/index.html",
-    "firstSeenAt": "2026-07-09T22:23:10.723Z"
+    "firstSeenAt": "2026-07-09T22:23:10.723Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "arztsekret-u00e4r-in-f-u00fcr-chefarztsekretariat-an-u00e4sthesie-80-arbeitstage-montag": "ZH",
+        "segretariato-medico-u00e4r-in-f-u00fcr-segretariato-medico-capo-an-u00e4sthesie-80-giorni-lavorativi-dal-lunedi-al": "ZH",
+        "arztsekretar-in-fur-chefarztsekretariat-anasthesie-80-arbeitstage-montag-bis-donnerstag": "ZH"
+      },
+      "en": {
+        "arztsekret-u00e4r-in-f-u00fcr-chefarztsekretariat-an-u00e4sthesie-80-arbeitstage-montag": "ZH",
+        "medical-secretariat-u00e4r-in-f-u00fcr-chief-medical-secretariat-an-u00e4sthesie-80-working-days-monday-to-thursday": "ZH"
+      },
+      "de": {
+        "arztsekret-u00e4r-in-f-u00fcr-chefarztsekretariat-an-u00e4sthesie-80-arbeitstage-montag": "ZH"
+      },
+      "fr": {
+        "arztsekret-u00e4r-in-f-u00fcr-chefarztsekretariat-an-u00e4sthesie-80-arbeitstage-montag": "ZH"
+      }
+    }
   },
   {
     "slug": "spitalapotheker-in-con-option-per-la-weiterbildung-fph-in-spitalpharmazie-spital-limmattal-schlieren",
@@ -6801,7 +7892,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0825/pub/1/index.html",
-    "firstSeenAt": "2026-08-04T11:33:43.713Z"
+    "firstSeenAt": "2026-08-04T11:33:43.713Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spitalapotheker-in-mit-option-fur-die-weiterbildung-fph-in-spitalpharmazie-spital": "ZH"
+      },
+      "en": {
+        "spitalapotheker-in-mit-option-fur-die-weiterbildung-fph-in-spitalpharmazie-spital": "ZH"
+      },
+      "fr": {
+        "spitalapotheker-in-mit-option-fur-die-weiterbildung-fph-in-spitalpharmazie-spital": "ZH"
+      }
+    }
   },
   {
     "slug": "assistenza-a-lungo-termine-per-la-piscina-temporanea-per-1-anno-spital-limmattal-schlieren",
@@ -6843,7 +7946,9 @@
       "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren-015f369a",
       "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-3fc06e51",
       "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren-7dbf2067",
-      "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6"
+      "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6",
+      "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren-352fb960",
+      "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-b0797960"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6856,7 +7961,9 @@
         "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren-015f369a",
         "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-3fc06e51",
         "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren-7dbf2067",
-        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6"
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6",
+        "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren-352fb960",
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-b0797960"
       ],
       "en": [
         "pflegehelfer-in-langzeitpflege-fur-den-pool-befristet-fur-1-jahr-spital-limmattal-ch",
@@ -6865,7 +7972,8 @@
         "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren",
         "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-c0ae201c",
         "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-3fc06e51",
-        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6"
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6",
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-b0797960"
       ],
       "fr": [
         "pflegehelfer-in-langzeitpflege-fur-den-pool-befristet-fur-1-jahr-spital-limmattal-ch",
@@ -6874,14 +7982,16 @@
         "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren",
         "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-c0ae201c",
         "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-3fc06e51",
-        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6"
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6",
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-b0797960"
       ],
       "de": [
         "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-ed6bde3c",
         "pflegehelfer-in-langzeitpflege-per-den-pool-spital-limmattal-schlieren",
         "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-c0ae201c",
         "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-3fc06e51",
-        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6"
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-f07ff6f6",
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch-b0797960"
       ]
     },
     "postalCode": "8952",
@@ -6890,7 +8000,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0733/pub/6/index.html",
-    "firstSeenAt": "2026-09-08T13:31:38.703Z"
+    "firstSeenAt": "2026-09-08T13:31:38.703Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-befristet-fur-1-jahr-spital-limmattal-ch": "ZH",
+        "pflegehelfer-in-langzeitpflege-per-den-pool-befristet-per-1-jahr-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-befristet-fur-1-jahr-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "pflegehelfer-in-langzeitpflege-fur-den-pool-befristet-fur-1-jahr-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-medizincontrolling-ertragsmanagement-spital-limmattal-schlieren",
@@ -6956,7 +8079,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0840/pub/2/index.html",
-    "firstSeenAt": "2026-09-10T23:04:36.767Z"
+    "firstSeenAt": "2026-09-10T23:04:36.767Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-medizincontrolling-ertragsmanagement-spital-limmattal-ch": "ZH",
+        "responsabile-medizincontrolling-ertragsmanagement-spital-limmattal-schlieren-jtb936": "ZH",
+        "head-of-medical-controlling-revenue-management-spital-limmattal-schlieren": "ZH",
+        "responsable-du-controle-medical-gestion-des-recettes-spital-limmattal-schlieren": "ZH",
+        "responsabile-ertragsmanagement-spital-limmattal-schlieren": "ZH",
+        "head-in-revenue-management-spital-limmattal-schlieren": "ZH",
+        "leiter-in-ertragsmanagement-spital-limmattal-ch": "ZH",
+        "chef-dans-la-gestion-des-recettes-spital-limmattal-schlieren": "ZH",
+        "chef-du-controle-medical-gestion-des-recettes-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "leiter-in-medizincontrolling-ertragsmanagement-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "responsable-du-controle-medical-gestion-des-recettes-spital-limmattal-schlieren": "ZH",
+        "leiter-in-medizincontrolling-ertragsmanagement-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "scienze-farmaceutiche-degli-studenti-o-farmacia-spital-limmattal-schlieren",
@@ -7007,7 +8151,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0764/pub/2/index.html",
-    "firstSeenAt": "2026-09-01T07:22:27.170Z"
+    "firstSeenAt": "2026-09-01T07:22:27.170Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch": "ZH",
+        "student-in-pharmazeutische-wissenschaften-o-pharmazie-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-medizin-befristet-per-1-jahr-spital-limmattal-schlieren",
@@ -7056,7 +8213,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0847/pub/1/index.html",
-    "firstSeenAt": "2026-08-27T19:54:53.667Z"
+    "firstSeenAt": "2026-08-27T19:54:53.667Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-medizin-befristet-fur-1-jahr-spital": "ZH"
+      },
+      "en": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-medizin-befristet-fur-1-jahr-spital": "ZH"
+      },
+      "fr": {
+        "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-medizin-befristet-fur-1-jahr-spital": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-divisione-in-personale-spital-limmattal-schlieren",
@@ -7105,7 +8274,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0823/pub/1/index.html",
-    "firstSeenAt": "2026-07-30T11:14:58.288Z"
+    "firstSeenAt": "2026-07-30T11:14:58.288Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bereichsleiter-in-personal-spital-limmattal-ch": "ZH"
+      },
+      "en": {
+        "bereichsleiter-in-personal-spital-limmattal-ch": "ZH"
+      },
+      "fr": {
+        "bereichsleiter-in-personal-spital-limmattal-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-o-assistente-tecnico-della-sterilizzazione-ste-ii-80",
@@ -7159,7 +8340,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/486538/0852/pub/1/index.html",
-    "firstSeenAt": "2026-08-31T17:00:55.806Z"
+    "firstSeenAt": "2026-08-31T17:00:55.806Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r": "ZH",
+        "medizinproduktetechnologin-medizinproduktetechnologe-o-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital-limmattal-schlieren": "ZH"
+      },
+      "en": {
+        "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital": "ZH"
+      },
+      "fr": {
+        "medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-r-sterilisationsassistent-in-ste-ii-80-100-spital": "ZH",
+        "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-ou-assistant-a-la-sterilisation-technique-en": "ZH"
+      }
+    }
   },
   {
     "slug": "team-leader-in-soccorso-incl-responsabilita-della-logistica-spital-limmattal-schlieren",
@@ -8960,6 +10155,53 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "direttore-della-stazione-nel-centro-di-cura-spital-limmattal-schlieren",
+    "title": "Stationsleiter:in im Pflegezentrum",
+    "titleByLocale": {
+      "it": "Direttore della stazione: nel centro di cura",
+      "en": "Station Manager:in the nursing centre",
+      "de": "Stationsleiter:in im Pflegezentrum",
+      "fr": "Gestionnaire de poste:dans le centre de soins infirmiers"
+    },
+    "company": "Spital Limmattal",
+    "companyKey": "spital-limmattal",
+    "location": "Schlieren",
+    "addressLocality": "Schlieren",
+    "descriptionByLocale": {
+      "it": "Station Manager:in centro di allattamento 80% - 100%, d'accordo Applicare ora Sosteniamo i nostri residenti e i loro parenti con esperienza e impegno molto umano. Le situazioni dei nostri residenti sono per lo più complesse. Il trattamento, la cura e la cura in alta qualità richiedono quindi conoscenze specifiche nel campo della geriatria, nonché supporto personalizzato in materia di salute, sociale o psicologica. Organizzazione della cura e della cura delle persone bisognose di cura e cura (34 posti) Pianificazione, controllo e monitoraggio dell'intero processo di cura (Kisim, RAI-NH) Guida personale e professionale e consulenza di circa 35 dipendenti Determinazione della necessità di azione e sviluppo, nonché l'avvio e l'attuazione di misure appropriate a livello della stazione tenendo conto del mandato di esecuzione Attuazione dell'ordine di formazione alla stazione Assistenza nella cura come richiesto (circa 50%) hanno completato la formazione professionale come Dipl. Specialista di cura HF/FH portare una formazione in leadership o alcuni anni di esperienza in funzione simile con possedere competenze e competenze in Geriatrie,Palliative Care e Demenz parchi auto beneficiari Parcheggio moto, parcheggio bici chiuso\n• Offriamo con il ZVV Bonus Pass / Z-Bonus Pass un attraente abbonamento ÖV per i dipendenti",
+      "en": "Station Manager:in in nursing center 80% - 100%, by agreement Apply now We support our residents and their relatives with expertise and much human commitment. The situations of our residents are mostly complex. The treatment, care and care in high quality therefore require specific knowledge in the field of geriatrics as well as individually adapted support in health, social or psychological matters. Organisation of the care and care of people in need of care and care (34 seats) Planning, control and monitoring of the entire care process (Kisim, RAI-NH) Personal and professional guidance as well as advice of about 35 employees Determining the need for action and development as well as the initiation and implementation of appropriate measures at station level taking into account the performance mandate Implementation of the training order at the station Assistance in care as required (about 50%) have completed vocational training as a Dipl. Care specialist HF/FH bring a training in leadership or some years of experience in similar function with possess expertise and expertise in Geriatrie,Palliative Care and Demenz beneficiary car parks Motorcycle parking, lockable bike parking\n• We offer with the ZVV Bonus Pass / Z-Bonus Pass an attractive ÖV subscription for employees",
+      "de": "• Stationsleiter:in im Pflegezentrum 80% - 100%, nach Vereinbarung Jetzt bewerben Wir betreuen unsere Bewohnenden und ihre Angehörigen mit Fachkompetenz und viel menschlichem Engagement. Die Situationen unserer Bewohnenden sind mehrheitlich komplex. Die Behandlung, Pflege und Betreuung in hoher Qualität erfordern daher spezifische Kenntnisse im Bereich Geriatrie sowie individuell angepasste Unterstützung in gesundheitlichen, sozialen oder seelischen Belangen. Hier engagieren Sie sich\n• Organisation der Pflege und Betreuung von mittel bis schwer pflegebedürftigen Bewohnenden im Rahmen der Langzeitpflege und Übergangspflege (34 Plätze)\n• Planung, Steuerung und Überwachung des gesamten Pflegeprozess (Kisim, RAI-NH)\n• Personelle und fachliche Führung sowie Beratung der ca. 35 Mitarbeitenden\n• Ermittlung von Handlungs- und Entwicklungsbedarf sowie Einleitung und Umsetzung von entsprechenden Massnahmen auf Stationsebene unter Berücksichtigung des Leistungsauftrages\n• Umsetzung des Ausbildungsauftrags auf der Station\n• Mithilfe in der Pflege nach Bedarf (rund 50%)\n• verfügen über eine abgeschlossene Berufsausbildung als Dipl. Pflegefachperson HF/FH\n• bringen eine Weiterbildung im Führungsbereich oder einige Jahre Erfahrung in ähnlicher Funktion mit\n• besitzen Fachwissen und Fachkompetenz im Bereich der Geriatrie,Palliative Care und Demenz\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an",
+      "fr": "Responsable de poste:dans un centre de soins infirmiers 80% - 100%, par accord Postuler maintenant Nous soutenons nos résidents et leurs proches avec expertise et beaucoup d'engagement humain. Les situations de nos résidents sont pour la plupart complexes. Le traitement, les soins et les soins de haute qualité exigent donc des connaissances spécifiques dans le domaine de la gériatrie ainsi qu'un soutien individuel adapté en matière de santé, sociale ou psychologique. Organisation des soins et des soins aux personnes ayant besoin de soins (34 sièges) Planification, contrôle et suivi de l'ensemble du processus de soins (Kisim, RAI-NH) Orientation personnelle et professionnelle ainsi que conseils d'environ 35 employés Déterminer la nécessité d'agir et de développer, ainsi que d'entreprendre et de mettre en œuvre des mesures appropriées au niveau des stations en tenant compte du mandat de performance Mise en œuvre de l'ordre de formation à la station Assistance en soins au besoin (environ 50 %) ont suivi une formation professionnelle en tant que diplômé. Spécialiste des soins HF/FH apporter une formation en leadership ou quelques années d'expérience dans une fonction similaire avec possèdent une expertise en gériatrie, soins palliatifs et Demenz parkings bénéficiaires Parking moto, parking vélo verrouillable\n• Nous offrons avec le ZVV Bonus Pass / Z-Bonus Pass un abonnement ÖV attrayant pour les employés"
+    },
+    "slugByLocale": {
+      "it": "direttore-della-stazione-nel-centro-di-cura-spital-limmattal-schlieren",
+      "en": "station-manager-in-the-nursing-centre-spital-limmattal-schlieren",
+      "de": "stationsleiter-in-im-pflegezentrum-spital-limmattal-ch",
+      "fr": "gestionnaire-de-poste-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-12T22:58:21.081Z",
+    "previousSlugs": [
+      "stationsleiter-in-im-pflegezentrum-spital-limmattal-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "stationsleiter-in-im-pflegezentrum-spital-limmattal-ch"
+      ],
+      "en": [
+        "stationsleiter-in-im-pflegezentrum-spital-limmattal-ch"
+      ],
+      "fr": [
+        "stationsleiter-in-im-pflegezentrum-spital-limmattal-ch"
+      ]
+    },
+    "postalCode": "8952",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "direttore-della-stazione-nel-centro-di-cura-spital-limmattal-schlieren-82941827",
     "title": "Stationsleiter:in im Pflegezentrum",
     "titleByLocale": {
@@ -9247,6 +10489,57 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "specialista-stazione-di-emergenza-efz-spital-limmattal-schlieren",
+    "title": "Fachfrau:mann Gesundheit EFZ Notfallstation",
+    "titleByLocale": {
+      "it": "Fachfrau:mann Gesundheit CFC Notfallstation",
+      "en": "Specialist:mann Health EFZ Emergency Station",
+      "de": "Fachfrau:mann Gesundheit EFZ Notfallstation",
+      "fr": "Spécialiste:mann Santé EFZ Emergency Station"
+    },
+    "company": "Spital Limmattal",
+    "companyKey": "spital-limmattal",
+    "location": "Schlieren",
+    "addressLocality": "Schlieren",
+    "descriptionByLocale": {
+      "it": "Professional Health EFZ Emergency Station 80 % - 100 %, dal 01.07.2026 o d'accordo Applicare 365 giorni all'anno, 24 ore al giorno è il centro di emergenza per l'assistenza medica di oltre 35'000 pazienti di emergenza. Siamo orgogliosi della nostra cura efficiente, efficace e ben coordinata, globale e completa. Non vediamo l'ora di darvi il benvenuto come nuovo membro del nostro team. La nostra stazione di emergenza comprende 14 siti di sorveglianza e uno shock room con 2 posti e una pratica di emergenza integrata con 4 sale di trattamento. Cura olistica dei pazienti Assumere compiti delegati di assistenza e attività mediche nel campo delle competenze Compiti secondo le loro competenze nel settore domestico Garantire un adeguato flusso di informazioni hanno completato la formazione come specialista salute EFZ avere esperienza professionale in cura acuta - questo è vantaggioso mantenere un approccio rispettoso e affidabile ai pazienti, ai parenti e al team sono personalità indipendente, responsabile e orientata al servizio avere un'ottima conoscenza del tedesco ( orale e scritta) parchi auto beneficiari Parcheggio moto, parcheggio bici chiuso\n• Offriamo con il ZVV Bonus Pass / Z-Bonus Pass un attraente ÖV abbonamento per i dipendenti",
+      "en": "Professional Health EFZ Emergency Station 80 % - 100 %, from 01.07.2026 or by agreement Apply 365 days a year, 24 hours a day is the emergency center for medical emergency care of more than 35'000 emergency patients. We are proud of our efficient, effective and well-coordinated, overall and comprehensive care. We look forward to welcoming you as a new member of our team. Our emergency station includes 14 surveillance sites and a shock room with 2 seats as well as an integrated emergency practice with 4 treatment rooms. Holistic care of patients Takeover of delegated tasks of care and medical activities in the field of competence Tasks according to their competencies in the home sector Ensuring an appropriate flow of information have completed training as a specialist health EFZ have professional experience in acute care - this is advantageous maintain a respectful, value-assuring approach to patients, relatives and the team are an independent, responsible and service-oriented personality have excellent knowledge of German ( oral and written) beneficiary car parks Motorcycle parking, lockable bike parking\n• We offer with the ZVV Bonus Pass / Z-Bonus Pass an attractive ÖV subscription for employees",
+      "de": "• Fachfrau:mann Gesundheit EFZ Notfallstation 80 % - 100 %, ab 01.07.2026 oder nach Vereinbarung Jetzt bewerben 365 Tage im Jahr, 24 Stunden pro Tag ist das Notfallzentrum für die medizinische Notfallversorgung von über 35'000 Notfallpatient:innen jährlich zuständig. Wir sind stolz auf unsere effiziente, effektive und auf unsere Patient:innen abgestimmte, gesamtheitliche und umfassende Betreuung. Wir freuen uns auf Sie als neues Mitglied in unserem Team. Unsere Notfallstation umfasst 14 Überwachungsplätze und einen Schockraum mit 2 Plätzen sowie eine integrierte Notfallpraxis mit 4 Behandlungsräumen. Hier engagieren Sie sich\n• Ganzheitliche Betreuung der Patientinnen und Patienten\n• Übernahme delegierter Aufgaben von pflegerischen und medizinaltechnischen Tätigkeiten im Kompetenzbereich\n• Aufgaben entsprechend ihrer Kompetenzen im hauswirtschaftlichen Bereich der Station\n• Gewährleistung eines sachgemässen Informationsflusses\n• haben eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n• weisen Berufserfahrung in der Akutpflege auf - dies ist von Vorteil\n• pflegen einen respektvollen, wertschätzenden Umgang mit Patienten, Angehörigen und dem Team\n• sind eine selbstständige, verantwortungsbewusste und dienstleistungsorientierte Persönlichkeit\n• verfügen über ausgezeichnete Deutschkenntnisse (mündlich und schriftlich)\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives &Ouml;V-Abonnement für Mitarbeitende an",
+      "fr": "Santé professionnelle EFZ Emergency Station 80 % - 100 %, à partir du 01.07.2026 ou par accord Appliquer 365 jours par an, 24 heures par jour est le centre d'urgence pour les soins médicaux d'urgence de plus de 35'000 patients d'urgence. Nous sommes fiers de nos soins efficaces, bien coordonnés, globaux et complets. Nous sommes impatients de vous accueillir comme nouveau membre de notre équipe. Notre station d'urgence comprend 14 sites de surveillance et une salle de choc avec 2 sièges ainsi qu'une pratique d'urgence intégrée avec 4 salles de traitement. Soins holistiques des patients Prise en charge des tâches déléguées de soins et d'activités médicales dans le domaine de compétence Tâches selon leurs compétences dans le secteur d'origine Assurer un flux approprié d'informations ont suivi une formation en tant que spécialiste de la santé avoir une expérience professionnelle en soins actifs - c'est avantageux maintenir une approche respectueuse et soucieuse de la valeur pour les patients, les parents et l'équipe sont une personnalité indépendante, responsable et orientée vers le service avoir une excellente connaissance de l'allemand (oral et écrit) parkings bénéficiaires Parking moto, parking vélo verrouillable\n• Nous offrons avec le ZVV Bonus Pass / Z-Bonus Pass un abonnement attrayant ÖV pour les employés"
+    },
+    "slugByLocale": {
+      "it": "specialista-stazione-di-emergenza-efz-spital-limmattal-schlieren",
+      "en": "specialist-mann-health-efz-emergency-station-spital-limmattal-schlieren",
+      "de": "fachfrau-mann-gesundheit-efz-notfallstation-spital-limmattal-ch",
+      "fr": "specialiste-mann-sante-efz-emergency-station-spital-limmattal-schlieren"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-12T22:58:17.702Z",
+    "previousSlugs": [
+      "fachfrau-mann-gesundheit-efz-notfallstation-spital-limmattal-ch",
+      "fachfrau-mann-gesundheit-cfc-notfallstation-spital-limmattal-schlieren"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachfrau-mann-gesundheit-efz-notfallstation-spital-limmattal-ch",
+        "fachfrau-mann-gesundheit-cfc-notfallstation-spital-limmattal-schlieren"
+      ],
+      "en": [
+        "fachfrau-mann-gesundheit-efz-notfallstation-spital-limmattal-ch"
+      ],
+      "fr": [
+        "fachfrau-mann-gesundheit-efz-notfallstation-spital-limmattal-ch"
+      ]
+    },
+    "postalCode": "8952",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/486538/0748/pub/1/index.html",
+    "firstSeenAt": "2026-05-10T22:26:08.275Z"
+  },
+  {
     "slug": "salute-professionale-efz-f-u00fcr-una-stazione-di-biancheria-da-letto-medico-o-chirurgica-spital-limmattal-schlieren",
     "title": "Fachfrau:mann Gesundheit EFZ für eine medizinische oder chirurgische Bettenstation",
     "titleByLocale": {
@@ -9296,6 +10589,61 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "professionista-in-dipl-carriera-hf-fh-mo-fr-e-1-fine-settimana-al-mese-spital-limmattal-schlieren",
+    "title": "Berufsbildner:in Dipl. Pflegefachperson HF/FH (MO-FR und 1 Wochenende im Monat)",
+    "titleByLocale": {
+      "it": "Berufsbildner:in Dipl. Pflegefachperson HF/FH (MO-FR e 1 Wochenende im Monat)",
+      "en": "Professional:in Dipl. Career HF/FH (MO-FR and 1 weekend per month)",
+      "de": "Berufsbildner:in Dipl. Pflegefachperson HF/FH (MO-FR und 1 Wochenende im Monat)",
+      "fr": "Professionnel:en diplôme Carrière HF/FH (MO-FR et 1 week-end par mois)"
+    },
+    "company": "Spital Limmattal",
+    "companyKey": "spital-limmattal",
+    "location": "Schlieren",
+    "addressLocality": "Schlieren",
+    "descriptionByLocale": {
+      "it": "Professionista:in Dipl. Carriera HF/FH (MO-FR e 1 fine settimana al mese) 80% - 100% Applicare ora Serviamo i nostri residenti e i loro parenti con esperienza e impegno umano in situazioni spesso complesse. Il trattamento, la cura e la cura in alta qualità richiedono quindi conoscenze specifiche nel campo della geriatria, nonché supporto personalizzato in materia di salute, sociale o psicologica. Ecco perché il nostro team multi-professionale lavora a stretto contatto. Si compone di Ärzt:inside, infermieri, un assistente sociale, specialisti di attivazione, terapeuta:inside e cura pastorale.\n• Sostegno del processo di apprendimento, organizzazione e attuazione di tutte le qualifiche e competenze degli studenti delle formazioni Responsabilità per l'attuazione del concetto \"Lernort Praxis\" Pianificazione e progettazione delle opportunità di apprendimento individuali Responsabile per l'esame finale pratico dello specialista in salute e allattamento HF/FH presso la stazione Cura e cura dei lavoratori domestici nel sistema di riferimento Cura basata sui nostri concetti pratici hanno una formazione come professionista qualificato HF/FH con alcuni anni di esperienza professionale portare esperienza professionale e competenza in Geriatrie e Palliative Care con avere un vantaggio se avete già completato la formazione SVEB 1/2, in alternativa, portare la volontà di completarlo l'esperienza nel campo della formazione professionale e il piacere di affrontare i giovani sono una personalità aperta, flessibile, creativa con alte competenze educative parchi auto beneficiari Parcheggio moto, parcheggio bici chiuso Offriamo con il ZVV Bonus Pass / Z-Bonus Pass un attraente ÖV abbonamento per i dipendenti",
+      "en": "Professional:in Dipl. Career HF/FH (MO-FR and 1 weekend a month) 80% - 100% Apply Now We serve our residents and their relatives with expertise and much human commitment in often complex situations. The treatment, care and care in high quality therefore require specific knowledge in the field of geriatrics as well as individually adapted support in health, social or psychological matters. This is why our multi-professional team works closely together. It consists of Ärzt:inside, nursing professionals, a social worker, activation specialists, therapist:inside and pastoral care.\n• Learning process support, organisation and implementation of all qualifications and competences of the learners of the trainings Responsibility for the implementation of the concept \"Lernort Praxis\" Planning and design of individual learning opportunities Responsible for the practical final exam of the learners specialist health and nursing specialist HF/FH at the station Care and care of the home-occupants in the reference care system Care based on our practical concepts have a training as a qualified care professional HF/FH with a few years of professional experience bring professional experience and expertise in Geriatrie and Palliative Care with have an advantage if you have already completed the training SVEB 1/2, as an alternative, bring the willingness to complete it ideally have experience in the field of vocational training and have the pleasure of dealing with young people are an open, flexible, creative personality with high educational skills beneficiary car parks Motorcycle parking, lockable bike parking We offer with the ZVV Bonus Pass / Z-Bonus Pass an attractive ÖV subscription for employees",
+      "de": "• Berufsbildner:in Dipl. Pflegefachperson HF/FH (MO-FR und 1 Wochenende im Monat) 80% - 100% Jetzt bewerben Wir betreuen unsere Bewohnenden und ihre Angehörigen mit Fachkompetenz und viel menschlichem Engagement in oftmals komplexen Situationen. Die Behandlung, Pflege und Betreuung in hoher Qualität erfordern daher spezifische Kenntnisse im Bereich Geriatrie sowie individuell angepasste Unterstützung in gesundheitlichen, sozialen oder seelischen Belangen. Darum arbeitet unser multiprofessionelles Team eng zusammen. Es besteht aus &Auml;rzt:innen, Pflegefachpersonen, einer Sozialarbeiterin, Aktivierungsfachpersonen, Therapeut:innen sowie Seelsorgenden. Hier engagieren Sie sich\n• Lernprozessbegleitung, Organisation und Durchführung aller Qualifikationen und Kompetenznachweise der Lernenden der Ausbildungen Fachfrau/-mann Gesundheit und Pflegefachfrau/-mann HF/FH\n• Verantwortung für die Umsetzung des Konzepts \"Lernort Praxis\"\n• Planung und Gestaltung individueller Lernangebote\n• Verantwortlich für die praktische Abschlussprüfung der Lernenden Fachfrau/-mann Gesundheit und Pflegefachfrau/-mann HF/FH auf der Station\n• Pflege und Betreuung der Heimbewohnerinnen und Heimbewohner im Bezugspflegesystem\n• Pflege auf Basis unserer praxisorientierten Konzepte\n• haben eine Ausbildung als diplomierte Pflegefachperson HF/FH mit einigen Jahren Berufserfahrung\n• bringen Berufserfahrung und Fachkenntnisse im Bereich Geriatrie und Palliative Care mit\n• haben einen Vorteil, wenn Sie die Weiterbildung SVEB 1/2 bereits abgeschlossen haben, alternativ bringen Sie die Bereitschaft mit, diese zu absolvieren\n• verfügen idealerweise über Erfahrung im Bereich Berufsbildung und haben Freude am Umgang mit jungen Menschen\n• sind eine offene, flexible, kreative Persönlichkeit mit hohen pädagogischen Fähigkeiten\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives &Ouml;V-Abonnement für Mitarbeitende an",
+      "fr": "Professionnel:en diplôme Carrière HF/FH (MO-FR et 1 week-end par mois) 80% - 100% Appliquer maintenant Nous servons nos résidents et leurs proches avec expertise et beaucoup d'engagement humain dans des situations souvent complexes. Le traitement, les soins et les soins de haute qualité exigent donc des connaissances spécifiques dans le domaine de la gériatrie ainsi qu'un soutien individuel adapté en matière de santé, sociale ou psychologique. C'est pourquoi notre équipe multiprofessionnelle travaille en étroite collaboration. Il se compose de Ärzt:inside, professionnels des soins infirmiers, travailleur social, spécialistes de l'activation, thérapeute:inside et soins pastoraux.\n• Appui au processus d'apprentissage, organisation et mise en œuvre de toutes les qualifications et compétences des apprenants des formations Responsabilité de la mise en œuvre du concept de \"Praxis Larnort\" Planification et conception des possibilités d'apprentissage individuelles Responsable de l'examen final pratique du spécialiste de la santé et des soins infirmiers HF/FH au poste Soins et soins aux personnes à domicile dans le système de soins de référence Les soins basés sur nos concepts pratiques avoir une formation en tant que professionnel de soins qualifié HF/FH avec quelques années d'expérience professionnelle apporter une expérience et une expertise professionnelle en gériatrie et soins palliatifs avec avoir un avantage si vous avez déjà terminé la formation SVEB 1/2, comme une alternative, apporter la volonté de la compléter ont une expérience dans le domaine de la formation professionnelle et ont le plaisir de traiter avec les jeunes sont une personnalité ouverte, flexible, créative avec des compétences éducatives élevées parkings bénéficiaires Parking moto, parking vélo verrouillable Nous offrons avec le ZVV Bonus Pass / Z-Bonus Pass un abonnement attrayant ÖV pour les employés"
+    },
+    "slugByLocale": {
+      "it": "professionista-in-dipl-carriera-hf-fh-mo-fr-e-1-fine-settimana-al-mese-spital-limmattal-schlieren",
+      "en": "professional-in-dipl-career-hf-fh-mo-fr-and-1-weekend-per-month-spital-limmattal-schlieren",
+      "de": "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren",
+      "fr": "professionnel-en-diplome-carriere-hf-fh-mo-fr-et-1-week-end-par-mois-spital-limmattal-schlieren"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-12T22:58:14.261Z",
+    "previousSlugs": [
+      "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmat",
+      "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren",
+      "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-e-1-wochenende-im-monat-spital-limmattal-schlieren"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmat"
+      ],
+      "it": [
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmat",
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-e-1-wochenende-im-monat-spital-limmattal-schlieren"
+      ],
+      "en": [
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren"
+      ],
+      "fr": [
+        "berufsbildner-in-dipl-pflegefachperson-hf-fh-mo-fr-und-1-wochenende-im-monat-spital-limmattal-schlieren"
+      ]
+    },
+    "postalCode": "8952",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/486538/0738/pub/3/index.html",
+    "firstSeenAt": "2026-07-24T22:06:37.931Z"
+  },
+  {
     "slug": "dipl-esperto-in-an-u00e4sthesiepflege-nds-hf-spital-limmattal-schlieren",
     "title": "Dipl. Experte:in Anästhesiepflege NDS HF",
     "titleByLocale": {
@@ -9341,6 +10689,102 @@
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "dipl-assistenza-intensiva-esperta-o-esperta-nds-hf-spital-limmattal-schlieren",
+    "title": "Dipl. Expertin oder Experte Intensivpflege NDS HF",
+    "titleByLocale": {
+      "it": "Dipl. Assistenza intensiva esperta o esperta NDS HF",
+      "en": "Dipl. Expertin oder Experte Intensivpflege NDS HF",
+      "de": "Dipl. Expertin oder Experte Intensivpflege NDS HF",
+      "fr": "Dipl. Expert ou expert en soins intensifs NDS HF"
+    },
+    "company": "Spital Limmattal",
+    "companyKey": "spital-limmattal",
+    "location": "Schlieren",
+    "addressLocality": "Schlieren",
+    "descriptionByLocale": {
+      "it": "Dipl. Assistenza intensiva esperta o esperta NDS HF 60% - 100%, per 01.01.2026 o per accordo Applicare ora Le nostre infermiere sono le persone di contatto diretto durante il soggiorno dei nostri circa 96'000 pazienti: entro un anno. Sono responsabili della cura professionale e individuale. Il focus della cura è sempre sul benessere e sul recupero dell'auto-occupazione dei nostri pazienti. Il servizio di cura è fortemente collegato a tutte le aree dell'ospedale e lavora a stretto contatto con il servizio medico, le terapie e altre aree. La nostra unità di terapia intensiva interdisciplinare ha 8 posizioni di alimentazione (/letto) e 4 posizioni di telemetria.\n• Cura e cura dei pazienti con funzioni vitali compromesse di dimensioni diverse. 5 dispositivi di respirazione e 2 dispositivi di sostituzione renale sono disponibili a questo scopo. Chiudere la cooperazione interprofessionale con il team di trattamento Cooperazione con gli studenti/learneri di varie formazioni e di formazione (NDS Intensive Care, FaGe) Documentazione con il nostro sistema informativo clinico elettronico completo hanno completato la formazione come dipl. Assistenza intensiva per esperti NDS HF o formazione equivalente riconosciuta in Svizzera hanno dimostrato, esperienza attuale mostrare la volontà di cooperazione interdisciplinare e servizio a tre turni hanno interesse a trasmettere la vostra esperienza agli studenti e agli studenti FaGe parchi auto beneficiari Parcheggio moto, parcheggio bici chiuso Offriamo con il ZVV Bonus Pass / Z-Bonus Pass un attraente ÖV abbonamento per i dipendenti",
+      "en": "Dipl. Expert or expert intensive care NDS HF 60% - 100%, per 01.01.2026 or by agreement Apply now Our nurses are the direct contact persons during the stay of our approximately 96'000 patients: within a year. They are responsible for the professional and individual care. The focus of care is always on the well-being and the recovery of the self-employment of our patients. The nursing service is strongly connected to all areas of the hospital and works closely with the medical service, the therapies and other areas. Our interdisciplinary intensive care unit has 8 supply (/bed) and 4 telemetry positions.\n• Care and care of patients with impaired vital functions of different dimensions. 5 respiration and 2 renal replacement devices are available for this purpose. Close interprofessional cooperation with the treatment team Cooperation with students/learners of various training and further education (NDS Intensive Care, FaGe) Documentation with our comprehensive electronic clinic information system have completed training as a dipl. Expert intensive care NDS HF or equivalent training recognised in Switzerland have proven, current expertise show willingness to interdisciplinary cooperation and three-shift service have interest to pass on your expertise to students and learners FaGe beneficiary car parks Motorcycle parking, lockable bike parking We offer with the ZVV Bonus Pass / Z-Bonus Pass an attractive ÖV subscription for employees",
+      "de": "• Dipl. Expertin oder Experte Intensivpflege NDS HF 60% - 100%, per 01.01.2026 oder nach Vereinbarung Jetzt bewerben Unsere Pflegefachpersonen sind die unmittelbaren Ansprechpersonen während dem Aufenthalt unserer rund 96'000 Patient:innen pro Jahr. Sie sind für die fachliche und individuelle Betreuung zuständig. Im Mittelpunkt der Betreuung stehen immer das Wohlbefinden und die Wiedererlangung der Selbständigkeit unserer Patient:innen. Der Pflegedienst ist stark vernetzt mit allen Bereichen des Spitals und arbeitet eng mit dem ärztlichen Dienst, den Therapien sowie weiteren Bereichen zusammen. Unsere interdisziplinäre Intensivstation verfügt über 8 Versorgungs-(/Bett-) sowie 4 Telemetrieplätze. Hier engagieren Sie sich\n• Pflege und Betreuung von Patientinnen und Patienten mit beeinträchtigten Vitalfunktionen unterschiedlichen Ausmasses. Hierfür stehen unter anderem 5 Beatmungs- sowie 2 Nierenersatzgeräte zur Verfügung\n• Enge interprofessionelle Zusammenarbeit mit dem Behandlungsteam\n• Zusammenarbeit mit Studierenden/Lernenden verschiedener Aus- und Weiterbildungen (NDS Intensivpflege, FaGe)\n• Dokumentation mit unserem umfassenden elektronischen Klinikinformationssystem\n• haben eine abgeschlossene Weiterbildung als Dipl. Expertin/Experte Intensivpflege NDS HF oder gleichwertige, in der Schweiz anerkannte Weiterbildung\n• besitzen ausgewiesene, aktuelle Fachkenntnisse\n• weisen Bereitschaft zur interdisziplinären Zusammenarbeit und Dreischichtdienst auf\n• haben Interesse Ihr Fachwissen Studierenden und Lernenden FaGe weiterzugeben\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives &Ouml;V-Abonnement für Mitarbeitende an",
+      "fr": "Dipl. Expert ou expert en soins intensifs NDS HF 60% - 100%, par 01.01.2026 ou par accord Postuler maintenant Nos infirmières sont les personnes-ressources directes pendant le séjour d'environ 96'000 patients : dans un délai d'un an. Ils sont responsables des soins professionnels et individuels. Les soins sont toujours axés sur le bien-être et le rétablissement du travail indépendant de nos patients. Le service infirmier est étroitement lié à tous les secteurs de l'hôpital et travaille en étroite collaboration avec le service médical, les thérapies et d'autres secteurs. Notre unité interdisciplinaire de soins intensifs compte 8 postes d'approvisionnement (/lit) et 4 postes de télémétrie.\n• Soins et soins aux patients ayant des fonctions vitales altérées de différentes dimensions. 5 dispositifs respiratoires et 2 dispositifs de remplacement rénal sont disponibles à cette fin. Coopération interprofessionnelle étroite avec l'équipe de traitement Coopération avec les étudiants et les apprenants de diverses formations et de la formation continue (NDS Intensive Care, FaGe) Documentation avec notre système d'information clinique électronique complet ont terminé la formation en tant que dipl. Expert en soins intensifs NDS HF ou formation équivalente reconnue en Suisse ont prouvé, l'expertise actuelle montrer sa volonté de coopération interdisciplinaire et de service en trois équipes avoir intérêt à transmettre votre expertise aux étudiants et aux apprenants FaGe parkings bénéficiaires Parking moto, parking vélo verrouillable Nous offrons avec le ZVV Bonus Pass / Z-Bonus Pass un abonnement attrayant ÖV pour les employés"
+    },
+    "slugByLocale": {
+      "it": "dipl-assistenza-intensiva-esperta-o-esperta-nds-hf-spital-limmattal-schlieren",
+      "en": "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
+      "de": "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
+      "fr": "dipl-expert-ou-expert-en-soins-intensifs-nds-hf-spital-limmattal-schlieren"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-12T22:58:11.838Z",
+    "previousSlugs": [
+      "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
+      "dipl-expertin-o-experte-intensivpflege-nds-hf-spital-limmattal-schlieren"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch",
+        "dipl-expertin-o-experte-intensivpflege-nds-hf-spital-limmattal-schlieren"
+      ],
+      "fr": [
+        "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-ch"
+      ]
+    },
+    "postalCode": "8952",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/486538/0624/pub/5/index.html",
+    "firstSeenAt": "2026-07-06T00:19:56.848Z"
+  },
+  {
+    "slug": "dipl-expert-o-esperto-nds-hf-emergency-care-spital-limmattal-schlieren",
+    "title": "Dipl. Expertin oder Experte NDS HF Notfallpflege",
+    "titleByLocale": {
+      "it": "Dipl. Expertin o Experte NDS HF Notfallpflege",
+      "en": "Dipl. Expertin oder Experte NDS HF Notfallpflege",
+      "de": "Dipl. Expertin oder Experte NDS HF Notfallpflege",
+      "fr": "Dipl. Expert ou expert NDS HF Emergency Care"
+    },
+    "company": "Spital Limmattal",
+    "companyKey": "spital-limmattal",
+    "location": "Schlieren",
+    "addressLocality": "Schlieren",
+    "descriptionByLocale": {
+      "it": "Dipl. Esperto o esperto NDS HF assistenza di emergenza 70% - 100%, immediato o di accordo Applicare ora 365 giorni all'anno, 24 ore al giorno è il centro di emergenza per l'assistenza medica di oltre 35'000 pazienti di emergenza: entro la responsabilità annuale. Siamo orgogliosi della nostra cura efficiente, efficace e ben coordinata, globale e completa. Non vediamo l'ora di darvi il benvenuto come nuovo membro del nostro team. La nostra stazione di emergenza comprende 14 siti di sorveglianza e uno shock room con 2 posti e una pratica di emergenza integrata con 4 sale di trattamento. Triagazione (linea di spostamento) di nuovi pazienti di emergenza Cura di emergenza di pazienti adulti e pediatrici nei campi della medicina, chirurgia, traumatologia, urologia e ginecologia Utilizzo e applicazione di misure terapeutiche e diagnostiche Manutenzione e manutenzione delle attrezzature hanno completato la formazione come dipl. Assistenza di emergenza esperto NDS HF o formazione equivalente riconosciuta in Svizzera hanno dimostrato, esperienza attuale parchi auto beneficiari Parcheggio moto, parcheggio bici chiuso\n• Offriamo con il ZVV Bonus Pass / Z-Bonus Pass un attraente abbonamento ÖV per i dipendenti",
+      "en": "Dipl. Expert or expert NDS HF emergency care 70% - 100%, by immediate or by agreement Apply now 365 days a year, 24 hours a day is the emergency center for medical emergency care of over 35'000 emergency patients:within annual responsibility. We are proud of our efficient, effective and well-coordinated, overall and comprehensive care. We look forward to welcoming you as a new member of our team. Our emergency station includes 14 surveillance sites and a shock room with 2 seats as well as an integrated emergency practice with 4 treatment rooms. Triagation (shift line) of newly occurring emergency patients Emergency care of adult and paediatric patients in the fields of medicine, surgery, traumatology, urology and gynecology Using and applying therapeutic and diagnostic measures Maintenance and maintenance of equipment have completed training as a dipl. Expert emergency care NDS HF or equivalent training recognised in Switzerland have proven, current expertise beneficiary car parks Motorcycle parking, lockable bike parking\n• We offer with the ZVV Bonus Pass / Z-Bonus Pass an attractive ÖV subscription for employees",
+      "de": "• Dipl. Expertin oder Experte NDS HF Notfallpflege 70% - 100%, per sofort oder nach Vereinbarung Jetzt bewerben 365 Tage im Jahr, 24 Stunden pro Tag ist das Notfallzentrum für die medizinische Notfallversorgung von über 35'000 Notfallpatient:innen jährlich zuständig. Wir sind stolz auf unsere effiziente, effektive und auf unsere Patient:innen abgestimmte, gesamtheitliche und umfassende Betreuung. Wir freuen uns auf Sie als neues Mitglied in unserem Team. Unsere Notfallstation umfasst 14 Überwachungsplätze und einen Schockraum mit 2 Plätzen sowie eine integrierte Notfallpraxis mit 4 Behandlungsräumen. Hier engagieren Sie sich\n• Triagierung (Schichtleitung) von neu eintretenden Notfallpatientinnen und -Patienten\n• Notfallpflege von erwachsenen und pädiatrischen Patientinnen und Patienten der Fachgebiete Medizin, Chirurgie, Traumatologie, Urologie und Gynäkologie\n• Mithilfe und Anwendung von therapeutischen und diagnostischen Massnahmen\n• Wartung und Instandhaltung der Geräte und Apparaturen\n• haben eine abgeschlossene Weiterbildung als Dipl. Expertin/Experte Notfallpflege NDS HF oder gleichwertige, in der Schweiz anerkannte Weiterbildung\n• verfügen über ausgewiesene, aktuelle Fachkenntnisse\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an",
+      "fr": "Dipl. Expert ou expert NDS HF soins d'urgence 70% - 100%, d'ici ou d'un accord Appliquer 365 jours par an, 24 heures par jour est le centre d'urgence médicale de plus de 35'000 patients d'urgence:dans la responsabilité annuelle. Nous sommes fiers de nos soins efficaces, bien coordonnés, globaux et complets. Nous sommes impatients de vous accueillir comme nouveau membre de notre équipe. Notre station d'urgence comprend 14 sites de surveillance et une salle de choc avec 2 sièges ainsi qu'une pratique d'urgence intégrée avec 4 salles de traitement. Triagulation (ligne de changement) des nouveaux patients d'urgence Soins d'urgence aux adultes et aux enfants dans les domaines de la médecine, de la chirurgie, de la traumatologie, de l'urologie et de la gynécologie Utilisation et application de mesures thérapeutiques et diagnostiques Entretien et entretien du matériel ont terminé la formation en tant que dipl. Expert en soins d'urgence NDS HF ou formation équivalente reconnue en Suisse ont prouvé, l'expertise actuelle parkings bénéficiaires Parking moto, parking vélo verrouillable\n• Nous offrons avec le ZVV Bonus Pass / Z-Bonus Pass un abonnement ÖV attrayant pour les employés"
+    },
+    "slugByLocale": {
+      "it": "dipl-expert-o-esperto-nds-hf-emergency-care-spital-limmattal-schlieren",
+      "en": "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
+      "de": "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
+      "fr": "dipl-expert-ou-expert-nds-hf-emergency-care-spital-limmattal-schlieren"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-12T22:58:09.904Z",
+    "previousSlugs": [
+      "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
+      "dipl-expertin-o-experte-nds-hf-notfallpflege-spital-limmattal-schlieren"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch",
+        "dipl-expertin-o-experte-nds-hf-notfallpflege-spital-limmattal-schlieren"
+      ],
+      "fr": [
+        "dipl-expertin-oder-experte-nds-hf-notfallpflege-spital-limmattal-ch"
+      ]
+    },
+    "postalCode": "8952",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/486538/0694/pub/5/index.html",
+    "firstSeenAt": "2026-08-26T09:53:38.555Z"
   },
   {
     "slug": "centro-didattico-k-u00f6chin-koch-efz-spital-limmattal-schlieren",

@@ -1,0 +1,25 @@
+{
+  "companyKey": "parkhoteldelta-ch",
+  "companyName": "Park Hotel Delta Di Barbara Ambrosoli",
+  "companyHost": "hotelcareer.ch",
+  "verifiedEmployerDomain": "parkhoteldelta.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822"
+  ],
+  "detailTemplate": "/jobs/parkhotel-delta-wellbeing-resort-88822/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Ascona Parkhotel Delta Wellbeing Resort - Front Office Praktikant/in",
+    "Cameriera/e Servizio Colazioni - Frühstücksdame",
+    "DELTA BEACH LOUNGE - Barista"
+  ],
+  "canton": "TI",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-27T14:51:39.497Z",
+  "candidateKey": "park-hotel-delta-barbara-ambrosoli@ascona"
+}

@@ -42,7 +42,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-sales-operations-assistant/1459331133",
-    "firstSeenAt": "2026-11-20T22:02:04.781Z"
+    "firstSeenAt": "2026-11-20T22:02:04.781Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-operations-assistant-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "id": "sicpa-c4e14dcba0f3",
@@ -93,7 +99,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-project-&-cost-controller/1457415533",
-    "firstSeenAt": "2026-11-17T21:51:54.782Z"
+    "firstSeenAt": "2026-11-17T21:51:54.782Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "project-cost-controller-sicpa-prilly": "VD"
+      },
+      "de": {
+        "project-cost-controller-sicpa-prilly": "VD"
+      },
+      "fr": {
+        "project-cost-controller-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "id": "sicpa-144b1be356db",
@@ -144,7 +162,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-business-analyst-intern/1456834533",
-    "firstSeenAt": "2026-11-12T21:36:29.495Z"
+    "firstSeenAt": "2026-11-12T21:36:29.495Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "business-analyst-intern-sicpa-prilly": "VD"
+      },
+      "de": {
+        "business-analyst-intern-sicpa-prilly": "VD"
+      },
+      "fr": {
+        "business-analyst-intern-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "automatico-sicpa-sa-chavornay",
@@ -175,17 +205,55 @@
     "expiredAt": "2026-11-18T21:50:03.353Z",
     "previousSlugs": [
       "automaticien-sicpa-chavornay",
-      "automaticien-sicpa-sa-chavornay"
+      "automaticien-sicpa-sa-chavornay",
+      "automatico-sicpa-sa-chavornay-ad8e6a1279",
+      "automaticien-sicpa-chavornay-f7f0ed8b",
+      "automatico-sicpa-sa-chavornay-93b886",
+      "automatico-sicpa-sa-chavornay-1171af9d",
+      "automatician-sicpa-sa-chavornay",
+      "automatik-sicpa-sa-chavornay",
+      "automatician-sicpa-sa-chavornay-93b886",
+      "automatician-sicpa-sa-chavornay-e34393c6",
+      "automaticien-sicpa-sa-chavornay-037b497f",
+      "automatico-sicpa-sa-chavornay",
+      "automatik-sicpa-sa-chavornay-93b886",
+      "automatik-sicpa-sa-chavornay-d480b04d"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "automaticien-sicpa-chavornay"
+        "automaticien-sicpa-chavornay",
+        "automatico-sicpa-sa-chavornay-ad8e6a1279",
+        "automaticien-sicpa-chavornay-f7f0ed8b",
+        "automatico-sicpa-sa-chavornay-93b886",
+        "automatico-sicpa-sa-chavornay-1171af9d",
+        "automatician-sicpa-sa-chavornay",
+        "automaticien-sicpa-sa-chavornay",
+        "automatik-sicpa-sa-chavornay"
       ],
       "en": [
-        "automaticien-sicpa-sa-chavornay"
+        "automaticien-sicpa-sa-chavornay",
+        "automatician-sicpa-sa-chavornay-93b886",
+        "automaticien-sicpa-chavornay",
+        "automatician-sicpa-sa-chavornay-e34393c6",
+        "automaticien-sicpa-sa-chavornay-037b497f",
+        "automatico-sicpa-sa-chavornay",
+        "automatik-sicpa-sa-chavornay"
       ],
       "de": [
-        "automaticien-sicpa-sa-chavornay"
+        "automaticien-sicpa-sa-chavornay",
+        "automatik-sicpa-sa-chavornay-93b886",
+        "automaticien-sicpa-chavornay",
+        "automatik-sicpa-sa-chavornay-d480b04d",
+        "automaticien-sicpa-sa-chavornay-037b497f",
+        "automatico-sicpa-sa-chavornay",
+        "automatician-sicpa-sa-chavornay"
+      ],
+      "fr": [
+        "automaticien-sicpa-chavornay-f7f0ed8b",
+        "automatico-sicpa-sa-chavornay",
+        "automatician-sicpa-sa-chavornay",
+        "automaticien-sicpa-sa-chavornay",
+        "automatik-sicpa-sa-chavornay"
       ]
     },
     "postalCode": "1373",
@@ -207,97 +275,45 @@
         "firstSeenAt": "2026-07-04T12:00:35.162Z",
         "title": "Automaticien"
       }
-    ]
-  },
-  {
-    "slug": "automatico-sicpa-sa-chavornay-ad8e6a1279",
-    "title": "Automaticien",
-    "titleByLocale": {
-      "it": "Automatico",
-      "en": "Automatician",
-      "de": "Automatik",
-      "fr": "Automaticien"
-    },
-    "company": "SICPA SA",
-    "companyKey": "sicpa",
-    "location": "Chavornay",
-    "addressLocality": "Chavornay",
-    "descriptionByLocale": {
-      "it": "Al fine di rafforzare il nostro reparto Tecnologie Industriali all'interno del nostro sito di produzione a Chavornay, stiamo cercando un:\n\nElettricista (CDD 12 mesi)\n\nRUOLO:\n\n• Ampliamento di macchine di produzione e varie installazioni;\n\n• Condurre la manutenzione preventiva secondo il programma;\n\n• Modificare o installare nuove macchine;\n\n• 2x8 programmi di squadra;\n\n• Occasionalmente fornire servizio picket notte.\n\nPROFILE:\n\n•\nFormazione tecnica in meccanica-elettrica, automazione o polimeccanica - titolare dell'arte. 15 ITTO (un bene);\n\n• 3-5 anni di esperienza nell'industria, nella manutenzione industriale o in posizioni simili;\n\n• La conoscenza di idraulica, pneumatica, meccanica e altri campi (PLC, ATEX) è considerata un bene reale;\n\n• versatilità, forte senso di organizzazione e gestione prioritaria;\n\n• Rigoroso e preciso, in grado di risolvere i problemi il più rapidamente possibile, resistenza allo stress;\n\n• utente confermato di strumenti di automazione degli uffici;\n\n•\nValida patente di guida richiesta.\n\n• Corrente francese / livello di inglese tecnico, uno più.\n\n•\n\nUnisciti a noi!\n\n• Il nostro successo deriva dai nostri dipendenti di talento e altamente qualificati.\n\n• Una politica aziendale rispettosa e una visione a lungo termine sono le chiavi del nostro successo.\n\n• La diversità a tutti i livelli di un'organizzazione è una forza.\n\n• Vi offriamo un ruolo emozionante e stimolante, in una società che offre grandi prospettive di carriera e questo in un ambiente unico e assolutamente emozionante.\n\nIl tuo caso sarà gestito con la massima discrezione.",
-      "en": "In order to strengthen our Industrial Technologies department within our production site in Chavornay, we are looking for a:\n\nElectrician (CDD 12 months)\n\nROLE:\n\n• Expanding production machines and various installations;\n\n• Conduct preventive maintenance according to schedule;\n\n• Modify or install new machines;\n\n• 2x8 team schedules;\n\n• Occasionally provide night picket service.\n\nPROFILE:\n\n•\nTechnical training in mechanical-electric, automation or polymechanical - holder of art. 15 ITTO (an asset);\n\n• 3-5 years of experience in industry, industrial maintenance or similar positions;\n\n• Knowledge of hydraulics, pneumatics, mechanics and other fields (PLC, ATEX) is considered a real asset;\n\n• versatility, a strong sense of organisation and priority management;\n\n• Rigourous and precise, able to solve problems as quickly as possible, resistance to stress;\n\n• Confirmed user of office automation tools;\n\n•\nValid driving licence required.\n\n• French current / level of technical English, one plus.\n\n•\n\nJoin us!\n\n• Our success comes from our talented and highly qualified employees.\n\n• A respectful corporate policy and a long-term vision are the keys to our success.\n\n• Diversity at all levels of an organization is a strength.\n\n• We offer you an exciting and stimulating role, in a company that offers great career prospects and this in a unique and absolutely exciting environment.\n\nYour case will be handled with the utmost discretion.",
-      "de": "Um unsere Abteilung für Industrietechnologien in unserem Produktionsstandort in Chavornay zu stärken, suchen wir:\n\nElektriker (CDD 12 Monate)\n\nROLLE:\n\n• Erweiterung von Produktionsmaschinen und verschiedenen Anlagen;\n\n• Vorbeugende Wartung gemäß Zeitplan durchführen;\n\n• Ändern oder installieren Sie neue Maschinen;\n\n• 2x8 Teamzeitpläne;\n\n• Gelegentlich bieten Nachtposten Service.\n\nPROFIL:\n\n•\nTechnische Ausbildung in mechanisch-elektrisch, Automatisierung oder polymechanisch - Inhaber der Kunst. 15 ITTO (Vermögenswert);\n\n• 3-5 Jahre Erfahrung in der Industrie, der industriellen Instandhaltung oder ähnlichen Positionen;\n\n• Kenntnisse in Hydraulik, Pneumatik, Mechanik und anderen Bereichen (PLC, ATEX) gelten als echtes Kapital;\n\n• Vielseitigkeit, ein starkes Organisationsgefühl und Prioritätenmanagement;\n\n• Strenge und präzise, in der Lage, Probleme so schnell wie möglich zu lösen, Widerstand gegen Stress;\n\n• Bestätigte Benutzer von Office Automation Tools;\n\n•\nGültiger Führerschein erforderlich.\n\n• Französisch aktuell / Niveau der technischen Englisch, ein Plus.\n\n•\n\nBegleiten Sie uns!\n\n• Unser Erfolg kommt von unseren talentierten und hochqualifizierten Mitarbeitern.\n\n• Eine respektvolle Unternehmenspolitik und eine langfristige Vision sind der Schlüssel zu unserem Erfolg.\n\n• Vielfalt auf allen Ebenen einer Organisation ist eine Stärke.\n\n• Wir bieten Ihnen eine spannende und anregende Rolle, in einem Unternehmen, das großartige Karriereperspektiven bietet und dies in einem einzigartigen und absolut spannenden Umfeld.\n\nIhr Fall wird mit größter Diskretion behandelt.",
-      "fr": "Afin de renforcer notre département Industrial Technologies au sein de notre site de production à Chavornay, nous recherchons un(e):\n\nMécanicien-électricien (CDD de 12 mois)\n\nROLE:\n\n• Dépanner les machines de production et les installations diverses;\n\n• Effectuer l’entretien préventif selon le planning;\n\n• Modifier ou installer de nouvelles machines;\n\n• Horaires d’équipe 2x8;\n\n• Assurer occasionnellement le service de piquet de nuit.\n\nPROFIL:\n\n•\n Formation technique en mécanique-électricité, automation ou polymécanique - détenteur de l’art. 15 OIBT (un atout);\n\n• 3-5 ans d’expérience dans l’industrie, la maintenance industrielle ou dans un poste similaire;\n\n• Connaissances en hydraulique, pneumatique, mécanique et autres domaines (PLC, ATEX) sont considérées comme un réel atout;\n\n• Polyvalence, sens aigu de l’organisation et de la gestion des priorités;\n\n• Rigoureux et précis, apte à résoudre les problèmes dans les meilleurs délais, résistance au stress;\n\n• Utilisateur confirmé des outils de bureautique;\n\n•\n Permis de conduire valide requis.\n\n• Français courant /niveau d’anglais technique, un plus.\n\n•\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion."
-    },
-    "slugByLocale": {
-      "it": "automatico-sicpa-sa-chavornay-ad8e6a1279",
-      "en": "automatician-sicpa-sa-chavornay-93b886",
-      "de": "automatik-sicpa-sa-chavornay-93b886",
-      "fr": "automaticien-sicpa-chavornay-f7f0ed8b"
-    },
-    "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
-    "expiredAt": "2026-11-18T21:50:03.353Z",
-    "previousSlugs": [
-      "automatico-sicpa-sa-chavornay-93b886",
-      "automatico-sicpa-sa-chavornay-1171af9d",
-      "automatician-sicpa-sa-chavornay",
-      "automaticien-sicpa-sa-chavornay",
-      "automatik-sicpa-sa-chavornay",
-      "automaticien-sicpa-chavornay",
-      "automatician-sicpa-sa-chavornay-e34393c6",
-      "automaticien-sicpa-sa-chavornay-037b497f",
-      "automatico-sicpa-sa-chavornay",
-      "automatik-sicpa-sa-chavornay-d480b04d"
     ],
-    "previousSlugsByLocale": {
-      "it": [
-        "automaticien-sicpa-chavornay-f7f0ed8b",
-        "automatico-sicpa-sa-chavornay-93b886",
-        "automatico-sicpa-sa-chavornay-1171af9d",
-        "automatician-sicpa-sa-chavornay",
-        "automaticien-sicpa-sa-chavornay",
-        "automatik-sicpa-sa-chavornay"
-      ],
-      "en": [
-        "automaticien-sicpa-chavornay",
-        "automatician-sicpa-sa-chavornay-e34393c6",
-        "automaticien-sicpa-sa-chavornay-037b497f",
-        "automatico-sicpa-sa-chavornay",
-        "automatik-sicpa-sa-chavornay"
-      ],
-      "de": [
-        "automaticien-sicpa-chavornay",
-        "automatik-sicpa-sa-chavornay-d480b04d",
-        "automaticien-sicpa-sa-chavornay-037b497f",
-        "automatico-sicpa-sa-chavornay",
-        "automatician-sicpa-sa-chavornay"
-      ],
-      "fr": [
-        "automatico-sicpa-sa-chavornay",
-        "automatician-sicpa-sa-chavornay",
-        "automaticien-sicpa-sa-chavornay",
-        "automatik-sicpa-sa-chavornay"
-      ]
-    },
-    "postalCode": "1373",
-    "streetAddress": "Chavornay",
-    "salaryMin": 71000,
-    "salaryMax": 107500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-automaticien/1448503333",
-    "firstSeenAt": "2026-07-04T12:00:35.162Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-automaticien/1409947133",
-        "firstSeenAt": "2026-07-04T12:00:35.162Z",
-        "title": "Automaticien"
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "automaticien-sicpa-chavornay": "VD",
+        "automatico-sicpa-sa-chavornay-ad8e6a1279": "VD",
+        "automaticien-sicpa-chavornay-f7f0ed8b": "VD",
+        "automatico-sicpa-sa-chavornay-93b886": "VD",
+        "automatico-sicpa-sa-chavornay-1171af9d": "VD",
+        "automatician-sicpa-sa-chavornay": "VD",
+        "automaticien-sicpa-sa-chavornay": "VD",
+        "automatik-sicpa-sa-chavornay": "VD"
       },
-      {
-        "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-automaticien/1448503333",
-        "firstSeenAt": "2026-07-04T12:00:35.162Z",
-        "title": "Automaticien"
+      "en": {
+        "automaticien-sicpa-sa-chavornay": "VD",
+        "automatician-sicpa-sa-chavornay-93b886": "VD",
+        "automaticien-sicpa-chavornay": "VD",
+        "automatician-sicpa-sa-chavornay-e34393c6": "VD",
+        "automaticien-sicpa-sa-chavornay-037b497f": "VD",
+        "automatico-sicpa-sa-chavornay": "VD",
+        "automatik-sicpa-sa-chavornay": "VD"
+      },
+      "de": {
+        "automaticien-sicpa-sa-chavornay": "VD",
+        "automatik-sicpa-sa-chavornay-93b886": "VD",
+        "automaticien-sicpa-chavornay": "VD",
+        "automatik-sicpa-sa-chavornay-d480b04d": "VD",
+        "automaticien-sicpa-sa-chavornay-037b497f": "VD",
+        "automatico-sicpa-sa-chavornay": "VD",
+        "automatician-sicpa-sa-chavornay": "VD"
+      },
+      "fr": {
+        "automaticien-sicpa-chavornay-f7f0ed8b": "VD",
+        "automatico-sicpa-sa-chavornay": "VD",
+        "automatician-sicpa-sa-chavornay": "VD",
+        "automaticien-sicpa-sa-chavornay": "VD",
+        "automatik-sicpa-sa-chavornay": "VD"
       }
-    ]
+    }
   },
   {
     "slug": "technical-coordinatore-sicpa-sa-prilly",
@@ -362,7 +378,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-technical-coordinator/1404844633",
-    "firstSeenAt": "2026-07-04T12:00:40.251Z"
+    "firstSeenAt": "2026-07-04T12:00:40.251Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "coordinatore-delle-partnership-sicpa-sa-prilly": "VD",
+        "partnerships-coordinator-sicpa-prilly": "VD",
+        "partnerships-koordinator-sicpa-sa-prilly": "VD",
+        "coordinateur-des-partenariats-sicpa-sa-prilly": "VD",
+        "partnerships-coordinatore-sicpa-sa-prilly": "VD",
+        "partnerships-coordinateur-sicpa-sa-prilly": "VD",
+        "technical-coordinator-sicpa-prilly": "VD"
+      },
+      "en": {
+        "partnerships-coordinator-sicpa-prilly": "VD"
+      },
+      "de": {
+        "partnerships-koordinator-sicpa-sa-prilly": "VD"
+      },
+      "fr": {
+        "coordinateur-des-partenariats-sicpa-sa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "business-architetto-sicpa-sa-prilly",
@@ -406,7 +443,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-business-architect/1436219133",
-    "firstSeenAt": "2026-09-11T13:52:33.562Z"
+    "firstSeenAt": "2026-09-11T13:52:33.562Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "business-architect-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "ingegnere-di-produzione-m-f-sicpa-sa-chavornay",
@@ -456,7 +499,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/chavornay-ing%c3%a9nieur-de-production-%28hf%29/1455045733",
-    "firstSeenAt": "2026-11-06T09:42:25.529Z"
+    "firstSeenAt": "2026-11-06T09:42:25.529Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ingenieur-de-production-h-f-sicpa-chavornay": "VD"
+      },
+      "en": {
+        "ingenieur-de-production-h-f-sicpa-chavornay": "VD"
+      },
+      "de": {
+        "ingenieur-de-production-h-f-sicpa-chavornay": "VD"
+      }
+    }
   },
   {
     "slug": "events-coordinatore-sicpa-sa-prilly",
@@ -506,7 +561,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-events-coordinator/1453799033",
-    "firstSeenAt": "2026-11-03T22:08:31.784Z"
+    "firstSeenAt": "2026-11-03T22:08:31.784Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "events-coordinator-sicpa-prilly": "VD"
+      },
+      "en": {
+        "events-coordinator-sicpa-prilly": "VD"
+      },
+      "de": {
+        "events-coordinator-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "embedded-software-ingegnere-sicpa-sa-prilly",
@@ -549,7 +616,13 @@
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-embedded-software-engineer/1433097433"
+    "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-embedded-software-engineer/1433097433",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "embedded-software-engineer-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "interno-del-programma-di-dati-sovrano-sicpa-sa-prilly",
@@ -593,7 +666,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-sovereign-data-program-intern/1445306733",
-    "firstSeenAt": "2026-10-08T09:34:51.625Z"
+    "firstSeenAt": "2026-10-08T09:34:51.625Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sovereign-data-program-intern-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "titolare-del-prodotto-sicpa-sa-prilly",
@@ -642,7 +721,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-product-owner/1449134733",
-    "firstSeenAt": "2026-10-19T21:36:20.476Z"
+    "firstSeenAt": "2026-10-19T21:36:20.476Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "product-owner-sicpa-prilly": "VD"
+      },
+      "de": {
+        "product-owner-sicpa-prilly": "VD"
+      },
+      "fr": {
+        "product-owner-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "tecnica-capteurs-sicpa-sa-prilly",
@@ -689,7 +780,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-technicien-capteurs/1433994533",
-    "firstSeenAt": "2026-09-04T13:46:55.780Z"
+    "firstSeenAt": "2026-09-04T13:46:55.780Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technicien-capteurs-sicpa-prilly": "VD"
+      },
+      "de": {
+        "sensortechniker-sicpa-sa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "senior-laboratory-technical-specialist-sicpa-prilly",
@@ -759,7 +859,27 @@
         "firstSeenAt": "2026-07-24T22:12:50.807Z",
         "title": "Senior Laboratory Technical Specialist"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialista-tecnico-senior-di-laboratorio-sicpa-sa-prilly": "VD",
+        "senior-laboratory-technical-specialist-sicpa-prilly-jyudn9": "VD",
+        "senior-laboratory-technical-spezialist-sicpa-sa-prilly": "VD",
+        "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly": "VD"
+      },
+      "en": {
+        "senior-laboratory-technical-specialist-sicpa-prilly": "VD",
+        "senior-laboratory-technical-specialist-sicpa-prilly-jyudn9": "VD"
+      },
+      "de": {
+        "senior-laboratory-technical-specialist-sicpa-prilly": "VD",
+        "senior-laboratory-technical-spezialist-sicpa-sa-prilly": "VD"
+      },
+      "fr": {
+        "senior-laboratory-technical-specialist-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "operatore-giardinaggio-e-strade-sicpa-sa-prilly",
@@ -804,7 +924,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-operator%2c-gardening-&-road/1431520733",
-    "firstSeenAt": "2026-08-31T17:33:34.312Z"
+    "firstSeenAt": "2026-08-31T17:33:34.312Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operatore-gardening-road-sicpa-sa-prilly": "VD",
+        "operator-gardening-road-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "technical-consulente-sicpa-sa-prilly",
@@ -847,7 +974,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-technical-advisor/1418635833",
-    "firstSeenAt": "2026-07-24T11:31:24.021Z"
+    "firstSeenAt": "2026-07-24T11:31:24.021Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technical-advisor-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "laboratory-technician-specialista-sicpa-sa-prilly",
@@ -893,7 +1026,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-laboratory-technician-specialist/1431815433",
-    "firstSeenAt": "2026-08-31T17:33:33.788Z"
+    "firstSeenAt": "2026-08-31T17:33:33.788Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "laboratory-technician-specialist-sicpa-prilly": "VD"
+      },
+      "de": {
+        "laboratory-technician-specialist-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "tecnico-di-laboratorio-sicpa-sa-prilly-271d1f",
@@ -942,7 +1084,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-laboratory-technician/1434038833",
-    "firstSeenAt": "2026-09-04T23:27:18.050Z"
+    "firstSeenAt": "2026-09-04T23:27:18.050Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "laboratory-technician-sicpa-prilly": "VD"
+      },
+      "de": {
+        "laboratory-technician-sicpa-prilly": "VD"
+      },
+      "fr": {
+        "laboratory-technician-sicpa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "piombo-di-prova-sicpa-sa-prilly",
@@ -1002,7 +1156,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sicpa.com/job/prilly-test-lead/1424253133",
-    "firstSeenAt": "2026-09-09T23:17:18.782Z"
+    "firstSeenAt": "2026-09-09T23:17:18.782Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "test-lead-sicpa-prilly": "VD",
+        "chemist-sicpa-prilly": "VD",
+        "chemiker-sicpa-sa-prilly": "VD",
+        "chimiste-sicpa-sa-prilly": "VD"
+      },
+      "en": {
+        "chemist-sicpa-prilly": "VD"
+      },
+      "de": {
+        "test-lead-sicpa-prilly": "VD",
+        "chemiker-sicpa-sa-prilly": "VD"
+      },
+      "fr": {
+        "test-lead-sicpa-prilly": "VD",
+        "chimiste-sicpa-sa-prilly": "VD"
+      }
+    }
   },
   {
     "slug": "automazione-tecnico-sicpa-sa-prilly",

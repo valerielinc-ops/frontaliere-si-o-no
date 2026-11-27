@@ -49,7 +49,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-software-engineer-embedded-ai-%28mfd%29/1436636333",
-    "firstSeenAt": "2026-09-19T22:50:32.114Z"
+    "firstSeenAt": "2026-09-19T22:50:32.114Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "software-engineer-embedded-ai-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "software-engineer-embedded-ai-m-f-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "software-engineer-embedded-ai-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "hardware-integration-ingegnere-sonova-staefa",
@@ -101,7 +112,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-hardware-integration-engineer-%28mfd%29/1444612233",
-    "firstSeenAt": "2026-10-06T09:15:58.369Z"
+    "firstSeenAt": "2026-10-06T09:15:58.369Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hardware-integration-engineer-sonova-ch": "ZH",
+        "hardware-integration-engineer-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "hardware-integration-engineer-sonova-ch": "ZH"
+      },
+      "fr": {
+        "hardware-integration-engineer-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "hardware-verification-ingegnere-charging-solutions-m-f-d-sonova-staefa",
@@ -151,7 +175,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-hardware-verification-engineer-charging-solutions-%28mfd%29/1447519833",
-    "firstSeenAt": "2026-10-15T09:16:24.414Z"
+    "firstSeenAt": "2026-10-15T09:16:24.414Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hardware-verification-engineer-charging-solutions-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "hardware-verification-engineer-charging-solutions-m-f-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "hardware-verification-engineer-charging-solutions-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "architetto-charging-solutions-sonova-staefa",
@@ -195,7 +231,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-architect-charging-solutions/1436570633",
-    "firstSeenAt": "2026-09-19T22:50:32.111Z"
+    "firstSeenAt": "2026-09-19T22:50:32.111Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "architect-charging-solutions-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "lead-della-governance-dei-png-e-del-ciclo-di-vita-sonova-staefa-switzerland",
@@ -241,7 +283,8 @@
         "npi-et-gouvernance-du-cycle-de-vie-responsable-sonova-staefa-switzerland"
       ],
       "en": [
-        "npi-et-gouvernance-du-cycle-de-vie-responsable-sonova-staefa-switzerland"
+        "npi-et-gouvernance-du-cycle-de-vie-responsable-sonova-staefa-switzerland",
+        "npi-lifecycle-governance-lead-sonova-ch"
       ]
     },
     "postalCode": "8001",
@@ -267,7 +310,23 @@
     "previousSlugs": [
       "npi-lifecycle-governance-lead-sonova-ch",
       "npi-et-gouvernance-du-cycle-de-vie-responsable-sonova-staefa-switzerland"
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "npi-lifecycle-governance-lead-sonova-ch": "ZH"
+      },
+      "en": {
+        "npi-lifecycle-governance-lead-sonova-ch": "ZH"
+      },
+      "de": {
+        "npi-lifecycle-governance-lead-sonova-ch": "ZH"
+      },
+      "fr": {
+        "npi-et-gouvernance-du-cycle-de-vie-responsable-sonova-staefa-switzerland": "ZH",
+        "npi-lifecycle-governance-lead-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "power-management-ingegnere-80-100-m-f-d-sonova-staefa",
@@ -311,7 +370,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-power-management-engineer-%2880-100%29-%28mfd%29/1417571533",
-    "firstSeenAt": "2026-07-22T11:14:35.799Z"
+    "firstSeenAt": "2026-07-22T11:14:35.799Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "power-management-engineer-80-100-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "rf-design-ingegnere-m-f-d-sonova-murten-switzerland",
@@ -357,7 +422,8 @@
         "rf-design-engineer-m-f-d-sonova-ch"
       ],
       "fr": [
-        "rf-design-engineer-m-f-d-sonova-ch"
+        "rf-design-engineer-m-f-d-sonova-ch",
+        "rf-design-ingegnere-m-f-d-sonova-murten-switzerland"
       ]
     },
     "postalCode": "3280",
@@ -379,7 +445,24 @@
         "firstSeenAt": "2026-07-20T11:50:50.871Z",
         "title": "RF Design Engineer (m/f/d)"
       }
-    ]
+    ],
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "rf-design-engineer-m-f-d-sonova-ch": "FR",
+        "rf-design-ingegnere-m-f-d-sonova-murten": "FR"
+      },
+      "en": {
+        "rf-design-engineer-m-f-d-sonova-murten": "FR"
+      },
+      "de": {
+        "rf-design-engineer-m-f-d-sonova-ch": "FR"
+      },
+      "fr": {
+        "rf-design-engineer-m-f-d-sonova-ch": "FR",
+        "rf-design-ingegnere-m-f-d-sonova-murten-switzerland": "FR"
+      }
+    }
   },
   {
     "slug": "senior-manager-performance-uditiva-sonova-staefa",
@@ -430,7 +513,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-manager-hearing-performance/1413688533",
-    "firstSeenAt": "2026-09-19T22:50:32.094Z"
+    "firstSeenAt": "2026-09-19T22:50:32.094Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-manager-hearing-performance-sonova-ch": "ZH"
+      },
+      "en": {
+        "senior-manager-hearing-performance-sonova-ch": "ZH"
+      },
+      "fr": {
+        "senior-manager-hearing-performance-sonova-staefa": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-data-scientist-m-f-d-sonova-ch",
@@ -463,7 +558,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-data-scientist-%28mfd%29/1408793633",
-    "firstSeenAt": "2026-10-28T20:01:14.656Z"
+    "firstSeenAt": "2026-10-28T20:01:14.656Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "senior-data-scientist-m-f-d-sonova-ch"
+      ],
+      "de": [
+        "senior-data-scientist-m-f-d-sonova-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "senior-data-scientist-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "senior-data-scientist-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "manufacturing-system-software-development-ingegnere-m-f-d-sonova-murten",
@@ -507,7 +619,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/murten-manufacturing-system-&-software-development-engineer-%28mfd%29/1441934833",
-    "firstSeenAt": "2026-09-28T21:09:05.057Z"
+    "firstSeenAt": "2026-09-28T21:09:05.057Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "manufacturing-system-software-development-engineer-m-f-d-sonova-ch": "FR"
+      }
+    }
   },
   {
     "slug": "embedded-software-ingegnere-c-sonova-staefa-e92b487c24",
@@ -825,7 +943,25 @@
         "firstSeenAt": "2026-10-22T09:10:41.611Z",
         "title": "Embedded Software Engineer C++"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "embedded-software-engineer-c-sonova-ch": "ZH",
+        "embedded-software-ingegnere-c-sonova-staefa": "ZH"
+      },
+      "en": {
+        "embedded-software-engineer-c-sonova-ch": "ZH"
+      },
+      "de": {
+        "embedded-software-ingenieur-c-sonova-staefa": "ZH",
+        "embedded-software-engineer-c-sonova-ch": "ZH"
+      },
+      "fr": {
+        "embedded-software-ingenieur-c-sonova-staefa": "ZH",
+        "embedded-software-engineer-c-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "embedded-software-ingegnere-sonova-staefa",
@@ -875,7 +1011,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-embedded-software-engineer/1455161733",
-    "firstSeenAt": "2026-11-06T21:19:19.214Z"
+    "firstSeenAt": "2026-11-06T21:19:19.214Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "embedded-software-engineer-sonova-ch": "ZH"
+      },
+      "de": {
+        "embedded-software-engineer-sonova-ch": "ZH"
+      },
+      "fr": {
+        "embedded-software-engineer-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "product-manager-apparecchi-acustici-sonova-staefa-switzerland",
@@ -923,7 +1071,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-product-manager-hearing-aids/1443245033",
-    "firstSeenAt": "2026-10-01T21:12:27.258Z"
+    "firstSeenAt": "2026-10-01T21:12:27.258Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "product-manager-hearing-aids-sonova-ch": "ZH"
+      },
+      "fr": {
+        "gestionnaire-de-produits-aides-auditives-sonova-staefa-switzerland": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-product-manager-apparecchi-acustici-m-f-d-sonova-staefa-switzerland",
@@ -973,7 +1130,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-product-manager-hearing-aids-%28mfd%29/1451094233",
-    "firstSeenAt": "2026-10-26T09:16:37.019Z"
+    "firstSeenAt": "2026-10-26T09:16:37.019Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-product-manager-hearing-aids-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "senior-product-manager-hearing-aids-m-f-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "senior-product-manager-hearing-aids-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-degli-appalti-npi-sonova-staefa-switzerland",
@@ -1027,7 +1196,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-procurement-manager-npi/1439443733",
-    "firstSeenAt": "2026-09-21T15:55:54.664Z"
+    "firstSeenAt": "2026-09-21T15:55:54.664Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-degli-appalti-npi-sonova-staefa": "ZH",
+        "procurement-manager-npi-sonova-ch": "ZH"
+      },
+      "de": {
+        "beschaffungsmanager-npi-sonova-staefa": "ZH"
+      },
+      "fr": {
+        "gestionnaire-des-achats-sonova-staefa": "ZH"
+      }
+    }
   },
   {
     "slug": "software-ingegnere-dsp-tools-and-infrastructure-m-f-d-sonova-staefa",
@@ -1077,7 +1259,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-software-engineer-dsp-tools-and-infrastructure-%28mfd%29/1437852833",
-    "firstSeenAt": "2026-09-19T22:50:32.099Z"
+    "firstSeenAt": "2026-09-19T22:50:32.099Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "hardware-integration-ingegnere-sonova-staefa-aa8f96d7",
@@ -1185,7 +1379,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-werkzeugmacher-im-bereich-montage-wzb-%28mwd%29/1387283333",
-    "firstSeenAt": "2026-06-13T22:42:45.641Z"
+    "firstSeenAt": "2026-06-13T22:42:45.641Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland",
@@ -1228,7 +1428,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/murten-quality-assurance-manager/1442652933",
-    "firstSeenAt": "2026-09-30T21:10:37.776Z"
+    "firstSeenAt": "2026-09-30T21:10:37.776Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "quality-assurance-manager-sonova-ch": "FR"
+      }
+    }
   },
   {
     "slug": "innovation-direttore-m-f-d-sonova-staefa-switzerland",
@@ -1270,7 +1476,13 @@
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-innovation-director-%28mfd%29/1417369133"
+    "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-innovation-director-%28mfd%29/1417369133",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "innovation-director-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-senior-della-strategia-del-brand-sonova-staefa-switzerland",
@@ -1319,7 +1531,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-strategic-brand-manager/1450129733",
-    "firstSeenAt": "2026-10-22T09:10:41.608Z"
+    "firstSeenAt": "2026-10-22T09:10:41.608Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-strategic-brand-manager-sonova-ch": "ZH"
+      },
+      "de": {
+        "senior-strategic-brand-manager-sonova-ch": "ZH"
+      },
+      "fr": {
+        "senior-strategic-brand-manager-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "direttore-commerciale-crm-sonova-staefa-switzerland",
@@ -1368,7 +1592,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-crm-commercial-manager/1450621433",
-    "firstSeenAt": "2026-10-23T09:15:43.184Z"
+    "firstSeenAt": "2026-10-23T09:15:43.184Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "crm-commercial-manager-sonova-ch": "ZH"
+      },
+      "de": {
+        "crm-commercial-manager-sonova-ch": "ZH"
+      },
+      "fr": {
+        "crm-commercial-manager-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "practical-apprendista-power-management-m-f-d-sonova-staefa",
@@ -1421,7 +1657,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-practical-trainee-power-management-%28mfd%29/1418818733",
-    "firstSeenAt": "2026-07-24T22:05:37.985Z"
+    "firstSeenAt": "2026-07-24T22:05:37.985Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "practical-apprendista-power-management-m-f-d-sonova-stafa": "ZH",
+        "practical-trainee-power-management-m-f-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "stage-pratique-gestion-de-l-energie-m-f-d-sonova-staefa-switzerland": "ZH",
+        "practical-trainee-power-management-m-w-d-sonova-staefa": "ZH",
+        "practical-trainee-power-management-m-f-d-sonova-staefa": "ZH"
+      }
+    }
   },
   {
     "slug": "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland",
@@ -1464,7 +1712,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-manager-signal-processing-ric-and-bte-%28mfd%29/1409309433",
-    "firstSeenAt": "2026-06-29T13:55:14.784Z"
+    "firstSeenAt": "2026-06-29T13:55:14.784Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-dell-innovazione-in-audiologia-m-f-d-sonova-staefa-switzerland",
@@ -1513,7 +1767,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-audiology-innovation-manager-%28mfd%29/1440786833",
-    "firstSeenAt": "2026-09-25T14:39:59.546Z"
+    "firstSeenAt": "2026-09-25T14:39:59.546Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-dell-innovazione-in-audiologia-m-f-d-sonova-staefa": "ZH",
+        "audiology-innovation-manager-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "audiologie-innovationsmanager-m-w-d-sonova-staefa": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-del-progetto-m-f-d-sonova-staefa-switzerland",
@@ -1562,7 +1826,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-project-manager-%28mfd%29/1447498533",
-    "firstSeenAt": "2026-10-15T09:16:24.418Z"
+    "firstSeenAt": "2026-10-15T09:16:24.418Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "project-manager-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "project-manager-m-f-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "project-manager-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland",
@@ -1605,7 +1881,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-manager-product-quality-%28mfd%29/1411716033",
-    "firstSeenAt": "2026-09-23T23:34:37.084Z"
+    "firstSeenAt": "2026-09-23T23:34:37.084Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-manager-product-quality-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "sound-quality-ingegnere-m-f-d-sonova-staefa",
@@ -1658,7 +1940,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-sound-quality-engineer-%28mfd%29/1434799633",
-    "firstSeenAt": "2026-09-08T13:31:36.911Z"
+    "firstSeenAt": "2026-09-08T13:31:36.911Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sound-quality-engineer-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "sound-quality-engineer-m-f-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "sound-quality-engineer-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "leader-della-campagna-strategica-senior-sonova-staefa-switzerland",
@@ -1701,7 +1995,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-strategic-campaign-lead/1444474733",
-    "firstSeenAt": "2026-10-05T21:24:09.705Z"
+    "firstSeenAt": "2026-10-05T21:24:09.705Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-strategic-campaign-lead-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "designer-di-interazione-sonova-staefa-switzerland",
@@ -1755,7 +2055,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-interaction-designer/1439444733",
-    "firstSeenAt": "2026-09-21T15:55:54.670Z"
+    "firstSeenAt": "2026-09-21T15:55:54.670Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "interaction-designer-sonova-ch": "ZH",
+        "designer-di-interazione-sonova-staefa": "ZH"
+      },
+      "en": {
+        "interaction-designer-sonova-staefa": "ZH"
+      },
+      "fr": {
+        "interaction-designer-sonova-ch": "ZH",
+        "conception-de-l-interaction-sonova-staefa": "ZH"
+      }
+    }
   },
   {
     "slug": "scienziato-dei-dati-m-f-d-sonova-staefa-switzerland",
@@ -1807,7 +2121,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-data-scientist-%28mfd%29/1408793633",
-    "firstSeenAt": "2026-09-01T10:03:31.685Z"
+    "firstSeenAt": "2026-09-01T10:03:31.685Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "data-scientist-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "data-scientist-m-f-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "data-scientist-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "solutions-direttore-global-key-accounts-sonova-staefa",
@@ -1852,7 +2178,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-solutions-director-global-key-accounts/1440132133",
-    "firstSeenAt": "2026-09-23T23:34:37.088Z"
+    "firstSeenAt": "2026-09-23T23:34:37.088Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "solutions-director-global-key-accounts-sonova-ch": "ZH"
+      },
+      "de": {
+        "solutions-director-global-key-accounts-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "audiological-ingegnere-sonova-staefa-switzerland",
@@ -1902,7 +2237,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-audiological-engineer/1436944533",
-    "firstSeenAt": "2026-09-19T22:50:32.106Z"
+    "firstSeenAt": "2026-09-19T22:50:32.106Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "audiological-engineer-sonova-ch": "ZH",
+        "audiological-ingegnere-sonova-staefa": "ZH"
+      },
+      "de": {
+        "audiological-engineer-sonova-ch": "ZH"
+      },
+      "fr": {
+        "audiological-engineer-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "rf-design-ingegnere-m-f-d-sonova-murten-switzerland-7d925401",
@@ -1998,7 +2346,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-lehrstelle-konstrukteurin-efz-%28mwd%29/1421328433",
-    "firstSeenAt": "2026-07-31T22:06:52.240Z"
+    "firstSeenAt": "2026-07-31T22:06:52.240Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch": "ZH",
+        "apprendistato-konstrukteur-in-cfc-m-w-d-sonova-staefa": "ZH"
+      },
+      "en": {
+        "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "product-cybersecurity-manager-sonova-ch",
@@ -2033,7 +2394,8 @@
         "product-cybersecurity-expert-sonova-ch"
       ],
       "en": [
-        "product-cybersecurity-expert-sonova-ch"
+        "product-cybersecurity-expert-sonova-ch",
+        "product-cybersecurity-manager-sonova-ch"
       ]
     },
     "salaryMin": 101500,
@@ -2041,7 +2403,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-product-cybersecurity-expert/1416109733",
-    "firstSeenAt": "2026-07-17T10:52:55.976Z"
+    "firstSeenAt": "2026-07-17T10:52:55.976Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "product-cybersecurity-expert-sonova-ch": "ZH"
+      },
+      "en": {
+        "product-cybersecurity-manager-sonova-ch": "ZH",
+        "product-cybersecurity-expert-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "international-servizio-clienti-specialista-m-w-d-sonova-staefa-switzerland",
@@ -2083,7 +2455,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-international-customer-service-specialist-%28mwd%29/1416178333",
-    "firstSeenAt": "2026-08-05T22:19:22.435Z"
+    "firstSeenAt": "2026-08-05T22:19:22.435Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "international-customer-service-specialist-m-w-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendistato-koch-kochin-cfc-m-w-d-sonova-staefa",
@@ -2133,7 +2511,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-lehrstelle-kochk%c3%b6chin-efz-%28mwd%29/1421319833",
-    "firstSeenAt": "2026-07-31T22:06:52.232Z"
+    "firstSeenAt": "2026-07-31T22:06:52.232Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-koch-kochin-efz-m-w-d-sonova-ch": "ZH",
+        "apprendistato-koch-kochin-cfc-m-w-d-sonova-stafa": "ZH"
+      },
+      "en": {
+        "lehrstelle-koch-kochin-efz-m-w-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "lehrstelle-koch-kochin-efz-m-w-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "practical-apprendista-embedded-software-development-python-m-f-d-sonova-staefa",
@@ -2181,7 +2572,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-practical-trainee-%28embedded-software-development-&-python%29-%28mfd%29/1392838033",
-    "firstSeenAt": "2026-09-03T13:31:34.793Z"
+    "firstSeenAt": "2026-09-03T13:31:34.793Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch": "ZH"
+      },
+      "de": {
+        "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch": "ZH"
+      },
+      "fr": {
+        "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendistato-computer-scientist-efz-applicazione-sviluppo-m-f-d-sonova-staefa-switzerland",
