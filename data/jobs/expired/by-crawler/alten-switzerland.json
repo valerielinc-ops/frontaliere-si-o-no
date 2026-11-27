@@ -27,7 +27,7 @@
       "fr": "consultant-e-audit-qualite-processus-alten-switzerland-switzerland"
     },
     "sector": "IT Consulting & Engineering",
-    "expiredAt": "2026-11-26T04:07:57.989Z",
+    "expiredAt": "2026-11-27T01:29:22.771Z",
     "postalCode": "3001",
     "salaryMin": 77000,
     "salaryMax": 116500,
@@ -86,7 +86,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.alten.ch/jobs/907-analyste-de-donnees",
-    "firstSeenAt": "2026-10-19T09:35:20.874Z"
+    "firstSeenAt": "2026-10-19T09:35:20.874Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "analyste-de-donnees-alten-switzerland-switzerland": "BE"
+      },
+      "en": {
+        "data-analyst-alten-switzerland-switzerland": "BE"
+      },
+      "de": {
+        "analyste-de-donnees-alten-switzerland-switzerland": "BE"
+      }
+    }
   },
   {
     "id": "alten-switzerland-b3f5b49e4f7a",
@@ -120,7 +132,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.alten.ch/jobs/908-architect-solutions-treasury-financial-performance",
-    "firstSeenAt": "2026-10-19T09:35:20.874Z"
+    "firstSeenAt": "2026-10-19T09:35:20.874Z",
+    "canton": "GE",
+    "previousSlugsByLocale": {
+      "en": [
+        "architect-solutions-treasury-financial-performance-alten-switzerland-switzerland"
+      ],
+      "fr": [
+        "architect-solutions-treasury-financial-performance-alten-switzerland-switzerland"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "architect-solutions-treasury-financial-performance-alten-switzerland-switzerland": "GE"
+      },
+      "fr": {
+        "architect-solutions-treasury-financial-performance-alten-switzerland-switzerland": "GE"
+      }
+    }
   },
   {
     "slug": "java-software-ingegnere-alten-switzerland-ticino-switzerland-availability-to-work-on-site-is-required-what-we-offer-youa",
