@@ -1,7 +1,7 @@
 {
   "crawlerKey": "oetiker",
-  "assembledAt": "2026-11-27T09:22:16.478Z",
-  "runId": "45971433520",
+  "assembledAt": "2026-11-27T21:15:33.797Z",
+  "runId": "46068473611",
   "jobs": [
     {
       "id": "oetiker-aafd137f6490",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000152841739-head-quality-hse-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:11.282Z",
+      "crawledAt": "2026-11-27T21:15:24.725Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -85,9 +85,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:22:11.282Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/oetiker/744000152841739-head-quality-hse-all-?oga=true"
+      "validThrough": "2026-12-30T21:15:24.725Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

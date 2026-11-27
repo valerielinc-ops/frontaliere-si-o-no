@@ -4,7 +4,7 @@
   "detailRejected": 1,
   "key": "careanesth-com",
   "label": "Careanesth AG",
-  "generatedAt": "2026-11-27T09:22:09.752Z",
+  "generatedAt": "2026-11-27T21:16:23.590Z",
   "total": 0,
   "discovered": 20,
   "parsed": 0,
@@ -24,26 +24,6 @@
       {
         "status": 200,
         "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/recruiter-in-account-manager-in-einsatzkoordinator-in-bereich-therapien-100-standort-basel-oder-bern-961992/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-intensivpflege-nds-hf-fuer-die-deutschschweiz-80-100-954854/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachperson-mit-imc-weiterbildung-952377/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-intensivpflege-nds-hf-gesucht-in-zuerich-und-in-der-ostschweiz-952349/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachperson-mit-imc-weiterbildung-gesucht-im-kanton-zuerich-und-in-allen-kantonen-der-ostschweiz-952335/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-op-pflegefachfrau-mann-toa-ota-fuer-die-deutschschweiz-80-100-954855/"
       },
       {
         "status": 200,
@@ -100,6 +80,26 @@
       {
         "status": 200,
         "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-op-pflegefachfrau-mann-toa-ota-gesucht-fuer-basel-solothurn-und-bern-952386/"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachperson-akp-dnii-hf-fh-gesucht-in-basel-solothurn-und-in-bern-952361/"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachfrau-mann-hf-fh-gesucht-im-raum-zuerich-960934/"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-fachperson-fuer-medizinisch-technische-radiologie-hf-953347/"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/a-956650/"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachfrau-mann-hf-fh-gesucht-im-kanton-argau-960960/"
       }
     ],
     "listingTerminalStatus": 200,
@@ -122,5 +122,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

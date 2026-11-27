@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-muri",
-  "assembledAt": "2026-11-27T09:17:18.716Z",
-  "runId": "45971433520",
+  "assembledAt": "2026-11-27T21:14:43.455Z",
+  "runId": "46068473611",
   "jobs": [
     {
       "id": "spital-muri-59673bdef39e",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4077582",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:04.838Z",
+      "crawledAt": "2026-11-27T21:14:30.312Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -82,9 +82,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:17:04.838Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4077582"
+      "validThrough": "2026-12-29T21:14:30.312Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-c3983742a9f7",
@@ -118,7 +117,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4077100",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:04.110Z",
+      "crawledAt": "2026-11-27T21:14:29.726Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -170,9 +169,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:17:04.110Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4077100"
+      "validThrough": "2026-12-29T21:14:29.726Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-4b40d8781f40",
@@ -206,7 +204,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4078909",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:03.363Z",
+      "crawledAt": "2026-11-27T21:14:29.074Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -256,9 +254,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:17:03.363Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4078909"
+      "validThrough": "2026-12-31T21:14:29.074Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-639071550286",
@@ -292,7 +289,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4071387",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:02.482Z",
+      "crawledAt": "2026-11-27T21:14:28.434Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -339,9 +336,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:17:02.482Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4071387"
+      "validThrough": "2026-12-29T21:14:28.434Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-e7ba81d11b2c",
@@ -375,7 +371,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4078548",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:01.713Z",
+      "crawledAt": "2026-11-27T21:14:27.838Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -424,9 +420,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:17:01.713Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4078548"
+      "validThrough": "2026-12-29T21:14:27.838Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-1fca9af7c594",
@@ -460,7 +455,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4083043",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:00.244Z",
+      "crawledAt": "2026-11-27T21:14:27.233Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -515,9 +510,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:17:00.244Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4083043"
+      "validThrough": "2027-01-07T21:14:27.233Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-36b3b0c6da5a",
@@ -551,7 +545,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4080281",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:59.581Z",
+      "crawledAt": "2026-11-27T21:14:26.660Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -601,9 +595,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:59.581Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4080281"
+      "validThrough": "2026-12-29T21:14:26.660Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-84ac97844f06",
@@ -637,7 +630,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4084752",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:58.850Z",
+      "crawledAt": "2026-11-27T21:14:26.062Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -695,9 +688,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:16:58.850Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4084752"
+      "validThrough": "2027-01-12T21:14:26.062Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-436ab170a535",
@@ -731,7 +723,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4082857",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:58.176Z",
+      "crawledAt": "2026-11-27T21:14:25.493Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -778,9 +770,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:58.176Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4082857"
+      "validThrough": "2026-12-29T21:14:25.493Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-ed02d87a7d28",
@@ -813,7 +804,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4084762",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:57.472Z",
+      "crawledAt": "2026-11-27T21:14:24.917Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -865,9 +856,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:57.472Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4084762"
+      "validThrough": "2026-12-29T21:14:24.917Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-727a3c7b93ea",
@@ -901,7 +891,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4088598",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:56.437Z",
+      "crawledAt": "2026-11-27T21:14:24.348Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -956,9 +946,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:16:56.437Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4088598"
+      "validThrough": "2027-01-18T21:14:24.348Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-2a63472ad8a1",
@@ -992,7 +981,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4087634",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:55.264Z",
+      "crawledAt": "2026-11-27T21:14:23.774Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1039,9 +1028,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:55.264Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4087634"
+      "validThrough": "2026-12-29T21:14:23.774Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-f8e7cdee8c58",
@@ -1074,7 +1062,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4088739",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:54.357Z",
+      "crawledAt": "2026-11-27T21:14:23.166Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1121,9 +1109,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:54.357Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4088739"
+      "validThrough": "2026-12-29T21:14:23.166Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-cee04c074d43",
@@ -1157,7 +1144,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4088528",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:53.448Z",
+      "crawledAt": "2026-11-27T21:14:22.571Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1204,9 +1191,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:53.448Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4088528"
+      "validThrough": "2026-12-29T21:14:22.571Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-0cf326590370",
@@ -1239,7 +1225,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4065956",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:52.386Z",
+      "crawledAt": "2026-11-27T21:14:21.987Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1286,9 +1272,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:52.386Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4065956"
+      "validThrough": "2026-12-29T21:14:21.987Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-0eedf8f921dd",
@@ -1321,7 +1306,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4094236",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:51.440Z",
+      "crawledAt": "2026-11-27T21:14:21.416Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1376,9 +1361,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:16:51.440Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4094236"
+      "validThrough": "2027-01-27T21:14:21.416Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-4655ec4215db",
@@ -1411,7 +1395,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4094098",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:50.679Z",
+      "crawledAt": "2026-11-27T21:14:20.797Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1464,9 +1448,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:16:50.679Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4094098"
+      "validThrough": "2027-01-27T21:14:20.797Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-2304a3d58abc",
@@ -1500,7 +1483,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4091366",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:49.887Z",
+      "crawledAt": "2026-11-27T21:14:20.208Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1547,9 +1530,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:49.887Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4091366"
+      "validThrough": "2026-12-29T21:14:20.208Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-7da23ce4fe66",
@@ -1583,7 +1565,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4096140",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:49.145Z",
+      "crawledAt": "2026-11-27T21:14:19.635Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1630,9 +1612,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:49.145Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4096140"
+      "validThrough": "2026-12-29T21:14:19.635Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-9455950f9dc8",
@@ -1666,7 +1647,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4099587",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:47.644Z",
+      "crawledAt": "2026-11-27T21:14:19.064Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1719,9 +1700,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:16:47.644Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4099587"
+      "validThrough": "2027-02-08T21:14:19.064Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-4f5cc046cc27",
@@ -1755,7 +1735,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4099980",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:46.204Z",
+      "crawledAt": "2026-11-27T21:14:18.497Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1808,9 +1788,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:16:46.204Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4099980"
+      "validThrough": "2027-02-08T21:14:18.497Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-a3c5811381bf",
@@ -1844,7 +1823,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4099741",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:45.435Z",
+      "crawledAt": "2026-11-27T21:14:17.924Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1893,9 +1872,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:45.435Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4099741"
+      "validThrough": "2026-12-29T21:14:17.924Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-883185f9e7b0",
@@ -1929,7 +1907,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4103332",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:44.024Z",
+      "crawledAt": "2026-11-27T21:14:17.309Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1984,9 +1962,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:16:44.024Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4103332"
+      "validThrough": "2027-02-15T21:14:17.309Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-fb8a389c8745",
@@ -2020,7 +1997,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4103891",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:43.163Z",
+      "crawledAt": "2026-11-27T21:14:16.699Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2075,9 +2052,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:16:43.163Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4103891"
+      "validThrough": "2027-02-16T21:14:16.699Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-9cbb99bb2a66",
@@ -2111,7 +2087,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4102210",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:42.189Z",
+      "crawledAt": "2026-11-27T21:14:16.128Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2167,9 +2143,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:42.189Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4102210"
+      "validThrough": "2026-12-29T21:14:16.128Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-1b8467ad398e",
@@ -2202,7 +2177,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4102642",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:41.078Z",
+      "crawledAt": "2026-11-27T21:14:15.500Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2253,9 +2228,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:41.078Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4102642"
+      "validThrough": "2026-12-29T21:14:15.500Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-f6895b5ba79e",
@@ -2289,7 +2263,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4103765",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:39.954Z",
+      "crawledAt": "2026-11-27T21:14:14.925Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2340,9 +2314,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:39.954Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4103765"
+      "validThrough": "2026-12-29T21:14:14.925Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-muri-47d454ea5809",
@@ -2375,7 +2348,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4106345",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:16:39.038Z",
+      "crawledAt": "2026-11-27T21:14:14.199Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2424,9 +2397,8 @@
       },
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:16:39.038Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4106345"
+      "validThrough": "2026-12-29T21:14:14.199Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
