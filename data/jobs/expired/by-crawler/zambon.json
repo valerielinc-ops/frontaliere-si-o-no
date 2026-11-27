@@ -29,7 +29,8 @@
     ],
     "previousSlugsByLocale": {
       "en": [
-        "buyer-1989-1819-zambon-svizzera-sa-cadempino"
+        "buyer-1989-1819-zambon-svizzera-sa-cadempino",
+        "buyer-procurement-indirect-zambon"
       ]
     },
     "postalCode": "6814",
@@ -39,7 +40,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland",
-    "firstSeenAt": "2026-09-10T23:18:15.295Z"
+    "firstSeenAt": "2026-09-10T23:18:15.295Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "buyer-procurement-indirect-zambon": "TI",
+        "buyer-1989-1819-zambon-svizzera-sa-cadempino": "TI"
+      }
+    }
   },
   {
     "slug": "stagista-in-chimica-e-tecnologia-farmaceutica-zambon",
@@ -75,7 +83,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
-    "firstSeenAt": "2026-09-03T13:49:02.200Z"
+    "firstSeenAt": "2026-09-03T13:49:02.200Z",
+    "canton": "TI"
   },
   {
     "slug": "global-treasury-sr-specialist-zambon",
@@ -107,7 +116,8 @@
     ],
     "previousSlugsByLocale": {
       "en": [
-        "global-treasury-sr-299-zambon-svizzera-sa-cadempino"
+        "global-treasury-sr-299-zambon-svizzera-sa-cadempino",
+        "global-treasury-sr-specialist-zambon"
       ]
     },
     "postalCode": "6814",
@@ -117,6 +127,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://app.ncoreplat.com/jobposition/811389/global-treasury-sr-specialist-ch/hr-switzerland",
-    "firstSeenAt": "2026-09-10T23:18:15.295Z"
+    "firstSeenAt": "2026-09-10T23:18:15.295Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "global-treasury-sr-specialist-zambon": "TI",
+        "global-treasury-sr-299-zambon-svizzera-sa-cadempino": "TI"
+      }
+    }
   }
 ]
