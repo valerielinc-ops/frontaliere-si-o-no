@@ -41,16 +41,17 @@ import {
 } from './cloudSchedulerWorkflowDispatch.js';
 import {
   CLOUD_SCHEDULER_TRIGGER_SOURCE,
-  cloudSchedulerSchedule,
   isUtcSlot,
   schedulerRunMarker as sharedSchedulerRunMarker,
 } from './cloudSchedulerWorkflowContract.js';
+import {
+  ORCHESTRATOR_CLOUD_SCHEDULE,
+  ORCHESTRATOR_SLOTS_UTC,
+} from './orchestratorSchedule.js';
+
+export { ORCHESTRATOR_CLOUD_SCHEDULE, ORCHESTRATOR_SLOTS_UTC } from './orchestratorSchedule.js';
 
 export const ORCHESTRATOR_WORKFLOW = 'orchestrate-crawlers.yml';
-/** Nominal UTC slots, `HH:MM`. Kept in parity with the heartbeat by a test. */
-export const ORCHESTRATOR_SLOTS_UTC = Object.freeze(['09:00', '21:00']);
-/** Cloud Scheduler expression derived from the slots above (UTC). */
-export const ORCHESTRATOR_CLOUD_SCHEDULE = cloudSchedulerSchedule(ORCHESTRATOR_SLOTS_UTC);
 /** `trigger_source` input value; the workflow turns it into the run-name marker. */
 export const ORCHESTRATOR_TRIGGER_SOURCE = CLOUD_SCHEDULER_TRIGGER_SOURCE;
 export const CLAIM_COLLECTION = SHARED_CLAIM_COLLECTION;

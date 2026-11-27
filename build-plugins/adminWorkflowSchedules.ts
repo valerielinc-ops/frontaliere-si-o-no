@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describeCronForLocalDay, type CronOccurrence } from '../services/adminCron';
+import { ORCHESTRATOR_CLOUD_SCHEDULE } from '../functions/src/orchestratorSchedule.js';
 
 export interface AdminWorkflowSchedule {
   cron: string;
@@ -50,13 +51,6 @@ function githubCrons(content: string): string[] {
   return [...content.matchAll(/^\s*-\s*cron:\s*['"]([^'"]+)['"]/gmu)].map((match) => match[1].trim());
 }
 
-function cloudSchedulerCron(root: string): string | null {
-  const sourcePath = path.resolve(root, 'functions/src/orchestratorCronDispatch.js');
-  if (!fs.existsSync(sourcePath)) return null;
-  const source = fs.readFileSync(sourcePath, 'utf8');
-  return source.match(/ORCHESTRATOR_CLOUD_SCHEDULE\s*=\s*['"]([^'"]+)['"]/u)?.[1] || null;
-}
-
 export function scanAdminWorkflowSchedules(root: string, day = new Date()): AdminWorkflowScheduleEntry[] {
   const workflowDir = path.resolve(root, '.github/workflows');
   if (!fs.existsSync(workflowDir)) return [];
@@ -71,7 +65,7 @@ export function scanAdminWorkflowSchedules(root: string, day = new Date()): Admi
     }));
     if (schedules.length > 0 || /^crawler-group-\d+\.yml$/u.test(filename)) entries.push({ id: filename, name: workflowName(content, filename), schedules });
   }
-  const orchestratorCron = cloudSchedulerCron(root);
+  const orchestratorCron = ORCHESTRATOR_CLOUD_SCHEDULE;
   if (orchestratorCron && !entries.some((entry) => entry.id === 'orchestrate-crawlers.yml')) {
     entries.push({
       id: 'orchestrate-crawlers.yml',

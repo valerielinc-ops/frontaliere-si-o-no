@@ -38,6 +38,7 @@ import {
   JOB_ALERT_PRIMARY_SLOT_UTC,
   JOB_ALERT_WORKFLOW,
 } from '../../functions/src/jobAlertSchedule.js';
+import { ORCHESTRATOR_SLOTS_UTC } from '../../functions/src/orchestratorSchedule.js';
 import {
   SCHEDULER_RUN_MARKER_PREFIX as SHARED_SCHEDULER_RUN_MARKER_PREFIX,
 } from '../../functions/src/cloudSchedulerWorkflowContract.js';
@@ -45,7 +46,7 @@ import { normalizeOrchestratorSlot } from '../../functions/src/lib/orchestratorS
 
 export const ORCHESTRATOR_WORKFLOW_FILE = 'orchestrate-crawlers.yml';
 export const ORCHESTRATOR_WORKFLOW_PATH = `.github/workflows/${ORCHESTRATOR_WORKFLOW_FILE}`;
-export const DEFAULT_SCHEDULE_SLOTS = Object.freeze(['09:00', '21:00']);
+export const DEFAULT_SCHEDULE_SLOTS = ORCHESTRATOR_SLOTS_UTC;
 export const JOB_ALERT_WORKFLOW_FILE = JOB_ALERT_WORKFLOW;
 export const JOB_ALERT_WORKFLOW_PATH = `.github/workflows/${JOB_ALERT_WORKFLOW_FILE}`;
 export const JOB_ALERT_SCHEDULE_SLOTS = Object.freeze([JOB_ALERT_PRIMARY_SLOT_UTC]);
