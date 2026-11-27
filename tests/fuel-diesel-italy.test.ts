@@ -23,7 +23,8 @@ import {
   buildItalianStationPagesManifest,
 } from '../build-plugins/fuelDailyPagesPlugin';
 import { resolveItalianStationRoute } from '../scripts/lib/fuel-italian-station-routes.mjs';
-import { buildFuelItalianStationPath } from '../build-plugins/fuelDailyData';
+import { buildFuelItalianStationPath, buildStationSlug } from '../build-plugins/fuelDailyData';
+import { buildStationSlug as buildTwinStationSlug } from '../scripts/lib/fuel-station-slug.mjs';
 import {
   generateFuelIndexPages,
   buildFuelIndexPath,
@@ -442,6 +443,17 @@ describe('Italian station pages — a station leaving the MIMIT cut keeps its UR
     expect(resolveItalianStationRoute('b', derived, { ...loaded, byStationId: null })).toEqual(derived);
     expect(resolveItalianStationRoute('b', derived, { pages: new Set(), byStationId: null })).toBeNull();
     expect(resolveItalianStationRoute('b', derived, null)).toEqual(derived);
+  });
+
+  // The route rule runs on the JS twin (the generator is plain Node); the pages
+  // published so far were slugged by the TS function.
+  it.each([
+    [{ brand: 'Q8', name: 'mezzanotte', address: 'VIA DI PROVA 17 21000 - PAESE DI PROVA VA' }],
+    [{ brand: 'UNDEFINED', name: 'Stazione Prova', address: "Via dell'Esempio 12, 22100 Como" }],
+    [{ brand: '', name: '', address: 'Corso Città Nuova 3A' }],
+    [{ brand: undefined, name: undefined, address: undefined }],
+  ])('slugs a station the same way as fuelDailyData', (station) => {
+    expect(buildTwinStationSlug(station)).toBe(buildStationSlug(station));
   });
 
   it('remembers a retired station across later refreshes, as identity only, and forgets it on return', () => {

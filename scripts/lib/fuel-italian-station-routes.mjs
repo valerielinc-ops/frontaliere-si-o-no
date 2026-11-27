@@ -8,56 +8,8 @@
  * price, and among namesakes the `-2` suffix would move with the order.
  */
 
-/**
- * Normalise a free-form string to a kebab-case URL slug.
- * Strips accents, punctuation, extra whitespace. Safe for station names,
- * addresses, brand names, city names.
- *
- * @param {string | null | undefined} raw
- * @returns {string}
- */
-export function slugify(raw) {
-  if (!raw) return '';
-  return String(raw)
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '') // strip diacritics
-    .toLowerCase()
-    .replace(/['’]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 80); // URL length sanity cap
-}
-
-/**
- * Derive a stable per-station slug from brand + address.
- *
- * Pattern: `{brand}-{street}`. We strip house numbers and postal codes to
- * keep the slug readable. Example: `eni-via-compolongo`.
- *
- * When brand is missing or is the sentinel "UNDEFINED", we fall back to the
- * station name (first word) combined with the street.
- *
- * @param {{ brand?: string | null, name?: string | null, address?: string | null }} opts
- * @returns {string}
- */
-export function buildStationSlug(opts) {
-  const { brand, name, address } = opts;
-  // Extract "street part": everything before the postal code + city portion.
-  // Addresses look like "Via Foo 12, 6830 Chiasso" or "Foo Road, Bar".
-  // We keep the segment before the first comma, then strip house numbers.
-  let street = '';
-  if (address) {
-    const firstPart = address.split(',')[0] ?? '';
-    street = firstPart.replace(/\s+\d+[A-Za-z]?$/g, '').trim();
-  }
-
-  const brandClean = brand && brand.toUpperCase() !== 'UNDEFINED' ? brand : '';
-  const firstNameWord = name ? name.split(/\s+/)[0] ?? '' : '';
-  const prefix = brandClean || firstNameWord || 'stazione';
-
-  const slug = slugify(`${prefix}-${street}`);
-  return slug || slugify(name ?? '') || 'stazione';
-}
+// The JS twin of `fuelDailyData.ts#buildStationSlug` (parity-tested).
+import { buildStationSlug } from './fuel-station-slug.mjs';
 
 const ROUTE_SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 

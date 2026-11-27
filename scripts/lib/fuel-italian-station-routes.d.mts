@@ -1,9 +1,3 @@
-export function slugify(raw: string | null | undefined): string;
-export function buildStationSlug(opts: {
-  brand?: string | null;
-  name?: string | null;
-  address?: string | null;
-}): string;
 export function assignItalianStationSlugs(
   stations: ReadonlyArray<{ id?: string; brand?: string; stationName?: string; address?: string }>,
   recorded?: Readonly<Record<string, string>>,

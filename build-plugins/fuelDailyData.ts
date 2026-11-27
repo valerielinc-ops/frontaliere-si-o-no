@@ -18,7 +18,6 @@ import {
   FUEL_TODAY_SLUG as SHARED_FUEL_TODAY_SLUG,
   FUEL_ZONES as SHARED_FUEL_ZONES,
 } from './shared/fuelRouteSlugs.mjs';
-import { buildStationSlug, slugify } from '../scripts/lib/fuel-italian-station-routes.mjs';
 
 export type FuelDailyLocale = 'it' | 'en' | 'de' | 'fr';
 export type FuelType = 'diesel' | 'benzina';
@@ -219,7 +218,54 @@ export const FUEL_STATIONS_SLUG: Record<FuelDailyLocale, string> =
 export const FUEL_ITALY_SLUG: Record<FuelDailyLocale, string> =
   SHARED_FUEL_ITALY_SLUG as Record<FuelDailyLocale, string>;
 
-export { slugify, buildStationSlug };
+/**
+ * Normalise a free-form string to a kebab-case URL slug.
+ * Strips accents, punctuation, extra whitespace. Safe for station names,
+ * addresses, brand names, city names.
+ */
+export function slugify(raw: string | null | undefined): string {
+  if (!raw) return '';
+  return String(raw)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // strip diacritics
+    .toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80); // URL length sanity cap
+}
+
+/**
+ * Derive a stable per-station slug from brand + address.
+ *
+ * Pattern: `{brand}-{street}`. We strip house numbers and postal codes to
+ * keep the slug readable. Example: `eni-via-compolongo`.
+ *
+ * When brand is missing or is the sentinel "UNDEFINED", we fall back to the
+ * station name (first word) combined with the street.
+ */
+export function buildStationSlug(opts: {
+  brand?: string | null;
+  name?: string | null;
+  address?: string | null;
+}): string {
+  const { brand, name, address } = opts;
+  // Extract "street part": everything before the postal code + city portion.
+  // Addresses look like "Via Foo 12, 6830 Chiasso" or "Foo Road, Bar".
+  // We keep the segment before the first comma, then strip house numbers.
+  let street = '';
+  if (address) {
+    const firstPart = address.split(',')[0] ?? '';
+    street = firstPart.replace(/\s+\d+[A-Za-z]?$/g, '').trim();
+  }
+
+  const brandClean = brand && brand.toUpperCase() !== 'UNDEFINED' ? brand : '';
+  const firstNameWord = name ? name.split(/\s+/)[0] ?? '' : '';
+  const prefix = brandClean || firstNameWord || 'stazione';
+
+  const slug = slugify(`${prefix}-${street}`);
+  return slug || slugify(name ?? '') || 'stazione';
+}
 
 /** Build the canonical path for a Swiss per-station page. */
 export function buildFuelStationPath(
