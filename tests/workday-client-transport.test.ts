@@ -856,6 +856,14 @@ describe('Workday JSON transport', () => {
       expect(browserFallback).not.toHaveBeenCalled();
     });
 
+    it('rejects a browser backoff above the documented ceiling before any browser request', () => {
+      const browserFallback = vi.fn().mockResolvedValue({ browser: true });
+      expect(() => rescueContext(browserFallback, { browserBackoffMs: 1_000_000_000_000 })).toThrow(TypeError);
+      expect(() => rescueContext(browserFallback, { browserBackoffMs: 30_001 })).toThrow(TypeError);
+      expect(() => rescueContext(browserFallback, { browserBackoffMs: 30_000 })).not.toThrow();
+      expect(browserFallback).not.toHaveBeenCalled();
+    });
+
     it('caps an explicit oversized budget at the hard ceiling', async () => {
       vi.useFakeTimers();
       vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));

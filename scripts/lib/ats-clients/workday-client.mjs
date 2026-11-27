@@ -642,10 +642,14 @@ function sanitizeBrowserBudget(name, value, fallback) {
   return Math.min(Math.floor(n), MAX_BROWSER_BUDGET);
 }
 
+// Ceiling for the delay awaited before each browser request: with the hard
+// budget ceiling it keeps the whole rescue at minutes, never an open-ended stall.
+const MAX_BROWSER_BACKOFF_MS = 30_000;
+
 function sanitizeBrowserBackoff(value) {
   if (value === null || value === undefined) return DEFAULT_BROWSER_BACKOFF_MS;
-  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) {
-    throw new TypeError(`createWorkdayRequestContext: browserBackoffMs must be a finite number >= 0 (got ${String(value)})`);
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > MAX_BROWSER_BACKOFF_MS) {
+    throw new TypeError(`createWorkdayRequestContext: browserBackoffMs must be a finite number between 0 and ${MAX_BROWSER_BACKOFF_MS} (got ${String(value)})`);
   }
   return value;
 }
