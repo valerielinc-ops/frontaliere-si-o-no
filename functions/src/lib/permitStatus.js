@@ -468,3 +468,38 @@ export function isNationalityField(label) {
 export function asksHeldStatus(label) {
   return !NEEDS.test(String(label ?? ''));
 }
+
+// «Risiedi in Svizzera, o sei in possesso di un regolare permesso di lavoro?»: a yes/no that is true when EITHER clause
+// holds. A permit the candidate holds (any status but «none») proves the second clause, so «yes» is demonstrated; a
+// candidate with no permit may still live in Switzerland, so «no» is never derived from the status and stays a
+// question. Read on the folded (accent-less) text of the question.
+const RESIDENCE_OR_PERMIT_PARTS = [
+  [String.raw`(?:risiedi|risiede|abiti|abita|vivi|vive|sei\s+residente)\s+(?:in|nella)\s+(?:svizzera|confederazione(?:\s+svizzera)?)`, 'o',
+    String.raw`(?:sei\s+in\s+possesso\s+(?:di|del)|possiedi|detieni|hai)\s+(?:(?:un|il|uno)\s+)?(?:(?:regolare|valido|vigente)\s+)?permesso(?:\s+(?:di\s+)?(?:lavoro|soggiorno))?(?:\s+(?:regolare|valido))?`],
+  [String.raw`(?:wohnen\s+sie|wohnst\s+du|sind\s+sie\s+wohnhaft|bist\s+du\s+wohnhaft)\s+in\s+der\s+schweiz`, 'oder',
+    String.raw`(?:haben\s+sie|hast\s+du|besitzen\s+sie|besitzt\s+du)\s+(?:(?:eine|die|ein)\s+)?(?:(?:gultige|gueltige|regulare)\s+)?\w*bewilligung(?:\s+(?:gultig|gueltig))?`],
+  [String.raw`(?:do\s+you|are\s+you)\s+(?:live|living|reside|residing|resident)\s+in\s+switzerland`, 'or',
+    String.raw`(?:do\s+you\s+(?:hold|have|possess)|have\s+you|are\s+you\s+in\s+possession\s+of)\s+(?:an?\s+)?(?:(?:valid|regular)\s+)?(?:(?:work|residence)\s+)?permit(?:\s+(?:valid|regular))?`],
+  [String.raw`(?:habitez|residez)[- ]vous\s+en\s+suisse`, 'ou',
+    String.raw`(?:avez|detenez|possedez)[- ]vous\s+(?:un|une)\s+(?:(?:valable|valide)\s+)?permis(?:\s+de\s+(?:travail|sejour))?(?:\s+(?:valable|valide))?`],
+];
+const RESIDENCE_OR_PERMIT_RE = new RegExp(`^(?:${RESIDENCE_OR_PERMIT_PARTS.map(([head, conn, tail]) => `${head}\\s*[,;]?\\s*${conn}\\s+${tail}`).join('|')})$`, 'i');
+const RESIDENCE_DISJUNCTION_START_RE = new RegExp(`^(?:${RESIDENCE_OR_PERMIT_PARTS.map(([head, conn]) => `${head}\\s*[,;]?\\s*${conn}\\s`).join('|')})`, 'i');
+const foldCaptions = (captions) => captions.filter((value) => typeof value === 'string' && value.trim()).map((value) => value
+  .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[*＊¿¡]/g, ' ')
+  .replace(/\s+/g, ' ').replace(/[\s?!.:;]+$/, '').trim());
+/** A question that opens as «lives in Switzerland, or …» but says more than the plain disjunction: never answered from a permit. */
+export function isCompoundResidenceDisjunction(...captions) {
+  const folded = foldCaptions(captions);
+  return folded.some((caption) => RESIDENCE_DISJUNCTION_START_RE.test(caption)) && !isResidenceOrPermitCaption(...captions);
+}
+
+/**
+ * Whether EVERY given caption of a field is, after normalisation (accents, asterisks, spaces, final punctuation),
+ * exactly the residence-or-permit disjunction: a further clause («…e sei disponibile nei weekend?») makes it
+ * another question, which a held permit does not answer.
+ */
+export function isResidenceOrPermitCaption(...captions) {
+  const folded = foldCaptions(captions);
+  return folded.length > 0 && folded.every((caption) => RESIDENCE_OR_PERMIT_RE.test(caption));
+}

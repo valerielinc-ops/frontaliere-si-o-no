@@ -45,8 +45,8 @@ const nationalityQuestion = (options: string[] = [], question = 'Nationalität')
 
 describe('versions', () => {
   it('lets the recovery by version read the held questions again', () => {
-    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v15');
-    expect(OPERATIONAL_DEFAULTS_VERSION).toBe('operational-preferences-v14');
+    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v16');
+    expect(OPERATIONAL_DEFAULTS_VERSION).toBe('operational-preferences-v15');
   });
 });
 

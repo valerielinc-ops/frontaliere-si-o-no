@@ -23,17 +23,23 @@ const GENERIC_TERMS = /\bterms\b|nutzungsbedingungen|teilnahmebedingungen|\bagb\
 // A privacy word is not authority for the rest of a sentence. Every word
 // must stay in the closed language of reading/accepting this notice.
 // New declarations, qualifications or other purposes remain unknown.
-const PRIVACY_WORDS = new Set(`i me my myself you your yours we our the a an and or to of for in on by with under as per that this these have has having am are is been be it its here hereby do yes please kindly read reading review reviewed understood understand acknowledge acknowledged acknowledgment consent consenting accept accepts accepted accepting agree agreed agreement clicking click confirming confirm accordance pursuant subject comply complies provided provide provision provisions required mandatory erforderlich pflichtfeld obbligatorio obbligatoria obligatoire obligatorisch terms conditions application applications candidate candidates applicant applicants applying privacy policy policies statement statements notice notices protection processing process processed collection collected collecting storage storing stored electronic electronically personal data information handling use using accordance
+const PRIVACY_WORDS = new Set(`declare declared declares dichiaro dichiara dichiariamo aver avere fini erklare erklaere erklart i me my myself you your yours we our the a an and or to of for in on by with under as per that this these have has having am are is been be it its here hereby do yes please kindly read reading review reviewed understood understand acknowledge acknowledged acknowledgment consent consenting accept accepts accepted accepting agree agreed agreement clicking click confirming confirm accordance pursuant subject comply complies provided provide provision provisions required mandatory erforderlich pflichtfeld obbligatorio obbligatoria obligatoire obligatorisch terms conditions application applications candidate candidates applicant applicants applying privacy policy policies statement statements notice notices protection processing process processed collection collected collecting storage storing stored electronic electronically personal data information handling use using accordance
   io ho do permesso me mia mie miei mio tu tuo tua tuoi tue noi nostri nostri il lo la le gli l dei degli delle della dello dell di del al alla allo all ai agli alle a da dal dalla sul sulla in con su per e ed o secondo sensi disposizioni materia si prega ti vi preghiamo favore accetto accetta accetti accettate accettare accettazione acconsento consenso consento autorizzo autorizzazione letto letta leggere leggi legga leggete leggo lettura prendi prenda prendere compreso compresa comprendo preso visione informativa dichiarazione trattamento trattati trattare protezione dati personali memorizzazione elettronica elettronico conservazione candidatura candidature candidato candidati condizioni termini sensi
   ich mir mich mein meine meiner meinen meines du dir dich dein deine ihrer ihre ihren ihrem sie wir uns unser unsere der die das des den dem ein eine einer eines einem einen und oder zu zur zum von im in am an fur mit nach gemaess gemass laut dass diese dieser dieses diesen hiermit bitte habe haben gelesen lesen lese lies verstanden verstehe akzeptiere akzeptieren akzeptiert stimme stimmen zustimmen zustimmung einwillige einwilligung einverstanden einverstandniserklarung erklarung erklarungen datenschutz datenschutzerklarung datenschutzerklaerung datenschutzhinweis datenschutzhinweise datenschutzbestimmungen datenschutzrichtlinie datenschutzrichtlinien datenschutzinformation datenschutzinformationen datenschutzmitteilung daten personenbezogenen personenbezogener personlichen verarbeitung verarbeiten speicherung elektronischen elektronischer elektronische bewerbung bewerbungen bewerber bewerberin nutzungsbedingungen bewerbungsbedingungen hinweise bestimmungen
   je moi mon ma mes me vous votre vos nous nos le la les l de des du d au aux a par pour en avec sur et ou que cette ce ces j ai lu lire lis lisez veuillez merci prenez prendre pris prise connaissance compris comprends accepte acceptez accepter acceptation consens consentement autorise autorisation conformement dispositions matiere politique declaration confidentialite protection traitement donnees personnelles conservation electronique candidature candidatures candidat candidats conditions generales utilisation`.split(/\s+/));
-const positiveLanguage = value => plain(value).replace(/&/g, ' and ').split(/[^a-z0-9]+/).filter(Boolean).every(word => PRIVACY_WORDS.has(word));
+// The notice's owner is a name, not a claim: «dei dati dell'EOC», «Datenschutzerklärung der Stadt Zürich»,
+// «privacy policy of Acme AG». Only capitalised words right after the notice noun and its preposition are read as
+// that name; every other word must still belong to the closed language above, and the fact, accuracy and
+// optional-purpose guards read the whole sentence, name included.
+const NOTICE_OWNER = /((?:dati|data|daten|donn[eé]es|privacy|datenschutz\p{L}*|protezione|protection|policy|notice|informativa|statement)\s+(?:dell|dello|della|degli|del|di|of|der|des|de|du|von|d)(?:\s+the)?[\s'’]+)(?:\p{Lu}[\p{L}\p{N}&.-]*)(?:\s+\p{Lu}[\p{L}\p{N}&.-]*){0,3}/giu;
+const withoutNoticeOwner = value => String(value ?? '').replace(/\p{Cf}/gu, '').replace(NOTICE_OWNER, '$1');
+const positiveLanguage = value => plain(withoutNoticeOwner(value)).replace(/&/g, ' and ').split(/[^a-z0-9]+/).filter(Boolean).every(word => PRIVACY_WORDS.has(word));
 
 export const isConsentPurpose = value => {
   const text = plain(value);
   const privacyShape = privacyReviewAcknowledgmentShape(value);
   return Boolean(isPrivacyReviewAcknowledgment(value)
-    || (!privacyShape.shape && text && positiveLanguage(text) && !NEGATED.test(text) && !FACTS.test(text)
+    || (!privacyShape.shape && text && positiveLanguage(value) && !NEGATED.test(text) && !FACTS.test(text)
       && !OTHER_TERMS.test(text) && !ACCURACY.test(text)
       && (PRIVACY.test(text) || APPLICATION_TERMS.test(text))
       && !isOptionalPurpose(text)));
@@ -66,7 +72,12 @@ export function isApplicationDataProcessingConsent(value, ...semanticMetadata) {
   const text = String(value || '').replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
   if (!text || hasConsentContradiction(text, ...semanticMetadata)) return false;
-  const asksConsent = /\b(?:consent\w*|acconsent\w*|agree\w*|accept\w*|einwillig\w*|zustimm\w*|akzeptier\w*|accepter\w*|autoris\w*|autoriz\w*)\b/.test(text);
+  const asksConsent = /\b(?:consent\w*|acconsent\w*|accett\w*|agree\w*|accept\w*|einwillig\w*|zustimm\w*|akzeptier\w*|accepter\w*|autoris\w*|autoriz\w*)\b/.test(text);
+  // A declaration is welcome only as «I have read and understood» the notice: «Dichiaro di avere un permesso B.
+  // Accetto…» states a fact the candidate alone can make, in the same box.
+  const declares = /\b(?:dichiaro|dichiara|dichiariamo|declare|declares|erklare|erklaere)\b/;
+  const declaresReading = /\b(?:dichiaro|dichiara|dichiariamo|declare|declares|erklare|erklaere)\b[^.!?]{0,24}\b(?:aver|avere|have|habe|ai|ho)\s+(?:letto|read|gelesen|lu|compreso|preso visione|understood|verstanden|compris)\b/;
+  if (text.split(/[.!?;]+/).some(sentence => declares.test(sentence) && !declaresReading.test(sentence))) return false;
   const processesData = /\b(?:process\w*|tratt\w*|verarbeit\w*|trait\w*)\b/.test(text);
   const personalData = /\b(?:personal data|personal information|dati personali|dati di carattere personale|personenbezogen\w* daten|personliche daten|persoenliche daten|donnees personnelles|donnees a caractere personnel)\b/.test(text);
   return asksConsent && processesData && personalData;
@@ -415,5 +426,5 @@ export const isNoticeReview = (value, ...semanticIds) => {
   const text = plain(value);
   const privacyShape = privacyReviewAcknowledgmentShape(value);
   return Boolean(isPrivacyReviewAcknowledgment(value, ...semanticIds)
-    || (!privacyShape.shape && text && positiveLanguage(text) && !hasConsentContradiction(value, ...semanticIds)));
+    || (!privacyShape.shape && text && positiveLanguage(value) && !hasConsentContradiction(value, ...semanticIds)));
 };
