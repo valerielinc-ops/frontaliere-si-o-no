@@ -13762,6 +13762,14 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-smart-working-limite-fiscale.title': 'Grenzgänger im Homeoffice: steuerliche Grenze aus Italien',
     'blog.article.frontalieri-smart-working-limite-fiscale.excerpt': 'Die steuerliche Schwelle für Telearbeit aus Italien beträgt 25%.',
     'blog.article.frontalieri-smart-working-limite-fiscale.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.protocollo-fiscale-lavoro-remoto.title': 'Italien und die Schweiz unterzeichnen das Protokoll zur Telearbeit',
+    'blog.article.protocollo-fiscale-lavoro-remoto.excerpt': 'Das Protokoll wurde am 6. Juni 2024 unterzeichnet. Telearbeit von zu Hause aus bis zu 25 % ab dem 1. Januar 2024.',
+    'blog.article.protocollo-fiscale-lavoro-remoto.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-11-27.title': 'Grenzgänger: Wechselkurs +58.80 € bei CHF 4.000 — 27. November 2026',
+    'blog.article.bollettino-frontaliere-2026-11-27.excerpt': 'Die Zahlen von heute, 27. November 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die günstigsten Benzinpreise, der Franken-Euro-Kurs und aktive Stellenanzeigen in der Schweiz auf unserem Job-Board. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-11-27.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-11-27.seoDescription': 'Grenzgänger-Bulletin am 27. November 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-11-27.ogDescription': 'Die Zahlen vom 27. November 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
 };
 
 export default blogMetaDe;

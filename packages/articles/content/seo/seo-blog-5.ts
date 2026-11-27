@@ -115278,6 +115278,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-protocollo-fiscale-lavoro-remoto': {
+    title: 'Italia e Svizzera firmano il protocollo sul telelavoro',
+    description: 'Il Protocollo è stato firmato il 6 giugno 2024. Telelavoro da casa fino al 25% dal 1° gennaio 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, firmano, protocollo, telelavoro, stato',
+    ogTitle: 'Italia e Svizzera firmano il protocollo sul telelavoro',
+    ogDescription: 'Il Protocollo è stato firmato il 6 giugno 2024. Telelavoro da casa fino al 25% dal 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/protocollo-fiscale-lavoro-remoto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Italia e Svizzera firmano il protocollo sul telelavoro",
+      "description": "Il Protocollo è stato firmato il 6 giugno 2024. Telelavoro da casa fino al 25% dal 1° gennaio 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-protocollo-fiscale-lavoro-remoto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-27T07:45:34+00:00",
+      "dateModified": "2026-11-27T07:45:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/protocollo-fiscale-lavoro-remoto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-11-27': {
+    title: 'Frontalieri: cambio +58.80 € su 4.000 CHF — 27 novembre 2026',
+    description: 'Bollettino frontalieri 27 novembre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Frontalieri: cambio +58.80 € su 4.000 CHF — 27 novembre 2026',
+    ogDescription: 'I numeri del 27 novembre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti annunci di lavoro attivi sono presenti sul nostro job board in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-11-27/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: cambio +58.80 € su 4.000 CHF — 27 novembre 2026",
+      "description": "Bollettino frontalieri 27 novembre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bollettino-frontaliere-2026-11-27.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-27T14:51:15+00:00",
+      "dateModified": "2026-11-27T14:51:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-11-27/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
