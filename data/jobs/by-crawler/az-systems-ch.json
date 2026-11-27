@@ -1,7 +1,7 @@
 {
   "crawlerKey": "az-systems-ch",
-  "assembledAt": "2026-11-26T21:44:16.454Z",
-  "runId": "45898143422",
+  "assembledAt": "2026-11-27T09:54:53.812Z",
+  "runId": "45973680225",
   "jobs": [
     {
       "id": "az-systems-ch-7284f0935048",
@@ -34,7 +34,7 @@
       "url": "https://www.az-systems.ch/jobs-karriere/offene-stellen/detail/techniker-in-gebaeudeautomation-msrl-1664",
       "source": "AZ systems AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:44:03.286Z",
+      "crawledAt": "2026-11-27T09:54:42.535Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -83,9 +83,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:44:03.286Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.az-systems.ch/jobs-karriere/offene-stellen/detail/techniker-in-gebaeudeautomation-msrl-1664"
+      "validThrough": "2026-12-27T09:54:42.535Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

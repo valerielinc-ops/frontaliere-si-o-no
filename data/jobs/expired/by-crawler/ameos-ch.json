@@ -85,16 +85,14 @@
     "slugByLocale": {
       "it": "contabilita-finanziaria-del-personale-m-f-d-ameos-schweiz-einsiedeln",
       "en": "personnel-m-f-d-financial-accounting-ameos-schweiz-einsiedeln",
-      "de": "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln",
+      "de": "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln-0d57da8e",
       "fr": "personnel-h-f-d-comptabilite-ameos-schweiz-einsiedeln"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-22T09:18:54.719Z",
-    "previousSlugs": [
-      "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln-0d57da8e",
         "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln"
       ],
       "en": [
@@ -102,6 +100,9 @@
       ],
       "fr": [
         "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln"
+      ],
+      "de": [
+        "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln-0d57da8e"
       ]
     },
     "postalCode": "8840",
@@ -115,15 +116,21 @@
     "canton": "SZ",
     "previousSlugCantonByLocale": {
       "it": {
-        "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln": "SZ"
+        "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln-0d57da8e": "SZ"
       },
       "en": {
         "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln": "SZ"
       },
       "fr": {
         "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln": "SZ"
+      },
+      "de": {
+        "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln-0d57da8e": "SZ"
       }
-    }
+    },
+    "previousSlugs": [
+      "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln"
+    ]
   },
   {
     "id": "ameos-ch-5d37af050b22",

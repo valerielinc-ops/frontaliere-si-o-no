@@ -10,12 +10,22 @@ export const RELAY_TIMEOUT_MS = 15_000;
 export const RELAY_MAX_REQUESTS_PER_HOUR = 300;
 export const RELAY_MIN_INTERVAL_MS = 1_000;
 export const RELAY_MAX_UPSTREAM_PER_DAY = 400;
+// Workday tenants (#20279) have their own daily ledger so a burst of Workday
+// fallbacks can never starve the three original relay sources, and vice versa.
+// Calibration: ~39 tenants x (1-3 listing pages + <=40 details) bounded by the
+// client budgets (scripts/lib/ats-clients/workday-client.mjs), a few runs/day.
+export const RELAY_WORKDAY_MAX_UPSTREAM_PER_DAY = 3_000;
+export const RELAY_MAX_REQUEST_BODY_BYTES = 4_096;
 
 const ALLOWED_REPOSITORIES = new Set([
   'nanakokyobashi-rgb/frontaliere-articles',
   'valerielinc-ops/frontaliere-si-o-no',
 ]);
 const ALLOWED_CONTENT_TYPES = new Set(['text/html', 'application/json']);
+const WORKDAY_HOST_RE = /^[a-z0-9][a-z0-9-]*\.wd\d{1,3}\.myworkdayjobs\.com$/u;
+const WORKDAY_LISTING_PATH_RE = /^\/wday\/cxs\/[A-Za-z0-9_-]+\/[A-Za-z0-9_.-]+\/jobs$/u;
+const WORKDAY_DETAIL_PATH_RE =
+  /^\/wday\/cxs\/[A-Za-z0-9_-]+\/[A-Za-z0-9_.-]+\/job(?:\/[A-Za-z0-9_.,~%()+-]+)+$/u;
 const REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
 const JWKS_CACHE_TTL_MS = 10 * 60 * 1000;
 const JWKS_FETCH_TIMEOUT_MS = 5_000;
@@ -102,18 +112,23 @@ function responseHeader(res, name, value) {
   else if (typeof res?.setHeader === 'function') res.setHeader(name, value);
 }
 
-function sendBody(res, status, body, contentType) {
+function sendBody(res, status, body, contentType, extraHeaders = {}) {
   const target = responseStatus(res, status);
   responseHeader(target, 'Content-Type', contentType);
   responseHeader(target, 'X-Content-Type-Options', 'nosniff');
+  for (const [name, value] of Object.entries(extraHeaders)) responseHeader(target, name, value);
   if (typeof target?.send === 'function') return target.send(body);
   if (typeof target?.end === 'function') return target.end(body);
   return undefined;
 }
 
-function sendJson(res, status, error) {
-  return sendBody(res, status, JSON.stringify({ error }), 'application/json; charset=utf-8');
+function sendJson(res, status, error, extraHeaders = {}) {
+  return sendBody(res, status, JSON.stringify({ error }), 'application/json; charset=utf-8', extraHeaders);
 }
+
+// Marks a response whose status/body come from the upstream source, so a
+// caller can tell a relayed Workday 404/429 from the relay's own errors.
+const UPSTREAM_MARKER = { 'X-Relay-Source': 'upstream' };
 
 function allowedAudience(aud) {
   return aud === GITHUB_OIDC_AUDIENCE
@@ -225,13 +240,66 @@ export function parseAllowedRelayTarget(rawUrl) {
   ) return null;
 
   const host = target.hostname.toLowerCase();
+
+  // Workday CXS API (#20279): the listing is a POST of a validated JSON body,
+  // the job detail a GET. Both stay under /wday/cxs/<tenant>/<site>/ of a
+  // *.wdN.myworkdayjobs.com host, with no query string or fragment: this is a
+  // clean-egress path for the public career-site JSON, not a general proxy.
+  if (WORKDAY_HOST_RE.test(host)) {
+    if (target.search || target.hash) return null;
+    if (WORKDAY_LISTING_PATH_RE.test(target.pathname)) {
+      return { url: target, host, path: target.pathname, methods: ['POST'], upstream: 'workday' };
+    }
+    if (WORKDAY_DETAIL_PATH_RE.test(target.pathname)) {
+      return { url: target, host, path: target.pathname, methods: ['GET'], upstream: 'workday' };
+    }
+    return null;
+  }
+
   const isChurJob = host === 'jobs.chur.ch' && /^\/[^/]+-de-j\d+\.html$/u.test(target.pathname);
   const isHasJob = host === 'e-lavoro.ch' && /^\/node\/\d+$/u.test(target.pathname);
   const isAltenListing = host === 'www.alten.ch' && target.pathname === '/career/jobs/';
   const isAltenJob = host === 'www.alten.ch'
     && /^\/jobs\/\d+-[a-z0-9]+(?:-[a-z0-9]+)*\/$/u.test(target.pathname);
   if (!isChurJob && !isHasJob && !isAltenListing && !isAltenJob) return null;
-  return { url: target, host, path: target.pathname };
+  return { url: target, host, path: target.pathname, methods: ['GET'], upstream: 'static' };
+}
+
+/**
+ * Validate and re-serialize the Workday listing body. Only the four fields the
+ * crawler sends survive, with bounded sizes: nothing the caller supplies
+ * beyond that shape is forwarded to the tenant.
+ */
+export function sanitizeWorkdayListingBody(raw) {
+  let payload = raw;
+  if (Buffer.isBuffer(payload)) payload = payload.toString('utf8');
+  if (typeof payload === 'string') {
+    if (Buffer.byteLength(payload, 'utf8') > RELAY_MAX_REQUEST_BODY_BYTES) return null;
+    try {
+      payload = JSON.parse(payload);
+    } catch {
+      return null;
+    }
+  }
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return null;
+  const allowed = new Set(['appliedFacets', 'limit', 'offset', 'searchText']);
+  if (Object.keys(payload).some((key) => !allowed.has(key))) return null;
+  const { appliedFacets = {}, limit = 20, offset = 0, searchText = '' } = payload;
+  if (!Number.isInteger(limit) || limit < 1 || limit > 100) return null;
+  if (!Number.isInteger(offset) || offset < 0 || offset > 100_000) return null;
+  if (typeof searchText !== 'string' || searchText.length > 200) return null;
+  if (!appliedFacets || typeof appliedFacets !== 'object' || Array.isArray(appliedFacets)) return null;
+  const facetEntries = Object.entries(appliedFacets);
+  if (facetEntries.length > 20) return null;
+  const facets = {};
+  for (const [name, values] of facetEntries) {
+    if (!/^[A-Za-z0-9_.-]{1,64}$/u.test(name)) return null;
+    if (!Array.isArray(values) || values.length > 50) return null;
+    if (values.some((value) => typeof value !== 'string' || value.length === 0 || value.length > 200)) return null;
+    facets[name] = values;
+  }
+  const body = JSON.stringify({ appliedFacets: facets, limit, offset, searchText });
+  return Buffer.byteLength(body, 'utf8') > RELAY_MAX_REQUEST_BODY_BYTES ? null : body;
 }
 
 export function createHostRateLimiter({
@@ -356,7 +424,14 @@ async function readResponseBodyLimited(response, maxBytes, signal) {
   throw new Error('upstream_body_unreadable');
 }
 
-async function fetchAllowedTarget(initialTarget, { fetchImpl, rateLimiter, dailyUpstreamCap }) {
+async function fetchAllowedTarget(initialTarget, {
+  fetchImpl,
+  rateLimiter,
+  dailyUpstreamCap,
+  workdayDailyUpstreamCap,
+  method = 'GET',
+  body: requestBody,
+}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), RELAY_TIMEOUT_MS);
   const seenHosts = new Set();
@@ -365,23 +440,31 @@ async function fetchAllowedTarget(initialTarget, { fetchImpl, rateLimiter, daily
 
   try {
     while (true) {
-      if (dailyUpstreamCap.isExhausted()) return { kind: 'daily_cap', host: target.host, path: target.path };
+      const cap = target.upstream === 'workday' ? workdayDailyUpstreamCap : dailyUpstreamCap;
+      if (cap.isExhausted()) return { kind: 'daily_cap', host: target.host, path: target.path };
       if (!seenHosts.has(target.host)) {
         if (!rateLimiter.allow(target.host)) return { kind: 'rate_limited', host: target.host, path: target.path };
         seenHosts.add(target.host);
       }
-      if (!dailyUpstreamCap.tryAcquire()) return { kind: 'daily_cap', host: target.host, path: target.path };
+      if (!cap.tryAcquire()) return { kind: 'daily_cap', host: target.host, path: target.path };
 
       const response = await fetchImpl(target.url, {
-        method: 'GET',
+        method,
         redirect: 'manual',
         headers: {
           'User-Agent': RELAY_USER_AGENT,
           Accept: 'text/html, application/json',
+          ...(method === 'POST' ? { 'Content-Type': 'application/json' } : {}),
         },
+        ...(method === 'POST' ? { body: requestBody } : {}),
         signal: controller.signal,
       });
       const status = Number(response?.status || 0);
+      // The tenant's own rate limit, whatever its content type: surfaced as a
+      // distinct, upstream-marked 429 so the caller stops instead of retrying.
+      if (status === 429 && target.upstream === 'workday') {
+        return { kind: 'upstream_rate_limited', target };
+      }
       if (!REDIRECT_STATUSES.has(status)) {
         const contentType = String(getResponseHeader(response, 'content-type') || '')
           .split(';', 1)[0]
@@ -395,6 +478,8 @@ async function fetchAllowedTarget(initialTarget, { fetchImpl, rateLimiter, daily
         return { kind: 'response', response, target, body, contentType };
       }
 
+      // A POST is never replayed against a redirect target.
+      if (method === 'POST') return { kind: 'redirect_forbidden', target: describeTarget(String(getResponseHeader(response, 'location') || '')) };
       if (redirects >= MAX_RELAY_REDIRECTS) return { kind: 'too_many_redirects', target };
       const location = getResponseHeader(response, 'location');
       if (!location) return { kind: 'upstream_error', target };
@@ -419,6 +504,7 @@ export function createJobsSourceRelayHandler({
   verifyToken = (token) => verifyGithubOidcToken(token, { fetchImpl }),
   rateLimiter = createHostRateLimiter(),
   dailyUpstreamCap = createDailyUpstreamCap(),
+  workdayDailyUpstreamCap = createDailyUpstreamCap({ maxPerDay: RELAY_WORKDAY_MAX_UPSTREAM_PER_DAY }),
 } = {}) {
   return async function jobsSourceRelay(req, res) {
     const authorization = getRequestHeader(req, 'authorization') || '';
@@ -437,7 +523,7 @@ export function createJobsSourceRelayHandler({
     const rawTarget = requestQueryValue(req, 'url');
     const describedTarget = describeTarget(rawTarget);
     const caller = claims.repository;
-    if (req.method !== 'GET') {
+    if (req.method !== 'GET' && req.method !== 'POST') {
       logRelayRequest({ ...describedTarget, status: 405, caller });
       return sendJson(res, 405, 'method_not_allowed');
     }
@@ -447,8 +533,32 @@ export function createJobsSourceRelayHandler({
       logRelayRequest({ ...describedTarget, status: 403, caller });
       return sendJson(res, 403, 'forbidden');
     }
+    if (!target.methods.includes(req.method)) {
+      logRelayRequest({ ...describedTarget, status: 405, caller });
+      return sendJson(res, 405, 'method_not_allowed');
+    }
 
-    const result = await fetchAllowedTarget(target, { fetchImpl, rateLimiter, dailyUpstreamCap });
+    let upstreamBody;
+    if (req.method === 'POST') {
+      upstreamBody = sanitizeWorkdayListingBody(req.rawBody ?? req.body);
+      if (upstreamBody === null) {
+        logRelayRequest({ ...describedTarget, status: 400, caller });
+        return sendJson(res, 400, 'invalid_body');
+      }
+    }
+
+    const result = await fetchAllowedTarget(target, {
+      fetchImpl,
+      rateLimiter,
+      dailyUpstreamCap,
+      workdayDailyUpstreamCap,
+      method: req.method,
+      body: upstreamBody,
+    });
+    if (result.kind === 'upstream_rate_limited') {
+      logRelayRequest({ host: result.target.host, path: result.target.path, status: 429, caller });
+      return sendJson(res, 429, 'upstream_rate_limited', UPSTREAM_MARKER);
+    }
     if (result.kind === 'daily_cap') {
       logRelayRequest({ host: result.host, path: result.path, status: 429, caller });
       return sendJson(res, 429, 'daily_cap');
@@ -491,7 +601,13 @@ export function createJobsSourceRelayHandler({
       bytes: result.body.bytes,
       caller,
     });
-    return sendBody(res, Number(response.status), result.body.body, result.contentType);
+    return sendBody(
+      res,
+      Number(response.status),
+      result.body.body,
+      result.contentType,
+      UPSTREAM_MARKER,
+    );
   };
 }
 

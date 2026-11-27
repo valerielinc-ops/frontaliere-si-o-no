@@ -1,7 +1,7 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-11-26T21:51:13.452Z",
-  "runId": "45897382103",
+  "assembledAt": "2026-11-27T10:01:53.449Z",
+  "runId": "45972781327",
   "jobs": [
     {
       "id": "canton-valais-a62169f026d0",
@@ -34,7 +34,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20877?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:05.970Z",
+      "crawledAt": "2026-11-27T10:01:46.285Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -84,9 +84,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:51:05.970Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20877?language=fr"
+      "validThrough": "2027-02-04T10:01:46.285Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-d29777a523a4",
@@ -119,7 +118,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108448&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:05.518Z",
+      "crawledAt": "2026-11-27T10:01:45.744Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -168,9 +167,8 @@
       },
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:51:05.518Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=108448&publication=2646"
+      "validThrough": "2027-02-11T10:01:45.744Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-0920858c798a",
@@ -203,7 +201,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100872&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:04.876Z",
+      "crawledAt": "2026-11-27T10:01:44.176Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -252,9 +250,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:51:04.876Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=100872&publication=2646"
+      "validThrough": "2027-02-11T10:01:44.176Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-1e5d7dbaaa4b",
@@ -287,7 +284,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112350&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:04.247Z",
+      "crawledAt": "2026-11-27T10:01:43.385Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -336,9 +333,8 @@
       },
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:51:04.247Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=112350&publication=2646"
+      "validThrough": "2026-12-27T10:01:43.385Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-e3aed5292d13",
@@ -371,7 +367,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101086&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:03.475Z",
+      "crawledAt": "2026-11-27T10:01:42.388Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -420,9 +416,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:51:03.475Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101086&publication=2646"
+      "validThrough": "2027-02-11T10:01:42.388Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-b0f4675c09df",
@@ -455,7 +450,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101694&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:02.827Z",
+      "crawledAt": "2026-11-27T10:01:41.589Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -504,9 +499,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:51:02.827Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101694&publication=2646"
+      "validThrough": "2027-02-11T10:01:41.589Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-39425bc75a73",
@@ -539,7 +533,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113350&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:02.169Z",
+      "crawledAt": "2026-11-27T10:01:40.795Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -588,9 +582,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:51:02.169Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=113350&publication=2646"
+      "validThrough": "2027-02-11T10:01:40.795Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-226a99bdd0d1",
@@ -623,7 +616,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100306&publication=2646",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:01.539Z",
+      "crawledAt": "2026-11-27T10:01:40.005Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -672,9 +665,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:51:01.539Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=100306&publication=2646"
+      "validThrough": "2027-02-11T10:01:40.005Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-aed8c4b8a561",
@@ -707,7 +699,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20915?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:00.759Z",
+      "crawledAt": "2026-11-27T10:01:38.988Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -758,9 +750,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:51:00.759Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20915?language=fr"
+      "validThrough": "2027-02-17T10:01:38.988Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-f123fba15291",
@@ -793,7 +784,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100226&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:51:00.163Z",
+      "crawledAt": "2026-11-27T10:01:38.227Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -842,9 +833,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:51:00.163Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=100226&publication=2647"
+      "validThrough": "2027-02-18T10:01:38.227Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-b3b4f36f9e42",
@@ -877,7 +867,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100613&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:59.414Z",
+      "crawledAt": "2026-11-27T10:01:37.244Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -926,9 +916,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:59.414Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=100613&publication=2647"
+      "validThrough": "2027-02-18T10:01:37.244Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-9f7a666ff216",
@@ -961,7 +950,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112835&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:58.779Z",
+      "crawledAt": "2026-11-27T10:01:36.443Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1010,9 +999,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:58.779Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=112835&publication=2647"
+      "validThrough": "2027-02-18T10:01:36.443Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-337479e77084",
@@ -1045,7 +1033,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113819&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:57.494Z",
+      "crawledAt": "2026-11-27T10:01:34.859Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1094,9 +1082,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:57.494Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=113819&publication=2647"
+      "validThrough": "2027-02-18T10:01:34.859Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-8f52ac2ad703",
@@ -1129,7 +1116,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114360&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:56.851Z",
+      "crawledAt": "2026-11-27T10:01:33.856Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1179,9 +1166,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:56.851Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=114360&publication=2647"
+      "validThrough": "2027-02-18T10:01:33.856Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-3c8c66eec1f2",
@@ -1214,7 +1200,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101860&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:56.198Z",
+      "crawledAt": "2026-11-27T10:01:33.058Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1265,9 +1251,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:56.198Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101860&publication=2647"
+      "validThrough": "2027-02-18T10:01:33.058Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-27bbb8b5ab44",
@@ -1300,7 +1285,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100502&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:55.521Z",
+      "crawledAt": "2026-11-27T10:01:32.277Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1349,9 +1334,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:55.521Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=100502&publication=2647"
+      "validThrough": "2027-02-18T10:01:32.277Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-a90f1b9fe3f8",
@@ -1384,7 +1368,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108295&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:54.869Z",
+      "crawledAt": "2026-11-27T10:01:31.497Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1433,9 +1417,8 @@
       },
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:54.869Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=108295&publication=2647"
+      "validThrough": "2027-02-18T10:01:31.497Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-b4508965eb99",
@@ -1468,7 +1451,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109179&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:54.236Z",
+      "crawledAt": "2026-11-27T10:01:30.693Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1528,9 +1511,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:50:54.236Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=109179&publication=2647"
+      "validThrough": "2027-01-01T10:01:30.693Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-c0c4e59178bc",
@@ -1563,7 +1545,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114610&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:53.546Z",
+      "crawledAt": "2026-11-27T10:01:29.899Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1636,9 +1618,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:50:53.546Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=114610&publication=2647"
+      "validThrough": "2027-01-01T10:01:29.899Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-fcd3e2d9801b",
@@ -1671,7 +1652,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114510&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:50:52.884Z",
+      "crawledAt": "2026-11-27T10:01:29.090Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1724,9 +1705,8 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:52.884Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=114510&publication=2647"
+      "validThrough": "2027-02-18T10:01:29.090Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-66225b5dd1d9",
@@ -1759,7 +1739,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107985&publication=2647",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:50:52.234Z",
+      "crawledAt": "2026-11-27T10:01:28.293Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1812,9 +1792,8 @@
       },
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:52.234Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=107985&publication=2647"
+      "validThrough": "2027-02-18T10:01:28.293Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "canton-valais-c97015d7aef4",
@@ -1847,7 +1826,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20935?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:50:51.526Z",
+      "crawledAt": "2026-11-27T10:01:27.286Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1896,9 +1875,296 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:50:51.526Z",
+      "validThrough": "2027-02-18T10:01:27.286Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-1f6a80edefb2",
+      "slug": "un-taxateur-ou-une-taxatrice-80-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-taxateur-ou-une-taxatrice-80-100-canton-valais-ch",
+        "it": "un-taxateur-ou-une-taxatrice-80-100-canton-valais-ch",
+        "en": "un-taxateur-ou-une-taxatrice-80-100-canton-valais-ch",
+        "de": "un-taxateur-ou-une-taxatrice-80-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un taxateur ou une taxatrice (80-100%)",
+      "titleByLocale": {
+        "fr": "Un taxateur ou une taxatrice (80-100%)",
+        "it": "Un taxateur ou une taxatrice (80-100%)",
+        "en": "Un taxateur ou une taxatrice (80-100%)",
+        "de": "Un taxateur ou une taxatrice (80-100%)"
+      },
+      "description": "Un taxateur ou une taxatrice (80-100%) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100678",
+      "descriptionByLocale": {
+        "fr": "Un taxateur ou une taxatrice (80-100%) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100678",
+        "it": "Un taxateur ou une taxatrice (80-100%) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100678",
+        "en": "Un taxateur ou une taxatrice (80-100%) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100678",
+        "de": "Un taxateur ou une taxatrice (80-100%) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 4 décembre 2026 / Numéro de référence : 100678"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100678&publication=2648",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-27T10:01:26.535Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100678&publication=2648",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T10:01:26.535Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20935?language=fr"
+      "firstSeenAt": "2026-11-27T10:01:26.535Z"
+    },
+    {
+      "id": "canton-valais-7be3bf5e9ec5",
+      "slug": "un-ingenieur-ou-une-ingenieure-dangers-naturels-un-ou-une-geologue-ressources-du-sous-sol",
+      "slugByLocale": {
+        "fr": "un-ingenieur-ou-une-ingenieure-dangers-naturels-un-ou-une-geologue-ressources-du-sous-sol",
+        "it": "un-ingenieur-ou-une-ingenieure-dangers-naturels-un-ou-une-geologue-ressources-du-sous-sol",
+        "en": "un-ingenieur-ou-une-ingenieure-dangers-naturels-un-ou-une-geologue-ressources-du-sous-sol",
+        "de": "un-ingenieur-ou-une-ingenieure-dangers-naturels-un-ou-une-geologue-ressources-du-sous-sol"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%)",
+      "titleByLocale": {
+        "fr": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%)",
+        "it": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%)",
+        "en": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%)",
+        "de": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%)"
+      },
+      "description": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%) auprès de la section dangers géologiques et ressources du sous-sol du Service des dangers naturels (SDANA), à Brig ou Sion Fort de compétences scientifiques et techniques, le Service des dangers naturels (SDANA) est en charge de la gestion des dangers naturels. Notre mission ? Prévenir, planifier, organiser et intervenir. Nos activités\n\n• Supervision et réalisation : Supervision de l’élaboration des cartes de danger,\n• réalisation des projets de surveillance géologique, appui technique pour le\n• dimensionnement des ouvrages de protection\n• Mesures d’urgence : Appui technique lors d’événements géologiques\n• Analyse et gestion : Analyse des dangers gravitaires ; chutes de pierres, éboulements,\n• coulées de boue, glissements de terrain et effondrements. Gestion des ressources\n• minérales du sous-sol\n• Evaluation : Risques sismiques pour la prévention des tremblements de terre\n• Coopération et échange : Echanges réguliers avec les autorités fédérales, cantonales\n• et communales, les bureaux d’ingénieurs et les entreprises de construction\n\nVos tâches:\n• Vous conduisez en collaboration avec les communes, les services de l’Etat et les tiers intéressés, la réalisation et la planification des cartes de dangers géologiques et des projets de surveillance pour une partie de l’arrondissement du Haut-Valais. Vous soutenez également l’arrondissement du Valais central dans les domaines relatifs à la gestion des dangers naturels. Vous apportez votre appui technique aux différents partenaires dans les domaines des ressources minérales et de l'utilisation du sous-sol Vous contribuez à l'évaluation du potentiel des ressources minérales du canton, leur mise en valeur ainsi qu'à la planification de leur utilisation Vous mettez en œuvre les outils nécessaires à l'accomplissement des tâches cantonales en matière de gestion des ressources du sous-sol, des carrières et des gravières Vous participez au développement et à l’implantation du réseau cantonal de prévision d'évènements, de surveillance des terrains instables et des systèmes d'alerte Vous gérez les aspects administratifs, techniques et financiers de vos activités\n\nVotre profil:\n• Géologue/ingénieur (niveau Master ou jugé équivalent) Expérience dans le domaine des danger naturels et de la gestion du risque. Connaissance pratiques des méthodes d’analyse, de monitoring et de protection des terrains instables Connaissance dans la gestion des ressources minérales et l'utilisation du sous-sol Connaissances des méthodes d'évaluation des ressources minérales, de leur exploitation et de leur utilisation Bonnes connaissances de la géologie du canton Expérience dans la gestion technique et informatique des systèmes de surveillance serait un plus Capacité de prendre des décisions concernant la sécurité des personnes et des biens en situation d'urgence\n• Aptitude à travailler de manière autonome Aisance dans la rédaction, facilité de contact, entregent, diplomatie Bonne condition physique Langue maternelle française ou allemande avec de très bonnes connaissances orales et écrites de la 2 e langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service des dangers naturels, M. Julien Travelletti (027 606 35 51, julien.travelletti@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 112690",
+      "descriptionByLocale": {
+        "fr": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%) auprès de la section dangers géologiques et ressources du sous-sol du Service des dangers naturels (SDANA), à Brig ou Sion Fort de compétences scientifiques et techniques, le Service des dangers naturels (SDANA) est en charge de la gestion des dangers naturels. Notre mission ? Prévenir, planifier, organiser et intervenir. Nos activités\n\n• Supervision et réalisation : Supervision de l’élaboration des cartes de danger,\n• réalisation des projets de surveillance géologique, appui technique pour le\n• dimensionnement des ouvrages de protection\n• Mesures d’urgence : Appui technique lors d’événements géologiques\n• Analyse et gestion : Analyse des dangers gravitaires ; chutes de pierres, éboulements,\n• coulées de boue, glissements de terrain et effondrements. Gestion des ressources\n• minérales du sous-sol\n• Evaluation : Risques sismiques pour la prévention des tremblements de terre\n• Coopération et échange : Echanges réguliers avec les autorités fédérales, cantonales\n• et communales, les bureaux d’ingénieurs et les entreprises de construction\n\nVos tâches:\n• Vous conduisez en collaboration avec les communes, les services de l’Etat et les tiers intéressés, la réalisation et la planification des cartes de dangers géologiques et des projets de surveillance pour une partie de l’arrondissement du Haut-Valais. Vous soutenez également l’arrondissement du Valais central dans les domaines relatifs à la gestion des dangers naturels. Vous apportez votre appui technique aux différents partenaires dans les domaines des ressources minérales et de l'utilisation du sous-sol Vous contribuez à l'évaluation du potentiel des ressources minérales du canton, leur mise en valeur ainsi qu'à la planification de leur utilisation Vous mettez en œuvre les outils nécessaires à l'accomplissement des tâches cantonales en matière de gestion des ressources du sous-sol, des carrières et des gravières Vous participez au développement et à l’implantation du réseau cantonal de prévision d'évènements, de surveillance des terrains instables et des systèmes d'alerte Vous gérez les aspects administratifs, techniques et financiers de vos activités\n\nVotre profil:\n• Géologue/ingénieur (niveau Master ou jugé équivalent) Expérience dans le domaine des danger naturels et de la gestion du risque. Connaissance pratiques des méthodes d’analyse, de monitoring et de protection des terrains instables Connaissance dans la gestion des ressources minérales et l'utilisation du sous-sol Connaissances des méthodes d'évaluation des ressources minérales, de leur exploitation et de leur utilisation Bonnes connaissances de la géologie du canton Expérience dans la gestion technique et informatique des systèmes de surveillance serait un plus Capacité de prendre des décisions concernant la sécurité des personnes et des biens en situation d'urgence\n• Aptitude à travailler de manière autonome Aisance dans la rédaction, facilité de contact, entregent, diplomatie Bonne condition physique Langue maternelle française ou allemande avec de très bonnes connaissances orales et écrites de la 2 e langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service des dangers naturels, M. Julien Travelletti (027 606 35 51, julien.travelletti@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 112690",
+        "it": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%) auprès de la section dangers géologiques et ressources du sous-sol du Service des dangers naturels (SDANA), à Brig ou Sion Fort de compétences scientifiques et techniques, le Service des dangers naturels (SDANA) est en charge de la gestion des dangers naturels. Notre mission ? Prévenir, planifier, organiser et intervenir. Nos activités\n\n• Supervision et réalisation : Supervision de l’élaboration des cartes de danger,\n• réalisation des projets de surveillance géologique, appui technique pour le\n• dimensionnement des ouvrages de protection\n• Mesures d’urgence : Appui technique lors d’événements géologiques\n• Analyse et gestion : Analyse des dangers gravitaires ; chutes de pierres, éboulements,\n• coulées de boue, glissements de terrain et effondrements. Gestion des ressources\n• minérales du sous-sol\n• Evaluation : Risques sismiques pour la prévention des tremblements de terre\n• Coopération et échange : Echanges réguliers avec les autorités fédérales, cantonales\n• et communales, les bureaux d’ingénieurs et les entreprises de construction\n\nVos tâches:\n• Vous conduisez en collaboration avec les communes, les services de l’Etat et les tiers intéressés, la réalisation et la planification des cartes de dangers géologiques et des projets de surveillance pour une partie de l’arrondissement du Haut-Valais. Vous soutenez également l’arrondissement du Valais central dans les domaines relatifs à la gestion des dangers naturels. Vous apportez votre appui technique aux différents partenaires dans les domaines des ressources minérales et de l'utilisation du sous-sol Vous contribuez à l'évaluation du potentiel des ressources minérales du canton, leur mise en valeur ainsi qu'à la planification de leur utilisation Vous mettez en œuvre les outils nécessaires à l'accomplissement des tâches cantonales en matière de gestion des ressources du sous-sol, des carrières et des gravières Vous participez au développement et à l’implantation du réseau cantonal de prévision d'évènements, de surveillance des terrains instables et des systèmes d'alerte Vous gérez les aspects administratifs, techniques et financiers de vos activités\n\nVotre profil:\n• Géologue/ingénieur (niveau Master ou jugé équivalent) Expérience dans le domaine des danger naturels et de la gestion du risque. Connaissance pratiques des méthodes d’analyse, de monitoring et de protection des terrains instables Connaissance dans la gestion des ressources minérales et l'utilisation du sous-sol Connaissances des méthodes d'évaluation des ressources minérales, de leur exploitation et de leur utilisation Bonnes connaissances de la géologie du canton Expérience dans la gestion technique et informatique des systèmes de surveillance serait un plus Capacité de prendre des décisions concernant la sécurité des personnes et des biens en situation d'urgence\n• Aptitude à travailler de manière autonome Aisance dans la rédaction, facilité de contact, entregent, diplomatie Bonne condition physique Langue maternelle française ou allemande avec de très bonnes connaissances orales et écrites de la 2 e langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service des dangers naturels, M. Julien Travelletti (027 606 35 51, julien.travelletti@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 112690",
+        "en": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%) auprès de la section dangers géologiques et ressources du sous-sol du Service des dangers naturels (SDANA), à Brig ou Sion Fort de compétences scientifiques et techniques, le Service des dangers naturels (SDANA) est en charge de la gestion des dangers naturels. Notre mission ? Prévenir, planifier, organiser et intervenir. Nos activités\n\n• Supervision et réalisation : Supervision de l’élaboration des cartes de danger,\n• réalisation des projets de surveillance géologique, appui technique pour le\n• dimensionnement des ouvrages de protection\n• Mesures d’urgence : Appui technique lors d’événements géologiques\n• Analyse et gestion : Analyse des dangers gravitaires ; chutes de pierres, éboulements,\n• coulées de boue, glissements de terrain et effondrements. Gestion des ressources\n• minérales du sous-sol\n• Evaluation : Risques sismiques pour la prévention des tremblements de terre\n• Coopération et échange : Echanges réguliers avec les autorités fédérales, cantonales\n• et communales, les bureaux d’ingénieurs et les entreprises de construction\n\nVos tâches:\n• Vous conduisez en collaboration avec les communes, les services de l’Etat et les tiers intéressés, la réalisation et la planification des cartes de dangers géologiques et des projets de surveillance pour une partie de l’arrondissement du Haut-Valais. Vous soutenez également l’arrondissement du Valais central dans les domaines relatifs à la gestion des dangers naturels. Vous apportez votre appui technique aux différents partenaires dans les domaines des ressources minérales et de l'utilisation du sous-sol Vous contribuez à l'évaluation du potentiel des ressources minérales du canton, leur mise en valeur ainsi qu'à la planification de leur utilisation Vous mettez en œuvre les outils nécessaires à l'accomplissement des tâches cantonales en matière de gestion des ressources du sous-sol, des carrières et des gravières Vous participez au développement et à l’implantation du réseau cantonal de prévision d'évènements, de surveillance des terrains instables et des systèmes d'alerte Vous gérez les aspects administratifs, techniques et financiers de vos activités\n\nVotre profil:\n• Géologue/ingénieur (niveau Master ou jugé équivalent) Expérience dans le domaine des danger naturels et de la gestion du risque. Connaissance pratiques des méthodes d’analyse, de monitoring et de protection des terrains instables Connaissance dans la gestion des ressources minérales et l'utilisation du sous-sol Connaissances des méthodes d'évaluation des ressources minérales, de leur exploitation et de leur utilisation Bonnes connaissances de la géologie du canton Expérience dans la gestion technique et informatique des systèmes de surveillance serait un plus Capacité de prendre des décisions concernant la sécurité des personnes et des biens en situation d'urgence\n• Aptitude à travailler de manière autonome Aisance dans la rédaction, facilité de contact, entregent, diplomatie Bonne condition physique Langue maternelle française ou allemande avec de très bonnes connaissances orales et écrites de la 2 e langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service des dangers naturels, M. Julien Travelletti (027 606 35 51, julien.travelletti@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 112690",
+        "de": "Un ingénieur ou une ingénieure dangers naturels / un ou une géologue ressources du sous-sol (70%) auprès de la section dangers géologiques et ressources du sous-sol du Service des dangers naturels (SDANA), à Brig ou Sion Fort de compétences scientifiques et techniques, le Service des dangers naturels (SDANA) est en charge de la gestion des dangers naturels. Notre mission ? Prévenir, planifier, organiser et intervenir. Nos activités\n\n• Supervision et réalisation : Supervision de l’élaboration des cartes de danger,\n• réalisation des projets de surveillance géologique, appui technique pour le\n• dimensionnement des ouvrages de protection\n• Mesures d’urgence : Appui technique lors d’événements géologiques\n• Analyse et gestion : Analyse des dangers gravitaires ; chutes de pierres, éboulements,\n• coulées de boue, glissements de terrain et effondrements. Gestion des ressources\n• minérales du sous-sol\n• Evaluation : Risques sismiques pour la prévention des tremblements de terre\n• Coopération et échange : Echanges réguliers avec les autorités fédérales, cantonales\n• et communales, les bureaux d’ingénieurs et les entreprises de construction\n\nVos tâches:\n• Vous conduisez en collaboration avec les communes, les services de l’Etat et les tiers intéressés, la réalisation et la planification des cartes de dangers géologiques et des projets de surveillance pour une partie de l’arrondissement du Haut-Valais. Vous soutenez également l’arrondissement du Valais central dans les domaines relatifs à la gestion des dangers naturels. Vous apportez votre appui technique aux différents partenaires dans les domaines des ressources minérales et de l'utilisation du sous-sol Vous contribuez à l'évaluation du potentiel des ressources minérales du canton, leur mise en valeur ainsi qu'à la planification de leur utilisation Vous mettez en œuvre les outils nécessaires à l'accomplissement des tâches cantonales en matière de gestion des ressources du sous-sol, des carrières et des gravières Vous participez au développement et à l’implantation du réseau cantonal de prévision d'évènements, de surveillance des terrains instables et des systèmes d'alerte Vous gérez les aspects administratifs, techniques et financiers de vos activités\n\nVotre profil:\n• Géologue/ingénieur (niveau Master ou jugé équivalent) Expérience dans le domaine des danger naturels et de la gestion du risque. Connaissance pratiques des méthodes d’analyse, de monitoring et de protection des terrains instables Connaissance dans la gestion des ressources minérales et l'utilisation du sous-sol Connaissances des méthodes d'évaluation des ressources minérales, de leur exploitation et de leur utilisation Bonnes connaissances de la géologie du canton Expérience dans la gestion technique et informatique des systèmes de surveillance serait un plus Capacité de prendre des décisions concernant la sécurité des personnes et des biens en situation d'urgence\n• Aptitude à travailler de manière autonome Aisance dans la rédaction, facilité de contact, entregent, diplomatie Bonne condition physique Langue maternelle française ou allemande avec de très bonnes connaissances orales et écrites de la 2 e langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service des dangers naturels, M. Julien Travelletti (027 606 35 51, julien.travelletti@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 112690"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112690&publication=2648",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-27T10:01:25.740Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112690&publication=2648",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 42400,
+      "salaryMax": 64000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 42400,
+          "maxValue": 64000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T10:01:25.740Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-27T10:01:25.740Z"
+    },
+    {
+      "id": "canton-valais-e248c2312e0f",
+      "slug": "un-ou-une-juriste-40-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-ou-une-juriste-40-canton-valais-ch",
+        "it": "un-ou-une-juriste-40-canton-valais-ch",
+        "en": "un-ou-une-juriste-40-canton-valais-ch",
+        "de": "un-ou-une-juriste-40-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ou une juriste (40%)",
+      "titleByLocale": {
+        "fr": "Un ou une juriste (40%)",
+        "it": "Un ou une juriste (40%)",
+        "en": "Un ou une juriste (40%)",
+        "de": "Un ou une juriste (40%)"
+      },
+      "description": "Un ou une juriste (40%) auprès du Service de la chasse, de la pêche et de la faune, à Sion\n\nVos tâches:\n• Vous traitez et assurez le suivi des affaires juridiques et des infractions dans les domaines de la chasse, de la pêche et de la faune Vous conseillez le Service sur les questions juridiques et traitez les recours Vous collaborez aux travaux législatifs, aux objets politiques ainsi qu’aux questions juridiques liées aux domaines d’activité du Service. Vous assumez certaines tâches en matière de protection des données et soutenez le Service dans d’autres dossiers juridiques\n\nVotre profil:\n• Bachelor ou Master en droit Aptitude à travailler de manière autonome, structurée et fiable Intérêt pour les questions de droit public ainsi que pour les domaines de la chasse, de la pêche et de la faune Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Service de la chasse, de la pêche et de la faune (027 606 70 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 111989",
+      "descriptionByLocale": {
+        "fr": "Un ou une juriste (40%) auprès du Service de la chasse, de la pêche et de la faune, à Sion\n\nVos tâches:\n• Vous traitez et assurez le suivi des affaires juridiques et des infractions dans les domaines de la chasse, de la pêche et de la faune Vous conseillez le Service sur les questions juridiques et traitez les recours Vous collaborez aux travaux législatifs, aux objets politiques ainsi qu’aux questions juridiques liées aux domaines d’activité du Service. Vous assumez certaines tâches en matière de protection des données et soutenez le Service dans d’autres dossiers juridiques\n\nVotre profil:\n• Bachelor ou Master en droit Aptitude à travailler de manière autonome, structurée et fiable Intérêt pour les questions de droit public ainsi que pour les domaines de la chasse, de la pêche et de la faune Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Service de la chasse, de la pêche et de la faune (027 606 70 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 111989",
+        "it": "Un ou une juriste (40%) auprès du Service de la chasse, de la pêche et de la faune, à Sion\n\nVos tâches:\n• Vous traitez et assurez le suivi des affaires juridiques et des infractions dans les domaines de la chasse, de la pêche et de la faune Vous conseillez le Service sur les questions juridiques et traitez les recours Vous collaborez aux travaux législatifs, aux objets politiques ainsi qu’aux questions juridiques liées aux domaines d’activité du Service. Vous assumez certaines tâches en matière de protection des données et soutenez le Service dans d’autres dossiers juridiques\n\nVotre profil:\n• Bachelor ou Master en droit Aptitude à travailler de manière autonome, structurée et fiable Intérêt pour les questions de droit public ainsi que pour les domaines de la chasse, de la pêche et de la faune Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Service de la chasse, de la pêche et de la faune (027 606 70 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 111989",
+        "en": "Un ou une juriste (40%) auprès du Service de la chasse, de la pêche et de la faune, à Sion\n\nVos tâches:\n• Vous traitez et assurez le suivi des affaires juridiques et des infractions dans les domaines de la chasse, de la pêche et de la faune Vous conseillez le Service sur les questions juridiques et traitez les recours Vous collaborez aux travaux législatifs, aux objets politiques ainsi qu’aux questions juridiques liées aux domaines d’activité du Service. Vous assumez certaines tâches en matière de protection des données et soutenez le Service dans d’autres dossiers juridiques\n\nVotre profil:\n• Bachelor ou Master en droit Aptitude à travailler de manière autonome, structurée et fiable Intérêt pour les questions de droit public ainsi que pour les domaines de la chasse, de la pêche et de la faune Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Service de la chasse, de la pêche et de la faune (027 606 70 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 111989",
+        "de": "Un ou une juriste (40%) auprès du Service de la chasse, de la pêche et de la faune, à Sion\n\nVos tâches:\n• Vous traitez et assurez le suivi des affaires juridiques et des infractions dans les domaines de la chasse, de la pêche et de la faune Vous conseillez le Service sur les questions juridiques et traitez les recours Vous collaborez aux travaux législatifs, aux objets politiques ainsi qu’aux questions juridiques liées aux domaines d’activité du Service. Vous assumez certaines tâches en matière de protection des données et soutenez le Service dans d’autres dossiers juridiques\n\nVotre profil:\n• Bachelor ou Master en droit Aptitude à travailler de manière autonome, structurée et fiable Intérêt pour les questions de droit public ainsi que pour les domaines de la chasse, de la pêche et de la faune Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Service de la chasse, de la pêche et de la faune (027 606 70 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 11 décembre 2026 / Numéro de référence : 111989"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111989&publication=2648",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-27T10:01:24.702Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111989&publication=2648",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 24200,
+      "salaryMax": 36600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 24200,
+          "maxValue": 36600,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T10:01:24.702Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-27T10:01:24.702Z"
+    },
+    {
+      "id": "canton-valais-4a849beb559f",
+      "slug": "staatsanwalt-staatsanwaltin-100-canton-valais-ch",
+      "slugByLocale": {
+        "de": "staatsanwalt-staatsanwaltin-100-canton-valais-ch",
+        "it": "staatsanwalt-staatsanwaltin-100-canton-valais-ch",
+        "en": "staatsanwalt-staatsanwaltin-100-canton-valais-ch",
+        "fr": "staatsanwalt-staatsanwaltin-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Staatsanwalt / Staatsanwältin (100%)",
+      "titleByLocale": {
+        "de": "Staatsanwalt / Staatsanwältin (100%)",
+        "it": "Staatsanwalt / Staatsanwältin (100%)",
+        "en": "Staatsanwalt / Staatsanwältin (100%)",
+        "fr": "Staatsanwalt / Staatsanwältin (100%)"
+      },
+      "description": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Die Staatsanwaltschaft Wallis schreibt die folgende Stelle aus: Staatsanwalt / Staatsanwältin (100%) Beim Amt der Region Oberwallis in Brig-Glis\n\nIhre Aufgaben:\n•  Leiten der Strafuntersuchungen und erheben der Anklage sowie vertreten der\n• Staatsanwaltschaft vor den verschiedenen kantonalen und eidgenössischen\n• Gerichtsinstanzen\n•  Erlass von Strafbefehlen\n•  Verfügen von Nichtanhandnahmen, Sistierungen und Einstellungen.\n\nIhr Profil:\n•  Inhaber/in eines Anwaltsdiploms (Inhaber eines Lizentiats, Masters oder Doktorats\n• der Rechte oder eines gleichwertigen akademischen Titels sind wählbar, wenn sie\n• den Nachweis einer hinreichenden praktischen Erfahrung erbringen)\n•  Breite Erfahrung in der Strafverfolgung\n•  Analytisches Denkvermögen, Integrationsfähigkeit, Führungs- und\n• Organisationsgeschick\n•  Initiative und Entscheidungsfreudigkeit, Kommunikationsgeschick und\n• Selbstbeherrschung\n•  Leichtigkeit in Redaktion und Ausdruck\n•  Grosse Arbeitskapazität. Muttersprache: Deutsch, mit guten Kenntnissen der zweiten Amtssprache. Arbeitsort: Amt der Region Oberwallis in Brig-Glis. Beschäftigungsgrad: 100%. Stellenantritt: 1. März 2027 oder nach Vereinbarung. Statut: Magistrat gemäss dem kantonalen Gesetz über die Rechtspflege (RPflG) vom 11. Februar 2009.\n\nWir bieten:\nEine interessante und vielfältige Aufgabe, gute, moderne und angenehme Arbeitsbedingungen und hohe Sozialleistungen.\n\nInformationen:\nWeitere Auskünfte: Oberstaatsanwalt des Amtes der Region Oberwallis, Rinaldo Arnold, in Brig (Tel. 027 607 85 50). Ihre Bewerbungsunterlagen, einschliesslich Lebenslauf, Kopien der Diplome und Zeugnisse, aktueller Strafregister- und Betreibungsregisterauszug sind bis am 14. Dezember 2026 per Email an bewerbung@mp-sta.vs.ch, zuzustellen. Beatrice Pilloud",
+      "descriptionByLocale": {
+        "de": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Die Staatsanwaltschaft Wallis schreibt die folgende Stelle aus: Staatsanwalt / Staatsanwältin (100%) Beim Amt der Region Oberwallis in Brig-Glis\n\nIhre Aufgaben:\n•  Leiten der Strafuntersuchungen und erheben der Anklage sowie vertreten der\n• Staatsanwaltschaft vor den verschiedenen kantonalen und eidgenössischen\n• Gerichtsinstanzen\n•  Erlass von Strafbefehlen\n•  Verfügen von Nichtanhandnahmen, Sistierungen und Einstellungen.\n\nIhr Profil:\n•  Inhaber/in eines Anwaltsdiploms (Inhaber eines Lizentiats, Masters oder Doktorats\n• der Rechte oder eines gleichwertigen akademischen Titels sind wählbar, wenn sie\n• den Nachweis einer hinreichenden praktischen Erfahrung erbringen)\n•  Breite Erfahrung in der Strafverfolgung\n•  Analytisches Denkvermögen, Integrationsfähigkeit, Führungs- und\n• Organisationsgeschick\n•  Initiative und Entscheidungsfreudigkeit, Kommunikationsgeschick und\n• Selbstbeherrschung\n•  Leichtigkeit in Redaktion und Ausdruck\n•  Grosse Arbeitskapazität. Muttersprache: Deutsch, mit guten Kenntnissen der zweiten Amtssprache. Arbeitsort: Amt der Region Oberwallis in Brig-Glis. Beschäftigungsgrad: 100%. Stellenantritt: 1. März 2027 oder nach Vereinbarung. Statut: Magistrat gemäss dem kantonalen Gesetz über die Rechtspflege (RPflG) vom 11. Februar 2009.\n\nWir bieten:\nEine interessante und vielfältige Aufgabe, gute, moderne und angenehme Arbeitsbedingungen und hohe Sozialleistungen.\n\nInformationen:\nWeitere Auskünfte: Oberstaatsanwalt des Amtes der Region Oberwallis, Rinaldo Arnold, in Brig (Tel. 027 607 85 50). Ihre Bewerbungsunterlagen, einschliesslich Lebenslauf, Kopien der Diplome und Zeugnisse, aktueller Strafregister- und Betreibungsregisterauszug sind bis am 14. Dezember 2026 per Email an bewerbung@mp-sta.vs.ch, zuzustellen. Beatrice Pilloud",
+        "it": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Die Staatsanwaltschaft Wallis schreibt die folgende Stelle aus: Staatsanwalt / Staatsanwältin (100%) Beim Amt der Region Oberwallis in Brig-Glis\n\nIhre Aufgaben:\n•  Leiten der Strafuntersuchungen und erheben der Anklage sowie vertreten der\n• Staatsanwaltschaft vor den verschiedenen kantonalen und eidgenössischen\n• Gerichtsinstanzen\n•  Erlass von Strafbefehlen\n•  Verfügen von Nichtanhandnahmen, Sistierungen und Einstellungen.\n\nIhr Profil:\n•  Inhaber/in eines Anwaltsdiploms (Inhaber eines Lizentiats, Masters oder Doktorats\n• der Rechte oder eines gleichwertigen akademischen Titels sind wählbar, wenn sie\n• den Nachweis einer hinreichenden praktischen Erfahrung erbringen)\n•  Breite Erfahrung in der Strafverfolgung\n•  Analytisches Denkvermögen, Integrationsfähigkeit, Führungs- und\n• Organisationsgeschick\n•  Initiative und Entscheidungsfreudigkeit, Kommunikationsgeschick und\n• Selbstbeherrschung\n•  Leichtigkeit in Redaktion und Ausdruck\n•  Grosse Arbeitskapazität. Muttersprache: Deutsch, mit guten Kenntnissen der zweiten Amtssprache. Arbeitsort: Amt der Region Oberwallis in Brig-Glis. Beschäftigungsgrad: 100%. Stellenantritt: 1. März 2027 oder nach Vereinbarung. Statut: Magistrat gemäss dem kantonalen Gesetz über die Rechtspflege (RPflG) vom 11. Februar 2009.\n\nWir bieten:\nEine interessante und vielfältige Aufgabe, gute, moderne und angenehme Arbeitsbedingungen und hohe Sozialleistungen.\n\nInformationen:\nWeitere Auskünfte: Oberstaatsanwalt des Amtes der Region Oberwallis, Rinaldo Arnold, in Brig (Tel. 027 607 85 50). Ihre Bewerbungsunterlagen, einschliesslich Lebenslauf, Kopien der Diplome und Zeugnisse, aktueller Strafregister- und Betreibungsregisterauszug sind bis am 14. Dezember 2026 per Email an bewerbung@mp-sta.vs.ch, zuzustellen. Beatrice Pilloud",
+        "en": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Die Staatsanwaltschaft Wallis schreibt die folgende Stelle aus: Staatsanwalt / Staatsanwältin (100%) Beim Amt der Region Oberwallis in Brig-Glis\n\nIhre Aufgaben:\n•  Leiten der Strafuntersuchungen und erheben der Anklage sowie vertreten der\n• Staatsanwaltschaft vor den verschiedenen kantonalen und eidgenössischen\n• Gerichtsinstanzen\n•  Erlass von Strafbefehlen\n•  Verfügen von Nichtanhandnahmen, Sistierungen und Einstellungen.\n\nIhr Profil:\n•  Inhaber/in eines Anwaltsdiploms (Inhaber eines Lizentiats, Masters oder Doktorats\n• der Rechte oder eines gleichwertigen akademischen Titels sind wählbar, wenn sie\n• den Nachweis einer hinreichenden praktischen Erfahrung erbringen)\n•  Breite Erfahrung in der Strafverfolgung\n•  Analytisches Denkvermögen, Integrationsfähigkeit, Führungs- und\n• Organisationsgeschick\n•  Initiative und Entscheidungsfreudigkeit, Kommunikationsgeschick und\n• Selbstbeherrschung\n•  Leichtigkeit in Redaktion und Ausdruck\n•  Grosse Arbeitskapazität. Muttersprache: Deutsch, mit guten Kenntnissen der zweiten Amtssprache. Arbeitsort: Amt der Region Oberwallis in Brig-Glis. Beschäftigungsgrad: 100%. Stellenantritt: 1. März 2027 oder nach Vereinbarung. Statut: Magistrat gemäss dem kantonalen Gesetz über die Rechtspflege (RPflG) vom 11. Februar 2009.\n\nWir bieten:\nEine interessante und vielfältige Aufgabe, gute, moderne und angenehme Arbeitsbedingungen und hohe Sozialleistungen.\n\nInformationen:\nWeitere Auskünfte: Oberstaatsanwalt des Amtes der Region Oberwallis, Rinaldo Arnold, in Brig (Tel. 027 607 85 50). Ihre Bewerbungsunterlagen, einschliesslich Lebenslauf, Kopien der Diplome und Zeugnisse, aktueller Strafregister- und Betreibungsregisterauszug sind bis am 14. Dezember 2026 per Email an bewerbung@mp-sta.vs.ch, zuzustellen. Beatrice Pilloud",
+        "fr": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Die Staatsanwaltschaft Wallis schreibt die folgende Stelle aus: Staatsanwalt / Staatsanwältin (100%) Beim Amt der Region Oberwallis in Brig-Glis\n\nIhre Aufgaben:\n•  Leiten der Strafuntersuchungen und erheben der Anklage sowie vertreten der\n• Staatsanwaltschaft vor den verschiedenen kantonalen und eidgenössischen\n• Gerichtsinstanzen\n•  Erlass von Strafbefehlen\n•  Verfügen von Nichtanhandnahmen, Sistierungen und Einstellungen.\n\nIhr Profil:\n•  Inhaber/in eines Anwaltsdiploms (Inhaber eines Lizentiats, Masters oder Doktorats\n• der Rechte oder eines gleichwertigen akademischen Titels sind wählbar, wenn sie\n• den Nachweis einer hinreichenden praktischen Erfahrung erbringen)\n•  Breite Erfahrung in der Strafverfolgung\n•  Analytisches Denkvermögen, Integrationsfähigkeit, Führungs- und\n• Organisationsgeschick\n•  Initiative und Entscheidungsfreudigkeit, Kommunikationsgeschick und\n• Selbstbeherrschung\n•  Leichtigkeit in Redaktion und Ausdruck\n•  Grosse Arbeitskapazität. Muttersprache: Deutsch, mit guten Kenntnissen der zweiten Amtssprache. Arbeitsort: Amt der Region Oberwallis in Brig-Glis. Beschäftigungsgrad: 100%. Stellenantritt: 1. März 2027 oder nach Vereinbarung. Statut: Magistrat gemäss dem kantonalen Gesetz über die Rechtspflege (RPflG) vom 11. Februar 2009.\n\nWir bieten:\nEine interessante und vielfältige Aufgabe, gute, moderne und angenehme Arbeitsbedingungen und hohe Sozialleistungen.\n\nInformationen:\nWeitere Auskünfte: Oberstaatsanwalt des Amtes der Region Oberwallis, Rinaldo Arnold, in Brig (Tel. 027 607 85 50). Ihre Bewerbungsunterlagen, einschliesslich Lebenslauf, Kopien der Diplome und Zeugnisse, aktueller Strafregister- und Betreibungsregisterauszug sind bis am 14. Dezember 2026 per Email an bewerbung@mp-sta.vs.ch, zuzustellen. Beatrice Pilloud"
+      },
+      "location": "Brig-Glis",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20975?language=fr",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T10:01:23.835Z",
+      "addressLocality": "Brig-Glis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3902",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20975?language=fr",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Brig-Glis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T10:01:23.835Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-27T10:01:23.835Z"
     }
   ]
 }

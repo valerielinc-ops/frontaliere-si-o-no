@@ -1,80 +1,26 @@
 {
   "key": "ch",
   "label": "Global Sana",
-  "generatedAt": "2026-11-26T21:22:49.207Z",
+  "generatedAt": "2026-11-27T09:26:10.031Z",
   "total": 13,
-  "discovered": 14,
-  "parsed": 13,
+  "discovered": 1,
+  "parsed": 1,
   "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "ch",
     "seedUrls": [
       "https://ch.talent.com/view?id=554547064889945322"
     ],
-    "phase": "detail",
-    "pages": 15,
+    "phase": "listing",
+    "pages": 1,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://ch.talent.com/view?id=554547064889945322"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=554547064889945322"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=643700580016263147&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=629358298822548459&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=620325418921827426&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=534436300199954406&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=643709347153580011&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=643700560553054187&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=643709335347793899&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=611684740931522211&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=638820208470328979&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=607937195415245774&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=643709318492983275&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=643709335749922795&trigger_from=related_jobs"
-      },
-      {
-        "status": 200,
-        "url": "https://ch.talent.com/view?id=535252897224001458&trigger_from=related_jobs"
       }
     ],
+    "listingTerminalStatus": 200,
+    "listingCompletion": "complete",
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": null
@@ -82,22 +28,71 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 13,
-  "detailCandidates": 14,
+  "detailCandidates": 1,
   "detailGone": 0,
-  "detailRejected": 1,
-  "resurrectedJobs": 6,
+  "detailRejected": 0,
+  "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 6,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 6,
-  "durationMs": 37613,
-  "avgDurationMs": 37613,
+  "removedCount": 0,
+  "unchangedCount": 12,
+  "durationMs": 4708,
+  "avgDurationMs": 4708,
   "durationHistory": [
-    37613
+    4708
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "ch-9e72d8e76c62",
+      "slug": "consulente-clienti-m-f-d-con-diploma-vbv-iaf-global-sana-zurich-zurich",
+      "company": "Global Sana",
+      "companyKey": "ch",
+      "companyDomain": "ch.talent.com",
+      "title": "Kundenberater (m/w/d) mit VBV/IAF -Abschluss",
+      "location": "Zurich, Zurich",
+      "canton": "ZH",
+      "url": "https://ch.talent.com/view?id=554547064889945322",
+      "source": "Global Sana Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T09:25:52.231Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2025-05-22",
+      "postedDate": "2025-05-22",
+      "postingDateSource": "reported",
+      "applyUrl": "https://ch.talent.com/view?id=554547064889945322",
+      "firstSeenAt": "2026-10-24T21:27:08.936Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:25:52.231Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "ch-6e8cfb8ba3c9",
       "slug": "kundenberater-in-basisdienstleistungen-global-sana-zurich",
@@ -126,7 +121,6 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://ch.talent.com/view?id=535252897224001458&trigger_from=related_jobs",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -136,11 +130,13 @@
       "validThrough": "2027-02-18T21:22:18.090Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.493Z",
-      "_qualityScore": 86,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=535252897224001458&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -182,11 +178,13 @@
       "validThrough": "2026-12-26T21:22:18.089Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.503Z",
-      "_qualityScore": 91,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=638820208470328979&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -218,7 +216,6 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://ch.talent.com/view?id=607937195415245774&trigger_from=related_jobs",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -228,11 +225,13 @@
       "validThrough": "2027-02-18T21:22:18.089Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.492Z",
-      "_qualityScore": 89,
+      "sourceIdentity": "url:https://ch.talent.com/view?id=607937195415245774&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -264,7 +263,6 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://ch.talent.com/view?id=643709318492983275&trigger_from=related_jobs",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -274,194 +272,8 @@
       "validThrough": "2027-02-18T21:22:18.089Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.496Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "ch-d58eb5f68be6",
-      "slug": "technischer-kundenberater-mit-aussendienstanteil-80-100-m-w-d-global-sana-dietikon",
-      "company": "Global Sana",
-      "companyKey": "ch",
-      "companyDomain": "ch.talent.com",
-      "title": "Technischer Kundenberater mit Aussendienstanteil 80-100% (m/w/d)",
-      "location": "Dietikon, Canton of Zurich",
-      "canton": "ZH",
-      "url": "https://ch.talent.com/view?id=611684740931522211&trigger_from=related_jobs",
-      "source": "Global Sana Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:22:18.088Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-15",
-      "postedDate": "2026-07-15",
-      "postingDateSource": "reported",
-      "applyUrl": "https://ch.talent.com/view?id=611684740931522211&trigger_from=related_jobs",
-      "needsRetranslation": true,
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "postalCode": "8953",
-      "streetAddress": "Dietikon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:22:18.088Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:35:00.935Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "ch-c1b3cea01b95",
-      "slug": "vbv-vorsorgeberater-per-privatkunden-profil-leben-global-sana-regensdorf",
-      "company": "Global Sana",
-      "companyKey": "ch",
-      "companyDomain": "ch.talent.com",
-      "title": "VBV Vorsorgeberater für Privatkunden – Profil Leben",
-      "location": "Convit Central GmbH • Regensdorf, Switzerland",
-      "canton": "ZH",
-      "url": "https://ch.talent.com/view?id=643709335347793899&trigger_from=related_jobs",
-      "source": "Global Sana Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:22:18.088Z",
-      "addressLocality": "Regensdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://ch.talent.com/view?id=643709335347793899&trigger_from=related_jobs",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "postalCode": "8105",
-      "streetAddress": "Regensdorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:22:18.088Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:24:57.496Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 23
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "id": "ch-9e72d8e76c62",
-      "slug": "consulente-clienti-m-f-d-con-diploma-vbv-iaf-global-sana-zurich-zurich",
-      "company": "Global Sana",
-      "companyKey": "ch",
-      "companyDomain": "ch.talent.com",
-      "title": "Kundenberater (m/w/d) mit VBV/IAF -Abschluss",
-      "location": "Zurich, Zurich",
-      "canton": "ZH",
-      "url": "https://ch.talent.com/view?id=554547064889945322",
-      "source": "Global Sana Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:22:18.084Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2025-05-22",
-      "postedDate": "2025-05-22",
-      "postingDateSource": "reported",
-      "applyUrl": "https://ch.talent.com/view?id=554547064889945322",
-      "firstSeenAt": "2026-10-24T21:27:08.936Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "streetAddress": "Zurich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:22:18.084Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "ch-bb68f4e2a64a",
-      "slug": "vbv-consulente-precauzionale-zona-clienti-svizzera-tedesca-global-sana-adliswil",
-      "company": "Global Sana",
-      "companyKey": "ch",
-      "companyDomain": "ch.talent.com",
-      "title": "VBV Vorsorgeberater – Kundenzone Deutschschweiz",
-      "location": "Convit Central GmbH • Adliswil, Switzerland",
-      "canton": "ZH",
-      "url": "https://ch.talent.com/view?id=643709330289201131&trigger_from=related_jobs",
-      "source": "Global Sana Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:24:26.759Z",
-      "addressLocality": "Adliswil",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://ch.talent.com/view?id=643709330289201131&trigger_from=related_jobs",
-      "firstSeenAt": "2026-11-19T21:24:57.501Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "postalCode": "8134",
-      "streetAddress": "Adliswil",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:24:26.759Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://ch.talent.com/view?id=643709330289201131&trigger_from=related_jobs",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709318492983275&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -469,9 +281,7 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "ch-37d6081c0007",
       "slug": "consulente-clienti-per-la-previdenza-accesso-trasversale-senza-esperienza-nel-settore-possibilita-di-lavorare-da-casa",
@@ -509,12 +319,108 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:22:18.088Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643700560553054187&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "ch-d58eb5f68be6",
+      "slug": "technischer-kundenberater-mit-aussendienstanteil-80-100-m-w-d-global-sana-dietikon",
+      "company": "Global Sana",
+      "companyKey": "ch",
+      "companyDomain": "ch.talent.com",
+      "title": "Technischer Kundenberater mit Aussendienstanteil 80-100% (m/w/d)",
+      "location": "Dietikon, Canton of Zurich",
+      "canton": "ZH",
+      "url": "https://ch.talent.com/view?id=611684740931522211&trigger_from=related_jobs",
+      "source": "Global Sana Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T21:22:18.088Z",
+      "addressLocality": "Dietikon",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-15",
+      "postedDate": "2026-07-15",
+      "postingDateSource": "reported",
+      "applyUrl": "https://ch.talent.com/view?id=611684740931522211&trigger_from=related_jobs",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "postalCode": "8953",
+      "streetAddress": "Dietikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T21:22:18.088Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T09:35:00.935Z",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=611684740931522211&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "ch-c1b3cea01b95",
+      "slug": "vbv-vorsorgeberater-per-privatkunden-profil-leben-global-sana-regensdorf",
+      "company": "Global Sana",
+      "companyKey": "ch",
+      "companyDomain": "ch.talent.com",
+      "title": "VBV Vorsorgeberater für Privatkunden – Profil Leben",
+      "location": "Convit Central GmbH • Regensdorf, Switzerland",
+      "canton": "ZH",
+      "url": "https://ch.talent.com/view?id=643709335347793899&trigger_from=related_jobs",
+      "source": "Global Sana Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T21:22:18.088Z",
+      "addressLocality": "Regensdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://ch.talent.com/view?id=643709335347793899&trigger_from=related_jobs",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "postalCode": "8105",
+      "streetAddress": "Regensdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:22:18.088Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-19T21:24:57.496Z",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709335347793899&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -554,6 +460,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:22:18.087Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=534436300199954406&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -599,6 +507,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:22:18.087Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643709347153580011&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -644,6 +554,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:22:18.086Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=629358298822548459&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -689,6 +601,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:22:18.086Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=620325418921827426&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -734,6 +648,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:22:18.085Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ch.talent.com/view?id=643700580016263147&trigger_from=related_jobs",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -743,5 +659,5 @@
       }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

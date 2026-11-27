@@ -53,7 +53,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
-    "firstSeenAt": "2026-09-25T15:09:05.590Z"
+    "firstSeenAt": "2026-09-25T15:09:05.590Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lernende-r-physiklaborant-in-efz-fur-2027-st-gallen-fisba-ch": "SG",
+        "apprendista-physiklaborant-in-cfc-per-2027-fisba-ag-st-gallen": "SG"
+      },
+      "en": {
+        "lernende-r-physiklaborant-in-efz-fur-2027-st-gallen-fisba-ch": "SG",
+        "apprentice-physiklaborant-in-efz-fur-2027-fisba-ag-st-gallen": "SG"
+      },
+      "fr": {
+        "lernende-r-physiklaborant-in-efz-fur-2027-st-gallen-fisba-ch": "SG",
+        "apprenti-e-physiklaborant-in-efz-fur-2027-fisba-ag-st-gallen": "SG"
+      }
+    }
   },
   {
     "slug": "meccanica-operativa-m-f-fisba-ag-st-gallen-fd00306744",
@@ -143,18 +158,23 @@
       "it": {
         "meccanica-operativa-m-f-fisba-ag-st-gallen-e1034ef9a9": "SG",
         "betriebsmechaniker-m-w-st-gallen-fisba-ch": "SG",
-        "meccanica-operativa-m-f-fisba-ag-st-gallen": "SG"
+        "meccanica-operativa-m-f-fisba-ag-st-gallen": "SG",
+        "betriebsmechaniker-m-w-fisba-ag-st-gallen": "SG"
       },
       "en": {
-        "operational-mechanics-m-f-fisba-ag-st-gallen": "SG"
+        "operational-mechanics-m-f-fisba-ag-st-gallen": "SG",
+        "betriebsmechaniker-m-w-fisba-ag-st-gallen": "SG"
       },
       "de": {
-        "betriebsmechaniker-m-w-st-gallen-fisba-ch": "SG"
+        "betriebsmechaniker-m-w-st-gallen-fisba-ch": "SG",
+        "betriebsmechaniker-m-w-fisba-ag-st-gallen": "SG"
       },
       "fr": {
-        "mecanique-operationnelle-h-f-fisba-ag-st-gallen": "SG"
+        "mecanique-operationnelle-h-f-fisba-ag-st-gallen": "SG",
+        "betriebsmechaniker-m-w-fisba-ag-st-gallen": "SG"
       }
-    }
+    },
+    "canton": "SG"
   },
   {
     "slug": "applicazione-spontanea-non-richiesta-fisba-ag-st-gallen",
@@ -203,6 +223,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fisba.com/en/jobs/spontaneous-unsolicited-application",
-    "firstSeenAt": "2026-09-25T15:09:05.587Z"
+    "firstSeenAt": "2026-09-25T15:09:05.587Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spontaneous-unsolicited-application-st-gallen-fisba-ch": "SG"
+      },
+      "de": {
+        "spontaneous-unsolicited-application-st-gallen-fisba-ch": "SG"
+      },
+      "fr": {
+        "spontaneous-unsolicited-application-st-gallen-fisba-ch": "SG"
+      }
+    }
   }
 ]

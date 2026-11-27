@@ -1,7 +1,7 @@
 {
   "crawlerKey": "chopard",
-  "assembledAt": "2026-11-26T21:26:32.180Z",
-  "runId": "45896122190",
+  "assembledAt": "2026-11-27T09:18:04.253Z",
+  "runId": "45971284308",
   "jobs": [
     {
       "id": "chopard-c5cb572704b6",
@@ -34,7 +34,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.023Z",
+      "crawledAt": "2026-11-27T09:17:48.080Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "Fleurier",
@@ -78,9 +78,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:26:24.023Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-us"
+      "validThrough": "2026-12-27T09:17:48.080Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-cbc25eff9178",
@@ -113,7 +112,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.020Z",
+      "crawledAt": "2026-11-27T09:17:48.073Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -162,9 +161,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T21:26:24.020Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-us"
+      "validThrough": "2026-12-28T09:17:48.073Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-cc64eb02f9cf",
@@ -197,7 +195,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.019Z",
+      "crawledAt": "2026-11-27T09:17:48.070Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "Fleurier",
@@ -233,9 +231,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:26:24.019Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-us"
+      "validThrough": "2027-01-04T09:17:48.070Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-fe9c0dc7d197",
@@ -268,7 +265,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2583?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.016Z",
+      "crawledAt": "2026-11-27T09:17:48.058Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -318,9 +315,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:26:24.016Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2583?c=chopard&lang=en-us"
+      "validThrough": "2027-01-11T09:17:48.058Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-80b28dd23a0d",
@@ -353,7 +349,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2584?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.015Z",
+      "crawledAt": "2026-11-27T09:17:48.056Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -403,9 +399,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:26:24.015Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2584?c=chopard&lang=en-us"
+      "validThrough": "2027-01-11T09:17:48.056Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-6a9180685d9e",
@@ -438,7 +433,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2640?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.013Z",
+      "crawledAt": "2026-11-27T09:17:48.052Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -488,9 +483,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:26:24.013Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2640?c=chopard&lang=en-us"
+      "validThrough": "2027-01-11T09:17:48.052Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-ac8da6d82d35",
@@ -523,7 +517,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2665?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.012Z",
+      "crawledAt": "2026-11-27T09:17:48.050Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -573,9 +567,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:26:24.012Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2665?c=chopard&lang=en-us"
+      "validThrough": "2027-01-12T09:17:48.050Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-8c4868344700",
@@ -608,7 +601,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2662?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.011Z",
+      "crawledAt": "2026-11-27T09:17:48.048Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -644,9 +637,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:26:24.011Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2662?c=chopard&lang=en-us"
+      "validThrough": "2027-01-17T09:17:48.048Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-84b518477237",
@@ -679,7 +671,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2676?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.010Z",
+      "crawledAt": "2026-11-27T09:17:48.046Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -729,9 +721,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:26:24.010Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2676?c=chopard&lang=en-us"
+      "validThrough": "2027-01-19T09:17:48.046Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-40b35ab83eb5",
@@ -764,7 +755,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2687?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.004Z",
+      "crawledAt": "2026-11-27T09:17:48.015Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -808,9 +799,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:26:24.004Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2687?c=chopard&lang=en-us"
+      "validThrough": "2027-01-25T09:17:48.015Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-83b93e3059a0",
@@ -843,7 +833,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2693?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.002Z",
+      "crawledAt": "2026-11-27T09:17:48.005Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -893,9 +883,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:26:24.002Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2693?c=chopard&lang=en-us"
+      "validThrough": "2027-02-07T09:17:48.005Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-2ad2a06942e5",
@@ -928,7 +917,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2721?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.001Z",
+      "crawledAt": "2026-11-27T09:17:48.003Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -964,9 +953,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:26:24.001Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2721?c=chopard&lang=en-us"
+      "validThrough": "2027-02-07T09:17:48.003Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-37bbeceda27b",
@@ -999,7 +987,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2727?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:24.000Z",
+      "crawledAt": "2026-11-27T09:17:47.987Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "Fleurier",
@@ -1035,9 +1023,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:26:24.000Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2727?c=chopard&lang=en-us"
+      "validThrough": "2027-02-09T09:17:47.987Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-6d7e98b67f21",
@@ -1070,7 +1057,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2733?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:23.998Z",
+      "crawledAt": "2026-11-27T09:17:47.977Z",
       "addressLocality": "FLEURIER",
       "addressRegion": "Genève",
       "streetAddress": "FLEURIER",
@@ -1106,92 +1093,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:26:23.998Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2733?c=chopard&lang=en-us"
-    },
-    {
-      "id": "chopard-f903207014c2",
-      "slug": "m-f-responsabile-operazioni-retail-internazionali-chopard-meyrin",
-      "slugByLocale": {
-        "it": "m-f-responsabile-operazioni-retail-internazionali-chopard-meyrin",
-        "en": "h-f-international-retail-operations-manager-chopard-meyrin",
-        "de": "m-w-leiter-internationaler-einzelhandelsoperationen-chopard-meyrin",
-        "fr": "h-f-international-retail-operations-manager-chopard-meyrin"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "(H/F) International Retail Operations Manager",
-      "titleByLocale": {
-        "it": "(M/F) Responsabile Operazioni Retail Internazionali",
-        "en": "(M/F) International Retail Operations Manager",
-        "de": "(M/W) Leiter internationaler Einzelhandelsoperationen",
-        "fr": "(H/F) International Retail Operations Manager"
-      },
-      "description": "Votre mission Le but de cette mission est de développer et déployer des outils concrets permettant à nos équipes d’augmenter les ventes. Il dirigera et coordonnera les projets contribuant au développement et à l’efficience du département Retail. L’enjeu de change management dans les boutiques requiert un management de projet dédié pour maximiser l’adoption et le succès. Le scope de cette mission est l’ensemble de nos boutiques propres mondialement. \n• Vos responsabilités principales Projets Mise en place et lancement d’une Cegid Academy pour les utilisateurs champions Cegid, création d’un module de formation e-learning Cegid avec le département training Suivi lancement nouveaux terminaux cartes de crédit ainsi que des projets monétiques Elaboration et lancement d’une nouvelle Application destinée aux vendeurs de nos boutiques dans le monde Support opérationnel Key user Europe Cegid : définit les besoins en formation et garantit un soutien constant de toutes les équipes concernées Soutien administratif pour les opérations quotidiennes sur Cegid Inventaires : soutien pour les boutiques à l’international / suivi rapproché pour les boutiques en Suisse en lien avec l’Audit Stocks : soutien pour les boutiques avec l’utilisation de notre outil interne Elaboration et communication de guidelines ou présentations PTT selon les besoins Vérification que toutes les opérations et règles mondiales soient strictement respectées Evènements Visites: Soutien opérationnel lors d’évènements Haute-joaillerie (Cannes, dîners VIP.) ainsi que d’évènements Retail (ventes privées, charités, défilés, etc.) Daily business Interface, relais et suivi d’informations auprès de différents départements, filiales et boutiques à l’International Mise en place et coordination de diverses analyses et reportings Coédition, mise en page et consolidation du principal reporting mensuel Mise à jour et suivi des bases de données mondiales et listes de distribution Maintenance et mise à jour de l’Intranet Boutique Mise à jour du Retail book et roll-out à l’International Suivi fournitures boutiques, commandes et distribution à l’international",
-      "descriptionByLocale": {
-        "it": "La tua missione L'obiettivo di questa missione è quello di sviluppare e distribuire strumenti concreti per consentire ai nostri team di aumentare le vendite. Condurrà e coordinerà i progetti che contribuiranno allo sviluppo e all'efficienza del Retail Department. Il problema della gestione dei cambiamenti nei negozi richiede una gestione del progetto dedicata per massimizzare l'adozione e il successo. La portata di questa missione è tutti i nostri negozi puliti a livello mondiale.\n• Le vostre principali responsabilità Progetti Installazione e lancio di una Cegid Academy per gli utenti dei campioni Cegid, creazione di un modulo di formazione Cegid e-learning con il dipartimento di formazione Interfaccia aziendale quotidiana, relè e follow-up di operazioni e regole globali Eventi Visite: Supporto operativo per eventi ad alta gioia (Cannes, cene VIP) e eventi Retail (vendita privata, carità, sfilate, sfilate, ecc.) Interfaccia aziendale quotidiana, relaying e follow-up del",
-        "en": "Your Mission The aim of this mission is to develop and deploy concrete tools to enable our teams to increase sales. He will lead and coordinate projects contributing to the development and efficiency of the Retail Department. The issue of change management in shops requires dedicated project management to maximize adoption and success. The scope of this mission is all our world-wide clean shops.\n• Your main responsibilities Projects Setting up and launching a Cegid Academy for Cegid champion users, creating an e-learning Cegid training module with the training department Follow-up launch of new credit card terminals as well as monétic projects Developing and launching a new application for our shop vendors around the world Operating support Key user Europe Cegid: defines training needs and guarantees constant support from all relevant teams Administrative support for daily operations on Cegid Inventories: support for international shops / close follow-up for Swiss shops in connection with the Audit Stocks: support for shops with the use of our internal tool Development and communication of guidelines or PTT presentations as required Verification that all global operations and rules are strictly respected Events Visits: Operational support for high-joaillery events (Cannes, VIP dinners) as well as events Retail (private sales, charities, parades, etc.) Daily business Interface, relay and follow-up of global operations and rules Events Visits: Operational support for high-joaillerie events (Cannes, VIP dinners) as well as events Retail (private sales, charity, parades, parades, etc.) Daily business interface, relaying and follow-up of the",
-        "de": "Deine Mission Ziel dieser Mission ist es, konkrete Werkzeuge zu entwickeln und einzusetzen, damit unsere Teams den Umsatz steigern können. Er wird Projekte leiten und koordinieren, die zur Entwicklung und Effizienz des Einzelhandels beitragen. Das Thema Change Management in Shops erfordert ein dediziertes Projektmanagement, um Akzeptanz und Erfolg zu maximieren. Der Umfang dieser Mission sind alle unsere weltweiten sauberen Geschäfte.\n• Ihre Hauptverantwortlichkeiten Projekte Aufbau und Start einer Cegid Academy für Cegid Champion User, Erstellung eines E-Learning Cegid Trainingsmoduls Mit der Schulungsabteilung Follow-up Einführung neuer Kreditkartenterminals sowie monétische Projekte Entwicklung und Einführung einer neuen Anwendung für unsere Shop-Anbieter auf der ganzen Welt Operating Support Key User Europe Cegid: Definiert Schulungsbedürfnisse und garantiert ständige Unterstützung durch alle relevanten Teams Administrative Unterstützung für den täglichen Betrieb auf Cegid Inventories: Support für internationale Shops / Close Follow-up für Schweizer Shops im Zusammenhang mit den Audit Stocks: Support für Shops mit unserem internen Tool Entwicklung und Kommunikation von Richtlinien oder PTT-Präsentationen nach Bedarf Verifizierung, dass alle globalen Operationen und Regeln streng eingehalten werden Events Visits: Operational Support für hochkarätige Events (Cannes, VIP-Dinners) sowie Events Retail (Privatverkauf, Wohltätigkeitsorganisationen, Paraden, etc.) Tägliche Geschäftsoberfläche, Weiterleitung und Nachverfolgung globaler Operationen und Regeln Veranstaltungen Besuche: Operative Unterstützung für hochkarätige Veranstaltungen (Cannes, VIP-Dinners) sowie Veranstaltungen Einzelhandel (Privatverkauf, Wohltätigkeit, Paraden, Paraden usw.) Tägliche Business-Schnittstelle, Weiterleitung und Nachverfolgung der",
-        "fr": "Votre mission Le but de cette mission est de développer et déployer des outils concrets permettant à nos équipes d’augmenter les ventes. Il dirigera et coordonnera les projets contribuant au développement et à l’efficience du département Retail. L’enjeu de change management dans les boutiques requiert un management de projet dédié pour maximiser l’adoption et le succès. Le scope de cette mission est l’ensemble de nos boutiques propres mondialement. \n• Vos responsabilités principales Projets Mise en place et lancement d’une Cegid Academy pour les utilisateurs champions Cegid, création d’un module de formation e-learning Cegid avec le département training Suivi lancement nouveaux terminaux cartes de crédit ainsi que des projets monétiques Elaboration et lancement d’une nouvelle Application destinée aux vendeurs de nos boutiques dans le monde Support opérationnel Key user Europe Cegid : définit les besoins en formation et garantit un soutien constant de toutes les équipes concernées Soutien administratif pour les opérations quotidiennes sur Cegid Inventaires : soutien pour les boutiques à l’international / suivi rapproché pour les boutiques en Suisse en lien avec l’Audit Stocks : soutien pour les boutiques avec l’utilisation de notre outil interne Elaboration et communication de guidelines ou présentations PTT selon les besoins Vérification que toutes les opérations et règles mondiales soient strictement respectées Evènements Visites: Soutien opérationnel lors d’évènements Haute-joaillerie (Cannes, dîners VIP.) ainsi que d’évènements Retail (ventes privées, charités, défilés, etc.) Daily business Interface, relais et suivi d’informations auprès de différents départements, filiales et boutiques à l’International Mise en place et coordination de diverses analyses et reportings Coédition, mise en page et consolidation du principal reporting mensuel Mise à jour et suivi des bases de données mondiales et listes de distribution Maintenance et mise à jour de l’Intranet Boutique Mise à jour du Retail book et roll-out à l’International Suivi fournitures boutiques, commandes et distribution à l’international"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2705?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:23.980Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "Genève",
-      "streetAddress": "Route de Veyrot 8",
-      "postalCode": "1217",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-24",
-      "postedDate": "2026-11-24",
-      "postingDateSource": "reported",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2705?c=chopard&lang=en-US",
-      "jobReqId": "2705",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "h-f-international-retail-operations-manager-chopard-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "h-f-international-retail-operations-manager-chopard-meyrin"
-        ],
-        "de": [
-          "h-f-international-retail-operations-manager-chopard-meyrin"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-24T21:22:17.891Z",
-      "salaryMin": 101500,
-      "salaryMax": 156000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 156000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:26:23.980Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2705?c=chopard&lang=en-us"
+      "validThrough": "2027-02-09T09:17:47.977Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-1bc91b2cdfbd",
@@ -1224,7 +1127,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2740?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:23.980Z",
+      "crawledAt": "2026-11-27T09:17:47.905Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -1274,9 +1177,90 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T21:26:23.980Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2740?c=chopard&lang=en-us"
+      "validThrough": "2027-02-21T09:17:47.905Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "chopard-f903207014c2",
+      "slug": "m-f-responsabile-operazioni-retail-internazionali-chopard-meyrin",
+      "slugByLocale": {
+        "it": "m-f-responsabile-operazioni-retail-internazionali-chopard-meyrin",
+        "en": "h-f-international-retail-operations-manager-chopard-meyrin",
+        "de": "m-w-leiter-internationaler-einzelhandelsoperationen-chopard-meyrin",
+        "fr": "h-f-international-retail-operations-manager-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "(H/F) International Retail Operations Manager",
+      "titleByLocale": {
+        "it": "(M/F) Responsabile Operazioni Retail Internazionali",
+        "en": "(M/F) International Retail Operations Manager",
+        "de": "(M/W) Leiter internationaler Einzelhandelsoperationen",
+        "fr": "(H/F) International Retail Operations Manager"
+      },
+      "description": "Votre mission Le but de cette mission est de développer et déployer des outils concrets permettant à nos équipes d’augmenter les ventes. Il dirigera et coordonnera les projets contribuant au développement et à l’efficience du département Retail. L’enjeu de change management dans les boutiques requiert un management de projet dédié pour maximiser l’adoption et le succès. Le scope de cette mission est l’ensemble de nos boutiques propres mondialement. \n• Vos responsabilités principales Projets Mise en place et lancement d’une Cegid Academy pour les utilisateurs champions Cegid, création d’un module de formation e-learning Cegid avec le département training Suivi lancement nouveaux terminaux cartes de crédit ainsi que des projets monétiques Elaboration et lancement d’une nouvelle Application destinée aux vendeurs de nos boutiques dans le monde Support opérationnel Key user Europe Cegid : définit les besoins en formation et garantit un soutien constant de toutes les équipes concernées Soutien administratif pour les opérations quotidiennes sur Cegid Inventaires : soutien pour les boutiques à l’international / suivi rapproché pour les boutiques en Suisse en lien avec l’Audit Stocks : soutien pour les boutiques avec l’utilisation de notre outil interne Elaboration et communication de guidelines ou présentations PTT selon les besoins Vérification que toutes les opérations et règles mondiales soient strictement respectées Evènements Visites: Soutien opérationnel lors d’évènements Haute-joaillerie (Cannes, dîners VIP.) ainsi que d’évènements Retail (ventes privées, charités, défilés, etc.) Daily business Interface, relais et suivi d’informations auprès de différents départements, filiales et boutiques à l’International Mise en place et coordination de diverses analyses et reportings Coédition, mise en page et consolidation du principal reporting mensuel Mise à jour et suivi des bases de données mondiales et listes de distribution Maintenance et mise à jour de l’Intranet Boutique Mise à jour du Retail book et roll-out à l’International Suivi fournitures boutiques, commandes et distribution à l’international",
+      "descriptionByLocale": {
+        "it": "La tua missione L'obiettivo di questa missione è quello di sviluppare e distribuire strumenti concreti per consentire ai nostri team di aumentare le vendite. Condurrà e coordinerà i progetti che contribuiranno allo sviluppo e all'efficienza del Retail Department. Il problema della gestione dei cambiamenti nei negozi richiede una gestione del progetto dedicata per massimizzare l'adozione e il successo. La portata di questa missione è tutti i nostri negozi puliti a livello mondiale.\n• Le vostre principali responsabilità Progetti Installazione e lancio di una Cegid Academy per gli utenti dei campioni Cegid, creazione di un modulo di formazione Cegid e-learning con il dipartimento di formazione Interfaccia aziendale quotidiana, relè e follow-up di operazioni e regole globali Eventi Visite: Supporto operativo per eventi ad alta gioia (Cannes, cene VIP) e eventi Retail (vendita privata, carità, sfilate, sfilate, ecc.) Interfaccia aziendale quotidiana, relaying e follow-up del",
+        "en": "Your Mission The aim of this mission is to develop and deploy concrete tools to enable our teams to increase sales. He will lead and coordinate projects contributing to the development and efficiency of the Retail Department. The issue of change management in shops requires dedicated project management to maximize adoption and success. The scope of this mission is all our world-wide clean shops.\n• Your main responsibilities Projects Setting up and launching a Cegid Academy for Cegid champion users, creating an e-learning Cegid training module with the training department Follow-up launch of new credit card terminals as well as monétic projects Developing and launching a new application for our shop vendors around the world Operating support Key user Europe Cegid: defines training needs and guarantees constant support from all relevant teams Administrative support for daily operations on Cegid Inventories: support for international shops / close follow-up for Swiss shops in connection with the Audit Stocks: support for shops with the use of our internal tool Development and communication of guidelines or PTT presentations as required Verification that all global operations and rules are strictly respected Events Visits: Operational support for high-joaillery events (Cannes, VIP dinners) as well as events Retail (private sales, charities, parades, etc.) Daily business Interface, relay and follow-up of global operations and rules Events Visits: Operational support for high-joaillerie events (Cannes, VIP dinners) as well as events Retail (private sales, charity, parades, parades, etc.) Daily business interface, relaying and follow-up of the",
+        "de": "Deine Mission Ziel dieser Mission ist es, konkrete Werkzeuge zu entwickeln und einzusetzen, damit unsere Teams den Umsatz steigern können. Er wird Projekte leiten und koordinieren, die zur Entwicklung und Effizienz des Einzelhandels beitragen. Das Thema Change Management in Shops erfordert ein dediziertes Projektmanagement, um Akzeptanz und Erfolg zu maximieren. Der Umfang dieser Mission sind alle unsere weltweiten sauberen Geschäfte.\n• Ihre Hauptverantwortlichkeiten Projekte Aufbau und Start einer Cegid Academy für Cegid Champion User, Erstellung eines E-Learning Cegid Trainingsmoduls Mit der Schulungsabteilung Follow-up Einführung neuer Kreditkartenterminals sowie monétische Projekte Entwicklung und Einführung einer neuen Anwendung für unsere Shop-Anbieter auf der ganzen Welt Operating Support Key User Europe Cegid: Definiert Schulungsbedürfnisse und garantiert ständige Unterstützung durch alle relevanten Teams Administrative Unterstützung für den täglichen Betrieb auf Cegid Inventories: Support für internationale Shops / Close Follow-up für Schweizer Shops im Zusammenhang mit den Audit Stocks: Support für Shops mit unserem internen Tool Entwicklung und Kommunikation von Richtlinien oder PTT-Präsentationen nach Bedarf Verifizierung, dass alle globalen Operationen und Regeln streng eingehalten werden Events Visits: Operational Support für hochkarätige Events (Cannes, VIP-Dinners) sowie Events Retail (Privatverkauf, Wohltätigkeitsorganisationen, Paraden, etc.) Tägliche Geschäftsoberfläche, Weiterleitung und Nachverfolgung globaler Operationen und Regeln Veranstaltungen Besuche: Operative Unterstützung für hochkarätige Veranstaltungen (Cannes, VIP-Dinners) sowie Veranstaltungen Einzelhandel (Privatverkauf, Wohltätigkeit, Paraden, Paraden usw.) Tägliche Business-Schnittstelle, Weiterleitung und Nachverfolgung der",
+        "fr": "Votre mission Le but de cette mission est de développer et déployer des outils concrets permettant à nos équipes d’augmenter les ventes. Il dirigera et coordonnera les projets contribuant au développement et à l’efficience du département Retail. L’enjeu de change management dans les boutiques requiert un management de projet dédié pour maximiser l’adoption et le succès. Le scope de cette mission est l’ensemble de nos boutiques propres mondialement. \n• Vos responsabilités principales Projets Mise en place et lancement d’une Cegid Academy pour les utilisateurs champions Cegid, création d’un module de formation e-learning Cegid avec le département training Suivi lancement nouveaux terminaux cartes de crédit ainsi que des projets monétiques Elaboration et lancement d’une nouvelle Application destinée aux vendeurs de nos boutiques dans le monde Support opérationnel Key user Europe Cegid : définit les besoins en formation et garantit un soutien constant de toutes les équipes concernées Soutien administratif pour les opérations quotidiennes sur Cegid Inventaires : soutien pour les boutiques à l’international / suivi rapproché pour les boutiques en Suisse en lien avec l’Audit Stocks : soutien pour les boutiques avec l’utilisation de notre outil interne Elaboration et communication de guidelines ou présentations PTT selon les besoins Vérification que toutes les opérations et règles mondiales soient strictement respectées Evènements Visites: Soutien opérationnel lors d’évènements Haute-joaillerie (Cannes, dîners VIP.) ainsi que d’évènements Retail (ventes privées, charités, défilés, etc.) Daily business Interface, relais et suivi d’informations auprès de différents départements, filiales et boutiques à l’International Mise en place et coordination de diverses analyses et reportings Coédition, mise en page et consolidation du principal reporting mensuel Mise à jour et suivi des bases de données mondiales et listes de distribution Maintenance et mise à jour de l’Intranet Boutique Mise à jour du Retail book et roll-out à l’International Suivi fournitures boutiques, commandes et distribution à l’international"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2705?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-27T09:17:47.903Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-24",
+      "postedDate": "2026-11-24",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2705?c=chopard&lang=en-US",
+      "jobReqId": "2705",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "h-f-international-retail-operations-manager-chopard-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "h-f-international-retail-operations-manager-chopard-meyrin"
+        ],
+        "de": [
+          "h-f-international-retail-operations-manager-chopard-meyrin"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-24T21:22:17.891Z",
+      "salaryMin": 101500,
+      "salaryMax": 156000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 156000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-22T09:17:47.903Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-2b823eca6ecf",
@@ -1309,7 +1293,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2713?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:23.979Z",
+      "crawledAt": "2026-11-27T09:17:47.901Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "Fleurier",
@@ -1353,9 +1337,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:26:23.979Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2713?c=chopard&lang=en-us"
+      "validThrough": "2027-02-22T09:17:47.901Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "chopard-959019a3efb5",
@@ -1388,7 +1371,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2728?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:26:23.958Z",
+      "crawledAt": "2026-11-27T09:17:47.805Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -1435,9 +1418,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T21:26:23.958Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2728?c=chopard&lang=en-us"
+      "validThrough": "2027-02-23T09:17:47.805Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

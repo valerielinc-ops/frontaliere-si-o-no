@@ -271,7 +271,10 @@
       "patrouilleur-in-arosa-lenzerheide-lenzerheide-757e0e4a",
       "patrouilleur-in-arosa-lenzerheide-lenzerheide-edd64061",
       "patrouilleur-in-arosa-lenzerheide-lenzerheide-c791e1ab",
-      "patrouilleur-in-arosa-lenzerheide-lenzerheide"
+      "patrouilleur-in-arosa-lenzerheide-lenzerheide",
+      "pattugliatore-trice-arosa-lenzerheide-lenzerheide",
+      "patrol-officer-arosa-lenzerheide-lenzerheide",
+      "patrouilleur-euse-arosa-lenzerheide-lenzerheide"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -343,7 +346,8 @@
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-757e0e4a",
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-edd64061",
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-c791e1ab",
-        "patrouilleur-in-arosa-lenzerheide-lenzerheide"
+        "patrouilleur-in-arosa-lenzerheide-lenzerheide",
+        "pattugliatore-trice-arosa-lenzerheide-lenzerheide"
       ],
       "en": [
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-9eba9459",
@@ -414,7 +418,8 @@
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-757e0e4a",
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-edd64061",
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-c791e1ab",
-        "patrouilleur-in-arosa-lenzerheide-lenzerheide"
+        "patrouilleur-in-arosa-lenzerheide-lenzerheide",
+        "patrol-officer-arosa-lenzerheide-lenzerheide"
       ],
       "fr": [
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-9eba9459",
@@ -485,7 +490,8 @@
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-757e0e4a",
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-edd64061",
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-c791e1ab",
-        "patrouilleur-in-arosa-lenzerheide-lenzerheide"
+        "patrouilleur-in-arosa-lenzerheide-lenzerheide",
+        "patrouilleur-euse-arosa-lenzerheide-lenzerheide"
       ],
       "de": [
         "patrouilleur-in-arosa-lenzerheide-lenzerheide-f3a6c18b",
@@ -559,7 +565,18 @@
         "firstSeenAt": "2026-11-05T09:19:14.421Z",
         "title": "Patrouilleur:in"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pattugliatore-trice-arosa-lenzerheide-lenzerheide": "GR"
+      },
+      "en": {
+        "patrol-officer-arosa-lenzerheide-lenzerheide": "GR"
+      },
+      "fr": {
+        "patrouilleur-euse-arosa-lenzerheide-lenzerheide": "GR"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-kasse-e-vendita-arosa-lenzerheide",

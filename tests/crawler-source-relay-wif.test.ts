@@ -9,6 +9,7 @@ import {
   SOURCE_RELAY_SERVICE_ACCOUNT,
   SOURCE_RELAY_URL,
   SOURCE_RELAY_WORKLOAD_IDENTITY_PROVIDER,
+  WORKDAY_RELAY_CRAWLER_SLUGS,
 } from '../scripts/generate-crawler-group-workflows.mjs';
 import {
   assertSourceRelayReady,
@@ -22,7 +23,8 @@ import {
 // fail-closed env is caught before it reaches the corpus.
 
 const ROOT = path.resolve(__dirname, '..');
-const RELAY_SLUGS = new Set<string>(SOURCE_RELAY_CRAWLER_SLUGS);
+const WORKDAY_SLUGS = new Set<string>(WORKDAY_RELAY_CRAWLER_SLUGS);
+const RELAY_SLUGS = new Set<string>([...SOURCE_RELAY_CRAWLER_SLUGS, ...WORKDAY_RELAY_CRAWLER_SLUGS]);
 const ID_TOKEN_EXPR = `\${{ steps.${SOURCE_RELAY_AUTH_STEP_ID}.outputs.id_token }}`;
 
 function groupArtifacts() {
@@ -126,11 +128,19 @@ describe('crawler groups: WIF auth for the jobs source relay', () => {
       const launches = launchSteps(job);
       expect(authAt, file).toBeLessThan(steps.indexOf(launches[0]));
       for (const step of relays) {
+        const relaySlug = step.id.replace(/^crawler-launch-/u, '');
         expect(step.env, `${file} ${step.id}`).toMatchObject({
           JOBS_SOURCE_RELAY_URL: SOURCE_RELAY_URL,
           JOBS_SOURCE_RELAY_ID_TOKEN: ID_TOKEN_EXPR,
-          JOBS_SOURCE_RELAY_REQUIRED: '1',
         });
+        // The original three sources have no other path: fail closed. Workday
+        // members (#20279) use the relay only as a rescue after a direct 429,
+        // so a failed auth step must leave their direct crawl untouched.
+        if (WORKDAY_SLUGS.has(relaySlug)) {
+          expect(Object.keys(step.env), `${file} ${step.id}`).not.toContain('JOBS_SOURCE_RELAY_REQUIRED');
+        } else {
+          expect(step.env.JOBS_SOURCE_RELAY_REQUIRED, `${file} ${step.id}`).toBe('1');
+        }
         // A failed auth must not skip siblings: launches keep their own guard.
         expect(step['continue-on-error'], `${file} ${step.id}`).toBe(true);
         // The token lives one hour: the member never queues on shared slots.
@@ -144,10 +154,49 @@ describe('crawler groups: WIF auth for the jobs source relay', () => {
       expect(installer.run, file).toContain('slots/${CRAWLER_LAUNCH_RELAY_SLOT:-slot-${slot_index}.lock}');
       for (const step of launches.filter((launch) => !relays.includes(launch))) {
         expect(Object.keys(step.env ?? {}).filter((key) => key.startsWith('JOBS_SOURCE_RELAY_')), `${file} ${step.id}`).toEqual([]);
-        expect(step.run, `${file} ${step.id}`).toContain('CRAWLER_LAUNCH_PARALLEL=4');
+        // Groups 15/16 sit in the three-body resource lane, the rest in the four-body one.
+        expect(step.run, `${file} ${step.id}`).toMatch(/CRAWLER_LAUNCH_PARALLEL=[34]\b/u);
         expect(step.run, `${file} ${step.id}`).not.toContain('CRAWLER_LAUNCH_RELAY_SLOT');
       }
     }
+  });
+
+  it('the Workday relay roster is exactly the roster crawlers that reach the Workday client', () => {
+    const roster = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/ci/crawler-generation-roster.json'), 'utf8'));
+    const ids: string[] = Object.values(roster.groups as Record<string, string[]>).flat();
+    // The two generic factories import the Workday parser for every adapter;
+    // only a dedicated update script that imports it through its own parser counts.
+    const stop = new Set(['shared-jobs-crawler.mjs', 'agenda-crawler-factory.mjs']);
+    const importCache = new Map<string, string[]>();
+    const importsOf = (file: string) => {
+      if (!importCache.has(file)) {
+        let source = '';
+        try { source = fs.readFileSync(file, 'utf8'); } catch { /* absent module */ }
+        importCache.set(file, [...source.matchAll(/(?:from\s+|import\s*\(\s*|import\s+)['"](\.{1,2}\/[^'"]+)['"]/gu)]
+          .map((match) => path.normalize(path.join(path.dirname(file), match[1]))));
+      }
+      return importCache.get(file)!;
+    };
+    const reachesWorkday = (entry: string) => {
+      const seen = new Set([entry]);
+      const queue = [entry];
+      while (queue.length > 0) {
+        const file = queue.pop()!;
+        if (file.endsWith(path.join('ats-clients', 'workday-client.mjs'))) return true;
+        if (stop.has(path.basename(file))) continue;
+        for (const next of importsOf(file)) {
+          if (!seen.has(next)) { seen.add(next); queue.push(next); }
+        }
+      }
+      return false;
+    };
+    const derived = ids
+      .filter((id) => fs.existsSync(path.join(ROOT, `scripts/update-${id}-jobs.mjs`)))
+      .filter((id) => reachesWorkday(path.join(ROOT, `scripts/update-${id}-jobs.mjs`)))
+      .sort();
+    expect([...WORKDAY_RELAY_CRAWLER_SLUGS].sort()).toEqual(derived);
+    // A Workday member never doubles as one of the three required-relay sources.
+    expect([...WORKDAY_RELAY_CRAWLER_SLUGS].filter((slug) => SOURCE_RELAY_CRAWLER_SLUGS.includes(slug))).toEqual([]);
   });
 
   it('the relay URL is the run.app service URL used as audience', () => {

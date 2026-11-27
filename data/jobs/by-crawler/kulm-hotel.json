@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-11-26T21:18:21.140Z",
-  "runId": "45896377898",
+  "assembledAt": "2026-11-27T09:18:45.065Z",
+  "runId": "45971584184",
   "jobs": [
     {
       "id": "kulm-hotel-71dce2443b9a",
@@ -34,7 +34,7 @@
       "url": "https://careers.kulm.com/en/vacancies/754",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:57.041Z",
+      "crawledAt": "2026-11-27T09:17:49.675Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -82,8 +82,9 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:17:57.041Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-25T09:17:49.675Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-27T09:17:49.675Z"
     },
     {
       "id": "kulm-hotel-fe14f6cf94b1",
@@ -116,7 +117,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:56.880Z",
+      "crawledAt": "2026-11-27T09:17:49.523Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -211,7 +212,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:17:56.880Z",
+      "validThrough": "2026-12-27T09:17:49.523Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -245,7 +246,7 @@
       "url": "https://careers.kulm.com/en/vacancies/751",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:55.919Z",
+      "crawledAt": "2026-11-27T09:17:48.560Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -293,7 +294,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:17:55.919Z",
+      "validThrough": "2026-12-27T09:17:48.560Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -327,7 +328,7 @@
       "url": "https://careers.kulm.com/en/vacancies/742",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:17:54.946Z",
+      "crawledAt": "2026-11-27T09:17:47.596Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -374,7 +375,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T21:17:54.946Z",
+      "validThrough": "2027-01-29T09:17:47.596Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -450,7 +451,7 @@
       "validThrough": "2027-02-12T09:27:25.118Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/749",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

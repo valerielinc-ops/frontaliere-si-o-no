@@ -1,16 +1,16 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-11-26T21:18:30.813Z",
+  "generatedAt": "2026-11-27T09:20:16.558Z",
   "total": 2,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9244,
-  "avgDurationMs": 9244,
+  "durationMs": 10235,
+  "avgDurationMs": 10235,
   "durationHistory": [
-    9244
+    10235
   ],
   "newJobs": [
     {
@@ -36,7 +36,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-26T21:18:10.538Z",
+      "crawledAt": "2026-11-27T09:20:01.898Z",
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
@@ -49,7 +49,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:10.538Z",
+      "validThrough": "2026-12-27T09:20:01.898Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-11T21:51:16.415Z",
       "_qualityScore": 85,
@@ -87,7 +87,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-26T21:18:10.538Z",
+      "crawledAt": "2026-11-27T09:19:55.579Z",
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
@@ -100,7 +100,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:18:10.538Z",
+      "validThrough": "2026-12-27T09:19:55.579Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.oscam.ch/wp-content/uploads/2026/02/concorso-generale-2026.pdf",
       "_qualityScore": 94,
@@ -112,5 +112,5 @@
       }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

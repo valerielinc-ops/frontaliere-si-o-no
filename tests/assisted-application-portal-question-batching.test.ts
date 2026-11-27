@@ -1574,32 +1574,47 @@ describe('assisted portal question batching', () => {
     expect(plan.missingRequired.map((q: any) => q.fieldId)).toEqual(['f16']);
   });
 
-  it('confirms sign-in typing when a portal login input enforces maxlength >= 20', async () => {
-    const alias51 = 'candidato.rossi12@candidature.frontaliereticino.ch';
-    expect(alias51).toHaveLength(50);
+  it.each([
+    { label: 'preserves full 51-char email when login input sets maxlength="50"', acceptedValueLen: 51, expectedSubmits: 1, inputLabel: 'Benutzername:' },
+    { label: 'preserves full 51-char email when login input is labeled "Phone or email" with maxlength="50"', acceptedValueLen: 51, expectedSubmits: 1, inputLabel: 'Phone or email' },
+    { label: 'falls back to maxlength-truncated prefix when backend stored truncated email', acceptedValueLen: 50, expectedSubmits: 2, inputLabel: 'Benutzername:' },
+  ])('$label', async ({ acceptedValueLen, expectedSubmits, inputLabel }) => {
+    const alias50 = 'candidato.rossi12@candidature.frontaliereticino.ch';
+    expect(alias50).toHaveLength(50);
     const overLimit = 'candidato.rossi123@candidature.frontaliereticino.ch';
     expect(overLimit).toHaveLength(51);
     expect(signInEmailValue({ maxLength: 50 }, overLimit)).toBe(overLimit.slice(0, 50));
     expect(signInEmailValue({ maxLength: 10 }, overLimit)).toBe(overLimit);
 
-    const dom = new JSDOM(`<!doctype html><html><body>
+    const dom = new JSDOM('<!doctype html><html><body></body></html>', {
+      url: 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/Login/1',
+    });
+    const { window } = dom;
+    Object.defineProperty(window.HTMLElement.prototype, 'innerText', { configurable: true, get() { return this.textContent || ''; } });
+    window.Element.prototype.getBoundingClientRect = () => ({ width: 80, height: 24 }) as DOMRect;
+    const submittedEmails: string[] = [];
+    const expectedEmail = overLimit.slice(0, acceptedValueLen);
+    const renderLoginForm = (err = '') => {
+      window.document.body.innerHTML = `${err ? `<div class="error">${err}</div>` : ''}
       <form id="login-form">
-        <label for="input_UserName">Benutzername:</label>
+        <label for="input_UserName">${inputLabel}</label>
         <input id="input_UserName" type="text" name="UserName" maxlength="50">
         <label for="input_password">Passwort:</label>
         <input id="input_password" type="password" name="PassWord" maxlength="50">
         <button type="submit" name="Login">Login</button>
-      </form>
-    </body></html>`, { url: 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/Login/1' });
-    const { window } = dom;
-    Object.defineProperty(window.HTMLElement.prototype, 'innerText', { configurable: true, get() { return this.textContent || ''; } });
-    window.Element.prototype.getBoundingClientRect = () => ({ width: 80, height: 24 }) as DOMRect;
-    let loginClicked = false;
-    window.document.querySelector('button[name="Login"]')?.addEventListener('click', (event: any) => {
-      event.preventDefault();
-      loginClicked = true;
-      window.document.body.innerHTML = '<main><h1>Bewerbung</h1><label for="cv">Lebenslauf *</label><input id="cv" type="file" required><button type="submit">Absenden</button></main>';
-    });
+      </form>`;
+      window.document.querySelector('button[name="Login"]')?.addEventListener('click', (event: any) => {
+        event.preventDefault();
+        const submitted = String((window.document.querySelector('#input_UserName') as any)?.value || '');
+        submittedEmails.push(submitted);
+        if (submitted === expectedEmail) {
+          window.document.body.innerHTML = '<main><h1>Bewerbung</h1><label for="cv">Lebenslauf *</label><input id="cv" type="file" required><button type="submit">Absenden</button></main>';
+        } else {
+          renderLoginForm('Benutzername oder Passwort nicht korrekt');
+        }
+      });
+    };
+    renderLoginForm();
     const resolve = (selector: string) => {
       const m = /data-aa-id="([^"]+)"/.exec(selector);
       return m ? window.document.querySelector(`[data-aa-id="${m[1]}"]`) : window.document.querySelector(selector);
@@ -1612,6 +1627,7 @@ describe('assisted portal question batching', () => {
         if (!el) throw new Error(`missing ${selector}`);
         return fn(el, arg);
       },
+      inputValue: async () => String((resolve(selector) as any)?.value || ''),
       fill: async (val: string) => {
         const el: any = resolve(selector);
         if (!el) throw new Error(`missing ${selector}`);
@@ -1658,7 +1674,9 @@ describe('assisted portal question batching', () => {
         },
       },
     });
-    expect(loginClicked).toBe(true);
+    expect(submittedEmails).toHaveLength(expectedSubmits);
+    expect(submittedEmails[0]).toBe(overLimit);
+    expect(submittedEmails[submittedEmails.length - 1]).toBe(expectedEmail);
     expect(result.handoff).toBeUndefined();
     expect(marked.some((m) => m.status === 'created')).toBe(true);
   });

@@ -43,7 +43,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hpjob.ch/jobs/konstrukteur-techniker-fuer-produktmanagement-au-de7ce",
-    "firstSeenAt": "2026-11-26T21:22:06.319Z"
+    "firstSeenAt": "2026-11-26T21:22:06.319Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "konstrukteur-techniker-fur-produktmanagement-au-st-gallen-hpjob-ch-ch": "SG"
+      }
+    }
   },
   {
     "id": "hpjob-ch-ce002dfdda86",
@@ -352,7 +357,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hpjob.ch/jobs/anlagenfuehrer-holzproduktion-gossau-86f9f",
-    "firstSeenAt": "2026-11-20T21:21:13.434Z"
+    "firstSeenAt": "2026-11-20T21:21:13.434Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagenfuhrer-holzproduktion-gossau-st-gallen-hpjob-ch-ch": "SG"
+      },
+      "en": {
+        "anlagenfuhrer-holzproduktion-gossau-st-gallen-hpjob-ch-ch": "SG"
+      },
+      "de": {
+        "anlagenfuhrer-holzproduktion-hp-job-gmbh-gossau": "SG"
+      },
+      "fr": {
+        "anlagenfuhrer-holzproduktion-gossau-st-gallen-hpjob-ch-ch": "SG"
+      }
+    }
   },
   {
     "id": "hpjob-ch-bf42cde9591a",
@@ -403,7 +423,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hpjob.ch/jobs/cnc-maschinist-holz-stababbund-gossau-bb200",
-    "firstSeenAt": "2026-11-20T21:21:13.436Z"
+    "firstSeenAt": "2026-11-20T21:21:13.436Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "cnc-maschinist-holz-stababbund-gossau-st-gallen-hpjob-ch-ch": "SG"
+      },
+      "en": {
+        "cnc-maschinist-holz-stababbund-gossau-st-gallen-hpjob-ch-ch": "SG"
+      },
+      "fr": {
+        "cnc-maschinist-holz-stababbund-gossau-st-gallen-hpjob-ch-ch": "SG"
+      }
+    }
   },
   {
     "id": "hpjob-ch-8c345491c07d",
@@ -459,7 +491,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hpjob.ch/jobs/technischer-kaufmann-mit-franzoesischkenntnissen-balgach-2b5b9",
-    "firstSeenAt": "2026-11-18T21:24:29.909Z"
+    "firstSeenAt": "2026-11-18T21:24:29.909Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technischer-kaufmann-mit-franzosischkenntnissen-balgach-st-gallen-hpjob-ch-ch": "SG",
+        "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach": "SG"
+      },
+      "en": {
+        "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach": "SG"
+      },
+      "de": {
+        "technischer-kaufmann-mit-franzosischkenntnissen-balgach-st-gallen-hpjob-ch-ch": "SG"
+      },
+      "fr": {
+        "technischer-kaufmann-mit-franzosischkenntnissen-hp-job-gmbh-balgach": "SG"
+      }
+    }
   },
   {
     "id": "hpjob-ch-3988359a0e54",
@@ -513,7 +561,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hpjob.ch/jobs/lackierer-maler-fuer-produktion-buchs-sg-54eca",
-    "firstSeenAt": "2026-11-18T21:24:29.910Z"
+    "firstSeenAt": "2026-11-18T21:24:29.910Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch": "SG"
+      },
+      "en": {
+        "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch": "SG"
+      },
+      "de": {
+        "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch": "SG"
+      },
+      "fr": {
+        "lackierer-maler-fur-produktion-buchs-sg-st-gallen-hpjob-ch-ch": "SG"
+      }
+    }
   },
   {
     "slug": "verkaufsinnendienst-mit-italienisch-hp-job-gmbh-au",

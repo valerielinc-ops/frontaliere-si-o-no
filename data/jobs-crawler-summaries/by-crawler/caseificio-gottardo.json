@@ -1,16 +1,16 @@
 {
   "key": "caseificio-gottardo",
   "label": "Caseificio del Gottardo",
-  "generatedAt": "2026-11-26T21:17:49.910Z",
+  "generatedAt": "2026-11-27T09:22:07.538Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4521,
-  "avgDurationMs": 4521,
+  "durationMs": 4475,
+  "avgDurationMs": 4475,
   "durationHistory": [
-    4521
+    4475
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
         "canton": "TI",
         "location": "Airolo"
       },
-      "crawledAt": "2026-11-26T21:17:33.583Z",
+      "crawledAt": "2026-11-27T09:21:53.538Z",
       "slug": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-gottardo",
       "sourceLang": "it",
       "salaryMin": 46500,
@@ -53,7 +53,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:17:33.583Z",
+      "validThrough": "2026-12-27T09:21:53.538Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -64,5 +64,5 @@
       }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

@@ -112,7 +112,7 @@ function passwordResetAccessibleName(control) {
     .find(Boolean) || '';
 }
 
-const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|zurücksetzen|zuruecksetzen|speichern|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|salva|aggiorna|reimposta)/i;
+const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|confirm|set\s+(?:new\s+)?password|zurücksetzen|zuruecksetzen|speichern|setzen|vergeben|festlegen|absenden|bestätigen|bestaetigen|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|définir|definir|salva|aggiorna|reimposta|imposta)/i;
 const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
 const ALREADY_APPLIED_RE = /(?:already applied|application already (?:exists|submitted|received)|you have already applied|déjà postulé|déjà candidaté|bereits beworben|bereits eine bewerbung|già candid(?:at[oa]|at[oa])|hai già inviato la candidatura|già presentata la candidatura)/iu;
 const APPLICATION_HISTORY_RE = /(?:my applications|mes candidatures|mes demandes de candidature|meine bewerbungen|le mie candidature|i miei invii)/iu;
@@ -10184,8 +10184,8 @@ function resetPasswordFields(snapshot) {
   const fields = (snapshot?.fields || []).filter((field) => field.inputType === 'password');
   if (fields.length !== 2 || !fields[0].formId || fields.some((field) => String(field.formId) !== String(fields[0].formId))) return null;
   const labels = fields.map((field) => `${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`);
-  const confirmation = labels.findIndex((label) => /(?:confirm|repeat|re-?enter|again|bestätigen|wiederholen|confirmer|ripeti)/i.test(label));
-  const newPassword = labels.findIndex((label) => /(?:new|neue|nouveau|nuova|password|passwort|mot de passe)/i.test(label));
+  const confirmation = labels.findIndex((label) => /(?:confirm|repeat|re-?enter|again|best[äa]tig\w*|wiederhol\w*|erneut|confirmer|ripeti)/i.test(label));
+  const newPassword = labels.findIndex((label) => /(?:new|neue|nouveau|nuova|password|passwort|kennwort|mot de passe)/i.test(label));
   if (confirmation < 0 || newPassword < 0 || confirmation === newPassword) return null;
   return { password: fields[newPassword], confirmation: fields[confirmation], formId: String(fields[0].formId) };
 }
@@ -10338,8 +10338,9 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
     });
     return { ...signedIn, accountRecovered: true };
   }
-  const resetContext = /(?:reset|change|update).{0,30}(?:password|passwort)|(?:password|passwort).{0,30}(?:reset|change|update)|mot de passe.{0,30}(?:réinitial|reinitial|chang)|password.{0,30}(?:reimpost|cambi)/i
-    .test(`${pageUrl.pathname} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
+  const resetContext = /[?&](?:password_?)?reset_?token=/i.test(pageUrl.search || '')
+    || /(?:reset|change|update|set).{0,30}(?:password|passwort|kennwort)|(?:password|passwort|kennwort).{0,30}(?:reset|change|update|set|setzen|vergeben|festlegen)|neues?\s+(?:passwort|kennwort)|mot de passe.{0,30}(?:réinitial|reinitial|chang|d[ée]finir)|password.{0,30}(?:reimpost|cambi|impost)/i
+      .test(`${pageUrl.pathname} ${pageUrl.search || ''} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
   if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
     return accountHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
       ? 'account_recovery_rejected' : 'account_recovery_timeout',
@@ -10362,13 +10363,27 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
   const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
     && PASSWORD_RESET_CONFIRM_RE.test(String(button.text || button.label || '')) && button.disabled !== true);
   if (!confirm || !await clickButton(page, confirm)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
-  const afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
+  let afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
   const resetRejected = PASSWORD_RESET_REFUSED_RE.test([afterReset.text, ...(afterReset.errors || [])].join(' '));
   if (resetRejected) {
     await ctx.accounts.abortRecovery(host, { requestSubmitted: true, reason: 'reset_rejected' });
     return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
   }
+  if (authPageKind(afterReset) !== 'sign_in' && !resetPasswordFields(afterReset) && !(afterReset.errors || []).length) {
+    if (await openVerifiedSignInNavigation(page, afterReset)) {
+      afterReset = await awaitAuthView(page, afterReset);
+    }
+    if (authPageKind(afterReset) !== 'sign_in' && resolvedSignInUrl && !signedInApplicationSurface(afterReset)) {
+      await page.goto(resolvedSignInUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      afterReset = await extractFields(page, NAVIGATION);
+    }
+  }
   if (authPageKind(afterReset) !== 'sign_in') {
+    if (!resetPasswordFields(afterReset) && !(afterReset.errors || []).length && signedInApplicationSurface(afterReset)) {
+      if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+      return { snapshot: afterReset, reopen: true, accountRecovered: true };
+    }
     return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
   }
   if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
@@ -10493,6 +10508,40 @@ export function signInEmailValue(field, email) {
     : trimmed;
 }
 
+/** Fill, verify and submit the login form once for one candidate identifier string. */
+async function submitSignInForm({ page, snapshot, account, targetEmail, preserveFullValue = false, diagnostics = null }) {
+  // Typed, then read again: a form the portal draws anew meanwhile (Workday, when what it loads for the
+  // page arrives late) has lost what was typed and its button is another element. It is typed once more,
+  // and the button pressed is the one of the reading made right before the click.
+  let form = snapshot;
+  let typed = false;
+  for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
+    const { email, password } = loginFields(form);
+    if (!email || !password) return { handoff: accountHandoff('account', 'login_unobserved', 'login') };
+    const expected = String(targetEmail || '').trim().toLowerCase();
+    // An e-mail already in the field (the agentic fallback typed it where a pasted value does
+    // not stay) is left alone: filling it again would undo it.
+    const emailKept = String(email.value || '').trim().toLowerCase() === expected;
+    await applyActions(page, form.fields, [
+      ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: targetEmail, ...(preserveFullValue ? { preserveFullValue: true } : {}) }]),
+      { fieldId: password.id, action: 'fill', value: account.password },
+    ], {});
+    await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
+    form = await extractFields(page, NAVIGATION);
+    const now = loginFields(form);
+    typed = String(now.email?.value || '').trim().toLowerCase() === expected
+      && await passwordControlMatches(page, now.password, account.password);
+  }
+  if (!typed) return { handoff: { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' } };
+  const shown = form.errors || [];
+  diagnostics?.beforeClick('account');
+  const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
+  if (!pressed) return { handoff: accountHandoff('account', 'no_sign_in_button', 'login') };
+  const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
+  diagnostics?.afterClick();
+  return { after, pressed };
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -10577,37 +10626,33 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   }
 
   if (kind === 'sign_in') {
-    // Typed, then read again: a form the portal draws anew meanwhile (Workday, when what it loads for the
-    // page arrives late) has lost what was typed and its button is another element. It is typed once more,
-    // and the button pressed is the one of the reading made right before the click.
-    let form = snapshot;
-    let typed = false;
     typedSecrets?.add(account.password);
-    for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
-      const { email, password } = loginFields(form);
-      if (!email || !password) return accountHandoff('account', 'login_unobserved', 'login');
-      const targetEmail = signInEmailValue(email, account.email);
-      // An e-mail already in the field (the agentic fallback typed it where a pasted value does
-      // not stay) is left alone: filling it again would undo it.
-      const emailKept = String(email.value || '').trim().toLowerCase() === targetEmail.toLowerCase();
-      await applyActions(page, form.fields, [
-        ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: targetEmail }]),
-        { fieldId: password.id, action: 'fill', value: account.password },
-      ], {});
-      await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
-      form = await extractFields(page, NAVIGATION);
-      const now = loginFields(form);
-      const expectedEmail = signInEmailValue(now.email || email, account.email).toLowerCase();
-      typed = String(now.email?.value || '').trim().toLowerCase() === expectedEmail
-        && await passwordControlMatches(page, now.password, account.password);
+    const fullEmail = String(account.email || '').trim();
+    const initialEmail = loginFields(snapshot).email;
+    const truncatedEmail = initialEmail ? signInEmailValue(initialEmail, fullEmail) : fullEmail;
+    let attemptResult = await submitSignInForm({
+      page,
+      snapshot,
+      account,
+      targetEmail: fullEmail,
+      preserveFullValue: true,
+      diagnostics,
+    });
+    if ((attemptResult.handoff?.authStop === 'sign_in_typing_unconfirmed'
+      || (!attemptResult.handoff && authPageKind(attemptResult.after) === 'sign_in'))
+      && truncatedEmail !== fullEmail) {
+      const fallbackSource = attemptResult.handoff ? await extractFields(page, NAVIGATION) : attemptResult.after;
+      attemptResult = await submitSignInForm({
+        page,
+        snapshot: fallbackSource,
+        account,
+        targetEmail: truncatedEmail,
+        preserveFullValue: false,
+        diagnostics,
+      });
     }
-    if (!typed) return { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' };
-    const shown = form.errors || [];
-    diagnostics?.beforeClick('account');
-    const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
-    if (!pressed) return accountHandoff('account', 'no_sign_in_button', 'login');
-    const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
-    diagnostics?.afterClick();
+    if (attemptResult.handoff) return attemptResult.handoff;
+    const { after, pressed } = attemptResult;
     const postSignInVerificationText = accountResponseText(after);
     const hasActivationPrompt = isAccountVerificationResponse(after)
       || (hasResendVerificationControl(after) && (!codeField(after) || VERIFY_PAGE_RE.test(postSignInVerificationText)));

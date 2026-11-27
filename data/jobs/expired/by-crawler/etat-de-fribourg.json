@@ -27,7 +27,7 @@
       "fr": "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch"
     },
     "sector": "Amministrazione Pubblica",
-    "expiredAt": "2026-11-26T21:50:15.812Z",
+    "expiredAt": "2026-11-27T10:00:51.683Z",
     "previousSlugs": [
       "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch"
     ],
@@ -90,7 +90,7 @@
       "fr": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch"
     },
     "sector": "Amministrazione Pubblica",
-    "expiredAt": "2026-11-26T21:50:15.811Z",
+    "expiredAt": "2026-11-27T10:00:51.683Z",
     "previousSlugs": [
       "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-a-la-source-etat-de-fribourg-ch"
     ],
@@ -153,7 +153,7 @@
       "fr": "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch"
     },
     "sector": "Amministrazione Pubblica",
-    "expiredAt": "2026-11-26T21:50:15.809Z",
+    "expiredAt": "2026-11-27T10:00:51.682Z",
     "previousSlugs": [
       "taxateur-trice-fiscal-e-aupres-du-secteur-de-l-impot-anticipe-etat-de-fribourg-ch"
     ],
@@ -2700,40 +2700,45 @@
     "expiredAt": "2026-11-15T09:37:24.284Z",
     "previousSlugs": [
       "huissier-ere-etat-de-fribourg-ch",
-      "husband-era-etat-de-fribourg-fribourg",
       "ehegattenzeit-etat-de-fribourg-fribourg",
       "ufficiale-giudiziario-etat-de-fribourg-fribourg-75ccb9b4",
       "fireworks-etat-de-fribourg-fribourg",
       "fireworks-etat-de-fribourg-fribourg-d6dbd415",
       "feuerwerk-etat-de-fribourg-fribourg-01a0fd2d",
-      "ufficiale-giudiziario-etat-de-fribourg-fribourg"
+      "ufficiale-giudiziario-etat-de-fribourg-fribourg",
+      "husband-era-etat-de-fribourg-fribourg",
+      "husband-era-etat-de-fribourg-fribourg-714f03a2"
     ],
     "previousSlugsByLocale": {
       "it": [
         "huissier-ere-etat-de-fribourg-ch",
         "ufficiale-giudiziario-etat-de-fribourg-fribourg-75ccb9b4",
         "fireworks-etat-de-fribourg-fribourg-d6dbd415",
-        "feuerwerk-etat-de-fribourg-fribourg-01a0fd2d"
+        "feuerwerk-etat-de-fribourg-fribourg-01a0fd2d",
+        "husband-era-etat-de-fribourg-fribourg-714f03a2"
       ],
       "en": [
         "huissier-ere-etat-de-fribourg-ch",
         "fireworks-etat-de-fribourg-fribourg-d6dbd415",
-        "husband-era-etat-de-fribourg-fribourg",
+        "husband-era-etat-de-fribourg-fribourg-714f03a2",
         "ufficiale-giudiziario-etat-de-fribourg-fribourg",
         "fireworks-etat-de-fribourg-fribourg",
-        "feuerwerk-etat-de-fribourg-fribourg-01a0fd2d"
+        "feuerwerk-etat-de-fribourg-fribourg-01a0fd2d",
+        "husband-era-etat-de-fribourg-fribourg"
       ],
       "de": [
         "huissier-ere-etat-de-fribourg-ch",
         "feuerwerk-etat-de-fribourg-fribourg-01a0fd2d",
         "ehegattenzeit-etat-de-fribourg-fribourg",
         "ufficiale-giudiziario-etat-de-fribourg-fribourg",
-        "fireworks-etat-de-fribourg-fribourg-d6dbd415"
+        "fireworks-etat-de-fribourg-fribourg-d6dbd415",
+        "husband-era-etat-de-fribourg-fribourg-714f03a2"
       ],
       "fr": [
         "ufficiale-giudiziario-etat-de-fribourg-fribourg",
         "fireworks-etat-de-fribourg-fribourg-d6dbd415",
-        "feuerwerk-etat-de-fribourg-fribourg-01a0fd2d"
+        "feuerwerk-etat-de-fribourg-fribourg-01a0fd2d",
+        "husband-era-etat-de-fribourg-fribourg-714f03a2"
       ]
     },
     "postalCode": "1470",
@@ -2759,13 +2764,19 @@
     "canton": "FR",
     "previousSlugCantonByLocale": {
       "it": {
-        "huissier-ere-etat-de-fribourg-ch": "FR"
+        "huissier-ere-etat-de-fribourg-ch": "FR",
+        "husband-era-etat-de-fribourg-fribourg-714f03a2": "FR"
       },
       "en": {
-        "huissier-ere-etat-de-fribourg-ch": "FR"
+        "huissier-ere-etat-de-fribourg-ch": "FR",
+        "husband-era-etat-de-fribourg-fribourg-714f03a2": "FR"
       },
       "de": {
-        "huissier-ere-etat-de-fribourg-ch": "FR"
+        "huissier-ere-etat-de-fribourg-ch": "FR",
+        "husband-era-etat-de-fribourg-fribourg-714f03a2": "FR"
+      },
+      "fr": {
+        "husband-era-etat-de-fribourg-fribourg-714f03a2": "FR"
       }
     }
   },
@@ -9999,7 +10010,7 @@
       "it": "personale-amministrativo-etat-de-fribourg-fribourg",
       "en": "administrative-staff-etat-de-fribourg-fribourg",
       "de": "verwaltungspersonal-etat-de-fribourg-fribourg",
-      "fr": "employe-e-d-administration-etat-de-fribourg-ch"
+      "fr": "employe-e-d-administration-etat-de-fribourg-ch-c62efc7b"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-11-10T22:06:27.803Z",
@@ -10027,7 +10038,6 @@
       "greffier-ere-stagiaire-etat-de-fribourg-ch-1071e706",
       "greffier-ere-stagiaire-etat-de-fribourg-ch-27e16bc7",
       "administrative-staff-etat-de-fribourg-fribourg",
-      "employe-e-d-administration-etat-de-fribourg-ch",
       "personale-amministrativo-etat-de-fribourg-granges-paccot-470c61",
       "administrative-staff-etat-de-fribourg-granges-paccot-470c61",
       "employe-e-d-administration-etat-de-fribourg-ch-6ogjeq",
@@ -10035,6 +10045,7 @@
       "registrazione-etat-de-fribourg-bulle-0f48c211",
       "registrar-etat-de-fribourg-bulle-65112d89",
       "registrar-e-stagiary-etat-de-fribourg-bulle-42eff9df",
+      "employe-e-d-administration-etat-de-fribourg-ch",
       "registrazione-etat-de-fribourg-bulle",
       "registrar-etat-de-fribourg-bulle",
       "greffier-ere-stagiaire-etat-de-fribourg-ch",
@@ -10057,13 +10068,14 @@
         "personale-amministrativo-etat-de-fribourg-bulle",
         "administrative-staff-etat-de-fribourg-fribourg",
         "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
-        "employe-e-d-administration-etat-de-fribourg-ch",
+        "employe-e-d-administration-etat-de-fribourg-ch-c62efc7b",
         "verwaltungspersonal-etat-de-fribourg-fribourg",
+        "administrative-staff-etat-de-fribourg-bulle",
+        "verwaltungspersonal-etat-de-fribourg-bulle",
+        "employe-e-d-administration-etat-de-fribourg-ch",
         "registrazione-etat-de-fribourg-bulle",
         "greffier-ere-stagiaire-etat-de-fribourg-ch",
         "registrar-etat-de-fribourg-bulle",
-        "administrative-staff-etat-de-fribourg-bulle",
-        "verwaltungspersonal-etat-de-fribourg-bulle",
         "registrar-e-stagiary-etat-de-fribourg-bulle"
       ],
       "en": [
@@ -10105,7 +10117,8 @@
         "verwaltungspersonal-etat-de-fribourg-fribourg",
         "personale-amministrativo-etat-de-fribourg-fribourg",
         "administrative-staff-etat-de-fribourg-bulle",
-        "verwaltungspersonal-etat-de-fribourg-bulle"
+        "verwaltungspersonal-etat-de-fribourg-bulle",
+        "employe-e-d-administration-etat-de-fribourg-ch-c62efc7b"
       ]
     },
     "postalCode": "1700",
@@ -10151,13 +10164,9 @@
     "canton": "FR",
     "previousSlugCantonByLocale": {
       "it": {
-        "registrazione-etat-de-fribourg-bulle": "FR",
-        "greffier-ere-stagiaire-etat-de-fribourg-ch": "FR",
-        "registrar-etat-de-fribourg-bulle": "FR",
         "personale-amministrativo-etat-de-fribourg-bulle": "FR",
         "administrative-staff-etat-de-fribourg-bulle": "FR",
         "verwaltungspersonal-etat-de-fribourg-bulle": "FR",
-        "registrar-e-stagiary-etat-de-fribourg-bulle": "FR",
         "administrative-employee-etat-de-fribourg-givisiez": "FR",
         "administrative-staff-etat-de-fribourg-givisiez": "FR",
         "verwaltungsangestellter-in-etat-de-fribourg-givisiez": "FR",
@@ -10173,7 +10182,12 @@
         "verwaltungspersonal-etat-de-fribourg-chatel-st-denis": "FR",
         "verwaltungspersonal-etat-de-fribourg-givisiez": "FR",
         "personale-amministrativo-etat-de-fribourg-granges-paccot-488926": "FR",
-        "employe-e-d-administration-etat-de-fribourg-ch-2": "FR"
+        "employe-e-d-administration-etat-de-fribourg-ch-2": "FR",
+        "employe-e-d-administration-etat-de-fribourg-ch-c62efc7b": "FR",
+        "registrazione-etat-de-fribourg-bulle-0f48c211": "FR",
+        "greffier-ere-stagiaire-etat-de-fribourg-ch-288eb1ae": "FR",
+        "registrar-etat-de-fribourg-bulle-65112d89": "FR",
+        "registrar-e-stagiary-etat-de-fribourg-bulle-42eff9df": "FR"
       },
       "en": {
         "administrative-staff-etat-de-fribourg-bulle": "FR",
@@ -10181,7 +10195,9 @@
         "employe-e-d-administration-etat-de-fribourg-ch-3": "FR",
         "verwaltungspersonal-etat-de-fribourg-givisiez": "FR",
         "personale-amministrativo-etat-de-fribourg-granges-paccot-488926": "FR",
-        "employe-e-d-administration-etat-de-fribourg-ch-2": "FR"
+        "employe-e-d-administration-etat-de-fribourg-ch-2": "FR",
+        "greffier-ere-stagiaire-etat-de-fribourg-ch-288eb1ae": "FR",
+        "registrar-e-stagiary-etat-de-fribourg-bulle-42eff9df": "FR"
       },
       "de": {
         "administrative-staff-etat-de-fribourg-bulle": "FR",
@@ -10189,14 +10205,19 @@
         "employe-e-d-administration-etat-de-fribourg-ch-3": "FR",
         "verwaltungspersonal-etat-de-fribourg-givisiez": "FR",
         "personale-amministrativo-etat-de-fribourg-granges-paccot-488926": "FR",
-        "employe-e-d-administration-etat-de-fribourg-ch-2": "FR"
+        "employe-e-d-administration-etat-de-fribourg-ch-2": "FR",
+        "greffier-ere-stagiaire-etat-de-fribourg-ch-288eb1ae": "FR",
+        "registrar-e-stagiary-etat-de-fribourg-bulle-42eff9df": "FR"
       },
       "fr": {
         "administrative-staff-etat-de-fribourg-bulle": "FR",
         "verwaltungspersonal-etat-de-fribourg-bulle": "FR",
         "verwaltungspersonal-etat-de-fribourg-givisiez": "FR",
         "personale-amministrativo-etat-de-fribourg-granges-paccot-488926": "FR",
-        "employe-e-d-administration-etat-de-fribourg-ch-2": "FR"
+        "employe-e-d-administration-etat-de-fribourg-ch-2": "FR",
+        "employe-e-d-administration-etat-de-fribourg-ch-c62efc7b": "FR",
+        "greffier-ere-stagiaire-etat-de-fribourg-ch-288eb1ae": "FR",
+        "registrar-e-stagiary-etat-de-fribourg-bulle-42eff9df": "FR"
       }
     }
   },
@@ -34612,6 +34633,7 @@
         "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-d9c7f198"
       ],
       "fr": [
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-d9c7f198",
         "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch"
       ]
     },
@@ -34639,16 +34661,18 @@
     "previousSlugCantonByLocale": {
       "it": {
         "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2": "FR",
-        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch": "FR"
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-d9c7f198": "FR"
       },
       "en": {
-        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2": "FR"
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2": "FR",
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-d9c7f198": "FR"
       },
       "de": {
-        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2": "FR"
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2": "FR",
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-d9c7f198": "FR"
       },
       "fr": {
-        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch": "FR"
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-d9c7f198": "FR"
       }
     }
   },
@@ -39706,28 +39730,32 @@
     "slugByLocale": {
       "it": "personale-amministrativo-etat-de-fribourg-granges-paccot",
       "en": "administrative-staff-etat-de-fribourg-granges-paccot",
-      "de": "verwaltungsangestellte-r-etat-de-fribourg-ch",
+      "de": "verwaltungsangestellte-r-etat-de-fribourg-ch-9c585db9",
       "fr": "personnel-administratif-etat-de-fribourg-granges-paccot"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-10-09T21:35:30.458Z",
     "previousSlugs": [
-      "verwaltungsangestellte-r-etat-de-fribourg-ch",
-      "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot"
+      "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot",
+      "verwaltungsangestellte-r-etat-de-fribourg-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "verwaltungsangestellte-r-etat-de-fribourg-ch",
-        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot"
+        "verwaltungsangestellte-r-etat-de-fribourg-ch-9c585db9",
+        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot",
+        "verwaltungsangestellte-r-etat-de-fribourg-ch"
       ],
       "en": [
-        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot"
+        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot",
+        "verwaltungsangestellte-r-etat-de-fribourg-ch"
       ],
       "de": [
-        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot"
+        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot",
+        "verwaltungsangestellte-r-etat-de-fribourg-ch-9c585db9"
       ],
       "fr": [
-        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot"
+        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot",
+        "verwaltungsangestellte-r-etat-de-fribourg-ch"
       ]
     },
     "postalCode": "1763",
@@ -39752,14 +39780,15 @@
     "canton": "FR",
     "previousSlugCantonByLocale": {
       "it": {
-        "verwaltungsangestellte-r-etat-de-fribourg-ch": "FR",
-        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot": "FR"
+        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot": "FR",
+        "verwaltungsangestellte-r-etat-de-fribourg-ch-9c585db9": "FR"
       },
       "en": {
         "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot": "FR"
       },
       "de": {
-        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot": "FR"
+        "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot": "FR",
+        "verwaltungsangestellte-r-etat-de-fribourg-ch-9c585db9": "FR"
       },
       "fr": {
         "verwaltungsangestellte-r-etat-de-fribourg-granges-paccot": "FR"
@@ -42270,7 +42299,7 @@
       "de": "Qui sommes-nous?\n\nL'Etablissement cantonal des assurances sociales (ECAS) est une institution autonome de droit public qui administre et coordonne les activités de la Caisse de compensation du canton de Fribourg, celles de l'Office cantonal de l'assurance-invalidité ainsi que des Services centraux. Il constitue ainsi un centre de compétences unique dans les assurances sociales du 1er pilier pour les personnes assurées et les entreprises du canton de Fribourg.\n\nPourquoi nous rejoindre ?\n\nNous offrons un cadre de travail agréable, avec une infrastructure moderne, idéalement desservi par les transports publics dont nous soutenons l’utilisation. Nous favorisons la conciliation entre vie privée et professionnelle ainsi que la formation continue.\n\nPour une simplification du traitement des candidatures, nous remercions les personnes intéressées de bien vouloir n’ajouter qu’un seul fichier PDF contenant tous les diplômes, certificats de travail, et/ou autres annexes.\n\nVos missions\n\nAu sein de la section \"AVS et Facturation\", de l'Office cantonal de l'assurance-invalidité :\n\n• Appliquer les barèmes de remboursement en vigueur pour les frais de voyage, les contributions d’assistance, les moyens auxiliaires ainsi que la rémunération des spécialistes, conformément aux différentes conventions tarifaires applicables\n\n• Assurer le traitement et le suivi des factures, qu’elles soient transmises sous format numérique ou papier, en veillant au respect des procédures internes\n\n• Assurer un rôle d’interlocuteur-trice auprès des personnes assurées et des fournisseurs, en répondant à leurs questions relatives aux prestations\n\nProfil souhaité\n\n• Titulaire d'un CFC d'employé-e de commerce\n\n• Plusieurs années d’expérience professionnelle dans le domaine des assurances\n\n• Capacité à travailler de manière autonome et en équipe, en faisant preuve de rigueur et d’organisation\n\n• Très bonnes compétences rédactionnelles, communicationnelles et organisationnelles\n\n• Très bonne maîtrise des outils bureautiques usuels\n\n• Capacité à gérer une charge de travail importante tout en maintenant un travail de qualité\n\n• Maîtrise de la langue française avec des connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nEric Gbessaya, Chef de section AVS et Facturation, T +41 26 426 70 58"
     },
     "slugByLocale": {
-      "fr": "employe-e-d-administration-etat-de-fribourg-ch"
+      "fr": "employe-e-d-administration-etat-de-fribourg-ch-a3142c92"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-10-03T21:30:06.064Z",
@@ -42279,7 +42308,6 @@
       "administrative-staff-etat-de-fribourg-givisiez",
       "verwaltungspersonal-etat-de-fribourg-givisiez",
       "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
-      "employe-e-d-administration-etat-de-fribourg-ch",
       "employe-e-d-administration-etat-de-fribourg-ch-2",
       "administrative-staff-etat-de-fribourg-chatel-st-denis",
       "verwaltungspersonal-etat-de-fribourg-chatel-st-denis",
@@ -42296,13 +42324,14 @@
       "registrar-etat-de-fribourg-bulle-a6bf44cd",
       "registrar-e-stagiary-etat-de-fribourg-bulle-ca9238d3",
       "registrazione-etat-de-fribourg-bulle",
-      "registrar-etat-de-fribourg-bulle"
+      "registrar-etat-de-fribourg-bulle",
+      "employe-e-d-administration-etat-de-fribourg-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
         "personale-amministrativo-etat-de-fribourg-givisiez",
         "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
-        "employe-e-d-administration-etat-de-fribourg-ch",
+        "employe-e-d-administration-etat-de-fribourg-ch-a3142c92",
         "employe-e-d-administration-etat-de-fribourg-ch-2",
         "personale-amministrativo-etat-de-fribourg-granges-paccot-488926",
         "registrazione-etat-de-fribourg-bulle-2df99266",
@@ -42311,7 +42340,8 @@
         "personale-amministrativo-etat-de-fribourg-bulle",
         "administrative-staff-etat-de-fribourg-bulle",
         "verwaltungspersonal-etat-de-fribourg-bulle",
-        "registrar-e-stagiary-etat-de-fribourg-bulle-ca9238d3"
+        "registrar-e-stagiary-etat-de-fribourg-bulle-ca9238d3",
+        "employe-e-d-administration-etat-de-fribourg-ch"
       ],
       "en": [
         "administrative-staff-etat-de-fribourg-givisiez",
@@ -42343,7 +42373,8 @@
         "greffier-ere-stagiaire-etat-de-fribourg-ch-1192e2bc",
         "registrazione-etat-de-fribourg-bulle",
         "registrar-etat-de-fribourg-bulle",
-        "registrar-e-stagiary-etat-de-fribourg-bulle-ca9238d3"
+        "registrar-e-stagiary-etat-de-fribourg-bulle-ca9238d3",
+        "employe-e-d-administration-etat-de-fribourg-ch-a3142c92"
       ]
     },
     "postalCode": "1762",
@@ -42481,7 +42512,6 @@
       "personale-amministrativo-etat-de-fribourg-bulle",
       "administrative-staff-etat-de-fribourg-bulle",
       "verwaltungspersonal-etat-de-fribourg-bulle",
-      "employe-e-d-administration-etat-de-fribourg-ch",
       "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
       "employe-e-d-administration-etat-de-fribourg-ch-2",
       "administrative-staff-etat-de-fribourg-chatel-st-denis",
@@ -42491,7 +42521,9 @@
       "verwaltungspersonal-etat-de-fribourg-granges-paccot",
       "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1",
       "registrar-etat-de-fribourg-bulle-ede3fbc7",
-      "registrar-etat-de-fribourg-bulle"
+      "registrar-etat-de-fribourg-bulle",
+      "employe-e-d-administration-etat-de-fribourg-ch",
+      "employe-e-d-administration-etat-de-fribourg-ch-0e31b6a9"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -42500,10 +42532,11 @@
         "personale-amministrativo-etat-de-fribourg-bulle",
         "administrative-staff-etat-de-fribourg-bulle",
         "verwaltungspersonal-etat-de-fribourg-bulle",
-        "employe-e-d-administration-etat-de-fribourg-ch",
+        "employe-e-d-administration-etat-de-fribourg-ch-0e31b6a9",
         "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
         "employe-e-d-administration-etat-de-fribourg-ch-2",
-        "personale-amministrativo-etat-de-fribourg-granges-paccot-488926"
+        "personale-amministrativo-etat-de-fribourg-granges-paccot-488926",
+        "employe-e-d-administration-etat-de-fribourg-ch"
       ],
       "en": [
         "greffier-ere-stagiaire-etat-de-fribourg-ch",
@@ -42524,9 +42557,10 @@
         "registrar-etat-de-fribourg-bulle"
       ],
       "fr": [
-        "employe-e-d-administration-etat-de-fribourg-ch",
+        "employe-e-d-administration-etat-de-fribourg-ch-0e31b6a9",
         "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1",
-        "registrar-etat-de-fribourg-bulle"
+        "registrar-etat-de-fribourg-bulle",
+        "employe-e-d-administration-etat-de-fribourg-ch"
       ]
     },
     "postalCode": "1630",
@@ -42591,7 +42625,6 @@
       "personale-amministrativo-etat-de-fribourg-bulle",
       "administrative-staff-etat-de-fribourg-bulle",
       "verwaltungspersonal-etat-de-fribourg-bulle",
-      "employe-e-d-administration-etat-de-fribourg-ch",
       "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
       "employe-e-d-administration-etat-de-fribourg-ch-2",
       "administrative-staff-etat-de-fribourg-chatel-st-denis",
@@ -42601,7 +42634,9 @@
       "verwaltungspersonal-etat-de-fribourg-granges-paccot",
       "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1",
       "registrar-etat-de-fribourg-bulle-0bc06dc2",
-      "registrar-etat-de-fribourg-bulle"
+      "registrar-etat-de-fribourg-bulle",
+      "employe-e-d-administration-etat-de-fribourg-ch",
+      "employe-e-d-administration-etat-de-fribourg-ch-a17bd78e"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -42610,10 +42645,11 @@
         "personale-amministrativo-etat-de-fribourg-bulle",
         "administrative-staff-etat-de-fribourg-bulle",
         "verwaltungspersonal-etat-de-fribourg-bulle",
-        "employe-e-d-administration-etat-de-fribourg-ch",
+        "employe-e-d-administration-etat-de-fribourg-ch-a17bd78e",
         "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
         "employe-e-d-administration-etat-de-fribourg-ch-2",
-        "personale-amministrativo-etat-de-fribourg-granges-paccot-488926"
+        "personale-amministrativo-etat-de-fribourg-granges-paccot-488926",
+        "employe-e-d-administration-etat-de-fribourg-ch"
       ],
       "en": [
         "greffier-ere-stagiaire-etat-de-fribourg-ch",
@@ -42634,9 +42670,10 @@
         "registrar-etat-de-fribourg-bulle"
       ],
       "fr": [
-        "employe-e-d-administration-etat-de-fribourg-ch",
+        "employe-e-d-administration-etat-de-fribourg-ch-a17bd78e",
         "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1",
-        "registrar-etat-de-fribourg-bulle"
+        "registrar-etat-de-fribourg-bulle",
+        "employe-e-d-administration-etat-de-fribourg-ch"
       ]
     },
     "postalCode": "1630",
@@ -42701,7 +42738,6 @@
       "personale-amministrativo-etat-de-fribourg-bulle",
       "administrative-staff-etat-de-fribourg-bulle",
       "verwaltungspersonal-etat-de-fribourg-bulle",
-      "employe-e-d-administration-etat-de-fribourg-ch",
       "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
       "employe-e-d-administration-etat-de-fribourg-ch-2",
       "administrative-staff-etat-de-fribourg-chatel-st-denis",
@@ -42711,7 +42747,9 @@
       "verwaltungspersonal-etat-de-fribourg-granges-paccot",
       "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1",
       "registrar-etat-de-fribourg-bulle-080ec184",
-      "registrar-etat-de-fribourg-bulle"
+      "registrar-etat-de-fribourg-bulle",
+      "employe-e-d-administration-etat-de-fribourg-ch",
+      "employe-e-d-administration-etat-de-fribourg-ch-8062bba7"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -42720,10 +42758,11 @@
         "personale-amministrativo-etat-de-fribourg-bulle",
         "administrative-staff-etat-de-fribourg-bulle",
         "verwaltungspersonal-etat-de-fribourg-bulle",
-        "employe-e-d-administration-etat-de-fribourg-ch",
+        "employe-e-d-administration-etat-de-fribourg-ch-8062bba7",
         "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
         "employe-e-d-administration-etat-de-fribourg-ch-2",
-        "personale-amministrativo-etat-de-fribourg-granges-paccot-488926"
+        "personale-amministrativo-etat-de-fribourg-granges-paccot-488926",
+        "employe-e-d-administration-etat-de-fribourg-ch"
       ],
       "en": [
         "greffier-ere-stagiaire-etat-de-fribourg-ch",
@@ -42744,9 +42783,10 @@
         "registrar-etat-de-fribourg-bulle"
       ],
       "fr": [
-        "employe-e-d-administration-etat-de-fribourg-ch",
+        "employe-e-d-administration-etat-de-fribourg-ch-8062bba7",
         "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1",
-        "registrar-etat-de-fribourg-bulle"
+        "registrar-etat-de-fribourg-bulle",
+        "employe-e-d-administration-etat-de-fribourg-ch"
       ]
     },
     "postalCode": "1630",
@@ -43447,6 +43487,7 @@
         "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch-c7b20f5e",
         "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch-51b05c61",
         "wissenschaftliche-r-collaboratore-trice-etat-de-fribourg",
+        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch-f5696a79",
         "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch"
       ],
       "fr": [
@@ -43496,24 +43537,24 @@
     "canton": "FR",
     "previousSlugCantonByLocale": {
       "it": {
-        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch": "FR",
         "wissenschaftliche-r-collaboratore-trice-in-humanmedizin-etat-de-fribourg": "FR",
         "scientific-staff-member-in-human-medicine-etat-de-fribourg-fribourg": "FR",
         "wissenschaftliche-r-mitarbeiter-in-in-humanmedizin-etat-de-fribourg-ch": "FR",
         "personnel-scientifique-en-medecine-humaine-etat-de-fribourg-fribourg": "FR",
-        "wissenschaftliche-r-collaboratore-trice-etat-de-fribourg": "FR"
+        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch-f5696a79": "FR",
+        "wissenschaftliche-r-collaboratore-trice-etat-de-fribourg-f7cf996b": "FR"
       },
       "en": {
         "scientific-staff-member-in-human-medicine-etat-de-fribourg-fribourg": "FR",
-        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch": "FR"
+        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch-f5696a79": "FR"
       },
       "de": {
-        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch": "FR",
-        "wissenschaftliche-r-mitarbeiter-in-in-humanmedizin-etat-de-fribourg-ch": "FR"
+        "wissenschaftliche-r-mitarbeiter-in-in-humanmedizin-etat-de-fribourg-ch": "FR",
+        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch-f5696a79": "FR"
       },
       "fr": {
         "personnel-scientifique-en-medecine-humaine-etat-de-fribourg-fribourg": "FR",
-        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch": "FR"
+        "wissenschaftliche-r-mitarbeiter-in-etat-de-fribourg-ch-f5696a79": "FR"
       }
     }
   },
@@ -44940,12 +44981,12 @@
       "intern-lawyer-etat-de-fribourg-fribourg",
       "juriste-stagiaire-etat-de-fribourg-ch-1f0f818f",
       "fireworks-etat-de-fribourg-fribourg",
-      "husband-era-etat-de-fribourg-fribourg",
       "court-clerk-in-practitioner-in-etat-de-fribourg-fribourg-c5a3fe04",
       "registrar-etat-de-fribourg-6a544b06",
       "legal-officer-etat-de-fribourg-bulle",
       "legal-officer-etat-de-fribourg-fribourg-c9cf61",
-      "greffier-ere-stagiaire-etat-de-fribourg-ch-2-69f483ca"
+      "greffier-ere-stagiaire-etat-de-fribourg-ch-2-69f483ca",
+      "husband-era-etat-de-fribourg-fribourg"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -45115,7 +45156,6 @@
         "juriste-stagiaire-etat-de-fribourg-ch-1f0f818f",
         "accounting-staff-r-etat-de-fribourg-fribourg",
         "fireworks-etat-de-fribourg-fribourg",
-        "husband-era-etat-de-fribourg-fribourg",
         "legal-officer-etat-de-fribourg-fribourg-0055b924",
         "personnel-comptable-etat-de-fribourg-fribourg-0595a9",
         "juriste-etat-de-fribourg-ch-6z0ydb",
@@ -45134,7 +45174,8 @@
         "formazione-legale-etat-de-fribourg-bulle-5980e05d",
         "legal-trainee-etat-de-fribourg-bulle-363336ff",
         "juristischer-trainee-etat-de-fribourg-bulle-4dd7ea2e",
-        "ufficiale-legale-etat-de-fribourg-fribourg-c9cf61-89c233b5"
+        "ufficiale-legale-etat-de-fribourg-fribourg-c9cf61-89c233b5",
+        "husband-era-etat-de-fribourg-fribourg"
       ],
       "fr": [
         "personnel-comptable-etat-de-fribourg-fribourg-0595a9-e34af4c2",
@@ -45176,7 +45217,6 @@
         "legal-officer-etat-de-fribourg-bulle",
         "legal-officer-etat-de-fribourg-fribourg-c9cf61",
         "fireworks-etat-de-fribourg-fribourg",
-        "husband-era-etat-de-fribourg-fribourg",
         "legal-officer-etat-de-fribourg-fribourg-0055b924",
         "legal-officer-etat-de-fribourg-bcbd95a8",
         "feuerwerk-etat-de-fribourg-fribourg-8ffa3b28",
@@ -45198,7 +45238,8 @@
         "juristischer-trainee-etat-de-fribourg-bulle-4dd7ea2e",
         "ufficiale-legale-etat-de-fribourg-fribourg-c9cf61-89c233b5",
         "juristischer-praktikant-etat-de-fribourg-fribourg-33913373",
-        "kanzler-etat-de-fribourg-bulle-28f485f4"
+        "kanzler-etat-de-fribourg-bulle-28f485f4",
+        "husband-era-etat-de-fribourg-fribourg"
       ]
     },
     "postalCode": "1700",
@@ -53791,24 +53832,25 @@
       "it": "responsabile-amministrativo-etat-de-fribourg-fribourg",
       "en": "administrative-officer-etat-de-fribourg-fribourg",
       "de": "verwaltungsbeamter-etat-de-fribourg-fribourg",
-      "fr": "responsable-administratif-ve-etat-de-fribourg-ch"
+      "fr": "responsable-administratif-ve-etat-de-fribourg-ch-e917c851"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-09-22T00:11:23.978Z",
     "previousSlugs": [
-      "responsable-administratif-ve-etat-de-fribourg-ch",
       "responsabile-del-caso-amministrativo-in-bvg-etat-de-fribourg-fribourg",
       "administrative-case-officer-in-bvg-etat-de-fribourg-fribourg",
       "verwaltungssachbearbeiter-in-bvg-etat-de-fribourg-ch",
-      "agent-administratif-en-bvg-etat-de-fribourg-fribourg"
+      "agent-administratif-en-bvg-etat-de-fribourg-fribourg",
+      "responsable-administratif-ve-etat-de-fribourg-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "responsable-administratif-ve-etat-de-fribourg-ch",
+        "responsable-administratif-ve-etat-de-fribourg-ch-e917c851",
         "responsabile-del-caso-amministrativo-in-bvg-etat-de-fribourg-fribourg",
         "administrative-case-officer-in-bvg-etat-de-fribourg-fribourg",
         "verwaltungssachbearbeiter-in-bvg-etat-de-fribourg-ch",
-        "agent-administratif-en-bvg-etat-de-fribourg-fribourg"
+        "agent-administratif-en-bvg-etat-de-fribourg-fribourg",
+        "responsable-administratif-ve-etat-de-fribourg-ch"
       ],
       "en": [
         "responsable-administratif-ve-etat-de-fribourg-ch",
@@ -53821,7 +53863,8 @@
       ],
       "fr": [
         "agent-administratif-en-bvg-etat-de-fribourg-fribourg",
-        "verwaltungssachbearbeiter-in-bvg-etat-de-fribourg-ch"
+        "verwaltungssachbearbeiter-in-bvg-etat-de-fribourg-ch",
+        "responsable-administratif-ve-etat-de-fribourg-ch-e917c851"
       ]
     },
     "postalCode": "1700",
@@ -53847,11 +53890,11 @@
     "canton": "FR",
     "previousSlugCantonByLocale": {
       "it": {
-        "responsable-administratif-ve-etat-de-fribourg-ch": "FR",
         "responsabile-del-caso-amministrativo-in-bvg-etat-de-fribourg-fribourg": "FR",
         "administrative-case-officer-in-bvg-etat-de-fribourg-fribourg": "FR",
         "verwaltungssachbearbeiter-in-bvg-etat-de-fribourg-ch": "FR",
-        "agent-administratif-en-bvg-etat-de-fribourg-fribourg": "FR"
+        "agent-administratif-en-bvg-etat-de-fribourg-fribourg": "FR",
+        "responsable-administratif-ve-etat-de-fribourg-ch-e917c851": "FR"
       },
       "en": {
         "responsable-administratif-ve-etat-de-fribourg-ch": "FR",
@@ -53862,7 +53905,8 @@
         "verwaltungssachbearbeiter-in-bvg-etat-de-fribourg-ch": "FR"
       },
       "fr": {
-        "agent-administratif-en-bvg-etat-de-fribourg-fribourg": "FR"
+        "agent-administratif-en-bvg-etat-de-fribourg-fribourg": "FR",
+        "responsable-administratif-ve-etat-de-fribourg-ch-e917c851": "FR"
       }
     }
   },
@@ -61500,18 +61544,20 @@
       "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch",
       "housekeeper-manutenzione-professionale-etat-de-fribourg-fribourg",
       "housekeeper-in-etat-de-fribourg-fribourg",
-      "hauswart-in-etat-de-fribourg-ch",
       "menage-in-etat-de-fribourg-fribourg",
       "housekeeper-in-professional-maintenance-etat-de-fribourg-fribourg",
-      "menage-entretien-professionnel-etat-de-fribourg-fribourg"
+      "menage-entretien-professionnel-etat-de-fribourg-fribourg",
+      "hauswart-in-etat-de-fribourg-ch",
+      "hauswart-in-etat-de-fribourg-ch-3ad17bd0"
     ],
     "previousSlugsByLocale": {
       "it": [
         "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch",
         "housekeeper-manutenzione-professionale-etat-de-fribourg-fribourg",
         "housekeeper-in-etat-de-fribourg-fribourg",
-        "hauswart-in-etat-de-fribourg-ch",
-        "menage-in-etat-de-fribourg-fribourg"
+        "hauswart-in-etat-de-fribourg-ch-3ad17bd0",
+        "menage-in-etat-de-fribourg-fribourg",
+        "hauswart-in-etat-de-fribourg-ch"
       ],
       "en": [
         "housekeeper-in-professional-maintenance-etat-de-fribourg-fribourg",
@@ -61520,6 +61566,7 @@
         "hauswart-in-etat-de-fribourg-ch"
       ],
       "de": [
+        "hauswart-in-etat-de-fribourg-ch-3ad17bd0",
         "hauswart-in-etat-de-fribourg-ch"
       ],
       "fr": [
@@ -64439,7 +64486,7 @@
     "firstSeenAt": "2026-07-04T10:41:34.727Z"
   },
   {
-    "slug": "concierge-etat-de-fribourg-ch",
+    "slug": "concierge-etat-de-fribourg-ch-76df4263",
     "title": "Concierge",
     "titleByLocale": {
       "it": "Concierge",

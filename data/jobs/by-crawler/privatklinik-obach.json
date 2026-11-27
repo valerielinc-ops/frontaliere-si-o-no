@@ -1,7 +1,7 @@
 {
   "crawlerKey": "privatklinik-obach",
-  "assembledAt": "2026-11-26T21:29:43.580Z",
-  "runId": "45896633414",
+  "assembledAt": "2026-11-27T09:34:52.307Z",
+  "runId": "45971882719",
   "jobs": [
     {
       "id": "privatklinik-obach-6c5a6f2d6c81",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:29:37.534Z",
+      "crawledAt": "2026-11-27T09:34:16.011Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -77,9 +77,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:29:37.534Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000133075633-lagerungspfleger-in-60-100-"
+      "validThrough": "2026-12-27T09:34:16.011Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "privatklinik-obach-4ce9f3213ad1",
@@ -114,7 +113,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146478439-ausbildung-dipl-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:29:35.114Z",
+      "crawledAt": "2026-11-27T09:34:13.639Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -160,9 +159,174 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:29:35.114Z",
+      "validThrough": "2026-12-27T09:34:13.639Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "privatklinik-obach-ea61962ab42e",
+      "slug": "dipl-tecnica-chirurgica-specialistica-hf-privatklinik-obach-solothurn",
+      "slugByLocale": {
+        "it": "dipl-tecnica-chirurgica-specialistica-hf-privatklinik-obach-solothurn",
+        "en": "dipl-specialist-surgical-technique-hf-privatklinik-obach-solothurn",
+        "de": "dipl-fachperson-operationstechnik-hf-privatklinik-obach",
+        "fr": "dipl-technique-chirurgicale-specialisee-hf-privatklinik-obach-solothurn"
+      },
+      "company": "Privatklinik Obach",
+      "companyKey": "privatklinik-obach",
+      "companyDomain": "swissmedical.net",
+      "title": "Dipl. Fachperson Operationstechnik HF",
+      "titleByLocale": {
+        "it": "Dipl. Tecnica chirurgica specialistica HF",
+        "en": "Dipl. Specialist surgical technique HF",
+        "de": "Dipl. Fachperson Operationstechnik HF",
+        "fr": "Dipl. Technique chirurgicale spécialisée HF"
+      },
+      "description": "• Instrumentieren und Zudienen in verschiedenen Fachgebieten mit modernen Operationstechniken und Geräten\n\n• Betreuen, lagern und vorbereiten der Patienten\n\n• Vorbereiten von Instrumenten und Materialien\n\n• Ausbildung zur Dipl. Fachperson Operationstechnik HF\n\n• Fundierte Fachkenntnisse und einige Jahre Berufserfahrung\n\n• Teamfähigkeit\n\n• Belastbarkeit\n\n• Ein angenehmes Arbeitsklima in einem kleinen und gut eingespielten Team\n\n• Elektives OP-Programm (MO-FR)\n\n• Gut eingerichteter, moderner Arbeitsplatz\n\n• Spannende und anspruchsvolle Tätigkeit in einem lebhaften und überschaubaren Umfeld\n\n• Mittagessen für 5.- im Personalrestaurant\n\n• Kostenloser Tee und Kaffee\n\n• Regelmässige interne und externe Schulungen und Weiterbildungen\n\n• Kostenlose Grippeimpfung sowie Spezialkonditionen auf Kursabonnemente bei der Physiotherapie Solothurn\n\n• viele weitere Vergünstigungen der Privatklinik Obach sowie der Gruppe Swiss Medical Network u. A. über Corporate Benefits\n\n• 5 Wochen Ferien und viele weitere attraktive Arbeitsbedingungen\n\nDie Privatklinik Obach ist in der Schweizer Spitallandschaft etwas ganz Besonderes: Ein kleines Haus, das sich seit 100 Jahren der medizinischen Versorgung auf höchstem Niveau verpflichtet. Eine Institution, die sich dank idealer Lage gleichzeitig in sowohl stadtnaher als auch erholsamer, grüner Umgebung befindet. Ein kleines Juwel, das seinen kantonalen Leistungsauftrag mit persönlicher Betreuung in privater Atmosphäre für Patientinnen und Patienten aus allen Versicherungsklassen erfüllt. Die Privatklinik Obach bietet ein breites Leistungsspektrum mit besonderem Fokus auf die Orthopädie und Urologie.",
+      "descriptionByLocale": {
+        "it": "• Strumentazione e servizio in vari campi con moderne tecniche chirurgiche e dispositivi\n\n• Curare, immagazzinare e preparare i pazienti\n\n• Preparazione di strumenti e materiali\n\n• Formazione per Dipl. Tecnica chirurgica specialistica HF\n\n• Competenze sonore e alcuni anni di esperienza professionale\n\n• Lavoro di squadra\n\n• Capacità di carico\n\n• Una piacevole atmosfera di lavoro in un team piccolo e ben lavorato\n\n• Programma operativo a scelta (MO-FR)\n\n• Posto di lavoro moderno e ben attrezzato\n\n• Lavoro emozionante e impegnativo in un ambiente vivace e gestibile\n\n• Pranzo per 5.- nel ristorante del personale\n\n• tè e caffè gratuiti\n\n• Formazione interna ed esterna regolare e formazione continua\n\n• Vaccinazione dell'influenza libera e condizioni speciali sugli abbonamenti dei corsi nella fisioterapia Solothurn\n\n• molti altri vantaggi offerti dalla clinica privata Obach e dal gruppo Swiss Medical Network. A. sui vantaggi aziendali\n\n• 5 settimane vacanze e molte condizioni di lavoro più interessanti\n\nLa clinica privata Obach è qualcosa di molto speciale nel paesaggio ospedaliero svizzero: una piccola casa che è stata impegnata in cure mediche al più alto livello per 100 anni. Un'istituzione che, grazie alla sua posizione ideale, si trova simultaneamente in un ambiente sia vicino alla città che rilassante, verde. Una piccola gemma che soddisfa il suo mandato di servizio cantonale con cura personale in un'atmosfera privata per i pazienti di tutte le classi di assicurazione. La Clinica Privata Obach offre una vasta gamma di servizi con particolare attenzione all'ortopedia e all'ureologia.",
+        "en": "• Instrumentation and service in various fields with modern surgical techniques and devices\n\n• Caring for, storing and preparing patients\n\n• Preparation of instruments and materials\n\n• Training for Dipl. Specialist surgical technique HF\n\n• Sound expertise and some years of professional experience\n\n• Teamwork\n\n• Load capacity\n\n• A pleasant working atmosphere in a small and well-worked team\n\n• Elective Operational Programme (MO-FR)\n\n• Well-equipped, modern workplace\n\n• Exciting and demanding work in a lively and manageable environment\n\n• Lunch for 5.- in the staff restaurant\n\n• Free tea and coffee\n\n• Regular internal and external training and further education\n\n• Free flu vaccination as well as special conditions on course subscriptions in the physiotherapy Solothurn\n\n• many other advantages offered by the private clinic Obach and the Swiss Medical Network group. A. on Corporate Benefits\n\n• 5 weeks holidays and many more attractive working conditions\n\nThe private clinic Obach is something very special in the Swiss hospital landscape: a small house that has been committed to medical care at the highest level for 100 years. An institution that, thanks to its ideal location, is simultaneously located in both close-to-city and relaxing, green surroundings. A small gem that fulfills its cantonal service mandate with personal care in a private atmosphere for patients from all insurance classes. The Private Clinic Obach offers a wide range of services with a special focus on orthopaedics and urology.",
+        "de": "• Instrumentieren und Zudienen in verschiedenen Fachgebieten mit modernen Operationstechniken und Geräten\n\n• Betreuen, lagern und vorbereiten der Patienten\n\n• Vorbereiten von Instrumenten und Materialien\n\n• Ausbildung zur Dipl. Fachperson Operationstechnik HF\n\n• Fundierte Fachkenntnisse und einige Jahre Berufserfahrung\n\n• Teamfähigkeit\n\n• Belastbarkeit\n\n• Ein angenehmes Arbeitsklima in einem kleinen und gut eingespielten Team\n\n• Elektives OP-Programm (MO-FR)\n\n• Gut eingerichteter, moderner Arbeitsplatz\n\n• Spannende und anspruchsvolle Tätigkeit in einem lebhaften und überschaubaren Umfeld\n\n• Mittagessen für 5.- im Personalrestaurant\n\n• Kostenloser Tee und Kaffee\n\n• Regelmässige interne und externe Schulungen und Weiterbildungen\n\n• Kostenlose Grippeimpfung sowie Spezialkonditionen auf Kursabonnemente bei der Physiotherapie Solothurn\n\n• viele weitere Vergünstigungen der Privatklinik Obach sowie der Gruppe Swiss Medical Network u. A. über Corporate Benefits\n\n• 5 Wochen Ferien und viele weitere attraktive Arbeitsbedingungen\n\nDie Privatklinik Obach ist in der Schweizer Spitallandschaft etwas ganz Besonderes: Ein kleines Haus, das sich seit 100 Jahren der medizinischen Versorgung auf höchstem Niveau verpflichtet. Eine Institution, die sich dank idealer Lage gleichzeitig in sowohl stadtnaher als auch erholsamer, grüner Umgebung befindet. Ein kleines Juwel, das seinen kantonalen Leistungsauftrag mit persönlicher Betreuung in privater Atmosphäre für Patientinnen und Patienten aus allen Versicherungsklassen erfüllt. Die Privatklinik Obach bietet ein breites Leistungsspektrum mit besonderem Fokus auf die Orthopädie und Urologie.",
+        "fr": "• Instrumentation et service dans différents domaines avec techniques et appareils chirurgicaux modernes\n\n• Soins, stockage et préparation des patients\n\n• Préparation d'instruments et de matériaux\n\n• Formation pour Dipl. Technique chirurgicale spécialisée HF\n\n• Une solide expertise et quelques années d'expérience professionnelle\n\n• Travail d'équipe\n\n• Capacité de charge\n\n• Une atmosphère de travail agréable dans une petite équipe bien travaillée\n\n• Programme opérationnel électif\n\n• Un lieu de travail moderne et bien équipé\n\n• Travail passionnant et exigeant dans un environnement animé et gérable\n\n• Déjeuner pour 5.- dans le restaurant du personnel\n\n• Thé et café gratuits\n\n• Formation et perfectionnement internes et externes réguliers\n\n• La vaccination gratuite contre la grippe ainsi que des conditions spéciales sur les abonnements à la physiothérapie Soleure\n\n• de nombreux autres avantages offerts par la clinique privée Obach et le groupe Swiss Medical Network. A. sur les avantages pour les entreprises\n\n• 5 semaines de vacances et beaucoup plus attrayantes conditions de travail\n\nLa clinique privée Obach est quelque chose de très spécial dans le paysage hospitalier suisse : une petite maison qui s'est engagée dans les soins médicaux au plus haut niveau depuis 100 ans. Une institution qui, grâce à son emplacement idéal, est simultanément située dans un environnement verdoyant et proche de la ville. Un petit bijou qui remplit son mandat de service cantonal avec des soins personnels dans une atmosphère privée pour les patients de toutes les classes d'assurance. La clinique privée Obach offre une large gamme de services avec un accent particulier sur l'orthopédie et l'urologie."
+      },
+      "needsRetranslation": false,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163469144-dipl-fachperson-operationstechnik-hf",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163469144-dipl-fachperson-operationstechnik-hf",
+      "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T09:34:13.638Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4500",
+      "streetAddress": "Leopoldstrasse 5, 4500 Solothurn",
+      "category": "Sanità / Ospedali",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-24T14:15:38.179Z",
+      "postedDate": "2026-11-24T14:15:38.179Z",
+      "postingDateSource": "reported",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-fachperson-operationstechnik-hf-privatklinik-obach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-operationstechnik-hf-privatklinik-obach"
+        ],
+        "en": [
+          "dipl-fachperson-operationstechnik-hf-privatklinik-obach"
+        ],
+        "fr": [
+          "dipl-fachperson-operationstechnik-hf-privatklinik-obach"
+        ]
+      },
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-23T09:34:13.638Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000146478439-ausbildung-dipl-pflegefachperson-hf"
+      "firstSeenAt": "2026-11-27T09:34:13.638Z"
+    },
+    {
+      "id": "privatklinik-obach-b4245a39ce5a",
+      "slug": "infermiere-a-diplomato-a-con-funzione-di-formatore-trice-professionale-privatklinik-obach-solothurn",
+      "slugByLocale": {
+        "it": "infermiere-a-diplomato-a-con-funzione-di-formatore-trice-professionale-privatklinik-obach-solothurn",
+        "en": "dipl-nurse-professional-with-vocational-trainer-function-privatklinik-obach-solothurn",
+        "de": "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach",
+        "fr": "dipl-infirmiere-professionnelle-ayant-une-fonction-de-formateur-professionnel-privatklinik-obach-solothurn"
+      },
+      "company": "Privatklinik Obach",
+      "companyKey": "privatklinik-obach",
+      "companyDomain": "swissmedical.net",
+      "title": "Dipl. Pflegefachperson mit Berufsbildner Funktion",
+      "titleByLocale": {
+        "it": "Infermiere/a diplomato/a con funzione di formatore/trice professionale",
+        "en": "Dipl. Nurse professional with vocational trainer function",
+        "de": "Dipl. Pflegefachperson mit Berufsbildner Funktion",
+        "fr": "Dipl. Infirmière professionnelle ayant une fonction de formateur professionnel"
+      },
+      "description": "• Kompetente und individuelle Pflege unserer elektiv eintretenden Patientinnen und Patienten gemäss den Standards unseres Belegarztsystems\n\n• Selbstständige Umsetzung der verordneten diagnostischen und therapeutischen Massnahmen\n\n• Korrekte Pflegedokumentation\n\n• Unterstützung und Anleitung neuer Mitarbeitenden\n\n• Ausbildung Auszubildenden HF/FH, in Berufsbildner Funktion\n\n• Mithilfe bei der Weiterentwicklung und Sicherung der optimalen Pflegequalität\n\n• Abgeschlossene Ausbildung als diplomierte/r Pflegefachfrau/-mann HF oder gleichwertig\n\n• Erfahrung in der Funktion des Berufsbildners\n\n• Berufserfahrung vorzugsweise auf dem Gebiet Chirurgie/Orthopädie\n\n• Hohe Fach- und Sozialkompetenz und ein professionelles Pflegeverständnis\n\n• Belastbare und flexible Persönlichkeit mit hohem Verantwortungsbewusstsein\n\n• Teamfähigkeit, Kommunikations- und Organisationsgeschick\n\n• Dienstleistungsbereitschaft, hohe Kundenorientierung und Wertschätzung einer hohen Pflegequalität\n\n• Bereitschaft, Neuerungen mitzutragen und sich beruflich weiterzuentwickeln\n\n• Sehr gute Deutschkenntnisse (mündlich und schriftlich)\n\n• Sehr gute EDV-Kenntnisse\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\n• Interesse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nDie Privatklinik Obach sucht nach Vereinbarung eine engagierte Ärztin oder Ärzte Anästhesie.\n\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
+      "descriptionByLocale": {
+        "it": "• Cura completa e individuale dei nostri pazienti elettivamente entranti secondo gli standard del nostro sistema medico documentario\n\n• Attuazione indipendente delle misure diagnostiche e terapeutiche prescritte\n\n• Documentazione corretta di cura\n\n• Supporto e guida di nuovi dipendenti\n\n• Apprendistato HF/FH nella funzione formatrice professionale\n\n• Assistenza nell'ulteriore sviluppo e garanzia della qualità ottimale della cura\n\n• Formazione completa come infermiera qualificata HF o equivalente\n\n• Esperienza nella funzione di formazione professionale\n\n• Esperienza professionale preferibilmente nel campo della chirurgia/ortopedia\n\n• Alto livello di competenza tecnica e sociale e una comprensione professionale della cura\n\n• Personalità resiliente e flessibile con un alto senso di responsabilità\n\n• Lavoro di squadra, comunicazione e capacità organizzative\n\n• Volontà di fornire servizi, alto orientamento del cliente e apprezzamento di un'alta qualità della cura\n\n• Volontà di innovare e sviluppare professionalmente\n\n• Ottima conoscenza del tedesco (verbale e scritto)\n\n• Molto buone competenze informatiche\n\n• Nessun ostetricia e reparto di emergenza\n\n• Modelli di tempo di lavoro flessibili\n\n• Lavoro indipendente con un alto livello di responsabilità personale\n\n• Una variegata area di responsabilità in un ambiente vivace ma gestibile\n\n• Una squadra aperta e impegnata con una cultura aziendale apprezzata\n\n• Condizioni di lavoro attraenti\n\n• Vacanze non lavorative (es. Natale, Capodanno, Pasqua)\n\n• 5 settimane di vacanza\n\n• Interessante? Applicare subito!\n\nStiamo rafforzando il nostro team – siate lì!\nLa clinica privata Obach è alla ricerca di un medico o un anestesia medico commesso per accordo.\n\nSiamo un team di anestesia dinamico e dedicato a Privatklinik Obach e offriamo uno spettro operativo ampio ed emozionante. I nostri processi decisionali e la cultura aziendale apprezzata consentono un ambiente di lavoro motivante con condizioni di lavoro competitive.\n\nIl nostro team continua a crescere per sostenere l'aumento dell'attività chirurgica con nuovi medici.\n\nAttendiamo con ansia il vostro interesse e il vostro contatto!",
+        "en": "• Competent and individual care of our electively entering patients according to the standards of our documentary doctor system\n\n• Independent implementation of prescribed diagnostic and therapeutic measures\n\n• Correct care documentation\n\n• Support and guidance of new employees\n\n• Apprenticeship HF/FH, in vocational trainer function\n\n• Assistance in the further development and assurance of the optimal quality of care\n\n• Completed training as a qualified nurse HF or equivalent\n\n• Experience in the function of vocational trainer\n\n• Professional experience preferably in the field of surgery/orthopaedics\n\n• High level of technical and social competence and a professional understanding of care\n\n• Resilient and flexible personality with a high sense of responsibility\n\n• Teamwork, communication and organisational skills\n\n• Willingness to provide services, high customer orientation and appreciation of a high quality of care\n\n• Willingness to innovate and develop professionally\n\n• Very good knowledge of German (verbal and written)\n\n• Very good computer skills\n\n• No obstetrics and emergency department\n\n• Flexible working time models\n\n• Independent work with a high level of personal responsibility\n\n• A varied area of responsibility in a lively but manageable environment\n\n• An open-minded, committed team with an appreciative corporate culture\n\n• Attractive employment conditions\n\n• Non-working holidays (e.g. Christmas, New Year, Easter)\n\n• 5 weeks holiday\n\n• Interested? Apply now!\n\nWe are strengthening our team – be there!\nThe private clinic Obach is looking for a committed doctor or doctor anesthesia by agreement.\n\nWe are a dynamic and dedicated anesthesia team at Privatklinik Obach and offer a broad, exciting operating spectrum. Our lean decision-making processes and the appreciative corporate culture enable a motivating working environment with competitive employment conditions.\n\nOur team continues to grow in order to support the increasing surgical activity with new doctors.\n\nWe look forward to your interest and your contact!",
+        "de": "• Kompetente und individuelle Pflege unserer elektiv eintretenden Patientinnen und Patienten gemäss den Standards unseres Belegarztsystems\n\n• Selbstständige Umsetzung der verordneten diagnostischen und therapeutischen Massnahmen\n\n• Korrekte Pflegedokumentation\n\n• Unterstützung und Anleitung neuer Mitarbeitenden\n\n• Ausbildung Auszubildenden HF/FH, in Berufsbildner Funktion\n\n• Mithilfe bei der Weiterentwicklung und Sicherung der optimalen Pflegequalität\n\n• Abgeschlossene Ausbildung als diplomierte/r Pflegefachfrau/-mann HF oder gleichwertig\n\n• Erfahrung in der Funktion des Berufsbildners\n\n• Berufserfahrung vorzugsweise auf dem Gebiet Chirurgie/Orthopädie\n\n• Hohe Fach- und Sozialkompetenz und ein professionelles Pflegeverständnis\n\n• Belastbare und flexible Persönlichkeit mit hohem Verantwortungsbewusstsein\n\n• Teamfähigkeit, Kommunikations- und Organisationsgeschick\n\n• Dienstleistungsbereitschaft, hohe Kundenorientierung und Wertschätzung einer hohen Pflegequalität\n\n• Bereitschaft, Neuerungen mitzutragen und sich beruflich weiterzuentwickeln\n\n• Sehr gute Deutschkenntnisse (mündlich und schriftlich)\n\n• Sehr gute EDV-Kenntnisse\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\n• Interesse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nDie Privatklinik Obach sucht nach Vereinbarung eine engagierte Ärztin oder Ärzte Anästhesie.\n\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
+        "fr": "• Des soins compétents et individuels pour nos patients qui entrent de façon volontaire selon les normes de notre système de médecin documentaire\n\n• Mise en œuvre indépendante des mesures diagnostiques et thérapeutiques prescrites\n\n• Documents de soins appropriés\n\n• Soutien et orientation des nouveaux employés\n\n• Apprentissage HF/FH, en fonction du formateur professionnel\n\n• Assistance pour le développement et l'assurance de la qualité optimale des soins\n\n• Formation complétée en tant qu'infirmière HF qualifiée ou équivalent\n\n• Expérience de la fonction de formateur professionnel\n\n• Expérience professionnelle de préférence en chirurgie/orthopédie\n\n• Haute compétence technique et sociale et compréhension professionnelle des soins\n\n• Personnalité résiliente et flexible avec un haut sens des responsabilités\n\n• Compétences en travail d'équipe, communication et organisation\n\n• Volonté de fournir des services, orientation client élevée et appréciation d'une haute qualité des soins\n\n• Volonté d'innover et de se développer professionnellement\n\n• Très bonne connaissance de l'allemand (verbal et écrit)\n\n• Très bonnes compétences en informatique\n\n• Pas de service d'obstétrique et d'urgence\n\n• Modèles flexibles de temps de travail\n\n• Travail indépendant avec un haut niveau de responsabilité personnelle\n\n• Un domaine de responsabilité varié dans un environnement animé mais gérable\n\n• Une équipe ouverte et engagée avec une culture d'entreprise reconnaissante\n\n• Conditions d'emploi attrayantes\n\n• Vacances sans travail (par exemple Noël, Nouvel An, Pâques)\n\n• 5 semaines de vacances\n\n• Intéressé ? Présentez-vous !\n\nNous renforçons notre équipe – soyez là !\nLa clinique privée Obach est à la recherche d'un médecin engagé ou d'une anesthésie médicale par accord.\n\nNous sommes une équipe d'anesthésie dynamique et dévouée à Privatklinik Obach et offrons un large spectre d'exploitation passionnant. Nos processus décisionnels maigres et la culture d'entreprise appréciatrice permettent de motiver un environnement de travail aux conditions d'emploi concurrentielles.\n\nNotre équipe continue de croître afin de soutenir l'activité chirurgicale croissante avec de nouveaux médecins.\n\nNous nous réjouissons de votre intérêt et de votre contact!"
+      },
+      "needsRetranslation": false,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154931979-dipl-pflegefachperson-mit-berufsbildner-funktion",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154931979-dipl-pflegefachperson-mit-berufsbildner-funktion",
+      "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T09:34:13.638Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4500",
+      "streetAddress": "Leopoldstrasse 5, 4500 Solothurn",
+      "category": "Sanità / Ospedali",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-12T06:51:48.172Z",
+      "postedDate": "2026-10-12T06:51:48.172Z",
+      "postingDateSource": "reported",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach"
+        ]
+      },
+      "firstSeenAt": "2026-10-12T09:23:10.072Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-10T09:34:13.638Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "privatklinik-obach-6d695f8c36dd",
@@ -197,7 +361,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162224969-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:29:35.111Z",
+      "crawledAt": "2026-11-27T09:34:13.637Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -249,9 +413,91 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:29:35.111Z",
+      "validThrough": "2027-02-16T09:34:13.637Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "privatklinik-obach-bf9f2daba443",
+      "slug": "dipl-cura-esperto-anestesia-hf-40-100-privatklinik-obach-solothurn",
+      "slugByLocale": {
+        "it": "dipl-cura-esperto-anestesia-hf-40-100-privatklinik-obach-solothurn",
+        "en": "dipl-expert-anesthesia-care-hf-40-100-privatklinik-obach-solothurn",
+        "de": "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach",
+        "fr": "dipl-soins-anesthesiques-specialises-hf-40-100-privatklinik-obach-solothurn"
+      },
+      "company": "Privatklinik Obach",
+      "companyKey": "privatklinik-obach",
+      "companyDomain": "swissmedical.net",
+      "title": "Dipl. Expertin/Experte Anästhesiepflege HF 40-100%",
+      "titleByLocale": {
+        "it": "Dipl. Cura esperto anestesia HF 40-100 %",
+        "en": "Dipl. Expert anesthesia care HF 40-100 %",
+        "de": "Dipl. Expertin/Experte Anästhesiepflege HF 40-100%",
+        "fr": "Dipl. Soins anesthésiques spécialisés HF 40-100 %"
+      },
+      "description": "• Professionelle anästhesiologische Pflege und Betreuung von Patientinnen und Patienten im elektiven Programm (Montag-Freitag)\n\n• Mitarbeit im Pikettdienstsystem (Montag-Sonntag)\n\n• Unterstützung und Förderung der Mitarbeitenden\n\n• Übernahme von tagesorganisatorischen Aufgaben\n\n• Abgeschlossene Ausbildung als Experte/Expertin Anästhesiepflege HF\n\n•  Hohe Sozialkompetenz & Organisationsfähigkeit\n\n•  Belastbarkeit, Flexibilität und eine eigenverantwortliche Arbeitsweise\n\n• Respektvolle und wertschätzende Kommunikation mit allen Beteiligten\n\n•  Gute EDV-Kenntnisse\n\n• 5-Tage-Woche (MO-FR) → Keine Wochenend- und Nachtdienste (außer seltene Pikettdienste mit max. 1h Anfahrtsweg)\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\nInteresse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nDie Privatklinik Obach sucht nach Vereinbarung eine engagierte Expertin / einen Experten Anästhesiepflege HF im Pensum von 40-100%.\n\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
+      "descriptionByLocale": {
+        "it": "• Cura anestesiologica professionale e cura dei pazienti nel programma elettivo (lunedì-venerdì)\n\n• Partecipazione al sistema di servizio Picett (lunedì-domenica)\n\n• Sostegno e promozione dei dipendenti\n\n• Assunzione dei compiti organizzativi quotidiani\n\n• Formazione completa come un esperto anestesia cura HF\n\n• Alta capacità sociale e capacità organizzativa\n\n• Resilienza, flessibilità e metodo di lavoro responsabile\n\n• Comunicazione rispettosa e apprezzativa con tutti gli stakeholder\n\n• Buone competenze informatiche\n\n• 5 giorni settimana (MO-FR) → Nessun fine settimana e servizi notturni (eccetto per rari servizi di piketting con un massimo di 1h approccio)\n\n• Nessun ostetricia e reparto di emergenza\n\n• Modelli di tempo di lavoro flessibili\n\n• Lavoro indipendente con un alto livello di responsabilità personale\n\n• Una variegata area di responsabilità in un ambiente vivace ma gestibile\n\n• Una squadra aperta e impegnata con una cultura aziendale apprezzata\n\n• Condizioni di lavoro attraenti\n\n• Vacanze non lavorative (ad esempio Natale, Capodanno, Pasqua)\n\n• 5 settimane di vacanza\n\nInteressante? Applica subito!\n\nStiamo rafforzando il nostro team – essere lì!\nLa clinica privata Obach è alla ricerca di un esperto / un esperto anestesia cura HF nella quantità di 40-100%.\n\nSiamo un team di anestesia dinamico e dedicato a Privatklinik Obach e offriamo uno spettro operativo ampio ed emozionante. I nostri processi decisionali snelle e la cultura aziendale apprezzata consentono un ambiente di lavoro motivante con condizioni di lavoro competitive.\n\nIl nostro team continua a crescere per sostenere l'aumento dell'attività chirurgica con nuovi medici.\n\nAttendiamo con ansia il vostro interesse e il vostro contatto!",
+        "en": "• Professional anesthesiological care and care of patients in the elective program (Monday-Friday)\n\n• Participation in the Picett Service System (Monday-Sunday)\n\n• Support and promotion of employees\n\n• Assumption of day-to-day organisational tasks\n\n• Completed training as an expert anesthesia care HF\n\n• High social skills and organisational capacity\n\n• Resilience, flexibility and a self-responsible working method\n\n• Respectful and appreciative communication with all stakeholders\n\n• Good computer skills\n\n• 5-day week (MO-FR) → No weekend and night services (except for rare piketting services with a maximum of 1h approach)\n\n• No obstetrics and emergency department\n\n• Flexible working time models\n\n• Independent work with a high level of personal responsibility\n\n• A varied area of responsibility in a lively but manageable environment\n\n• An open-minded, committed team with an appreciative corporate culture\n\n• Attractive employment conditions\n\n• Non-working holidays (e.g. Christmas, New Year, Easter)\n\n• 5 weeks holiday\n\nInterested? Apply now!\n\nWe are strengthening our team – be there!\nThe private clinic Obach is looking for a committed expert / an expert anesthesia care HF in the amount of 40-100%.\n\nWe are a dynamic and dedicated anesthesia team at Privatklinik Obach and offer a broad, exciting operating spectrum. Our lean decision-making processes and the appreciative corporate culture enable a motivating working environment with competitive employment conditions.\n\nOur team continues to grow in order to support the increasing surgical activity with new doctors.\n\nWe look forward to your interest and your contact!",
+        "de": "• Professionelle anästhesiologische Pflege und Betreuung von Patientinnen und Patienten im elektiven Programm (Montag-Freitag)\n\n• Mitarbeit im Pikettdienstsystem (Montag-Sonntag)\n\n• Unterstützung und Förderung der Mitarbeitenden\n\n• Übernahme von tagesorganisatorischen Aufgaben\n\n• Abgeschlossene Ausbildung als Experte/Expertin Anästhesiepflege HF\n\n•  Hohe Sozialkompetenz & Organisationsfähigkeit\n\n•  Belastbarkeit, Flexibilität und eine eigenverantwortliche Arbeitsweise\n\n• Respektvolle und wertschätzende Kommunikation mit allen Beteiligten\n\n•  Gute EDV-Kenntnisse\n\n• 5-Tage-Woche (MO-FR) → Keine Wochenend- und Nachtdienste (außer seltene Pikettdienste mit max. 1h Anfahrtsweg)\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\nInteresse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nDie Privatklinik Obach sucht nach Vereinbarung eine engagierte Expertin / einen Experten Anästhesiepflege HF im Pensum von 40-100%.\n\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
+        "fr": "• Soins anesthésiologiques professionnels et soins aux patients dans le cadre du programme facultatif (lundi-vendredi)\n\n• Participation au système de services Picett (lundi-dimanche)\n\n• Soutien et promotion des employés\n\n• Hypothèse des tâches d'organisation quotidiennes\n\n• Formation terminée en tant que spécialiste en anesthésie HF\n\n• Hautes compétences sociales et capacités organisationnelles\n\n• Résilience, flexibilité et méthode de travail auto-responsable\n\n• Communication respectueuse et reconnaissante avec toutes les parties prenantes\n\n• Bonnes compétences en informatique\n\n• Semaine de 5 jours (MO-FR) → Pas de services de fin de semaine et de nuit (sauf pour les services de piketing rares avec une approche maximum de 1h)\n\n• Pas de service d'obstétrique et d'urgence\n\n• Modèles flexibles de temps de travail\n\n• Travail indépendant avec un haut niveau de responsabilité personnelle\n\n• Un domaine de responsabilité varié dans un environnement animé mais gérable\n\n• Une équipe ouverte d'esprit et engagée avec une culture d'entreprise reconnaissante\n\n• Conditions d'emploi attrayantes\n\n• Vacances sans travail (par exemple Noël, Nouvel An, Pâques)\n\n• 5 semaines de vacances\n\nIntéressé ? Postulez !\n\nNous renforçons notre équipe – soyez là !\nLa clinique privée Obach est à la recherche d'un expert engagé / un spécialiste des soins d'anesthésie HF de la quantité de 40-100%.\n\nNous sommes une équipe d'anesthésie dynamique et dédiée à Privatklinik Obach et offrons un large spectre d'exploitation passionnant. Nos processus de prise de décision maigres et la culture d'entreprise appréciatrice permettent un environnement de travail motivant avec des conditions d'emploi concurrentielles.\n\nNotre équipe continue de croître pour soutenir l'activité chirurgicale croissante avec de nouveaux médecins.\n\nNous attendons avec impatience votre intérêt et votre contact!"
+      },
+      "needsRetranslation": false,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163254359-dipl-expertin-experte-anasthesiepflege-hf-40-100-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163254359-dipl-expertin-experte-anasthesiepflege-hf-40-100-",
+      "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T09:34:13.636Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4500",
+      "streetAddress": "Leopoldstrasse 5, 4500 Solothurn",
+      "category": "Sanità / Ospedali",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23T15:23:52.520Z",
+      "postedDate": "2026-11-23T15:23:52.520Z",
+      "postingDateSource": "reported",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
+        ]
+      },
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-22T09:34:13.636Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000162224969-pflegefachperson-hf"
+      "firstSeenAt": "2026-11-27T09:34:13.636Z"
     },
     {
       "id": "privatklinik-obach-02528c403a51",
@@ -286,7 +532,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157387729-mpa-empfang-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:29:35.113Z",
+      "crawledAt": "2026-11-27T09:34:13.635Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -333,293 +579,43 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:29:35.113Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000157387729-mpa-empfang-60-100-"
-    },
-    {
-      "id": "privatklinik-obach-bf9f2daba443",
-      "slug": "dipl-cura-esperto-anestesia-hf-40-100-privatklinik-obach-solothurn",
-      "slugByLocale": {
-        "it": "dipl-cura-esperto-anestesia-hf-40-100-privatklinik-obach-solothurn",
-        "en": "dipl-expert-anesthesia-care-hf-40-100-privatklinik-obach-solothurn",
-        "de": "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach",
-        "fr": "dipl-soins-anesthesiques-specialises-hf-40-100-privatklinik-obach-solothurn"
-      },
-      "company": "Privatklinik Obach",
-      "companyKey": "privatklinik-obach",
-      "companyDomain": "swissmedical.net",
-      "title": "Dipl. Expertin/Experte Anästhesiepflege HF 40-100%",
-      "titleByLocale": {
-        "it": "Dipl. Cura esperto anestesia HF 40-100 %",
-        "en": "Dipl. Expert anesthesia care HF 40-100 %",
-        "de": "Dipl. Expertin/Experte Anästhesiepflege HF 40-100%",
-        "fr": "Dipl. Soins anesthésiques spécialisés HF 40-100 %"
-      },
-      "description": "• Professionelle anästhesiologische Pflege und Betreuung von Patientinnen und Patienten im elektiven Programm (Montag-Freitag)\n\n• Mitarbeit im Pikettdienstsystem (Montag-Sonntag)\n\n• Unterstützung und Förderung der Mitarbeitenden\n\n• Übernahme von tagesorganisatorischen Aufgaben\n\n• Abgeschlossene Ausbildung als Experte/Expertin Anästhesiepflege HF\n\n•  Hohe Sozialkompetenz & Organisationsfähigkeit\n\n•  Belastbarkeit, Flexibilität und eine eigenverantwortliche Arbeitsweise\n\n• Respektvolle und wertschätzende Kommunikation mit allen Beteiligten\n\n•  Gute EDV-Kenntnisse\n\n• 5-Tage-Woche (MO-FR) → Keine Wochenend- und Nachtdienste (außer seltene Pikettdienste mit max. 1h Anfahrtsweg)\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\nInteresse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nDie Privatklinik Obach sucht nach Vereinbarung eine engagierte Expertin / einen Experten Anästhesiepflege HF im Pensum von 40-100%.\n\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
-      "descriptionByLocale": {
-        "it": "• Cura anestesiologica professionale e cura dei pazienti nel programma elettivo (lunedì-venerdì)\n\n• Partecipazione al sistema di servizio Picett (lunedì-domenica)\n\n• Sostegno e promozione dei dipendenti\n\n• Assunzione dei compiti organizzativi quotidiani\n\n• Formazione completa come un esperto anestesia cura HF\n\n• Alta capacità sociale e capacità organizzativa\n\n• Resilienza, flessibilità e metodo di lavoro responsabile\n\n• Comunicazione rispettosa e apprezzativa con tutti gli stakeholder\n\n• Buone competenze informatiche\n\n• 5 giorni settimana (MO-FR) → Nessun fine settimana e servizi notturni (eccetto per rari servizi di piketting con un massimo di 1h approccio)\n\n• Nessun ostetricia e reparto di emergenza\n\n• Modelli di tempo di lavoro flessibili\n\n• Lavoro indipendente con un alto livello di responsabilità personale\n\n• Una variegata area di responsabilità in un ambiente vivace ma gestibile\n\n• Una squadra aperta e impegnata con una cultura aziendale apprezzata\n\n• Condizioni di lavoro attraenti\n\n• Vacanze non lavorative (ad esempio Natale, Capodanno, Pasqua)\n\n• 5 settimane di vacanza\n\nInteressante? Applica subito!\n\nStiamo rafforzando il nostro team – essere lì!\nLa clinica privata Obach è alla ricerca di un esperto / un esperto anestesia cura HF nella quantità di 40-100%.\n\nSiamo un team di anestesia dinamico e dedicato a Privatklinik Obach e offriamo uno spettro operativo ampio ed emozionante. I nostri processi decisionali snelle e la cultura aziendale apprezzata consentono un ambiente di lavoro motivante con condizioni di lavoro competitive.\n\nIl nostro team continua a crescere per sostenere l'aumento dell'attività chirurgica con nuovi medici.\n\nAttendiamo con ansia il vostro interesse e il vostro contatto!",
-        "en": "• Professional anesthesiological care and care of patients in the elective program (Monday-Friday)\n\n• Participation in the Picett Service System (Monday-Sunday)\n\n• Support and promotion of employees\n\n• Assumption of day-to-day organisational tasks\n\n• Completed training as an expert anesthesia care HF\n\n• High social skills and organisational capacity\n\n• Resilience, flexibility and a self-responsible working method\n\n• Respectful and appreciative communication with all stakeholders\n\n• Good computer skills\n\n• 5-day week (MO-FR) → No weekend and night services (except for rare piketting services with a maximum of 1h approach)\n\n• No obstetrics and emergency department\n\n• Flexible working time models\n\n• Independent work with a high level of personal responsibility\n\n• A varied area of responsibility in a lively but manageable environment\n\n• An open-minded, committed team with an appreciative corporate culture\n\n• Attractive employment conditions\n\n• Non-working holidays (e.g. Christmas, New Year, Easter)\n\n• 5 weeks holiday\n\nInterested? Apply now!\n\nWe are strengthening our team – be there!\nThe private clinic Obach is looking for a committed expert / an expert anesthesia care HF in the amount of 40-100%.\n\nWe are a dynamic and dedicated anesthesia team at Privatklinik Obach and offer a broad, exciting operating spectrum. Our lean decision-making processes and the appreciative corporate culture enable a motivating working environment with competitive employment conditions.\n\nOur team continues to grow in order to support the increasing surgical activity with new doctors.\n\nWe look forward to your interest and your contact!",
-        "de": "• Professionelle anästhesiologische Pflege und Betreuung von Patientinnen und Patienten im elektiven Programm (Montag-Freitag)\n\n• Mitarbeit im Pikettdienstsystem (Montag-Sonntag)\n\n• Unterstützung und Förderung der Mitarbeitenden\n\n• Übernahme von tagesorganisatorischen Aufgaben\n\n• Abgeschlossene Ausbildung als Experte/Expertin Anästhesiepflege HF\n\n•  Hohe Sozialkompetenz & Organisationsfähigkeit\n\n•  Belastbarkeit, Flexibilität und eine eigenverantwortliche Arbeitsweise\n\n• Respektvolle und wertschätzende Kommunikation mit allen Beteiligten\n\n•  Gute EDV-Kenntnisse\n\n• 5-Tage-Woche (MO-FR) → Keine Wochenend- und Nachtdienste (außer seltene Pikettdienste mit max. 1h Anfahrtsweg)\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\nInteresse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nDie Privatklinik Obach sucht nach Vereinbarung eine engagierte Expertin / einen Experten Anästhesiepflege HF im Pensum von 40-100%.\n\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
-        "fr": "• Soins anesthésiologiques professionnels et soins aux patients dans le cadre du programme facultatif (lundi-vendredi)\n\n• Participation au système de services Picett (lundi-dimanche)\n\n• Soutien et promotion des employés\n\n• Hypothèse des tâches d'organisation quotidiennes\n\n• Formation terminée en tant que spécialiste en anesthésie HF\n\n• Hautes compétences sociales et capacités organisationnelles\n\n• Résilience, flexibilité et méthode de travail auto-responsable\n\n• Communication respectueuse et reconnaissante avec toutes les parties prenantes\n\n• Bonnes compétences en informatique\n\n• Semaine de 5 jours (MO-FR) → Pas de services de fin de semaine et de nuit (sauf pour les services de piketing rares avec une approche maximum de 1h)\n\n• Pas de service d'obstétrique et d'urgence\n\n• Modèles flexibles de temps de travail\n\n• Travail indépendant avec un haut niveau de responsabilité personnelle\n\n• Un domaine de responsabilité varié dans un environnement animé mais gérable\n\n• Une équipe ouverte d'esprit et engagée avec une culture d'entreprise reconnaissante\n\n• Conditions d'emploi attrayantes\n\n• Vacances sans travail (par exemple Noël, Nouvel An, Pâques)\n\n• 5 semaines de vacances\n\nIntéressé ? Postulez !\n\nNous renforçons notre équipe – soyez là !\nLa clinique privée Obach est à la recherche d'un expert engagé / un spécialiste des soins d'anesthésie HF de la quantité de 40-100%.\n\nNous sommes une équipe d'anesthésie dynamique et dédiée à Privatklinik Obach et offrons un large spectre d'exploitation passionnant. Nos processus de prise de décision maigres et la culture d'entreprise appréciatrice permettent un environnement de travail motivant avec des conditions d'emploi concurrentielles.\n\nNotre équipe continue de croître pour soutenir l'activité chirurgicale croissante avec de nouveaux médecins.\n\nNous attendons avec impatience votre intérêt et votre contact!"
-      },
-      "needsRetranslation": false,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163254359-dipl-expertin-experte-anasthesiepflege-hf-40-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163254359-dipl-expertin-experte-anasthesiepflege-hf-40-100-",
-      "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:29:35.112Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4500",
-      "streetAddress": "Leopoldstrasse 5, 4500 Solothurn",
-      "category": "Sanità / Ospedali",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-23T15:23:52.520Z",
-      "postedDate": "2026-11-23T15:23:52.520Z",
-      "postingDateSource": "reported",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
-        ],
-        "en": [
-          "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
-        ],
-        "fr": [
-          "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
-        ]
-      },
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T21:29:35.112Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000163254359-dipl-expertin-experte-anasthesiepflege-hf-40-100-"
-    },
-    {
-      "id": "privatklinik-obach-b4245a39ce5a",
-      "slug": "infermiere-a-diplomato-a-con-funzione-di-formatore-trice-professionale-privatklinik-obach-solothurn",
-      "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-con-funzione-di-formatore-trice-professionale-privatklinik-obach-solothurn",
-        "en": "dipl-nurse-professional-with-vocational-trainer-function-privatklinik-obach-solothurn",
-        "de": "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach",
-        "fr": "dipl-infirmiere-professionnelle-ayant-une-fonction-de-formateur-professionnel-privatklinik-obach-solothurn"
-      },
-      "company": "Privatklinik Obach",
-      "companyKey": "privatklinik-obach",
-      "companyDomain": "swissmedical.net",
-      "title": "Dipl. Pflegefachperson mit Berufsbildner Funktion",
-      "titleByLocale": {
-        "it": "Infermiere/a diplomato/a con funzione di formatore/trice professionale",
-        "en": "Dipl. Nurse professional with vocational trainer function",
-        "de": "Dipl. Pflegefachperson mit Berufsbildner Funktion",
-        "fr": "Dipl. Infirmière professionnelle ayant une fonction de formateur professionnel"
-      },
-      "description": "• Kompetente und individuelle Pflege unserer elektiv eintretenden Patientinnen und Patienten gemäss den Standards unseres Belegarztsystems\n\n• Selbstständige Umsetzung der verordneten diagnostischen und therapeutischen Massnahmen\n\n• Korrekte Pflegedokumentation\n\n• Unterstützung und Anleitung neuer Mitarbeitenden\n\n• Ausbildung Auszubildenden HF/FH, in Berufsbildner Funktion\n\n• Mithilfe bei der Weiterentwicklung und Sicherung der optimalen Pflegequalität\n\n• Abgeschlossene Ausbildung als diplomierte/r Pflegefachfrau/-mann HF oder gleichwertig\n\n• Erfahrung in der Funktion des Berufsbildners\n\n• Berufserfahrung vorzugsweise auf dem Gebiet Chirurgie/Orthopädie\n\n• Hohe Fach- und Sozialkompetenz und ein professionelles Pflegeverständnis\n\n• Belastbare und flexible Persönlichkeit mit hohem Verantwortungsbewusstsein\n\n• Teamfähigkeit, Kommunikations- und Organisationsgeschick\n\n• Dienstleistungsbereitschaft, hohe Kundenorientierung und Wertschätzung einer hohen Pflegequalität\n\n• Bereitschaft, Neuerungen mitzutragen und sich beruflich weiterzuentwickeln\n\n• Sehr gute Deutschkenntnisse (mündlich und schriftlich)\n\n• Sehr gute EDV-Kenntnisse\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\n• Interesse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nDie Privatklinik Obach sucht nach Vereinbarung eine engagierte Ärztin oder Ärzte Anästhesie.\n\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
-      "descriptionByLocale": {
-        "it": "• Cura completa e individuale dei nostri pazienti elettivamente entranti secondo gli standard del nostro sistema medico documentario\n\n• Attuazione indipendente delle misure diagnostiche e terapeutiche prescritte\n\n• Documentazione corretta di cura\n\n• Supporto e guida di nuovi dipendenti\n\n• Apprendistato HF/FH nella funzione formatrice professionale\n\n• Assistenza nell'ulteriore sviluppo e garanzia della qualità ottimale della cura\n\n• Formazione completa come infermiera qualificata HF o equivalente\n\n• Esperienza nella funzione di formazione professionale\n\n• Esperienza professionale preferibilmente nel campo della chirurgia/ortopedia\n\n• Alto livello di competenza tecnica e sociale e una comprensione professionale della cura\n\n• Personalità resiliente e flessibile con un alto senso di responsabilità\n\n• Lavoro di squadra, comunicazione e capacità organizzative\n\n• Volontà di fornire servizi, alto orientamento del cliente e apprezzamento di un'alta qualità della cura\n\n• Volontà di innovare e sviluppare professionalmente\n\n• Ottima conoscenza del tedesco (verbale e scritto)\n\n• Molto buone competenze informatiche\n\n• Nessun ostetricia e reparto di emergenza\n\n• Modelli di tempo di lavoro flessibili\n\n• Lavoro indipendente con un alto livello di responsabilità personale\n\n• Una variegata area di responsabilità in un ambiente vivace ma gestibile\n\n• Una squadra aperta e impegnata con una cultura aziendale apprezzata\n\n• Condizioni di lavoro attraenti\n\n• Vacanze non lavorative (es. Natale, Capodanno, Pasqua)\n\n• 5 settimane di vacanza\n\n• Interessante? Applicare subito!\n\nStiamo rafforzando il nostro team – siate lì!\nLa clinica privata Obach è alla ricerca di un medico o un anestesia medico commesso per accordo.\n\nSiamo un team di anestesia dinamico e dedicato a Privatklinik Obach e offriamo uno spettro operativo ampio ed emozionante. I nostri processi decisionali e la cultura aziendale apprezzata consentono un ambiente di lavoro motivante con condizioni di lavoro competitive.\n\nIl nostro team continua a crescere per sostenere l'aumento dell'attività chirurgica con nuovi medici.\n\nAttendiamo con ansia il vostro interesse e il vostro contatto!",
-        "en": "• Competent and individual care of our electively entering patients according to the standards of our documentary doctor system\n\n• Independent implementation of prescribed diagnostic and therapeutic measures\n\n• Correct care documentation\n\n• Support and guidance of new employees\n\n• Apprenticeship HF/FH, in vocational trainer function\n\n• Assistance in the further development and assurance of the optimal quality of care\n\n• Completed training as a qualified nurse HF or equivalent\n\n• Experience in the function of vocational trainer\n\n• Professional experience preferably in the field of surgery/orthopaedics\n\n• High level of technical and social competence and a professional understanding of care\n\n• Resilient and flexible personality with a high sense of responsibility\n\n• Teamwork, communication and organisational skills\n\n• Willingness to provide services, high customer orientation and appreciation of a high quality of care\n\n• Willingness to innovate and develop professionally\n\n• Very good knowledge of German (verbal and written)\n\n• Very good computer skills\n\n• No obstetrics and emergency department\n\n• Flexible working time models\n\n• Independent work with a high level of personal responsibility\n\n• A varied area of responsibility in a lively but manageable environment\n\n• An open-minded, committed team with an appreciative corporate culture\n\n• Attractive employment conditions\n\n• Non-working holidays (e.g. Christmas, New Year, Easter)\n\n• 5 weeks holiday\n\n• Interested? Apply now!\n\nWe are strengthening our team – be there!\nThe private clinic Obach is looking for a committed doctor or doctor anesthesia by agreement.\n\nWe are a dynamic and dedicated anesthesia team at Privatklinik Obach and offer a broad, exciting operating spectrum. Our lean decision-making processes and the appreciative corporate culture enable a motivating working environment with competitive employment conditions.\n\nOur team continues to grow in order to support the increasing surgical activity with new doctors.\n\nWe look forward to your interest and your contact!",
-        "de": "• Kompetente und individuelle Pflege unserer elektiv eintretenden Patientinnen und Patienten gemäss den Standards unseres Belegarztsystems\n\n• Selbstständige Umsetzung der verordneten diagnostischen und therapeutischen Massnahmen\n\n• Korrekte Pflegedokumentation\n\n• Unterstützung und Anleitung neuer Mitarbeitenden\n\n• Ausbildung Auszubildenden HF/FH, in Berufsbildner Funktion\n\n• Mithilfe bei der Weiterentwicklung und Sicherung der optimalen Pflegequalität\n\n• Abgeschlossene Ausbildung als diplomierte/r Pflegefachfrau/-mann HF oder gleichwertig\n\n• Erfahrung in der Funktion des Berufsbildners\n\n• Berufserfahrung vorzugsweise auf dem Gebiet Chirurgie/Orthopädie\n\n• Hohe Fach- und Sozialkompetenz und ein professionelles Pflegeverständnis\n\n• Belastbare und flexible Persönlichkeit mit hohem Verantwortungsbewusstsein\n\n• Teamfähigkeit, Kommunikations- und Organisationsgeschick\n\n• Dienstleistungsbereitschaft, hohe Kundenorientierung und Wertschätzung einer hohen Pflegequalität\n\n• Bereitschaft, Neuerungen mitzutragen und sich beruflich weiterzuentwickeln\n\n• Sehr gute Deutschkenntnisse (mündlich und schriftlich)\n\n• Sehr gute EDV-Kenntnisse\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\n• Interesse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nDie Privatklinik Obach sucht nach Vereinbarung eine engagierte Ärztin oder Ärzte Anästhesie.\n\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
-        "fr": "• Des soins compétents et individuels pour nos patients qui entrent de façon volontaire selon les normes de notre système de médecin documentaire\n\n• Mise en œuvre indépendante des mesures diagnostiques et thérapeutiques prescrites\n\n• Documents de soins appropriés\n\n• Soutien et orientation des nouveaux employés\n\n• Apprentissage HF/FH, en fonction du formateur professionnel\n\n• Assistance pour le développement et l'assurance de la qualité optimale des soins\n\n• Formation complétée en tant qu'infirmière HF qualifiée ou équivalent\n\n• Expérience de la fonction de formateur professionnel\n\n• Expérience professionnelle de préférence en chirurgie/orthopédie\n\n• Haute compétence technique et sociale et compréhension professionnelle des soins\n\n• Personnalité résiliente et flexible avec un haut sens des responsabilités\n\n• Compétences en travail d'équipe, communication et organisation\n\n• Volonté de fournir des services, orientation client élevée et appréciation d'une haute qualité des soins\n\n• Volonté d'innover et de se développer professionnellement\n\n• Très bonne connaissance de l'allemand (verbal et écrit)\n\n• Très bonnes compétences en informatique\n\n• Pas de service d'obstétrique et d'urgence\n\n• Modèles flexibles de temps de travail\n\n• Travail indépendant avec un haut niveau de responsabilité personnelle\n\n• Un domaine de responsabilité varié dans un environnement animé mais gérable\n\n• Une équipe ouverte et engagée avec une culture d'entreprise reconnaissante\n\n• Conditions d'emploi attrayantes\n\n• Vacances sans travail (par exemple Noël, Nouvel An, Pâques)\n\n• 5 semaines de vacances\n\n• Intéressé ? Présentez-vous !\n\nNous renforçons notre équipe – soyez là !\nLa clinique privée Obach est à la recherche d'un médecin engagé ou d'une anesthésie médicale par accord.\n\nNous sommes une équipe d'anesthésie dynamique et dévouée à Privatklinik Obach et offrons un large spectre d'exploitation passionnant. Nos processus décisionnels maigres et la culture d'entreprise appréciatrice permettent de motiver un environnement de travail aux conditions d'emploi concurrentielles.\n\nNotre équipe continue de croître afin de soutenir l'activité chirurgicale croissante avec de nouveaux médecins.\n\nNous nous réjouissons de votre intérêt et de votre contact!"
-      },
-      "needsRetranslation": false,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154931979-dipl-pflegefachperson-mit-berufsbildner-funktion",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154931979-dipl-pflegefachperson-mit-berufsbildner-funktion",
-      "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:29:35.114Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4500",
-      "streetAddress": "Leopoldstrasse 5, 4500 Solothurn",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-12T06:51:48.172Z",
-      "postedDate": "2026-10-12T06:51:48.172Z",
-      "postingDateSource": "reported",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach"
-        ],
-        "en": [
-          "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-mit-berufsbildner-funktion-privatklinik-obach"
-        ]
-      },
-      "firstSeenAt": "2026-10-12T09:23:10.072Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T21:29:35.114Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000154931979-dipl-pflegefachperson-mit-berufsbildner-funktion"
-    },
-    {
-      "id": "privatklinik-obach-ea61962ab42e",
-      "slug": "dipl-tecnica-chirurgica-specialistica-hf-privatklinik-obach-solothurn",
-      "slugByLocale": {
-        "it": "dipl-tecnica-chirurgica-specialistica-hf-privatklinik-obach-solothurn",
-        "en": "dipl-specialist-surgical-technique-hf-privatklinik-obach-solothurn",
-        "de": "dipl-fachperson-operationstechnik-hf-privatklinik-obach",
-        "fr": "dipl-technique-chirurgicale-specialisee-hf-privatklinik-obach-solothurn"
-      },
-      "company": "Privatklinik Obach",
-      "companyKey": "privatklinik-obach",
-      "companyDomain": "swissmedical.net",
-      "title": "Dipl. Fachperson Operationstechnik HF",
-      "titleByLocale": {
-        "it": "Dipl. Tecnica chirurgica specialistica HF",
-        "en": "Dipl. Specialist surgical technique HF",
-        "de": "Dipl. Fachperson Operationstechnik HF",
-        "fr": "Dipl. Technique chirurgicale spécialisée HF"
-      },
-      "description": "• Instrumentieren und Zudienen in verschiedenen Fachgebieten mit modernen Operationstechniken und Geräten\n\n• Betreuen, lagern und vorbereiten der Patienten\n\n• Vorbereiten von Instrumenten und Materialien\n\n• Ausbildung zur Dipl. Fachperson Operationstechnik HF\n\n• Fundierte Fachkenntnisse und einige Jahre Berufserfahrung\n\n• Teamfähigkeit\n\n• Belastbarkeit\n\n• Ein angenehmes Arbeitsklima in einem kleinen und gut eingespielten Team\n\n• Elektives OP-Programm (MO-FR)\n\n• Gut eingerichteter, moderner Arbeitsplatz\n\n• Spannende und anspruchsvolle Tätigkeit in einem lebhaften und überschaubaren Umfeld\n\n• Mittagessen für 5.- im Personalrestaurant\n\n• Kostenloser Tee und Kaffee\n\n• Regelmässige interne und externe Schulungen und Weiterbildungen\n\n• Kostenlose Grippeimpfung sowie Spezialkonditionen auf Kursabonnemente bei der Physiotherapie Solothurn\n\n• viele weitere Vergünstigungen der Privatklinik Obach sowie der Gruppe Swiss Medical Network u. A. über Corporate Benefits\n\n• 5 Wochen Ferien und viele weitere attraktive Arbeitsbedingungen\n\nDie Privatklinik Obach ist in der Schweizer Spitallandschaft etwas ganz Besonderes: Ein kleines Haus, das sich seit 100 Jahren der medizinischen Versorgung auf höchstem Niveau verpflichtet. Eine Institution, die sich dank idealer Lage gleichzeitig in sowohl stadtnaher als auch erholsamer, grüner Umgebung befindet. Ein kleines Juwel, das seinen kantonalen Leistungsauftrag mit persönlicher Betreuung in privater Atmosphäre für Patientinnen und Patienten aus allen Versicherungsklassen erfüllt. Die Privatklinik Obach bietet ein breites Leistungsspektrum mit besonderem Fokus auf die Orthopädie und Urologie.",
-      "descriptionByLocale": {
-        "it": "• Strumentazione e servizio in vari campi con moderne tecniche chirurgiche e dispositivi\n\n• Curare, immagazzinare e preparare i pazienti\n\n• Preparazione di strumenti e materiali\n\n• Formazione per Dipl. Tecnica chirurgica specialistica HF\n\n• Competenze sonore e alcuni anni di esperienza professionale\n\n• Lavoro di squadra\n\n• Capacità di carico\n\n• Una piacevole atmosfera di lavoro in un team piccolo e ben lavorato\n\n• Programma operativo a scelta (MO-FR)\n\n• Posto di lavoro moderno e ben attrezzato\n\n• Lavoro emozionante e impegnativo in un ambiente vivace e gestibile\n\n• Pranzo per 5.- nel ristorante del personale\n\n• tè e caffè gratuiti\n\n• Formazione interna ed esterna regolare e formazione continua\n\n• Vaccinazione dell'influenza libera e condizioni speciali sugli abbonamenti dei corsi nella fisioterapia Solothurn\n\n• molti altri vantaggi offerti dalla clinica privata Obach e dal gruppo Swiss Medical Network. A. sui vantaggi aziendali\n\n• 5 settimane vacanze e molte condizioni di lavoro più interessanti\n\nLa clinica privata Obach è qualcosa di molto speciale nel paesaggio ospedaliero svizzero: una piccola casa che è stata impegnata in cure mediche al più alto livello per 100 anni. Un'istituzione che, grazie alla sua posizione ideale, si trova simultaneamente in un ambiente sia vicino alla città che rilassante, verde. Una piccola gemma che soddisfa il suo mandato di servizio cantonale con cura personale in un'atmosfera privata per i pazienti di tutte le classi di assicurazione. La Clinica Privata Obach offre una vasta gamma di servizi con particolare attenzione all'ortopedia e all'ureologia.",
-        "en": "• Instrumentation and service in various fields with modern surgical techniques and devices\n\n• Caring for, storing and preparing patients\n\n• Preparation of instruments and materials\n\n• Training for Dipl. Specialist surgical technique HF\n\n• Sound expertise and some years of professional experience\n\n• Teamwork\n\n• Load capacity\n\n• A pleasant working atmosphere in a small and well-worked team\n\n• Elective Operational Programme (MO-FR)\n\n• Well-equipped, modern workplace\n\n• Exciting and demanding work in a lively and manageable environment\n\n• Lunch for 5.- in the staff restaurant\n\n• Free tea and coffee\n\n• Regular internal and external training and further education\n\n• Free flu vaccination as well as special conditions on course subscriptions in the physiotherapy Solothurn\n\n• many other advantages offered by the private clinic Obach and the Swiss Medical Network group. A. on Corporate Benefits\n\n• 5 weeks holidays and many more attractive working conditions\n\nThe private clinic Obach is something very special in the Swiss hospital landscape: a small house that has been committed to medical care at the highest level for 100 years. An institution that, thanks to its ideal location, is simultaneously located in both close-to-city and relaxing, green surroundings. A small gem that fulfills its cantonal service mandate with personal care in a private atmosphere for patients from all insurance classes. The Private Clinic Obach offers a wide range of services with a special focus on orthopaedics and urology.",
-        "de": "• Instrumentieren und Zudienen in verschiedenen Fachgebieten mit modernen Operationstechniken und Geräten\n\n• Betreuen, lagern und vorbereiten der Patienten\n\n• Vorbereiten von Instrumenten und Materialien\n\n• Ausbildung zur Dipl. Fachperson Operationstechnik HF\n\n• Fundierte Fachkenntnisse und einige Jahre Berufserfahrung\n\n• Teamfähigkeit\n\n• Belastbarkeit\n\n• Ein angenehmes Arbeitsklima in einem kleinen und gut eingespielten Team\n\n• Elektives OP-Programm (MO-FR)\n\n• Gut eingerichteter, moderner Arbeitsplatz\n\n• Spannende und anspruchsvolle Tätigkeit in einem lebhaften und überschaubaren Umfeld\n\n• Mittagessen für 5.- im Personalrestaurant\n\n• Kostenloser Tee und Kaffee\n\n• Regelmässige interne und externe Schulungen und Weiterbildungen\n\n• Kostenlose Grippeimpfung sowie Spezialkonditionen auf Kursabonnemente bei der Physiotherapie Solothurn\n\n• viele weitere Vergünstigungen der Privatklinik Obach sowie der Gruppe Swiss Medical Network u. A. über Corporate Benefits\n\n• 5 Wochen Ferien und viele weitere attraktive Arbeitsbedingungen\n\nDie Privatklinik Obach ist in der Schweizer Spitallandschaft etwas ganz Besonderes: Ein kleines Haus, das sich seit 100 Jahren der medizinischen Versorgung auf höchstem Niveau verpflichtet. Eine Institution, die sich dank idealer Lage gleichzeitig in sowohl stadtnaher als auch erholsamer, grüner Umgebung befindet. Ein kleines Juwel, das seinen kantonalen Leistungsauftrag mit persönlicher Betreuung in privater Atmosphäre für Patientinnen und Patienten aus allen Versicherungsklassen erfüllt. Die Privatklinik Obach bietet ein breites Leistungsspektrum mit besonderem Fokus auf die Orthopädie und Urologie.",
-        "fr": "• Instrumentation et service dans différents domaines avec techniques et appareils chirurgicaux modernes\n\n• Soins, stockage et préparation des patients\n\n• Préparation d'instruments et de matériaux\n\n• Formation pour Dipl. Technique chirurgicale spécialisée HF\n\n• Une solide expertise et quelques années d'expérience professionnelle\n\n• Travail d'équipe\n\n• Capacité de charge\n\n• Une atmosphère de travail agréable dans une petite équipe bien travaillée\n\n• Programme opérationnel électif\n\n• Un lieu de travail moderne et bien équipé\n\n• Travail passionnant et exigeant dans un environnement animé et gérable\n\n• Déjeuner pour 5.- dans le restaurant du personnel\n\n• Thé et café gratuits\n\n• Formation et perfectionnement internes et externes réguliers\n\n• La vaccination gratuite contre la grippe ainsi que des conditions spéciales sur les abonnements à la physiothérapie Soleure\n\n• de nombreux autres avantages offerts par la clinique privée Obach et le groupe Swiss Medical Network. A. sur les avantages pour les entreprises\n\n• 5 semaines de vacances et beaucoup plus attrayantes conditions de travail\n\nLa clinique privée Obach est quelque chose de très spécial dans le paysage hospitalier suisse : une petite maison qui s'est engagée dans les soins médicaux au plus haut niveau depuis 100 ans. Une institution qui, grâce à son emplacement idéal, est simultanément située dans un environnement verdoyant et proche de la ville. Un petit bijou qui remplit son mandat de service cantonal avec des soins personnels dans une atmosphère privée pour les patients de toutes les classes d'assurance. La clinique privée Obach offre une large gamme de services avec un accent particulier sur l'orthopédie et l'urologie."
-      },
-      "needsRetranslation": false,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163469144-dipl-fachperson-operationstechnik-hf",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163469144-dipl-fachperson-operationstechnik-hf",
-      "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:29:35.114Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4500",
-      "streetAddress": "Leopoldstrasse 5, 4500 Solothurn",
-      "category": "Sanità / Ospedali",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-24T14:15:38.179Z",
-      "postedDate": "2026-11-24T14:15:38.179Z",
-      "postingDateSource": "reported",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-fachperson-operationstechnik-hf-privatklinik-obach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-fachperson-operationstechnik-hf-privatklinik-obach"
-        ],
-        "en": [
-          "dipl-fachperson-operationstechnik-hf-privatklinik-obach"
-        ],
-        "fr": [
-          "dipl-fachperson-operationstechnik-hf-privatklinik-obach"
-        ]
-      },
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:29:35.114Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000163469144-dipl-fachperson-operationstechnik-hf"
+      "validThrough": "2027-01-21T09:34:13.635Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "privatklinik-obach-a4386907e386",
-      "slug": "dipl-pflegefachperson-hf-fh-aufwachraum-100-privatklinik-obach",
+      "slug": "dipl-cura-professionale-hf-fh-sala-di-recupero-100-privatklinik-obach-solothurn",
       "slugByLocale": {
+        "it": "dipl-cura-professionale-hf-fh-sala-di-recupero-100-privatklinik-obach-solothurn",
+        "en": "dipl-care-professional-hf-fh-recovery-room-100-privatklinik-obach-solothurn",
         "de": "dipl-pflegefachperson-hf-fh-aufwachraum-100-privatklinik-obach",
-        "it": "dipl-pflegefachperson-hf-fh-aufwachraum-100-privatklinik-obach",
-        "en": "dipl-pflegefachperson-hf-fh-aufwachraum-100-privatklinik-obach",
-        "fr": "dipl-pflegefachperson-hf-fh-aufwachraum-100-privatklinik-obach"
+        "fr": "dipl-soin-professionnel-hf-fh-salle-de-recuperation-100-privatklinik-obach-solothurn"
       },
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
       "companyDomain": "swissmedical.net",
       "title": "Dipl. Pflegefachperson HF/FH Aufwachraum 100%",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachperson HF/FH Aufwachraum 100%",
         "it": "Dipl. Cura professionale HF / FH sala di recupero 100%",
         "en": "Dipl. Care professional HF/FH recovery room 100%",
+        "de": "Dipl. Pflegefachperson HF/FH Aufwachraum 100%",
         "fr": "Dipl. Soin professionnel HF/FH salle de récupération 100%"
       },
       "description": "• Professionelle postoperative Überwachung und Pflege\n\nvon Patientinnen und Patienten im elektiven OP Programm (MO-Fr)\n\n• ausschliesslich Montag–Freitag Betrieb\n\n• keine Pikett-, Nacht- oder Wochenenddienste\n\n• jedes Wochenende frei\n\n• zusätzlich spannende Tätigkeiten in der Prä OP Vorbereitung\n\n• Du hast eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/mann HF/FH idealerweise mit NDK Überwachungspflege oder die Bereitschaft diesen zu absolvieren.\n\n• Du hast eine hohe Sozialkompetenz und Organisationsfähigkeit\n\n• Du bist eine belastbare und flexible Persönlichkeit und hast eine eigenständige, organisierte und verantwortungsbewusste Arbeitsweise\n\n• Du begegnest allen Involvierten mit Respekt und Loyalität, ein wertschätzendes Arbeitsklima ist Dir wichtig\n\n• Gute EDV-Kenntnisse\n\n• 5-Tage-Woche (MO-FR) → Keine Wochenend- und Nachtdienste\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\nInteresse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nPer sofort möchten wir unser engagiertes Team mit einer/einem Dipl. Pflegefachfrau/mann HF (Aufwachraum) im Pensum 100% verstärken.\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
       "descriptionByLocale": {
-        "de": "• Professionelle postoperative Überwachung und Pflege\n\nvon Patientinnen und Patienten im elektiven OP Programm (MO-Fr)\n\n• ausschliesslich Montag–Freitag Betrieb\n\n• keine Pikett-, Nacht- oder Wochenenddienste\n\n• jedes Wochenende frei\n\n• zusätzlich spannende Tätigkeiten in der Prä OP Vorbereitung\n\n• Du hast eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/mann HF/FH idealerweise mit NDK Überwachungspflege oder die Bereitschaft diesen zu absolvieren.\n\n• Du hast eine hohe Sozialkompetenz und Organisationsfähigkeit\n\n• Du bist eine belastbare und flexible Persönlichkeit und hast eine eigenständige, organisierte und verantwortungsbewusste Arbeitsweise\n\n• Du begegnest allen Involvierten mit Respekt und Loyalität, ein wertschätzendes Arbeitsklima ist Dir wichtig\n\n• Gute EDV-Kenntnisse\n\n• 5-Tage-Woche (MO-FR) → Keine Wochenend- und Nachtdienste\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\nInteresse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nPer sofort möchten wir unser engagiertes Team mit einer/einem Dipl. Pflegefachfrau/mann HF (Aufwachraum) im Pensum 100% verstärken.\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
         "it": "• supervisione e cura postoperatoria professionale\n\ndi pazienti nel programma di chirurgia elettiva (MO-Fr)\n\n• Esclusiva operazione Lunedi-Friday\n\n• Nessun servizio di cucina, notte o fine settimana\n\n• Gratis ogni fine settimana\n\n• attività aggiuntive interessanti nella preparazione Pre OP\n\n• Hai completato l'allenamento come Dipl. Specialista infermieristico HF/FH idealmente con NDK cura di monitoraggio o la volontà di completarlo.\n\n• Hai alte competenze sociali e capacità organizzative\n\n• Sei una personalità resiliente e flessibile e hai un modo di lavorare indipendente, organizzato e responsabile\n\n• Conosci tutti coloro che sono coinvolti con rispetto e lealtà, un'atmosfera di lavoro apprezzata Importante per te\n\n• Buone competenze informatiche\n\n• 5 giorni settimana (MO-FR) → Nessun fine settimana e servizi notturni\n\n• Nessun ostetricia e reparto di emergenza\n\n• Modelli di tempo di lavoro flessibili\n\n• Lavoro indipendente con un alto livello di responsabilità personale\n\n• Una variegata area di responsabilità in un ambiente vivace ma gestibile\n\n• Una squadra aperta e impegnata con una cultura aziendale apprezzata\n\n• Condizioni di lavoro attraenti\n\n• Vacanze non lavorative (ad esempio Natale, Capodanno, Pasqua)\n\n• 5 settimane di vacanza\n\nInteressante? Applica subito!\n\nStiamo rafforzando la nostra squadra – essere lì!\nCon effetto immediato, vorremmo il nostro team dedicato con uno/uno dipl. Infermieristica professionale / uomo HF (stanza sveglia) nel carico di lavoro 100% rafforzare.\nSiamo un team di anestesia dinamico e dedicato a Privatklinik Obach e offriamo uno spettro operativo ampio ed emozionante. I nostri processi decisionali snelle e la cultura aziendale apprezzata consentono un ambiente di lavoro motivante con condizioni di lavoro competitive.\n\nIl nostro team continua a crescere per sostenere l'aumento dell'attività chirurgica con nuovi medici.\n\nAttendiamo con ansia il vostro interesse e il vostro contatto!",
         "en": "• Professional postoperative supervision and care\n\nof patients in the elective surgery program (MO-Fr)\n\n• Exclusive Monday-Friday operation\n\n• No cooking, night or weekend services\n\n• Free every weekend\n\n• additional exciting activities in Pre OP preparation\n\n• You have completed training as a Dipl. Nursing specialist HF/FH ideally with NDK monitoring care or the willingness to complete it.\n\n• You have high social skills and organizational ability\n\n• You are a resilient and flexible personality and have an independent, organized and responsible way of working\n\n• You meet everyone involved with respect and loyalty, an appreciative working atmosphere Important to you\n\n• Good computer skills\n\n• 5 day week (MO-FR) → No weekend and night services\n\n• No obstetrics and emergency department\n\n• Flexible working time models\n\n• Independent work with a high level of personal responsibility\n\n• A varied area of responsibility in a lively but manageable environment\n\n• An open-minded, committed team with an appreciative corporate culture\n\n• Attractive employment conditions\n\n• Non-working holidays (e.g. Christmas, New Year, Easter)\n\n• 5 weeks holiday\n\nInterested? Apply now!\n\nWe are strengthening our team – be there!\nWith immediate effect, we would like our dedicated team with one/one dipl. Nursing professional / man HF (wake-up room) in the workload 100% reinforce.\nWe are a dynamic and dedicated anesthesia team at Privatklinik Obach and offer a broad, exciting operating spectrum. Our lean decision-making processes and the appreciative corporate culture enable a motivating working environment with competitive employment conditions.\n\nOur team continues to grow in order to support the increasing surgical activity with new doctors.\n\nWe look forward to your interest and your contact!",
+        "de": "• Professionelle postoperative Überwachung und Pflege\n\nvon Patientinnen und Patienten im elektiven OP Programm (MO-Fr)\n\n• ausschliesslich Montag–Freitag Betrieb\n\n• keine Pikett-, Nacht- oder Wochenenddienste\n\n• jedes Wochenende frei\n\n• zusätzlich spannende Tätigkeiten in der Prä OP Vorbereitung\n\n• Du hast eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/mann HF/FH idealerweise mit NDK Überwachungspflege oder die Bereitschaft diesen zu absolvieren.\n\n• Du hast eine hohe Sozialkompetenz und Organisationsfähigkeit\n\n• Du bist eine belastbare und flexible Persönlichkeit und hast eine eigenständige, organisierte und verantwortungsbewusste Arbeitsweise\n\n• Du begegnest allen Involvierten mit Respekt und Loyalität, ein wertschätzendes Arbeitsklima ist Dir wichtig\n\n• Gute EDV-Kenntnisse\n\n• 5-Tage-Woche (MO-FR) → Keine Wochenend- und Nachtdienste\n\n• Keine Geburtshilfe und Notfallstation\n\n• Flexible Arbeitszeitmodelle\n\n• Selbständiges Arbeiten mit hoher Eigenverantwortung\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Ein aufgeschlossenes, engagiertes Team mit wertschätzender Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen\n\n• arbeitsfreie Feiertage (z. B. Weihnachten, Neujahr, Ostern)\n\n• 5 Wochen Ferien\n\nInteresse? Bewirb Dich jetzt!\n\nWir verstärken unser Team – sei dabei!\nPer sofort möchten wir unser engagiertes Team mit einer/einem Dipl. Pflegefachfrau/mann HF (Aufwachraum) im Pensum 100% verstärken.\nWir sind ein dynamisches und engagiertes Anästhesieteam der Privatklinik Obach und bieten ein breites, spannendes OP-Spektrum. Unsere schlanken Entscheidungswege und die gelebte wertschätzende Unternehmenskultur ermöglichen ein motivierendes Arbeitsumfeld mit konkurrenzfähigen Anstellungsbedingungen.\n\nUnser Team wächst weiter, um die steigende OP-Tätigkeit mit neuen Belegärztinnen und Belegärzten zu unterstützen.\n\nWir freuen uns auf Dein Interesse und Deine Kontaktaufnahme!",
         "fr": "• Supervision et soins postopératoires professionnels\n\ndes patients dans le programme de chirurgie élective (MO-Fr)\n\n• Exploitation exclusive du lundi au vendredi\n\n• Pas de service de cuisine, de nuit ou de week-end\n\n• Gratuit chaque week-end\n\n• activités passionnantes supplémentaires dans la préparation du programme préparatoire\n\n• Vous avez terminé la formation en tant que Dipl. Spécialiste des soins infirmiers HF/FH idéalement avec des soins de surveillance NDK ou la volonté de le compléter.\n\n• Vous avez des compétences sociales et organisationnelles élevées\n\n• Vous êtes une personnalité résiliente et flexible et avez une manière indépendante, organisée et responsable de travailler\n\n• Vous rencontrez tout le monde avec respect et loyauté, une atmosphère de travail reconnaissante.\n\n• Bonnes compétences en informatique\n\n• 5 jours semaine (MO-FR) → Pas de service de week-end et de nuit\n\n• Pas de service d'obstétrique et d'urgence\n\n• Modèles flexibles de temps de travail\n\n• Travail indépendant avec un haut niveau de responsabilité personnelle\n\n• Un domaine de responsabilité varié dans un environnement animé mais gérable\n\n• Une équipe ouverte d'esprit et engagée avec une culture d'entreprise reconnaissante\n\n• Conditions d'emploi attrayantes\n\n• Vacances sans travail (par exemple Noël, Nouvel An, Pâques)\n\n• 5 semaines de vacances\n\nIntéressé ? Postulez !\n\nNous renforçons notre équipe – soyez là !\nAvec effet immédiat, nous aimerions notre équipe dédiée avec un/un dipl. Professionnels des soins infirmiers / homme HF (chambre de réveil) dans la charge de travail 100% renforcer.\nNous sommes une équipe d'anesthésie dynamique et dédiée à Privatklinik Obach et offrons un large spectre d'exploitation passionnant. Nos processus de prise de décision maigres et la culture d'entreprise appréciatrice permettent un environnement de travail motivant avec des conditions d'emploi concurrentielles.\n\nNotre équipe continue de croître pour soutenir l'activité chirurgicale croissante avec de nouveaux médecins.\n\nNous attendons avec impatience votre intérêt et votre contact!"
       },
+      "needsRetranslation": false,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163840324-dipl-pflegefachperson-hf-fh-aufwachraum-100-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000163840324-dipl-pflegefachperson-hf-fh-aufwachraum-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:29:35.113Z",
+      "crawledAt": "2026-11-27T09:34:13.634Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -636,9 +632,22 @@
       "postedDate": "2026-11-26T10:08:19.370Z",
       "postingDateSource": "reported",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-26T21:29:35.113Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-aufwachraum-100-privatklinik-obach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-aufwachraum-100-privatklinik-obach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-aufwachraum-100-privatklinik-obach"
+        ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-aufwachraum-100-privatklinik-obach"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -653,9 +662,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T21:29:35.113Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T21:29:35.113Z"
+      "validThrough": "2027-02-25T09:34:13.634Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

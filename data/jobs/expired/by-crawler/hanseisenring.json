@@ -53,7 +53,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hanseisenring.ch/unternehmen/karriere/jobportal/sachbearbeitung-kuechenplanung-avor",
-    "firstSeenAt": "2026-10-20T09:33:41.135Z"
+    "firstSeenAt": "2026-10-20T09:33:41.135Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeitung-kuchenplanung-avor-oensingen-hanseisenring-ch": "SO",
+        "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen": "SO"
+      },
+      "en": {
+        "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen": "SO"
+      },
+      "de": {
+        "sachbearbeitung-kuchenplanung-avor-oensingen-hanseisenring-ch": "SO"
+      },
+      "fr": {
+        "sachbearbeitung-kuchenplanung-avor-hans-eisenring-ag-oensingen": "SO"
+      }
+    }
   },
   {
     "slug": "montaggio-sposizione-di-pietra-naturale-hans-eisenring-ag-matzingen",
@@ -102,6 +118,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hanseisenring.ch/unternehmen/karriere/jobportal/leitung-montage-disposition-naturstein",
-    "firstSeenAt": "2026-10-20T09:33:41.140Z"
+    "firstSeenAt": "2026-10-20T09:33:41.140Z",
+    "canton": "TG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch": "TG"
+      },
+      "en": {
+        "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch": "TG"
+      },
+      "fr": {
+        "leitung-montage-disposition-naturstein-matzingen-hanseisenring-ch": "TG"
+      }
+    }
   }
 ]

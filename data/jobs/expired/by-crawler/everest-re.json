@@ -47,7 +47,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://everestre.wd5.myworkdayjobs.com/en-us/external/job/zurich-switzerland/senior-claims-specialist_r7430",
-    "firstSeenAt": "2026-10-28T20:08:29.795Z"
+    "firstSeenAt": "2026-10-28T20:08:29.795Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-claims-specialist-everest-re-ch": "ZH"
+      },
+      "de": {
+        "senior-claims-specialist-everest-re-ch": "ZH"
+      },
+      "fr": {
+        "senior-claims-specialist-everest-re-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "assistente-di-sottoscrizione-senior-everest-re-zurich",
@@ -93,7 +105,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://everestre.wd5.myworkdayjobs.com/en-us/external/job/zurich-switzerland/senior-underwriting-assistant_r7298",
-    "firstSeenAt": "2026-07-03T21:59:53.293Z"
+    "firstSeenAt": "2026-07-03T21:59:53.293Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-underwriting-assistant-everest-re-ch": "ZH"
+      },
+      "fr": {
+        "senior-underwriting-assistant-everest-re-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "sottoscrittore-i-reinsurance-everest-re-zurich",

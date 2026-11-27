@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-11-26T21:43:39.136Z",
-  "runId": "45897139090",
+  "assembledAt": "2026-11-27T09:34:16.439Z",
+  "runId": "45972483527",
   "jobs": [
     {
       "id": "hopital-la-tour-861b7c049de5",
@@ -34,7 +34,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/medecin-urgentiste-senior-1506",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.859Z",
+      "crawledAt": "2026-11-27T09:34:08.336Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -94,8 +94,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-21T21:43:30.859Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T09:34:08.336Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/medecin-urgentiste-senior-1506"
     },
     {
       "id": "hopital-la-tour-882b6ff457f2",
@@ -128,7 +129,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.857Z",
+      "crawledAt": "2026-11-27T09:34:08.334Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -182,8 +183,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:43:30.857Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:34:08.334Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514"
     },
     {
       "id": "hopital-la-tour-fd3402d505cf",
@@ -217,7 +219,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-90-1536",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.856Z",
+      "crawledAt": "2026-11-27T09:34:08.332Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -277,8 +279,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:43:30.856Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-02T09:34:08.332Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-90-1536"
     },
     {
       "id": "hopital-la-tour-f260bca1b4dd",
@@ -311,7 +314,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdm-6-mois-80-1546",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.854Z",
+      "crawledAt": "2026-11-27T09:34:08.331Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -371,8 +374,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:43:30.854Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T09:34:08.331Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdm-6-mois-80-1546"
     },
     {
       "id": "hopital-la-tour-92e650f38526",
@@ -405,7 +409,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.851Z",
+      "crawledAt": "2026-11-27T09:34:08.329Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -462,8 +466,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T21:43:30.851Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T09:34:08.329Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556"
     },
     {
       "id": "hopital-la-tour-b41093b9e3f3",
@@ -497,7 +502,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmierere-pour-la-clinique-de-la-douleur-cdmax-12-mois-a-70-1565",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.850Z",
+      "crawledAt": "2026-11-27T09:34:08.328Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -557,8 +562,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T21:43:30.850Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:34:08.328Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmierere-pour-la-clinique-de-la-douleur-cdmax-12-mois-a-70-1565"
     },
     {
       "id": "hopital-la-tour-a6216bdb5cb4",
@@ -591,7 +597,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.848Z",
+      "crawledAt": "2026-11-27T09:34:08.326Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -645,8 +651,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:43:30.848Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T09:34:08.326Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568"
     },
     {
       "id": "hopital-la-tour-c9a152315ac3",
@@ -669,9 +676,9 @@
       },
       "description": "L'Hôpital de La Tour réunit le meilleur de deux mondes. La médecine privée dans un environnement qui stimule le développement de la compétence. La pratique indépendante couplée au soutien institutionnel des médecins dans la recherche et la qualité.\n\nA l'Hôpital de La Tour, nous aspirons à rassembler les meilleurs talents autour de nos patients, à développer une équipe qui s'inspire de ce qui se fait de mieux dans le monde et à être un lieu de motivation pour les professionnels de la santé qui ont l'ambition de prodiguer des soins chaque jour meilleurs.\n\nAfin de compléter notre Pharmacie nous recrutons un/e\n\nPréparateur(-rice) en pharmacie 60% - 100% (ref : 1849)\n\nVotre mission :\n\nAu sein d’une équipe de pharmacie dynamique, vous occupez un poste varié en collaboration quotidienne avec les équipes médico-soignantes.\n\nA ce titre vous serez en charge ;\n\n• D’une activité principale de pharmacotechnie : production centralisée de chimiothérapies et aseptique, collaboration interprofessionnelle étroite avec le personnel de soins\n\n• D’activités secondaires :\n\n• Remplacement et contrôle des productions non stériles\n\n• Participation aux activités de distribution (préparation des commandes globales de médicaments, gestion des pharmacies d’étage, réponse aux demandes des clients) et de facturation patiente\n\n• Participation à l’amélioration continue de la qualité\n\n• Facturation et gestion des protocoles de chimiothérapies administrés et chimiothérapie per os\n\n• Activités générales de service\n\n• Accueil physique et téléphonique des collaborateurs de l’institution\n\n• Participation aux colloques de service\n\n• Participation à la démarche d’amélioration continue de la qualité\n\n• Assurer la logistique pharmaceutique des médicaments de la pharmacie centrale vers les pharmacies d'unités de soins.\n\n• Assurer la gestion et le suivi du stock de la pharmacie centrale et des unités de soins\n\n• Assurer la fabrication des préparations aseptiques et/ou non stériles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme de préparateur en pharmacie ou titre jugé équivalent, formation aseptique\n\n• Une personne rigoureuse, consciencieuse, bienveillante, dotée d’un bon sens de l’organisation et appréciant le travail en équipe\n\n• Maîtrise des outils informatiques de bureautique standards\n\nNous vous proposons :\n\n• Type de contrat : Contrat à Durée Indéterminée\n\n• Absence d'astreinte et de garde\n\nDes renseignements complémentaires sur le poste peuvent être obtenus auprès de la Dre Delphine Carli, Pharmacienne cheffe : delphine.carli@latour.ch",
       "descriptionByLocale": {
-        "it": "L'Ospedale di La Tour riunisce il meglio di due mondi. Medicina privata in un ambiente che stimola lo sviluppo delle competenze. Pratica indipendente accoppiata con il sostegno istituzionale dei medici nella ricerca e nella qualità.\n\nAl La Tour Hospital, ci proponiamo di riunire i migliori talenti intorno ai nostri pazienti, sviluppare un team ispirato a ciò che è meglio al mondo ed essere un luogo di motivazione per i professionisti della salute che hanno l'ambizione di fornire una migliore assistenza ogni giorno.\n\nPer completare la nostra Farmacia ne reclutiamo uno\n\nPreparatore di farmaci 60% - 100% (ref: 1849)\n\nLa vostra missione:\n\nIn un team di farmacie dinamico, si ha una posizione varia in collaborazione quotidiana con team di assistenza medica.\n\nIn quanto tale sarete responsabili;\n\n• Principali attività farmacotecnica: produzione centralizzata di chemioterapia e asettica, stretta collaborazione interprofessionale con il personale sanitario\n\n• Attività secondarie:\n\n• Sostituzione e controllo della produzione non sterili\n\n• Partecipazione alle attività di distribuzione (preparazione degli ordini di droga globali, gestione delle farmacie, risposta alle richieste dei clienti) e fatturazione dei pazienti\n\n• Partecipazione al miglioramento continuo della qualità\n\n• Fatturazione e gestione dei protocolli di chemioterapia somministrati e chemioterapia per os\n\n• Attività di servizio\n\n• Ricezione fisica e telefonica dei dipendenti dell'istituzione\n\n• Partecipazione a seminari di assistenza\n\n• Partecipazione al miglioramento continuo della qualità\n\n• Fornire logistica farmaceutica di farmaci dalla farmacia centrale alle farmacie di unità di cura.\n\n• Gestire e monitorare lo stock di farmacie e unità di cura centrali\n\n• Fabbricazione di preparazioni asettiche e/o non sterili\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma in farmacia o equivalente, formazione asettica\n\n• Una persona rigorosa, coscienziosa e premurosa con un buon senso dell'organizzazione e del lavoro di squadra\n\n• Mastery degli strumenti standard di automazione degli uffici\n\nVi offriamo:\n\n• Tipo di contratto: Contratto con Durata Indeterminata\n\n• Assenza di periodicità e custodia\n\nUlteriori informazioni sulla posizione possono essere ottenute dal Dr. Delphine Carli, Chief Pharmacist: delphine.carli@latour.ch",
-        "en": "The Hospital of La Tour brings together the best of two worlds. Private medicine in an environment that stimulates the development of competence. Independent practice coupled with the institutional support of physicians in research and quality.\n\nAt La Tour Hospital, we aim to bring together the best talents around our patients, develop a team inspired by what is best in the world and be a place of motivation for health professionals who have the ambition to provide better care every day.\n\nIn order to complete our Pharmacy we recruit one\n\nPharmacy preparer 60% - 100% (ref: 1849)\n\nYour mission:\n\nIn a dynamic pharmacy team, you hold a varied position in daily collaboration with medical-care teams.\n\nAs such you will be in charge;\n\n• Main pharmacotechnic activity: centralized production of chemotherapy and aseptics, close interprofessional collaboration with healthcare staff\n\n• Secondary activities:\n\n• Replacement and control of non-sterile production\n\n• Participation in distribution activities (preparation of global drug orders, management of floor pharmacies, response to customer requests) and patient billing\n\n• Participation in continuous quality improvement\n\n• Invoicing and management of chemotherapy protocols administered and chemotherapy per os\n\n• General service activities\n\n• Physical and telephone reception of employees of the institution\n\n• Participation in service seminars\n\n• Participation in continuous quality improvement\n\n• Provide pharmaceutical logistics of drugs from the central pharmacy to pharmacies of care units.\n\n• Manage and track stock of central pharmacy and care units\n\n• Manufacture aseptic and/or non-sterile preparations\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma in pharmacy or equivalent, aseptic training\n\n• A rigorous, conscientious, caring person with a common sense of organization and enjoying teamwork\n\n• Mastery of standard office automation tools\n\nWe offer you:\n\n• Type of contract: Contract with Indeterminate Duration\n\n• Absence of periodicity and custody\n\nAdditional information on the position can be obtained from Dr. Delphine Carli, Chief Pharmacist: delphine.carli@latour.ch",
-        "de": "Das Hospital of La Tour vereint das Beste aus zwei Welten. Privatmedizin in einem Umfeld, das die Kompetenzentwicklung stimuliert. Unabhängige Praxis gepaart mit der institutionellen Unterstützung der Ärzte in Forschung und Qualität.\n\nIm La Tour Hospital wollen wir die besten Talente rund um unsere Patienten zusammenbringen, ein Team entwickeln, das von dem Besten der Welt inspiriert ist, und ein Ort der Motivation für Gesundheitsexperten sein, die den Ehrgeiz haben, jeden Tag eine bessere Versorgung zu bieten.\n\nUm unsere Apotheke abzuschließen, rekrutieren wir eine\n\nApotheker 60 % - 100 % (Ref: 1849)\n\nIhre Mission:\n\nIn einem dynamischen Apothekenteam bekleiden Sie eine abwechslungsreiche Position in der täglichen Zusammenarbeit mit Ärzteteams.\n\nAls solche wirst du verantwortlich sein;\n\n• Pharmakotechnische Haupttätigkeit: zentralisierte Produktion von Chemotherapie und Aseptik, enge interprofessionelle Zusammenarbeit mit Gesundheitspersonal\n\n• Nebentätigkeiten:\n\n• Ersatz und Kontrolle der nichtsterilen Produktion\n\n• Teilnahme an Vertriebsaktivitäten (Vorbereitung globaler Arzneimittelbestellungen, Verwaltung von Bodenapotheken, Reaktion auf Kundenanfragen) und Patientenabrechnung\n\n• Teilnahme an kontinuierlicher Qualitätsverbesserung\n\n• Fakturierung und Verwaltung von Chemotherapieprotokollen und Chemotherapie per os\n\n• Allgemeine Dienstleistungen\n\n• Physischer und telefonischer Empfang der Bediensteten des Organs\n\n• Teilnahme an Dienstseminaren\n\n• Teilnahme an kontinuierlicher Qualitätsverbesserung\n\n• Bereitstellung der pharmazeutischen Logistik von Medikamenten von der zentralen Apotheke bis zu Apotheken von Pflegeeinheiten.\n\n• Verwalten und verfolgen Sie den Bestand der zentralen Apotheken und Pflegeeinheiten\n\n• Herstellung aseptischer und/oder nicht steriler Zubereitungen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom in Apotheke oder gleichwertig, aseptische Ausbildung\n\n• Eine strenge, gewissenhafte, fürsorgliche Person mit einem gesunden Organisationssinn und Spaß an Teamarbeit\n\n• Beherrschung von Standard-Office-Automation-Tools\n\nWir bieten Ihnen:\n\n• Art des Vertrags: Vertrag mit unbestimmter Laufzeit\n\n• Keine Periodizität und Verwahrung\n\nWeitere Informationen zur Position erhalten Sie bei Dr. Delphine Carli, Chefapothekerin: delphine.carli@latour.ch",
+        "it": "L'Ospedale di La Tour riunisce il meglio di due mondi. Medicina privata in un ambiente che stimola lo sviluppo delle competenze. Pratica indipendente accoppiata con il sostegno istituzionale dei medici nella ricerca e nella qualità.\n\nAl La Tour Hospital, ci proponiamo di riunire i migliori talenti intorno ai nostri pazienti, sviluppare un team ispirato a ciò che è meglio al mondo ed essere un luogo di motivazione per i professionisti della salute che hanno l'ambizione di fornire una migliore assistenza ogni giorno.\n\nPer completare la nostra Farmacia ne reclutiamo uno\n\nPreparatore di farmaci 60% - 100% (ref: 1849)\n\nLa vostra missione:\n\nIn un team di farmacie dinamico, si ha una posizione varia in collaborazione quotidiana con team di assistenza medica.\n\nIn quanto tale sarete responsabili;\n\n• Principali attività farmacotecnica: produzione centralizzata di chemioterapia e asettica, stretta collaborazione interprofessionale con il personale sanitario\n\n• Attività secondarie:\n\n• Sostituzione e controllo della produzione non sterili\n\n• Partecipazione alle attività di distribuzione (preparazione degli ordini di droga globali, gestione delle farmacie, risposta alle richieste dei clienti) e fatturazione dei pazienti\n\n• Partecipazione al miglioramento continuo della qualità\n\n• Fatturazione e gestione dei protocolli di chemioterapia somministrati e chemioterapia per os\n\n• Attività di servizio\n\n• Ricezione fisica e telefonica dei dipendenti dell'istituzione\n\n• Partecipazione a seminari di assistenza\n\n• Fornire logistica farmaceutica di farmaci dalla farmacia centrale alle farmacie di unità di cura.\n\n• Gestire e monitorare lo stock di farmacie e unità di cura centrali\n\n• Fabbricazione di preparazioni asettiche e/o non sterili\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma in farmacia o equivalente, formazione asettica\n\n• Una persona rigorosa, coscienziosa e premurosa con un buon senso dell'organizzazione e del lavoro di squadra\n\n• Mastery degli strumenti standard di automazione degli uffici\n\nVi offriamo:\n\n• Tipo di contratto: Contratto con Durata Indeterminata\n\n• Assenza di periodicità e custodia\n\nUlteriori informazioni sulla posizione possono essere ottenute dal Dr. Delphine Carli, Chief Pharmacist: delphine.carli@latour.ch",
+        "en": "The Hospital of La Tour brings together the best of two worlds. Private medicine in an environment that stimulates the development of competence. Independent practice coupled with the institutional support of physicians in research and quality.\n\nAt La Tour Hospital, we aim to bring together the best talents around our patients, develop a team inspired by what is best in the world and be a place of motivation for health professionals who have the ambition to provide better care every day.\n\nIn order to complete our Pharmacy we recruit one\n\nPharmacy preparer 60% - 100% (ref: 1849)\n\nYour mission:\n\nIn a dynamic pharmacy team, you hold a varied position in daily collaboration with medical-care teams.\n\nAs such you will be in charge;\n\n• Main pharmacotechnic activity: centralized production of chemotherapy and aseptics, close interprofessional collaboration with healthcare staff\n\n• Secondary activities:\n\n• Replacement and control of non-sterile production\n\n• Participation in distribution activities (preparation of global drug orders, management of floor pharmacies, response to customer requests) and patient billing\n\n• Participation in continuous quality improvement\n\n• Invoicing and management of chemotherapy protocols administered and chemotherapy per os\n\n• General service activities\n\n• Physical and telephone reception of employees of the institution\n\n• Participation in service seminars\n\n• Provide pharmaceutical logistics of drugs from the central pharmacy to pharmacies of care units.\n\n• Manage and track stock of central pharmacy and care units\n\n• Manufacture aseptic and/or non-sterile preparations\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma in pharmacy or equivalent, aseptic training\n\n• A rigorous, conscientious, caring person with a common sense of organization and enjoying teamwork\n\n• Mastery of standard office automation tools\n\nWe offer you:\n\n• Type of contract: Contract with Indeterminate Duration\n\n• Absence of periodicity and custody\n\nAdditional information on the position can be obtained from Dr. Delphine Carli, Chief Pharmacist: delphine.carli@latour.ch",
+        "de": "Das Hospital of La Tour vereint das Beste aus zwei Welten. Privatmedizin in einem Umfeld, das die Kompetenzentwicklung stimuliert. Unabhängige Praxis gepaart mit der institutionellen Unterstützung der Ärzte in Forschung und Qualität.\n\nIm La Tour Hospital wollen wir die besten Talente rund um unsere Patienten zusammenbringen, ein Team entwickeln, das von dem Besten der Welt inspiriert ist, und ein Ort der Motivation für Gesundheitsexperten sein, die den Ehrgeiz haben, jeden Tag eine bessere Versorgung zu bieten.\n\nUm unsere Apotheke abzuschließen, rekrutieren wir eine\n\nApotheker 60 % - 100 % (Ref: 1849)\n\nIhre Mission:\n\nIn einem dynamischen Apothekenteam bekleiden Sie eine abwechslungsreiche Position in der täglichen Zusammenarbeit mit Ärzteteams.\n\nAls solche wirst du verantwortlich sein;\n\n• Pharmakotechnische Haupttätigkeit: zentralisierte Produktion von Chemotherapie und Aseptik, enge interprofessionelle Zusammenarbeit mit Gesundheitspersonal\n\n• Nebentätigkeiten:\n\n• Ersatz und Kontrolle der nichtsterilen Produktion\n\n• Teilnahme an Vertriebsaktivitäten (Vorbereitung globaler Arzneimittelbestellungen, Verwaltung von Bodenapotheken, Reaktion auf Kundenanfragen) und Patientenabrechnung\n\n• Teilnahme an kontinuierlicher Qualitätsverbesserung\n\n• Fakturierung und Verwaltung von Chemotherapieprotokollen und Chemotherapie per os\n\n• Allgemeine Dienstleistungen\n\n• Physischer und telefonischer Empfang der Bediensteten des Organs\n\n• Teilnahme an Dienstseminaren\n\n• Bereitstellung der pharmazeutischen Logistik von Medikamenten von der zentralen Apotheke bis zu Apotheken von Pflegeeinheiten.\n\n• Verwalten und verfolgen Sie den Bestand der zentralen Apotheken und Pflegeeinheiten\n\n• Herstellung aseptischer und/oder nicht steriler Zubereitungen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom in Apotheke oder gleichwertig, aseptische Ausbildung\n\n• Eine strenge, gewissenhafte, fürsorgliche Person mit einem gesunden Organisationssinn und Spaß an Teamarbeit\n\n• Beherrschung von Standard-Office-Automation-Tools\n\nWir bieten Ihnen:\n\n• Art des Vertrags: Vertrag mit unbestimmter Laufzeit\n\n• Keine Periodizität und Verwahrung\n\nWeitere Informationen zur Position erhalten Sie bei Dr. Delphine Carli, Chefapothekerin: delphine.carli@latour.ch",
         "fr": "L'Hôpital de La Tour réunit le meilleur de deux mondes. La médecine privée dans un environnement qui stimule le développement de la compétence. La pratique indépendante couplée au soutien institutionnel des médecins dans la recherche et la qualité.\n\nA l'Hôpital de La Tour, nous aspirons à rassembler les meilleurs talents autour de nos patients, à développer une équipe qui s'inspire de ce qui se fait de mieux dans le monde et à être un lieu de motivation pour les professionnels de la santé qui ont l'ambition de prodiguer des soins chaque jour meilleurs.\n\nAfin de compléter notre Pharmacie nous recrutons un/e\n\nPréparateur(-rice) en pharmacie 60% - 100% (ref : 1849)\n\nVotre mission :\n\nAu sein d’une équipe de pharmacie dynamique, vous occupez un poste varié en collaboration quotidienne avec les équipes médico-soignantes.\n\nA ce titre vous serez en charge ;\n\n• D’une activité principale de pharmacotechnie : production centralisée de chimiothérapies et aseptique, collaboration interprofessionnelle étroite avec le personnel de soins\n\n• D’activités secondaires :\n\n• Remplacement et contrôle des productions non stériles\n\n• Participation aux activités de distribution (préparation des commandes globales de médicaments, gestion des pharmacies d’étage, réponse aux demandes des clients) et de facturation patiente\n\n• Participation à l’amélioration continue de la qualité\n\n• Facturation et gestion des protocoles de chimiothérapies administrés et chimiothérapie per os\n\n• Activités générales de service\n\n• Accueil physique et téléphonique des collaborateurs de l’institution\n\n• Participation aux colloques de service\n\n• Participation à la démarche d’amélioration continue de la qualité\n\n• Assurer la logistique pharmaceutique des médicaments de la pharmacie centrale vers les pharmacies d'unités de soins.\n\n• Assurer la gestion et le suivi du stock de la pharmacie centrale et des unités de soins\n\n• Assurer la fabrication des préparations aseptiques et/ou non stériles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme de préparateur en pharmacie ou titre jugé équivalent, formation aseptique\n\n• Une personne rigoureuse, consciencieuse, bienveillante, dotée d’un bon sens de l’organisation et appréciant le travail en équipe\n\n• Maîtrise des outils informatiques de bureautique standards\n\nNous vous proposons :\n\n• Type de contrat : Contrat à Durée Indéterminée\n\n• Absence d'astreinte et de garde\n\nDes renseignements complémentaires sur le poste peuvent être obtenus auprès de la Dre Delphine Carli, Pharmacienne cheffe : delphine.carli@latour.ch"
       },
       "needsRetranslation": false,
@@ -680,7 +687,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/preparateur-rice-en-pharmacie-60-100-1562",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.846Z",
+      "crawledAt": "2026-11-27T09:34:08.324Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -740,8 +747,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:43:30.846Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T09:34:08.324Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/preparateur-rice-en-pharmacie-60-100-1562"
     },
     {
       "id": "hopital-la-tour-e37141e1f9dd",
@@ -774,7 +782,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-radiologie-a-80-cdi-1569",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.844Z",
+      "crawledAt": "2026-11-27T09:34:08.321Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -834,8 +842,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:43:30.844Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-02T09:34:08.321Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-radiologie-a-80-cdi-1569"
     },
     {
       "id": "hopital-la-tour-31768c572652",
@@ -869,7 +878,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.842Z",
+      "crawledAt": "2026-11-27T09:34:08.319Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -929,8 +938,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:43:30.842Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:34:08.319Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574"
     },
     {
       "id": "hopital-la-tour-967b66fb5c83",
@@ -963,7 +973,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-80-fixe-et-20-flex-cdi-1575",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.841Z",
+      "crawledAt": "2026-11-27T09:34:08.318Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1023,8 +1033,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:43:30.841Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:34:08.318Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-80-fixe-et-20-flex-cdi-1575"
     },
     {
       "id": "hopital-la-tour-e0cba468094a",
@@ -1057,7 +1068,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.840Z",
+      "crawledAt": "2026-11-27T09:34:08.317Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1117,8 +1128,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:43:30.840Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:34:08.317Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572"
     },
     {
       "id": "hopital-la-tour-6c26063bb4e7",
@@ -1152,7 +1164,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-de-jour-contrat-journalier-1576",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.838Z",
+      "crawledAt": "2026-11-27T09:34:08.315Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1212,8 +1224,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:43:30.838Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:34:08.315Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-de-jour-contrat-journalier-1576"
     },
     {
       "id": "hopital-la-tour-deb71352be47",
@@ -1246,7 +1259,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-a-90-1573",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.833Z",
+      "crawledAt": "2026-11-27T09:34:08.314Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1306,8 +1319,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:43:30.833Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:34:08.314Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-a-90-1573"
     },
     {
       "id": "hopital-la-tour-de5482717380",
@@ -1341,7 +1355,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/developpeureuse-senior-ia-1571",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.831Z",
+      "crawledAt": "2026-11-27T09:34:08.313Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1401,8 +1415,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:43:30.831Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:34:08.313Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/developpeureuse-senior-ia-1571"
     },
     {
       "id": "hopital-la-tour-9758abbdcf10",
@@ -1436,7 +1451,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.829Z",
+      "crawledAt": "2026-11-27T09:34:08.311Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1496,8 +1511,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:43:30.829Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-12T09:34:08.311Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578"
     },
     {
       "id": "hopital-la-tour-3ed8eade02ba",
@@ -1530,7 +1546,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-angiographie-80-cdi-1577",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.828Z",
+      "crawledAt": "2026-11-27T09:34:08.310Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1590,8 +1606,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:43:30.828Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:34:08.310Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-angiographie-80-cdi-1577"
     },
     {
       "id": "hopital-la-tour-c9438f44cd3f",
@@ -1624,7 +1641,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/coordinateurtrice-projet-rh-gestion-des-temps-et-planification-a-80-1580",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.824Z",
+      "crawledAt": "2026-11-27T09:34:08.309Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1684,8 +1701,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:43:30.824Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T09:34:08.309Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/coordinateurtrice-projet-rh-gestion-des-temps-et-planification-a-80-1580"
     },
     {
       "id": "hopital-la-tour-fd429834f139",
@@ -1719,7 +1737,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/lingere-cdmax-3-mois-a-50-des-que-possible-1582",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.822Z",
+      "crawledAt": "2026-11-27T09:34:08.307Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1779,8 +1797,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:43:30.822Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-12T09:34:08.307Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/lingere-cdmax-3-mois-a-50-des-que-possible-1582"
     },
     {
       "id": "hopital-la-tour-8f1a2381a572",
@@ -1813,7 +1832,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-1581",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.819Z",
+      "crawledAt": "2026-11-27T09:34:08.305Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1873,8 +1892,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:43:30.819Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-12T09:34:08.305Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-1581"
     },
     {
       "id": "hopital-la-tour-75a179a929f3",
@@ -1908,7 +1928,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/medecin-interne-ou-cheffe-de-clinique-a-100-cardiologie-non-invasive-1584",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.815Z",
+      "crawledAt": "2026-11-27T09:34:08.303Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1968,8 +1988,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T21:43:30.815Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-17T09:34:08.303Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/medecin-interne-ou-cheffe-de-clinique-a-100-cardiologie-non-invasive-1584"
     },
     {
       "id": "hopital-la-tour-76ccd2dd675a",
@@ -2003,7 +2024,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/neurologue-a-80-100-1586",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:43:30.810Z",
+      "crawledAt": "2026-11-27T09:34:08.299Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2063,8 +2084,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-21T21:43:30.810Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T09:34:08.299Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/neurologue-a-80-100-1586"
     }
   ]
 }

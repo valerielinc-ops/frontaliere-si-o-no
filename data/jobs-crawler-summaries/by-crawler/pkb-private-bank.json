@@ -1,7 +1,7 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-11-26T21:48:24.205Z",
+  "generatedAt": "2026-11-27T09:59:13.756Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -13,10 +13,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5385,
-  "avgDurationMs": 5385,
+  "durationMs": 4339,
+  "avgDurationMs": 4339,
   "durationHistory": [
-    5385
+    4339
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,13 +35,13 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-21T21:48:04.085Z",
+      "validThrough": "2027-01-21T09:59:00.427Z",
       "sector": "Banca e servizi finanziari",
       "role": "Contabilità/Banca/Finanza",
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-26T21:48:04.085Z",
+      "crawledAt": "2026-11-27T09:59:00.427Z",
       "id": "pkb-private-bank-861a521add1e",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-23T09:46:10.994Z",
@@ -65,5 +65,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

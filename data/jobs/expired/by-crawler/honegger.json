@@ -40,7 +40,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://honegger.ch/job/mitarbeiter-in-human-resources-w-m-d-boudry-ne-100",
-    "firstSeenAt": "2026-09-03T13:32:10.300Z"
+    "firstSeenAt": "2026-09-03T13:32:10.300Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry": "NE"
+      }
+    }
   },
   {
     "slug": "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-adliswil",
@@ -91,7 +97,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://honegger.ch/job/unterhaltsreiniger-in-m-w-d-adliswil-horgen-rapperswil-waedenswil-10-50",
-    "firstSeenAt": "2026-07-04T11:11:38.618Z"
+    "firstSeenAt": "2026-07-04T11:11:38.618Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil": "ZH",
+        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil": "ZH"
+      },
+      "en": {
+        "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil": "ZH"
+      },
+      "fr": {
+        "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-in-pulizia-per-la-manutenzione-l-f-d-honegger-ag-sarnen",
@@ -140,7 +159,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://honegger.ch/job/fachmitarbeiter-in-unterhaltsreinigung-m-w-d-region-obwalden-nidwalden-luzern-40-80",
-    "firstSeenAt": "2026-07-04T11:11:35.923Z"
+    "firstSeenAt": "2026-07-04T11:11:35.923Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen": "OW"
+      },
+      "en": {
+        "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen": "OW"
+      },
+      "fr": {
+        "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-reinigung-m-w-d-honegger-ag-sarnen",
@@ -189,7 +220,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-sarnen-40-50",
-    "firstSeenAt": "2026-07-04T11:11:29.969Z"
+    "firstSeenAt": "2026-07-04T11:11:29.969Z",
+    "canton": "OW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen": "OW"
+      },
+      "en": {
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen": "OW"
+      },
+      "fr": {
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen": "OW"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-reinigung-m-w-d-honegger-ag-stans",
@@ -1003,7 +1046,22 @@
         "firstSeenAt": "2026-07-04T11:11:33.747Z",
         "title": "Mitarbeiter/-in Reinigung (m/w/d)"
       }
-    ]
+    ],
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans": "NW"
+      },
+      "en": {
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans": "NW"
+      },
+      "de": {
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans": "NW"
+      },
+      "fr": {
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans": "NW"
+      }
+    }
   },
   {
     "slug": "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-horgen",
@@ -1052,7 +1110,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-region-zuerich-unterer-zuerichsee-horgen-waedenswil-thalwil-50-80",
-    "firstSeenAt": "2026-07-04T11:11:33.215Z"
+    "firstSeenAt": "2026-07-04T11:11:33.215Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen": "ZH"
+      },
+      "en": {
+        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen": "ZH"
+      },
+      "fr": {
+        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen": "ZH"
+      }
+    }
   },
   {
     "slug": "pulizia-manutenzione-leader-team-lunedi-meredi-d-honegger-ag-langenthal",
@@ -1101,7 +1171,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://honegger.ch/job/teamleiter-in-unterhaltsreinigung-m-w-d-langenthal-ca-40",
-    "firstSeenAt": "2026-07-04T11:11:31.034Z"
+    "firstSeenAt": "2026-07-04T11:11:31.034Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal": "BE"
+      },
+      "en": {
+        "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal": "BE"
+      },
+      "fr": {
+        "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal": "BE"
+      }
+    }
   },
   {
     "slug": "capo-operazioni-manutenzione-pulizia-m-f-d-honegger-ag-boudry",

@@ -932,11 +932,11 @@
       "anlagenfuhrer-in-abfullung-emmi-ch-a686489b",
       "mixed-plant-operator-emmi-suhr-bae718d5",
       "operateur-d-installations-mixtes-emmi-suhr-69eb7f5f",
-      "anlagenfuhrer-in-abfullung-emmi-ch",
       "operatore-di-impianti-misto-emmi-suhr",
       "mixed-plant-operator-emmi-suhr",
       "operateur-d-installations-mixtes-emmi-suhr",
-      "anlagenfuhrer-in-mischerei-emmi-ch"
+      "anlagenfuhrer-in-mischerei-emmi-ch",
+      "anlagenfuhrer-in-abfullung-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -982,8 +982,8 @@
         "operatore-di-impianti-misto-emmi-suhr",
         "mixed-plant-operator-emmi-suhr",
         "operateur-d-installations-mixtes-emmi-suhr",
-        "anlagenfuhrer-in-abfullung-emmi-ch",
-        "anlagenfuhrer-in-mischerei-emmi-ch"
+        "anlagenfuhrer-in-mischerei-emmi-ch",
+        "anlagenfuhrer-in-abfullung-emmi-ch"
       ],
       "fr": [
         "gestionnaire-de-la-plante-en-usine-mixte-emmi-suhr-aargau",
@@ -1055,7 +1055,6 @@
         "operatore-di-impianti-misto-emmi-suhr": "AG",
         "mixed-plant-operator-emmi-suhr": "AG",
         "operateur-d-installations-mixtes-emmi-suhr": "AG",
-        "anlagenfuhrer-in-abfullung-emmi-ch": "AG",
         "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau-07ny31": "AG",
         "conducteur-d-installation-en-melange-emmi-suhr": "AG",
         "anlagenfuhrer-in-mischerei-emmi-ch": "AG"
@@ -1468,12 +1467,12 @@
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen-f9b6e454",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-115dd3a8",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-994af42d",
-        "techniker-in-automation-emmi-ch",
         "industrial-electrician-automation-technician-emmi-suhr-aargau",
         "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
         "betriebselektriker-in-automatiker-in-emmi-ch",
         "betriebselektriker-in-automatiker-in-emmi-ch-2",
-        "betriebselektriker-in-automatiker-in-emmi-suhr"
+        "betriebselektriker-in-automatiker-in-emmi-suhr",
+        "techniker-in-automation-emmi-ch"
       ],
       "en": [
         "industrial-electrician-automation-technician-emmi-dagmersellen-luzern-881e4c15",
@@ -1567,7 +1566,6 @@
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen-f9b6e454": "AG",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-115dd3a8": "AG",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-994af42d": "AG",
-        "techniker-in-automation-emmi-ch": "AG",
         "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau-a389442a": "AG",
         "industrial-electrician-automation-technician-emmi-ostermundigen-bern-1e26a50c": "AG",
         "industrial-electrician-automation-technician-emmi-suhr-aargau-62338d23": "AG",
@@ -2583,7 +2581,7 @@
     "slugByLocale": {
       "it": "operatore-automatico-elettricista-operativo-emmi-kirchberg-bern",
       "en": "automated-electrician-plant-electrician-emmi-kirchberg-bern",
-      "de": "automatiker-in-betriebselektriker-in-emmi-ch",
+      "de": "automatiker-in-betriebselektriker-in-emmi-ch-719a271f",
       "fr": "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg-bern"
     },
     "sector": "Food & Beverage (dairy)",
@@ -2594,11 +2592,11 @@
       "automated-electrician-plant-electrician-emmi-kirchberg",
       "operatore-automatico-elettricista-operativo-emmi-kirchberg",
       "automatiker-in-betriebselektriker-in-emmi-kirchberg",
-      "automatiker-in-betriebselektriker-in-emmi-ch",
       "tecnico-di-automazione-elettricista-di-impianto-emmi-dagmersellen",
       "automatiker-in-betriebselektriker-in-emmi-ch-2",
       "automation-technician-plant-electrician-emmi-dagmersellen",
-      "technicien-en-automatisation-electricien-d-installations-emmi-dagmersellen"
+      "technicien-en-automatisation-electricien-d-installations-emmi-dagmersellen",
+      "automatiker-in-betriebselektriker-in-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2607,19 +2605,25 @@
         "automated-electrician-plant-electrician-emmi-kirchberg",
         "operatore-automatico-elettricista-operativo-emmi-kirchberg",
         "automatiker-in-betriebselektriker-in-emmi-kirchberg",
-        "automatiker-in-betriebselektriker-in-emmi-ch",
+        "automatiker-in-betriebselektriker-in-emmi-ch-719a271f",
         "tecnico-di-automazione-elettricista-di-impianto-emmi-dagmersellen",
-        "automatiker-in-betriebselektriker-in-emmi-ch-2"
+        "automatiker-in-betriebselektriker-in-emmi-ch-2",
+        "automatiker-in-betriebselektriker-in-emmi-ch"
       ],
       "en": [
         "automated-electrician-plant-electrician-emmi-kirchberg",
         "automatiker-in-betriebselektriker-in-emmi-kirchberg",
-        "automation-technician-plant-electrician-emmi-dagmersellen"
+        "automation-technician-plant-electrician-emmi-dagmersellen",
+        "automatiker-in-betriebselektriker-in-emmi-ch"
       ],
       "fr": [
         "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg",
         "automatiker-in-betriebselektriker-in-emmi-kirchberg",
-        "technicien-en-automatisation-electricien-d-installations-emmi-dagmersellen"
+        "technicien-en-automatisation-electricien-d-installations-emmi-dagmersellen",
+        "automatiker-in-betriebselektriker-in-emmi-ch"
+      ],
+      "de": [
+        "automatiker-in-betriebselektriker-in-emmi-ch-719a271f"
       ]
     },
     "postalCode": "3422",
@@ -2660,7 +2664,7 @@
         "automated-electrician-plant-electrician-emmi-kirchberg": "BE",
         "operatore-automatico-elettricista-operativo-emmi-kirchberg": "BE",
         "automatiker-in-betriebselektriker-in-emmi-kirchberg": "BE",
-        "automatiker-in-betriebselektriker-in-emmi-ch": "BE"
+        "automatiker-in-betriebselektriker-in-emmi-ch-719a271f": "BE"
       },
       "en": {
         "automated-electrician-plant-electrician-emmi-kirchberg": "BE",
@@ -2669,6 +2673,9 @@
       "fr": {
         "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg": "BE",
         "automatiker-in-betriebselektriker-in-emmi-kirchberg": "BE"
+      },
+      "de": {
+        "automatiker-in-betriebselektriker-in-emmi-ch-719a271f": "BE"
       }
     }
   },
@@ -5129,10 +5136,10 @@
     "canton": "LU",
     "previousSlugCantonByLocale": {
       "it": {
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch": "LU",
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch": "LU",
         "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen": "LU",
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen": "LU"
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen": "LU",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-762542aa": "LU"
       },
       "en": {
         "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch": "LU",
@@ -5141,8 +5148,8 @@
         "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen": "LU"
       },
       "de": {
-        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch": "LU",
-        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch": "LU"
+        "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch": "LU",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch-762542aa": "LU"
       },
       "fr": {
         "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch": "LU",
@@ -5280,6 +5287,12 @@
       ],
       "de": [
         "prufleiter-in-mikrobiologie-emmi-ch"
+      ],
+      "en": [
+        "prufleiter-in-mikrobiologie-emmi-ch"
+      ],
+      "fr": [
+        "prufleiter-in-mikrobiologie-emmi-ch"
       ]
     },
     "postalCode": "6032",
@@ -5295,10 +5308,10 @@
       "it": {
         "leader-du-test-en-microbiologie-emmi-emmen-luzern": "LU",
         "test-leader-in-microbiology-emmi-emmen-luzern": "LU",
-        "prufleiter-in-mikrobiologie-emmi-ch": "LU"
+        "prufleiter-in-mikrobiologie-emmi-ch-29255e66": "LU"
       },
       "de": {
-        "prufleiter-in-mikrobiologie-emmi-ch": "LU"
+        "prufleiter-in-mikrobiologie-emmi-ch-29255e66": "LU"
       }
     }
   },
@@ -5562,7 +5575,8 @@
       "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern",
       "meccanica-aziendale-in-emmi-dagmersellen-luzern-p6k5ia",
       "business-mechanic-in-emmi-dagmersellen-luzern",
-      "betriebsmechaniker-emmi-emmen-5ddea941"
+      "betriebsmechaniker-emmi-emmen-5ddea941",
+      "betriebsmechaniker-in-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6894,9 +6908,6 @@
         "plant-operator-emmi-frenkendorf-basel-landschaft",
         "anlagenfuhrer-in-100-emmi-frenkendorf",
         "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
-        "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
-        "anlagenfuhrer-in-100-emmi-ch",
-        "anlagenfuhrer-in-emmi-ch",
         "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
         "system-manager-in-mixmatic-emmi-ostermundigen-bern",
         "anlagenfuhrer-in-mixmatic-emmi-ch",
@@ -6904,6 +6915,9 @@
         "system-manager-in-mixmatic-emmi-ostermundigen",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern",
+        "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
+        "anlagenfuhrer-in-100-emmi-ch",
+        "anlagenfuhrer-in-emmi-ch",
         "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
         "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen"
       ],
@@ -6918,15 +6932,17 @@
         "anlagenfuhrer-in-100-emmi-ch",
         "anlagenfuhrer-in-100-emmi-frenkendorf",
         "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
-        "plant-operator-emmi-frenkendorf-basel-landschaft",
-        "anlagenfuhrer-in-emmi-ch",
         "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
         "system-manager-in-mixmatic-emmi-ostermundigen-bern",
         "anlagenfuhrer-in-mixmatic-emmi-ch",
         "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern",
         "system-manager-in-mixmatic-emmi-ostermundigen",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
-        "system-operator-in-cheese-preparation-emmi-emmen-luzern"
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
+        "plant-operator-emmi-frenkendorf-basel-landschaft",
+        "anlagenfuhrer-in-emmi-ch"
       ],
       "de": [
         "maschinenfuhrer-in-emmi-ch-l5p4ro",
@@ -6936,9 +6952,6 @@
         "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
         "plant-operator-emmi-frenkendorf-basel-landschaft",
         "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
-        "anlagenfuhrer-in-100-emmi-ch",
-        "anlagenfuhrer-in-100-emmi-frenkendorf",
-        "anlagenfuhrer-in-emmi-ch",
         "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
         "system-manager-in-mixmatic-emmi-ostermundigen-bern",
         "anlagenfuhrer-in-mixmatic-emmi-ch",
@@ -6946,6 +6959,10 @@
         "system-manager-in-mixmatic-emmi-ostermundigen",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
+        "anlagenfuhrer-in-100-emmi-ch",
+        "anlagenfuhrer-in-100-emmi-frenkendorf",
+        "anlagenfuhrer-in-emmi-ch",
         "anlagenfuhrer-in-kasekonfektionierung-emmi-ch"
       ],
       "fr": [
@@ -6961,15 +6978,17 @@
         "anlagenfuhrer-in-100-emmi-ch",
         "plant-operator-emmi-frenkendorf-basel-landschaft",
         "anlagenfuhrer-in-100-emmi-frenkendorf",
-        "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
-        "anlagenfuhrer-in-emmi-ch",
         "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
         "system-manager-in-mixmatic-emmi-ostermundigen-bern",
         "anlagenfuhrer-in-mixmatic-emmi-ch",
         "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern",
         "system-manager-in-mixmatic-emmi-ostermundigen",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
-        "system-operator-in-cheese-preparation-emmi-emmen-luzern"
+        "system-operator-in-cheese-preparation-emmi-emmen-luzern",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
+        "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
+        "anlagenfuhrer-in-emmi-ch"
       ]
     },
     "postalCode": "3422",
@@ -7022,16 +7041,18 @@
         "system-manager-in-mixmatic-emmi-ostermundigen": "BE",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern": "BE",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern": "BE",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch": "BE",
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern": "BE",
         "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs": "BE",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen": "BE",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3": "BE",
         "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-2": "BE",
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-4913c3": "BE",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3": "BE",
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch": "BE",
-        "anlagenfuhrer-in-emmi-ch": "BE"
+        "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft-e7e8f907": "BE",
+        "anlagenfuhrer-in-100-emmi-ch-d8773228": "BE",
+        "anlagenfuhrer-in-emmi-ch-b05e6db1": "BE",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-e3de117b": "BE",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-b902cb41": "BE"
       },
       "en": {
         "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern": "BE",
@@ -7041,7 +7062,9 @@
         "system-manager-in-mixmatic-emmi-ostermundigen": "BE",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern": "BE",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern": "BE",
-        "operator-in-emmi-kirchberg-bern": "BE"
+        "operator-in-emmi-kirchberg-bern": "BE",
+        "plant-operator-emmi-frenkendorf-basel-landschaft-5642d624": "BE",
+        "anlagenfuhrer-in-emmi-ch-b05e6db1": "BE"
       },
       "de": {
         "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern": "BE",
@@ -7051,8 +7074,10 @@
         "system-manager-in-mixmatic-emmi-ostermundigen": "BE",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern": "BE",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern": "BE",
-        "anlagenfuhrer-in-emmi-ch": "BE",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch": "BE"
+        "anlagenfuhrer-in-100-emmi-ch-d8773228": "BE",
+        "anlagenfuhrer-in-100-emmi-frenkendorf-daaa249a": "BE",
+        "anlagenfuhrer-in-emmi-ch-b05e6db1": "BE",
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-e3de117b": "BE"
       },
       "fr": {
         "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern": "BE",
@@ -7063,7 +7088,9 @@
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern": "BE",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern": "BE",
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern": "BE",
-        "operateur-in-emmi-kirchberg-bern": "BE"
+        "operateur-in-emmi-kirchberg-bern": "BE",
+        "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft-7bcc1f8a": "BE",
+        "anlagenfuhrer-in-emmi-ch-b05e6db1": "BE"
       }
     }
   },
@@ -38913,15 +38940,20 @@
         "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern": "BE",
         "system-operator-in-cheese-production-emmi-kirchberg-bern": "BE",
         "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern": "BE",
-        "anlagenfuhrer-in-kaseproduktion-emmi-ch": "BE"
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch-fbf37af2": "BE"
       },
       "en": {
         "anlagenfuhrer-in-kaseverpackung-emmi-ch": "BE",
-        "system-operator-in-cheese-production-emmi-kirchberg-bern": "BE"
+        "system-operator-in-cheese-production-emmi-kirchberg-bern": "BE",
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch-fbf37af2": "BE"
       },
       "fr": {
         "anlagenfuhrer-in-kaseverpackung-emmi-ch": "BE",
-        "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern": "BE"
+        "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern": "BE",
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch-fbf37af2": "BE"
+      },
+      "de": {
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch-fbf37af2": "BE"
       }
     }
   },
@@ -41813,8 +41845,7 @@
       "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch-7e5e15cc",
       "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3-932ca0b8",
       "system-operator-in-cheese-preparation-emmi-emmen-luzern-e19a9ebb",
-      "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-f2f438d9",
-      "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen"
+      "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-f2f438d9"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -41856,9 +41887,7 @@
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch-46d5c123",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern-cdbf37df",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern-e19a9ebb",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs-d817a6f4",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch"
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs-d817a6f4"
       ],
       "fr": [
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-4913c3",
@@ -41873,9 +41902,7 @@
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch-46d5c123",
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-9f8e3680",
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-f2f438d9",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs-d817a6f4",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch"
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs-d817a6f4"
       ],
       "de": [
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
@@ -41885,8 +41912,7 @@
         "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3",
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch-46d5c123",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-c67639ba",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen"
+        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-c67639ba"
       ]
     },
     "postalCode": "6032",

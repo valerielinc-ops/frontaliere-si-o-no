@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-maennedorf",
-  "assembledAt": "2026-11-26T21:21:55.819Z",
-  "runId": "45895484056",
+  "assembledAt": "2026-11-27T09:19:10.187Z",
+  "runId": "45970557697",
   "jobs": [
     {
       "id": "spital-maennedorf-e3b8e098b8c9",
@@ -35,7 +35,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:49.763Z",
+      "crawledAt": "2026-11-27T09:19:02.612Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -103,9 +103,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:49.763Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/453/description/1"
+      "validThrough": "2026-12-27T09:19:02.612Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-89bb3b966a62",
@@ -139,7 +138,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:48.880Z",
+      "crawledAt": "2026-11-27T09:19:01.842Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -212,9 +211,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:48.880Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1065/description/1"
+      "validThrough": "2026-12-27T09:19:01.842Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-51539547456f",
@@ -248,7 +246,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:47.978Z",
+      "crawledAt": "2026-11-27T09:19:01.073Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -330,9 +328,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:47.978Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1794/description/1"
+      "validThrough": "2026-12-27T09:19:01.073Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-20633eeb420e",
@@ -365,7 +362,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1840/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:47.272Z",
+      "crawledAt": "2026-11-27T09:19:00.344Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -471,9 +468,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:47.272Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1840/description/1"
+      "validThrough": "2026-12-27T09:19:00.344Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-434a00b45c92",
@@ -506,7 +502,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1098/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:46.397Z",
+      "crawledAt": "2026-11-27T09:18:59.589Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -595,9 +591,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:46.397Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1098/description/1"
+      "validThrough": "2026-12-27T09:18:59.589Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-6f1d79d680cc",
@@ -631,7 +626,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:45.495Z",
+      "crawledAt": "2026-11-27T09:18:58.813Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -733,9 +728,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:45.495Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1873/description/1"
+      "validThrough": "2026-12-27T09:18:58.813Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-f260163c79ca",
@@ -768,7 +762,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1882/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:44.785Z",
+      "crawledAt": "2026-11-27T09:18:58.057Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -866,9 +860,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:44.785Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1882/description/1"
+      "validThrough": "2026-12-27T09:18:58.057Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-e640ade86dc2",
@@ -902,7 +895,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:43.930Z",
+      "crawledAt": "2026-11-27T09:18:57.272Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -993,9 +986,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:43.930Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1951/description/1"
+      "validThrough": "2026-12-27T09:18:57.272Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-13d673dfc24b",
@@ -1028,7 +1020,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1958/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:43.223Z",
+      "crawledAt": "2026-11-27T09:18:56.512Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1117,9 +1109,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:43.223Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1958/description/1"
+      "validThrough": "2026-12-27T09:18:56.512Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-3e33a879eb71",
@@ -1153,7 +1144,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:42.352Z",
+      "crawledAt": "2026-11-27T09:18:55.756Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1227,9 +1218,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:42.352Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1968/description/1"
+      "validThrough": "2026-12-27T09:18:55.756Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-1e1a6a6a4096",
@@ -1262,7 +1252,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1952/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:41.500Z",
+      "crawledAt": "2026-11-27T09:18:55.020Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1359,9 +1349,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:41.500Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1952/description/1"
+      "validThrough": "2026-12-27T09:18:55.020Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-4317e464a023",
@@ -1395,7 +1384,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:40.625Z",
+      "crawledAt": "2026-11-27T09:18:54.201Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1463,9 +1452,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:40.625Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1971/description/1"
+      "validThrough": "2026-12-27T09:18:54.201Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-add8b1d82bfe",
@@ -1498,7 +1486,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1904/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:39.910Z",
+      "crawledAt": "2026-11-27T09:18:53.430Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1567,9 +1555,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:39.910Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1904/description/1"
+      "validThrough": "2026-12-27T09:18:53.430Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-5d5cf192365b",
@@ -1602,7 +1589,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1987/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:39.060Z",
+      "crawledAt": "2026-11-27T09:18:52.692Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1666,9 +1653,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:39.060Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1987/description/1"
+      "validThrough": "2026-12-27T09:18:52.692Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-cfd8be8d9ded",
@@ -1702,7 +1688,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:38.389Z",
+      "crawledAt": "2026-11-27T09:18:51.902Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1775,9 +1761,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:38.389Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1994/description/1"
+      "validThrough": "2026-12-27T09:18:51.902Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-c83a65a4013f",
@@ -1811,7 +1796,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:37.501Z",
+      "crawledAt": "2026-11-27T09:18:51.106Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1883,9 +1868,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:37.501Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1993/description/1"
+      "validThrough": "2026-12-27T09:18:51.106Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-e11830f7be22",
@@ -1918,7 +1902,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1984/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:36.614Z",
+      "crawledAt": "2026-11-27T09:18:50.343Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1982,9 +1966,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:36.614Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1984/description/1"
+      "validThrough": "2026-12-27T09:18:50.343Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-59e48b8e7e5f",
@@ -2017,7 +2000,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2001/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:35.720Z",
+      "crawledAt": "2026-11-27T09:18:49.601Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2088,9 +2071,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:35.720Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2001/description/1"
+      "validThrough": "2026-12-27T09:18:49.601Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-a97468f455d6",
@@ -2124,7 +2106,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:35.017Z",
+      "crawledAt": "2026-11-27T09:18:48.864Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2194,9 +2176,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:35.017Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2002/description/1"
+      "validThrough": "2026-12-27T09:18:48.864Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-5a3c2675b111",
@@ -2230,7 +2211,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:34.158Z",
+      "crawledAt": "2026-11-27T09:18:48.119Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2294,9 +2275,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:34.158Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1947/description/1"
+      "validThrough": "2026-12-27T09:18:48.119Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-7e8287bf2088",
@@ -2330,7 +2310,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:33.269Z",
+      "crawledAt": "2026-11-27T09:18:47.349Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2397,9 +2377,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:33.269Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1996/description/1"
+      "validThrough": "2026-12-27T09:18:47.349Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-6edeae0f1e41",
@@ -2432,7 +2411,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2014/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:32.397Z",
+      "crawledAt": "2026-11-27T09:18:46.597Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2503,9 +2482,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:32.397Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2014/description/1"
+      "validThrough": "2026-12-27T09:18:46.597Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-4219f329e168",
@@ -2539,7 +2517,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:31.497Z",
+      "crawledAt": "2026-11-27T09:18:45.803Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2612,9 +2590,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T21:21:31.497Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2027/description/1"
+      "validThrough": "2027-01-12T09:18:45.803Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-54cdc42b7004",
@@ -2647,7 +2624,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2023/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:30.634Z",
+      "crawledAt": "2026-11-27T09:18:45.033Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2720,9 +2697,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T21:21:30.634Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2023/description/1"
+      "validThrough": "2027-01-17T09:18:45.033Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-05eb5de8a05a",
@@ -2756,7 +2732,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:29.922Z",
+      "crawledAt": "2026-11-27T09:18:44.232Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2828,9 +2804,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T21:21:29.922Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2013/description/1"
+      "validThrough": "2027-01-18T09:18:44.232Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-721c8ddf90de",
@@ -2863,7 +2838,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1207/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:29.047Z",
+      "crawledAt": "2026-11-27T09:18:43.477Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2931,9 +2906,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:29.047Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1207/description/1"
+      "validThrough": "2026-12-27T09:18:43.477Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-851d35b05cb7",
@@ -2966,7 +2940,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2032/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:28.340Z",
+      "crawledAt": "2026-11-27T09:18:42.724Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3031,9 +3005,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:21:28.340Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2032/description/1"
+      "validThrough": "2027-02-02T09:18:42.724Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-eec4807b62e2",
@@ -3066,7 +3039,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1989/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:27.636Z",
+      "crawledAt": "2026-11-27T09:18:41.980Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3135,9 +3108,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:21:27.636Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1989/description/1"
+      "validThrough": "2027-02-04T09:18:41.980Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-45267ee10328",
@@ -3170,7 +3142,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2031/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:26.796Z",
+      "crawledAt": "2026-11-27T09:18:41.205Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3237,9 +3209,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:21:26.796Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2031/description/1"
+      "validThrough": "2027-02-04T09:18:41.205Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-82680b271140",
@@ -3273,7 +3244,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:25.920Z",
+      "crawledAt": "2026-11-27T09:18:40.450Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3341,9 +3312,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:25.920Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1930/description/1"
+      "validThrough": "2026-12-27T09:18:40.450Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-29e051669cfc",
@@ -3376,7 +3346,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1957/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:25.027Z",
+      "crawledAt": "2026-11-27T09:18:39.677Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3480,9 +3450,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-19T21:21:25.027Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1957/description/1"
+      "validThrough": "2027-02-20T09:18:39.677Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-839549d1c8f6",
@@ -3515,7 +3484,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1986/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:24.326Z",
+      "crawledAt": "2026-11-27T09:18:38.924Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3582,9 +3551,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T21:21:24.326Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1986/description/1"
+      "validThrough": "2027-02-12T09:18:38.924Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-84cea8ca01db",
@@ -3618,7 +3586,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:23.457Z",
+      "crawledAt": "2026-11-27T09:18:38.137Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3684,9 +3652,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T21:21:23.457Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2036/description/1"
+      "validThrough": "2027-02-14T09:18:38.137Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-f8102f087c89",
@@ -3720,7 +3687,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-26T21:21:22.584Z",
+      "crawledAt": "2026-11-27T09:18:37.401Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3790,9 +3757,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T21:21:22.584Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2037/description/1"
+      "validThrough": "2027-02-17T09:18:37.401Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-1a6a1e1ab57d",
@@ -3825,7 +3791,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2018/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:21.695Z",
+      "crawledAt": "2026-11-27T09:18:36.653Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3896,9 +3862,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:21:21.695Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2018/description/1"
+      "validThrough": "2026-12-28T09:18:36.653Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-0ea1ab23795d",
@@ -3931,7 +3896,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1900/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:21.004Z",
+      "crawledAt": "2026-11-27T09:18:35.881Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3995,9 +3960,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:21:21.004Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/1900/description/1"
+      "validThrough": "2026-12-27T09:18:35.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-maennedorf-9270d7c52aaa",
@@ -4030,7 +3994,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2035/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:21:20.132Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-11-27T09:18:35.080Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -4052,19 +4017,19 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "previousSlugsByLocale": {
-        "de": [
-          "dipl-physiotherapeut-fh-80-m-w-d-befristet-spital-maennedorf-ch"
-        ],
-        "it": [
-          "dipl-physiotherapeut-fh-80-m-w-d-befristet-spital-maennedorf-ch",
-          "dipl-physiotherapeut-fh-80-m-w-d-01-01-bis-31-07-2027-spital-maennedorf-ch"
-        ]
-      },
       "previousSlugs": [
         "dipl-physiotherapeut-fh-80-m-w-d-befristet-spital-maennedorf-ch",
         "dipl-physiotherapeut-fh-80-m-w-d-01-01-bis-31-07-2027-spital-maennedorf-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-physiotherapeut-fh-80-m-w-d-befristet-spital-maennedorf-ch",
+          "dipl-physiotherapeut-fh-80-m-w-d-01-01-bis-31-07-2027-spital-maennedorf-ch"
+        ],
+        "de": [
+          "dipl-physiotherapeut-fh-80-m-w-d-befristet-spital-maennedorf-ch"
+        ]
+      },
       "firstSeenAt": "2026-11-25T09:22:43.697Z",
       "salaryMin": 73200,
       "salaryMax": 102400,
@@ -4096,10 +4061,8 @@
       },
       "streetAddress": "Asylstrasse 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-23T21:21:20.132Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2736.umantis.com/vacancies/2035/description/1",
-      "needsRetranslation": false
+      "validThrough": "2027-02-24T09:18:35.080Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

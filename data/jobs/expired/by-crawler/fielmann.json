@@ -64,22 +64,30 @@
     "previousSlugCantonByLocale": {
       "it": {
         "ottico-f-m-d-fielmann-group-altdorf-8d2b9d6d": "UR",
-        "augenoptiker-w-m-d-fielmann-ch-49e0dcb1": "UR"
+        "augenoptiker-w-m-d-fielmann-ch-49e0dcb1": "UR",
+        "augenoptiker-m-w-d-fielmann-group-altdorf": "UR",
+        "opticians-m-w-d-fielmann-group-altdorf": "UR",
+        "opticiens-m-w-d-fielmann-group-altdorf": "UR"
       },
       "en": {
         "optician-f-m-d-fielmann-group-altdorf-8986bc-77f83def": "UR",
         "augenoptiker-m-w-d-fielmann-group-altdorf-24a168e0": "UR",
         "opticians-m-w-d-fielmann-group-altdorf-16d28beb": "UR",
-        "augenoptiker-w-m-d-fielmann-ch-49e0dcb1": "UR"
+        "augenoptiker-w-m-d-fielmann-ch-49e0dcb1": "UR",
+        "opticiens-m-w-d-fielmann-group-altdorf": "UR"
       },
       "de": {
-        "augenoptiker-w-m-d-fielmann-ch-49e0dcb1": "UR"
+        "augenoptiker-w-m-d-fielmann-ch-49e0dcb1": "UR",
+        "augenoptiker-m-w-d-fielmann-group-altdorf": "UR",
+        "opticians-m-w-d-fielmann-group-altdorf": "UR",
+        "opticiens-m-w-d-fielmann-group-altdorf": "UR"
       },
       "fr": {
         "opticien-f-m-d-fielmann-group-altdorf-8986bc-5ffb1350": "UR",
         "augenoptiker-m-w-d-fielmann-group-altdorf-24a168e0": "UR",
         "opticiens-m-w-d-fielmann-group-altdorf-f39f800d": "UR",
-        "augenoptiker-w-m-d-fielmann-ch-49e0dcb1": "UR"
+        "augenoptiker-w-m-d-fielmann-ch-49e0dcb1": "UR",
+        "opticians-m-w-d-fielmann-group-altdorf": "UR"
       }
     },
     "previousSlugs": [
@@ -89,6 +97,18 @@
       "augenoptiker-m-w-d-fielmann-group-altdorf-24a168e0",
       "opticians-m-w-d-fielmann-group-altdorf-16d28beb",
       "opticiens-m-w-d-fielmann-group-altdorf-f39f800d"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://fielmann.wd3.myworkdayjobs.com/en/external/job/altdorf/augenoptiker--w-m-_r-28050",
+        "firstSeenAt": "2026-06-15T22:59:10.375Z",
+        "title": "Augenoptiker (w/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://fielmann.wd3.myworkdayjobs.com/en/external/job/altdorf/augenoptiker--w-m-d-_r-37562",
+        "firstSeenAt": "2026-06-15T22:59:10.375Z",
+        "title": "Augenoptiker (w/m/d)"
+      }
     ]
   },
   {
@@ -139,7 +159,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fielmann.wd3.myworkdayjobs.com/en/external/job/olten/formateur-ou-formatrice-spcialis-e--en-optique--h-f-d-_r-54472",
-    "firstSeenAt": "2026-05-19T11:41:53.165Z"
+    "firstSeenAt": "2026-05-19T11:41:53.165Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "formateur-ou-formatrice-specialise-e-en-optique-h-f-d-fielmann-ch": "SO"
+      },
+      "en": {
+        "formateur-ou-formatrice-specialise-e-en-optique-h-f-d-fielmann-ch": "SO"
+      },
+      "de": {
+        "formateur-ou-formatrice-specialise-e-en-optique-h-f-d-fielmann-ch": "SO"
+      }
+    }
   },
   {
     "slug": "hr-business-partner-w-m-100-fielmann-ch",
@@ -171,6 +203,12 @@
     "previousSlugsByLocale": {
       "fr": [
         "generaliste-des-rh-associe-d-affaires-des-rh-h-f-100-fielmann-group-basel"
+      ],
+      "en": [
+        "hr-business-partner-w-m-100-fielmann-ch"
+      ],
+      "de": [
+        "hr-business-partner-w-m-100-fielmann-ch"
       ]
     },
     "postalCode": "4051",
@@ -180,7 +218,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fielmann.wd3.myworkdayjobs.com/en/external/job/basel/hr-business-partner--w-m--100-_r-65381",
-    "firstSeenAt": "2026-08-28T05:23:18.248Z"
+    "firstSeenAt": "2026-08-28T05:23:18.248Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "hr-business-partner-w-m-100-fielmann-ch": "BS"
+      },
+      "de": {
+        "hr-business-partner-w-m-100-fielmann-ch": "BS"
+      },
+      "fr": {
+        "generaliste-des-rh-associe-d-affaires-des-rh-h-f-100-fielmann-group-basel": "BS"
+      }
+    }
   },
   {
     "slug": "opticien-ne-f-m-d-fielmann-group-la-chaux-de-fonds",
@@ -974,7 +1024,22 @@
         "firstSeenAt": "2026-09-04T13:28:36.795Z",
         "title": "Opticien(ne) (h/f/d)"
       }
-    ]
+    ],
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "opticien-ne-h-f-d-fielmann-ch": "NE"
+      },
+      "en": {
+        "opticien-ne-h-f-d-fielmann-ch": "NE"
+      },
+      "de": {
+        "opticien-ne-h-f-d-fielmann-ch": "NE"
+      },
+      "fr": {
+        "opticien-ne-h-f-d-fielmann-ch": "NE"
+      }
+    }
   },
   {
     "slug": "hr-ufficiale-m-f-d-100-fielmann-group-basel",
@@ -1026,7 +1091,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fielmann.wd3.myworkdayjobs.com/en/external/job/basel/hr-sachbearbeiter--w-m-d--100-_r-65876",
-    "firstSeenAt": "2026-09-19T22:53:58.217Z"
+    "firstSeenAt": "2026-09-19T22:53:58.217Z",
+    "canton": "BS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-sachbearbeiter-w-m-d-100-fielmann-ch": "BS",
+        "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel": "BS"
+      },
+      "en": {
+        "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel": "BS"
+      },
+      "fr": {
+        "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel": "BS"
+      }
+    }
   },
   {
     "slug": "senior-marketing-manager-w-m-d-100-fielmann-ch",

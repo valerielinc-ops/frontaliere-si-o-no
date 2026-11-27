@@ -152,7 +152,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1571",
-    "firstSeenAt": "2026-11-06T22:05:01.042Z"
+    "firstSeenAt": "2026-11-06T22:05:01.042Z",
+    "canton": "FR",
+    "previousSlugsByLocale": {
+      "en": [
+        "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "de": [
+        "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "fr": [
+        "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "de": {
+        "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "fr": {
+        "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "assistente-o-in-cure-e-salute-comunitaria-sostituente-a-assc-fachfrau-mann-gesundheit-fage-in-sostituzione-per-assenze-hopital-fribourgeois-hfr-fribourg",
@@ -196,7 +219,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/7195b7311b2a-assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit-fage-im-ersatz-fur-absenzen",
-    "firstSeenAt": "2026-05-19T13:03:18.107Z"
+    "firstSeenAt": "2026-05-19T13:03:18.107Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit": "FR"
+      }
+    }
   },
   {
     "slug": "assistente-tecnica-specializzata-in-sala-operatoria-atsso-90-100-tecnico-a-di-sala-operatoria-90-100-hopital",
@@ -248,7 +277,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
-    "firstSeenAt": "2026-05-19T13:03:17.431Z"
+    "firstSeenAt": "2026-05-19T13:03:17.431Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische": "FR"
+      },
+      "en": {
+        "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technical-operations-assistant-technical-operations": "FR"
+      },
+      "de": {
+        "technischer-assistent-spezialisiert-auf-betriebszimmer-atsso-90-100-technische-operationsassistentin-technischen": "FR"
+      }
+    }
   },
   {
     "slug": "chef-de-clinica-o-chef-de-clinica-adjunto-alla-permanenza-di-riaz-60-100-hopital-fribourgeois-hfr-hfr-riaz",
@@ -294,7 +335,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/919980102cd5-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100",
-    "firstSeenAt": "2026-05-19T13:03:22.090Z"
+    "firstSeenAt": "2026-05-19T13:03:22.090Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100-hfr": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100-hopital-fribourgeois-hfr-riaz": "FR"
+      }
+    }
   },
   {
     "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-neurologie-60-70-hopital-fribourgeois-hfr-frib",
@@ -358,7 +406,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/f3c19e2c6baf-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-neurologie-60-70",
-    "firstSeenAt": "2026-07-21T11:59:07.473Z"
+    "firstSeenAt": "2026-07-21T11:59:07.473Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-hfr-hopital": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-hopital-fribourgeois-hfr-fribourg": "FR",
+        "responsabile-clinica-o-assistente-responsabile-clinica-in-neurologia-60-70-hopital-fribourgeois-hfr-fribourg": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin": "FR"
+      },
+      "en": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-hfr-hopital": "FR",
+        "head-of-clinic-or-assistant-head-of-clinic-in-neurology-60-70-hopital-fribourgeois-hfr-fribourg": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin": "FR"
+      },
+      "de": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-hfr-hopital": "FR",
+        "klinikleiter-oder-assistenzklinikleiter-in-neurologie-60-70-hopital-fribourgeois-hfr-fribourg": "FR"
+      },
+      "fr": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin": "FR"
+      }
+    }
   },
   {
     "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-riaz",
@@ -424,7 +493,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
-    "firstSeenAt": "2026-05-19T13:03:22.745Z"
+    "firstSeenAt": "2026-05-19T13:03:22.745Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder": "FR"
+      },
+      "de": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder": "FR"
+      },
+      "fr": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-medecin-senior-ou-medecin-senior-adjoint-hopital-fribourgeois-hfr": "FR"
+      }
+    }
   },
   {
     "slug": "chef-fe-di-clinica-in-infettivologia-pediatrica-50-100-hopital-fribourgeois-hfr-fribourg",
@@ -468,7 +549,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
-    "firstSeenAt": "2026-05-19T13:03:20.795Z"
+    "firstSeenAt": "2026-05-19T13:03:20.795Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische": "FR"
+      }
+    }
   },
   {
     "slug": "collaboratore-servizio-tecnico-e-manutenzione-80-100-hopital-fribourgeois-hfr-fribourg",
@@ -523,7 +610,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/d70bf23869f0-collaborateur-trice-service-technique-et-maintenance-80-100-mitarbeiterin-mitarbeiter-technischer-dienst-und-instandhaltung-80-100",
-    "firstSeenAt": "2026-09-24T00:03:56.715Z"
+    "firstSeenAt": "2026-09-24T00:03:56.715Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-trice-service-technique-et-maintenance-80-100-hfr-hopital-fribourgeois": "FR",
+        "collaborateur-trice-service-technique-et-maintenance-80-100-mitarbeiterin-mitarbeiter": "FR"
+      },
+      "en": {
+        "collaborateur-trice-service-technique-et-maintenance-80-100-hfr-hopital-fribourgeois": "FR"
+      },
+      "de": {
+        "collaborateur-trice-service-technique-et-maintenance-80-100-hfr-hopital-fribourgeois": "FR"
+      },
+      "fr": {
+        "collaborateur-trice-service-technique-et-maintenance-80-100-hfr-hopital-fribourgeois": "FR"
+      }
+    }
   },
   {
     "slug": "diplomata-infermiere-a-40-100-contratto-a-tempo-indeterminato-hopital-fribourgeois-hfr-hfr-tafers",
@@ -579,7 +682,13 @@
         "firstSeenAt": "2026-05-19T13:03:25.389Z",
         "title": "Dipl. Pflegefachfrau/-mann 40-100 % unbefristeter Vertrag / Infirmier/ère diplômé/e 40-100 % Contrat à durée indéterminée"
       }
-    ]
+    ],
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachfrau-mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100": "FR"
+      }
+    }
   },
   {
     "slug": "gestionnaire-rh-paie-et-assurances-sociales-risorse-umane-sachbearbeiter-in-lohnadministration-e-sozialversicherungen-hopital-fribourgeois-hfr-fribourg",
@@ -633,7 +742,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/703af3d75d2d-gestionnaire-rh-paie-et-assurances-sociales-hr-sachbearbeiter-in-lohnadministration-und-sozialversicherungen",
-    "firstSeenAt": "2026-10-09T21:43:21.326Z"
+    "firstSeenAt": "2026-10-09T21:43:21.326Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gestionnaire-rh-paie-et-assurances-sociales-hr-sachbearbeiter-in-lohnadministration-und": "FR"
+      },
+      "en": {
+        "gestionnaire-rh-paie-et-assurances-sociales-hr-sachbearbeiter-in-lohnadministration-und": "FR"
+      },
+      "de": {
+        "hr-sachbearbeiter-in-lohnabrechnung-und-sozialversicherungen-hr-verantwortliche-r-verwaltung-der-lohne-und": "FR"
+      },
+      "fr": {
+        "gestionnaire-rh-paie-et-assurances-sociales-hr-sachbearbeiter-in-lohnadministration-und": "FR"
+      }
+    }
   },
   {
     "slug": "infermiera-60-hopital-fribourgeois-hfr-hfr-riaz",
@@ -689,7 +813,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/39b47f127a1e-infirmier-ere-60-pflegefachfrau-pflegefachmann-60",
-    "firstSeenAt": "2026-09-24T00:03:59.369Z"
+    "firstSeenAt": "2026-09-24T00:03:59.369Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-60-hfr-hopital-fribourgeois-hfr-riaz": "FR",
+        "infirmier-ere-60-pflegefachfrau-pflegefachmann-60-hfr-hopital-fribourgeois-hfr-riaz": "FR"
+      },
+      "en": {
+        "infirmier-ere-60-hfr-hopital-fribourgeois-hfr-riaz": "FR"
+      },
+      "de": {
+        "infirmier-ere-60-hfr-hopital-fribourgeois-hfr-riaz": "FR",
+        "infirmier-ere-60-hopital-fribourgeois-hfr-riaz": "FR",
+        "krankenschwester-60-hopital-fribourgeois-hfr-hfr-riaz": "FR"
+      }
+    }
   },
   {
     "slug": "infermiera-specialist-practitioner-ips-in-chirurgia-ortopedica-e-trauma-hopital-fribourgeois-hfr-fribourg",
@@ -739,7 +878,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/8ff645b7c14b-infirmier-ere-praticien-ne-specialise-e-ips-nurse-practitioner-np",
-    "firstSeenAt": "2026-10-05T21:45:17.684Z"
+    "firstSeenAt": "2026-10-05T21:45:17.684Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr": "FR",
+        "infirmier-ere-praticien-ne-specialise-e-ips-nurse-practitioner-np-hfr-hopital-fribourgeois": "FR"
+      },
+      "de": {
+        "nurse-specialist-practitioner-ips-in-orthopadischer-chirurgie-und-trauma-hopital-fribourgeois-hfr-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "infermiere-istruttore-iso-o-tecnico-a-di-sala-operatoria-tso-80-100-hopital-fribourgeois-hfr-fribourg",
@@ -783,7 +932,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
-    "firstSeenAt": "2026-05-19T13:03:27.414Z"
+    "firstSeenAt": "2026-05-19T13:03:27.414Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100": "FR"
+      }
+    }
   },
   {
     "slug": "infermieri-edsostituzione-40-100-hopital-fribourgeois-hfr-fribourg",
@@ -831,7 +986,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
-    "firstSeenAt": "2026-05-19T13:03:28.062Z"
+    "firstSeenAt": "2026-05-19T13:03:28.062Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100": "FR"
+      },
+      "fr": {
+        "infirmier-eres-de-remplacement-40-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "medico-assistente-100-part-time-o-job-sharing-possibile-hopital-fribourgeois-hfr-hfr-tafers",
@@ -875,7 +1039,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/9f2b7f59d46b-assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant-e-100",
-    "firstSeenAt": "2026-05-19T13:03:18.822Z"
+    "firstSeenAt": "2026-05-19T13:03:18.822Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant": "FR"
+      }
+    }
   },
   {
     "slug": "medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50-hopital-fribourgeois-hfr-meyriez-murten",
@@ -930,7 +1100,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/4bbcaebb9771-medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50",
-    "firstSeenAt": "2026-10-06T21:43:18.800Z"
+    "firstSeenAt": "2026-10-06T21:43:18.800Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-medical-e-50-hfr-hopital-fribourgeois-hfr-meyriez-murten": "FR",
+        "medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50": "FR",
+        "assistente-medico-50-hopital-fribourgeois-hfr-hfr-meyriez-murten": "FR"
+      },
+      "de": {
+        "assistent-e-medical-e-50-hopital-fribourgeois-hfr-hfr-meyriez-murten": "FR"
+      },
+      "fr": {
+        "assistant-e-medical-e-50-hfr-hopital-fribourgeois-hfr-meyriez-murten": "FR"
+      }
+    }
   },
   {
     "slug": "responsabile-clinico-in-pediatria-70-100-hopital-fribourgeois-hfr-fribourg",
@@ -993,7 +1177,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
-    "firstSeenAt": "2026-05-19T13:03:21.438Z"
+    "firstSeenAt": "2026-05-19T13:03:21.438Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-clinico-cardiologia-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "chief-of-clinic-cardiology-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "chef-fe-de-clinique-cardiologie-80-100-oberarztin-oberarzt-kardiologie-80-100-hfr-hopital": "FR",
+        "chef-de-clinique-cardiologie-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100-hfr-hopital": "FR"
+      },
+      "en": {
+        "chief-of-clinic-cardiology-80-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      },
+      "de": {
+        "chef-fe-de-clinique-cardiologie-80-100-oberarztin-oberarzt-kardiologie-80-100-hfr-hopital": "FR"
+      },
+      "fr": {
+        "chef-de-clinique-cardiologie-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "chef-de-clinique-en-pediatrie-70-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "specialista-della-salute-fage-40-100-contratto-a-tempo-indeterminato-assistente-in-cure-e-salute-comunitaria-assc",
@@ -1041,7 +1245,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
-    "firstSeenAt": "2026-05-19T13:03:26.048Z"
+    "firstSeenAt": "2026-05-19T13:03:26.048Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante": "FR"
+      },
+      "de": {
+        "fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-community-health-and-care-assistant-chsa-festanstellung-40": "FR"
+      }
+    }
   },
   {
     "slug": "assistente-di-studio-medico-assistente-di-studio-medico-40-hopital-fribourgeois-hfr-hfr-tafers",
@@ -1098,7 +1311,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/47e753d5686b-medizinische-praxisassistentin-medizinischen-praxisassistenten-kardiologie-40-assistant-e-medical-e-en-cardiologie-40",
-    "firstSeenAt": "2026-10-15T21:48:47.889Z"
+    "firstSeenAt": "2026-10-15T21:48:47.889Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medizinische-r-praxisassistent-in-assistant-e-medical-e-40-hfr-hopital-fribourgeois-hfr": "FR",
+        "medizinische-praxisassistentin-medizinischen-praxisassistenten-kardiologie-40-assistant-e": "FR"
+      },
+      "en": {
+        "medizinische-r-praxisassistent-in-assistant-e-medical-e-40-hfr-hopital-fribourgeois-hfr": "FR"
+      },
+      "de": {
+        "medizinische-r-praxisassistent-in-assistant-e-medical-e-40-hfr-hopital-fribourgeois-hfr": "FR",
+        "medizinische-r-praxisassistent-in-assistent-e-medical-e-40-hopital-fribourgeois-hfr-hfr-tafers": "FR"
+      },
+      "fr": {
+        "medizinische-r-praxisassistent-in-assistant-e-medical-e-40-hfr-hopital-fribourgeois-hfr": "FR"
+      }
+    }
   },
   {
     "slug": "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-medico-principale-medico-capo-della-riabilitazione",
@@ -1160,7 +1390,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/02b03762cca8-medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-leitende-arztin-leitenden-arzt-der-respiratorischen-rehabilitation-70-80",
-    "firstSeenAt": "2026-09-21T16:11:59.546Z"
+    "firstSeenAt": "2026-09-21T16:11:59.546Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital": "FR",
+        "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hopital-fribourgeois-hfr-riaz": "FR",
+        "assistente-medico-responsabile-della-riabilitazione-respiratoria-70-80-hopital-fribourgeois-hfr-hfr-riaz": "FR",
+        "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-leitende-arztin-leitenden-arzt-der-respiratorischen-rehabilitation-70-80-hopital-fribourgeois-hfr-riaz": "FR",
+        "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-leitende-arztin": "FR"
+      },
+      "en": {
+        "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital": "FR",
+        "assistant-physician-responsible-for-respiratory-rehabilitation-70-80-hopital-fribourgeois-hfr-hfr-riaz": "FR"
+      },
+      "de": {
+        "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital": "FR",
+        "assistenzarzt-verantwortlich-fur-respiratorische-rehabilitation-70-80-hopital-fribourgeois-hfr-hfr-riaz": "FR"
+      }
+    }
   },
   {
     "slug": "medico-assistente-100-hopital-fribourgeois-hfr-hfr-riaz",
@@ -1204,7 +1452,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/929d3767a1d6-medecin-assistant-e-100",
-    "firstSeenAt": "2026-05-19T13:03:32.371Z"
+    "firstSeenAt": "2026-05-19T13:03:32.371Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medecin-assistant-e-100-hfr-hopital-fribourgeois-hfr-riaz": "FR"
+      }
+    }
   },
   {
     "slug": "medico-capo-o-vice-medico-per-medicina-interna-a-tafers-60-80-hopital-fribourgeois-hfr-hfr-tafers",
@@ -1248,7 +1502,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
-    "firstSeenAt": "2026-05-19T13:03:34.959Z"
+    "firstSeenAt": "2026-05-19T13:03:34.959Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in": "FR"
+      }
+    }
   },
   {
     "slug": "medico-internista-senior-vice-direttore-medico-internista-60-100-capo-clinica-o-vice-capo-clinica-60-100-medicina",
@@ -1298,7 +1558,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
-    "firstSeenAt": "2026-05-19T13:03:34.323Z"
+    "firstSeenAt": "2026-05-19T13:03:34.323Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "primario-a-o-vice-primario-a-di-clinica-60-100-medicina-interna-hopital-fribourgeois-hfr-fribourg": "FR",
+        "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique": "FR"
+      },
+      "en": {
+        "senior-physician-or-deputy-senior-physician-60-100-internal-medicine-hopital-fribourgeois-hfr-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "mutua-80-100-hopital-fribourgeois-hfr-fribourg",
@@ -1357,7 +1627,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/d2681ffd1dcf-sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100-unbefristet",
-    "firstSeenAt": "2026-10-14T21:33:15.721Z"
+    "firstSeenAt": "2026-10-14T21:33:15.721Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sage-femme-ou-infirmier-ere-sage-femme-80-100-hfr-hopital-fribourgeois-fribourg": "FR",
+        "sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100": "FR"
+      },
+      "en": {
+        "sage-femme-ou-infirmier-ere-sage-femme-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "de": {
+        "sage-femme-ou-infirmier-ere-sage-femme-80-100-hfr-hopital-fribourgeois-fribourg": "FR",
+        "hebamme-80-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      },
+      "fr": {
+        "sage-femme-ou-infirmier-ere-sage-femme-80-100-hfr-hopital-fribourgeois-fribourg": "FR",
+        "sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100-unbefristet-hopital": "FR"
+      }
+    }
   },
   {
     "slug": "oracle-hcm-cloud-specialist-50-hfr-hopital-fribourgeois-fribourg",
@@ -1388,7 +1676,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/42355f3111eb-oracle-hcm-cloud-specialist-50",
-    "firstSeenAt": "2026-05-19T13:03:35.743Z"
+    "firstSeenAt": "2026-05-19T13:03:35.743Z",
+    "canton": "FR",
+    "previousSlugsByLocale": {
+      "en": [
+        "oracle-hcm-cloud-specialist-50-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "de": [
+        "oracle-hcm-cloud-specialist-50-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "fr": [
+        "oracle-hcm-cloud-specialist-50-hfr-hopital-fribourgeois-fribourg"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "oracle-hcm-cloud-specialist-50-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "de": {
+        "oracle-hcm-cloud-specialist-50-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "fr": {
+        "oracle-hcm-cloud-specialist-50-hfr-hopital-fribourgeois-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "pharmacien-ne-chef-fe-adjoint-e-80-100-stellvertretende-r-chefapotheker-in-80-100-hopital-fribourgeois-hfr-fribourg",
@@ -1438,7 +1749,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/53fa4d4fabeb-pharmacien-ne-chef-fe-adjoint-e-80-100-stellvertretende-r-chefapotheker-in-80-100",
-    "firstSeenAt": "2026-10-14T21:33:13.792Z"
+    "firstSeenAt": "2026-10-14T21:33:13.792Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pharmacien-ne-chef-fe-adjoint-e-80-100-stellvertretende-r-chefapotheker-in-80-100-hfr": "FR"
+      },
+      "en": {
+        "pharmacien-ne-chef-fe-adjoint-e-80-100-stellvertretende-r-chefapotheker-in-80-100-hfr": "FR"
+      },
+      "fr": {
+        "pharmacien-ne-chef-fe-adjoint-e-80-100-stellvertretende-r-chefapotheker-in-80-100-hfr": "FR"
+      }
+    }
   },
   {
     "slug": "responsabile-applicativo-ambito-del-laboratorio-80-100-responsabile-delle-applicazioni-laboratorio-80-100-hopital",
@@ -1488,7 +1811,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/87e5ea8ad742-responsable-applicatif-domaine-du-laboratoire-80-100-verantwortliche-r-anwendungen-labor-80-100",
-    "firstSeenAt": "2026-10-15T21:48:54.331Z"
+    "firstSeenAt": "2026-10-15T21:48:54.331Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-applicatif-domaine-du-laboratoire-80-100-verantwortliche-r-anwendungen-labor": "FR"
+      },
+      "en": {
+        "responsable-applicatif-domaine-du-laboratoire-80-100-verantwortliche-r-anwendungen-labor": "FR"
+      },
+      "de": {
+        "responsable-applicatif-domaine-du-laboratoire-80-100-verantwortliche-r-anwendungen-labor": "FR"
+      }
+    }
   },
   {
     "slug": "responsabile-medico-o-vice-responsabile-medico-capo-clinica-o-vice-capo-clinica-hopital-fribourgeois-hfr-hfr-tafers",
@@ -1532,7 +1867,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/242853171754-oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e",
-    "firstSeenAt": "2026-05-19T13:03:33.016Z"
+    "firstSeenAt": "2026-05-19T13:03:33.016Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-hfr": "FR"
+      }
+    }
   },
   {
     "slug": "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-collaboratore-trice-administration-auf-hoherer-stufe-90-100-hopital-fribourgeois-hfr-fribourg",
@@ -1583,7 +1924,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/aa99fd7e1197-collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter-administration-auf-hoherer-stufe-90-100",
-    "firstSeenAt": "2026-10-01T21:27:45.546Z"
+    "firstSeenAt": "2026-10-01T21:27:45.546Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter": "FR"
+      },
+      "en": {
+        "collaborator-trice-administratif-ve-superieur-e-90-100-employee-administrative-staff-90-100-hopital-fribourgeois-hfr": "FR"
+      },
+      "fr": {
+        "collaborateur-trice-administrateur-ve-superieur-e-90-100-employe-personnel-administratif-90-100-hopital-fribourgeois-hfr": "FR"
+      }
+    }
   },
   {
     "slug": "controleur-euse-de-gestion-80-100-controllore-finanziario-controllore-finanziario-80-100-hopital-fribourgeois-hfr",
@@ -1626,7 +1979,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/7fa1909a5726-controleur-euse-de-gestion-80-100-finanzcontrollerin-finanzcontroller-80-100",
-    "firstSeenAt": "2026-10-05T21:45:12.890Z"
+    "firstSeenAt": "2026-10-05T21:45:12.890Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "controleur-euse-de-gestion-80-100-finanzcontrollerin-finanzcontroller-80-100-hfr-hopital": "FR"
+      }
+    }
   },
   {
     "slug": "radiologia-medica-tecnico-80-100-hopital-fribourgeois-hfr-fribourg",
@@ -1680,7 +2039,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/93fbcbf55b45-technicien-ne-en-radiologie-medicale-80-100-radiologiefachfrau-radiologiefachmann-80-100",
-    "firstSeenAt": "2026-10-08T09:40:49.095Z"
+    "firstSeenAt": "2026-10-08T09:40:49.095Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg": "FR",
+        "technicien-ne-en-radiologie-medicale-80-100-radiologiefachfrau-radiologiefachmann-80-100": "FR"
+      },
+      "en": {
+        "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "de": {
+        "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "fr": {
+        "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "fisioterapia-cdd-80-90-hopital-fribourgeois-hfr-hfr-riaz",
@@ -1734,7 +2109,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/cf8c523ac675-physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8-monate",
-    "firstSeenAt": "2026-09-18T14:22:22.768Z"
+    "firstSeenAt": "2026-09-18T14:22:22.768Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz": "FR",
+        "physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8": "FR"
+      },
+      "en": {
+        "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz": "FR"
+      },
+      "de": {
+        "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz": "FR"
+      },
+      "fr": {
+        "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz": "FR"
+      }
+    }
   },
   {
     "slug": "terapista-occupazionale-40-hopital-fribourgeois-hfr-hfr-tafers",
@@ -1812,7 +2203,34 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/0afb1090e546-ergotherapeutin-ergotherapeuten-40-ergotherapeute-40",
-    "firstSeenAt": "2026-09-18T14:22:14.061Z"
+    "firstSeenAt": "2026-09-18T14:22:14.061Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ergotherapeutin-ergotherapeuten-40-hfr-hopital-fribourgeois-hfr-tafers": "FR",
+        "fisioterapista-in-80-hopital-fribourgeois-hfr-tafers": "FR",
+        "fisioterapie-in-80-hopital-fribourgeois-hfr-hfr-tafers": "FR",
+        "physiotherapist-in-80-hopital-fribourgeois-hfr-hfr-tafers": "FR",
+        "physiotherapeut-in-80-hopital-fribourgeois-hfr-tafers": "FR",
+        "physiotherapeut-in-80-hfr-hopital-fribourgeois-hfr-tafers": "FR",
+        "physiotherapeutin-in-80-hopital-fribourgeois-hfr-hfr-tafers": "FR",
+        "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hfr-hopital-fribourgeois-hfr-tafers": "FR"
+      },
+      "en": {
+        "ergotherapeutin-ergotherapeuten-40-hfr-hopital-fribourgeois-hfr-tafers": "FR",
+        "physiotherapist-in-80-hopital-fribourgeois-hfr-hfr-tafers": "FR",
+        "ergotherapeutin-ergotherapeuten-40-hopital-fribourgeois-hfr-tafers": "FR",
+        "occupational-therapist-40-hopital-fribourgeois-hfr-hfr-tafers": "FR",
+        "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hopital-fribourgeois-hfr-tafers": "FR"
+      },
+      "de": {
+        "physiotherapeut-in-80-hopital-fribourgeois-hfr-tafers": "FR"
+      },
+      "fr": {
+        "ergotherapeutin-ergotherapeuten-40-hfr-hopital-fribourgeois-hfr-tafers": "FR",
+        "physiotherapeut-in-80-hfr-hopital-fribourgeois-hfr-tafers": "FR"
+      }
+    }
   },
   {
     "slug": "responsable-du-controle-de-gestion-financier-90-100-responsabile-finanzcontrolling-90-100-hopital-fribourgeois-hfr-fribourg",
@@ -1855,7 +2273,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/33dc539a4689-responsable-du-controle-de-gestion-financier-90-100-leiter-in-finanzcontrolling-90-100",
-    "firstSeenAt": "2026-09-24T14:53:03.565Z"
+    "firstSeenAt": "2026-09-24T14:53:03.565Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-du-controle-de-gestion-financier-90-100-leiter-in-finanzcontrolling-90-100-hfr": "FR"
+      }
+    }
   },
   {
     "slug": "assistente-di-studio-medico-assistente-di-studio-medico-40-hopital-fribourgeois-hfr-hfr-tafers-b96d4322",
@@ -2111,7 +2535,17 @@
         "firstSeenAt": "2026-10-06T21:43:36.862Z",
         "title": "Secrétaire médical-e 40 %"
       }
-    ]
+    ],
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "secretaire-medical-e-40-hfr-hopital-fribourgeois-hfr-tafers": "FR",
+        "medizinische-sekretarin-medizinischen-sekretar-40-secretaire-medical-e-40-hfr-hopital": "FR"
+      },
+      "fr": {
+        "secretaire-medical-e-40-hfr-hopital-fribourgeois-hfr-tafers": "FR"
+      }
+    }
   },
   {
     "slug": "diplomata-infermiere-a-40-100-contratto-a-tempo-indeterminato-hopital-fribourgeois-hfr-hfr-tafers-75612e7a",
@@ -2184,7 +2618,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/13f68ca9d324-hr-business-partner-80-100-hr-business-partner-in-80--100",
-    "firstSeenAt": "2026-09-24T14:52:50.796Z"
+    "firstSeenAt": "2026-09-24T14:52:50.796Z",
+    "canton": "FR",
+    "previousSlugsByLocale": {
+      "en": [
+        "hr-business-partner-80-100-hr-business-partner-in-80-100-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "de": [
+        "hr-business-partner-80-100-hr-business-partner-in-80-100-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "fr": [
+        "hr-business-partner-80-100-hr-business-partner-in-80-100-hfr-hopital-fribourgeois-fribourg"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "hr-business-partner-80-100-hr-business-partner-in-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "de": {
+        "hr-business-partner-80-100-hr-business-partner-in-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "fr": {
+        "hr-business-partner-80-100-hr-business-partner-in-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "radiologia-medica-tecnico-80-100-hopital-fribourgeois-hfr-fribourg-a96bbff0",
@@ -2264,7 +2721,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/4bbcaebb9771-assistant-e-medical-e-50",
-    "firstSeenAt": "2026-10-06T21:43:18.800Z"
+    "firstSeenAt": "2026-10-06T21:43:18.800Z",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "assistant-e-medical-e-50-hfr-hopital-fribourgeois-hfr-meyriez-murten-b92becd7",
@@ -2295,7 +2755,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/4bbcaebb9771-assistant-e-medical-e-50",
-    "firstSeenAt": "2026-10-06T21:43:18.800Z"
+    "firstSeenAt": "2026-10-06T21:43:18.800Z",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr",
@@ -2328,7 +2791,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/8ff645b7c14b-infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie",
-    "firstSeenAt": "2026-10-05T21:45:17.684Z"
+    "firstSeenAt": "2026-10-05T21:45:17.684Z",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie-hfr-e40bd6c3",
@@ -2361,7 +2827,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/8ff645b7c14b-infirmier-ere-praticien-ne-specialise-e-ips-en-chirurgie-orthopedique-et-traumatologie",
-    "firstSeenAt": "2026-10-05T21:45:17.684Z"
+    "firstSeenAt": "2026-10-05T21:45:17.684Z",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "adjoint-e-du-responsable-du-service-tariffe-convenzioni-e-faceuration-80-100-hopital-fribourgeois-hfr-fribourg",
@@ -2423,7 +2892,18 @@
         "firstSeenAt": "2026-09-18T14:22:02.682Z",
         "title": "Adjoint-e du responsable du service « Tarifs, conventions et facturation »  80–100 % / Stellvertretende/n Verantwortliche/n der Abteilung Tarife, Vereinbarungen und Fakturierung 80–100 %"
       }
-    ]
+    ],
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "adjoint-e-du-responsable-du-service-tarifs-conventions-et-facturation-80-100-hfr-hopital": "FR",
+        "adjoint-e-du-responsable-du-service-tarifs-conventions-et-facturation-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "adjoint-e-du-responsable-du-service-tarifs-conventions-et-facturation-80-100": "FR"
+      },
+      "en": {
+        "adjoint-e-du-responsable-du-service-tarifs-conventions-et-facturation-80-100-hfr-hopital": "FR"
+      }
+    }
   },
   {
     "slug": "collaboratore-stewardship-50-60-orario-di-sera-hopital-fribourgeois-hfr-hfr-riaz",
@@ -2472,7 +2952,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/04225fce3214-collaborateur-trice-intendance-50-60-horaire-du-soir",
-    "firstSeenAt": "2026-09-09T13:59:55.347Z"
+    "firstSeenAt": "2026-09-09T13:59:55.347Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-trice-intendance-50-60-horaire-du-soir-hfr-hopital-fribourgeois-hfr-riaz": "FR"
+      },
+      "en": {
+        "collaborateur-trice-intendance-50-60-horaire-du-soir-hfr-hopital-fribourgeois-hfr-riaz": "FR"
+      },
+      "de": {
+        "collaborateur-trice-intendance-50-60-horaire-du-soir-hfr-hopital-fribourgeois-hfr-riaz": "FR"
+      }
+    }
   },
   {
     "slug": "infermiera-80-100-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-hfr-riaz",
@@ -2556,7 +3048,32 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/17b62ceb3764-infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100",
-    "firstSeenAt": "2026-08-24T22:10:26.879Z"
+    "firstSeenAt": "2026-08-24T22:10:26.879Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100-hfr-hopital-fribourgeois-hfr": "FR",
+        "infermiera-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg": "FR",
+        "nurse-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg": "FR",
+        "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg": "FR",
+        "infermiere-laureata-80-100-per-un-2-mese-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "graduated-nurse-80-100-for-a-2-month-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "graduierte-krankenschwester-80-100-fur-2-monate-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr": "FR",
+        "infirmier-ere-diplome-e-80-100-pour-un-cdd-de-2-mois-pflegefachmann-pflegefachfrau-80-100": "FR",
+        "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "clinical-nurse-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "infirmier-ere-clinicien-ne-80-100-fachexpertin-fachexperten-pflege-nephrologie-80-100-hfr": "FR",
+        "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hfr-hopital": "FR",
+        "klinische-krankenschwester-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      },
+      "en": {
+        "infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100-hfr-hopital-fribourgeois-hfr": "FR",
+        "nurse-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg": "FR"
+      },
+      "fr": {
+        "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "infermiera-qualificata-70-pflegefachmann-pflegefachfrau-70-hopital-fribourgeois-hfr-hfr-riaz",
@@ -2602,7 +3119,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/cfccd896adef-infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70",
-    "firstSeenAt": "2026-08-31T17:35:30.792Z"
+    "firstSeenAt": "2026-08-31T17:35:30.792Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr": "FR"
+      },
+      "en": {
+        "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr": "FR"
+      }
+    }
   },
   {
     "slug": "biomedizinische-r-analytiker-in-hf-50-60-biomedical-technician-50-60-hopital-fribourgeois-hfr-hfr-tafers",
@@ -2651,7 +3177,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/1e8ca30504f2-biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60",
-    "firstSeenAt": "2026-09-17T07:37:38.719Z"
+    "firstSeenAt": "2026-09-17T07:37:38.719Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr": "FR"
+      },
+      "en": {
+        "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr": "FR"
+      },
+      "de": {
+        "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr": "FR"
+      }
+    }
   },
   {
     "slug": "chef-fe-de-clinique-adjoint-e-en-infectiologie-cdd-de-12-a-18-mois-100-vice-medico-senior-aggiunto-senior-infectiology",
@@ -2711,7 +3249,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/cb4af686b01c-chef-fe-de-clinique-adjoint-e-en-infectiologie-cdd-de-12-a-18-mois-100-stellvertretende-oberarztin-stellvertretenden-oberarzt-infektiologie-befristet-fur-12-bis-18-monate-100",
-    "firstSeenAt": "2026-08-21T10:16:09.796Z"
+    "firstSeenAt": "2026-08-21T10:16:09.796Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hfr-hopital-fribourgeois-fribourg": "FR",
+        "chef-fe-de-clinique-adjoint-e-cdd-de-12-a-18-mois-100-stellvertretende-oberarztin": "FR",
+        "chef-fe-de-clinique-adjoint-e-en-infectiologie-cdd-de-12-a-18-mois-100-stellvertretende": "FR",
+        "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      },
+      "en": {
+        "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hfr-hopital-fribourgeois-fribourg": "FR",
+        "head-of-clinical-assistant-cdi-from-12-to-18-months-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      },
+      "de": {
+        "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hfr-hopital-fribourgeois-fribourg": "FR",
+        "leiter-des-klinischen-assistenten-cdi-von-12-bis-18-monaten-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "chef-fe-de-clinique-adjoint-e-cdd-de-12-a-18-mois-100-stellvertretende-oberarztin": "FR"
+      }
+    }
   },
   {
     "slug": "codice-responsabile-80-100-codice-responsabile-80-100-hopital-fribourgeois-hfr-fribourg",
@@ -2766,7 +3322,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/bf49eb32b4a5-responsable-codage-80-100-verantwortliche-n-codierung-80-100",
-    "firstSeenAt": "2026-09-09T14:00:08.905Z"
+    "firstSeenAt": "2026-09-09T14:00:08.905Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-codage-80-100-verantwortliche-n-codierung-80-100-hfr-hopital-fribourgeois": "FR",
+        "coding-manager-80-100-verantwortliche-n-codierung-80-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      },
+      "en": {
+        "responsable-codage-80-100-verantwortliche-n-codierung-80-100-hfr-hopital-fribourgeois": "FR"
+      },
+      "de": {
+        "coding-manager-80-100-verantwortlich-n-codierung-80-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      },
+      "fr": {
+        "responsable-codage-80-100-verantwortliche-n-codierung-80-100-hfr-hopital-fribourgeois": "FR"
+      }
+    }
   },
   {
     "slug": "infermiera-60-hopital-fribourgeois-hfr-hfr-riaz-ec40927a",
@@ -3074,7 +3646,7 @@
     "firstSeenAt": "2026-09-21T16:11:59.546Z"
   },
   {
-    "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital-023a2ad0",
+    "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital-008a345a",
     "title": "Chef-fe de clinique ou Chef-fe de clinique adjoint-e 80 % / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt 80 %",
     "titleByLocale": {
       "it": "Chef-fe de clinique ou Chef-fe de clinique adjoint-e 80 % / medico senior / medico senior o assistente medico senior / medico senior 80 %",
@@ -3093,15 +3665,20 @@
       "fr": "Afin de compléter son équipe, la Direction médicale de l'hôpital fribourgeois recherche pour le centre métaux de l' HFR Fribourg - Hôpital cantonal un-e\n\nChef-fe de clinique ou Chef-fe de clinique adjoint-e\n80% (CDD)\n\nVotre mission :\n\n• Activité variée dans les domaines métaboliques (patients en situation d'obésité)\n\n• Assurer la supervision des médecins-assistants-e-s du service\n\n• Collaborateur dans son équipe expérimentale et motivante, composition médicale, personnel médical, diététistes et psychologues\n\n• Possibilité de familiarisation avec la clinique de nutrition\n\n• Possibilité d'effectuer des ultrasons supervisés (POCUS)\n\nVotre profil :\n\n• Diplôme fédéral de médecine ou équivalent\n\n• Plusieurs années d'expérience en tant que médecin-assistant-e en médecine interne\n\n• Capacité d'écoute de suivi de malades chroniques\n\n• Une expérience dans les domaines du métabolique, de l'obésité, de la diabétologie et éventuellement en endocrinologie serait un avantage\n\n• Possibilité de reconnaissance d'une année de formation de médecine catégorie interne A\n\n• Personnalité ouverte et collégiale, désireuse de s'intégrer dans les habitudes du service et avec l'équipe en place ainsi que de collaborer activement avec les médecins des autres services de l'hôpital\n\n• Maîtrise de la langue française\n\nEntrée en fonction : 1er janvier 2027 ou date à convenir\n\nRenseignements : Mme Anne-Catherine Barras-Moret, Médecin-cheffe adjointe 026 306 23 30\n\nDélai de postulation : 20 septembre 2026\n\nRéf : HFR-M-263501\n\nLe Centre des troubles de l'alimentation et du surpoids de l'HFR Fribourg – Hôpital cantonal propose des soins transdisciplinaires aux patients souffrant d'obésité morbide, de troubles de l'alimentation ou de malnutrition en association avec d'autres pathologies.\n\nAfin de compléter son équipe, la Direction Médicale de l'Hôpital de Fribourg recherche une personne pour le HFR Fribourg – Hôpital Cantonal\n\nMédecin-chef ou médecin-chef adjoint\nau Centre des troubles de l'alimentation et de l'obésité\n80% (poste temporaire)\n\nTâches\n\n• Ils exercent une large gamme d'activités dans le domaine des troubles métaboliques (obésité).\n\n• Ils encadrent les jeunes médecins du département.\n\n• Vous travaillez au sein d'une équipe expérimentée et motivée composée de médecins, de personnel soignant, de nutritionnistes et de psychologues.\n\n• Vous avez la possibilité de vous familiariser avec la nutrition clinique.\n\n• Vous aurez l'opportunité d'effectuer des examens échographiques focalisés (POCUS) sous supervision.\n\nProfil\n\n• Diplôme fédéral de médecine ou formation équivalente\n\n• Plusieurs années d'expérience en tant que médecin assistant en médecine interne\n\n• Compétences d'écoute dans le cadre de la prise en charge de personnes atteintes de maladies chroniques\n\n• Une expérience dans les domaines des troubles métaboliques, de l'obésité, de la diabétologie et, le cas échéant, de l'endocrinologie est un avantage.\n\n• Possibilité de reconnaître une année de formation en catégorie A en médecine interne\n\n• Ouvert, collégial et disposé à s'adapter aux habitudes du département et à s'intégrer à l'équipe existante ainsi qu'à travailler activement avec la profession médicale dans d'autres services hospitaliers\n\n• Français\n\nDébut de poste : 1er janvier 2027 ou selon accord\n\nRenseignements : Mme Anne-Catherine Barras-Moret, médecin-chef adjoint, T 026 306 23 30\n\nDate limite de candidature : 20 septembre 2026"
     },
     "slugByLocale": {
-      "it": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital-023a2ad0",
-      "en": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-d4cda2b5",
-      "de": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-095472e0",
-      "fr": "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-8301571e"
+      "it": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital-008a345a",
+      "en": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-eec3fc58",
+      "de": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b",
+      "fr": "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-bc0b2a05"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-24T00:04:07.747Z",
     "previousSlugsByLocale": {
       "it": [
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-9e3558a5",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder-0f5c5943",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-3a73ba59",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital-023a2ad0",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-095472e0",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-f3c207ea",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder-10fa765f",
@@ -3118,29 +3695,35 @@
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-fd5ae760"
       ],
       "en": [
-        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-095472e0",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-fribourg",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-80-hopital-fribourgeois-hfr-fribourg",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-d4cda2b5",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-095472e0",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-6817780b",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-b7575a7e",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-e6269404",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-15707e95"
       ],
       "fr": [
-        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-095472e0",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-fribourg",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-80-hopital-fribourgeois-hfr-fribourg",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-8301571e",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-095472e0",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-dd6498f7",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-b7575a7e",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-29433863",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-15707e95"
       ],
       "de": [
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-fribourg",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-80-hopital-fribourgeois-hfr-fribourg",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-095472e0",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-b7575a7e",
         "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-15707e95"
       ]
@@ -3152,27 +3735,55 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/07efcef7f293-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-80",
     "firstSeenAt": "2026-08-28T05:38:22.265Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital-008a345a": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-9e3558a5": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder-0f5c5943": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-3a73ba59": "FR"
+      },
+      "en": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-eec3fc58": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b": "FR"
+      },
+      "fr": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-bc0b2a05": "FR",
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b": "FR"
+      },
+      "de": {
+        "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b": "FR"
+      }
+    },
     "previousSlugs": [
-      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-f3c207ea",
-      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder-10fa765f",
-      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-523e4fac",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-731f479b",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-9e3558a5",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder-0f5c5943",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-3a73ba59",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital-023a2ad0",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-fribourg",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-80-hopital-fribourgeois-hfr-fribourg",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-095472e0",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-f3c207ea",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder-10fa765f",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-523e4fac",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital-3df5a57c",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-b7575a7e",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-8c5ce52f",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder-5dd383b9",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-eefdd480",
-      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-6817780b",
-      "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-dd6498f7",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-professionista-senior-professionista-senior-80-hopital-e06a8a11",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-15707e95",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-f8d1dfdd",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-oder-0d7d3a18",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-fd5ae760",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-d4cda2b5",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-6817780b",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-80-senior-practitioner-senior-practitioner-senior-e6269404",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-8301571e",
+      "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-dd6498f7",
       "chef-fe-de-clinique-ou-chef-fe-de-clinique-commune-e-80-medecin-chef-medecin-chef-medecin-chef-80-hopital-29433863"
     ]
   },
@@ -3227,7 +3838,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/5f82dd4ccad1-collaborateur-trice-administratif-ive-80-100-mitarbeiter-in-administration-80-100",
-    "firstSeenAt": "2026-09-04T23:11:31.261Z"
+    "firstSeenAt": "2026-09-04T23:11:31.261Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-trice-administratif-ive-80-100-mitarbeiter-in-administration-80-100-hfr": "FR"
+      },
+      "en": {
+        "collaborateur-trice-administratif-ive-80-100-mitarbeiter-in-administration-80-100-hfr": "FR"
+      },
+      "de": {
+        "collaborateur-trice-administratif-ive-80-100-mitarbeiter-in-administration-80-100-hfr": "FR",
+        "collaborateur-trice-administratif-ive-80-100-mitarbeiter-in-administration-80-100-hopital-fribourgeois-hfr-fribourg": "FR",
+        "administrative-ive-80-100-mitarbeiter-in-administration-80-100-hopital-fribourgeois-hfr-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "oberarztin-oberarzt-medicina-interna-generale-100-hopital-fribourgeois-hfr-hfr-meyriez-murten",
@@ -3270,7 +3895,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/44db59b90658-oberarztin-oberarzt-allgemeine-innere-medizin-100-chef-fe-de-clinique-en-medecine-interne-generale-100",
-    "firstSeenAt": "2026-05-19T13:03:33.670Z"
+    "firstSeenAt": "2026-05-19T13:03:33.670Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarztin-oberarzt-allgemeine-innere-medizin-100-chef-fe-de-clinique-en-medecine-interne": "FR"
+      }
+    }
   },
   {
     "slug": "pulitore-sala-operatoria-90-100-bioreiniger-in-90-100-hopital-fribourgeois-hfr-fribourg",
@@ -3319,7 +3950,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/e7a87f8dc184-agent-e-bionettoyage-en-salle-d-operation-90-100-bioreiniger-in-90--100",
-    "firstSeenAt": "2026-07-14T11:55:41.519Z"
+    "firstSeenAt": "2026-07-14T11:55:41.519Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "agent-e-bionettoyage-en-salle-d-operation-90-100-bioreiniger-in-90-100-hfr-hopital": "FR"
+      },
+      "en": {
+        "agent-e-bionettoyage-en-salle-d-operation-90-100-bioreiniger-in-90-100-hfr-hopital": "FR"
+      },
+      "de": {
+        "agent-e-bionettoyage-en-salle-d-operation-90-100-bioreiniger-in-90-100-hfr-hopital": "FR"
+      }
+    }
   },
   {
     "slug": "trasformazione-logistica-specializzata-80-100-hopital-fribourgeois-hfr-fribourg",
@@ -3368,7 +4011,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://hopital-fribourgeois.breezy.hr/p/0b5e0a0f2dfb-specialiste-transformation-logistique-80-100",
-    "firstSeenAt": "2026-08-20T10:17:10.966Z"
+    "firstSeenAt": "2026-08-20T10:17:10.966Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialiste-transformation-logistique-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "en": {
+        "specialiste-transformation-logistique-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      },
+      "de": {
+        "specialiste-transformation-logistique-80-100-hfr-hopital-fribourgeois-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "assistente-medico-in-chirurgia-vascolare-100-leitende-arztin-leitenden-arzt-gefasschirurgy-100-hopital-fribourgeois-hfr",
@@ -3521,6 +4176,78 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "infermiera-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg",
+    "title": "Infirmier-ère 80-90% / Pflegefachmann/Pflegefachfrau 80-90%",
+    "titleByLocale": {
+      "it": "Infermiera 80-90% / Pflegefachmann/Pflegefachfrau 80-90%",
+      "en": "Nurse 80-90% / Pflegefachmann/Pflegefachfrau 80-90%",
+      "de": "Pflegefachmann/Pflegefachfrau 80-90%",
+      "fr": "Infirmier-ère 80-90% / Pflegefachmann/Pflegefachfrau 80-90%"
+    },
+    "company": "Hôpital fribourgeois (HFR)",
+    "companyKey": "hfr-hopital-fribourgeois",
+    "location": "Fribourg",
+    "addressLocality": "Fribourg",
+    "descriptionByLocale": {
+      "it": "Infermiera 80-90% / Pflegefachmann/Pflegefachfrau 80-90% presso l'ospedale di Friburgo (HFR) a Friburgo.\n\nL'Ospedale di Friburgo (HFR) è la rete ospedaliera pubblica nel cantone di Friburgo. riunisce i siti di Fribourg, Riaz, Tafers, Meyriez-Murten e Billens, e impiega oltre 3.500 collaboratori.",
+      "en": "Nurse 80-90% / Pflegefachmann/Pflegefachfrau 80-90% at Freiburg Hospital (HFR) in Freiburg.\n\nThe Freiburg Hospital (HFR) is the public hospital network in the canton of Freiburg. It brings together the sites of Fribourg, Riaz, Tafers, Meyriez-Murten and Billens, and employs more than 3,500 collaborators.",
+      "de": "Pflegefachmann/Pflegefachfrau 80-90% am Freiburger Krankenhaus (HFR) in Freiburg.\n\nDas Freiburger Krankenhaus (HFR) ist das öffentliche Krankenhausnetzwerk im Kanton Freiburg. Es vereint die Standorte Freiburg, Riaz, Tafers, Meyriez-Murten und Billens und beschäftigt mehr als 3.500 Mitarbeiter.",
+      "fr": "Afin de compléter son équipe, la Direction des soins recherche pour le Service de cardiologie de l’ HFR , un-e\n\nInfirmier-ère en cardiologie interventionnelle\n80-90%\n\nVotre mission :\n\n• accueillir et installer les patients devant subir une procédure de cardiologie interventionnelle\n\n• préparation du matériel en respectant les critères de stérilité\n\n• assister et instrumenter le-la cardiologue durant la procédure\n\n• surveiller, soutenir et renseigner les patients durant l’intervention\n\n• assurer la documentation informatique, ainsi que la facturation de la procédure\n\n• assurer des piquets à domicile (nuit et week-end) pour les procédures d’urgences (délais d’arriver à l’HFR Fribourg, 20 minutes)\n\n• collaborer en équipe pluridisciplinaire au bon fonctionnement du service\n\n• s’investir dans l’organisation et l’amélioration continue du service\n\nVotre profil :\n\n• expérience de 2 ans minimum en soins aigus indispensable\n\n• expérience en salle de cathétérisme ou cardiologie, un atout supplémentaire\n\n• intérêt marqué pour les technologies modernes d’investigation et de traitement en cardiologie\n\n• capacité à réagir rapidement à des situations instables\n\n• très bonne résistance au stress\n\n• bonne constitution physique (port du tablier de plomb)\n\n• capacité à collaborer et travailler en équipe pluridisciplinaire\n\n• bonne maîtrise des outils informatiques usuels\n\n• dynamisme et autonomie\n\n• maîtrise de la langue française ou allemande, avec de bonnes connaissances de la langue partenaire\n\nEntrée en fonction : de suite ou à convenir\n\nRenseignements : M. R. Coelho dos Santos, Infirmier-chef d’unité de soins, salle de cathétérisme, HFR Fribourg – Hôpital cantonal, Tél. +41 26 306 20 65, Madame Cécile Cusin, Infirmière-chef d’unité de soins, Service de cardiologie\n\nDélai de postulation : 15 septembre 2026\n\nRéf. : HFR-MTS-263401"
+    },
+    "slugByLocale": {
+      "it": "infermiera-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg",
+      "en": "nurse-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg",
+      "de": "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg",
+      "fr": "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-18T14:22:24.170Z",
+    "previousSlugs": [
+      "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg",
+      "infermiere-laureata-80-100-per-un-2-mese-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
+      "graduated-nurse-80-100-for-a-2-month-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
+      "graduierte-krankenschwester-80-100-fur-2-monate-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr",
+      "infirmier-ere-diplome-e-80-100-pour-un-cdd-de-2-mois-pflegefachmann-pflegefachfrau-80-100",
+      "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
+      "clinical-nurse-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
+      "infirmier-ere-clinicien-ne-80-100-fachexpertin-fachexperten-pflege-nephrologie-80-100-hfr",
+      "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hfr-hopital",
+      "klinische-krankenschwester-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg",
+        "infermiere-laureata-80-100-per-un-2-mese-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
+        "graduated-nurse-80-100-for-a-2-month-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
+        "graduierte-krankenschwester-80-100-fur-2-monate-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr",
+        "infirmier-ere-diplome-e-80-100-pour-un-cdd-de-2-mois-pflegefachmann-pflegefachfrau-80-100",
+        "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
+        "clinical-nurse-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
+        "infirmier-ere-clinicien-ne-80-100-fachexpertin-fachexperten-pflege-nephrologie-80-100-hfr",
+        "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hfr-hopital",
+        "klinische-krankenschwester-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg"
+      ],
+      "en": [
+        "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg",
+        "graduated-nurse-80-100-for-a-2-month-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
+        "clinical-nurse-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg"
+      ],
+      "de": [
+        "graduierte-krankenschwester-80-100-fur-2-monate-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr",
+        "infirmier-ere-clinicien-ne-80-100-fachexpertin-fachexperten-pflege-nephrologie-80-100-hfr"
+      ],
+      "fr": [
+        "infirmier-ere-diplome-e-80-100-pour-un-cdd-de-2-mois-pflegefachmann-pflegefachfrau-80-100",
+        "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hfr-hopital"
+      ]
+    },
+    "postalCode": "1708",
+    "salaryMin": 76500,
+    "salaryMax": 107100,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "infermiera-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg-4a88e0ed",
     "title": "Infirmier-ère 80-90% / Pflegefachmann/Pflegefachfrau 80-90%",
     "titleByLocale": {
@@ -3666,6 +4393,57 @@
       "nurse-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg-60294d50",
       "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg-260d11b3"
     ]
+  },
+  {
+    "slug": "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hopital-fribourgeois-hfr-fribourg",
+    "title": "Chef-fe de clinique adjoint-e CDD de 12 à 18 mois 100% / Stellvertretende Oberärztin / Stellvertretenden Oberarzt Befristet für 12 bis 18 Monate 100 %",
+    "titleByLocale": {
+      "it": "Chef-fe de clinique adjoint-e CDD de 12 à 18 mois 100% / Vice Senior Physician / Vice Senior Physician Temporary per 12 a 18 mesi 100%",
+      "en": "Chef-fe de clinique adjoint-e CDD de 12 à 18 mois 100% / Deputy Senior Physician / Deputy Senior Physician Temporary for 12 to 18 months 100%",
+      "de": "Chef-fe de clinique adjoint-e CDD de 12 à 18 mois 100% / Stellvertretende Oberärztin / Stellvertretenden Oberarzt Befristet für 12 bis 18 Monate 100 %",
+      "fr": "Chef-fe de clinique adjoint-e CDD de 12 à 18 mois 100% / Médecin principal adjoint / Médecin principal adjoint Temporaire de 12 à 18 mois 100%"
+    },
+    "company": "Hôpital fribourgeois (HFR)",
+    "companyKey": "hfr-hopital-fribourgeois",
+    "location": "Fribourg",
+    "addressLocality": "Fribourg",
+    "descriptionByLocale": {
+      "it": "Afin de compléter son équipe, l’Unité d’infectiologie de l’ HFR Fribourg – hôpital cantonal recherche un-e\n\nChef-fe de clinique adjoint-e\nContrat à durée déterminée de 12 à 18 mois\n(100%)\n\nVotre mission\n\n• Assurer l‘encadrement de deux médecins-assistants du Département de médecine effectuant leur tournus de 6 mois dans l’unité d’infectiologie\n\n• Assurer sous supervision d’un médecin cadre ½ journée de consultation ambulatoire hebdomadaire\n\n• Participer aux réunions avec l’unité de contrôle et prévention de l’infection\n\n• Participer à la formation post-graduée\n\n• Assurer le piquet de l’infectiologie sous supervision d’un cadre\n\nVotre profil\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Formation en médecine interne dont minimum 2 ans en milieu hospitalier\n\n• Médecin visant le titre de specialiste en infectiologie\n\n• Minimum 2 ans d’experience en infectiologie\n\n• Sens de la coopération, engagement et disponibilité\n\n• Maîtrise de la langue française\n\nEntrée en fonction : 1 er janvier 2027 ou date à convenir\n\nRenseignements : PD Dr V. Erard, Médecin-cheffe d'Unité, Tél. : +41 26 306 08 36\n\nDélai de postulation : 13 septembre 2026\n\nRéf : HFR-M-263401\n\nUm ihr Team zu ergänzen, sucht die Abteilung Infektiologie für das HFR Freiburg – Kantonsspital eine/n\n\nStellvertretende Oberärztin / Stellvertretenden Oberarzt\nBefristet für 12 bis 18 Monate 100 %\n\nAufgaben\n\n• Sie betreuen zwei Assistenzärztinnen bzw. -ärzte des Departements Innere Medizin, die ihren 6-monatigen Turnus auf der Infektiologie absolvieren.\n\n• Sie bieten unter Aufsicht einer Kaderärztin oder eines Kaderarztes einen halben Tag pro Woche ambulante Sprechstunden an.\n\n• Sie nehmen an den Sitzungen mit der Spitalhygiene teil.\n\n• Sie wirken an der Weiterbildung mit.\n\n• Sie beteiligen sich am Pikettdienst der Infektiologie unter Aufsicht einer Kaderärztin oder eines Kaderarztes.\n\nProfil\n\n• Eidg. Arztdiplom oder gleichwertige Ausbildung\n\n• Ausbildung in Innerer Medizin, davon mind. 2 Jahre im Spitalwesen\n\n• Erlangen des Facharzttitels in Infektiologie als berufliches Ziel\n\n• Mind. 2 Jahre Berufserfahrung in der Infektiologie\n\n• Teamarbeit, Engagement und Einsatzbereitschaft\n\n• Französisch\n\nStellenantritt: 1. Januar 2027 oder nach Vereinbarung\n\nAuskunft: PD Dr. med. V. Erard, Abteilungschefärztin, T 026 306 08 36\n\nBewerbungsfrist: 13. September 2026\n\nRef.: HFR-M-263401",
+      "en": "Afin de compléter son équipe, l’Unité d’infectiologie de l’ HFR Fribourg – hôpital cantonal recherche un-e\n\nChef-fe de clinique adjoint-e\nContrat à durée déterminée de 12 à 18 mois\n(100%)\n\nVotre mission\n\n• Assurer l‘encadrement de deux médecins-assistants du Département de médecine effectuant leur tournus de 6 mois dans l’unité d’infectiologie\n\n• Assurer sous supervision d’un médecin cadre ½ journée de consultation ambulatoire hebdomadaire\n\n• Participer aux réunions avec l’unité de contrôle et prévention de l’infection\n\n• Participer à la formation post-graduée\n\n• Assurer le piquet de l’infectiologie sous supervision d’un cadre\n\nVotre profil\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Formation en médecine interne dont minimum 2 ans en milieu hospitalier\n\n• Médecin visant le titre de specialiste en infectiologie\n\n• Minimum 2 ans d’experience en infectiologie\n\n• Sens de la coopération, engagement et disponibilité\n\n• Maîtrise de la langue française\n\nEntrée en fonction : 1 er janvier 2027 ou date à convenir\n\nRenseignements : PD Dr V. Erard, Médecin-cheffe d'Unité, Tél. : +41 26 306 08 36\n\nDélai de postulation : 13 septembre 2026\n\nRéf : HFR-M-263401\n\nUm ihr Team zu ergänzen, sucht die Abteilung Infektiologie für das HFR Freiburg – Kantonsspital eine/n\n\nStellvertretende Oberärztin / Stellvertretenden Oberarzt\nBefristet für 12 bis 18 Monate 100 %\n\nAufgaben\n\n• Sie betreuen zwei Assistenzärztinnen bzw. -ärzte des Departements Innere Medizin, die ihren 6-monatigen Turnus auf der Infektiologie absolvieren.\n\n• Sie bieten unter Aufsicht einer Kaderärztin oder eines Kaderarztes einen halben Tag pro Woche ambulante Sprechstunden an.\n\n• Sie nehmen an den Sitzungen mit der Spitalhygiene teil.\n\n• Sie wirken an der Weiterbildung mit.\n\n• Sie beteiligen sich am Pikettdienst der Infektiologie unter Aufsicht einer Kaderärztin oder eines Kaderarztes.\n\nProfil\n\n• Eidg. Arztdiplom oder gleichwertige Ausbildung\n\n• Ausbildung in Innerer Medizin, davon mind. 2 Jahre im Spitalwesen\n\n• Erlangen des Facharzttitels in Infektiologie als berufliches Ziel\n\n• Mind. 2 Jahre Berufserfahrung in der Infektiologie\n\n• Teamarbeit, Engagement und Einsatzbereitschaft\n\n• Französisch\n\nStellenantritt: 1. Januar 2027 oder nach Vereinbarung\n\nAuskunft: PD Dr. med. V. Erard, Abteilungschefärztin, T 026 306 08 36\n\nBewerbungsfrist: 13. September 2026\n\nRef.: HFR-M-263401",
+      "de": "Afin de compléter son équipe, l’Unité d’infectiologie de l’ HFR Fribourg – hôpital cantonal recherche un-e\n\nChef-fe de clinique adjoint-e\nContrat à durée déterminée de 12 à 18 mois\n(100%)\n\nVotre mission\n\n• Assurer l‘encadrement de deux médecins-assistants du Département de médecine effectuant leur tournus de 6 mois dans l’unité d’infectiologie\n\n• Assurer sous supervision d’un médecin cadre ½ journée de consultation ambulatoire hebdomadaire\n\n• Participer aux réunions avec l’unité de contrôle et prévention de l’infection\n\n• Participer à la formation post-graduée\n\n• Assurer le piquet de l’infectiologie sous supervision d’un cadre\n\nVotre profil\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Formation en médecine interne dont minimum 2 ans en milieu hospitalier\n\n• Médecin visant le titre de specialiste en infectiologie\n\n• Minimum 2 ans d’experience en infectiologie\n\n• Sens de la coopération, engagement et disponibilité\n\n• Maîtrise de la langue française\n\nEntrée en fonction : 1 er janvier 2027 ou date à convenir\n\nRenseignements : PD Dr V. Erard, Médecin-cheffe d'Unité, Tél. : +41 26 306 08 36\n\nDélai de postulation : 27 septembre 2026\n\nRéf : HFR-M-263401\n\nUm ihr Team zu ergänzen, sucht die Abteilung Infektiologie für das HFR Freiburg – Kantonsspital eine/n\n\nStellvertretende Oberärztin / Stellvertretenden Oberarzt\nBefristet für 12 bis 18 Monate 100 %\n\nAufgaben\n\n• Sie betreuen zwei Assistenzärztinnen bzw. -ärzte des Departements Innere Medizin, die ihren 6-monatigen Turnus auf der Infektiologie absolvieren.\n\n• Sie bieten unter Aufsicht einer Kaderärztin oder eines Kaderarztes einen halben Tag pro Woche ambulante Sprechstunden an.\n\n• Sie nehmen an den Sitzungen mit der Spitalhygiene teil.\n\n• Sie wirken an der Weiterbildung mit.\n\n• Sie beteiligen sich am Pikettdienst der Infektiologie unter Aufsicht einer Kaderärztin oder eines Kaderarztes.\n\nProfil\n\n• Eidg. Arztdiplom oder gleichwertige Ausbildung\n\n• Ausbildung in Innerer Medizin, davon mind. 2 Jahre im Spitalwesen\n\n• Erlangen des Facharzttitels in Infektiologie als berufliches Ziel\n\n• Mind. 2 Jahre Berufserfahrung in der Infektiologie\n\n• Teamarbeit, Engagement und Einsatzbereitschaft\n\n• Französisch\n\nStellenantritt: 1. Januar 2027 oder nach Vereinbarung\n\nAuskunft: PD Dr. med. V. Erard, Abteilungschefärztin, T 026 306 08 36\n\nBewerbungsfrist: 27. September 2026\n\nRef.: HFR-M-263401",
+      "fr": "Afin de compléter son équipe, l’Unité d’infectiologie de l’ HFR Fribourg – hôpital cantonal recherche un-e\n\nChef-fe de clinique adjoint-e\nContrat à durée déterminée de 12 à 18 mois\n(100%)\n\nVotre mission\n\n• Assurer l‘encadrement de deux médecins-assistants du Département de médecine effectuant leur tournus de 6 mois dans l’unité d’infectiologie\n\n• Assurer sous supervision d’un médecin cadre ½ journée de consultation ambulatoire hebdomadaire\n\n• Participer aux réunions avec l’unité de contrôle et prévention de l’infection\n\n• Participer à la formation post-graduée\n\n• Assurer le piquet de l’infectiologie sous supervision d’un cadre\n\nVotre profil\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Formation en médecine interne dont minimum 2 ans en milieu hospitalier\n\n• Médecin visant le titre de specialiste en infectiologie\n\n• Minimum 2 ans d’experience en infectiologie\n\n• Sens de la coopération, engagement et disponibilité\n\n• Maîtrise de la langue française\n\nEntrée en fonction : 1 er janvier 2027 ou date à convenir\n\nRenseignements : PD Dr V. Erard, Médecin-cheffe d'Unité, Tél. : +41 26 306 08 36\n\nDélai de postulation : 13 septembre 2026\n\nRéf : HFR-M-263401\n\nUm ihr Team zu ergänzen, sucht die Abteilung Infektiologie für das HFR Freiburg – Kantonsspital eine/n\n\nStellvertretende Oberärztin / Stellvertretenden Oberarzt\nBefristet für 12 bis 18 Monate 100 %\n\nAufgaben\n\n• Sie betreuen zwei Assistenzärztinnen bzw. -ärzte des Departements Innere Medizin, die ihren 6-monatigen Turnus auf der Infektiologie absolvieren.\n\n• Sie bieten unter Aufsicht einer Kaderärztin oder eines Kaderarztes einen halben Tag pro Woche ambulante Sprechstunden an.\n\n• Sie nehmen an den Sitzungen mit der Spitalhygiene teil.\n\n• Sie wirken an der Weiterbildung mit.\n\n• Sie beteiligen sich am Pikettdienst der Infektiologie unter Aufsicht einer Kaderärztin oder eines Kaderarztes.\n\nProfil\n\n• Eidg. Arztdiplom oder gleichwertige Ausbildung\n\n• Ausbildung in Innerer Medizin, davon mind. 2 Jahre im Spitalwesen\n\n• Erlangen des Facharzttitels in Infektiologie als berufliches Ziel\n\n• Mind. 2 Jahre Berufserfahrung in der Infektiologie\n\n• Teamarbeit, Engagement und Einsatzbereitschaft\n\n• Französisch\n\nStellenantritt: 1. Januar 2027 oder nach Vereinbarung\n\nAuskunft: PD Dr. med. V. Erard, Abteilungschefärztin, T 026 306 08 36\n\nBewerbungsfrist: 13. September 2026\n\nRef.: HFR-M-263401"
+    },
+    "slugByLocale": {
+      "it": "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hopital-fribourgeois-hfr-fribourg",
+      "en": "head-of-clinical-assistant-cdi-from-12-to-18-months-100-hopital-fribourgeois-hfr-fribourg",
+      "de": "chef-fe-de-clinique-adjoint-e-cdd-de-12-a-18-mois-100-stellvertretende-oberarztin",
+      "fr": "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hfr-hopital-fribourgeois-fribourg"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-17T07:37:55.801Z",
+    "previousSlugs": [
+      "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hfr-hopital-fribourgeois-fribourg",
+      "leiter-des-klinischen-assistenten-cdi-von-12-bis-18-monaten-100-hopital-fribourgeois-hfr-fribourg",
+      "chef-fe-de-clinique-adjoint-e-cdd-de-12-a-18-mois-100-stellvertretende-oberarztin"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hfr-hopital-fribourgeois-fribourg",
+        "chef-fe-de-clinique-adjoint-e-cdd-de-12-a-18-mois-100-stellvertretende-oberarztin"
+      ],
+      "en": [
+        "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "de": [
+        "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hfr-hopital-fribourgeois-fribourg",
+        "leiter-des-klinischen-assistenten-cdi-von-12-bis-18-monaten-100-hopital-fribourgeois-hfr-fribourg"
+      ]
+    },
+    "postalCode": "1708",
+    "salaryMin": 115000,
+    "salaryMax": 160000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "chef-fe-de-clinique-adjoint-e-cdi-de-12-a-18-mois-100-hopital-fribourgeois-hfr-fribourg-17d115f5",

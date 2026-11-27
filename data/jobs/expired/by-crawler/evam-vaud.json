@@ -184,6 +184,7 @@
         "intendant-e-100-cdi-evam-vaud-ch-40623c7c"
       ],
       "fr": [
+        "intendant-e-100-cdi-evam-vaud-ch-40623c7c",
         "intendant-e-100-cdi-evam-vaud-ch"
       ]
     },
@@ -198,11 +199,17 @@
     "canton": "VD",
     "previousSlugCantonByLocale": {
       "it": {
-        "intendant-e-100-cdi-evam-vaud-ch": "VD",
-        "intendant-e-100-cdi-evam-vaud-ch-2": "VD"
+        "intendant-e-100-cdi-evam-vaud-ch-2": "VD",
+        "intendant-e-100-cdi-evam-vaud-ch-40623c7c": "VD"
       },
       "fr": {
-        "intendant-e-100-cdi-evam-vaud-ch": "VD"
+        "intendant-e-100-cdi-evam-vaud-ch-40623c7c": "VD"
+      },
+      "en": {
+        "intendant-e-100-cdi-evam-vaud-ch-40623c7c": "VD"
+      },
+      "de": {
+        "intendant-e-100-cdi-evam-vaud-ch-40623c7c": "VD"
       }
     }
   },
@@ -2267,7 +2274,6 @@
       "it": {
         "2-100-cdi-social-assistant-evam-vevey": "VD",
         "2-assistent-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vevey": "VD",
-        "assistente-sociale-100-cdi-evam-vevey": "VD",
         "social-assistant-100-cdi-evam-vevey": "VD",
         "assistant-e-sociaux-ales-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch": "VD",
         "assistent-e-sociaux-ales-en-cdi-a-100-et-en-cdd-a-100-evam-lausanne": "VD",
@@ -2276,7 +2282,8 @@
         "antenna-social-assistant-100-cdi-and-100-cdd-evam-lausanne": "VD",
         "assistent-e-sociaux-ales-en-antenne-en-cdi-a-100-et-en-cdd-a-100-evam-lausanne": "VD",
         "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch": "VD",
-        "assistant-e-s-sociaux-ales-en-antenne-100-cdi-evam-vaud-ch": "VD"
+        "assistant-e-s-sociaux-ales-en-antenne-100-cdi-evam-vaud-ch": "VD",
+        "assistente-sociale-100-cdi-evam-vevey-7cffd6f5": "VD"
       },
       "en": {
         "assistant-e-sociaux-ales-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch": "VD",
@@ -4329,8 +4336,6 @@
       "educateurs-trices-sociaux-ales-80-domaine-mna-cdd-evam-vaud-ch-4ae0e1f5",
       "educateurs-trices-sociaux-ales-mna-80-cdd-evam-vaud-ch-0c76385e",
       "lavoratori-sociali-80-csd-evam-lausanne-fd9cc186",
-      "social-workers-80-csd-evam-lausanne",
-      "sozialarbeiter-80-csd-evam-lausanne",
       "lavoratori-sociali-80-csd-evam-yverdon-les-bains-97fa1042",
       "un-impiegato-della-cucina-20-csd-evam-lausanne-29c72427",
       "a-kitchen-clerk-20-csd-evam-lausanne-868f7de0",
@@ -5068,6 +5073,8 @@
       "educateurs-trices-sociaux-ales-mna-80-cdd-evam-vaud-ch-ee80e1a9",
       "lavoratori-sociali-80-csd-evam-lausanne-1bbd299a",
       "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch-c45f0d9f",
+      "social-workers-80-csd-evam-lausanne",
+      "sozialarbeiter-80-csd-evam-lausanne",
       "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
       "lavoratori-sociali-80-csd-evam-yverdon-les-bains",
       "un-impiegato-della-cucina-20-csd-evam-lausanne",
@@ -7479,6 +7486,10 @@
         "educateurs-trices-sociaux-ales-mna-80-cdd-evam-vaud-ch-ee80e1a9",
         "lavoratori-sociali-80-csd-evam-lausanne-1bbd299a",
         "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch-c45f0d9f",
+        "assistant-e-social-e-80-cdd-evam-vaud-ch",
+        "assistente-sociale-80-csd-evam-lausanne-eb1ee8",
+        "social-assistant-80-csd-evam-lausanne-eb1ee8",
+        "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8",
         "lavoratori-sociali-80-csd-evam-yverdon-les-bains",
         "un-impiegato-della-cucina-20-csd-evam-lausanne",
         "a-kitchen-clerk-20-csd-evam-lausanne",
@@ -7493,11 +7504,7 @@
         "educateurs-trices-sociaux-ales-80-domaine-mna-cdd-evam-vaud-ch",
         "educateurs-trices-sociaux-ales-mna-80-cdd-evam-vaud-ch",
         "lavoratori-sociali-80-csd-evam-lausanne",
-        "assistant-e-social-e-80-cdd-evam-vaud-ch",
-        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
-        "assistente-sociale-80-csd-evam-lausanne-eb1ee8",
-        "social-assistant-80-csd-evam-lausanne-eb1ee8",
-        "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8"
+        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch"
       ],
       "en": [
         "a-kitchen-clerk-20-csd-evam-lausanne-af0431bb",
@@ -8134,14 +8141,14 @@
         "a-kitchen-clerk-20-csd-evam-lausanne-d85c4e91",
         "3-cooking-clerk-40-85-csd-evam-lausanne-6f24ce87",
         "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch-c45f0d9f",
-        "a-kitchen-clerk-20-csd-evam-lausanne",
-        "3-cooking-clerk-40-85-csd-evam-lausanne",
-        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
         "assistente-sociale-80-csd-evam-lausanne-eb1ee8",
         "social-assistant-80-csd-evam-lausanne-eb1ee8",
         "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8",
         "social-assistant-80-csd-evam-lausanne",
         "assistant-e-social-e-80-cdd-evam-vaud-ch",
+        "a-kitchen-clerk-20-csd-evam-lausanne",
+        "3-cooking-clerk-40-85-csd-evam-lausanne",
+        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
         "social-workers-80-csd-evam-lausanne"
       ],
       "de": [
@@ -8778,12 +8785,12 @@
         "ein-kuchenschreiber-20-csd-evam-lausanne-d6c9aa2d",
         "3-kochangestellte-40-85-csd-evam-lausanne-8470fd7f",
         "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch-c45f0d9f",
-        "ein-kuchenschreiber-20-csd-evam-lausanne",
-        "3-kochangestellte-40-85-csd-evam-lausanne",
-        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
         "assistente-sociale-80-csd-evam-lausanne-eb1ee8",
         "social-assistant-80-csd-evam-lausanne-eb1ee8",
         "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8",
+        "ein-kuchenschreiber-20-csd-evam-lausanne",
+        "3-kochangestellte-40-85-csd-evam-lausanne",
+        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
         "sozialarbeiter-80-csd-evam-lausanne"
       ],
       "fr": [
@@ -9585,14 +9592,14 @@
         "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-vaud-ch-4ed25997",
         "educateurs-trices-sociaux-ales-80-domaine-mna-cdd-evam-vaud-ch-75deedf8",
         "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch-c45f0d9f",
+        "assistente-sociale-80-csd-evam-lausanne-eb1ee8",
+        "social-assistant-80-csd-evam-lausanne-eb1ee8",
+        "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8",
         "educateurs-trices-sociaux-ales-mna-80-cdd-evam-vaud-ch",
         "un-e-commis-e-de-cuisine-20-cdd-evam-vaud-ch",
         "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-vaud-ch",
         "educateurs-trices-sociaux-ales-80-domaine-mna-cdd-evam-vaud-ch",
-        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
-        "assistente-sociale-80-csd-evam-lausanne-eb1ee8",
-        "social-assistant-80-csd-evam-lausanne-eb1ee8",
-        "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8"
+        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch"
       ]
     },
     "postalCode": "1003",
@@ -9642,33 +9649,55 @@
         "educatori-sociali-80-contratti-a-tempo-determinato-evam-lausanne": "VD",
         "social-workers-80-csd-evam-lausanne": "VD",
         "sozialarbeiter-80-csd-evam-lausanne": "VD",
-        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch": "VD",
         "assistente-sociale-80-csd-evam-lausanne-eb1ee8": "VD",
         "social-assistant-80-csd-evam-lausanne-eb1ee8": "VD",
         "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8": "VD",
-        "assistant-e-social-e-80-cdd-evam-vaud-ch-2": "VD"
+        "assistant-e-social-e-80-cdd-evam-vaud-ch-2": "VD",
+        "lavoratori-sociali-80-csd-evam-yverdon-les-bains-5931cab2": "VD",
+        "un-impiegato-della-cucina-20-csd-evam-lausanne-b872ed6f": "VD",
+        "a-kitchen-clerk-20-csd-evam-lausanne-af0431bb": "VD",
+        "ein-kuchenschreiber-20-csd-evam-lausanne-0097b0a7": "VD",
+        "un-e-commis-e-de-cuisine-20-cdd-evam-vaud-ch-5b3afdb3": "VD",
+        "un-e-commis-e-de-cuisine-20-cdd-evam-lausanne-06070f86": "VD",
+        "3-operatore-di-cottura-40-85-csd-evam-lausanne-bba0c341": "VD",
+        "3-cooking-clerk-40-85-csd-evam-lausanne-67c316ad": "VD",
+        "3-kochangestellte-40-85-csd-evam-lausanne-91b8e9e1": "VD",
+        "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-vaud-ch-7ffbf7e8": "VD",
+        "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-lausanne-04be42cc": "VD",
+        "educateurs-trices-sociaux-ales-80-domaine-mna-cdd-evam-vaud-ch-cb20d9ef": "VD",
+        "educateurs-trices-sociaux-ales-mna-80-cdd-evam-vaud-ch-22492acd": "VD",
+        "lavoratori-sociali-80-csd-evam-lausanne-33e9ef0b": "VD",
+        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch-6e87b912": "VD"
       },
       "en": {
-        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch": "VD",
         "assistente-sociale-80-csd-evam-lausanne-eb1ee8": "VD",
         "social-assistant-80-csd-evam-lausanne-eb1ee8": "VD",
         "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8": "VD",
         "social-assistant-80-csd-evam-lausanne": "VD",
         "assistant-e-social-e-80-cdd-evam-vaud-ch": "VD",
-        "social-workers-80-csd-evam-lausanne": "VD"
+        "a-kitchen-clerk-20-csd-evam-lausanne-af0431bb": "VD",
+        "3-cooking-clerk-40-85-csd-evam-lausanne-67c316ad": "VD",
+        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch-6e87b912": "VD",
+        "social-workers-80-csd-evam-lausanne-6b5a466e": "VD"
       },
       "de": {
-        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch": "VD",
         "assistente-sociale-80-csd-evam-lausanne-eb1ee8": "VD",
         "social-assistant-80-csd-evam-lausanne-eb1ee8": "VD",
         "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8": "VD",
-        "sozialarbeiter-80-csd-evam-lausanne": "VD"
+        "ein-kuchenschreiber-20-csd-evam-lausanne-0097b0a7": "VD",
+        "3-kochangestellte-40-85-csd-evam-lausanne-91b8e9e1": "VD",
+        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch-6e87b912": "VD",
+        "sozialarbeiter-80-csd-evam-lausanne-8e9e1fdf": "VD"
       },
       "fr": {
-        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch": "VD",
         "assistente-sociale-80-csd-evam-lausanne-eb1ee8": "VD",
         "social-assistant-80-csd-evam-lausanne-eb1ee8": "VD",
-        "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8": "VD"
+        "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8": "VD",
+        "educateurs-trices-sociaux-ales-mna-80-cdd-evam-vaud-ch-8f03b767": "VD",
+        "un-e-commis-e-de-cuisine-20-cdd-evam-vaud-ch-5b3afdb3": "VD",
+        "3-commis-e-de-cuisine-de-40-a-85-cdd-evam-vaud-ch-7ffbf7e8": "VD",
+        "educateurs-trices-sociaux-ales-80-domaine-mna-cdd-evam-vaud-ch-cb20d9ef": "VD",
+        "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch-6e87b912": "VD"
       }
     }
   },
@@ -11683,7 +11712,9 @@
       "assistente-sociale-80-csd-evam-lausanne",
       "assistent-e-social-e-80-cdd-evam-lausanne-d4ddb418",
       "assistant-e-social-e-80-cdd-evam-vaud-ch-2",
-      "social-assistant-80-csd-evam-lausanne-d4c01a45"
+      "social-assistant-80-csd-evam-lausanne-d4c01a45",
+      "assistant-e-social-e-80-cdd-evam-vaud-ch",
+      "social-assistant-80-csd-evam-lausanne"
     ],
     "previousSlugsByLocale": {
       "it": [

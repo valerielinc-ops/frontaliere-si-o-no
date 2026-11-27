@@ -48,7 +48,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/kiabi/744000161105332-conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg?oga=true",
-    "firstSeenAt": "2026-11-11T21:22:46.429Z"
+    "firstSeenAt": "2026-11-11T21:22:46.429Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg-kiabi-fribourg": "FR"
+      },
+      "en": {
+        "conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg-kiabi-fribourg": "FR"
+      },
+      "de": {
+        "conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg-kiabi-fribourg": "FR"
+      }
+    }
   },
   {
     "slug": "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle-5c395e8fcf",
@@ -80,18 +92,23 @@
     "previousSlugsByLocale": {
       "it": [
         "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle-2095e7e4",
-        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle-69c84638"
+        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle-69c84638",
+        "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle",
+        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
       ],
       "en": [
         "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle",
-        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
+        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle",
+        "director-store-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
       ],
       "de": [
         "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle",
-        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
+        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle",
+        "director-store-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
       ],
       "fr": [
-        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
+        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle",
+        "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle"
       ]
     },
     "postalCode": "1860",
@@ -105,7 +122,8 @@
     "previousSlugs": [
       "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle-69c84638",
       "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle",
-      "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
+      "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle",
+      "director-store-h-f-nb-kiabi-aigle-kiabi-suisse-aigle"
     ],
     "sourceIdentityHistory": [
       {
@@ -118,7 +136,25 @@
         "firstSeenAt": "2026-11-17T09:22:24.450Z",
         "title": "Directeur Magasin (H/F/NB) KIABI AIGLE"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle": "VD",
+        "direttore-h-f-nb-kiabi-aigle-kiabi-suisse-aigle": "VD"
+      },
+      "en": {
+        "director-store-h-f-nb-kiabi-aigle-kiabi-suisse-aigle": "VD",
+        "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle": "VD"
+      },
+      "de": {
+        "director-store-h-f-nb-kiabi-aigle-kiabi-suisse-aigle": "VD",
+        "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle": "VD"
+      },
+      "fr": {
+        "directeur-magasin-h-f-nb-kiabi-aigle-kiabi-aigle": "VD"
+      }
+    }
   },
   {
     "slug": "consulente-di-vendita-contratto-on-time-cdi-studente-part-time-m-f-nb-kiabi-friburgo-kiabi-suisse-fribourg",
@@ -1573,7 +1609,24 @@
         "firstSeenAt": "2026-07-04T11:15:41.488Z",
         "title": "Conseiller de Vente en Renfort d'Équipe – Contrat sur appel (CDI) (Étudiant(e) / Temps partiel) (H/F/NB) | KIABI Fribourg"
       }
-    ]
+    ],
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f": "FR"
+      },
+      "en": {
+        "team-support-sales-advisor-call-contract-cdi-student-part-time-h-f-nb-kiabi-suisse-fribourg": "FR",
+        "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f": "FR"
+      },
+      "de": {
+        "team-support-sales-advisor-call-contract-cdi-student-teilzeit-h-f-nb-kiabi-suisse-fribourg": "FR",
+        "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f": "FR"
+      },
+      "fr": {
+        "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f": "FR"
+      }
+    }
   },
   {
     "slug": "consigliere-vendite-kiabi-aigle-h-f-nb-kiabi-suisse-aigle",

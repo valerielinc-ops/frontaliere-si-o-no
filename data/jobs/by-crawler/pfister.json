@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pfister",
-  "assembledAt": "2026-11-26T21:30:43.460Z",
-  "runId": "45897017809",
+  "assembledAt": "2026-11-27T09:32:32.722Z",
+  "runId": "45972333726",
   "jobs": [
     {
       "id": "pfister-67e988bb4f32",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/424626/3485/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:35.035Z",
+      "crawledAt": "2026-11-27T09:31:29.025Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       },
       "streetAddress": "Affoltern am Albis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:30:35.035Z",
+      "validThrough": "2027-01-29T09:31:29.025Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +123,7 @@
       "url": "https://apply.refline.ch/424626/3448/pub/3/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:34.608Z",
+      "crawledAt": "2026-11-27T09:31:27.724Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -176,7 +176,7 @@
       },
       "streetAddress": "Etoy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:34.608Z",
+      "validThrough": "2026-12-27T09:31:27.724Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -210,7 +210,7 @@
       "url": "https://apply.refline.ch/424626/3438/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:34.178Z",
+      "crawledAt": "2026-11-27T09:31:27.238Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -257,7 +257,7 @@
       },
       "streetAddress": "Thörishaus",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:34.178Z",
+      "validThrough": "2026-12-27T09:31:27.238Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -291,7 +291,7 @@
       "url": "https://apply.refline.ch/424626/3437/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:33.755Z",
+      "crawledAt": "2026-11-27T09:31:26.755Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:33.755Z",
+      "validThrough": "2026-12-27T09:31:26.755Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://apply.refline.ch/424626/2883/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:33.331Z",
+      "crawledAt": "2026-11-27T09:31:26.272Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -434,7 +434,7 @@
       },
       "streetAddress": "Thörishaus",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:33.331Z",
+      "validThrough": "2026-12-27T09:31:26.272Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -469,7 +469,7 @@
       "url": "https://apply.refline.ch/424626/3393/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:32.904Z",
+      "crawledAt": "2026-11-27T09:31:25.788Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -516,7 +516,7 @@
       },
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:32.904Z",
+      "validThrough": "2026-12-27T09:31:25.788Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -551,7 +551,7 @@
       "url": "https://apply.refline.ch/424626/3391/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:32.475Z",
+      "crawledAt": "2026-11-27T09:31:25.305Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -604,8 +604,92 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:32.475Z",
+      "validThrough": "2026-12-27T09:31:25.305Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "pfister-5365045f23c6",
+      "slug": "home-consulente-m-f-d-mobel-pfister-ag-zurich-084be74038",
+      "slugByLocale": {
+        "de": "wohnberaterin-w-m-d-pfister-zurich",
+        "it": "home-consulente-m-f-d-mobel-pfister-ag-zurich-084be74038",
+        "en": "home-consultant-m-f-d-mobel-pfister-ag-zurich",
+        "fr": "consultant-a-domicile-h-f-d-mobel-pfister-ag-zurich"
+      },
+      "company": "Möbel Pfister AG",
+      "companyKey": "pfister",
+      "companyDomain": "pfister.ch",
+      "title": "WohnberaterIn (w/m/d)",
+      "titleByLocale": {
+        "it": "Home consulente (m/f/d)",
+        "en": "Home consultant (m/f/d)",
+        "de": "WohnberaterIn (w/m/d)",
+        "fr": "Consultant à domicile (h/f/d)"
+      },
+      "description": "• -->\n\nWohnberaterIn (w/m/d)\n\n100%\n\nZürich\n\nnach Vereinbarung\n\nShare\n\nWir bei pfister verfolgen eine Vision: Wir möchten mit unseren Produkten in jedes Schweizer Zuhause einziehen. Dafür suchen wir tatkräftige Unterstützung. Hilf uns, die rund 100'000 Produkte unseres Sortiments ins Zuhause unserer Kundinnen und Kunden zu bringen. Ob in einer der 18 Filialen oder in der Zentrale in Suhr: Dich erwartet ein einmaliges Umfeld, die Arbeit mit ansprechenden Produkten und nicht zuletzt Wertschätzung und Respekt für deinen Einsatz. Bei pfister arbeiten heute schon rund 1'400 Personen - kommst du bald dazu?\n\nDeine neuen Aufgaben\n\n• BesucherInnen begeistern\n• Kundenbedürfnisse erfassen, kompetent beraten und Einrichtungsvorschläge erarbeiten\n• mit kreativen Einrichtungsideen überzeugen und Einkaufserlebnisse schaffen\n• Zielorientierte Verkaufsgespräche führen\n• Umfassende Betreuung der Kundinnen und Kunden vom ersten Kontakt bis zur erfolgreichen Lieferung\n• Leidenschaft für regelmässigen Kundenkontakt und umfassende Beratung\n• fundierte Verkaufserfahrung\n• Flair für schönes Wohnen\n• Freude an erfolgsorientiertem Arbeiten\n• kommunikativ und verkaufsstark\n• Erfahrung in der Einrichtungsbranche\n• Detaillierte Kenntnisse über Planungsprogramme und Einrichtungsmaterialien\n• Fremdsprachen (Englisch/Französisch)",
+      "descriptionByLocale": {
+        "it": "• -->\n\nHome consulente (m/f/d)\n\n100%\n\nZurigo\n\nAccordo\n\nCondividi\n\nNoi di pfister perseguiamo una visione: vogliamo spostare i nostri prodotti in ogni casa svizzera. Stiamo cercando un supporto attivo per questo. Aiutaci a portare i circa 100.000 prodotti nella nostra gamma nelle case dei nostri clienti. Che si tratti di uno dei 18 rami o presso la sede di Suhr: Ci si può aspettare un ambiente unico, lavorando con prodotti attraenti e, ultimo ma non meno importante, apprezzamento e rispetto per il vostro impegno. Ci sono già circa 1.400 persone che lavorano al pfister oggi - si unirà presto?\n\nLe nuove attività\n\n• Ispiranti visitatori\n• Identificare le esigenze del cliente, fornire consulenza competente e sviluppare proposte di attrezzature\n• convincere con idee creative interior e creare esperienze di shopping\n• I principali colloqui di vendita orientati agli obiettivi\n• Assistenza clienti completa dal primo contatto alla consegna di successo\n• Passione per il contatto cliente regolare e consigli completi\n• esperienza di vendita del suono\n• Flair per una bella vita\n• Divertimento del lavoro orientato al successo\n• Vendita comunicativa e forte\n• Esperienza nell'industria dell'arredamento\n• Conoscenza dettagliata dei programmi di pianificazione e materiali di arredo\n• Lingue straniere (inglese/francese)",
+        "en": "• -->\n\nHome consultant (m/f/d)\n\n100%\n\nZurich\n\nBy agreement\n\nShare\n\nWe at pfister pursue a vision: We want to move our products into every Swiss home. We are seeking active support for this. Help us bring the approximately 100,000 products in our range into the homes of our customers. Whether in one of the 18 branches or at the headquarters in Suhr: You can expect a unique environment, working with attractive products and, last but not least, appreciation and respect for your commitment. There are already around 1,400 people working at pfister today - will you join soon?\n\nYour new tasks\n\n• Inspiring visitors\n• Identify customer needs, provide competent advice and develop equipment proposals\n• convince with creative interior ideas and create shopping experiences\n• Leading goal-oriented sales talks\n• Comprehensive customer support from first contact to successful delivery\n• Passion for regular customer contact and comprehensive advice\n• sound sales experience\n• Flair for beautiful living\n• Enjoyment of success-oriented work\n• Communicative and strong sales\n• Experience in the furnishing industry\n• Detailed knowledge of planning programs and furnishing materials\n• Foreign languages (English/French)",
+        "de": "• -->\n\nWohnberaterIn (w/m/d)\n\n100%\n\nZürich\n\nnach Vereinbarung\n\nShare\n\nWir bei pfister verfolgen eine Vision: Wir möchten mit unseren Produkten in jedes Schweizer Zuhause einziehen. Dafür suchen wir tatkräftige Unterstützung. Hilf uns, die rund 100'000 Produkte unseres Sortiments ins Zuhause unserer Kundinnen und Kunden zu bringen. Ob in einer der 18 Filialen oder in der Zentrale in Suhr: Dich erwartet ein einmaliges Umfeld, die Arbeit mit ansprechenden Produkten und nicht zuletzt Wertschätzung und Respekt für deinen Einsatz. Bei pfister arbeiten heute schon rund 1'400 Personen - kommst du bald dazu?\n\nDeine neuen Aufgaben\n\n• BesucherInnen begeistern\n• Kundenbedürfnisse erfassen, kompetent beraten und Einrichtungsvorschläge erarbeiten\n• mit kreativen Einrichtungsideen überzeugen und Einkaufserlebnisse schaffen\n• Zielorientierte Verkaufsgespräche führen\n• Umfassende Betreuung der Kundinnen und Kunden vom ersten Kontakt bis zur erfolgreichen Lieferung\n• Leidenschaft für regelmässigen Kundenkontakt und umfassende Beratung\n• fundierte Verkaufserfahrung\n• Flair für schönes Wohnen\n• Freude an erfolgsorientiertem Arbeiten\n• kommunikativ und verkaufsstark\n• Erfahrung in der Einrichtungsbranche\n• Detaillierte Kenntnisse über Planungsprogramme und Einrichtungsmaterialien\n• Fremdsprachen (Englisch/Französisch)",
+        "fr": "• -->\n\nConsultant à domicile (h/f/d)\n\n100%\n\nZurich\n\nPar accord\n\nPartager\n\nChez Pfister, nous poursuivons une vision: Nous voulons transférer nos produits dans chaque maison suisse. Nous recherchons un soutien actif à cet égard. Aidez-nous à apporter les quelque 100 000 produits de notre gamme dans les maisons de nos clients. Que ce soit dans l'une des 18 succursales ou au siège de Suhr: Vous pouvez vous attendre à un environnement unique, en travaillant avec des produits attrayants et, enfin, mais non le moindre, l'appréciation et le respect de votre engagement. Il y a déjà environ 1 400 personnes qui travaillent aujourd'hui chez Pfister - allez-vous rejoindre bientôt?\n\nVos nouvelles tâches\n\n• Des visiteurs inspirants\n• Identifier les besoins des clients, fournir des conseils compétents et élaborer des propositions d'équipement\n• convaincre avec des idées d'intérieur créatives et créer des expériences de shopping\n• Principales négociations commerciales axées sur les objectifs\n• Assistance client complète depuis le premier contact jusqu'à la livraison réussie\n• Passion pour un contact régulier avec le client et des conseils complets\n• une solide expérience des ventes\n• Flair pour une belle vie\n• Profiter d'un travail axé sur le succès\n• Ventes communicatives et fortes\n• Expérience dans l'industrie de l'ameublement\n• Connaissance détaillée des programmes de planification et du matériel d'ameublement\n• Langues étrangères (anglais/français)"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/424626/3442/pub/4/index.html",
+      "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T09:31:24.822Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Furniture",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-12T13:17:39.612781+00:00",
+      "postedDate": "2026-08-12T13:17:39.612781+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/424626/3442/pub/4/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "3442",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "wohnberaterin-w-m-d-pfister-zurich",
+          "home-consulente-m-f-d-mobel-pfister-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "wohnberaterin-w-m-d-pfister-zurich",
+        "home-consulente-m-f-d-mobel-pfister-ag-zurich"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:31:24.822Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-05T09:28:14.824Z"
     },
     {
       "id": "pfister-93ac48c061d3",
@@ -639,7 +723,7 @@
       "url": "https://apply.refline.ch/424626/3493/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:32.051Z",
+      "crawledAt": "2026-11-27T09:31:24.306Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -696,7 +780,7 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:30:32.051Z",
+      "validThrough": "2027-02-17T09:31:24.306Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -730,7 +814,7 @@
       "url": "https://apply.refline.ch/424626/3492/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:31.627Z",
+      "crawledAt": "2026-11-27T09:31:23.822Z",
       "addressLocality": "Villeneuve",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -783,7 +867,7 @@
       },
       "streetAddress": "Villeneuve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:30:31.627Z",
+      "validThrough": "2027-02-15T09:31:23.822Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -818,7 +902,7 @@
       "url": "https://apply.refline.ch/424626/3490/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:31.198Z",
+      "crawledAt": "2026-11-27T09:31:23.338Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -875,7 +959,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:30:31.198Z",
+      "validThrough": "2027-02-10T09:31:23.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -910,7 +994,7 @@
       "url": "https://apply.refline.ch/424626/3491/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:30.772Z",
+      "crawledAt": "2026-11-27T09:31:22.854Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -963,7 +1047,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:30:30.772Z",
+      "validThrough": "2027-02-11T09:31:22.854Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -997,7 +1081,7 @@
       "url": "https://apply.refline.ch/424626/1262/pub/15/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:30.344Z",
+      "crawledAt": "2026-11-27T09:31:22.370Z",
       "addressLocality": "Villeneuve",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1052,7 +1136,7 @@
       },
       "streetAddress": "Villeneuve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:30.344Z",
+      "validThrough": "2026-12-27T09:31:22.370Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1087,7 +1171,7 @@
       "url": "https://apply.refline.ch/424626/3483/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:29.918Z",
+      "crawledAt": "2026-11-27T09:31:21.886Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1137,7 +1221,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-27T21:30:29.918Z",
+      "validThrough": "2027-01-28T09:31:21.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1172,7 +1256,7 @@
       "url": "https://apply.refline.ch/424626/3482/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:29.493Z",
+      "crawledAt": "2026-11-27T09:31:21.395Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1222,7 +1306,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-25T21:30:29.493Z",
+      "validThrough": "2027-01-26T09:31:21.395Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1257,7 +1341,7 @@
       "url": "https://apply.refline.ch/424626/3489/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:29.025Z",
+      "crawledAt": "2026-11-27T09:31:20.905Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1310,7 +1394,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:30:29.025Z",
+      "validThrough": "2027-02-04T09:31:20.905Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1345,7 +1429,7 @@
       "url": "https://apply.refline.ch/424626/3488/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:27.697Z",
+      "crawledAt": "2026-11-27T09:31:20.419Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1400,7 +1484,7 @@
       },
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:30:27.697Z",
+      "validThrough": "2027-02-03T09:31:20.419Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1435,7 +1519,7 @@
       "url": "https://apply.refline.ch/424626/0338/pub/31/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:27.271Z",
+      "crawledAt": "2026-11-27T09:31:19.936Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1490,7 +1574,7 @@
       },
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:27.271Z",
+      "validThrough": "2026-12-27T09:31:19.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1525,7 +1609,7 @@
       "url": "https://apply.refline.ch/424626/3486/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:26.845Z",
+      "crawledAt": "2026-11-27T09:31:19.450Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1580,7 +1664,7 @@
       },
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:30:26.845Z",
+      "validThrough": "2027-02-01T09:31:19.450Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1615,7 +1699,7 @@
       "url": "https://apply.refline.ch/424626/3487/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-26T21:30:26.419Z",
+      "crawledAt": "2026-11-27T09:31:17.782Z",
       "addressLocality": "Contone",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1654,7 +1738,7 @@
       },
       "streetAddress": "Contone",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:30:26.419Z",
+      "validThrough": "2027-02-02T09:31:17.782Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1689,7 +1773,7 @@
       "url": "https://apply.refline.ch/424626/3464/pub/6/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:25.992Z",
+      "crawledAt": "2026-11-27T09:31:17.296Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1763,7 +1847,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:25.992Z",
+      "validThrough": "2026-12-27T09:31:17.296Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1798,7 +1882,7 @@
       "url": "https://apply.refline.ch/424626/3484/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:25.567Z",
+      "crawledAt": "2026-11-27T09:31:16.813Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1851,7 +1935,7 @@
       },
       "streetAddress": "Alchenflüh-Lyssach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:30:25.567Z",
+      "validThrough": "2027-01-28T09:31:16.813Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1886,7 +1970,7 @@
       "url": "https://apply.refline.ch/424626/3474/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:25.142Z",
+      "crawledAt": "2026-11-27T09:31:16.329Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1939,7 +2023,7 @@
       },
       "streetAddress": "Alchenflüh-Lyssach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:30:25.142Z",
+      "validThrough": "2027-01-04T09:31:16.329Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1973,7 +2057,7 @@
       "url": "https://apply.refline.ch/424626/3476/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:24.715Z",
+      "crawledAt": "2026-11-27T09:31:15.846Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2026,7 +2110,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-14T21:30:24.715Z",
+      "validThrough": "2027-01-14T09:31:15.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2061,7 +2145,7 @@
       "url": "https://apply.refline.ch/424626/3477/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:24.289Z",
+      "crawledAt": "2026-11-27T09:31:15.360Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2120,7 +2204,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-14T21:30:24.289Z",
+      "validThrough": "2027-01-14T09:31:15.360Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2155,7 +2239,7 @@
       "url": "https://apply.refline.ch/424626/3475/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:23.841Z",
+      "crawledAt": "2026-11-27T09:31:14.876Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2208,7 +2292,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-10T21:30:23.841Z",
+      "validThrough": "2027-01-11T09:31:14.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2243,7 +2327,7 @@
       "url": "https://apply.refline.ch/424626/3472/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:23.414Z",
+      "crawledAt": "2026-11-27T09:31:14.392Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2290,7 +2374,7 @@
       },
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:30:23.414Z",
+      "validThrough": "2026-12-30T09:31:14.392Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2324,7 +2408,7 @@
       "url": "https://apply.refline.ch/424626/3468/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:22.986Z",
+      "crawledAt": "2026-11-27T09:31:13.908Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2379,7 +2463,7 @@
       },
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:30:22.986Z",
+      "validThrough": "2026-12-28T09:31:13.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2414,7 +2498,7 @@
       "url": "https://apply.refline.ch/424626/3466/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:22.556Z",
+      "crawledAt": "2026-11-27T09:31:13.424Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2469,7 +2553,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:22.556Z",
+      "validThrough": "2026-12-27T09:31:13.424Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2503,7 +2587,7 @@
       "url": "https://apply.refline.ch/424626/0521/pub/7/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:22.127Z",
+      "crawledAt": "2026-11-27T09:31:12.939Z",
       "addressLocality": "Marin",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2554,7 +2638,7 @@
       },
       "streetAddress": "Marin",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:22.127Z",
+      "validThrough": "2026-12-27T09:31:12.939Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2588,7 +2672,7 @@
       "url": "https://apply.refline.ch/424626/3460/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:21.692Z",
+      "crawledAt": "2026-11-27T09:31:12.453Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2635,7 +2719,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:21.692Z",
+      "validThrough": "2026-12-27T09:31:12.453Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2670,7 +2754,7 @@
       "url": "https://apply.refline.ch/424626/3453/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:21.266Z",
+      "crawledAt": "2026-11-27T09:31:11.968Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2717,7 +2801,7 @@
       },
       "streetAddress": "Avry",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:21.266Z",
+      "validThrough": "2026-12-27T09:31:11.968Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2752,7 +2836,7 @@
       "url": "https://apply.refline.ch/424626/3447/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:20.771Z",
+      "crawledAt": "2026-11-27T09:31:11.481Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2799,7 +2883,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:20.771Z",
+      "validThrough": "2026-12-27T09:31:11.481Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2834,7 +2918,7 @@
       "url": "https://apply.refline.ch/424626/3444/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:20.347Z",
+      "crawledAt": "2026-11-27T09:31:10.995Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2881,7 +2965,7 @@
       },
       "streetAddress": "Affoltern am Albis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:20.347Z",
+      "validThrough": "2026-12-27T09:31:10.995Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2915,7 +2999,7 @@
       "url": "https://apply.refline.ch/424626/3445/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:19.906Z",
+      "crawledAt": "2026-11-27T09:31:10.507Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2962,7 +3046,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:19.906Z",
+      "validThrough": "2026-12-27T09:31:10.507Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2996,7 +3080,7 @@
       "url": "https://apply.refline.ch/424626/2166/pub/22/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:19.480Z",
+      "crawledAt": "2026-11-27T09:31:10.017Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3043,7 +3127,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:19.480Z",
+      "validThrough": "2026-12-27T09:31:10.017Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3077,7 +3161,7 @@
       "url": "https://apply.refline.ch/424626/3435/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:19.054Z",
+      "crawledAt": "2026-11-27T09:31:09.516Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3126,7 +3210,7 @@
       },
       "streetAddress": "Genf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:19.054Z",
+      "validThrough": "2026-12-27T09:31:09.516Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3161,7 +3245,7 @@
       "url": "https://apply.refline.ch/424626/3432/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:17.693Z",
+      "crawledAt": "2026-11-27T09:31:09.006Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3208,7 +3292,7 @@
       },
       "streetAddress": "Alchenflüh-Lyssach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:17.693Z",
+      "validThrough": "2026-12-27T09:31:09.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3242,7 +3326,7 @@
       "url": "https://apply.refline.ch/424626/3430/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:17.268Z",
+      "crawledAt": "2026-11-27T09:31:07.996Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3289,7 +3373,7 @@
       },
       "streetAddress": "Affoltern am Albis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:17.268Z",
+      "validThrough": "2026-12-27T09:31:07.996Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3324,7 +3408,7 @@
       "url": "https://apply.refline.ch/424626/1300/pub/14/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:16.827Z",
+      "crawledAt": "2026-11-27T09:31:07.512Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3371,7 +3455,7 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:16.827Z",
+      "validThrough": "2026-12-27T09:31:07.512Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3406,7 +3490,7 @@
       "url": "https://apply.refline.ch/424626/0383/pub/35/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:16.374Z",
+      "crawledAt": "2026-11-27T09:31:07.017Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3453,7 +3537,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:16.374Z",
+      "validThrough": "2026-12-27T09:31:07.017Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3488,7 +3572,7 @@
       "url": "https://apply.refline.ch/424626/0340/pub/20/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:15.947Z",
+      "crawledAt": "2026-11-27T09:31:06.540Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3535,7 +3619,7 @@
       },
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:15.947Z",
+      "validThrough": "2026-12-27T09:31:06.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3570,7 +3654,7 @@
       "url": "https://apply.refline.ch/424626/2360/pub/12/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:15.519Z",
+      "crawledAt": "2026-11-27T09:31:06.054Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3617,7 +3701,7 @@
       },
       "streetAddress": "Affoltern am Albis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:15.519Z",
+      "validThrough": "2026-12-27T09:31:06.054Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3652,7 +3736,7 @@
       "url": "https://apply.refline.ch/424626/1634/pub/12/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:15.082Z",
+      "crawledAt": "2026-11-27T09:31:05.554Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3699,7 +3783,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:15.082Z",
+      "validThrough": "2026-12-27T09:31:05.554Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3734,7 +3818,7 @@
       "url": "https://apply.refline.ch/424626/0382/pub/33/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:14.656Z",
+      "crawledAt": "2026-11-27T09:31:04.981Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3781,7 +3865,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:14.656Z",
+      "validThrough": "2026-12-27T09:31:04.981Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3816,7 +3900,7 @@
       "url": "https://apply.refline.ch/424626/1074/pub/17/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:14.229Z",
+      "crawledAt": "2026-11-27T09:31:04.487Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3863,7 +3947,7 @@
       },
       "streetAddress": "Mels",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:14.229Z",
+      "validThrough": "2026-12-27T09:31:04.487Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3898,7 +3982,7 @@
       "url": "https://apply.refline.ch/424626/2361/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:13.799Z",
+      "crawledAt": "2026-11-27T09:31:03.996Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3945,7 +4029,7 @@
       },
       "streetAddress": "Affoltern am Albis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:13.799Z",
+      "validThrough": "2026-12-27T09:31:03.996Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3980,7 +4064,7 @@
       "url": "https://apply.refline.ch/424626/0530/pub/18/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:13.345Z",
+      "crawledAt": "2026-11-27T09:31:03.499Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4027,7 +4111,7 @@
       },
       "streetAddress": "Mels",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:13.345Z",
+      "validThrough": "2026-12-27T09:31:03.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4062,7 +4146,7 @@
       "url": "https://apply.refline.ch/424626/0814/pub/35/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:12.899Z",
+      "crawledAt": "2026-11-27T09:31:03.000Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4109,7 +4193,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:12.899Z",
+      "validThrough": "2026-12-27T09:31:03.000Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4144,7 +4228,7 @@
       "url": "https://apply.refline.ch/424626/0920/pub/29/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:12.463Z",
+      "crawledAt": "2026-11-27T09:31:02.514Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4191,7 +4275,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:12.463Z",
+      "validThrough": "2026-12-27T09:31:02.514Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4226,7 +4310,7 @@
       "url": "https://apply.refline.ch/424626/2877/pub/7/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:12.038Z",
+      "crawledAt": "2026-11-27T09:31:02.018Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4273,7 +4357,7 @@
       },
       "streetAddress": "Mels",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:12.038Z",
+      "validThrough": "2026-12-27T09:31:02.018Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4308,7 +4392,7 @@
       "url": "https://apply.refline.ch/424626/2874/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:11.609Z",
+      "crawledAt": "2026-11-27T09:31:01.512Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4355,7 +4439,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:11.609Z",
+      "validThrough": "2026-12-27T09:31:01.512Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4389,7 +4473,7 @@
       "url": "https://apply.refline.ch/424626/3427/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:11.181Z",
+      "crawledAt": "2026-11-27T09:31:01.006Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4438,7 +4522,7 @@
       },
       "streetAddress": "Genf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:11.181Z",
+      "validThrough": "2026-12-27T09:31:01.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4472,7 +4556,7 @@
       "url": "https://apply.refline.ch/424626/0344/pub/39/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:10.755Z",
+      "crawledAt": "2026-11-27T09:31:00.519Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4519,7 +4603,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:10.755Z",
+      "validThrough": "2026-12-27T09:31:00.519Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4554,7 +4638,7 @@
       "url": "https://apply.refline.ch/424626/0349/pub/33/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:10.322Z",
+      "crawledAt": "2026-11-27T09:31:00.031Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4601,7 +4685,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:10.322Z",
+      "validThrough": "2026-12-27T09:31:00.031Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4635,7 +4719,7 @@
       "url": "https://apply.refline.ch/424626/3114/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:09.895Z",
+      "crawledAt": "2026-11-27T09:30:59.541Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4688,7 +4772,7 @@
       },
       "streetAddress": "Etoy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:09.895Z",
+      "validThrough": "2026-12-27T09:30:59.541Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4722,7 +4806,7 @@
       "url": "https://apply.refline.ch/424626/1259/pub/14/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:09.448Z",
+      "crawledAt": "2026-11-27T09:30:59.012Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4780,7 +4864,7 @@
       },
       "streetAddress": "Genf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:09.448Z",
+      "validThrough": "2026-12-27T09:30:59.012Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4814,7 +4898,7 @@
       "url": "https://apply.refline.ch/424626/0701/pub/14/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:30:09.015Z",
+      "crawledAt": "2026-11-27T09:30:57.678Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4867,7 +4951,7 @@
       },
       "streetAddress": "Etoy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:09.015Z",
+      "validThrough": "2026-12-27T09:30:57.678Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4902,7 +4986,7 @@
       "url": "https://apply.refline.ch/424626/1135/pub/27/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:07.734Z",
+      "crawledAt": "2026-11-27T09:30:57.151Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4949,7 +5033,7 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:07.734Z",
+      "validThrough": "2026-12-27T09:30:57.151Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4984,7 +5068,7 @@
       "url": "https://apply.refline.ch/424626/1275/pub/33/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:07.307Z",
+      "crawledAt": "2026-11-27T09:30:56.627Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5031,7 +5115,7 @@
       },
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:07.307Z",
+      "validThrough": "2026-12-27T09:30:56.627Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5065,7 +5149,7 @@
       "url": "https://apply.refline.ch/424626/3414/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:06.880Z",
+      "crawledAt": "2026-11-27T09:30:56.141Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5139,7 +5223,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:06.880Z",
+      "validThrough": "2026-12-27T09:30:56.141Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5174,7 +5258,7 @@
       "url": "https://apply.refline.ch/424626/1427/pub/62/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:06.454Z",
+      "crawledAt": "2026-11-27T09:30:55.654Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5225,7 +5309,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:06.454Z",
+      "validThrough": "2026-12-27T09:30:55.654Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5260,7 +5344,7 @@
       "url": "https://apply.refline.ch/424626/3384/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:06.025Z",
+      "crawledAt": "2026-11-27T09:30:55.162Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5311,7 +5395,7 @@
       },
       "streetAddress": "Alchenflüh-Lyssach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:30:06.025Z",
+      "validThrough": "2026-12-27T09:30:55.162Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5345,7 +5429,7 @@
       "url": "https://apply.refline.ch/424626/3320/pub/8/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:05.596Z",
+      "crawledAt": "2026-11-27T09:30:54.676Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5392,7 +5476,7 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:05.596Z",
+      "validThrough": "2026-12-27T09:30:54.676Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5427,7 +5511,7 @@
       "url": "https://apply.refline.ch/424626/1374/pub/74/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:30:05.163Z",
+      "crawledAt": "2026-11-27T09:30:54.179Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5477,14 +5561,14 @@
       },
       "streetAddress": "Bernstrasse Ost 49",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-26T21:30:05.163Z",
+      "validThrough": "2026-12-27T09:30:54.179Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-d28372b42eb0",
-      "slug": "home-consulente-m-f-d-mobel-pfister-ag-zurich",
+      "slug": "home-consulente-m-f-d-mobel-pfister-ag-zurich-f9f96c901b",
       "slugByLocale": {
-        "it": "home-consulente-m-f-d-mobel-pfister-ag-zurich",
+        "it": "home-consulente-m-f-d-mobel-pfister-ag-zurich-f9f96c901b",
         "en": "home-consultant-m-f-d-mobel-pfister-ag-zurich",
         "de": "wohnberaterin-w-m-d-pfister-zurich",
         "fr": "consultant-a-domicile-h-f-d-mobel-pfister-ag-zurich"
@@ -5536,11 +5620,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "wohnberaterin-w-m-d-pfister-zurich"
+        "wohnberaterin-w-m-d-pfister-zurich",
+        "home-consulente-m-f-d-mobel-pfister-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wohnberaterin-w-m-d-pfister-zurich"
+          "wohnberaterin-w-m-d-pfister-zurich",
+          "home-consulente-m-f-d-mobel-pfister-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T09:28:14.824Z",
@@ -5562,7 +5648,7 @@
       "validThrough": "2026-12-26T09:56:44.673Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/424626/3442/pub/1/index.html",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "pfister-9b500bc1e27c",
@@ -5638,284 +5724,7 @@
       "validThrough": "2026-12-26T09:56:41.555Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://apply.refline.ch/424626/3450/pub/1/index.html",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "pfister-5c2cb9e866f0",
-      "slug": "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln",
-      "slugByLocale": {
-        "it": "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln",
-        "en": "employee-in-logistics-m-f-d-mobel-pfister-ag-pratteln",
-        "de": "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
-        "fr": "employe-en-logistique-h-f-d-mobel-pfister-ag-pratteln"
-      },
-      "company": "Möbel Pfister AG",
-      "companyKey": "pfister",
-      "companyDomain": "pfister.ch",
-      "title": "MitarbeiterIn Logistik (w/m/d)",
-      "titleByLocale": {
-        "it": "Dipendenti nella logistica (m/f/d)",
-        "en": "Employee in Logistics (m/f/d)",
-        "de": "MitarbeiterIn Logistik (w/m/d)",
-        "fr": "Employé en logistique (h/f/d)"
-      },
-      "description": "• -->\n\nMitarbeiterIn Logistik (w/m/d)\n\n100%\n\nPratteln\n\nnach Vereinbarung\n\nShare\n\nWir bei pfister verfolgen eine Vision: Wir möchten mit unseren Produkten in jedes Schweizer Zuhause einziehen. Dafür suchen wir tatkräftige Unterstützung. Hilf uns, die rund 100'000 Produkte unseres Sortiments ins Zuhause unserer Kundinnen und Kunden zu bringen. Ob in einer der 18 Filialen oder in der Zentrale in Suhr: Dich erwartet ein einmaliges Umfeld, die Arbeit mit ansprechenden Produkten und nicht zuletzt Wertschätzung und Respekt für deinen Einsatz. Bei pfister arbeiten heute schon rund 1'400 Personen - kommst du bald dazu?\n\nDeine neuen Aufgaben\n\n• Zuvorkommende Kundenbetreuung bei der Warenausgabe sicherstellen\n• Reibungslosen Ablauf unseres Warenein- und -ausgangs in der Filiale gewährleisten\n• Betreuung von unserem Warenlager\n• Bei Bedarf in anderen Abteilungen mithelfen (z.B. unserem Dekorationsteam bei Ladenbau und Umstellungen in der Ausstellung)\n• Fröhliche, genaue, hilfsbereite, zuverlässige und speditive Persönlichkeit\n• Handwerkliches Geschick und gutes Gespür für anfallende Tätigkeiten\n• Gute körperliche Einsatzfähigkeit sowie grosse Flexibilität\n• Erfahrungen im Lagerbereich und Affinität zu Einrichtungsgegenständen\n• Erfahrungen mit Warenein- und -ausgangs-Buchungen im SAP\n• Spass an Montage von Möbeln",
-      "descriptionByLocale": {
-        "it": "• -->\n\nDipendenti nella logistica (m/f/d)\n\n100%\n\nPrattelen\n\nAccordo\n\nCondividi\n\nNoi di pfister perseguiamo una visione: vogliamo spostare i nostri prodotti in ogni casa svizzera. Stiamo cercando un supporto attivo per questo. Aiutaci a portare i circa 100.000 prodotti nella nostra gamma nelle case dei nostri clienti. Che si tratti di uno dei 18 rami o presso la sede di Suhr: Ci si può aspettare un ambiente unico, lavorando con prodotti attraenti e, ultimo ma non meno importante, apprezzamento e rispetto per il vostro impegno. Ci sono già circa 1.400 persone che lavorano al pfister oggi - si unirà presto?\n\nLe nuove attività\n\n• Assicurare assistenza clienti cortese durante la consegna delle merci\n• Assicurare il flusso liscio della nostra entrata e uscita merci presso il ramo\n• Cura del nostro magazzino\n• Se necessario, aiuto in altri reparti (ad esempio il nostro team di decorazione nella costruzione di negozi e conversioni nella mostra)\n• Persona felice, accurata, disponibile, affidabile e in avanti\n• Artigianato e un buon senso delle attività\n• Buone prestazioni fisiche e grande flessibilità\n• Esperienza nell'immagazzinamento e affinità per l'arredamento\n• Esperienza con le prenotazioni di entrata e uscita delle merci in SAP\n• Godetevi il montaggio di mobili",
-        "en": "• -->\n\nEmployee in Logistics (m/f/d)\n\n100%\n\nPrattelen\n\nBy agreement\n\nShare\n\nWe at pfister pursue a vision: We want to move our products into every Swiss home. We are seeking active support for this. Help us bring the approximately 100,000 products in our range into the homes of our customers. Whether in one of the 18 branches or at the headquarters in Suhr: You can expect a unique environment, working with attractive products and, last but not least, appreciation and respect for your commitment. There are already around 1,400 people working at pfister today - will you join soon?\n\nYour new tasks\n\n• Ensure courteous customer support during the delivery of goods\n• Ensure smooth flow of our goods inlet and outlet at the branch\n• Care of our warehouse\n• If necessary, help in other departments (e.g. our decorating team in shop construction and conversions in the exhibition)\n• Happy, accurate, helpful, reliable and forward-thinking personality\n• Craftsmanship and a good sense of activities\n• Good physical performance and great flexibility\n• Experience in storage and affinity for furnishings\n• Experience with goods entry and exit bookings in SAP\n• Enjoy assembly of furniture",
-        "de": "• -->\n\nMitarbeiterIn Logistik (w/m/d)\n\n100%\n\nPratteln\n\nnach Vereinbarung\n\nShare\n\nWir bei pfister verfolgen eine Vision: Wir möchten mit unseren Produkten in jedes Schweizer Zuhause einziehen. Dafür suchen wir tatkräftige Unterstützung. Hilf uns, die rund 100'000 Produkte unseres Sortiments ins Zuhause unserer Kundinnen und Kunden zu bringen. Ob in einer der 18 Filialen oder in der Zentrale in Suhr: Dich erwartet ein einmaliges Umfeld, die Arbeit mit ansprechenden Produkten und nicht zuletzt Wertschätzung und Respekt für deinen Einsatz. Bei pfister arbeiten heute schon rund 1'400 Personen - kommst du bald dazu?\n\nDeine neuen Aufgaben\n\n• Zuvorkommende Kundenbetreuung bei der Warenausgabe sicherstellen\n• Reibungslosen Ablauf unseres Warenein- und -ausgangs in der Filiale gewährleisten\n• Betreuung von unserem Warenlager\n• Bei Bedarf in anderen Abteilungen mithelfen (z.B. unserem Dekorationsteam bei Ladenbau und Umstellungen in der Ausstellung)\n• Fröhliche, genaue, hilfsbereite, zuverlässige und speditive Persönlichkeit\n• Handwerkliches Geschick und gutes Gespür für anfallende Tätigkeiten\n• Gute körperliche Einsatzfähigkeit sowie grosse Flexibilität\n• Erfahrungen im Lagerbereich und Affinität zu Einrichtungsgegenständen\n• Erfahrungen mit Warenein- und -ausgangs-Buchungen im SAP\n• Spass an Montage von Möbeln",
-        "fr": "• -->\n\nEmployé en logistique (h/f/d)\n\n100%\n\nPrattelen\n\nPar accord\n\nPartager\n\nChez Pfister, nous poursuivons une vision: Nous voulons transférer nos produits dans chaque maison suisse. Nous recherchons un soutien actif à cet égard. Aidez-nous à apporter les quelque 100 000 produits de notre gamme dans les maisons de nos clients. Que ce soit dans l'une des 18 succursales ou au siège de Suhr: Vous pouvez vous attendre à un environnement unique, en travaillant avec des produits attrayants et, enfin, mais non le moindre, l'appréciation et le respect de votre engagement. Il y a déjà environ 1 400 personnes qui travaillent aujourd'hui chez Pfister - allez-vous rejoindre bientôt?\n\nVos nouvelles tâches\n\n• Assurer un support courtois lors de la livraison des marchandises\n• Assurer un flux fluide de nos marchandises à l'entrée et à la sortie de la branche\n• Entretien de notre entrepôt\n• Si nécessaire, aide dans d'autres départements (par exemple notre équipe de décoration dans la construction de magasins et les conversions dans l'exposition)\n• Une personnalité heureuse, précise, utile, fiable et tournée vers l'avenir\n• L'artisanat et un bon sens des activités\n• Bonne performance physique et grande flexibilité\n• Expérience dans le stockage et l'affinité pour l'ameublement\n• Expérience des réservations d'entrée et de sortie dans SAP\n• Profitez de l'assemblage de meubles"
-      },
-      "location": "Pratteln",
-      "canton": "BL",
-      "url": "https://apply.refline.ch/424626/3467/pub/4/index.html",
-      "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:28:42.438Z",
-      "addressLocality": "Pratteln",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4133",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-28T09:23:22.024351+00:00",
-      "postedDate": "2026-09-28T09:23:22.024351+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/424626/3467/pub/4/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "3467",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
-        "mitarbeiterin-logistik-w-m-d-pfister-pratteln-1bd0a950",
-        "mitarbeiterin-logistik-w-m-d-pfister-pratteln-6422fea0",
-        "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln-8b3c8d60",
-        "mitarbeiterin-logistik-w-m-d-pfister-pratteln-324ad903",
-        "employee-in-logistics-m-f-d-mobel-pfister-ag-pratteln-0e0b6549",
-        "employe-en-logistique-h-f-d-mobel-pfister-ag-pratteln-636f2583"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-logistik-w-m-d-pfister-pratteln",
-          "mitarbeiterin-logistik-w-m-d-pfister-pratteln-1bd0a950",
-          "mitarbeiterin-logistik-w-m-d-pfister-pratteln-6422fea0",
-          "dipendenti-nella-logistica-m-f-d-mobel-pfister-ag-pratteln-8b3c8d60",
-          "mitarbeiterin-logistik-w-m-d-pfister-pratteln-324ad903",
-          "employee-in-logistics-m-f-d-mobel-pfister-ag-pratteln-0e0b6549",
-          "employe-en-logistique-h-f-d-mobel-pfister-ag-pratteln-636f2583"
-        ],
-        "en": [
-          "mitarbeiterin-logistik-w-m-d-pfister-pratteln"
-        ],
-        "de": [
-          "mitarbeiterin-logistik-w-m-d-pfister-pratteln-1bd0a950"
-        ],
-        "fr": [
-          "mitarbeiterin-logistik-w-m-d-pfister-pratteln"
-        ]
-      },
-      "firstSeenAt": "2026-11-04T09:23:37.876Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Pratteln",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:28:42.438Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://apply.refline.ch/424626/3467/pub/4/index.html"
-    },
-    {
-      "id": "pfister-b5ecac3867fe",
-      "slug": "cucina-studio-manager-m-f-d-mobel-pfister-ag-affoltern-am-albis",
-      "slugByLocale": {
-        "it": "cucina-studio-manager-m-f-d-mobel-pfister-ag-affoltern-am-albis",
-        "en": "kitchen-studio-manager-m-f-d-mobel-pfister-ag-affoltern-am-albis",
-        "de": "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis",
-        "fr": "gestionnaire-de-studio-de-cuisine-h-f-d-mobel-pfister-ag-affoltern-am-albis"
-      },
-      "company": "Möbel Pfister AG",
-      "companyKey": "pfister",
-      "companyDomain": "pfister.ch",
-      "title": "KüchenstudioleiterIn (w/m/d)",
-      "titleByLocale": {
-        "it": "Cucina Studio Manager (m/f/d)",
-        "en": "Kitchen Studio Manager (m/f/d)",
-        "de": "KüchenstudioleiterIn (w/m/d)",
-        "fr": "Gestionnaire de studio de cuisine (h/f/d)"
-      },
-      "description": "• -->\n\nKüchenstudioleiterIn (w/m/d)\n\n100%\n\nAffoltern am Albis\n\nper sofort\n\nShare\n\nWir bei pfister verfolgen eine Vision: Wir möchten mit unseren Produkten in jedes Schweizer Zuhause einziehen. Dafür suchen wir tatkräftige Unterstützung. Hilf uns, die rund 100'000 Produkte unseres Sortiments ins Zuhause unserer Kundinnen und Kunden zu bringen. Ob in einer der 18 Filialen oder in der Zentrale in Suhr: Dich erwartet ein einmaliges Umfeld, die Arbeit mit ansprechenden Produkten und nicht zuletzt Wertschätzung und Respekt für deinen Einsatz. Bei pfister arbeiten heute schon rund 1'400 Personen - kommst du bald dazu?\n\nDeine neuen Aufgaben\n\n• Verantwortung für die fachliche und disziplinarische Führung des Küchenstudio-Teams\n• Verantwortung für die Erreichung der Umsatzziele im verantworteten Küchenstudio\n• Verantwortung für die ansprechende Warenpräsentation im Küchenstudio\n• Kompetente Beratung und Begeisterung der Kundschaft in unseren modernen Pfister Küchenstudios\n• Inspiration der Kundschaft mit unserem attraktiven und vielfältigen Sortiment\n• Planung und Verkauf von Traumküchen an unsere Kundschaft mit Hilfe des Planungstools Carat\n• Zuständig für die Erstellung und Abwicklung von der Offerte bis hin zum Kaufvertrag\n• Kontinuierliche Weiterentwicklung der VerkäuferInnen im Küchenstudio\n• Regelmässiger Austausch mit dem Geschäftsführer und den anderen Kadern der Filiale\n• Laufender Austausch mit den Teams in der Küchenlogistik und den After-Sales, um eine reibungslose Auftragsabwicklung sicher zu stellen\n• Freude im beratungsintensiven Umgang mit Kunden\n• Erfahrung im Küchenverkauf oder in der Montage von Küchen\n• sehr gutes räumliches Vorstellungsvermögen und Kreativität\n• Erfahrung mit digitalen Planungssystemen (Möbel, Küchen, Raumplanung) sind von Vorteil\n• Erfahrung in der Führung eines Teams von 2-3 Personen\n• handwerkliche Ausbildung\n• schnelle Auffassungsgabe und lösungsorientiertes Handeln\n• souveränes und gewinnendes Auftreten",
-      "descriptionByLocale": {
-        "it": "• -->\n\nCucina Studio Manager (m/f/d)\n\n100%\n\nAffoltern sugli Albi\n\nimmediatamente\n\nCondividi\n\nNoi di pfister perseguiamo una visione: vogliamo spostare i nostri prodotti in ogni casa svizzera. Stiamo cercando un supporto attivo per questo. Aiutaci a portare i circa 100.000 prodotti nella nostra gamma nelle case dei nostri clienti. Che si tratti di uno dei 18 rami o presso la sede di Suhr: Ci si può aspettare un ambiente unico, lavorando con prodotti attraenti e, ultimo ma non meno importante, apprezzamento e rispetto per il vostro impegno. Ci sono già circa 1.400 persone che lavorano al pfister oggi - si unirà presto?\n\nLe nuove attività\n\n• Responsabilità per la gestione professionale e disciplinare del team di studio cucina\n• Responsabilità per il raggiungimento degli obiettivi di vendita nello studio di cucina responsabile\n• Responsabilità per l'attrattiva presentazione delle merci nello studio della cucina\n• Consulenza e entusiasmo dei nostri clienti nei nostri moderni studi di cucina Pfister\n• Ispirazione del cliente con la nostra gamma attraente e diversificata\n• Pianificare e vendere cucine da sogno ai nostri clienti con l'aiuto dello strumento di pianificazione Carat\n• Responsabile per la preparazione e il trattamento dell'offerta fino al contratto di acquisto\n• Sviluppo continuo dei venditori nello studio della cucina\n• Scambio regolare con l'amministratore delegato e gli altri dirigenti della filiale\n• Scambio in corso con i team di logistica in cucina e post-vendita per garantire un trattamento regolare dell'ordine\n• Joy nei rapporti di consulenza-intensiva con i clienti\n• Esperienza in vendita cucina o assemblaggio di cucine\n• molto buona immaginazione spaziale e creatività\n• L'esperienza con sistemi di pianificazione digitale (mobili, cucine, pianificazione territoriale) è un vantaggio\n• Esperienza leader di una squadra di 2-3 persone\n• formazione artigianale\n• Rapida comprensione e azione orientata alla soluzione\n• Sovrano e vincente",
-        "en": "• -->\n\nKitchen Studio Manager (m/f/d)\n\n100%\n\nAffoltern on the Albis\n\nimmediately\n\nShare\n\nWe at pfister pursue a vision: We want to move our products into every Swiss home. We are seeking active support for this. Help us bring the approximately 100,000 products in our range into the homes of our customers. Whether in one of the 18 branches or at the headquarters in Suhr: You can expect a unique environment, working with attractive products and, last but not least, appreciation and respect for your commitment. There are already around 1,400 people working at pfister today - will you join soon?\n\nYour new tasks\n\n• Responsibility for the professional and disciplinary management of the kitchen studio team\n• Responsibility for achieving the sales targets in the responsible kitchen studio\n• Responsibility for the attractive presentation of goods in the kitchen studio\n• Competent advice and enthusiasm of our customers in our modern Pfister kitchen studios\n• Inspiration of the customer with our attractive and diverse range\n• Planning and selling dream kitchens to our customers with the help of the planning tool Carat\n• Responsible for the preparation and processing of the offer up to the purchase contract\n• Continuous development of salespeople in the kitchen studio\n• Regular exchange with the managing director and the other managers of the branch\n• Ongoing exchange with the teams in kitchen logistics and after-sales to ensure smooth order processing\n• Joy in consulting-intensive dealings with customers\n• Experience in kitchen sales or assembly of kitchens\n• very good spatial imagination and creativity\n• Experience with digital planning systems (furniture, kitchens, spatial planning) is an advantage\n• Experience leading a team of 2-3 people\n• craft training\n• Quick understanding and solution-oriented action\n• Sovereign and Winning",
-        "de": "• -->\n\nKüchenstudioleiterIn (w/m/d)\n\n100%\n\nAffoltern am Albis\n\nper sofort\n\nShare\n\nWir bei pfister verfolgen eine Vision: Wir möchten mit unseren Produkten in jedes Schweizer Zuhause einziehen. Dafür suchen wir tatkräftige Unterstützung. Hilf uns, die rund 100'000 Produkte unseres Sortiments ins Zuhause unserer Kundinnen und Kunden zu bringen. Ob in einer der 18 Filialen oder in der Zentrale in Suhr: Dich erwartet ein einmaliges Umfeld, die Arbeit mit ansprechenden Produkten und nicht zuletzt Wertschätzung und Respekt für deinen Einsatz. Bei pfister arbeiten heute schon rund 1'400 Personen - kommst du bald dazu?\n\nDeine neuen Aufgaben\n\n• Verantwortung für die fachliche und disziplinarische Führung des Küchenstudio-Teams\n• Verantwortung für die Erreichung der Umsatzziele im verantworteten Küchenstudio\n• Verantwortung für die ansprechende Warenpräsentation im Küchenstudio\n• Kompetente Beratung und Begeisterung der Kundschaft in unseren modernen Pfister Küchenstudios\n• Inspiration der Kundschaft mit unserem attraktiven und vielfältigen Sortiment\n• Planung und Verkauf von Traumküchen an unsere Kundschaft mit Hilfe des Planungstools Carat\n• Zuständig für die Erstellung und Abwicklung von der Offerte bis hin zum Kaufvertrag\n• Kontinuierliche Weiterentwicklung der VerkäuferInnen im Küchenstudio\n• Regelmässiger Austausch mit dem Geschäftsführer und den anderen Kadern der Filiale\n• Laufender Austausch mit den Teams in der Küchenlogistik und den After-Sales, um eine reibungslose Auftragsabwicklung sicher zu stellen\n• Freude im beratungsintensiven Umgang mit Kunden\n• Erfahrung im Küchenverkauf oder in der Montage von Küchen\n• sehr gutes räumliches Vorstellungsvermögen und Kreativität\n• Erfahrung mit digitalen Planungssystemen (Möbel, Küchen, Raumplanung) sind von Vorteil\n• Erfahrung in der Führung eines Teams von 2-3 Personen\n• handwerkliche Ausbildung\n• schnelle Auffassungsgabe und lösungsorientiertes Handeln\n• souveränes und gewinnendes Auftreten",
-        "fr": "• -->\n\nGestionnaire de studio de cuisine (h/f/d)\n\n100%\n\nAffoltern sur les Albis\n\nimmédiatement\n\nPartager\n\nChez Pfister, nous poursuivons une vision: Nous voulons transférer nos produits dans chaque maison suisse. Nous recherchons un soutien actif à cet égard. Aidez-nous à apporter les quelque 100 000 produits de notre gamme dans les maisons de nos clients. Que ce soit dans l'une des 18 succursales ou au siège de Suhr: Vous pouvez vous attendre à un environnement unique, en travaillant avec des produits attrayants et, enfin, mais non le moindre, l'appréciation et le respect de votre engagement. Il y a déjà environ 1 400 personnes qui travaillent aujourd'hui chez Pfister - allez-vous rejoindre bientôt?\n\nVos nouvelles tâches\n\n• Responsabilité de la gestion professionnelle et disciplinaire de l'équipe de studio de cuisine\n• Responsabilité pour atteindre les objectifs de vente dans le studio de cuisine responsable\n• Responsabilité pour la présentation attrayante des marchandises dans le studio de cuisine\n• Conseils compétents et enthousiasme de nos clients dans nos studios de cuisine modernes Pfister\n• Inspiration du client avec notre gamme attrayante et diversifiée\n• Planification et vente de cuisines de rêve à nos clients avec l'aide de l'outil de planification Carat\n• Responsable de la préparation et du traitement de l'offre jusqu'au contrat d'achat\n• Développement continu des vendeurs dans le studio de cuisine\n• Échange régulier avec l'administrateur délégué et les autres gestionnaires de la succursale\n• Échange permanent avec les équipes dans la logistique de cuisine et après-vente pour assurer un traitement de commande en douceur\n• Joy dans les relations à forte intensité de conseil avec les clients\n• Expérience dans la vente ou l'assemblage de cuisines\n• très bonne imagination spatiale et créativité\n• L'expérience des systèmes de planification numérique (meubles, cuisines, aménagement du territoire) est un avantage\n• Expérience de conduite d'une équipe de 2-3 personnes\n• formation artisanale\n• Compréhension rapide et action orientée vers la solution\n• Souverain et gagnant"
-      },
-      "needsRetranslation": false,
-      "location": "Affoltern am Albis",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/424626/3446/pub/1/index.html",
-      "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:28:33.339Z",
-      "addressLocality": "Affoltern am Albis",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8910",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-19T10:03:02.930704+00:00",
-      "postedDate": "2026-08-19T10:03:02.930704+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/424626/3446/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "3446",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
-        ]
-      },
-      "firstSeenAt": "2026-08-19T21:47:01.578Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Affoltern am Albis",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:28:33.339Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://apply.refline.ch/424626/3446/pub/1/index.html"
-    },
-    {
-      "id": "pfister-edeea00589c4",
-      "slug": "gestionnaire-du-commerce-de-detail-ameublement-apprentissage-mobel-pfister-ag-etoy",
-      "slugByLocale": {
-        "it": "gestionnaire-du-commerce-de-detail-ameublement-apprentissage-mobel-pfister-ag-etoy",
-        "en": "retail-manager-furniture-learning-mobel-pfister-ag-etoy",
-        "de": "retail-manager-mobel-lernen-mobel-pfister-ag-etoy",
-        "fr": "gestionnaire-du-commerce-de-detail-ameublement-apprentissage-pfister-etoy"
-      },
-      "company": "Möbel Pfister AG",
-      "companyKey": "pfister",
-      "companyDomain": "pfister.ch",
-      "title": "Gestionnaire du commerce de détail - ameublement (apprentissage)",
-      "titleByLocale": {
-        "it": "Retail Manager - mobili (learning)",
-        "en": "Retail Manager - furniture (learning)",
-        "de": "Retail Manager - Möbel (Lernen)",
-        "fr": "Gestionnaire du commerce de détail - ameublement (apprentissage)"
-      },
-      "description": "• -->\n\nPour le début de l'apprentissage en 2027 nous recherchons un/une\n\nGestionnaire du commerce de détail - ameublement (apprentissage)\n\n100%\n\nEtoy\n\n2027 8 1\n\nPartager\n\nChez pfister, nous partageons une vision: nous voulons nous installer dans tous les foyers de Suisse avec nos produits. Nous recherchons à cette fin des collaboratrices et des collaborateurs pour nous soutenir activement. Aide-nous à faire entrer les quelque 100'000 produits de notre assortiment dans le foyer de nos clientes et de nos clients. Que ce soit dans l'une de nos 18 succursales ou à la centrale de Suhr, un cadre de travail unique t’attend, avec des produits attrayants, sans oublier l’estime et le respect pour ton engagement. Aujourd'hui, près de 1400 personnes travaillent chez pfister: as-tu envie de les rejoindre?\n\nTes nouvelles attributions\n\n• Durant une période de formation de 3 ans, tu acquiers les connaissances nécessaires pour conseiller nos clients de manière attentionnée et compétente dans le domaine de l'ameublement\n• Dans des départements diversifiés, des spécialistes t'inculquent de manière ciblée les techniques, leur savoir-faire et leus compétences professionnelles ayant trait au contact avec nos clients\n• En outre, tu acquiers de solides connaissances dans le domaine de notre assortiment de meubles, ceci étant la base indispensable pour un conseil avisé et garant de succès\n• Tu fréquentes l'école secondaire ou d'arrondissement et obtiens de bonnes notes\n• En outre, tu es une personne ouverte et engageante qui communique facilement avec ses semblables\n• Tu aimes travailler en team et es disposé à bénéficier des conseils avisés de tes collègues possédant une vaste expérience\n• Avec passion, tu mets à profit ton flair pour les formes et les couleurs qui te permet d'aménager des espaces au style évocateur et expressif",
-      "descriptionByLocale": {
-        "it": "• -->\n\nPer l'inizio dell'apprendimento nel 2027 stiamo cercando uno / uno\n\nRetail Manager - mobili (learning)\n\n100%\n\nEtoy\n\n2027 8 1\n\nCondividi\n\nA pfister, condividiamo una visione: vogliamo trasferirci in ogni casa della Svizzera con i nostri prodotti. A tal fine, stiamo cercando collaboratori che ci sostengano attivamente. Aiutaci a portare i circa 100.000 prodotti del nostro assortimento nella casa dei nostri clienti. Sia in uno dei nostri 18 rami o presso lo stabilimento di Suhr, un quadro unico attende, con prodotti attraenti, per non parlare di stima e rispetto per il vostro impegno. Oggi, quasi 1.400 persone lavorano a pfister: vuoi unirti a loro?\n\nI nuovi poteri\n\n• Durante un periodo di formazione di 3 anni, si acquisiscono le conoscenze necessarie per consigliare i nostri clienti in modo attento e competente nel campo dell'arredamento\n• In diversi dipartimenti, gli specialisti vi insegneranno in modo mirato le tecniche, il know-how e le competenze professionali legate al contatto con i nostri clienti.\n• Inoltre, si acquisisce una solida conoscenza nel campo del nostro assortimento di mobili, questa è la base indispensabile per un consiglio informato e garanzia di successo\n• Frequenti la scuola superiore o la scuola di quartiere e ottieni buoni voti.\n• Inoltre, sei una persona aperta e coinvolgente che comunica facilmente con gli altri.\n• Ti piace lavorare come squadra e sono disposti a trarre beneficio dal saggio consiglio dei tuoi colleghi con una vasta esperienza\n• Con passione, si utilizza il tuo fascino per forme e colori che ti permettono di creare spazi dallo stile evocativo ed espressivo",
-        "en": "• -->\n\nFor the start of learning in 2027 we are looking for one/one\n\nRetail Manager - furniture (learning)\n\n100%\n\nEtoy\n\n2027 8 1\n\nShare\n\nAt pfister, we share a vision: we want to move to every home in Switzerland with our products. To this end, we are looking for collaborators to actively support us. Help us bring the approximately 100,000 products of our assortment into the home of our customers. Whether in one of our 18 branches or at the Suhr plant, a unique framework awaits, with attractive products, not to mention esteem and respect for your commitment. Today, nearly 1,400 people work at pfister: do you want to join them?\n\nYour new powers\n\n• During a 3 year training period, you acquire the necessary knowledge to advise our customers in a careful and competent way in the field of furnishing\n• In diverse departments, specialists will teach you in a targeted way the techniques, know-how and professional skills related to contact with our clients.\n• In addition, you acquire a solid knowledge in the field of our assortment of furniture, this being the indispensable basis for an informed advice and guarantee of success\n• You attend high school or borough school and get good grades\n• In addition, you are an open and engaging person who communicates easily with others.\n• You like working as a team and are willing to benefit from the wise advice of your colleagues with extensive experience\n• With passion, you use your flair for shapes and colours that allow you to create spaces with evocative and expressive style",
-        "de": "• -->\n\nFür den Beginn des Lernens im Jahr 2027 suchen wir eins/eins\n\nRetail Manager - Möbel (Lernen)\n\n100%\n\nEtoy\n\n2027 8 1\n\nAnteil\n\nBei pfister teilen wir eine Vision: Wir wollen mit unseren Produkten in jedes Haus der Schweiz ziehen. Dafür suchen wir Mitarbeiter, die uns aktiv unterstützen. Helfen Sie uns, die rund 100.000 Produkte unseres Sortiments in die Heimat unserer Kunden zu bringen. Ob in einer unserer 18 Niederlassungen oder im Werk Suhr, ein einzigartiger Rahmen mit attraktiven Produkten, ganz zu schweigen von Wertschätzung und Respekt für Ihr Engagement. Heute arbeiten fast 1.400 Menschen bei pfister: Wollen Sie mitmachen?\n\nEure neuen Kräfte\n\n• Während einer 3-jährigen Ausbildungszeit erwerben Sie das notwendige Wissen, um unsere Kunden auf sorgfältige und kompetente Weise im Bereich der Einrichtung zu beraten.\n• In verschiedenen Abteilungen vermitteln Ihnen Spezialisten gezielt die Techniken, das Know-how und die beruflichen Fähigkeiten im Zusammenhang mit dem Kontakt zu unseren Kunden.\n• Darüber hinaus erwerben Sie fundierte Kenntnisse im Bereich unseres Möbelsortiments, dies ist die unverzichtbare Grundlage für eine fundierte Beratung und Erfolgsgarantie\n• Sie besuchen die High School oder die Borough School und bekommen gute Noten\n• Darüber hinaus sind Sie eine offene und engagierte Person, die leicht mit anderen kommuniziert.\n• Sie arbeiten gerne als Team und sind bereit, von den weisen Ratschlägen Ihrer Kollegen mit umfangreicher Erfahrung zu profitieren\n• Mit Leidenschaft nutzen Sie Ihr Flair für Formen und Farben, die es Ihnen ermöglichen, Räume mit evokativem und ausdrucksstarkem Stil zu schaffen.",
-        "fr": "• -->\n\nPour le début de l'apprentissage en 2027 nous recherchons un/une\n\nGestionnaire du commerce de détail - ameublement (apprentissage)\n\n100%\n\nEtoy\n\n2027 8 1\n\nPartager\n\nChez pfister, nous partageons une vision: nous voulons nous installer dans tous les foyers de Suisse avec nos produits. Nous recherchons à cette fin des collaboratrices et des collaborateurs pour nous soutenir activement. Aide-nous à faire entrer les quelque 100'000 produits de notre assortiment dans le foyer de nos clientes et de nos clients. Que ce soit dans l'une de nos 18 succursales ou à la centrale de Suhr, un cadre de travail unique t’attend, avec des produits attrayants, sans oublier l’estime et le respect pour ton engagement. Aujourd'hui, près de 1400 personnes travaillent chez pfister: as-tu envie de les rejoindre?\n\nTes nouvelles attributions\n\n• Durant une période de formation de 3 ans, tu acquiers les connaissances nécessaires pour conseiller nos clients de manière attentionnée et compétente dans le domaine de l'ameublement\n• Dans des départements diversifiés, des spécialistes t'inculquent de manière ciblée les techniques, leur savoir-faire et leus compétences professionnelles ayant trait au contact avec nos clients\n• En outre, tu acquiers de solides connaissances dans le domaine de notre assortiment de meubles, ceci étant la base indispensable pour un conseil avisé et garant de succès\n• Tu fréquentes l'école secondaire ou d'arrondissement et obtiens de bonnes notes\n• En outre, tu es une personne ouverte et engageante qui communique facilement avec ses semblables\n• Tu aimes travailler en team et es disposé à bénéficier des conseils avisés de tes collègues possédant une vaste expérience\n• Avec passion, tu mets à profit ton flair pour les formes et les couleurs qui te permet d'aménager des espaces au style évocateur et expressif"
-      },
-      "location": "Etoy",
-      "canton": "VD",
-      "url": "https://apply.refline.ch/424626/3426/pub/1/index.html",
-      "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:28:22.452Z",
-      "addressLocality": "Etoy",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1163",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-10T11:15:25.319453+00:00",
-      "postedDate": "2026-07-10T11:15:25.319453+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/424626/3426/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "3426",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "gestionnaire-du-commerce-de-detail-ameublement-apprentissage-pfister-etoy"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-du-commerce-de-detail-ameublement-apprentissage-pfister-etoy"
-        ],
-        "en": [
-          "gestionnaire-du-commerce-de-detail-ameublement-apprentissage-pfister-etoy"
-        ],
-        "de": [
-          "gestionnaire-du-commerce-de-detail-ameublement-apprentissage-pfister-etoy"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T12:03:11.882Z",
-      "salaryMin": 97500,
-      "salaryMax": 148000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 148000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Etoy",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:28:22.452Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://apply.refline.ch/424626/3426/pub/1/index.html"
+      "crawlerMissStreak": 2
     }
   ]
 }

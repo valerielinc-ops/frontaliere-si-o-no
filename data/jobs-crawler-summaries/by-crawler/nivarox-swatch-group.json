@@ -1,22 +1,21 @@
 {
   "key": "nivarox-swatch-group",
   "label": "nivarox-swatch-group",
-  "generatedAt": "2026-11-26T21:24:35.005Z",
-  "total": 1,
+  "generatedAt": "2026-11-27T09:30:10.704Z",
+  "total": 0,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 425341,
-  "avgDurationMs": 425341,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 458502,
+  "avgDurationMs": 458502,
   "durationHistory": [
-    425341
+    458502
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "company-7ucpag",
       "slug": "ingegnere-di-sicurezza-ohs-nivarox-far-s-a-le-locle",
@@ -72,5 +71,6 @@
       }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "unchangedJobs": [],
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

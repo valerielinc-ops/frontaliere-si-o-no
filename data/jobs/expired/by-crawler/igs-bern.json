@@ -584,7 +584,25 @@
         "firstSeenAt": "2026-11-06T21:52:08.733Z",
         "title": "Fachfrau/Fachmann Betreuung (FaBe) / Gesundheit (FaGe) EFZ (50 % - 70 %)"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-cfc-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf": "BE",
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-cfc-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf": "BE",
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch": "BE"
+      },
+      "en": {
+        "professional-care-fabe-health-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf": "BE"
+      },
+      "de": {
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch": "BE",
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf": "BE"
+      },
+      "fr": {
+        "soins-professionnels-fabe-sante-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf": "BE"
+      }
+    }
   },
   {
     "slug": "stage-nella-vita-assistita-interessengemeinschaft-sozialpsychiatrie-bern-bern",
@@ -641,7 +659,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.publicjobs.ch/jobs/behinderung-beeintr%c3%a4chtigung-agogik/~job160824?ext",
-    "firstSeenAt": "2026-07-23T22:23:20.460Z"
+    "firstSeenAt": "2026-07-23T22:23:20.460Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-im-betreuten-wohnen-igs-bern-ch": "BE"
+      },
+      "de": {
+        "praktikant-in-im-betreuten-wohnen-interessengemeinschaft-sozialpsychiatrie-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "assistente-psicologo-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern",
@@ -695,7 +722,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.publicjobs.ch/jobs/psychologie-psychotherapie/~job161634?ext",
-    "firstSeenAt": "2026-08-06T11:43:21.032Z"
+    "firstSeenAt": "2026-08-06T11:43:21.032Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenzpsycholog-in-80-igs-bern-ch": "BE",
+        "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern": "BE"
+      },
+      "en": {
+        "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern": "BE"
+      },
+      "de": {
+        "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern": "BE"
+      },
+      "fr": {
+        "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-r-sviluppo-del-corso-e-moderazione-del-corso-50-interessengemeinschaft-sozialpsychiatrie-bern-stadt-bern",
@@ -747,7 +790,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.publicjobs.ch/jobs/erwachsenenbildung/~job164767?ext",
-    "firstSeenAt": "2026-09-17T03:47:53.701Z"
+    "firstSeenAt": "2026-09-17T03:47:53.701Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verantwortliche-r-kursentwicklung-und-kursmoderation-50-igs-bern-ch": "BE",
+        "verantwortliche-r-kursentwicklung-e-kursmoderation-50-interessengemeinschaft-sozialpsychiatrie-bern-stadt-bern": "BE"
+      },
+      "en": {
+        "verantwortliche-r-kursentwicklung-und-kursmoderation-50-interessengemeinschaft-sozialpsychiatrie-bern-stadt-bern": "BE"
+      },
+      "fr": {
+        "verantwortliche-r-kursentwicklung-und-kursmoderation-50-interessengemeinschaft-sozialpsychiatrie-bern-stadt-bern": "BE"
+      }
+    }
   },
   {
     "slug": "servizio-di-guardia-notturna-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",

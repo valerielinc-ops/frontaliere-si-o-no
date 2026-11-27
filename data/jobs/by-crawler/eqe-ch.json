@@ -1,7 +1,7 @@
 {
   "crawlerKey": "eqe-ch",
-  "assembledAt": "2026-11-26T21:44:33.072Z",
-  "runId": "45898143422",
+  "assembledAt": "2026-11-27T09:53:30.260Z",
+  "runId": "45973680225",
   "jobs": [
     {
       "id": "eqe-ch-cd2550fe8716",
@@ -34,7 +34,7 @@
       "url": "https://eqe.ch/unternehmen-2/offene-stellen/anlagen-und-apparatebauer-schweisser-w-m-d-pensum-100",
       "source": "eqe AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:44:16.064Z",
+      "crawledAt": "2026-11-27T09:53:20.036Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -85,9 +85,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T21:44:16.064Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://eqe.ch/unternehmen-2/offene-stellen/anlagen-und-apparatebauer-schweisser-w-m-d-pensum-100"
+      "validThrough": "2027-02-20T09:53:20.036Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
