@@ -573,6 +573,71 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     }
   });
 
+  /**
+   * uutils `mkdir` without `-p` (up to 0.8.0, fixed upstream in bf423f388)
+   * checks that the target is absent, calls mkdir(2) and, if that fails while
+   * the directory exists, still reports success. The stub reproduces that
+   * order for lock paths and holds each caller between the two steps until a
+   * second one has passed the check too, so the overlap does not depend on
+   * scheduling luck. Every other call goes to the real mkdir.
+   */
+  function installNonAtomicMkdir(fx: Fixture): void {
+    writeFileSync(join(fx.root, 'bin', 'mkdir'), [
+      '#!/usr/bin/env bash',
+      'if [ "$#" -ne 1 ] || [[ "$1" != *.lock ]]; then exec /bin/mkdir "$@"; fi',
+      '[ -e "$1" ] && exit 1',
+      `arrivals=${JSON.stringify(join(fx.root, 'mkdir-arrivals'))}`,
+      '/bin/mkdir -p "$arrivals"; : > "$arrivals/$$"',
+      'for _ in $(seq 1 100); do',
+      '  [ "$(ls "$arrivals" | wc -l)" -ge 2 ] && break',
+      '  sleep 0.05',
+      'done',
+      '/bin/mkdir "$1" 2>/dev/null || [ -d "$1" ]',
+      '',
+    ].join('\n'), { mode: 0o755 });
+  }
+
+  it('downloads a batch once for two parallel sections even if mkdir is not exclusive', () => {
+    // audit-published-dist.yml runs this script with two workers per batch.
+    const fx = buildFixture({ s1: 1, s2: 1 });
+    installNonAtomicMkdir(fx);
+    try {
+      const { status, output } = run(fx, ['s1', 's2'], '42', '2');
+      expect(status, output).toBe(0);
+      const calls = readFileSync(fx.ghLog, 'utf8').trim().split('\n');
+      expect(calls.filter((c) => /\/actions\/artifacts\/\d+\/zip/.test(c)), calls.join('\n')).toHaveLength(1);
+      for (const name of ['s1', 's2']) {
+        expect(output).toMatch(new RegExp(`rehydrated ${name} it from tar artifact:\\s+2 files \\(tar listed 2\\)`));
+      }
+      expect(output).not.toContain('falling back to git clone');
+      expect(readdirSync(fx.runnerTemp).filter((f) => f.startsWith('shard-batch-'))).toEqual([]);
+    } finally {
+      rmSync(fx.root, { recursive: true, force: true });
+    }
+  }, 30_000);
+
+  it.each(['file', 'directory'])(
+    'waits on a leftover lock (%s) without downloading, then falls back and sweeps it',
+    (kind) => {
+      const fx = buildFixture({ s1: 1 });
+      const lock = join(fx.runnerTemp, 'shard-batch-1-dist-it.lock');
+      if (kind === 'file') writeFileSync(lock, '');
+      else mkdirSync(lock);
+      // The loser's wait is a one-second poll: make each tick immediate.
+      writeFileSync(join(fx.root, 'bin', 'sleep'), '#!/bin/sh\nexit 0\n', { mode: 0o755 });
+      try {
+        const { status, output } = run(fx, ['s1']);
+        expect(status, output).toBe(0);
+        expect(output).toContain('[rehydrate] s1-it artifact absent');
+        expect(existsSync(fx.ghLog)).toBe(false);
+        expect(existsSync(lock)).toBe(false);
+      } finally {
+        rmSync(fx.root, { recursive: true, force: true });
+      }
+    },
+    60_000,
+  );
+
   it('a member that fails the zip CRC falls back to the clone, although both tar passes agree', () => {
     const fx = buildFixture({ s1: 1 }, [], ['s1']);
     try {
