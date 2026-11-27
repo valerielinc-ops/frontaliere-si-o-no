@@ -25,9 +25,12 @@ import { isTerminalManagedReview, reviewBodyIsApproving } from './pr-review-admi
  * @param {string} args.headSha current HEAD commit of the PR
  * @param {Array<{commit_id:string, user:{login:string}, body:string}>} args.reviews
  *   from `gh api repos/<owner>/<repo>/pulls/<n>/reviews`
- * @returns {{status:'merged'|'closed'|'lgtm'|'not-lgtm'|'awaiting-review', detail:string}}
+ * @param {boolean} [args.draft] `draft` della PR
+ * @param {string} [args.mergeableState] `mergeable_state` REST: solo `dirty` conta
+ *   come conflitto (`unknown`/null, calcolo asincrono, no)
+ * @returns {{status:'merged'|'closed'|'lgtm'|'not-lgtm'|'parked-draft'|'conflicting'|'awaiting-review', detail:string}}
  */
-export function classifyPr({ state, headSha, reviews }) {
+export function classifyPr({ state, headSha, reviews, draft = false, mergeableState = null }) {
   if (state === 'MERGED') return { status: 'merged', detail: 'PR mergiata' };
   if (state === 'CLOSED') return { status: 'closed', detail: 'PR chiusa senza merge' };
 
@@ -37,6 +40,20 @@ export function classifyPr({ state, headSha, reviews }) {
   const latest = onHead[onHead.length - 1];
 
   if (!latest) {
+    // Bozza senza verdetto: scelta esplicita di tenerla ferma (anche in
+    // conflitto). Non e' risolta: la voce resta nel registro.
+    if (draft === true) {
+      return {
+        status: PARKED_STATUS,
+        detail: 'PR parcheggiata in bozza, nessuna review sull\'ultimo commit',
+      };
+    }
+    if (mergeableState === 'dirty') {
+      return {
+        status: 'conflicting',
+        detail: `PR in conflitto con la base e senza review sull'ultimo commit (${String(headSha).slice(0, 8)}): risolvi il conflitto`,
+      };
+    }
     return {
       status: 'awaiting-review',
       detail: `nessuna review del bot reviewer sull'ultimo commit (${String(headSha).slice(0, 8)})`,
@@ -49,6 +66,19 @@ export function classifyPr({ state, headSha, reviews }) {
     status: 'not-lgtm',
     detail: `la review di ${latest.user?.login || 'bot'} sull'ultimo commit non e' LGTM: leggila e correggi i finding (${latest.html_url || 'review senza url'})`,
   };
+}
+
+/** Stato che non blocca lo Stop ma NON chiude il watch (solo avviso). */
+export const PARKED_STATUS = 'parked-draft';
+
+/**
+ * Una riga di avviso non bloccante per ogni PR parcheggiata in bozza.
+ * @param {Array<{ref:{owner:string, repo:string, number:number}}>} parked
+ */
+export function buildParkedNotice(parked) {
+  return parked
+    .map(({ ref }) => `PR #${ref.number} (${ref.owner}/${ref.repo}) parcheggiata in bozza: non blocca, resta nel registro e torna a bloccare quando esce dalla bozza.`)
+    .join('\n');
 }
 
 /** Statuses that mean the watch entry can be dropped and the session may stop for it. */
@@ -94,14 +124,30 @@ export function buildBlockReason(blocked) {
       'e applica UN commit che risolve tutti i finding — non limitarti ad aspettare.',
     );
   }
-  lines.push(
-    'Per attendere non fare polling di `gh pr view`/`gh pr checks`: dalla root del workspace',
-    'sottoscrivi l\'evento (se non l\'hai gia\' fatto) e avvia UN solo `bin/gh-frontaliere events listen <id>`:',
-    '',
-  );
-  for (const { ref, verdict } of blocked) {
-    lines.push(`  #${ref.number} (${ref.owner}/${ref.repo}) [${verdict.status}]: ${verdict.detail}`);
-    lines.push(`    ${subscribeCommand(ref)}`);
+  const describe = ({ ref, verdict }) => `  #${ref.number} (${ref.owner}/${ref.repo}) [${verdict.status}]: ${verdict.detail}`;
+  // In conflitto nessun evento sblocca la PR: serve un'azione, non un'attesa.
+  const conflicting = blocked.filter((b) => b.verdict.status === 'conflicting');
+  if (conflicting.length > 0) {
+    lines.push(
+      'In conflitto: risolvi il conflitto (`git merge-tree --write-tree origin/main HEAD`, poi merge',
+      'locale e push). Attendere non basta, nemmeno con un listener armato. Se la PR deve restare',
+      'ferma di proposito, convertila in bozza (`gh pr ready <N> --undo`).',
+      '',
+      ...conflicting.map(describe),
+      '',
+    );
+  }
+  const waiting = blocked.filter((b) => b.verdict.status !== 'conflicting');
+  if (waiting.length > 0) {
+    lines.push(
+      'Per attendere non fare polling di `gh pr view`/`gh pr checks`: dalla root del workspace',
+      'sottoscrivi l\'evento (se non l\'hai gia\' fatto) e avvia UN solo `bin/gh-frontaliere events listen <id>`:',
+      '',
+    );
+    for (const entry of waiting) {
+      lines.push(describe(entry));
+      lines.push(`    ${subscribeCommand(entry.ref)}`);
+    }
   }
   return lines.join('\n');
 }

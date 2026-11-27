@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-27T15:38:59.569Z",
+  "updatedAt": "2026-11-27T15:39:37.507Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1622946,12 +1622946,12 @@
     },
     "vtm-dienstleistung@rothrist": {
       "key": "vtm-dienstleistung@rothrist",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.374Z",
-      "updatedAt": "2026-11-27T15:11:14.129Z",
+      "updatedAt": "2026-11-27T15:39:37.428Z",
       "name": "VTM Dienstleistung AG",
       "city": "Rothrist",
       "zip": "4852",
@@ -1624872,7 +1624872,9 @@
       "emailDomainHints": [
         "vtmag.ch"
       ],
-      "sourceAdapterVersion": "generic-runner-v1"
+      "sourceAdapterVersion": "generic-runner-v1",
+      "promotionPr": "20401",
+      "promotionBranch": "prospector/promote-2026-11-27"
     },
     "vtm-personal@rothrist": {
       "key": "vtm-personal@rothrist",

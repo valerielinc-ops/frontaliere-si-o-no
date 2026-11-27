@@ -58,7 +58,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suchthilfe.ch/wp-content/uploads/2026/07/coach_2026.pdf",
-    "firstSeenAt": "2026-07-09T22:26:32.387Z"
+    "firstSeenAt": "2026-07-09T22:26:32.387Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "coaches-80-100-in-der-esta-klinik-suchthilfe-region-basel-reinach": "BL",
+        "psicologico-in-psychotherapeut-in-60-100-nella-clinica-esta-suchthilfe-region-basel-reinach": "BL",
+        "psychologist-psychotherapist-60-100-in-the-esta-clinic-suchthilfe-region-basel-reinach": "BL",
+        "psycholog-in-psychotherapeut-in-60-100-in-der-esta-klinik-suchthilfe-region-basel-reinach": "BL",
+        "psychologue-in-psychotherapeut-in-60-100-dans-la-clinique-esta-suchthilfe-region-basel-reinach": "BL"
+      },
+      "en": {
+        "psychologist-psychotherapist-60-100-in-the-esta-clinic-suchthilfe-region-basel-reinach": "BL"
+      },
+      "de": {
+        "psycholog-in-psychotherapeut-in-60-100-in-der-esta-klinik-suchthilfe-region-basel-reinach": "BL"
+      },
+      "fr": {
+        "coaches-80-100-in-der-esta-klinik-suchthilfe-region-basel-reinach": "BL",
+        "psychologue-in-psychotherapeut-in-60-100-dans-la-clinique-esta-suchthilfe-region-basel-reinach": "BL"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-in-betreuung-k-a-60-70-suchthilfe-region-basel",

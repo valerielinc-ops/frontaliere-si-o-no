@@ -94,6 +94,10 @@ export const QUERY_TIMEOUT_MS = 5_000;
  *   esattamente #6318 (2026-08-24): un 🔴 Important reale rimasto illetto per
  *   due ore perché nessuno tornava a guardare. Lì l'attesa armata non è
  *   un'attesa, è un rinvio — e il gate deve bloccare.
+ * - `conflicting`: come sopra. Il coordinatore emette `conflict` appena si
+ *   sottoscrive (il primo `listen` esce subito) e nessun evento successivo
+ *   risolve il conflitto: serve un commit dell'agente, anche se un secondo
+ *   `listen` risulta armato.
  */
 export const ARMED_WAIT_EXEMPT_STATUSES = Object.freeze(new Set(['awaiting-review']));
 

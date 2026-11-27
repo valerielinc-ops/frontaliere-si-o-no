@@ -48,7 +48,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/mitarbeiter-in-kasse/68ee64a9-cb33-48d1-823c-2a72197de104",
-    "firstSeenAt": "2026-10-30T21:17:48.161Z"
+    "firstSeenAt": "2026-10-30T21:17:48.161Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-kasse-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-kasse-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-kasse-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "id": "stadt-bern-3c2718ab50e7",
@@ -97,7 +109,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/ict-supporter-in-2nd-level/419c65dd-e259-4d8b-9760-eafd38beb5d2",
-    "firstSeenAt": "2026-10-26T09:14:33.797Z"
+    "firstSeenAt": "2026-09-03T23:09:22.231Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-supporter-in-2nd-level-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "ict-supporter-in-2nd-level-stadt-bern-bern": "BE"
+      }
+    },
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/ict-supporter-in-2nd-level/419c65dd-e259-4d8b-9760-eafd38beb5d2",
+        "firstSeenAt": "2026-09-03T23:09:22.231Z",
+        "title": "ICT Supporter*in 2nd. Level"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/ict-supporter-in-2nd-level/53e9fbe3-7313-43be-addd-953ec9a5a883",
+        "firstSeenAt": "2026-09-03T23:09:22.231Z",
+        "title": "ICT Supporter*in 2nd. Level"
+      }
+    ]
   },
   {
     "id": "stadt-bern-6988248bb3d5",
@@ -143,7 +175,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-intake/8f5ac90d-3c92-458f-b209-baf3a061a71f",
-    "firstSeenAt": "2026-11-06T21:19:36.503Z"
+    "firstSeenAt": "2026-09-25T14:39:55.638Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sozialarbeiter-in-intake-stadt-bern-bern": "BE"
+      }
+    },
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-intake/3cfd9219-4568-438a-bb30-e7dda7a96445",
+        "firstSeenAt": "2026-09-25T14:39:55.638Z",
+        "title": "Sozialarbeiter*in Intake"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-intake/8f5ac90d-3c92-458f-b209-baf3a061a71f",
+        "firstSeenAt": "2026-09-25T14:39:55.638Z",
+        "title": "Sozialarbeiter*in Intake"
+      }
+    ]
   },
   {
     "id": "stadt-bern-ca19347ca544",
@@ -218,7 +267,25 @@
         "firstSeenAt": "2026-09-19T22:46:53.597Z",
         "title": "Gärtner*in"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gartner-in-stadt-bern-bern": "BE",
+        "giardinieri-stadt-bern-bern": "BE",
+        "gartner-in-stadt-bern-bern-f8d313d4": "BE"
+      },
+      "en": {
+        "gardeners-stadt-bern-bern": "BE",
+        "gartner-in-stadt-bern-bern-f8d313d4": "BE"
+      },
+      "de": {
+        "gartner-in-stadt-bern-bern-f8d313d4": "BE"
+      },
+      "fr": {
+        "jardiniers-stadt-bern-bern": "BE",
+        "gartner-in-stadt-bern-bern-f8d313d4": "BE"
+      }
+    }
   },
   {
     "id": "stadt-bern-75b8bdb2556b",
@@ -269,7 +336,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/berufsbeistandspersonen-erwachsenenschutz/54a87209-bb47-4ea9-91c3-ab0c04de00ee",
-    "firstSeenAt": "2026-10-21T09:26:52.189Z"
+    "firstSeenAt": "2026-10-21T09:26:52.189Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "berufsbeistandspersonen-erwachsenenschutz-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "berufsbeistandspersonen-erwachsenenschutz-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "berufsbeistandspersonen-erwachsenenschutz-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "id": "stadt-bern-317e9cc000ca",
@@ -326,7 +405,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/mitarbeiter-in-rueckzugsraum-schuetzenmatte-oder-a/97d60574-89c1-4ab7-84ad-877015e690f0",
-    "firstSeenAt": "2026-11-20T21:25:30.860Z"
+    "firstSeenAt": "2026-11-20T21:25:30.860Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-ruckzugsraum-schutzenmatte-10-oder-15-a-stadt-bern-bern": "BE",
+        "employee-in-retreat-area-schutzenmatte-10-or-15-a-stadt-bern-bern": "BE",
+        "employe-dans-la-zone-de-retraite-schutzenmatte-10-ou-15-a-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-ruckzugsraum-schutzenmatte-10-oder-15-a-stadt-bern-bern": "BE",
+        "employee-in-retreat-area-schutzenmatte-10-or-15-a-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-ruckzugsraum-schutzenmatte-10-oder-15-a-stadt-bern-bern": "BE",
+        "employe-dans-la-zone-de-retraite-schutzenmatte-10-ou-15-a-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "id": "stadt-bern-fc94e036d0bb",
@@ -362,6 +457,9 @@
       "it": [
         "senior-projektleiter-in-stadt-bern",
         "senior-projektleiter-in-stadt-bern-bern"
+      ],
+      "en": [
+        "senior-project-manager-stadt-bern-bern"
       ]
     },
     "postalCode": "3004",
@@ -371,7 +469,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/senior-projektleiter-in/5733a290-6dac-48ab-a765-b37e8a2c213b",
-    "firstSeenAt": "2026-10-05T06:24:57.809Z"
+    "firstSeenAt": "2026-10-05T06:24:57.809Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-projektleiter-in-stadt-bern": "BE",
+        "senior-projektleiter-in-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "senior-project-manager-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "id": "stadt-bern-e4dc9843f879",
@@ -423,23 +531,48 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/dd10b8ab-265d-4cb7-918e-43a2b2c094b5",
-    "firstSeenAt": "2026-10-23T21:20:48.210Z",
+    "firstSeenAt": "2026-08-31T16:59:02.871Z",
     "previousSlugCantonByLocale": {
       "it": {
-        "sozialpadagog-in-stadt-bern-bern-d8f26500": "BE"
+        "sozialpadagog-in-stadt-bern-bern-d8f26500": "BE",
+        "sozialpadagog-in-stadt-bern-bern": "BE"
       },
       "en": {
-        "sozialpadagog-in-stadt-bern-bern-d8f26500": "BE"
+        "sozialpadagog-in-stadt-bern-bern-d8f26500": "BE",
+        "sozialpadagog-in-stadt-bern-bern": "BE"
       },
       "de": {
         "sozialpadagog-in-stadt-bern-bern-d8f26500": "BE"
       },
       "fr": {
-        "sozialpadagog-in-stadt-bern-bern-d8f26500": "BE"
+        "sozialpadagog-in-stadt-bern-bern-d8f26500": "BE",
+        "sozialpadagog-in-stadt-bern-bern": "BE"
       }
     },
     "previousSlugs": [
       "sozialpadagog-in-stadt-bern-bern"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/4b91b76f-7c16-4439-a621-1229ef8b36be",
+        "firstSeenAt": "2026-08-31T16:59:02.871Z",
+        "title": "Sozialpädagog*in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/cbf376d7-ccc5-47f4-88f8-bff170bd24c8",
+        "firstSeenAt": "2026-10-23T21:20:48.210Z",
+        "title": "Sozialpädagog*in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/dd10b8ab-265d-4cb7-918e-43a2b2c094b5",
+        "firstSeenAt": "2026-08-31T16:59:02.871Z",
+        "title": "Sozialpädagog*in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/ea82c897-608d-4858-802b-957077e95197",
+        "firstSeenAt": "2026-10-23T21:20:48.210Z",
+        "title": "Sozialpädagog*in"
+      }
     ]
   },
   {
@@ -489,7 +622,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/florist-in/b5d98f9a-2df6-46e9-97b6-03c955b9827a",
-    "firstSeenAt": "2026-10-22T21:13:34.297Z"
+    "firstSeenAt": "2026-10-22T21:13:34.297Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "florist-in-stadt-bern-bern": "BE",
+        "florist-in-stadt-bern": "BE"
+      },
+      "fr": {
+        "florist-in-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-specializzato-a-del-servizio-di-custodia-stadt-bern-bern",
@@ -551,7 +694,19 @@
     "salaryMax": 119000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst/ffaf215c-3504-4df8-b447-30a0dc5b8c08"
+    "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst/ffaf215c-3504-4df8-b447-30a0dc5b8c08",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachmitarbeiter-in-hausdienst-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "fachmitarbeiter-in-hausdienst-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "fachmitarbeiter-in-hausdienst-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "impiegato-a-specializzato-a-supporto-amministrativo-stadt-bern-bern",
@@ -611,7 +766,19 @@
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/fachangestellte-r-administration-support/2c3dea10-c8bf-4bfd-a0ed-578e836af17f"
+    "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/fachangestellte-r-administration-support/2c3dea10-c8bf-4bfd-a0ed-578e836af17f",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachangestellte-r-administration-support-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "fachangestellte-r-administration-support-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "fachangestellte-r-administration-support-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "jobcoach-agente-di-assunzione-agente-di-assunzione-stadt-bern-bern",
@@ -661,7 +828,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/jobcoach-personalvermittlerin-personalvermittler/aa777a41-78cf-459a-bafa-1eeaa0db168c",
-    "firstSeenAt": "2026-10-27T09:16:43.068Z"
+    "firstSeenAt": "2026-10-27T09:16:43.068Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "jobcoach-personalvermittlerin-personalvermittler-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "jobcoach-personalvermittlerin-personalvermittler-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "jobcoach-personalvermittlerin-personalvermittler-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "cogestione-ciclo-2-stadt-bern-bern",
@@ -711,7 +890,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/co-schulleitung-zyklus-2/8665fed7-0cd9-4aaf-b09b-240bc2a50c59",
-    "firstSeenAt": "2026-10-13T09:15:50.506Z"
+    "firstSeenAt": "2026-10-13T09:15:50.506Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "co-schulleitung-zyklus-2-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "co-schulleitung-zyklus-2-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "co-schulleitung-zyklus-2-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "educatore-trice-sociale-jolly-stadt-bern-bern",
@@ -763,7 +954,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/springer-in-sozialpaedagogik/fa6109c0-54a8-49da-8561-9626db5b48aa",
-    "firstSeenAt": "2026-10-13T09:15:50.485Z"
+    "firstSeenAt": "2026-10-13T09:15:50.485Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "springer-in-sozialpadagogik-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "springer-in-sozialpadagogik-stadt-bern-bern": "BE",
+        "springer-in-sozialpadagogik-stadt-bern": "BE"
+      },
+      "fr": {
+        "springer-in-sozialpadagogik-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "cogestione-ciclo-3-stadt-bern-bern",
@@ -813,7 +1017,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/co-schulleitung-zyklus-3/9e256239-a03c-4fd9-b970-697475902627",
-    "firstSeenAt": "2026-10-13T09:15:50.508Z"
+    "firstSeenAt": "2026-10-13T09:15:50.508Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "co-schulleitung-zyklus-3-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "co-schulleitung-zyklus-3-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "co-schulleitung-zyklus-3-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "addetto-a-al-recupero-crediti-1-stadt-bern-bern-deff6fc2",
@@ -912,7 +1128,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/fachspezialist-in-subsidiaritaet-und-auskunft/fc8f16ff-bb3f-40b5-8acb-e4edc1d72016",
-    "firstSeenAt": "2026-10-22T21:13:34.293Z"
+    "firstSeenAt": "2026-10-22T21:13:34.293Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-subsidiaritat-und-auskunft-stadt-bern-bern": "BE",
+        "specialista-in-sussidiarieta-e-informazioni-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "fachspezialist-in-subsidiaritat-und-auskunft-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "fachspezialist-in-subsidiaritat-und-auskunft-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "tirocinante-nella-pianificazione-del-traffico-stadt-bern-bern",
@@ -956,7 +1185,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/praktikant-in-verkehrsplanung/b2327e82-ee46-4471-91ae-69ebbe89e107",
-    "firstSeenAt": "2026-10-22T21:13:34.295Z"
+    "firstSeenAt": "2026-10-22T21:13:34.295Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-verkehrsplanung-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
@@ -1000,7 +1235,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
-    "firstSeenAt": "2026-08-10T21:43:20.049Z"
+    "firstSeenAt": "2026-08-10T21:43:20.049Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-delle-commissioni-stadt-bern-bern",
@@ -1050,7 +1291,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/geschaeftsleiter-in-kommissionen/facae2cd-c815-4ccb-8862-75c8658aa2de",
-    "firstSeenAt": "2026-10-21T09:26:52.206Z"
+    "firstSeenAt": "2026-10-21T09:26:52.206Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "geschaftsleiter-in-kommissionen-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "geschaftsleiter-in-kommissionen-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "geschaftsleiter-in-kommissionen-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "co-dirigente-scolastico-a-ciclo-1-stadt-bern-bern",
@@ -1100,7 +1353,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/co-schulleiter-in-zyklus-1/197dc481-67ec-4e22-b24b-8119870315b7",
-    "firstSeenAt": "2026-10-20T09:11:57.256Z"
+    "firstSeenAt": "2026-10-20T09:11:57.256Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "co-schulleiter-in-zyklus-1-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "co-schulleiter-in-zyklus-1-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "co-schulleiter-in-zyklus-1-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "assistente-sociale-stadt-bern-bern",
@@ -1150,7 +1415,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialarbeiter-in/4ef3a8ad-b2e6-4c7d-bf3f-13b2bb17e2ea",
-    "firstSeenAt": "2026-10-22T09:16:08.554Z"
+    "firstSeenAt": "2026-10-22T09:16:08.554Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sozialarbeiter-in-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "sozialarbeiter-in-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "sozialarbeiter-in-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "projektleiter-in-stadt-bern",
@@ -1190,13 +1467,16 @@
         "responsabile-del-progetto-stadt-bern-bern",
         "project-manager-stadt-bern-bern",
         "gestionnaire-de-projet-stadt-bern-bern",
-        "projektleiter-in-stadt-bern-bern-8ng5cz"
+        "projektleiter-in-stadt-bern-bern-8ng5cz",
+        "projektleiter-in-stadt-bern-bern"
       ],
       "en": [
-        "project-manager-stadt-bern-bern"
+        "project-manager-stadt-bern-bern",
+        "projektleiter-in-stadt-bern-bern"
       ],
       "fr": [
-        "gestionnaire-de-projet-stadt-bern-bern"
+        "gestionnaire-de-projet-stadt-bern-bern",
+        "projektleiter-in-stadt-bern-bern"
       ],
       "de": [
         "projektleiter-in-stadt-bern-bern-8ng5cz"
@@ -1221,7 +1501,25 @@
         "firstSeenAt": "2026-09-19T22:46:53.596Z",
         "title": "Projektleiter*in"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-stadt-bern-bern": "BE",
+        "responsabile-del-progetto-stadt-bern-bern": "BE",
+        "project-manager-stadt-bern-bern": "BE",
+        "gestionnaire-de-projet-stadt-bern-bern": "BE",
+        "projektleiter-in-stadt-bern-bern-8ng5cz": "BE"
+      },
+      "en": {
+        "projektleiter-in-stadt-bern-bern": "BE",
+        "project-manager-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "projektleiter-in-stadt-bern-bern": "BE",
+        "gestionnaire-de-projet-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "assistente-specialista-struttura-sportiva-nord-stadt-bern-bern",
@@ -1265,7 +1563,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-sportanlage-nord/7d5cb150-b51c-42c6-b112-0fc2de1120f4",
-    "firstSeenAt": "2026-10-05T06:24:57.821Z"
+    "firstSeenAt": "2026-10-05T06:24:57.821Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-sportanlagen-stadt-bern-bern-f7b5e08051",
@@ -1351,7 +1655,20 @@
         "firstSeenAt": "2026-08-27T00:32:56.602Z",
         "title": "Lehrstelle als Fachfrau/Fachmann Betriebsunterhalt EFZ, Schwerpunkt Sportanlagen"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern": "BE",
+        "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-sportanlagen-stadt-bern": "BE"
+      },
+      "en": {
+        "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern": "BE"
+      },
+      "fr": {
+        "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern": "BE"
+      }
+    }
   },
   {
     "slug": "posto-di-apprendistato-come-logistico-a-afc-cfp-stadt-bern-bern",
@@ -1403,7 +1720,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-eba/b391d93e-c9b1-4b2a-844f-774a6428be42",
-    "firstSeenAt": "2026-10-14T21:13:17.401Z"
+    "firstSeenAt": "2026-10-14T21:13:17.401Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-logistiker-in-efz-eba-stadt-bern-bern": "BE",
+        "apprendistato-come-logistiker-in-cfc-afp-stadt-bern": "BE"
+      },
+      "en": {
+        "lehrstelle-als-logistiker-in-efz-eba-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "lehrstelle-als-logistiker-in-efz-eba-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "specialista-ict-per-il-supporto-e-la-digitalizzazione-stadt-bern-bern",
@@ -1455,7 +1785,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/ict-fachspezialist-in-support-digitalisierung/96a5a836-ebdc-40f0-a0ba-f6784f9efab2",
-    "firstSeenAt": "2026-10-15T09:10:33.907Z"
+    "firstSeenAt": "2026-10-15T09:10:33.907Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-fachspezialist-in-support-amp-digitalisierung-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "ict-fachspezialist-in-support-amp-digitalisierung-stadt-bern-bern": "BE",
+        "ict-fachspezialist-in-support-digitalisierung-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "ict-fachspezialist-in-support-amp-digitalisierung-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "responsabiledi-progetto-in-uso-e-funzionamento-stadt-bern-bern",
@@ -1501,7 +1844,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/projektleiter-in-nutzung-und-betrieb/d4117a12-4cbe-48f2-9ade-bd7a207db253",
-    "firstSeenAt": "2026-10-05T06:24:57.820Z"
+    "firstSeenAt": "2026-10-05T06:24:57.820Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-nutzung-e-betrieb-stadt-bern": "BE",
+        "projektleiter-in-nutzung-und-betrieb-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "addetto-a-alla-cura-degli-animali-specializzazione-nella-cura-degli-animali-selvatici-stadt-bern-bern",
@@ -1565,7 +1915,20 @@
         "firstSeenAt": "2026-09-19T22:46:53.594Z",
         "title": "Tierpfleger*in (Fachrichtung Wildtierpflege)"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern": "BE",
+        "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern": "BE"
+      },
+      "en": {
+        "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-di-sezione-per-la-protezione-degli-adulti-stadt-bern-bern",
@@ -1615,7 +1978,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sektionsleiter-in-erwachsenenschutz/55297f2a-0bd9-410f-9c26-839cfee2db77",
-    "firstSeenAt": "2026-10-08T21:20:51.608Z"
+    "firstSeenAt": "2026-10-08T21:20:51.608Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "vigile-del-fuoco-professionista-vigile-del-fuoco-professionista-con-attestato-professionale-federale-stadt-bern-bern",
@@ -1659,7 +2034,97 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
-    "firstSeenAt": "2026-10-01T09:11:55.853Z"
+    "firstSeenAt": "2026-10-01T09:11:55.853Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern": "BE"
+      }
+    }
+  },
+  {
+    "slug": "apprendistato-recyclist-in-stadt-bern",
+    "title": "Lehrstelle Recyclist*in",
+    "titleByLocale": {
+      "it": "Insegnamento Recyclist",
+      "en": "Teaching Recyclist",
+      "de": "Lehrstelle Recyclist*in",
+      "fr": "Enseignement du recyclage"
+    },
+    "company": "Stadt Bern",
+    "companyKey": "stadt-bern",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Il riciclaggio invece di gettare via – la sostenibilità è la carta vincente. Se sei interessato al ciclo di riciclaggio, ti piace gestire utensili e macchine, sei resistente al vento e agli agenti atmosferici e ti piace avere un contatto con il cliente. Allora vieni da noi come riciclista.\n\nCompiti:\n• Scopri come gestire una vasta gamma di materiali (metal, alluminio, vetro, ecc.)\n\n• Accettare, ordinare, immagazzinare e elaborare materiali riciclabili presso i nostri cantieri\n\n• Funzionamento di varie attrezzature di manipolazione come carrelli elevatori o escavatori\n\nRequisiti\n• Scuola reale o secondaria completata\n\n• Artigianato e interesse per un'attività pratica e varia\n\n• Divertimento delle macchine per il contatto e la movimentazione dei clienti\n\n• Robusta salute e gioia al lavoro all'aperto\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+      "en": "Recycling instead of throwing away – sustainability is the trump card. If you are interested in the recycling cycle, you like to handle tools and machines, you are wind and weather resistant and you like to have customer contact. Then come to us as a recyclist.\n\nTasks:\n• Get to know how to handle a wide variety of materials (metal, aluminum, glass, etc.)\n\n• Accepting, sorting, storing and processing recyclable materials at our disposal yards\n\n• Operating various handling equipment such as forklifts or excavators\n\nRequirements\n• Completed real or secondary school\n\n• Craftsmanship and interest in a practical and varied activity\n\n• Enjoying customer contact and handling machines\n\n• Robust Health and Joy at Working Outdoors\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+      "de": "Recyceln statt wegwerfen - Nachhaltigkeit ist Trumpf.Wenn dich der Recyclingkreislauf interessiert, du gerne mit Werkzeugen und Maschinen hantierst, du wind- und wetterfest bist und du gerne Kundenkontakt hast. Dann komm zu uns in die Lehre als Recyclist*in.\n\nAufgaben:\n• Den Umgang mit den verschiedensten Materialien (Metall, Alu, Glas, etc.) kennenlernen\n\n• Auf unseren Entsorgungshöfen Wertstoffe entgegennehmen, sortieren, lagern und aufbereiten\n\n• Verschiedene Umschlaggeräte wie z.B. Stapler oder Sortierbagger bedienen\n\nAnforderungen:\n• Abgeschlossene Real- oder Sekundarschule\n\n• Handwerkliche Geschick und Interesse an einer praktischen und abwechslungsreichen Tätigkeit\n\n• Freude am Kundenkontakt und dem Umgang mit Maschinen\n\n• Robuste Gesundheit und Freude an der Arbeit im Freien\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+      "fr": "Recyclage au lieu de jeter – la durabilité est la carte de prédilection. Si vous êtes intéressé par le cycle de recyclage, vous aimez manipuler des outils et des machines, vous êtes résistant au vent et aux intempéries et vous aimez avoir un contact client. Alors venez à nous en tant que recycliste.\n\nTâches :\n• Apprenez à manipuler une grande variété de matériaux (métal, aluminium, verre, etc.)\n\n• Accepter, trier, stocker et traiter des matières recyclables à nos chantiers\n\n• Utilisation de divers équipements de manutention tels que chariots élévateurs ou pelles\n\nExigences\n• Enseignement réel ou secondaire terminé\n\n• Artisanat et intérêt pour une activité pratique et variée\n\n• Profitez du contact client et des machines de manutention\n\n• Santé robuste et joie au travail en plein air\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+    },
+    "slugByLocale": {
+      "it": "apprendistato-recyclist-in-stadt-bern",
+      "en": "teaching-recyclist-in-stadt-bern-bern",
+      "de": "lehrstelle-recyclist-in-stadt-bern-bern-a9d850d4",
+      "fr": "enseignement-du-recyclage-stadt-bern-bern"
+    },
+    "sector": "Amministrazione Pubblica",
+    "expiredAt": "2026-11-01T09:17:07.632Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-recyclist-in-stadt-bern-bern-a9d850d4",
+        "lehrstelle-recyclist-in-stadt-bern-bern",
+        "apprendistato-recyclist-in-stadt-bern-9565ee4a",
+        "lehrstelle-recyclist-in-stadt-bern-bern-c8573a69"
+      ],
+      "en": [
+        "lehrstelle-recyclist-in-stadt-bern-bern",
+        "lehrstelle-recyclist-in-stadt-bern-bern-a9d850d4"
+      ],
+      "de": [
+        "lehrstelle-recyclist-in-stadt-bern-bern-a9d850d4",
+        "lehrstelle-recyclist-in-stadt-bern-bern-c8573a69",
+        "lehrstelle-recyclist-in-stadt-bern-bern"
+      ],
+      "fr": [
+        "lehrstelle-recyclist-in-stadt-bern-bern",
+        "lehrstelle-recyclist-in-stadt-bern-bern-a9d850d4"
+      ]
+    },
+    "postalCode": "3004",
+    "streetAddress": "Murtenstrasse 100",
+    "salaryMin": 76000,
+    "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
+    "firstSeenAt": "2026-08-03T12:32:20.633Z",
+    "previousSlugs": [
+      "lehrstelle-recyclist-in-stadt-bern-bern",
+      "lehrstelle-recyclist-in-stadt-bern-bern-a9d850d4",
+      "apprendistato-recyclist-in-stadt-bern-9565ee4a",
+      "lehrstelle-recyclist-in-stadt-bern-bern-c8573a69"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
+        "firstSeenAt": "2026-08-03T12:32:20.633Z",
+        "title": "Lehrstelle Recyclist*in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/bbd72f61-aaa5-4057-ae57-e433e3a0f665",
+        "firstSeenAt": "2026-08-03T12:32:20.633Z",
+        "title": "Lehrstelle Recyclist*in"
+      }
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-recyclist-in-stadt-bern-bern": "BE"
+      },
+      "de": {
+        "lehrstelle-recyclist-in-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "progetti-di-tirocinio-portafoglio-consulenza-e-amministrazione-stadt-bern-bern",
@@ -1703,7 +2168,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/praktikant-in-projekte-portfolio-beratung-administration/02550176-6f15-4ac9-b5e0-ce755ff25c82",
-    "firstSeenAt": "2026-10-07T09:11:51.320Z"
+    "firstSeenAt": "2026-10-07T09:11:51.320Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "educatore-trice-per-bambini-e-giovani-stadt-bern-bern",
@@ -3258,7 +3729,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
-    "firstSeenAt": "2026-08-03T12:32:20.634Z"
+    "firstSeenAt": "2026-08-03T12:32:20.634Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehre-als-geomatiker-in-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "capo-della-comunicazione-stadt-bern-bern",
@@ -3308,7 +3785,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/leitung-kommunikation/0b32d669-c13e-4c17-a5a6-e3042abacc81",
-    "firstSeenAt": "2026-10-15T09:10:33.899Z"
+    "firstSeenAt": "2026-10-15T09:10:33.899Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leitung-kommunikation-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "leitung-kommunikation-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "leitung-kommunikation-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "gestione-dei-moduli-nell-ambiente-sap-stadt-bern-bern",
@@ -3352,7 +3841,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/modulverantwortliche-n-im-sap-umfeld/ee5d0d78-a4cd-45b2-a90f-3735bbe3b805",
-    "firstSeenAt": "2026-10-08T21:20:51.628Z"
+    "firstSeenAt": "2026-10-08T21:20:51.628Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "projektleiter-in-koordinationsstelle-unesco-weltkulturerbe-stadt-bern",
@@ -3402,7 +3897,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/projektleiter-in-koordinationsstelle-unesco-weltkulturerbe/d4b97828-ac22-4d7a-987d-af05bca31d84",
-    "firstSeenAt": "2026-10-12T09:17:53.834Z"
+    "firstSeenAt": "2026-10-12T09:17:53.834Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-koordinationsstelle-unesco-weltkulturerbe-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "projektleiter-in-koordinationsstelle-unesco-weltkulturerbe-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "projektleiter-in-koordinationsstelle-unesco-weltkulturerbe-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "giardiniere-stv-foreman-stadt-bern-bern",
@@ -3446,7 +3953,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/gaertner-in-stv-vorarbeiter-in/51c9dc83-883f-4b5a-97a7-35ea33e3aeab",
-    "firstSeenAt": "2026-09-02T13:31:15.080Z"
+    "firstSeenAt": "2026-09-02T13:31:15.080Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gartner-in-stv-vorarbeiter-in-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-bern-08a0216aa9",
@@ -3812,7 +4325,8 @@
         "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern-dba93b3f",
         "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern-c127b7f5",
         "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern-f7fd1710",
-        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
+        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
+        "apprendistato-kauffrau-kaufmann-cfc-stadt-bern"
       ],
       "en": [
         "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern-ca07a9d8",
@@ -4046,7 +4560,23 @@
         "firstSeenAt": "2026-07-31T22:06:53.102Z",
         "title": "Lehrstelle Kauffrau /Kaufmann EFZ"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern": "BE",
+        "apprendistato-kauffrau-kaufmann-cfc-stadt-bern": "BE"
+      },
+      "en": {
+        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern": "BE"
+      },
+      "de": {
+        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "segretario-a-della-scuola-primaria-stadt-bern-bern",
@@ -4096,7 +4626,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/volksschulsekretaer-in/efc43783-5256-4d9e-a2ab-e9bf65d995ab",
-    "firstSeenAt": "2026-10-16T21:15:39.767Z"
+    "firstSeenAt": "2026-10-16T21:15:39.767Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "volksschulsekretar-in-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "volksschulsekretar-in-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "volksschulsekretar-in-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-motorgeratemechaniker-stadt-bern",
@@ -4157,7 +4699,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehrstelle-als-motorgeraetemechaniker/1f8b077d-0f26-4cad-b3c6-9f8f9d27aa6f",
-    "firstSeenAt": "2026-08-03T12:32:20.658Z"
+    "firstSeenAt": "2026-08-03T12:32:20.658Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern": "BE",
+        "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern": "BE",
+        "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern": "BE",
+        "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern": "BE",
+        "lehrstelle-als-motorgeratemechaniker-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern": "BE"
+      },
+      "de": {
+        "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "educatore-trice-per-bambini-e-giovani-stadt-bern-bern-c36eb3",
@@ -4303,7 +4864,9 @@
       "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-6d96f8ef",
       "kinder-amp-jugendbetreuer-in-stadt-bern-bern-a4a8fd72",
       "kinder-amp-jugendbetreuer-in-stadt-bern-bern-746a61f0",
-      "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-e0dc22be"
+      "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-e0dc22be",
+      "kinder-amp-jugendbetreuer-in-stadt-bern-bern-eeb16a1e",
+      "kinder-amp-jugendbetreuer-in-stadt-bern-bern-9a8602b1"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4367,7 +4930,8 @@
         "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-6d96f8ef",
         "kinder-amp-jugendbetreuer-in-stadt-bern-bern-a4a8fd72",
         "kinder-amp-jugendbetreuer-in-stadt-bern-bern-746a61f0",
-        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-e0dc22be"
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-e0dc22be",
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-eeb16a1e"
       ],
       "en": [
         "kinder-amp-jugendbetreuer-in-stadt-bern-bern-742d2f8d",
@@ -4471,7 +5035,8 @@
         "kinder-amp-jugendbetreuer-in-stadt-bern-bern-742d2f8d",
         "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-e0dc22be",
         "kinder-amp-jugendbetreuer-in-stadt-bern-bern-37dad409",
-        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-d8a31f07"
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-d8a31f07",
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-9a8602b1"
       ],
       "fr": [
         "kinder-amp-jugendbetreuer-in-stadt-bern-bern-742d2f8d",
@@ -4559,7 +5124,23 @@
         "firstSeenAt": "2026-09-10T23:04:31.812Z",
         "title": "Kinder- & Jugendbetreuer*in"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-eeb16a1e": "BE",
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-e0dc22be": "BE"
+      },
+      "en": {
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-e0dc22be": "BE"
+      },
+      "de": {
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-9a8602b1": "BE"
+      },
+      "fr": {
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2-e0dc22be": "BE"
+      }
+    }
   },
   {
     "slug": "capocuoco-stadt-bern-bern",
@@ -4603,7 +5184,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/leitende-r-koch-koechin/20fea2cf-5b24-4643-8b65-926bceec5273",
-    "firstSeenAt": "2026-09-26T13:55:20.656Z"
+    "firstSeenAt": "2026-09-26T13:55:20.656Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leitende-r-koch-kochin-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "impiegato-a-amministrativo-a-per-la-protezione-degli-adulti-stadt-bern-bern",
@@ -4675,7 +5262,19 @@
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-erwachsenenschutz/31d8096d-5b2c-411b-85d2-7337ff49ed9f"
+    "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-erwachsenenschutz/31d8096d-5b2c-411b-85d2-7337ff49ed9f",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "collaboratore-tricein-amministrazione-80-stadt-bern-bern",
@@ -4729,7 +5328,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/mitarbeiter-in-administration/123b98ea-688e-4a4f-9818-a62faef9f198",
-    "firstSeenAt": "2026-10-03T09:14:36.468Z"
+    "firstSeenAt": "2026-10-03T09:14:36.468Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-administration-stadt-bern-bern": "BE",
+        "collaboratore-trice-in-administration-stadt-bern": "BE",
+        "mitarbeiter-in-administration-80-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-administration-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-administration-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "terziario-professionale-stadt-bern-bern",
@@ -4914,7 +5527,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-garten-und-landschaftsbau/6733ce74-06ef-4e2c-850c-1efb5fb003ba",
-    "firstSeenAt": "2026-08-03T12:32:20.657Z"
+    "firstSeenAt": "2026-08-03T12:32:20.657Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "foreman-nella-cura-degli-alberi-stadt-bern-bern",
@@ -5468,7 +6087,26 @@
         "firstSeenAt": "2026-08-19T09:47:26.841Z",
         "title": "Vorarbeiter*in Baumpflege"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "foreman-stadt-bern-bern": "BE",
+        "vorarbeiter-in-stadt-bern-bern": "BE",
+        "contremaitre-stadt-bern-bern": "BE",
+        "vorarbeiter-in-baumpflege-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "foreman-stadt-bern-bern": "BE"
+      },
+      "de": {
+        "vorarbeiter-in-baumpflege-stadt-bern-bern": "BE",
+        "vorarbeiter-in-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "contremaitre-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "kinder-amp-jugendbetreuer-in-stadt-bern-bern-3bd4550e",
@@ -5832,10 +6470,10 @@
       "socialworker-intake-stadt-bern-bern-0a54832a",
       "travailleursocial-intake-stadt-bern-bern-5e04690c",
       "reclutamento-per-assistenti-sociali-stadt-bern-bern-3a5b8787",
+      "reclutamento-per-assistenti-sociali-stadt-bern-bern",
       "socialworker-intake-stadt-bern-bern",
       "travailleursocial-intake-stadt-bern-bern",
-      "sozialarbeiter-in-intake-stadt-bern-bern",
-      "reclutamento-per-assistenti-sociali-stadt-bern-bern"
+      "sozialarbeiter-in-intake-stadt-bern-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5960,7 +6598,8 @@
         "socialworker-intake-stadt-bern-bern-56ee8b6f",
         "socialworker-intake-stadt-bern-bern-7eea514e",
         "socialworker-intake-stadt-bern-bern-0a54832a",
-        "reclutamento-per-assistenti-sociali-stadt-bern-bern"
+        "reclutamento-per-assistenti-sociali-stadt-bern-bern",
+        "socialworker-intake-stadt-bern-bern-a7840d6a"
       ],
       "fr": [
         "travailleursocial-intake-stadt-bern-bern-91af043a",
@@ -6020,7 +6659,8 @@
         "travailleursocial-intake-stadt-bern-bern-675318d3",
         "travailleursocial-intake-stadt-bern-bern-a17d6e12",
         "travailleursocial-intake-stadt-bern-bern-5e04690c",
-        "reclutamento-per-assistenti-sociali-stadt-bern-bern"
+        "reclutamento-per-assistenti-sociali-stadt-bern-bern",
+        "travailleursocial-intake-stadt-bern-bern-549f0ec8"
       ],
       "de": [
         "sozialarbeiter-in-intake-stadt-bern-bern-633ab87f",
@@ -6100,9 +6740,20 @@
     ],
     "previousSlugCantonByLocale": {
       "it": {
-        "reclutamento-per-assistenti-sociali-stadt-bern-bern-3a5b8787": "BE"
+        "reclutamento-per-assistenti-sociali-stadt-bern-bern-3a5b8787": "BE",
+        "sozialarbeiter-in-intake-stadt-bern-bern-f5bd824c": "BE"
+      },
+      "en": {
+        "socialworker-intake-stadt-bern-bern-a7840d6a": "BE"
+      },
+      "de": {
+        "sozialarbeiter-in-intake-stadt-bern-bern-f5bd824c": "BE"
+      },
+      "fr": {
+        "travailleursocial-intake-stadt-bern-bern-549f0ec8": "BE"
       }
-    }
+    },
+    "canton": "BE"
   },
   {
     "slug": "automobilisti-masons-stadt-bern-bern",
@@ -6148,7 +6799,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/strassenbauer-in-maurer-in/fb73a9eb-739d-47c5-aab8-394eb1c7dfcd",
-    "firstSeenAt": "2026-09-11T23:03:47.491Z"
+    "firstSeenAt": "2026-09-11T23:03:47.491Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "strassenbauer-in-maurer-in-stadt-bern": "BE",
+        "strassenbauer-in-maurer-in-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-u0k43t-50d5fb38",
@@ -6180,7 +6838,6 @@
     "previousSlugsByLocale": {
       "it": [
         "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern-a245ffd3",
-        "apprendistato-kauffrau-kaufmann-cfc-stadt-bern",
         "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-u0k43t-9a8da266",
         "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern-8f13f93c"
       ],
@@ -6222,7 +6879,6 @@
       }
     ],
     "previousSlugs": [
-      "apprendistato-kauffrau-kaufmann-cfc-stadt-bern",
       "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-2625ca05",
       "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern-a245ffd3",
       "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-u0k43t-9a8da266",
@@ -6446,13 +7102,13 @@
       "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-76acef16",
       "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern-397e576f",
       "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-e7ed7b65",
-      "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern",
       "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-5c8e7e96",
       "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-012fd807",
       "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-5869453f",
       "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-9b94a49c",
       "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-4690adb0",
-      "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-dda79563"
+      "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-dda79563",
+      "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6704,7 +7360,17 @@
         "firstSeenAt": "2026-09-19T22:46:53.594Z",
         "title": "Tierpfleger*in (Fachrichtung Wildtierpflege)"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "tierpfleger-in-specializzazione-wildtierpflege-stadt-bern-47121521": "BE",
+        "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-040cc47c": "BE"
+      },
+      "de": {
+        "tierpfleger-in-fachrichtung-wildtierpflege-stadt-bern-bern-040cc47c": "BE"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-specialista-mann-business-maintenance-efz-stadt-bern-1",
@@ -6758,7 +7424,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz/6f66145b-7c27-4a5f-816f-6349614a33fc",
-    "firstSeenAt": "2026-09-08T23:16:48.508Z"
+    "firstSeenAt": "2026-09-08T23:16:48.508Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1": "BE",
+        "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-stadt-bern-1": "BE",
+        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1": "BE"
+      },
+      "fr": {
+        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1": "BE"
+      }
+    }
   },
   {
     "slug": "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern-u0k43t",
@@ -6863,7 +7543,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/koordinator-in-obdachlosenhilfe/8dc2781e-e0b1-4f2a-bc2e-3a223ea57db1",
-    "firstSeenAt": "2026-10-05T08:32:22.039Z"
+    "firstSeenAt": "2026-10-05T08:32:22.039Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "koordinator-in-obdachlosenhilfe-stadt-bern-bern": "BE",
+        "coordinatore-aiuti-per-i-senzatetto-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "koordinator-in-obdachlosenhilfe-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "koordinator-in-obdachlosenhilfe-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-commerciante-mercante-efz-anche-sport-musica-stadt-bern-bern",
@@ -6915,7 +7608,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik/54dba70d-2095-4610-bb9d-3295df4fd306",
-    "firstSeenAt": "2026-09-01T00:31:39.333Z"
+    "firstSeenAt": "2026-09-01T00:31:39.333Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik-stadt-bern-bern": "BE",
+        "apprendistato-come-kauffrau-kaufmann-cfc-auch-sport-musik-stadt-bern": "BE"
+      },
+      "en": {
+        "lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-guardiano-di-animali-afc-specializzazione-in-fauna-selvatica-stadt-bern-bern",
@@ -6983,7 +7689,20 @@
         "firstSeenAt": "2026-07-31T22:06:53.132Z",
         "title": "Lehrstelle Tierpfleger*in (EFZ) Fachrichtung Wildtiere"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern": "BE",
+        "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern": "BE"
+      },
+      "en": {
+        "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "professionista-stadt-bern-bern",
@@ -7594,6 +8313,9 @@
       "fr": [
         "hilfskoch-hilfskochin-stadt-bern-bern-87c1bf56",
         "hilfskoch-hilfskochin-stadt-bern-bern"
+      ],
+      "de": [
+        "hilfskoch-hilfskochin-stadt-bern-bern"
       ]
     },
     "postalCode": "3018",
@@ -7615,7 +8337,23 @@
         "firstSeenAt": "2026-09-07T23:22:37.818Z",
         "title": "Hilfskoch / Hilfsköchin"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hilfskoch-hilfskochin-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "hilfskoch-hilfskochin-stadt-bern-bern": "BE",
+        "assistant-cook-auxiliary-cook-stadt-bern-bern": "BE"
+      },
+      "de": {
+        "hilfskoch-hilfskochin-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "hilfskoch-hilfskochin-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "bambini-amp-giovani-stadt-bern-bern-0734ae02",
@@ -8305,7 +9043,23 @@
         "firstSeenAt": "2026-09-11T13:31:34.336Z",
         "title": "Stv. Sektionsleitung Qualitätsmanagement"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stv-sektionsleitung-qualitatsmanagement-stadt-bern-1": "BE",
+        "stv-sektionsleitung-qualitatsmanagement-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "stv-sektionsleitung-qualitatsmanagement-stadt-bern-1": "BE"
+      },
+      "de": {
+        "stv-sektionsleitung-qualitatsmanagement-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "stv-sektionsleitung-qualitatsmanagement-stadt-bern-1": "BE"
+      }
+    }
   },
   {
     "slug": "cura-professionale-stadt-bern-bern-c29b39",
@@ -8363,7 +9117,8 @@
       "de": [
         "betreuungsfachperson-stadt-bern-bern-h0czhn",
         "care-professional-stadt-bern-bern-fa4e1025",
-        "professionista-stadt-bern-bern"
+        "professionista-stadt-bern-bern",
+        "betreuungsfachperson-stadt-bern-bern-6f7a4008"
       ],
       "fr": [
         "betreuungsfachperson-stadt-bern-bern-2",
@@ -8402,7 +9157,31 @@
         "firstSeenAt": "2026-09-01T08:49:38.789Z",
         "title": "Betreuungsfachperson"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betreuungsfachperson-stadt-bern-bern-2": "BE",
+        "cura-professionale-stadt-bern-bern": "BE",
+        "professionnel-de-soins-stadt-bern-bern": "BE",
+        "specialiste-des-soins-stadt-bern-bern": "BE",
+        "betreuungsfachperson-stadt-bern-bern-6f7a4008": "BE",
+        "care-professional-stadt-bern-bern-fa4e1025": "BE",
+        "professionista-stadt-bern-bern-152e397e": "BE"
+      },
+      "en": {
+        "betreuungsfachperson-stadt-bern-bern-2": "BE",
+        "care-professional-stadt-bern-bern-fa4e1025": "BE"
+      },
+      "de": {
+        "betreuungsfachperson-stadt-bern-bern-h0czhn": "BE",
+        "betreuungsfachperson-stadt-bern-bern-6f7a4008": "BE"
+      },
+      "fr": {
+        "betreuungsfachperson-stadt-bern-bern-2": "BE",
+        "professionnel-de-soins-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "istruzione-sociale-stadt-bern-bern",
@@ -8590,7 +9369,8 @@
       "educateur-trice-social-e-stadt-bern-bern-528e69cd",
       "social-pedagogue-stadt-bern-bern",
       "educateur-trice-social-e-stadt-bern-bern",
-      "educatore-trice-sociale-stadt-bern-bern"
+      "educatore-trice-sociale-stadt-bern-bern",
+      "sozialpadagog-in-stadt-bern-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -9120,7 +9900,8 @@
         "sozialpadagog-in-stadt-bern-bern-cec6673e",
         "educatore-trice-sociale-stadt-bern-bern",
         "social-pedagogue-stadt-bern-bern",
-        "educateur-trice-social-e-stadt-bern-bern"
+        "educateur-trice-social-e-stadt-bern-bern",
+        "sozialpadagog-in-stadt-bern-bern"
       ]
     },
     "postalCode": "3008",
@@ -9146,8 +9927,28 @@
         "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/dd10b8ab-265d-4cb7-918e-43a2b2c094b5",
         "firstSeenAt": "2026-10-23T21:20:48.210Z",
         "title": "Sozialpädagog*in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/ea82c897-608d-4858-802b-957077e95197",
+        "firstSeenAt": "2026-10-23T21:20:48.210Z",
+        "title": "Sozialpädagog*in"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sozialpadagog-in-stadt-bern-bern-df41162e": "BE"
+      },
+      "en": {
+        "sozialpadagog-in-stadt-bern-bern-df41162e": "BE"
+      },
+      "de": {
+        "sozialpadagog-in-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "sozialpadagog-in-stadt-bern-bern-df41162e": "BE"
+      }
+    }
   },
   {
     "slug": "supporto-ict-2-livello-stadt-bern-bern",
@@ -9734,12 +10535,22 @@
     ],
     "previousSlugCantonByLocale": {
       "it": {
-        "addetto-a-al-supporto-ict-di-2nd-livello-stadt-bern-bern-18f5a785": "BE"
+        "addetto-a-al-supporto-ict-di-2nd-livello-stadt-bern-bern-18f5a785": "BE",
+        "sostegno-alle-tic-in-2-livello-stadt-bern-bern": "BE",
+        "ict-supporter-in-2nd-level-stadt-bern-bern-05521021": "BE"
       },
       "fr": {
-        "specialiste-du-support-ict-de-2e-niveau-stadt-bern-bern-57d94029": "BE"
+        "specialiste-du-support-ict-de-2e-niveau-stadt-bern-bern-57d94029": "BE",
+        "ict-supporter-in-2nd-level-stadt-bern-bern-05521021": "BE"
+      },
+      "en": {
+        "ict-supporter-in-2nd-level-stadt-bern-bern-05521021": "BE"
+      },
+      "de": {
+        "ict-supporter-in-2nd-level-stadt-bern-bern-05521021": "BE"
       }
-    }
+    },
+    "canton": "BE"
   },
   {
     "slug": "gestione-dei-casi-operativi-stadt-bern-bern",
@@ -9786,7 +10597,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/betriebliche-r-case-manager-in/3c50af05-e73a-4d22-94d6-6de73c9e8d72",
-    "firstSeenAt": "2026-09-07T23:22:37.674Z"
+    "firstSeenAt": "2026-09-07T23:22:37.674Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebliche-r-case-manager-in-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "betriebliche-r-case-manager-in-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "personale-nella-raccolta-del-debito-stadt-bern-bern",
@@ -9838,7 +10658,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-inkasso/8562386b-b795-4891-9cdc-ef56cc0d040c",
-    "firstSeenAt": "2026-09-06T22:47:19.399Z"
+    "firstSeenAt": "2026-09-06T22:47:19.399Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-inkasso-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "sachbearbeiter-in-inkasso-stadt-bern-bern": "BE",
+        "personnel-in-debt-collection-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "sachbearbeiter-in-inkasso-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "integrazione-specialistica-nel-settore-della-pulizia-dei-trasporti-pubblici-stadt-bern-bern",
@@ -9888,7 +10721,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-integration-im-bereich-reinigung-oev/28a0ae98-7125-48cf-88f0-c0d1a16d19b4",
-    "firstSeenAt": "2026-09-08T13:31:47.889Z"
+    "firstSeenAt": "2026-09-08T13:31:47.889Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachmitarbeiter-in-integration-im-bereich-reinigung-ov-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "fachmitarbeiter-in-integration-im-bereich-reinigung-ov-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "fachmitarbeiter-in-integration-im-bereich-reinigung-ov-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern",
@@ -9938,7 +10783,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/berufsbeistandsperson-erwachsenenschutz/3207a206-b75f-4546-8b64-7ad85283301f",
-    "firstSeenAt": "2026-08-27T00:32:56.604Z"
+    "firstSeenAt": "2026-08-27T00:32:56.604Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "capo-dell-ufficio-ereditario-stadt-bern-bern",
@@ -9994,7 +10851,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/leiter-in-erbschaftsamt/b9d58410-2707-4f9b-9552-cf67ba2b2028",
-    "firstSeenAt": "2026-09-19T22:46:53.595Z"
+    "firstSeenAt": "2026-09-19T22:46:53.595Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-erbschaftsamt-stadt-bern-bern": "BE",
+        "head-of-the-inheritance-office-stadt-bern-bern": "BE",
+        "chef-du-bureau-de-succession-stadt-bern-bern": "BE",
+        "leiter-in-erbschaftsamt-stadt-bern": "BE"
+      },
+      "en": {
+        "leiter-in-erbschaftsamt-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "leiter-in-erbschaftsamt-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "evento-br-gestione-e-pianificazione-operativa-stadt-bern-1",
@@ -10045,7 +10917,94 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-veranstaltungs-management-und-einsatzplanung/d6f5d8d9-06d5-4376-84c1-4dafb7b2c6ff",
-    "firstSeenAt": "2026-09-02T13:31:15.068Z"
+    "firstSeenAt": "2026-09-02T13:31:15.068Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-veranstaltungs-br-management-und-einsatzplanung-stadt-bern-1": "BE",
+        "sachbearbeiter-in-veranstaltungs-br-management-e-einsatzplanung-stadt-bern-1": "BE"
+      },
+      "en": {
+        "sachbearbeiter-in-veranstaltungs-br-management-und-einsatzplanung-stadt-bern-1": "BE"
+      },
+      "fr": {
+        "sachbearbeiter-in-veranstaltungs-br-management-und-einsatzplanung-stadt-bern-1": "BE"
+      }
+    }
+  },
+  {
+    "slug": "lavoratore-orticolo-stadt-bern-bern",
+    "title": "Gartenbauarbeiter*in",
+    "titleByLocale": {
+      "it": "Lavoratore orticolo",
+      "en": "Horticultural worker*",
+      "de": "Gartenbauarbeiter*in",
+      "fr": "Ouvrier horticole*"
+    },
+    "company": "Stadt Bern",
+    "companyKey": "stadt-bern",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Facciamo Berna più bella, colorata e vivibile. Vuoi sostenerci? Siamo alla ricerca di voi immediatamente o su appuntamento, se il lavoro di giardinaggio è la vostra passione e siete alla ricerca di un compito con un lavoro significativo così come soluzioni di lavoro individuali che soddisfano le vostre esigenze.\n\nCompiti:\n• Servizi di manutenzione e cura nelle aree verdi su istruzione\n\n• Eseguire lavori di pulizia nelle piante\n\n• Guida, manutenzione, riparazione e manutenzione di veicoli, macchinari e attrezzature\n\nRequisiti\n• Preferibilmente esperienza nella manutenzione del giardino\n\n• Conoscenza delle applicazioni IT\n\n• Lavoratori autonomi e affidabili\n\n• Team-ready e responsabile\n\n• Titolo di guida della categoria B\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+      "en": "We make Bern more beautiful, colorful and liveable. Do you want to support us in this? We are looking for you immediately or by appointment, if gardening work is your passion and you are looking for a task with meaningful work as well as individual working time solutions that suit your needs.\n\nTasks:\n• Maintenance and care services in green areas on instruction\n\n• Performing cleaning work in the plants\n\n• Driving, maintaining, repairing and maintaining vehicles, machinery and equipment\n\nRequirements\n• Preferably experience in garden maintenance\n\n• IT application knowledge\n\n• Self-employed and reliable\n\n• Team-ready and responsible\n\n• Category B driving licence\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+      "de": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per sofort oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Unterhalts- und Pflegearbeiten in Grünanlagen auf Anweisung\n\n• Durchführen von Reinigungsarbeiten in den Anlagen\n\n• Führen, unterhalten, reparieren und pflegen von Fahrzeugen, Maschinen und Geräten\n\nAnforderungen:\n• Vorzugsweise Erfahrung im Gartenunterhalt\n\n• IT-Anwendungskenntnisse\n\n• Selbstständig und zuverlässig\n\n• Teamfähig und verantwortungsbewusst\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "fr": "Nous rendons Bern plus belle, colorée et vivante. Voulez-vous nous soutenir ? Nous sommes à votre recherche immédiatement ou sur rendez-vous, si le travail de jardinage est votre passion et vous êtes à la recherche d'une tâche avec un travail significatif ainsi que des solutions de temps de travail individuel qui répondent à vos besoins.\n\nTâches :\n• Services d ' entretien et de soins dans les zones vertes\n\n• Effectuer des travaux de nettoyage dans les usines\n\n• Conduite, entretien, réparation et entretien des véhicules, des machines et du matériel\n\nExigences\n• Expérience de préférence dans l'entretien du jardin\n\n• Connaissance des applications informatiques\n\n• Travailleurs indépendants et fiables\n\n• Équipe prête et responsable\n\n• Permis de conduire de catégorie B\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+    },
+    "slugByLocale": {
+      "it": "lavoratore-orticolo-stadt-bern-bern",
+      "en": "horticultural-worker-stadt-bern-bern",
+      "de": "gartenbauarbeiter-in-stadt-bern-bern",
+      "fr": "ouvrier-horticole-stadt-bern-bern"
+    },
+    "sector": "Amministrazione Pubblica",
+    "expiredAt": "2026-09-21T16:02:20.960Z",
+    "previousSlugs": [
+      "gartenbauarbeiter-in-stadt-bern-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "gartenbauarbeiter-in-stadt-bern-bern"
+      ],
+      "en": [
+        "gartenbauarbeiter-in-stadt-bern-bern"
+      ],
+      "fr": [
+        "gartenbauarbeiter-in-stadt-bern-bern"
+      ]
+    },
+    "postalCode": "3008",
+    "streetAddress": "Murtenstrasse 51",
+    "salaryMin": 85000,
+    "salaryMax": 119000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/gartenbauarbeiter-in/a461a8fb-aeea-412a-b959-9f4c4ce36ebe",
+    "firstSeenAt": "2026-08-20T21:39:04.160Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/gartenbauarbeiter-in/a461a8fb-aeea-412a-b959-9f4c4ce36ebe",
+        "firstSeenAt": "2026-08-20T21:39:04.160Z",
+        "title": "Gartenbauarbeiter*in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bern.ch/offene-stellen/gartenbauarbeiter-in/d3e67471-221a-4ec4-b820-f00afd051517",
+        "firstSeenAt": "2026-08-20T21:39:04.160Z",
+        "title": "Gartenbauarbeiter*in"
+      }
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gartenbauarbeiter-in-stadt-bern-bern": "BE"
+      },
+      "en": {
+        "gartenbauarbeiter-in-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "gartenbauarbeiter-in-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "id": "stadt-bern-5c5dc06e0c01",

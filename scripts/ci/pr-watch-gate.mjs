@@ -20,8 +20,18 @@
  * one thing this hook exists to catch, and staying silent there is the
  * exact defect it is patching.
  *
- * A single entry whose repo/PR no longer resolves (renamed, deleted) is
- * dropped rather than blocking forever on something nobody can fix from here.
+ * A single entry whose repo/PR no longer resolves (renamed, deleted: HTTP
+ * 404) is dropped rather than blocking forever on something nobody can fix
+ * from here. Any other read failure (timeout, rate limit) keeps the entry
+ * without blocking this turn.
+ *
+ * BOZZA PARCHEGGIATA (2026-11-27, #20354): una PR in bozza senza review
+ * sull'ultimo commit — anche in conflitto — non blocca: avviso di una riga, e
+ * la voce RESTA nel registro, quindi torna a bloccare quando esce dalla bozza.
+ * Una review non approvante blocca anche in bozza. Una PR non bozza in
+ * conflitto senza review blocca anche con l'attesa armata: il coordinatore
+ * emette `conflict` appena si sottoscrive e nessun evento risolve il
+ * conflitto al posto dell'agente.
  *
  * ATTESA ARMATA (2026-09-20): l'istruzione che il gate stampa deve poter
  * funzionare. Il messaggio di blocco dice di non fare polling e di
@@ -54,6 +64,10 @@
  * blocco: il costo per round-trip resta lo stesso, ma il NUMERO di
  * round-trip per minuto crolla. Il sonno vive nel processo dell'hook, non
  * nel turno dell'agente: non consuma token di ragionamento.
+ *
+ * Il cooldown e' PER SESSIONE (2026-11-27): lo stamp era uno solo per
+ * checkout, quindi il primo blocco di una sessione dormiva fino a 15 minuti
+ * per un blocco emesso a un'altra.
  *
  * COOLDOWN, seconda misura (2026-08-24, stessa sera): 45s bastava a
  * spezzare i cicli a tempo-zero, ma su un vitest da ~15-20 minuti produceva
@@ -95,13 +109,14 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readEntries, writeEntries, removeEntry, entriesForSession, entriesOfOtherSessions } from './lib/pr-watch-store.mjs';
-import { buildBlockReason, classifyPr, RESOLVED_STATUSES } from './lib/pr-watch-classify.mjs';
+import { buildBlockReason, buildParkedNotice, classifyPr, PARKED_STATUS, RESOLVED_STATUSES } from './lib/pr-watch-classify.mjs';
 import { readHookStdin } from './lib/hook-stdin.mjs';
 import { armedWaitCanReplaceBlock, waitIsArmed } from './lib/pr-watch-subscription.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..', '..');
 const GH_TIMEOUT_MS = 12_000;
+const REVIEW_PAGES_MAX = 5;
 
 /**
  * Il gate vale per una SESSIONE (interattiva o cloud), non per un run di
@@ -166,50 +181,81 @@ export function remainingCooldownMs(lastAt, now, cooldownMs = COOLDOWN_MS) {
   return cooldownMs - elapsed;
 }
 
-/** Se l'ultimo blocco è più recente di `COOLDOWN_MS`, dorme il resto
- * dell'intervallo prima di procedere — throttle single-purpose, non
- * single-flight: più sessioni possono dormire in parallelo, ognuna sul
- * proprio conto alla riga di comando (fine, non condividono un lock). */
-function throttleBeforeBlocking() {
-  let lastAt = 0;
+/** Stamp `{bySession: {<id>: epochMs}}`; qualunque altro contenuto = vuoto. */
+function readBlockStamps() {
   try {
-    lastAt = JSON.parse(readFileSync(LAST_BLOCK_PATH, 'utf-8'))?.at ?? 0;
+    const stamps = JSON.parse(readFileSync(LAST_BLOCK_PATH, 'utf-8'))?.bySession;
+    return stamps && typeof stamps === 'object' ? stamps : {};
   } catch {
-    lastAt = 0;
+    return {};
   }
-  sleepMs(remainingCooldownMs(lastAt, Date.now()));
+}
+
+/** Se l'ultimo blocco DI QUESTA SESSIONE è più recente di `COOLDOWN_MS`, dorme
+ * il resto dell'intervallo prima di procedere. Senza session id le invocazioni
+ * condividono una chiave comune.
+ * @param {string|null} sessionId */
+function throttleBeforeBlocking(sessionId) {
+  const key = sessionId || 'no-session';
+  sleepMs(remainingCooldownMs(readBlockStamps()[key] ?? 0, Date.now()));
   try {
+    const now = Date.now();
+    // Riletto dopo il sonno: le altre sessioni possono aver scritto nel
+    // frattempo. Gli stamp scaduti si buttano.
+    const live = Object.entries(readBlockStamps()).filter(([, at]) => remainingCooldownMs(at, now) > 0);
     mkdirSync(dirname(LAST_BLOCK_PATH), { recursive: true });
-    writeFileSync(LAST_BLOCK_PATH, JSON.stringify({ at: Date.now() }));
+    writeFileSync(LAST_BLOCK_PATH, JSON.stringify({ bySession: { ...Object.fromEntries(live), [key]: now } }));
   } catch {
     // bookkeeping best-effort: un fallimento qui non deve rompere il gate
   }
 }
 
 function gh(args) {
-  return execFileSync('gh', args, { encoding: 'utf-8', timeout: GH_TIMEOUT_MS, maxBuffer: 4 * 1024 * 1024 });
+  return execFileSync('gh', args, {
+    encoding: 'utf-8',
+    timeout: GH_TIMEOUT_MS,
+    maxBuffer: 4 * 1024 * 1024,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+}
+
+/** L'API elenca le review dalla piu' vecchia (30 per pagina di default): senza
+ * paginare, quella sulla head di una PR con molti giri resta invisibile. */
+function readReviews(path) {
+  const all = [];
+  for (let page = 1; page <= REVIEW_PAGES_MAX; page += 1) {
+    const batch = JSON.parse(gh(['api', `${path}?per_page=100&page=${page}`]));
+    all.push(...batch);
+    if (batch.length < 100) break;
+  }
+  return all;
 }
 
 /**
  * @param {{owner:string, repo:string, number:number}} ref
- * @returns {{status:string, detail:string}|null} null = could not resolve at all
+ * @returns {{status:string, detail:string}|null|undefined} null = la PR non
+ *   esiste (404); undefined = lettura fallita, stato ignoto
  */
 function checkOne(ref) {
   const slug = `${ref.owner}/${ref.repo}`;
-  let state, headSha, reviews;
+  let state, headSha, draft, mergeableState, reviews;
   try {
     const pr = JSON.parse(gh(['api', `repos/${slug}/pulls/${ref.number}`]));
     state = pr.merged_at ? 'MERGED' : String(pr.state || '').toUpperCase();
     headSha = pr.head?.sha;
-  } catch {
-    return null; // PR/repo not resolvable — drop rather than block forever
+    draft = pr.draft === true;
+    mergeableState = pr.mergeable_state;
+  } catch (error) {
+    // Solo un 404 prova che la PR non c'e' piu'.
+    return /HTTP 404/.test(String(error?.stderr || '')) ? null : undefined;
   }
   try {
-    reviews = JSON.parse(gh(['api', `repos/${slug}/pulls/${ref.number}/reviews`]));
+    reviews = readReviews(`repos/${slug}/pulls/${ref.number}/reviews`);
   } catch {
     reviews = []; // reviews endpoint failing is not a reason to assume LGTM
+    draft = false; // ne' a parcheggiare una bozza che puo' avere un finding
   }
-  return classifyPr({ state, headSha, reviews });
+  return classifyPr({ state, headSha, reviews, draft, mergeableState });
 }
 
 /**
@@ -294,14 +340,23 @@ async function main() {
 
   const remaining = [];
   const blocked = [];
+  const parked = [];
   for (const entry of entries) {
     const verdict = checkOne(entry);
     if (verdict === null) continue; // unresolvable — drop, do not carry forward
+    if (verdict === undefined) {
+      remaining.push(entry); // stato ignoto: ci si riprova al prossimo Stop
+      continue;
+    }
     if (RESOLVED_STATUSES.has(verdict.status)) continue; // resolved — drop
     // L'entry resta SEMPRE nel registro: l'attesa armata esenta dal BLOCCO di
     // questo turno, non chiude il watch. Se il listener muore o la
     // subscription scade, il prossimo Stop ritrova l'entry e blocca.
     remaining.push(entry);
+    if (verdict.status === PARKED_STATUS) {
+      parked.push({ ref: entry, verdict });
+      continue;
+    }
     if (exemptBecauseWaitIsArmed(entry, verdict)) continue;
     blocked.push({ ref: entry, verdict });
   }
@@ -316,13 +371,17 @@ async function main() {
     // below from what was just computed.
   }
 
-  if (blocked.length === 0) return;
+  const notice = buildParkedNotice(parked);
+  if (blocked.length === 0) {
+    if (notice) console.log(JSON.stringify({ systemMessage: notice }));
+    return;
+  }
 
   // Dorme QUI, non prima: se nel frattempo tutto si è risolto (blocked vuoto,
   // già ritornato sopra) non paghiamo il throttle per niente.
-  throttleBeforeBlocking();
+  throttleBeforeBlocking(sessionId);
 
-  const reason = buildBlockReason(blocked);
+  const reason = [buildBlockReason(blocked), notice].filter(Boolean).join('\n');
 
   console.log(JSON.stringify({ decision: 'block', reason, systemMessage: reason }));
   process.exit(2);

@@ -48,7 +48,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/19809f6c-74b3-429f-b152-712f5c67bdf1",
-    "firstSeenAt": "2026-11-05T21:47:32.459Z"
+    "firstSeenAt": "2026-11-05T21:47:32.459Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schaler-in-maurer-in-strabag-thusis": "GR"
+      },
+      "en": {
+        "schaler-in-maurer-in-strabag-thusis": "GR"
+      },
+      "fr": {
+        "schaler-in-maurer-in-strabag-thusis": "GR"
+      }
+    }
   },
   {
     "id": "strabag-5496ba759ac5",
@@ -101,7 +113,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/221cf7e6-dd11-4f45-8f2c-17c8a2394925",
-    "firstSeenAt": "2026-11-05T09:40:15.931Z"
+    "firstSeenAt": "2026-11-05T09:40:15.931Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflasterer-in-strabag-disentis-oder-thusis": "GR",
+        "pflasterer-in-strabag-ag-disentis-oder-thusis": "GR"
+      },
+      "en": {
+        "pflasterer-in-strabag-disentis-oder-thusis": "GR"
+      },
+      "fr": {
+        "pflasterer-in-strabag-disentis-oder-thusis": "GR"
+      }
+    }
   },
   {
     "id": "strabag-be6c4df9cb17",
@@ -154,7 +179,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/9294703d-0e8e-446c-a4f3-599c847be9cc",
-    "firstSeenAt": "2026-11-05T09:40:16.737Z"
+    "firstSeenAt": "2026-11-05T09:40:16.737Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bohrmeister-in-strabag-disentis-oder-thusis": "GR",
+        "bohrmeister-in-strabag-ag-disentis-oder-thusis": "GR"
+      },
+      "en": {
+        "bohrmeister-in-strabag-disentis-oder-thusis": "GR"
+      },
+      "fr": {
+        "bohrmeister-in-strabag-disentis-oder-thusis": "GR"
+      }
+    }
   },
   {
     "id": "strabag-fb1c55de0a6d",
@@ -191,7 +229,11 @@
       "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg",
       "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg",
       "meccanico-per-macchine-da-costruzione-in-speciale-ingegneria-civile-strabag-bmti-gmbh-rothenburg",
-      "construction-machinery-mechanic-specialist-in-deep-foundation-engineering-strabag"
+      "construction-machinery-mechanic-specialist-in-deep-foundation-engineering-strabag",
+      "meccanico-a-di-macchine-da-cantiere-per-lavori-speciali-di-fondazione-strabag-bmti-gmbh-rothenburg",
+      "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg-6509a0f9",
+      "civil-engineering-construction-machinery-mechanic-strabag-bmti-gmbh-rothenburg",
+      "mecanicien-de-machines-de-chantier-dans-les-travaux-speciaux-du-genie-civil-strabag-bmti-gmbh-rothenburg"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -200,16 +242,23 @@
         "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg",
         "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg",
         "meccanico-per-macchine-da-costruzione-in-speciale-ingegneria-civile-strabag-bmti-gmbh-rothenburg",
-        "construction-machinery-mechanic-specialist-in-deep-foundation-engineering-strabag"
+        "construction-machinery-mechanic-specialist-in-deep-foundation-engineering-strabag",
+        "meccanico-a-di-macchine-da-cantiere-per-lavori-speciali-di-fondazione-strabag-bmti-gmbh-rothenburg",
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg-6509a0f9"
       ],
       "en": [
         "construction-machinery-mechanic-specialist-in-deep-foundation-engineering-strabag",
         "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
-        "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg"
+        "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg",
+        "civil-engineering-construction-machinery-mechanic-strabag-bmti-gmbh-rothenburg"
       ],
       "fr": [
         "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg",
-        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg"
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
+        "mecanicien-de-machines-de-chantier-dans-les-travaux-speciaux-du-genie-civil-strabag-bmti-gmbh-rothenburg"
+      ],
+      "de": [
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg-6509a0f9"
       ]
     },
     "postalCode": "6023",
@@ -241,7 +290,33 @@
         "firstSeenAt": "2026-09-03T13:49:04.252Z",
         "title": "Construction Machinery Mechanic: Specialist in Deep Foundation Engineering"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg": "LU",
+        "costruzione-meccanica-meccanica-speciale-civile-strabag-bmti-gmbh-rothenburg": "LU",
+        "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg": "LU",
+        "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg": "LU",
+        "meccanico-per-macchine-da-costruzione-in-speciale-ingegneria-civile-strabag-bmti-gmbh-rothenburg": "LU",
+        "construction-machinery-mechanic-specialist-in-deep-foundation-engineering-strabag": "LU",
+        "meccanico-a-di-macchine-da-cantiere-per-lavori-speciali-di-fondazione-strabag-bmti-gmbh-rothenburg": "LU",
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg-6509a0f9": "LU"
+      },
+      "en": {
+        "construction-machinery-mechanic-specialist-in-deep-foundation-engineering-strabag": "LU",
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg": "LU",
+        "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg": "LU",
+        "civil-engineering-construction-machinery-mechanic-strabag-bmti-gmbh-rothenburg": "LU"
+      },
+      "fr": {
+        "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg": "LU",
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg": "LU",
+        "mecanicien-de-machines-de-chantier-dans-les-travaux-speciaux-du-genie-civil-strabag-bmti-gmbh-rothenburg": "LU"
+      },
+      "de": {
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg-6509a0f9": "LU"
+      }
+    }
   },
   {
     "slug": "operatore-trice-di-rullo-compressore-strabag-ag-disentis-und-thusis",
@@ -293,7 +368,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/87755852-2265-44c2-b940-a8529bf2b8b4",
-    "firstSeenAt": "2026-11-05T09:40:17.592Z"
+    "firstSeenAt": "2026-11-05T09:40:17.592Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "walzenfahrer-in-strabag-disentis-und-thusis": "GR",
+        "walzenfahrer-in-strabag-ag-disentis-und-thusis": "GR"
+      },
+      "en": {
+        "walzenfahrer-in-strabag-disentis-und-thusis": "GR"
+      },
+      "fr": {
+        "walzenfahrer-in-strabag-disentis-und-thusis": "GR"
+      }
+    }
   },
   {
     "slug": "capocantiere-costruzioni-stradali-strabag-ag-disentis-oder-thusis",
@@ -345,7 +433,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/111b2616-4939-416f-b6b7-ccc8313859cf",
-    "firstSeenAt": "2026-11-04T21:40:04.001Z"
+    "firstSeenAt": "2026-11-04T21:40:04.001Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "polier-in-strassenbau-strabag-disentis-oder-thusis": "GR",
+        "polier-in-strassenbau-strabag-ag-disentis-oder-thusis": "GR"
+      },
+      "en": {
+        "polier-in-strassenbau-strabag-disentis-oder-thusis": "GR"
+      },
+      "fr": {
+        "polier-in-strassenbau-strabag-disentis-oder-thusis": "GR"
+      }
+    }
   },
   {
     "slug": "conducente-di-finitrice-strabag-ag-disentis-oder-thusis",
@@ -397,7 +498,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/c772714d-5a2e-4790-929d-7e97f71822ef",
-    "firstSeenAt": "2026-11-05T09:40:19.494Z"
+    "firstSeenAt": "2026-11-05T09:40:19.494Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fertigerfahrer-in-strabag-disentis-oder-thusis": "GR",
+        "fertigerfahrer-in-strabag-ag-disentis-oder-thusis": "GR"
+      },
+      "en": {
+        "fertigerfahrer-in-strabag-disentis-oder-thusis": "GR"
+      },
+      "fr": {
+        "fertigerfahrer-in-strabag-disentis-oder-thusis": "GR"
+      }
+    }
   },
   {
     "slug": "operatore-operatrice-di-escavatore-gommato-operatore-operatrice-di-escavatore-strabag-ag-subingen-bern-f1e7a017",
@@ -572,7 +686,20 @@
         "firstSeenAt": "2026-10-01T09:24:25.526Z",
         "title": "Bauführer:in Tiefbau und Strassenbau"
       }
-    ]
+    ],
+    "canton": "TG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil": "TG",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil": "TG"
+      },
+      "en": {
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil": "TG"
+      },
+      "fr": {
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil": "TG"
+      }
+    }
   },
   {
     "slug": "caposquadra-costruzioni-stradali-strabag-ag-disentis-oder-thusis",
@@ -624,7 +751,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/80dedf97-9c08-42bf-b322-4d56330ecb9e",
-    "firstSeenAt": "2026-11-04T21:40:05.036Z"
+    "firstSeenAt": "2026-11-04T21:40:05.036Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis": "GR",
+        "vorarbeiter-in-strassenbau-strabag-ag-disentis-oder-thusis": "GR"
+      },
+      "en": {
+        "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis": "GR"
+      },
+      "fr": {
+        "vorarbeiter-in-strassenbau-strabag-disentis-oder-thusis": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-ingegneria-civile-strabag-ag-schlieren",
@@ -724,7 +864,19 @@
         "firstSeenAt": "2026-09-28T21:27:26.273Z",
         "title": "Projektleiter:in Ingenieurbau"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-ingenieurbau-strabag-schlieren": "ZH"
+      },
+      "en": {
+        "projektleiter-in-ingenieurbau-strabag-schlieren": "ZH"
+      },
+      "fr": {
+        "projektleiter-in-ingenieurbau-strabag-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "stagista-tecnico-a-strabag-ag-schlieren",
@@ -774,7 +926,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/ca27813c-fdfc-45d2-a036-6283252f1d16",
-    "firstSeenAt": "2026-11-03T21:55:03.783Z"
+    "firstSeenAt": "2026-11-03T21:55:03.783Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technische-r-praktikant-in-strabag-schlieren": "ZH"
+      },
+      "en": {
+        "technische-r-praktikant-in-strabag-schlieren": "ZH"
+      },
+      "fr": {
+        "technische-r-praktikant-in-strabag-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "tecnico-a-dei-preventivi-addetto-a-agli-acquisti-nell-edilizia-in-legno-80-100-strabag-ag-lindau-bei-effretikon",
@@ -836,7 +1000,19 @@
         "firstSeenAt": "2026-09-28T03:36:30.736Z",
         "title": "Kalkulator:in / Einkäufer:in Holzbau 80-100%"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "en": {
+        "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "fr": {
+        "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon": "ZH"
+      }
+    }
   },
   {
     "slug": "caposquadra-capocantiere-nel-settore-delle-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
@@ -942,7 +1118,6 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon-8d354d5f",
         "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon-777020aa",
         "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon-5e4abb1e",
         "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon-18ef1091",
@@ -962,7 +1137,8 @@
         "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon-dd793af2",
         "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon",
         "foreman-fottuman-costruzione-del-legno-strabag-ag-lindau-bei-effretikon",
-        "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon-c6ef3cce"
+        "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon-c6ef3cce",
+        "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon-8d354d5f"
       ],
       "en": [
         "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon"
@@ -994,7 +1170,19 @@
         "firstSeenAt": "2026-09-24T14:41:06.401Z",
         "title": "Vorarbeiter:in/Polier:in Holzbau"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "en": {
+        "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "fr": {
+        "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon": "ZH"
+      }
+    }
   },
   {
     "slug": "zimmermann-camera-in-legno-strabag-ag-lindau-bei-effretikon",
@@ -1025,18 +1213,42 @@
     "expiredAt": "2026-11-06T21:51:43.206Z",
     "previousSlugs": [
       "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon",
-      "zimmermann-chambre-en-bois-strabag-ag-lindau-bei-effretikon"
+      "zimmermann-chambre-en-bois-strabag-ag-lindau-bei-effretikon",
+      "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon",
+      "carpenter-carpenter-in-costruzione-di-legno-strabag-ag-lindau-bei-effretikon",
+      "zimmermann-zimmerin-holzbau-strabag-ag-lindau-bei-effretikon",
+      "zimmermann-camera-in-legno-strabag-ag-lindau-bei-effretikon-ce4228e2",
+      "charpentier-charpentier-dans-la-construction-de-bois-strabag-ag-lindau-bei-effretikon",
+      "carpenter-carpenter-im-holzbau-strabag-ag-lindau-bei-effretikon",
+      "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-aa3ed447",
+      "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-dcdcaf0c",
+      "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-e9ea7f87"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon"
+        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon",
+        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon",
+        "carpenter-carpenter-in-costruzione-di-legno-strabag-ag-lindau-bei-effretikon",
+        "zimmermann-zimmerin-holzbau-strabag-ag-lindau-bei-effretikon",
+        "zimmermann-camera-in-legno-strabag-ag-lindau-bei-effretikon-ce4228e2",
+        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-aa3ed447",
+        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-dcdcaf0c",
+        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-e9ea7f87"
       ],
       "en": [
-        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon"
+        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon",
+        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon"
       ],
       "fr": [
         "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon",
-        "zimmermann-chambre-en-bois-strabag-ag-lindau-bei-effretikon"
+        "zimmermann-chambre-en-bois-strabag-ag-lindau-bei-effretikon",
+        "charpentier-charpentier-dans-la-construction-de-bois-strabag-ag-lindau-bei-effretikon",
+        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon"
+      ],
+      "de": [
+        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon",
+        "carpenter-carpenter-im-holzbau-strabag-ag-lindau-bei-effretikon",
+        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-aa3ed447"
       ]
     },
     "postalCode": "8315",
@@ -1058,7 +1270,30 @@
         "firstSeenAt": "2026-09-24T14:41:06.015Z",
         "title": "Zimmermann:Zimmerin Holzbau"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon": "ZH",
+        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon": "ZH",
+        "carpenter-carpenter-in-costruzione-di-legno-strabag-ag-lindau-bei-effretikon": "ZH",
+        "zimmermann-zimmerin-holzbau-strabag-ag-lindau-bei-effretikon": "ZH"
+      },
+      "en": {
+        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon": "ZH",
+        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "fr": {
+        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon": "ZH",
+        "zimmermann-chambre-en-bois-strabag-ag-lindau-bei-effretikon": "ZH",
+        "charpentier-charpentier-dans-la-construction-de-bois-strabag-ag-lindau-bei-effretikon": "ZH",
+        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "de": {
+        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon": "ZH",
+        "carpenter-carpenter-im-holzbau-strabag-ag-lindau-bei-effretikon": "ZH"
+      }
+    }
   },
   {
     "slug": "capo-cantiere-per-edilizia-e-ingegneria-civile-con-ambizione-alla-direzione-della-filiale-80-100-strabag-ag-oensingen",
@@ -1110,7 +1345,8 @@
         "baufuhrer-in-hoch-und-ingenieurbau-mit-ambition-zur-niederlassungsleitung-80-100-strabag"
       ],
       "de": [
-        "baufuhrer-in-hoch-e-ingegneria-civile-con-ambition-zur-niederlassungsleitung-80-100-strabag-ag-oensingen"
+        "baufuhrer-in-hoch-e-ingegneria-civile-con-ambition-zur-niederlassungsleitung-80-100-strabag-ag-oensingen",
+        "baufuhrer-in-hoch-und-ingenieurbau-mit-ambition-zur-niederlassungsleitung-80-100-strabag"
       ]
     },
     "postalCode": "4702",
@@ -1132,7 +1368,23 @@
         "firstSeenAt": "2026-10-19T21:34:57.233Z",
         "title": "Bauführer:in Hoch- und Ingenieurbau mit Ambition zur Niederlassungsleitung 80-100%"
       }
-    ]
+    ],
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baufuhrer-in-hoch-und-ingenieurbau-mit-ambition-zur-niederlassungsleitung-80-100-strabag": "SO",
+        "baufuhrer-in-hoch-e-ingegneria-civile-con-ambition-zur-niederlassungsleitung-80-100-strabag-ag-oensingen": "SO"
+      },
+      "en": {
+        "baufuhrer-in-hoch-und-ingenieurbau-mit-ambition-zur-niederlassungsleitung-80-100-strabag": "SO"
+      },
+      "de": {
+        "baufuhrer-in-hoch-und-ingenieurbau-mit-ambition-zur-niederlassungsleitung-80-100-strabag": "SO"
+      },
+      "fr": {
+        "baufuhrer-in-hoch-und-ingenieurbau-mit-ambition-zur-niederlassungsleitung-80-100-strabag": "SO"
+      }
+    }
   },
   {
     "slug": "capo-cantiere-per-opere-di-ingegneria-civile-strabag-ag-erstfeld",
@@ -1184,7 +1436,8 @@
         "polier-in-ingenieurbau-strabag-erstfeld"
       ],
       "de": [
-        "polier-in-ingegneria-civile-strabag-ag-erstfeld"
+        "polier-in-ingegneria-civile-strabag-ag-erstfeld",
+        "polier-in-ingenieurbau-strabag-erstfeld"
       ]
     },
     "postalCode": "6472",
@@ -1211,51 +1464,23 @@
         "firstSeenAt": "2026-09-19T23:05:38.694Z",
         "title": "Polier:in Ingenieurbau"
       }
-    ]
-  },
-  {
-    "slug": "meccanico-a-di-macchine-da-cantiere-per-lavori-speciali-di-fondazione-strabag-bmti-gmbh-rothenburg",
-    "title": "Baumaschinenmechaniker:in Spezialtiefbau",
-    "titleByLocale": {
-      "it": "Meccanico/a di macchine da cantiere per lavori speciali di fondazione",
-      "en": "Civil Engineering Construction Machinery Mechanic",
-      "de": "Baumaschinenmechaniker:in Spezialtiefbau",
-      "fr": "Mécanicien de machines de chantier :dans les travaux spéciaux du génie civil"
-    },
-    "company": "Strabag BMTI GmbH",
-    "companyKey": "strabag",
-    "location": "Rothenburg",
-    "addressLocality": "Rothenburg",
-    "descriptionByLocale": {
-      "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, stiamo pensando di diventare il più innovativo e sostenibile gruppo di tecnologie per l'edilizia in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci rende una società e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nMeccanico per macchine da costruzione: in speciale ingegneria civile\nIl tuo contributo con noi\n\n• Revisioni, riparazioni e lavori di manutenzione su speciali macchinari per costruzioni sotterranee in officina e sui cantieri in Svizzera\n\n• Riparazione di varie piccole attrezzature\n\n• Lavori meccanici e di saldatura generali\nCosa ci importa\n\n• Formazione completa per: per macchine edili/macchine agricole o camion/carrotecnica:in - laureati di apprendistato: all'interno sono i benvenuti!\n\n• Patente di guida per gatti B\n\n• Volontà a siti di costruzione di viaggi in tutta la Svizzera\n\n• Metodo di lavoro indipendente, preciso e affidabile\n\n• Prontezza per la formazione professionale\n\n• Capacità di squadra, flessibile e resiliente\n\nIl nostro valore aggiunto per te\nSi ottiene l'opportunità di sviluppare all'interno del team sia personalmente che professionalmente. Le condizioni quadro includono opportunità pratiche di formazione e interessanti sconti per i dipendenti. Vi piacciono i macchinari e le attrezzature per la costruzione, lavorate con precisione, in modo affidabile e di qualità e siete aperti alla tecnologia moderna e alle attività emozionanti nel nostro parco macchine? Allora vi preghiamo di inviarci i vostri documenti di applicazione completi e significativi con la vostra prima data di entrata possibile e le aspettative di stipendio tramite il modulo online.\n:::\n\n• Diverse opportunità di formazione\n\n• Parcheggio\n\n• bevande gratuite\n\n• Retribuzione competitiva\n\n• Sconti dei dipendenti\n\n• Eventi del personale\n\nInformazioni di contatto\nPatrick Cona\n\n+41 76 811 26 26\nApplicare ora",
-      "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in construction and engineering, road and civil engineering, bridge and tunnel construction, building materials production, project development or building management - we are thinking ahead to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what makes us a company and how we work.\nTogether we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nConstruction machinery mechanic: in special civil engineering\nYour contribution with us\n\n• Revisions, repairs and service and maintenance work on special underground construction machinery in the workshop and on construction sites in Switzerland\n\n• Repair of various small equipment\n\n• General mechanical and welding work\nWhat matters to us\n\n• Completed training for: for construction machinery/agricultural machinery or truck/car mechanic:in - apprenticeship graduates: inside are welcome!\n\n• Cat driving licence B\n\n• Willingness to travel construction sites throughout Switzerland\n\n• Independent, exact and reliable working method\n\n• Readiness for professional training\n\n• Team-capable, flexible and resilient\n\nOur added value for you\nYou get the opportunity to develop within the team both personally and professionally. The framework conditions include practical training opportunities and attractive discounts for employees. Do you enjoy construction machinery and equipment, work accurately, reliably and quality-consciously and are open to modern technology and exciting tasks in our machine park? Then please send us your complete and meaningful application documents with your earliest possible entry date and salary expectations via the online form.\n:::\n\n• Diverse training opportunities\n\n• Parking\n\n• Free drinks\n\n• Competitive remuneration\n\n• Employee discounts\n\n• Staff events\n\nContact details\nPatrick Cona\n\n+41 76 811 26 26\nApply now",
-      "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter: Innovation, Digitalisierung und Nachhaltigkeit sind zentrale Punkte auf unserem Weg zum Bauen von Morgen. STRABAG verfolgt dabei eine klare Nachhaltigkeitsstrategie . Dabei sind Chancengleichheit, Vielfalt und Inklusion genauso integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nBaumaschinenmechaniker:in Spezialtiefbau\nDein Beitrag bei uns\n\n• Revisionen, Reparaturen sowie Service- und Unterhaltsarbeiten an Spezialtiefbaumaschinen in der Werkstatt und auf Baustellen in der Schweiz\n\n• Instandsetzung von diversen Kleingeräten\n\n• Allgemeine Mechanik- und Schweissarbeiten\nWas für uns zählt\n\n• Abgeschlossene Ausbildung zum:zur Baumaschinen-/Landmaschinen- oder Lastwagen- / KFZ-Mechaniker:in - Lehrabgänger:innen sind herzlich Willkommen!\n\n• Führerausweis der Kat. B\n\n• Bereitschaft, Baustellen schweizweit zu bereisen\n\n• Selbständige, exakte und zuverlässige Arbeitsweise\n\n• Bereitschaft zur fachlichen Weiterbildung\n\n• Teamfähig, flexibel und belastbar\n\nUnser Mehrwert für dich\nDu bekommst die Möglichkeit, dich innerhalb des Teams sowohl persönlich als auch fachlich weiterzuentwickeln. Zu den Rahmenbedingungen zählen unter anderem praxisorientierte Weiterbildungsmöglichkeiten sowie attraktive Rabatte für Mitarbeitende. Hast du Freude an Baumaschinen und Geräten, arbeitest exakt, zuverlässig und qualitätsbewusst und bist offen für moderne Technik und spannende Aufgaben in unserem Maschinenpark? Dann sende uns bitte deine vollständigen und aussagekräftigen Bewerbungsunterlagen mit Angabe deines frühestmöglichen Eintrittstermins und Gehaltsvorstellungen über das Onlineformular.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Mitarbeiterevents\n\nKontakt\nPatrick Cona\n\n+41 76 811 26 26\nJetzt bewerben",
-      "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Qu'il s'agisse de la construction et de l'ingénierie, du génie routier et civil, de la construction de ponts et de tunnels, de la production de matériaux de construction, du développement de projets ou de la gestion des bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et le plus durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nMécanicien des machines de construction: en génie civil spécial\nVotre contribution avec nous\n\n• Révisions, réparations, services et travaux d'entretien de machines spéciales de construction souterraine dans l'atelier et sur les chantiers de construction en Suisse\n\n• Réparation de divers petits équipements\n\n• Travaux généraux de mécanique et de soudage\nCe qui nous importe\n\n• Formation complète pour: machines de construction/machines agricoles ou camion/mécanicien de voiture:in - diplômés en apprentissage: à l'intérieur sont les bienvenus!\n\n• Permis de conduire pour chats B\n\n• Volonté de voyager sur les chantiers en Suisse\n\n• Méthode de travail indépendante, exacte et fiable\n\n• Préparation à la formation professionnelle\n\n• Capacité d'équipe, souplesse et résilience\n\nNotre valeur ajoutée pour vous\nVous avez la possibilité de vous développer au sein de l'équipe, tant personnellement que professionnellement. Les conditions-cadres comprennent des possibilités de formation pratique et des rabais intéressants pour les employés. Vous aimez les machines et les équipements de construction, travaillez avec précision, fiabilité et consciencieusement, et êtes-vous ouvert à la technologie moderne et aux tâches passionnantes dans notre parc de machines? Alors envoyez-nous vos documents de candidature complets et significatifs avec votre date d'entrée et vos attentes salariales le plus tôt possible via le formulaire en ligne.\n:::\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Boissons gratuites\n\n• Rémunération concurrentielle\n\n• Remises aux employés\n\n• Manifestations du personnel\n\nCoordonnées\nPatrick Cona\n\n+41 76 811 26 26\nAppliquer maintenant"
-    },
-    "slugByLocale": {
-      "it": "meccanico-a-di-macchine-da-cantiere-per-lavori-speciali-di-fondazione-strabag-bmti-gmbh-rothenburg",
-      "en": "civil-engineering-construction-machinery-mechanic-strabag-bmti-gmbh-rothenburg",
-      "de": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg-6509a0f9",
-      "fr": "mecanicien-de-machines-de-chantier-dans-les-travaux-speciaux-du-genie-civil-strabag-bmti-gmbh-rothenburg"
-    },
-    "sector": "Edilizia / Costruzioni",
-    "expiredAt": "2026-11-06T09:58:56.550Z",
-    "previousSlugs": [
-      "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg-6509a0f9"
     ],
-    "previousSlugsByLocale": {
-      "it": [
-        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg-6509a0f9"
-      ]
-    },
-    "postalCode": "6023",
-    "streetAddress": "Rothenburg",
-    "salaryMin": 78000,
-    "salaryMax": 98500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/54250952-cc26-40d7-8180-2be25fc3edf7",
-    "firstSeenAt": "2026-09-03T13:49:04.252Z"
+    "canton": "UR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "polier-in-ingenieurbau-strabag-erstfeld": "UR",
+        "polier-in-ingegneria-civile-strabag-ag-erstfeld": "UR"
+      },
+      "en": {
+        "polier-in-ingenieurbau-strabag-erstfeld": "UR"
+      },
+      "de": {
+        "polier-in-ingenieurbau-strabag-erstfeld": "UR"
+      },
+      "fr": {
+        "polier-in-ingenieurbau-strabag-erstfeld": "UR"
+      }
+    }
   },
   {
     "slug": "responsabile-dei-lavori-per-la-costruzione-stradale-e-l-ingegneria-civile-strabag-ag-olten",
@@ -1334,7 +1559,20 @@
         "firstSeenAt": "2026-09-24T00:08:44.439Z",
         "title": "Construction Supervisor: Road and Civil Engineering"
       }
-    ]
+    ],
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten": "SO",
+        "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten": "SO"
+      },
+      "en": {
+        "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten": "SO"
+      },
+      "fr": {
+        "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten": "SO"
+      }
+    }
   },
   {
     "slug": "tecnico-a-preventivista-per-edilizia-e-costruzione-di-infrastrutture-80-100-strabag-ag-oensingen-kriens",
@@ -1388,7 +1626,8 @@
         "calculateur-rice-en-construction-de-batiments-et-d-infrastructures-80-100-strabag-ag-oensingen-kriens"
       ],
       "de": [
-        "kalkulator-in-hoch-e-infrastrukturbau-80-100-strabag-ag-oensingen-kriens"
+        "kalkulator-in-hoch-e-infrastrukturbau-80-100-strabag-ag-oensingen-kriens",
+        "kalkulator-in-hoch-und-infrastrukturbau-80-100-strabag-oensingen-kriens"
       ]
     },
     "postalCode": "6010",
@@ -1410,7 +1649,24 @@
         "firstSeenAt": "2026-10-19T21:34:57.976Z",
         "title": "Kalkulator:in Hoch- und Infrastrukturbau 80-100%"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kalkulator-in-hoch-und-infrastrukturbau-80-100-strabag-oensingen-kriens": "LU",
+        "kalkulator-in-hoch-e-infrastrukturbau-80-100-strabag-ag-oensingen-kriens": "LU"
+      },
+      "en": {
+        "kalkulator-in-hoch-und-infrastrukturbau-80-100-strabag-oensingen-kriens": "LU"
+      },
+      "de": {
+        "kalkulator-in-hoch-und-infrastrukturbau-80-100-strabag-oensingen-kriens": "LU"
+      },
+      "fr": {
+        "calculateur-rice-en-construction-de-batiments-et-d-infrastructures-80-100-strabag-ag-oensingen-kriens": "LU",
+        "kalkulator-in-hoch-und-infrastrukturbau-80-100-strabag-oensingen-kriens": "LU"
+      }
+    }
   },
   {
     "slug": "falegname-addetto-a-al-servizio-clienti-al-montaggio-strabag-ag-lindau-bei-effretikon",
@@ -1451,6 +1707,9 @@
       "fr": [
         "kunden-montageschreiner-in-strabag-lindau-bei-effretikon-311e08de",
         "kunden-montageschreiner-in-strabag-lindau-bei-effretikon"
+      ],
+      "de": [
+        "kunden-montageschreiner-in-strabag-lindau-bei-effretikon"
       ]
     },
     "postalCode": "8315",
@@ -1480,7 +1739,22 @@
         "firstSeenAt": "2026-09-19T23:05:39.662Z",
         "title": "Kunden- / Montageschreiner:in"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kunden-montageschreiner-in-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "en": {
+        "kunden-montageschreiner-in-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "de": {
+        "kunden-montageschreiner-in-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "fr": {
+        "kunden-montageschreiner-in-strabag-lindau-bei-effretikon": "ZH"
+      }
+    }
   },
   {
     "slug": "meccanico-a-di-macchine-da-costruzione-efz-strabag-ag-lindau",
@@ -1514,23 +1788,42 @@
         "baumaschinenmechaniker-in-efz-strabag-lindau-cf805aa4",
         "construction-machinery-mechanic-efz-strabag-ag-lindau",
         "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau",
-        "baumaschinenmechaniker-in-efz-strabag-lindau"
+        "baumaschinenmechaniker-in-efz-strabag-lindau",
+        "meccanico-per-macchine-da-costruzione-efz-strabag-bmti-gmbh-lindau",
+        "baumaschinenmechaniker-in-efz-strabag-lindau-7e140df1",
+        "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau",
+        "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau",
+        "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau",
+        "baumaschinenmechaniker-in-efz-strabag-lindau-ykrzs9",
+        "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau-d31321",
+        "construction-machinery-mechanic-efz-strabag-lindau-e9886359"
       ],
       "en": [
         "baumaschinenmechaniker-in-efz-strabag-lindau-cf805aa4",
         "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau",
         "baumaschinenmechaniker-in-efz-strabag-lindau",
-        "construction-machinery-mechanic-efz-strabag-ag-lindau"
+        "construction-machinery-mechanic-efz-strabag-ag-lindau",
+        "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau-d31321",
+        "baumaschinenmechaniker-in-efz-strabag-lindau-7e140df1",
+        "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau",
+        "construction-machinery-mechanic-efz-strabag-lindau"
       ],
       "fr": [
         "baumaschinenmechaniker-in-efz-strabag-lindau-cf805aa4",
         "construction-machinery-mechanic-efz-strabag-ag-lindau",
         "baumaschinenmechaniker-in-efz-strabag-lindau",
-        "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau"
+        "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau",
+        "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau-d31321",
+        "baumaschinenmechaniker-in-efz-strabag-lindau-7e140df1",
+        "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau",
+        "construction-machinery-mechanic-efz-strabag-lindau"
       ],
       "de": [
         "construction-machinery-mechanic-efz-strabag-ag-lindau",
-        "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau"
+        "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau",
+        "baumaschinenmechaniker-in-efz-strabag-lindau",
+        "baumaschinen-mechanik-efz-strabag-bmti-gmbh-lindau",
+        "construction-machinery-mechanic-efz-strabag-lindau"
       ]
     },
     "postalCode": "8315",
@@ -1544,7 +1837,20 @@
     "previousSlugs": [
       "baumaschinenmechaniker-in-efz-strabag-lindau",
       "construction-machinery-mechanic-efz-strabag-ag-lindau",
-      "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau"
+      "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau",
+      "baumaschinenmechaniker-in-efz-strabag-lindau-cf805aa4",
+      "meccanico-per-macchine-da-costruzione-efz-strabag-bmti-gmbh-lindau",
+      "baumaschinenmechaniker-in-efz-strabag-lindau-7e140df1",
+      "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau",
+      "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau",
+      "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau",
+      "baumaschinenmechaniker-in-efz-strabag-lindau-ykrzs9",
+      "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau-d31321",
+      "construction-machinery-mechanic-efz-strabag-lindau-e9886359",
+      "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau-d31321",
+      "construction-machinery-mechanic-efz-strabag-lindau",
+      "baumaschinen-mechanik-efz-strabag-bmti-gmbh-lindau",
+      "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau-d31321"
     ],
     "sourceIdentityHistory": [
       {
@@ -1561,8 +1867,30 @@
         "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/8fb700b9-c64b-4648-894e-1f9427f0b15c",
         "firstSeenAt": "2026-09-19T23:05:40.047Z",
         "title": "Baumaschinenmechaniker:in EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/8fb700b9-c64b-4648-894e-1f9427f0b15c",
+        "firstSeenAt": "2026-09-19T23:05:40.047Z",
+        "title": "Construction Machinery Mechanic EFZ"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baumaschinenmechaniker-in-efz-strabag-lindau": "ZH"
+      },
+      "en": {
+        "construction-machinery-mechanic-efz-strabag-ag-lindau": "ZH",
+        "baumaschinenmechaniker-in-efz-strabag-lindau": "ZH"
+      },
+      "de": {
+        "baumaschinenmechaniker-in-efz-strabag-lindau": "ZH"
+      },
+      "fr": {
+        "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau": "ZH",
+        "baumaschinenmechaniker-in-efz-strabag-lindau": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-di-cantiere-per-lavori-di-genio-civile-e-costruzione-stradale-strabag-ag-bern",
@@ -1898,9 +2226,23 @@
     ],
     "previousSlugCantonByLocale": {
       "it": {
-        "capocantiere-per-opere-di-genio-civile-e-costruzione-stradale-strabag-ag-bern": "BE"
+        "capocantiere-per-opere-di-genio-civile-e-costruzione-stradale-strabag-ag-bern": "BE",
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern": "BE",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern": "BE"
+      },
+      "en": {
+        "construction-manager-civil-engineering-and-road-construction-strabag-ag-bern": "BE",
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern": "BE"
+      },
+      "de": {
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern": "BE"
+      },
+      "fr": {
+        "conducteur-rice-de-travaux-en-genie-civil-et-construction-routiere-strabag-ag-bern": "BE",
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern": "BE"
       }
-    }
+    },
+    "canton": "BE"
   },
   {
     "slug": "direttore-trice-dei-lavori-nel-settore-delle-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
@@ -2005,7 +2347,8 @@
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-c25cc8bd",
         "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon-a19a1cb5",
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
-        "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon"
+        "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon",
+        "construction-supervisor-timber-construction-strabag-lindau-bei-effretikon"
       ],
       "fr": [
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-d026323b",
@@ -2119,7 +2462,8 @@
       "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
       "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon",
       "responsabile-di-cantiere-per-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
-      "conducteur-rice-de-travaux-en-construction-bois-strabag-ag-lindau-bei-effretikon"
+      "conducteur-rice-de-travaux-en-construction-bois-strabag-ag-lindau-bei-effretikon",
+      "construction-supervisor-timber-construction-strabag-lindau-bei-effretikon"
     ],
     "sourceIdentityHistory": [
       {
@@ -2140,12 +2484,23 @@
     ],
     "previousSlugCantonByLocale": {
       "it": {
-        "responsabile-di-cantiere-per-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon": "ZH"
+        "responsabile-di-cantiere-per-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon": "ZH",
+        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon": "ZH"
       },
       "fr": {
-        "conducteur-rice-de-travaux-en-construction-bois-strabag-ag-lindau-bei-effretikon": "ZH"
+        "conducteur-rice-de-travaux-en-construction-bois-strabag-ag-lindau-bei-effretikon": "ZH",
+        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "en": {
+        "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon": "ZH",
+        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon": "ZH",
+        "construction-supervisor-timber-construction-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "de": {
+        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon": "ZH"
       }
-    }
+    },
+    "canton": "ZH"
   },
   {
     "slug": "capo-a-cantiere-per-la-costruzione-di-strade-e-il-genio-civile-strabag-ag-bern",
@@ -2340,7 +2695,8 @@
         "polier-in-strassenbau-und-tiefbau-strabag-bern-99feb241",
         "polier-in-strassenbau-und-tiefbau-strabag-bern-08d84952",
         "polier-in-strassenbau-und-tiefbau-strabag-bern-9c1e9846",
-        "polier-in-strassenbau-und-tiefbau-strabag-bern"
+        "polier-in-strassenbau-und-tiefbau-strabag-bern",
+        "polier-in-strassenbau-e-genio-civile-strabag-ag-bern"
       ],
       "en": [
         "polier-in-strassenbau-und-tiefbau-strabag-bern-fe633c0b",
@@ -2496,7 +2852,24 @@
         "firstSeenAt": "2026-09-10T23:18:09.351Z",
         "title": "Foreman: Road Construction and Civil Engineering"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "polier-in-strassenbau-und-tiefbau-strabag-bern": "BE",
+        "polier-in-strassenbau-e-genio-civile-strabag-ag-bern": "BE"
+      },
+      "en": {
+        "foreperson-in-road-construction-and-civil-engineering-strabag-ag-bern": "BE",
+        "polier-in-strassenbau-und-tiefbau-strabag-bern": "BE"
+      },
+      "de": {
+        "polier-in-strassenbau-und-tiefbau-strabag-bern": "BE"
+      },
+      "fr": {
+        "polier-in-strassenbau-und-tiefbau-strabag-bern": "BE"
+      }
+    }
   },
   {
     "slug": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern",
@@ -2536,7 +2909,8 @@
       "de": [
         "niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten",
         "techn-niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten",
-        "technische-r-niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten"
+        "technische-r-niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten",
+        "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern"
       ],
       "it": [
         "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
@@ -2546,10 +2920,12 @@
         "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern-z9x8yv"
       ],
       "en": [
-        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
+        "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern"
       ],
       "fr": [
-        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
+        "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern"
       ]
     },
     "postalCode": "4600",
@@ -2571,7 +2947,27 @@
         "firstSeenAt": "2026-10-05T09:32:17.326Z",
         "title": "Technische:r Gruppenleiter:in Tiefbau und Strassenbau"
       }
-    ]
+    ],
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern": "SO",
+        "niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten": "SO",
+        "techn-niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten": "SO",
+        "technische-r-niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten": "SO"
+      },
+      "de": {
+        "niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten": "SO",
+        "techn-niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten": "SO",
+        "technische-r-niederlassungsleiter-in-tiefbau-und-strassenbau-strabag-olten": "SO"
+      },
+      "en": {
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern": "BE"
+      },
+      "fr": {
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern": "BE"
+      }
+    }
   },
   {
     "slug": "controller-tecnico-a-strabag-ag-schlieren",
@@ -2912,9 +3308,20 @@
     ],
     "previousSlugCantonByLocale": {
       "it": {
-        "controllore-tecnico-strabag-ag-schlieren": "ZH"
+        "controllore-tecnico-strabag-ag-schlieren": "ZH",
+        "technische-r-controller-in-strabag-schlieren": "ZH"
+      },
+      "en": {
+        "technical-controller-strabag-ag-schlieren": "ZH"
+      },
+      "de": {
+        "technische-r-controller-in-strabag-schlieren": "ZH"
+      },
+      "fr": {
+        "controleur-technique-strabag-ag-schlieren": "ZH"
       }
-    }
+    },
+    "canton": "ZH"
   },
   {
     "slug": "estimator-acquisto-legname-costruzione-80-100-strabag-ag-lindau-bei-effretikon",
@@ -3472,7 +3879,25 @@
         "firstSeenAt": "2026-09-10T23:18:09.716Z",
         "title": "Construction Supervisor: Timber Construction"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "estimator-purchaser-timber-construction-80-100-strabag-lindau-bei-effretikon": "ZH",
+        "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon-ff4c42c5": "ZH"
+      },
+      "en": {
+        "estimator-purchaser-timber-construction-80-100-strabag-lindau-bei-effretikon": "ZH"
+      },
+      "de": {
+        "estimator-purchaser-timber-construction-80-100-strabag-lindau-bei-effretikon": "ZH",
+        "schatzer-kaufer-holz-bau-80-100-strabag-ag-lindau-bei-effretikon": "ZH",
+        "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon-ff4c42c5": "ZH"
+      },
+      "fr": {
+        "estimator-purchaser-timber-construction-80-100-strabag-lindau-bei-effretikon": "ZH"
+      }
+    }
   },
   {
     "slug": "impiegato-a-commerciale-di-cantiere-80-100-strabag-ag-schlieren",
@@ -3556,69 +3981,16 @@
         "firstSeenAt": "2026-09-02T13:50:17.514Z",
         "title": "Construction Clerk 80 to 100%"
       }
-    ]
-  },
-  {
-    "slug": "zimmermann-camera-in-legno-strabag-ag-lindau-bei-effretikon-ce4228e2",
-    "title": "Zimmermann:Zimmerin Holzbau",
-    "titleByLocale": {
-      "it": "Carpentiere/carpentiera per costruzioni in legno",
-      "en": "Carpenter: Carpenter in Timber Construction",
-      "de": "Zimmermann:Zimmerin Holzbau",
-      "fr": "Charpentier: Charpentier dans la construction de bois"
-    },
-    "company": "STRABAG AG",
-    "companyKey": "strabag",
-    "location": "Lindau (bei Effretikon)",
-    "addressLocality": "Lindau (bei Effretikon)",
-    "descriptionByLocale": {
-      "it": "A STRABAG, circa 89.000 persone in più di 2.400 sedi in tutto il mondo stanno costruendo progressi. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti ma anche ognuno di noi. Che si tratti di costruzione e ingegneria civile, costruzione su strada e sotterranea, costruzione di ponti e gallerie, produzione di materiali da costruzione, sviluppo di progetti o gestione di edifici – pensiamo che la costruzione possa diventare il più innovativo e sostenibile gruppo di tecnologie per la costruzione in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci definisce come azienda e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo con nuovi compiti. Insieme creiamo grandi cose. Procediamo!\n\nCarpenter: Carpenter in Timber Construction\nIl tuo contributo con noi\n\n• Lavori indipendenti su cantieri di nuova costruzione o conversione\n\n• Assemblare gli elementi\n\n• Lavori di carpenteria generale\n\n• Tutte le attività di carpenteria\nCosa conta per noi\n\n• Apprendistato completato con successo come falegname con buona conoscenza professionale\n\n• Affidabile, flessibile, di qualità\n\n• Lavoro preciso e pulito\n\n• Modalità puntuali e buone\n\n• Buone competenze tedesche in forma parlata e scritta\n\n• Patente di guida categoria B è un vantaggio\n\nIl nostro valore aggiunto per te\nCon noi, ci si può aspettare un team giovane e dinamico con una coesione genuina, barbecue congiunti e rilassato dopo-lavoro chat. Investiamo attivamente nel futuro: il nostro nuovo grande edificio in legno è attualmente in costruzione a Lindau, dove lavorerete come falegname con attrezzature all'avanguardia. Eccitanti e impegnativi progetti di costruzione di legname vi aspettano, dall'erezione all'edificio finito, così come varie assegnazioni sul cantiere e nella sala. Ci affidiamo a condizioni di lavoro eque e formazione ulteriore che aumenterà il vostro mestiere. Diventa parte di una società che vive il commercio di carpenteria e costruisce il futuro.\n:::\n\n• varie opportunità di formazione\n\n• parcheggio\n\n• bevande gratuite\n\n• offerte sportive\n\n• remunerazione competitiva\n\n• sconti sui dipendenti\n\n• equilibrio lavoro-vita\n\n• promozione della salute\n\n• eventi sui dipendenti\n\n• buoni collegamenti di trasporto\n\nContatto\nRexhep Elmazi\n\n+41 52 355 05 55\n\nApplicare ora",
-      "en": "At STRABAG, around 89,000 people at more than 2,400 locations worldwide are building progress. Uniqueness and individual strengths characterise not only our projects but also each and every one of us. Whether in building and civil engineering, road and underground construction, bridge and tunnel construction, building materials production, project development or building management – we think construction forward to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what defines us as a company and how we work.\nTogether we implement projects successfully and in partnership and grow with new tasks. Together we create great things. Let's progress!\n\nCarpenter: Carpenter in Timber Construction\nYour contribution with us\n\n• Independent work on construction sites in new build or conversion\n\n• Assembling the elements\n\n• General carpentry work\n\n• All carpentry tasks arising\nWhat counts for us\n\n• Successfully completed apprenticeship as a carpenter with good professional knowledge\n\n• Reliable, flexible, quality-conscious\n\n• Precise and clean work\n\n• Punctual and good manners\n\n• Good German skills in spoken and written form\n\n• Driving licence category B is an advantage\n\nOur added value for you\nWith us, you can expect a young, dynamic team with genuine cohesion, joint barbecues and relaxed after-work chats. We actively invest in the future: Our new, large timber construction hall is currently being built in Lindau, where you will work as a carpenter with state-of-the-art equipment. Exciting, demanding timber construction projects await you, from erection to the finished building, as well as varied assignments on the construction site and in the hall. We rely on fair employment conditions and further training that will advance your craft. Become part of a company that lives the carpentry trade and builds the future.\n:::\n\n• varied further training opportunities\n\n• parking space\n\n• free drinks\n\n• sports offers\n\n• competitive remuneration\n\n• employee discounts\n\n• work-life balance\n\n• health promotion\n\n• employee events\n\n• good transport connections\n\nContact\nRexhep Elmazi\n\n+41 52 355 05 55\n\nApply now",
-      "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nZimmermann:Zimmerin Holzbau\nDein Beitrag bei uns\n\n• Selbständiges Arbeiten auf Baustellen im Neu- oder Umbau\n\n• Aufstellen der Elemente\n\n• Allgemeine Holzarbeiten\n\n• Alle anfallenden Zimmermanns Arbeiten\nWas für uns zählt\n\n• Erfolgreich abgeschlossene Berufslehre als Zimmermann:Zimmerin mit guten Fachkenntnissen\n\n• Zuverlässig, flexibel, qualitätsbewusst\n\n• Exaktes und sauberes Arbeiten\n\n• Pünktlich sowie gute Umgangsformen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kat. B von Vorteil\n\nUnser Mehrwert für dich\nBei uns erwartet dich ein junges, dynamisches Team mit echtem Zusammenhalt, gemeinsamen Grillabenden und entspanntem Feierabendplausch. Wir investieren aktiv in die Zukunft: Aktuell entsteht unsere neue, grosse Holzbauhalle in Lindau, in der du als Zimmermann mit topmoderner Ausstattung arbeitest. Dich erwarten spannende, anspruchsvolle Holzbauprojekte vom Aufrichten bis zum fertigen Bauwerk sowie abwechslungsreiche Einsätze auf der Baustelle und in der Halle. Wir setzen auf faire Anstellungsbedingungen sowie Weiterbildungen, die dich in deinem Handwerk weiterbringen. Werde Teil eines Betriebs, der das Zimmermannshandwerk lebt und Zukunft baut.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\nRexhep Elmazi\n\n+41 52 355 05 55\nJetzt bewerben",
-      "fr": "Au STRABAG, environ 89 000 personnes dans plus de 2 400 endroits dans le monde progressent. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Qu'il s'agisse du bâtiment et du génie civil, de la construction routière et souterraine, de la construction de ponts et de tunnels, de la production de matériaux de construction, du développement de projets ou de la gestion de bâtiments, nous pensons que la construction va devenir le groupe technologique le plus innovant et le plus durable en Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui nous définit comme une entreprise et de notre façon de travailler.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons avec de nouvelles tâches. Ensemble, nous créons de grandes choses. Allons-y !\n\nCharpentier: Charpentier dans la construction de bois\nVotre contribution avec nous\n\n• Travaux indépendants sur les chantiers de construction de nouvelles constructions ou conversions\n\n• Rassemblement des éléments\n\n• Travaux généraux de menuiserie\n\n• Toutes les tâches de menuiserie\nCe qui compte pour nous\n\n• L'apprentissage réussi comme menuisier avec de bonnes connaissances professionnelles\n\n• Fiable, flexible, soucieuse de la qualité\n\n• Travail précis et propre\n\n• Bonnes manières ponctuelles\n\n• Bonnes compétences en allemand dans la forme orale et écrite\n\n• La catégorie B du permis de conduire est un avantage\n\nNotre valeur ajoutée pour vous\nAvec nous, vous pouvez vous attendre à une équipe jeune et dynamique avec une véritable cohésion, des barbecues communs et des discussions détendues après le travail. Nous investissons activement dans l'avenir: Notre nouvelle grande salle de construction en bois est en cours de construction à Lindau, où vous travaillerez comme charpentier avec des équipements de pointe. Des projets de construction en bois passionnants et exigeants vous attendent, de l'érection au bâtiment fini, ainsi que des travaux variés sur le chantier et dans le hall. Nous comptons sur des conditions d'emploi équitables et une formation continue qui feront progresser votre métier. Devenez membre d'une entreprise qui vit le commerce de la menuiserie et construit l'avenir.\n:::\n\n• Des possibilités de formation continue variées\n\n• place de stationnement\n\n• boissons gratuites\n\n• offres sportives\n\n• rémunération concurrentielle\n\n• Remises aux employés\n\n• équilibre entre vie professionnelle et vie privée\n\n• promotion de la santé\n\n• Événements des employés\n\n• bonnes liaisons de transport\n\nCoordonnées\nRexhep Elmazi\n\n+41 52 355 05 55\n\nAppliquer maintenant"
-    },
-    "slugByLocale": {
-      "it": "zimmermann-camera-in-legno-strabag-ag-lindau-bei-effretikon-ce4228e2",
-      "en": "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon",
-      "de": "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-aa3ed447",
-      "fr": "charpentier-charpentier-dans-la-construction-de-bois-strabag-ag-lindau-bei-effretikon"
-    },
-    "sector": "Edilizia / Costruzioni",
-    "expiredAt": "2026-10-20T09:32:30.892Z",
-    "previousSlugs": [
-      "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon",
-      "carpenter-carpenter-im-holzbau-strabag-ag-lindau-bei-effretikon",
-      "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-aa3ed447",
-      "carpenter-carpenter-in-costruzione-di-legno-strabag-ag-lindau-bei-effretikon",
-      "zimmermann-zimmerin-holzbau-strabag-ag-lindau-bei-effretikon",
-      "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-dcdcaf0c",
-      "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-e9ea7f87"
     ],
-    "previousSlugsByLocale": {
-      "it": [
-        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon",
-        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-aa3ed447",
-        "carpenter-carpenter-in-costruzione-di-legno-strabag-ag-lindau-bei-effretikon",
-        "zimmermann-zimmerin-holzbau-strabag-ag-lindau-bei-effretikon",
-        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-dcdcaf0c",
-        "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon-e9ea7f87"
-      ],
-      "de": [
-        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon",
-        "carpenter-carpenter-im-holzbau-strabag-ag-lindau-bei-effretikon"
-      ],
-      "fr": [
-        "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon"
-      ]
-    },
-    "postalCode": "8315",
-    "streetAddress": "Lindau (bei Effretikon)",
-    "salaryMin": 82500,
-    "salaryMax": 104500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/b08b176b-eab1-449c-a127-ca33eab62dcc",
-    "firstSeenAt": "2026-09-24T14:41:06.015Z"
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baukaufmann-baukauffrau-80-bis-100-strabag-schlieren": "ZH"
+      },
+      "en": {
+        "baukaufmann-baukauffrau-80-bis-100-strabag-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten-1003d533",
@@ -4148,7 +4520,20 @@
         "firstSeenAt": "2026-09-19T23:05:38.299Z",
         "title": "Building Materials Tester / Laboratory Technician Erstfeld"
       }
-    ]
+    ],
+    "canton": "UR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "building-materials-tester-laboratory-technician-erstfeld-strabag-erstfeld": "UR",
+        "baustoffprufer-in-laborant-in-erstfeld-strabag-erstfeld": "UR"
+      },
+      "de": {
+        "building-materials-tester-laboratory-technician-erstfeld-strabag-erstfeld": "UR"
+      },
+      "fr": {
+        "building-materials-tester-laboratory-technician-erstfeld-strabag-erstfeld": "UR"
+      }
+    }
   },
   {
     "slug": "foreman-ingegneria-civile-strabag-ag-erstfeld",
@@ -4570,7 +4955,21 @@
         "firstSeenAt": "2026-09-19T23:05:38.694Z",
         "title": "Foreman: Civil Engineering"
       }
-    ]
+    ],
+    "canton": "UR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "foreman-civil-engineering-strabag-erstfeld": "UR",
+        "polier-in-ingenieurbau-strabag-erstfeld-fbe6aede": "UR"
+      },
+      "de": {
+        "foreman-civil-engineering-strabag-erstfeld": "UR",
+        "polier-in-ingenieurbau-strabag-erstfeld-fbe6aede": "UR"
+      },
+      "fr": {
+        "foreman-civil-engineering-strabag-erstfeld": "UR"
+      }
+    }
   },
   {
     "slug": "tester-di-materiali-da-costruzione-subingen-tecnico-di-laboratorio-strabag-ag-subingen",
@@ -4634,7 +5033,20 @@
         "firstSeenAt": "2026-09-19T23:05:39.200Z",
         "title": "Building Materials Tester / Laboratory Technician Subingen"
       }
-    ]
+    ],
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "building-materials-tester-laboratory-technician-subingen-strabag-subingen": "SO",
+        "baustoffprufer-in-laborant-in-subingen-strabag-subingen": "SO"
+      },
+      "de": {
+        "building-materials-tester-laboratory-technician-subingen-strabag-subingen": "SO"
+      },
+      "fr": {
+        "building-materials-tester-laboratory-technician-subingen-strabag-subingen": "SO"
+      }
+    }
   },
   {
     "slug": "clienti-installazione-strabag-ag-lindau-bei-effretikon",
@@ -5164,7 +5576,17 @@
         "firstSeenAt": "2026-09-19T23:05:39.662Z",
         "title": "Customer / Installation Joiner"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kunden-montageschreiner-in-strabag-ag-lindau-bei-effretikon": "ZH",
+        "kunden-montageschreiner-in-strabag-lindau-bei-effretikon-7c70c159": "ZH"
+      },
+      "de": {
+        "kunden-montageschreiner-in-strabag-lindau-bei-effretikon-7c70c159": "ZH"
+      }
+    }
   },
   {
     "slug": "supervisore-ai-lavori-strade-strabag-ag-erstfeld",
@@ -5237,7 +5659,19 @@
         "firstSeenAt": "2026-09-03T13:48:58.773Z",
         "title": "Construction Foreman: Road Construction"
       }
-    ]
+    ],
+    "canton": "UR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baufuhrer-in-strassenbau-strabag-erstfeld": "UR"
+      },
+      "en": {
+        "baufuhrer-in-strassenbau-strabag-erstfeld": "UR"
+      },
+      "fr": {
+        "baufuhrer-in-strassenbau-strabag-erstfeld": "UR"
+      }
+    }
   },
   {
     "slug": "falegname-cliente-montatore-strabag-ag-lindau-bei-effretikon",
@@ -5485,7 +5919,8 @@
       "baumaschinenmechaniker-in-efz-strabag-lindau-5867e89f",
       "baumaschinenmechaniker-in-efz-strabag-lindau-4b301e08",
       "baumaschinenmechaniker-in-efz-strabag-lindau-885a5b84",
-      "baumaschinenmechaniker-in-efz-strabag-lindau-fded12fc"
+      "baumaschinenmechaniker-in-efz-strabag-lindau-fded12fc",
+      "construction-machinery-mechanic-efz-strabag-lindau-9baf7240"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5724,7 +6159,8 @@
         "baumaschinenmechaniker-in-efz-strabag-lindau-d53f6865",
         "baumaschinenmechaniker-in-efz-strabag-lindau-9c9df331",
         "baumaschinenmechaniker-in-efz-strabag-lindau-24163d1a",
-        "baumaschinenmechaniker-in-efz-strabag-lindau-66da98f1"
+        "baumaschinenmechaniker-in-efz-strabag-lindau-66da98f1",
+        "construction-machinery-mechanic-efz-strabag-lindau-9baf7240"
       ],
       "fr": [
         "baumaschinenmechaniker-in-efz-strabag-lindau-470c0ae0",
@@ -5756,7 +6192,19 @@
         "firstSeenAt": "2026-09-19T23:05:40.047Z",
         "title": "Construction Machinery Mechanic EFZ"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baumaschinenmechaniker-in-efz-strabag-lindau-470c0ae0": "ZH"
+      },
+      "en": {
+        "construction-machinery-mechanic-efz-strabag-lindau-9baf7240": "ZH"
+      },
+      "de": {
+        "baumaschinenmechaniker-in-efz-strabag-lindau-470c0ae0": "ZH"
+      }
+    }
   },
   {
     "slug": "construction-supervisor-timber-construction-strabag-lindau-bei-effretikon-c0efe60d",
@@ -7114,7 +7562,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/68e12abc-2637-40e6-9a6d-5ed64cdfc13d",
-    "firstSeenAt": "2026-09-24T00:08:44.907Z"
+    "firstSeenAt": "2026-09-24T00:08:44.907Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "purchaser-construction-projects-80-100-strabag-schlieren": "ZH"
+      },
+      "de": {
+        "purchaser-construction-projects-80-100-strabag-schlieren": "ZH"
+      },
+      "fr": {
+        "purchaser-construction-projects-80-100-strabag-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "carpenter-carpenter-in-costruzione-di-legno-strabag-ag-lindau-bei-effretikon-02693e1c",
@@ -7455,7 +7915,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/87b9e881-33c2-4c51-99c3-6b31fc91f018",
-    "firstSeenAt": "2026-09-10T23:18:10.088Z"
+    "firstSeenAt": "2026-09-10T23:18:10.088Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "construction-foreperson-civil-engineering-and-road-construction-strabag-bern": "BE"
+      },
+      "de": {
+        "construction-foreperson-civil-engineering-and-road-construction-strabag-bern": "BE"
+      },
+      "fr": {
+        "construction-foreperson-civil-engineering-and-road-construction-strabag-bern": "BE"
+      }
+    }
   },
   {
     "slug": "construction-machinery-mechanic-efz-strabag-erstfeld",
@@ -7496,7 +7968,8 @@
         "mecanicien-des-machines-de-construction-dans-efz-strabag-ag-erstfeld"
       ],
       "en": [
-        "construction-machinery-mechanic-in-efz-strabag-ag-erstfeld"
+        "construction-machinery-mechanic-in-efz-strabag-ag-erstfeld",
+        "construction-machinery-mechanic-efz-strabag-erstfeld"
       ],
       "de": [
         "baumaschinenmechaniker-in-efz-strabag-erstfeld"
@@ -7512,7 +7985,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/291efc41-c35f-4d27-8724-cafd54e600b1",
-    "firstSeenAt": "2026-09-08T13:47:21.664Z"
+    "firstSeenAt": "2026-09-08T13:47:21.664Z",
+    "canton": "UR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baumaschinenmechaniker-in-cfc-strabag-ag-erstfeld": "UR",
+        "construction-machinery-mechanic-in-efz-strabag-ag-erstfeld": "UR",
+        "baumaschinenmechaniker-in-efz-strabag-erstfeld": "UR",
+        "mecanicien-des-machines-de-construction-dans-efz-strabag-ag-erstfeld": "UR"
+      },
+      "en": {
+        "construction-machinery-mechanic-efz-strabag-erstfeld": "UR",
+        "construction-machinery-mechanic-in-efz-strabag-ag-erstfeld": "UR"
+      },
+      "de": {
+        "baumaschinenmechaniker-in-efz-strabag-erstfeld": "UR"
+      },
+      "fr": {
+        "mecanicien-des-machines-de-construction-dans-efz-strabag-ag-erstfeld": "UR"
+      }
+    }
   },
   {
     "slug": "costruzione-macchine-riparazione-officina-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1",
@@ -7566,7 +8058,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/aa091fac-0604-4fcc-b5ba-8b07e24cd6c8",
-    "firstSeenAt": "2026-09-03T13:49:03.860Z"
+    "firstSeenAt": "2026-09-03T13:49:03.860Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1": "ZH",
+        "werkstattleitung-per-baumaschinenreparatur-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1": "ZH",
+        "workshop-manager-for-construction-machinery-repair-strabag-ch-8315-lindau-rigacher-1": "ZH"
+      },
+      "en": {
+        "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1": "ZH"
+      },
+      "fr": {
+        "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1": "ZH"
+      }
+    }
   },
   {
     "slug": "project-manager-costruzione-stradale-e-ingegneria-civile-strabag-ag-beringen",
@@ -7624,7 +8130,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/67bea728-bb34-486e-af89-5d87dcd91df2",
-    "firstSeenAt": "2026-09-02T23:22:43.302Z"
+    "firstSeenAt": "2026-09-02T23:22:43.302Z",
+    "canton": "SH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-strassenbau-und-tiefbau-strabag-beringen": "SH",
+        "responsabile-di-progetto-strassenbau-e-genio-civile-strabag-ag-beringen": "SH",
+        "project-manager-road-and-civil-engineering-strabag-beringen": "SH"
+      },
+      "en": {
+        "projektleiter-in-strassenbau-und-tiefbau-strabag-beringen": "SH",
+        "project-manager-strassenbau-und-tiefbau-strabag-ag-beringen": "SH"
+      },
+      "fr": {
+        "projektleiter-in-strassenbau-und-tiefbau-strabag-beringen": "SH",
+        "chef-de-projet-strassenbau-und-tiefbau-strabag-ag-beringen": "SH"
+      }
+    }
   },
   {
     "slug": "tecnica-r-group-manager-ingegneria-civile-e-costruzione-stradale-strabag-ag-bern",
@@ -7672,7 +8194,8 @@
         "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern-35d9c44c"
       ],
       "de": [
-        "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern-35d9c44c"
+        "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern-35d9c44c",
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern-6ce6beae"
       ]
     },
     "postalCode": "3014",
@@ -7682,7 +8205,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/4ed6e21f-920f-452d-8dc5-0f616c6a162a",
-    "firstSeenAt": "2026-09-03T13:48:59.915Z"
+    "firstSeenAt": "2026-09-03T13:48:59.915Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technical-group-leader-civil-engineering-and-road-construction-strabag-bern": "BE",
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern-6ce6beae": "BE",
+        "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern-35d9c44c": "BE"
+      },
+      "en": {
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern-6ce6beae": "BE"
+      },
+      "de": {
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern-6ce6beae": "BE"
+      },
+      "fr": {
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern-6ce6beae": "BE"
+      }
+    }
   },
   {
     "slug": "costruzione-di-strade-strabag-ag-erstfeld",
@@ -7738,7 +8278,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/c33eff30-3c1b-470a-b3ad-a03cc36c8b8d",
-    "firstSeenAt": "2026-09-03T13:48:58.288Z"
+    "firstSeenAt": "2026-09-03T13:48:58.288Z",
+    "canton": "UR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "polier-in-strassenbau-strabag-erstfeld": "UR",
+        "lucidatore-in-costruzione-stradale-strabag-ag-erstfeld": "UR",
+        "foreman-road-construction-strabag-erstfeld": "UR"
+      },
+      "en": {
+        "polier-in-strassenbau-strabag-erstfeld": "UR",
+        "polisher-in-road-construction-strabag-ag-erstfeld": "UR"
+      },
+      "fr": {
+        "polier-in-strassenbau-strabag-erstfeld": "UR"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-ingegneria-civile-strabag-ag-erstfeld",
@@ -7792,7 +8347,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/7ab5d04a-3121-49d5-a68c-3b0b7da6d6b3",
-    "firstSeenAt": "2026-09-03T13:48:59.094Z"
+    "firstSeenAt": "2026-09-03T13:48:59.094Z",
+    "canton": "UR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-ingenieurbau-strabag-erstfeld": "UR",
+        "project-manager-civil-engineering-strabag-erstfeld": "UR"
+      },
+      "en": {
+        "projektleiter-in-ingenieurbau-strabag-erstfeld": "UR",
+        "project-manager-ingenieurbau-strabag-ag-erstfeld": "UR"
+      },
+      "fr": {
+        "projektleiter-in-ingenieurbau-strabag-erstfeld": "UR"
+      }
+    }
   },
   {
     "slug": "ingegneria-civile-polacca-e-costruzione-stradale-strabag-ag-subingen",
@@ -7848,7 +8417,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/ef2d9c4e-349c-487b-97ca-c2ec4cf308d1",
-    "firstSeenAt": "2026-09-03T13:48:59.561Z"
+    "firstSeenAt": "2026-09-03T13:48:59.561Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "polier-in-tiefbau-und-strassenbau-strabag-subingen": "SO",
+        "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen": "SO",
+        "foreman-civil-engineering-and-road-construction-strabag-subingen": "SO"
+      },
+      "en": {
+        "polier-in-tiefbau-und-strassenbau-strabag-subingen": "SO",
+        "polisher-in-civil-engineering-and-road-construction-strabag-ag-subingen": "SO"
+      },
+      "fr": {
+        "polier-in-tiefbau-und-strassenbau-strabag-subingen": "SO"
+      }
+    }
   },
   {
     "slug": "tecnica-r-group-manager-ingegneria-civile-e-costruzione-stradale-strabag-ag-beringen",
@@ -7902,79 +8486,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/5f7667ff-66cf-4d73-829d-08a8de10f548",
-    "firstSeenAt": "2026-09-02T13:50:17.020Z"
-  },
-  {
-    "slug": "meccanico-per-macchine-da-costruzione-efz-strabag-bmti-gmbh-lindau",
-    "title": "Construction Machinery Mechanic EFZ",
-    "titleByLocale": {
-      "it": "Meccanico per macchine da costruzione EFZ",
-      "en": "Construction Machinery Mechanic EFZ",
-      "de": "Baumaschinen Mechanik EFZ",
-      "fr": "Mécanicien des machines de construction EFZ"
-    },
-    "company": "Strabag BMTI GmbH",
-    "companyKey": "strabag",
-    "location": "Lindau",
-    "addressLocality": "Lindau",
-    "descriptionByLocale": {
-      "it": "A STRABAG, circa 89.000 persone in più di 2.400 sedi in tutto il mondo stanno facendo progressi. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, stiamo pensando di diventare il più innovativo e sostenibile gruppo di tecnologie per l'edilizia in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci rende una società e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nMeccanico di macchine da costruzione: in EFZ\nIl tuo contributo con noi\n\n• Servizi di riparazione e manutenzione di macchine edili e veicoli\n\n• Operazioni di riparazione su cantieri con un veicolo di servizio ben attrezzato\n\n• Riparazione di varie piccole attrezzature\n\n• Lavori meccanici e di saldatura generali\nCosa ci importa\n\n• Completo di apprendistato professionale EFZ come macchine edili/macchine agricole o meccanico di camion:in - gli apprendisti sono benvenuti!\n\n• L'esperienza professionale nell'industria delle macchine da costruzione/macchine agricole è obbligatoria\n\n• Buona conoscenza dell'idraulica, della pneumatica, della costruzione del veicolo e dell'elettricità del veicolo e della saldatura\n\n• Titolo di guida della categoria B\n\n• Metodo di lavoro indipendente, preciso e affidabile\n\nIl nostro valore aggiunto per te\nSi ottiene l'opportunità di sviluppare all'interno del team sia personalmente che professionalmente. Le condizioni quadro includono opportunità pratiche di formazione e interessanti sconti per i dipendenti. Ti piacciono i macchinari e le attrezzature per la costruzione, lavori con precisione, affidabilità e qualità-consapevolmente e sono aperti alla tecnologia moderna e alle attività emozionanti nel nostro parco macchine? Quindi si prega di inviare i vostri documenti di applicazione completi e significativi con la vostra prima data di entrata possibile e le aspettative di stipendio tramite il modulo online.\n:::\n\n• Diverse opportunità di formazione\n\n• Parcheggio\n\n• bevande gratuite\n\n• Retribuzione competitiva\n\n• Sconti per il personale\n\n• Eventi del personale\n\nInformazioni di contatto\nPatrick Cona\n\n+41 76 811 26 26\nApplicare ora",
-      "en": "At STRABAG, around 89,000 people at more than 2,400 locations worldwide are building progress. Uniqueness and individual strengths characterise not only our projects but also each and every one of us. Whether in building and civil engineering, road and underground construction, bridge and tunnel construction, in building materials production, project development or building management - we think construction further to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what defines us as a company and how we work.\nTogether we implement projects successfully and in partnership and grow with new tasks. Together we create great things. Let's progress!\n\nConstruction Machinery Mechanic EFZ\nYour contribution with us\n\n• Overhauls, repairs as well as service and maintenance work on construction machinery and vehicles\n\n• Repair assignments on construction sites with a well-equipped service vehicle\n\n• Repair of various small devices\n\n• General mechanical and welding work\nWhat counts for us\n\n• Completed apprenticeship EFZ as a construction machinery / agricultural machinery or truck mechanic - school leavers are welcome!\n\n• Professional experience in the construction machinery / agricultural machinery sector is mandatory\n\n• Good knowledge of hydraulics, pneumatics, vehicle construction and vehicle electrics as well as welding\n\n• Driving licence class B\n\n• Independent, precise and reliable way of working\n\nOur added value for you\nYou will have the opportunity to develop both personally and professionally within the team. The framework conditions include, among other things, practice-oriented training opportunities as well as attractive discounts for employees. Do you enjoy construction machinery and equipment, work precisely, reliably and with quality awareness, and are you open to modern technology and exciting tasks in our machinery park? Then please send us your complete and meaningful application documents stating your earliest possible starting date and salary expectations via the online form.\n:::\n\n• varied training opportunities\n\n• parking space\n\n• free drinks\n\n• competitive remuneration\n\n• employee discounts\n\n• employee events\n\nContact\nPatrick Cona\n\n+41 76 811 26 26\n\nApply now",
-      "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nBaumaschinenmechaniker:in EFZ\nDein Beitrag bei uns\n\n• Revisionen, Reparaturen sowie Service- und Unterhaltsarbeiten an Baumaschinen und Fahrzeugen\n\n• Reparatureinsätze auf Baustellen mit einem gut ausgerüstetem Servicefahrzeug\n\n• Instandsetzung von diversen Kleingeräten\n\n• Allgemeine Mechanik- und Schweissarbeiten\nWas für uns zählt\n\n• Abgeschlossene Berufslehre EFZ als Baumaschinen- / Landmaschinen- oder Lastwagen-Mechaniker:in - Lehrabgänger sind willkommen!\n\n• Berufserfahrung in der Baumaschinen-/Landmaschinenbranche ist zwingend erforderlich\n\n• Gute Kenntnisse in Hydraulik, Pneumatik, Fahrzeugbau und Fahrzeugelektrik sowie Schweissen\n\n• Führerschein Klasse B\n\n• Selbstständige, exakte und zuverlässige Arbeitsweise\n\nUnser Mehrwert für dich\nDu bekommst die Möglichkeit, dich innerhalb des Teams sowohl persönlich als auch fachlich weiterzuentwickeln. Zu den Rahmenbedingungen zählen unter anderem praxisorientierte Weiterbildungsmöglichkeiten sowie attraktive Rabatte für Mitarbeitende. Hast du Freude an Baumaschinen und Geräten, arbeitest exakt, zuverlässig und qualitätsbewusst und bist offen für moderne Technik und spannende Aufgaben in unserem Maschinenpark? Dann sende uns bitte deine vollständigen und aussagekräftigen Bewerbungsunterlagen mit Angabe deines frühestmöglichen Eintrittstermins und Gehaltsvorstellungen über das Onlineformular.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Mitarbeiterevents\n\nKontakt\nPatrick Cona\n\n+41 76 811 26 26\nJetzt bewerben",
-      "fr": "Au STRABAG, environ 89 000 personnes dans plus de 2 400 endroits du monde font des progrès. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Que ce soit dans le bâtiment et l'ingénierie, le génie routier et civil, la construction de ponts et de tunnels, la production de matériaux de construction, le développement de projets ou la gestion de bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et le plus durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nMécanicien des machines de construction:dans EFZ\nVotre contribution avec nous\n\n• Services de réparation et d'entretien de machines et de véhicules de construction\n\n• Opérations de réparation sur les chantiers de construction avec un véhicule de service bien équipé\n\n• Réparation de divers petits équipements\n\n• Travaux généraux de mécanique et de soudage\nCe qui nous importe\n\n• Apprentissage professionnel terminé EFZ comme machines de construction / machines agricoles ou mécanicien de camion:in - les apprentis sont les bienvenus!\n\n• L'expérience professionnelle dans l'industrie des machines de construction et des machines agricoles est obligatoire\n\n• Bonne connaissance de l'hydraulique, des pneumatiques, de la construction des véhicules et de l'électricité des véhicules ainsi que du soudage\n\n• Permis de conduire de catégorie B\n\n• Méthode de travail indépendante, exacte et fiable\n\nNotre valeur ajoutée pour vous\nVous avez la possibilité de vous développer au sein de l'équipe à la fois personnellement et professionnellement. Les conditions-cadres comprennent des possibilités de formation pratique et des rabais intéressants pour les employés. Vous aimez les machines et l'équipement de construction, travaillez avec précision, fiabilité et consciencieusement, et êtes-vous ouvert à la technologie moderne et aux tâches passionnantes dans notre parc de machines? Ensuite, envoyez-nous vos documents de candidature complets et significatifs avec votre date d'entrée et vos attentes salariales le plus tôt possible via le formulaire en ligne.\n:::\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Boissons gratuites\n\n• Rémunération concurrentielle\n\n• Remises au personnel\n\n• Manifestations du personnel\n\nCoordonnées\nPatrick Cona\n\n+41 76 811 26 26\nAppliquer maintenant"
-    },
-    "slugByLocale": {
-      "it": "meccanico-per-macchine-da-costruzione-efz-strabag-bmti-gmbh-lindau",
-      "en": "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau-d31321",
-      "de": "baumaschinen-mechanik-efz-strabag-bmti-gmbh-lindau",
-      "fr": "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau-d31321"
-    },
-    "sector": "Edilizia / Costruzioni",
-    "expiredAt": "2026-09-19T23:05:44.062Z",
-    "previousSlugs": [
-      "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau",
-      "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau",
-      "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau",
-      "baumaschinenmechaniker-in-efz-strabag-lindau-ykrzs9",
-      "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau-d31321",
-      "baumaschinenmechaniker-in-efz-strabag-lindau-7e140df1",
-      "construction-machinery-mechanic-efz-strabag-lindau-e9886359",
-      "construction-machinery-mechanic-efz-strabag-lindau",
-      "baumaschinenmechaniker-in-efz-strabag-lindau"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "baumaschinenmechaniker-in-efz-strabag-lindau-7e140df1",
-        "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau",
-        "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau",
-        "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau",
-        "baumaschinenmechaniker-in-efz-strabag-lindau-ykrzs9",
-        "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau-d31321",
-        "construction-machinery-mechanic-efz-strabag-lindau-e9886359"
-      ],
-      "en": [
-        "baumaschinenmechaniker-in-efz-strabag-lindau-7e140df1",
-        "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau",
-        "construction-machinery-mechanic-efz-strabag-lindau"
-      ],
-      "de": [
-        "construction-machinery-mechanic-efz-strabag-lindau",
-        "baumaschinenmechaniker-in-efz-strabag-lindau"
-      ],
-      "fr": [
-        "baumaschinenmechaniker-in-efz-strabag-lindau-7e140df1",
-        "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau",
-        "construction-machinery-mechanic-efz-strabag-lindau"
-      ]
-    },
-    "postalCode": "8315",
-    "streetAddress": "Rigacher 1",
-    "salaryMin": 73500,
-    "salaryMax": 111500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/8fb700b9-c64b-4648-894e-1f9427f0b15c",
-    "firstSeenAt": "2026-09-19T23:05:40.047Z"
+    "firstSeenAt": "2026-09-02T13:50:17.020Z",
+    "canton": "SH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-beringen": "SH",
+        "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-beringen": "SH",
+        "technical-group-leader-civil-engineering-and-road-construction-strabag-beringen": "SH"
+      },
+      "en": {
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-beringen": "SH"
+      },
+      "fr": {
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-beringen": "SH"
+      }
+    }
   },
   {
     "slug": "edilizia-e-costruzione-di-strade-strabag-ag-amriswil",

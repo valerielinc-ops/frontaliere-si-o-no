@@ -68017,3 +68017,4 @@
 {"eventType":"candidate_transition","key":"frutiger","from":"awaiting_first_crawl","to":"production","at":"2026-11-27T15:38:59.449Z","runId":"45999709425","runAttempt":1,"phase":"promote","eventId":"b8ce88a5465544501566e4f2"}
 {"eventType":"candidate_transition","key":"restaurant-hotel-vatel@martigny","from":"awaiting_first_crawl","to":"production","at":"2026-11-27T15:38:59.452Z","runId":"45999709425","runAttempt":1,"phase":"promote","eventId":"ebc5a08c49220469ac5ae43a"}
 {"eventType":"candidate_attempt","key":"sintio.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-27T15:38:59.452Z","runId":"45999709425","runAttempt":1,"phase":"promote","eventId":"ce35c8273df37c3e2ab2af77"}
+{"eventType":"candidate_transition","key":"vtm-dienstleistung@rothrist","from":"promoted","to":"promoting","at":"2026-11-27T15:39:37.428Z","runId":"45999709425","runAttempt":1,"phase":"promote","eventId":"a5010bf7d963b80debd0edc3"}
