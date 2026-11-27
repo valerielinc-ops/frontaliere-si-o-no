@@ -20,6 +20,37 @@ export function readPortalProtocolInPage() {
     quoted: { portalId, urlPath, page, applicationName, applicationCode } };
 }
 
+/**
+ * Evaluated in the page with `readPortalProtocolInPage` passed in. Avature draws its only sign-in route
+ * on a registration page as the site-header «Login» link (the snapshot leaves site chrome out), so it is
+ * read here from the live DOM: the page must attest the Avature portal, and exactly one visible
+ * same-origin anchor may lead to `<namespace>/Login`, named by its own text, title or aria-label.
+ */
+export function readAvatureSignInRouteInPage(readProtocol) {
+  const protocol = readProtocol();
+  if (!protocol || protocol.page !== 'Register') return null;
+  const visible = (element) => {
+    const box = element.getBoundingClientRect();
+    const style = element.ownerDocument.defaultView.getComputedStyle(element);
+    return box.width > 0 && box.height > 0 && style.visibility !== 'hidden' && style.display !== 'none';
+  };
+  const loginPath = `${protocol.namespace}/Login`;
+  const found = [];
+  for (const anchor of document.querySelectorAll('a[href]')) {
+    let target;
+    try { target = new URL(anchor.getAttribute('href'), location.href); } catch { continue; }
+    if (target.origin !== protocol.origin || target.pathname.replace(/\/$/, '') !== loginPath || target.hash) continue;
+    if (!visible(anchor)) continue;
+    found.push({
+      href: target.href,
+      text: anchor.innerText || anchor.textContent || '',
+      title: anchor.getAttribute('title') || '',
+      ariaLabel: anchor.getAttribute('aria-label') || '',
+    });
+  }
+  return { protocol, links: found.slice(0, 5) };
+}
+
 export function avatureProtocolMatches(protocol, value) {
   try {
     const url = new URL(value); const quote = protocol?.quoted;
