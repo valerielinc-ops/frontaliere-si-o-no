@@ -32,7 +32,9 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isApplicat
 // v15 (2026-11-27): the Italian «Accetto…» consent to the processing of the personal data of this application, and
 // a notice owned by a named employer («dati dell'EOC»); a «Dichiaro…» that states anything but having read the
 // notice is no consent. The waits on them are read again.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v15';
+// v16 (2026-11-27): the notice acknowledgement shown as a Sì/No control (with or without a «Seleziona» placeholder) is
+// answered like its box; the waits on it are read again.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v16';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -81,7 +83,8 @@ function applicationPrivacyNoticeAnswerShape(question) {
   const types = [question?.type, question?.kind, question?.inputType]
     .map(type => String(type || '').toLowerCase()).filter(Boolean);
   if (types.includes('checkbox')) return 'checkbox';
-  const options = optionsOf(question);
+  // A «Seleziona»/«Select…» placeholder is no answer: it neither offers nor refuses the consent.
+  const options = optionsOf(question).filter(option => !/^(?:-+|seleziona\w*|select\w*|please select|bitte (?:wahlen|waehlen)|choisir|choose)\b/i.test(norm(option.label) || '-'));
   if (types.some(type => ['yes_no', 'boolean'].includes(type)) && options.length === 0) return 'binary';
   if (options.length < 2 || options.length > 3) return null;
   const affirmative = options.filter(option => affirmativeConsentOption(option, question));

@@ -11763,7 +11763,12 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     const label = folded(field.label);
     const allText = folded(fieldText(field));
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
-    const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField, { facts: candidate.platformFacts }));
+    // The caption alone is read too: the options appended to `allText` («… dei miei dati sì no») turn a plain notice
+    // acknowledgement shown as a yes/no control into a sentence the closed consent grammar no longer recognises.
+    const captionText = [field?.label, field?.ariaLabel, field?.description, field?.ariaDescription,
+      ...(Array.isArray(field?.labels) ? field.labels : [])].filter(Boolean).join(' ');
+    const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField, { facts: candidate.platformFacts }))
+      || Boolean(operationalDefaultAnswer({ ...field, question: captionText, applicationQuestion: field.label || captionText }, { facts: candidate.platformFacts }));
     const role = residenceFieldRole(field.label);
     const candidateAnswer = candidateAnswerForField(candidate, field, {
       includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),
