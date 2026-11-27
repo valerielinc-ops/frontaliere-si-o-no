@@ -47,7 +47,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000161281005-infirmier-ere-",
-    "firstSeenAt": "2026-11-12T21:36:50.431Z"
+    "firstSeenAt": "2026-11-12T21:36:50.431Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-clinique-generale-ste-anne": "FR"
+      },
+      "en": {
+        "infirmier-ere-clinique-generale-ste-anne": "FR"
+      },
+      "de": {
+        "infirmier-ere-clinique-generale-ste-anne": "FR"
+      }
+    }
   },
   {
     "slug": "segretario-medico-collaboratore-amministrativo-clinique-generale-ste-anne-fribourg",
@@ -91,7 +103,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000152902420-secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-",
-    "firstSeenAt": "2026-10-01T21:23:06.578Z"
+    "firstSeenAt": "2026-10-01T21:23:06.578Z",
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-clinique-generale-ste-anne": "FR"
+      }
+    }
   },
   {
     "slug": "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-clinique-generale-ste-anne",
@@ -155,7 +173,19 @@
         "firstSeenAt": "2026-07-07T12:16:45.145Z",
         "title": "Aide en salle d'opération ou assistant(e) technique spécialisé(e) en salle d'opération (ATSSO)"
       }
-    ]
+    ],
+    "canton": "FR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne": "FR"
+      },
+      "en": {
+        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne": "FR"
+      },
+      "de": {
+        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne": "FR"
+      }
+    }
   },
   {
     "slug": "fisioterapia-pratica-ambulatoriale-e-monitoraggio-ospedaliero-swiss-medical-network-fribourg",

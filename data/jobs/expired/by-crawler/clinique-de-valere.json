@@ -59,7 +59,17 @@
         "firstSeenAt": "2026-08-19T21:35:03.134Z",
         "title": "Aide en salle d'opération ou assistant(e) technique spécialisé(e) en salle d'opération (ATSSO) 80 - 100%"
       }
-    ]
+    ],
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-80-100-clinique-de-valere-sion": "VS",
+        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-clinique-de-valere": "VS"
+      },
+      "en": {
+        "support-in-the-operating-room-or-technical-assistant-specialized-in-the-operating-room-atsso-80-100-clinique-de-valere": "VS"
+      }
+    }
   },
   {
     "slug": "70-assistente-medico-policlinico-clinique-de-valere-sion",
@@ -106,7 +116,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000146683320-assistant-e-medicale-en-policlinique-a-70-",
-    "firstSeenAt": "2026-09-01T14:10:38.439Z"
+    "firstSeenAt": "2026-09-01T14:10:38.439Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere": "VS"
+      },
+      "en": {
+        "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere": "VS"
+      }
+    }
   },
   {
     "slug": "radiologia-medica-tecnico-80-100-clinique-de-valere-sion",

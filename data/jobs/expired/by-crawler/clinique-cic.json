@@ -81,7 +81,16 @@
         "firstSeenAt": "2026-05-19T13:47:18.400Z",
         "title": "Assistant-e en soins et santé communautaire (ASSC)"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens": "VD"
+      },
+      "en": {
+        "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens": "VD"
+      }
+    }
   },
   {
     "slug": "infermiera-clinique-cic-saxon-saxon",
@@ -133,7 +142,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/198a04bf-c7b2-44aa-9d81-49f92a330378",
-    "firstSeenAt": "2026-09-30T21:10:26.798Z"
+    "firstSeenAt": "2026-09-30T21:10:26.798Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-clinique-cic-saxon": "VS"
+      },
+      "en": {
+        "infirmier-ere-clinique-cic-saxon": "VS"
+      },
+      "de": {
+        "krankenschwester-clinique-cic-saxon-saxon": "VS",
+        "krankenpfleger-in-clinique-cic-saxon-saxon": "VS"
+      }
+    }
   },
   {
     "slug": "assistente-medico-80-clinique-cic-clarens-clarens",
@@ -176,7 +198,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/cdd6d93e-1a41-45dd-91fd-cc0db5c69882",
-    "firstSeenAt": "2026-09-02T13:33:14.646Z"
+    "firstSeenAt": "2026-09-02T13:33:14.646Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-medical-e-80-clinique-cic-clarens": "VD"
+      }
+    }
   },
   {
     "slug": "atto-clinique-cic-saxon-saxon",
@@ -225,7 +253,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/351b7ce5-7b04-4043-8341-c5d991f4582a",
-    "firstSeenAt": "2026-08-31T17:04:41.988Z"
+    "firstSeenAt": "2026-08-31T17:04:41.988Z",
+    "canton": "VS",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "atsso-clinique-cic-saxon": "VS"
+      },
+      "en": {
+        "atsso-clinique-cic-saxon": "VS"
+      },
+      "de": {
+        "atsso-clinique-cic-saxon": "VS"
+      }
+    }
   },
   {
     "slug": "infermiera-clinique-cic-clarens-clarens",

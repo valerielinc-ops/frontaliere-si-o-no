@@ -27,7 +27,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://clinicavarini.ch/wp-content/uploads/20260508_concorso_contabile.pdf",
-    "firstSeenAt": "2026-05-20T05:41:08.122Z"
+    "firstSeenAt": "2026-05-20T05:41:08.122Z",
+    "canton": "TI"
   },
   {
     "slug": "concorso-direttore-direttrice-sanitario-clinica-varini-orselina",
@@ -73,6 +74,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://clinicavarini.ch/wp-content/uploads/20260311_concorso_dir_sanitario.pdf",
-    "firstSeenAt": "2026-05-21T11:31:18.518Z"
+    "firstSeenAt": "2026-05-21T11:31:18.518Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "competition-director-clinica-varini-orselina": "TI"
+      },
+      "de": {
+        "wettbewerb-direktor-clinica-varini-orselina": "TI"
+      },
+      "fr": {
+        "concours-directeur-clinica-varini-orselina": "TI"
+      }
+    }
   }
 ]

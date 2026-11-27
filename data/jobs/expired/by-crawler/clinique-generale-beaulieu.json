@@ -47,7 +47,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000159865759-aide-soignant-e-chirurgie",
-    "firstSeenAt": "2026-11-05T21:28:11.800Z"
+    "firstSeenAt": "2026-11-05T21:28:11.800Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aide-soignant-e-chirurgie-clinique-generale-beaulieu": "GE"
+      },
+      "en": {
+        "aide-soignant-e-chirurgie-clinique-generale-beaulieu": "GE"
+      },
+      "de": {
+        "aide-soignant-e-chirurgie-clinique-generale-beaulieu": "GE"
+      }
+    }
   },
   {
     "slug": "ausiliario-a-di-sala-operatoria-clinique-generale-beaulieu-geneve",
@@ -212,7 +224,19 @@
         "firstSeenAt": "2026-06-30T22:07:36.931Z",
         "title": "Aide soignant(e) bloc opératoire"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "aide-soignant-e-bloc-operatoire-clinique-generale-beaulieu": "GE"
+      },
+      "en": {
+        "aide-soignant-e-bloc-operatoire-clinique-generale-beaulieu": "GE"
+      },
+      "de": {
+        "aide-soignant-e-bloc-operatoire-clinique-generale-beaulieu": "GE"
+      }
+    }
   },
   {
     "slug": "chirurgia-notturna-part-time-clinique-generale-beaulieu-geneve",
@@ -262,7 +286,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000156321629-infirmier-ere-chirurgie-nuit-temps-partiel-",
-    "firstSeenAt": "2026-10-19T21:35:23.734Z"
+    "firstSeenAt": "2026-10-19T21:35:23.734Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-chirurgie-nuit-temps-partiel-clinique-generale-beaulieu": "GE"
+      },
+      "en": {
+        "infirmier-ere-chirurgie-nuit-temps-partiel-clinique-generale-beaulieu": "GE"
+      },
+      "de": {
+        "infirmier-ere-chirurgie-nuit-temps-partiel-clinique-generale-beaulieu": "GE"
+      }
+    }
   },
   {
     "slug": "infermiere-strumentali-clinique-generale-beaulieu-geneve",
@@ -306,7 +342,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000135518323-infirmier-ere-instrumentiste",
-    "firstSeenAt": "2026-07-02T21:35:58.667Z"
+    "firstSeenAt": "2026-07-02T21:35:58.667Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-instrumentiste-clinique-generale-beaulieu": "GE"
+      }
+    }
   },
   {
     "slug": "infermiere-a-chirurgia-notte-clinique-generale-beaulieu-geneve",
@@ -380,7 +422,21 @@
         "firstSeenAt": "2026-07-17T22:38:50.801Z",
         "title": "Infirmier(ère) chirurgie nuit"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu": "GE"
+      },
+      "en": {
+        "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu": "GE"
+      },
+      "de": {
+        "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu": "GE",
+        "krankenpfleger-in-nachtchirurgie-clinique-generale-beaulieu-geneve": "GE",
+        "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu-geneve": "GE"
+      }
+    }
   },
   {
     "slug": "cura-della-maternita-cgb-clinique-generale-beaulieu-geneve",
