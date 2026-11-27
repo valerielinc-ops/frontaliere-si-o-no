@@ -389,8 +389,8 @@ describe('loop fleet workflow contract', () => {
     for (const name of numberedLoopWorkflows()) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       expect(source, name).not.toMatch(/ga4-custom-dimensions|customDimensions|analytics\.edit/u);
-      if (name === 'loop-l8-revenue-attribution.yml') {
-        expect(source).not.toMatch(/\bnode scripts\/|secrets\./u);
+      if (name === 'loop-l8-revenue-attribution.yml' || name === 'loop-l9-employer-activation.yml') {
+        expect(source).not.toMatch(/\bnode scripts\/|secrets\.|actions\/checkout/u);
         continue;
       }
       const scripts = new Set([...source.matchAll(/\bnode (scripts\/[\w./-]+\.mjs)/gu)].map((match) => match[1]));
@@ -562,7 +562,7 @@ describe('loop fleet workflow contract', () => {
 
   it('uploads lifecycle evidence for loops with a public ledger', () => {
     for (const name of loopWorkflows) {
-      if (name === 'loop-l8-revenue-attribution.yml') continue;
+      if (name === 'loop-l8-revenue-attribution.yml' || name === 'loop-l9-employer-activation.yml') continue;
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
       expect(uploadsWholeDirectory || source.includes('lifecycle-events.jsonl'), name).toBe(true);
@@ -571,7 +571,7 @@ describe('loop fleet workflow contract', () => {
 
   it('uploads canonical outcomes for loops with public evidence', () => {
     for (const name of loopWorkflows) {
-      if (name === 'loop-l8-revenue-attribution.yml') continue;
+      if (name === 'loop-l8-revenue-attribution.yml' || name === 'loop-l9-employer-activation.yml') continue;
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const uploadsWholeDirectory = /path:\s+\$\{\{\s*runner\.temp\s*\}\}\/loop-fleet-[^/]+\/\s*$/mu.test(source);
       expect(uploadsWholeDirectory || source.includes('loop-fleet-outcome.json'), name).toBe(true);

@@ -132,7 +132,7 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
       return { ok: true, status: 200, json: async () => body };
     };
     const { measurements } = await measureCostDrivers({ fetchImpl: fetchImpl as never, token: 't', now: new Date('2020-01-08T00:00:00Z') });
-    expect(measurements['firestore-reads'].value).toBe(6);
+    expect(measurements['firestore-reads'].value).toBe(6_000_000);
     expect(measurements[STORAGE_DRIVER.key].value).toBeCloseTo(1, 6);
     const egressUrl = urls.find((url) => url.includes('sent_bytes_count')) || '';
     expect(new URL(egressUrl).searchParams.get('filter')).toContain('metric.label.kind="internet"');

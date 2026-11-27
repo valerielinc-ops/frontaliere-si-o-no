@@ -142,7 +142,7 @@ describe('monitorDecision', () => {
   expect(diagnose(decision.alarms[0] as never)).toContain('traffico');
   expect(diagnose({ kind: 'closed', pageViewsChange: 0, rpmChange: -0.3 } as never)).toContain('monetizzazione');
   const body = buildIssueBody({ decision, runUrl: 'https://example.test/run' });
-  expect(body).toContain('measurements are withheld');
+  expect(body).toContain('measurements and diagnostics are withheld');
   expect(body).not.toContain('-30%');
   expect(body).not.toContain('7.00');
   expect(body).not.toContain('10.00');

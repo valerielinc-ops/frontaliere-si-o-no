@@ -323,7 +323,7 @@ describe('runMonitor (CLI contract)', () => {
     const empty = (async () => ({ ok: true, json: async () => ({ rows: [], rowCount: 0 }) })) as unknown as typeof fetch;
     const code = await runMonitor({ argv: ['--current-hour=2026092816'], env: { GITHUB_OUTPUT: out }, fetchImpl: empty, getToken: async () => 't', log });
     expect(code).toBe(1);
-    expect(errors.join('\n')).toMatch(/::error::.*no rows/);
+    expect(errors.join('\n')).toMatch(/::error::.*details withheld/);
     expect(existsSync(out)).toBe(false);
   });
 

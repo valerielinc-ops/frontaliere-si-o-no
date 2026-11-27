@@ -22,6 +22,7 @@ import { pathToFileURL } from 'node:url';
 import { createdSinceFilter, newestFirst } from './lib/run-listing-window.mjs';
 import { canonicalJson as canonicalRecordContent } from '../lib/canonical-json-digest.mjs';
 import { listLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
+import { hasL9PrivateEvidence, L9_PRIVATE_EVIDENCE } from '../lib/l9-artifact-privacy.mjs';
 
 export const SOURCE_LOOPS = Object.freeze([
   ['L0', 'loop-l0-data-truth.yml', 'loop-l0-data-truth'],
@@ -159,6 +160,9 @@ export function missingEvidenceRecordIds(inputDir, ledgerDir, { loopId, runId, s
       || String(summary.run?.runId || '') !== String(runId)
       || String(summary.run?.sha || '').toLowerCase() !== String(sha || '').toLowerCase()) {
     return { ok: false, reason: 'evidence summary provenance does not match the source run', missing: [] };
+  }
+  if (loopId === 'L9' && hasL9PrivateEvidence(inputDir)) {
+    return { ok: false, reason: L9_PRIVATE_EVIDENCE, missing: [] };
   }
 
   let durable;

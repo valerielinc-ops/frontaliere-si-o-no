@@ -112,7 +112,7 @@ async function testCostDriverPaging() {
     return { ok: true, status: 200, json: async () => body };
   };
   const { measurements } = await measureCostDrivers({ fetchImpl, token: 't', now: new Date('2020-01-08T00:00:00Z') });
-  assert.equal(measurements['firestore-reads'].value, 6);
+  assert.equal(measurements['firestore-reads'].value, 6_000_000);
   assert.ok(Math.abs(measurements[STORAGE_DRIVER.key].value - 1) < 1e-6);
   const egressUrl = urls.find((url) => url.includes('sent_bytes_count')) || '';
   assert.ok(new URL(egressUrl).searchParams.get('filter').includes('metric.label.kind="internet"'));
