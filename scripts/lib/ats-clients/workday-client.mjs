@@ -599,6 +599,27 @@ async function withRunnerWorkdayEgress(operation, {
 const DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD = 2;
 const implicitRateLimitStates = new Map();
 
+// Browser rescue budgets (see rescueThroughBrowser). They are counted per
+// tenant for the whole process, across request contexts, so that several
+// crawlers or parsers of one tenant cannot each spend a fresh allowance.
+// Calibration: the largest Swiss listing seen in the group-22 proof run
+// (45924044578) was 7 postings, one page; 25 pages of 20 and 40 details leave
+// a wide margin over that while keeping the worst case, at ~2.5 s of backoff
+// plus at most one 20 s request each, bounded to minutes rather than the job
+// timeout. The first browser 429 halts the tenant regardless of what is left.
+const DEFAULT_LISTING_BROWSER_BUDGET = 25;
+const DEFAULT_DETAIL_BROWSER_BUDGET = 40;
+const DEFAULT_BROWSER_BACKOFF_MS = 2_500;
+const browserRescueLedgers = new Map();
+
+function browserRescueLedger(apiBase) {
+  const key = String(apiBase).replace(/\/+$/, '');
+  if (!browserRescueLedgers.has(key)) {
+    browserRescueLedgers.set(key, { listing: 0, detail: 0, halted: false, lastRequestAt: 0 });
+  }
+  return browserRescueLedgers.get(key);
+}
+
 function newRateLimitState(apiBase) {
   return {
     blockedUntil: 0,
@@ -606,9 +627,10 @@ function newRateLimitState(apiBase) {
     lastRateLimitUrl: apiBase,
     queue: Promise.resolve(),
     observedRateLimits: new WeakSet(),
-    // The browser stack is tried at most once per tenant for a rate-limited
-    // listing; see rescueListingThroughBrowser.
-    listingBrowserRescueSpent: false,
+    // True once the browser transport answered a request after the direct
+    // circuit opened: the rest of the tenant's requests then go through it
+    // (within budget) instead of re-sending direct requests known to be 429.
+    browserEngaged: false,
   };
 }
 
@@ -623,6 +645,7 @@ function implicitRateLimitState(apiBase) {
 /** Test isolation for the process-wide policy used by legacy no-context callers. */
 export function resetWorkdayImplicitRateLimitStateForTests() {
   implicitRateLimitStates.clear();
+  browserRescueLedgers.clear();
 }
 
 /**
@@ -635,7 +658,7 @@ export function resetWorkdayImplicitRateLimitStateForTests() {
  * previous request is waiting out the tenant's Retry-After window.
  *
  * @param {string} apiBase
- * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object, egressStateDir?: string|null, egressMinDelayMs?: number }} [options]
+ * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object, egressStateDir?: string|null, egressMinDelayMs?: number, listingBrowserBudget?: number, detailBrowserBudget?: number, browserBackoffMs?: number }} [options] Browser rescue after the 429 circuit opens: sequential, budgeted per tenant and process (listing pages / details; details default to 0 for a caller-supplied transport), backoff between requests, halted at the first browser 429.
  * @param {{ browserFallback?: Function|null, publicUrl?: string, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object }} [options]
  * @returns {{ request: (url: string, options?: object) => Promise<any>, close: () => Promise<void> }}
  */
@@ -650,7 +673,16 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     rateLimitCircuitThreshold = DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
     egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || defaultWorkdayEgressStateDir(),
     egressMinDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
+    listingBrowserBudget = DEFAULT_LISTING_BROWSER_BUDGET,
+    browserBackoffMs = DEFAULT_BROWSER_BACKOFF_MS,
   } = options;
+  // Detail GETs are where #19723 forbade the browser: a 429 storm there is
+  // what the circuit exists to stop. The budgeted rescue below stays inside
+  // that bound, but it is on by default only for the built-in browser
+  // transport; a caller-supplied transport must opt in explicitly.
+  const detailBrowserBudget = options.detailBrowserBudget
+    ?? (configuredBrowserFallback === undefined ? DEFAULT_DETAIL_BROWSER_BUDGET : 0);
+  const ledger = browserRescueLedger(apiBase);
   let browserSession = null;
   let closed = false;
   const rateLimitState = options.rateLimitState ?? newRateLimitState(apiBase);
@@ -724,28 +756,33 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
   const request = (url, requestOptions = {}) => {
     if (closed) return Promise.reject(new Error('Workday request context is already closed'));
 
-    // The listing is the first request of a tenant: when the direct stack is
-    // rate limited there, every detail would be lost with it, and the whole
-    // crawl aborts before publishing. The same-origin browser stack (other TLS
-    // fingerprint and cookies, the transport that recovered these listings
-    // until the circuit was bounded) gets ONE attempt per tenant. Details never
-    // use it: a 429 storm there is what the circuit exists to stop.
-    const rescueListingThroughBrowser = async (terminalError) => {
+    // Once the direct stack is rate limited, every remaining request of the
+    // tenant is lost with it and the crawl aborts before publishing. The
+    // same-origin browser stack (other TLS fingerprint and cookies) is the
+    // alternate path, under the bounds #19723 asked for: only after the 429
+    // circuit is open, strictly sequential (this queue), a per-tenant
+    // per-process budget for listing pages and for details, a backoff between
+    // browser requests, and a stop at the first 429 the browser itself gets.
+    const rescueThroughBrowser = async (terminalError) => {
       const method = String(requestOptions.method || 'GET').toUpperCase();
+      const kind = method === 'POST' ? 'listing' : 'detail';
+      const budget = Math.max(0, Number(kind === 'listing' ? listingBrowserBudget : detailBrowserBudget) || 0);
       // Only a circuit opened by repeated 429s qualifies: a single terminal 429
       // (retry budget 0, or a short Retry-After) keeps its typed error and never
       // launches a browser.
       if (
-        method !== 'POST'
-        || !browserFallback
-        || rateLimitState.listingBrowserRescueSpent
+        !browserFallback
+        || ledger.halted
+        || ledger[kind] >= budget
         || rateLimitState.consecutiveRateLimits < circuitThreshold
       ) {
-        throw terminalError;
+        throw terminalError || rateLimitError(url);
       }
-      rateLimitState.listingBrowserRescueSpent = true;
+      ledger[kind] += 1;
       try {
         await waitForRateLimit();
+        const backoffWait = ledger.lastRequestAt + Math.max(0, Number(browserBackoffMs) || 0) - Date.now();
+        if (backoffWait > 0) await new Promise((resolve) => setTimeout(resolve, backoffWait));
         const browserRequest = () => browserFallback({
           url,
           method,
@@ -753,6 +790,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
           userAgent: requestOptions.userAgent || DEFAULT_USER_AGENT,
           timeoutMs: requestOptions.timeoutMs || DEFAULT_TIMEOUT_MS,
         });
+        ledger.lastRequestAt = Date.now();
         const data = await (egressStateDir
           ? withRunnerWorkdayEgress(browserRequest, {
               stateDir: egressStateDir,
@@ -761,18 +799,39 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
               retryAfterCapMs,
             })
           : browserRequest());
-        rateLimitState.consecutiveRateLimits = 0;
+        ledger.lastRequestAt = Date.now();
+        if (!rateLimitState.browserEngaged) {
+          console.warn(`⚠️ Workday ${kind} recovered through the browser transport after direct HTTP 429: ${url}`);
+        }
+        rateLimitState.browserEngaged = true;
         rateLimitState.blockedUntil = 0;
-        console.warn(`⚠️ Workday listing recovered through the browser transport after direct HTTP 429: ${url}`);
         return data;
       } catch (browserErr) {
-        console.warn(`⚠️ Workday browser transport could not recover the rate-limited listing ${url}: ${browserErr?.message || browserErr}`);
-        observeRateLimit(browserErr);
-        throw terminalError;
+        ledger.lastRequestAt = Date.now();
+        console.warn(`⚠️ Workday browser transport could not recover the rate-limited ${kind} ${url}: ${browserErr?.message || browserErr}`);
+        if (observeRateLimit(browserErr)) {
+          // The browser is throttled too: the limit is the egress IP, so stop
+          // every further browser request of this tenant and surface it.
+          ledger.halted = true;
+          rateLimitState.consecutiveRateLimits = Math.max(rateLimitState.consecutiveRateLimits, circuitThreshold);
+          throw rateLimitError(url, browserErr);
+        }
+        if (terminalError) throw terminalError;
+        // Engaged mode has no direct error to report: a real HTTP answer (404
+        // for a withdrawn posting, auth) is the truth, anything else keeps the
+        // tenant's open circuit.
+        if (browserErr instanceof WorkdayApiError) throw browserErr;
+        throw rateLimitError(url);
       }
     };
 
     const run = async () => {
+      // The browser already proved it can answer while the direct circuit is
+      // open: do not send more direct requests that are known to be 429.
+      if (rateLimitState.browserEngaged && !ledger.halted
+          && rateLimitState.consecutiveRateLimits >= circuitThreshold) {
+        return rescueThroughBrowser(null);
+      }
       try {
         const data = await fetchJsonWithRetry(url, {
           ...requestOptions,
@@ -788,12 +847,13 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
           }),
         });
         rateLimitState.consecutiveRateLimits = 0;
+        rateLimitState.browserEngaged = false;
         return data;
       } catch (err) {
         // Browser fallback errors are outside fetchWithRetry's hook. Preserve a
         // terminal 429 there too, so the next detail remains behind Retry-After.
-        if (err instanceof WorkdayRateLimitError) return rescueListingThroughBrowser(err);
-        if (observeRateLimit(err)) return rescueListingThroughBrowser(rateLimitError(url, err));
+        if (err instanceof WorkdayRateLimitError) return rescueThroughBrowser(err);
+        if (observeRateLimit(err)) return rescueThroughBrowser(rateLimitError(url, err));
         rateLimitState.consecutiveRateLimits = 0;
         throw err;
       }
@@ -842,9 +902,15 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     rateLimitCircuitThreshold,
     egressStateDir,
     egressMinDelayMs,
+    listingBrowserBudget,
+    detailBrowserBudget,
+    browserBackoffMs,
     ...requestOptions
   } = options;
   const requestContext = createWorkdayRequestContext(apiBase, {
+    listingBrowserBudget,
+    detailBrowserBudget,
+    browserBackoffMs,
     browserFallback,
     publicUrl,
     retryAfterCapMs,
