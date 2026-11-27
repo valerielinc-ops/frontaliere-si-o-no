@@ -1,7 +1,7 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-11-27T09:34:23.063Z",
+  "generatedAt": "2026-11-27T21:28:12.925Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9362,
-  "avgDurationMs": 9362,
+  "durationMs": 7809,
+  "avgDurationMs": 7809,
   "durationHistory": [
-    9362
+    7809
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:34:02.336Z",
+      "crawledAt": "2026-11-27T21:27:52.812Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -74,7 +74,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T09:34:02.336Z",
+      "validThrough": "2026-12-27T21:27:52.812Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -96,7 +96,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/812/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:34:01.524Z",
+      "crawledAt": "2026-11-27T21:27:52.111Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -131,7 +131,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-25T09:34:01.524Z",
+      "validThrough": "2027-02-25T21:27:52.111Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -153,7 +153,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/805/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:34:00.262Z",
+      "crawledAt": "2026-11-27T21:27:51.434Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:34:00.262Z",
+      "validThrough": "2027-02-01T21:27:51.434Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -211,7 +211,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/826/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:33:59.253Z",
+      "crawledAt": "2026-11-27T21:27:50.622Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:33:59.253Z",
+      "validThrough": "2027-02-12T21:27:50.622Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -261,5 +261,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

@@ -1,7 +1,7 @@
 {
   "key": "everest-re",
   "label": "Everest Re",
-  "generatedAt": "2026-11-27T09:36:32.011Z",
+  "generatedAt": "2026-11-27T21:22:45.430Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,5 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee",
+  "workdayRateLimit": {
+    "tenant": "https://everestre.wd5.myworkdayjobs.com/wday/cxs/everestre/External",
+    "firstRateLimitedAt": "2026-11-27T21:22:45.439Z",
+    "lastRateLimitedAt": "2026-11-27T21:22:45.439Z",
+    "consecutiveRuns": 1,
+    "nextAttemptAfter": "2026-11-28T03:22:45.439Z",
+    "outcome": "rate-limited"
+  }
 }
