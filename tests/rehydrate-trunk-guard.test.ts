@@ -74,7 +74,7 @@ function runSectionRehydrate(
   const root = mkdtempSync(join(tmpdir(), 'trunk-guard-'));
   const lib = join(root, 'scripts', 'lib');
   mkdirSync(lib, { recursive: true });
-  for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh']) {
+  for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh', 'ticino-tree-fanout.sh', 'rehydrate-provenance.sh', 'rehydrate-tar-member.sh']) {
     copyFileSync(resolve('scripts/lib', f), join(lib, f));
   }
   writeFileSync(
@@ -384,7 +384,7 @@ function runLocaleRehydrate(opts: {
   const root = mkdtempSync(join(tmpdir(), 'trunk-guard-loc-'));
   const lib = join(root, 'scripts', 'lib');
   mkdirSync(lib, { recursive: true });
-  for (const f of ['rehydrate-locale-shards.sh', 'rehydrate-trunk-guard.sh', 'rehydrate-provenance.sh']) {
+  for (const f of ['rehydrate-locale-shards.sh', 'rehydrate-trunk-guard.sh', 'rehydrate-provenance.sh', 'rehydrate-tar-member.sh']) {
     copyFileSync(resolve('scripts/lib', f), join(lib, f));
   }
 
@@ -737,10 +737,13 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
     // Missing artifact / failed clone / absent subtree still warn + continue.
     expect(section).toMatch(/::warning::\$section-\$loc shard clone failed/);
     expect(section).toMatch(/::warning::frontaliere-\$section-\$loc has no \$sub subtree/);
-    // The verdict is the only content-loss exit; malformed parallelism config
-    // is rejected separately before any worker starts.
+    // The verdict is the only content-loss exit; a malformed parallelism value
+    // and a malformed batch manifest are rejected before any worker starts.
     const exits = liveCode(section).match(/^\s*exit\s+1\s*$/gm) ?? [];
-    expect(exits).toHaveLength(2);
+    expect(exits).toHaveLength(3);
+    expect(section).toMatch(/REHYDRATE_MAX_PARALLEL must be a positive integer[^\n]*\n\s*exit 1/);
+    expect(section).toMatch(/if ! validate_section_shard_batches_manifest; then\n\s*exit 1/);
+    expect(section).toMatch(/if ! trunk_guard_verdict "section shard rehydrate"; then\n\s*exit 1/);
     expect(section).toContain('trunk_guard_verdict "section shard rehydrate"');
   });
 
