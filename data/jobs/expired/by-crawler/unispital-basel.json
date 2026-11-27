@@ -1664,7 +1664,11 @@
       "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
       "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit-universitatsspital-basel-basel",
       "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-qqx0dp",
-      "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
+      "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
+      "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel-68bbc8",
+      "dipl-nursing-specialist-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel-68bbc8",
+      "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-94528q",
+      "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-la-station-de-lits-et-des-accidents-vasculaires-cerebraux"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1672,20 +1676,24 @@
         "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-a77cccb7",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
+        "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel-68bbc8"
       ],
       "en": [
         "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-a77cccb7",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
+        "dipl-nursing-specialist-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel-68bbc8"
       ],
       "de": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-qqx0dp"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-qqx0dp",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-94528q"
       ],
       "fr": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-a77cccb7"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-a77cccb7",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-la-station-de-lits-et-des-accidents-vasculaires-cerebraux"
       ]
     },
     "postalCode": "4001",
@@ -1712,7 +1720,21 @@
         "firstSeenAt": "2026-09-17T06:56:59.080Z",
         "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (neurologische Bettenstation & Stroke Unit)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-infermieristica-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel-68bbc8": "BS"
+      },
+      "en": {
+        "dipl-nursing-specialist-hf-fh-neurological-bed-station-stroke-unit-universitatsspital-basel-basel-68bbc8": "BS"
+      },
+      "de": {
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-94528q": "BS"
+      },
+      "fr": {
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-la-station-de-lits-et-des-accidents-vasculaires-cerebraux": "BS"
+      }
+    }
   },
   {
     "id": "unispital-basel-9751ca60d3f8",
@@ -1931,7 +1953,6 @@
       "assistant-en-sante-et-affaires-sociales-centre-cardiaque-universitatsspital-basel-basel",
       "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch-de4ab1c3",
       "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-63109c6c",
-      "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel",
       "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel-925dc222",
       "assistente-per-la-salute-e-gli-affari-sociali-universitatsspital-basel-basel-7e69b83f",
       "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch",
@@ -1942,10 +1963,13 @@
       "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch-dcafaaff",
       "assistant-in-health-and-social-affairs-lungsstation-universitatsspital-basel-basel-01e07d10",
       "assistant-a-la-sante-et-aux-affaires-sociales-lungsstation-universitatsspital-basel-basel-8d649799",
-      "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
       "assistente-per-la-salute-e-gli-affari-sociali-universitatsspital-basel-basel-016601ea",
       "assistant-in-health-and-social-affairs-lungsstation-universitatsspital-basel-basel-4c3fa241",
-      "assistant-a-la-sante-et-aux-affaires-sociales-lungsstation-universitatsspital-basel-basel-8b10d5c2"
+      "assistant-a-la-sante-et-aux-affaires-sociales-lungsstation-universitatsspital-basel-basel-8b10d5c2",
+      "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel",
+      "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
+      "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-2f1d0a2a",
+      "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel-9cd26f13"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -1955,6 +1979,7 @@
         "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch-3d756b30",
         "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch-dcafaaff",
         "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch",
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-2f1d0a2a",
         "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch"
       ],
       "it": [
@@ -1968,9 +1993,11 @@
         "assistente-per-la-salute-e-gli-affari-sociali-universitatsspital-basel-basel-786cf3da",
         "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch-dcafaaff",
         "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch",
+        "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel-9cd26f13",
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-2f1d0a2a",
+        "assistente-per-la-salute-e-gli-affari-sociali-universitatsspital-basel-basel-016601ea",
         "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel",
-        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
-        "assistente-per-la-salute-e-gli-affari-sociali-universitatsspital-basel-basel-016601ea"
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch"
       ],
       "en": [
         "assistant-in-health-and-social-affairs-heart-center-universitatsspital-basel-basel",
@@ -1979,7 +2006,8 @@
         "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-63109c6c",
         "assistant-in-health-and-social-affairs-lungsstation-universitatsspital-basel-basel-649dac9b",
         "assistant-in-health-and-social-affairs-lungsstation-universitatsspital-basel-basel-01e07d10",
-        "assistant-in-health-and-social-affairs-lungsstation-universitatsspital-basel-basel-4c3fa241"
+        "assistant-in-health-and-social-affairs-lungsstation-universitatsspital-basel-basel-4c3fa241",
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-2f1d0a2a"
       ],
       "fr": [
         "assistant-en-sante-et-affaires-sociales-centre-cardiaque-universitatsspital-basel-basel",
@@ -1988,7 +2016,8 @@
         "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-63109c6c",
         "assistant-a-la-sante-et-aux-affaires-sociales-lungsstation-universitatsspital-basel-basel-5c5027e5",
         "assistant-a-la-sante-et-aux-affaires-sociales-lungsstation-universitatsspital-basel-basel-8d649799",
-        "assistant-a-la-sante-et-aux-affaires-sociales-lungsstation-universitatsspital-basel-basel-8b10d5c2"
+        "assistant-a-la-sante-et-aux-affaires-sociales-lungsstation-universitatsspital-basel-basel-8b10d5c2",
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-2f1d0a2a"
       ]
     },
     "postalCode": "4001",
@@ -2015,20 +2044,22 @@
     "previousSlugCantonByLocale": {
       "it": {
         "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch": "BS",
-        "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel": "BS",
         "assistant-in-health-and-social-affairs-heart-center-universitatsspital-basel-basel": "BS",
-        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch": "BS",
-        "assistant-en-sante-et-affaires-sociales-centre-cardiaque-universitatsspital-basel-basel": "BS"
+        "assistant-en-sante-et-affaires-sociales-centre-cardiaque-universitatsspital-basel-basel": "BS",
+        "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel-9cd26f13": "BS",
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-2f1d0a2a": "BS"
       },
       "en": {
-        "assistant-in-health-and-social-affairs-heart-center-universitatsspital-basel-basel": "BS"
+        "assistant-in-health-and-social-affairs-heart-center-universitatsspital-basel-basel": "BS",
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-2f1d0a2a": "BS"
       },
       "de": {
         "assistent-in-gesundheit-und-soziales-lungenstation-unispital-basel-ch": "BS",
-        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch": "BS"
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-2f1d0a2a": "BS"
       },
       "fr": {
-        "assistant-en-sante-et-affaires-sociales-centre-cardiaque-universitatsspital-basel-basel": "BS"
+        "assistant-en-sante-et-affaires-sociales-centre-cardiaque-universitatsspital-basel-basel": "BS",
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch-2f1d0a2a": "BS"
       }
     }
   },
@@ -3341,22 +3372,25 @@
         "oberarztin-oberarzt-notfallmedizin-universitatsspital-basel-basel": "BS",
         "occupational-medicine-universitatsspital-basel-basel": "BS",
         "medecine-du-travail-universitatsspital-basel-basel": "BS",
-        "terapeuta-del-lavoro-universitatsspital-basel-basel": "BS",
-        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel": "BS",
-        "ergotherapeutin-ergotherapeut-unispital-basel-ch": "BS",
         "ergotherapeute-universitatsspital-basel-basel": "BS",
         "occupational-medicine-universitatsspital-basel": "BS",
         "medecine-du-travail-universitatsspital-basel": "BS",
-        "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch": "BS"
+        "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch": "BS",
+        "terapeuta-del-lavoro-universitatsspital-basel-basel-32beea7f": "BS",
+        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel-156f7e0c": "BS",
+        "ergotherapeutin-ergotherapeut-unispital-basel-ch-cba86029": "BS"
       },
       "en": {
-        "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch": "BS"
+        "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch": "BS",
+        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel-156f7e0c": "BS"
       },
       "de": {
-        "oberarztin-oberarzt-notfallmedizin-universitatsspital-basel-basel": "BS"
+        "oberarztin-oberarzt-notfallmedizin-universitatsspital-basel-basel": "BS",
+        "ergotherapeutin-ergotherapeut-unispital-basel-ch-cba86029": "BS"
       },
       "fr": {
-        "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch": "BS"
+        "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch": "BS",
+        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel-156f7e0c": "BS"
       }
     }
   },
@@ -4012,7 +4046,9 @@
       "medicina-del-lavoro-universitatsspital-basel-basel-ccbe5b4e",
       "oberarztin-oberarzt-notfallmedizin-universitatsspital-basel-basel-f12b008d",
       "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch-7472f30d",
-      "ergotherapeute-universitatsspital-basel-basel"
+      "ergotherapeute-universitatsspital-basel-basel",
+      "ergotherapeutin-ergotherapeut-unispital-basel-ch",
+      "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -6789,24 +6825,27 @@
         "studi-post-laurea-nds-anaesthesia-cura-universitatsspital-basel-basel": "BS",
         "postgraduate-studies-nds-anaesthesia-care-universitatsspital-basel-basel": "BS",
         "etudes-superieures-pdn-soins-d-anesthesie-universitatsspital-basel-basel": "BS",
-        "studi-post-laurea-nds-cura-intensiva-universitatsspital-basel-basel": "BS",
-        "postgraduate-studies-nds-intensive-care-universitatsspital-basel-basel": "BS",
-        "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel": "BS",
-        "etudes-superieures-dnd-soins-intensifs-universitatsspital-basel-basel": "BS",
-        "nachdiplomstudium-nds-intensivpflege-unispital-basel-ch": "BS"
+        "studi-post-laurea-nds-cura-intensiva-universitatsspital-basel-basel-54c7bfb6": "BS",
+        "postgraduate-studies-nds-intensive-care-universitatsspital-basel-basel-f6a99cb8": "BS",
+        "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel-83e4f5d6": "BS",
+        "etudes-superieures-dnd-soins-intensifs-universitatsspital-basel-basel-fe502582": "BS",
+        "nachdiplomstudium-nds-intensivpflege-unispital-basel-ch-6fdea379": "BS"
       },
       "en": {
         "postgraduate-studies-nds-anaesthesia-care-universitatsspital-basel-basel": "BS",
         "nachdiplomstudium-nds-anasthesiepflege-universitatsspital-basel-basel": "BS",
-        "postgraduate-studies-nds-intensive-care-universitatsspital-basel-basel": "BS"
+        "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel-83e4f5d6": "BS",
+        "postgraduate-studies-nds-intensive-care-universitatsspital-basel-basel-f6a99cb8": "BS"
       },
       "de": {
-        "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel": "BS"
+        "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel": "BS",
+        "nachdiplomstudium-nds-intensivpflege-unispital-basel-ch-6fdea379": "BS"
       },
       "fr": {
         "etudes-superieures-pdn-soins-d-anesthesie-universitatsspital-basel-basel": "BS",
         "nachdiplomstudium-nds-anasthesiepflege-universitatsspital-basel-basel": "BS",
-        "etudes-superieures-dnd-soins-intensifs-universitatsspital-basel-basel": "BS"
+        "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel-83e4f5d6": "BS",
+        "etudes-superieures-dnd-soins-intensifs-universitatsspital-basel-basel-fe502582": "BS"
       }
     }
   },
@@ -17078,26 +17117,29 @@
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel": "BS",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch": "BS",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel": "BS",
-        "med-praxisassistent-in-radiologie-unispital-basel-ch": "BS",
-        "med-praxisassistent-in-radiologie-universitatsspital-basel-basel": "BS",
         "med-practical-assistant-in-radiology-universitatsspital-basel-basel": "BS",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel": "BS",
         "dipl-care-specialist-hf-fh-cardiology-universitatsspital-basel-basel": "BS",
         "dipl-care-specialist-hf-fh-universitatsspital-basel-basel": "BS",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel": "BS"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel": "BS",
+        "med-praxisassistent-in-radiologie-unispital-basel-ch-7ccdff9c": "BS",
+        "med-praxisassistent-in-radiologie-universitatsspital-basel-basel-f35db192": "BS"
       },
       "en": {
         "dipl-nursing-professional-hf-fh-imc-universitatsspital-basel-basel": "BS",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel": "BS",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch": "BS"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch": "BS",
+        "med-praxisassistent-in-radiologie-universitatsspital-basel-basel-f35db192": "BS"
       },
       "de": {
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch": "BS"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch": "BS",
+        "med-praxisassistent-in-radiologie-unispital-basel-ch-7ccdff9c": "BS"
       },
       "fr": {
         "dipl-professionnels-des-soins-infirmiers-hf-fh-imc-universitatsspital-basel-basel": "BS",
         "dipl-soins-infirmiers-professionnels-hf-fh-imc-universitatsspital-basel-basel": "BS",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch": "BS"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch": "BS",
+        "med-praxisassistent-in-radiologie-universitatsspital-basel-basel-f35db192": "BS"
       }
     }
   },
@@ -21808,8 +21850,8 @@
       "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel-e9a95a82",
       "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel-35d8ead8",
       "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel-a8c61485",
-      "dipl-specialiste-des-soins-infirmiers-hf-fh-universitatsspital-basel-basel",
-      "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
+      "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel",
+      "dipl-specialiste-des-soins-infirmiers-hf-fh-universitatsspital-basel-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -22028,6 +22070,7 @@
         "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel-de5609f4",
         "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel-cfd70d12",
         "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel-43b8317b",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-universitatsspital-basel-basel-8fc22748",
         "dipl-specialiste-des-soins-infirmiers-hf-fh-universitatsspital-basel-basel"
       ],
       "de": [
@@ -22054,9 +22097,9 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie-unispital-basel-ch": "BS"
       },
       "fr": {
-        "dipl-specialiste-des-soins-infirmiers-hf-fh-universitatsspital-basel-basel": "BS",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie-unispital-basel-ch": "BS",
-        "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel-3dbc41fb": "BS"
+        "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel-3dbc41fb": "BS",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-universitatsspital-basel-basel-8fc22748": "BS"
       }
     }
   },
@@ -22322,9 +22365,9 @@
         "adminstrative-r-mitarbeiter-in-unispital-basel-ch",
         "mitarbeiter-in-elektrotechnik-universitatsspital-basel-basel",
         "collaboratore-trice-in-patientenadministration-universitatsspital-basel",
+        "administrative-r-collaboratore-trice-in-universitatsspital-basel",
         "mitarbeiter-in-patientenadministration-unispital-basel-ch",
-        "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch",
-        "administrative-r-collaboratore-trice-in-universitatsspital-basel"
+        "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch"
       ]
     },
     "postalCode": "4031",
@@ -22350,14 +22393,18 @@
     "previousSlugCantonByLocale": {
       "it": {
         "administrative-r-mitarbeiter-in-unispital-basel-ch": "BS",
-        "administrative-r-collaboratore-trice-in-universitatsspital-basel": "BS"
+        "administrative-r-collaboratore-trice-in-universitatsspital-basel": "BS",
+        "mitarbeiter-in-patientenadministration-unispital-basel-ch-e262be9d": "BS",
+        "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch-fb16b1b9": "BS"
       },
       "en": {
         "administrative-r-collaboratore-trice-in-universitatsspital-basel": "BS",
         "administrative-r-mitarbeiter-in-universitatsspital-basel-basel": "BS"
       },
       "de": {
-        "administrative-r-collaboratore-trice-in-universitatsspital-basel": "BS"
+        "administrative-r-collaboratore-trice-in-universitatsspital-basel": "BS",
+        "mitarbeiter-in-patientenadministration-unispital-basel-ch-e262be9d": "BS",
+        "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch-fb16b1b9": "BS"
       },
       "fr": {
         "administrative-r-collaboratore-trice-in-universitatsspital-basel": "BS",
@@ -28298,6 +28345,7 @@
         "adminstrative-r-mitarbeiter-in-unispital-basel-ch",
         "mitarbeiter-in-elektrotechnik-universitatsspital-basel-basel",
         "personnel-administratif-universitatsspital-basel-basel-602babf3",
+        "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel-b42c8b42",
         "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel"
       ],
       "en": [
@@ -28364,6 +28412,7 @@
         "mitarbeiter-in-elektrotechnik-universitatsspital-basel-basel",
         "administrative-r-mitarbeiter-in-universitatsspital-basel-basel-f4798519",
         "personnel-administratif-universitatsspital-basel-basel",
+        "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel-b42c8b42",
         "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel"
       ]
     },
@@ -28481,7 +28530,8 @@
       "collaboratore-trice-in-patientenadministration-universitatsspital-basel",
       "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel",
       "mitarbeiter-in-patientenadministration-unispital-basel-ch",
-      "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch"
+      "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch",
+      "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel-b42c8b42"
     ]
   },
   {

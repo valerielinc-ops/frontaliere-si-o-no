@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-solothurn",
-  "assembledAt": "2026-11-27T09:38:33.192Z",
-  "runId": "45972333726",
+  "assembledAt": "2026-11-27T21:54:33.962Z",
+  "runId": "46069192930",
   "jobs": [
     {
       "id": "kanton-solothurn-1ef770d83a68",
@@ -34,7 +34,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:49.978Z",
+      "crawledAt": "2026-11-27T21:54:00.752Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -77,9 +77,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:37:49.978Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725"
+      "validThrough": "2026-12-27T21:54:00.752Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-1e60e0e3b74e",
@@ -112,7 +111,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-uhrmacher-in-efz/35eac920-78d1-4fa2-b308-ea4121b54715",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:49.568Z",
+      "crawledAt": "2026-11-27T21:54:00.375Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "streetAddress": "Grenchen",
@@ -157,9 +156,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:37:49.568Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrstelle-als-uhrmacher-in-efz/35eac920-78d1-4fa2-b308-ea4121b54715"
+      "validThrough": "2026-12-27T21:54:00.375Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-2551fa658cc6",
@@ -192,7 +190,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-kaufmann-frau-efz/26543a07-e4e2-45c8-a68c-aa8fe24d44c6",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:49.189Z",
+      "crawledAt": "2026-11-27T21:53:59.960Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -271,9 +269,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:37:49.189Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrstelle-als-kaufmann-frau-efz/26543a07-e4e2-45c8-a68c-aa8fe24d44c6"
+      "validThrough": "2027-01-31T21:53:59.960Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-214870ea35e4",
@@ -307,7 +304,7 @@
       "url": "https://job.so.ch/offene-stellen/stv-lehrer-in-sonderschule-zyklus-2/f7b081e7-663d-4774-a049-2222b9090b04",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:48.801Z",
+      "crawledAt": "2026-11-27T21:53:59.577Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -356,9 +353,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:37:48.801Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/stv-lehrer-in-sonderschule-zyklus-2/f7b081e7-663d-4774-a049-2222b9090b04"
+      "validThrough": "2027-02-03T21:53:59.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-cb9308a3c019",
@@ -392,7 +388,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-legistik-und-justiz/9103908e-5f7e-4a04-bc8c-39f6609a3678",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:48.412Z",
+      "crawledAt": "2026-11-27T21:53:59.194Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -456,9 +452,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:37:48.412Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-legistik-und-justiz/9103908e-5f7e-4a04-bc8c-39f6609a3678"
+      "validThrough": "2027-02-04T21:53:59.194Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-cf007db60b00",
@@ -492,7 +487,7 @@
       "url": "https://job.so.ch/offene-stellen/mitarbeiter-in-waffenbuero/ea3bb014-6c5c-4721-837b-c3149aeee44b",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:47.862Z",
+      "crawledAt": "2026-11-27T21:53:58.666Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -543,9 +538,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:37:47.862Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/mitarbeiter-in-waffenbuero/ea3bb014-6c5c-4721-837b-c3149aeee44b"
+      "validThrough": "2027-02-08T21:53:58.666Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-4d02551a11e0",
@@ -579,7 +573,7 @@
       "url": "https://job.so.ch/offene-stellen/logopaede-in/355d2688-20a1-4cab-9f31-765a26c5c6be",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:47.462Z",
+      "crawledAt": "2026-11-27T21:53:58.255Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -628,9 +622,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:37:47.462Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/logopaede-in/355d2688-20a1-4cab-9f31-765a26c5c6be"
+      "validThrough": "2027-02-08T21:53:58.255Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-7fa7533b4c8f",
@@ -664,7 +657,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-grundbuchamt/c5a2ad76-bfb5-405b-b08e-9025edbc85e7",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:47.060Z",
+      "crawledAt": "2026-11-27T21:53:57.873Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -713,9 +706,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:37:47.060Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-grundbuchamt/c5a2ad76-bfb5-405b-b08e-9025edbc85e7"
+      "validThrough": "2027-02-11T21:53:57.873Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-e01a3766c9b0",
@@ -749,7 +741,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-rechtsdienst-smv/c753ec72-1821-4f16-bb40-3549d495926a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:46.639Z",
+      "crawledAt": "2026-11-27T21:53:57.487Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -800,9 +792,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:37:46.639Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-rechtsdienst-smv/c753ec72-1821-4f16-bb40-3549d495926a"
+      "validThrough": "2027-02-16T21:53:57.487Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-62a23ee1e21d",
@@ -836,7 +827,7 @@
       "url": "https://job.so.ch/offene-stellen/informationssicherheitsverantwortliche-r-und-projektleiter-in/e5c12cb5-2238-4b31-8eb0-8c625551ba56",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:46.117Z",
+      "crawledAt": "2026-11-27T21:53:56.980Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -889,9 +880,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:37:46.117Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/informationssicherheitsverantwortliche-r-und-projektleiter-in/e5c12cb5-2238-4b31-8eb0-8c625551ba56"
+      "validThrough": "2027-02-16T21:53:56.980Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-e4598b5a949b",
@@ -925,7 +915,7 @@
       "url": "https://job.so.ch/offene-stellen/klassenlehrer-in-mittelstufe/7be7c322-40ac-48fb-b639-6b4339488ce3",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:45.713Z",
+      "crawledAt": "2026-11-27T21:53:56.601Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -974,9 +964,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:37:45.713Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/klassenlehrer-in-mittelstufe/7be7c322-40ac-48fb-b639-6b4339488ce3"
+      "validThrough": "2027-02-18T21:53:56.601Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-c9a3898947a0",
@@ -1010,7 +999,7 @@
       "url": "https://job.so.ch/offene-stellen/praktikant-in/e7f3c7bc-1b32-41fc-a643-2889e7ed61e2",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:45.289Z",
+      "crawledAt": "2026-11-27T21:53:56.205Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1059,9 +1048,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:37:45.289Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/praktikant-in/e7f3c7bc-1b32-41fc-a643-2889e7ed61e2"
+      "validThrough": "2027-02-21T21:53:56.205Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-ceb59a5aeb29",
@@ -1094,7 +1082,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrer-in-deutsch-und-englisch/7fef5ed9-f644-4168-b9b8-4b66f8762fd6",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:44.877Z",
+      "crawledAt": "2026-11-27T21:53:55.828Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1137,9 +1125,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:37:44.877Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrer-in-deutsch-und-englisch/7fef5ed9-f644-4168-b9b8-4b66f8762fd6"
+      "validThrough": "2027-02-21T21:53:55.828Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-1f3084509d84",
@@ -1172,7 +1159,7 @@
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in/434568cd-f4e9-44a4-ac00-dd515b2820cd",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:44.499Z",
+      "crawledAt": "2026-11-27T21:53:55.450Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1215,9 +1202,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:37:44.499Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/sachbearbeiter-in/434568cd-f4e9-44a4-ac00-dd515b2820cd"
+      "validThrough": "2027-02-21T21:53:55.450Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-9bcef9c82f18",
@@ -1250,7 +1236,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrer-in-deutsch-und-franzoesisch/686d20e6-dae6-457a-abef-cbb2ed98cedb",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:44.096Z",
+      "crawledAt": "2026-11-27T21:53:55.064Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1293,9 +1279,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:37:44.096Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrer-in-deutsch-und-franzoesisch/686d20e6-dae6-457a-abef-cbb2ed98cedb"
+      "validThrough": "2027-02-23T21:53:55.064Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-a707dee43680",
@@ -1329,7 +1314,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-gesundheitsdienst/bedc7dab-ea40-4b12-95a4-72a0fe5c4226",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:43.692Z",
+      "crawledAt": "2026-11-27T21:53:54.679Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1378,9 +1363,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:37:43.692Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-gesundheitsdienst/bedc7dab-ea40-4b12-95a4-72a0fe5c4226"
+      "validThrough": "2027-02-23T21:53:54.679Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-41ee6d960c2d",
@@ -1414,7 +1398,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/c0d8a23b-f1b0-4477-944d-e2d381be5588",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:43.155Z",
+      "crawledAt": "2026-11-27T21:53:54.161Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -1463,9 +1447,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:37:43.155Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/c0d8a23b-f1b0-4477-944d-e2d381be5588"
+      "validThrough": "2027-02-24T21:53:54.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-788b3e290650",
@@ -1499,7 +1482,7 @@
       "url": "https://job.so.ch/offene-stellen/gerichtsschreiber-in-des-obergerichts/5df1960d-3f44-450b-80c5-aff11e80b2f0",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:42.754Z",
+      "crawledAt": "2026-11-27T21:53:53.771Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1519,7 +1502,9 @@
       "applyUrl": "https://job.so.ch/offene-stellen/gerichtsschreiber-in-des-obergerichts/5df1960d-3f44-450b-80c5-aff11e80b2f0",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-26T21:29:32.865Z",
+      "previousSlugs": [
+        "gerichtsschreiber-in-des-obergerichts-90-100-kanton-solothurn-solothurn"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "gerichtsschreiber-in-des-obergerichts-90-100-kanton-solothurn-solothurn"
@@ -1531,9 +1516,7 @@
           "gerichtsschreiber-in-des-obergerichts-90-100-kanton-solothurn-solothurn"
         ]
       },
-      "previousSlugs": [
-        "gerichtsschreiber-in-des-obergerichts-90-100-kanton-solothurn-solothurn"
-      ],
+      "firstSeenAt": "2026-11-26T21:29:32.865Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1548,9 +1531,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:37:42.754Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/gerichtsschreiber-in-des-obergerichts/5df1960d-3f44-450b-80c5-aff11e80b2f0"
+      "validThrough": "2027-02-24T21:53:53.771Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-43c9ac0cf019",
@@ -1584,7 +1566,7 @@
       "url": "https://job.so.ch/offene-stellen/schulische-r-heilpaedagoge-heilpaedagogin-oder-lehrer-in-mittelstufe/a5c56c77-e8ec-4ca4-9bac-5e220fbf04b7",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:42.376Z",
+      "crawledAt": "2026-11-27T21:53:53.331Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -1627,9 +1609,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:37:42.376Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/schulische-r-heilpaedagoge-heilpaedagogin-oder-lehrer-in-mittelstufe/a5c56c77-e8ec-4ca4-9bac-5e220fbf04b7"
+      "validThrough": "2027-02-24T21:53:53.331Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-7cc7998a6a40",
@@ -1663,7 +1644,7 @@
       "url": "https://job.so.ch/offene-stellen/schulische-r-heilpaedagoge-heilpaedagogin-oder-lehrer-in-mittelstufe/528a26e7-d800-411a-ba8a-3b83b1b50a8e",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:41.959Z",
+      "crawledAt": "2026-11-27T21:53:52.943Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -1706,42 +1687,42 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:37:41.959Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/schulische-r-heilpaedagoge-heilpaedagogin-oder-lehrer-in-mittelstufe/528a26e7-d800-411a-ba8a-3b83b1b50a8e"
+      "validThrough": "2027-02-24T21:53:52.943Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-f61ea83923e3",
-      "slug": "sachbearbeiter-in-pfandungen-100-kanton-solothurn-thal-gau",
+      "slug": "impiegato-a-amministrativo-a-addetto-a-ai-pignoramenti-100-kanton-solothurn-thal-gau",
       "slugByLocale": {
+        "it": "impiegato-a-amministrativo-a-addetto-a-ai-pignoramenti-100-kanton-solothurn-thal-gau",
+        "en": "garnishments-case-officer-100-kanton-solothurn-thal-gau",
         "de": "sachbearbeiter-in-pfandungen-100-kanton-solothurn-thal-gau",
-        "it": "sachbearbeiter-in-pfandungen-100-kanton-solothurn-thal-gau",
-        "en": "sachbearbeiter-in-pfandungen-100-kanton-solothurn-thal-gau",
-        "fr": "sachbearbeiter-in-pfandungen-100-kanton-solothurn-thal-gau"
+        "fr": "gestionnaire-des-saisies-100-kanton-solothurn-thal-gau"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
       "companyDomain": "so.ch",
       "title": "Sachbearbeiter/-in Pfändungen, 100%",
       "titleByLocale": {
-        "de": "Sachbearbeiter/-in Pfändungen, 100%",
         "it": "Impiegato/a amministrativo/a addetto/a ai pignoramenti, 100%",
         "en": "Garnishments Case Officer, 100%",
+        "de": "Sachbearbeiter/-in Pfändungen, 100%",
         "fr": "Gestionnaire des saisies, 100%"
       },
       "description": "Das Betreibungsamt Thal-Gäu nimmt die gesetzliche Aufgabe der Zwangsvollstreckung für Geldforderungen und Sicherheitsleistungen wahr. Für das Betreibungsamt Thal-Gäu suchen wir per 01.04.2027 oder nach Vereinbarung am Standort Balsthal eine/-n Sachbearbeiter/-in Pfändungen, 100% .\n\nIhre Verantwortung\n\n• Sie arbeiten im Vollzugsdienst des betreibungsrechtlichen Pfändungs- und Verwertungsverfahrens.\n\n• Sie stellen Betreibungsurkunden zu und führen Pfändungen auf dem Amt oder beim Schuldner/bei der Schuldnerin durch.\n\n• Sie vollziehen Lohn-, Sach- und Liegenschaftspfändungen, führen Verwertungen, Arreste, Retentionen sowie amtliche Verwahrungen durch und beraten die Kundschaft in betreibungsrechtlichen Angelegenheiten.\n\nIhr Profil\n\n• Sie verfügen über einen kaufmännischen Lehrabschluss oder eine gleichwertige Ausbildung, gute IT-Kenntnisse und bringen vorteilhafterweise bereits Erfahrungen im Schuldbetreibungsrecht sowie gute Fremdsprachenkenntnisse mit.\n\n• Die Fähigkeit sich im Spannungsfeld zu behaupten, eine selbstständige, strukturierte und effiziente Arbeitsweise sowie Verantwortungsbewusstsein, sicheres Auftreten und Verhandlungsgeschick, Belastbarkeit und Teamfähigkeit runden Ihr Profil ab.\n\n• Sie verfügen über einen gültigen Führerausweis (Kategorie B).\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSascha Berger\nAbteilungsleiter\n062 311 90 20\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
-        "de": "Das Betreibungsamt Thal-Gäu nimmt die gesetzliche Aufgabe der Zwangsvollstreckung für Geldforderungen und Sicherheitsleistungen wahr. Für das Betreibungsamt Thal-Gäu suchen wir per 01.04.2027 oder nach Vereinbarung am Standort Balsthal eine/-n Sachbearbeiter/-in Pfändungen, 100% .\n\nIhre Verantwortung\n\n• Sie arbeiten im Vollzugsdienst des betreibungsrechtlichen Pfändungs- und Verwertungsverfahrens.\n\n• Sie stellen Betreibungsurkunden zu und führen Pfändungen auf dem Amt oder beim Schuldner/bei der Schuldnerin durch.\n\n• Sie vollziehen Lohn-, Sach- und Liegenschaftspfändungen, führen Verwertungen, Arreste, Retentionen sowie amtliche Verwahrungen durch und beraten die Kundschaft in betreibungsrechtlichen Angelegenheiten.\n\nIhr Profil\n\n• Sie verfügen über einen kaufmännischen Lehrabschluss oder eine gleichwertige Ausbildung, gute IT-Kenntnisse und bringen vorteilhafterweise bereits Erfahrungen im Schuldbetreibungsrecht sowie gute Fremdsprachenkenntnisse mit.\n\n• Die Fähigkeit sich im Spannungsfeld zu behaupten, eine selbstständige, strukturierte und effiziente Arbeitsweise sowie Verantwortungsbewusstsein, sicheres Auftreten und Verhandlungsgeschick, Belastbarkeit und Teamfähigkeit runden Ihr Profil ab.\n\n• Sie verfügen über einen gültigen Führerausweis (Kategorie B).\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSascha Berger\nAbteilungsleiter\n062 311 90 20\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "it": "Il Thal-Gäu Management Office svolge il compito legale di preclusione per crediti e garanzie monetari. Per il Thal-Gäu Management Office stiamo cercando un impiegato presso il sito Balsthal a partire dal 01.04.2027 o per accordo, 100% convulsioni.\n\nLa tua responsabilità\n\n• Lavorano al servizio dell'esecuzione delle procedure di sequestro e di sfruttamento.\n\n• Essi servono documenti di esecuzione e applicano gli allegati all'Ufficio o al debitore.\n\n• Eseguono gli allegati salariali, di proprietà e di beni immobili, effettuano sfruttamento, arresti, ritenzioni e la custodia ufficiale e consigliano i clienti in materia di diritto di gestione.\n\nIl tuo profilo\n\n• Essi hanno un grado di apprendistato commerciale o un'istruzione equivalente, buone competenze IT e avvantaggiatamente già hanno esperienza nel diritto di recupero del debito così come buone competenze di lingua straniera.\n\n• La capacità di affermarsi nel campo della tensione, un metodo di lavoro indipendente, strutturato ed efficiente, nonché un senso di responsabilità, l'aspetto sicuro e le capacità di negoziazione, la resilienza e il lavoro di squadra completano il vostro profilo.\n\n• Ha una patente di guida valida (categoria B).\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità per il lavoro mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense di fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nSascha Berger\nCapo dipartimento\n062 311 90 20\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità in attività significative di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
         "en": "The Thal-Gäu Management Office performs the legal task of foreclosure for monetary claims and guarantees. For the Thal-Gäu Management Office we are looking for a clerk at the Balsthal site as of 01.04.2027 or by agreement, 100% seizures.\n\nYour responsibility\n\n• They work in the enforcement service of the seizure and exploitation proceedings.\n\n• They shall serve enforcement documents and enforce attachments at the Office or at the debtor.\n\n• They execute wage, property and real estate attachments, carry out exploitations, arrests, retentions as well as official custody and advise customers in matters of management law.\n\nYour profile\n\n• They have a commercial apprenticeship degree or an equivalent education, good IT skills and advantageously already have experience in debt recovery law as well as good foreign language skills.\n\n• The ability to assert oneself in the field of tension, an independent, structured and efficient working method as well as a sense of responsibility, secure appearance and negotiating skills, resilience and teamwork round off your profile.\n\n• You have a valid driving licence (category B).\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity for mobile work\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nSascha Berger\nHead of department\n062 311 90 20\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activities of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
+        "de": "Das Betreibungsamt Thal-Gäu nimmt die gesetzliche Aufgabe der Zwangsvollstreckung für Geldforderungen und Sicherheitsleistungen wahr. Für das Betreibungsamt Thal-Gäu suchen wir per 01.04.2027 oder nach Vereinbarung am Standort Balsthal eine/-n Sachbearbeiter/-in Pfändungen, 100% .\n\nIhre Verantwortung\n\n• Sie arbeiten im Vollzugsdienst des betreibungsrechtlichen Pfändungs- und Verwertungsverfahrens.\n\n• Sie stellen Betreibungsurkunden zu und führen Pfändungen auf dem Amt oder beim Schuldner/bei der Schuldnerin durch.\n\n• Sie vollziehen Lohn-, Sach- und Liegenschaftspfändungen, führen Verwertungen, Arreste, Retentionen sowie amtliche Verwahrungen durch und beraten die Kundschaft in betreibungsrechtlichen Angelegenheiten.\n\nIhr Profil\n\n• Sie verfügen über einen kaufmännischen Lehrabschluss oder eine gleichwertige Ausbildung, gute IT-Kenntnisse und bringen vorteilhafterweise bereits Erfahrungen im Schuldbetreibungsrecht sowie gute Fremdsprachenkenntnisse mit.\n\n• Die Fähigkeit sich im Spannungsfeld zu behaupten, eine selbstständige, strukturierte und effiziente Arbeitsweise sowie Verantwortungsbewusstsein, sicheres Auftreten und Verhandlungsgeschick, Belastbarkeit und Teamfähigkeit runden Ihr Profil ab.\n\n• Sie verfügen über einen gültigen Führerausweis (Kategorie B).\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSascha Berger\nAbteilungsleiter\n062 311 90 20\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "Le bureau de gestion de Thal-Gäu s'acquitte de la tâche légale de saisie des créances et garanties monétaires. Pour le bureau de gestion de Thal-Gäu, nous recherchons un commis au site de Balsthal à partir du 01.04.2027 ou par accord, 100% saisies.\n\nVotre responsabilité\n\n• Ils travaillent au service d'exécution des procédures de saisie et d'exploitation.\n\n• Ils signifient les documents d'exécution et les pièces jointes à l'Office ou au débiteur.\n\n• Ils exécutent des contrats de salaire, de propriété et de biens immobiliers, procèdent à des exploitations, à des arrestations, à des rétentions ainsi qu'à la garde officielle et conseillent les clients en matière de droit de gestion.\n\nVotre profil\n\n• Ils ont un diplôme d'apprentissage commercial ou une formation équivalente, de bonnes compétences en TI et ont déjà une expérience avantageuse en droit du recouvrement des créances ainsi que de bonnes compétences en langue étrangère.\n\n• La capacité de s'affirmer dans le domaine de la tension, une méthode de travail indépendante, structurée et efficace ainsi qu'un sens des responsabilités, une apparence sûre et des compétences de négociation, la résilience et le travail d'équipe complètent votre profil.\n\n• Vous avez un permis de conduire valide (catégorie B).\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travail mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nSascha Berger\nChef de département\n062 311 90 20\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'intérêt politique et social et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes de courriel ne peuvent pas être prises en considération."
       },
+      "needsRetranslation": false,
       "location": "Thal-Gäu",
       "canton": "SG",
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-pfaendungen/df5c3713-b186-4663-8141-5c64b1ddd8bc",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:37:41.568Z",
+      "crawledAt": "2026-11-27T21:53:52.558Z",
       "addressLocality": "Thal-Gäu",
       "addressRegion": "SG",
       "streetAddress": "Thal-Gäu",
@@ -1760,9 +1741,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/sachbearbeiter-in-pfaendungen/df5c3713-b186-4663-8141-5c64b1ddd8bc",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-27T09:37:41.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-pfandungen-100-kanton-solothurn-thal-gau"
+        ],
+        "en": [
+          "sachbearbeiter-in-pfandungen-100-kanton-solothurn-thal-gau"
+        ],
+        "fr": [
+          "sachbearbeiter-in-pfandungen-100-kanton-solothurn-thal-gau"
+        ]
       },
+      "previousSlugs": [
+        "sachbearbeiter-in-pfandungen-100-kanton-solothurn-thal-gau"
+      ],
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -1777,10 +1771,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:37:41.568Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T09:37:41.568Z",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/sachbearbeiter-in-pfaendungen/df5c3713-b186-4663-8141-5c64b1ddd8bc"
+      "validThrough": "2027-02-25T21:53:52.558Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-fcbbf742eb3a",
@@ -1871,7 +1863,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:29:40.737Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-amt-fuer-raumplanung-kantonsplaner-in/18e3681a-4c40-4c13-925f-20fa41b7167d"
     },
     {
@@ -1959,7 +1951,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T21:29:40.402Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://job.so.ch/offene-stellen/stv-leiter-in-administration/b0e27c35-5db7-4032-9b9b-7896096d9d6c"
     },
     {
@@ -2047,7 +2039,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T21:29:39.993Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://job.so.ch/offene-stellen/mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik/d77455fc-9741-4ef9-bdd7-38db3598e0f9"
     },
     {
@@ -2133,7 +2125,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T21:29:39.647Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://job.so.ch/offene-stellen/fachbereichsleiter-in-aufsichtsbehoerde-kesb/175f4537-89a6-4dec-b092-7d857bcc224a"
     },
     {
@@ -2219,7 +2211,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:29:39.306Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://job.so.ch/offene-stellen/informatiker-in-efz-systemadministration-pc-support/f0e0bce1-4953-4d42-8938-7e34027903c1"
     },
     {
@@ -2304,7 +2296,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T21:29:38.953Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://job.so.ch/offene-stellen/stv-schlosswart-in/781df1de-77e0-4f97-a057-d94abd28a914"
     },
     {
@@ -2390,90 +2382,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:29:37.512Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://job.so.ch/offene-stellen/sachbearbeiter-in-familienergaenzungsleistungen/da73adf0-63c8-482c-acfa-35d18809600b"
-    },
-    {
-      "id": "kanton-solothurn-d9e383691665",
-      "slug": "apprendistato-come-informatico-a-afc-sviluppo-di-piattaforme-kanton-solothurn-solothurn",
-      "slugByLocale": {
-        "it": "apprendistato-come-informatico-a-afc-sviluppo-di-piattaforme-kanton-solothurn-solothurn",
-        "en": "apprenticeship-as-a-computer-scientist-efz-platform-development-kanton-solothurn-solothurn",
-        "de": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn",
-        "fr": "place-d-apprentissage-en-tant-qu-informaticien-ne-cfc-developpement-de-plateformes-kanton-solothurn-solothurn"
-      },
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Lehrstelle als Informatiker/-in EFZ, Plattformentwicklung",
-      "titleByLocale": {
-        "it": "Apprendistato come informatico/a AFC, sviluppo di piattaforme",
-        "en": "Apprenticeship as a computer scientist EFZ, platform development",
-        "de": "Lehrstelle als Informatiker/-in EFZ, Plattformentwicklung",
-        "fr": "Place d'apprentissage en tant qu'informaticien/ne CFC, développement de plateformes"
-      },
-      "description": "Das Berufsbildungszentrum Solothurn-Grenchen (BBZ Solothurn-Grenchen) ist eine zentrale Drehscheibe im Berufs- und Weiterbildungsmarkt unserer Region. An fünf Teilschulen begleiten wir Lernende und Studierende auf ihrem Bildungsweg. Als Mitglied unseres zentralen IT-Teams erwartet dich ab dem 01.08.2027 eine vielseitige und praxisnahe Ausbildung als Informatiker/-in EFZ, Plattformentwicklung.\n\nDeine Ausbildung\n\n• Zu deinen Aufgaben gehören das Einrichten von IT-Arbeitsplätze und die Unterstützung unserer Mitarbeitenden bei technischen Anliegen.\n\n• Du installierst, konfigurierst und betreibst Server-, Netzwerk- und Arbeitsplatzsysteme.\n\n• Die Mitarbeit bei der Umsetzung von IT- und Digitalisierungsprojekten gehört ebenso zu deinen Tätigkeiten.\n\n• Du analysierst technische Probleme und erarbeitest passende Lösungen.\n\n• Schrittweise übernimmst du Verantwortung für eigene Aufgaben und Projekte.\n\nDein Profil\n\n• Du interessierst dich für Informatik, digitale Technologien und die Möglichkeiten von Künstlicher Intelligenz (KI).\n\n• Konzentration bei anspruchsvollen Aufgaben und abwechslungsreiche Arbeiten bringst du unter einen Hut.\n\n• Auf dich ist Verlass, du bist verantwortungsbewusst und selbstständiges Arbeiten bereitet dir Freude.\n\n• Du bist ein Teamplayer und bringst Geduld wie auch Ausdauer mit.\n\n• Eine systematische Arbeitsweise wie auch logisch-abstraktes Denkvermögen sind für dich nicht nur Schlagwörter.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMichel Keppler\nStv. Direktor/Leiter Dienste\n032 627 78 99\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nE-Mail-Bewerbungen können nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "Il Centro di Formazione Professionale Solothurn-Grenchen (BBZ Solothurn-Grenchen) è un hub centrale nel mercato dell'istruzione professionale e continua della nostra regione. A cinque scuole parziali, accompagniamo studenti e studenti sul loro percorso educativo. Come membro del nostro team IT centrale, dal 01.08.2027 ci si può aspettare una formazione versatile e pratica come informatico / in EFZ, sviluppo piattaforma.\n\nLa tua istruzione\n\n• I vostri compiti includono la creazione di posti di lavoro IT e il supporto ai nostri dipendenti con problemi tecnici.\n\n• È possibile installare, configurare e utilizzare server, rete e sistemi di workstation.\n\n• La partecipazione all'implementazione di progetti IT e digitalizzazione fa parte anche delle vostre attività.\n\n• Analizzerai i problemi tecnici e svilupperai soluzioni adatte.\n\n• Gradualmente, si assume la responsabilità per i propri compiti e progetti.\n\nIl tuo profilo\n\n• Sei interessato a informatica, tecnologie digitali e le possibilità di intelligenza artificiale (AI).\n\n• Concentrazione su compiti impegnativi e lavoro vario ti portano sotto un equilibrio.\n\n• Potete essere affidati, siete responsabili e lavorare indipendentemente vi dà piacere.\n\n• Sei un giocatore di squadra e portare pazienza e resistenza.\n\n• Un modo sistematico di lavorare così come le capacità di pensiero logico-abstract non sono solo parole chiave per voi.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità per il lavoro mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense di fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nMichel Keppler\nStv. Direttore/Capitolo dei Servizi\n032 627 78 99\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità in attività significative di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nLe applicazioni e-mail non possono essere considerate.",
-        "en": "The Vocational Training Centre Solothurn-Grenchen (BBZ Solothurn-Grenchen) is a central hub in the professional and further education market of our region. At five partial schools, we accompany learners and students on their educational path. As a member of our central IT team, from 01.08.2027 you can expect a versatile and practical training as a computer scientist / in EFZ, platform development.\n\nYour education\n\n• Your tasks include setting up IT workplaces and supporting our employees with technical issues.\n\n• You install, configure and operate server, network and workstation systems.\n\n• Participation in the implementation of IT and digitization projects is also part of your activities.\n\n• You will analyze technical problems and develop suitable solutions.\n\n• Gradually, you take responsibility for your own tasks and projects.\n\nYour profile\n\n• You are interested in computer science, digital technologies and the possibilities of artificial intelligence (AI).\n\n• Concentration on challenging tasks and varied work bring you under a balance.\n\n• You can be relied on, you are responsible and working independently gives you pleasure.\n\n• You are a team player and bring patience as well as endurance.\n\n• A systematic way of working as well as logical-abstract thinking skills are not just keywords for you.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity for mobile work\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nMichel Keppler\nStv. Director/Head of Services\n032 627 78 99\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activities of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nEmail applications cannot be considered.",
-        "de": "Das Berufsbildungszentrum Solothurn-Grenchen (BBZ Solothurn-Grenchen) ist eine zentrale Drehscheibe im Berufs- und Weiterbildungsmarkt unserer Region. An fünf Teilschulen begleiten wir Lernende und Studierende auf ihrem Bildungsweg. Als Mitglied unseres zentralen IT-Teams erwartet dich ab dem 01.08.2027 eine vielseitige und praxisnahe Ausbildung als Informatiker/-in EFZ, Plattformentwicklung.\n\nDeine Ausbildung\n\n• Zu deinen Aufgaben gehören das Einrichten von IT-Arbeitsplätze und die Unterstützung unserer Mitarbeitenden bei technischen Anliegen.\n\n• Du installierst, konfigurierst und betreibst Server-, Netzwerk- und Arbeitsplatzsysteme.\n\n• Die Mitarbeit bei der Umsetzung von IT- und Digitalisierungsprojekten gehört ebenso zu deinen Tätigkeiten.\n\n• Du analysierst technische Probleme und erarbeitest passende Lösungen.\n\n• Schrittweise übernimmst du Verantwortung für eigene Aufgaben und Projekte.\n\nDein Profil\n\n• Du interessierst dich für Informatik, digitale Technologien und die Möglichkeiten von Künstlicher Intelligenz (KI).\n\n• Konzentration bei anspruchsvollen Aufgaben und abwechslungsreiche Arbeiten bringst du unter einen Hut.\n\n• Auf dich ist Verlass, du bist verantwortungsbewusst und selbstständiges Arbeiten bereitet dir Freude.\n\n• Du bist ein Teamplayer und bringst Geduld wie auch Ausdauer mit.\n\n• Eine systematische Arbeitsweise wie auch logisch-abstraktes Denkvermögen sind für dich nicht nur Schlagwörter.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMichel Keppler\nStv. Direktor/Leiter Dienste\n032 627 78 99\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nE-Mail-Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "Le Centre de Formation Professionnelle Soleure-Grenchen (BBZ Soleure-Grenchen) est un pôle central du marché de la formation professionnelle et continue de notre région. Dans cinq écoles partielles, nous accompagnons les apprenants et les élèves sur leur parcours éducatif. En tant que membre de notre équipe informatique centrale, à partir du 01.08.2027, vous pouvez vous attendre à une formation polyvalente et pratique en informatique / en EFZ, développement de plateforme.\n\nVotre éducation\n\n• Vos tâches comprennent la mise en place de lieux de travail informatiques et le soutien de nos employés avec des problèmes techniques.\n\n• Vous installez, configurez et exploitez des systèmes serveur, réseau et poste de travail.\n\n• La participation à la mise en oeuvre de projets de TI et de numérisation fait également partie de vos activités.\n\n• Vous analyserez les problèmes techniques et développerez des solutions appropriées.\n\n• Peu à peu, vous assumez la responsabilité de vos propres tâches et projets.\n\nVotre profil\n\n• Vous êtes intéressé par l'informatique, les technologies numériques et les possibilités de l'intelligence artificielle (IA).\n\n• La concentration sur les tâches difficiles et le travail varié vous apportent un équilibre.\n\n• Vous pouvez compter sur, vous êtes responsable et travailler indépendamment vous donne plaisir.\n\n• Vous êtes un joueur d'équipe et apportez patience et endurance.\n\n• Une façon systématique de travailler ainsi que des compétences de pensée logique-abstract ne sont pas seulement des mots clés pour vous.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travail mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nMichel Keppler\nDirecteur/chef des services\n032 627 78 99\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'intérêt politique et social et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nLes demandes de courriel ne peuvent pas être prises en considération."
-      },
-      "needsRetranslation": false,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/f9d698a8-5442-4fd9-8576-c7c9c9b4bd00",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:51:24.723Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "Solothurn",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-01",
-      "postedDate": "2026-08-01",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/f9d698a8-5442-4fd9-8576-c7c9c9b4bd00",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kanton-solothurn",
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kanton-solothurn",
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:18:35.414Z",
-      "salaryMin": 66000,
-      "salaryMax": 112000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 66000,
-          "maxValue": 112000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:51:24.723Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/f9d698a8-5442-4fd9-8576-c7c9c9b4bd00",
-      "crawlerMissStreak": 2
     }
   ]
 }

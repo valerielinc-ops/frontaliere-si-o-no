@@ -1,7 +1,7 @@
 {
   "crawlerKey": "le-team",
-  "assembledAt": "2026-11-27T09:33:21.881Z",
-  "runId": "45972333726",
+  "assembledAt": "2026-11-27T21:59:05.820Z",
+  "runId": "46069192930",
   "jobs": [
     {
       "id": "le-team-b6ba3916dcf0",
@@ -35,7 +35,7 @@
       "url": "https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-b-h-f-d/Hagz1kmEzkUfZnEz9JwcJO",
       "source": "le team sa Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:32:38.890Z",
+      "crawledAt": "2026-11-27T21:58:34.313Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -81,9 +81,8 @@
       "postalCode": "2900",
       "streetAddress": "Porrentruy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:32:38.890Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-b-h-f-d/hagz1kmezkufznez9jwcjo"
+      "validThrough": "2027-01-13T21:58:34.313Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

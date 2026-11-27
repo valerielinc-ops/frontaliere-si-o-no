@@ -27,7 +27,7 @@
       "fr": "collaborateur-rice-administratif-ve-customer-sales-support-birsfelden-holcim-group-birsfelden"
     },
     "sector": "Materiali da costruzione / Cemento",
-    "expiredAt": "2026-11-27T09:31:22.735Z",
+    "expiredAt": "2026-11-27T21:55:16.298Z",
     "previousSlugs": [
       "sachbearbeiter-in-customer-amp-sales-support-birsfelden-holcim-ch"
     ],
@@ -36,6 +36,11 @@
         "sachbearbeiter-in-customer-amp-sales-support-birsfelden-holcim-ch"
       ]
     },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-customer-amp-sales-support-birsfelden-holcim-ch": "BL"
+      }
+    },
     "postalCode": "4127",
     "streetAddress": "Birsfelden",
     "salaryMin": 74000,
@@ -43,12 +48,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/birsfelden-sachbearbeiterin-customer-&-sales-support-%28birsfelden%29-bl-4127/1374984657",
-    "firstSeenAt": "2026-10-15T21:22:28.696Z",
-    "previousSlugCantonByLocale": {
-      "it": {
-        "sachbearbeiter-in-customer-amp-sales-support-birsfelden-holcim-ch": "BL"
-      }
-    }
+    "firstSeenAt": "2026-10-15T21:22:28.696Z"
   },
   {
     "id": "holcim-be91586a04ec",
@@ -78,7 +78,7 @@
       "fr": "commis-de-support-client-et-commercial-holcim-group-mulligen"
     },
     "sector": "Materiali da costruzione / Cemento",
-    "expiredAt": "2026-11-27T09:31:22.734Z",
+    "expiredAt": "2026-11-27T21:55:16.297Z",
     "previousSlugs": [
       "sachbearbeiter-in-customer-amp-sales-support-holcim-ch",
       "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen",
@@ -97,14 +97,6 @@
         "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen"
       ]
     },
-    "postalCode": "5243",
-    "streetAddress": "Mülligen",
-    "salaryMin": 74000,
-    "salaryMax": 113500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/m%c3%bclligen-sachbearbeiterin-customer-&-sales-support-%28m%c3%bclligen%29-ag-5243/1374161257",
-    "firstSeenAt": "2026-10-07T09:37:20.491Z",
     "previousSlugCantonByLocale": {
       "it": {
         "sachbearbeiter-in-customer-amp-sales-support-holcim-ch": "AG",
@@ -117,7 +109,15 @@
       "fr": {
         "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen": "AG"
       }
-    }
+    },
+    "postalCode": "5243",
+    "streetAddress": "Mülligen",
+    "salaryMin": 74000,
+    "salaryMax": 113500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/m%c3%bclligen-sachbearbeiterin-customer-&-sales-support-%28m%c3%bclligen%29-ag-5243/1374161257",
+    "firstSeenAt": "2026-10-07T09:37:20.491Z"
   },
   {
     "id": "holcim-7d9c9ca87d5e",
@@ -147,7 +147,7 @@
       "fr": "responsable-d-exploitation-beton-region-valaisanne-holcim-ch"
     },
     "sector": "Materiali da costruzione / Cemento",
-    "expiredAt": "2026-11-27T09:31:22.732Z",
+    "expiredAt": "2026-11-27T21:55:16.296Z",
     "previousSlugs": [
       "responsable-d-exploitation-beton-region-valaisanne-holcim-ch"
     ],
@@ -735,16 +735,16 @@
         "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-0fb759bc",
         "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf",
         "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf",
-        "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
-        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
-        "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf",
         "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf-091617d9",
         "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf-6b7afda9",
         "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-8b49b1b8",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e",
         "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-1234a7f3",
-        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch-4cdb7c6a"
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch-4cdb7c6a",
+        "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
+        "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf"
       ],
       "en": [
         "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf-cf0884af",
@@ -870,23 +870,23 @@
       "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf-a74d9540",
       "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf",
       "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf",
-      "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
-      "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
-      "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
-      "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf",
       "h-s-coordinator-in-kies-beton-80-100-holcim-group-oberdorf",
       "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
       "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf",
       "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
-      "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf"
+      "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf",
+      "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
+      "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
+      "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
+      "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf"
     ],
     "previousSlugCantonByLocale": {
       "it": {
-        "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf": "NW",
-        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch": "NW",
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch": "NW",
-        "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf": "NW",
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e": "NW"
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e": "NW",
+        "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-1234a7f3": "NW",
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch-4cdb7c6a": "NW",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch-a378a1e6": "NW",
+        "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf-5a7ac4c2": "NW"
       },
       "en": {
         "h-s-coordinator-in-kies-beton-80-100-holcim-group-oberdorf": "NW",
@@ -894,11 +894,11 @@
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e": "NW"
       },
       "de": {
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch": "NW",
         "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf": "NW",
         "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch": "NW",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf": "NW",
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e": "NW"
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e": "NW",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch-a378a1e6": "NW"
       },
       "fr": {
         "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf": "NW",
