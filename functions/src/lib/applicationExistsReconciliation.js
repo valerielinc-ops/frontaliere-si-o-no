@@ -16,8 +16,9 @@ export const APPLICATION_EXISTS_ROUTES = Object.freeze({
   // recruitingapp-<id>.umantis.com/Vacancies/<vacancy>/FurtherApplication/ApplicationExists/<step>
   umantis_application_exists: Object.freeze({
     hostRe: /(?:^|\.)umantis\.com$/iu,
-    pathRe: /^\/vacancies\/(\d+)\/furtherapplication\/applicationexists\/\d+\/?$/iu,
-    vacancyOf: (url) => /^\/vacancies\/(\d+)(?:\/|$)/iu.exec(url.pathname)?.[1] || '',
+    // Vacancy ids are at most 64 digits here and in the receipt (submissionReceiptContract.js): one domain.
+    pathRe: /^\/vacancies\/(\d{1,64})\/furtherapplication\/applicationexists\/\d+\/?$/iu,
+    vacancyOf: (url) => /^\/vacancies\/(\d{1,64})(?:\/|$)/iu.exec(url.pathname)?.[1] || '',
   }),
 });
 

@@ -105,6 +105,43 @@ describe('portal «application exists» page', () => {
   });
 });
 
+describe('vacancy id domain', () => {
+  it('settles an order whose vacancy id has more than 20 digits, and refuses one beyond the shared limit', async () => {
+    const long = '123456789012345678901';
+    expect(applicationExistsRoute(`https://${HOST}/Vacancies/${long}/FurtherApplication/ApplicationExists/9`)?.vacancyId).toBe(long);
+    expect(applicationExistsRoute(`https://${HOST}/Vacancies/${'1'.repeat(65)}/FurtherApplication/ApplicationExists/9`)).toBeNull();
+    await seed({ vacancy: long });
+    store.docs.set(`${ROOT}/ai_drafts/current`, { round: 1, status: 'ready', questions: [], channel: { applyUrl: `https://${HOST}/Vacancies/${long}/Application/New/1` } });
+    const result = await handoff(evidence({ vacancyId: long, pagePath: `/Vacancies/${long}/FurtherApplication/ApplicationExists/9` }));
+    expect(result).toMatchObject({ ok: true, flow: { state: 'submitted' } });
+    const record = store.read(`${ROOT}/automation/submission`)?.r1;
+    expect(verifySubmissionReceipt(record.receipt, { orderId: ORDER, round: 1 })).toBe(true);
+  });
+});
+
+describe('owner confirmation «not sent»', () => {
+  it('unblocks an owner_takeover with an ambiguous marker on the current round only with confirmedNotSent', () => {
+    const draft = { round: 1, status: 'ready', questions: [] };
+    const flow = { state: 'owner_takeover', round: 1, heldBy: ['portal:account_sign_in_failed'], ambiguousSubmit: { round: 1, at: T0, error: 'portal_ambiguous' }, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    expect(transition(flow, { type: 'owner_retry_submit' }, { draft, nowMs: T0 }).ignored).toBe('send_outcome_unconfirmed');
+    expect(transition(flow, { type: 'owner_retry_submit', confirmedNotSent: true }, { draft, nowMs: T0 }).flow.state).toBe('submitting');
+  });
+
+  it('the admin action forwards raw.confirmedNotSent and nothing else turns it on', async () => {
+    store = createMemoryFirestore({
+      [ROOT]: { paymentStatus: 'paid', submissionStatus: 'in_progress' },
+      [`${ROOT}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal:account_sign_in_failed'], ambiguousSubmit: { round: 1, at: T0, error: 'portal_ambiguous' }, dispatch: { mode: 'submit', round: 1, attempts: 1 }, answers: {} },
+      [`${ROOT}/ai_drafts/current`]: { round: 1, status: 'ready', questions: [] },
+    });
+    const { applyAutomationEvent } = await import('../functions/src/assistedApplicationAutomation.js');
+    const runEffect = async () => ({ ok: true });
+    const refused = await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'owner_retry_submit' }, actor: 'owner:test', runEffect, nowMs: T0 });
+    expect(refused).toMatchObject({ ok: false, ignored: 'send_outcome_unconfirmed' });
+    const allowed = await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'owner_retry_submit', confirmedNotSent: true }, actor: 'owner:test', runEffect, nowMs: T0 });
+    expect(allowed).toMatchObject({ ok: true, flow: { state: 'submitting' } });
+  });
+});
+
 describe('retry of a send of unknown outcome', () => {
   const draft = { round: 1, status: 'ready', questions: [] };
   const held = (heldBy: string[], extra: Record<string, unknown> = {}) => ({

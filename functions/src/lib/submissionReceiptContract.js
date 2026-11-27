@@ -71,7 +71,7 @@ function referenceFor(proofKind, evidence) {
       const host = String(evidence.host || '').trim().toLowerCase();
       const pagePath = String(evidence.pagePath || '').trim();
       const vacancyId = String(evidence.vacancyId || '').trim();
-      return host && pagePath.startsWith('/') && /^\d{1,20}$/.test(vacancyId) ? sha256([proofKind, host, pagePath, vacancyId]) : null;
+      return host && pagePath.startsWith('/') && /^\d{1,64}$/.test(vacancyId) ? sha256([proofKind, host, pagePath, vacancyId]) : null;
     }
     case 'owner_confirmation': {
       const via = String(evidence.via || '').trim();

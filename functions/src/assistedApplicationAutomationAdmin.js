@@ -28,6 +28,7 @@ import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { platformAnswerProvenance, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
+import { sendOutcomeUnconfirmed } from './lib/applicationExistsReconciliation.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
   AUTOMATION_SUBCOLLECTION,
@@ -226,6 +227,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       // For electronic routes, a submit dispatch means the candidate approved the round. A paper handoff records
       // that approval as `submittedVia: postal` because it never dispatches the electronic submit runner.
       roundSent: roundWasSent(flow) || flow.submittedVia === 'postal',
+      // A send of unknown outcome: the retry needs the owner's explicit «it was NOT sent» (automationRetrySubmit.confirmedNotSent).
+      sendOutcomeUnconfirmed: sendOutcomeUnconfirmed(flow),
       history: (flow.history || []).slice(-12),
     } : null,
     draft: draft ? {
