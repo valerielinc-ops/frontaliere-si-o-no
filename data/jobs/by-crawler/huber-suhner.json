@@ -1,16 +1,16 @@
 {
   "crawlerKey": "huber-suhner",
-  "assembledAt": "2026-11-26T21:50:35.908Z",
-  "runId": "45897382103",
+  "assembledAt": "2026-11-27T10:02:27.021Z",
+  "runId": "45972781327",
   "jobs": [
     {
       "id": "huber-suhner-53c90476a44e",
       "slug": "apprendistato-oberflachenbeschichter-in-herisau-ar-2027-huber-suhner-ag-herisau",
       "slugByLocale": {
-        "de": "lehrstelle-oberflachenbeschichter-in-in-herisau-ar-2027-huber-suhner-herisau",
         "it": "apprendistato-oberflachenbeschichter-in-herisau-ar-2027-huber-suhner-ag-herisau",
-        "en": "lehrstelle-oberflachenbeschichter-in-in-herisau-ar-2027-huber-suhner-herisau",
-        "fr": "lehrstelle-oberflachenbeschichter-in-in-herisau-ar-2027-huber-suhner-herisau"
+        "en": "apprenticeship-as-a-surface-coater-in-herisau-ar-2027-huber-suhner-ag-herisau",
+        "de": "lehrstelle-oberflachenbeschichter-in-in-herisau-ar-2027-huber-suhner-herisau",
+        "fr": "poste-d-apprentissage-de-specialiste-en-traitement-de-surface-a-herisau-ar-2027-huber-suhner-ag-herisau"
       },
       "company": "Huber+Suhner AG",
       "companyKey": "huber-suhner",
@@ -34,7 +34,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7256/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:50:29.146Z",
+      "crawledAt": "2026-11-27T10:01:58.086Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -54,14 +54,18 @@
       "postingDateSource": "reported",
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7256/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-oberflachenbeschichter-in-in-herisau-ar-2027-huber-suhner-herisau"
+        ],
+        "en": [
+          "lehrstelle-oberflachenbeschichter-in-in-herisau-ar-2027-huber-suhner-herisau"
+        ],
+        "fr": [
           "lehrstelle-oberflachenbeschichter-in-in-herisau-ar-2027-huber-suhner-herisau"
         ]
       },
@@ -82,10 +86,11 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:50:29.146Z",
+      "validThrough": "2026-12-27T10:01:58.086Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T21:50:29.146Z",
-      "sourceIdentity": "url:https://recruiting.hubersuhner.com/vacancies/7256/description/1"
+      "sourceIdentity": "url:https://recruiting.hubersuhner.com/vacancies/7256/description/1",
+      "needsRetranslation": false
     },
     {
       "id": "huber-suhner-22a78c2fd853",
@@ -119,7 +124,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7251/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:50:28.110Z",
+      "crawledAt": "2026-11-27T10:01:56.880Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -172,7 +177,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:50:28.110Z",
+      "validThrough": "2026-12-27T10:01:56.880Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://recruiting.hubersuhner.com/vacancies/7251/description/1"
     },
@@ -208,7 +213,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/6478/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:50:27.106Z",
+      "crawledAt": "2026-11-27T10:01:55.642Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -261,9 +266,93 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:50:27.106Z",
+      "validThrough": "2026-12-27T10:01:55.642Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://recruiting.hubersuhner.com/vacancies/6478/description/1"
+    },
+    {
+      "id": "huber-suhner-5235574bd4ee",
+      "slug": "apprendistato-come-kunststofftechnologe-in-herisau-ar-2027-huber-suhner-ag-herisau",
+      "slugByLocale": {
+        "de": "lehrstelle-als-kunststofftechnologe-in-in-herisau-ar-2027-huber-suhner-herisau",
+        "it": "apprendistato-come-kunststofftechnologe-in-herisau-ar-2027-huber-suhner-ag-herisau",
+        "en": "lehrstelle-als-kunststofftechnologe-in-in-herisau-ar-2027-huber-suhner-herisau",
+        "fr": "lehrstelle-als-kunststofftechnologe-in-in-herisau-ar-2027-huber-suhner-herisau"
+      },
+      "company": "Huber+Suhner AG",
+      "companyKey": "huber-suhner",
+      "companyDomain": "hubersuhner.com",
+      "title": "Lehrstelle als Kunststofftechnologe/in in Herisau (AR) 2027",
+      "titleByLocale": {
+        "de": "Lehrstelle als Kunststofftechnologe/in in Herisau (AR) 2027",
+        "it": "Apprendistato come Kunststofftechnologe/in in Herisau (AR) 2027",
+        "en": "Lehrstelle als Kunststofftechnologe/in in Herisau (AR) 2027",
+        "fr": "Lehrstelle als Kunststofftechnologe/in in Herisau (AR) 2027"
+      },
+      "description": "Deine Aufgaben\nAls Kunststofftechnologe/in verarbeitest Du polymere Werkstoffe zu Halb- und Fertigfabrikaten und richtest Maschinen und Produktionslinien ein. Zudem optimierst Du die Produktion und beteiligst Dich an Unterhaltsarbeiten von Einrichtungen, Maschinen und Werkzeuge der Fertigung. In Zusammenarbeit mit anderen Fachleuten bearbeitest Du Aufträge und Projekte und führst Versuche durch. Lehre bei HUBER+SUHNER\n• Mechanische Grundausbildung in der firmeneigenen Lehrwerkstatt (1. Semester)\n• Grundausbildung im Fachgebiet Spritzgiessen, sowie in den Abteilungen Werkzeugunterhalt, Betriebsmittelunterhalt und Qualitätssicherung (2. – 4. Semester)\n• Vertiefungsausbildung im Fachgebiet Spritzgiessen, sowie in den Wahlpflichtgebieten Prozessentwicklung, Konstruktion, Qualitätssicherung und Verkauf-Innendienst (5. – 8. Semester)\n\nDein Profil\n\n• Interesse an Maschinen und technisches Verständnis\n• Freude am Einrichten und Bedienen von Fertigungsanlagen\n• gutes räumliches Vorstellungsvermögen\n• handwerkliches Geschick\n• exakte Arbeitsweise\n• Selbstständigkeit\n• Flexibilität in der Arbeitszeit Schulische Voraussetzungen\n• Obligatorische Schule mit hohen Anforderungen abgeschlossen\n• gute Leistungen in den mathematisch-naturwissenschaftlichen Fächern\n\nWieso HUBER+SUHNER?\nWir bieten eine Vielfalt spannender Ausbildungsberufe und unterstützen dich individuell auf deinem Weg zum Erfolg. In der Schweiz bilden wir rund 80 Lernende in zehn verschiedenen Berufen aus. Ganzheitliche Ausbildung Du profitierst von einer zeitgemässen Berufsbildung, die den Menschen als Ganzes fördert. Du durchläufst ein systematisch aufgebautes Einführungs- und Ausbildungsprogramm. Du machst deine Ausbildung zusammen mit anderen Jugendlichen. Du erlebst die Vielfalt eines Grossbetriebes. Du kannst von einem leistungsorientierten Lohnsystem profitieren. Berufsmatura Du kannst, bei vorhandenem Potenzial, die Berufsmatura absolvieren. Veranstaltungen Lehrbeginn/Einführungstage Elternnachmittag/Elternabend Ski- und Snowboardlager Sommerlager (gemeinnütziger Einsatz) Lehrabschlussreise und Lehrabschlussfeier",
+      "descriptionByLocale": {
+        "de": "Deine Aufgaben\nAls Kunststofftechnologe/in verarbeitest Du polymere Werkstoffe zu Halb- und Fertigfabrikaten und richtest Maschinen und Produktionslinien ein. Zudem optimierst Du die Produktion und beteiligst Dich an Unterhaltsarbeiten von Einrichtungen, Maschinen und Werkzeuge der Fertigung. In Zusammenarbeit mit anderen Fachleuten bearbeitest Du Aufträge und Projekte und führst Versuche durch. Lehre bei HUBER+SUHNER\n• Mechanische Grundausbildung in der firmeneigenen Lehrwerkstatt (1. Semester)\n• Grundausbildung im Fachgebiet Spritzgiessen, sowie in den Abteilungen Werkzeugunterhalt, Betriebsmittelunterhalt und Qualitätssicherung (2. – 4. Semester)\n• Vertiefungsausbildung im Fachgebiet Spritzgiessen, sowie in den Wahlpflichtgebieten Prozessentwicklung, Konstruktion, Qualitätssicherung und Verkauf-Innendienst (5. – 8. Semester)\n\nDein Profil\n\n• Interesse an Maschinen und technisches Verständnis\n• Freude am Einrichten und Bedienen von Fertigungsanlagen\n• gutes räumliches Vorstellungsvermögen\n• handwerkliches Geschick\n• exakte Arbeitsweise\n• Selbstständigkeit\n• Flexibilität in der Arbeitszeit Schulische Voraussetzungen\n• Obligatorische Schule mit hohen Anforderungen abgeschlossen\n• gute Leistungen in den mathematisch-naturwissenschaftlichen Fächern\n\nWieso HUBER+SUHNER?\nWir bieten eine Vielfalt spannender Ausbildungsberufe und unterstützen dich individuell auf deinem Weg zum Erfolg. In der Schweiz bilden wir rund 80 Lernende in zehn verschiedenen Berufen aus. Ganzheitliche Ausbildung Du profitierst von einer zeitgemässen Berufsbildung, die den Menschen als Ganzes fördert. Du durchläufst ein systematisch aufgebautes Einführungs- und Ausbildungsprogramm. Du machst deine Ausbildung zusammen mit anderen Jugendlichen. Du erlebst die Vielfalt eines Grossbetriebes. Du kannst von einem leistungsorientierten Lohnsystem profitieren. Berufsmatura Du kannst, bei vorhandenem Potenzial, die Berufsmatura absolvieren. Veranstaltungen Lehrbeginn/Einführungstage Elternnachmittag/Elternabend Ski- und Snowboardlager Sommerlager (gemeinnütziger Einsatz) Lehrabschlussreise und Lehrabschlussfeier",
+        "it": "Deine Aufgaben\nAls Kunststofftechnologe/in verarbeitest Du polymere Werkstoffe zu Halb- und Fertigfabrikaten und richtest Maschinen und Produktionslinien ein. Zudem optimierst Du die Produktion und beteiligst Dich an Unterhaltsarbeiten von Einrichtungen, Maschinen und Werkzeuge der Fertigung. In Zusammenarbeit mit anderen Fachleuten bearbeitest Du Aufträge und Projekte und führst Versuche durch. Lehre bei HUBER+SUHNER\n• Mechanische Grundausbildung in der firmeneigenen Lehrwerkstatt (1. Semester)\n• Grundausbildung im Fachgebiet Spritzgiessen, sowie in den Abteilungen Werkzeugunterhalt, Betriebsmittelunterhalt und Qualitätssicherung (2. – 4. Semester)\n• Vertiefungsausbildung im Fachgebiet Spritzgiessen, sowie in den Wahlpflichtgebieten Prozessentwicklung, Konstruktion, Qualitätssicherung und Verkauf-Innendienst (5. – 8. Semester)\n\nDein Profil\n\n• Interesse an Maschinen und technisches Verständnis\n• Freude am Einrichten und Bedienen von Fertigungsanlagen\n• gutes räumliches Vorstellungsvermögen\n• handwerkliches Geschick\n• exakte Arbeitsweise\n• Selbstständigkeit\n• Flexibilität in der Arbeitszeit Schulische Voraussetzungen\n• Obligatorische Schule mit hohen Anforderungen abgeschlossen\n• gute Leistungen in den mathematisch-naturwissenschaftlichen Fächern\n\nWieso HUBER+SUHNER?\nWir bieten eine Vielfalt spannender Ausbildungsberufe und unterstützen dich individuell auf deinem Weg zum Erfolg. In der Schweiz bilden wir rund 80 Lernende in zehn verschiedenen Berufen aus. Ganzheitliche Ausbildung Du profitierst von einer zeitgemässen Berufsbildung, die den Menschen als Ganzes fördert. Du durchläufst ein systematisch aufgebautes Einführungs- und Ausbildungsprogramm. Du machst deine Ausbildung zusammen mit anderen Jugendlichen. Du erlebst die Vielfalt eines Grossbetriebes. Du kannst von einem leistungsorientierten Lohnsystem profitieren. Berufsmatura Du kannst, bei vorhandenem Potenzial, die Berufsmatura absolvieren. Veranstaltungen Lehrbeginn/Einführungstage Elternnachmittag/Elternabend Ski- und Snowboardlager Sommerlager (gemeinnütziger Einsatz) Lehrabschlussreise und Lehrabschlussfeier",
+        "en": "Deine Aufgaben\nAls Kunststofftechnologe/in verarbeitest Du polymere Werkstoffe zu Halb- und Fertigfabrikaten und richtest Maschinen und Produktionslinien ein. Zudem optimierst Du die Produktion und beteiligst Dich an Unterhaltsarbeiten von Einrichtungen, Maschinen und Werkzeuge der Fertigung. In Zusammenarbeit mit anderen Fachleuten bearbeitest Du Aufträge und Projekte und führst Versuche durch. Lehre bei HUBER+SUHNER\n• Mechanische Grundausbildung in der firmeneigenen Lehrwerkstatt (1. Semester)\n• Grundausbildung im Fachgebiet Spritzgiessen, sowie in den Abteilungen Werkzeugunterhalt, Betriebsmittelunterhalt und Qualitätssicherung (2. – 4. Semester)\n• Vertiefungsausbildung im Fachgebiet Spritzgiessen, sowie in den Wahlpflichtgebieten Prozessentwicklung, Konstruktion, Qualitätssicherung und Verkauf-Innendienst (5. – 8. Semester)\n\nDein Profil\n\n• Interesse an Maschinen und technisches Verständnis\n• Freude am Einrichten und Bedienen von Fertigungsanlagen\n• gutes räumliches Vorstellungsvermögen\n• handwerkliches Geschick\n• exakte Arbeitsweise\n• Selbstständigkeit\n• Flexibilität in der Arbeitszeit Schulische Voraussetzungen\n• Obligatorische Schule mit hohen Anforderungen abgeschlossen\n• gute Leistungen in den mathematisch-naturwissenschaftlichen Fächern\n\nWieso HUBER+SUHNER?\nWir bieten eine Vielfalt spannender Ausbildungsberufe und unterstützen dich individuell auf deinem Weg zum Erfolg. In der Schweiz bilden wir rund 80 Lernende in zehn verschiedenen Berufen aus. Ganzheitliche Ausbildung Du profitierst von einer zeitgemässen Berufsbildung, die den Menschen als Ganzes fördert. Du durchläufst ein systematisch aufgebautes Einführungs- und Ausbildungsprogramm. Du machst deine Ausbildung zusammen mit anderen Jugendlichen. Du erlebst die Vielfalt eines Grossbetriebes. Du kannst von einem leistungsorientierten Lohnsystem profitieren. Berufsmatura Du kannst, bei vorhandenem Potenzial, die Berufsmatura absolvieren. Veranstaltungen Lehrbeginn/Einführungstage Elternnachmittag/Elternabend Ski- und Snowboardlager Sommerlager (gemeinnütziger Einsatz) Lehrabschlussreise und Lehrabschlussfeier",
+        "fr": "Deine Aufgaben\nAls Kunststofftechnologe/in verarbeitest Du polymere Werkstoffe zu Halb- und Fertigfabrikaten und richtest Maschinen und Produktionslinien ein. Zudem optimierst Du die Produktion und beteiligst Dich an Unterhaltsarbeiten von Einrichtungen, Maschinen und Werkzeuge der Fertigung. In Zusammenarbeit mit anderen Fachleuten bearbeitest Du Aufträge und Projekte und führst Versuche durch. Lehre bei HUBER+SUHNER\n• Mechanische Grundausbildung in der firmeneigenen Lehrwerkstatt (1. Semester)\n• Grundausbildung im Fachgebiet Spritzgiessen, sowie in den Abteilungen Werkzeugunterhalt, Betriebsmittelunterhalt und Qualitätssicherung (2. – 4. Semester)\n• Vertiefungsausbildung im Fachgebiet Spritzgiessen, sowie in den Wahlpflichtgebieten Prozessentwicklung, Konstruktion, Qualitätssicherung und Verkauf-Innendienst (5. – 8. Semester)\n\nDein Profil\n\n• Interesse an Maschinen und technisches Verständnis\n• Freude am Einrichten und Bedienen von Fertigungsanlagen\n• gutes räumliches Vorstellungsvermögen\n• handwerkliches Geschick\n• exakte Arbeitsweise\n• Selbstständigkeit\n• Flexibilität in der Arbeitszeit Schulische Voraussetzungen\n• Obligatorische Schule mit hohen Anforderungen abgeschlossen\n• gute Leistungen in den mathematisch-naturwissenschaftlichen Fächern\n\nWieso HUBER+SUHNER?\nWir bieten eine Vielfalt spannender Ausbildungsberufe und unterstützen dich individuell auf deinem Weg zum Erfolg. In der Schweiz bilden wir rund 80 Lernende in zehn verschiedenen Berufen aus. Ganzheitliche Ausbildung Du profitierst von einer zeitgemässen Berufsbildung, die den Menschen als Ganzes fördert. Du durchläufst ein systematisch aufgebautes Einführungs- und Ausbildungsprogramm. Du machst deine Ausbildung zusammen mit anderen Jugendlichen. Du erlebst die Vielfalt eines Grossbetriebes. Du kannst von einem leistungsorientierten Lohnsystem profitieren. Berufsmatura Du kannst, bei vorhandenem Potenzial, die Berufsmatura absolvieren. Veranstaltungen Lehrbeginn/Einführungstage Elternnachmittag/Elternabend Ski- und Snowboardlager Sommerlager (gemeinnütziger Einsatz) Lehrabschlussreise und Lehrabschlussfeier"
+      },
+      "needsRetranslation": true,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://recruiting.hubersuhner.com/Vacancies/7265/Description/1",
+      "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T10:01:59.290Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "streetAddress": "Degersheimerstrasse 14",
+      "category": "Produzione",
+      "contract": "full-time",
+      "contractDuration": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-02-03",
+      "postedDate": "2026-02-03",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7265/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-kunststofftechnologe-in-in-herisau-ar-2027-huber-suhner-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-kunststofftechnologe-in-in-herisau-ar-2027-huber-suhner-herisau"
+      ],
+      "salaryMin": 48500,
+      "salaryMax": 65500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48500,
+          "maxValue": 65500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-27T10:01:59.290Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-27T10:01:59.290Z"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-11-26T21:47:29.840Z",
-  "runId": "45897382103",
+  "assembledAt": "2026-11-27T10:01:09.308Z",
+  "runId": "45972781327",
   "jobs": [
     {
       "id": "bobst-f254d67b8a12",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:47:23.606Z",
+      "crawledAt": "2026-11-27T10:01:02.041Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -120,9 +120,8 @@
       "addressRegion": "SO",
       "streetAddress": "Switzerland (Grenchen)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:23.606Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7706/description/2"
+      "validThrough": "2026-12-27T10:01:02.041Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-a50d899700e3",
@@ -156,7 +155,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:47:22.769Z",
+      "crawledAt": "2026-11-27T10:01:01.136Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -206,9 +205,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:22.769Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8743/description/2"
+      "validThrough": "2026-12-27T10:01:01.136Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-fb32aad751a0",
@@ -242,7 +240,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:21.933Z",
+      "crawledAt": "2026-11-27T10:01:00.241Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -292,9 +290,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:21.933Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8868/description/3"
+      "validThrough": "2026-12-27T10:01:00.241Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-d5cc3069bc1c",
@@ -327,7 +324,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:47:21.159Z",
+      "crawledAt": "2026-11-27T10:00:59.331Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -379,9 +376,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:21.159Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9073/description/2"
+      "validThrough": "2026-12-27T10:00:59.331Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-42d29368f8b4",
@@ -414,7 +410,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:47:20.360Z",
+      "crawledAt": "2026-11-27T10:00:58.468Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -480,9 +476,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:20.360Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9070/description/2"
+      "validThrough": "2026-12-27T10:00:58.468Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-bdedce751de6",
@@ -516,7 +511,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:19.568Z",
+      "crawledAt": "2026-11-27T10:00:57.599Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -570,9 +565,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:19.568Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9221/description/3"
+      "validThrough": "2026-12-27T10:00:57.599Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-855585a4eeb5",
@@ -606,7 +600,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:18.750Z",
+      "crawledAt": "2026-11-27T10:00:56.751Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -656,9 +650,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:18.750Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9220/description/3"
+      "validThrough": "2026-12-27T10:00:56.751Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-f8dd9f2738dd",
@@ -692,7 +685,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:18.002Z",
+      "crawledAt": "2026-11-27T10:00:55.881Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -746,9 +739,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:18.002Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9222/description/3"
+      "validThrough": "2026-12-27T10:00:55.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-093858ad3e55",
@@ -782,7 +774,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:17.211Z",
+      "crawledAt": "2026-11-27T10:00:54.989Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -836,9 +828,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:17.211Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9223/description/3"
+      "validThrough": "2026-12-27T10:00:54.989Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-49bee4b2fcbf",
@@ -872,7 +863,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:16.413Z",
+      "crawledAt": "2026-11-27T10:00:54.067Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -922,9 +913,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:16.413Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9225/description/3"
+      "validThrough": "2026-12-27T10:00:54.067Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-ca582ec179f7",
@@ -957,7 +947,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:15.634Z",
+      "crawledAt": "2026-11-27T10:00:53.197Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1011,9 +1001,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:15.634Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9227/description/3"
+      "validThrough": "2026-12-27T10:00:53.197Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-10e0ab0d935a",
@@ -1046,7 +1035,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:14.757Z",
+      "crawledAt": "2026-11-27T10:00:52.334Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1096,9 +1085,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:14.757Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9228/description/3"
+      "validThrough": "2026-12-27T10:00:52.334Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-9b1013c9b68b",
@@ -1132,7 +1120,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:13.937Z",
+      "crawledAt": "2026-11-27T10:00:51.464Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1182,9 +1170,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:13.937Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9229/description/3"
+      "validThrough": "2026-12-27T10:00:51.464Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-7953b2006541",
@@ -1218,7 +1205,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:13.116Z",
+      "crawledAt": "2026-11-27T10:00:50.596Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1262,9 +1249,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:13.116Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9230/description/3"
+      "validThrough": "2026-12-27T10:00:50.596Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-3621de669a99",
@@ -1298,7 +1284,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:12.273Z",
+      "crawledAt": "2026-11-27T10:00:49.722Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1348,9 +1334,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:12.273Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9231/description/3"
+      "validThrough": "2026-12-27T10:00:49.722Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-54b2a93e6104",
@@ -1384,7 +1369,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T21:47:11.481Z",
+      "crawledAt": "2026-11-27T10:00:49.088Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1438,9 +1423,8 @@
       "addressRegion": "VD",
       "streetAddress": "Switzerland (Mex)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:47:11.481Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9224/description/3"
+      "validThrough": "2026-12-27T10:00:49.088Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-2317c4fa7029",
@@ -1531,7 +1515,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:52:39.425Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8728/description/3"
     }
   ]
