@@ -91,7 +91,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:17:53.168Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ti.prosenectute.ch/dam/jcr:8cf58760-f8fd-4d50-bdda-32a602558644/concorso%20generale%202026_infermieri.pdf"
     },
     {
       "id": "prosenectute-ti-b26d255776bf",
@@ -169,7 +170,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:17:52.947Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ti.prosenectute.ch/dam/jcr:a071b88f-e067-4c3d-a090-ae4e7a288402/concorso%20generale%202026%20educatori.pdf"
     },
     {
       "id": "prosenectute-ti-98bbfa6cb472",
@@ -268,7 +270,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:17:52.754Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ti.prosenectute.ch/dam/jcr:a5bb2937-0e37-4696-b1fe-abe3c778aa15/concorso%20generale%202026_assistenti%20sociali.pdf"
     },
     {
       "id": "prosenectute-ti-98d132d13a00",
@@ -346,7 +349,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:17:52.371Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://ti.prosenectute.ch/dam/jcr:23640a07-34bb-4681-90f3-c7d9ee01290a/concorso%20generale%202026_op.socio-assistenziali.pdf"
     }
   ]
 }

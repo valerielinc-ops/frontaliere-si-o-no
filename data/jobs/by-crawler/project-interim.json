@@ -89,7 +89,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T11:26:43.835Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://projectinterim.ch/work/macon-genie-civil-h-f"
     },
     {
       "id": "project-interim-1062",
@@ -176,7 +177,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T11:26:43.835Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://projectinterim.ch/work/macon-construction-h-f"
     }
   ]
 }
