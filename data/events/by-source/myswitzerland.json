@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-26T16:04:56.972Z",
+  "assembledAt": "2026-11-27T15:57:06.917Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -165155,9 +165155,8 @@
         "de": "Ausstellung von Cedric Zellweger",
         "fr": "Exposition de Cédric Zellweger"
       },
-      "startDate": "2026-10-14",
+      "startDate": "2026-09-05",
       "endDate": "2027-01-10",
-      "startTime": "02:00",
       "category": "Event",
       "venue": "Vevey",
       "comune": "Vevey",
@@ -165170,17 +165169,21 @@
         "lng": 6.8430176
       },
       "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Vevey"
-      },
-      "sourceDescriptionHash": "f0df6b54c4967c5a1eeb512f1df70b57bba2edff8833700332ebc7a6090a1fa2",
+      "performer": [
+        {
+          "name": "Museum"
+        },
+        {
+          "name": "Fotobilder"
+        }
+      ],
+      "sourceDescriptionHash": "33a690ec5d7fe62eb812867f858dc292c7cece3ce4943c56bdd886117f774ee6",
       "previousRoutes": [
+        {
+          "canton": "VD",
+          "comune": "Vevey",
+          "slug": "mostra-di-cedric-zellweger-2026-10-14"
+        },
         {
           "canton": "VD",
           "comune": "Vevey",
@@ -265330,7 +265333,6 @@
       },
       "startDate": "2026-12-31",
       "endDate": "2026-12-31",
-      "startTime": "19:00",
       "category": "Event",
       "venue": "Saas-Fee",
       "comune": "Saas-Fee",
@@ -265343,19 +265345,10 @@
         "lng": 7.9291256
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Saas-Fee"
-      },
       "italianFrontierComuni": [
         "Antrona Schieranco"
       ],
-      "sourceDescriptionHash": "c40d732ff4ece1221f08d3baca6c4d594abf1652671a435e5ea9a16b7b52a55f"
+      "sourceDescriptionHash": "91d8a71893c343386e3feb87bcbf9b76b32e4af6f2e4f24d5728552aa73cc44b"
     },
     {
       "id": "myswitzerland:763b8c386b6849249ea86dfdd48e6339",
@@ -269187,7 +269180,6 @@
       },
       "startDate": "2026-12-20",
       "endDate": "2026-12-20",
-      "startTime": "00:00",
       "category": "Event",
       "venue": "Vevey",
       "comune": "Vevey",
@@ -269200,15 +269192,14 @@
         "lng": 6.8469314
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Vevey"
-      },
+      "performer": [
+        {
+          "name": "Ministrings"
+        },
+        {
+          "name": "Ensembles"
+        }
+      ],
       "sourceDescriptionHash": "43e6e788878049a65e9a80bc24cb57234455b335df74cd5102ec1386632d3739"
     },
     {
@@ -281903,6 +281894,457 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "ada998a580515e384cae10a84c2ba3c99137309cbfb4448992a418e9d83069cf"
+    },
+    {
+      "id": "myswitzerland:790f004ee6b34c76a1bb42244a076e8f",
+      "title": "Oldies für Oldies",
+      "titleByLocale": {
+        "it": "Oldies für Oldies",
+        "en": "Oldies für Oldies",
+        "de": "Oldies für Oldies",
+        "fr": "Oldies für Oldies"
+      },
+      "startDate": "2027-08-30",
+      "endDate": "2027-08-30",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/oldies-fuer-oldies-38/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3877405,
+        "lng": 8.4284658
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "22538cc133b7f26f8eb919580ebd4d6f70f44f5a1c457197217b28276b231706"
+    },
+    {
+      "id": "myswitzerland:78eec568bc5d47c79012b5cbdd024794",
+      "title": "Grange à Emile : InsTant T [EN]",
+      "titleByLocale": {
+        "it": "Grange à Emile : InsTant T [EN]",
+        "en": "Grange à Emile : InsTant T [EN]",
+        "de": "Grange à Emile : InsTant T [DE]",
+        "fr": "Grange à Emile : InsTant T"
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "Martigny",
+      "comune": "Martigny",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/grange-a-emile-instant-t-en/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.0903087,
+        "lng": 7.062717
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "7146e9815ac791627e67d9d06a5d7ab8c3d19c0714d63d012d4f8bd24edfae2c"
+    },
+    {
+      "id": "myswitzerland:78a47206ab5149d691051be52a8d5f69",
+      "title": "Niggi Näggi im Salz mit Schifffahrten auf dem Rhein",
+      "titleByLocale": {
+        "it": "Niggi Näggi im Salz mit Schifffahrten auf dem Rhein",
+        "en": "Niggi Näggi im Salz mit Schifffahrten auf dem Rhein",
+        "de": "Niggi Näggi im Salz mit Schifffahrten auf dem Rhein",
+        "fr": "Niggi Näggi im Salz mit Schifffahrten auf dem Rhein"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-05",
+      "category": "Event",
+      "venue": "Pratteln",
+      "comune": "Pratteln",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/niggi-naeggi-im-salz-mit-schifffahrten-auf-dem-rhein/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5312415,
+        "lng": 7.6760719
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "24b7b153138f967c2eed0ac13343d3f9b0150c36ad9b5bd80bb96e4f64e85fdc"
+    },
+    {
+      "id": "myswitzerland:788e2aa7740a4613b2363c14bc77cdbf",
+      "title": "Adventskonzert 2026",
+      "titleByLocale": {
+        "it": "Adventskonzert 2026",
+        "en": "Adventskonzert 2026",
+        "de": "Adventskonzert 2026",
+        "fr": "Adventskonzert 2026"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Gersau",
+      "comune": "Gersau",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventskonzert-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9915107,
+        "lng": 8.5288292
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Saxophon"
+        },
+        {
+          "name": "Orgel"
+        }
+      ],
+      "sourceDescriptionHash": "140634911bc2b645f9c5a95a7c722ee0540935b0bdadd9a9b1d9aa44a3abe4ce"
+    },
+    {
+      "id": "myswitzerland:75bd84a25eaf485bb5d52584bb6a4e3a",
+      "title": "Huldufólk, the Hidden People",
+      "titleByLocale": {
+        "it": "Huldufólk, the Hidden People",
+        "en": "Huldufólk, the Hidden People",
+        "de": "Huldufólk, das verborgene Volk",
+        "fr": "Huldufólk, le peuple caché"
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2027-05-02",
+      "category": "Event",
+      "venue": "Neuchâtel",
+      "comune": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/huldufolk-the-hidden-people/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9907268,
+        "lng": 6.920472
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "22a4c6fd2c1c89bcebd2f8997e417ef6674b5d8517009634ec0586b8d980bc77"
+    },
+    {
+      "id": "myswitzerland:7570ab7c49c6468ca3a026915dd84124",
+      "title": "Byron Quartet Concert",
+      "titleByLocale": {
+        "it": "Byron Quartet Concert",
+        "en": "Byron Quartet Concert",
+        "de": "Konzert des Byron-Quartetts",
+        "fr": "Concert du Quatuor Byron"
+      },
+      "startDate": "2026-11-22",
+      "endDate": "2027-01-17",
+      "category": "Event",
+      "venue": "Vevey",
+      "comune": "Vevey",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/byron-quartet-concert/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4614876,
+        "lng": 6.845291
+      },
+      "recurring": true,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Byron Quartet"
+      },
+      "sourceDescriptionHash": "2d2ac90eff9eae5e84b2d13537841015a50e856fa66561e4f5a92457f217eb92"
+    },
+    {
+      "id": "myswitzerland:745ea3f674e2429b8a8c285589291791",
+      "title": "Winter magic Simplon village",
+      "titleByLocale": {
+        "it": "Winter magic Simplon village",
+        "en": "Winter magic Simplon village",
+        "de": "Winterzauber Simplon Dorf",
+        "fr": "Magie hivernale du village de Simplon"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2027-11-27",
+      "category": "Event",
+      "venue": "Simplon Dorf",
+      "comune": "Simplon",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/winter-magic-simplon-village/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1954736,
+        "lng": 8.0562988
+      },
+      "recurring": true,
+      "italianFrontierComuni": [
+        "Trasquera",
+        "Bognanco"
+      ],
+      "sourceDescriptionHash": "ffb1c2c87d0627803307438be20ac40e3fe1db622a58d9704241b7667131491c"
+    },
+    {
+      "id": "myswitzerland:73f0fc7ae76b495699f2e52718feaca8",
+      "title": "Oldies für Oldies",
+      "titleByLocale": {
+        "it": "Oldies für Oldies",
+        "en": "Oldies für Oldies",
+        "de": "Oldies für Oldies",
+        "fr": "Oldies für Oldies"
+      },
+      "startDate": "2027-11-01",
+      "endDate": "2027-11-01",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/oldies-fuer-oldies-47/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3877405,
+        "lng": 8.4284658
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "22538cc133b7f26f8eb919580ebd4d6f70f44f5a1c457197217b28276b231706"
+    },
+    {
+      "id": "myswitzerland:72d4e59719c84a0aa346a1665ae9dbb3",
+      "title": "Geschichtenfenster – lauschen und entdecken",
+      "titleByLocale": {
+        "it": "Geschichtenfenster – lauschen und entdecken",
+        "en": "Geschichtenfenster – lauschen und entdecken",
+        "de": "Geschichtenfenster – lauschen und entdecken",
+        "fr": "Geschichtenfenster – lauschen und entdecken"
+      },
+      "startDate": "2027-02-17",
+      "endDate": "2027-02-17",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/geschichtenfenster-lauschen-und-entdecken-6/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3796064,
+        "lng": 8.5393516
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "0a78e9dc817209ed6c4697a6da72f8a9c3232cc1d693cd0a03d9baa232c02306"
+    },
+    {
+      "id": "myswitzerland:721012c499084ff9ab8588ff412ef55b",
+      "title": "Initiation à la bande dessinée",
+      "titleByLocale": {
+        "it": "Initiation à la bande dessinée",
+        "en": "Initiation à la bande dessinée",
+        "de": "Initiation à la bande dessinée",
+        "fr": "Initiation à la bande dessinée"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2027-02-20",
+      "category": "Event",
+      "venue": "Pringy",
+      "comune": "Gruyères",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/initiation-a-la-bande-dessinee/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.581038,
+        "lng": 7.0723943
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "187489b78c3959239ea15c7a188ed183c86d4111b6ed9e95c4c57c5b28a2fe0d"
+    },
+    {
+      "id": "myswitzerland:720a0bbe2247460ea0c03cd7ec479cd6",
+      "title": "Salon Art Ô Féminin",
+      "titleByLocale": {
+        "it": "Salon Art Ô Féminin",
+        "en": "Salon Art Ô Féminin",
+        "de": "Salon Art Ô Féminin",
+        "fr": "Salon Art Ô Féminin"
+      },
+      "startDate": "2027-03-19",
+      "endDate": "2027-03-20",
+      "category": "Event",
+      "venue": "La Chaux-de-Fonds",
+      "comune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/salon-art-o-feminin/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0997532,
+        "lng": 6.8231602
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "52f1d01a8688c8e40177039a8194e23b2588edf7a0b862ecefdf2263e23c69e4"
+    },
+    {
+      "id": "myswitzerland:720529a246d04d4fa2af2a5488eff24b",
+      "title": "Weihnachtszauber – Karten-Werkstatt im Atelier",
+      "titleByLocale": {
+        "it": "Weihnachtszauber – Karten-Werkstatt im Atelier",
+        "en": "Weihnachtszauber – Karten-Werkstatt im Atelier",
+        "de": "Weihnachtszauber – Karten-Werkstatt im Atelier",
+        "fr": "Weihnachtszauber – Karten-Werkstatt im Atelier"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "category": "Event",
+      "venue": "Diessenhofen",
+      "comune": "Diessenhofen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtszauber-karten-werkstatt-im-atelier/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.689066,
+        "lng": 8.750812
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Handlettering"
+      },
+      "sourceDescriptionHash": "fa520eeb0e18a5adaf9e9afb3064a29eccd19ef815bece54fee0dd6c796608ed"
+    },
+    {
+      "id": "myswitzerland:71f19a97743044af9329802f7f89c88e",
+      "title": "Tavolata - gemeinsam essen",
+      "titleByLocale": {
+        "it": "Tavolata - gemeinsam essen",
+        "en": "Tavolata - gemeinsam essen",
+        "de": "Tavolata - gemeinsam essen",
+        "fr": "Tavolata - gemeinsam essen"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tavolata-gemeinsam-essen-396/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3808313,
+        "lng": 8.4254879
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "8b3d5769f9564de1acd81d09ecc47a18bcfa70f71217475704ff05c6974fac2a"
+    },
+    {
+      "id": "myswitzerland:71c1f2c78c47495faf30ab83ca0ae9f4",
+      "title": "Lisa Christ",
+      "titleByLocale": {
+        "it": "Lisa Christ",
+        "en": "Lisa Christ",
+        "de": "Lisa Christ",
+        "fr": "Lisa Christ"
+      },
+      "startDate": "2027-10-23",
+      "endDate": "2027-10-23",
+      "category": "Event",
+      "venue": "Davos",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/lisa-christ/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7967781,
+        "lng": 9.8223277
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "021412575c8a29922b62c825c6d91d7695de7cb4ea62d0a5b9e6d622393800a3"
+    },
+    {
+      "id": "myswitzerland:71885e1996f243279abdd5a40f157a41",
+      "title": "PIA WILLI Guided Tour During the Christmas Season",
+      "titleByLocale": {
+        "it": "PIA WILLI Guided Tour During the Christmas Season",
+        "en": "PIA WILLI Guided Tour During the Christmas Season",
+        "de": "Führung PIA WILLI zur Weihnachtszeit",
+        "fr": "PIA WILLI Guided Tour During the Christmas Season"
+      },
+      "startDate": "2026-12-29",
+      "endDate": "2027-01-04",
+      "category": "Event",
+      "venue": "Müstair",
+      "comune": "Val Müstair",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/pia-willi-guided-tour-during-the-christmas-season/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.629741,
+        "lng": 10.4482622
+      },
+      "recurring": true,
+      "italianFrontierComuni": [
+        "Tubre",
+        "Glorenza",
+        "Malles Venosta",
+        "Prato Allo Stelvio",
+        "Sluderno"
+      ],
+      "sourceDescriptionHash": "589611201997a32640631aeda2ab12a1115ba6a775273da35e54ee5c9d2a0fdf"
+    },
+    {
+      "id": "myswitzerland:71729cb3de174a4fb72cd53b91b21c9b",
+      "title": "Baumschmuck Basteln",
+      "titleByLocale": {
+        "it": "Baumschmuck Basteln",
+        "en": "Baumschmuck Basteln",
+        "de": "Baumschmuck Basteln",
+        "fr": "Baumschmuck Basteln"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-19",
+      "category": "Event",
+      "venue": "Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/baumschmuck-basteln/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5777966,
+        "lng": 7.586821
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "0d3bcb0492450b85f4d36ecc33a0e23f6fc1e62d71eb61facffc7127f661b71d"
+    },
+    {
+      "id": "myswitzerland:715486471a4045269b1e50d0703ca00a",
+      "title": "Oldies für Oldies",
+      "titleByLocale": {
+        "it": "Oldies für Oldies",
+        "en": "Oldies für Oldies",
+        "de": "Oldies für Oldies",
+        "fr": "Oldies für Oldies"
+      },
+      "startDate": "2027-04-05",
+      "endDate": "2027-04-05",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/oldies-fuer-oldies-18/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3877405,
+        "lng": 8.4284658
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "22538cc133b7f26f8eb919580ebd4d6f70f44f5a1c457197217b28276b231706"
     }
   ]
 }
