@@ -70835,13 +70835,13 @@
       "trockenbauer-m-w-zurich-zh-yellowshark-ch-d7483612",
       "trockenbauer-m-w-zurich-zh-yellowshark-ch-ee2800e6",
       "trockenbauer-m-w-zurich-zh-yellowshark-ch-62435bc5",
+      "asciugatrici-m-f-yellowshark-ag-zurich-zh-ae71651f",
+      "dryers-m-f-yellowshark-ag-zurich-zh-5bf2dfff",
+      "sechoirs-h-f-yellowshark-ag-zurich-zh-06021a67",
       "trockenbauer-m-w-zurich-zh-yellowshark-ch",
       "asciugatrici-m-f-yellowshark-ag-zurich-zh",
       "dryers-m-f-yellowshark-ag-zurich-zh",
-      "sechoirs-h-f-yellowshark-ag-zurich-zh",
-      "asciugatrici-m-f-yellowshark-ag-zurich-zh-ae71651f",
-      "dryers-m-f-yellowshark-ag-zurich-zh-5bf2dfff",
-      "sechoirs-h-f-yellowshark-ag-zurich-zh-06021a67"
+      "sechoirs-h-f-yellowshark-ag-zurich-zh"
     ],
     "sourceIdentityHistory": [
       {
@@ -71539,6 +71539,7 @@
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-614d408e",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-e94964ba",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-56a43acf",
+        "facade-fitter-m-f-yellowshark-ag-st-gallen-710cc22d",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch"
       ],
       "en": [
@@ -71546,6 +71547,7 @@
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-7ec8bc5a",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-3d28db8c",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-96a3de2e",
+        "facade-fitter-m-f-yellowshark-ag-st-gallen-710cc22d",
         "facade-fitter-m-f-yellowshark-ag-st-gallen"
       ],
       "de": [
@@ -71573,13 +71575,15 @@
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-614d408e",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-e94964ba",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7",
+        "facade-fitter-m-f-yellowshark-ag-st-gallen-d0440919",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch"
       ],
       "fr": [
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-7ec8bc5a",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-3d28db8c",
-        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-96a3de2e"
+        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-96a3de2e",
+        "facade-fitter-m-f-yellowshark-ag-st-gallen-d0440919"
       ]
     },
     "postalCode": "9000",
@@ -71616,7 +71620,8 @@
       "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-e94964ba",
       "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-56a43acf",
       "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch",
-      "facade-fitter-m-f-yellowshark-ag-st-gallen"
+      "facade-fitter-m-f-yellowshark-ag-st-gallen",
+      "facade-fitter-m-f-yellowshark-ag-st-gallen-d0440919"
     ],
     "sourceIdentityHistory": [
       {
@@ -71638,17 +71643,20 @@
     "canton": "SG",
     "previousSlugCantonByLocale": {
       "it": {
-        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7": "SG"
+        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7": "SG",
+        "facade-fitter-m-f-yellowshark-ag-st-gallen-710cc22d": "SG"
       },
       "de": {
-        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7": "SG"
+        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7": "SG",
+        "facade-fitter-m-f-yellowshark-ag-st-gallen-d0440919": "SG"
       },
       "en": {
         "facade-fitter-m-f-yellowshark-ag-st-gallen-710cc22d": "SG",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7": "SG"
       },
       "fr": {
-        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7": "SG"
+        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7": "SG",
+        "facade-fitter-m-f-yellowshark-ag-st-gallen-d0440919": "SG"
       }
     }
   },
@@ -112579,7 +112587,8 @@
       "macchinista-escavatore-ragno-m-f-yellowshark-ag-schwyz",
       "pelleteuse-marchande-machiniste-h-f-yellowshark-ag-schwyz-c704c3d3",
       "maschinist-schreitbagger-m-w-schwyz-sz-yellowshark-ch-bgu719-da41b5fb",
-      "maschinist-schreitbagger-m-w-schwyz-sz-yellowshark-ch-b75c4f11"
+      "maschinist-schreitbagger-m-w-schwyz-sz-yellowshark-ch-b75c4f11",
+      "maschinist-schreitbagger-m-w-schwyz-sz-yellowshark-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
