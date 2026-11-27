@@ -2779,7 +2779,7 @@ jobs:
               });
               const now = Date.now();
               const maxAgeMs = 60 * 60 * 1000;
-              const run = data.workflow_runs.find((candidate) => {
+              const fresh = data.workflow_runs.filter((candidate) => {
                 // Workflow-run list objects expose updated_at (not completed_at).
                 // The manifest performs the authoritative snapshot-age check.
                 const updatedAt = Date.parse(candidate.updated_at || '');
@@ -2789,6 +2789,19 @@ jobs:
                   && now >= updatedAt
                   && now - updatedAt <= maxAgeMs;
               });
+              // A seed run that the one-an-hour guard skipped is green but holds
+              // no snapshot: only a run that published the manifest counts.
+              let run;
+              for (const candidate of fresh) {
+                const { data: artifacts } = await github.rest.actions.listWorkflowRunArtifacts({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  run_id: candidate.id,
+                  name: 'assemble-test-snapshot-manifest',
+                  per_page: 1,
+                });
+                if (artifacts.total_count > 0) { run = candidate; break; }
+              }
               writeRunIdentity(run);
               if (run) core.info(`Using hourly snapshot workflow run ${run.id}`);
               else core.warning('No successful hourly assemble snapshot completed within the last 60 minutes');
@@ -2876,17 +2889,31 @@ jobs:
         uses: actions/github-script@v9
         env:
           ASSEMBLE_CACHE_FULL_KEY: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+          MERGE_GROUP_BASE_SHA: ${{ github.event.merge_group.base_sha }}
         with:
           script: |
             const { pathToFileURL } = require('node:url');
             const helper = await import(pathToFileURL(
               `${process.env.GITHUB_WORKSPACE}/scripts/ci/wait-for-main-assemble-cache.mjs`,
             ).href);
+            // The exact key can only match a main run whose head is the base of
+            // this merge: refs/pull/N/merge has the base as first parent, and the
+            // merge queue names it. Anything else cannot publish the same key.
+            let baseSha = process.env.MERGE_GROUP_BASE_SHA || '';
+            if (!baseSha) {
+              try {
+                baseSha = require('node:child_process')
+                  .execFileSync('git', ['rev-parse', 'HEAD^1'], { encoding: 'utf8' }).trim();
+              } catch (error) {
+                core.info(`Base commit not resolvable: ${error.message}`);
+              }
+            }
             await helper.waitForMainAssembleCache({
               github,
               context,
               core,
               cacheKey: process.env.ASSEMBLE_CACHE_FULL_KEY,
+              baseSha,
             });
 
       - name: Restore exact assemble-jobs cache after main warm-up
@@ -2969,6 +2996,64 @@ jobs:
             echo "✅ Restored the validated hourly assemble snapshot; skipping full assembly"
           fi
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      # One annotation per run says how the dataset was obtained. The logs of
+      # this job often exceed 8 MiB and cannot be read; annotations can.
+      - name: Report assemble snapshot outcome
+        id: assemble_snapshot_outcome
+        if: ${{ always() && !cancelled() && steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+        continue-on-error: true
+        env:
+          ELIGIBILITY_OUTCOME: ${{ steps.hourly_snapshot_eligibility.outcome }}
+          ELIGIBLE: ${{ steps.hourly_snapshot_eligibility.outputs.eligible }}
+          ELIGIBILITY_REASON: ${{ steps.hourly_snapshot_eligibility.outputs.reason }}
+          SNAPSHOT_RUN_ID: ${{ steps.latest_hourly_snapshot.outputs.run_id }}
+          SNAPSHOT_KEY_OUTCOME: ${{ steps.hourly_snapshot_key.outcome }}
+          SNAPSHOT_KEY_ERROR: ${{ steps.hourly_snapshot_key.outputs.error }}
+          SNAPSHOT_CACHE_HIT: ${{ steps.hourly_snapshot_cache.outputs.cache-hit }}
+          SNAPSHOT_RESTORED: ${{ steps.hourly_snapshot_restore.outputs.restored }}
+          SNAPSHOT_RESTORE_REASON: ${{ steps.hourly_snapshot_restore.outputs.reason }}
+          EXACT_CACHE_HIT: ${{ steps.assemble_cache.outputs.cache-hit }}
+          EXACT_CACHE_RETRY_HIT: ${{ steps.assemble_cache_retry.outputs.cache-hit }}
+        run: |
+          # `snapshot` is the snapshot-side cause and is set even when an exact
+          # assemble-jobs cache hit made the snapshot unnecessary.
+          if [ "$SNAPSHOT_RESTORED" = "true" ]; then
+            snapshot=hit; snapshot_reason="hourly snapshot from run ${SNAPSHOT_RUN_ID} restored"
+          elif [ "$ELIGIBILITY_OUTCOME" != "success" ]; then
+            snapshot=not-checked; snapshot_reason="eligibility check did not complete (${ELIGIBILITY_OUTCOME:-skipped})"
+          elif [ "$ELIGIBLE" != "true" ]; then
+            snapshot=ineligible; snapshot_reason="${ELIGIBILITY_REASON:-PR diff touches assemble inputs}"
+          elif [ -z "$SNAPSHOT_RUN_ID" ]; then
+            snapshot=absent; snapshot_reason="no successful hourly snapshot within 60 minutes"
+          elif [ "$SNAPSHOT_KEY_OUTCOME" != "success" ]; then
+            case "$SNAPSHOT_KEY_ERROR" in
+              *"older than 60 minutes"*) snapshot=stale ;;
+              *"compatibility changed"*|*"output contract changed"*) snapshot=incompatible ;;
+              *) snapshot=not-checked ;;
+            esac
+            snapshot_reason="run ${SNAPSHOT_RUN_ID}: ${SNAPSHOT_KEY_ERROR:-cache key not computed (${SNAPSHOT_KEY_OUTCOME:-skipped})}"
+          elif [ "$SNAPSHOT_CACHE_HIT" != "true" ]; then
+            snapshot=cache-miss; snapshot_reason="snapshot cache of run ${SNAPSHOT_RUN_ID} not found"
+          else
+            snapshot=restore-rejected; snapshot_reason="run ${SNAPSHOT_RUN_ID}: ${SNAPSHOT_RESTORE_REASON:-restore did not report a reason}"
+          fi
+          if [ "$SNAPSHOT_RESTORED" = "true" ]; then
+            outcome=hit; reason="$snapshot_reason"
+          elif [ "$EXACT_CACHE_HIT" = "true" ] || [ "$EXACT_CACHE_RETRY_HIT" = "true" ]; then
+            outcome=exact-cache-hit; reason="exact assemble-jobs cache restored; snapshot: ${snapshot_reason}"
+          else
+            case "$snapshot" in
+              ineligible) outcome=ineligible ;;
+              absent) outcome=absent ;;
+              not-checked) outcome=cold ;;
+              *) outcome=incompatible ;;
+            esac
+            reason="${snapshot_reason}; cold assembly"
+          fi
+          line="outcome=${outcome} snapshot=${snapshot} reason=${reason}"
+          echo "::notice title=assemble-snapshot-outcome::${line}"
+          echo "assemble-snapshot-outcome: ${line}" >> "$GITHUB_STEP_SUMMARY"
 
       # Publish the exact snapshot as soon as assembly and migration succeed.
       # Saving here lets main seed the cache before the longer test and review
