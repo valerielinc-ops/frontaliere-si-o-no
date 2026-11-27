@@ -5513,8 +5513,48 @@ export function generateFuelItalianStationPages(opts: {
   return pages;
 }
 
+/** Identity of the stations a data refresh stopped listing (`italy.retiredStations`). */
+function collectRetiredItalianCityStations(
+  dataset: FuelPricesDataset,
+  entry: ItalianCityEntry,
+): ItalianCityStation[] {
+  return (dataset.municipalities ?? [])
+    .filter((row) => row.municipality?.toLowerCase() === entry.matchKey)
+    .flatMap((row) => (row as unknown as {
+      italy?: { retiredStations?: ItalianCityStation[] };
+    }).italy?.retiredStations ?? []);
+}
+
 /**
- * Keep routes for known Italian stations when a fuel stops reporting a price.
+ * A non-curated comune has a city entry only while a station there is priced.
+ * When its last one is retired the bridges still need the city route.
+ */
+function withRetiredOnlyCityEntries(
+  dataset: FuelPricesDataset,
+  entries: readonly ItalianCityEntry[],
+): ItalianCityEntry[] {
+  const out = [...entries];
+  const listed = new Set(entries.map((entry) => entry.matchKey));
+  for (const row of (dataset.municipalities ?? []) as unknown as Array<
+    ItalianDatasetRowLite & { italy?: { retiredStations?: ItalianCityStation[] } }
+  >) {
+    const name = (row.municipality ?? '').trim();
+    const matchKey = name.toLowerCase();
+    if (!name || listed.has(matchKey) || !row.italy?.retiredStations?.length) continue;
+    const base = slugify(name);
+    if (!base) continue;
+    const province = (row.province ?? '').toUpperCase();
+    // Same disambiguation as `buildItalianCityEntries`.
+    const slug = out.some((entry) => entry.slug === base) ? `${base}-${province.toLowerCase()}` : base;
+    listed.add(matchKey);
+    out.push({ slug, display: titleCase(name), matchKey, province, nearestZone: deriveItalianCityZone(row) });
+  }
+  return out;
+}
+
+/**
+ * Keep routes for known Italian stations when a fuel stops reporting a price,
+ * or when the whole station leaves the MIMIT cut.
  * These pages are noindex bridges, not station listings: dropping an old
  * diesel URL outright turns a temporary source gap into a permanent 404.
  */
@@ -5524,7 +5564,7 @@ export function generateFuelItalianStationAvailabilityBridges(opts: {
 }): Record<string, string> {
   const pages: Record<string, string> = {};
   const locales = opts.locales ?? FUEL_DAILY_LOCALES;
-  const entries = buildItalianCityEntries(opts.dataset);
+  const entries = withRetiredOnlyCityEntries(opts.dataset, buildItalianCityEntries(opts.dataset));
   const rowsByCity = new Map<string, ItalianCityStation[]>();
   for (const entry of entries) {
     rowsByCity.set(entry.slug, collectItalianCityStationRows(opts.dataset, entry));
@@ -5534,7 +5574,12 @@ export function generateFuelItalianStationAvailabilityBridges(opts: {
     const slugSeen = new Set<string>();
     for (const entry of entries) {
       const rowsById = groupItalianCityStationRowsById(rowsByCity.get(entry.slug) ?? []);
-      for (const rows of rowsById.values()) {
+      // Retired stations come last, so they only take a slug no listed station
+      // holds — including the suffixed one a surviving namesake just left.
+      const retired = collectRetiredItalianCityStations(opts.dataset, entry)
+        .filter((station) => station.id && !rowsById.has(station.id))
+        .map((station) => [station]);
+      for (const rows of [...rowsById.values(), ...retired]) {
         const selected = cheapestItalianStationForFuel(rows, fuel);
         const routeStation = selected?.station ?? rows[0];
         if (!routeStation.brand && !routeStation.stationName) continue;

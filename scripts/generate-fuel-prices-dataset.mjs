@@ -1207,6 +1207,35 @@ export function readSwissFuelInventory(filePath = SWISS_INVENTORY_PATH) {
   }
 }
 
+/**
+ * Identity of the Italian stations that earlier snapshots listed and this one
+ * does not. MIMIT drops a station from the cut altogether (no Benzina row is
+ * enough, see `buildItalyStations`), but its pages were published: the build
+ * needs name and address to keep emitting a noindex bridge at the same URLs.
+ * No prices: a retired station is not a listing.
+ */
+export function retiredItalyStationsByMunicipality(previousDataset, italyByMunicipality) {
+  const out = new Map();
+  for (const row of previousDataset?.municipalities ?? []) {
+    const key = `${row.municipality}:${row.province}`;
+    const seen = new Set((italyByMunicipality.get(key) ?? []).map((station) => station.id));
+    const retired = [];
+    // Already-retired first: slug suffixes among namesakes follow this order.
+    for (const station of [...(row.italy?.retiredStations ?? []), ...(row.italy?.stations ?? [])]) {
+      if (!station?.id || seen.has(station.id)) continue;
+      seen.add(station.id);
+      retired.push({
+        id: station.id,
+        brand: station.brand,
+        stationName: station.stationName,
+        address: station.address,
+      });
+    }
+    if (retired.length > 0) out.set(key, retired);
+  }
+  return out;
+}
+
 export function buildDataset({
   municipalities,
   italyExtractedAt,
@@ -1215,6 +1244,7 @@ export function buildDataset({
   swissCoverage = null,
   swissInventory = null,
   italyByMunicipality,
+  italyRetiredByMunicipality = new Map(),
   exchangeRate,
   italyStatus = null,
 }) {
@@ -1252,6 +1282,8 @@ export function buildDataset({
   const municipalityRows = municipalities.map((municipality) => {
     const italyStations = italyByMunicipality.get(`${municipality.name}:${municipality.province}`) || [];
     const italy = summarizeItalyStations(italyStations);
+    const retiredStations = italyRetiredByMunicipality.get(`${municipality.name}:${municipality.province}`);
+    if (retiredStations) italy.retiredStations = retiredStations;
     const swissCandidates = swissStations
       .map((station) => ({
         ...station,
@@ -1581,7 +1613,12 @@ async function writeToFirestore(payload) {
   const italyDoc = {
     municipalities: payload.municipalities
       .filter((m) => m.italy.stationCount > 0)
-      .map((m) => ({ municipality: m.municipality, province: m.province, italy: m.italy })),
+      .map((m) => {
+        // Build-time route memory: no Firestore reader needs it, and the
+        // document has a 1 MB ceiling.
+        const { retiredStations: _retiredStations, ...italy } = m.italy;
+        return { municipality: m.municipality, province: m.province, italy };
+      }),
   };
 
   const borderMunicipalities = payload.municipalities
@@ -1700,10 +1737,11 @@ async function main() {
     ]);
 
     const exchangeRate = extractEcbRate(ecbXml);
+    const previousDataset = readPreviousDataset();
     const italySource = resolveItalySource({
       italyResult,
       municipalities,
-      previousDataset: readPreviousDataset(),
+      previousDataset,
     });
     if (italySource.status !== 'live') {
       console.warn(`::warning::[fuel] MIMIT unavailable (${italySource.reason}) — Swiss TCS prices refreshed, Italian prices ${italySource.status === 'carried-over' ? `carried over from the ${italySource.extractedAt} snapshot` : 'omitted (no previous snapshot)'}`);
@@ -1784,6 +1822,7 @@ async function main() {
         inventoryOnlyCount: inventoryMerge.inventoryOnlyCount,
       },
       italyByMunicipality,
+      italyRetiredByMunicipality: retiredItalyStationsByMunicipality(previousDataset, italyByMunicipality),
       exchangeRate,
       italyStatus: italySource.status === 'live' ? null : { status: italySource.status, reason: italySource.reason },
     });

@@ -26,6 +26,10 @@ import {
   buildFuelIndexPath,
   type ItalianStationLeaf,
 } from '../build-plugins/fuelStationIndexPages';
+import {
+  buildDataset,
+  retiredItalyStationsByMunicipality,
+} from '../scripts/generate-fuel-prices-dataset.mjs';
 
 const TODAY = new Date('2026-05-18T06:00:00Z');
 
@@ -243,6 +247,86 @@ describe('diesel Italian station pages — emitted per fuel', () => {
     expect(unavailablePath).not.toBe(indexablePath);
     expect(unavailablePath).toMatch(/\/stazioni\/[^/]*rosselli[^/]*\/$/);
     expect(indexablePath).toMatch(/\/stazioni\/[^/]*rosselli[^/]*-2\/$/);
+  });
+});
+
+// Publisher run 45059292727: MIMIT stopped listing one Q8 station at all, so the
+// refreshed dataset no longer knew its routes, no bridge was emitted for its 8
+// URLs and the publisher gate refused the fuel-italian-stations decrease.
+describe('Italian station pages — a station leaving the MIMIT cut keeps its URLs', () => {
+  const COMO = { name: 'Como', province: 'CO', lat: 45.81, lng: 9.08 };
+  type Row = Record<string, unknown>;
+  const rows = (DATASET as unknown as { municipalities: Array<{ italy: { stations: Row[] } }> })
+    .municipalities[0].italy.stations;
+  // Two namesakes on one street, so their slugs differ only by the `-2` suffix.
+  const twin = { ...rows[2], id: 'b2', priceEur: 1.969, dieselPriceEur: 1.899 };
+  const before = [...rows, twin];
+
+  const refresh = (previousDataset: unknown, current: Row[]) => {
+    const italyByMunicipality = new Map([['Como:CO', current]]);
+    return buildDataset({
+      municipalities: [COMO],
+      italyExtractedAt: TODAY.toISOString().slice(0, 10),
+      swissStations: [],
+      italyByMunicipality,
+      italyRetiredByMunicipality: retiredItalyStationsByMunicipality(previousDataset, italyByMunicipality),
+      exchangeRate: { chfPerEur: 1, eurPerChf: 1 },
+    });
+  };
+  const stationPaths = (dataset: unknown) => Object.keys(
+    generateFuelItalianStationPages({ dataset: dataset as never, today: TODAY }),
+  );
+  const first = refresh(null, before);
+
+  it.each([
+    ['the last namesake', 'b2'],
+    ['the first namesake, whose slug the survivor inherits', 'b1'],
+    ['a station priced for both fuels', 'd1'],
+  ])('bridges every URL that loses its page when %s disappears', (_label, goneId) => {
+    const previousPaths = stationPaths(first);
+    const next = refresh(first, before.filter((row) => row.id !== goneId));
+    const pages = new Set(stationPaths(next));
+    const bridges = generateFuelItalianStationAvailabilityBridges({ dataset: next as never });
+    const lost = previousPaths.filter((pagePath) => !pages.has(pagePath));
+
+    expect(lost.length).toBeGreaterThan(0);
+    for (const pagePath of lost) {
+      expect(bridges[pagePath], pagePath).toContain('<meta name="robots" content="noindex,follow">');
+    }
+    // A bridge never replaces an indexable page.
+    expect(Object.keys(bridges).filter((pagePath) => pages.has(pagePath))).toEqual([]);
+  });
+
+  it('bridges the last station of a non-curated comune, whose city entry is gone', () => {
+    const comune = { name: 'Comune Di Prova', province: 'VA', lat: 45.9, lng: 8.6 };
+    const build = (previousDataset: unknown, current: Row[]) => {
+      const italyByMunicipality = new Map([['Comune Di Prova:VA', current]]);
+      return buildDataset({
+        municipalities: [comune],
+        italyExtractedAt: TODAY.toISOString().slice(0, 10),
+        swissStations: [],
+        italyByMunicipality,
+        italyRetiredByMunicipality: retiredItalyStationsByMunicipality(previousDataset, italyByMunicipality),
+        exchangeRate: { chfPerEur: 1, eurPerChf: 1 },
+      });
+    };
+    const listed = build(null, [rows[0]]);
+    const previousPaths = stationPaths(listed);
+    const bridges = generateFuelItalianStationAvailabilityBridges({ dataset: build(listed, []) as never });
+
+    expect(previousPaths.length).toBeGreaterThan(0);
+    expect(Object.keys(bridges).sort()).toEqual([...previousPaths].sort());
+  });
+
+  it('remembers a retired station across later refreshes, as identity only, and forgets it on return', () => {
+    const without = before.filter((row) => row.id !== 'd1');
+    const second = refresh(first, without);
+    const third = refresh(second, without);
+    expect(third.municipalities[0].italy.retiredStations).toEqual([
+      { id: 'd1', brand: 'Eni', stationName: 'Eni Como', address: 'Via del Dos 14, 22100 Como' },
+    ]);
+    expect(third.municipalities[0].italy.stationCount).toBe(without.length);
+    expect(refresh(third, before).municipalities[0].italy).not.toHaveProperty('retiredStations');
   });
 });
 
