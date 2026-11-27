@@ -1163,6 +1163,7 @@
         "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf",
         "studium-pflegefachfrau-mann-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "infirmiere-homme-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "study-nurse-man-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-79d63728",
         "study-nurse-man-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       ],
       "fr": [
@@ -1171,6 +1172,7 @@
         "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf",
         "studium-pflegefachfrau-mann-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "study-nurse-man-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "infirmiere-homme-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-e2d71648",
         "infirmiere-homme-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       ],
       "de": [
@@ -1590,25 +1592,26 @@
     "slugByLocale": {
       "it": "collaboratore-trice-betreuung-e-hauswirtschaft-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "en": "associate-betreuung-und-hauswirtschaft-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-      "de": "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf",
+      "de": "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf-8f0a2016",
       "fr": "collaborateur-trice-betreuung-und-hauswirtschaft-spitex-gesundheitszentrum-dielsdorf-regensdorf"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-09T09:35:06.592Z",
     "previousSlugs": [
-      "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf",
       "addetto-a-alla-cura-e-alla-casa-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "personale-nella-cura-e-nella-gestione-della-casa-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "care-and-household-support-worker-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "staff-in-care-and-home-management-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "employe-e-de-soins-et-d-assistance-domestique-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-      "personnel-soins-et-gestion-a-domicile-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+      "personnel-soins-et-gestion-a-domicile-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+      "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf",
+        "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf-8f0a2016",
         "addetto-a-alla-cura-e-alla-casa-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "personale-nella-cura-e-nella-gestione-della-casa-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        "personale-nella-cura-e-nella-gestione-della-casa-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf"
       ],
       "en": [
         "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf",
@@ -1619,6 +1622,9 @@
         "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf",
         "employe-e-de-soins-et-d-assistance-domestique-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "personnel-soins-et-gestion-a-domicile-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+      ],
+      "de": [
+        "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf-8f0a2016"
       ]
     },
     "postalCode": "8105",
@@ -1630,13 +1636,16 @@
     "canton": "ZH",
     "previousSlugCantonByLocale": {
       "it": {
-        "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf": "ZH"
+        "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf-8f0a2016": "ZH"
       },
       "en": {
         "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf": "ZH"
       },
       "fr": {
         "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf": "ZH"
+      },
+      "de": {
+        "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf-8f0a2016": "ZH"
       }
     }
   },

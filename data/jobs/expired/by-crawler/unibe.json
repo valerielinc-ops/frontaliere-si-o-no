@@ -5729,7 +5729,9 @@
       "aide-aux-etudiants-universitat-bern-bern-ce67f63c",
       "wissenschaftliche-hilfsassistenz-universitat-bern-bern-cfa4cebd",
       "wissenschaftliche-hilfsassistenz-universitat-bern-bern",
-      "wissenschaftliche-hilfsassistenz-unibe-bern"
+      "wissenschaftliche-hilfsassistenz-unibe-bern",
+      "wissenschaftliche-hilfsassistenz-universitat-bern-bern-fd57dd98",
+      "wissenschaftliche-hilfsassistenz-unibe-bern-85343b3f"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5741,6 +5743,8 @@
         "assistant-etudiant-universitat-bern",
         "aide-aux-etudiants-universitat-bern-bern-ce67f63c",
         "wissenschaftliche-hilfsassistenz-universitat-bern-bern-cfa4cebd",
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-fd57dd98",
+        "wissenschaftliche-hilfsassistenz-unibe-bern-85343b3f",
         "wissenschaftliche-hilfsassistenz-universitat-bern-bern",
         "wissenschaftliche-hilfsassistenz-unibe-bern"
       ],
@@ -5749,7 +5753,8 @@
         "studentische-hilfsassistenz-unibe-bern",
         "student-assistance-universitat-bern-bern-d3e8a948",
         "wissenschaftliche-hilfsassistenz-unibe-bern",
-        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-cfa4cebd"
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-cfa4cebd",
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-fd57dd98"
       ],
       "fr": [
         "studentische-assistenz-unibe-bern",
@@ -5757,11 +5762,14 @@
         "aide-aux-etudiants-universitat-bern-bern-ce67f63c",
         "assistant-etudiant-universitat-bern",
         "wissenschaftliche-hilfsassistenz-unibe-bern",
-        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-cfa4cebd"
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-cfa4cebd",
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-fd57dd98"
       ],
       "de": [
         "studentische-hilfsassistenz-unibe-bern",
         "wissenschaftliche-hilfsassistenz-unibe-bern-90447938",
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-fd57dd98",
+        "wissenschaftliche-hilfsassistenz-unibe-bern-85343b3f",
         "wissenschaftliche-hilfsassistenz-universitat-bern-bern",
         "wissenschaftliche-hilfsassistenz-unibe-bern"
       ]
@@ -5789,18 +5797,24 @@
     "previousSlugCantonByLocale": {
       "it": {
         "studentische-assistenz-unibe-bern": "BE",
-        "studentische-hilfsassistenz-unibe-bern": "BE"
+        "studentische-hilfsassistenz-unibe-bern": "BE",
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-fd57dd98": "BE",
+        "wissenschaftliche-hilfsassistenz-unibe-bern-85343b3f": "BE"
       },
       "en": {
         "studentische-assistenz-unibe-bern": "BE",
-        "studentische-hilfsassistenz-unibe-bern": "BE"
+        "studentische-hilfsassistenz-unibe-bern": "BE",
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-fd57dd98": "BE"
       },
       "fr": {
         "studentische-assistenz-unibe-bern": "BE",
-        "studentische-hilfsassistenz-unibe-bern": "BE"
+        "studentische-hilfsassistenz-unibe-bern": "BE",
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-fd57dd98": "BE"
       },
       "de": {
-        "studentische-hilfsassistenz-unibe-bern": "BE"
+        "studentische-hilfsassistenz-unibe-bern": "BE",
+        "wissenschaftliche-hilfsassistenz-universitat-bern-bern-fd57dd98": "BE",
+        "wissenschaftliche-hilfsassistenz-unibe-bern-85343b3f": "BE"
       }
     }
   },
@@ -10578,6 +10592,7 @@
         "doctorat-etudiant-doctorat-etudiant-psychologie-universitat-bern-bern-368300",
         "doktorand-doktorandin-unibe-bern",
         "doctoral-student-doctoral-student-universitat-bern-bern",
+        "etudiant-au-doctorat-etudiant-au-doctorat-universitat-bern-bern-faf389aa",
         "etudiant-au-doctorat-etudiant-au-doctorat-universitat-bern-bern"
       ]
     },
@@ -10602,17 +10617,17 @@
         "doktorand-doktorandin-unibe-bern": "BE"
       },
       "en": {
-        "doctoral-student-doctoral-student-universitat-bern-bern": "BE",
         "doktorandin-doktorand-psychologie-universitat-bern-bern": "BE",
-        "doktorand-doktorandin-universitat-bern-bern": "BE"
+        "doktorand-doktorandin-universitat-bern-bern": "BE",
+        "doctoral-student-doctoral-student-universitat-bern-bern-4f7163c7": "BE"
       },
       "de": {
         "doktorandin-doktorand-psychologie-unibe-bern": "BE"
       },
       "fr": {
-        "etudiant-au-doctorat-etudiant-au-doctorat-universitat-bern-bern": "BE",
         "doctorat-etudiant-doctorat-etudiant-psychologie-universitat-bern-bern-368300": "BE",
-        "doktorand-doktorandin-unibe-bern": "BE"
+        "doktorand-doktorandin-unibe-bern": "BE",
+        "etudiant-au-doctorat-etudiant-au-doctorat-universitat-bern-bern-faf389aa": "BE"
       }
     }
   },
