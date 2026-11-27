@@ -1,5 +1,4 @@
 import { createHash } from 'node:crypto';
-import sharp from 'sharp';
 import { CV_PORTRAIT_RECOVERY_VERSION } from './assistedApplicationConstants.js';
 import { MAX_CV_SOURCE_BYTES } from './assistedApplicationAiDocuments.js';
 import { isAssistedApplicationCvKey, detectCvFileType } from './assistedApplicationCvCheck.js';
@@ -53,6 +52,7 @@ async function jpegWithinLimit(image, maxBytes = MAX_PORTAL_PHOTO_BYTES, deadlin
   for (const maxSide of sizes) {
     for (const quality of JPEG_QUALITIES) {
       if (Date.now() >= deadline) return null;
+      const sharp = (await import('sharp')).default;
       const output = await beforeDeadline(sharp(input, { raw: { width, height, channels } })
         .resize({ width: maxSide, height: maxSide, fit: 'inside', withoutEnlargement: true })
         .jpeg({ quality })

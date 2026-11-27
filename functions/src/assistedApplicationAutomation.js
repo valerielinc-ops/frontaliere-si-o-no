@@ -54,7 +54,7 @@ import { readConciergeSlot, releaseConciergeSlot } from './assistedApplicationWi
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { recoverFailedCandidateRepliesForOrder } from './assistedApplicationCandidateReply.js';
-import { DISPATCH_RECOVERY_DELAY_MS, DISPATCH_RECOVERY_MAX_ATTEMPTS, dispatchRecoveryCountValue, dispatchRecoveryDueAt, preDispatchFailureCode } from './assistedApplicationDispatchRetryPolicy.js';
+import { DISPATCH_CONFIRM_WINDOW_MS, DISPATCH_RECOVERY_DELAY_MS, DISPATCH_RECOVERY_MAX_ATTEMPTS, dispatchRecoveryCountValue, dispatchRecoveryDueAt, preDispatchFailureCode } from './assistedApplicationDispatchRetryPolicy.js';
 import { checkPostingLiveness, resolvePostingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
@@ -303,6 +303,58 @@ export async function reconcileFactRepairSchedule({ db, orderId, apply = false }
   });
 }
 
+/**
+ * The moment an unconfirmed dispatch is looked at again, well before the run watchdog: its effect never reported
+ * success, so the process may have died between the committed transition and the GitHub POST. Only while the
+ * watchdog still has a re-dispatch to give (MAX_DISPATCH_ATTEMPTS), so the retry stays bounded.
+ */
+export function dispatchConfirmDueAt(flow) {
+  const confirmBy = Number(flow?.dispatch?.confirmBy) || 0;
+  if (!confirmBy || flow?.dispatch?.confirmedAt) return null;
+  if ((Number(flow.dispatch.attempts) || 1) >= MAX_DISPATCH_ATTEMPTS) return null;
+  return confirmBy;
+}
+
+/** The dispatch record of a run asked for at `nowMs`: unconfirmed until its effect has run. */
+function pendingDispatchRecord(record, nowMs) {
+  const attempts = Number(record.attempts) || 1;
+  return {
+    ...record,
+    confirmedAt: null,
+    confirmBy: attempts < MAX_DISPATCH_ATTEMPTS ? nowMs + DISPATCH_CONFIRM_WINDOW_MS : null,
+  };
+}
+
+/**
+ * The dispatch effect of the request made at `requestedAt` has run (or failed in a way the watchdog owns): clear
+ * its confirm clock, so the sweep never re-dispatches a run that may already be out. Idempotent, and a no-op
+ * when a newer dispatch replaced that request.
+ */
+export async function settleDispatchConfirmation({ db, orderId, requestedAt, nowMs = Date.now(), confirmed = true }) {
+  return db.runTransaction(async transaction => {
+    const orderRef = orderRefFor(db, orderId);
+    const flowRef = flowRefFor(db, orderId);
+    const flow = (await transaction.get(flowRef)).data();
+    const dispatch = flow?.dispatch;
+    if (!dispatch || Number(dispatch.requestedAt) !== Number(requestedAt) || dispatch.confirmedAt || !dispatch.confirmBy) {
+      return { settled: false };
+    }
+    const nextFlow = { ...flow, dispatch: { ...dispatch, confirmBy: null, ...(confirmed ? { confirmedAt: nowMs } : {}) } };
+    transaction.set(flowRef, { dispatch: nextFlow.dispatch }, { merge: true });
+    transaction.set(orderRef, { automationDueAt: computeDueAt(nextFlow) }, { merge: true });
+    return { settled: true };
+  });
+}
+
+/** Settle after the effect, never letting a failed bookkeeping write fail the caller (the watchdog still stands). */
+async function settleQuietly(args) {
+  try {
+    await settleDispatchConfirmation(args);
+  } catch (error) {
+    console.error('[assistedApplicationAutomation] dispatch confirmation not recorded', args.orderId, error instanceof Error ? error.message : String(error));
+  }
+}
+
 /** Next moment the sweep must look at this flow (clock, reminder or watchdog). */
 export function computeDueAt(flow) {
   if (!flow) return null;
@@ -315,6 +367,8 @@ export function computeDueAt(flow) {
     const dispatchRecoveryAt = dispatchRecoveryDueAt(flow);
     if (dispatchRecoveryAt) return dispatchRecoveryAt;
     const requestedAt = Number(flow.dispatch?.requestedAt) || 0;
+    const confirmBy = dispatchConfirmDueAt(flow);
+    if (confirmBy) return confirmBy;
     return requestedAt ? requestedAt + RUN_WATCHDOG_MS : null;
   }
   const photoRetryAt = ['candidate_review', 'needs_candidate_action'].includes(flow.state)
@@ -405,7 +459,7 @@ export async function claimWatchdogDispatch({ db, orderId, nowMs }) {
     const attempts = Number(flow.dispatch?.attempts) || 1;
     if (!dueAt || dueAt > nowMs || attempts >= MAX_DISPATCH_ATTEMPTS) return null;
     const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
-    const dispatch = { ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 };
+    const dispatch = pendingDispatchRecord({ ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 }, nowMs);
     const nextFlow = { ...flow, dispatch, dispatchRecoveryAt: null, updatedAt: nowMs };
     transaction.set(flowRef, { dispatch, dispatchRecoveryAt: null, updatedAt: nowMs }, { merge: true });
     transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
@@ -636,14 +690,14 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     // always knows when the run was asked for.
     const dispatch = result.effects.find((effect) => effect.type === 'dispatch');
     if (dispatch) {
-      nextFlow.dispatch = {
+      nextFlow.dispatch = pendingDispatchRecord({
         mode: dispatch.mode,
         round: nextFlow.round,
         requestedAt: nowMs,
         // A retry carries its count, so the watchdog and the flow share the limit.
         attempts: Number(dispatch.attempts) || 1,
         reason: dispatch.reason || null,
-      };
+      }, nowMs);
     }
     // Keep the submitted values as their source records; transitionAnswers is
     // a validated projection for this decision, not a replacement for what
@@ -700,7 +754,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     outcome.effectResults = [];
     for (const effect of outcome.effects) {
       try {
-        outcome.effectResults.push(await runEffect({ db, orderId, effect, flow: outcome.flow, nowMs }));
+        const effectResult = await runEffect({ db, orderId, effect, flow: outcome.flow, nowMs });
+        outcome.effectResults.push(effectResult);
+        if (effect.type === 'dispatch') {
+          await settleQuietly({ db, orderId, requestedAt: nowMs, nowMs, confirmed: effectResult?.ok !== false });
+        }
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         console.error('[assistedApplicationAutomation] effect failed', orderId, effect.type, effect.kind || effect.mode || '', message);
@@ -719,6 +777,9 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
           }
         }
         outcome.effectResults.push(effectResult);
+        // Not proven out and not retried by the confirm clock: a pre-dispatch failure has its own bounded
+        // recovery above, any other failure is ambiguous and stays with the run watchdog.
+        if (effect.type === 'dispatch') await settleQuietly({ db, orderId, requestedAt: nowMs, nowMs, confirmed: false });
       }
     }
   }
@@ -893,7 +954,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       questionAnswerConfirmationHashes: orderContext.questionAnswerConfirmationHashes,
       questionAnswerSources: orderContext.questionAnswerSources,
       history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
-      dispatch: { mode: 'draft', round, requestedAt: nowMs, attempts: 1, reason },
+      dispatch: pendingDispatchRecord({ mode: 'draft', round, requestedAt: nowMs, attempts: 1, reason }, nowMs),
       startedAt: nowMs,
       updatedAt: nowMs,
     };
@@ -930,7 +991,8 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
   }
   if (runEffect) {
     try {
-      await runEffect({ db, orderId, effect: { type: 'dispatch', mode: 'draft', reason }, flow: created, nowMs });
+      const dispatched = await runEffect({ db, orderId, effect: { type: 'dispatch', mode: 'draft', reason }, flow: created, nowMs });
+      await settleQuietly({ db, orderId, requestedAt: nowMs, nowMs, confirmed: dispatched?.ok !== false });
     } catch (error) {
       console.error('[assistedApplicationAutomation] first dispatch failed', orderId, error instanceof Error ? error.message : String(error));
       const preDispatchCode = preDispatchFailureCode(error);
@@ -940,6 +1002,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
         }).catch(recoveryError => console.error('[assistedApplicationAutomation] first dispatch recovery scheduling failed', orderId,
           recoveryError instanceof Error ? recoveryError.message : String(recoveryError)));
       }
+      await settleQuietly({ db, orderId, requestedAt: nowMs, nowMs, confirmed: false });
       // The watchdog re-dispatches within RUN_WATCHDOG_MS.
     }
   }
@@ -1258,10 +1321,18 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
         const attempts = Number(flow.dispatch?.attempts) || 1;
         const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
         if (attempts < MAX_DISPATCH_ATTEMPTS) {
+          // A dispatch that never reported success is re-dispatched on its short confirm clock, unless the run
+          // already recorded its send attempt for this round: then it is out, and the watchdog alone owns it.
+          if (dispatchConfirmDueAt(flow) && submission?.state) {
+            await settleDispatchConfirmation({ db, orderId: doc.id, requestedAt: flow.dispatch?.requestedAt, nowMs, confirmed: true });
+            summary.ignored += 1;
+            continue;
+          }
           const claimed = await claimWatchdogDispatch({ db, orderId: doc.id, nowMs });
           if (!claimed) { summary.ignored += 1; continue; }
           try {
-            await runEffect({ db, orderId: doc.id, effect: { type: 'dispatch', mode: claimed.dispatch.mode, reason: 'watchdog' }, flow: claimed, nowMs });
+            const dispatched = await runEffect({ db, orderId: doc.id, effect: { type: 'dispatch', mode: claimed.dispatch.mode, reason: 'watchdog' }, flow: claimed, nowMs });
+            await settleQuietly({ db, orderId: doc.id, requestedAt: nowMs, nowMs, confirmed: dispatched?.ok !== false });
             summary.redispatched += 1;
           } catch (error) {
             const preDispatchCode = preDispatchFailureCode(error);
@@ -1269,6 +1340,7 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
               const recovery = await scheduleDispatchRecovery({ db, orderId: doc.id, nowMs, failureCode: preDispatchCode });
               if (recovery.scheduled) summary.dispatchRecoveries = (summary.dispatchRecoveries || 0) + 1;
             }
+            await settleQuietly({ db, orderId: doc.id, requestedAt: nowMs, nowMs, confirmed: false });
             throw error;
           }
         } else {
