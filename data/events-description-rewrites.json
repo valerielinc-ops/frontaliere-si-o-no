@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-27T00:22:37.816Z",
+  "generatedAt": "2026-11-27T01:12:21.368Z",
   "model": "gpt-6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -7523,6 +7523,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-26T13:24:39.081Z"
+    },
+    "ge-agenda:concours-hippique-international-geneve-100::43acb7bef1bb3dbb5e348f3de310e15057ac5dd21a47478f38057d6417bd359b": {
+      "id": "ge-agenda:concours-hippique-international-geneve-100",
+      "sourceDescriptionHash": "43acb7bef1bb3dbb5e348f3de310e15057ac5dd21a47478f38057d6417bd359b",
+      "description": "A Ginevra si svolge una competizione equestre internazionale. Il programma comprende prove di equitazione e di attacchi, con partecipanti provenienti da varie parti del mondo.",
+      "descriptionByLocale": {
+        "it": "A Ginevra si svolge una competizione equestre internazionale. Il programma comprende prove di equitazione e di attacchi, con partecipanti provenienti da varie parti del mondo.",
+        "en": "Geneva hosts an international equestrian competition. Its program includes both riding and carriage-driving events, with competitors coming from around the world.",
+        "de": "In Genf findet ein internationaler Pferdesportwettbewerb statt. Das Programm umfasst Prüfungen für Reiterinnen und Reiter sowie für Fahrer von Gespannen aus verschiedenen Ländern.",
+        "fr": "Genève accueille une compétition équestre de portée internationale. Elle comporte des épreuves de monte ainsi que d’attelage, avec des participantes et participants venus de divers pays."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T00:50:40.367Z"
     },
     "ge-agenda:concours-pulls-kitsch-noel::5f65275c1144d4ea0dc0c073510f1f50ef49d1b5f456f9e4947e5efdfc143ae6": {
       "id": "ge-agenda:concours-pulls-kitsch-noel",
@@ -19466,6 +19480,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-26T15:17:02.816Z"
     },
+    "ge-agenda:presentation-bande-dessinee-collision-cleo-jansen-tirabosco-parc-baleine::784fd397d6b0fb34f5caf75c65628c2750f407235d37d5815e32b45b6ca35ed0": {
+      "id": "ge-agenda:presentation-bande-dessinee-collision-cleo-jansen-tirabosco-parc-baleine",
+      "sourceDescriptionHash": "784fd397d6b0fb34f5caf75c65628c2750f407235d37d5815e32b45b6ca35ed0",
+      "description": "Il Réseau Objection de Croissance presenta una bande dessinée realizzata da Cléo Jansen e Tom Tirabosco. Il lavoro propone un’inchiesta sul futuro collisionatore del CERN, nell’ambito di un incontro al parc de la Baleine, a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il Réseau Objection de Croissance presenta una bande dessinée realizzata da Cléo Jansen e Tom Tirabosco. Il lavoro propone un’inchiesta sul futuro collisionatore del CERN, nell’ambito di un incontro al parc de la Baleine, a Ginevra.",
+        "en": "Réseau Objection de Croissance presents a comic created by Cléo Jansen and Tom Tirabosco. It explores the future CERN collider through an inquiry, with the event taking place at parc de la Baleine in Geneva.",
+        "de": "Das Réseau Objection de Croissance stellt einen Comic von Cléo Jansen und Tom Tirabosco vor. Darin geht es um eine Untersuchung zum künftigen CERN-Collider; die Veranstaltung findet im parc de la Baleine in Genf statt.",
+        "fr": "Le Réseau Objection de Croissance présente une bande dessinée créée par Cléo Jansen et Tom Tirabosco. L’enquête dessinée porte sur le futur collisionneur du CERN, lors d’une rencontre au parc de la Baleine à Genève."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T00:45:58.668Z"
+    },
     "ge-agenda:presentation-livre-cicatrices-vulnerabilite-monde-auteur-constant-spina::ce74957aaaa4c7678661335df25c601c05fe3cadf10eb4451d3db84a478f7c21": {
       "id": "ge-agenda:presentation-livre-cicatrices-vulnerabilite-monde-auteur-constant-spina",
       "sourceDescriptionHash": "ce74957aaaa4c7678661335df25c601c05fe3cadf10eb4451d3db84a478f7c21",
@@ -22573,6 +22601,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T19:16:44.381Z"
+    },
+    "ge-agenda:soiree-speciale-voix-fete::3b87d1739aaf8c4158422dcf88819816bde0159b34dec26f13d8cee3f7b732af": {
+      "id": "ge-agenda:soiree-speciale-voix-fete",
+      "sourceDescriptionHash": "3b87d1739aaf8c4158422dcf88819816bde0159b34dec26f13d8cee3f7b732af",
+      "description": "A Ginevra è annunciato un appuntamento associato a Voix de Fête. È classificato tra le inaugurazioni, i vernissage e le porte aperte.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è annunciato un appuntamento associato a Voix de Fête. È classificato tra le inaugurazioni, i vernissage e le porte aperte.",
+        "en": "An event associated with Voix de Fête is listed in Geneva. It is categorized as an inauguration, an exhibition opening, or an open house.",
+        "de": "In Genf ist eine Veranstaltung im Zusammenhang mit Voix de Fête aufgeführt. Sie wird als Einweihung, Vernissage oder Tag der offenen Tür kategorisiert.",
+        "fr": "À Genève, un rendez-vous associé à Voix de Fête est annoncé. Il est classé parmi les inaugurations, vernissages et portes ouvertes."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T00:56:33.034Z"
     },
     "ge-agenda:soirees-artistes-complices-anna-marija-adomaityte-jerson-diasonama-maud-blandel::a8753021bae21999bb6145d77227670951c6ea543a69b3cabcc14257d7d39804": {
       "id": "ge-agenda:soirees-artistes-complices-anna-marija-adomaityte-jerson-diasonama-maud-blandel",
@@ -71769,6 +71811,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-15T14:33:33.234Z"
+    },
+    "lu-stadt-agenda:7648423::dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074": {
+      "id": "lu-stadt-agenda:7648423",
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074",
+      "description": "L’incontro propone esercizi del metodo Feldenkrais da seduti e in piedi. I movimenti delicati mirano a lavorare su equilibrio, postura, sicurezza nella camminata e capacità di reazione; l’attività è adatta a persone di ogni età e non richiede esperienza.",
+      "descriptionByLocale": {
+        "it": "L’incontro propone esercizi del metodo Feldenkrais da seduti e in piedi. I movimenti delicati mirano a lavorare su equilibrio, postura, sicurezza nella camminata e capacità di reazione; l’attività è adatta a persone di ogni età e non richiede esperienza.",
+        "en": "The session uses Feldenkrais exercises performed while sitting or standing. Gentle movement is intended to address balance, posture, walking stability and responsiveness; the activity suits people of all ages and requires no prior experience.",
+        "de": "Bei diesem Termin stehen Feldenkrais-Übungen im Sitzen und im Stehen im Mittelpunkt. Die behutsamen Bewegungen zielen auf Gleichgewicht, Haltung, sicheres Gehen und Reaktionsvermögen; das Angebot ist für Menschen aller Altersgruppen geeignet und erfordert keine Vorkenntnisse.",
+        "fr": "La séance propose des exercices Feldenkrais pratiqués assis ou debout. Les mouvements doux visent l’équilibre, la posture, la stabilité de la marche et la réactivité; l’activité convient à tous les âges et ne demande pas d’expérience préalable."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T00:49:40.904Z"
     },
     "lu-stadt-agenda:7649719::6f23092835b39b3c9b26459e82d544b9405c8c5f4a5d98d79b784d4f7dbd24c6": {
       "id": "lu-stadt-agenda:7649719",
@@ -148420,6 +148476,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T09:18:45.315Z"
     },
+    "myswitzerland:ac37ca96047e4353ad3cae382ce63c63::2877d642879438b41c265aac032cda42acd1a694a8df77d4ebdd00a9505e89b4": {
+      "id": "myswitzerland:ac37ca96047e4353ad3cae382ce63c63",
+      "sourceDescriptionHash": "2877d642879438b41c265aac032cda42acd1a694a8df77d4ebdd00a9505e89b4",
+      "description": "A Weinfelden, l’ensemble vocale Cantemus e l’ensemble Quartensprung interpretano un programma di musica natalizia. Le composizioni di Karol Beffa, Hugo Distler e Benjamin Britten ne fanno parte.",
+      "descriptionByLocale": {
+        "it": "A Weinfelden, l’ensemble vocale Cantemus e l’ensemble Quartensprung interpretano un programma di musica natalizia. Le composizioni di Karol Beffa, Hugo Distler e Benjamin Britten ne fanno parte.",
+        "en": "At Weinfelden, the vocal ensemble Cantemus appears with Ensemble Quartensprung for an Advent concert. The selections include music by Karol Beffa, Hugo Distler and Benjamin Britten.",
+        "de": "In Weinfelden gestalten Cantemus und das Ensemble Quartensprung ein Konzert im Advent. Werke von Karol Beffa, Hugo Distler und Benjamin Britten stehen auf dem Programm.",
+        "fr": "À Weinfelden, l’ensemble vocal Cantemus se produit avec l’ensemble Quartensprung lors d’un concert de l’Avent. Le répertoire réunit des œuvres de Karol Beffa, Hugo Distler et Benjamin Britten."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T00:50:40.360Z"
+    },
     "myswitzerland:ac3b0235deb84edaafb35e82c241c869::b4effc2a2e6d5cb4f696701938956690caaa2cb82819c6da7e7a4b43c1cc80f8": {
       "id": "myswitzerland:ac3b0235deb84edaafb35e82c241c869",
       "sourceDescriptionHash": "b4effc2a2e6d5cb4f696701938956690caaa2cb82819c6da7e7a4b43c1cc80f8",
@@ -151317,6 +151387,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-18T00:51:14.929Z"
+    },
+    "myswitzerland:b22882836f224f81b666c72d69b642b1::104a3313f12a280f88a4712b41244e585e4ad40b97441983eae28b50cf6eb3b0": {
+      "id": "myswitzerland:b22882836f224f81b666c72d69b642b1",
+      "sourceDescriptionHash": "104a3313f12a280f88a4712b41244e585e4ad40b97441983eae28b50cf6eb3b0",
+      "description": "Il settimo spettacolo di schön&gut intreccia satira, fantasia e giochi linguistici. La rappresentazione include canti e rapidi cambi di ruolo a Kaiserstuhl.",
+      "descriptionByLocale": {
+        "it": "Il settimo spettacolo di schön&gut intreccia satira, fantasia e giochi linguistici. La rappresentazione include canti e rapidi cambi di ruolo a Kaiserstuhl.",
+        "en": "schön&gut’s seventh production combines satire, imaginative elements and verbal play. Singing and quick shifts between roles are part of the performance in Kaiserstuhl.",
+        "de": "Die siebte Produktion von schön&gut verbindet satirische Szenen mit Einfallsreichtum und Sprachspiel. Gesang und rasche Rollenwechsel gehören ebenfalls zum Programm in Kaiserstuhl.",
+        "fr": "La septième création de schön&gut associe satire, imagination et jeux de langage. Le spectacle comprend aussi du chant et des changements de rôle rapides à Kaiserstuhl."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T01:04:57.080Z"
     },
     "myswitzerland:b22d6ca18b3141fb85b67318055fab15::ae11cc5e8290e743fbfa482544955b480db57e4c6b2d077c43f4dd1399a9361d": {
       "id": "myswitzerland:b22d6ca18b3141fb85b67318055fab15",
@@ -202796,6 +202880,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-25T23:44:26.206Z"
     },
+    "tio-agenda:65197::b65e82df10c8b09de3d2974bc9b7f21ee4538d703e3aebf9a51367109344833b": {
+      "id": "tio-agenda:65197",
+      "sourceDescriptionHash": "b65e82df10c8b09de3d2974bc9b7f21ee4538d703e3aebf9a51367109344833b",
+      "description": "Nella Chiesa Evangelica Riformata di Ascona, l’Ars Excelsis Ensemble propone un concerto legato al periodo dell’Avvento. Il programma include brani di Jean Cras e Albert Roussel, oltre a pagine di Beethoven e Saint-Saëns.",
+      "descriptionByLocale": {
+        "it": "Nella Chiesa Evangelica Riformata di Ascona, l’Ars Excelsis Ensemble propone un concerto legato al periodo dell’Avvento. Il programma include brani di Jean Cras e Albert Roussel, oltre a pagine di Beethoven e Saint-Saëns.",
+        "en": "At the Chiesa Evangelica Riformata in Ascona, the Ars Excelsis Ensemble presents a concert connected with the Advent season. The programme includes works by Jean Cras and Albert Roussel, along with pieces by Beethoven and Saint-Saëns.",
+        "de": "In der Chiesa Evangelica Riformata in Ascona gestaltet das Ars Excelsis Ensemble ein Konzert zur Adventszeit. Auf dem Programm stehen Werke von Jean Cras und Albert Roussel sowie Stücke von Beethoven und Saint-Saëns.",
+        "fr": "À la Chiesa Evangelica Riformata d’Ascona, l’Ars Excelsis Ensemble propose un concert en lien avec la période de l’Avent. Le programme réunit des œuvres de Jean Cras et d’Albert Roussel, ainsi que des pièces de Beethoven et de Saint-Saëns."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T00:48:18.148Z"
+    },
     "tio-agenda:65198::cce992a1a0e74c9c507bad74870ab3e2d0eaf11653c72d46ca91b546dc37d2ea": {
       "id": "tio-agenda:65198",
       "sourceDescriptionHash": "cce992a1a0e74c9c507bad74870ab3e2d0eaf11653c72d46ca91b546dc37d2ea",
@@ -202921,6 +203019,20 @@
       "model": "gpt-6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-26T23:58:11.181Z"
+    },
+    "tio-agenda:65211::f87011aca18b7a77dad8f97128cccac224792eef1ac91716275c81bac1a4fae9": {
+      "id": "tio-agenda:65211",
+      "sourceDescriptionHash": "f87011aca18b7a77dad8f97128cccac224792eef1ac91716275c81bac1a4fae9",
+      "description": "Al Ristorante Hollywood Live Music di Lugano si tiene una serata blues con Egidio “Juke” Ingala. L’appuntamento fa parte della programmazione musicale del Luganese.",
+      "descriptionByLocale": {
+        "it": "Al Ristorante Hollywood Live Music di Lugano si tiene una serata blues con Egidio “Juke” Ingala. L’appuntamento fa parte della programmazione musicale del Luganese.",
+        "en": "Egidio “Juke” Ingala is featured in a blues evening at Ristorante Hollywood Live Music in Lugano. The event is part of the Luganese music programme.",
+        "de": "Im Ristorante Hollywood Live Music in Lugano ist ein Bluesabend mit Egidio „Juke“ Ingala geplant. Die Veranstaltung gehört zum Musikprogramm im Luganese.",
+        "fr": "Egidio « Juke » Ingala est à l’affiche d’une soirée blues au Ristorante Hollywood Live Music, à Lugano. Ce rendez-vous s’inscrit dans la programmation musicale du Luganese."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T00:47:11.801Z"
     },
     "tio-agenda:65212::e67a46b57a4183dcb70bc31321c8c4542169885f21cfacb60196d0d6269a9229": {
       "id": "tio-agenda:65212",
@@ -203359,7 +203471,7 @@
       "sourceDescriptionHash": "d6fff55f7d7a97e14b71cb61d66ec687a544827dbec51a2588700ff08761662c",
       "code": "new-number",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:13:19.587Z",
+      "lastAttemptAt": "2026-11-27T00:58:42.893Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203404,16 +203516,7 @@
       "sourceDescriptionHash": "065fc8d2a37ad92ec4f585a3cdaec77c46fb7f4d175cce46167903b960a87455",
       "code": "new-name",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:09:21.297Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:concours-hippique-international-geneve-100::43acb7bef1bb3dbb5e348f3de310e15057ac5dd21a47478f38057d6417bd359b": {
-      "id": "ge-agenda:concours-hippique-international-geneve-100",
-      "sourceDescriptionHash": "43acb7bef1bb3dbb5e348f3de310e15057ac5dd21a47478f38057d6417bd359b",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:04:22.997Z",
+      "lastAttemptAt": "2026-11-27T00:57:31.586Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203492,9 +203595,9 @@
     "ge-agenda:fete-escalade-100e-anniversaire-compagnie::b1064e66644a9a952ca22cda0a3abc0bbd98a53fc13aece015e295958bb5c5c9": {
       "id": "ge-agenda:fete-escalade-100e-anniversaire-compagnie",
       "sourceDescriptionHash": "b1064e66644a9a952ca22cda0a3abc0bbd98a53fc13aece015e295958bb5c5c9",
-      "code": "new-number",
+      "code": "new-name",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:08:43.319Z",
+      "lastAttemptAt": "2026-11-27T00:53:57.706Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -203750,15 +203853,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:presentation-bande-dessinee-collision-cleo-jansen-tirabosco-parc-baleine::784fd397d6b0fb34f5caf75c65628c2750f407235d37d5815e32b45b6ca35ed0": {
-      "id": "ge-agenda:presentation-bande-dessinee-collision-cleo-jansen-tirabosco-parc-baleine",
-      "sourceDescriptionHash": "784fd397d6b0fb34f5caf75c65628c2750f407235d37d5815e32b45b6ca35ed0",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:01:57.411Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:projection-fossiles-chroniques-terre-universite-geneve-suivi-table-ronde::653024816545abe434fdd16ee45c8ab6b42ea45f5091f1d6bb32c959914d90b0": {
       "id": "ge-agenda:projection-fossiles-chroniques-terre-universite-geneve-suivi-table-ronde",
       "sourceDescriptionHash": "653024816545abe434fdd16ee45c8ab6b42ea45f5091f1d6bb32c959914d90b0",
@@ -203858,15 +203952,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:soiree-speciale-voix-fete::3b87d1739aaf8c4158422dcf88819816bde0159b34dec26f13d8cee3f7b732af": {
-      "id": "ge-agenda:soiree-speciale-voix-fete",
-      "sourceDescriptionHash": "3b87d1739aaf8c4158422dcf88819816bde0159b34dec26f13d8cee3f7b732af",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:08:30.972Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:stage-autodefense-feministe-peux-55::c5a2bc173d2880dddaff138d7c67af0a578e1db34b32e00a1484c27dec3626da": {
       "id": "ge-agenda:stage-autodefense-feministe-peux-55",
       "sourceDescriptionHash": "c5a2bc173d2880dddaff138d7c67af0a578e1db34b32e00a1484c27dec3626da",
@@ -203935,7 +204020,7 @@
       "sourceDescriptionHash": "e469f3c448f48ef9f2909515314e0c480f0771bc1b89dce2f6876b0ddb86cfc9",
       "code": "promotional-language",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:05:27.196Z",
+      "lastAttemptAt": "2026-11-27T00:53:56.788Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206648,15 +206733,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "lu-stadt-agenda:7648423::dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074": {
-      "id": "lu-stadt-agenda:7648423",
-      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:01:54.051Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "lu-stadt-agenda:7686649::0d7518414745490ac58cec67c60cc66684dafc56d3aa52adde2d6ff0c9d153af": {
       "id": "lu-stadt-agenda:7686649",
       "sourceDescriptionHash": "0d7518414745490ac58cec67c60cc66684dafc56d3aa52adde2d6ff0c9d153af",
@@ -209360,18 +209436,9 @@
     "myswitzerland:abcfe655b37141f684bd3273cece5f51::ada998a580515e384cae10a84c2ba3c99137309cbfb4448992a418e9d83069cf": {
       "id": "myswitzerland:abcfe655b37141f684bd3273cece5f51",
       "sourceDescriptionHash": "ada998a580515e384cae10a84c2ba3c99137309cbfb4448992a418e9d83069cf",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:11:35.796Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:ac37ca96047e4353ad3cae382ce63c63::2877d642879438b41c265aac032cda42acd1a694a8df77d4ebdd00a9505e89b4": {
-      "id": "myswitzerland:ac37ca96047e4353ad3cae382ce63c63",
-      "sourceDescriptionHash": "2877d642879438b41c265aac032cda42acd1a694a8df77d4ebdd00a9505e89b4",
       "code": "source-ngram-8",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:05:12.573Z",
+      "lastAttemptAt": "2026-11-27T00:57:05.261Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209423,9 +209490,9 @@
     "myswitzerland:b01095f7b3cc49f49873177f63fbd90f::bfd06129019a99c630b60caef6256d7a2e75472d7e76e8793cda610857107c6d": {
       "id": "myswitzerland:b01095f7b3cc49f49873177f63fbd90f",
       "sourceDescriptionHash": "bfd06129019a99c630b60caef6256d7a2e75472d7e76e8793cda610857107c6d",
-      "code": "new-number",
+      "code": "new-name",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:10:49.478Z",
+      "lastAttemptAt": "2026-11-27T00:56:17.159Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209453,15 +209520,6 @@
       "code": "promotional-language",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T18:20:57.434Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:b22882836f224f81b666c72d69b642b1::104a3313f12a280f88a4712b41244e585e4ad40b97441983eae28b50cf6eb3b0": {
-      "id": "myswitzerland:b22882836f224f81b666c72d69b642b1",
-      "sourceDescriptionHash": "104a3313f12a280f88a4712b41244e585e4ad40b97441983eae28b50cf6eb3b0",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:18:30.366Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211162,7 +211220,7 @@
       "sourceDescriptionHash": "6facd99e9c5c63043025837229ace0da41a2f0204873d93101c525adf18998d6",
       "code": "new-number",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:11:56.316Z",
+      "lastAttemptAt": "2026-11-27T01:03:52.550Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211378,7 +211436,7 @@
       "sourceDescriptionHash": "409bc3c25981135bc951eee7b79d07662a39c2a9fd667da95740db4e8b6601a5",
       "code": "new-name",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:17:15.193Z",
+      "lastAttemptAt": "2026-11-27T01:02:55.273Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211963,16 +212021,7 @@
       "sourceDescriptionHash": "086cdf1c48f1ea28bde8e74d4ef827016948e92e517dbfae80cffaf729b74fe0",
       "code": "new-name",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:00:55.890Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65197::b65e82df10c8b09de3d2974bc9b7f21ee4538d703e3aebf9a51367109344833b": {
-      "id": "tio-agenda:65197",
-      "sourceDescriptionHash": "b65e82df10c8b09de3d2974bc9b7f21ee4538d703e3aebf9a51367109344833b",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-26T23:59:54.277Z",
+      "lastAttemptAt": "2026-11-27T00:46:54.113Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211981,16 +212030,7 @@
       "sourceDescriptionHash": "b5c5f04b898588bacf70b7f7109f16fdfa8805843983bc4dad2584c39a735093",
       "code": "new-number",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-26T23:59:22.560Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65211::f87011aca18b7a77dad8f97128cccac224792eef1ac91716275c81bac1a4fae9": {
-      "id": "tio-agenda:65211",
-      "sourceDescriptionHash": "f87011aca18b7a77dad8f97128cccac224792eef1ac91716275c81bac1a4fae9",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-26T23:58:27.730Z",
+      "lastAttemptAt": "2026-11-27T00:48:10.796Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -212008,7 +212048,7 @@
       "sourceDescriptionHash": "219ef1e838671c74d3e560190d404c709ccd27820cadadbb5ce22afa3342ce61",
       "code": "new-number",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-26T23:57:57.288Z",
+      "lastAttemptAt": "2026-11-27T00:47:38.686Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -212017,7 +212057,7 @@
       "sourceDescriptionHash": "7502a243482acf2099b883dbf924f49e89e8f8e5742fb3fb05e09e7355d4450b",
       "code": "new-name",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:00:26.857Z",
+      "lastAttemptAt": "2026-11-27T00:49:25.606Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -212026,7 +212066,7 @@
       "sourceDescriptionHash": "b5fd67a5564929f0f10f6742f4d1498f5c6a13617def9991a915f00f07200fc4",
       "code": "new-number",
       "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T00:06:02.797Z",
+      "lastAttemptAt": "2026-11-27T00:51:06.690Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
