@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parse as parseYaml } from 'yaml';
 import { describe, expect, it } from 'vitest';
+import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const workflow = readFileSync(
   new URL('../.github/workflows/backfill-expired-from-history.yml', import.meta.url),
@@ -54,6 +55,12 @@ function runWorkflowHarness(options: {
   checkpointBatchSize?: number;
   runBudgetSeconds?: number;
   crawlerDelaySeconds?: number;
+  // Tracked files committed before the run.
+  seedFiles?: Record<string, string>;
+  // ES module run by the `assemble-jobs-dataset.mjs` stub, cwd = the fixture.
+  assembleModule?: string;
+  // Paths read back from the remote `main` once the run is over.
+  readFromRemote?: string[];
 } = {}) {
   const crawlerKeys = options.crawlerKeys ?? ['alpha'];
   const root = mkdtempSync(join(tmpdir(), 'backfill-workflow-harness-'));
@@ -104,6 +111,7 @@ function runWorkflowHarness(options: {
     '    ;;',
     '  scripts/assemble-jobs-dataset.mjs)',
     '    printf "%s\\n" assemble >> "$EVENT_LOG"',
+    '    if [ -n "${ASSEMBLE_MODULE:-}" ]; then "$REAL_NODE" "$ASSEMBLE_MODULE"; fi',
     '    ;;',
     '  scripts/audit-expired-at-parsable.mjs)',
     '    printf "%s\\n" audit >> "$EVENT_LOG"',
@@ -135,7 +143,10 @@ function runWorkflowHarness(options: {
     'state="$(cut -f3 "$progress_path")"',
     'cursor="$(cut -f2 "$progress_path")"',
     'printf "push:%s:%s\\n" "$state" "$cursor" >> "$EVENT_LOG"',
-    'git add -- data/jobs/expired/by-crawler "$progress_path"',
+    // Same scope contract as the real helper: --slice-only sweeps every
+    // dirty slice, --extra-only publishes the named paths and nothing else.
+    'if [ "$1" = "--slice-only" ]; then git add -A -- data/jobs/by-crawler data/jobs/expired/by-crawler; fi',
+    'git add -- "$progress_path"',
     'git commit -m "test: simulated backfill checkpoint" >/dev/null',
     'git push origin HEAD:main >/dev/null',
     'printf "has_changes=true\\n" >> "$GITHUB_OUTPUT"',
@@ -157,6 +168,11 @@ function runWorkflowHarness(options: {
       writeFileSync(join(repo, 'data/jobs/by-crawler', key + '.json'), '[]\n');
     }
     writeFileSync(join(repo, 'data/jobs/expired/by-crawler/.gitkeep'), '');
+    for (const [path, contents] of Object.entries(options.seedFiles ?? {})) {
+      writeFileSync(join(repo, path), contents);
+    }
+    const assembleModulePath = join(root, 'assemble-stub.mjs');
+    if (options.assembleModule) writeFileSync(assembleModulePath, options.assembleModule);
     writeExecutable(join(repo, 'scripts/lib/git-commit-data.sh'), commitShim);
     writeExecutable(join(bin, 'node'), nodeShim);
     writeExecutable(join(bin, 'npm'), npmShim);
@@ -185,6 +201,8 @@ function runWorkflowHarness(options: {
       GITHUB_PAT: 'test-pat',
       GITHUB_REPOSITORY: 'owner/repository',
       GITHUB_OUTPUT: githubOutputPath,
+      REAL_NODE: process.execPath,
+      ASSEMBLE_MODULE: options.assembleModule ? assembleModulePath : '',
     });
     // GitHub's Ubuntu runner has Bash 5, while macOS /bin/bash 3.2 lacks
     // mapfile. This equivalent array read keeps the extracted workflow block
@@ -197,9 +215,14 @@ function runWorkflowHarness(options: {
     const result = runCommand('bash', ['-c', portableRun], {
       cwd: repo,
       env: runEnv,
-      timeout: 15000,
+      timeout: options.assembleModule ? 90000 : 15000,
     });
+    const remoteFiles = Object.fromEntries((options.readFromRemote ?? []).map((path) => {
+      const shown = runCommand('git', ['--git-dir', remote, 'show', 'main:' + path], { env: setupEnv });
+      return [path, shown.status === 0 ? shown.stdout : null] as const;
+    }));
     return {
+      remoteFiles,
       status: result.status,
       stdout: result.stdout,
       stderr: result.stderr,
@@ -441,7 +464,7 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('npm run test:backfill');
     expect(block).toContain('checkpoint_status=\'complete\'');
     expect(block).toContain('GITHUB_OUTPUT="$checkpoint_output"');
-    expect(block).toContain('git-commit-data.sh --slice-only');
+    expect(block).toContain("commit_scope='--slice-only'");
     expect(block).toContain("^has_changes=true$");
     expect(block).toContain("^has_changes=false$");
     expect(block).toContain('git reset --hard origin/main');
@@ -450,9 +473,10 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs');
     expect(block).toContain('batch_size="${#batch_keys[@]}"');
     expect(block).toContain('checkpoint history backfill slices');
-    expect(block.indexOf('node scripts/ci/validate-backfill-checkpoint.mjs'))
-      .toBeLessThan(block.indexOf('git-commit-data.sh --slice-only'));
-    expect(block.indexOf('npm run test:backfill')).toBeLessThan(block.indexOf('git-commit-data.sh --slice-only'));
+    const commitAt = block.indexOf('git-commit-data.sh "$commit_scope"');
+    expect(commitAt).toBeGreaterThanOrEqual(0);
+    expect(block.indexOf('node scripts/ci/validate-backfill-checkpoint.mjs')).toBeLessThan(commitAt);
+    expect(block.indexOf('npm run test:backfill')).toBeLessThan(commitAt);
   });
 
   it('resumes an active cursor, restarts complete worksets, and resets a changed active workset', () => {
@@ -547,6 +571,88 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
       ].join('\n')),
       'all',
     ]);
+  });
+
+  // 2026-11-26, commit 1d69ad33b41: the final gate assembled the dataset and
+  // the completion commit swept what assembly had rewritten. Ghost
+  // reconciliation moves an archive record's routes into the active record of
+  // data/jobs.json, which is gitignored, so the routes left tracked data.
+  it('never persists a route removal made by the final gate assembly', () => {
+    const activePath = 'data/jobs/by-crawler/alpha.json';
+    const expiredPath = 'data/jobs/expired/by-crawler/ghost.json';
+    const posting = {
+      title: 'Elettricista di cantiere',
+      company: 'Azienda Fixture SA',
+      location: 'Lugano',
+      url: 'https://careers.example.invalid/jobs/4711',
+    };
+    const active = {
+      ...posting,
+      slug: 'elettricista-corrente',
+      slugByLocale: { it: 'elettricista-corrente' },
+    };
+    const archived = {
+      ...posting,
+      slug: 'elettricista-corrente',
+      // Same Italian slug proves the ghost; the German route and the history
+      // are served by this archive record only.
+      slugByLocale: { it: 'elettricista-corrente', de: 'elektriker-alt' },
+      // More history than the active record can absorb (cap 20).
+      previousSlugs: Array.from({ length: 25 }, (_, index) => 'elettricista-storico-' + index),
+      expiredAt: '2026-11-01T00:00:00.000Z',
+    };
+    const archivedRaw = JSON.stringify([archived], null, 2) + '\n';
+    const assembleModule = [
+      "import fs from 'node:fs';",
+      'const { reconcileGhostExpired } = await import('
+        + JSON.stringify(new URL('../scripts/assemble-jobs-dataset.mjs', import.meta.url).href) + ');',
+      'const active = JSON.parse(fs.readFileSync(' + JSON.stringify(activePath) + ", 'utf8'));",
+      'const expired = JSON.parse(fs.readFileSync(' + JSON.stringify(expiredPath) + ", 'utf8'));",
+      // As in assembly: `active` only ever reaches the ignored data/jobs.json.
+      "const { ghostCount } = reconcileGhostExpired(active, expired, { sliceDir: 'data/jobs/expired/by-crawler' });",
+      "if (ghostCount !== 1) { console.error('ghostCount ' + ghostCount); process.exit(98); }",
+    ].join('\n');
+
+    const result = runWorkflowHarness({
+      seedFiles: {
+        [activePath]: JSON.stringify([active]) + '\n',
+        [expiredPath]: archivedRaw,
+      },
+      assembleModule,
+      readFromRemote: [activePath, expiredPath],
+    });
+
+    expect(result.status, result.stdout + result.stderr).toBe(0);
+    expect(result.events).toContain('push:complete:alpha');
+    const served = new Set<string>(
+      Object.values(result.remoteFiles)
+        .flatMap((raw) => JSON.parse(raw ?? '[]') as Array<Record<string, unknown>>)
+        .flatMap((record) => [...localeRouteKeys(record)] as string[]),
+    );
+    expect(([...localeRouteKeys(archived)] as string[]).filter((route) => !served.has(route))).toEqual([]);
+    expect(result.remoteFiles[expiredPath]).toBe(archivedRaw);
+  }, 120000);
+
+  it('keeps the final gate assembly out of the completion commit', () => {
+    const at = (needle: string, from = 0) => {
+      const index = backfillRun.indexOf(needle, from);
+      expect(index, needle).toBeGreaterThanOrEqual(0);
+      return index;
+    };
+    // Refuse to start on top of unpersisted recoveries, since the gate output
+    // is discarded wholesale.
+    const guardAt = at('if has_unpersisted_slices; then');
+    const assembleAt = at('node scripts/assemble-jobs-dataset.mjs');
+    expect(guardAt).toBeLessThan(assembleAt);
+    // Discard after the last gate and before the cursor is promoted.
+    const restoreAt = at('git restore --source=HEAD --staged --worktree -- data/jobs/by-crawler data/jobs/expired/by-crawler', assembleAt);
+    expect(restoreAt).toBeGreaterThan(at('node scripts/audit-expired-at-parsable.mjs'));
+    expect(restoreAt).toBeLessThan(at("checkpoint_status='complete'"));
+    // Second barrier: the completion commit is scoped to the progress file.
+    expect(backfillRun).toMatch(/if \[ "\$checkpoint_status" = 'complete' \]; then[^]*?commit_scope='--extra-only'\n\s*fi/);
+    expect(backfillRun).toMatch(
+      /git-commit-data\.sh "\$commit_scope" \\\n\s*"\$checkpoint_message" \\\n\s*"\$progress_path"; then/,
+    );
   });
 
   it('queues the remaining workset after a bounded run budget', () => {

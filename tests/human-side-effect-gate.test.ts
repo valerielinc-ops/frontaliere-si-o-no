@@ -218,7 +218,6 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
   ],
   'backfill-expired-from-history.yml': [
     /Recover dropped jobs/u,
-    /Reassemble dataset/u,
     /Record self-driven deploy handoff after validated backfill/u,
   ],
   'discover-404s.yml': [

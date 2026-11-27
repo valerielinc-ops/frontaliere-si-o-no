@@ -228,7 +228,7 @@ jobs:
 
       - name: Assemble dataset
         if: inputs.skip_translate != true
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/ci/assemble-preserving-expired-slices.mjs
 
       # ── Phase 2a: Local MT BULK (Argos / CTranslate2) — PRIMARY workhorse ──
       # Drains the whole backlog with the fast int8 engine BEFORE the slow cascade.
@@ -255,7 +255,7 @@ jobs:
       # and only queues the genuine remainder, not work Argos already finished.
       - name: Re-assemble dataset after Argos bulk
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/ci/assemble-preserving-expired-slices.mjs
 
       # Ext3 task 4 — flag jobs whose descriptionByLocale[X] contains text
       # in a different language (detection mirrors
