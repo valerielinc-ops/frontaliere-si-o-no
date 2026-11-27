@@ -350,6 +350,8 @@ async function fetchJsonWithRetry(url, options = {}) {
     timeoutMs = DEFAULT_TIMEOUT_MS,
     retries,
     retryBaseMs,
+    fallbackCooldownMs = DEFAULT_RATE_LIMIT_COOLDOWN_MS,
+    retryAfterCapMs = MAX_RETRY_AFTER_MS,
     browserFallback = null,
     beforeDirectAttempt,
     beforeBrowserFallback,
@@ -454,15 +456,10 @@ async function fetchJsonWithRetry(url, options = {}) {
     // cannot preserve Workday's POST JSON contract.
     const retryBudgetExhausted = err instanceof WorkdayApiError
       && isRetryBudgetExhaustedError(err);
-    // Contract (#19723, amended): no UNBOUNDED repetition of 429s on the same
-    // egress. A 429 therefore never takes this inline fallback; the only browser
-    // path for a 429 is rescueThroughBrowser in createWorkdayRequestContext,
-    // which is allowed solely with the circuit open, sequential per tenant,
-    // within a finite budget, and stops at the first browser 429. Evidence that
-    // the browser is not throttled whenever the direct stack is: run
-    // 45924044578 (corpus repo), `Workday listing recovered through the browser
-    // transport` for otis/ferring/huntsman/bossard/alcon right after direct 429s
-    // from the same runner IP.
+    // An exhausted 429 stays on the direct transport: the tenant circuit in
+    // createWorkdayRequestContext surfaces it without replaying through the
+    // same-egress browser fallback. Connection failures and other retryable
+    // HTTP responses can still use that fallback.
     const rateLimited = Number(err?.statusCode ?? err?.status) === 429;
     if (browserFallback && !rateLimited && (connectionLevelFailure || retryBudgetExhausted)) {
       try {
@@ -472,6 +469,25 @@ async function fetchJsonWithRetry(url, options = {}) {
           ? withEgressRequest(browserRequest)
           : browserRequest());
       } catch (fallbackErr) {
+        const fallbackStatus = Number(fallbackErr?.statusCode ?? fallbackErr?.status);
+        if (fallbackStatus === 429) {
+          const retryAfterMs = typeof fallbackErr?.retryAfterMs === 'number'
+            && Number.isFinite(fallbackErr.retryAfterMs)
+            ? Math.min(Math.max(0, fallbackErr.retryAfterMs), retryAfterCapMs)
+            : parseRetryAfterMs(
+              fallbackErr?.retryAfter ?? fallbackErr?.response?.headers?.get?.('retry-after'),
+              { capMs: retryAfterCapMs },
+            );
+          throw new WorkdayRateLimitError(url, {
+            consecutiveFailures: Math.max(
+              DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
+              Number(fallbackErr?.consecutiveFailures) || 0,
+            ),
+            retryAfterMs: retryAfterMs ?? Math.max(0, Number(fallbackCooldownMs) || 0),
+            circuitOpen: true,
+            retryExhausted: true,
+          });
+        }
         // A browser response is stronger evidence than the original socket
         // failure: preserve an observed HTTP/auth failure. If the browser
         // transport also cannot connect, keep the original connection-level
@@ -480,9 +496,8 @@ async function fetchJsonWithRetry(url, options = {}) {
           const fallbackWasRetryable = fallbackErr.retryable === true
             || RETRYABLE_STATUS.has(fallbackErr.statusCode);
           if (retryBudgetExhausted && fallbackWasRetryable) {
-            // Keep the direct terminal error's retryExhausted marker, but let
-            // the browser response supply the HTTP metadata. In particular, a
-            // browser 429 must reach the tenant limiter with its Retry-After.
+            // Keep the direct terminal error's retryExhausted marker while
+            // letting a retryable browser response supply its HTTP metadata.
             err.statusCode = fallbackErr.statusCode;
             if (fallbackErr.status !== undefined) err.status = fallbackErr.status;
             err.retryable = fallbackErr.retryable;
@@ -602,72 +617,11 @@ async function withRunnerWorkdayEgress(operation, {
   }
 }
 
-// Contract amendment of #19723: the old rule read "no browser fallback after an
-// exhausted 429 on the same egress"; the rule is now "no unbounded repetition of
-// 429s on the same egress". Browser rescue stays admitted only with this circuit
-// open, strictly sequential per tenant, within the finite budgets below, and
-// halted at the first browser 429 (empirical basis: run 45924044578, corpus
-// repo, listings recovered through the browser right after direct 429s from the
-// same runner IP).
 // Two consecutive 429s prove that changing only the Workday URL cannot clear
 // a tenant/egress limit. With the existing two-minute Retry-After cap, this
 // keeps the worst bounded exit below five minutes (2 x 120s).
 const DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD = 2;
 const implicitRateLimitStates = new Map();
-
-// Browser rescue budgets (see rescueThroughBrowser). They are counted per
-// tenant for the whole process, across request contexts, so that several
-// crawlers or parsers of one tenant cannot each spend a fresh allowance.
-// Calibration: the largest Swiss listing seen in the group-22 proof run
-// (45924044578) was 7 postings, one page; 25 pages of 20 and 40 details leave
-// a wide margin over that while keeping the worst case, at ~2.5 s of backoff
-// plus at most one 20 s request each, bounded to minutes rather than the job
-// timeout. The first browser 429 halts the tenant regardless of what is left.
-const DEFAULT_LISTING_BROWSER_BUDGET = 25;
-const DEFAULT_DETAIL_BROWSER_BUDGET = 40;
-const DEFAULT_BROWSER_BACKOFF_MS = 2_500;
-const browserRescueLedgers = new Map();
-// A caller-supplied budget can lower the allowance but never make it unbounded:
-// a non-finite or negative value is a caller bug and is rejected when the
-// context is created, before any browser request; a valid one is capped at a
-// hard ceiling so even a generous override stays inside the #19723 bound.
-const MAX_BROWSER_BUDGET = 100;
-
-function sanitizeBrowserBudget(name, value, fallback) {
-  if (value === null || value === undefined) return fallback;
-  const n = typeof value === 'number' ? value : Number.NaN;
-  if (!Number.isFinite(n) || n < 0) {
-    throw new TypeError(`createWorkdayRequestContext: ${name} must be a finite number >= 0 (got ${String(value)})`);
-  }
-  return Math.min(Math.floor(n), MAX_BROWSER_BUDGET);
-}
-
-// Ceiling for the delay awaited before each browser request: with the hard
-// budget ceiling it keeps the whole rescue at minutes, never an open-ended stall.
-const MAX_BROWSER_BACKOFF_MS = 30_000;
-// Aggregate wall-clock budget of the whole rescue (waits, backoffs and browser
-// requests) per tenant and process. Without it 100 + 100 requests at a 30 s
-// backoff and a 20 s timeout could in theory run 10,000 s, longer than a
-// crawler job. The check runs before each request, so the worst case is the
-// budget plus one backoff and one request timeout (default: 600 s + 30 s + 20 s).
-const DEFAULT_BROWSER_RESCUE_WALL_BUDGET_MS = 600_000;
-const MAX_BROWSER_RESCUE_WALL_BUDGET_MS = 900_000;
-
-function sanitizeBrowserWallBudget(value) {
-  if (value === null || value === undefined) return DEFAULT_BROWSER_RESCUE_WALL_BUDGET_MS;
-  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > MAX_BROWSER_RESCUE_WALL_BUDGET_MS) {
-    throw new TypeError(`createWorkdayRequestContext: browserRescueWallBudgetMs must be a finite number between 0 and ${MAX_BROWSER_RESCUE_WALL_BUDGET_MS} (got ${String(value)})`);
-  }
-  return value;
-}
-
-function sanitizeBrowserBackoff(value) {
-  if (value === null || value === undefined) return DEFAULT_BROWSER_BACKOFF_MS;
-  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > MAX_BROWSER_BACKOFF_MS) {
-    throw new TypeError(`createWorkdayRequestContext: browserBackoffMs must be a finite number between 0 and ${MAX_BROWSER_BACKOFF_MS} (got ${String(value)})`);
-  }
-  return value;
-}
 
 // URL-equivalent spellings of one tenant (host case, default port, trailing
 // slash, fragment) must share one budget ledger and one implicit 429 state.
@@ -681,16 +635,6 @@ function tenantKey(apiBase) {
   }
 }
 
-function browserRescueLedger(apiBase) {
-  const key = tenantKey(apiBase);
-  if (!browserRescueLedgers.has(key)) {
-    browserRescueLedgers.set(key, {
-      listing: 0, detail: 0, halted: false, lastRequestAt: 0, wallSpentMs: 0, queue: Promise.resolve(),
-    });
-  }
-  return browserRescueLedgers.get(key);
-}
-
 function newRateLimitState(apiBase) {
   return {
     blockedUntil: 0,
@@ -698,10 +642,6 @@ function newRateLimitState(apiBase) {
     lastRateLimitUrl: apiBase,
     queue: Promise.resolve(),
     observedRateLimits: new WeakSet(),
-    // True once the browser transport answered a request after the direct
-    // circuit opened: the rest of the tenant's requests then go through it
-    // (within budget) instead of re-sending direct requests known to be 429.
-    browserEngaged: false,
   };
 }
 
@@ -716,7 +656,6 @@ function implicitRateLimitState(apiBase) {
 /** Test isolation for the process-wide policy used by legacy no-context callers. */
 export function resetWorkdayImplicitRateLimitStateForTests() {
   implicitRateLimitStates.clear();
-  browserRescueLedgers.clear();
 }
 
 /**
@@ -724,12 +663,12 @@ export function resetWorkdayImplicitRateLimitStateForTests() {
  *
  * Workday rate-limits at the tenant/egress boundary, not at an individual
  * detail URL. A caller that fetches a listing followed by many details must
- * therefore share both the browser fallback session and the 429 cooldown. The
- * queue also makes the policy explicit: no second request can start while a
- * previous request is waiting out the tenant's Retry-After window.
+ * therefore share the 429 cooldown. The queue also makes the policy explicit:
+ * no second request can start while a previous request is waiting out the
+ * tenant's Retry-After window.
  *
  * @param {string} apiBase
- * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object, egressStateDir?: string|null, egressMinDelayMs?: number, listingBrowserBudget?: number, detailBrowserBudget?: number, browserBackoffMs?: number, browserRescueWallBudgetMs?: number, browserRescueNow?: () => number }} [options] Browser rescue after the 429 circuit opens: sequential, budgeted per tenant and process (listing pages / details; details default to 0 for a caller-supplied transport), backoff between requests, halted at the first browser 429.
+ * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object, egressStateDir?: string|null, egressMinDelayMs?: number }} [options]
  * @param {{ browserFallback?: Function|null, publicUrl?: string, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object }} [options]
  * @returns {{ request: (url: string, options?: object) => Promise<any>, close: () => Promise<void> }}
  */
@@ -745,21 +684,6 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || defaultWorkdayEgressStateDir(),
     egressMinDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
   } = options;
-  const listingBrowserBudget = sanitizeBrowserBudget('listingBrowserBudget', options.listingBrowserBudget, DEFAULT_LISTING_BROWSER_BUDGET);
-  const browserBackoffMs = sanitizeBrowserBackoff(options.browserBackoffMs);
-  const browserRescueWallBudgetMs = sanitizeBrowserWallBudget(options.browserRescueWallBudgetMs);
-  // Injectable clock for the rescue budget and backoff (tests, simulations).
-  const rescueNow = typeof options.browserRescueNow === 'function' ? options.browserRescueNow : Date.now;
-  // Detail GETs are where #19723 forbade the browser: a 429 storm there is
-  // what the circuit exists to stop. The budgeted rescue below stays inside
-  // that bound, but it is on by default only for the built-in browser
-  // transport; a caller-supplied transport must opt in explicitly.
-  const detailBrowserBudget = sanitizeBrowserBudget(
-    'detailBrowserBudget',
-    options.detailBrowserBudget,
-    configuredBrowserFallback === undefined ? DEFAULT_DETAIL_BROWSER_BUDGET : 0,
-  );
-  const ledger = browserRescueLedger(apiBase);
   let browserSession = null;
   let closed = false;
   const rateLimitState = options.rateLimitState ?? newRateLimitState(apiBase);
@@ -778,10 +702,12 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
   const observeRateLimit = (err) => {
     const status = Number(err?.statusCode ?? err?.status);
     if (status !== 429) return false;
-    const retryAfterMs = parseRetryAfterMs(
-      err?.retryAfter ?? err?.response?.headers?.get?.('retry-after'),
-      { capMs: retryAfterCapMs },
-    );
+    const retryAfterMs = typeof err?.retryAfterMs === 'number' && Number.isFinite(err.retryAfterMs)
+      ? Math.min(Math.max(0, err.retryAfterMs), retryAfterCapMs)
+      : parseRetryAfterMs(
+        err?.retryAfter ?? err?.response?.headers?.get?.('retry-after'),
+        { capMs: retryAfterCapMs },
+      );
     const cooldownMs = retryAfterMs === null
       ? Math.max(0, Number(fallbackCooldownMs) || 0)
       : retryAfterMs;
@@ -799,12 +725,18 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
   };
 
-  const rateLimitError = (url, sourceError = null) => new WorkdayRateLimitError(url || rateLimitState.lastRateLimitUrl, {
-    consecutiveFailures: rateLimitState.consecutiveRateLimits,
-    retryAfterMs: Math.max(0, rateLimitState.blockedUntil - Date.now()),
-    circuitOpen: rateLimitState.consecutiveRateLimits >= circuitThreshold,
-    retryExhausted: Boolean(sourceError?.retryExhausted || sourceError?.retryBudgetExhausted),
-  });
+  const rateLimitError = (url, sourceError = null) => {
+    const error = new WorkdayRateLimitError(url || rateLimitState.lastRateLimitUrl, {
+      consecutiveFailures: rateLimitState.consecutiveRateLimits,
+      retryAfterMs: Math.max(0, rateLimitState.blockedUntil - Date.now()),
+      circuitOpen: rateLimitState.consecutiveRateLimits >= circuitThreshold,
+      retryExhausted: Boolean(sourceError?.retryExhausted || sourceError?.retryBudgetExhausted),
+    });
+    // This error reports a 429 already counted in the shared state (or the
+    // circuit already open); catching it again must not extend the circuit.
+    rateLimitState.observedRateLimits.add(error);
+    return error;
+  };
 
   const beforeDirectAttempt = async () => {
     if (rateLimitState.consecutiveRateLimits >= circuitThreshold) {
@@ -833,100 +765,12 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
   const request = (url, requestOptions = {}) => {
     if (closed) return Promise.reject(new Error('Workday request context is already closed'));
 
-    // Once the direct stack is rate limited, every remaining request of the
-    // tenant is lost with it and the crawl aborts before publishing. The
-    // same-origin browser stack (other TLS fingerprint and cookies) is the
-    // alternate path, under the bounds #19723 asked for: only after the 429
-    // circuit is open, strictly sequential (this queue), a per-tenant
-    // per-process budget for listing pages and for details, a backoff between
-    // browser requests, and a stop at the first 429 the browser itself gets.
-    const rescueThroughBrowser = async (terminalError) => {
-      const method = String(requestOptions.method || 'GET').toUpperCase();
-      const kind = method === 'POST' ? 'listing' : 'detail';
-      const budget = kind === 'listing' ? listingBrowserBudget : detailBrowserBudget;
-      // Only a circuit opened by repeated 429s qualifies: a single terminal 429
-      // (retry budget 0, or a short Retry-After) keeps its typed error and never
-      // launches a browser.
-      if (
-        !browserFallback
-        || ledger.halted
-        || ledger[kind] >= budget
-        || rateLimitState.consecutiveRateLimits < circuitThreshold
-      ) {
-        throw terminalError || rateLimitError(url);
-      }
-      // Request contexts of one tenant each own a queue, so browser requests
-      // are serialized on the tenant ledger: never two in flight, and the
-      // backoff counts from the completion of the previous one.
-      const serial = ledger.queue.then(() => runBrowserRequest(), () => runBrowserRequest());
-      ledger.queue = serial.catch(() => {});
-      return serial;
-
-      async function runBrowserRequest() {
-      if (ledger.halted || ledger[kind] >= budget || ledger.wallSpentMs >= browserRescueWallBudgetMs) {
-        throw terminalError || rateLimitError(url);
-      }
-      ledger[kind] += 1;
-      const rescueStartedAt = rescueNow();
-      try {
-        await waitForRateLimit();
-        const backoffWait = ledger.lastRequestAt + browserBackoffMs - rescueNow();
-        if (backoffWait > 0) await new Promise((resolve) => setTimeout(resolve, backoffWait));
-        const browserRequest = () => browserFallback({
-          url,
-          method,
-          body: requestOptions.body,
-          userAgent: requestOptions.userAgent || DEFAULT_USER_AGENT,
-          timeoutMs: requestOptions.timeoutMs || DEFAULT_TIMEOUT_MS,
-        });
-        ledger.lastRequestAt = rescueNow();
-        const data = await (egressStateDir
-          ? withRunnerWorkdayEgress(browserRequest, {
-              stateDir: egressStateDir,
-              minDelayMs: egressMinDelayMs,
-              fallbackCooldownMs,
-              retryAfterCapMs,
-            })
-          : browserRequest());
-        ledger.lastRequestAt = rescueNow();
-        if (!rateLimitState.browserEngaged) {
-          console.warn(`⚠️ Workday ${kind} recovered through the browser transport after direct HTTP 429: ${url}`);
-        }
-        rateLimitState.browserEngaged = true;
-        rateLimitState.blockedUntil = 0;
-        return data;
-      } catch (browserErr) {
-        ledger.lastRequestAt = rescueNow();
-        console.warn(`⚠️ Workday browser transport could not recover the rate-limited ${kind} ${url}: ${browserErr?.message || browserErr}`);
-        if (observeRateLimit(browserErr)) {
-          // The browser is throttled too: the limit is the egress IP, so stop
-          // every further browser request of this tenant and surface it.
-          ledger.halted = true;
-          rateLimitState.consecutiveRateLimits = Math.max(rateLimitState.consecutiveRateLimits, circuitThreshold);
-          throw rateLimitError(url, browserErr);
-        }
-        if (terminalError) throw terminalError;
-        // Engaged mode has no direct error to report: a real HTTP answer (404
-        // for a withdrawn posting, auth) is the truth, anything else keeps the
-        // tenant's open circuit.
-        if (browserErr instanceof WorkdayApiError) throw browserErr;
-        throw rateLimitError(url);
-      } finally {
-        ledger.wallSpentMs += Math.max(0, rescueNow() - rescueStartedAt);
-      }
-      }
-    };
-
     const run = async () => {
-      // The browser already proved it can answer while the direct circuit is
-      // open: do not send more direct requests that are known to be 429.
-      if (rateLimitState.browserEngaged && !ledger.halted
-          && rateLimitState.consecutiveRateLimits >= circuitThreshold) {
-        return rescueThroughBrowser(null);
-      }
       try {
         const data = await fetchJsonWithRetry(url, {
           ...requestOptions,
+          fallbackCooldownMs,
+          retryAfterCapMs,
           browserFallback,
           beforeDirectAttempt,
           beforeBrowserFallback: waitForRateLimit,
@@ -939,13 +783,23 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
           }),
         });
         rateLimitState.consecutiveRateLimits = 0;
-        rateLimitState.browserEngaged = false;
         return data;
       } catch (err) {
-        // Browser fallback errors are outside fetchWithRetry's hook. Preserve a
-        // terminal 429 there too, so the next detail remains behind Retry-After.
-        if (err instanceof WorkdayRateLimitError) return rescueThroughBrowser(err);
-        if (observeRateLimit(err)) return rescueThroughBrowser(rateLimitError(url, err));
+        if (err instanceof WorkdayRateLimitError) {
+          if (!rateLimitState.observedRateLimits.has(err)) {
+            observeRateLimit(err);
+            // A browser transport 429 is evidence that this tenant/egress is
+            // throttled too; no later request in this context may go direct.
+            rateLimitState.consecutiveRateLimits = Math.max(
+              rateLimitState.consecutiveRateLimits,
+              circuitThreshold,
+              Number(err.consecutiveFailures) || 0,
+            );
+            throw rateLimitError(url, err);
+          }
+          throw err;
+        }
+        if (observeRateLimit(err)) throw rateLimitError(url, err);
         rateLimitState.consecutiveRateLimits = 0;
         throw err;
       }
@@ -967,7 +821,8 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
 
 /**
  * Fetch one Workday JSON request with the direct transport first and a lazy
- * same-origin browser transport after the direct retry budget is exhausted.
+ * same-origin browser transport for connection failures and retryable
+ * non-429 responses after the direct retry budget is exhausted.
  * The browser session is owned by this call, so callers that need to recover
  * multiple requests should pass a shared `browserFallback` function instead.
  *
@@ -994,19 +849,9 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     rateLimitCircuitThreshold,
     egressStateDir,
     egressMinDelayMs,
-    listingBrowserBudget,
-    detailBrowserBudget,
-    browserBackoffMs,
-    browserRescueWallBudgetMs,
-    browserRescueNow,
     ...requestOptions
   } = options;
   const requestContext = createWorkdayRequestContext(apiBase, {
-    listingBrowserBudget,
-    detailBrowserBudget,
-    browserBackoffMs,
-    browserRescueWallBudgetMs,
-    browserRescueNow,
     browserFallback,
     publicUrl,
     retryAfterCapMs,
@@ -1053,7 +898,7 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
  * @property {{ request: (url: string, options?: object) => Promise<any> }} [requestContext]
  *   Shared tenant transport. When present, listing pages use its serialized
  *   browser session and Retry-After cooldown instead of owning a new session.
- * @property {(args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>|null} [browserFallback] Test or caller-supplied browser transport for connection-level failures. `null` disables the default browser transport.
+ * @property {(args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>|null} [browserFallback] Test or caller-supplied browser transport for connection-level failures and retryable non-429 HTTP responses. `null` disables the default browser transport.
  * @property {WorkdayFetchStats} [stats] Optional mutable object the iterator
  *   fills with how pagination ended. Read-only signal: passing it never changes
  *   what is fetched or yielded.
