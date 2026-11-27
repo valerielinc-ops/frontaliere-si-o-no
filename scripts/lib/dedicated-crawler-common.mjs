@@ -9102,6 +9102,17 @@ export function getAllPreviousSlugs(job) {
 }
 
 /**
+ * Is `slug` the master of a record that still serves it as an Italian route?
+ * On a live record the renderer bridges a master that differs from the Italian
+ * slug. An expired record in that shape has only its history to serve it.
+ */
+function isLiveItalianMaster(job, slug) {
+  if (slug !== normalizeSpace(job.slug || '')) return false;
+  const italian = normalizeSpace(job.slugByLocale?.it || '');
+  return !job.expiredAt || !italian || italian === slug;
+}
+
+/**
  * Would `cleanPreviousSlugsPerLocale()` drop this previous slug from `job`?
  *
  * A locale-attributed entry is dropped when it equals that locale's active
@@ -9123,10 +9134,29 @@ export function isSelfCanonicalPreviousSlug(job, locale, slug) {
   // The master slug is always the Italian route, but it can also have been
   // the active route in another locale before that locale was translated.
   // A locale-aware bridge under en/de/fr must survive that transition.
-  if ((locale === null || locale === 'it') && norm === normalizeSpace(job.slug || '')) return true;
+  if ((locale === null || locale === 'it') && isLiveItalianMaster(job, norm)) return true;
   const active = job.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {};
   if (locale) return norm === normalizeSpace(active[locale] || '');
   return Object.values(active).some((value) => value && norm === normalizeSpace(String(value)));
+}
+
+/**
+ * Give a flat-only previous slug a bucket in every locale where it is not the
+ * live route. Returns false, writing nothing, when one of them has no room:
+ * a single bucket entry ends the flat fallback for all the other locales.
+ */
+function materializeFlatOnlyRoute(job, slug) {
+  const targets = LOCALES.filter((locale) => !isSelfCanonicalPreviousSlug(job, locale, slug));
+  const hasRoom = targets.every((locale) => {
+    const bucket = job.previousSlugsByLocale?.[locale];
+    return !Array.isArray(bucket) || bucket.includes(slug) || bucket.length < DEFAULT_PREV_SLUG_CAP;
+  });
+  if (!hasRoom) return false;
+  for (const locale of targets) {
+    addPreviousSlugForLocale(job, locale, slug, DEFAULT_PREV_SLUG_CAP,
+      'cleanPreviousSlugsPerLocale/materialize-flat', { syncLegacy: false });
+  }
+  return true;
 }
 
 /**
@@ -9137,15 +9167,27 @@ export function isSelfCanonicalPreviousSlug(job, locale, slug) {
  * when it is the old active route for that locale. Also cleans legacy flat
  * previousSlugs by removing entries that match the master slug or any locale
  * slug that has no locale-aware bucket.
+ *
+ * Such a flat-only entry is served under all four locales, while being the
+ * active slug makes it a self-redirect only where it IS active. Before it
+ * leaves the flat array it is written into the buckets of the other locales.
+ * When one of those buckets is full the entry stays flat, untouched: the
+ * move is all or nothing and never evicts another route.
  */
 export function cleanPreviousSlugsPerLocale(job) {
+  // Read before the bucket pass: a flat value that mirrors a bucket is served
+  // by that bucket alone, even if the pass below empties it.
+  const bucketedOnEntry = new Set(
+    Object.values(job.previousSlugsByLocale || {})
+      .flatMap((arr) => (Array.isArray(arr) ? arr.map((s) => normalizeSpace(String(s))) : [])),
+  );
+
   // Clean locale-aware entries: per-locale comparison only
   if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
     for (const locale of LOCALES) {
       const arr = job.previousSlugsByLocale[locale];
       if (!Array.isArray(arr) || arr.length === 0) continue;
       const activeSlug = normalizeSpace((job.slugByLocale || {})[locale] || '');
-      const masterSlug = normalizeSpace(job.slug || '');
       const cleaned = arr.filter(s => {
         const norm = normalizeSpace(String(s));
         // Remove if matches THIS locale's active slug (self-redirect)
@@ -9159,7 +9201,7 @@ export function cleanPreviousSlugsPerLocale(job) {
         }
         // The master slug is a live Italian route. For another locale it can
         // still be the old active route whose bridge must be retained.
-        if (locale === 'it' && norm === masterSlug) {
+        if (locale === 'it' && isLiveItalianMaster(job, norm)) {
           recordSlugMutation({
             jobId: job.id, locale, slug: norm, action: 'drop',
             source: 'dedicated-crawler-common.cleanPreviousSlugsPerLocale',
@@ -9206,6 +9248,7 @@ export function cleanPreviousSlugsPerLocale(job) {
       if (localeAwareAll.has(norm)) return true;
       // Otherwise apply the old global cleanup: remove if matches any active slug
       if (activeSet.has(norm)) {
+        if (!bucketedOnEntry.has(norm) && !materializeFlatOnlyRoute(job, norm)) return true;
         recordSlugMutation({
           jobId: job.id, locale: null, slug: norm, action: 'drop',
           source: 'dedicated-crawler-common.cleanPreviousSlugsPerLocale/flat',
