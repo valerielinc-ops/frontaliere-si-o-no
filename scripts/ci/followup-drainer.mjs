@@ -1597,6 +1597,36 @@ export function detectMalformedBody(title, body) {
   return false;
 }
 
+// --- STARTUP FAILURE SU RAMO NON-MAIN PRE-FLIGHT (caso #20294-#20319) --------
+// `scan-job-timeouts.mjs` apre «CI Failure (...)» con «Workflow failure senza
+// job» quando una run termina `failure` senza job (startup failure). Se il
+// `**Ref:**` è un ramo di PR (non `main`), la run appartiene a un ramo che può
+// essere già chiuso/cancellato: nessuna patch al repository la risolve. Misurato
+// il 2026-11-27 su #20319: label `agent:fix-queued` (00:02) → `agent:fix` (00:12)
+// → `fu-attempt:1` (00:45) → `fu-attempt:2` (01:20) → `fu-attempt:3` +
+// `fu-parked` + `automation-deferred` (02:00), tutto su un falso allarme del
+// ramo `fix/issue-20183` (PR chiusa), per 26 issue gemelle. Park pre-promozione:
+// nessun run del fixer, nessun tentativo consumato. Una startup failure su
+// `main` resta lavorabile (è il caso reale di workflow rotto).
+const STARTUP_FAILURE_BODY_RE = /Workflow failure senza job/i;
+const STARTUP_FAILURE_REF_RE = /^\*\*Ref:\*\*[ \t]*`?([^\s`]+)`?[ \t]*$/m;
+
+/**
+ * Ref (ramo) di una issue «Workflow failure senza job» se NON è `main`,
+ * altrimenti null (anche se il body non è di quella forma o il Ref manca:
+ * bias a promuovere). Pura → testabile.
+ * @param {string} body
+ * @returns {string|null}
+ */
+export function detectBranchStartupFailure(body) {
+  const text = String(body || '');
+  if (!STARTUP_FAILURE_BODY_RE.test(text)) return null;
+  const m = STARTUP_FAILURE_REF_RE.exec(text);
+  if (!m) return null;
+  const ref = m[1].replace(/^refs\/heads\//, '');
+  return ref === 'main' ? null : ref;
+}
+
 // (detectExplicitNetworkAudit è stata rimossa il 2026-08-21 insieme al suo
 // call-site: la premessa — fixer confinato a `Bash(node:*)` — è falsa dal
 // 2026-07-02, quando `--dangerously-skip-permissions` ha sostituito gli
@@ -3481,6 +3511,7 @@ export function isIssueGroupable(issue, {
   if (isDecomposedParent(issue) || has(issue, LBL_DECOMP_QUEUED) || has(issue, LBL_DECOMP)) return false;
   if (detectCompressContractDocsRatchet(title) || detectMalformedBody(title, body)) return false;
   if (detectEpicTracker(title, body) || detectBacklogTracker(title, body)) return false;
+  if (detectBranchStartupFailure(body)) return false;
   if (detectDataPending(title, body)) return false;
   if (AGGREGATE_ITEMS_RE.test(title)) {
     const count = Number(AGGREGATE_ITEMS_RE.exec(title)?.[1] || 0);
@@ -6499,6 +6530,19 @@ export function runDrain() {
       console.log(`PARK #${cand.number} (malformed body, ${blen} chars) → no promozione, fixer non ha contesto`);
       const note = `⛔ **Pre-flight drainer (zero-Claude, #2291)**: il body di questa follow-up è vuoto o malformato (${blen} chars, nessuna sezione \`## Origine\`/\`### N.\`). Promuoverla a \`agent:fix\` brucerebbe turni senza produrre una PR — il fixer non ha contesto su cosa fixare.\n\n**Non promuovo**: correggi il body dell'issue (sezioni \`## Origine\` + \`## Item\` obbligatorie) o ri-apri il follow-up con una descrizione completa. Parcheggio con \`${LBL_AUTOMATION_DEFERRED}\`: è un handoff tecnico, non una domanda al proprietario.\n\n<!-- FIX_OUTCOME: no-root-cause -->\n<!-- AUTOMATION_DEFERRED: technical -->`;
       if (DRY) { console.log(`[dry] park #${cand.number} (malformed body)`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      deferAutomationIssue(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
+    // Check: startup failure su ramo non-main (#20294-#20319) — la run senza job
+    // appartiene a un ramo di PR, non a main: nessun fix nel repo la risolve.
+    const startupBranch = detectBranchStartupFailure(body);
+    if (startupBranch) {
+      console.log(`PARK #${cand.number} (startup failure su ramo ${startupBranch}) → no promozione, nessun tentativo consumato`);
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, startup-failure-branch)**: questa issue riporta una run **senza job** (startup failure) sul ramo \`${startupBranch}\`, non su \`main\`. Il ramo è di una PR e può essere già chiuso o cancellato: non c'è un difetto di \`main\` che il fixer possa correggere con una patch, e promuoverla consumerebbe tentativi (\`fu-attempt\`) su un falso allarme.\n\n**Non promuovo e non conto tentativi.** Parcheggio con \`${LBL_AUTOMATION_DEFERRED}\`. Se la stessa startup failure compare su \`main\`, l'issue relativa resta lavorabile normalmente; altrimenti chiudila a mano.\n\n<!-- FIX_OUTCOME: no-root-cause -->\n<!-- AUTOMATION_DEFERRED: technical -->`;
+      if (DRY) { console.log(`[dry] park #${cand.number} (startup failure su ramo)`); continue; }
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
       deferAutomationIssue(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
