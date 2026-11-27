@@ -1913,13 +1913,35 @@ function nativeQuestionText(value, counter = null) {
     .filter((element) => rendered(element) && !element.closest(ROUTE_ANNOUNCER))
     .map((element) => clean(element.innerText || element.textContent).slice(0, 160))
     .filter(Boolean))].slice(0, 8);
+  // A page with SEVERAL forms at once (an employer's «lavora con noi» with a newsletter, a search or a booking form in
+  // the footer) owns the application in the form PROVED to be the application: the one that holds the CV upload (an
+  // «Apply» button alone proves nothing: wizards put it in any step). A rendered, unrelated sibling form (neither
+  // containing nor contained by it, with no upload) is not part of it: its fields and buttons are left out of the
+  // snapshot, so its «privacy» box is neither ticked as the application's consent nor asked to the candidate.
+  // Without that proof nothing is left out.
+  const renderedForm = (form) => (form.getClientRects().length > 0 || form.getBoundingClientRect().width > 0) && !form.closest('[hidden], [inert]');
+  const foreignFormIds = (() => {
+    const forms = [...document.querySelectorAll('form')].filter(renderedForm);
+    if (forms.length < 2) return new Set();
+    const ownsApplication = (form) => Boolean(form.querySelector('input[type="file"]'));
+    const application = forms.filter(ownsApplication);
+    if (!application.length) return new Set();
+    const foreign = new Set(forms
+      .filter((form) => !application.includes(form)
+        && !application.some((own) => own.contains(form) || form.contains(own)))
+      .map((form) => idFor(form)));
+    // idFor may have numbered a form that had no field: the next scan must not hand that id out again.
+    document.documentElement.setAttribute('data-aa-counter', String(counter));
+    return foreign;
+  })();
+  const inApplicationScope = (item) => !item?.formId || !foreignFormIds.has(item.formId);
   return {
     url: location.href,
     pageMarker,
     workdayApplicationSurface,
     title: document.title,
-    fields,
-    buttons,
+    fields: foreignFormIds.size ? fields.filter(inApplicationScope) : fields,
+    buttons: foreignFormIds.size ? buttons.filter(inApplicationScope) : buttons,
     links,
     ...(pinpointApplicantBinding ? { pinpointApplicationBinding: pinpointApplicantBinding } : {}),
     dialogs: [...document.querySelectorAll(DIALOG_SELECTOR)].filter(visible).map(dialog => dialogMeta(dialog)),
