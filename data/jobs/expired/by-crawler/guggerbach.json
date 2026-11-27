@@ -55,7 +55,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
-    "firstSeenAt": "2026-09-19T22:53:22.476Z"
+    "firstSeenAt": "2026-09-19T22:53:22.476Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "servicemitarbeiter-in-60-davos-platz-graubunden-guggerbach-ch": "GR",
+        "servicemitarbeiter-in-60-bistro-guggerzyt-davos-platz": "GR",
+        "servicemitarbeiter-in-davos-platz-graubunden-guggerbach-ch": "GR"
+      },
+      "en": {
+        "servicemitarbeiter-in-60-bistro-guggerzyt-davos-platz": "GR"
+      },
+      "de": {
+        "servicemitarbeiter-in-60-bistro-guggerzyt-davos-platz": "GR"
+      },
+      "fr": {
+        "servicemitarbeiter-in-60-bistro-guggerzyt-davos-platz": "GR"
+      }
+    }
   },
   {
     "slug": "coiffeuse-coiffeur-autonomi-bistro-guggerzyt-davos-platz",
@@ -112,6 +129,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.guggerbach.ch/guggerbach/jobs-karriere/selbstaendige-coiffeuse-coiffeur",
-    "firstSeenAt": "2026-09-09T13:45:47.908Z"
+    "firstSeenAt": "2026-09-09T13:45:47.908Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "selbstandige-coiffeuse-coiffeur-davos-platz-guggerbach-ch": "GR",
+        "selbstandige-coiffeuse-coiffeur-davos-platz-graubunden-guggerbach-ch": "GR"
+      },
+      "en": {
+        "self-employed-coiffeuse-coiffeur-bistro-guggerzyt-davos-platz": "GR",
+        "selbstandige-coiffeuse-coiffeur-bistro-guggerzyt-davos-platz": "GR",
+        "self-employed-hairdresser-hairdresser-bistro-guggerzyt-davos-platz-graubunden": "GR"
+      },
+      "fr": {
+        "selbstandige-coiffeuse-coiffeur-davos-platz-guggerbach-ch": "GR"
+      }
+    }
   }
 ]
