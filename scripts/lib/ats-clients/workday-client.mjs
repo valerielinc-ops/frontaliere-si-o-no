@@ -615,7 +615,9 @@ const browserRescueLedgers = new Map();
 function browserRescueLedger(apiBase) {
   const key = String(apiBase).replace(/\/+$/, '');
   if (!browserRescueLedgers.has(key)) {
-    browserRescueLedgers.set(key, { listing: 0, detail: 0, halted: false, lastRequestAt: 0 });
+    browserRescueLedgers.set(key, {
+      listing: 0, detail: 0, halted: false, lastRequestAt: 0, queue: Promise.resolve(),
+    });
   }
   return browserRescueLedgers.get(key);
 }
@@ -778,6 +780,15 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
       ) {
         throw terminalError || rateLimitError(url);
       }
+      // Request contexts of one tenant each own a queue, so browser requests
+      // are serialized on the tenant ledger: never two in flight, and the
+      // backoff counts from the completion of the previous one.
+      const serial = ledger.queue.then(() => runBrowserRequest(), () => runBrowserRequest());
+      ledger.queue = serial.catch(() => {});
+      return serial;
+
+      async function runBrowserRequest() {
+      if (ledger.halted || ledger[kind] >= budget) throw terminalError || rateLimitError(url);
       ledger[kind] += 1;
       try {
         await waitForRateLimit();
@@ -822,6 +833,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
         // tenant's open circuit.
         if (browserErr instanceof WorkdayApiError) throw browserErr;
         throw rateLimitError(url);
+      }
       }
     };
 

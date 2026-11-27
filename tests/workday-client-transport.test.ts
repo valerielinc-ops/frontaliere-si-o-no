@@ -779,6 +779,44 @@ describe('Workday JSON transport', () => {
       }
     });
 
+    it('serializes browser rescues of two contexts of the same tenant behind the backoff', async () => {
+      vi.useFakeTimers();
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
+      const events: Array<[string, number]> = [];
+      let inFlight = 0;
+      let maxInFlight = 0;
+      const browserFallback = vi.fn(async () => {
+        inFlight += 1;
+        maxInFlight = Math.max(maxInFlight, inFlight);
+        events.push(['start', Date.now()]);
+        await new Promise((resolve) => setTimeout(resolve, 3_000));
+        events.push(['end', Date.now()]);
+        inFlight -= 1;
+        return { browser: true };
+      });
+      const opts = { browserBackoffMs: 2_500, detailBrowserBudget: 5, egressStateDir: null };
+      const first = rescueContext(browserFallback, opts);
+      const second = rescueContext(browserFallback, opts);
+
+      try {
+        const settled = Promise.all([
+          first.request(detailUrl(1), detailOptions),
+          second.request(detailUrl(2), detailOptions),
+        ]);
+        await vi.runAllTimersAsync();
+        await settled;
+        expect(browserFallback).toHaveBeenCalledTimes(2);
+        expect(maxInFlight).toBe(1);
+        const firstEnd = events.find(([k]) => k === 'end')![1];
+        const secondStart = events.filter(([k]) => k === 'start')[1][1];
+        expect(secondStart - firstEnd).toBeGreaterThanOrEqual(2_500);
+      } finally {
+        await first.close();
+        await second.close();
+        vi.useRealTimers();
+      }
+    });
+
     it('uses the built-in browser transport for details by default, but not a caller-supplied one', async () => {
       vi.useFakeTimers();
       vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
