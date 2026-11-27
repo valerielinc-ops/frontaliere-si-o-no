@@ -44,7 +44,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-chef-de-service-chef-de-rang-4041106?rltr=comp",
-    "firstSeenAt": "2026-10-07T21:15:13.846Z"
+    "firstSeenAt": "2026-10-07T21:15:13.846Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch": "GR"
+      },
+      "en": {
+        "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch": "GR"
+      }
+    }
   },
   {
     "slug": "chef-de-rang-m-f-per-la-stagione-invernale-abbreviata-da-inizio-dicembre-a-fine-febbraio-blatter-arosa",
@@ -95,7 +104,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%c3%bcr-verk%c3%bcrzte-wintersaison-anfang-dez-bis-ende-feb-4038982?rltr=comp",
-    "firstSeenAt": "2026-10-01T21:26:00.850Z"
+    "firstSeenAt": "2026-10-01T21:26:00.850Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-rang-m-w-fur-verkurzte-wintersaison-anfang-dez-bis-ende-feb-arosa-blatters-hotel": "GR",
+        "chef-de-rang-m-w-d-per-verkurzte-wintersaison-anfang-dez-bis-ende-feb-blatter-arosa": "GR"
+      },
+      "en": {
+        "chef-de-rang-m-w-fur-verkurzte-wintersaison-anfang-dez-bis-ende-feb-arosa-blatters-hotel": "GR"
+      },
+      "fr": {
+        "chef-de-rang-m-w-fur-verkurzte-wintersaison-anfang-dez-bis-ende-feb-arosa-blatters-hotel": "GR"
+      }
+    }
   },
   {
     "slug": "chef-de-rang-m-w-d-per-la-wintersaison-blatter-arosa",
@@ -144,7 +166,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%c3%bcr-die-wintersaison-3926747?rltr=comp",
-    "firstSeenAt": "2026-09-25T14:42:51.132Z"
+    "firstSeenAt": "2026-09-25T14:42:51.132Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch": "GR"
+      },
+      "en": {
+        "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch": "GR"
+      },
+      "fr": {
+        "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch": "GR"
+      }
+    }
   },
   {
     "slug": "barpianist-m-w-d-ab-dezember-per-la-wintersaison-blatter-arosa",
@@ -201,7 +235,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/barpianist-m-w-ab-dezember-f%c3%bcr-die-wintersaison-4033816?rltr=comp",
-    "firstSeenAt": "2026-09-23T19:52:06.103Z"
+    "firstSeenAt": "2026-09-23T19:52:06.103Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "barpianist-m-w-ab-dezember-fur-die-wintersaison-arosa-blatters-hotel-ch": "GR"
+      },
+      "en": {
+        "barpianist-m-w-ab-dezember-fur-die-wintersaison-arosa-blatters-hotel-ch": "GR"
+      },
+      "fr": {
+        "barpianist-m-w-ab-dezember-fur-die-wintersaison-arosa-blatters-hotel-ch": "GR"
+      }
+    }
   },
   {
     "slug": "chef-de-partie-m-w-wintersaison-2026-27-blatter-arosa",
@@ -249,6 +295,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-partie-wintersaison-2026-27-4022155?rltr=comp",
-    "firstSeenAt": "2026-09-23T19:52:06.106Z"
+    "firstSeenAt": "2026-09-23T19:52:06.106Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-partie-m-w-wintersaison-2026-27-arosa-blatters-hotel-ch": "GR"
+      },
+      "en": {
+        "chef-de-partie-m-w-wintersaison-2026-27-arosa-blatters-hotel-ch": "GR"
+      },
+      "fr": {
+        "chef-de-partie-m-w-wintersaison-2026-27-arosa-blatters-hotel-ch": "GR"
+      }
+    }
   }
 ]

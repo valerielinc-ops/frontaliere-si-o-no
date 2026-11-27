@@ -55,7 +55,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9307/description/2",
-    "firstSeenAt": "2026-09-26T14:13:42.234Z"
+    "firstSeenAt": "2026-09-26T14:13:42.234Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "flagship-event-manager-bobst-ch": "VD",
+        "gestione-eventi-di-flagship-bobst-switzerland-mex": "VD"
+      },
+      "de": {
+        "flagship-event-manager-bobst-ch": "VD"
+      },
+      "fr": {
+        "flagship-event-manager-bobst-switzerland-mex": "VD",
+        "gestionnaire-d-evenements-phares-bobst-switzerland-mex": "VD",
+        "flagship-event-manager-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "2025-tpm-corso-3-1-risorse-umane-centro-di-formazione-bobst-switzerland-mex",
@@ -123,7 +137,19 @@
         "firstSeenAt": "2026-05-19T18:34:48.301Z",
         "title": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch": "VD"
+      },
+      "en": {
+        "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch": "VD"
+      },
+      "de": {
+        "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-customer-project-management-bobst-switzerland-mex",
@@ -173,7 +199,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9357/description/2",
-    "firstSeenAt": "2026-10-28T20:51:12.972Z"
+    "firstSeenAt": "2026-10-28T20:51:12.972Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-customer-project-management-bobst-ch": "VD"
+      },
+      "de": {
+        "head-of-customer-project-management-bobst-ch": "VD"
+      },
+      "fr": {
+        "head-of-customer-project-management-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-sales-excellence-bobst-switzerland-mex",
@@ -222,7 +260,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9329/description/2",
-    "firstSeenAt": "2026-10-22T09:36:54.861Z"
+    "firstSeenAt": "2026-10-22T09:36:54.861Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-sales-excellence-bobst-ch": "VD"
+      },
+      "de": {
+        "head-of-sales-excellence-bobst-ch": "VD"
+      },
+      "fr": {
+        "head-of-sales-excellence-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "specialista-di-supporto-tecnico-100-macchinari-impianti-bobst-switzerland-grenchen",
@@ -275,7 +325,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7707/description/2",
-    "firstSeenAt": "2026-05-19T18:34:57.314Z"
+    "firstSeenAt": "2026-05-19T18:34:57.314Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch": "SO",
+        "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen": "SO"
+      },
+      "en": {
+        "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch": "SO",
+        "technical-support-specialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen": "SO"
+      },
+      "de": {
+        "technischer-support-spezialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen": "SO"
+      }
+    }
   },
   {
     "slug": "field-service-ingegnere-nmw-digital-bobst-usa-parsippany-q4yel0",
@@ -403,7 +467,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/4997/description/2",
-    "firstSeenAt": "2026-05-19T18:35:17.619Z"
+    "firstSeenAt": "2026-05-19T18:35:17.619Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "customer-care-specialista-bobst-thailand-bangkok",
@@ -449,7 +519,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6868/description/2",
-    "firstSeenAt": "2026-05-19T18:35:16.917Z"
+    "firstSeenAt": "2026-05-19T18:35:16.917Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "customer-care-specialist-bobst-ch": "VD"
+      },
+      "de": {
+        "kundenservice-spezialist-bobst-thailand-bangkok": "VD"
+      }
+    }
   },
   {
     "slug": "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld",
@@ -505,7 +584,8 @@
         "field-service-technician-m-w-d-bobst-ch-5c1ded26",
         "servizio-tecnico-m-f-d-bobst-germany-bielefeld",
         "field-service-technician-bobst-germany-bielefeld",
-        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld-q4yxvw"
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld-q4yxvw",
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld"
       ],
       "en": [
         "field-service-technician-m-w-d-bobst-ch",
@@ -514,16 +594,19 @@
         "field-service-technician-m-w-d-bobst-ch-2",
         "field-service-technician-m-w-d-bobst-germany-bielefeld-ca0680",
         "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680",
-        "field-service-technician-m-w-d-bobst-ch-5c1ded26"
+        "field-service-technician-m-w-d-bobst-ch-5c1ded26",
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld"
       ],
       "de": [
         "feldservicetechniker-m-w-d-bobst-germany-bielefeld",
-        "field-service-technician-m-w-d-bobst-ch-5c1ded26"
+        "field-service-technician-m-w-d-bobst-ch-5c1ded26",
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld"
       ],
       "fr": [
         "technicien-de-service-sur-site-h-f-bobst-germany-bielefeld",
         "field-service-technicien-m-w-d-bobst-germany-bielefeld",
-        "field-service-technician-m-w-d-bobst-ch"
+        "field-service-technician-m-w-d-bobst-ch",
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld"
       ]
     },
     "salaryMin": 71000,
@@ -550,18 +633,30 @@
         "field-service-technician-m-w-d-bobst-ch-2": "VD",
         "field-service-technician-m-w-d-bobst-ch": "VD",
         "servizio-tecnico-m-f-d-bobst-germany-bielefeld": "VD",
-        "field-service-technician-bobst-germany-bielefeld": "VD"
+        "field-service-technician-bobst-germany-bielefeld": "VD",
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld": "VD",
+        "field-service-technician-m-w-d-bobst-germany-bielefeld": "VD"
       },
       "en": {
         "field-service-technician-m-f-d-bobst-germany-bielefeld": "VD",
         "field-service-technician-m-w-d-bobst-ch-2": "VD",
         "field-service-technician-m-w-d-bobst-germany-bielefeld-ca0680": "VD",
-        "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680": "VD"
+        "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680": "VD",
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld": "VD",
+        "field-service-technician-m-w-d-bobst-ch": "VD",
+        "automotive-technician-m-f-d-bobst-germany-bielefeld": "VD"
       },
       "fr": {
-        "field-service-technicien-m-w-d-bobst-germany-bielefeld": "VD"
+        "field-service-technicien-m-w-d-bobst-germany-bielefeld": "VD",
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld": "VD",
+        "technicien-de-service-sur-site-h-f-bobst-germany-bielefeld": "VD"
+      },
+      "de": {
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld": "VD",
+        "feldservicetechniker-m-w-d-bobst-germany-bielefeld": "VD"
       }
-    }
+    },
+    "canton": "VD"
   },
   {
     "slug": "elettricista-elettromeccanico-m-f-d-attivita-di-viaggio-in-tutta-la-germania-bobst-germany-meerbusch",
@@ -631,7 +726,19 @@
         "firstSeenAt": "2026-05-19T18:35:04.687Z",
         "title": "Elektriker/Elektroniker (m/w/d) Reisetätigkeit deutschlandweit"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch": "VD"
+      },
+      "en": {
+        "electrician-electronics-technician-m-f-d-germany-wide-travel-activity-bobst-germany-meerbusch": "VD"
+      },
+      "fr": {
+        "electricien-technicien-en-electronique-h-f-d-activites-de-voyage-en-allemagne-bobst-germany-meerbusch": "VD"
+      }
+    }
   },
   {
     "slug": "tecnico-di-assistenza-sul-campo-meccanico-bobst-poland-lodz",
@@ -677,7 +784,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8519/description/2",
-    "firstSeenAt": "2026-05-19T18:35:03.971Z"
+    "firstSeenAt": "2026-05-19T18:35:03.971Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "field-service-technician-mechanic-bobst-ch": "VD"
+      },
+      "de": {
+        "servicetechniker-mechaniker-bobst-poland-lodz": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-delle-operazioni-e-del-miglioramento-continuo-dei-servizi-it-ux-bobst-india-pune",
@@ -725,7 +841,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9036/description/2",
-    "firstSeenAt": "2026-07-01T11:16:01.940Z"
+    "firstSeenAt": "2026-07-01T11:16:01.940Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-ux-services-operations-continuous-improvement-manager-bobst-ch": "VD"
+      },
+      "de": {
+        "it-ux-services-operations-continuous-improvement-manager-bobst-ch": "VD"
+      },
+      "fr": {
+        "it-ux-services-operations-continuous-improvement-manager-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-test-e-rilascio-it-bobst-india-pune",
@@ -767,7 +895,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9034/description/2",
-    "firstSeenAt": "2026-07-08T11:14:10.566Z"
+    "firstSeenAt": "2026-07-08T11:14:10.566Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-test-release-manager-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "account-manager-cartone-ondulato-bobst-germany-meerbusch",
@@ -816,7 +950,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9039/description/2",
-    "firstSeenAt": "2026-07-08T11:14:09.765Z"
+    "firstSeenAt": "2026-07-08T11:14:09.765Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch": "VD",
+        "account-manager-m-f-d-scheda-ondulata-f-m-d-bobst-germany-meerbusch": "VD"
+      },
+      "fr": {
+        "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch": "VD",
+        "gestionnaire-de-comptes-m-f-d-comite-mixte-f-m-d-bobst-germany-meerbusch": "VD"
+      }
+    }
   },
   {
     "slug": "customer-care-specialista-m-w-d-bobst-germany-meerbusch",
@@ -868,7 +1013,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6329/description/2",
-    "firstSeenAt": "2026-08-28T05:35:57.985Z"
+    "firstSeenAt": "2026-08-28T05:35:57.985Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "customer-care-specialist-m-w-d-bobst-ch": "VD"
+      },
+      "en": {
+        "customer-care-specialist-m-w-d-bobst-ch": "VD",
+        "customer-care-specialist-m-w-d-bobst-germany-meerbusch": "VD",
+        "quality-assurance-specialist-m-f-d-bobst-germany-meerbusch": "VD"
+      },
+      "fr": {
+        "customer-care-specialist-m-w-d-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "collaudatore-meccanico-bobst-italy-san-giorgio-monferrato",
@@ -910,7 +1069,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8613/description/2",
-    "firstSeenAt": "2026-09-03T13:47:58.313Z"
+    "firstSeenAt": "2026-09-03T13:47:58.313Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaudatore-meccanico-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "auxiliary-system-ingegnere-bobst-italy-san-giorgio-monferrato",
@@ -956,7 +1121,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8748/description/2",
-    "firstSeenAt": "2026-09-03T23:26:40.228Z"
+    "firstSeenAt": "2026-09-03T23:26:40.228Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "auxiliary-system-engineer-bobst-ch": "VD"
+      },
+      "en": {
+        "auili-bobst-italy-san-giorgio-monferrato": "VD"
+      }
+    }
   },
   {
     "slug": "group-purchasing-analista-bobst-spain-barcelona",
@@ -1004,7 +1178,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9240/description/2",
-    "firstSeenAt": "2026-09-04T13:47:50.336Z"
+    "firstSeenAt": "2026-09-04T13:47:50.336Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "group-purchasing-analyst-bobst-ch": "VD"
+      },
+      "de": {
+        "group-purchasing-analyst-bobst-ch": "VD"
+      },
+      "fr": {
+        "group-purchasing-analyst-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-vendite-regionale-canada-bobst-usa-parsippany",
@@ -1046,7 +1232,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9247/description/2",
-    "firstSeenAt": "2026-09-08T13:51:12.137Z"
+    "firstSeenAt": "2026-09-08T13:51:12.137Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "area-sales-manager-canada-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "quality-assurance-ingegnere-bobst-italy-san-giorgio-monferrato",
@@ -1088,7 +1280,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7731/description/2",
-    "firstSeenAt": "2026-09-09T13:55:56.352Z"
+    "firstSeenAt": "2026-09-09T13:55:56.352Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "quality-assurance-engineer-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "machines-safety-specialista-bobst-italy-san-giorgio-monferrato",
@@ -1134,7 +1332,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6722/description/2",
-    "firstSeenAt": "2026-08-31T17:34:21.467Z"
+    "firstSeenAt": "2026-08-31T17:34:21.467Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "machines-safety-specialist-bobst-ch": "VD"
+      },
+      "de": {
+        "spezialist-fur-maschinensicherheit-bobst-italy-san-giorgio-monferrato": "VD"
+      }
+    }
   },
   {
     "slug": "area-sales-manager-imballaggi-flessibili-bobst-mexico-mexico-city",
@@ -1182,7 +1389,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9218/description/2",
-    "firstSeenAt": "2026-09-11T23:22:05.515Z"
+    "firstSeenAt": "2026-09-11T23:22:05.515Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "area-sales-manager-flexible-packaging-bobst-ch": "VD"
+      },
+      "de": {
+        "area-sales-manager-flexible-packaging-bobst-ch": "VD"
+      },
+      "fr": {
+        "area-sales-manager-flexible-packaging-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "supplier-quality-ingegnere-bobst-italy-san-giorgio-monferrato",
@@ -1224,7 +1443,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7732/description/2",
-    "firstSeenAt": "2026-09-19T23:08:17.434Z"
+    "firstSeenAt": "2026-09-19T23:08:17.434Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "supplier-quality-engineer-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "nuovo-modo-di-gestire-il-lavoro-e-progetto-speciale-bobst-switzerland-mex",
@@ -1272,7 +1497,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9150/description/2",
-    "firstSeenAt": "2026-09-19T23:08:16.726Z"
+    "firstSeenAt": "2026-09-19T23:08:16.726Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "new-way-of-working-manager-special-project-bobst-ch": "VD"
+      },
+      "de": {
+        "new-way-of-working-manager-special-project-bobst-ch": "VD"
+      },
+      "fr": {
+        "new-way-of-working-manager-special-project-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "servizio-di-campo-tecnico-meccanico-sp-bobst-usa-parsippany",
@@ -1314,7 +1551,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9208/description/2",
-    "firstSeenAt": "2026-09-19T23:08:15.884Z"
+    "firstSeenAt": "2026-09-19T23:08:15.884Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "field-service-technician-mechanical-sp-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "servizio-di-campo-tecnico-elettrico-sp-bobst-usa-parsippany",
@@ -1356,7 +1599,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9209/description/2",
-    "firstSeenAt": "2026-09-19T23:08:13.635Z"
+    "firstSeenAt": "2026-09-19T23:08:13.635Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "field-service-technician-electrical-sp-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "hardware-pneumatic-ingegnere-bobst-italy-san-giorgio-monferrato",
@@ -1402,7 +1651,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8798/description/2",
-    "firstSeenAt": "2026-09-03T23:26:39.344Z"
+    "firstSeenAt": "2026-09-03T23:26:39.344Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hardware-pneumatic-engineer-bobst-ch": "VD"
+      },
+      "en": {
+        "hardare-bobst-italy-san-giorgio-monferrato": "VD"
+      }
+    }
   },
   {
     "slug": "tecnico-di-assistenza-sul-campo-elettrico-100-bobst-switzerland-grenchen",
@@ -1484,7 +1742,25 @@
         "firstSeenAt": "2026-05-19T18:34:49.527Z",
         "title": "Servicetechniker im Aussendienst / Field Service Technician - Electrical 100%"
       }
-    ]
+    ],
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "servicetechniker-im-aussendienst-field-service-technician-electrical-100-bobst-ch": "SO",
+        "tecnico-di-servizio-in-servizio-esterno-field-service-technician-elettrico-100-bobst-switzerland-grenchen": "SO",
+        "tecnico-di-servizio-in-campo-field-service-technician-100-meccanico-bobst-switzerland-grenchen": "SO",
+        "servicetechniker-im-aussendienst-field-service-technician-100-mechanisch-bobst-ch": "SO",
+        "technicien-de-service-sur-site-field-service-technician-100-mecanique-bobst-switzerland-grenchen": "SO",
+        "servicetechniker-im-au-endienst-field-service-technician-100-mechanisch-bobst-switzerland-grenchen": "SO",
+        "field-services-technician-mechanisch-100-bobst-ch": "SO"
+      },
+      "de": {
+        "servicetechniker-im-aussendienst-field-service-technician-100-mechanisch-bobst-ch": "SO"
+      },
+      "fr": {
+        "technicien-de-service-sur-site-field-service-technician-100-mecanique-bobst-switzerland-grenchen": "SO"
+      }
+    }
   },
   {
     "slug": "tecnico-di-servizio-meccanico-meccatronico-m-f-d-bobst-germany-meerbusch",
@@ -1526,7 +1802,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bobst.com/vacancies/3098/description/2",
-    "firstSeenAt": "2026-05-19T18:34:55.202Z"
+    "firstSeenAt": "2026-05-19T18:34:55.202Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "servicetechniker-mechaniker-mechatroniker-m-w-d-bobst-ch": "VD"
+      }
+    }
   },
   {
     "slug": "proprietario-di-prodotto-per-piattaforme-di-ambiente-di-lavoro-e-comunicazione-digitale-bobst-switzerland-mex",

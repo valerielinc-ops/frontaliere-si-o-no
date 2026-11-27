@@ -201,7 +201,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/mitarbeiter-in-kundenservice/22e25347-90fb-4727-8fbd-c8a02ba8e491",
-    "firstSeenAt": "2026-11-17T21:28:14.614Z"
+    "firstSeenAt": "2026-11-17T21:28:14.614Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-kundenservice-bls-ch": "BE",
+        "collaboratore-trice-kundenservice-bls-ag-bern": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-kundenservice-bls-ag-bern": "BE"
+      },
+      "de": {
+        "mitarbeiter-in-kundenservice-bls-ag-bern": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-kundenservice-bls-ag-bern": "BE"
+      }
+    }
   },
   {
     "id": "bls-ca2d4a0a1ea1",
@@ -273,7 +289,25 @@
         "firstSeenAt": "2026-10-26T09:32:27.496Z",
         "title": "Jurist :in Baurecht"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch": "BE",
+        "jurist-in-bau-raumplanungs-e-umweltrecht-bls-ag-bern": "BE",
+        "jurist-in-baurecht-bls-ch": "BE"
+      },
+      "en": {
+        "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch": "BE"
+      },
+      "de": {
+        "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch": "BE",
+        "jurist-in-baurecht-bls-ag-bern": "BE"
+      },
+      "fr": {
+        "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch": "BE"
+      }
+    }
   },
   {
     "id": "bls-104f0f00c9bf",
@@ -324,7 +358,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-import-export-zoll/41a8f868-8be3-4bf4-9e4f-48732eeae6be",
-    "firstSeenAt": "2026-10-28T09:32:41.796Z"
+    "firstSeenAt": "2026-10-28T09:32:41.796Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-import-export-zoll-bls-ch": "BE"
+      },
+      "en": {
+        "sachbearbeiter-in-import-export-zoll-bls-ch": "BE"
+      },
+      "fr": {
+        "sachbearbeiter-in-import-export-zoll-bls-ch": "BE"
+      }
+    }
   },
   {
     "id": "bls-8c88839f65c1",
@@ -375,7 +421,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/assistent-in-leitungsteam-bahnproduktion/2b2b2181-52ee-48f3-91aa-2861e5881f91",
-    "firstSeenAt": "2026-11-12T22:00:10.983Z"
+    "firstSeenAt": "2026-11-12T22:00:10.983Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistent-in-leitungsteam-bahnproduktion-bls-ch": "BE"
+      },
+      "en": {
+        "assistent-in-leitungsteam-bahnproduktion-bls-ch": "BE"
+      },
+      "fr": {
+        "assistent-in-leitungsteam-bahnproduktion-bls-ch": "BE"
+      }
+    }
   },
   {
     "id": "bls-ea85b6472826",
@@ -428,7 +486,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/instandhaltungsmechaniker-in-schienenfahrzeuge/356f7c8a-2abe-48cd-886a-9824020de593",
-    "firstSeenAt": "2026-10-14T09:26:58.299Z"
+    "firstSeenAt": "2026-10-14T09:26:58.299Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ch": "BE",
+        "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen": "BE"
+      },
+      "en": {
+        "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen": "BE"
+      },
+      "fr": {
+        "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen": "BE"
+      }
+    }
   },
   {
     "id": "bls-1b61f88d2862",
@@ -559,19 +630,123 @@
     "previousSlugCantonByLocale": {
       "it": {
         "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch": "BE",
-        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-d9b18344": "BE"
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-d9b18344": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-85762aba": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-3631c271": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-4e810650": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5dbb3f9c": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-47b23b96": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-f420f02d": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-c7b477dd": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-8f669b8e": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-6b5464f6": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-20a72bcc": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-49c142d0": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-0d2eb610": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-93625836": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-f768c95f": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-9640ffdb": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-7060fba8": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-850656b6": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-4a753743": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch": "BE",
+        "responsabile-di-progetto-rohbau-lotschberg-basistunnel-bls-ag-bern": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5dccd5a6": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-75b68f77": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-43301898": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-96c51850": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-c21548f7": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5daf11df": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-9a69d454": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-4c386dc1": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-193e0610": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-74e2bd58": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-19850223": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5781c73e": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-e3bd9f80": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-524f18ae": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-021b9fb3": "BE"
       },
       "en": {
         "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch": "BE",
-        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-d9b18344": "BE"
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-d9b18344": "BE",
+        "project-manager-rohbau-lotschberg-basistunnel-bls-ag-bern": "BE",
+        "project-manager-structural-works-lotschberg-base-tunnel-bls-ag-bern": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5dccd5a6": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-75b68f77": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-43301898": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-96c51850": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-c21548f7": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5daf11df": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-9a69d454": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-4c386dc1": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-193e0610": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-74e2bd58": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-19850223": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5781c73e": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-e3bd9f80": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-524f18ae": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-021b9fb3": "BE"
       },
       "de": {
         "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch": "BE",
-        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-d9b18344": "BE"
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-d9b18344": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-85762aba": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-3631c271": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-4e810650": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5dbb3f9c": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-47b23b96": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-f420f02d": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-c7b477dd": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-8f669b8e": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-6b5464f6": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-20a72bcc": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-49c142d0": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-0d2eb610": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-93625836": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-f768c95f": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-9640ffdb": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-7060fba8": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-850656b6": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-4a753743": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-92987060": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5dccd5a6": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-75b68f77": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-43301898": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-96c51850": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-c21548f7": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5daf11df": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-9a69d454": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-4c386dc1": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-193e0610": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-74e2bd58": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-19850223": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5781c73e": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-e3bd9f80": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-524f18ae": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-021b9fb3": "BE"
       },
       "fr": {
         "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch": "BE",
-        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-d9b18344": "BE"
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-d9b18344": "BE",
+        "chef-fe-de-projet-en-gros-uvre-tunnel-de-base-du-lotschberg-bls-ag-bern-4d35e425": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5dccd5a6": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-75b68f77": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-43301898": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-96c51850": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-c21548f7": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5daf11df": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-9a69d454": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-4c386dc1": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-193e0610": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-74e2bd58": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-19850223": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-5781c73e": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-e3bd9f80": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-524f18ae": "BE",
+        "bauingenieur-in-projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch-021b9fb3": "BE"
       }
     },
     "postalCode": "3004",
@@ -652,7 +827,16 @@
         "firstSeenAt": "2026-09-26T23:40:04.771Z",
         "title": "Leiter:in SAP Technologie"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-sap-technologie-bls-ch": "BE"
+      },
+      "en": {
+        "leiter-in-sap-technologie-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "specialista-nella-conservazione-delle-opere-bls-ag-bern",
@@ -704,7 +888,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/fachspezialist-in-bauwerkserhaltung/1c50cc6b-c798-4996-aa9c-82a891074256",
-    "firstSeenAt": "2026-10-20T09:24:48.338Z"
+    "firstSeenAt": "2026-10-20T09:24:48.338Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-bauwerkserhaltung-bls-ch": "BE",
+        "fachspezialist-in-bauwerkserhaltung-bls-ag-bern": "BE"
+      },
+      "en": {
+        "fachspezialist-in-bauwerkserhaltung-bls-ag-bern": "BE"
+      },
+      "fr": {
+        "fachspezialist-in-bauwerkserhaltung-bls-ag-bern": "BE"
+      }
+    }
   },
   {
     "slug": "ingresso-nel-settore-della-costruzione-di-binari-bls-ag-bern",
@@ -754,7 +951,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/quereinstieg-gleisbau/0924473c-1664-47c6-8ad2-d03fc5103eda",
-    "firstSeenAt": "2026-10-23T21:21:03.878Z"
+    "firstSeenAt": "2026-10-23T21:21:03.878Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "quereinstieg-gleisbau-bls-ch": "BE"
+      },
+      "en": {
+        "quereinstieg-gleisbau-bls-ch": "BE"
+      },
+      "fr": {
+        "quereinstieg-gleisbau-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-rohbau-lotschberg-basistunnel-bls-ag-bern-92612bcb",
@@ -850,6 +1059,9 @@
       ],
       "fr": [
         "diagnostiker-in-bls-ch"
+      ],
+      "de": [
+        "diagnostiker-in-bls-ch"
       ]
     },
     "postalCode": "3700",
@@ -871,7 +1083,23 @@
         "firstSeenAt": "2026-09-26T23:39:56.296Z",
         "title": "Diagnostiker:in"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "diagnostico-bls-ag-spiez": "BE",
+        "diagnostiker-in-bls-ch": "BE"
+      },
+      "en": {
+        "diagnostiker-in-bls-ch": "BE"
+      },
+      "de": {
+        "diagnostiker-in-bls-ch": "BE"
+      },
+      "fr": {
+        "diagnostiker-in-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "tesoriere-della-prigione-per-il-trasporto-di-auto-bls-ag-bern",
@@ -921,7 +1149,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/kassier-in-autoverlad-brig/ba8922b5-3cfa-4b27-88e9-d9ec3d5a7e9c",
-    "firstSeenAt": "2026-10-05T21:26:39.126Z"
+    "firstSeenAt": "2026-10-05T21:26:39.126Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kassier-in-autoverlad-brig-bls-ch": "BE"
+      },
+      "en": {
+        "kassier-in-autoverlad-brig-bls-ch": "BE"
+      },
+      "fr": {
+        "kassier-in-autoverlad-brig-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "tesoriere-trasporto-auto-kandersteg-bls-ag-kandersteg",
@@ -971,7 +1211,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/kassier-in-autoverlad-kandersteg/d3a42dab-cdfc-4d30-8463-c79c98d2a6fd",
-    "firstSeenAt": "2026-10-05T21:26:33.663Z"
+    "firstSeenAt": "2026-10-05T21:26:33.663Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kassier-in-autoverlad-kandersteg-bls-ch": "BE"
+      },
+      "en": {
+        "kassier-in-autoverlad-kandersteg-bls-ch": "BE"
+      },
+      "fr": {
+        "kassier-in-autoverlad-kandersteg-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "fachperson-reinigung-e-unterhalt-bls-ag-hasle-bei-burgdorf",
@@ -1021,7 +1273,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/fachperson-reinigung-und-unterhalt/eb773d02-256e-42d4-9642-bf3001f4fd68",
-    "firstSeenAt": "2026-06-02T22:46:30.891Z"
+    "firstSeenAt": "2026-06-02T22:46:30.891Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachperson-reinigung-und-unterhalt-bls-ch": "BE"
+      },
+      "en": {
+        "fachperson-reinigung-und-unterhalt-bls-ch": "BE"
+      },
+      "fr": {
+        "fachperson-reinigung-und-unterhalt-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "dispatcher-della-centrale-operativa-di-spiez-bls-ag-spiez",
@@ -1065,7 +1329,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/dispatcher-in-betriebszentrale-spiez/63dd0fa6-5c46-4de4-b299-ddee2591397f",
-    "firstSeenAt": "2026-10-01T21:20:32.611Z"
+    "firstSeenAt": "2026-10-01T21:20:32.611Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dispatcher-in-betriebszentrale-spiez-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "giurista-in-diritto-edilizio-pianificazione-territoriale-e-diritto-ambientale-bls-ag-bern-f147975f",
@@ -1186,7 +1456,20 @@
         "firstSeenAt": "2026-09-26T23:39:55.517Z",
         "title": "Mechaniker:in Schienenfahrzeuge"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mechaniker-in-schienenfahrzeuge-bls-ch": "BE",
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen": "BE"
+      },
+      "en": {
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen": "BE"
+      },
+      "fr": {
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen": "BE"
+      }
+    }
   },
   {
     "slug": "specialista-in-sicurezza-e-analisi-bls-ag-spiez",
@@ -1230,7 +1513,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/spezialist-in-sicherheit-analyse/2884ec9e-56aa-41b7-9f04-f5b60e213a6c",
-    "firstSeenAt": "2026-10-06T21:20:11.191Z"
+    "firstSeenAt": "2026-10-06T21:20:11.191Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-sicherheit-amp-analyse-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-ertms-bls-ag-bern",
@@ -1280,7 +1569,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/projektleiter-in-ertms/e61457cc-5fda-4e97-b0bb-f7d2ec976b4e",
-    "firstSeenAt": "2026-10-12T09:22:52.161Z"
+    "firstSeenAt": "2026-10-12T09:22:52.161Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-ertms-bls-ch": "BE"
+      },
+      "en": {
+        "projektleiter-in-ertms-bls-ch": "BE"
+      },
+      "fr": {
+        "projektleiter-in-ertms-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "disponent-in-leitstelle-bls-ag-bern",
@@ -1348,7 +1649,19 @@
         "firstSeenAt": "2026-09-29T21:17:02.147Z",
         "title": "Disponent:in Leitstelle"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "disponent-in-leitstelle-bls-ch": "BE"
+      },
+      "en": {
+        "disponent-in-leitstelle-bls-ch": "BE"
+      },
+      "fr": {
+        "disponent-in-leitstelle-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "fachverantwortliche-r-iam-bls-ag-bern",
@@ -1414,7 +1727,19 @@
         "firstSeenAt": "2026-09-26T23:39:57.826Z",
         "title": "Fachverantwortliche:r IAM"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachverantwortliche-r-iam-bls-ch": "BE"
+      },
+      "en": {
+        "fachverantwortliche-r-iam-bls-ag-bern": "BE"
+      },
+      "fr": {
+        "fachverantwortliche-r-iam-bls-ag-bern": "BE"
+      }
+    }
   },
   {
     "slug": "direttore-trice-dei-lavori-in-tecnica-ferroviaria-bls-ag-bern-100a4c64",
@@ -1613,7 +1938,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/quereinsteiger-in-disposition/656314b5-9379-4d8c-bd29-4e70e1e0113b",
-    "firstSeenAt": "2026-10-12T21:21:29.685Z"
+    "firstSeenAt": "2026-10-12T21:21:29.685Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "quereinsteiger-in-disposition-bls-ch": "BE"
+      },
+      "en": {
+        "quereinsteiger-in-disposition-bls-ch": "BE"
+      },
+      "fr": {
+        "quereinsteiger-in-disposition-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "maestro-del-carro-tkc-muttenz-bls-ag-muttenz",
@@ -1660,7 +1997,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/wagenmeister-in-tkc-muttenz/82af7fe7-c1a5-4cef-9ab8-5aa8f4c777e3",
-    "firstSeenAt": "2026-09-28T05:03:00.022Z"
+    "firstSeenAt": "2026-09-28T05:03:00.022Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "wagenmeister-in-tkc-muttenz-bls-ch": "BL"
+      },
+      "en": {
+        "wagenmeister-in-tkc-muttenz-bls-ch": "BL"
+      }
+    }
   },
   {
     "slug": "test-drive-esperti-bls-ag-spiez",
@@ -1710,7 +2056,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/expert-in-testfahrten/ba933d5a-1e6d-4f5b-af6f-3d82e5d3199b",
-    "firstSeenAt": "2026-09-28T21:20:01.610Z"
+    "firstSeenAt": "2026-09-28T21:20:01.610Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "expert-in-testfahrten-bls-ch": "BE"
+      },
+      "en": {
+        "expert-in-testfahrten-bls-ch": "BE"
+      },
+      "fr": {
+        "expert-in-testfahrten-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "specialista-in-business-development-bls-ag-bern",
@@ -1757,7 +2115,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/spezialist-in-business-development/50e618a8-0acd-4607-aa99-18765eb2e4ab",
-    "firstSeenAt": "2026-10-08T09:19:06.130Z"
+    "firstSeenAt": "2026-10-08T09:19:06.130Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialist-in-business-development-bls-ch": "BE"
+      },
+      "en": {
+        "spezialist-in-business-development-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-sap-technologie-bls-ag-bern-14c5a880",
@@ -2135,7 +2502,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/pruefungsexpert-in-lokpersonal/0fc2069f-6477-44ad-bb7b-bde8f3e8ec83",
-    "firstSeenAt": "2026-09-29T21:17:03.518Z"
+    "firstSeenAt": "2026-09-29T21:17:03.518Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "prufungsexpert-in-lokpersonal-bls-ch": "BE"
+      },
+      "en": {
+        "prufungsexpert-in-lokpersonal-bls-ch": "BE"
+      },
+      "fr": {
+        "prufungsexpert-in-lokpersonal-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-produktmanagement-vertrieb-bls-ag-bern",
@@ -2179,7 +2558,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/leiter-in-produktmanagement-vertrieb/44ebf6c5-6272-4b61-a700-179715d9cb19",
-    "firstSeenAt": "2026-09-26T23:39:58.508Z"
+    "firstSeenAt": "2026-09-26T23:39:58.508Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-produktmanagement-amp-vertrieb-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "devops-ingegnere-bls-ag-bern",
@@ -2226,7 +2611,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/devops-engineer/9f444a72-ac31-48e8-af8c-3dcbaf4edc95",
-    "firstSeenAt": "2026-09-08T13:58:28.744Z"
+    "firstSeenAt": "2026-09-08T13:58:28.744Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "devops-engineer-bls-ch": "BE"
+      },
+      "fr": {
+        "devops-engineer-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "meccanico-per-veicoli-ferroviari-bls-ag-bonigen",
@@ -2346,18 +2740,21 @@
       "mechaniker-in-schienenfahrzeuge-bls-ch-7828923d",
       "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-ba3712fc",
       "rail-vehicle-mechanic-bls-ag-bonigen-e35872db",
-      "rail-vehicle-mechanic-bls-ag-bonigen",
       "mechaniker-in-schienenfahrzeuge-bls-ch-ab916d42",
       "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-13e11982",
       "rail-vehicle-mechanic-bls-ag-bonigen-9f04abc5",
-      "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
       "mechaniker-in-schienenfahrzeuge-bls-ch-a6df96bc",
       "mechaniker-in-schienenfahrzeuge-bls-ch-0ff91cff",
       "mechaniker-in-schienenfahrzeuge-bls-ch-292edbcd",
       "mechaniker-in-schienenfahrzeuge-bls-ch-d31b258c",
       "mechaniker-in-schienenfahrzeuge-bls-ch-788a5256",
       "mechaniker-in-schienenfahrzeuge-bls-ch-d4bb7507",
-      "mechaniker-in-schienenfahrzeuge-bls-ch"
+      "rail-vehicle-mechanic-bls-ag-bonigen",
+      "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
+      "mechaniker-in-schienenfahrzeuge-bls-ch",
+      "mechaniker-in-schienenfahrzeuge-bls-ch-a2d7287a",
+      "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-cf3353bc",
+      "rail-vehicle-mechanic-bls-ag-bonigen-f4aa2ac9"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2453,7 +2850,9 @@
         "mechaniker-in-schienenfahrzeuge-bls-ch-292edbcd",
         "mechaniker-in-schienenfahrzeuge-bls-ch-d31b258c",
         "mechaniker-in-schienenfahrzeuge-bls-ch-788a5256",
-        "mechaniker-in-schienenfahrzeuge-bls-ch-d4bb7507"
+        "mechaniker-in-schienenfahrzeuge-bls-ch-d4bb7507",
+        "mechaniker-in-schienenfahrzeuge-bls-ch-a2d7287a",
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-cf3353bc"
       ],
       "en": [
         "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-705aae7c",
@@ -2506,7 +2905,9 @@
         "rail-vehicle-mechanic-bls-ag-bonigen-e35872db",
         "mechaniker-in-schienenfahrzeuge-bls-ch",
         "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-13e11982",
-        "rail-vehicle-mechanic-bls-ag-bonigen-9f04abc5"
+        "rail-vehicle-mechanic-bls-ag-bonigen-9f04abc5",
+        "rail-vehicle-mechanic-bls-ag-bonigen-f4aa2ac9",
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-cf3353bc"
       ],
       "fr": [
         "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-705aae7c",
@@ -2553,7 +2954,8 @@
         "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-ba3712fc",
         "mechaniker-in-schienenfahrzeuge-bls-ch",
         "rail-vehicle-mechanic-bls-ag-bonigen",
-        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-13e11982"
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-13e11982",
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-cf3353bc"
       ],
       "de": [
         "mechaniker-in-schienenfahrzeuge-bls-ch-1ab5850f",
@@ -2565,7 +2967,8 @@
         "mechaniker-in-schienenfahrzeuge-bls-ch-d621ffdf",
         "mechaniker-in-schienenfahrzeuge-bls-ch-a2dda620",
         "mechaniker-in-schienenfahrzeuge-bls-ch-6a577912",
-        "mechaniker-in-schienenfahrzeuge-bls-ch-8ec86ae8"
+        "mechaniker-in-schienenfahrzeuge-bls-ch-8ec86ae8",
+        "mechaniker-in-schienenfahrzeuge-bls-ch-a2d7287a"
       ]
     },
     "postalCode": "3806",
@@ -2587,7 +2990,24 @@
         "firstSeenAt": "2026-09-26T23:39:55.517Z",
         "title": "Mechaniker:in Schienenfahrzeuge"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mechaniker-in-schienenfahrzeuge-bls-ch-a2d7287a": "BE",
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-cf3353bc": "BE"
+      },
+      "en": {
+        "rail-vehicle-mechanic-bls-ag-bonigen-f4aa2ac9": "BE",
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-cf3353bc": "BE"
+      },
+      "de": {
+        "mechaniker-in-schienenfahrzeuge-bls-ch-a2d7287a": "BE"
+      },
+      "fr": {
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen-cf3353bc": "BE"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-montage-bls-ag-bonigen",
@@ -2641,7 +3061,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/mitarbeiter-in-montage/9cec9d21-68ad-4fb0-abb8-f629847a6d4a",
-    "firstSeenAt": "2026-08-25T10:09:00.521Z"
+    "firstSeenAt": "2026-08-25T10:09:00.521Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-montage-bls-ch": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-montage-bls-ag-bonigen": "BE"
+      },
+      "de": {
+        "mitarbeiter-in-montage-bls-ag-bonigen": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-montage-bls-ag-bonigen": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-del-progetto-in-oberbauleitung-lotschberg-bls-ag-bern",
@@ -2691,7 +3126,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/teilprojektleiter-in-oberbauleitung-loetschberg-basistunnel/2fd274d2-f0cf-435e-b83a-4c30bf6664cf",
-    "firstSeenAt": "2026-09-06T23:07:20.350Z"
+    "firstSeenAt": "2026-09-06T23:07:20.350Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teilprojektleiter-in-oberbauleitung-lotschberg-basistunnel-bls-ch": "BE"
+      },
+      "en": {
+        "teilprojektleiter-in-oberbauleitung-lotschberg-basistunnel-bls-ch": "BE"
+      },
+      "fr": {
+        "teilprojektleiter-in-oberbauleitung-lotschberg-basistunnel-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "lavoratori-navigatori-interlaken-bls-ag-interlaken",
@@ -2746,7 +3193,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-interlaken/149bbf4e-e1e4-437b-b72f-fbcc4472d71b",
-    "firstSeenAt": "2026-08-14T10:21:39.320Z"
+    "firstSeenAt": "2026-08-14T10:21:39.320Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "metallbauer-in-nautiker-in-interlaken-bls-ch": "BE",
+        "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken": "BE"
+      },
+      "en": {
+        "metallbauer-in-nautiker-in-interlaken-bls-ch": "BE",
+        "metalworkers-in-navigator-in-interlaken-bls-ag-interlaken": "BE"
+      },
+      "fr": {
+        "metallbauer-in-nautiker-in-interlaken-bls-ch": "BE",
+        "metaux-in-navigateur-in-interlaken-bls-ag-interlaken": "BE"
+      }
+    }
   },
   {
     "slug": "metalworker-in-navigatore-in-thun-bls-ag-bern",
@@ -3187,7 +3649,22 @@
         "firstSeenAt": "2026-11-03T09:25:47.994Z",
         "title": "Metallbauer:in / Nautiker:in Thun"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "metallbauer-in-nautiker-in-thun-bls-ch": "BE"
+      },
+      "en": {
+        "metallbauer-in-nautiker-in-thun-bls-ch": "BE"
+      },
+      "de": {
+        "metallbauer-in-nautiker-in-thun-bls-ch": "BE"
+      },
+      "fr": {
+        "metallbauer-in-nautiker-in-thun-bls-ch": "BE"
+      }
+    }
   },
   {
     "slug": "meccanica-bls-ag-bonigen",
@@ -3285,7 +3762,37 @@
         "firstSeenAt": "2026-08-25T10:08:57.564Z",
         "title": "Polymechaniker:in"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "polymechaniker-in-bls-ch": "BE",
+        "fachperson-fahrmotoren-bls-ch": "BE",
+        "polymechaniker-in-bls-ag-bonigen": "BE",
+        "polimeccanico-in-bls-ag-bonigen": "BE",
+        "meccanica-specialistica-bls-ag-bonigen": "BE",
+        "specialist-mechanics-bls-ag-bonigen": "BE",
+        "fachperson-mechanik-bls-ch": "BE",
+        "mecanique-specialisee-bls-ag-bonigen": "BE",
+        "fachperson-mechanik-bls-ag-bonigen": "BE"
+      },
+      "en": {
+        "fachperson-fahrmotoren-bls-ch": "BE",
+        "polymechaniker-in-bls-ag-bonigen": "BE",
+        "polymechanic-in-bls-ag-bonigen": "BE",
+        "specialist-mechanics-bls-ag-bonigen": "BE"
+      },
+      "de": {
+        "fachperson-fahrmotoren-bls-ag-bonigen": "BE",
+        "fachperson-fahrmotoren-bls-ch": "BE",
+        "fachperson-mechanik-bls-ch": "BE"
+      },
+      "fr": {
+        "fachperson-fahrmotoren-bls-ch": "BE",
+        "polymechaniker-in-bls-ag-bonigen": "BE",
+        "mecanique-specialisee-bls-ag-bonigen": "BE"
+      }
+    }
   },
   {
     "slug": "fitter-di-linea-di-contatto-o-artigiano-r-bls-ag-bern",
@@ -3357,7 +3864,26 @@
         "firstSeenAt": "2026-08-25T20:15:43.770Z",
         "title": "Fahrleitungsmonteur:in"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fahrleitungsmonteur-in-bls-ch": "BE",
+        "fahrleitungsmonteur-in-oder-handwerkliche-r-quereinsteiger-in-bls-ch": "BE",
+        "fahrleitungsmonteur-in-bls-ag-bern": "BE",
+        "fahrleitungsmonteur-in-o-handwerkliche-r-candidato-a-in-riqualificazione-bls-ag-bern": "BE"
+      },
+      "en": {
+        "fahrleitungsmonteur-in-bls-ag-bern": "BE"
+      },
+      "de": {
+        "fahrleitungsmonteur-in-bls-ch": "BE",
+        "fahrleitungsmonteur-in-bls-ag-bern": "BE"
+      },
+      "fr": {
+        "fahrleitungsmonteur-in-bls-ag-bern": "BE"
+      }
+    }
   },
   {
     "slug": "servizio-tecnico-ventilazione-e-climatizzazione-bls-ag-bern",
@@ -6119,6 +6645,58 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/zugverkehrsleiter-in-zweitausbildung/7c8772d1-6e5a-461c-9237-4b5df9b677a4",
     "firstSeenAt": "2026-06-02T22:46:40.769Z"
+  },
+  {
+    "slug": "costruzione-in-costruzione-ferroviaria-bls-ag-bern",
+    "title": "Bauführer:in Bahnbau",
+    "titleByLocale": {
+      "it": "Costruzione: in costruzione ferroviaria",
+      "en": "Construction: in railway construction",
+      "de": "Bauführer:in Bahnbau",
+      "fr": "Construction: dans la construction ferroviaire"
+    },
+    "company": "BLS AG",
+    "companyKey": "bls",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Quando gli ultimi treni attraversano l'Oberland Bernese di notte, il tuo lavoro inizia spesso a destra. Con la panoramica, il senso tecnico e un team forte, realizza progetti di costruzione complessi e rinnova la strada dove migliaia di persone viaggiano quotidianamente. Il BLS rimane affidabile in pista – oggi e domani. Questo ti aspetta:\n• Conduce progetti di costruzione complessi con un focus sulla strada e nella pianificazione dell'esecuzione con\n• Coordinare la tecnologia ferroviaria con aree specializzate\n• Prendere la responsabilità di costi, qualità e date nella costruzione ferroviaria\n• Pianificare personale, macchine ed intervalli prevedibilmente ed efficientemente\n• Formare attivamente la sicurezza nei cantieri ed implementare costantemente gli standard\n• Continuare la formazione come progettista: in, tecnico: in HF o qualifica equivalente\n• Utilizzare conoscenze di base in strada, automazione o energia in modo mirato\n• Coordinamento di diversi stakeholder con aspetto chiaro\n• Stile di comunicazione in tedesco – orale e scritto GA\n• Con la guida di categoria B passa, essere flessibile Classe o mezzo-taxabo.\n• Lavora dove ti sta meglio. Sia in ufficio o in ufficio. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n• È possibile acquistare cinque o dieci giorni di vacanza all'anno inoltre\n• Supporto finanziario per la formazione esterna e un'emozionante offerta di apprendimento interno e corso sono a vostra disposizione.\n• Con eventi stagionali e corsi sosteniamo la vostra salute. BEL Con quasi 4000 dipendenti, BLS è la seconda compagnia ferroviaria più grande della Svizzera. Di più: Siamo anche una compagnia di navigazione, una società immobiliare, un treno merci internazionale, una compagnia di autobus e auto di trasporto in modo sicuro attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+      "en": "When the last trains roll through the Bernese Oberland at night, your work often starts right. With overview, technical sense and a strong team, you realize complex construction projects and renew the road where thousands of people are traveling daily. The BLS remains reliable in the track – today and tomorrow. This is waiting for you:\n• Conducts complex construction projects with a focus on the road and in the planning of the execution with\n• To coordinate railway technology together with specialist areas\n• Take responsibility for costs, quality and dates in railway construction\n• Planning personnel, machines and intervals predictively and efficiently\n• actively shape safety at construction sites and consistently implement standards\n• Continuing training as a designer:in, technician:in HF or equivalent qualification\n• Use basic knowledge in roadway, automation or energy in a targeted manner\n• Coordination of different stakeholders with clear appearance\n• Communicating style in German – oral and written\n• With Category B guide pass, be flexible along the BLS trails your advantages – you can look forward to this:\n• Get a GA 2nd class, a GA 1. Class or half-taxabo.\n• Work where it suits you best. Whether in the home office or in the office. We promote part-time work, top and job sharing\n• It is possible to buy five to ten holiday days a year in addition\n• Financial support for external training and an exciting internal learning and course offer are available to you.\n• With seasonal events and courses we support your health. BLS With nearly 4000 employees, BLS is the second largest railway company in Switzerland. More: We are also a shipping company, a real estate company, an international freight train, a bus company and transport cars safely through the Lötschberg and the Simplon. What links us? The pride of what we do every day. Mobility has many facets for us. And many exciting jobs.",
+      "de": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen. Das wartet auf dich:\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen Das bringst du mit:\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein Deine Vorteile – darauf kannst du dich freuen:\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit. Über die BLS Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "fr": "Lorsque les derniers trains traversent l'Oberland bernois la nuit, votre travail commence souvent bien. Avec un aperçu, un sens technique et une équipe forte, vous réalisez des projets de construction complexes et renouvellez la route où des milliers de personnes voyagent quotidiennement. Le BLS reste fiable sur la piste – aujourd'hui et demain. Ceci vous attend:\n• Dirige des projets de construction complexes avec un accent sur la route et dans la planification de l'exécution avec\n• Coordonner la technologie ferroviaire avec les domaines spécialisés\n• Prendre en charge les coûts, la qualité et les dates dans la construction ferroviaire\n• Planifier le personnel, les machines et les intervalles de façon prédictive et efficace\n• façonner activement la sécurité sur les chantiers de construction et mettre en œuvre les normes de manière cohérente\n• Formation continue en tant que concepteur:en, technicien:en HF ou qualification équivalente\n• Utiliser les connaissances de base en matière de route, d'automatisation ou d'énergie de manière ciblée\n• Coordination des différents acteurs avec une apparence claire\n• Communiquer le style en allemand – oral et écrit\n• Avec le passe guide de catégorie B, être flexible le long du BLS trace vos avantages – vous pouvez attendre avec impatience:\n• Obtenez un GA 2e classe, un GA 1. Classe ou demi-taxabo.\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau. Nous favorisons le travail à temps partiel, le top et le partage de l'emploi\n• Il est possible d'acheter cinq à dix jours de vacances par an en plus\n• Un soutien financier pour la formation externe et une passionnante offre d'apprentissage interne et de cours sont à votre disposition.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé. BLS Avec près de 4000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En savoir plus: Nous sommes également une compagnie maritime, une société immobilière, un train de marchandises international, une compagnie de bus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+    },
+    "slugByLocale": {
+      "it": "costruzione-in-costruzione-ferroviaria-bls-ag-bern",
+      "en": "construction-in-railway-construction-bls-ag-bern",
+      "de": "baufuhrer-in-bahnbau-bls-ch",
+      "fr": "construction-dans-la-construction-ferroviaire-bls-ag-bern"
+    },
+    "sector": "Trasporti / Ferrovia",
+    "expiredAt": "2026-06-26T09:58:24.284Z",
+    "previousSlugs": [
+      "baufuhrer-in-bahnbau-bls-ch",
+      "costruzione-in-ingegneria-ferroviaria-bls-ag-bern",
+      "construction-in-railway-engineering-bls-ag-bern",
+      "baufuhrer-in-bahntechnik-bls-ch",
+      "construction-en-genie-ferroviaire-bls-ag-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "baufuhrer-in-bahnbau-bls-ch"
+      ],
+      "en": [
+        "baufuhrer-in-bahnbau-bls-ch"
+      ],
+      "fr": [
+        "baufuhrer-in-bahnbau-bls-ch"
+      ]
+    },
+    "postalCode": "3001",
+    "streetAddress": "Freiburgstrasse 130",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "costruzione-in-costruzione-ferroviaria-bls-ag-bern-1db5d8fd",
