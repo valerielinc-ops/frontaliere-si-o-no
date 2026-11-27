@@ -174,7 +174,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/verkaufsleiter-automobil-m-w-d-100",
-    "firstSeenAt": "2026-11-13T21:49:36.491Z"
+    "firstSeenAt": "2026-11-13T21:49:36.491Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch": "BE"
+      },
+      "en": {
+        "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch": "BE"
+      },
+      "fr": {
+        "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch": "BE"
+      }
+    }
   },
   {
     "id": "asanti-ch-f67ef830c989",
@@ -211,7 +223,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/controllerin-80-100",
-    "firstSeenAt": "2026-11-16T21:36:33.999Z"
+    "firstSeenAt": "2026-11-16T21:36:33.999Z",
+    "canton": "ZH"
   },
   {
     "id": "asanti-ch-8e673da7466f",
@@ -266,7 +279,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/immobilienbewirtschafterin-alle-80-100",
-    "firstSeenAt": "2026-11-20T21:52:03.522Z"
+    "firstSeenAt": "2026-11-20T21:52:03.522Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "immobilienbewirtschafter-in-80-100-alle-8000-zurich-und-umgebung-asanti-ch-ch": "ZH",
+        "immobilienbewirtschafter-in-80-100-alle-asanti-ag-zurich": "ZH",
+        "gestore-trice-immobiliare-80-100-tutti-e-asanti-ag-8000-zurich-und-umgebung": "ZH"
+      },
+      "en": {
+        "immobilienbewirtschafter-in-80-100-alle-8000-zurich-und-umgebung-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "immobilienbewirtschafter-in-80-100-alle-8000-zurich-und-umgebung-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "id": "asanti-ch-198079ffc4df",
@@ -314,7 +341,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/hr-generalistin-80-100-2",
-    "firstSeenAt": "2026-11-17T21:44:26.517Z"
+    "firstSeenAt": "2026-11-17T21:44:26.517Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-generalist-in-80-100-region-zurich-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "hr-generalist-in-80-100-region-zurich-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "id": "asanti-ch-6e3c4be8dffa",
@@ -439,7 +475,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/logistiker-efz-m-w-d-100-2",
-    "firstSeenAt": "2026-11-16T09:42:22.708Z"
+    "firstSeenAt": "2026-11-16T09:42:22.708Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "logistiker-efz-m-w-d-100-bulach-8180-asanti-ch-ch": "ZH"
+      },
+      "en": {
+        "logistiker-efz-m-w-d-100-bulach-8180-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "logistiker-efz-m-w-d-100-bulach-8180-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "service-spezialist-technischer-collaboratore-trice-automobil-100-asanti-ag-baden",
@@ -489,7 +537,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/service-spezialist-technischer-mitarbeiter-automobil-100",
-    "firstSeenAt": "2026-11-16T09:42:22.710Z"
+    "firstSeenAt": "2026-11-16T09:42:22.710Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch": "AG"
+      },
+      "en": {
+        "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch": "AG"
+      },
+      "fr": {
+        "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch": "AG"
+      }
+    }
   },
   {
     "slug": "contabile-80-100-asanti-ag-region-zurich",
@@ -545,7 +605,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/buchhalterin-80-100",
-    "firstSeenAt": "2026-11-15T00:56:01.845Z"
+    "firstSeenAt": "2026-11-15T00:56:01.845Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "buchhalter-in-80-100-region-zurich-asanti-ch-ch": "ZH",
+        "contabile-80-100-asanti-ag-zurich": "ZH"
+      },
+      "en": {
+        "buchhalter-in-80-100-region-zurich-asanti-ch-ch": "ZH",
+        "accountant-80-100-asanti-ag-zurich": "ZH"
+      },
+      "fr": {
+        "buchhalter-in-80-100-region-zurich-asanti-ch-ch": "ZH",
+        "comptable-80-100-asanti-ag-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "portiere-tecnico-100-m-f-d-asanti-ag-8302-kloten",
@@ -601,7 +676,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/technischer-hauswart-100-m-w-d",
-    "firstSeenAt": "2026-11-15T00:56:01.848Z"
+    "firstSeenAt": "2026-11-15T00:56:01.848Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch": "ZH",
+        "portiere-tecnico-100-m-f-d-asanti-ag-kloten": "ZH"
+      },
+      "en": {
+        "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch": "ZH",
+        "technical-housekeeper-100-m-f-d-asanti-ag-kloten": "ZH"
+      },
+      "fr": {
+        "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch": "ZH",
+        "menageuse-technique-100-h-f-d-asanti-ag-kloten": "ZH"
+      }
+    }
   },
   {
     "slug": "addetto-a-alla-gestione-della-logistica-m-f-d-100-asanti-ag-8110-bulach",
@@ -707,7 +797,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/leiterin-administration-mit-guten-italienischkenntnissen-100-2",
-    "firstSeenAt": "2026-11-14T16:43:21.250Z"
+    "firstSeenAt": "2026-11-14T16:43:21.250Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch": "ZH",
+        "leiter-in-administration-con-guten-italienischkenntnissen-100-asanti-ag-zurich": "ZH"
+      },
+      "en": {
+        "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch": "ZH",
+        "head-of-administration-with-good-knowledge-of-italian-100-asanti-ag-zurich": "ZH"
+      },
+      "fr": {
+        "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch": "ZH",
+        "responsable-de-l-administration-avec-de-bonnes-connaissances-en-italien-100-asanti-ag-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "impiegato-a-amministrativo-a-80-100-asanti-ag-region-zurich",
@@ -757,7 +862,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/sachbearbeiterin-administration-80-100",
-    "firstSeenAt": "2026-11-14T09:45:31.033Z"
+    "firstSeenAt": "2026-11-14T09:45:31.033Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-administration-80-100-region-zurich-asanti-ch-ch": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-in-administration-80-100-region-zurich-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-in-administration-80-100-region-zurich-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "assistente-di-direzione-80-100-asanti-ag-region-zurich",
@@ -807,7 +924,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/assistentin-geschaeftsleitung-80-100",
-    "firstSeenAt": "2026-11-13T09:35:33.087Z"
+    "firstSeenAt": "2026-11-13T09:35:33.087Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistent-in-geschaftsleitung-80-100-region-zurich-asanti-ch-ch": "ZH"
+      },
+      "en": {
+        "assistent-in-geschaftsleitung-80-100-region-zurich-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "assistent-in-geschaftsleitung-80-100-region-zurich-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "praticanti-pneumatici-pneumonteuer-temporaneamente-100-asanti-ag-zurich-aargau",
@@ -857,7 +986,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/reifenpraktiker-pneumonteuer-temporaer-100",
-    "firstSeenAt": "2026-11-12T22:01:48.359Z"
+    "firstSeenAt": "2026-11-12T22:01:48.359Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch": "ZH"
+      },
+      "en": {
+        "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "preventivo-per-amministratore-commerciale-e-crediti-80-tutti-prova-assumere-asanti-ag-8953-mittleres-limmattal-bezirk",
@@ -909,7 +1050,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/kaufm-sachbearbeiterin-offertwesen-debitoren-80-alle-try-hire",
-    "firstSeenAt": "2026-11-01T09:49:07.028Z"
+    "firstSeenAt": "2026-11-01T09:49:07.028Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kaufm-sachbearbeiter-in-offertwesen-amp-038-debitoren-80-alle-amp-8211-try-hire-8953": "AG",
+        "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden": "AG"
+      },
+      "en": {
+        "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden": "AG"
+      },
+      "fr": {
+        "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden": "AG"
+      }
+    }
   },
   {
     "slug": "progettista-elettrico-a-m-w-d-asanti-ag-schlieren",
@@ -959,7 +1113,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/elektroplaner-m-w-d",
-    "firstSeenAt": "2026-11-12T09:36:02.748Z"
+    "firstSeenAt": "2026-11-12T09:36:02.748Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektroplaner-m-w-d-8952-schlieren-asanti-ch-ch": "ZH"
+      },
+      "en": {
+        "elektroplaner-m-w-d-8952-schlieren-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "elektroplaner-m-w-d-8952-schlieren-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "carrosserielackierer-cfc-asanti-ag-zurich-aargau",
@@ -1009,7 +1175,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/autolackierer-carrosserielackierer-efz_",
-    "firstSeenAt": "2026-11-11T21:42:03.903Z"
+    "firstSeenAt": "2026-11-11T21:42:03.903Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch": "ZH"
+      },
+      "en": {
+        "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "technisch-versierte-r-kaufm-collaboratore-trice-80-100-alle-asanti-ag-zurich",
@@ -1059,7 +1237,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/technisch-versierter-kaufm-mitarbeiterin-80-100",
-    "firstSeenAt": "2026-11-10T09:36:16.836Z"
+    "firstSeenAt": "2026-11-10T09:36:16.836Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technisch-versierte-r-kaufm-mitarbeiter-in-80-100-alle-8000-zurich-und-umgebung-asanti-ch": "ZH"
+      },
+      "en": {
+        "technisch-versierte-r-kaufm-mitarbeiter-in-80-100-alle-8000-zurich-und-umgebung-asanti-ch": "ZH"
+      },
+      "fr": {
+        "technisch-versierte-r-kaufm-mitarbeiter-in-80-100-alle-8000-zurich-und-umgebung-asanti-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "addetto-a-ai-creditori-80-100-asanti-ag-region-zurich",
@@ -1109,7 +1299,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/sachbearbeiterin-kreditoren-80-100-2",
-    "firstSeenAt": "2026-11-09T21:43:34.206Z"
+    "firstSeenAt": "2026-11-09T21:43:34.206Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-kreditoren-80-100-region-zurich-asanti-ch-ch": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-in-kreditoren-80-100-region-zurich-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-in-kreditoren-80-100-region-zurich-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "referente-in-leasing-100-banca-asanti-ag-8000-region-zurich",
@@ -1159,7 +1361,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/sachbearbeiterin-leasing-100-bank",
-    "firstSeenAt": "2026-11-08T21:55:25.077Z"
+    "firstSeenAt": "2026-11-08T21:55:25.077Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch": "ZH"
+      },
+      "en": {
+        "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "impiegato-a-nella-contabilita-clienti-e-nella-gestione-delle-offerte-40-60-try-hire-asanti-ag-5400-bezirk-baden",
@@ -1211,7 +1425,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-tryhire",
-    "firstSeenAt": "2026-10-31T22:00:14.981Z"
+    "firstSeenAt": "2026-10-31T22:00:14.981Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-debitorenbuchhaltung-amp-038-offertwesen-40-60-try-amp-038-hire-5400": "AG",
+        "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden": "AG"
+      },
+      "en": {
+        "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden": "AG"
+      },
+      "fr": {
+        "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden": "AG"
+      }
+    }
   },
   {
     "slug": "autista-notturno-ce-m-f-100-asanti-ag-8157-bezirk-dielsdorf-zh",
@@ -1261,6 +1488,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://asanti.ch/job/nachtchauffeur-ce-m-w-100-3",
-    "firstSeenAt": "2026-10-31T22:00:14.984Z"
+    "firstSeenAt": "2026-10-31T22:00:14.984Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch": "ZH"
+      },
+      "en": {
+        "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch": "ZH"
+      },
+      "fr": {
+        "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch": "ZH"
+      }
+    }
   }
 ]
