@@ -263,6 +263,12 @@ async function checkAssistedApplicationAnswers(input) {
 // datacenter egress. Cloud Run IAM rejects unauthenticated callers before the
 // container starts; the workflow-side OIDC token remains a second factor in
 // the handler. No source headers supplied by the caller are forwarded upstream.
+// One instance, concurrency 4 (was 1): the Workday fallback (#20279) is called
+// by several crawler groups at once. The per-host limiter and the daily ledgers
+// live in this process's memory, so scaling out would multiply the existing
+// 300/h, 1 req/s per host and 400/day contract (#19723); concurrency keeps them
+// shared. The limiter checks are synchronous, so concurrent requests cannot
+// overshoot them.
 export const jobsSourceRelay = onRequest(
   {
     invoker: 'private',
@@ -271,7 +277,7 @@ export const jobsSourceRelay = onRequest(
     timeoutSeconds: 15,
     minInstances: 0,
     maxInstances: 1,
-    concurrency: 1,
+    concurrency: 4,
     cors: false,
   },
   handleJobsSourceRelay,

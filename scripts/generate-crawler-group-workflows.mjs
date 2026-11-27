@@ -332,7 +332,58 @@ export const SOURCE_RELAY_SERVICE_ACCOUNT = 'jobs-source-relay-ci@frontaliere-ti
 // pinned by SHA because this third-party action handles a credential.
 export const SOURCE_RELAY_AUTH_ACTION = 'google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed';
 export const SOURCE_RELAY_AUTH_STEP_ID = 'source_relay_auth';
-const SOURCE_RELAY_SLUG_SET = new Set(SOURCE_RELAY_CRAWLER_SLUGS);
+// Workday crawlers (#20279): Workday answers HTTP 429 to GitHub runner egress,
+// so these members may fall back to the same relay (a different egress, hence
+// compatible with the #19723 contract) once the direct tenant circuit opens
+// (scripts/lib/ats-clients/workday-client.mjs). Unlike the three sources above
+// the relay is an optional rescue here, not the only path: no
+// JOBS_SOURCE_RELAY_REQUIRED, so a failed auth step leaves the direct crawl
+// untouched. The list is the set of roster crawlers whose update script reaches
+// the Workday client through its imports; tests/crawler-source-relay-wif.test.ts
+// recomputes it and fails on drift.
+export const WORKDAY_RELAY_CRAWLER_SLUGS = Object.freeze([
+  'abbott',
+  'alcon',
+  'ardian',
+  'arxada',
+  'berner-montage',
+  'bossard',
+  'bracco',
+  'capri-holdings',
+  'csl-behring',
+  'eraneos',
+  'everest-re',
+  'ferring',
+  'fielmann',
+  'fnz',
+  'galderma',
+  'georg-fischer',
+  'huntsman',
+  'imerys',
+  'julius-baer',
+  'kone',
+  'ksb',
+  'lindt-spruengli',
+  'logitech',
+  'lombard-odier',
+  'lonza',
+  'medbase',
+  'medtronic',
+  'novartis',
+  'nvidia-zurich',
+  'otis',
+  'roche',
+  'siegfried',
+  'siemens-healthineers',
+  'stryker',
+  'sulzer',
+  'swiss-life',
+  'temenos',
+  'trafigura',
+  'vontobel',
+]);
+const WORKDAY_RELAY_SLUG_SET = new Set(WORKDAY_RELAY_CRAWLER_SLUGS);
+const SOURCE_RELAY_SLUG_SET = new Set([...SOURCE_RELAY_CRAWLER_SLUGS, ...WORKDAY_RELAY_CRAWLER_SLUGS]);
 
 function sourceRelayMembers(members) {
   return members.filter((crawler) => SOURCE_RELAY_SLUG_SET.has(crawler.slug));
@@ -366,11 +417,12 @@ export function sourceRelayAuthStep(relaySlugs) {
 }
 
 /** Env added only to a relay member's launch step (read by scripts/lib/source-relay-fetch.mjs). */
-export function sourceRelayStepEnv() {
+export function sourceRelayStepEnv(slug) {
   return {
     JOBS_SOURCE_RELAY_URL: SOURCE_RELAY_URL,
     JOBS_SOURCE_RELAY_ID_TOKEN: `\${{ steps.${SOURCE_RELAY_AUTH_STEP_ID}.outputs.id_token }}`,
-    JOBS_SOURCE_RELAY_REQUIRED: '1',
+    // Workday members treat the relay as an optional fallback (see above).
+    ...(WORKDAY_RELAY_SLUG_SET.has(slug) ? {} : { JOBS_SOURCE_RELAY_REQUIRED: '1' }),
   };
 }
 
@@ -2588,7 +2640,7 @@ function buildGroupWorkflowObject(
       // shell body — see buildCrawlerStepEnv().
       env: {
         ...buildCrawlerStepEnv(crawler, summaryFile),
-        ...(SOURCE_RELAY_SLUG_SET.has(crawler.slug) ? sourceRelayStepEnv() : {}),
+        ...(SOURCE_RELAY_SLUG_SET.has(crawler.slug) ? sourceRelayStepEnv(crawler.slug) : {}),
       },
       run: buildCrawlerLaunchShellBody(crawler, groupIndex, { compact: compactShell, tight: tightShell }),
     });
