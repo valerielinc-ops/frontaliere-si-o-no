@@ -31,12 +31,12 @@ const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const indexHtml = readFileSync(resolve(REPO_ROOT, 'index.html'), 'utf8');
 const detection = readFileSync(resolve(REPO_ROOT, 'services/adBlockDetection.ts'), 'utf8');
 
-/** The inline <script> in index.html that registers the AD_BLOCK_DATA_READY callback. */
+/** The inline <script> in index.html that registers the callback, not merely references its bridge marker. */
 function extractIndexHtmlBridge(): string {
   const m = indexHtml.match(
-    /<script>((?:(?!<\/script>)[\s\S])*__ftFcAdBlockBridge[\s\S]*?)<\/script>/,
+    /<script>((?:(?!<\/script>)[\s\S])*callbackQueue\.push\(\{'AD_BLOCK_DATA_READY'[\s\S]*?)<\/script>/,
   );
-  if (!m) throw new Error('index.html no longer contains the __ftFcAdBlockBridge script');
+  if (!m) throw new Error('index.html no longer registers AD_BLOCK_DATA_READY on callbackQueue');
   return m[1];
 }
 
