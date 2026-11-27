@@ -244,10 +244,8 @@
     "previousSlugs": [
       "qa-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
       "ingegnere-qa-test-automation-fincons-group-lugano",
-      "ingegnere-java-senior-fincons-group-lugano",
       "ingegnere-senior-del-controllo-qualita-e-dell-automazione-dei-test-fincons-group-lugano",
       "ingegnere-senior-fincons-group-lugano",
-      "ingegnere-senior-java-fincons-group-lugano",
       "ingenieur-qa-test-automation-fincons-group-lugano",
       "ingenieur-qa-test-automatisation-fincons-group-lugano",
       "test-ingegnere-microfocus-qc-fincons-group-lugano",
@@ -274,16 +272,16 @@
       "senior-test-engineer-fincons-group-full-time-3bdf28e2",
       "senior-test-ingenieur-fincons-group-lugano-638dcef9",
       "ingegnere-java-senior-fincons-group-lugano-3b0fcc53",
-      "ingegnere-senior-java-fincons-group-lugano-e8b271b3"
+      "ingegnere-senior-java-fincons-group-lugano-e8b271b3",
+      "ingegnere-java-senior-fincons-group-lugano",
+      "ingegnere-senior-java-fincons-group-lugano"
     ],
     "previousSlugsByLocale": {
       "it": [
         "qa-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
         "ingegnere-qa-test-automation-fincons-group-lugano",
-        "ingegnere-java-senior-fincons-group-lugano",
         "ingegnere-senior-del-controllo-qualita-e-dell-automazione-dei-test-fincons-group-lugano",
         "ingegnere-senior-fincons-group-lugano",
-        "ingegnere-senior-java-fincons-group-lugano",
         "ingenieur-qa-test-automation-fincons-group-lugano",
         "ingenieur-qa-test-automatisation-fincons-group-lugano",
         "test-ingegnere-microfocus-qc-fincons-group-lugano",
@@ -307,7 +305,9 @@
         "senior-test-engineer-fincons-group-lugano-ticino-switzerland-974dab76",
         "senior-test-engineer-fincons-group-full-time-3bdf28e2",
         "ingegnere-java-senior-fincons-group-lugano-3b0fcc53",
-        "ingegnere-senior-java-fincons-group-lugano-e8b271b3"
+        "ingegnere-senior-java-fincons-group-lugano-e8b271b3",
+        "ingegnere-java-senior-fincons-group-lugano",
+        "ingegnere-senior-java-fincons-group-lugano"
       ],
       "fr": [
         "test-ingenieur-microfocus-qc-fincons-group-lugano",
@@ -1256,30 +1256,37 @@
       "senior-frontend-engineer-react-fincons-group-full-time",
       "senior-frontend-engineer-react-fincons-group-lugano",
       "senior-frontend-ingegnere-react-fincons-group-lugano-8b52ed5e",
-      "senior-frontend-ingenieur-react-fincons-group-lugano-fbf119c6"
+      "senior-frontend-ingenieur-react-fincons-group-lugano-fbf119c6",
+      "senior-frontend-ingegnere-react-fincons-group-zurich",
+      "senior-frontend-ingenieur-react-fincons-group-zurich",
+      "senior-frontend-engineer-react-fincons-group-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
         "senior-frontend-engineer-react-fincons-group-full-time-c43fd8b3",
         "senior-frontend-engineer-react-fincons-group-lugano",
         "senior-frontend-engineer-react-fincons-group-full-time",
-        "senior-frontend-ingegnere-react-fincons-group-lugano-8b52ed5e"
+        "senior-frontend-ingegnere-react-fincons-group-lugano-8b52ed5e",
+        "senior-frontend-ingegnere-react-fincons-group-zurich"
       ],
       "de": [
         "senior-frontend-engineer-react-fincons-group-full-time-c43fd8b3",
         "senior-frontend-engineer-react-fincons-group-lugano",
         "senior-frontend-engineer-react-fincons-group-full-time",
-        "senior-frontend-ingenieur-react-fincons-group-lugano-fbf119c6"
+        "senior-frontend-ingenieur-react-fincons-group-lugano-fbf119c6",
+        "senior-frontend-ingenieur-react-fincons-group-zurich"
       ],
       "fr": [
         "senior-frontend-engineer-react-fincons-group-full-time-c43fd8b3",
         "senior-frontend-engineer-react-fincons-group-lugano",
         "senior-frontend-engineer-react-fincons-group-full-time",
-        "senior-frontend-ingenieur-react-fincons-group-lugano-fbf119c6"
+        "senior-frontend-ingenieur-react-fincons-group-lugano-fbf119c6",
+        "senior-frontend-ingenieur-react-fincons-group-zurich"
       ],
       "en": [
         "senior-frontend-engineer-react-fincons-group-full-time",
-        "senior-frontend-engineer-react-fincons-group-lugano"
+        "senior-frontend-engineer-react-fincons-group-lugano",
+        "senior-frontend-engineer-react-fincons-group-zurich"
       ]
     },
     "postalCode": "6900",
@@ -1310,16 +1317,20 @@
     "canton": "TI",
     "previousSlugCantonByLocale": {
       "it": {
-        "senior-frontend-engineer-react-fincons-group-full-time": "TI"
+        "senior-frontend-engineer-react-fincons-group-full-time": "TI",
+        "senior-frontend-ingegnere-react-fincons-group-zurich": "ZH"
       },
       "en": {
-        "senior-frontend-engineer-react-fincons-group-lugano": "TI"
+        "senior-frontend-engineer-react-fincons-group-lugano": "TI",
+        "senior-frontend-engineer-react-fincons-group-zurich": "ZH"
       },
       "de": {
-        "senior-frontend-engineer-react-fincons-group-full-time": "TI"
+        "senior-frontend-engineer-react-fincons-group-full-time": "TI",
+        "senior-frontend-ingenieur-react-fincons-group-zurich": "ZH"
       },
       "fr": {
-        "senior-frontend-engineer-react-fincons-group-full-time": "TI"
+        "senior-frontend-engineer-react-fincons-group-full-time": "TI",
+        "senior-frontend-ingenieur-react-fincons-group-zurich": "ZH"
       }
     }
   },
