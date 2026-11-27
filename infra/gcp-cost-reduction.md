@@ -2,6 +2,23 @@
 
 Project: `frontaliere-ticino`; function and bucket region: `europe-west6`.
 
+## Firebase Hosting
+
+The `frontaliere-ticino` Hosting site was serving an old SPA copy from `dist`
+for every URL. The measured copy had `last-modified: Fri, 20 Mar 2026` and was
+75,342 B; `firebasehosting.googleapis.com/network/sent_bytes_count` measured
+23.4 GB in 14 days, or about CHF 5/month over the free quota, most likely from
+crawlers. Production is on Cloudflare at `https://frontaliereticino.ch/`; the
+Firebase `authDomain` is needed only for Google Authentication's reserved
+`/__/auth/*` and `/__/firebase/*` paths. Because RE2 has no lookahead, the
+redirect regex explicitly excludes paths beginning with `/__`, so Hosting
+continues to serve both reserved namespaces. The exact regex was verified on a
+real Firebase Hosting preview channel; the local emulator does not execute
+regex redirects or reproduce `/__/` priority and is not reliable for this
+verification. `firebase.json` therefore publishes a tiny tracked redirect root,
+permanently redirects the other paths while preserving them, and removes the
+SPA rewrite so Hosting cannot serve a stale duplicate of production.
+
 ## Cloud Run and Firebase Storage monitoring
 
 `scripts/monitor-gcp-costs.mjs` reads rolling 24-hour Cloud Monitoring totals.
