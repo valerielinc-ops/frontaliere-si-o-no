@@ -25,6 +25,5 @@ Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `D
 | 2026-11-11 | Candidature assistite (supera #18080): nazionalità mancante dal CV (paese del liceo, più segnali); casellario ed esecuzioni senza risposta all'upload: «no»; concierge accettato dopo 12 h; annuncio ritirato dal datore → ritirata, archiviata, senza rimborso | istruzione diretta, 11-11 |
 | 2026-11-10 | Candidature assistite (esperienza e dichiarazioni legali): sì/no o scelta su esperienza/competenze li decide il motore (sì con citazione verificata del CV, altrimenti deduzione plausibile che massimizza la riuscita); mai sì a una certificazione/titolo formale assente dal CV (lì «no»). Casellario e registro esecuzioni/fallimenti chiesti all'upload (obbligatori) e usati per le domande del portale; ordini senza il fatto: resta al candidato | istruzione diretta, sessione 10-11 (SBB ifB89NW2) |
 | 2026-09-16 | Workflow agentici e lane articolo unificati su Codex Luna Max (`gpt-5.6-luna`, reasoning effort `max`); nessun fallback Claude nei workflow | issue-fix.yml, tests.yml, setup Codex lane |
-| 2026-08-24 | #6280 (candidatura assistita 0,99€, A/B 60/40): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
-| 2026-08-24 | #4854 (verticale aste targhe cantonali): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
-| 2026-09-05 | **Obiettivo `crawler-goal` RIATTIVATO** (#727 piano, #728 audit, corpus): rimesse in coda con `agent:fix-queued`; i numeri del 02-09 vanno rimisurati prima di lavorarci | istruzione diretta, sessione 05-09 |
+| 2026-06-24 | Moratorium SEO landing RIMOSSO; posizione GSC solo informativa | AGENTS.md → Static SEO Pages |
+| 2026-08-18 | Rotazione credenziali declinata (PAT e Gemini key restano) | sessione 18-08 |

@@ -37,17 +37,18 @@
 | 2026-09-23 → raffinata 2026-09-24 | `tsmg`: record con paese non-CH scartati, il crawler continua; paese assente o località CH non risolvibile: quarantena loggata solo se non può essere target né è già pubblicato, altrimenti failure; valori paese sconosciuti e snapshot degradati restano failure | istruzione diretta, sessioni 23-09 e 24-09 |
 | 2026-09-23 | Issue e fix in repository diversi: si crea o migra l'issue nel repository corretto, si collegano le schede e si chiude l'errata solo con evidenza. I workflow aprono le issue nel repository proprietario del problema | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | Tracker permanenti non si chiudono artificialmente per un obiettivo numerico; lo stato operativo va nel ledger `.agents/issue-orchestration-ledger-YYYYMMDD.md` | istruzione diretta, sessione 23-09 |
-| 2026-06-24 | Moratorium SEO landing RIMOSSO; posizione GSC solo informativa | AGENTS.md → Static SEO Pages |
 | 2026-08-12 | Re-permission consensi: NON si fa, per ora | #5681 (commento 12-08) |
 | 2026-08-13 | Avvisi di lavoro: cadenza a decadenza + soffitto 7 giorni; non spegnere in blocco | #5705 (commento 13-08 07:12) |
-| 2026-08-18 | Rotazione credenziali declinata (PAT e Gemini key restano) | sessione 18-08 |
 | 2026-08-20 | Eccezione delimitata: i gate sul corpus RIASSEMBLATO misurano il tasso, non la perfezione storica | AGENTS.md #1 |
 | 2026-08-24 | **Uso dei secret dal ciclo autonomo: AUTORIZZATO in modo permanente.** Non va più chiesto caso per caso. `blocked-secrets` non è un limite di capacità: è un verdetto da usare solo quando la variabile è davvero vuota, e allora è un difetto della mappa `RC_TO_ENV` | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | **«Sempre umano» RIMOSSA in blocco**: LPD, denaro, invii massivi, ritiro editoriale, espansione di scope, infrastruttura irreversibile non richiedono più un'approvazione prima di procedere. Resta il gate `## LGTM` del reviewer su ogni PR | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #6280 (candidatura assistita 0,99€, A/B 60/40): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #4854 (verticale aste targhe cantonali): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #5926 (CMP unificata ads+comunicazioni): **SÌ**, con vincolo esplicito: l'implementazione deve preservare la compatibilità della frase di consenso col parser publisher-blast (vedi issue → rischio di azzerare l'audience) e mantenere la prova di consenso per la CMP. Requisito tecnico, non approvazione preventiva | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #5928 (regole Firestore fase 3, consenso dietro callable con prova di possesso): **SÌ, e i futuri deploy di regole/indici Firebase su produzione sono autonomi da ora** — non solo per questa issue | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #5995 (repo weight): leve **1** (batch commit bot), **3** (cache derivate fuori git), **4** (file append-only partizionati per shard) autorizzate. Leve **2** (snapshot fuori git) e **5** (immagini→CDN, tentativo precedente ritirato) restano BACKLOG, non autorizzate: non aprire lavoro su quelle finché non arriva una decisione dedicata | istruzione diretta, sessione 24-08 |
 | 2026-08-25 | #5983 (text-html-ratio + max-bfs-depth migliorati): **NO, non stringere la baseline** (6912/26398 restano). Ogni gate SEO nice-to-have diventa advisory (issue #6462), senza stringere la soglia — driver **D9** | istruzione diretta, sessione 25-08, issue #6458 |
+| 2026-09-05 | **Obiettivo `crawler-goal` RIATTIVATO** (#727 piano, #728 audit, corpus): rimesse in coda con `agent:fix-queued`; i numeri del 02-09 vanno rimisurati prima di lavorarci | istruzione diretta, sessione 05-09 |
 
 | 2026-11-26 | Migrazione dei workflow Codex Luna a GPT-6 Luna, mantenendo max e i tier di review high esistenti | Istruzione diretta dopo benchmark Frontaliere |
-| 2026-11-27 | Candidature ferme su documenti/risposte: sollecito settimanale, a 30 giorni chiusura (`candidate_requirements_expired`) con email; rimborso solo v1/v2, mai v3/concierge; «invia senza» resta rimosso | istruzione diretta, sessione 27-11 |
+| 2026-11-27 | Candidature ferme su documenti/risposte: sollecito settimanale, a 30 giorni chiusura (`candidate_requirements_expired`) con email; rimborso solo v1/v2, mai v3/concierge | istruzione diretta 27-11 |
