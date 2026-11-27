@@ -1235,7 +1235,7 @@ describe('crawler generation state cleanup', () => {
 
     const shared = buildCrawlerSharedLauncherShellBody(2);
 
-    expect(body).toContain('export CRAWLER_LAUNCH_PARALLEL=4');
+    expect(body).toContain('CRAWLER_LAUNCH_PARALLEL=4');
     expect(shared).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-$CRAWLER_LAUNCH_PARALLEL}"`);
     expect(shared).toContain('worker_watchdog_max=330');
     expect(shared).toContain('[ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]');
@@ -1262,7 +1262,7 @@ describe('crawler generation state cleanup', () => {
       runStep: { env: {}, run: 'true' },
       postSteps: [],
     }, 15);
-    expect(group15Body).toContain('export CRAWLER_LAUNCH_PARALLEL=3');
+    expect(group15Body).toContain('CRAWLER_LAUNCH_PARALLEL=3');
     expect(group15Body).not.toContain('CRAWLER_LAUNCH_PARALLEL=4');
   });
 
@@ -1273,7 +1273,7 @@ describe('crawler generation state cleanup', () => {
       runStep: { env: {}, run: 'true' },
       postSteps: [],
     }, 24);
-    expect(group24Body).toContain('export CRAWLER_LAUNCH_PARALLEL=8');
+    expect(group24Body).toContain('CRAWLER_LAUNCH_PARALLEL=8');
 
     const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
     const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
@@ -2126,7 +2126,10 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
       expect(text.match(/timeout --signal=TERM --kill-after=30s 150m bash -c/g)).toHaveLength(1);
       expect(text).toContain('# ---- fachkraft: 150 minute target wall timeout ----');
       expect(text).toContain('**Causa:** timeout del target dopo 150 minuti (exit 124).');
-      expect(text).toContain('worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-160}"');
+      // The member passes its 160 minute watchdog to the shared launcher, which
+      // keeps the CRAWLER_WORKER_TIMEOUT_MINUTES override.
+      expect(text).toContain('export CRAWLER_LAUNCH_MINUTES=160 ');
+      expect(text).toContain('worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-$CRAWLER_LAUNCH_MINUTES}"');
     }
   });
 });
