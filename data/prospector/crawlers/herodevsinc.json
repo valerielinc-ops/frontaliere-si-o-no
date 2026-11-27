@@ -1,0 +1,24 @@
+{
+  "companyKey": "herodevsinc",
+  "companyName": "HeroDevs, Inc.",
+  "companyHost": "herodevsinc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://herodevsinc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Senior Software Engineer - Integrations (Evergreen)",
+    "Senior Software Engineer (Runtimes)",
+    "Recruiter & People Ops Generalist, Temp - 9 months",
+    "SDR Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-27T14:50:46.631Z",
+  "candidateKey": "herodevsinc@applytojob.com"
+}

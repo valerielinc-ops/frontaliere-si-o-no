@@ -64,7 +64,9 @@
       "it": {
         "apprendista-assistentin-assistent-gesundheit-e-soziales-afp-spital-muri-ag": "AG",
         "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag-6706f5c6": "AG",
-        "apprendista-assistente-assistente-per-la-salute-e-gli-affari-sociali-cfp-spital-muri-muri-ag-53a2b24d": "AG"
+        "apprendista-assistente-assistente-per-la-salute-e-gli-affari-sociali-cfp-spital-muri-muri-ag-53a2b24d": "AG",
+        "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag": "AG",
+        "apprendista-assistente-assistente-per-la-salute-e-gli-affari-sociali-cfp-spital-muri-muri-ag": "AG"
       },
       "en": {
         "learner-assistant-health-and-social-affairs-eba-spital-muri-muri-ag-d3000f3a": "AG",
@@ -88,7 +90,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4072813",
-    "firstSeenAt": "2026-09-29T21:16:32.589Z"
+    "firstSeenAt": "2026-09-29T21:16:32.589Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4072813",
+        "firstSeenAt": "2026-09-29T21:16:32.589Z",
+        "title": "Lernende/Lernender Assistentin/Assistent Gesundheit und Soziales EBA"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4106345",
+        "firstSeenAt": "2026-09-29T21:16:32.589Z",
+        "title": "Lernende/Lernender Assistentin/Assistent Gesundheit und Soziales EBA"
+      }
+    ]
   },
   {
     "id": "spital-muri-52b2e213f4c0",
@@ -133,7 +147,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4075187",
-    "firstSeenAt": "2026-09-29T21:16:33.251Z"
+    "firstSeenAt": "2026-09-29T21:16:33.251Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarztin-oberarzt-gastroenterologie-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "id": "spital-muri-a643aeb0cfe7",
@@ -194,7 +214,15 @@
         "firstSeenAt": "2026-09-29T21:16:36.642Z",
         "title": "Studierende/Studierender Notfallpflege NDS HF"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "studierende-studierender-notfallpflege-nds-hf-80-100-spital-muri-muri-ag": "AG",
+        "studierende-studierender-notfallpflege-nds-hf-spital-muri-muri-ag": "AG",
+        "assistenza-agli-studenti-nds-hf-80-100-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "id": "spital-muri-a643aeb0cfe7",
@@ -330,7 +358,14 @@
         "firstSeenAt": "2026-09-29T21:16:35.933Z",
         "title": "Praktikum Modul C Studierende/Studierender Pflege FH"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikum-modul-c-studierende-studierender-pflege-fh-spital-muri-muri-ag": "AG",
+        "modulo-di-stage-c-student-student-care-fh-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "id": "spital-muri-d1e552e8e08f",
@@ -464,19 +499,36 @@
         "emergenza-della-salute-professionale-spital-muri-muri-ag-eb83e743": "AG"
       },
       "en": {
-        "professional-health-emergency-spital-muri-muri-ag-8bbc4c64": "AG"
+        "professional-health-emergency-spital-muri-muri-ag-8bbc4c64": "AG",
+        "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag": "AG",
+        "emergenza-della-salute-professionale-spital-muri-muri-ag": "AG"
       },
       "de": {
-        "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag-e2c228c1": "AG"
+        "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag-e2c228c1": "AG",
+        "emergenza-della-salute-professionale-spital-muri-muri-ag": "AG"
       },
       "fr": {
-        "sante-professionnelle-spital-muri-muri-ag-ed708c1d": "AG"
+        "sante-professionnelle-spital-muri-muri-ag-ed708c1d": "AG",
+        "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag": "AG",
+        "emergenza-della-salute-professionale-spital-muri-muri-ag": "AG"
       }
     },
     "previousSlugs": [
       "emergenza-della-salute-professionale-spital-muri-muri-ag-eb83e743",
       "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag",
       "emergenza-della-salute-professionale-spital-muri-muri-ag"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4073706",
+        "firstSeenAt": "2026-09-29T21:16:33.924Z",
+        "title": "Fachfrau/Fachmann Gesundheit Notfall"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4103765",
+        "firstSeenAt": "2026-09-29T21:16:33.924Z",
+        "title": "Fachfrau/Fachmann Gesundheit Notfall"
+      }
     ]
   },
   {
@@ -510,24 +562,31 @@
       "mpa-mpk-per-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-ag",
       "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag-d1b3ac1c",
       "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag",
-      "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag"
+      "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag",
+      "mpa-mpk-for-team-leader-team-leader-medical-consultation-hours-spital-muri-muri-ag",
+      "mpa-mpk-pour-les-heures-de-consultation-medicale-du-chef-d-equipe-chef-d-equipe-spital-muri-muri-ag"
     ],
     "previousSlugsByLocale": {
       "it": [
         "mpa-mpk-per-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-ag",
         "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag-bf1ddb7e",
-        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag-d1b3ac1c"
+        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag-d1b3ac1c",
+        "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag",
+        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag"
       ],
       "en": [
         "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag",
-        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag"
+        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag",
+        "mpa-mpk-for-team-leader-team-leader-medical-consultation-hours-spital-muri-muri-ag"
       ],
       "de": [
-        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag"
+        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag",
+        "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag"
       ],
       "fr": [
         "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag",
-        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag"
+        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag",
+        "mpa-mpk-pour-les-heures-de-consultation-medicale-du-chef-d-equipe-chef-d-equipe-spital-muri-muri-ag"
       ]
     },
     "postalCode": "5630",
@@ -549,7 +608,24 @@
         "firstSeenAt": "2026-09-29T21:16:37.417Z",
         "title": "MPA, MPK für Teamleiterin/Teamleiter Sprechstunden Medizin"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mpa-mpk-per-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-ag": "AG",
+        "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag": "AG",
+        "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag": "AG"
+      },
+      "en": {
+        "mpa-mpk-for-team-leader-team-leader-medical-consultation-hours-spital-muri-muri-ag": "AG"
+      },
+      "de": {
+        "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag": "AG"
+      },
+      "fr": {
+        "mpa-mpk-pour-les-heures-de-consultation-medicale-du-chef-d-equipe-chef-d-equipe-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "assistente-assistente-sanitaria-e-sociale-spital-muri-muri-ag",
@@ -595,7 +671,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4072838",
-    "firstSeenAt": "2026-09-29T21:16:34.613Z"
+    "firstSeenAt": "2026-09-29T21:16:34.613Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistentin-assistent-gesundheit-e-soziales-spital-muri-ag": "AG",
+        "assistentin-assistent-gesundheit-und-soziales-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag",
@@ -724,7 +807,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4065180",
-    "firstSeenAt": "2026-09-29T21:16:40.052Z"
+    "firstSeenAt": "2026-09-29T21:16:40.052Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiterin-sachbearbeiter-notfallaufnahme-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "team-leader-paziente-accoglienza-accoglienza-spital-muri-muri-ag",
@@ -767,7 +856,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4063318",
-    "firstSeenAt": "2026-09-29T21:16:40.710Z"
+    "firstSeenAt": "2026-09-29T21:16:40.710Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiterin-teamleiter-patientenaufnahme-empfang-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "lavoro-sociale-bsc-spital-muri-muri-ag",
@@ -913,7 +1008,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4075871",
-    "firstSeenAt": "2026-09-29T21:16:31.927Z"
+    "firstSeenAt": "2026-09-29T21:16:31.927Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "mpa-pratica-pediatrica-muri-spital-muri-muri-ag",
@@ -956,7 +1057,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4072456",
-    "firstSeenAt": "2026-09-29T21:16:35.274Z"
+    "firstSeenAt": "2026-09-29T21:16:35.274Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mpa-kinderarztpraxis-muri-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "medico-specializzato-pratica-di-emergenza-spital-muri-muri-ag",
@@ -999,7 +1106,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4066655",
-    "firstSeenAt": "2026-09-29T21:16:39.391Z"
+    "firstSeenAt": "2026-09-29T21:16:39.391Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "facharztin-facharzt-notfallpraxis-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "dipl-infermiera-specialista-hf-fh-akutgeriatrie-spital-muri-muri-ag",
@@ -1456,7 +1569,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4076998",
-    "firstSeenAt": "2026-09-29T21:16:31.109Z"
+    "firstSeenAt": "2026-09-29T21:16:31.109Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprendista-ict-fachfrau-ict-fachmann-cfc-spital-muri-muri-ag": "AG",
+        "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "mpa-segretaria-medica-specializzata-in-ortopedia-spital-muri-muri-ag",
@@ -1499,7 +1619,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4056011",
-    "firstSeenAt": "2026-09-29T21:16:44.654Z"
+    "firstSeenAt": "2026-09-29T21:16:44.654Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mpa-arztsekretarin-mit-schwerpunkt-orthopadie-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "fisioterapista-fh-spital-muri-muri-ag",
@@ -1660,7 +1786,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4055898",
-    "firstSeenAt": "2026-09-29T21:16:46.029Z"
+    "firstSeenAt": "2026-09-29T21:16:46.029Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mpa-fage-con-schwerpunkt-pneumologie-e-knochendichtemessung-dexa-spital-muri-ag": "AG",
+        "mpa-fage-mit-schwerpunkt-pneumologie-und-knochendichtemessung-dexa-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "primario-ginecologia-e-ostetricia-spital-muri-muri-ag",
@@ -1850,6 +1983,9 @@
     "previousSlugsByLocale": {
       "it": [
         "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag"
+      ],
+      "en": [
+        "student-student-dipl-specialist-operations-engineering-hf-spital-muri-muri-ag"
       ]
     },
     "postalCode": "5630",
@@ -1858,7 +1994,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4050448",
-    "firstSeenAt": "2026-09-29T21:16:48.105Z"
+    "firstSeenAt": "2026-09-29T21:16:48.105Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag": "AG"
+      },
+      "en": {
+        "student-student-dipl-specialist-operations-engineering-hf-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "dipl-infermieristica-professionale-hf-emergenza-spital-muri-muri-ag",
@@ -3344,7 +3489,24 @@
         "firstSeenAt": "2026-09-29T21:16:48.765Z",
         "title": "Dipl. Pflegefachfrau/Pflegefachmann HF Notfall"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag": "AG",
+        "infermiere-diplomato-infermiere-sss-emergenza-spital-muri-muri-ag": "AG",
+        "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag": "AG"
+      },
+      "en": {
+        "dipl-nursing-professional-hf-emergency-spital-muri-muri-ag": "AG"
+      },
+      "de": {
+        "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag": "AG"
+      },
+      "fr": {
+        "dipl-soins-infirmiers-professionnels-hf-urgence-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "gestione-integrata-delle-capacita-di-group-manager-ikm-spital-muri-muri-ag",
@@ -3393,7 +3555,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4050012",
-    "firstSeenAt": "2026-09-29T21:16:50.098Z"
+    "firstSeenAt": "2026-09-29T21:16:50.098Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gruppenleiterin-gruppenleiter-integrales-kapazitatenmanagement-ikm-spital-muri-muri-ag": "AG"
+      },
+      "en": {
+        "gruppenleiterin-gruppenleiter-integrales-kapazitatenmanagement-ikm-spital-muri-muri-ag": "AG"
+      },
+      "fr": {
+        "gruppenleiterin-gruppenleiter-integrales-kapazitatenmanagement-ikm-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "interfaccia-rav-del-sito-di-prova-spital-muri-muri",
@@ -3436,7 +3610,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2997.umantis.com/vacancies/239/description/1",
-    "firstSeenAt": "2026-05-19T11:37:39.059Z"
+    "firstSeenAt": "2026-05-19T11:37:39.059Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teststelle-rav-schnittstelle-spital-muri-muri": "AG"
+      }
+    }
   },
   {
     "slug": "leader-del-team-segretariato-del-team-radiologia-spital-muri-muri-ag",
@@ -3485,7 +3665,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/spital-muri/job/details/4068184",
-    "firstSeenAt": "2026-09-29T21:16:38.077Z"
+    "firstSeenAt": "2026-09-29T21:16:38.077Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiterin-teamleiter-sekretariat-radiologie-spital-muri-muri-ag": "AG"
+      },
+      "en": {
+        "teamleiterin-teamleiter-sekretariat-radiologie-spital-muri-muri-ag": "AG"
+      },
+      "fr": {
+        "teamleiterin-teamleiter-sekretariat-radiologie-spital-muri-muri-ag": "AG"
+      }
+    }
   },
   {
     "slug": "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag",
@@ -3533,7 +3725,8 @@
         "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag-ab62a416"
       ],
       "de": [
-        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag-ab62a416"
+        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag-ab62a416",
+        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
       ],
       "en": [
         "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
@@ -3545,6 +3738,18 @@
     "previousSlugs": [
       "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag-ab62a416",
       "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag": "AG"
+      },
+      "de": {
+        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag": "AG"
+      },
+      "fr": {
+        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag": "AG"
+      }
+    }
   }
 ]

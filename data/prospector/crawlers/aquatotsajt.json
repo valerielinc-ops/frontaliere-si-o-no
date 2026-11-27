@@ -1,0 +1,24 @@
+{
+  "companyKey": "aquatotsajt",
+  "companyName": "Aqua-Tots Swim School",
+  "companyHost": "aquatotsajt.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aquatotsajt.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Aquatic Manager",
+    "Aquatic Manager",
+    "Aquatic Manager",
+    "Assistant General Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-27T14:50:36.331Z",
+  "candidateKey": "aquatotsajt@applytojob.com"
+}

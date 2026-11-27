@@ -85,7 +85,8 @@
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-25T09:13:42.576Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-99e942cd07b5",
@@ -169,7 +170,8 @@
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-25T09:13:42.575Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-127c7ea3b3e4",
@@ -253,7 +255,8 @@
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-25T09:13:42.575Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-26a01e200ec9",
@@ -337,7 +340,8 @@
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:13:42.574Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-c8cf49d64066",
@@ -421,7 +425,8 @@
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T09:13:42.572Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-815e606d9dd8",
@@ -492,7 +497,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-25T09:13:42.571Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T09:13:42.571Z"
+      "firstSeenAt": "2026-11-27T09:13:42.571Z",
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-17e7d770a8e3",
@@ -579,7 +585,8 @@
       },
       "previousSlugs": [
         "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
-      ]
+      ],
+      "sourceIdentity": "url:https://stiftdia.pi-asp.de/bewerber-web?company=1-firma-id&tenant=&lang=ds"
     },
     {
       "id": "spital-zollikerberg-4eb0240c89fa",

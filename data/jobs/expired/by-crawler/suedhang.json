@@ -51,7 +51,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-reinigung",
-    "firstSeenAt": "2026-09-29T21:15:46.861Z"
+    "firstSeenAt": "2026-09-29T21:15:46.861Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaboratore-trice-in-reinigung-klinik-sudhang-kirchlindach": "BE",
+        "mitarbeiter-in-reinigung-suedhang-ch": "BE"
+      },
+      "en": {
+        "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach": "BE"
+      }
+    }
   },
   {
     "id": "suedhang-5ae1cb26a133",
@@ -107,7 +120,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf",
-    "firstSeenAt": "2026-09-24T14:20:34.256Z"
+    "firstSeenAt": "2026-09-24T14:20:34.256Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach": "BE",
+        "dipl-pflegefachperson-hf-fh-suedhang-ch": "BE"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach": "BE"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-fh-suedhang-ch": "BE"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach": "BE"
+      }
+    }
   },
   {
     "id": "suedhang-44adb4c95e69",
@@ -152,7 +181,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suedhang.ch/karriere/offene-stellen/leitender-arzt-leitende-aerztin",
-    "firstSeenAt": "2026-09-07T23:22:46.599Z"
+    "firstSeenAt": "2026-09-07T23:22:46.599Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leitende-arztin-leitenden-arzt-suedhang-ch": "BE"
+      }
+    }
   },
   {
     "id": "suedhang-3a1e35768983",
@@ -200,7 +235,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suedhang.ch/karriere/offene-stellen/fachfrau_fachmann_gesundheit",
-    "firstSeenAt": "2026-08-31T17:02:35.263Z"
+    "firstSeenAt": "2026-08-31T17:02:35.263Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-fachmann-gesundheit-efz-suedhang-ch": "BE"
+      },
+      "de": {
+        "fachfrau-fachmann-gesundheit-efz-suedhang-ch": "BE"
+      }
+    }
   },
   {
     "slug": "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne",
@@ -256,7 +300,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne",
-    "firstSeenAt": "2026-06-05T12:45:50.925Z"
+    "firstSeenAt": "2026-06-05T12:45:50.925Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "klinische-n-psycholog-in-suedhang-ch-2": "BE",
+        "klinische-n-psycholog-in-suedhang-ch": "BE"
+      },
+      "en": {
+        "klinische-n-psycholog-in-suedhang-ch-2": "BE"
+      },
+      "de": {
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne": "BE"
+      },
+      "fr": {
+        "klinische-n-psycholog-in-suedhang-ch-2": "BE"
+      }
+    }
   },
   {
     "slug": "dipl-infermieristica-professionale-hf-in-servizio-notturno-klinik-sudhang-kirchlindach",
@@ -302,7 +362,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-im-nachtdienst",
-    "firstSeenAt": "2026-09-03T13:32:07.307Z"
+    "firstSeenAt": "2026-09-03T13:32:07.307Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach": "BE",
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch": "BE"
+      }
+    }
   },
   {
     "slug": "assistente-sociale-bsc-klinik-sudhang-kirchlindach",
@@ -345,7 +412,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suedhang.ch/karriere/offene-stellen/sozialarbeiterin-bsc",
-    "firstSeenAt": "2026-09-28T21:13:21.199Z"
+    "firstSeenAt": "2026-09-28T21:13:21.199Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sozialarbeiter-in-bsc-suedhang-ch": "BE"
+      }
+    }
   },
   {
     "slug": "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne",
@@ -408,7 +481,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suedhang.ch/karriere/offene-stellen/assistenzarzt-assistenzaerztin-ambulatorium-biel",
-    "firstSeenAt": "2026-05-19T21:02:15.199Z"
+    "firstSeenAt": "2026-05-19T21:02:15.199Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenzarztin-assistenzarzt-suedhang-ch-2": "BE",
+        "assistenzarztin-assistenzarzt-suedhang-ch": "BE"
+      },
+      "de": {
+        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne": "BE"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-in-facility-management-klinik-sudhang-kirchlindach",
@@ -455,7 +538,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-facility-management",
-    "firstSeenAt": "2026-07-22T22:19:18.339Z"
+    "firstSeenAt": "2026-07-22T22:19:18.339Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-facility-management-suedhang-ch": "BE"
+      },
+      "fr": {
+        "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach": "BE"
+      }
+    }
   },
   {
     "slug": "responsabile-della-gestione-delle-pratiche-klinik-sudhang-ambulatorium-bern",

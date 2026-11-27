@@ -31,17 +31,26 @@
     "previousSlugs": [
       "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
       "dipl-care-specialist-hf-acute-care-unit-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "dipl-specialiste-des-soins-hf-unite-de-soins-actifs-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      "dipl-specialiste-des-soins-hf-unite-de-soins-actifs-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau-8c51639f",
+      "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau-2fdc2539"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau"
+        "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
+        "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau-8c51639f",
+        "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau-2fdc2539"
       ],
       "en": [
-        "dipl-care-specialist-hf-acute-care-unit-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "dipl-care-specialist-hf-acute-care-unit-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau-2fdc2539"
       ],
       "fr": [
-        "dipl-specialiste-des-soins-hf-unite-de-soins-actifs-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "dipl-specialiste-des-soins-hf-unite-de-soins-actifs-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau-2fdc2539"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau-2fdc2539"
       ]
     },
     "previousSlugCantonByLocale": {
@@ -62,7 +71,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4102554",
-    "firstSeenAt": "2026-09-11T13:33:10.399Z"
+    "firstSeenAt": "2026-09-11T13:33:10.399Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4068874",
+        "firstSeenAt": "2026-09-11T13:33:10.399Z",
+        "title": "Dipl. Pflegefachperson HF Akutstation"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4086894",
+        "firstSeenAt": "2026-09-11T13:33:10.399Z",
+        "title": "Dipl. Pflegefachperson HF Akutstation"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4102554",
+        "firstSeenAt": "2026-09-11T13:33:10.399Z",
+        "title": "Dipl. Pflegefachperson HF Akutstation"
+      }
+    ]
   },
   {
     "id": "svar-spitalverbund-ar-2033b26f6300",
@@ -120,13 +146,20 @@
     },
     "previousSlugCantonByLocale": {
       "it": {
-        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau": "AR"
+        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau-0a1db928": "AR",
+        "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau-89f3f9e7": "AR"
       },
       "en": {
-        "dipl-caregiver-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+        "dipl-caregiver-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau-0a1db928": "AR"
       },
       "fr": {
-        "dipl-medecin-hf-gerontopsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+        "dipl-medecin-hf-gerontopsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau-0a1db928": "AR"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau-0a1db928": "AR"
       }
     },
     "postalCode": "9100",
@@ -297,7 +330,19 @@
         "firstSeenAt": "2026-10-14T21:13:54.324Z",
         "title": "Medizinische/r Kodierer/in"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "id": "svar-spitalverbund-ar-e74f1a6120f9",
@@ -330,18 +375,38 @@
     "previousSlugsByLocale": {
       "it": [
         "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-fdbc180a",
-        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-541c7bf3"
+        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-541c7bf3",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
+        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "stagista-nella-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4",
+        "internship-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "intern-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "en": [
         "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-fdbc180a",
-        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "intern-in-corporate-communications-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
+        "corporate-communications-intern-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4",
+        "internship-business-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "intern-in-corporate-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "fr": [
         "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-fdbc180a",
-        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "stagiaire-en-h-f-d-de-communication-d-entreprise-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
+        "stagiaire-en-communication-d-entreprise-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4",
+        "stage-communication-d-entreprise-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "stage-en-communication-d-entreprise-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "de": [
-        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4"
       ]
     },
     "postalCode": "9100",
@@ -354,9 +419,33 @@
     "firstSeenAt": "2026-09-10T23:04:50.660Z",
     "previousSlugs": [
       "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-541c7bf3",
-      "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-fdbc180a",
+      "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
+      "stagista-nella-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "intern-in-corporate-communications-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "stagiaire-en-h-f-d-de-communication-d-entreprise-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4",
+      "internship-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "intern-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "corporate-communications-intern-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "internship-business-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "intern-in-corporate-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "stagiaire-en-communication-d-entreprise-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "stage-communication-d-entreprise-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "stage-en-communication-d-entreprise-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     ],
     "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4068249",
+        "firstSeenAt": "2026-09-10T23:04:50.660Z",
+        "title": "Praktikant/in Unternehmenskommunikation (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4087647",
+        "firstSeenAt": "2026-09-10T23:04:50.660Z",
+        "title": "Praktikant/in Unternehmenskommunikation (m/w/d)"
+      },
       {
         "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4103663",
         "firstSeenAt": "2026-09-10T23:04:50.660Z",
@@ -367,7 +456,38 @@
         "firstSeenAt": "2026-09-10T23:04:50.660Z",
         "title": "Praktikant/in Unternehmenskommunikation (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "stagista-nella-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4": "AR",
+        "internship-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "intern-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "intern-in-corporate-communications-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "corporate-communications-intern-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4": "AR",
+        "internship-business-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "intern-in-corporate-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "de": {
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4": "AR"
+      },
+      "fr": {
+        "stagiaire-en-h-f-d-de-communication-d-entreprise-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "stagiaire-en-communication-d-entreprise-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4": "AR",
+        "stage-communication-d-entreprise-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "stage-en-communication-d-entreprise-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      }
+    }
   },
   {
     "id": "svar-spitalverbund-ar-1c9d3e4b2be2",
@@ -480,7 +600,49 @@
         "firstSeenAt": "2026-09-19T22:53:36.826Z",
         "title": "Dipl. Pflegefachperson oder Fachperson Gesundheit Hämodialyse (m/w/d)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar": "AR",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "infermiere-a-diplomato-a-o-operatore-trice-sociosanitario-a-in-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-50e8e707": "AR",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-5c7e7df2": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-1b70777e": "AR",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-cbfc765e": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-f76264a9": "AR",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-924dc958": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-170e757c": "AR",
+        "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar": "AR",
+        "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-d070611d": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-50e8e707": "AR",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-1b70777e": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-f76264a9": "AR",
+        "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "de": {
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-50e8e707": "AR",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-1b70777e": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-f76264a9": "AR",
+        "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar": "AR",
+        "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-f5e25ecd": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-50e8e707": "AR",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-1b70777e": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-f76264a9": "AR",
+        "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      }
+    }
   },
   {
     "id": "svar-spitalverbund-ar-31c4986f80f9",
@@ -529,7 +691,8 @@
         "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund"
       ],
       "de": [
-        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-per-allgemeinpsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-per-allgemeinpsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund"
       ]
     },
     "postalCode": "9100",
@@ -558,7 +721,24 @@
         "firstSeenAt": "2026-11-12T21:37:57.248Z",
         "title": "Dipl. Pflegefachfrau/mann HF/FH auf der Station für Allgemeinpsychiatrie"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund": "AR",
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-per-allgemeinpsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund": "AR"
+      },
+      "de": {
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund": "AR"
+      },
+      "fr": {
+        "infirmier-ere-diplome-e-es-hes-dans-le-service-de-psychiatrie-generale-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund": "AR"
+      }
+    }
   },
   {
     "id": "svar-spitalverbund-ar-b967a4cf43fd",
@@ -621,7 +801,19 @@
         "firstSeenAt": "2026-11-12T21:37:58.069Z",
         "title": "Teamleitung Hämodialyse (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "id": "svar-spitalverbund-ar-9a564fcdf3e4",
@@ -656,7 +848,9 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+        "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "en": [
         "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
@@ -689,7 +883,21 @@
         "firstSeenAt": "2026-09-11T13:33:11.778Z",
         "title": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "id": "svar-spitalverbund-ar-300a8f84cab8",
@@ -752,7 +960,19 @@
         "firstSeenAt": "2026-10-06T09:13:15.234Z",
         "title": "Dipl. Pflegefachperson Notfallpflege"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "id": "svar-spitalverbund-ar-39ff62498fcd",
@@ -803,7 +1023,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097731",
-    "firstSeenAt": "2026-11-10T09:23:46.108Z"
+    "firstSeenAt": "2026-11-10T09:23:46.108Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "dipl-infermiera-hf-fh-nel-campo-della-psicoterapia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -865,7 +1097,19 @@
         "firstSeenAt": "2026-10-05T09:17:15.534Z",
         "title": "Dipl. Pflegefachperson HF/FH im Bereich Psychotherapie (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-fh-im-bereich-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "operatore-trice-sociosanitario-a-afc-o-assistente-di-studio-medico-mpa-per-reparto-di-degenza-con-focus-sulla-medicina",
@@ -929,7 +1173,20 @@
         "firstSeenAt": "2026-10-06T09:13:16.187Z",
         "title": "Fachfrau/Fachmann Gesundheit EFZ oder MPA für Bettenstation mit Fokus auf Innere Medizin (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m": "AR",
+        "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m": "AR"
+      },
+      "fr": {
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m": "AR"
+      }
+    }
   },
   {
     "id": "svar-spitalverbund-ar-2f5c053e8a29",
@@ -996,7 +1253,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4099831",
-    "firstSeenAt": "2026-11-05T09:17:32.465Z",
+    "firstSeenAt": "2026-10-06T09:13:14.443Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4080338",
@@ -1010,10 +1267,29 @@
       },
       {
         "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4099831",
-        "firstSeenAt": "2026-11-05T09:17:32.465Z",
+        "firstSeenAt": "2026-10-06T09:13:14.443Z",
         "title": "Dipl. Pflegefachperson HF/FH interdisziplinäre Bettenstation"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-4b594829": "AR",
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau-d06ffbcb": "AR",
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau-2bd5b7bc": "AR",
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau-715b2edc": "AR"
+      },
+      "en": {
+        "dipl-care-specialist-hf-fh-interdisciplinary-bed-station-spitalverbund-appenzell-ausserrhoden-svar-herisau-c8c7a738": "AR"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau-d06ffbcb": "AR"
+      },
+      "fr": {
+        "dipl-specialiste-des-soins-hf-fh-poste-de-lit-interdisciplinaire-spitalverbund-appenzell-ausserrhoden-svar-2e3197b6": "AR"
+      }
+    }
   },
   {
     "id": "svar-spitalverbund-ar-6373312177bf",
@@ -1067,7 +1343,31 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4099655",
-    "firstSeenAt": "2026-10-06T09:13:12.775Z"
+    "firstSeenAt": "2026-10-06T09:13:12.775Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau": "AR"
+      }
+    },
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4080242",
+        "firstSeenAt": "2026-10-06T09:13:12.775Z",
+        "title": "Dipl. Pflegefachperson HF für die Nachtwache 50-100 %"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4099655",
+        "firstSeenAt": "2026-10-06T09:13:12.775Z",
+        "title": "Dipl. Pflegefachperson HF für die Nachtwache 50-100 %"
+      }
+    ]
   },
   {
     "slug": "capo-dello-sviluppo-della-cura-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -1117,7 +1417,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097404",
-    "firstSeenAt": "2026-11-04T21:18:33.849Z"
+    "firstSeenAt": "2026-11-04T21:18:33.849Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "leitung-pflegeentwicklung-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "infermiere-a-diplomato-a-sss-per-reparto-privato-con-servizio-notturno-fisso-m-f-d-spitalverbund-appenzell-ausserrhoden",
@@ -1181,7 +1493,20 @@
         "firstSeenAt": "2026-10-03T09:10:37.923Z",
         "title": "Dipl. Pflegefachperson HF Privatstation als Dauernachtwache (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar": "AR",
+        "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar": "AR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar": "AR"
+      }
+    }
   },
   {
     "slug": "dipl-infermieristica-specialista-hf-fh-day-clinic-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -1231,7 +1556,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4094208",
-    "firstSeenAt": "2026-11-04T21:18:32.661Z"
+    "firstSeenAt": "2026-11-04T21:18:32.661Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-fh-tagesklinik-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "med-pratico-assistente-cardiologia-angiologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -1293,7 +1630,19 @@
         "firstSeenAt": "2026-10-01T21:12:28.970Z",
         "title": "Med. Praxisassistenz Kardiologie / Angiologie (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "med-praxisassistenz-kardiologie-angiologie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "med-praxisassistenz-kardiologie-angiologie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "med-praxisassistenz-kardiologie-angiologie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "med-assistenza-pratica-pneumologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -1323,17 +1672,44 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-11T09:19:09.342Z",
     "previousSlugs": [
-      "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau"
+      "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau",
+      "med-assistente-di-pratica-polmonologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "med-assistenza-pratica-pneumologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-1f444667",
+      "med-practice-assistant-pulmonology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "medicament-assistant-pratique-pulmonologie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24",
+      "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-a030bbe8",
+      "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-2fcc30c4",
+      "med-practical-assistance-pneumology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-58e6e14b",
+      "medicament-assistance-pratique-pneumologie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-2610c73e"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau"
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau",
+        "med-assistente-di-pratica-polmonologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "med-assistenza-pratica-pneumologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-1f444667",
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24",
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-a030bbe8",
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-2fcc30c4"
       ],
       "en": [
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau"
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau",
+        "med-practice-assistant-pulmonology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "med-practical-assistance-pneumology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-58e6e14b",
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24",
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-a030bbe8",
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-2fcc30c4"
       ],
       "fr": [
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau"
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau",
+        "medicament-assistant-pratique-pulmonologie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "medicament-assistance-pratique-pneumologie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-2610c73e",
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24",
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-a030bbe8",
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-2fcc30c4"
+      ],
+      "de": [
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24"
       ]
     },
     "postalCode": "9100",
@@ -1347,7 +1723,7 @@
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4078449",
-        "firstSeenAt": "2026-10-03T09:10:39.861Z",
+        "firstSeenAt": "2026-10-01T21:12:29.536Z",
         "title": "Med. Praxisassistenz Pneumologie (m/w/d)"
       },
       {
@@ -1355,7 +1731,22 @@
         "firstSeenAt": "2026-10-03T09:10:39.861Z",
         "title": "Med. Praxisassistenz Pneumologie (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "med-assistente-di-pratica-polmonologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "med-practice-assistant-pulmonology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "fr": {
+        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "medicament-assistant-pratique-pulmonologie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "assistente-sociale-per-il-servizio-sociale-in-ambito-somatico-acuto-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
@@ -1386,18 +1777,113 @@
     "expiredAt": "2026-11-10T13:23:27.670Z",
     "previousSlugs": [
       "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "assistente-sociale-per-i-servizi-sociali-in-somatica-acuta-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-ac78cf74",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-0a49ca8a",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-0dc908f4",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-6801bf96",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-9aa50157",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3a58e5ca",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-ede215c3",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-9d1934b6",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-d2cf46b4",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-5eac8783",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-57c2fa7e",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-f8018dea",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-756065d5",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1cc1d381",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-a1e44369",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-e29e7575",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1a5b4945",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-bfa24579",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4b31e4c9",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-02e2bf69",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-2c08cac9",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-38256f36",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-30e38602",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-11656807",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-d131c83a",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8eadf289",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-00163c35",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-575934b5",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-445f1b59",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5f75215a",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-8a51e839",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-d1ebd955",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-db185750",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-f33ae063",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-cae2b367",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-81390b32",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4659b380",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b1cf84d4",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1ce32e05",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-92a5cb08",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-aec23fa4",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-4e12b46e",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-34e95023",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-45f7f622",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-b2f6e6c3",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-7ecd87f2",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3e4c5172",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-932c1cee",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3ec27146",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-17fa1292",
+      "social-worker-for-the-social-service-in-acute-care-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "travailleur-social-pour-les-services-sociaux-en-soins-somatiques-aigus-h-f-d-spitalverbund-appenzell-ausserrhoden-svar"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-f33ae063",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-cae2b367",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-81390b32",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4659b380",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b1cf84d4",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1ce32e05",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-92a5cb08",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-aec23fa4",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-4e12b46e",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-34e95023",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-45f7f622",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-b2f6e6c3",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-7ecd87f2",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3e4c5172",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-932c1cee",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3ec27146",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-17fa1292",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "assistente-sociale-per-i-servizi-sociali-in-somatica-acuta-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "en": [
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar",
+        "social-worker-for-the-social-service-in-acute-care-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "fr": [
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar",
+        "travailleur-social-pour-les-services-sociaux-en-soins-somatiques-aigus-h-f-d-spitalverbund-appenzell-ausserrhoden-svar",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "de": [
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ]
     },
     "postalCode": "9100",
@@ -1419,7 +1905,149 @@
         "firstSeenAt": "2026-10-06T21:14:16.279Z",
         "title": "Sozialarbeiter/-in für den Sozialdienst in der Akutsomatik (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "assistente-sociale-per-i-servizi-sociali-in-somatica-acuta-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-ac78cf74": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-0a49ca8a": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-0dc908f4": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-6801bf96": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-9aa50157": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3a58e5ca": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-ede215c3": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-9d1934b6": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-d2cf46b4": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-5eac8783": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-57c2fa7e": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-f8018dea": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-756065d5": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1cc1d381": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-a1e44369": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-e29e7575": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1a5b4945": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-bfa24579": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4b31e4c9": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-02e2bf69": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-2c08cac9": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-38256f36": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-30e38602": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-11656807": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-d131c83a": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8eadf289": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-00163c35": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-575934b5": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-445f1b59": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5f75215a": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-8a51e839": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-d1ebd955": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-db185750": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-f33ae063": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-cae2b367": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-81390b32": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4659b380": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b1cf84d4": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1ce32e05": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-92a5cb08": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-aec23fa4": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-4e12b46e": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-34e95023": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-45f7f622": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-b2f6e6c3": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-7ecd87f2": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3e4c5172": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-932c1cee": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3ec27146": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-17fa1292": "AR"
+      },
+      "en": {
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar": "AR",
+        "social-worker-for-the-social-service-in-acute-care-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-bfa24579": "AR"
+      },
+      "fr": {
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar": "AR",
+        "travailleur-social-pour-les-services-sociaux-en-soins-somatiques-aigus-h-f-d-spitalverbund-appenzell-ausserrhoden-svar": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-bfa24579": "AR"
+      },
+      "de": {
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a": "AR",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d": "AR",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-bfa24579": "AR"
+      }
+    }
   },
   {
     "slug": "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau-fcd5ee9030",
@@ -1588,11 +2216,11 @@
       "dipl-care-specialist-hf-fh-interdisciplinary-bed-station-spitalverbund-appenzell-ausserrhoden-svar-herisau-cac0e7b8",
       "dipl-specialiste-des-soins-hf-fh-poste-de-lit-interdisciplinaire-spitalverbund-appenzell-ausserrhoden-svar-5844ffe7",
       "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau-2bd5b7bc",
+      "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau-8d400bfe82",
       "dipl-care-specialist-hf-fh-interdisciplinary-bed-station-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "dipl-specialiste-des-soins-hf-fh-poste-de-lit-interdisciplinaire-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
-      "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau-8d400bfe82"
+      "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1815,7 +2443,25 @@
         "firstSeenAt": "2026-11-05T09:17:32.465Z",
         "title": "Dipl. Pflegefachperson HF/FH interdisziplinäre Bettenstation"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau-4a7ffa66": "AR",
+        "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-59105bc3": "AR"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-care-specialist-hf-fh-interdisciplinary-bed-station-spitalverbund-appenzell-ausserrhoden-svar-herisau-cac0e7b8": "AR"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau-2bd5b7bc": "AR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-specialiste-des-soins-hf-fh-poste-de-lit-interdisciplinaire-spitalverbund-appenzell-ausserrhoden-svar-5844ffe7": "AR"
+      }
+    }
   },
   {
     "slug": "infermiere-a-diplomato-a-hf-in-formazione-specializzazione-in-psichiatria-m-f-d-spitalverbund-appenzell-ausserrhoden",
@@ -1908,7 +2554,116 @@
         "firstSeenAt": "2026-10-27T09:21:52.115Z",
         "title": "Pflegefachfrau/mann HF in Ausbildung - Vertiefung Psychiatrie (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar": "AR",
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar": "AR"
+      },
+      "de": {
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar": "AR"
+      },
+      "fr": {
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar": "AR"
+      }
+    }
+  },
+  {
+    "slug": "operatrice-operatore-sociosanitario-per-il-reparto-di-terapia-intensiva-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
+    "title": "Fachfrau/Fachmann Gesundheit für die Intensivstation (w/m/d)",
+    "titleByLocale": {
+      "it": "Operatrice/Operatore sociosanitario per il reparto di terapia intensiva (m/f/d)",
+      "en": "Professional Health for the intensive care unit (m/f/d)",
+      "de": "Fachfrau/Fachmann Gesundheit für die Intensivstation (w/m/d)",
+      "fr": "Santé professionnelle pour l'unité de soins intensifs (h/f/d)"
+    },
+    "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+    "companyKey": "svar-spitalverbund-ar",
+    "location": "Herisau",
+    "addressLocality": "Herisau",
+    "descriptionByLocale": {
+      "it": "I tuoi compiti\n• Cura olistica e individuale e supporto di pazienti interdisciplinari nel senso della dichiarazione di missione e le linee guida di cura applicabili in stretta collaborazione con il Dipl. Personale infermieristico\n• Supporto per il monitoraggio, la cura e la cura\n• Controllo delle entrate NEMS\n• Documentazione del processo di cura\n• Garantire un'alta qualità della cura e dei servizi\n• Supporto per compiti amministrativi come l'ordinazione materiale e la gestione dei documenti\n\nIl tuo profilo\n• Formazione completa come specialista Salute, come specialista Salute EFZ\n• Almeno due anni di esperienza professionale, idealmente nel campo acuto\n• Interessato alla cura dei pazienti interdisciplinari\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Gestione sicura delle applicazioni PC comuni (ad esempio Word, Excel e sistemi di ordinazione interni)\n• Prontezza di spostamento: Le operazioni in tutti i turni (servizio anteriore, tardivo e notturno) sono richieste\n• Attuazione fondata e orientata al team\n• Personalità comunicativa e aperta che si concentra sul paziente\n\nInoltre, si beneficia di\n\nIngresso: 28 ottobre 2026",
+      "en": "Your tasks\n• Holistic and individual care and support of interdisciplinary patients in the sense of the mission statement and the applicable care guidelines in close cooperation with the Dipl. Nursing staff\n• Support for monitoring, care and care\n• Control of NEMS entries\n• Documentation of the care process\n• Ensuring a high quality of care and services\n• Support for administrative tasks such as material ordering and document management\n\nYour profile\n• Completed training as a specialist Health, as a specialist Health EFZ\n• At least two years of professional experience, ideally in the acute field\n• Interested in the care of interdisciplinary patients\n• Very good knowledge of German in word and writing\n• Secure handling of common PC applications (e.g. Word, Excel, and internal ordering systems)\n• Shift readiness: Operations in all shifts (early, late and night service) are required\n• Established and team-oriented attitude\n• Communicative and open personality that focuses on the patient\n\nIn addition, you benefit from\n\nEntrance: 28. October 2026",
+      "de": "Deine Aufgaben\n• Ganzheitliche und individuelle Pflege und Betreuung von interdisziplinären Patientinnen und Patienten im Sinne des Leitbildes und der geltenden Pflegerichtlinien in enger Zusammenarbeit mit dem Dipl. Pflegepersonal\n• Unterstützung bei der Überwachung, Pflege und Betreuung\n• Kontrolle der NEMS Erfassungen\n• Dokumentation des Pflegeprozesses\n• Sicherstellung einer hohen Pflege- und Dienstleistungsqualität\n• Unterstützung bei administrativen Aufgaben wie Materialbestellungen und Dokumentenverwaltung\n\nDein Profil\n• Abgeschlossene Ausbildung als Fachfrau Gesundheit, als Fachmann Gesundheit EFZ\n• Mindestens zwei Jahre Berufserfahrung, idealerweise im Akutbereich\n• Interesse an der Pflege von interdisziplinären Patientinnen und Patienten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Sicherer Umgang mit gängigen PC-Anwendungen (z. B. Word, Excel, und internen Bestellsystemen)\n• Schichtbereitschaft: Einsätze in allen Schichten (Früh-, Spät- und Nachtdienst) sind erforderlich\n• Aufgestellte und teamorientierte Grundhaltung\n• Kommunikative und offene Persönlichkeit, die den Patienten in den Mittelpunkt stellt\n\nZusätzlich profitierst Du von\n\nEintritt: 28. Oktober 2026",
+      "fr": "Vos tâches\n• Soins holistiques et individuels et soutien aux patients interdisciplinaires au sens de l'énoncé de mission et des lignes directrices applicables en matière de soins, en étroite collaboration avec le Dipl. Personnel infirmier\n• Soutien au suivi, aux soins et aux soins\n• Contrôle des entrées NEMS\n• Documentation du processus de prise en charge\n• Assurer une qualité élevée des soins et des services\n• Appui aux tâches administratives telles que la commande matérielle et la gestion des documents\n\nVotre profil\n• Formation en tant que spécialiste de la santé, en tant que spécialiste de la santé EFZ\n• Au moins deux ans d'expérience professionnelle, idéalement dans le domaine aigu\n• Intéressé aux soins des patients interdisciplinaires\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Gestion sécurisée des applications PC courantes (p. ex. systèmes Word, Excel et de commande interne)\n• État de préparation au poste : Les opérations dans tous les postes (début, fin et nuit) sont nécessaires\n• Une attitude établie et axée sur l'équipe\n• Personnalité communicative et ouverte qui se concentre sur le patient\n\nEn outre, vous bénéficiez\n\nEntrée : 28. octobre 2026"
+    },
+    "slugByLocale": {
+      "it": "operatrice-operatore-sociosanitario-per-il-reparto-di-terapia-intensiva-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
+      "en": "professional-health-for-the-intensive-care-unit-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau-b99c28ad",
+      "fr": "sante-professionnelle-pour-l-unite-de-soins-intensifs-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-11-06T09:22:44.206Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau-b99c28ad",
+        "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-d1234ff0",
+        "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+      ],
+      "en": [
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau-b99c28ad",
+        "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+      ],
+      "fr": [
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau-b99c28ad",
+        "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+      ],
+      "de": [
+        "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau-b99c28ad",
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+      ]
+    },
+    "postalCode": "9100",
+    "streetAddress": "Herisau",
+    "salaryMin": 69500,
+    "salaryMax": 118500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4092443",
+    "firstSeenAt": "2026-10-27T21:20:41.857Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4092443",
+        "firstSeenAt": "2026-10-27T21:20:41.857Z",
+        "title": "Fachfrau/Fachmann Gesundheit für die Intensivstation (w/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097284",
+        "firstSeenAt": "2026-10-27T21:20:41.857Z",
+        "title": "Fachfrau/Fachmann Gesundheit für die Intensivstation (w/m/d)"
+      }
+    ],
+    "previousSlugs": [
+      "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau-b99c28ad",
+      "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-d1234ff0",
+      "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau": "AR",
+        "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "de": {
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "psicologo-psicologo-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -1958,7 +2713,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4091568",
-    "firstSeenAt": "2026-10-26T21:29:00.939Z"
+    "firstSeenAt": "2026-10-26T21:29:00.939Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "psychologin-psychologe-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "psychologin-psychologe-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "psychologin-psychologe-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "medica-medico-senior-oppure-medica-medico-senior-mbf-in-chirurgia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
@@ -2010,7 +2777,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4072292",
-    "firstSeenAt": "2026-10-23T09:25:43.082Z"
+    "firstSeenAt": "2026-10-23T09:25:43.082Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar": "AR",
+        "oberarztin-oberarzt-o-oberarztin-oberarzt-mbf-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar": "AR"
+      },
+      "fr": {
+        "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar": "AR"
+      }
+    }
   },
   {
     "slug": "responsabile-dell-assistenza-infermieristica-in-terapia-intensiva-bsc-in-cure-infermieristiche-m-f-d-spitalverbund",
@@ -2097,7 +2877,25 @@
         "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4090648",
         "title": "Fachverantwortliche/r für Intensivpflege BSc in Pflege (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "fachverantwortliche-r-per-intensivpflege-bsc-in-pflege-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "professional-responsible-for-intensive-care-bsc-in-care-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "de": {
+        "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "professionnel-responsable-des-soins-intensifs-bsc-en-soins-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "infermiere-a-diplomato-a-fh-hf-per-il-reparto-di-degenza-interdisciplinare-di-ostetricia-e-ginecologia-m-f-d",
@@ -2161,7 +2959,8 @@
       "de": [
         "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-nursing-specialist-fh-hf-for-the-obstetric-and-gynecological-interdisciplinary-bed-station-m-f-d-spitalverbund",
-        "dipl-specialiste-des-soins-infirmiers-fh-hf-pour-la-station-de-lit-interdisciplinaire-obstetrique-et-gynecologique-h-f-d"
+        "dipl-specialiste-des-soins-infirmiers-fh-hf-pour-la-station-de-lit-interdisciplinaire-obstetrique-et-gynecologique-h-f-d",
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
       ]
     },
     "postalCode": "9100",
@@ -2188,7 +2987,25 @@
         "firstSeenAt": "2026-10-05T09:17:14.410Z",
         "title": "Dipl. Pflegefachperson FH/HF für die geburtshilfliche und gynäkologische interdisziplinäre Bettenstation (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare": "AR",
+        "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "dipl-nursing-specialist-fh-hf-for-the-obstetric-and-gynecological-interdisciplinary-bed-station-m-f-d-spitalverbund": "AR",
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare": "AR"
+      },
+      "de": {
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare": "AR"
+      },
+      "fr": {
+        "dipl-specialiste-des-soins-infirmiers-fh-hf-pour-la-station-de-lit-interdisciplinaire-obstetrique-et-gynecologique-h-f-d": "AR",
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare": "AR"
+      }
+    }
   },
   {
     "slug": "tirocinante-amministrazione-pazienti-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -2250,7 +3067,19 @@
         "firstSeenAt": "2026-10-03T09:10:40.473Z",
         "title": "Praktikant/in Patientenadministration (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "medico-assistente-in-anestesiologia-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -2390,98 +3219,19 @@
         "firstSeenAt": "2026-10-02T21:18:28.863Z",
         "title": "Assistenzärztin / Assistenzarzt Anästhesiologie"
       }
-    ]
-  },
-  {
-    "slug": "stagista-nella-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-    "title": "Praktikant/in Unternehmenskommunikation (m/w/d)",
-    "titleByLocale": {
-      "it": "Stagista nella comunicazione aziendale (m/f/d)",
-      "en": "Corporate Communications Intern (m/f/d)",
-      "de": "Praktikant/in Unternehmenskommunikation (m/w/d)",
-      "fr": "Stagiaire en communication d’entreprise (h/f/d)"
-    },
-    "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-    "companyKey": "svar-spitalverbund-ar",
-    "location": "Herisau",
-    "addressLocality": "Herisau",
-    "descriptionByLocale": {
-      "it": "I loro compiti\n• Pianificazione, produzione e pubblicazione dei video di lavoro di tutte le posizioni pubblicizzate della SVAR, così come i video interni\n• Pianificazione, produzione e pubblicazione di contributi su tutti i social media di SVAR (Facebook, Instagram, Linked In)\n• Mantenere singoli elementi di annunci di lavoro in collaborazione con il reclutamento\n• Progettazione di documenti interni\n• Progettazione e produzione/ordine di materiale pubblicitario\n• Ulteriore assistenza nel settore della direzione come richiesto\n\nIl tuo profilo\n• Hai una laurea riconosciuta in comunicazione, marketing o giornalismo o hai già iniziato un grado corrispondente.\n• Sono interessati e si avvicinano apertamente alle persone.\n• Puoi occuparti di libertà e fiducia.\n• Vogliono applicare la conoscenza e continuare a imparare.\n• Vogliono sorprendere noi e i nostri clienti.\n• Vogliono raccogliere storie e riferire su di loro.\n• Sono disposti a lavorare fuori orario di ufficio.\n\nInoltre, si beneficia di\n\nIngresso: 1 febbraio 2027",
-      "en": "Their tasks\n• Planning, production and publication of the job videos of all advertised positions of the SVAR, as well as internal videos\n• Planning, production and publication of contributions on all social media of SVAR (Facebook, Instagram, LinkedIn)\n• Maintaining individual elements of job advertisements in cooperation with recruitment\n• Design of internal documents\n• Design and production/order of advertising material\n• Further assistance in the area of directorate as required\n\nYour profile\n• You have a recognised degree in communication, marketing or journalism or have already started a corresponding degree.\n• They are interested and openly approach people.\n• You can deal with freedom and trust.\n• They want to apply knowledge and continue to learn.\n• They want to surprise us and our customers.\n• They want to pick up stories and report on them.\n• They are willing to work outside office hours.\n\nIn addition, you benefit from\n\nEntrance: February 1, 2027",
-      "de": "Ihre Aufgaben\n• Planung, Produktion und Veröffentlichung der Stellenvideos aller ausgeschriebenen Stellen des SVAR, sowie internen Videos\n• Planung, Produktion und Veröffentlichung von Beiträgen auf allen Sozialen Medien des SVAR (Facebook, Instagram, LinkedIn)\n• Pflege einzelner Elemente der Stelleninserate in Zusammenarbeit mit der Rekrutierung\n• Gestaltung von internen Dokumenten\n• Gestaltung und Produktion/Bestellung von Werbematerial\n• Nach Bedarf weitere Mithilfe im Bereich Direktion\n\nIhr Profil\n• Sie haben einen anerkannten Abschluss im Bereich Kommunikation, Marketing oder Journalismus oder haben ein entsprechendes Studium bereits begonnen.\n• Sie sind interessiert und gehen offen auf Menschen zu.\n• Sie können mit Freiheit und Vertrauen umgehen.\n• Sie wollen Wissen anwenden und weiter dazu lernen.\n• Sie wollen uns und unsere Kunden überraschen.\n• Sie wollen Geschichten aufgreifen und darüber berichten.\n• Sie sind bereit, teilweise auch ausserhalb der Bürozeiten zu arbeiten.\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Februar 2027",
-      "fr": "Leurs tâches\n• Planification, production et publication des vidéos d'emploi de tous les postes annoncés du SVAR, ainsi que des vidéos internes\n• Planification, production et publication de contributions sur tous les réseaux sociaux de SVAR (Facebook, Instagram, Linked En)\n• Maintien d'éléments individuels d'annonces d'emploi en coopération avec le recrutement\n• Conception des documents internes\n• Conception et production/commande de matériel publicitaire\n• Assistance supplémentaire dans le domaine de la direction au besoin\n\nVotre profil\n• Vous avez un diplôme reconnu en communication, marketing ou journalisme ou avez déjà commencé un diplôme correspondant.\n• Ils sont intéressés et s'adressent ouvertement aux gens.\n• Vous pouvez gérer la liberté et la confiance.\n• Ils veulent appliquer les connaissances et continuer à apprendre.\n• Ils veulent nous surprendre, nous et nos clients.\n• Ils veulent trouver des histoires et en rendre compte.\n• Ils sont prêts à travailler en dehors des heures de bureau.\n\nEn outre, vous bénéficiez\n\nEntrée : 1er février 2027"
-    },
-    "slugByLocale": {
-      "it": "stagista-nella-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "en": "corporate-communications-intern-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "de": "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4",
-      "fr": "stagiaire-en-communication-d-entreprise-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-11-02T09:28:35.135Z",
-    "previousSlugs": [
-      "internship-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "intern-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "internship-business-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "intern-in-corporate-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "stage-communication-d-entreprise-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "stage-en-communication-d-entreprise-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
-      "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4"
     ],
-    "previousSlugsByLocale": {
-      "it": [
-        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4",
-        "internship-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "intern-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau"
-      ],
-      "en": [
-        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4",
-        "internship-business-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "intern-in-corporate-communication-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau"
-      ],
-      "fr": [
-        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau-948911b4",
-        "stage-communication-d-entreprise-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "stage-en-communication-d-entreprise-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau"
-      ],
-      "de": [
-        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau"
-      ]
-    },
-    "postalCode": "9100",
-    "streetAddress": "Herisau",
-    "salaryMin": 56000,
-    "salaryMax": 99500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4087647",
-    "firstSeenAt": "2026-09-10T23:04:50.660Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4068249",
-        "firstSeenAt": "2026-09-10T23:04:50.660Z",
-        "title": "Praktikant/in Unternehmenskommunikation (m/w/d)"
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau": "AR"
       },
-      {
-        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4087647",
-        "firstSeenAt": "2026-09-10T23:04:50.660Z",
-        "title": "Praktikant/in Unternehmenskommunikation (m/w/d)"
+      "en": {
+        "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau": "AR"
       },
-      {
-        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4103663",
-        "firstSeenAt": "2026-09-10T23:04:50.660Z",
-        "title": "Praktikant/in Unternehmenskommunikation (m/w/d)"
-      },
-      {
-        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4106625",
-        "firstSeenAt": "2026-09-10T23:04:50.660Z",
-        "title": "Praktikant/in Unternehmenskommunikation (m/w/d)"
+      "fr": {
+        "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau": "AR"
       }
-    ]
+    }
   },
   {
     "slug": "co-team-leadership-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-301fe0be",
@@ -2681,7 +3431,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4085193",
-    "firstSeenAt": "2026-10-16T21:18:57.732Z"
+    "firstSeenAt": "2026-10-16T21:18:57.732Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau": "AR",
+        "koch-kochin-efz-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "cuoco-ausiliario-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "koch-kochin-cfc-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau": "AR",
+        "hilfskochin-hilfskoch-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "auxiliary-cook-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "koch-kochin-efz-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "de": {
+        "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau": "AR",
+        "cuisiniere-auxiliaire-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "koch-kochin-efz-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -2732,7 +3505,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4084559",
-    "firstSeenAt": "2026-10-13T09:16:45.452Z"
+    "firstSeenAt": "2026-10-13T09:16:45.452Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau": "AR",
+        "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "fr": {
+        "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "responsabile-delle-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -2885,7 +3671,19 @@
         "firstSeenAt": "2026-09-09T23:04:31.479Z",
         "title": "Applikationsmanager/in (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "team-leader-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-bb606ce7",
@@ -3090,7 +3888,17 @@
         "firstSeenAt": "2026-09-11T23:09:54.279Z",
         "title": "Senior Controller/in als Business Partner/in (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "senior-controller-in-als-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "medica-o-dirigente-per-la-nostra-anestesiologia-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -3159,7 +3967,20 @@
         "firstSeenAt": "2026-09-10T23:04:50.011Z",
         "title": "Oberärztin / Oberarzt für unsere Anästhesiologie (m,w,d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "oberarztin-oberarzt-per-unsere-anasthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-ea9b3810",
@@ -3268,6 +4089,9 @@
       ],
       "fr": [
         "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau"
+      ],
+      "de": [
+        "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau"
       ]
     },
     "postalCode": "9100",
@@ -3279,7 +4103,28 @@
     "firstSeenAt": "2026-10-08T09:18:35.405Z",
     "previousSlugs": [
       "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau"
-    ]
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4081560",
+        "firstSeenAt": "2026-10-08T09:18:35.405Z",
+        "title": "Oberärztin/Oberarzt Subakutstation"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4108530",
+        "firstSeenAt": "2026-10-08T09:18:35.405Z",
+        "title": "Oberärztin/Oberarzt Subakutstation"
+      }
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "de": {
+        "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "vice-direttore-della-stazione-psicoterapia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -3322,7 +4167,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4081663",
-    "firstSeenAt": "2026-10-08T09:18:36.215Z"
+    "firstSeenAt": "2026-10-08T09:18:36.215Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "infermiere-a-diplomato-a-hf-per-il-turno-di-notte-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -3489,10 +4340,10 @@
       "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-e3bacf5f",
       "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-55bbceb1",
       "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-185b4caf",
+      "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3642,7 +4493,8 @@
         "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-2641f3f5",
         "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-af300f61",
         "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-e3bacf5f",
-        "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-714b1d10"
       ],
       "de": [
         "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -3683,7 +4535,8 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-00f2a890",
         "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-af300f61",
         "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-22d9d261",
-        "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0"
       ],
       "fr": [
         "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0",
@@ -3756,7 +4609,8 @@
         "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-0938126d",
         "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-af300f61",
         "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-55bbceb1",
-        "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-de4a3be8"
       ]
     },
     "postalCode": "9100",
@@ -3777,7 +4631,23 @@
         "firstSeenAt": "2026-10-06T09:13:12.775Z",
         "title": "Dipl. Pflegefachperson HF für die Nachtwache 50-100 %"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-64c46277": "AR",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0": "AR"
+      },
+      "en": {
+        "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-714b1d10": "AR"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0": "AR"
+      },
+      "fr": {
+        "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-de4a3be8": "AR"
+      }
+    }
   },
   {
     "slug": "dipl-specialista-di-assistenza-di-emergenza-spitalverbund-appenzell-ausserrhoden-svar-herisau-638be2f3",
@@ -3825,254 +4695,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4080344",
     "firstSeenAt": "2026-10-06T09:13:15.234Z"
-  },
-  {
-    "slug": "assistente-sociale-per-i-servizi-sociali-in-somatica-acuta-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-    "title": "Sozialarbeiter/-in für den Sozialdienst in der Akutsomatik (m/w/d)",
-    "titleByLocale": {
-      "it": "Assistente sociale per i servizi sociali in somatica acuta (m/f/d)",
-      "en": "Social worker for the social service in acute care (m/f/d)",
-      "de": "Sozialarbeiter/-in für den Sozialdienst in der Akutsomatik (m/w/d)",
-      "fr": "Travailleur social pour les services sociaux en soins somatiques aigus (h/f/d)"
-    },
-    "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-    "companyKey": "svar-spitalverbund-ar",
-    "location": "Herisau",
-    "addressLocality": "Herisau",
-    "descriptionByLocale": {
-      "it": "I loro compiti\n• Consulenza differenziata e supporto personale dei pazienti e dei loro parenti\n• Sostegno a situazioni di integrazione sociale e professionale complesse\n• Consulenza e organizzazione di soluzioni di connessione stazionarie\n• Trattamento elettronico dei dati nel settore della responsabilità\n• Buona rete con altre istituzioni\n\nIl tuo profilo\n• Avete completato i vostri studi (BSc/MSc) nel lavoro sociale o sono dipl. Specialista infermieristica HF con gestione case CAS e portare esperienza in caso o gestione uscite, nonché in ospedale e assicurazione in Svizzera\n• Si desidera lavorare 50% e sono pronti per una rappresentazione di vacanza fino a 80 - 100%\n• Hai una buona conoscenza del tedesco in parola e scrittura\n• Inoltre, sei una personalità impegnata con una forte competenza sociale e comunicativa, hai competenze di iniziativa e organizzative, nonché stabilità e resilienza personale.\n• Il lavoro indipendente, l'assertività e il godimento di un'attività interprofessionale sono una questione naturalmente per voi\n\nInoltre, si beneficia di\n\nIngresso: 01. novembre 2026",
-      "en": "Their tasks\n• Differentiated advice and personal support of patients and their relatives\n• Support in complex social and occupational integration situations\n• Consulting for and organization of stationary connection solutions\n• Electronic data processing in the area of responsibility\n• Good networking with other institutions\n\nYour profile\n• You have completed your studies (BSc/MSc) in Social Work or are dipl. Nursing specialist HF with a CAS case management and bring experience in case or exit management as well as in hospital and insurance in Switzerland\n• You want to work 50% and are ready for a holiday representation of up to 80 - 100%\n• You have very good knowledge of German in word and writing\n• In addition, you are a committed personality with strong social and communicative competence, have initiative and organizational skills as well as personal stability and resilience.\n• Independent work, assertiveness and enjoyment of an interprofessional activity are a matter of course for you\n\nIn addition, you benefit from\n\nAdmission: 01. November 2026",
-      "de": "Ihre Aufgaben\n• Differenzierte Beratung und persönliche Begleitung von Patientinnen und Patienten sowie deren Angehörigen\n• Unterstützung in komplexen Situationen in Bezug auf soziale und berufliche Eingliederung\n• Beratung für und Organisation von stationären Anschlusslösungen\n• Elektronische Datenverarbeitung im Aufgabengebiet\n• Gute Vernetzung mit anderen Institutionen\n\nIhr Profil\n• Sie haben ein abgeschlossenes Studium (BSc/MSc) in Sozialer Arbeit oder sind dipl. Pflegefachfrau HF mit einem CAS Casemanagement und bringen Erfahrung im Case- oder Austrittsmanagement sowie im Spital- und Versicherungswesen der Schweiz\n• Sie möchten 50% arbeiten und sind bereit für eine Ferienvertretung von bis zu 80 - 100%\n• Sie verfügen über sehr gute Deutschkenntnisse in Wort und Schrift\n• Zudem sind Sie eine engagierte Persönlichkeit mit ausgeprägter sozialer und kommunikativer Kompetenz, verfügen über Eigeninitiative und Organisationsgeschick sowie persönliche Stabilität und Belastbarkeit\n• Selbständige Arbeitsweise, Durchsetzungsvermögen und Freude an einer interprofessionellen Tätigkeit sind für Sie selbstverständlich\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. November 2026",
-      "fr": "Leurs tâches\n• Conseils différenciés et soutien personnel des patients et de leurs proches\n• Soutien dans des situations d'insertion sociale et professionnelle complexes\n• Consultation et organisation de solutions de connexion fixes\n• Traitement électronique des données dans le domaine de responsabilité\n• Bonne mise en réseau avec d'autres institutions\n\nVotre profil\n• Vous avez terminé vos études (BSc/MSc) en travail social ou êtes dipl. Spécialiste des soins infirmiers HF avec une gestion de cas CAS et apporter une expérience dans la gestion de cas ou de sortie ainsi que dans l'hôpital et l'assurance en Suisse\n• Vous voulez travailler 50% et êtes prêt pour une représentation de vacances allant jusqu'à 80 - 100%\n• Vous avez une très bonne connaissance de l'allemand dans la parole et l'écriture\n• En outre, vous êtes une personnalité engagée avec une forte compétence sociale et communicative, avez des compétences d'initiative et d'organisation ainsi que la stabilité et la résilience personnelles.\n• Le travail indépendant, l'affirmation de soi et la jouissance d'une activité interprofessionnelle sont une question de cours pour vous\n\nEn outre, vous bénéficiez\n\nEntrée : 01. novembre 2026"
-    },
-    "slugByLocale": {
-      "it": "assistente-sociale-per-i-servizi-sociali-in-somatica-acuta-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "en": "social-worker-for-the-social-service-in-acute-care-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "de": "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a",
-      "fr": "travailleur-social-pour-les-services-sociaux-en-soins-somatiques-aigus-h-f-d-spitalverbund-appenzell-ausserrhoden-svar"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-10-14T09:15:30.104Z",
-    "previousSlugs": [
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-ac78cf74",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-0a49ca8a",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-0dc908f4",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-6801bf96",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-9aa50157",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3a58e5ca",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-ede215c3",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-9d1934b6",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-d2cf46b4",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-5eac8783",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-57c2fa7e",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-f8018dea",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-756065d5",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1cc1d381",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-a1e44369",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-e29e7575",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1a5b4945",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-bfa24579",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4b31e4c9",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-02e2bf69",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-2c08cac9",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-38256f36",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-30e38602",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-11656807",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-d131c83a",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8eadf289",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-00163c35",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-575934b5",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-445f1b59",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5f75215a",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-8a51e839",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-d1ebd955",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-db185750",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-f33ae063",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-cae2b367",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-81390b32",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4659b380",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b1cf84d4",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1ce32e05",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-92a5cb08",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-aec23fa4",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-4e12b46e",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-34e95023",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-45f7f622",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-b2f6e6c3",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-7ecd87f2",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3e4c5172",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-932c1cee",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3ec27146",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-17fa1292",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-ac78cf74",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-0a49ca8a",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-0dc908f4",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-6801bf96",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-9aa50157",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3a58e5ca",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-ede215c3",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-9d1934b6",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-d2cf46b4",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-5eac8783",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-57c2fa7e",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-f8018dea",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-756065d5",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1cc1d381",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-a1e44369",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-e29e7575",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1a5b4945",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-bfa24579",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4b31e4c9",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-02e2bf69",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-2c08cac9",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-38256f36",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-30e38602",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-11656807",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-d131c83a",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8eadf289",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-00163c35",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-575934b5",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-445f1b59",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5f75215a",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-8a51e839",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-d1ebd955",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-db185750",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-f33ae063",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-cae2b367",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-81390b32",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4659b380",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b1cf84d4",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1ce32e05",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-92a5cb08",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-aec23fa4",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-4e12b46e",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-34e95023",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-45f7f622",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-b2f6e6c3",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-7ecd87f2",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3e4c5172",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-932c1cee",
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-3ec27146",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-17fa1292"
-      ],
-      "en": [
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d"
-      ],
-      "de": [
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-bfa24579"
-      ],
-      "fr": [
-        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-96f2621a",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6acab382",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-06e2e379",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-ca21be00",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-9881a9b9",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-62e74ded",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-6c905389",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-b7e6eeb7",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-e16c5fd4",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-66627bee",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-a35f0e21",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6",
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-5d34b67d"
-      ]
-    },
-    "postalCode": "9100",
-    "salaryMin": 81000,
-    "salaryMax": 113000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4080648",
-    "firstSeenAt": "2026-10-06T21:14:16.279Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4080648",
-        "firstSeenAt": "2026-10-06T21:14:16.279Z",
-        "title": "Sozialarbeiter/-in für den Sozialdienst in der Akutsomatik (m/w/d)"
-      },
-      {
-        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097389",
-        "firstSeenAt": "2026-10-06T21:14:16.279Z",
-        "title": "Sozialarbeiter/-in für den Sozialdienst in der Akutsomatik (m/w/d)"
-      }
-    ]
   },
   {
     "slug": "operatrice-operatore-sociosanitario-efz-o-mpa-per-reparto-di-degenza-con-focus-sulla-medicina-interna-m-f-d",
@@ -4554,7 +5176,8 @@
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-c9e1f024",
         "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-b4571dd8",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-bc12fcd9",
-        "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-f161886c"
+        "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-f161886c",
+        "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-82453a86"
       ],
       "de": [
         "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -4683,7 +5306,20 @@
         "firstSeenAt": "2026-10-06T09:13:16.187Z",
         "title": "Fachfrau/Fachmann Gesundheit EFZ oder MPA für Bettenstation mit Fokus auf Innere Medizin (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-215fcbb2": "AR",
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-a18dadb8": "AR"
+      },
+      "en": {
+        "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-82453a86": "AR"
+      },
+      "de": {
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-a18dadb8": "AR"
+      }
+    }
   },
   {
     "slug": "infermiere-diplomato-sup-sup-per-il-reparto-letto-interdisciplinare-ostetrico-e-ginecologico-m-f-d-spitalverbund",
@@ -5469,7 +6105,8 @@
         "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-0af92c0c",
         "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-faf114c0",
         "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-4f504647",
-        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-0ba9391a"
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-0ba9391a",
+        "dipl-nursing-specialist-fh-hf-for-the-obstetric-and-gynecological-interdisciplinary-bed-station-m-f-d-7a2ba9b0"
       ],
       "fr": [
         "dipl-specialiste-des-soins-infirmiers-fh-hf-pour-la-station-de-lit-interdisciplinaire-obstetrique-et-7d20fdef",
@@ -5583,7 +6220,8 @@
         "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-0af92c0c",
         "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-faf114c0",
         "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-4f504647",
-        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-0ba9391a"
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-0ba9391a",
+        "dipl-specialiste-des-soins-infirmiers-fh-hf-pour-la-station-de-lit-interdisciplinaire-obstetrique-et-a615aca9"
       ],
       "de": [
         "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-fbb65a13",
@@ -5616,7 +6254,23 @@
         "firstSeenAt": "2026-10-05T09:17:14.410Z",
         "title": "Dipl. Pflegefachperson FH/HF für die geburtshilfliche und gynäkologische interdisziplinäre Bettenstation (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-9679e1f5": "AR",
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-f8babbc5": "AR"
+      },
+      "en": {
+        "dipl-nursing-specialist-fh-hf-for-the-obstetric-and-gynecological-interdisciplinary-bed-station-m-f-d-7a2ba9b0": "AR"
+      },
+      "de": {
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare-f8babbc5": "AR"
+      },
+      "fr": {
+        "dipl-specialiste-des-soins-infirmiers-fh-hf-pour-la-station-de-lit-interdisciplinaire-obstetrique-et-a615aca9": "AR"
+      }
+    }
   },
   {
     "slug": "dipl-infermiera-hf-fh-nel-campo-della-psicoterapia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-a937537b",
@@ -5706,7 +6360,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4079685",
-    "firstSeenAt": "2026-10-05T21:39:27.219Z"
+    "firstSeenAt": "2026-10-05T21:39:27.219Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leitung-pflegeentwicklung-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "infermiere-dipl-sss-reparto-privato-come-guardia-notturna-permanente-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
@@ -5939,11 +6599,11 @@
       "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-4454d979",
       "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-d5327b35",
       "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-9ab81e88",
-      "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
       "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1b6475a5",
       "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-c1c7de9e",
-      "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-5c4a2d4a"
+      "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-5c4a2d4a",
+      "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
+      "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6226,7 +6886,8 @@
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-d5327b35",
         "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-9ab81e88",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-c1c7de9e",
-        "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-5c4a2d4a"
+        "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-5c4a2d4a",
+        "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-113a0396"
       ],
       "fr": [
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-0accacf1",
@@ -6363,7 +7024,24 @@
         "firstSeenAt": "2026-10-03T09:10:37.923Z",
         "title": "Dipl. Pflegefachperson HF Privatstation als Dauernachtwache (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-0accacf1": "AR",
+        "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-1ec9d602": "AR"
+      },
+      "en": {
+        "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-113a0396": "AR",
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-0accacf1": "AR"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-0accacf1": "AR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-0accacf1": "AR"
+      }
+    }
   },
   {
     "slug": "responsabile-della-clinica-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -6412,7 +7090,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4075488",
-    "firstSeenAt": "2026-10-01T09:14:46.401Z"
+    "firstSeenAt": "2026-10-01T09:14:46.401Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -6474,70 +7164,13 @@
     "salaryMax": 118500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4075887"
-  },
-  {
-    "slug": "med-assistenza-pratica-pneumologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-1f444667",
-    "title": "Med. Praxisassistenz Pneumologie (m/w/d)",
-    "titleByLocale": {
-      "it": "Med. Assistenza pratica Pneumologia (m/f/d)",
-      "en": "Med. Practical Assistance Pneumology (m/f/d)",
-      "de": "Med. Praxisassistenz Pneumologie (m/w/d)",
-      "fr": "Médicament. Assistance pratique Pneumologie (h/f/d)"
-    },
-    "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-    "companyKey": "svar-spitalverbund-ar",
-    "location": "Herisau",
-    "addressLocality": "Herisau",
-    "descriptionByLocale": {
-      "it": "I loro compiti\n• Organizzazione e coordinamento delle ore di consultazione pneumologica\n• Cura dei pazienti, pianificazione e gestione dei pazienti\n• Esecuzione di esami diagnostici pneumologici, in particolare diagnostica della funzione polmonare come la spirometria e pletismografia del corpo\n• Sostegno agli specialisti nelle ore di consultazione, esami e interventi\n• Attuazione del campionamento e dell'amministrazione e dei compiti organizzativi\n\nIl tuo profilo\n• Formazione completa come assistente di pratica medica / assistente di pratica medica EFZ o specialista di salute\n• Esperienza ideale nell'ambiente ambulatorio, preferibilmente in polmonologia\n• Metodi di lavoro strutturati e affidabili e competenze organizzative\n• Alto orientamento paziente e di servizio\n• Comunicazione aperta e apprezzativa e godimento della cooperazione interprofessionale\n\nInoltre, si beneficia di\n\nIngresso: 01. novembre 2026",
-      "en": "Their tasks\n• Organisation and coordination of pneumological consultation hours\n• Care of patients as well as scheduling and patient management\n• Performing pneumological diagnostic examinations, in particular lung function diagnostics such as spirometry and body plethysmography\n• Support for specialists in consultation hours, examinations and interventions\n• Implementation of blood sampling and administration and organisational tasks\n\nYour profile\n• Completed training as medical practice assistant / medical practice assistant EFZ or health specialist\n• Ideally experience in the ambulatory environment, preferably in pulmonology\n• Structured and reliable working methods and organizational skills\n• High patient and service orientation\n• Open and appreciative communication and enjoyment of interprofessional cooperation\n\nIn addition, you benefit from\n\nAdmission: 01. November 2026",
-      "de": "Ihre Aufgaben\n• Organisation und Koordination der pneumologischen Sprechstunden\n• Betreuung der Patientinnen und Patienten sowie Terminplanung und Patientenmanagement\n• Durchführung pneumologischer diagnostischer Untersuchungen, insbesondere Lungenfunktionsdiagnostik wie Spirometrie und Bodyplethysmografie\n• Unterstützung der Fachärztinnen und Fachärzte bei Sprechstunden, Untersuchungen und Eingriffen\n• Durchführung von Blutentnahmen sowie Übernahme administrativer und organisatorischer Aufgaben\n\nIhr Profil\n• Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent EFZ oder Fachperson Gesundheit\n• Idealerweise Erfahrung im ambulanten Umfeld, vorzugsweise in der Pneumologie\n• Strukturierte und zuverlässige Arbeitsweise sowie organisatorisches Geschick\n• Hohe Patienten- und Dienstleistungsorientierung\n• Offene und wertschätzende Kommunikation sowie Freude an interprofessioneller Zusammenarbeit\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. November 2026",
-      "fr": "Leurs tâches\n• Organisation et coordination des heures de consultation pneumologique\n• Soins des patients ainsi que planification et gestion des patients\n• Effectuer des examens diagnostiques pneumologiques, en particulier des diagnostics de fonctions pulmonaires tels que la spirométrie et la pléthysmographie corporelle\n• Soutien aux spécialistes des heures de consultation, examens et interventions\n• Mise en œuvre des tâches d'échantillonnage et d'administration du sang et d'organisation\n\nVotre profil\n• Formation complétée comme assistant de pratique médicale / assistant de pratique médicale EFZ ou spécialiste de la santé\n• Idéalement expérience dans l'environnement ambulatoire, de préférence en pulmonologie\n• Méthodes de travail et compétences organisationnelles structurées et fiables\n• Orientation élevée du patient et du service\n• Communication ouverte et appréciée et jouissance de la coopération interprofessionnelle\n\nEn outre, vous bénéficiez\n\nEntrée : 01. novembre 2026"
-    },
-    "slugByLocale": {
-      "it": "med-assistenza-pratica-pneumologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-1f444667",
-      "en": "med-practical-assistance-pneumology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-58e6e14b",
-      "de": "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24",
-      "fr": "medicament-assistance-pratique-pneumologie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-2610c73e"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-10-07T09:17:32.124Z",
-    "previousSlugs": [
-      "med-assistente-di-pratica-polmonologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "med-practice-assistant-pulmonology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "medicament-assistant-pratique-pulmonologie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24",
-      "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-a030bbe8",
-      "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-2fcc30c4"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "med-assistente-di-pratica-polmonologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24",
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-a030bbe8",
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-2fcc30c4"
-      ],
-      "en": [
-        "med-practice-assistant-pulmonology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24",
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-a030bbe8",
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-2fcc30c4"
-      ],
-      "fr": [
-        "medicament-assistant-pratique-pulmonologie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-6ee88f24",
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-a030bbe8",
-        "med-praxisassistenz-pneumologie-m-w-d-svar-spitalverbund-ar-herisau-2fcc30c4"
-      ]
-    },
-    "postalCode": "9100",
-    "salaryMin": 81000,
-    "salaryMax": 113000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4078449",
-    "firstSeenAt": "2026-10-01T21:12:29.536Z"
+    "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4075887",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "med-pratico-assistente-cardiologia-angiologia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-bbab32d7",
@@ -6735,8 +7368,6 @@
       "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-503fe801",
       "intern-patient-administration-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-9c7b5e87",
       "stagiaire-en-administration-des-patients-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-eb6a08a6",
-      "intern-patient-administration-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "stagiaire-en-administration-des-patients-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-48f87e11",
       "intern-patient-administration-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-52ccd14b",
       "stagiaire-en-administration-des-patients-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-7a33c90c",
@@ -6745,7 +7376,9 @@
       "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-68110746",
       "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-622d399e",
       "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-73fd049e",
-      "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-73fe3a31"
+      "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-73fe3a31",
+      "intern-patient-administration-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "stagiaire-en-administration-des-patients-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6882,7 +7515,8 @@
         "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-68110746",
         "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-622d399e",
         "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-73fd049e",
-        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-73fe3a31"
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-73fe3a31",
+        "intern-patient-administration-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-3aee631c"
       ],
       "fr": [
         "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-f86ba93e",
@@ -6968,7 +7602,8 @@
         "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-68110746",
         "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-622d399e",
         "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-73fd049e",
-        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-73fe3a31"
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-73fe3a31",
+        "stagiaire-en-administration-des-patients-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-cc5c37b9"
       ],
       "de": [
         "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-219d83be",
@@ -7001,7 +7636,24 @@
         "firstSeenAt": "2026-10-30T21:15:34.758Z",
         "title": "Praktikant/in Patientenadministration (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-f86ba93e": "AR"
+      },
+      "en": {
+        "intern-patient-administration-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-3aee631c": "AR",
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-f86ba93e": "AR"
+      },
+      "de": {
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-f86ba93e": "AR"
+      },
+      "fr": {
+        "stagiaire-en-administration-des-patients-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-cc5c37b9": "AR",
+        "praktikant-in-patientenadministration-m-w-d-svar-spitalverbund-ar-herisau-f86ba93e": "AR"
+      }
+    }
   },
   {
     "slug": "giardiniere-di-paesaggio-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -7050,7 +7702,107 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4075573",
-    "firstSeenAt": "2026-09-28T21:14:15.886Z"
+    "firstSeenAt": "2026-09-28T21:14:15.886Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "landschaftsgartner-landschaftsgartnerin-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "landschaftsgartner-landschaftsgartnerin-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "landschaftsgartner-landschaftsgartnerin-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
+  },
+  {
+    "slug": "medico-senior-medico-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "title": "Oberarzt / Oberärztin Chirugie",
+    "titleByLocale": {
+      "it": "Medico senior / Medico senior Chirugie",
+      "en": "Senior physician / Senior physician Chirugie",
+      "de": "Oberarzt / Oberärztin Chirugie",
+      "fr": "Médecin senior / Médecin senior Chirugie"
+    },
+    "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+    "companyKey": "svar-spitalverbund-ar",
+    "location": "Herisau",
+    "addressLocality": "Herisau",
+    "descriptionByLocale": {
+      "it": "I loro compiti\n• Cura indipendente di pazienti chirurgici apatici e ambulatoriali\n• Attuazione e assistenza delle procedure chirurgiche secondo la vostra esperienza e qualificazione\n• Partecipazione al sistema di servizio sovranazionale\n• Cooperazione interdisciplinare con tutte le facoltà partecipanti\n• Supervisione e formazione ulteriore dei medici assistenti\n• Partecipazione attiva ai progetti di qualità e all'ulteriore sviluppo della clinica\n\nIl tuo profilo\n• Titolo specialistico Chirurgia (FMH o riconoscimento equivalente)\n• Esperienza sonora in chirurgia generale e viscerale\n• Alta competenza professionale e metodo di lavoro orientato al paziente\n• La cooperazione interdisciplinare e la formazione dei giovani colleghi\n• Responsabilità, iniziativa e capacità organizzative\n• Forte capacità di squadra e alte competenze sociali\n• Molto buona conoscenza del tedesco in parola e scrittura\n\nInoltre, si beneficia di\n\nIngresso: 1 gennaio 2026",
+      "en": "Their tasks\n• Independent care of inpatient and outpatient surgical patients\n• Implementation and assistance of surgical procedures according to your experience and qualification\n• Participation in the supranational service system\n• Interdisciplinary cooperation with all participating faculties\n• Supervision and further training of assistant doctors\n• Active participation in quality projects and in the further development of the clinic\n\nYour profile\n• Specialist title Surgery (FMH or equivalent recognition)\n• Sound experience in general and visceral surgery\n• High professional competence and a patient-oriented working method\n• Enjoying interdisciplinary cooperation and training of young colleagues\n• Responsibility, initiative and organisational skills\n• Strong team skills and high social skills\n• Very good knowledge of German in word and writing\n\nIn addition, you benefit from\n\nEntrance: January 1, 2026",
+      "de": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026",
+      "fr": "Leurs tâches\n• Soins indépendants des patients hospitalisés et ambulatoires en chirurgie\n• Mise en œuvre et assistance des interventions chirurgicales selon votre expérience et votre qualification\n• Participation au système de services supranationaux\n• Coopération interdisciplinaire avec toutes les facultés participantes\n• Supervision et formation continue des médecins adjoints\n• Participation active à des projets de qualité et au développement de la clinique\n\nVotre profil\n• Titre du spécialiste Chirurgie (FMH ou reconnaissance équivalente)\n• Son expérience en chirurgie générale et viscérale\n• Haute compétence professionnelle et méthode de travail axée sur le patient\n• Profitez de la coopération interdisciplinaire et de la formation de jeunes collègues\n• Responsabilité, initiative et compétences organisationnelles\n• Des compétences solides en équipe et des compétences sociales élevées\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nEn outre, vous bénéficiez\n\nEntrée : 1er janvier 2026"
+    },
+    "slugByLocale": {
+      "it": "medico-senior-medico-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "senior-physician-senior-physician-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau-0ee3eb31",
+      "fr": "medecin-senior-medecin-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-06T09:13:22.704Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau-0ee3eb31",
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
+        "medico-senior-medico-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau-402b824b"
+      ],
+      "en": [
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau-0ee3eb31",
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
+        "senior-physician-senior-physician-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau-8379f2b6"
+      ],
+      "fr": [
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau-0ee3eb31",
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
+        "medecin-senior-medecin-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau-807713e1"
+      ],
+      "de": [
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau"
+      ]
+    },
+    "postalCode": "9100",
+    "salaryMin": 109000,
+    "salaryMax": 152500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4070324",
+    "firstSeenAt": "2026-09-23T23:39:10.032Z",
+    "previousSlugs": [
+      "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
+      "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau-0ee3eb31",
+      "medico-senior-medico-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau-402b824b",
+      "senior-physician-senior-physician-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau-8379f2b6",
+      "medecin-senior-medecin-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau-807713e1"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4070324",
+        "firstSeenAt": "2026-09-23T23:39:10.032Z",
+        "title": "Oberarzt / Oberärztin Chirugie"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4089111",
+        "firstSeenAt": "2026-09-23T23:39:10.032Z",
+        "title": "Oberarzt / Oberärztin Chirugie"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "en": {
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "de": {
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -7358,7 +8110,8 @@
         "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-c6fa99a3",
         "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-7a6129b3",
         "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-45c0e63d",
-        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-7da53a1a"
+        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-7da53a1a",
+        "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "fr": [
         "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-bbf4949f",
@@ -7471,7 +8224,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4070348",
-    "firstSeenAt": "2026-09-19T22:53:36.275Z"
+    "firstSeenAt": "2026-09-19T22:53:36.275Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-bbf4949f": "AR"
+      },
+      "en": {
+        "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-bbf4949f": "AR"
+      },
+      "de": {
+        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-bbf4949f": "AR"
+      },
+      "fr": {
+        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau-bbf4949f": "AR"
+      }
+    }
   },
   {
     "slug": "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -8017,7 +8786,8 @@
         "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-816ee733",
         "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-3db5f141",
         "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-70d58f48",
-        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-753e0d1b"
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-753e0d1b",
+        "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-ac4e44fc"
       ],
       "fr": [
         "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-b393f2a2",
@@ -8149,7 +8919,8 @@
         "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-816ee733",
         "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-3db5f141",
         "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-70d58f48",
-        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-753e0d1b"
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-753e0d1b",
+        "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-29e30ba3"
       ],
       "de": [
         "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-bb2f627e",
@@ -8172,7 +8943,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4070229",
-    "firstSeenAt": "2026-09-19T22:53:36.826Z"
+    "firstSeenAt": "2026-09-19T22:53:36.826Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-b393f2a2": "AR",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-5ea4c76f": "AR"
+      },
+      "en": {
+        "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau-ac4e44fc": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-b393f2a2": "AR"
+      },
+      "de": {
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-b393f2a2": "AR"
+      },
+      "fr": {
+        "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-29e30ba3": "AR",
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar-b393f2a2": "AR"
+      }
+    }
   },
   {
     "slug": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
@@ -8205,6 +8994,9 @@
     "previousSlugsByLocale": {
       "fr": [
         "partenaire-operationnel-rh-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "de": [
+        "hr-business-partnerin-svar-spitalverbund-ar-herisau"
       ]
     },
     "postalCode": "9100",
@@ -8213,7 +9005,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4069965",
-    "firstSeenAt": "2026-09-19T22:53:35.572Z"
+    "firstSeenAt": "2026-09-19T22:53:35.572Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "de": {
+        "hr-business-partnerin-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "partenaire-operationnel-rh-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -8264,7 +9065,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4069910",
-    "firstSeenAt": "2026-09-19T22:53:37.415Z"
+    "firstSeenAt": "2026-09-19T22:53:37.415Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-hr-svar-spitalverbund-ar-herisau": "AR",
+        "fachspezialist-in-risorse-umane-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "fachspezialist-in-hr-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "fachspezialist-in-hr-svar-spitalverbund-ar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau-c11e5ea1",
@@ -8411,7 +9225,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4067101",
-    "firstSeenAt": "2026-09-09T13:44:43.312Z"
+    "firstSeenAt": "2026-09-09T13:44:43.312Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-fh-schwerpunkt-nachtdienst-med-bettenstation-m-w-d-svar": "AR"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-fh-schwerpunkt-nachtdienst-med-bettenstation-m-w-d-svar": "AR"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-fh-schwerpunkt-nachtdienst-med-bettenstation-m-w-d-svar": "AR"
+      }
+    }
   },
   {
     "slug": "la-cura-della-piscina-dei-dipendenti-lavorando-come-si-adatta-alla-tua-vita-spitalverbund-appenzell-7a2aa7ec",
@@ -8571,7 +9397,44 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4066459",
-    "firstSeenAt": "2026-09-07T15:03:10.372Z"
+    "firstSeenAt": "2026-09-07T15:03:10.372Z",
+    "canton": "AR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-terapista-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-ergotherapeut-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-ergotherapie-en-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-occupational-therapist-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-ergotherapeut-in-fh-bsc-per-akutgeriatrie-e-gerontotraumatologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-occupational-therapist-in-fh-bsc-for-acute-geriatrics-and-gerontotraumatology-m-f-d-spitalverbund-appenzell": "AR",
+        "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-m-w-d-svar": "AR",
+        "dipl-ergotherapeute-en-bsc-fh-pour-la-geriatrie-aigue-et-la-gerontotraumatologie-m-f-d-spitalverbund-appenzell": "AR",
+        "dipl-occupational-therapist-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-terapeuta-professionale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-ergotherapeute-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachperson-hf-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-pflegefachperson-hf-nachtwache-gerontopsychiatrie-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-cura-professionale-hf-med-diagnostica-endoscopia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-care-professional-hf-med-diagnostics-endoscopy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "en": {
+        "dipl-ergotherapeut-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachperson-hf-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-care-professional-hf-med-diagnostics-endoscopy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      },
+      "de": {
+        "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau": "AR"
+      },
+      "fr": {
+        "dipl-ergotherapie-en-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR",
+        "dipl-pflegefachperson-hf-svar-spitalverbund-ar-herisau": "AR",
+        "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau": "AR"
+      }
+    }
   },
   {
     "slug": "social-worker-social-worker-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",

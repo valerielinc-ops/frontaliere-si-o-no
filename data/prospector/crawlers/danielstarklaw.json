@@ -1,0 +1,25 @@
+{
+  "companyKey": "danielstarklaw",
+  "companyName": "Daniel Stark Law",
+  "companyHost": "danielstarklaw.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://danielstarklaw.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 41,
+  "sampleTitles": [
+    "Litigation Attorney",
+    "Litigation Attorney",
+    "Litigation Attorney",
+    "Litigation Attorney",
+    "Litigation Attorney"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-27T14:50:45.292Z",
+  "candidateKey": "danielstarklaw@applytojob.com"
+}

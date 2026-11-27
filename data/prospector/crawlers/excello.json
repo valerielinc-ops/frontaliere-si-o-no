@@ -1,0 +1,25 @@
+{
+  "companyKey": "excello",
+  "companyName": "Excello",
+  "companyHost": "excello.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://excello.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Customer Account Manager",
+    "Executive Assistant – On-site",
+    "IT Support Engineer Level 1",
+    "L2 MSP Technical Support Engineer (Microsoft 365)",
+    "Level 2 Technical Specialist-Backup&Recovery"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-27T14:50:42.578Z",
+  "candidateKey": "excello@applytojob.com"
+}
