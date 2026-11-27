@@ -1,7 +1,7 @@
 {
   "crawlerKey": "absolut-liv-ch",
-  "assembledAt": "2026-11-27T09:58:06.170Z",
-  "runId": "45973085635",
+  "assembledAt": "2026-11-27T21:38:13.221Z",
+  "runId": "46069779121",
   "jobs": [
     {
       "id": "absolut-liv-ch-62d97f62b188",
@@ -34,7 +34,7 @@
       "url": "https://absolut-liv.ch/jobs/2240-100028-4-1",
       "source": "absolutLIV AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:57:59.390Z",
+      "crawledAt": "2026-11-27T21:38:04.971Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -146,7 +146,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:57:59.390Z",
+      "validThrough": "2026-12-27T21:38:04.971Z",
       "validThroughSource": "last-observed-window"
     }
   ]

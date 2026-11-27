@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medics-labor",
-  "assembledAt": "2026-11-27T09:57:29.022Z",
-  "runId": "45973085635",
+  "assembledAt": "2026-11-27T21:36:59.227Z",
+  "runId": "46069779121",
   "jobs": [
     {
       "id": "medics-labor-586233e3475e",
@@ -35,7 +35,7 @@
       "url": "https://app.reflinejobs.io/1474/0156/pub/113/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:57:22.189Z",
+      "crawledAt": "2026-11-27T21:36:51.706Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -85,9 +85,8 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:57:22.189Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1474/0156/pub/113/index.html"
+      "validThrough": "2027-02-21T21:36:51.706Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "medics-labor-a5e240ae8d9b",
@@ -121,7 +120,7 @@
       "url": "https://app.reflinejobs.io/1474/0153/pub/111/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:57:21.597Z",
+      "crawledAt": "2026-11-27T21:36:51.176Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -173,9 +172,8 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:57:21.597Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1474/0153/pub/111/index.html"
+      "validThrough": "2027-02-15T21:36:51.176Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "medics-labor-5c7b15764558",
@@ -209,7 +207,7 @@
       "url": "https://app.reflinejobs.io/1474/0147/pub/109/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:57:20.989Z",
+      "crawledAt": "2026-11-27T21:36:50.640Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -267,9 +265,8 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:57:20.989Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1474/0147/pub/109/index.html"
+      "validThrough": "2027-02-03T21:36:50.640Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

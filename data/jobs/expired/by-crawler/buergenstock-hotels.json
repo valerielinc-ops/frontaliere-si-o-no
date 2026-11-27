@@ -11373,15 +11373,41 @@
     "previousSlugs": [
       "sommelier-m-w-i-100-buergenstock-hotels-obburgen",
       "sommelier-100-m-w-i-buergenstock-hotels-obburgen",
-      "sommelier-m-w-i-zu-100-burgenstock-hotels-ag-obburgen"
+      "sommelier-m-w-i-zu-100-burgenstock-hotels-ag-obburgen",
+      "quindi-100-p-m-i-burgenstock-hotels-ag-obburgen",
+      "stewarding-staff-100-m-f-d-burgenstock-hotels-ag-obburgen",
+      "personnel-delegue-100-m-f-d-burgenstock-hotels-ag-obburgen",
+      "sommelier-100-w-m-i-burgenstock-collection-ch",
+      "sommelier-100-w-m-i-buergenstock-hotels-obburgen",
+      "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen",
+      "100-sommelier-w-m-i-burgenstock-collection-lugano"
     ],
     "previousSlugsByLocale": {
       "it": [
         "sommelier-m-w-i-100-buergenstock-hotels-obburgen",
-        "sommelier-100-m-w-i-buergenstock-hotels-obburgen"
+        "sommelier-100-m-w-i-buergenstock-hotels-obburgen",
+        "quindi-100-p-m-i-burgenstock-hotels-ag-obburgen",
+        "sommelier-m-f-x-100-burgenstock-hotels-ag-obburgen",
+        "sommelier-h-f-x-100-burgenstock-hotels-ag-obburgen",
+        "sommelier-m-w-i-zu-100-burgenstock-hotels-ag-obburgen",
+        "stewarding-staff-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "personnel-delegue-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "sommelier-100-w-m-i-burgenstock-collection-ch",
+        "sommelier-100-w-m-i-buergenstock-hotels-obburgen",
+        "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen"
       ],
       "de": [
-        "sommelier-m-w-i-zu-100-burgenstock-hotels-ag-obburgen"
+        "sommelier-m-w-i-zu-100-burgenstock-hotels-ag-obburgen",
+        "sommelier-100-m-w-i-buergenstock-hotels-obburgen",
+        "sommelier-100-w-m-i-burgenstock-collection-ch"
+      ],
+      "en": [
+        "100-sommelier-w-m-i-burgenstock-collection-lugano",
+        "sommelier-100-m-w-i-buergenstock-hotels-obburgen"
+      ],
+      "fr": [
+        "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen",
+        "sommelier-100-m-w-i-buergenstock-hotels-obburgen"
       ]
     },
     "postalCode": "6363",
@@ -11390,7 +11416,32 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2850.umantis.com/vacancies/1521/description/1",
-    "firstSeenAt": "2026-05-20T06:08:33.590Z"
+    "firstSeenAt": "2026-05-20T06:08:33.590Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "quindi-100-p-m-i-burgenstock-hotels-ag-obburgen": "NW",
+        "sommelier-m-f-x-100-burgenstock-hotels-ag-obburgen": "NW",
+        "sommelier-h-f-x-100-burgenstock-hotels-ag-obburgen": "NW",
+        "sommelier-m-w-i-zu-100-burgenstock-hotels-ag-obburgen": "NW",
+        "stewarding-staff-100-m-f-d-burgenstock-hotels-ag-obburgen": "NW",
+        "personnel-delegue-100-m-f-d-burgenstock-hotels-ag-obburgen": "NW",
+        "sommelier-100-w-m-i-burgenstock-collection-ch": "NW",
+        "sommelier-100-w-m-i-buergenstock-hotels-obburgen": "NW",
+        "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen": "NW"
+      },
+      "en": {
+        "100-sommelier-w-m-i-burgenstock-collection-lugano": "NW",
+        "sommelier-100-m-w-i-buergenstock-hotels-obburgen": "NW"
+      },
+      "de": {
+        "sommelier-100-m-w-i-buergenstock-hotels-obburgen": "NW",
+        "sommelier-100-w-m-i-burgenstock-collection-ch": "NW"
+      },
+      "fr": {
+        "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen": "NW",
+        "sommelier-100-m-w-i-buergenstock-hotels-obburgen": "NW"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-cameriere-a-efz-2027-burgenstock-hotels-ag-obburgen",
