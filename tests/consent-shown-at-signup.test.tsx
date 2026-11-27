@@ -1923,6 +1923,8 @@ describe('the page the formula points at cannot change without saying so (#5765)
     '2026-10-01.1': '6b80754fa587c1fb',
     // #11236 — the sitemap entry without a build-time <lastmod>.
     '2026-10-04.1': '3fbfaa874cf97511',
+    // 2026-11-27 — the job-alerts cadence sentence (05:00 UTC + 12:07 UTC safety pass).
+    '2026-11-27.1': '843ea1418bd18a89',
   };
 
   it('matches the current page against the fingerprint of the current version', () => {

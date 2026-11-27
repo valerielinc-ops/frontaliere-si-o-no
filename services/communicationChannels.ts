@@ -571,7 +571,7 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
  * formula's own `version` is bumped too. One page edit, one consent version —
  * which is the property the whole arrangement exists to buy.
  */
-export const COMMUNICATIONS_PAGE_VERSION = '2026-10-04.1';
+export const COMMUNICATIONS_PAGE_VERSION = '2026-11-27.1';
 
 /**
  * Published version → fingerprint of the page content at that version.
@@ -621,6 +621,9 @@ export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = O
   // <lastmod> (source-backed dates only). What the page says is unchanged; the
   // template edit moves the fingerprint, the same over-eager side as #5760.
   '2026-10-04.1': '3fbfaa874cf97511',
+  // 2026-11-27 — the job-alerts cadence stops promising the retired 00:33 UTC
+  // slot: main send at 05:00 UTC (Cloud Scheduler), safety pass from 12:07 UTC.
+  '2026-11-27.1': '843ea1418bd18a89',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */
