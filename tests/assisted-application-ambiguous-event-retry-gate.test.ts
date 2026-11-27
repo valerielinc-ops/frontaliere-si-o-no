@@ -85,6 +85,8 @@ describe('ambiguousSendOpen (pure)', () => {
     ['proof of another round', { runnerEvents: [event], proofs: [{ eventType: 'portal_final_review_ambiguous_reconciled', round: 2, createdAt: 200 }] }, true],
     ['owner retry without the confirmation', { runnerEvents: [event], proofs: [{ eventType: 'owner_retry_submit', round: 1, createdAt: 200 }] }, true],
     ['owner retry with the confirmation', { runnerEvents: [event], proofs: [{ eventType: 'owner_retry_submit', round: 1, confirmedNotSent: true, createdAt: 200 }] }, false],
+    ['an event with an unreadable time stays open whatever the proof', { runnerEvents: [{ ...event, createdAt: null }], proofs: [{ eventType: 'portal_final_review_ambiguous_reconciled', round: 1, createdAt: 1000 }] }, true],
+    ['an event with no time stays open even after the owner confirmation', { runnerEvents: [{ error: 'portal_ambiguous', round: 1 }], proofs: [{ eventType: 'owner_retry_submit', round: 1, confirmedNotSent: true, createdAt: 1000 }] }, true],
     ['proof with an unreadable time', { runnerEvents: [event], proofs: [{ eventType: 'portal_final_review_ambiguous_reconciled', round: 1 }] }, true],
   ] as Array<[string, any, boolean]>)('%s -> open=%s', (_name, input, open) => {
     expect(ambiguousSendOpen({ round: 1, ...input })).toBe(open);

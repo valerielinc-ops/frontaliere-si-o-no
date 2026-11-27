@@ -200,7 +200,10 @@ export function ambiguousSendOpen({ round, runnerEvents = [], proofs = [] } = {}
     .map((proof) => millisOf(proof.createdAt))
     .filter((time) => time !== null);
   return ambiguous.some((event) => {
-    const at = millisOf(event.createdAt) ?? 0;
+    const at = millisOf(event.createdAt);
+    // An event whose time cannot be read cannot be ordered against any proof: it stays open (fail-closed), and
+    // only the owner's explicit confirmation on the retry itself passes the gate.
+    if (at === null) return true;
     return !proofTimes.some((time) => time >= at);
   });
 }
