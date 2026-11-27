@@ -33,7 +33,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-collab-amministrativo-2026.pdf",
-    "firstSeenAt": "2026-09-04T23:13:44.072Z"
+    "firstSeenAt": "2026-09-04T23:13:44.072Z",
+    "canton": "TI"
   },
   {
     "slug": "posizione-per-dottorando-usi-lugano",
@@ -102,7 +103,38 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://content.usi.ch/sites/default/files/storage/attachments/idep/idep-phd-position-2025.pdf",
-    "firstSeenAt": "2026-04-13T22:38:02.110Z"
+    "firstSeenAt": "2026-04-13T22:38:02.110Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "phd-student-position-usi": "TI",
+        "doktorandenstelle-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-d-etudiant-au-doctorat-usi-lugano": "TI",
+        "posizione-da-dottorando-usi-lugano": "TI",
+        "posizione-di-dottorando-usi-lugano": "TI",
+        "posizione-per-dottorando-usi-lugano": "TI",
+        "phd-student-position-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-d-etudiant-au-doctorat-usi-universita-della-svizzera-italiana-lugano": "TI"
+      },
+      "en": {
+        "phd-student-position-usi": "TI",
+        "phd-student-position-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-d-etudiant-au-doctorat-usi-universita-della-svizzera-italiana-lugano": "TI"
+      },
+      "de": {
+        "phd-student-position-usi": "TI",
+        "doktorandenstelle-usi-lugano": "TI",
+        "promotionsstelle-usi-lugano": "TI",
+        "phd-student-position-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-d-etudiant-au-doctorat-usi-universita-della-svizzera-italiana-lugano": "TI"
+      },
+      "fr": {
+        "phd-student-position-usi": "TI",
+        "poste-de-doctorant-usi-lugano": "TI",
+        "phd-student-position-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-d-etudiant-au-doctorat-usi-universita-della-svizzera-italiana-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "segretario-a-amministrativo-a-usi-locarno",
@@ -136,7 +168,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.irsol.usi.ch/storage/app/media/open%20positions/2026_08_secretary.pdf",
-    "firstSeenAt": "2026-08-17T22:00:33.993Z"
+    "firstSeenAt": "2026-08-17T22:00:33.993Z",
+    "canton": "TI"
   },
   {
     "slug": "posizione-di-tecnico-di-laboratorio-nel-laboratorio-di-genomica-del-cancro-funzionale-usi-lugano",
@@ -194,7 +227,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-functional-cancer-genomics-lab-techncian-2026.pdf",
-    "firstSeenAt": "2026-07-27T12:40:12.918Z"
+    "firstSeenAt": "2026-07-27T12:40:12.918Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "posizione-di-tecnico-di-laboratorio-presso-il-laboratorio-di-genomica-funzionale-del-cancro-usi-lugano": "TI",
+        "posizione-di-tecnico-di-laboratorio-nel-laboratorio-di-genomica-funzionale-del-cancro-usi-lugano": "TI",
+        "labortechnikerposition-im-labor-fur-funktionelle-krebsgenomik-usi-lugano": "TI"
+      },
+      "de": {
+        "stelle-als-labortechniker-im-labor-fur-funktionelle-krebsgenomik-usi-lugano": "TI"
+      },
+      "fr": {
+        "poste-de-technicien-de-laboratoire-au-sein-du-laboratoire-de-genomique-fonctionnelle-du-cancer-usi-lugano": "TI",
+        "poste-de-technicien-de-laboratoire-au-laboratoire-de-genomique-du-cancer-fonctionnel-usi-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "tirocinio-usi-mendrisio",
@@ -249,7 +297,8 @@
       ],
       "en": [
         "internship-in-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio",
-        "internship-usi-mendrisio"
+        "internship-usi-mendrisio",
+        "tirocinio-usi-mendrisio"
       ],
       "de": [
         "praktikum-in-architektur-und-technik-usi-mendrisio"
@@ -263,7 +312,33 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-call_intern_living_walls_accademia_mendrisio_fmaa_2026.pdf",
-    "firstSeenAt": "2026-07-10T10:25:30.321Z"
+    "firstSeenAt": "2026-07-10T10:25:30.321Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "nome-tirociniocity-opzionale-probabilmente-non-ha-bisogno-di-una-traduzione-usi-universita-della-svizzera-italiana": "TI",
+        "tirociniocity-name-optional-probably-does-not-need-a-translation-usi-mendrisio": "TI",
+        "tirociniocity-name-opzionale-probabilmente-non-ha-bisogno-di-una-traduzione-usi-universita-della-svizzera-italiana": "TI",
+        "tirocinio-in-architettura-e-tecnologia-usi-universita-della-svizzera-italiana-mendrisio": "TI",
+        "praktikum-in-architektur-und-technik-usi-mendrisio": "TI",
+        "internship-in-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio": "TI",
+        "stage-en-architecture-et-technologie-usi-mendrisio": "TI",
+        "tirocinio-computational-design-digital-fabrication-per-costruzioni-sostenibili-in-calcestruzzo-living-walls-usi-universita-della-svizzera-italiana-mendrisio": "TI",
+        "stage-usi-universita-della-svizzera-italiana-mendrisio": "TI",
+        "tirocinio-usi-universita-della-svizzera-italiana-mendrisio": "TI"
+      },
+      "en": {
+        "tirocinio-usi-mendrisio": "TI",
+        "internship-in-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio": "TI",
+        "internship-usi-mendrisio": "TI"
+      },
+      "de": {
+        "praktikum-in-architektur-und-technik-usi-mendrisio": "TI"
+      },
+      "fr": {
+        "stage-en-architecture-et-technologie-usi-mendrisio": "TI"
+      }
+    }
   },
   {
     "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-alla-prostata-nel-functional-cancer-genomics-lab-usi-lugano",
@@ -333,7 +408,29 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
-    "firstSeenAt": "2026-05-21T13:45:01.598Z"
+    "firstSeenAt": "2026-05-21T13:45:01.598Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "postdoctoral-position-on-resistance-to-radioligand-and-radiotherapy-in-prostate-cancer-in-the-functional-cancer-genomics-lab-usi": "TI",
+        "posizione-post-dottorale-sulla-resistenza-alla-radioligione-e-alla-radioterapia-nel-cancro-alla-prostata-nel-laboratorio-funzionale-della-genomica-del-cancro-usi-lugano": "TI",
+        "posizione-post-dottorale-sulla-resistenza-alla-radioligione-e-alla-radioterapia-nel-cancro-alla-dose-nel-laboratorio-funzionale-della-genomica-del-cancro-usi-lugano": "TI",
+        "postdoktorand-zur-resistenz-gegen-radioligand-und-strahlentherapie-bei-prostatakrebs-im-functional-cancer-genomics-lab-usi-lugano": "TI",
+        "poste-postdoctoral-sur-la-resistance-au-radioligand-et-a-la-radiotherapie-dans-le-cancer-de-la-prostate-dans-le-laboratoire-de-genomique-fonctionnelle-du-cancer-usi-lugano": "TI",
+        "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-funzionale-alla-genetica-usi-lugano": "TI"
+      },
+      "en": {
+        "postdoctoral-position-on-radioligating-resistance-and-radiotherapy-in-prostate-cancer-in-the-functional-cancer-genomics-lab-usi-lugano": "TI"
+      },
+      "de": {
+        "postdoktorandenstelle-zur-resistenz-gegen-radioliganden-und-strahlentherapie-bei-prostatakrebs-im-functional-cancer-genomics-lab-usi-lugano": "TI"
+      },
+      "fr": {
+        "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-alla-prostata-nel-laboratoire": "TI",
+        "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-alla-prostata-nel-laboratoire-de-genomique-du-cancer-fonctionnel-usi-lugano": "TI",
+        "poste-postdoctoral-sur-la-resistance-aux-radioligandes-et-a-la-radiotherapie-dans-le-cancer-de-la-prostate-au-functional-cancer-genomics-lab-usi-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "collaboratrice-tore-carriere-eventi-e-comunicazione-usi",
@@ -529,7 +626,31 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-phd-2026.pdf",
-    "firstSeenAt": "2026-04-29T22:47:38.313Z"
+    "firstSeenAt": "2026-04-29T22:47:38.313Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "phd-position-in-architecture-and-environmental-studies-usi": "TI",
+        "promotion-in-architektur-und-umweltwissenschaften-usi-mendrisio": "TI",
+        "dottorato-di-ricerca-in-architettura-e-studi-ambientali-usi-mendrisio": "TI",
+        "dottorato-di-ricerca-in-architettura-e-studi-ambientali-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-de-doctorat-en-architecture-et-etudes-environnementales-usi-universita-della-svizzera-italiana-lugano": "TI"
+      },
+      "en": {
+        "phd-in-architecture-and-environmental-studies-usi-mendrisio": "TI",
+        "dottorato-di-ricerca-in-architettura-e-studi-ambientali-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-de-doctorat-en-architecture-et-etudes-environnementales-usi-universita-della-svizzera-italiana-lugano": "TI"
+      },
+      "de": {
+        "promotionsstelle-in-architektur-und-umweltwissenschaften-usi-mendrisio": "TI",
+        "dottorato-di-ricerca-in-architettura-e-studi-ambientali-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-de-doctorat-en-architecture-et-etudes-environnementales-usi-universita-della-svizzera-italiana-lugano": "TI"
+      },
+      "fr": {
+        "dottorato-di-ricerca-in-architettura-e-studi-ambientali-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-de-doctorat-en-architecture-et-etudes-environnementales-usi-universita-della-svizzera-italiana-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "posizione-di-assistente-dottorando-a-usi",
@@ -995,7 +1116,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-usi-eoc-phd-2025.pdf",
-    "firstSeenAt": "2026-04-13T22:38:02.110Z"
+    "firstSeenAt": "2026-04-13T22:38:02.110Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medicina-del-sonno-usi-universita-della-svizzera-itali": "TI",
+        "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medicina-del-sonno-usi-lugano": "TI",
+        "phd-in-neurowissenschaften-mit-schwerpunkt-chronobiologie-arbeitsmedizin-und-schlafmedizin-usi-universita-della-svizzera": "TI",
+        "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medi": "TI"
+      },
+      "de": {
+        "phd-in-neurowissenschaften-mit-schwerpunkt-chronobiologie-arbeitsmedizin-und-schlafmedizin": "TI",
+        "phd-in-neurowissenschaften-mit-schwerpunkt-chronobiologie-arbeitsmedizin-und-schlafmedizin-usi-universita-della-svizzera": "TI",
+        "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medi": "TI"
+      },
+      "en": {
+        "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medi": "TI"
+      },
+      "fr": {
+        "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medi": "TI"
+      }
+    }
   },
   {
     "slug": "due-ricercatori-post-dottorato-usi-universita-della-svizzera-italiana-lugano",
@@ -1064,7 +1205,35 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
-    "firstSeenAt": "2026-04-13T22:38:02.110Z"
+    "firstSeenAt": "2026-04-13T22:38:02.110Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zwei-postdoktoranden-usi-lugano": "TI",
+        "two-post-doctoral-researchers-usi": "TI",
+        "two-post-doctoral-researchers-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "due-ricercatori-post-dottorato-usi-lugano": "TI",
+        "aux-chercheurs-post-doctorants-usi-lugano": "TI",
+        "deux-chercheurs-postdoctoraux-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "posizione-dello-studente-di-dottorato-usi-universita-della-svizzera-italiana-lugano": "TI"
+      },
+      "en": {
+        "zwei-postdoktoranden-usi-lugano": "TI",
+        "two-post-doctoral-researchers-usi": "TI",
+        "posizione-dello-studente-di-dottorato-usi-universita-della-svizzera-italiana-lugano": "TI"
+      },
+      "de": {
+        "zwei-postdoktoranden-usi-lugano": "TI",
+        "two-post-doctoral-researchers-usi": "TI",
+        "posizione-dello-studente-di-dottorato-usi-universita-della-svizzera-italiana-lugano": "TI"
+      },
+      "fr": {
+        "zwei-postdoktoranden-usi-lugano": "TI",
+        "two-post-doctoral-researchers-usi": "TI",
+        "deux-chercheurs-postdoctoraux-usi-lugano": "TI",
+        "posizione-dello-studente-di-dottorato-usi-universita-della-svizzera-italiana-lugano": "TI"
+      }
+    }
   },
   {
     "slug": "internship-in-architecture-and-technology-usi-mendrisio",
@@ -1246,9 +1415,9 @@
       "promotionsstelle-im-bereich-internationales-wirtschaftsrecht-usi-lugano",
       "poste-de-doctorant-en-droit-economique-international-usi-lugano",
       "doktorandenstelle-usi-universita-della-svizzera-italiana-lugano-ead454ca",
-      "doktorandenstelle-usi-universita-della-svizzera-italiana-lugano",
       "promotionsstellen-usi-universita-della-svizzera-italiana-lugano",
-      "promotionsstellen-usi-universita-della-svizzera-italiana-lugano-2fe276e3"
+      "promotionsstellen-usi-universita-della-svizzera-italiana-lugano-2fe276e3",
+      "doktorandenstelle-usi-universita-della-svizzera-italiana-lugano"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1259,7 +1428,8 @@
         "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-universita-della-svizzera-italiana-lugano",
         "poste-d-etudiant-au-doctorat-en-droit-economique-international-usi-lugano",
         "doktorandenstelle-usi-universita-della-svizzera-italiana-lugano-ead454ca",
-        "promotionsstellen-usi-universita-della-svizzera-italiana-lugano-2fe276e3"
+        "promotionsstellen-usi-universita-della-svizzera-italiana-lugano-2fe276e3",
+        "promotionsstellen-usi-universita-della-svizzera-italiana-lugano"
       ],
       "en": [
         "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-lugano",
@@ -1289,7 +1459,44 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://content.usi.ch/sites/default/files/storage/attachments/idusi/idusi-phd-refuel-2025-2.pdf",
-    "firstSeenAt": "2026-04-13T22:38:02.110Z"
+    "firstSeenAt": "2026-04-13T22:38:02.110Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-lugano": "TI",
+        "phd-student-position-in-international-economic-law-usi": "TI",
+        "posizione-di-dottorando-in-diritto-economico-internazionale-usi-lugano": "TI",
+        "posizione-dottorando-in-diritto-economico-internazionale-usi-lugano": "TI",
+        "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "poste-d-etudiant-au-doctorat-en-droit-economique-international-usi-lugano": "TI",
+        "promotionsstellen-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "phd-student-position-in-international-economic-law-usi-universita-della-svizzera-italiana-": "TI",
+        "doktorandenstelle-usi-universita-della-svizzera-italiana-lugano-ead454ca": "TI"
+      },
+      "en": {
+        "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-lugano": "TI",
+        "phd-student-position-in-international-economic-law-usi": "TI",
+        "doktorandenstelle-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "promotionsstellen-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "phd-student-position-in-international-economic-law-usi-universita-della-svizzera-italiana-": "TI"
+      },
+      "de": {
+        "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-lugano": "TI",
+        "phd-student-position-in-international-economic-law-usi": "TI",
+        "promotionsstelle-im-bereich-internationales-wirtschaftsrecht-usi-lugano": "TI",
+        "promotionsstellen-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "phd-student-position-in-international-economic-law-usi-universita-della-svizzera-italiana-": "TI",
+        "doktorandenstelle-usi-universita-della-svizzera-italiana-lugano-ead454ca": "TI"
+      },
+      "fr": {
+        "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-lugano": "TI",
+        "phd-student-position-in-international-economic-law-usi": "TI",
+        "poste-de-doctorant-en-droit-economique-international-usi-lugano": "TI",
+        "doktorandenstelle-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "promotionsstellen-usi-universita-della-svizzera-italiana-lugano": "TI",
+        "phd-student-position-in-international-economic-law-usi-universita-della-svizzera-italiana-": "TI"
+      }
+    }
   },
   {
     "slug": "posizioni-di-dottorato-usi-universita-della-svizzera-italiana-lugano",
