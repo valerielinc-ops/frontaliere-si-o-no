@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { handleAuth, mergePortalChoiceOptions, portalRequirementsFromMissingRequired, registrationQuestionSurfaceSignature, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { handleAuth, mergePortalChoiceOptions, portalRequirementsFromMissingRequired, registrationQuestionSurfaceSignature, signInEmailValue, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFields } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan, planPage } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
@@ -1572,6 +1572,95 @@ describe('assisted portal question batching', () => {
     });
     expect(plan.actions.some((a: any) => a.action === 'upload')).toBe(false);
     expect(plan.missingRequired.map((q: any) => q.fieldId)).toEqual(['f16']);
+  });
+
+  it('confirms sign-in typing when a portal login input enforces maxlength >= 20', async () => {
+    const alias51 = 'candidato.rossi12@candidature.frontaliereticino.ch';
+    expect(alias51).toHaveLength(50);
+    const overLimit = 'candidato.rossi123@candidature.frontaliereticino.ch';
+    expect(overLimit).toHaveLength(51);
+    expect(signInEmailValue({ maxLength: 50 }, overLimit)).toBe(overLimit.slice(0, 50));
+    expect(signInEmailValue({ maxLength: 10 }, overLimit)).toBe(overLimit);
+
+    const dom = new JSDOM(`<!doctype html><html><body>
+      <form id="login-form">
+        <label for="input_UserName">Benutzername:</label>
+        <input id="input_UserName" type="text" name="UserName" maxlength="50">
+        <label for="input_password">Passwort:</label>
+        <input id="input_password" type="password" name="PassWord" maxlength="50">
+        <button type="submit" name="Login">Login</button>
+      </form>
+    </body></html>`, { url: 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/Login/1' });
+    const { window } = dom;
+    Object.defineProperty(window.HTMLElement.prototype, 'innerText', { configurable: true, get() { return this.textContent || ''; } });
+    window.Element.prototype.getBoundingClientRect = () => ({ width: 80, height: 24 }) as DOMRect;
+    let loginClicked = false;
+    window.document.querySelector('button[name="Login"]')?.addEventListener('click', (event: any) => {
+      event.preventDefault();
+      loginClicked = true;
+      window.document.body.innerHTML = '<main><h1>Bewerbung</h1><label for="cv">Lebenslauf *</label><input id="cv" type="file" required><button type="submit">Absenden</button></main>';
+    });
+    const resolve = (selector: string) => {
+      const m = /data-aa-id="([^"]+)"/.exec(selector);
+      return m ? window.document.querySelector(`[data-aa-id="${m[1]}"]`) : window.document.querySelector(selector);
+    };
+    const makeLocator = (selector: string): any => ({
+      first: () => makeLocator(selector),
+      count: async () => (resolve(selector) ? 1 : 0),
+      evaluate: async (fn: any, arg: any) => {
+        const el = resolve(selector);
+        if (!el) throw new Error(`missing ${selector}`);
+        return fn(el, arg);
+      },
+      fill: async (val: string) => {
+        const el: any = resolve(selector);
+        if (!el) throw new Error(`missing ${selector}`);
+        const max = Number(el.getAttribute('maxlength'));
+        el.value = Number.isFinite(max) && max > 0 ? String(val).slice(0, max) : String(val);
+        el.dispatchEvent(new window.Event('input', { bubbles: true }));
+        el.dispatchEvent(new window.Event('change', { bubbles: true }));
+      },
+      click: async () => {
+        const el: any = resolve(selector);
+        if (!el) throw new Error(`missing ${selector}`);
+        el.click();
+      },
+      waitFor: async () => {},
+    });
+    const fakeFrame: any = {
+      url: () => 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/Login/1',
+      evaluate: async (fn: any, arg: any) => inWindow(window, () => fn(arg)),
+      locator: (sel: string) => makeLocator(sel),
+      childFrames: () => [],
+    };
+    const fakePage: any = {
+      url: () => fakeFrame.url(),
+      frames: () => [fakeFrame],
+      mainFrame: () => fakeFrame,
+      evaluate: fakeFrame.evaluate,
+      locator: (sel: string) => makeLocator(sel),
+      waitForLoadState: async () => {},
+      waitForTimeout: async () => {},
+    };
+    const marked: any[] = [];
+    const result = await handleAuth({
+      page: fakePage,
+      snapshot: await extractFields(fakePage, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: overLimit }, profile: {} },
+        candidateLocale: 'it',
+        language: 'de',
+        files: {},
+        accounts: {
+          load: async () => ({ email: overLimit, password: 'SecretPassword123!', status: 'pending', verifiedAt: null }),
+          mark: async (_h: string, patch: any) => marked.push(patch),
+          discard: async () => {},
+        },
+      },
+    });
+    expect(loginClicked).toBe(true);
+    expect(result.handoff).toBeUndefined();
+    expect(marked.some((m) => m.status === 'created')).toBe(true);
   });
 });
 

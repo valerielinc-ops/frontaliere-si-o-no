@@ -10484,6 +10484,15 @@ export function isSecurityQuestionField(field, fields = []) {
   return reciprocal.length === 1 && reciprocal[0] === field;
 }
 
+/** Bounded sign-in email/username aligned to the portal input's maxLength when finite (>= 20). */
+export function signInEmailValue(field, email) {
+  const trimmed = String(email || '').trim();
+  const limit = Number(field?.maxLength);
+  return Number.isFinite(limit) && limit >= 20 && trimmed.length > limit
+    ? trimmed.slice(0, limit)
+    : trimmed;
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -10577,17 +10586,19 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
       const { email, password } = loginFields(form);
       if (!email || !password) return accountHandoff('account', 'login_unobserved', 'login');
+      const targetEmail = signInEmailValue(email, account.email);
       // An e-mail already in the field (the agentic fallback typed it where a pasted value does
       // not stay) is left alone: filling it again would undo it.
-      const emailKept = String(email.value || '').trim().toLowerCase() === String(account.email || '').trim().toLowerCase();
+      const emailKept = String(email.value || '').trim().toLowerCase() === targetEmail.toLowerCase();
       await applyActions(page, form.fields, [
-        ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: account.email }]),
+        ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: targetEmail }]),
         { fieldId: password.id, action: 'fill', value: account.password },
       ], {});
       await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
       form = await extractFields(page, NAVIGATION);
       const now = loginFields(form);
-      typed = String(now.email?.value || '').trim().toLowerCase() === String(account.email || '').trim().toLowerCase()
+      const expectedEmail = signInEmailValue(now.email || email, account.email).toLowerCase();
+      typed = String(now.email?.value || '').trim().toLowerCase() === expectedEmail
         && await passwordControlMatches(page, now.password, account.password);
     }
     if (!typed) return { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' };
