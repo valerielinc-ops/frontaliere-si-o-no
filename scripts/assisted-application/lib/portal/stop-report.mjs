@@ -134,6 +134,8 @@ export function redactStopReport(report, values = []) {
     }),
     errors: (report.errors || []).map(strike).slice(0, 8),
     agent: (report.agent || []).map((item) => ({ hint: String(item.hint || ''), status: String(item.status || '') })),
+    // The stable name of the binding guard that decided a posting stop: never a text of the page.
+    ...(/^[a-z][a-z_]{2,47}$/.test(String(report.bindingGuard || '')) ? { bindingGuard: String(report.bindingGuard) } : {}),
     ...(receipt ? { receipt } : {}),
   };
 }
@@ -201,6 +203,7 @@ export function stopIssue(report, runUrl = '') {
     `- **Portale:** ${code(report.host)}${report.channel ? ` (canale ${code(report.channel)})` : ''}`,
     `- **Pagina:** ${code(report.path || '/')} (passo ${report.step})`,
     `- **Motivo:** ${code(report.reason)}`,
+    ...(report.bindingGuard ? [`- **Guardia del binding:** ${code(report.bindingGuard)}`] : []),
     `- **Ripiego agentico:** ${report.agent.length ? report.agent.map((item) => `${item.hint} → ${item.status}`).join('; ') : 'non usato'}`,
     ...(runUrl ? [`- **Run:** ${runUrl}`] : []),
     '',
