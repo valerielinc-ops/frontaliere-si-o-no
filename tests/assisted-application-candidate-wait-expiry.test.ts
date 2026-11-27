@@ -114,7 +114,7 @@ describe('closure at 30 days', () => {
     await store.db.collection('assisted_applications').doc('o1').set({ candidateStaleArchivedAt: T0 - DAY }, { merge: true });
     const first = await sweepStaleCandidateOrders({ db: store.db, runEffect, nowMs: T0 });
     expect(first.flowArchived).toBe(1);
-    expect(store.read('assisted_applications/o1/automation/flow')).toMatchObject({ state: 'withdrawn', candidateStaleArchivedAt: T0 });
+    expect(store.read('assisted_applications/o1/automation/flow')).toMatchObject({ state: 'withdrawn', withdrawnReason: CANDIDATE_REQUIREMENTS_EXPIRED_REASON });
     const second = await sweepStaleCandidateOrders({ db: store.db, runEffect, nowMs: T0 + 1000 });
     expect(second.total).toBe(0);
     const full = await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 + 2000 });

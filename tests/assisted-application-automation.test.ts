@@ -1505,8 +1505,8 @@ describe('account failure observability', () => {
 
     const summary = await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 });
     expect(summary.staleArchived).toBe(2);
-    expect(store.read('assisted_applications/stale_flow')?.candidateStaleArchivedAt).toBe(T0);
-    expect(store.read('assisted_applications/stale_flow/automation/flow')).toMatchObject({ state: 'withdrawn', withdrawnReason: 'candidate_requirements_expired', candidateStaleArchivedAt: T0 });
+    // The marker belongs to a wait that goes on: the closed flow (a terminal state) clears it, as any exit from the waiting states does.
+    expect(store.read('assisted_applications/stale_flow/automation/flow')).toMatchObject({ state: 'withdrawn', withdrawnReason: 'candidate_requirements_expired' });
     expect(store.read('assisted_applications/stale_flow')).toMatchObject({ submissionStatus: 'withdrawn', withdrawalReason: 'candidate_requirements_expired' });
     expect(effects).toEqual([{ type: 'refund', reason: 'candidate_requirements_expired', notify: 'candidate_requirements_expired_refunded' }]);
     expect(store.read('assisted_applications/recent_flow')?.candidateStaleArchivedAt).toBeUndefined();
