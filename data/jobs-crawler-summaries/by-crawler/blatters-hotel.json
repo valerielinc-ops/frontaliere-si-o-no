@@ -1,68 +1,30 @@
 {
   "key": "blatters-hotel",
   "label": "Blatter",
-  "generatedAt": "2026-11-27T09:31:23.199Z",
-  "total": 1,
-  "discovered": 1,
-  "parsed": 1,
+  "generatedAt": "2026-11-27T21:26:03.291Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
-  "fetchReceipt": {
-    "specKey": "blatters-hotel",
-    "seedUrls": [
-      "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340"
-    ],
-    "phase": "detail",
-    "pages": 4,
-    "httpStatuses": [
-      {
-        "status": 403,
-        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340"
-      },
-      {
-        "status": 200,
-        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340",
-        "proxiedBy": "browser"
-      },
-      {
-        "status": 403,
-        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-haustechniker-jahresvertrag-oder-4057345?rltr=comp"
-      },
-      {
-        "status": 200,
-        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-haustechniker-jahresvertrag-oder-4057345?rltr=comp",
-        "proxiedBy": "browser"
-      }
-    ],
-    "listingTerminalStatus": 200,
-    "listingCompletion": "complete",
-    "proxiedBy": [
-      "browser"
-    ],
-    "fetchOutcome": null,
-    "fetchDetail": null
-  },
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
-  "detailCandidates": 1,
-  "detailGone": 0,
-  "detailRejected": 0,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 24302,
-  "avgDurationMs": 24302,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 35638,
+  "avgDurationMs": 35638,
   "durationHistory": [
-    24302
+    35638
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "blatters-hotel-07c54e69f949",
       "slug": "2-tecnico-edilizio-contratto-annuale-o-stagionale-alloggio-disponibile-ingresso-su-accordo-blatter-arosa",
@@ -109,5 +71,6 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "unchangedJobs": [],
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }
