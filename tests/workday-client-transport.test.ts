@@ -864,6 +864,50 @@ describe('Workday JSON transport', () => {
       expect(browserFallback).not.toHaveBeenCalled();
     });
 
+    it('bounds the aggregate rescue duration: 100+100 budgets, 30 s backoff, 20 s timeout stay within the wall budget', async () => {
+      vi.useFakeTimers();
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
+      const browserFallback = vi.fn(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 20_000));
+        return { total: 0, jobPostings: [] };
+      });
+      const wallBudgetMs = 600_000;
+      const context = rescueContext(browserFallback, {
+        listingBrowserBudget: 100,
+        detailBrowserBudget: 100,
+        browserBackoffMs: 30_000,
+        browserRescueWallBudgetMs: wallBudgetMs,
+        browserRescueNow: () => Date.now(),
+        egressStateDir: null,
+      });
+      const startedAt = Date.now();
+      let lastError: unknown = null;
+
+      try {
+        for (let i = 0; i < 200; i += 1) {
+          const req = context.request(`${API_BASE}/jobs`, {
+            method: 'POST', body: '{}', retries: 3, retryBaseMs: 0, timeoutMs: 20_000,
+          }).catch((error: unknown) => { lastError = error; });
+          await vi.runAllTimersAsync();
+          await req;
+        }
+        // Worst case: the budget plus one backoff and one request timeout.
+        expect(Date.now() - startedAt).toBeLessThanOrEqual(wallBudgetMs + 30_000 + 20_000);
+        expect(browserFallback.mock.calls.length).toBeLessThan(100);
+        expect(lastError).toBeInstanceOf(WorkdayRateLimitError);
+      } finally {
+        await context.close();
+        vi.useRealTimers();
+      }
+    });
+
+    it.each([-1, Infinity, Number.NaN, 900_001, '600000'])('rejects the invalid rescue wall budget %s', (bad) => {
+      const browserFallback = vi.fn();
+      expect(() => rescueContext(browserFallback, { browserRescueWallBudgetMs: bad })).toThrow(TypeError);
+      expect(() => rescueContext(browserFallback, { browserRescueWallBudgetMs: 900_000 })).not.toThrow();
+      expect(browserFallback).not.toHaveBeenCalled();
+    });
+
     it('caps an explicit oversized budget at the hard ceiling', async () => {
       vi.useFakeTimers();
       vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));

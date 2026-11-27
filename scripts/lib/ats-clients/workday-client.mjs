@@ -645,6 +645,21 @@ function sanitizeBrowserBudget(name, value, fallback) {
 // Ceiling for the delay awaited before each browser request: with the hard
 // budget ceiling it keeps the whole rescue at minutes, never an open-ended stall.
 const MAX_BROWSER_BACKOFF_MS = 30_000;
+// Aggregate wall-clock budget of the whole rescue (waits, backoffs and browser
+// requests) per tenant and process. Without it 100 + 100 requests at a 30 s
+// backoff and a 20 s timeout could in theory run 10,000 s, longer than a
+// crawler job. The check runs before each request, so the worst case is the
+// budget plus one backoff and one request timeout (default: 600 s + 30 s + 20 s).
+const DEFAULT_BROWSER_RESCUE_WALL_BUDGET_MS = 600_000;
+const MAX_BROWSER_RESCUE_WALL_BUDGET_MS = 900_000;
+
+function sanitizeBrowserWallBudget(value) {
+  if (value === null || value === undefined) return DEFAULT_BROWSER_RESCUE_WALL_BUDGET_MS;
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > MAX_BROWSER_RESCUE_WALL_BUDGET_MS) {
+    throw new TypeError(`createWorkdayRequestContext: browserRescueWallBudgetMs must be a finite number between 0 and ${MAX_BROWSER_RESCUE_WALL_BUDGET_MS} (got ${String(value)})`);
+  }
+  return value;
+}
 
 function sanitizeBrowserBackoff(value) {
   if (value === null || value === undefined) return DEFAULT_BROWSER_BACKOFF_MS;
@@ -670,7 +685,7 @@ function browserRescueLedger(apiBase) {
   const key = tenantKey(apiBase);
   if (!browserRescueLedgers.has(key)) {
     browserRescueLedgers.set(key, {
-      listing: 0, detail: 0, halted: false, lastRequestAt: 0, queue: Promise.resolve(),
+      listing: 0, detail: 0, halted: false, lastRequestAt: 0, wallSpentMs: 0, queue: Promise.resolve(),
     });
   }
   return browserRescueLedgers.get(key);
@@ -714,7 +729,7 @@ export function resetWorkdayImplicitRateLimitStateForTests() {
  * previous request is waiting out the tenant's Retry-After window.
  *
  * @param {string} apiBase
- * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object, egressStateDir?: string|null, egressMinDelayMs?: number, listingBrowserBudget?: number, detailBrowserBudget?: number, browserBackoffMs?: number }} [options] Browser rescue after the 429 circuit opens: sequential, budgeted per tenant and process (listing pages / details; details default to 0 for a caller-supplied transport), backoff between requests, halted at the first browser 429.
+ * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object, egressStateDir?: string|null, egressMinDelayMs?: number, listingBrowserBudget?: number, detailBrowserBudget?: number, browserBackoffMs?: number, browserRescueWallBudgetMs?: number, browserRescueNow?: () => number }} [options] Browser rescue after the 429 circuit opens: sequential, budgeted per tenant and process (listing pages / details; details default to 0 for a caller-supplied transport), backoff between requests, halted at the first browser 429.
  * @param {{ browserFallback?: Function|null, publicUrl?: string, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object }} [options]
  * @returns {{ request: (url: string, options?: object) => Promise<any>, close: () => Promise<void> }}
  */
@@ -732,6 +747,9 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
   } = options;
   const listingBrowserBudget = sanitizeBrowserBudget('listingBrowserBudget', options.listingBrowserBudget, DEFAULT_LISTING_BROWSER_BUDGET);
   const browserBackoffMs = sanitizeBrowserBackoff(options.browserBackoffMs);
+  const browserRescueWallBudgetMs = sanitizeBrowserWallBudget(options.browserRescueWallBudgetMs);
+  // Injectable clock for the rescue budget and backoff (tests, simulations).
+  const rescueNow = typeof options.browserRescueNow === 'function' ? options.browserRescueNow : Date.now;
   // Detail GETs are where #19723 forbade the browser: a 429 storm there is
   // what the circuit exists to stop. The budgeted rescue below stays inside
   // that bound, but it is on by default only for the built-in browser
@@ -845,11 +863,14 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
       return serial;
 
       async function runBrowserRequest() {
-      if (ledger.halted || ledger[kind] >= budget) throw terminalError || rateLimitError(url);
+      if (ledger.halted || ledger[kind] >= budget || ledger.wallSpentMs >= browserRescueWallBudgetMs) {
+        throw terminalError || rateLimitError(url);
+      }
       ledger[kind] += 1;
+      const rescueStartedAt = rescueNow();
       try {
         await waitForRateLimit();
-        const backoffWait = ledger.lastRequestAt + browserBackoffMs - Date.now();
+        const backoffWait = ledger.lastRequestAt + browserBackoffMs - rescueNow();
         if (backoffWait > 0) await new Promise((resolve) => setTimeout(resolve, backoffWait));
         const browserRequest = () => browserFallback({
           url,
@@ -858,7 +879,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
           userAgent: requestOptions.userAgent || DEFAULT_USER_AGENT,
           timeoutMs: requestOptions.timeoutMs || DEFAULT_TIMEOUT_MS,
         });
-        ledger.lastRequestAt = Date.now();
+        ledger.lastRequestAt = rescueNow();
         const data = await (egressStateDir
           ? withRunnerWorkdayEgress(browserRequest, {
               stateDir: egressStateDir,
@@ -867,7 +888,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
               retryAfterCapMs,
             })
           : browserRequest());
-        ledger.lastRequestAt = Date.now();
+        ledger.lastRequestAt = rescueNow();
         if (!rateLimitState.browserEngaged) {
           console.warn(`⚠️ Workday ${kind} recovered through the browser transport after direct HTTP 429: ${url}`);
         }
@@ -875,7 +896,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
         rateLimitState.blockedUntil = 0;
         return data;
       } catch (browserErr) {
-        ledger.lastRequestAt = Date.now();
+        ledger.lastRequestAt = rescueNow();
         console.warn(`⚠️ Workday browser transport could not recover the rate-limited ${kind} ${url}: ${browserErr?.message || browserErr}`);
         if (observeRateLimit(browserErr)) {
           // The browser is throttled too: the limit is the egress IP, so stop
@@ -890,6 +911,8 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
         // tenant's open circuit.
         if (browserErr instanceof WorkdayApiError) throw browserErr;
         throw rateLimitError(url);
+      } finally {
+        ledger.wallSpentMs += Math.max(0, rescueNow() - rescueStartedAt);
       }
       }
     };
@@ -974,12 +997,16 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     listingBrowserBudget,
     detailBrowserBudget,
     browserBackoffMs,
+    browserRescueWallBudgetMs,
+    browserRescueNow,
     ...requestOptions
   } = options;
   const requestContext = createWorkdayRequestContext(apiBase, {
     listingBrowserBudget,
     detailBrowserBudget,
     browserBackoffMs,
+    browserRescueWallBudgetMs,
+    browserRescueNow,
     browserFallback,
     publicUrl,
     retryAfterCapMs,
