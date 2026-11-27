@@ -39,7 +39,7 @@ import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUM
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_MAX_RUNTIME_MS, AGENT_ROUNDS, advanceLocator, agentNavigationEnabled, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
-import { avatureProtocolMatches, readAvatureSignInRouteInPage, readPortalProtocolInPage } from './protocol.mjs';
+import { avaturePostingJobKey, avatureProtocolMatches, readAvatureSignInRouteInPage, readPortalProtocolInPage } from './protocol.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
@@ -2468,6 +2468,31 @@ function controlPostingIdentity(control) {
   return markers.length > 1 ? null : markers[0] || '';
 }
 
+/**
+ * Avature's posting page (`/<Namespace>/JobDetail/<slug>/<id>`) opens its application through a styled
+ * anchor «Apply» to `/<Namespace>/Login?jobId=<id>` (Deloitte CH, 2026-11-27). The portal attests itself in
+ * its own metadata and the target names the same requisition id as the posting route, on the same origin:
+ * that binds the entry to the selected vacancy with no employer-name reading. Any other path, extra
+ * parameter, origin or id is not this proof.
+ */
+export function avatureApplyEntryBelongsToPosting(href, { applyUrl = '', postingUrl = '', sourceProtocol = null } = {}) {
+  try {
+    if (sourceProtocol?.vendor !== 'avature' || sourceProtocol.page !== 'JobDetail') return false;
+    const keys = new Set([postingUrl, applyUrl].map((value) => String(value || '').trim()).filter(Boolean)
+      .map((value) => avaturePostingJobKey(value, sourceProtocol)).filter(Boolean));
+    if (keys.size !== 1) return false;
+    const target = new URL(String(href || ''));
+    if (!avatureProtocolMatches(sourceProtocol, `${sourceProtocol.origin}${sourceProtocol.path}`)
+      || target.protocol !== 'https:' || target.username || target.password || target.hash
+      || target.origin !== sourceProtocol.origin
+      || target.pathname.replace(/\/$/, '') !== `${sourceProtocol.namespace}/Login`) return false;
+    const params = [...target.searchParams.entries()];
+    return params.length === 1 && params[0][0] === 'jobId' && params[0][1] === [...keys][0];
+  } catch {
+    return false;
+  }
+}
+
 function applicationEntryBelongsToPosting(control, {
   applyUrl = '',
   postingUrl = '',
@@ -2483,6 +2508,7 @@ function applicationEntryBelongsToPosting(control, {
   if (href && samePortalRoute(href, postingUrl, postingUrl)) return true;
   if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl, postingRouteProof })) return true;
   if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl: applyUrl })) return true;
+  if (href && avatureApplyEntryBelongsToPosting(href, { applyUrl, postingUrl, sourceProtocol })) return true;
 
   // A posting can use a button with no URL (Yellowshark). Its nearest heading
   // or explicit section must contain the selected role and a unique posting
