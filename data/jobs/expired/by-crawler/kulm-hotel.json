@@ -34,7 +34,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/735",
-    "firstSeenAt": "2026-09-29T09:21:19.742Z"
+    "firstSeenAt": "2026-09-29T09:21:19.742Z",
+    "canton": "GR"
   },
   {
     "id": "kulm-hotel-0d43a765b99f",
@@ -99,7 +100,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/696",
-    "firstSeenAt": "2026-11-22T21:17:38.293Z",
+    "firstSeenAt": "2026-09-09T13:49:53.587Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/680",
@@ -109,9 +110,27 @@
       {
         "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/696",
         "firstSeenAt": "2026-09-09T13:49:53.587Z",
-        "title": "Luxury Housekeeping Specialist (m/f/d) – 5-Star Swiss & LQA Standards (m/w/d)"
+        "title": "Luxury Housekeeping Specialist/ Room Attendant (m/f/d) – 5-Star Swiss & LQA Standards (m/w/d)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "addetto-alle-camere-cameriera-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "experienced-room-attendant-familiar-with-5-star-standards-flexible-start-m-w-d-kulm-hotel": "GR",
+        "room-attendant-zimmerdame-roomboy-start-now-m-w-d-kulm-hotel-st-moritz": "GR",
+        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz": "GR",
+        "salle-d-assistance-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR"
+      },
+      "en": {
+        "experienced-room-attendant-familiar-with-5-star-standards-flexible-start-m-w-d-kulm-hotel": "GR"
+      },
+      "de": {
+        "zimmerbetreuer-zimmerdame-zimmerjunge-m-w-d-kulm-hotel-st-moritz-pontresina": "GR"
+      },
+      "fr": {
+        "salle-d-assistance-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina": "GR"
+      }
+    }
   },
   {
     "id": "kulm-hotel-094215386d10",
@@ -152,15 +171,18 @@
       ],
       "en": [
         "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745"
+        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745",
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz"
       ],
       "de": [
         "assistent-floor-vorgesetzter-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-35bbd1",
-        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745"
+        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745",
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz"
       ],
       "fr": [
         "superviseur-adjoint-d-etage-hausdamena-persistance-en-h-f-d-kulm-hotel-st-moritz-st-moritz",
-        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745"
+        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745",
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz"
       ]
     },
     "postalCode": "7500",
@@ -170,7 +192,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/745",
-    "firstSeenAt": "2026-11-02T21:29:45.946Z"
+    "firstSeenAt": "2026-11-02T21:29:45.946Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistente-supervisore-ai-piani-assistente-della-governante-m-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745": "GR",
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745": "GR"
+      },
+      "en": {
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz": "GR",
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745": "GR"
+      },
+      "de": {
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz": "GR",
+        "assistent-floor-vorgesetzter-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-35bbd1": "GR",
+        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745": "GR"
+      },
+      "fr": {
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz": "GR",
+        "superviseur-adjoint-d-etage-hausdamena-persistance-en-h-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745": "GR"
+      }
+    }
   },
   {
     "slug": "group-finanza-tirocinante-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-34a303a457",
@@ -227,7 +272,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/736",
-    "firstSeenAt": "2026-10-06T21:20:44.958Z"
+    "firstSeenAt": "2026-10-06T21:20:44.958Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st": "GR",
+        "group-finanza-tirocinante-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736": "GR"
+      },
+      "en": {
+        "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736": "GR"
+      },
+      "de": {
+        "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736": "GR"
+      },
+      "fr": {
+        "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736": "GR"
+      }
+    }
   },
   {
     "slug": "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina",
@@ -282,7 +344,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/723",
-    "firstSeenAt": "2026-08-24T10:10:40.981Z"
+    "firstSeenAt": "2026-08-24T10:10:40.981Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz": "GR",
+        "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "en": {
+        "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "terapia-spa-m-f-d-kulm-hotel-st-moritz-pontresina",
@@ -318,7 +396,8 @@
     "previousSlugsByLocale": {
       "it": [
         "spa-therapist-m-w-d-kulm-hotel-st-moritz-69052b1f",
-        "spa-therapist-limited-from-01-02-27-06-04-2027-m-w-d-kulm-hotel-st-moritz"
+        "spa-therapist-limited-from-01-02-27-06-04-2027-m-w-d-kulm-hotel-st-moritz",
+        "spa-therapist-m-w-d-kulm-hotel-st-moritz"
       ],
       "de": [
         "spa-therapist-m-w-d-kulm-hotel-st-moritz"
@@ -334,7 +413,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/737",
-    "firstSeenAt": "2026-10-16T21:17:29.615Z"
+    "firstSeenAt": "2026-10-16T21:17:29.615Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spa-therapist-m-w-d-kulm-hotel-st-moritz": "GR",
+        "spa-therapist-limited-from-01-02-27-06-04-2027-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "spa-therapist-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "spa-therapist-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "commissione-di-cuisine-m-f-d-kulm-hotel-st-moritz-pontresina",
@@ -394,10 +486,40 @@
       "commis-di-cucina-kulm-hotel-st-moritz-pontresina-2cf859d8",
       "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-c41fe480",
       "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-b5483388",
-      "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-c7d36741"
+      "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-c7d36741",
+      "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-190e6b41",
+      "commis-di-cucina-kulm-hotel-st-moritz-pontresina-d1d07ed0",
+      "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-952af96f",
+      "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-62d91c1c",
+      "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-0cfffcd4",
+      "commission-de-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-9e2ff061",
+      "commis-di-cucina-kulm-hotel-st-moritz-pontresina-01495f78",
+      "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-984c684b",
+      "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-28386e7f",
+      "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-fc1e12db"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-c41fe480",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-b5483388",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-c7d36741",
+        "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-dff86c13",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-5919a6d3",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-d100c0d3",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-0aaa845f",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-66281cc8",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-ceabffce",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-6d447e7e",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-3caf6f03",
+        "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-190e6b41",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-d1d07ed0",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-952af96f",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-62d91c1c",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-0cfffcd4",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-01495f78",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-984c684b",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-28386e7f",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-fc1e12db",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-ba5a304a",
         "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-00a50d5e",
         "commis-di-cucina-kulm-hotel-st-moritz-pontresina-e16864a0",
@@ -413,21 +535,25 @@
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-b687c6bb",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-d42c86f0",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae",
-        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-2cf859d8",
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-2cf859d8"
+      ],
+      "de": [
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-c41fe480",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-b5483388",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-c7d36741",
-        "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-dff86c13",
         "commis-di-cucina-kulm-hotel-st-moritz-pontresina-5919a6d3",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-d100c0d3",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-0aaa845f",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-66281cc8",
-        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-ceabffce",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-6d447e7e",
-        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-3caf6f03"
-      ],
-      "de": [
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-3caf6f03",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-ceabffce",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-952af96f",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-62d91c1c",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-0cfffcd4",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-984c684b",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-28386e7f",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-fc1e12db",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-ba5a304a",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-7ad998b7",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-6017557b",
@@ -438,20 +564,27 @@
         "commis-di-cucina-kulm-hotel-st-moritz-pontresina-e16864a0",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-b687c6bb",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-d42c86f0",
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae",
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae"
+      ],
+      "fr": [
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-c41fe480",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-b5483388",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-c7d36741",
+        "commission-de-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-594957e1",
         "commis-di-cucina-kulm-hotel-st-moritz-pontresina-5919a6d3",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-d100c0d3",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-0aaa845f",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-66281cc8",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-6d447e7e",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-3caf6f03",
-        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-ceabffce"
-      ],
-      "fr": [
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-ceabffce",
+        "commission-de-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-9e2ff061",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-952af96f",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-62d91c1c",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-0cfffcd4",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-984c684b",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-28386e7f",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-fc1e12db",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-ba5a304a",
         "commission-de-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-39752c7e",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-7ad998b7",
@@ -464,21 +597,25 @@
         "commis-di-cucina-kulm-hotel-st-moritz-pontresina-e16864a0",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-b687c6bb",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-d42c86f0",
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae",
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae"
+      ],
+      "en": [
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-c41fe480",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-b5483388",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-c7d36741",
-        "commission-de-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-594957e1",
         "commis-di-cucina-kulm-hotel-st-moritz-pontresina-5919a6d3",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-d100c0d3",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-0aaa845f",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-66281cc8",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-6d447e7e",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-3caf6f03",
-        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-ceabffce"
-      ],
-      "en": [
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-ceabffce",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-952af96f",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-62d91c1c",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-0cfffcd4",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-984c684b",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-28386e7f",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-fc1e12db",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-ba5a304a",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-7ad998b7",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-6017557b",
@@ -489,17 +626,7 @@
         "commis-di-cucina-kulm-hotel-st-moritz-pontresina-e16864a0",
         "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-b687c6bb",
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-d42c86f0",
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae",
-        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-c41fe480",
-        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-b5483388",
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-c7d36741",
-        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-5919a6d3",
-        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-d100c0d3",
-        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-0aaa845f",
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-66281cc8",
-        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-6d447e7e",
-        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-3caf6f03",
-        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-ceabffce"
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae"
       ]
     },
     "postalCode": "7504",
@@ -521,7 +648,65 @@
         "firstSeenAt": "2026-07-16T11:56:10.596Z",
         "title": "Commis de Cuisine (m/w/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz": "GR",
+        "commissione-di-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-190e6b41": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-d1d07ed0": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-952af96f": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-62d91c1c": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-0cfffcd4": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-e16864a0": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-70089861": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-053684bc": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-03008409": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-b687c6bb": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-d42c86f0": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae": "GR"
+      },
+      "de": {
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-70089861": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-952af96f": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-62d91c1c": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-0cfffcd4": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-e16864a0": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-053684bc": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-03008409": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-b687c6bb": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-d42c86f0": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae": "GR"
+      },
+      "fr": {
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz": "GR",
+        "commission-de-cuisine-m-w-d-kulm-hotel-st-moritz-pontresina-9e2ff061": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-70089861": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-952af96f": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-62d91c1c": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-0cfffcd4": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-e16864a0": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-053684bc": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-03008409": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-b687c6bb": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-d42c86f0": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae": "GR"
+      },
+      "en": {
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-70089861": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-952af96f": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-62d91c1c": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-0cfffcd4": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina-e16864a0": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-053684bc": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-03008409": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz-b687c6bb": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz-d42c86f0": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz-735123ae": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "tuttofare-lavapiatti-m-f-d-kulm-hotel-st-moritz-st-moritz",
@@ -575,7 +760,16 @@
     "salaryMax": 78000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/744"
+    "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/744",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "allrounder-spuler-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "allrounder-spuler-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "commissione-di-rang-m-f-d-kulm-hotel-st-moritz-pontresina",
@@ -637,7 +831,19 @@
         "firstSeenAt": "2026-07-02T22:34:26.552Z",
         "title": "Commis de Rang (m/w/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina",
@@ -710,7 +916,33 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/708",
-    "firstSeenAt": "2026-07-29T11:39:18.612Z"
+    "firstSeenAt": "2026-07-29T11:39:18.612Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "zimmerdame-kulm-hotel-st-moritz-pontresina": "GR",
+        "florist-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "fiorista-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "florist-m-w-d-kulm-hotel-st-moritz": "GR",
+        "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "driver-m-w-d-kulm-hotel-st-moritz": "GR",
+        "driver-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "pilote-h-f-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "technician-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "en": {
+        "driver-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "florist-m-w-d-kulm-hotel-st-moritz": "GR",
+        "driver-m-w-d-kulm-hotel-st-moritz-pontresina": "GR"
+      },
+      "fr": {
+        "florist-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "pilote-h-f-d-kulm-hotel-st-moritz-pontresina": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-vendite-m-f-d-kulm-hotel-st-moritz-st-moritz-0d1364d1cd",
@@ -760,7 +992,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/733",
-    "firstSeenAt": "2026-10-14T21:24:26.992Z"
+    "firstSeenAt": "2026-10-14T21:24:26.992Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-manager-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "sales-manager-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "sales-manager-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz-bcedfc",
@@ -804,7 +1048,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/722",
-    "firstSeenAt": "2026-08-20T21:44:18.167Z"
+    "firstSeenAt": "2026-08-20T21:44:18.167Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "office-employee-steward-avvio-immediato-m-f-d-kulm-hotel-st-moritz-pontresina",
@@ -851,7 +1101,16 @@
     "salaryMax": 78000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/720"
+    "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/720",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "office-employee-steward-immediate-start-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "office-employee-steward-immediate-start-m-w-d-kulm-hotel-st-moritz-pontresina": "GR"
+      }
+    }
   },
   {
     "slug": "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz",
@@ -895,7 +1154,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/636",
-    "firstSeenAt": "2026-05-27T23:33:49.949Z"
+    "firstSeenAt": "2026-05-27T23:33:49.949Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-engineering-m-w-d-kulm-hotel-st-moritz-pontresina",
@@ -945,7 +1210,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/738",
-    "firstSeenAt": "2026-10-14T21:24:22.113Z"
+    "firstSeenAt": "2026-10-14T21:24:22.113Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-engineering-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "head-of-engineering-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "head-of-engineering-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "barista-ospitalita-di-lusso-m-f-d-kulm-hotel-st-moritz-st-moritz-77f22c",
@@ -991,7 +1268,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/741",
-    "firstSeenAt": "2026-10-23T21:20:23.883Z"
+    "firstSeenAt": "2026-10-23T21:20:23.883Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "barista-luxury-hospitality-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "barista-luxury-hospitality-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "barman-chef-de-rang-m-w-d-kulm-hotel-st-moritz",
@@ -1023,7 +1309,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/705",
-    "firstSeenAt": "2026-10-15T21:21:16.749Z"
+    "firstSeenAt": "2026-10-15T21:21:16.749Z",
+    "canton": "GR",
+    "previousSlugsByLocale": {
+      "de": [
+        "barman-chef-de-rang-m-w-d-kulm-hotel-st-moritz"
+      ],
+      "fr": [
+        "barman-chef-de-rang-m-w-d-kulm-hotel-st-moritz"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "de": {
+        "barman-chef-de-rang-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "barman-chef-de-rang-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c",
@@ -1066,7 +1369,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/690",
-    "firstSeenAt": "2026-07-14T12:06:58.597Z"
+    "firstSeenAt": "2026-07-14T12:06:58.597Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "capo-del-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
@@ -1163,7 +1472,21 @@
         "firstSeenAt": "2026-09-23T23:46:07.964Z",
         "title": "Chef de Partie - Gardemanger (m/w/d)"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz": "GR",
+        "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "en": {
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz": "GR",
+        "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
@@ -1206,7 +1529,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/719",
-    "firstSeenAt": "2026-08-11T22:01:56.519Z"
+    "firstSeenAt": "2026-08-11T22:01:56.519Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz-c88615",
@@ -1249,7 +1578,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/729",
-    "firstSeenAt": "2026-09-23T23:46:13.885Z"
+    "firstSeenAt": "2026-09-23T23:46:13.885Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "concierge-m-w-d-kulm-hotel-st-moritz-pontresina",
@@ -1294,7 +1629,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/717",
-    "firstSeenAt": "2026-08-05T22:29:25.104Z"
+    "firstSeenAt": "2026-08-05T22:29:25.104Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "portineria-m-f-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "concierge-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz",
@@ -1324,7 +1666,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/730",
-    "firstSeenAt": "2026-10-06T21:20:43.953Z"
+    "firstSeenAt": "2026-10-06T21:20:43.953Z",
+    "canton": "GR",
+    "previousSlugsByLocale": {
+      "en": [
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz"
+      ],
+      "de": [
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz"
+      ],
+      "fr": [
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "freelance-hairstylist-coiffeur-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "demi-chef-de-partie-avviare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina",
@@ -1399,7 +1764,19 @@
     "salaryMax": 78000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/731"
+    "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/731",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "demi-chef-de-partie-start-immediately-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "demi-chef-de-partie-start-immediately-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "demi-chef-de-partie-start-immediately-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "pasticceria-talent-demi-chef-de-partie-patisserie-m-f-d-kulm-hotel-st-moritz-pontresina",
@@ -1448,7 +1825,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/725",
-    "firstSeenAt": "2026-09-04T23:01:11.741Z"
+    "firstSeenAt": "2026-09-04T23:01:11.741Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "en": {
+        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "chef-de-rang-partenza-immediata-m-w-d-kulm-hotel-st-moritz-pontresina",
@@ -1501,7 +1890,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/716",
-    "firstSeenAt": "2026-08-05T11:48:11.315Z"
+    "firstSeenAt": "2026-08-05T11:48:11.315Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-rang-m-w-d-kulm-hotel-st-moritz": "GR",
+        "chef-de-rang-m-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "commis-di-sala-assistente-cameriere-m-f-d-kulm-hotel-st-moritz-pontresina",
@@ -2246,7 +2649,59 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/682",
-    "firstSeenAt": "2026-07-02T22:34:26.552Z"
+    "firstSeenAt": "2026-07-02T22:34:26.552Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz": "GR",
+        "commis-de-rang-assistente-cameriere-m-p-g-kulm-hotel-st-moritz-pontresina": "GR",
+        "line-clerk-assistant-waiter-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-rang-assistenzkellner-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-rang-assistent-waiter-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-22e6fa4a": "GR",
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz-d22ca3c7": "GR"
+      },
+      "de": {
+        "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz": "GR",
+        "commis-de-rang-assistente-cameriere-m-p-g-kulm-hotel-st-moritz-pontresina": "GR",
+        "line-clerk-assistant-waiter-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-rang-assistenzkellner-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-rang-assistent-waiter-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-22e6fa4a": "GR"
+      },
+      "fr": {
+        "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz": "GR",
+        "commis-de-rang-assistente-cameriere-m-p-g-kulm-hotel-st-moritz-pontresina": "GR",
+        "line-clerk-assistant-waiter-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-rang-assistenzkellner-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-rang-assistent-waiter-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-22e6fa4a": "GR",
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz-d22ca3c7": "GR"
+      },
+      "en": {
+        "commis-de-rang-assistente-cameriere-m-p-g-kulm-hotel-st-moritz-pontresina": "GR",
+        "line-clerk-assistant-waiter-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-rang-assistenzkellner-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-rang-assistent-waiter-m-w-d-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-di-cucina-kulm-hotel-st-moritz-pontresina": "GR",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-22e6fa4a": "GR"
+      }
+    }
   },
   {
     "slug": "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz-223128",
@@ -2312,7 +2767,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/689",
-    "firstSeenAt": "2026-07-31T22:19:00.177Z"
+    "firstSeenAt": "2026-07-31T22:19:00.177Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz": "GR",
+        "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz": "GR",
+        "assistant-event-manager-m-w-d-kulm-hotel-st-moritz": "GR",
+        "front-office-agent-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "en": {
+        "assistant-event-manager-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz": "GR",
+        "front-office-agent-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-vendite-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz",
@@ -2376,10 +2850,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/710",
-    "firstSeenAt": "2026-07-28T11:48:56.512Z"
+    "firstSeenAt": "2026-07-28T11:48:56.512Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sales-and-event-manager-m-w-d-kulm-hotel-st-moritz": "GR",
+        "gestione-vendite-e-eventi-m-w-d-kulm-hotel-st-moritz-st-moritz-cc4cde": "GR",
+        "responsabile-vendite-eventi-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "event-sales-manager-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "sales-and-event-manager-m-w-d-kulm-hotel-st-moritz": "GR",
+        "event-sales-manager-m-w-d-kulm-hotel-st-moritz": "GR",
+        "event-verkaufsleiter-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "fr": {
+        "sales-and-event-manager-m-w-d-kulm-hotel-st-moritz": "GR",
+        "directeur-des-ventes-et-des-evenements-m-m-j-kulm-hotel-st-moritz-st-moritz-cc4cde": "GR",
+        "directeur-des-ventes-d-evenements-m-p-d-kulm-hotel-st-moritz-st-moritz": "GR",
+        "directeur-des-ventes-d-evenements-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR"
+      }
+    }
   },
   {
-    "slug": "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-8dae4932",
+    "slug": "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-8b7cb568",
     "title": "Demi Chef de Partie (m/w/d)",
     "titleByLocale": {
       "it": "Demi Chef de Partie (m/f/d)",
@@ -2398,13 +2892,17 @@
       "fr": "Demi Chef de Partie (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Culinary Excellence – You impress with masterful precision, crafting top-tier dishes at your station.\n\n• Teamwork at the Highest Level – Together with the Chef de Partie, you ensure smooth kitchen operations.\n\n• Uncompromising Quality – You work only with the finest ingredients, striving for perfection in taste, presentation, and texture.\n\n• Setting Innovative Accents – You contribute creative ideas and support the continuous development of our menu.\n\n• Sustainability & Efficiency – You uphold the highest hygiene and quality standards while ensuring optimal organization in your workspace.\n\n• seasonal position - 31.03.2027\n\n• start per immediate or by agreement\n\n• staff room available | This is you:\n• Experience in Fine Dining – You have worked in 5-star hotels or gourmet restaurants.\n\n• Culinary Craftsmanship – Your skill and commitment to quality make every dish an experience.\n\n• Organizational Talent – You maintain composure even in fast-paced situations.\n\n• Creativity & Precision – You love creating culinary highlights while maintaining a structured approach.\n\n• Team Spirit & Dedication – You value collaboration and are eager to grow within an outstanding team. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks."
     },
     "slugByLocale": {
-      "en": "half-party-head-m-f-d-kulm-hotel-st-moritz-pontresina-c747dc48",
-      "de": "halbparteichef-m-w-d-kulm-hotel-st-moritz-pontresina-5cbe7985"
+      "en": "half-party-head-m-f-d-kulm-hotel-st-moritz-pontresina-8622f389",
+      "de": "halbparteichef-m-w-d-kulm-hotel-st-moritz-pontresina-384efd87"
     },
     "sector": "Ospitalità / Hotellerie",
     "expiredAt": "2026-09-23T12:05:41.067Z",
     "previousSlugsByLocale": {
       "it": [
+        "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-8b0f1b70",
+        "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-3b2f4e64",
+        "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-799e8e2e",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9396a4a9",
         "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-822cfa25",
         "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-6a582f8e",
         "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-3109662b",
@@ -2418,13 +2916,17 @@
         "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-0b8588c0",
         "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-89d07913",
         "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-f46172f1",
-        "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-c10f2114"
+        "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-c10f2114",
+        "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-8dae4932"
       ],
       "en": [
-        "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-6a582f8e",
-        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-26ad8002",
+        "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-3b2f4e64",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9396a4a9",
         "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
         "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "half-party-head-m-f-d-kulm-hotel-st-moritz-pontresina-c747dc48",
+        "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-6a582f8e",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-26ad8002",
         "half-party-head-m-f-d-kulm-hotel-st-moritz-pontresina-060314ee",
         "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-d362f670",
         "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9a243bf0",
@@ -2433,10 +2935,13 @@
         "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-89d07913"
       ],
       "de": [
-        "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-3109662b",
-        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-26ad8002",
+        "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-799e8e2e",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9396a4a9",
         "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
         "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "halbparteichef-m-w-d-kulm-hotel-st-moritz-pontresina-5cbe7985",
+        "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-3109662b",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-26ad8002",
         "halbparteichef-m-w-d-kulm-hotel-st-moritz-pontresina-9a24e032",
         "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-9849c6a6",
         "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9a243bf0",
@@ -2445,10 +2950,12 @@
         "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-89d07913"
       ],
       "fr": [
-        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-26ad8002",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9396a4a9",
+        "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz",
         "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
         "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
         "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-26ad8002",
         "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9a243bf0",
         "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-89d07913"
       ]
@@ -2460,15 +2967,44 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/726",
     "firstSeenAt": "2026-09-04T23:01:01.310Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-8b7cb568": "GR",
+        "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-8b0f1b70": "GR",
+        "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-3b2f4e64": "GR",
+        "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-799e8e2e": "GR",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9396a4a9": "GR"
+      },
+      "en": {
+        "half-party-head-m-f-d-kulm-hotel-st-moritz-pontresina-8622f389": "GR",
+        "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-3b2f4e64": "GR",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9396a4a9": "GR"
+      },
+      "de": {
+        "halbparteichef-m-w-d-kulm-hotel-st-moritz-pontresina-384efd87": "GR",
+        "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-799e8e2e": "GR",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9396a4a9": "GR"
+      },
+      "fr": {
+        "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz": "GR",
+        "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9396a4a9": "GR"
+      }
+    },
     "previousSlugs": [
+      "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-8b0f1b70",
+      "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-3b2f4e64",
+      "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-799e8e2e",
+      "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9396a4a9",
       "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-822cfa25",
+      "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
+      "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina",
+      "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
+      "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz",
       "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-6a582f8e",
       "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-3109662b",
       "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-26ad8002",
       "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-1744a09d",
-      "testa-di-partito-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
-      "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina",
-      "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina",
       "head-of-party-intermetier-m-f-d-kulm-hotel-st-moritz-pontresina-d362f670",
       "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-9849c6a6",
       "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-9a243bf0",
@@ -2477,11 +3013,14 @@
       "parteichef-intermetier-m-w-d-kulm-hotel-st-moritz-pontresina-0b8588c0",
       "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz-89d07913",
       "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-f46172f1",
+      "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-c10f2114",
+      "half-party-head-m-f-d-kulm-hotel-st-moritz-pontresina-c747dc48",
       "half-party-head-m-f-d-kulm-hotel-st-moritz-pontresina-060314ee",
       "half-party-head-m-f-d-kulm-hotel-st-moritz-pontresina-d3d67326",
+      "halbparteichef-m-w-d-kulm-hotel-st-moritz-pontresina-5cbe7985",
       "halbparteichef-m-w-d-kulm-hotel-st-moritz-pontresina-9a24e032",
       "halbparteichef-m-w-d-kulm-hotel-st-moritz-pontresina-04aa695c",
-      "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-c10f2114"
+      "demi-chef-de-partie-m-w-d-kulm-hotel-st-moritz-8dae4932"
     ]
   },
   {
@@ -2531,7 +3070,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/698",
-    "firstSeenAt": "2026-07-16T11:56:11.549Z"
+    "firstSeenAt": "2026-07-16T11:56:11.549Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "en": {
+        "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz",
@@ -2586,7 +3137,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/697",
-    "firstSeenAt": "2026-07-14T12:06:59.610Z"
+    "firstSeenAt": "2026-07-14T12:06:59.610Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "laundry-employee-m-w-d-kulm-hotel-st-moritz": "GR",
+        "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz-6d5f17": "GR",
+        "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz": "GR"
+      },
+      "de": {
+        "laundry-employee-m-w-d-kulm-hotel-st-moritz": "GR",
+        "wascherei-mitarbeiter-m-w-d-kulm-hotel-st-moritz-st-moritz": "GR"
+      },
+      "fr": {
+        "laundry-employee-m-w-d-kulm-hotel-st-moritz": "GR"
+      }
+    }
   },
   {
     "slug": "supervisore-di-pulizia-m-w-d-kulm-hotel-st-moritz-pontresina",
@@ -2666,6 +3232,63 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "prenotazione-agente-m-w-d-kulm-hotel-st-moritz-st-moritz",
+    "title": "Reservations Agent (m/w/d)",
+    "titleByLocale": {
+      "it": "Prenotazione agente (m/w/d)",
+      "en": "Reservations Agent (m/f/d)",
+      "de": "Reservierungsagent (m/w/d)",
+      "fr": "Reservations Agent (m/w/d)"
+    },
+    "company": "Kulm Hotel St. Moritz",
+    "companyKey": "kulm-hotel",
+    "location": "St. Moritz",
+    "addressLocality": "St. Moritz",
+    "descriptionByLocale": {
+      "it": "Agente prenotazioni (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Grigioni). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-09-15.\n\nLe persone a 1800m sul livello del mare stanno modellando il Luxury Mountain Travel. La nostra comunità dinamica e internazionale offre ai nostri ospiti smart Luxury per un'esperienza di vacanza inimitabile. Come membro del gruppo Luxury Kulm fai parte della chiave del nostro successo. Insieme, rendiamo ogni soggiorno profondamente ispiratore, unico e distintivo. E come tale, abbracciamo la nostra cultura: lusso sobrio, ispirazione e un'esperienza di vita. Insieme, facciamo in modo che accada. Questa è la tua occasione per essere un membro della nostra cultura di modellazione: | Questo è ciò che ti muovi con noi:\n• Gestire le prenotazioni per gli ospiti individuali e di gruppo come primo punto di contatto, assicurando il massimo livello di professionalità e attenzione proattiva ai dettagli\n\n• Mantenere e aggiornare i database degli ospiti con la massima precisione, contribuendo in modo significativo alla soddisfazione e alla fedeltà degli ospiti\n\n• Disporre e risolvere i reclami degli ospiti tempestivamente e con sensibilità, sempre trovare la soluzione più adatta in modo discreto ed efficiente\n\n• Gestisci la comunicazione multicanale, rispondendo a tutte le richieste in arrivo via telefono e-mail\n\n• Coordinate con altri dipartimenti per garantire un allineamento ottimale tra la stanza e l'occupazione degli eventi e le nostre offerte F&B e Spa\n\n• Sostenere il Responsabile Prenotazioni con compiti amministrativi, garantire l'aderenza ai nostri elevati standard, e contribuire al miglioramento continuo dei nostri prodotti | Questo sei tu:\n• Charisma e cordialità con un calore naturale e modi raffinati, combinati con un senso acuto per le esigenze degli ospiti esigenti\n\n• Spirito di squadra e flessibilità, con eccellenti capacità di comunicazione e la capacità di adattarsi in un ambiente di lavoro dinamico\n\n• Esperienza nell'ospitalità di lusso, con formazione professionale completa e almeno due anni di esperienza in un hotel a 5 stelle a Front Office o Prenotazioni\n\n• Forti competenze linguistiche in tedesco e inglese (scritto e parlato); lingue aggiuntive come l'italiano sono un vantaggio\n\n• La competenza tecnica in Opera Cloud, Microsoft Word, Excel e Outlook, nonché la gestione dei canali di prenotazione online\n\n• Competenze organizzative eccezionali e attenzione al cliente, assicurando una pianificazione precisa, relazioni con gli ospiti discreti e un servizio eccezionale | Vantaggi: A Kulm Group, i nostri dipendenti sono il cuore del nostro successo. Offriamo interessanti opportunità di sviluppo, sistemazioni confortevoli, pasti convenienti nel ristorante del personale, e numerosi vantaggi.",
+      "en": "Reservations Agent (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-09-15.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Competently handle reservations for individual and group guests as the first point of contact, ensuring the highest level of professionalism and proactive attention to detail\n\n• Maintain and update guest databases with the utmost accuracy, contributing significantly to guest satisfaction and loyalty\n\n• Address and resolve guest complaints promptly and with sensitivity, always finding the most suitable solution in a discreet and efficient manner\n\n• Manage multichannel communication, responding to all incoming enquiries by phone and email\n\n• Coordinate with other departments to ensure optimal alignment between room and event occupancy and our F&B and Spa offerings\n\n• Support the Reservations Manager with administrative tasks, ensure adherence to our high standards, and contribute to the continuous improvement of our products | This is you:\n• Charisma and friendliness with a natural warmth and refined manners, combined with a keen sense for the needs of discerning guests\n\n• Team spirit and flexibility, with excellent communication skills and the ability to adapt in a dynamic work environment\n\n• Experience in luxury hospitality, with completed vocational training and at least two years of experience in a 5-star hotel in Front Office or Reservations\n\n• Strong language skills in German and English (written and spoken); additional languages such as Italian are an advantage\n\n• Technical proficiency in Opera Cloud, Microsoft Word, Excel, and Outlook, as well as experience managing online booking channels\n\n• Exceptional organisational skills and customer focus, ensuring precise planning, discreet guest relations, and outstanding service delivery | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+      "de": "Reservierungsvermittler (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-09-15.\n\nMenschen auf 1800m Höhe prägen das Luxury Mountain Travel. Unsere dynamische und internationale Gemeinschaft bietet unseren Gästen smarten Luxus für ein unnachahmliches Urlaubserlebnis. Als Mitglied der Luxury Kulm Group sind Sie Teil des Schlüssels zu unserem Erfolg. Gemeinsam machen wir jeden Aufenthalt zutiefst inspirierend, einzigartig und unverwechselbar. Und als solche nehmen wir unsere Kultur an: dezenten Luxus, Inspiration und eine Lebenserfahrung. Gemeinsam machen wir es möglich. Dies ist Ihre Chance, ein Mitglied unserer gestaltenden Kultur zu sein: | Dies ist, was Sie mit uns bewegen:\n• Kompetente Abwicklung von Reservierungen für Einzel- und Gruppengäste als erste Anlaufstelle, um ein Höchstmaß an Professionalität und proaktive Detailpflege zu gewährleisten\n\n• Pflegen und aktualisieren Sie die Gästedatenbanken mit höchster Genauigkeit und tragen erheblich zur Zufriedenheit und Loyalität der Gäste bei\n\n• Reagieren und lösen Sie Gästebeschwerden umgehend und mit Sensibilität, immer die am besten geeignete Lösung auf diskrete und effiziente Weise zu finden\n\n• Verwalten Sie die Mehrkanalkommunikation und beantworten Sie alle eingehenden Anfragen per Telefon und E-Mail\n\n• Koordinieren Sie sich mit anderen Abteilungen, um eine optimale Abstimmung zwischen Raum- und Eventbelegung und unseren F & B- und Spa-Angeboten zu gewährleisten\n\n• Unterstützen Sie den Reservations Manager bei administrativen Aufgaben, sorgen Sie für die Einhaltung unserer hohen Standards und tragen Sie zur kontinuierlichen Verbesserung unserer Produkte bei. Das sind Sie:\n• Charisma und Freundlichkeit mit einer natürlichen Wärme und raffinierten Manieren, kombiniert mit einem scharfen Gespür für die Bedürfnisse anspruchsvoller Gäste\n\n• Teamgeist und Flexibilität, mit hervorragenden Kommunikationsfähigkeiten und der Fähigkeit, sich in einem dynamischen Arbeitsumfeld anzupassen\n\n• Erfahrung in luxuriöser Gastfreundschaft, mit abgeschlossener Berufsausbildung und mindestens zwei Jahren Erfahrung in einem 5-Sterne-Hotel in Front Office oder Reservierungen\n\n• Starke Sprachkenntnisse in Deutsch und Englisch (schriftlich und gesprochen); zusätzliche Sprachen wie Italienisch sind von Vorteil\n\n• Technische Kenntnisse in Opera Cloud, Microsoft Word, Excel und Outlook sowie Erfahrung in der Verwaltung von Online-Buchungskanälen\n\n• Außergewöhnliche organisatorische Fähigkeiten und Kundenorientierung, präzise Planung, diskrete Gastbeziehungen und hervorragende Serviceleistungen | Benefits: Bei der Kulm Group stehen unsere Mitarbeiter im Mittelpunkt unseres Erfolgs. Wir bieten attraktive Entwicklungsmöglichkeiten, komfortable Unterkünfte, erschwingliche Mahlzeiten im Personalrestaurant und zahlreiche Vergünstigungen.",
+      "fr": "Reservations Agent (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-11-15.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Competently handle reservations for individual and group guests as the first point of contact, ensuring the highest level of professionalism and proactive attention to detail\n\n• Maintain and update guest databases with the utmost accuracy, contributing significantly to guest satisfaction and loyalty\n\n• Address and resolve guest complaints promptly and with sensitivity, always finding the most suitable solution in a discreet and efficient manner\n\n• Manage multichannel communication, responding to all incoming enquiries by phone and email\n\n• Coordinate with other departments to ensure optimal alignment between room and event occupancy and our F&B and Spa offerings\n\n• Support the Reservations Manager with administrative tasks, ensure adherence to our high standards, and contribute to the continuous improvement of our products | This is you:\n• Charisma and friendliness with a natural warmth and refined manners, combined with a keen sense for the needs of discerning guests\n\n• Team spirit and flexibility, with excellent communication skills and the ability to adapt in a dynamic work environment\n\n• Experience in luxury hospitality, with completed vocational training and at least two years of experience in a 5-star hotel in Front Office or Reservations\n\n• Strong language skills in German and English (written and spoken); additional languages such as Italian are an advantage\n\n• Technical proficiency in Opera Cloud, Microsoft Word, Excel, and Outlook, as well as experience managing online booking channels\n\n• Exceptional organisational skills and customer focus, ensuring precise planning, discreet guest relations, and outstanding service delivery | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks."
+    },
+    "slugByLocale": {
+      "it": "prenotazione-agente-m-w-d-kulm-hotel-st-moritz-st-moritz",
+      "en": "reservations-agent-m-w-d-kulm-hotel-st-moritz",
+      "de": "reservierungsagent-m-w-d-kulm-hotel-st-moritz-st-moritz",
+      "fr": "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz"
+    },
+    "sector": "Ospitalità / Hotellerie",
+    "expiredAt": "2026-09-16T09:22:29.394Z",
+    "previousSlugs": [
+      "reservations-agent-m-w-d-kulm-hotel-st-moritz",
+      "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz-st-moritz",
+      "agent-de-reservation-m-p-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
+      "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
+      "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-f77a9c"
+    ],
+    "previousSlugsByLocale": {
+      "fr": [
+        "agent-de-reservation-m-p-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
+        "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-fc52eb",
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz"
+      ],
+      "it": [
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz",
+        "agente-di-prenotazione-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz-f77a9c"
+      ],
+      "de": [
+        "reservations-agent-m-w-d-kulm-hotel-st-moritz"
+      ]
+    },
+    "postalCode": "7500",
+    "salaryMin": 62000,
+    "salaryMax": 78000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.kulm.com/en/vacancies/754",
+    "firstSeenAt": "2026-11-27T09:17:49.675Z"
+  },
+  {
     "slug": "chasseur-m-w-d-kulm-hotel-st-moritz",
     "title": "Chasseur (m/w/d)",
     "titleByLocale": {
@@ -2696,7 +3319,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "driver-m-w-d-kulm-hotel-st-moritz-5ae30d09",
+    "slug": "driver-m-w-d-kulm-hotel-st-moritz",
     "title": "Driver (m/w/d)",
     "titleByLocale": {
       "it": "Driver (m/f/d)",
@@ -2715,25 +3338,30 @@
       "fr": "Conducteur (h/f/d) — Kulm Hotel St. Moritz (Grand Hôtel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonnelle / Saisonnier. Stellenantritt: 2026-09-01.\n\nLes gens à 1800m d'altitude façonnent le Luxury Mountain Travel. Notre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inimitable. En tant que membre du groupe Luxury Kulm, vous faites partie de la clé de notre succès. Ensemble, nous rendons chaque séjour profondément inspirant, unique et distinctif. Et en tant que tel, nous acceptons notre culture: luxe sous-estimé, inspiration et expérience de vie. Ensemble, nous y parvenons. C'est votre chance d'être membre de notre culture de façonnage: C'est ce que vous emménagez avec nous:\n• Accueil chaleureux pour nos invités: Avec votre convivialité naturelle et votre charisme, chaque invité se sent chez lui dès le premier moment.\n\n• Stationnement: Vous garez les véhicules de nos clients dans le garage souterrain et gérez la logistique du garage, toujours avec attention au détail et à la commande.\n\n• Transferts des clients: Qu'il s'agisse de l'ascenseur ou du restaurant, vous gérez les transferts des clients avec la navette de l'hôtel, assurant un trajet sûr et agréable.\n\n• Services aux clients: chargement/déchargement des bagages des clients et manutention de petites courses au besoin. - Oui. C'est vous:\n• Amabilité naturelle et Charisme: Vous pouvez presque anticiper les besoins de nos clients éclairés et faire tout votre possible pour que leur séjour soit aussi agréable que possible.\n\n• Apparence groomed et Excellent Manners: Vous représentez notre hôtel avec style, impressionnant avec politesse professionnelle et un comportement élégant.\n\n• Esprit d'équipe et flexibilité: Vous aimez travailler dans une équipe dynamique, s'adapter rapidement à diverses exigences, toujours avec un sourire.\n\n• Permis de conduire valide: Bien sûr, vous avez un permis de conduire valide et vous sentez à l'aise dans des espaces de stationnement serrés et sur la route.\n\n• Compétences linguistiques: Idéalement, vous parlez l'allemand et l'anglais, avec d'autres langues (surtout l'italien) étant un avantage bienvenu. Avantages: Chez Kulm Group, nos employés sont au cœur de notre succès. Nous offrons des possibilités de développement attrayantes, des hébergements confortables, des repas abordables dans le restaurant du personnel, et de nombreux avantages."
     },
     "slugByLocale": {
-      "de": "driver-m-w-d-kulm-hotel-st-moritz-pontresina-621d7a73",
-      "fr": "pilote-h-f-d-kulm-hotel-st-moritz-pontresina-e0cfc850"
+      "de": "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
+      "fr": "pilote-h-f-d-kulm-hotel-st-moritz-pontresina"
     },
     "sector": "Ospitalità / Hotellerie",
     "expiredAt": "2026-09-14T16:03:16.004Z",
     "previousSlugs": [
       "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina",
+      "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
       "driver-m-w-d-kulm-hotel-st-moritz-pontresina-621d7a73",
-      "driver-m-w-d-kulm-hotel-st-moritz-pontresina"
+      "pilote-h-f-d-kulm-hotel-st-moritz-pontresina-e0cfc850",
+      "driver-m-w-d-kulm-hotel-st-moritz-5ae30d09"
     ],
     "previousSlugsByLocale": {
       "de": [
-        "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "driver-m-w-d-kulm-hotel-st-moritz-pontresina-621d7a73"
       ],
       "fr": [
-        "driver-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "pilote-h-f-d-kulm-hotel-st-moritz-pontresina-e0cfc850"
       ],
       "it": [
-        "driver-m-w-d-kulm-hotel-st-moritz-pontresina-621d7a73"
+        "driver-m-w-d-kulm-hotel-st-moritz-pontresina-621d7a73",
+        "driver-m-w-d-kulm-hotel-st-moritz-5ae30d09"
       ],
       "en": [
         "driver-m-w-d-kulm-hotel-st-moritz-pontresina"
@@ -3487,6 +4115,34 @@
       ]
     },
     "postalCode": "7504",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "assistant-event-manager-m-w-d-kulm-hotel-st-moritz",
+    "title": "Assistant Event Manager (m/w/d)",
+    "titleByLocale": {
+      "it": "Assistente Event Manager (m/w/d)",
+      "en": "Assistant Event Manager (m/w/d)",
+      "de": "Assistent Event Manager (m/w/d)",
+      "fr": "Assistant Manager d'Événements (m/f/d)"
+    },
+    "company": "Kulm Hotel St. Moritz",
+    "companyKey": "kulm-hotel",
+    "location": "St. Moritz",
+    "addressLocality": "St. Moritz",
+    "descriptionByLocale": {
+      "it": "Descrizione Assistente Event Manager (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Contratto: Indeterminato / Permanente. Inizio attività: 2025-12-01. Le persone a 1800 metri sul livello del mare stanno plasmando il Viaggio di Lusso in Montagna. La nostra comunità dinamica e internazionale offre ai nostri ospiti un Lusso intelligente per un'esperienza vacanziera unica. Come membro del Gruppo Kulm di Lusso, fai parte della chiave del nostro successo. Insieme, rendiamo ogni soggiorno profondamente ispirante, unico e distintivo. E così, abbracciamo la nostra cultura: il lusso discreto, l'ispirazione e un'esperienza di vita. Insieme, lo facciamo accadere. Questa è la tua occasione per essere parte della nostra cultura in formazione: | Questo è ciò che porti con noi: Sei un talento organizzativo con una passione per gli eventi di alto livello? Ti senti a tuo agio in situazioni sfidanti, mantenendo una panoramica mentre assicuri un'esecuzione perfetta degli eventi? Se sì, sei esattamente chi stiamo cercando. Come Assistente Event Manager, sarai la mano destra del nostro Event Manager, plasmando eventi esclusivi – da eleganti cene di gala a incontri internazionali di alto profilo. ## Mansioni - Coordinamento e Esecuzione degli Eventi: Supervisiona l'intero processo di pianificazione, crea proposte, coordina i flussi di lavoro e assicura un'implementazione impeccabile sul posto. - Relazioni con gli Ospiti e Eccellenza nel Servizio: Sii il punto di riferimento principale per clienti e partner, gestendo ogni dettaglio dalle prime richieste alle follow-up post-evento. - Esperienza Amministrativa: Prepara offerte, conferme e fatture, gestendo le prenotazioni degli eventi e assicurando un'esecuzione accurata. - Coordinamento Interno Senza Soluzione di Continuità: Assicura una comunicazione efficace tra i dipartimenti per garantire che tutte le informazioni rilevanti siano condivise in modo tempestivo. - Gestione della Qualità e Innovazione: Raffina continuamente le operazioni degli eventi, contribuisci con idee creative e rimani aggiornato sulle tendenze del settore. ## Requisiti - Esperienza Dimostrata al Più Alto Livello: Anni di esperienza nel coordinamento di eventi nell'industria dell'hospitality di 5 stelle o nella gastronomia di lusso. - Eccellenti Competenze Linguistiche: Madrelingua o fluente in tedesco, ottimo inglese, lingue aggiuntive sono un plus. - Talento Organizzativo con un Occhio per i Dettagli: Un approccio strutturato, forti capacità di multitasking e una mentalità pratica. - Passione per l'Hospitality: Un atteggiamento professionale, eccellenti capacità di comunicazione e una profonda comprensione del cliente di lusso. - Digital Savvy: Proficiente in sistemi di gestione degli eventi, MS Office e software interno dell'hotel. ## Cosa offriamo - Al Gruppo Kulm, i nostri dipendenti sono il cuore del nostro successo. Offriamo opportunità di sviluppo attraenti, alloggi comfort, pasti a prezzi accessibili nel ristorante per il personale e numerosi vantaggi.",
+      "en": "Assistant Event Manager (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2025-12-01. People at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Are you an organizational talent with a passion for high-end events? Do you thrive in challenging situations, maintaining an overview while ensuring seamless event execution? If so, you are exactly who we are looking for.As Assistant Event Manager, you will be the right hand of our Event Manager, shaping exclusive events – from elegant gala dinners to high-profile international business meetings.Your Responsibilities: • Event Coordination & Execution: Oversee the entire planning process, create proposals, coordinate workflows, and ensure flawless on-site implementation. • Guest Relations & Service Excellence: Serve as the primary point of contact for clients and partners, managing every detail from initial inquiries to post-event follow-ups. • Administrative Expertise: Prepare offers, confirmations, and invoices while handling event bookings and ensuring accurate execution. • Seamless Internal Coordination: Ensure effective communication across departments to guarantee all relevant information is shared in a timely manner. • Quality Management & Innovation: Continuously refine event operations, contribute creative ideas, and stay updated on industry trends. | This is you: • Proven Experience at the Highest Level: Several years of experience in event coordination within the 5-star hospitality industry or luxury gastronomy. • Excellent Language Skills: Native or fluent German, very good English, additional languages are a plus. • Organizational Talent with an Eye for Detail: A structured approach, strong multitasking skills, and a hands-on mentality. • Passion for Hospitality: A professional demeanor, outstanding communication skills, and a keen understanding of luxury clientele. • Digital Savvy: Proficient in event management systems, MS Office, and internal hotel software. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+      "de": "Beschreibung Assistent Event Manager (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Eintrittsdatum: 2025-12-01. Menschen auf 1800 Metern über dem Meeresspiegel gestalten das Luxus-Mountain-Travel. Unsere dynamische und internationale Gemeinschaft bietet unseren Gästen intelligentes Luxus für ein unvergessliches Urlaubserlebnis. Als Mitglied der Luxus Kulm Group sind Sie Teil des Schlüssels zu unserem Erfolg. Gemeinsam machen wir jeden Aufenthalt tief inspirierend, einzigartig und unverwechselbar. Und so umarmen wir unsere Kultur: unterschwelliger Luxus, Inspiration und ein Lebenserlebnis. Gemeinsam machen wir das möglich. Dies ist Ihre Chance, Teil unserer gestaltenden Kultur zu werden: | Dies ist, was Sie mit uns bewegen: Sind Sie ein organisatorisches Talent mit einer Leidenschaft für hochwertige Events? Fühlen Sie Sie sich in herausfordernden Situationen wohl, während Sie die Übersicht behalten und eine nahtlose Event-Ausführung sicherstellen? Wenn ja, dann sind Sie genau die Person, die wir suchen. Als Assistent Event Manager werden Sie die rechte Hand unseres Event Managers sein und exklusive Events gestalten – von eleganten Galadinners bis hin zu hochrangigen internationalen Geschäftsveranstaltungen. ## Aufgaben - Event-Koordination & -Ausführung: Überwachen Sie den gesamten Planungsprozess, erstellen Sie Vorschläge, koordinieren Sie Arbeitsabläufe und stellen Sie eine makellose Umsetzung vor Ort sicher. - Gastbeziehungen & Service-Exzellenz: Treten Sie als Hauptansprechpartner für Kunden und Partner auf, verwalten Sie jedes Detail von den ersten Anfragen bis zu den Nachbereitungen nach dem Event. - Administrative Expertise: Bereiten Sie Angebote, Bestätigungen und Rechnungen vor, verwalten Sie Event-Buchungen und stellen Sie eine genaue Umsetzung sicher. - Nahtlose interne Koordination: Stellen Sie eine effektive Kommunikation zwischen den Abteilungen sicher, um sicherzustellen, dass alle relevanten Informationen rechtzeitig geteilt werden. - Qualitätsmanagement & Innovation: Verbessern Sie kontinuierlich die Event-Operationen, tragen Sie kreative Ideen bei und bleiben Sie auf dem Laufenden über die Trends der Branche. ## Anforderungen - Nachweisbare Erfahrung auf höchstem Niveau: Mehrere Jahre Erfahrung in der Event-Koordination in der 5-Sterne-Hospitality-Branche oder im Luxusgastronomie. - Exzellente Sprachkenntnisse: Muttersprachlich oder fließend Deutsch, sehr gute Englischkenntnisse, zusätzliche Sprachen sind ein Plus. - Organisatorisches Talent mit einem Auge für Details: Ein strukturierter Ansatz, starke Multitasking-Fähigkeiten und eine hands-on-Mentalität. - Leidenschaft für die Hospitality: Ein professionelles Auftreten, herausragende Kommunikationsfähigkeiten und ein tiefes Verständnis für Luxuskunden. - Digital Savvy: Gewandt in Event-Management-Systemen, MS Office und internen Hotel-Software. ## Was wir bieten - Bei der Kulm Group sind unsere Mitarbeiter das Herz unseres Erfolgs. Wir bieten attraktive Entwicklungsmöglichkeiten, komfortable Unterkünfte, günstige Mahlzeiten im Mitarbeiterrestaurant und zahlreiche weitere Vorteile.",
+      "fr": "Description Assistant Manager d'Événements (m/f/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Temps de travail: 100%. Contrat: Indéfini / Permanent. Date de début: 2025-12-01. Les personnes à 1800 mètres au-dessus du niveau de la mer façonnent le Voyage de Luxe en Montagne. Notre communauté dynamique et internationale offre à nos invités un Luxe intelligent pour une expérience de vacances inoubliable. En tant que membre du Groupe Kulm de Luxe, vous faites partie de la clé de notre succès. Ensemble, nous rendons chaque séjour profondément inspirant, unique et distinctif. Et ainsi, nous embrassons notre culture: le luxe discret, l'inspiration et une expérience de vie. Ensemble, nous le faisons se réaliser. C'est votre chance de faire partie de notre culture en formation: | C'est ce que vous portez avec nous: Êtes-vous un talent organisationnel passionné par les événements haut de gamme? Vous sentez-vous à l'aise dans des situations défiantes, tout en maintenant une vue d'ensemble et en assurant une exécution fluide des événements? Si oui, vous êtes exactement la personne que nous cherchons. En tant qu'Assistant Manager d'Événements, vous serez la main droite de notre Manager d'Événements, façonnant des événements exclusifs – de somptueux dîners de gala à des réunions d'affaires internationales de haut niveau. ## Responsabilités - Coordination et Exécution des Événements: Supervisez l'ensemble du processus de planification, créez des propositions, coordonnez les flux de travail et assurez une mise en œuvre impeccable sur place. - Relations avec les Clients et Excellence du Service: Servez de point de contact principal pour les clients et les partenaires, gérant chaque détail des premières demandes aux suivis post-événement. - Expertise Administrative: Préparez des offres, des confirmations et des factures, gérez les réservations d'événements et assurez une exécution précise. - Coordination Interne sans Faille: Assurez une communication efficace entre les départements pour garantir que toutes les informations pertinentes sont partagées à temps. - Gestion de la Qualité et Innovation: Améliorez continuellement les opérations des événements, contribuez avec des idées créatives et restez à jour sur les tendances du secteur. ## Exigences - Expérience Avérée au Plus Haut Niveau: Plusieurs années d'expérience en coordination d'événements dans l'industrie de l'hôtellerie 5 étoiles ou dans la gastronomie de luxe. - Excellentes Compétences Linguistiques: Allemand natif ou fluide, très bon anglais, des langues supplémentaires sont un plus. - Talent Organisationnel avec un Œil pour les Détails: Une approche structurée, de solides compétences en multitâche et une mentalité pratique. - Passion pour l'Hôtellerie: Un comportement professionnel, des compétences de communication exceptionnelles et une compréhension approfondie des clients de luxe. - Digital Savvy: Maîtrise des systèmes de gestion d'événements, MS Office et des logiciels internes de l'hôtel. ## Ce que nous offrons - Chez le Groupe Kulm, nos employés sont le cœur de notre succès. Nous offrons des opportunités de développement attractives, des logements confortables, des repas abordables dans le restaurant du personnel et de nombreux avantages."
+    },
+    "slugByLocale": {},
+    "sector": "Ospitalità / Hotellerie",
+    "expiredAt": "2026-05-04T22:12:29.138Z",
+    "postalCode": "7500",
     "salaryMin": 68000,
     "salaryMax": 103000,
     "salaryCurrency": "CHF",
