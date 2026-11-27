@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kispi-sg",
-  "assembledAt": "2026-11-27T09:36:31.789Z",
-  "runId": "45972483527",
+  "assembledAt": "2026-11-27T21:25:30.697Z",
+  "runId": "46069309156",
   "jobs": [
     {
       "id": "kispi-sg-d183a03863df",
@@ -35,7 +35,7 @@
       "url": "https://www.oks.ch/de/stellen/praktikant/in-pflege-und-betreuung-%28romerhuus%29-3048",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:24.682Z",
+      "crawledAt": "2026-11-27T21:25:23.197Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -90,9 +90,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:36:24.682Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/praktikant/in-pflege-und-betreuung-%28romerhuus%29-3048"
+      "validThrough": "2027-01-20T21:25:23.197Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-f71361122f0c",
@@ -126,7 +125,7 @@
       "url": "https://www.oks.ch/de/stellen/praktikant/in-pflege-und-betreuung-%2880-100%25%2C-befristet-f%C3%BCr-6-12-monate%29-1247",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:24.050Z",
+      "crawledAt": "2026-11-27T21:25:22.656Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -180,9 +179,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:24.050Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/praktikant/in-pflege-und-betreuung-%2880-100%25%2c-befristet-f%c3%bcr-6-12-monate%29-1247"
+      "validThrough": "2026-12-27T21:25:22.656Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-40e49ced4b86",
@@ -216,7 +214,7 @@
       "url": "https://www.oks.ch/de/stellen/pflegeexperte/in-praxis-%2880-100%25%29-3067",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:23.442Z",
+      "crawledAt": "2026-11-27T21:25:22.098Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -269,9 +267,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:36:23.442Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/pflegeexperte/in-praxis-%2880-100%25%29-3067"
+      "validThrough": "2027-02-11T21:25:22.098Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-ce94bcf3201b",
@@ -304,7 +301,7 @@
       "url": "https://www.oks.ch/de/stellen/oberassistenz%C3%A4rztin/-arzt-oder-ober%C3%A4rztin/-arzt-p%C3%A4diatrische-nephrologie-%2840---80%25%29-2401",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:22.835Z",
+      "crawledAt": "2026-11-27T21:25:21.544Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -394,9 +391,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:22.835Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/oberassistenz%c3%a4rztin/-arzt-oder-ober%c3%a4rztin/-arzt-p%c3%a4diatrische-nephrologie-%2840---80%25%29-2401"
+      "validThrough": "2026-12-27T21:25:21.544Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-b0e2fd5f9ee3",
@@ -429,7 +425,7 @@
       "url": "https://www.oks.ch/de/stellen/ober%C3%A4rztin/oberarzt-neonatologiep%C3%A4diatrische-intensivmedizin-%2880-100%25%29-2884",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:22.234Z",
+      "crawledAt": "2026-11-27T21:25:20.990Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -495,9 +491,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:22.234Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/ober%c3%a4rztin/oberarzt-neonatologiep%c3%a4diatrische-intensivmedizin-%2880-100%25%29-2884"
+      "validThrough": "2026-12-27T21:25:20.990Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-39815d3507ba",
@@ -531,7 +526,7 @@
       "url": "https://www.oks.ch/de/stellen/ober%C3%A4rztin/oberarzt-kinder--und-jugendmedizin-f%C3%BCr-die-interdisziplin%C3%A4re-kindernotfallstation-%2850-100%25%29-2936",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:21.622Z",
+      "crawledAt": "2026-11-27T21:25:20.447Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -576,9 +571,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:21.622Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/ober%c3%a4rztin/oberarzt-kinder--und-jugendmedizin-f%c3%bcr-die-interdisziplin%c3%a4re-kindernotfallstation-%2850-100%25%29-2936"
+      "validThrough": "2026-12-27T21:25:20.447Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-873a5971b62a",
@@ -612,7 +606,7 @@
       "url": "https://www.oks.ch/de/stellen/ober%C3%A4rztinoberarzt-p%C3%A4diatrische-gastroenterologie-und-hepatologie-mit-perspektive-co-leitung-%2860%E2%80%9380-%25%29-3052",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:21.007Z",
+      "crawledAt": "2026-11-27T21:25:19.899Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -663,9 +657,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:36:21.007Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/ober%c3%a4rztinoberarzt-p%c3%a4diatrische-gastroenterologie-und-hepatologie-mit-perspektive-co-leitung-%2860%e2%80%9380-%25%29-3052"
+      "validThrough": "2027-01-27T21:25:19.899Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-ea1a5007f5f0",
@@ -698,7 +691,7 @@
       "url": "https://www.oks.ch/de/stellen/medizinische-praxisassistenz-mpa-%2830%25%29-3076",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:20.232Z",
+      "crawledAt": "2026-11-27T21:25:19.248Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -741,9 +734,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:20.232Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/medizinische-praxisassistenz-mpa-%2830%25%29-3076"
+      "validThrough": "2026-12-27T21:25:19.248Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-0f13f9076798",
@@ -777,7 +769,7 @@
       "url": "https://www.oks.ch/de/stellen/leitung-qualit%C3%A4ts--und-risikomanagement-%2870%25%29-2902",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:19.626Z",
+      "crawledAt": "2026-11-27T21:25:18.707Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -877,7 +869,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-f893c3c4",
           "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-0e4e6cb7",
           "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-5e910fc7",
           "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-eb1017fc",
@@ -896,7 +887,8 @@
           "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-81355ef0",
           "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-a0233ac2",
           "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-c82a57af",
-          "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-bbd73f01"
+          "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-bbd73f01",
+          "facharztin-oder-facharzt-anasthesiologie-30-50-nsn-medical-zurich-f893c3c4"
         ],
         "en": [
           "leitung-qualitats-und-risikomanagement-70-ostschweizer-kinderspital-st-gallen"
@@ -921,9 +913,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:19.626Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/leitung-qualit%c3%a4ts--und-risikomanagement-%2870%25%29-2902"
+      "validThrough": "2026-12-27T21:25:18.707Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-14d365b56133",
@@ -957,7 +948,7 @@
       "url": "https://www.oks.ch/de/stellen/freelancer/-in-%22computer%2C-handy-%2B-co.%22-%28cohaco%29-3068",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:19.033Z",
+      "crawledAt": "2026-11-27T21:25:18.160Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1010,9 +1001,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:36:19.033Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/freelancer/-in-%22computer%2c-handy-%2b-co.%22-%28cohaco%29-3068"
+      "validThrough": "2027-02-12T21:25:18.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-e9c46e32eaac",
@@ -1046,7 +1036,7 @@
       "url": "https://www.oks.ch/de/stellen/fellowausbildungs-stelle-interdisziplin%C3%A4re-kinder-notfallmedizin-%2850-100%25%29-2937",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:18.420Z",
+      "crawledAt": "2026-11-27T21:25:17.620Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1100,9 +1090,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:18.420Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/fellowausbildungs-stelle-interdisziplin%c3%a4re-kinder-notfallmedizin-%2850-100%25%29-2937"
+      "validThrough": "2026-12-27T21:25:17.620Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-72107e873712",
@@ -1136,7 +1125,7 @@
       "url": "https://www.oks.ch/de/stellen/fachexperte/-in-infektionspr%C3%A4vention-%2860-80%25%29-2924",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:17.811Z",
+      "crawledAt": "2026-11-27T21:25:17.080Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1189,9 +1178,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:17.811Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/fachexperte/-in-infektionspr%c3%a4vention-%2860-80%25%29-2924"
+      "validThrough": "2026-12-27T21:25:17.080Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-99c514e7c3de",
@@ -1225,7 +1213,7 @@
       "url": "https://www.oks.ch/de/stellen/fach%C3%A4rztinfacharzt-kinder--und-jugendmedizin-%2840-100%25%29-f%C3%BCr-kinderarztpraxis-buchs-2282",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:17.049Z",
+      "crawledAt": "2026-11-27T21:25:16.424Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1275,9 +1263,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:17.049Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/fach%c3%a4rztinfacharzt-kinder--und-jugendmedizin-%2840-100%25%29-f%c3%bcr-kinderarztpraxis-buchs-2282"
+      "validThrough": "2026-12-27T21:25:16.424Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-9c8a26e51ed6",
@@ -1311,7 +1298,7 @@
       "url": "https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf/fh-%C3%BCberwachungspflege-p%C3%A4diatrie-3071",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:16.443Z",
+      "crawledAt": "2026-11-27T21:25:15.884Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1367,9 +1354,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:36:16.443Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf/fh-%c3%bcberwachungspflege-p%c3%a4diatrie-3071"
+      "validThrough": "2027-02-18T21:25:15.884Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-868a8e16f020",
@@ -1403,7 +1389,7 @@
       "url": "https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf/fh-oder-dipl.-experten/expertin-notfallpflege-%2860-100%25%29-2955",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:15.669Z",
+      "crawledAt": "2026-11-27T21:25:15.235Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1458,9 +1444,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:15.669Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf/fh-oder-dipl.-experten/expertin-notfallpflege-%2860-100%25%29-2955"
+      "validThrough": "2026-12-27T21:25:15.235Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-47938478c498",
@@ -1494,7 +1479,7 @@
       "url": "https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf/fh-80-100%25-f%C3%BCr-die-neonatologische-imc-und-neonatologie-2827",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:15.045Z",
+      "crawledAt": "2026-11-27T21:25:14.696Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1546,9 +1531,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:15.045Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf/fh-80-100%25-f%c3%bcr-die-neonatologische-imc-und-neonatologie-2827"
+      "validThrough": "2026-12-27T21:25:14.696Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-5d25e14c53f8",
@@ -1582,7 +1566,7 @@
       "url": "https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf/fh-80-100%25-3062",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:14.276Z",
+      "crawledAt": "2026-11-27T21:25:14.060Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1629,9 +1613,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:36:14.276Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf/fh-80-100%25-3062"
+      "validThrough": "2027-02-09T21:25:14.060Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-95480d35ea2c",
@@ -1665,7 +1648,7 @@
       "url": "https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf-f%C3%BCr-das-nds-hf-intensivpflege-p%C3%A4diatrie-ipp-%2890-100%25%29-1259",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:13.672Z",
+      "crawledAt": "2026-11-27T21:25:13.521Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1735,9 +1718,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:13.672Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/dipl.-pflegefachperson-hf-f%c3%bcr-das-nds-hf-intensivpflege-p%c3%a4diatrie-ipp-%2890-100%25%29-1259"
+      "validThrough": "2026-12-27T21:25:13.521Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-3585d24ecdfa",
@@ -1771,7 +1753,7 @@
       "url": "https://www.oks.ch/de/stellen/dipl.-expertin/experte-nds-hf-intensivpflege-%2880-100%25%29-2820",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:13.064Z",
+      "crawledAt": "2026-11-27T21:25:12.972Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1820,9 +1802,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:36:13.064Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/dipl.-expertin/experte-nds-hf-intensivpflege-%2880-100%25%29-2820"
+      "validThrough": "2027-02-16T21:25:12.972Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-78f7e706c6d7",
@@ -1856,7 +1837,7 @@
       "url": "https://www.oks.ch/de/stellen/ausbildungsstelle-allergologie-und-klinische-immunologie-%2850%25%29-3073",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:12.441Z",
+      "crawledAt": "2026-11-27T21:25:12.421Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1911,9 +1892,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:36:12.441Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/ausbildungsstelle-allergologie-und-klinische-immunologie-%2850%25%29-3073"
+      "validThrough": "2027-02-20T21:25:12.421Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-12f093b5a24d",
@@ -1947,7 +1927,7 @@
       "url": "https://www.oks.ch/de/stellen/ausbildung-zur-dipl.-pflegefachperson-hf-%28100%25%29-2550",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:11.660Z",
+      "crawledAt": "2026-11-27T21:25:11.791Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2002,9 +1982,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:11.660Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/ausbildung-zur-dipl.-pflegefachperson-hf-%28100%25%29-2550"
+      "validThrough": "2026-12-27T21:25:11.791Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-sg-2ba61031ce6b",
@@ -2038,7 +2017,7 @@
       "url": "https://www.oks.ch/de/stellen/arztsekret%C3%A4r/in-allergologie-%2880%25%29-3072",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Pimcore SSR @ kispisg.ch/stellen)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:36:11.053Z",
+      "crawledAt": "2026-11-27T21:25:11.254Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2093,9 +2072,8 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:36:11.053Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oks.ch/de/stellen/arztsekret%c3%a4r/in-allergologie-%2880%25%29-3072"
+      "validThrough": "2027-02-18T21:25:11.254Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

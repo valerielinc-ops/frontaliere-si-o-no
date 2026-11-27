@@ -34,6 +34,7 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
+import { sendOutcomeUnconfirmed } from './lib/applicationExistsReconciliation.js';
 import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_AUTO_RETRY_DELAYS_MS as PORTAL_RETRY_DELAYS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION, SWISS_EGRESS_NETWORK_RECOVERY_VERSION, TRANSPORT_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryAttemptsRemaining, draftAutoRetryCountValue, draftRetryDelayMs, draftRetryDueAt, draftRetryMaxAttempts, isCodexUsageLimitError } from './assistedApplicationDraftRetryPolicy.js';
 import { codexBrokerInfrastructureFailure } from './assistedApplicationTransportRetryPolicy.js';
@@ -433,6 +434,8 @@ function base(flow) {
     heldBy: Array.isArray(flow?.heldBy) ? flow.heldBy : [],
     heldSince: Number(flow?.heldSince) || null,
     heldNudges: Number(flow?.heldNudges) || 0,
+    ...(flow?.ambiguousSubmit && typeof flow.ambiguousSubmit === 'object' && !Array.isArray(flow.ambiguousSubmit)
+      ? { ambiguousSubmit: flow.ambiguousSubmit } : {}),
     candidateStaleArchivedAt: Number(flow?.candidateStaleArchivedAt) || null,
     ...(typeof flow?.heldReason === 'string' ? { heldReason: flow.heldReason } : {}),
     ...(Array.isArray(flow?.pendingFields) ? { pendingFields: flow.pendingFields.slice(0, 20) } : {}),
@@ -1244,6 +1247,9 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // The robot sends only what the candidate approved. A real order of 2026-10-07 was taken over while
       // in the owner's review, and «retry» sent its draft to the portal, never seen by the candidate.
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
+      // A send of unknown outcome is never sent again on a guess: only the owner's explicit «it did not leave».
+      if ((sendMayHaveLeft || sendOutcomeUnconfirmed(current)) && event.confirmedNotSent !== true) return ignore('send_outcome_unconfirmed');
+      next.ambiguousSubmit = null;
       next.portalAutoRetryAt = null;
       effects = enterSubmitting(next, 'owner_retry');
       break;
@@ -1255,6 +1261,9 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       if (!retryAt || retryAt > nowMs) return ignore('portal_retry_not_due');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
+      // Only the final-review recovery proved from evidence that its click did not leave; nothing else retries
+      // by itself while the outcome of a send is unconfirmed.
+      if ((sendMayHaveLeft || sendOutcomeUnconfirmed(current)) && !portalFinalReviewAmbiguousRecoveryPending(current)) return ignore('send_outcome_unconfirmed');
       const infrastructure = isInfrastructureRetryHold(current);
       const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
       if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length
@@ -1621,6 +1630,11 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       next.state = 'owner_takeover';
       next.heldBy = [String(event.error || 'submit_failed').slice(0, 80)];
+      // The hold changes with the next stop, the doubt does not: kept on the flow until someone confirms the
+      // round was NOT sent (owner_retry_submit with confirmedNotSent), so a later account stop cannot hide it.
+      if (AMBIGUOUS_SUBMIT_HOLDS.has(String(event.error || ''))) {
+        next.ambiguousSubmit = { round: current.round, at: nowMs, error: String(event.error).slice(0, 60) };
+      }
       effects = [takeoverEmail(flow, event, 'submit')];
       break;
     }

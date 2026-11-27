@@ -2908,6 +2908,7 @@
         "fachperson-gesundheit-claraspital-basel"
       ],
       "de": [
+        "fachperson-gesundheit-claraspital-basel-da24afae",
         "fachperson-gesundheit-claraspital-basel"
       ]
     },
@@ -4262,15 +4263,23 @@
     "previousSlugs": [
       "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
       "head-of-infrastructure-management-st-claraspital-basel",
-      "chef-de-la-gestion-des-infrastructures-st-claraspital-basel"
+      "chef-de-la-gestion-des-infrastructures-st-claraspital-basel",
+      "capo-di-infrastructure-building-management-st-claraspital-basel",
+      "head-of-infrastructure-building-management-st-claraspital-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel"
+        "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+        "capo-di-infrastructure-building-management-st-claraspital-basel",
+        "head-of-infrastructural-facility-management-st-claraspital-basel",
+        "responsable-de-la-gestion-des-infrastructures-st-claraspital-basel",
+        "head-of-infrastructure-management-st-claraspital-basel",
+        "chef-de-la-gestion-des-infrastructures-st-claraspital-basel"
       ],
       "en": [
         "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
-        "head-of-infrastructure-management-st-claraspital-basel"
+        "head-of-infrastructure-management-st-claraspital-basel",
+        "head-of-infrastructure-building-management-st-claraspital-basel"
       ],
       "fr": [
         "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
@@ -4296,7 +4305,19 @@
         "firstSeenAt": "2026-06-16T13:02:57.960Z",
         "title": "Leiter/in Infrastrukturelles Gebäudemanagement"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "capo-di-infrastructure-building-management-st-claraspital-basel": "BS",
+        "head-of-infrastructural-facility-management-st-claraspital-basel": "BS",
+        "responsable-de-la-gestion-des-infrastructures-st-claraspital-basel": "BS",
+        "head-of-infrastructure-management-st-claraspital-basel": "BS",
+        "chef-de-la-gestion-des-infrastructures-st-claraspital-basel": "BS"
+      },
+      "en": {
+        "head-of-infrastructure-building-management-st-claraspital-basel": "BS"
+      }
+    }
   },
   {
     "slug": "diatkochin-diatkoch-befristet-per-ein-jahr-st-claraspital-basel",

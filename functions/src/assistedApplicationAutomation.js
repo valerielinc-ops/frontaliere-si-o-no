@@ -54,11 +54,15 @@ import { readConciergeSlot, releaseConciergeSlot } from './assistedApplicationWi
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { recoverFailedCandidateRepliesForOrder } from './assistedApplicationCandidateReply.js';
-import { DISPATCH_RECOVERY_DELAY_MS, DISPATCH_RECOVERY_MAX_ATTEMPTS, dispatchRecoveryCountValue, dispatchRecoveryDueAt, preDispatchFailureCode } from './assistedApplicationDispatchRetryPolicy.js';
+import { DISPATCH_CONFIRM_WINDOW_MS, DISPATCH_RECOVERY_DELAY_MS, DISPATCH_RECOVERY_MAX_ATTEMPTS, dispatchRecoveryCountValue, dispatchRecoveryDueAt, preDispatchFailureCode } from './assistedApplicationDispatchRetryPolicy.js';
 import { checkPostingLiveness, resolvePostingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { reconcileSubmissionReceipt } from './assistedApplicationReceiptReconcile.js';
+import {
+  APPLICATION_EXISTS_PROOF_KIND, APPLICATION_EXISTS_REASON, applicationExistsEvidenceOf, decideApplicationExistsReconciliation,
+} from './lib/applicationExistsReconciliation.js';
+import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { verifySubmissionReceipt } from './lib/submissionReceiptContract.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
@@ -299,6 +303,58 @@ export async function reconcileFactRepairSchedule({ db, orderId, apply = false }
   });
 }
 
+/**
+ * The moment an unconfirmed dispatch is looked at again, well before the run watchdog: its effect never reported
+ * success, so the process may have died between the committed transition and the GitHub POST. Only while the
+ * watchdog still has a re-dispatch to give (MAX_DISPATCH_ATTEMPTS), so the retry stays bounded.
+ */
+export function dispatchConfirmDueAt(flow) {
+  const confirmBy = Number(flow?.dispatch?.confirmBy) || 0;
+  if (!confirmBy || flow?.dispatch?.confirmedAt) return null;
+  if ((Number(flow.dispatch.attempts) || 1) >= MAX_DISPATCH_ATTEMPTS) return null;
+  return confirmBy;
+}
+
+/** The dispatch record of a run asked for at `nowMs`: unconfirmed until its effect has run. */
+function pendingDispatchRecord(record, nowMs) {
+  const attempts = Number(record.attempts) || 1;
+  return {
+    ...record,
+    confirmedAt: null,
+    confirmBy: attempts < MAX_DISPATCH_ATTEMPTS ? nowMs + DISPATCH_CONFIRM_WINDOW_MS : null,
+  };
+}
+
+/**
+ * The dispatch effect of the request made at `requestedAt` has run (or failed in a way the watchdog owns): clear
+ * its confirm clock, so the sweep never re-dispatches a run that may already be out. Idempotent, and a no-op
+ * when a newer dispatch replaced that request.
+ */
+export async function settleDispatchConfirmation({ db, orderId, requestedAt, nowMs = Date.now(), confirmed = true }) {
+  return db.runTransaction(async transaction => {
+    const orderRef = orderRefFor(db, orderId);
+    const flowRef = flowRefFor(db, orderId);
+    const flow = (await transaction.get(flowRef)).data();
+    const dispatch = flow?.dispatch;
+    if (!dispatch || Number(dispatch.requestedAt) !== Number(requestedAt) || dispatch.confirmedAt || !dispatch.confirmBy) {
+      return { settled: false };
+    }
+    const nextFlow = { ...flow, dispatch: { ...dispatch, confirmBy: null, ...(confirmed ? { confirmedAt: nowMs } : {}) } };
+    transaction.set(flowRef, { dispatch: nextFlow.dispatch }, { merge: true });
+    transaction.set(orderRef, { automationDueAt: computeDueAt(nextFlow) }, { merge: true });
+    return { settled: true };
+  });
+}
+
+/** Settle after the effect, never letting a failed bookkeeping write fail the caller (the watchdog still stands). */
+async function settleQuietly(args) {
+  try {
+    await settleDispatchConfirmation(args);
+  } catch (error) {
+    console.error('[assistedApplicationAutomation] dispatch confirmation not recorded', args.orderId, error instanceof Error ? error.message : String(error));
+  }
+}
+
 /** Next moment the sweep must look at this flow (clock, reminder or watchdog). */
 export function computeDueAt(flow) {
   if (!flow) return null;
@@ -311,6 +367,8 @@ export function computeDueAt(flow) {
     const dispatchRecoveryAt = dispatchRecoveryDueAt(flow);
     if (dispatchRecoveryAt) return dispatchRecoveryAt;
     const requestedAt = Number(flow.dispatch?.requestedAt) || 0;
+    const confirmBy = dispatchConfirmDueAt(flow);
+    if (confirmBy) return confirmBy;
     return requestedAt ? requestedAt + RUN_WATCHDOG_MS : null;
   }
   const photoRetryAt = ['candidate_review', 'needs_candidate_action'].includes(flow.state)
@@ -401,7 +459,7 @@ export async function claimWatchdogDispatch({ db, orderId, nowMs }) {
     const attempts = Number(flow.dispatch?.attempts) || 1;
     if (!dueAt || dueAt > nowMs || attempts >= MAX_DISPATCH_ATTEMPTS) return null;
     const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
-    const dispatch = { ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 };
+    const dispatch = pendingDispatchRecord({ ...flow.dispatch, mode, round: flow.round || 1, requestedAt: nowMs, attempts: attempts + 1 }, nowMs);
     const nextFlow = { ...flow, dispatch, dispatchRecoveryAt: null, updatedAt: nowMs };
     transaction.set(flowRef, { dispatch, dispatchRecoveryAt: null, updatedAt: nowMs }, { merge: true });
     transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
@@ -481,7 +539,9 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   const closureEvent = event.type === 'posting_closed' || event.type === 'posting_closure_recorded'
     || event.type === 'candidate_stale_archive'
     || (event.type === 'tick' && Boolean(event.postingClosure));
-  const submissionRef = closureEvent ? submissionRefFor(db, orderId) : null;
+  // The owner's and the clock's retries read it too: a send that may have left is never sent again on a guess.
+  const retryEvent = event.type === 'owner_retry_submit' || event.type === 'portal_auto_retry';
+  const submissionRef = closureEvent || retryEvent ? submissionRefFor(db, orderId) : null;
   let outcome = null;
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
@@ -595,7 +655,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const result = transition(flowForTransition, event, {
       order, draft, answers: transitionAnswers, documents: transitionDocuments, postalPacketReady, nowMs,
-      sendMayHaveLeft: closureEvent ? sendMayHaveLeft({ draft, submission: submissionSnapshot?.data() || {} }) : false,
+      sendMayHaveLeft: closureEvent || retryEvent ? sendMayHaveLeft({ draft, submission: submissionSnapshot?.data() || {} }) : false,
     });
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
@@ -630,14 +690,14 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     // always knows when the run was asked for.
     const dispatch = result.effects.find((effect) => effect.type === 'dispatch');
     if (dispatch) {
-      nextFlow.dispatch = {
+      nextFlow.dispatch = pendingDispatchRecord({
         mode: dispatch.mode,
         round: nextFlow.round,
         requestedAt: nowMs,
         // A retry carries its count, so the watchdog and the flow share the limit.
         attempts: Number(dispatch.attempts) || 1,
         reason: dispatch.reason || null,
-      };
+      }, nowMs);
     }
     // Keep the submitted values as their source records; transitionAnswers is
     // a validated projection for this decision, not a replacement for what
@@ -694,7 +754,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     outcome.effectResults = [];
     for (const effect of outcome.effects) {
       try {
-        outcome.effectResults.push(await runEffect({ db, orderId, effect, flow: outcome.flow, nowMs }));
+        const effectResult = await runEffect({ db, orderId, effect, flow: outcome.flow, nowMs });
+        outcome.effectResults.push(effectResult);
+        if (effect.type === 'dispatch') {
+          await settleQuietly({ db, orderId, requestedAt: nowMs, nowMs, confirmed: effectResult?.ok !== false });
+        }
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         console.error('[assistedApplicationAutomation] effect failed', orderId, effect.type, effect.kind || effect.mode || '', message);
@@ -713,10 +777,63 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
           }
         }
         outcome.effectResults.push(effectResult);
+        // Not proven out and not retried by the confirm clock: a pre-dispatch failure has its own bounded
+        // recovery above, any other failure is ambiguous and stays with the run watchdog.
+        if (effect.type === 'dispatch') await settleQuietly({ db, orderId, requestedAt: nowMs, nowMs, confirmed: false });
       }
     }
   }
   return outcome || { ok: false, ignored: 'unknown' };
+}
+
+/**
+ * Settle an order as sent from the portal's own «application exists» page (see lib/applicationExistsReconciliation.js).
+ * Reads only what this order's records say; writes a receipt (proof `portal_application_exists`) and moves the flow
+ * as `submit_acknowledged`, in the one transaction that also marks the runner event applied. Returns null when the
+ * proof is incomplete: the caller then applies the handoff as usual (held, no automatic retry).
+ */
+async function reconcileApplicationExists({ db, orderId, eventRef, data, round, runEffect, nowMs }) {
+  const evidence = applicationExistsEvidenceOf(data.applicationExists);
+  if (!evidence) return null;
+  const orderRef = orderRefFor(db, orderId);
+  const [orderSnapshot, flowSnapshot, draftSnapshot, accountsSnapshot, submissionSnapshot, eventsSnapshot] = await Promise.all([
+    orderRef.get(), flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(),
+    orderRef.collection('automation').doc(PORTAL_ACCOUNTS_DOC_ID).get(),
+    submissionRefFor(db, orderId).get(),
+    orderRef.collection('automation_events').where('type', '==', 'submit_failed').where('round', '==', Number(round) || 1).get(),
+  ]);
+  const flow = flowSnapshot.data() || {};
+  if (flow.state !== 'submitting' || (Number(flow.round) || 1) !== (Number(round) || 1)) return null;
+  const order = orderSnapshot.data() || {};
+  const draft = draftSnapshot.data() || {};
+  const record = submissionSnapshot.data()?.[`r${Number(flow.round) || 1}`] || null;
+  const ambiguousEvents = eventsSnapshot.docs
+    .filter((doc) => /_ambiguous$/u.test(String(doc.data()?.error || '')) || doc.data()?.error === 'submission_receipt_invalid').length;
+  const { decision, criteria } = decideApplicationExistsReconciliation({
+    order, flow, submission: record, accounts: accountsSnapshot.data() || {}, evidence, ambiguousEvents,
+    urls: [draft.channel?.applyUrl, draft.channel?.postingUrl, draft.job?.applyUrl, draft.job?.postingUrl, order.jobUrl],
+  });
+  if (decision !== 'reconcile') {
+    console.warn('[assistedApplicationAutomation] application-exists page not reconciled', orderId,
+      Object.entries(criteria).filter(([, ok]) => !ok).map(([name]) => name).join(','));
+    return null;
+  }
+  const guard = submissionGuard(db, orderId, flow.round);
+  const leftAt = submissionLeftAt(record) || Number(record?.priorClickedAt) || nowMs;
+  const attemptId = record?.attemptId || `exists-${Math.floor(nowMs)}`;
+  return applyAutomationEvent({
+    db, orderId, event: { type: 'submit_acknowledged', round: Number(flow.round) || 1 },
+    actor: 'portal_application_exists', runEffect, nowMs, expectedRound: Number(flow.round) || 1, claimRef: eventRef,
+    patchFlow: () => ({ submittedVia: 'portal', ambiguousSubmit: null,
+      submissionConfirmedBy: { kind: APPLICATION_EXISTS_PROOF_KIND, at: nowMs, host: evidence.host, vacancyId: evidence.vacancyId } }),
+    writeSubmissionReceipt: async ({ transaction }) => guard.markSent({
+      channel: 'portal', sentAt: leftAt, confirmedBy: APPLICATION_EXISTS_PROOF_KIND, confirmedAt: nowMs,
+      sent: draft.sentAttempt || draft.sent || record?.sent || {},
+    }, leftAt, {
+      kind: APPLICATION_EXISTS_PROOF_KIND, attemptId, observedAt: nowMs,
+      evidence: { host: evidence.host, pagePath: evidence.pagePath, vacancyId: evidence.vacancyId },
+    }, { transaction }),
+  });
 }
 
 /**
@@ -733,6 +850,7 @@ export async function relaunchAuthorizedOwnerTakeover({
   orderId,
   authorizedOrderId,
   runEffect,
+  confirmedNotSent = false,
   nowMs = Date.now(),
 } = {}) {
   const target = String(orderId || '').trim();
@@ -745,7 +863,8 @@ export async function relaunchAuthorizedOwnerTakeover({
   return applyAutomationEvent({
     db,
     orderId: target,
-    event: { type: 'owner_retry_submit' },
+    // A send of unknown outcome restarts only with the owner's explicit confirmation that it did not leave.
+    event: { type: 'owner_retry_submit', ...(confirmedNotSent === true ? { confirmedNotSent: true } : {}) },
     actor: 'owner-takeover-relaunch',
     runEffect,
     nowMs,
@@ -835,7 +954,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       questionAnswerConfirmationHashes: orderContext.questionAnswerConfirmationHashes,
       questionAnswerSources: orderContext.questionAnswerSources,
       history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
-      dispatch: { mode: 'draft', round, requestedAt: nowMs, attempts: 1, reason },
+      dispatch: pendingDispatchRecord({ mode: 'draft', round, requestedAt: nowMs, attempts: 1, reason }, nowMs),
       startedAt: nowMs,
       updatedAt: nowMs,
     };
@@ -872,7 +991,8 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
   }
   if (runEffect) {
     try {
-      await runEffect({ db, orderId, effect: { type: 'dispatch', mode: 'draft', reason }, flow: created, nowMs });
+      const dispatched = await runEffect({ db, orderId, effect: { type: 'dispatch', mode: 'draft', reason }, flow: created, nowMs });
+      await settleQuietly({ db, orderId, requestedAt: nowMs, nowMs, confirmed: dispatched?.ok !== false });
     } catch (error) {
       console.error('[assistedApplicationAutomation] first dispatch failed', orderId, error instanceof Error ? error.message : String(error));
       const preDispatchCode = preDispatchFailureCode(error);
@@ -882,6 +1002,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
         }).catch(recoveryError => console.error('[assistedApplicationAutomation] first dispatch recovery scheduling failed', orderId,
           recoveryError instanceof Error ? recoveryError.message : String(recoveryError)));
       }
+      await settleQuietly({ db, orderId, requestedAt: nowMs, nowMs, confirmed: false });
       // The watchdog re-dispatches within RUN_WATCHDOG_MS.
     }
   }
@@ -1200,10 +1321,18 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
         const attempts = Number(flow.dispatch?.attempts) || 1;
         const mode = flow.dispatch?.mode || (flow.state === 'submitting' ? 'submit' : 'draft');
         if (attempts < MAX_DISPATCH_ATTEMPTS) {
+          // A dispatch that never reported success is re-dispatched on its short confirm clock, unless the run
+          // already recorded its send attempt for this round: then it is out, and the watchdog alone owns it.
+          if (dispatchConfirmDueAt(flow) && submission?.state) {
+            await settleDispatchConfirmation({ db, orderId: doc.id, requestedAt: flow.dispatch?.requestedAt, nowMs, confirmed: true });
+            summary.ignored += 1;
+            continue;
+          }
           const claimed = await claimWatchdogDispatch({ db, orderId: doc.id, nowMs });
           if (!claimed) { summary.ignored += 1; continue; }
           try {
-            await runEffect({ db, orderId: doc.id, effect: { type: 'dispatch', mode: claimed.dispatch.mode, reason: 'watchdog' }, flow: claimed, nowMs });
+            const dispatched = await runEffect({ db, orderId: doc.id, effect: { type: 'dispatch', mode: claimed.dispatch.mode, reason: 'watchdog' }, flow: claimed, nowMs });
+            await settleQuietly({ db, orderId: doc.id, requestedAt: nowMs, nowMs, confirmed: dispatched?.ok !== false });
             summary.redispatched += 1;
           } catch (error) {
             const preDispatchCode = preDispatchFailureCode(error);
@@ -1211,6 +1340,7 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
               const recovery = await scheduleDispatchRecovery({ db, orderId: doc.id, nowMs, failureCode: preDispatchCode });
               if (recovery.scheduled) summary.dispatchRecoveries = (summary.dispatchRecoveries || 0) + 1;
             }
+            await settleQuietly({ db, orderId: doc.id, requestedAt: nowMs, nowMs, confirmed: false });
             throw error;
           }
         } else {
@@ -1272,6 +1402,12 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
       await eventRef.set({ appliedAt: nowMs, result: 'ignored:submission_receipt_missing' }, { merge: true });
       return { ok: false, ignored: 'submission_receipt_missing' };
     }
+  }
+  // The portal's «application exists» page for the order's own vacancy, on its own alias account, after a send
+  // of this round that nobody confirmed: the application arrived. Anything less stays a held handoff (unknown).
+  if (type === 'submit_handoff' && String(data?.reason || '') === APPLICATION_EXISTS_REASON) {
+    const reconciled = await reconcileApplicationExists({ db, orderId, eventRef, data, round, runEffect, nowMs });
+    if (reconciled) return reconciled;
   }
   const accountFailure = getAccountFailure(data);
   const portalNetworkFailure = type === 'submit_handoff' ? portalNetworkFailureOf(data.portalNetworkFailure) : null;

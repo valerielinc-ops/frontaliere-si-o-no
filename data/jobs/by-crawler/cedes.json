@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-11-27T09:22:18.871Z",
-  "runId": "45970848150",
+  "assembledAt": "2026-11-27T21:16:33.046Z",
+  "runId": "46068002453",
   "jobs": [
     {
       "id": "cedes-5263e50a0062",
@@ -48,7 +48,7 @@
       "url": "https://www.cedes.com/en/career/jobs/mitarbeiter-in-shipping-lagerlogistik-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:12.093Z",
+      "crawledAt": "2026-11-27T21:16:26.179Z",
       "previousSlugs": [
         "mitarbeiter-in-shipping-lagerlogistik-100-cedes-landquart",
         "collaboratore-trice-in-shipping-lagerlogistik-100-cedes-ag-landquart"
@@ -93,7 +93,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:22:12.093Z",
+      "validThrough": "2027-02-12T21:16:26.179Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -141,7 +141,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:22:11.664Z",
+      "crawledAt": "2026-11-27T21:16:25.753Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"
@@ -186,7 +186,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T09:22:11.664Z",
+      "validThrough": "2026-12-27T21:16:25.753Z",
       "validThroughSource": "last-observed-window"
     }
   ]

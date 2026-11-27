@@ -1,4 +1,5 @@
 import { createHash, randomUUID } from 'node:crypto';
+import { APPLICATION_EXISTS_REASON, applicationExistsRoute, vacancyBoundToOrder } from '../../../../functions/src/lib/applicationExistsReconciliation.js';
 import { hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { isPhotoRequirement } from '../../../../functions/src/lib/assistedApplicationDocumentKind.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
@@ -1691,7 +1692,7 @@ export function anonymizePath(url) {
  * `empty`, `email`, `name`, `mismatch:name`…), and `readback` the runner's
  * own comparison of what it typed with what the page kept (`truncated`).
  */
-export function stopReportFrom({ url, reason, step, seen, agent = [], readback = [] }) {
+export function stopReportFrom({ url, reason, step, seen, agent = [], readback = [], bindingGuard = '' }) {
   let host = '';
   try {
     host = new URL(url).hostname;
@@ -1710,6 +1711,7 @@ export function stopReportFrom({ url, reason, step, seen, agent = [], readback =
     }),
     errors: (seen?.errors || []).slice(0, 8),
     agent: agent.map((item) => ({ hint: item.hint, status: item.status })),
+    ...(/^[a-z][a-z_]{2,47}$/.test(String(bindingGuard || '')) ? { bindingGuard } : {}),
   };
 }
 
@@ -6064,6 +6066,44 @@ function successFactorsCaptionNamesOtherRequisition(captions, job, applyUrl, pag
   });
 }
 
+/**
+ * Normalized inputs of a binding decision, bounded and with the page's own texts: they belong to the run's
+ * encrypted evidence, never to a public report. Every value is read defensively (a guard can decide before the
+ * values after it exist).
+ */
+const BINDING_DIAGNOSTIC_LINES = 12;
+const BINDING_DIAGNOSTIC_LINE_CHARS = 160;
+export function bindingDiagnosticInputs(thunks = {}) {
+  const raw = {};
+  for (const [key, read] of Object.entries(thunks)) {
+    try {
+      raw[key] = read();
+    } catch {
+      raw[key] = undefined;
+    }
+  }
+  const lines = (value) => (Array.isArray(value) ? value : []).slice(0, BINDING_DIAGNOSTIC_LINES)
+    .map((line) => String(line ?? '').replace(/\s+/g, ' ').trim().slice(0, BINDING_DIAGNOSTIC_LINE_CHARS));
+  let url = null;
+  try {
+    const parsedUrl = new URL(String(raw.pageUrl || ''));
+    url = { host: parsedUrl.hostname, path: parsedUrl.pathname, params: [...new Set([...parsedUrl.searchParams.keys()])].slice(0, 24) };
+  } catch {
+    url = null;
+  }
+  const flags = {};
+  for (const [key, value] of Object.entries(raw.flags || {})) flags[key] = typeof value === 'boolean' ? value : String(value ?? '').slice(0, 24);
+  return {
+    expectedTitles: lines(raw.expectedTitles),
+    headings: lines(raw.headings),
+    firstLines: lines(raw.firstLines),
+    conflictLines: lines(raw.conflictLines),
+    conflictHeadings: lines(raw.conflictHeadings),
+    url,
+    flags,
+  };
+}
+
 /** The line names the role and nothing else of substance (no second role or employer around it). */
 // Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
 const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
@@ -6337,7 +6377,34 @@ export function formPostingMatch(formText, job = {}, {
   formFieldLabels = [],
   postingRouteProof = null,
   applyUrl = '',
+  diagnostics = null,
 } = {}) {
+  // The guard that decided a mismatch, and its normalized inputs, for the run's encrypted evidence only.
+  const decide = (guard) => {
+    if (diagnostics && typeof diagnostics === 'object') {
+      diagnostics.guard = guard;
+      diagnostics.inputs = bindingDiagnosticInputs({
+        expectedTitles: () => jobTitleCandidates(job).map((title) => normalizeWords(title)),
+        headings: () => headingCandidates,
+        firstLines: () => String(formText || '').split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !/^https?:\/\//i.test(line)).slice(0, 12),
+        pageUrl: () => pageUrl,
+        flags: () => ({
+          roleHeading: (() => { try { return roleHeading; } catch { return ''; } })(),
+          direct: (() => { try { return direct; } catch { return ''; } })(),
+          rawDirect: (() => { try { return rawDirect; } catch { return ''; } })(),
+          bound: (() => { try { return bound; } catch { return ''; } })(),
+          successFactorsBound: (() => { try { return successFactorsBound; } catch { return ''; } })(),
+          successFactorsRouteBound: (() => { try { return successFactorsRouteBound; } catch { return ''; } })(),
+          headingConflict: (() => { try { return headingConflict; } catch { return ''; } })(),
+          postingLocationBound: (() => { try { return postingLocationBound; } catch { return ''; } })(),
+          postingEntry, applicationEntry, postingMatched,
+        }),
+        conflictLines: () => String(formText || '').split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !/^https?:\/\//i.test(line)).slice(0, 400).filter((line) => namesAnotherEmployer(line, job, { allowPostingLocation: true })),
+        conflictHeadings: () => headingCandidates.filter((heading) => namesAnotherEmployer(heading, job, { allowPostingLocation: true })),
+      });
+    }
+    return 'mismatch';
+  };
   const headingCandidates = [...new Set([
     pageHeading,
     ...(Array.isArray(pageHeadings) ? pageHeadings : []),
@@ -6383,7 +6450,7 @@ export function formPostingMatch(formText, job = {}, {
   // posting only when both routes carry that exact origin and ID. Entry-path
   // provenance cannot authorize a different requisition, even on a generic
   // account/application page that names no employer or role.
-  if (talentSoftPageIdentity && !paidTalentSoftPostingBound) return 'mismatch';
+  if (talentSoftPageIdentity && !paidTalentSoftPostingBound) return decide('talentsoft_identity_conflict');
   // An application-entry witness remains valid only while the browser is on
   // the exact route that was entered. A later generic form can otherwise
   // inherit the old posting match after a diversion.
@@ -6405,7 +6472,7 @@ export function formPostingMatch(formText, job = {}, {
     applicationEntryProven: applicationEntry === true && postingMatched === true,
     postingEntryProven: postingEntry === true,
   });
-  if (postingBinding.status === POSTING_BINDING_STATUS.MISMATCH) return 'mismatch';
+  if (postingBinding.status === POSTING_BINDING_STATUS.MISMATCH) return decide('posting_binding_route_conflict');
   // A same-route employer form can prove the posting from the selected page
   // without carrying a requisition key. That proof is enough to classify the
   // posting's own location in the title as metadata, but it must not weaken
@@ -6501,12 +6568,12 @@ export function formPostingMatch(formText, job = {}, {
     : null;
   // On the SuccessFactors tenant of the module the order entered (same host, session address included), a caption
   // that carries the order's role with ANOTHER requisition id is another vacancy, whatever the employer words say.
-  if (successFactorsCaptionNamesOtherRequisition([...headingCandidates, ...requisitionSections], job, applyUrl, pageUrl)) return 'mismatch';
+  if (successFactorsCaptionNamesOtherRequisition([...headingCandidates, ...requisitionSections], job, applyUrl, pageUrl)) return decide('requisition_mismatch');
   const explicitRoleConflict = roleHeading === 'unknown'
     && rawDirect === 'mismatch'
     && hasExplicitFormRoleHeading(formText, job);
   if (explicitRoleConflict && !trustedUmantisApplication
-    && (direct === 'match' || (roleOnlyPostingBound && (postingEntry || Boolean(job.company))))) return 'mismatch';
+    && (direct === 'match' || (roleOnlyPostingBound && (postingEntry || Boolean(job.company))))) return decide('explicit_role_conflict');
   if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   // A verified `/portalcareer` or `/careers` auth continuation is already bound
@@ -6522,12 +6589,12 @@ export function formPostingMatch(formText, job = {}, {
     ? boundPostingConflictText(employerTextWithoutNativeQuestionLines, job, { pageUrl, postingUrl: formPostingUrl })
     : employerTextWithoutNativeQuestionLines;
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });
-  if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
+  if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return decide('heading_conflict');
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
       : (headingConflict || (!boundPinpointApplication
-        && namesAnotherEmployer(employerConflictText, job, { allowPostingLocation: allowBoundEmployerLocation }))))) return 'mismatch';
+        && namesAnotherEmployer(employerConflictText, job, { allowPostingLocation: allowBoundEmployerLocation }))))) return decide('direct_match_employer_conflict');
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
@@ -6541,20 +6608,20 @@ export function formPostingMatch(formText, job = {}, {
   // requisition when the page has no requisition ID. Mutable `postingUrl` is
   // never proof.
   if (direct === 'match' && hasEquivalentEmployerNameHeading(identityFormText, job, headingCandidates)) {
-    if (!talentSoftPageIdentity && postingBinding.status !== POSTING_BINDING_STATUS.BOUND && !paidTalentSoftPostingBound) return 'mismatch';
+    if (!talentSoftPageIdentity && postingBinding.status !== POSTING_BINDING_STATUS.BOUND && !paidTalentSoftPostingBound) return decide('equivalent_employer_unbound');
   }
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
-  if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
-  if (isUmantisApplicationRoute(formApplicationUrl) && hasConflictingUmantisVacancyRoute(formApplicationUrl, [postingUrl])) return 'mismatch';
+  if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return decide('successfactors_route_unbound');
+  if (isUmantisApplicationRoute(formApplicationUrl) && hasConflictingUmantisVacancyRoute(formApplicationUrl, [postingUrl])) return decide('umantis_vacancy_route_conflict');
   // A witnessed application entry can also carry the published posting's id
   // across hosts (for example a canonical job slug ending in the same id).
   // Preserve that contrary evidence when liveness keeps the published URL;
   // an inferred Umantis route must not rebind the form to a different listing.
   if (applicationEntry && isUmantisApplicationRoute(formApplicationUrl)
     && postingAddressIds(postingUrl).size > 0
-    && !applicationEntryCarriesPostingId(formApplicationUrl, postingUrl)) return 'mismatch';
+    && !applicationEntryCarriesPostingId(formApplicationUrl, postingUrl)) return decide('umantis_posting_id_conflict');
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
   // The verified same-origin vacancy id binds the form even when the heading is
@@ -6565,11 +6632,11 @@ export function formPostingMatch(formText, job = {}, {
   // generic application chrome and native question labels must not be
   // reinterpreted as a role heading here.
   if (boundUmantisApplication) {
-    if (umantisHeadingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return 'mismatch';
+    if (umantisHeadingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return decide('umantis_heading_or_role_conflict');
     return 'match';
   }
   if (boundPinpointApplication) {
-    if (headingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return 'mismatch';
+    if (headingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return decide('pinpoint_heading_or_role_conflict');
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
@@ -6577,7 +6644,7 @@ export function formPostingMatch(formText, job = {}, {
   // caller did not separately pass pageUrl.
   if (postingMatched && postingEntry && isUmantisApplicationRoute(formApplicationUrl)) {
     const unpairedHeadingConflict = umantisHeadingConflict ?? namesAnotherEmployer(heading, job);
-    if (unpairedHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
+    if (unpairedHeadingConflict || roleHeading === 'mismatch') return decide('umantis_unpaired_heading_conflict');
     return 'match';
   }
   // The selected detail route is authoritative even when its dynamic shell
@@ -6585,8 +6652,8 @@ export function formPostingMatch(formText, job = {}, {
   // Do not apply this to another page on the same host: route identity must be
   // exact, and an apply route still goes through the employer-conflict guard.
   if (bound && samePostingAddress(pageUrl, formPostingUrl)) {
-    if (roleHeading === 'mismatch') return 'mismatch';
-    if (namesAnotherEmployer(boundPostingConflictText(employerText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
+    if (roleHeading === 'mismatch') return decide('bound_route_role_heading_mismatch');
+    if (namesAnotherEmployer(boundPostingConflictText(employerText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return decide('bound_route_employer_conflict');
     return 'match';
   }
   // Talentsoft tenants may expose the employer under a localized name in the
@@ -6601,13 +6668,13 @@ export function formPostingMatch(formText, job = {}, {
   if (namesAnotherEmployer(employerConflictText, job, { allowPostingLocation: allowBoundEmployerLocation })
     || (/\bhttps?:\/\//iu.test(formText)
       && !formTextMentionsEmployerHost(formText, job)
-      && namesAnotherEmployer(formText, job, { allowPostingLocation: allowBoundEmployerLocation }))) return 'mismatch';
-  if (roleHeading === 'mismatch') return 'mismatch';
+      && namesAnotherEmployer(formText, job, { allowPostingLocation: allowBoundEmployerLocation }))) return decide('employer_text_conflict');
+  if (roleHeading === 'mismatch') return decide('role_heading_mismatch');
   // A verified posting can expose a generic application shell whose heading
   // normalizer deliberately remains uncertain (for example across languages),
   // while the raw document still names a different role. Keep that conflict
   // fail-closed without promoting the shell to a verified application entry.
-  if (direct === 'unknown' && roleOnlyPostingBound && rawDirect === 'mismatch') return 'mismatch';
+  if (direct === 'unknown' && roleOnlyPostingBound && rawDirect === 'mismatch') return decide('role_unknown_raw_mismatch');
   // A verified employer-site entry, Pinpoint/BrassRing route, or Workday
   // requisition is binding evidence even when the ATS form repeats no role or
   // employer text. The conflict checks above still win over this proof.
@@ -12791,13 +12858,35 @@ export async function submitViaPortal(ctx) {
       // #17132 tried to click through it): the retry ladder owns that one.
       if (!['captcha', 'captcha_provider_unavailable', 'application_region_unsupported'].includes(reason)) {
         const seen = await extractFields(page, NAVIGATION).catch(() => null);
-        evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [], readback: metadata.valueShapes || [] });
+        // Only the stable name of the binding guard goes public; its inputs stay in the encrypted evidence.
+        const bindingGuard = reason === 'posting_unbound'
+          ? evidence.steps.findLast?.((entry) => entry?.bindingDiagnostics)?.bindingDiagnostics?.guard
+          : reason === 'posting_mismatch' ? evidence.formMatchDiagnostics?.guard : '';
+        evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [], readback: metadata.valueShapes || [], bindingGuard });
       }
     }
     const failure = serializeAccountFailure(metadata.accountFailure);
-    return { event: { type: 'submit_handoff', reason, ...(failure ? { accountFailure: failure } : {}) }, evidence };
+    return { event: { type: 'submit_handoff', reason, ...(failure ? { accountFailure: failure } : {}),
+      ...(metadata.applicationExists ? { applicationExists: metadata.applicationExists } : {}) }, evidence };
+  };
+  // The portal's own «you already applied to this vacancy» route (lib/applicationExistsReconciliation.js). It says
+  // this account has an application for the vacancy, not who sent it: the handoff carries the bound route, the
+  // backend settles the order only with its own records of a send (assistedApplicationAutomation.js). A route
+  // whose vacancy is not the order's is never read as a receipt.
+  const holdPortalApplicationExists = async () => {
+    if (!page) return null;
+    const route = applicationExistsRoute(page.url());
+    if (!route) return null;
+    const vacancyBound = vacancyBoundToOrder(route, [ctx.applyUrl, ctx.postingUrl, ctx.job?.postingUrl, ctx.job?.applyUrl]);
+    const applicationExists = { routeKind: route.routeKind, host: route.host, vacancyId: route.vacancyId, pagePath: route.pagePath, vacancyBound };
+    evidence.accountRecovery = { applicationCheck: vacancyBound
+      ? { status: 'already_applied', matchedBy: 'application_exists_route' }
+      : { status: 'uncertain_application_history', matchedBy: 'application_exists_vacancy_unbound' } };
+    return handoff(vacancyBound ? APPLICATION_EXISTS_REASON : 'account_application_history_uncertain', vacancyBound ? { applicationExists } : {});
   };
   const holdRecoveredDuplicateApplication = async (view) => {
+    const applicationExistsStop = await holdPortalApplicationExists();
+    if (applicationExistsStop) return applicationExistsStop;
     if (!accountRecoveryUsed && typeof ctx.accounts?.load === 'function') {
       try {
         const host = new URL(page.url()).hostname;
@@ -13191,6 +13280,8 @@ export async function submitViaPortal(ctx) {
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
+    // The guard behind the latest form mismatch (name and normalized inputs), for the encrypted evidence.
+    let lastFormMatchDiagnostics = null;
     const formMatch = async (current = snapshot) => {
       const pageUrl = page.url();
       const pageHeadings = await postingMainHeadings(page);
@@ -13208,6 +13299,7 @@ export async function submitViaPortal(ctx) {
       // alongside `postingMatched: false` and conservatively returns
       // `unknown` even though the form is the entry's exact destination.
       const formPostingMatched = applicationEntry || enteredFromMatchingPosting || sameSelectedPosting;
+      const bindingDiag = {};
       const result = formPostingMatch(seen, portalJob, {
         postingMatched: formPostingMatched,
         postingEntry: enteredFromMatchingPosting,
@@ -13222,7 +13314,10 @@ export async function submitViaPortal(ctx) {
         formFieldLabels: current.fields.map(field => field.label),
         postingRouteProof: ctx.postingRouteProof,
         applyUrl: ctx.applyUrl,
+        diagnostics: bindingDiag,
       });
+      lastFormMatchDiagnostics = result === 'mismatch' && bindingDiag.guard ? bindingDiag : null;
+      if (lastFormMatchDiagnostics) evidence.formMatchDiagnostics = { step: evidence.steps.length, ...lastFormMatchDiagnostics };
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
       if (result === 'match' && postingMatch(seen, portalJob, pageUrl) === 'mismatch') {
         evidence.postingMatchVia = successFactorsRequisitionShown(seen, ctx.job, { pageUrl, applyUrl: ctx.applyUrl }) ? 'successfactors_requisition'
@@ -13967,6 +14062,8 @@ export async function submitViaPortal(ctx) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
+      const applicationExistsStop = await holdPortalApplicationExists();
+      if (applicationExistsStop) return applicationExistsStop;
       const observedReceipt = await confirmedReceipt(snapshot);
       if (observedReceipt) return observedReceipt;
       let agentSubmitRefForPage = '';
@@ -15058,6 +15155,15 @@ export async function submitViaPortal(ctx) {
       });
       const finalBindingValid = finalBinding.status === POSTING_BINDING_STATUS.BOUND && !finalDiversionHint;
       if (!finalBindingValid) {
+        // Which guard decided, for every portal: the form matcher's own, or the one of the final binding.
+        evidence.steps.at(-1).bindingDiagnostics = {
+          guard: jobKeyConflict ? 'job_key_conflict'
+            : finalStage.kind === 'posting_mismatch' ? 'stage_posting_mismatch'
+            : finalMatch === 'mismatch' ? (lastFormMatchDiagnostics?.guard || 'form_match_unattributed')
+            : finalBinding.reason || (finalDiversionHint ? 'destination_diversion' : 'insufficient_evidence'),
+          bindingVia: finalBinding.via, bindingReason: finalBinding.reason || '',
+          ...(finalMatch === 'mismatch' && lastFormMatchDiagnostics ? { inputs: lastFormMatchDiagnostics.inputs } : {}),
+        };
         evidence.steps.at(-1).finalPostingBinding = {
           status: 'unbound', formMatch: finalMatch, stage: finalStage.kind,
           binding: finalBinding,

@@ -1,7 +1,7 @@
 {
   "key": "ch",
   "label": "Global Sana",
-  "generatedAt": "2026-11-27T09:26:10.031Z",
+  "generatedAt": "2026-11-27T21:20:38.352Z",
   "total": 13,
   "discovered": 1,
   "parsed": 1,
@@ -35,16 +35,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 4708,
-  "avgDurationMs": 4708,
+  "unchangedCount": 13,
+  "durationMs": 6553,
+  "avgDurationMs": 6553,
   "durationHistory": [
-    4708
+    6553
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "ch-9e72d8e76c62",
       "slug": "consulente-clienti-m-f-d-con-diploma-vbv-iaf-global-sana-zurich-zurich",
@@ -57,7 +59,7 @@
       "url": "https://ch.talent.com/view?id=554547064889945322",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:25:52.231Z",
+      "crawledAt": "2026-11-27T21:20:11.329Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +82,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:25:52.231Z",
+      "validThrough": "2026-12-27T21:20:11.329Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -89,10 +91,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "ch-6e8cfb8ba3c9",
       "slug": "kundenberater-in-basisdienstleistungen-global-sana-zurich",
@@ -131,7 +130,7 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.493Z",
       "sourceIdentity": "url:https://ch.talent.com/view?id=535252897224001458&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -179,7 +178,7 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.503Z",
       "sourceIdentity": "url:https://ch.talent.com/view?id=638820208470328979&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -226,7 +225,7 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.492Z",
       "sourceIdentity": "url:https://ch.talent.com/view?id=607937195415245774&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -273,7 +272,7 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.496Z",
       "sourceIdentity": "url:https://ch.talent.com/view?id=643709318492983275&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -320,7 +319,7 @@
       "validThrough": "2027-02-15T21:22:18.088Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://ch.talent.com/view?id=643700560553054187&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -367,7 +366,7 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T09:35:00.935Z",
       "sourceIdentity": "url:https://ch.talent.com/view?id=611684740931522211&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -414,7 +413,7 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-19T21:24:57.496Z",
       "sourceIdentity": "url:https://ch.talent.com/view?id=643709335347793899&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -461,7 +460,7 @@
       "validThrough": "2026-12-26T21:22:18.087Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://ch.talent.com/view?id=534436300199954406&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -508,7 +507,7 @@
       "validThrough": "2027-02-18T21:22:18.087Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://ch.talent.com/view?id=643709347153580011&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -555,7 +554,7 @@
       "validThrough": "2027-02-08T21:22:18.086Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://ch.talent.com/view?id=629358298822548459&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -602,7 +601,7 @@
       "validThrough": "2026-12-26T21:22:18.086Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://ch.talent.com/view?id=620325418921827426&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -649,7 +648,7 @@
       "validThrough": "2027-02-15T21:22:18.085Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://ch.talent.com/view?id=643700580016263147&trigger_from=related_jobs",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -659,5 +658,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

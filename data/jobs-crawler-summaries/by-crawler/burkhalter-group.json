@@ -1,16 +1,16 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-11-27T09:27:34.237Z",
+  "generatedAt": "2026-11-27T21:32:04.754Z",
   "total": 250,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 240,
-  "durationMs": 531196,
-  "avgDurationMs": 531196,
+  "unchangedCount": 248,
+  "durationMs": 501533,
+  "avgDurationMs": 501533,
   "durationHistory": [
-    531196
+    501533
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.755Z",
+      "crawledAt": "2026-11-27T21:31:49.893Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -51,7 +51,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-09-28T03:38:03.399Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.755Z",
+      "validThrough": "2026-12-27T21:31:49.893Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-in-efz-1335-9",
       "_qualityScore": 97,
@@ -83,7 +83,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.761Z",
+      "crawledAt": "2026-11-27T21:31:49.898Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -100,392 +100,8 @@
       "datePosted": "2026-06-05",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.761Z",
+      "validThrough": "2026-12-27T21:31:49.898Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Servicemonteur/in Sanitär- und Heizungstechnik (100%)",
-      "slug": "tecnico-a-manutentore-trice-di-impianti-sanitari-e-di-riscaldamento-100-wulser-lostorf-ag-lostorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-sanitaer-und-heizungstechnik-924-2",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-sanitaer-und-heizungstechnik-924-2",
-      "company": "Wülser Lostorf AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lostorf",
-      "addressLocality": "Lostorf",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "postalCode": "4654",
-      "streetAddress": "Hauptstrasse 14",
-      "canton": "SO",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2023-05-23",
-      "postedDate": "2023-05-23",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.837Z",
-      "coordinates": [
-        47.3807652,
-        7.9483668
-      ],
-      "id": "burkhalter-group-9da4eddf3ceb",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.837Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-17T12:28:34.216Z",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-sanitaer-und-heizungstechnik-924-2",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Servicemonteur/in Sanitär- und Heizungstechnik (100%)",
-      "slug": "servicemonteur-in-sanitar-e-heizungstechnik-100-wulser-lostorf-ag-lostorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-sanitaer-und-heizungstechnik-924",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-sanitaer-und-heizungstechnik-924",
-      "company": "Wülser Lostorf AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lostorf",
-      "addressLocality": "Lostorf",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2023-05-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.838Z",
-      "coordinates": [
-        47.3807652,
-        7.9483668
-      ],
-      "id": "burkhalter-group-5667cbddc4fe",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "postalCode": "4654",
-      "firstSeenAt": "2026-06-17T12:28:34.216Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-sanitaer-und-heizungstechnik-924",
-      "streetAddress": "Hauptstrasse 14",
-      "datePosted": "2023-05-23",
-      "postingDateSource": "reported",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.838Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Sanitärinstallateur/in (100%)",
-      "slug": "installatore-installatrice-di-impianti-sanitari-100-wulser-zofingen-ag-zofingen",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-925-2",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-925-2",
-      "company": "Wülser Zofingen AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Zofingen",
-      "addressLocality": "Zofingen",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "postalCode": "4800",
-      "streetAddress": "Mühlethalstrasse 67",
-      "canton": "AG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2023-03-14",
-      "postedDate": "2023-03-14",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.847Z",
-      "coordinates": [
-        47.2975064,
-        7.955018
-      ],
-      "id": "burkhalter-group-6325beafaa7a",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.847Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-11T21:39:47.474Z",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-925-2",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Sanitärinstallateur/in (100%)",
-      "slug": "sanitarinstallateur-in-100-wulser-zofingen-ag-zofingen",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-925",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-925",
-      "company": "Wülser Zofingen AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Zofingen",
-      "addressLocality": "Zofingen",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2023-03-14",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.848Z",
-      "coordinates": [
-        47.2975064,
-        7.955018
-      ],
-      "id": "burkhalter-group-889adf20bfc9",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Mühlethalstrasse 67",
-      "postalCode": "4800",
-      "firstSeenAt": "2026-05-11T21:39:47.474Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-925",
-      "datePosted": "2023-03-14",
-      "postingDateSource": "reported",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.848Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Sanitärinstallateur/in (100%)",
-      "slug": "installatore-installatrice-di-impianti-sanitari-100-wulser-lostorf-ag-lostorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-920-2",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-920-2",
-      "company": "Wülser Lostorf AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lostorf",
-      "addressLocality": "Lostorf",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "postalCode": "4654",
-      "streetAddress": "Hauptstrasse 14",
-      "canton": "SO",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2023-03-14",
-      "postedDate": "2023-03-14",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.848Z",
-      "coordinates": [
-        47.3807652,
-        7.9483668
-      ],
-      "id": "burkhalter-group-176492ac26b8",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.848Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-11T21:39:47.474Z",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-920-2",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Sanitärinstallateur/in (100%)",
-      "slug": "sanitarinstallateur-in-100-wulser-lostorf-ag-lostorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-920",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-920",
-      "company": "Wülser Lostorf AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lostorf",
-      "addressLocality": "Lostorf",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2023-03-14",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.849Z",
-      "coordinates": [
-        47.3807652,
-        7.9483668
-      ],
-      "id": "burkhalter-group-8335d5dd6b5c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Hauptstrasse 14",
-      "postalCode": "4654",
-      "firstSeenAt": "2026-05-11T21:39:47.474Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-920",
-      "datePosted": "2023-03-14",
-      "postingDateSource": "reported",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.849Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Spengler/in (100%)",
-      "slug": "spengler-in-100-wulser-lostorf-ag-lostorf-c4fec1864c",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/spengler-in-907-1",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/spengler-in-907-1",
-      "company": "Wülser Lostorf AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lostorf",
-      "addressLocality": "Lostorf",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "postalCode": "4654",
-      "streetAddress": "Hauptstrasse 14",
-      "canton": "SO",
-      "country": "CH",
-      "category": "Edilizia & Costruzioni",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2023-03-14",
-      "postedDate": "2023-03-14",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.849Z",
-      "coordinates": [
-        47.3807652,
-        7.9483668
-      ],
-      "id": "burkhalter-group-bf5e77032715",
-      "salaryMin": 76500,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.849Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-11T21:39:47.478Z",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/spengler-in-907-1",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Spengler/in (100%)",
-      "slug": "spengler-in-100-wulser-lostorf-ag-lostorf-1133be104d",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/spengler-in-907-2",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/spengler-in-907-2",
-      "company": "Wülser Lostorf AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lostorf",
-      "addressLocality": "Lostorf",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "postalCode": "4654",
-      "streetAddress": "Hauptstrasse 14",
-      "canton": "SO",
-      "country": "CH",
-      "category": "Edilizia & Costruzioni",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2023-03-14",
-      "postedDate": "2023-03-14",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.850Z",
-      "coordinates": [
-        47.3807652,
-        7.9483668
-      ],
-      "id": "burkhalter-group-9ace69611842",
-      "salaryMin": 76500,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.850Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-11T21:39:47.478Z",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/spengler-in-907-2",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -522,7 +138,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.740Z",
+      "crawledAt": "2026-11-27T21:31:49.881Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -533,7 +149,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T09:26:47.740Z",
+      "validThrough": "2027-02-24T21:31:49.881Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T09:33:12.632Z",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauspengler-in-efz-1266",
@@ -570,7 +186,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.742Z",
+      "crawledAt": "2026-11-27T21:31:49.882Z",
       "coordinates": [
         47.6920089,
         8.6238034
@@ -581,7 +197,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T09:26:47.742Z",
+      "validThrough": "2027-02-16T21:31:49.882Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-18T21:40:31.605Z",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-in-sanitaer-895",
@@ -618,7 +234,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.743Z",
+      "crawledAt": "2026-11-27T21:31:49.883Z",
       "coordinates": [
         46.3939445,
         6.2296183
@@ -630,7 +246,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-30T21:29:05.984Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:26:47.743Z",
+      "validThrough": "2027-01-28T21:31:49.883Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projets-en-installations-electriques-1755",
       "_qualityScore": 99,
@@ -666,7 +282,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.744Z",
+      "crawledAt": "2026-11-27T21:31:49.884Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -678,7 +294,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-30T09:24:34.482Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:26:47.744Z",
+      "validThrough": "2027-01-28T21:31:49.884Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/monteur-lueftung-quereinsteiger-1748",
       "_qualityScore": 97,
@@ -714,7 +330,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.745Z",
+      "crawledAt": "2026-11-27T21:31:49.885Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -726,7 +342,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-30T09:24:34.482Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:26:47.745Z",
+      "validThrough": "2027-01-28T21:31:49.885Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-lueftung-756",
       "_qualityScore": 97,
@@ -762,7 +378,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.746Z",
+      "crawledAt": "2026-11-27T21:31:49.885Z",
       "coordinates": [
         47.3182296,
         8.5215463
@@ -774,7 +390,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-29T21:50:46.437Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:26:47.746Z",
+      "validThrough": "2027-01-27T21:31:49.885Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/lueftungsreiniger-in-1754",
       "_qualityScore": 97,
@@ -810,7 +426,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.747Z",
+      "crawledAt": "2026-11-27T21:31:49.886Z",
       "coordinates": [
         47.3182296,
         8.5215463
@@ -822,7 +438,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-29T21:50:46.438Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:26:47.747Z",
+      "validThrough": "2027-01-27T21:31:49.886Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/kaeltetechniker-in-klima-lueftung-1753",
       "_qualityScore": 97,
@@ -858,7 +474,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.747Z",
+      "crawledAt": "2026-11-27T21:31:49.886Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -870,7 +486,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-19T09:24:25.606Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:26:47.747Z",
+      "validThrough": "2027-01-17T21:31:49.886Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-in-heizung-sanitaer-1747",
       "_qualityScore": 97,
@@ -906,7 +522,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.748Z",
+      "crawledAt": "2026-11-27T21:31:49.887Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -918,7 +534,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T21:26:55.297Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:26:47.748Z",
+      "validThrough": "2027-01-06T21:31:49.887Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/spengler-in-1744",
       "_qualityScore": 97,
@@ -954,7 +570,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.749Z",
+      "crawledAt": "2026-11-27T21:31:49.888Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -966,7 +582,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T21:26:55.298Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:26:47.749Z",
+      "validThrough": "2027-01-05T21:31:49.888Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/abdichter-in-1743",
       "_qualityScore": 97,
@@ -998,7 +614,7 @@
       "postedDate": "2026-09-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.749Z",
+      "crawledAt": "2026-11-27T21:31:49.888Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1015,7 +631,7 @@
       "datePosted": "2026-09-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.749Z",
+      "validThrough": "2026-12-27T21:31:49.888Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1046,7 +662,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.750Z",
+      "crawledAt": "2026-11-27T21:31:49.888Z",
       "coordinates": [
         46.1080222,
         7.9256477
@@ -1063,7 +679,7 @@
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.750Z",
+      "validThrough": "2026-12-27T21:31:49.888Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -1094,7 +710,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.751Z",
+      "crawledAt": "2026-11-27T21:31:49.889Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -1111,7 +727,7 @@
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.751Z",
+      "validThrough": "2026-12-27T21:31:49.889Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1142,7 +758,7 @@
       "postedDate": "2026-08-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.751Z",
+      "crawledAt": "2026-11-27T21:31:49.889Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1159,7 +775,7 @@
       "datePosted": "2026-08-24",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.751Z",
+      "validThrough": "2026-12-27T21:31:49.889Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1190,7 +806,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.752Z",
+      "crawledAt": "2026-11-27T21:31:49.890Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1207,7 +823,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.752Z",
+      "validThrough": "2026-12-27T21:31:49.890Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1238,7 +854,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.753Z",
+      "crawledAt": "2026-11-27T21:31:49.890Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1255,7 +871,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.753Z",
+      "validThrough": "2026-12-27T21:31:49.890Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1286,7 +902,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.753Z",
+      "crawledAt": "2026-11-27T21:31:49.891Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1303,7 +919,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.753Z",
+      "validThrough": "2026-12-27T21:31:49.891Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1334,7 +950,7 @@
       "postedDate": "2026-08-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.754Z",
+      "crawledAt": "2026-11-27T21:31:49.892Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -1351,7 +967,7 @@
       "datePosted": "2026-08-05",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.754Z",
+      "validThrough": "2026-12-27T21:31:49.892Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1382,7 +998,7 @@
       "postedDate": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.755Z",
+      "crawledAt": "2026-11-27T21:31:49.893Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1399,7 +1015,7 @@
       "datePosted": "2026-07-31",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.755Z",
+      "validThrough": "2026-12-27T21:31:49.893Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1430,7 +1046,7 @@
       "postedDate": "2026-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.756Z",
+      "crawledAt": "2026-11-27T21:31:49.894Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -1447,7 +1063,7 @@
       "datePosted": "2026-07-16",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.756Z",
+      "validThrough": "2026-12-27T21:31:49.894Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1478,7 +1094,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.757Z",
+      "crawledAt": "2026-11-27T21:31:49.894Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1495,7 +1111,7 @@
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.757Z",
+      "validThrough": "2026-12-27T21:31:49.894Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1526,7 +1142,7 @@
       "postedDate": "2026-07-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.757Z",
+      "crawledAt": "2026-11-27T21:31:49.895Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -1543,7 +1159,7 @@
       "datePosted": "2026-07-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.757Z",
+      "validThrough": "2026-12-27T21:31:49.895Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1574,7 +1190,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.760Z",
+      "crawledAt": "2026-11-27T21:31:49.897Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -1591,7 +1207,7 @@
       "datePosted": "2026-06-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.760Z",
+      "validThrough": "2026-12-27T21:31:49.897Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1622,7 +1238,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.761Z",
+      "crawledAt": "2026-11-27T21:31:49.898Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1639,7 +1255,7 @@
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.761Z",
+      "validThrough": "2026-12-27T21:31:49.898Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1670,7 +1286,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.762Z",
+      "crawledAt": "2026-11-27T21:31:49.898Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1687,7 +1303,7 @@
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.762Z",
+      "validThrough": "2026-12-27T21:31:49.898Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1718,7 +1334,7 @@
       "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.763Z",
+      "crawledAt": "2026-11-27T21:31:49.899Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1735,7 +1351,7 @@
       "datePosted": "2026-05-28",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.763Z",
+      "validThrough": "2026-12-27T21:31:49.899Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1770,7 +1386,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.765Z",
+      "crawledAt": "2026-11-27T21:31:49.901Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -1781,7 +1397,7 @@
       "currency": "CHF",
       "salarySource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.765Z",
+      "validThrough": "2026-12-27T21:31:49.901Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-05-19T21:43:30.715Z",
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-sanitaer-1684",
@@ -1814,7 +1430,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.766Z",
+      "crawledAt": "2026-11-27T21:31:49.901Z",
       "coordinates": [
         47.3935972,
         8.1643977
@@ -1831,7 +1447,7 @@
       "datePosted": "2026-05-08",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.766Z",
+      "validThrough": "2026-12-27T21:31:49.901Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1862,7 +1478,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.767Z",
+      "crawledAt": "2026-11-27T21:31:49.902Z",
       "coordinates": [
         47.3096077,
         7.8926763
@@ -1879,7 +1495,7 @@
       "datePosted": "2026-05-08",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.767Z",
+      "validThrough": "2026-12-27T21:31:49.902Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1910,7 +1526,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-27T09:26:47.767Z",
+      "crawledAt": "2026-11-27T21:31:49.902Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -1927,7 +1543,7 @@
       "datePosted": "2026-05-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:26:47.767Z",
+      "validThrough": "2026-12-27T21:31:49.902Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -1938,5 +1554,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

@@ -700,6 +700,7 @@
       "de": [
         "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch-c32cd9af",
         "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten-75a9468e",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten-9568897b",
         "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten",
         "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch"
       ],
@@ -723,25 +724,28 @@
     "canton": "SO",
     "previousSlugCantonByLocale": {
       "it": {
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten": "SO",
         "dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten": "SO",
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch": "SO",
         "dipl-infermiera-oncologia-f-m-d-solothurner-spitaler-soh-olten": "SO",
-        "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten": "SO"
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten-9568897b": "SO",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch-c32cd9af": "SO",
+        "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten-75a9468e": "SO"
       },
       "en": {
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten": "SO",
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch": "SO",
-        "dipl-nurse-nurse-dialysis-f-m-d-solothurner-spitaler-soh-olten": "SO"
+        "dipl-nurse-nurse-dialysis-f-m-d-solothurner-spitaler-soh-olten": "SO",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten-9568897b": "SO",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch-c32cd9af": "SO",
+        "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten-75a9468e": "SO"
       },
       "de": {
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten": "SO",
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch": "SO"
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten-9568897b": "SO",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch-c32cd9af": "SO",
+        "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten-75a9468e": "SO"
       },
       "fr": {
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten": "SO",
-        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch": "SO",
-        "dipl-dialyse-infirmiere-infirmiere-f-m-d-solothurner-spitaler-soh-olten": "SO"
+        "dipl-dialyse-infirmiere-infirmiere-f-m-d-solothurner-spitaler-soh-olten": "SO",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten-9568897b": "SO",
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch-c32cd9af": "SO",
+        "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten-75a9468e": "SO"
       }
     }
   },
@@ -894,16 +898,16 @@
       "kochin-koch-efz-in-ausbildung-w-m-d-soh-ch-2-907190d1",
       "mpa-ambulatoire-gynecologique-m-j-solothurner-spitaler-ag-soh-solothurn-97e2449a",
       "kochin-koch-efz-in-ausbildung-w-m-d-soh-ch",
-      "mpa-ambulatorio-ginecologico-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-      "mpa-gynecological-ambulatory-w-m-d-solothurner-spitaler-ag-soh-solothurn",
-      "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn",
-      "mpa-oder-fachfrau-fachmann-gesundheit-gynakologisches-ambulatorium-w-m-d-soh-solothurner",
       "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
       "cook-chef-efz-in-training-f-m-d-solothurner-spitaler-soh-olten",
       "cuisinier-chef-efz-en-formation-f-m-d-solothurner-spitaler-soh-olten",
       "kochin-koch-cfc-in-ausbildung-w-m-d-solothurner-spitaler-ag-soh-solothurn",
       "cook-chef-efz-in-training-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-      "cuisinier-chef-efz-en-formation-f-m-d-solothurner-spitaler-ag-soh-solothurn"
+      "cuisinier-chef-efz-en-formation-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+      "mpa-ambulatorio-ginecologico-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+      "mpa-gynecological-ambulatory-w-m-d-solothurner-spitaler-ag-soh-solothurn",
+      "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "mpa-oder-fachfrau-fachmann-gesundheit-gynakologisches-ambulatorium-w-m-d-soh-solothurner"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -954,12 +958,12 @@
         "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn-746a3e2d",
         "mpa-oder-fachfrau-fachmann-gesundheit-gynakologisches-ambulatorium-w-m-d-soh-solothurner-e7e588c8",
         "kochin-koch-efz-in-ausbildung-w-m-d-soh-ch-99f53c80",
-        "mpa-ambulatorio-ginecologico-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "mpa-gynecological-ambulatory-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
         "kochin-koch-cfc-in-ausbildung-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "cook-chef-efz-in-training-f-m-d-solothurner-spitaler-soh-olten",
-        "cuisinier-chef-efz-en-formation-f-m-d-solothurner-spitaler-soh-olten"
+        "cuisinier-chef-efz-en-formation-f-m-d-solothurner-spitaler-soh-olten",
+        "mpa-ambulatorio-ginecologico-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "mpa-gynecological-ambulatory-w-m-d-solothurner-spitaler-ag-soh-solothurn"
       ],
       "en": [
         "kochin-koch-in-ausbildung-w-m-d-soh-ch",
@@ -2168,13 +2172,13 @@
     "canton": "SO",
     "previousSlugCantonByLocale": {
       "it": {
-        "dipl-pflegefachfrau-pflegefachmann-urologie-w-m-d-soh-solothurner-spitaeler-olten": "SO"
+        "dipl-pflegefachfrau-pflegefachmann-urologie-w-m-d-soh-solothurner-spitaeler-olten-9b7af6d7": "SO"
       },
       "en": {
         "dipl-pflegefachfrau-pflegefachmann-urologie-w-m-d-soh-solothurner-spitaeler-olten": "SO"
       },
       "de": {
-        "dipl-pflegefachfrau-pflegefachmann-urologie-w-m-d-soh-solothurner-spitaeler-olten": "SO"
+        "dipl-pflegefachfrau-pflegefachmann-urologie-w-m-d-soh-solothurner-spitaeler-olten-9b7af6d7": "SO"
       },
       "fr": {
         "dipl-pflegefachfrau-pflegefachmann-urologie-w-m-d-soh-solothurner-spitaeler-olten": "SO"
@@ -3506,10 +3510,10 @@
       "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn-926c2a77",
       "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch-1f90a784",
       "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn-61f3c098",
-      "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch",
-      "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn",
       "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch-6950caf1",
-      "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn-669216c2"
+      "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn-669216c2",
+      "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch",
+      "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3562,13 +3566,13 @@
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-con-schwerpunkt-reinigung-spezialbereiche-w-m-d-solothurner-spitaler": "SO",
         "addetto-a-alle-pulizie-ospedaliere-m-f-d-solothurner-spitaler-soh-solothurn": "SO",
         "housekeeping-assistant-m-f-d-solothurner-spitaler-soh-solothurn": "SO",
-        "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch": "SO",
         "employe-e-de-maison-h-f-solothurner-spitaler-soh-solothurn": "SO",
-        "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn": "SO",
         "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-7034b1": "SO",
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-w-m-d-solothurner-spitaler-soh-solothurn": "SO",
         "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-7034b1": "SO",
-        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-7034b1": "SO"
+        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-7034b1": "SO",
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch-7bf7717c": "SO",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn-7d41da5d": "SO"
       },
       "en": {
         "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s": "SO",
@@ -3590,13 +3594,13 @@
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-con-schwerpunkt-reinigung-spezialbereiche-w-m-d-solothurner-spitaler": "SO",
         "addetto-a-alle-pulizie-ospedaliere-m-f-d-solothurner-spitaler-soh-solothurn": "SO",
         "housekeeping-assistant-m-f-d-solothurner-spitaler-soh-solothurn": "SO",
-        "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch": "SO",
         "employe-e-de-maison-h-f-solothurner-spitaler-soh-solothurn": "SO",
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-m-w-d-solothurner-spitaler-soh-solothurn": "SO",
         "consulente-senior-m-d-solothurner-spitaler-soh-solothurn-7034b1": "SO",
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-w-m-d-solothurner-spitaler-soh-solothurn": "SO",
         "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-7034b1": "SO",
-        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-7034b1": "SO"
+        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-7034b1": "SO",
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-w-m-d-soh-ch-7bf7717c": "SO"
       },
       "fr": {
         "mitarbeiterin-mitarbeiter-hauswirtschaft-mit-schwerpunkt-reinigung-spezialbereiche-w-m-d-s": "SO",
@@ -7814,7 +7818,6 @@
         "projektleiter-m-d-solothurner-spitaler-soh-olten": "SO",
         "soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn": "SO",
         "rettungssanitaterin-rettungssanitater-w-m-d-soh-ch": "SO",
-        "psicologo-a-ass-uomo-donna-solothurner-spitaler-ag-soh-solothurn": "SO",
         "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch-2": "SO",
         "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten": "SO",
         "project-manager-rappresentante-della-proprieta-m-w-d-solothurner-spitaler-soh-olten": "SO",
@@ -7822,7 +7825,8 @@
         "projektleiterin-projektleiter-bauherrenvertretung-w-m-d-soh-ch": "SO",
         "projektleiterin-projektleiter-bauherrenvertretung-m-w-d-solothurner-spitaler-soh-olten": "SO",
         "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn": "SO",
-        "projektleiter-m-d-solothurner-spitaler-soh-solothurn-d6958a": "SO"
+        "projektleiter-m-d-solothurner-spitaler-soh-solothurn-d6958a": "SO",
+        "psicologo-a-ass-uomo-donna-solothurner-spitaler-ag-soh-solothurn-c29e3a3f": "SO"
       },
       "en": {
         "rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn": "SO",

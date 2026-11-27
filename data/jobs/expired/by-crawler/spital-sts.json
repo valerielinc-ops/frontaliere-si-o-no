@@ -637,17 +637,25 @@
       "it": [
         "fachfrau-mann-gesundheit-spital-sts-thun",
         "salute-professionale-spital-sts-thun-f3eb914f",
+        "professional-health-spital-sts-thun",
+        "sante-professionnelle-spital-sts-thun",
         "salute-professionale-spital-sts-thun"
       ],
       "en": [
         "salute-professionale-spital-sts-thun",
+        "professional-health-spital-sts-thun-442a730e",
+        "sante-professionnelle-spital-sts-thun",
         "professional-health-spital-sts-thun"
       ],
       "de": [
-        "salute-professionale-spital-sts-thun"
+        "salute-professionale-spital-sts-thun",
+        "professional-health-spital-sts-thun",
+        "sante-professionnelle-spital-sts-thun"
       ],
       "fr": [
         "salute-professionale-spital-sts-thun",
+        "sante-professionnelle-spital-sts-thun-aa5800e3",
+        "professional-health-spital-sts-thun",
         "sante-professionnelle-spital-sts-thun"
       ]
     },
@@ -663,13 +671,13 @@
     "previousSlugCantonByLocale": {
       "it": {
         "fachfrau-mann-gesundheit-spital-sts-thun": "BE",
-        "salute-professionale-spital-sts-thun": "BE"
+        "salute-professionale-spital-sts-thun-f3eb914f": "BE"
       },
       "en": {
-        "professional-health-spital-sts-thun": "BE"
+        "professional-health-spital-sts-thun-442a730e": "BE"
       },
       "fr": {
-        "sante-professionnelle-spital-sts-thun": "BE"
+        "sante-professionnelle-spital-sts-thun-aa5800e3": "BE"
       }
     }
   },
@@ -723,8 +731,8 @@
       "specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-zweisimmen-4817374c",
       "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun-f4e3e74c",
       "dipl-specialiste-de-radiologie-hf-spital-sts-thun",
-      "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun",
-      "dipl-specialiste-de-radiologie-hf-spital-sts-thun-3643fabe"
+      "dipl-specialiste-de-radiologie-hf-spital-sts-thun-3643fabe",
+      "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2126,7 +2134,33 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats",
-    "firstSeenAt": "2026-09-08T13:40:05.038Z"
+    "firstSeenAt": "2026-09-08T13:40:05.038Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "psicologo-a-fsp-sbap-triage-ambulatorio-spital-sts-thun"
+      ],
+      "en": [
+        "psychologist-fsp-sbap-triage-ambulatory-spital-sts-thun"
+      ],
+      "de": [
+        "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "psicologo-a-fsp-sbap-triage-ambulatorio-spital-sts-thun": "BE"
+      },
+      "en": {
+        "psychologist-fsp-sbap-triage-ambulatory-spital-sts-thun": "BE"
+      },
+      "de": {
+        "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun": "BE"
+      }
+    },
+    "previousSlugs": [
+      "psicologo-a-fsp-sbap-triage-ambulatorio-spital-sts-thun",
+      "psychologist-fsp-sbap-triage-ambulatory-spital-sts-thun"
+    ]
   },
   {
     "slug": "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen",
@@ -2580,28 +2614,32 @@
         "medicament-assistant-de-pratique-en-cardiologie-spital-sts-thun": "BE",
         "med-assistente-pratica-in-chirurgia-spinale-spital-sts-thun": "BE",
         "med-practice-assistant-in-spinal-surgery-spital-sts-thun": "BE",
-        "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun": "BE",
         "medicament-assistant-de-pratique-en-chirurgie-de-la-colonne-vertebrale-spital-sts-thun": "BE",
         "med-assistente-pratica-in-pneumologia-spital-sts-thun": "BE",
         "med-practice-assistant-in-pneumology-spital-sts-thun": "BE",
-        "med-praxisassistent-in-pneumologie-spital-sts-thun": "BE",
         "medicament-assistant-a-la-pratique-en-pneumologie-spital-sts-thun": "BE",
         "med-assistente-pratica-in-urologia-spital-sts-thun": "BE",
         "medical-practice-assistant-urology-spital-sts-thun": "BE",
         "med-praxisassistent-in-urologie-spital-sts-thun": "BE",
         "assistant-medical-en-urologie-spital-sts-thun": "BE",
-        "med-praxisassistent-in-chirurgie-spital-sts-thun": "BE"
+        "med-praxisassistent-in-chirurgie-spital-sts-thun": "BE",
+        "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun-19ce4468": "BE",
+        "med-praxisassistent-in-pneumologie-spital-sts-thun-9154e1d9": "BE"
       },
       "en": {
         "med-practice-assistant-in-cardiology-spital-sts-thun": "BE",
-        "med-praxisassistent-in-chirurgie-spital-sts-thun": "BE"
+        "med-praxisassistent-in-chirurgie-spital-sts-thun": "BE",
+        "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun-19ce4468": "BE"
       },
       "de": {
-        "med-praxisassistent-in-kardiologie-spital-sts-thun": "BE"
+        "med-praxisassistent-in-kardiologie-spital-sts-thun": "BE",
+        "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun-19ce4468": "BE",
+        "med-praxisassistent-in-pneumologie-spital-sts-thun-9154e1d9": "BE"
       },
       "fr": {
         "medicament-assistant-de-pratique-en-cardiologie-spital-sts-thun": "BE",
-        "med-praxisassistent-in-chirurgie-spital-sts-thun": "BE"
+        "med-praxisassistent-in-chirurgie-spital-sts-thun": "BE",
+        "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun-19ce4468": "BE"
       }
     }
   },

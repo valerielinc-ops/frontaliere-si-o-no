@@ -1,5 +1,3 @@
-import fontkit from '@pdf-lib/fontkit';
-import { PDFDocument, PageSizes, rgb } from 'pdf-lib';
 import { readFile } from 'node:fs/promises';
 import { cvToSend } from './assistedApplicationDocxInPlace.js';
 import { documentFilesOf, photoFilesOf, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
@@ -11,7 +9,19 @@ export const POSTAL_PACKET_FILE_NAME = 'dossier-candidatura-cartacea.pdf';
 
 const MARGIN = 46;
 const MAX_PAGES = 240;
-const A4 = PageSizes.A4;
+// pdf-lib's PageSizes.A4, spelled out so the library is loaded only when a packet is built.
+const A4 = [595.28, 841.89];
+
+// pdf-lib and fontkit (~12 MB resident) are loaded by the first packet, not by every cold start of a function
+// that only reads postalPacketReadiness (functions/tests/functions-import-weight.test.ts).
+let pdfLib = null;
+async function loadPdfLib() {
+  if (!pdfLib) {
+    const [fontkitModule, lib] = await Promise.all([import('@pdf-lib/fontkit'), import('pdf-lib')]);
+    pdfLib = { fontkit: fontkitModule.default, PDFDocument: lib.PDFDocument, rgb: lib.rgb };
+  }
+  return pdfLib;
+}
 const PHOTO_WIDTH = 35 * 72 / 25.4;
 const PHOTO_HEIGHT = 45 * 72 / 25.4;
 const SUPPORTED_TYPES = new Set(['pdf', 'jpg', 'png']);
@@ -246,7 +256,7 @@ class PacketWriter {
     const lineHeight = size * 1.42;
     for (const part of lines) {
       if (checkSpace && this.y < MARGIN + lineHeight) this.newPage();
-      if (part) this.page.drawText(part, { x: MARGIN + indent, y: this.y, size, font, color: rgb(0.12, 0.14, 0.17) });
+      if (part) this.page.drawText(part, { x: MARGIN + indent, y: this.y, size, font, color: pdfLib.rgb(0.12, 0.14, 0.17) });
       this.y -= lineHeight;
     }
     this.y -= gapAfter;
@@ -269,7 +279,7 @@ function addImagePage(pdf, image, { photo = false } = {}) {
   if (photo) {
     const boxX = (A4[0] - PHOTO_WIDTH) / 2;
     const boxY = (A4[1] - PHOTO_HEIGHT) / 2;
-    page.drawRectangle({ x: boxX, y: boxY, width: PHOTO_WIDTH, height: PHOTO_HEIGHT, borderColor: rgb(0.35, 0.38, 0.42), borderWidth: 0.6 });
+    page.drawRectangle({ x: boxX, y: boxY, width: PHOTO_WIDTH, height: PHOTO_HEIGHT, borderColor: pdfLib.rgb(0.35, 0.38, 0.42), borderWidth: 0.6 });
     const scale = Math.min(PHOTO_WIDTH / image.width, PHOTO_HEIGHT / image.height);
     const width = image.width * scale;
     const height = image.height * scale;
@@ -294,14 +304,14 @@ async function appendFile(pdf, file, regularFontBytes) {
   if (type === 'pdf') {
     let source;
     try {
-      source = await PDFDocument.load(file.buffer, { updateMetadata: false });
+      source = await pdfLib.PDFDocument.load(file.buffer, { updateMetadata: false });
     } catch {
       throw new PostalPacketError('postal_packet_pdf_unreadable', 422, { fileName: cleanName(file.name) });
     }
     const form = source.getForm();
     if (form.hasXFA()) throw new PostalPacketError('postal_packet_pdf_unreadable', 422, { fileName: cleanName(file.name) });
     if (form.getFields().length) {
-      source.registerFontkit(fontkit);
+      source.registerFontkit(pdfLib.fontkit);
       const appearanceFont = await source.embedFont(regularFontBytes, { subset: true });
       form.updateFieldAppearances(appearanceFont);
       // A signed source may have a signature widget without an appearance
@@ -339,8 +349,9 @@ export async function buildPostalApplicationPacket({ locale, jobTitle, companyNa
   const totalBytes = (files || []).reduce((sum, file) => sum + (Buffer.isBuffer(file.buffer) ? file.buffer.length : 0), 0);
   if (totalBytes > POSTAL_PACKET_MAX_SOURCE_BYTES) throw new PostalPacketError('postal_packet_too_large', 413);
   const signedPdfFiles = new Set((files || []).filter((file) => file.type === 'pdf' && hasDigitalSignature(file.buffer)));
-  const pdf = await PDFDocument.create();
-  pdf.registerFontkit(fontkit);
+  await loadPdfLib();
+  const pdf = await pdfLib.PDFDocument.create();
+  pdf.registerFontkit(pdfLib.fontkit);
   pdf.setTitle('Paper application packet');
   pdf.setSubject(safeText(jobTitle || 'Paper application'));
   pdf.setCreator('frontaliereticino.ch');

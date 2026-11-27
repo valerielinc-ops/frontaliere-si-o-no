@@ -1,7 +1,7 @@
 {
   "key": "ehnv",
   "label": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
-  "generatedAt": "2026-11-27T09:21:30.447Z",
+  "generatedAt": "2026-11-27T21:27:25.690Z",
   "total": 11,
   "discovered": null,
   "parsed": 11,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 9972,
-  "avgDurationMs": 9972,
+  "durationMs": 11371,
+  "avgDurationMs": 11371,
   "durationHistory": [
-    9972
+    11371
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:10.530Z",
+      "crawledAt": "2026-11-27T21:27:06.125Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "salarySource": "estimated",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:21:10.530Z",
+      "validThrough": "2026-12-27T21:27:06.125Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4458/une-cadre-de-proximite-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:09.985Z",
+      "crawledAt": "2026-11-27T21:27:05.555Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "salarySource": "estimated",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:21:09.985Z",
+      "validThrough": "2026-12-27T21:27:05.555Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4672/une-assistante-en-soins-et-sante-communautaire-assc-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:09.453Z",
+      "crawledAt": "2026-11-27T21:27:04.977Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
       "salarySource": "estimated",
       "streetAddress": "Orbe",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:21:09.453Z",
+      "validThrough": "2026-12-31T21:27:04.977Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4747/une-infirmierere-a-80-100-ref-11-089",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:08.889Z",
+      "crawledAt": "2026-11-27T21:27:04.365Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "salarySource": "estimated",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:21:08.889Z",
+      "validThrough": "2027-01-12T21:27:04.365Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -225,7 +225,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4786/une-medecin-cheffe-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:08.333Z",
+      "crawledAt": "2026-11-27T21:27:03.789Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "salarySource": "estimated",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:21:08.333Z",
+      "validThrough": "2027-01-20T21:27:03.789Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -271,7 +271,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4825/une-ergotherapeute-a-70-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:07.793Z",
+      "crawledAt": "2026-11-27T21:27:03.208Z",
       "addressLocality": "Orbe et Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "salarySource": "estimated",
       "streetAddress": "Orbe et Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:21:07.793Z",
+      "validThrough": "2027-01-27T21:27:03.208Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -317,7 +317,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4862/une-secretaire-medicale-a-30",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:07.260Z",
+      "crawledAt": "2026-11-27T21:27:02.605Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -341,7 +341,7 @@
       "salarySource": "estimated",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:21:07.260Z",
+      "validThrough": "2027-02-04T21:27:02.605Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -364,7 +364,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4861/une-candidate-pour-la-formation-de-technicienne-en-salle-doperation-tso",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:06.710Z",
+      "crawledAt": "2026-11-27T21:27:01.920Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -388,7 +388,7 @@
       "salarySource": "estimated",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:21:06.710Z",
+      "validThrough": "2027-02-04T21:27:01.920Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -410,7 +410,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4941/une-aide-infirmierere-a-70-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:06.165Z",
+      "crawledAt": "2026-11-27T21:27:01.247Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -434,7 +434,7 @@
       "salarySource": "estimated",
       "streetAddress": "Orbe",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:21:06.165Z",
+      "validThrough": "2027-02-21T21:27:01.247Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -456,7 +456,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4604/une-infirmierere-clinicienne-specialisee-icls-a-80-100-40-de-clinique",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:05.573Z",
+      "crawledAt": "2026-11-27T21:27:00.627Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -480,7 +480,7 @@
       "salarySource": "estimated",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:21:05.573Z",
+      "validThrough": "2027-02-23T21:27:00.627Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -503,7 +503,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4958/une-assistante-sociale-a-50-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:21:04.988Z",
+      "crawledAt": "2026-11-27T21:27:00.036Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -527,7 +527,7 @@
       "salarySource": "estimated",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:21:04.988Z",
+      "validThrough": "2027-02-24T21:27:00.036Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -538,5 +538,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-11-27T09:29:44.793Z",
-  "runId": "45970991038",
+  "assembledAt": "2026-11-27T21:30:58.816Z",
+  "runId": "46068118413",
   "jobs": [
     {
       "id": "company-7ucqq9",
@@ -24,7 +24,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-26T21:23:40.152Z",
+      "crawledAt": "2026-11-27T21:30:20.109Z",
       "firstSeenAt": "2026-11-24T21:23:06.116Z",
       "titleByLocale": {
         "it": "Dipendenti/autoprotezioni(M/F) mech/industria",
@@ -51,12 +51,20 @@
           "produktionsmitarbeiter-selbstprufer-m-w-d-mech-industrie-comadur-sa-gwatt-2",
           "produktionsmitarbeiter-selbstprufer-m-w-d-mech-industrie-comadur-sa-gwatt-7ucqq9",
           "produktionsmitarbeiter-selbstprufer-m-w-d-mech-industrie-comadur-sa-gwatt"
+        ],
+        "en": [
+          "production-employees-self-testers-m-f-mech-industry-comadur-sa-gwatt"
+        ],
+        "fr": [
+          "employes-de-production-auto-testeurs-h-f-mech-industrie-comadur-sa-gwatt"
         ]
       },
       "previousSlugs": [
         "produktionsmitarbeiter-selbstprufer-m-w-d-mech-industrie-comadur-sa-gwatt-2",
         "produktionsmitarbeiter-selbstprufer-m-w-d-mech-industrie-comadur-sa-gwatt-7ucqq9",
-        "produktionsmitarbeiter-selbstprufer-m-w-d-mech-industrie-comadur-sa-gwatt"
+        "produktionsmitarbeiter-selbstprufer-m-w-d-mech-industrie-comadur-sa-gwatt",
+        "production-employees-self-testers-m-f-mech-industry-comadur-sa-gwatt",
+        "employes-de-production-auto-testeurs-h-f-mech-industrie-comadur-sa-gwatt"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -77,10 +85,9 @@
       "addressRegion": "BE",
       "streetAddress": "Gwatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:23:40.152Z",
+      "validThrough": "2027-02-22T21:30:20.109Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34636",
-      "crawlerMissStreak": 1
+      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34636"
     }
   ]
 }

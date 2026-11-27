@@ -1,442 +1,20 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-11-27T09:21:59.867Z",
+  "generatedAt": "2026-11-27T21:15:27.376Z",
   "total": 23,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 2,
-  "unchangedCount": 21,
-  "durationMs": 43003,
-  "avgDurationMs": 43003,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 23,
+  "durationMs": 23196,
+  "avgDurationMs": 23196,
   "durationHistory": [
-    43003
+    23196
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "efg-6613",
-      "slug": "learning-development-specialista-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Learning & Development Specialist",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-26T12:50:47+00:00",
-      "postedDate": "2026-11-26T12:50:47+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6613",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "University degree, preferably in human resources, organizational development, economics, or a related field",
-              "5+ of relevant experience within structured HR departments of international companies",
-              "Strong commitment to people development and delivering outstanding customer service",
-              "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-              "Fluency in English, French, and Italian",
-              "International mindset and experience working in multicultural environments",
-              "Proactive, positive attitude with energy and intellectual curiosity",
-              "Excellent interpersonal and collaboration skills; proven ability to work with diverse stakeholders across functions and countries",
-              "Strong communication skills, with the ability to clearly and effectively structure key messages",
-              "Exceptional organizational skills; able to work independently, manage multiple priorities, and deliver in a dynamic and demanding environment",
-              "Proficiency in MS Office programs",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
-              "<strong>Passionate</strong>: Being committed and striving for excellence",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "University degree, preferably in human resources, organizational development, economics, or a related field",
-              "5+ of relevant experience within structured HR departments of international companies",
-              "Strong commitment to people development and delivering outstanding customer service"
-            ],
-            "keywords": [
-              "University degree",
-              "5+ of relevant experience within structured HR departments of international companies",
-              "Strong commitment to people development and delivering outstanding customer service",
-              "Demonstrated interest in learning technologies",
-              "Fluency in English"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.",
-                  "<br><strong>Job Description</strong>",
-                  "As a key member of the Learning & Development team, the Learning & Development Specialist will contribute to the organisation and coordination of selected learning initiatives and manage EFG’s apprenticeship programmes end to end, ensuring a best-in-class experience.",
-                  "The Learning & Development Specialist will collaborate with all HR functional areas and become a key point of contact within the organisation for their assigned activities.",
-                  "This is an excellent opportunity for someone looking to work in an international, fast-paced and client-oriented HR team within a global private banking group.",
-                  "<br><strong>Main responsibilities</strong>"
-                ],
-                "bullets": [
-                  "Manage end-to-end the apprentices programme (recruitment, onboarding, rotations, learning sessions etc) in Switzerland, partnering with line managers and HR Business Partners/local HR.",
-                  "Prepare reports and feedback surveys to measure programme effectiveness; analyse insights to assess impact and identify opportunities for improvement.",
-                  "Coordinate selected global learning initiatives, supporting design, rollout, communications and logistics.",
-                  "Provide expert technical support for training initiatives, empowering employees to make the most of the company’s learning tools and systems.",
-                  "The Learning & Development Specialist will have a dual reporting line to the Head of Talent Development and the Head of Learning. The role collaborates with HRBPs, local HR, and business stakeholders to ensure seamless delivery and adherence to global frameworks."
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-11-27T09:21:13.842Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-25T09:21:13.842Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T21:24:21.234Z",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6613",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6496",
-      "slug": "ingegnere-dell-osservabilita-del-cloud-e-dell-infrastruttura-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Cloud Oberservability & Infrastructure Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-26T13:47:54+00:00",
-      "postedDate": "2026-11-26T13:47:54+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6496",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Department: Infrastructure Engineering team</span></li><li><span>Work time Percentage: 100%</span></li><li><span>Location: Geneva - Quai du seujet 24</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>Join our Infrastructure Engineering team to design, implement and bring into operation a cloud-based observability platform for public cloud services and applications. You will also operate the existing on-premises observability environment and contribute to the engineering, automation and continuous improvement of the team’s infrastructure platforms.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Define</strong> the cloud observability architecture, including integration patterns, reusable telemetry ingestion, secure application connectivity and monitoring standards.</span></li><li><span><strong>Implement</strong> metrics collection for public cloud compute, networking, storage, managed platform services and data analytics platforms.</span></li><li><span><strong>Onboard</strong> applications to the observability platform, collecting logs, service health metrics, performance indicators, and error and exception events.</span></li><li><span><strong>Operate</strong> the existing on-premises observability environment.</span></li><li><span><strong>Establish</strong> alert categories, severity levels, notification channels, ownership and escalation procedures so the appropriate teams know when and how to respond.</span></li><li><span><strong>Build</strong> executive dashboards for service health, operational dashboards for troubleshooting and service-specific dashboards for deeper analysis.</span></li><li><span><strong>Contribute</strong> to the engineering, automation and continuous improvement of Linux, container orchestration platforms, infrastructure automation solutions and application delivery controllers.</span></li><li><span><strong>Collaborate</strong> with application and operational teams to troubleshoot issues and document observability solutions.</span></li></ul><p> </p><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Education:</strong> Minimum and preferred qualifications are to be confirmed.</span></li><li><span><strong>Professional experience:</strong> Hands-on experience with enterprise observability platforms, public cloud platforms, cloud-native monitoring, Linux and infrastructure automation. The required number of years is to be confirmed.</span></li><li><span><strong>Technical and functional knowledge:</strong> Experience with observability search and analytics, dashboards, agents, telemetry ingestion and alerting; working knowledge of networking, APIs and TLS; and strong troubleshooting, documentation and collaboration skills.</span></li><li><span><strong>Preferred knowledge:</strong> Experience in one or more of container orchestration platforms, enterprise automation platforms, application delivery controllers, data analytics platform monitoring or Infrastructure as Code. Expertise across all platforms is not required.</span></li><li><span><strong>Languages:</strong> Language requirements and proficiency levels are to be confirmed.</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-11-27T09:21:13.814Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:21:13.814Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T21:24:21.211Z",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6496",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "efg-6317",
-      "slug": "iam-support-specialista-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "IAM Support Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6317",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "As an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team."
-            ],
-            "responsibilities": [
-              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
-              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
-              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
-              "Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.",
-              "Monitor compliance and follow up on AML (Anti-Money Laundering) matters.",
-              "Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.",
-              "Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.",
-              "Contribute to the continuous improvement of IAM Switzerland's processes and procedures"
-            ],
-            "requirements": [
-              "At least 3 of experience in a regulatory compliance or private banking environment.",
-              "Strong knowledge of AML regulations and sanctions.",
-              "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
-              "Excellent organisational, communication, and interpersonal skills.",
-              "Strong analytical skills and attention to detail.",
-              "Proficient in Microsoft Excel.",
-              "Reliable, solution-oriented, and a strong team player.",
-              "Demonstrates a client and service focus at all times."
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
-              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
-              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
-              "At least 3 of experience in a regulatory compliance or private banking environment.",
-              "Strong knowledge of AML regulations and sanctions.",
-              "Fluent in English. German is an advantage; French and/or Italian would be an asset."
-            ],
-            "keywords": [
-              "At least 3 of experience in a regulatory compliance or private banking environment.",
-              "Strong knowledge of AML regulations and sanctions.",
-              "Fluent in English. German is an advantage",
-              "Excellent organisational",
-              "Strong analytical skills and attention to detail.",
-              "Provide administrative support for daily client relationship matters",
-              "Act as the main contact for CROs/Account Managers regarding",
-              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
-              "Oversee and approve KYC lifecycle events"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-09-28T04:51:51.498Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-23T11:24:34.310Z",
-      "salarySource": "estimated",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6317",
-      "postingDateSource": "unknown",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T22:21:01.758Z",
-      "validThroughSource": "build-clock-fallback",
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "efg-6175",
-      "slug": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "PB Support Specialist - Middle East CH",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6175",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [
-              "<p class=\"Bulletlist\"><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</p>",
-              "<p class=\"Bulletlist\"><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</p>",
-              "<p class=\"Bulletlist\"><strong>Passionate</strong>: Being committed and striving for excellence</p>",
-              "<p class=\"Bulletlist\"><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</p>",
-              "<p class=\"Bulletlist\"><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</p>"
-            ],
-            "process": [],
-            "highlights": [
-              "<p class=\"Bulletlist\"><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</p>",
-              "<p class=\"Bulletlist\"><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</p>"
-            ],
-            "keywords": [],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Jon Description",
-                "paragraphs": [
-                  "This role sits at the heart of our private banking risk and control framework, acting as a key partner to Client Relationship Officers and senior management. Ensuring that client onboarding, lifecycle management and transactional activities are conducted in line with internal standards and local regulatory expectations. Combining strong technical expertise in compliance and due diligence with the ability to influence and guide front-office teams, the role provides independent challenge, clear advice and pragmatic solutions on complex and high‑risk situations. The successful candidate will play a visible part in strengthening our first line of defence, enhancing the quality and consistency of controls, and contributing to a culture of robust risk management across the platform.<br><br><span lang=\"FR-CH\"><strong>Main responsibilities</strong></span>",
-                  "<span lang=\"EN-US\">Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities </span>",
-                  "<span lang=\"EN-US\">Coordinate the control activity in line with the Global Private Banking Control Blueprint, though aligned to local regulatory requirements</span>",
-                  "<span lang=\"EN-US\">Perform due diligence on prospective and existing client relationships</span>",
-                  "<span lang=\"EN-US\">Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity</span>",
-                  "<span lang=\"EN-US\">Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers</span>",
-                  "<span lang=\"EN-US\">Build trusted working relationships with Senior Management and CROs </span>",
-                  "<span lang=\"EN-US\">Contribute effectively not only to core duties but also in the additional responsibilities including deputizing the HOPBS, reviewing complex cases, and presenting confidently to various senior Management stakeholders.</span>",
-                  "<span lang=\"EN-US\">Being the main point of CRO Contact for complex and High-Risk cases</span>",
-                  "<span lang=\"EN-US\">Be the FLOD Single Point of Contact (SPOC) and gatekeeper when it comes to matters related to PEP Classification and Declassification</span>",
-                  "<span lang=\"EN-US\">Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities </span>",
-                  "<span lang=\"EN-US\">Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met</span>",
-                  "<span lang=\"EN-US\">Act as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths including networking with key contact persons within the organization</span>",
-                  "<span lang=\"EN-US\">Review account openings, CIP modifications and periodic reviews for the Dubai PBS team, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, help the team develop the capability to perform these reviews independently.</span>",
-                  "<span lang=\"EN-US\">To represent the HOPBS and the Team with credibility, whether deputizing in meetings, presenting to senior stakeholders, or managing complex reviews.</span>",
-                  "<span lang=\"FR-CH\"><strong>Skills and experience</strong></span>",
-                  "<span>University degree in Business Administration, Finance, Law, Economics or related field is essential;</span>",
-                  "<span>Minimum 5 years of previous Compliance or Audit experience in the area of account openings, account reviews and transaction monitoring;</span>",
-                  "<span lang=\"FR-CH\">Strong analytical skills;</span>",
-                  "<span>Strong communication skills, including the ability to deal with potentially contentious issues effectively;</span>",
-                  "<span>Ability to work under pressure in a fast-paced environment, </span><span lang=\"EN-US\">flexible, multitask;</span>",
-                  "<span>Excellent knowledge of written and spoken English. Working knowledge of French and German would be an advantage.</span>"
-                ],
-                "bullets": [
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities </span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Coordinate the control activity in line with the Global Private Banking Control Blueprint, though aligned to local regulatory requirements</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Perform due diligence on prospective and existing client relationships</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Build trusted working relationships with Senior Management and CROs </span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Contribute effectively not only to core duties but also in the additional responsibilities including deputizing the HOPBS, reviewing complex cases, and presenting confidently to various senior Management stakeholders.</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Being the main point of CRO Contact for complex and High-Risk cases</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Be the FLOD Single Point of Contact (SPOC) and gatekeeper when it comes to matters related to PEP Classification and Declassification</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities </span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Act as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths including networking with key contact persons within the organization</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">Review account openings, CIP modifications and periodic reviews for the Dubai PBS team, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, help the team develop the capability to perform these reviews independently.</span></p><ul><li><p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"EN-US\">To represent the HOPBS and the Team with credibility, whether deputizing in meetings, presenting to senior stakeholders, or managing complex reviews.</span></p><p style=\"line-height:120%;margin-bottom:0cm;\"> </p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>University degree in Business Administration, Finance, Law, Economics or related field is essential;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Minimum 5 years of previous Compliance or Audit experience in the area of account openings, account reviews and transaction monitoring;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span lang=\"FR-CH\">Strong analytical skills;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Strong communication skills, including the ability to deal with potentially contentious issues effectively;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Ability to work under pressure in a fast-paced environment, </span><span lang=\"EN-US\">flexible, multitask;</span></p>",
-                  "<p style=\"line-height:120%;margin-bottom:0cm;\"><span>Excellent knowledge of written and spoken English. Working knowledge of French and German would be an advantage.</span></p>"
-                ]
-              }
-            ],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-09-28T04:51:51.496Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Geneve",
-      "postalCode": "1201",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.902Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6175",
-      "postingDateSource": "unknown",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T22:21:01.758Z",
-      "validThroughSource": "build-clock-fallback",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "efg-6560",
@@ -475,7 +53,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.914Z",
+      "crawledAt": "2026-11-27T21:15:04.972Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -486,7 +64,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:21:13.914Z",
+      "validThrough": "2027-02-03T21:15:04.972Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:13:58.262Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6560",
@@ -535,7 +113,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.910Z",
+      "crawledAt": "2026-11-27T21:15:04.968Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 113000,
@@ -557,7 +135,7 @@
       },
       "streetAddress": "Bleicherweg 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T09:21:13.910Z",
+      "validThrough": "2026-12-27T21:15:04.968Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T22:20:59.183Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6550",
@@ -606,7 +184,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.906Z",
+      "crawledAt": "2026-11-27T21:15:04.963Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 174500,
@@ -617,7 +195,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:21:13.906Z",
+      "validThrough": "2027-02-01T21:15:04.963Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.747Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6549",
@@ -666,7 +244,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.902Z",
+      "crawledAt": "2026-11-27T21:15:04.957Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 104500,
@@ -677,7 +255,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:21:13.902Z",
+      "validThrough": "2027-02-01T21:15:04.957Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.740Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6548",
@@ -723,7 +301,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.898Z",
+      "crawledAt": "2026-11-27T21:15:04.953Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -739,7 +317,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:21:13.898Z",
+      "validThrough": "2026-12-27T21:15:04.953Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -865,7 +443,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.894Z",
+      "crawledAt": "2026-11-27T21:15:04.948Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -881,7 +459,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:21:13.894Z",
+      "validThrough": "2026-12-27T21:15:04.948Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -928,7 +506,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.877Z",
+      "crawledAt": "2026-11-27T21:15:04.910Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -950,7 +528,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:21:13.877Z",
+      "validThrough": "2027-01-17T21:15:04.910Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6221",
       "_qualityScore": 99,
@@ -1065,7 +643,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.875Z",
+      "crawledAt": "2026-11-27T21:15:04.902Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -1082,7 +660,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:21:13.875Z",
+      "validThrough": "2026-12-27T21:15:04.902Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -1126,7 +704,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.872Z",
+      "crawledAt": "2026-11-27T21:15:04.896Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -1143,7 +721,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:21:13.872Z",
+      "validThrough": "2026-12-27T21:15:04.896Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1260,7 +838,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.858Z",
+      "crawledAt": "2026-11-27T21:15:04.862Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1288,7 +866,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T09:21:13.858Z",
+      "validThrough": "2026-12-27T21:15:04.862Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -1335,7 +913,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.855Z",
+      "crawledAt": "2026-11-27T21:15:04.853Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -1346,7 +924,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:21:13.855Z",
+      "validThrough": "2027-02-11T21:15:04.853Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.870Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6515",
@@ -1395,7 +973,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.851Z",
+      "crawledAt": "2026-11-27T21:15:04.845Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 97500,
@@ -1406,7 +984,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:21:13.851Z",
+      "validThrough": "2027-02-18T21:15:04.845Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T21:19:37.019Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6562",
@@ -1455,7 +1033,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.847Z",
+      "crawledAt": "2026-11-27T21:15:04.835Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -1466,7 +1044,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:21:13.847Z",
+      "validThrough": "2027-02-11T21:15:04.835Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.873Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6541",
@@ -1515,7 +1093,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.845Z",
+      "crawledAt": "2026-11-27T21:15:04.830Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 97500,
@@ -1526,7 +1104,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:21:13.845Z",
+      "validThrough": "2027-02-21T21:15:04.830Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-23T21:17:47.178Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6349",
@@ -1534,6 +1112,115 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6613",
+      "slug": "learning-development-specialista-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Learning & Development Specialist",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-26T12:50:47+00:00",
+      "postedDate": "2026-11-26T12:50:47+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6613",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [
+              "University degree, preferably in human resources, organizational development, economics, or a related field",
+              "5+ of relevant experience within structured HR departments of international companies",
+              "Strong commitment to people development and delivering outstanding customer service",
+              "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
+              "Fluency in English, French, and Italian",
+              "International mindset and experience working in multicultural environments",
+              "Proactive, positive attitude with energy and intellectual curiosity",
+              "Excellent interpersonal and collaboration skills; proven ability to work with diverse stakeholders across functions and countries",
+              "Strong communication skills, with the ability to clearly and effectively structure key messages",
+              "Exceptional organizational skills; able to work independently, manage multiple priorities, and deliver in a dynamic and demanding environment",
+              "Proficiency in MS Office programs",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
+              "<strong>Passionate</strong>: Being committed and striving for excellence",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "University degree, preferably in human resources, organizational development, economics, or a related field",
+              "5+ of relevant experience within structured HR departments of international companies",
+              "Strong commitment to people development and delivering outstanding customer service"
+            ],
+            "keywords": [
+              "University degree",
+              "5+ of relevant experience within structured HR departments of international companies",
+              "Strong commitment to people development and delivering outstanding customer service",
+              "Demonstrated interest in learning technologies",
+              "Fluency in English"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.",
+                  "<br><strong>Job Description</strong>",
+                  "As a key member of the Learning & Development team, the Learning & Development Specialist will contribute to the organisation and coordination of selected learning initiatives and manage EFG’s apprenticeship programmes end to end, ensuring a best-in-class experience.",
+                  "The Learning & Development Specialist will collaborate with all HR functional areas and become a key point of contact within the organisation for their assigned activities.",
+                  "This is an excellent opportunity for someone looking to work in an international, fast-paced and client-oriented HR team within a global private banking group.",
+                  "<br><strong>Main responsibilities</strong>"
+                ],
+                "bullets": [
+                  "Manage end-to-end the apprentices programme (recruitment, onboarding, rotations, learning sessions etc) in Switzerland, partnering with line managers and HR Business Partners/local HR.",
+                  "Prepare reports and feedback surveys to measure programme effectiveness; analyse insights to assess impact and identify opportunities for improvement.",
+                  "Coordinate selected global learning initiatives, supporting design, rollout, communications and logistics.",
+                  "Provide expert technical support for training initiatives, empowering employees to make the most of the company’s learning tools and systems.",
+                  "The Learning & Development Specialist will have a dual reporting line to the Head of Talent Development and the Head of Learning. The role collaborates with HRBPs, local HR, and business stakeholders to ensure seamless delivery and adherence to global frameworks."
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-11-27T21:15:04.825Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-24T21:15:04.825Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-26T21:24:21.234Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6613",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -1575,7 +1262,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-27T09:21:13.821Z",
+      "crawledAt": "2026-11-27T21:15:04.764Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 73000,
@@ -1586,10 +1273,70 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:21:13.821Z",
+      "validThrough": "2027-01-08T21:15:04.764Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-24T21:16:44.042Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6597",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6496",
+      "slug": "ingegnere-dell-osservabilita-del-cloud-e-dell-infrastruttura-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Cloud Oberservability & Infrastructure Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-26T13:47:54+00:00",
+      "postedDate": "2026-11-26T13:47:54+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6496",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Department: Infrastructure Engineering team</span></li><li><span>Work time Percentage: 100%</span></li><li><span>Location: Geneva - Quai du seujet 24</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>Join our Infrastructure Engineering team to design, implement and bring into operation a cloud-based observability platform for public cloud services and applications. You will also operate the existing on-premises observability environment and contribute to the engineering, automation and continuous improvement of the team’s infrastructure platforms.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Define</strong> the cloud observability architecture, including integration patterns, reusable telemetry ingestion, secure application connectivity and monitoring standards.</span></li><li><span><strong>Implement</strong> metrics collection for public cloud compute, networking, storage, managed platform services and data analytics platforms.</span></li><li><span><strong>Onboard</strong> applications to the observability platform, collecting logs, service health metrics, performance indicators, and error and exception events.</span></li><li><span><strong>Operate</strong> the existing on-premises observability environment.</span></li><li><span><strong>Establish</strong> alert categories, severity levels, notification channels, ownership and escalation procedures so the appropriate teams know when and how to respond.</span></li><li><span><strong>Build</strong> executive dashboards for service health, operational dashboards for troubleshooting and service-specific dashboards for deeper analysis.</span></li><li><span><strong>Contribute</strong> to the engineering, automation and continuous improvement of Linux, container orchestration platforms, infrastructure automation solutions and application delivery controllers.</span></li><li><span><strong>Collaborate</strong> with application and operational teams to troubleshoot issues and document observability solutions.</span></li></ul><p> </p><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Education:</strong> Minimum and preferred qualifications are to be confirmed.</span></li><li><span><strong>Professional experience:</strong> Hands-on experience with enterprise observability platforms, public cloud platforms, cloud-native monitoring, Linux and infrastructure automation. The required number of years is to be confirmed.</span></li><li><span><strong>Technical and functional knowledge:</strong> Experience with observability search and analytics, dashboards, agents, telemetry ingestion and alerting; working knowledge of networking, APIs and TLS; and strong troubleshooting, documentation and collaboration skills.</span></li><li><span><strong>Preferred knowledge:</strong> Experience in one or more of container orchestration platforms, enterprise automation platforms, application delivery controllers, data analytics platform monitoring or Infrastructure as Code. Expertise across all platforms is not required.</span></li><li><span><strong>Languages:</strong> Language requirements and proficiency levels are to be confirmed.</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-11-27T21:15:04.747Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-24T21:15:04.747Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-26T21:24:21.211Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6496",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2219,5 +1966,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

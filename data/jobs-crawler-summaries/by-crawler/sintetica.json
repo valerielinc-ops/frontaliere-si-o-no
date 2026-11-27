@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-11-27T09:13:37.131Z",
+  "generatedAt": "2026-11-27T21:13:39.229Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8625,
-  "avgDurationMs": 8625,
+  "durationMs": 7137,
+  "avgDurationMs": 7137,
   "durationHistory": [
-    8625
+    7137
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -33,7 +33,7 @@
       "atsApplicationForm": {
         "provider": "ncoreplat",
         "sourceUrl": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
-        "checkedAt": "2026-11-27T09:13:14.694Z",
+        "checkedAt": "2026-11-27T21:13:14.702Z",
         "stage": "Postulez maintenant",
         "fields": [
           {
@@ -61,7 +61,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T09:13:14.745Z",
+      "crawledAt": "2026-11-27T21:13:14.757Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -78,7 +78,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:13:14.745Z",
+      "validThrough": "2026-12-27T21:13:14.757Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -105,7 +105,7 @@
       "atsApplicationForm": {
         "provider": "ncoreplat",
         "sourceUrl": "https://app.ncoreplat.com/jobposition/286485/spontaneous-application-mendrisio-site-ticino-ch/sintetica",
-        "checkedAt": "2026-11-27T09:13:13.673Z",
+        "checkedAt": "2026-11-27T21:13:13.870Z",
         "stage": "Inoltra ora la candidatura",
         "fields": [
           {
@@ -145,7 +145,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T09:13:13.711Z",
+      "crawledAt": "2026-11-27T21:13:13.930Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -162,7 +162,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:13:13.711Z",
+      "validThrough": "2026-12-27T21:13:13.930Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -189,7 +189,7 @@
       "atsApplicationForm": {
         "provider": "ncoreplat",
         "sourceUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
-        "checkedAt": "2026-11-27T09:13:12.512Z",
+        "checkedAt": "2026-11-27T21:13:12.977Z",
         "stage": "Inoltra ora la candidatura",
         "fields": [
           {
@@ -229,7 +229,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T09:13:12.559Z",
+      "crawledAt": "2026-11-27T21:13:13.032Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -246,7 +246,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:13:12.559Z",
+      "validThrough": "2026-12-27T21:13:13.032Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -273,7 +273,7 @@
       "atsApplicationForm": {
         "provider": "ncoreplat",
         "sourceUrl": "https://app.ncoreplat.com/jobposition/808005/cmc-senior-specialist-mendrisio-site-ticino-ch/sintetica",
-        "checkedAt": "2026-11-27T09:13:11.515Z",
+        "checkedAt": "2026-11-27T21:13:12.166Z",
         "stage": "Inoltra ora la candidatura",
         "fields": [
           {
@@ -313,7 +313,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-27T09:13:11.570Z",
+      "crawledAt": "2026-11-27T21:13:12.228Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -330,7 +330,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:13:11.570Z",
+      "validThrough": "2026-12-27T21:13:12.228Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -341,5 +341,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-11-27T09:18:52.669Z",
-  "runId": "45971284308",
+  "assembledAt": "2026-11-27T21:22:40.514Z",
+  "runId": "46068355730",
   "jobs": [
     {
       "id": "salina-reha-282e4ea67fd3",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:52.990Z",
+      "crawledAt": "2026-11-27T21:21:53.006Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -118,9 +118,8 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:17:52.990Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25"
+      "validThrough": "2026-12-27T21:21:53.006Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-faa86d7f81ae",
@@ -153,7 +152,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/msbpp6odv00cqa9il39bv6b9i306zzmlwnkyj4rqrizm0jisf2qded5yco2kcsb8",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:50.994Z",
+      "crawledAt": "2026-11-27T21:21:51.277Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -198,9 +197,8 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:17:50.994Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/msbpp6odv00cqa9il39bv6b9i306zzmlwnkyj4rqrizm0jisf2qded5yco2kcsb8"
+      "validThrough": "2027-02-04T21:21:51.277Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-29fb7e41bea4",
@@ -233,7 +231,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-aerztin-dermatologie/ndcmis5jbkwlmmyh6nj6w25ymykch9ut7bmtvh8ezvsqm3lmdqincv7brsfqjadl",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:48.011Z",
+      "crawledAt": "2026-11-27T21:21:48.466Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -283,9 +281,8 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:17:48.011Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/facharzt-aerztin-dermatologie/ndcmis5jbkwlmmyh6nj6w25ymykch9ut7bmtvh8ezvsqm3lmdqincv7brsfqjadl"
+      "validThrough": "2027-02-17T21:21:48.466Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-cc6535b31b6f",
@@ -318,7 +315,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-stationaer/g6wckeprdbkl28epaic6dqysaunbxphfh42npqi06nubiz36a5o3eru4h40nujkj",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:45.930Z",
+      "crawledAt": "2026-11-27T21:21:46.591Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -368,9 +365,8 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:17:45.930Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/physiotherapeut-in-stationaer/g6wckeprdbkl28epaic6dqysaunbxphfh42npqi06nubiz36a5o3eru4h40nujkj"
+      "validThrough": "2027-01-13T21:21:46.591Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-17170587c45a",
@@ -403,7 +399,7 @@
       "url": "https://link.ostendis.com/publication/pflegefachperson-hf-inhouse-spitex-pool/l2xrmwc8znoqzxjxlua8ghdt87wxcf02326qktur4ceej3dxse41uwqnut2qelkt",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:43.741Z",
+      "crawledAt": "2026-11-27T21:21:44.093Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -422,7 +418,9 @@
       "applyUrl": "https://link.ostendis.com/publication/pflegefachperson-hf-inhouse-spitex-pool/l2xrmwc8znoqzxjxlua8ghdt87wxcf02326qktur4ceej3dxse41uwqnut2qelkt",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-26T21:25:36.008Z",
+      "previousSlugs": [
+        "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden"
@@ -434,9 +432,7 @@
           "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden"
         ]
       },
-      "previousSlugs": [
-        "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden"
-      ],
+      "firstSeenAt": "2026-11-26T21:25:36.008Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -452,42 +448,41 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:17:43.741Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/pflegefachperson-hf-inhouse-spitex-pool/l2xrmwc8znoqzxjxlua8ghdt87wxcf02326qktur4ceej3dxse41uwqnut2qelkt"
+      "validThrough": "2027-02-24T21:21:44.093Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-a5ca4094c6a8",
-      "slug": "mpa-facharztehaus-salina-rheinfelden",
+      "slug": "centro-medico-mpa-salina-rehaklinik-rheinfelden-rheinfelden",
       "slugByLocale": {
+        "it": "centro-medico-mpa-salina-rehaklinik-rheinfelden-rheinfelden",
+        "en": "mpa-medical-center-salina-rehaklinik-rheinfelden-rheinfelden",
         "de": "mpa-facharztehaus-salina-rheinfelden",
-        "it": "mpa-facharztehaus-salina-rheinfelden",
-        "en": "mpa-facharztehaus-salina-rheinfelden",
-        "fr": "mpa-facharztehaus-salina-rheinfelden"
+        "fr": "centre-medical-de-la-mpa-salina-rehaklinik-rheinfelden-rheinfelden"
       },
       "company": "Salina Rehaklinik Rheinfelden",
       "companyKey": "salina-reha",
       "companyDomain": "salina-reha.ch",
       "title": "MPA Fachärztehaus",
       "titleByLocale": {
-        "de": "MPA Fachärztehaus",
         "it": "Centro medico MPA",
         "en": "MPA Medical Center",
+        "de": "MPA Fachärztehaus",
         "fr": "Centre médical de la MPA"
       },
       "description": "Salina Rehaklinik\n\nMed. Praxisassistent/-in mit OP-Assistenz\n Fachärztehaus\n60-80%\n per 1. Januar 2027 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n\nWas Sie erwartet\n\n• OP-Assistenz: Selbstständiges Vorbereiten, Assistieren von kleinen chirurgischen Eingriffen unter sterilen Bedingungen\n\n• Diagnostik & Labor: Durchführen von venösen Punktionen\n\n• Behandlungspflege: Fachgerechtes Verabreichen von subkutanen (s.c.) und intramuskulären (i.m.) Injektionen sowie Legen und Überwachen von Infusionen und Assistieren bei Interventionellen Untersuchungen\n\n• Praxisorganisation: Empfang und Betreuung der Patientinnen und Patienten sowie allgemeine administrative Aufgaben\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung zur MPA oder eine gleichwertige Ausbildung\n\n• Routine und Sicherheit in der Blutentnahme (VP), Injektionstechnik (s.c. / i.m.), Infusionstherapie sowie im sterilen Arbeiten bei Eingriffen\n\n• Ruhige, exakte und hygienisch einwandfreie Arbeitsweise, besonders in chirurgischen Situationen\n\n• Sie haben eine hohe Patientenorientierung und ein ausgeprägtes Organisationsvermögen\n\nInteressiert?\n Jetzt bewerben Claudia Di Bari freut sich auf Ihre Online-Bewerbung.\n\nClaudia Di Bari\n Co-Leiterin Fachärztehaus\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
       "descriptionByLocale": {
-        "de": "Salina Rehaklinik\n\nMed. Praxisassistent/-in mit OP-Assistenz\n Fachärztehaus\n60-80%\n per 1. Januar 2027 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n\nWas Sie erwartet\n\n• OP-Assistenz: Selbstständiges Vorbereiten, Assistieren von kleinen chirurgischen Eingriffen unter sterilen Bedingungen\n\n• Diagnostik & Labor: Durchführen von venösen Punktionen\n\n• Behandlungspflege: Fachgerechtes Verabreichen von subkutanen (s.c.) und intramuskulären (i.m.) Injektionen sowie Legen und Überwachen von Infusionen und Assistieren bei Interventionellen Untersuchungen\n\n• Praxisorganisation: Empfang und Betreuung der Patientinnen und Patienten sowie allgemeine administrative Aufgaben\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung zur MPA oder eine gleichwertige Ausbildung\n\n• Routine und Sicherheit in der Blutentnahme (VP), Injektionstechnik (s.c. / i.m.), Infusionstherapie sowie im sterilen Arbeiten bei Eingriffen\n\n• Ruhige, exakte und hygienisch einwandfreie Arbeitsweise, besonders in chirurgischen Situationen\n\n• Sie haben eine hohe Patientenorientierung und ein ausgeprägtes Organisationsvermögen\n\nInteressiert?\n Jetzt bewerben Claudia Di Bari freut sich auf Ihre Online-Bewerbung.\n\nClaudia Di Bari\n Co-Leiterin Fachärztehaus\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
-        "it": "Clinica di riabilitazione Salina\n\nMed. Assistente pratico/in con assistente chirurgico\n Medici specialistici\n60-80%\n 1 gennaio 2027 o accordo\n• Occupazione permanente\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik e Park-Hotel am Rhein AG impiegano circa 1.000 persone. Per ottenere la migliore riabilitazione possibile, i team interdisciplinari lavorano insieme, con le competenze e l'esperienza di ogni individuo che contribuiscono al successo. La Salina Rehaklinik (ambulatorio di riabilitazione, specialisti e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento del supporto e del sistema muscolo-scheletrico. Il centro di competenza medica comprende moderne strutture diagnostiche e terapeutiche con un team competente di specialisti, terapisti e personale di cura.\n La tua squadra\n Il nostro reparto ambulatorio presso l'ospedale specializzato è caratterizzato da un competente team interdisciplinare di specialisti e terapeuti per una vasta gamma di assistenza sanitaria, trattamento e cura. L'ambulatorio ha specialisti in reumatologia e medicina fisica, medicina sportiva, ortopedia, disturbi del metabolismo del ferro, osteoporosi, chirurgia spinale, neurologia, terapia del dolore interventistico, dermatologia, medicina generale, naturopatia, opinioni mediche, obesità e obesità, medicina antroposofica e agopnosi medica.\n\nCosa aspettarsi\n\n• Assistenza chirurgica: Preparazione indipendente, assistenza a piccole procedure chirurgiche in condizioni sterili\n\n• Diagnosi & Laboratorio: Eseguire punture venose\n\n• Cura del trattamento: corretta somministrazione di infusioni sottocutanee (s.c.) e intramuscolari (i.m.) e posa e monitoraggio di infusioni e assistenza negli esami interventi\n\n• Organizzazione pratica: accoglienza e sostegno dei pazienti e compiti amministrativi generali\n\nCosa porti\n\n• Sei una persona empatica, amichevole e solidale e hai completato MPA o istruzione equivalente\n\n• Routine e sicurezza nel campionamento del sangue (VP), tecnica di iniezione (s.c. / i.m.), terapia di infusione e lavoro sterile durante le procedure\n\n• Metodi di lavoro silenziosi, precisi e igienici, soprattutto in situazioni chirurgiche\n\n• Hai un alto orientamento paziente e una forte capacità organizzativa\n\nInteressante?\n Applicare ora Claudia Di Bari non vede l'ora della tua applicazione online.\n\nClaudia Di Bari\n Co-Head del centro medico\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
-        "en": "Salina rehab clinic\n\nMed. Practical assistant/in with surgical assistant\n Specialist doctors\n60-80%\n 1 January 2027 or by agreement\n• Permanent employment\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik and Park-Hotel am Rhein AG employ around 1,000 people. To achieve the best possible rehabilitation, interdisciplinary teams work together, with each individual’s expertise and experience contributing to success. The Salina Rehaklinik (rehabilitation clinic, specialists and therapies) offers an interdisciplinary concept for the prevention, diagnosis and treatment of the support and musculoskeletal system. The medical competence centre comprises modern diagnostic and therapeutic facilities with a competent team of specialists, therapists and nursing staff.\n Your team\n Our outpatient department in the specialist hospital is characterized by a competent interdisciplinary team of specialists and therapists for a diverse range of health care, treatment and care. The ambulatory has specialists in rheumatology and physical medicine, sports medicine, orthopedics, iron metabolism disorder, osteoporosis, spinal surgery, neurology, interventional pain therapy, dermatology, general medicine, naturopathy, medical opinions, obesity and obesity, anthroposophic medicine as well as acupuncture and medical hypnosis.\n\nWhat to expect\n\n• Surgical Assistance: Independent preparation, assisting small surgical procedures under sterile conditions\n\n• Diagnosis & Laboratory: Performing venous punctures\n\n• Treatment care: Proper administration of subcutaneous (s.c.) and intramuscular (i.m.) injections and laying and monitoring of infusions and assistance in interventional examinations\n\n• Practice organisation: reception and support of patients and general administrative tasks\n\nWhat you bring\n\n• You are an empathetic, friendly and upstanding person and have completed MPA or equivalent education\n\n• Routine and safety in blood sampling (VP), injection technique (s.c. / i.m.), infusion therapy and in sterile work during procedures\n\n• Quiet, exact and hygienic working methods, especially in surgical situations\n\n• You have a high patient orientation and a strong organizational ability\n\nInterested?\n Apply now Claudia Di Bari is looking forward to your online application.\n\nClaudia Di Bari\n Co-Head of the Medical Center\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
-        "fr": "Clinique de désintox de Salina\n\nMédicament. Assistant pratique avec assistant chirurgical\n Médecins spécialisés\n60-80%\n 1er janvier 2027 ou par accord\n• Emploi permanent\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik et Park-Hotel am Rhein AG emploient environ 1000 personnes. Pour réaliser la meilleure réhabilitation possible, les équipes interdisciplinaires travaillent ensemble, avec l'expertise et l'expérience de chaque individu contribuant au succès. La Salina Rehaklinik (clinique de réadaptation, spécialistes et thérapies) offre un concept interdisciplinaire pour la prévention, le diagnostic et le traitement du soutien et du système musculo-squelettique. Le centre de compétence médicale comprend des installations modernes de diagnostic et de thérapie avec une équipe compétente de spécialistes, de thérapeutes et de personnel infirmier.\n Votre équipe\n Notre service ambulatoire à l'hôpital spécialisé se caractérise par une équipe interdisciplinaire compétente de spécialistes et de thérapeutes pour une gamme variée de soins de santé, de traitements et de soins. L'ambulatoire a des spécialistes en rhumatologie et médecine physique, médecine sportive, orthopédie, trouble du métabolisme du fer, ostéoporose, chirurgie de la colonne vertébrale, neurologie, traitement de la douleur interventionnelle, dermatologie, médecine générale, naturopathie, opinions médicales, obésité et obésité, anthroposophie ainsi que l'acupuncture et l'hypnose médicale.\n\nÀ quoi s'attendre\n\n• Assistance chirurgicale : préparation indépendante, assistance aux petites interventions chirurgicales dans des conditions stériles\n\n• Diagnostic et laboratoire: effectuer des perforations veineuses\n\n• Traitement: Administration appropriée d'injections sous-cutanées (c.v.s.) et intramusculaires (i.m.) ainsi que de la pose et de la surveillance des perfusions et de l'assistance aux examens interventionnels\n\n• Organisation de la pratique: accueil et soutien des patients et tâches administratives générales\n\nCe que vous apportez\n\n• Vous êtes une personne empathique, amicale et intègre et avez terminé MPA ou une éducation équivalente\n\n• Routine et sécurité dans l'échantillonnage sanguin (VP), la technique d'injection (c.v.s. / i.m.), le traitement par perfusion et le travail stérile pendant les procédures\n\n• Méthodes de travail silencieuses, exactes et hygiéniques, en particulier dans les situations chirurgicales\n\n• Vous avez une forte orientation du patient et une forte capacité organisationnelle\n\nIntéressé ?\n Postulez maintenant Claudia Di Bari attend avec impatience votre candidature en ligne.\n\nClaudia Di Bari\n Co-chef du Centre médical\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden"
+        "it": "Clinica di riabilitazione Salina\n\nMed. Assistente pratico/in con assistente chirurgico\nMedici specialistici\n60-80%\n1 gennaio 2027 o accordo\n• Occupazione permanente\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik e Park-Hotel am Rhein AG impiegano circa 1.000 persone. Per ottenere la migliore riabilitazione possibile, i team interdisciplinari lavorano insieme, con le competenze e l'esperienza di ogni individuo che contribuiscono al successo. La Salina Rehaklinik (ambulatorio di riabilitazione, specialisti e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento del supporto e del sistema muscolo-scheletrico. Il centro di competenza medica comprende moderne strutture diagnostiche e terapeutiche con un team competente di specialisti, terapisti e personale di cura.\nLa tua squadra\nIl nostro reparto ambulatorio presso l'ospedale specializzato è caratterizzato da un competente team interdisciplinare di specialisti e terapeuti per una vasta gamma di assistenza sanitaria, trattamento e cura. L'ambulatorio ha specialisti in reumatologia e medicina fisica, medicina sportiva, ortopedia, disturbi del metabolismo del ferro, osteoporosi, chirurgia spinale, neurologia, terapia del dolore interventistico, dermatologia, medicina generale, naturopatia, opinioni mediche, obesità e obesità, medicina antroposofica e agopnosi medica.\n\nCosa aspettarsi\n\n• Assistenza chirurgica: Preparazione indipendente, assistenza a piccole procedure chirurgiche in condizioni sterili\n\n• Diagnosi & Laboratorio: Eseguire punture venose\n\n• Cura del trattamento: corretta somministrazione di infusioni sottocutanee (s.c.) e intramuscolari (i.m.) e posa e monitoraggio di infusioni e assistenza negli esami interventi\n\n• Organizzazione pratica: accoglienza e sostegno dei pazienti e compiti amministrativi generali\n\nCosa porti\n\n• Sei una persona empatica, amichevole e solidale e hai completato MPA o istruzione equivalente\n\n• Routine e sicurezza nel campionamento del sangue (VP), tecnica di iniezione (s.c. / i.m.), terapia di infusione e lavoro sterile durante le procedure\n\n• Metodi di lavoro silenziosi, precisi e igienici, soprattutto in situazioni chirurgiche\n\n• Hai un alto orientamento paziente e una forte capacità organizzativa\n\nInteressante?\nApplicare ora Claudia Di Bari non vede l'ora della tua applicazione online.\n\nClaudia Di Bari\nCo-Head del centro medico\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "en": "Salina rehab clinic\n\nMed. Practical assistant/in with surgical assistant\nSpecialist doctors\n60-80%\n1 January 2027 or by agreement\n• Permanent employment\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik and Park-Hotel am Rhein AG employ around 1,000 people. To achieve the best possible rehabilitation, interdisciplinary teams work together, with each individual’s expertise and experience contributing to success. The Salina Rehaklinik (rehabilitation clinic, specialists and therapies) offers an interdisciplinary concept for the prevention, diagnosis and treatment of the support and musculoskeletal system. The medical competence centre comprises modern diagnostic and therapeutic facilities with a competent team of specialists, therapists and nursing staff.\nYour team\nOur outpatient department in the specialist hospital is characterized by a competent interdisciplinary team of specialists and therapists for a diverse range of health care, treatment and care. The ambulatory has specialists in rheumatology and physical medicine, sports medicine, orthopedics, iron metabolism disorder, osteoporosis, spinal surgery, neurology, interventional pain therapy, dermatology, general medicine, naturopathy, medical opinions, obesity and obesity, anthroposophic medicine as well as acupuncture and medical hypnosis.\n\nWhat to expect\n\n• Surgical Assistance: Independent preparation, assisting small surgical procedures under sterile conditions\n\n• Diagnosis & Laboratory: Performing venous punctures\n\n• Treatment care: Proper administration of subcutaneous (s.c.) and intramuscular (i.m.) injections and laying and monitoring of infusions and assistance in interventional examinations\n\n• Practice organisation: reception and support of patients and general administrative tasks\n\nWhat you bring\n\n• You are an empathetic, friendly and upstanding person and have completed MPA or equivalent education\n\n• Routine and safety in blood sampling (VP), injection technique (s.c. / i.m.), infusion therapy and in sterile work during procedures\n\n• Quiet, exact and hygienic working methods, especially in surgical situations\n\n• You have a high patient orientation and a strong organizational ability\n\nInterested?\nApply now Claudia Di Bari is looking forward to your online application.\n\nClaudia Di Bari\nCo-Head of the Medical Center\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "de": "Salina Rehaklinik\n\nMed. Praxisassistent/-in mit OP-Assistenz\nFachärztehaus\n60-80%\nper 1. Januar 2027 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\nIhr Team\nUnsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n\nWas Sie erwartet\n\n• OP-Assistenz: Selbstständiges Vorbereiten, Assistieren von kleinen chirurgischen Eingriffen unter sterilen Bedingungen\n\n• Diagnostik & Labor: Durchführen von venösen Punktionen\n\n• Behandlungspflege: Fachgerechtes Verabreichen von subkutanen (s.c.) und intramuskulären (i.m.) Injektionen sowie Legen und Überwachen von Infusionen und Assistieren bei Interventionellen Untersuchungen\n\n• Praxisorganisation: Empfang und Betreuung der Patientinnen und Patienten sowie allgemeine administrative Aufgaben\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung zur MPA oder eine gleichwertige Ausbildung\n\n• Routine und Sicherheit in der Blutentnahme (VP), Injektionstechnik (s.c. / i.m.), Infusionstherapie sowie im sterilen Arbeiten bei Eingriffen\n\n• Ruhige, exakte und hygienisch einwandfreie Arbeitsweise, besonders in chirurgischen Situationen\n\n• Sie haben eine hohe Patientenorientierung und ein ausgeprägtes Organisationsvermögen\n\nInteressiert?\nJetzt bewerben Claudia Di Bari freut sich auf Ihre Online-Bewerbung.\n\nClaudia Di Bari\nCo-Leiterin Fachärztehaus\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "fr": "Clinique de désintox de Salina\n\nMédicament. Assistant pratique avec assistant chirurgical\nMédecins spécialisés\n60-80%\n1er janvier 2027 ou par accord\n• Emploi permanent\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik et Park-Hotel am Rhein AG emploient environ 1000 personnes. Pour réaliser la meilleure réhabilitation possible, les équipes interdisciplinaires travaillent ensemble, avec l'expertise et l'expérience de chaque individu contribuant au succès. La Salina Rehaklinik (clinique de réadaptation, spécialistes et thérapies) offre un concept interdisciplinaire pour la prévention, le diagnostic et le traitement du soutien et du système musculo-squelettique. Le centre de compétence médicale comprend des installations modernes de diagnostic et de thérapie avec une équipe compétente de spécialistes, de thérapeutes et de personnel infirmier.\nVotre équipe\nNotre service ambulatoire à l'hôpital spécialisé se caractérise par une équipe interdisciplinaire compétente de spécialistes et de thérapeutes pour une gamme variée de soins de santé, de traitements et de soins. L'ambulatoire a des spécialistes en rhumatologie et médecine physique, médecine sportive, orthopédie, trouble du métabolisme du fer, ostéoporose, chirurgie de la colonne vertébrale, neurologie, traitement de la douleur interventionnelle, dermatologie, médecine générale, naturopathie, opinions médicales, obésité et obésité, anthroposophie ainsi que l'acupuncture et l'hypnose médicale.\n\nÀ quoi s'attendre\n\n• Assistance chirurgicale : préparation indépendante, assistance aux petites interventions chirurgicales dans des conditions stériles\n\n• Diagnostic et laboratoire: effectuer des perforations veineuses\n\n• Traitement: Administration appropriée d'injections sous-cutanées (c.v.s.) et intramusculaires (i.m.) ainsi que de la pose et de la surveillance des perfusions et de l'assistance aux examens interventionnels\n\n• Organisation de la pratique: accueil et soutien des patients et tâches administratives générales\n\nCe que vous apportez\n\n• Vous êtes une personne empathique, amicale et intègre et avez terminé MPA ou une éducation équivalente\n\n• Routine et sécurité dans l'échantillonnage sanguin (VP), la technique d'injection (c.v.s. / i.m.), le traitement par perfusion et le travail stérile pendant les procédures\n\n• Méthodes de travail silencieuses, exactes et hygiéniques, en particulier dans les situations chirurgicales\n\n• Vous avez une forte orientation du patient et une forte capacité organisationnelle\n\nIntéressé ?\nPostulez maintenant Claudia Di Bari attend avec impatience votre candidature en ligne.\n\nClaudia Di Bari\nCo-chef du Centre médical\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden"
       },
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://link.ostendis.com/publication/mpa-fachaerztehaus/tvmeqiyi73ovrob3hxq33bqeeg660hg0fqe5wzrl7xsiy11ypdqpsgdxs6oqi6pr",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:39.748Z",
+      "crawledAt": "2026-11-27T21:21:39.930Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -505,9 +500,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://link.ostendis.com/publication/mpa-fachaerztehaus/tvmeqiyi73ovrob3hxq33bqeeg660hg0fqe5wzrl7xsiy11ypdqpsgdxs6oqi6pr",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-11-27T09:17:39.748Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-facharztehaus-salina-rheinfelden"
+        ],
+        "en": [
+          "mpa-facharztehaus-salina-rheinfelden"
+        ],
+        "fr": [
+          "mpa-facharztehaus-salina-rheinfelden"
+        ]
       },
+      "previousSlugs": [
+        "mpa-facharztehaus-salina-rheinfelden"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -523,10 +532,8 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:17:39.748Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T09:17:39.748Z",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/mpa-fachaerztehaus/tvmeqiyi73ovrob3hxq33bqeeg660hg0fqe5wzrl7xsiy11ypdqpsgdxs6oqi6pr"
+      "validThrough": "2027-02-25T21:21:39.930Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

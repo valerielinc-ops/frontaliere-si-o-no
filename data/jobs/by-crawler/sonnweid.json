@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sonnweid",
-  "assembledAt": "2026-11-27T09:17:39.556Z",
-  "runId": "45970411746",
+  "assembledAt": "2026-11-27T21:15:17.199Z",
+  "runId": "46067634244",
   "jobs": [
     {
       "id": "sonnweid-1c414d3bb8dd",
@@ -34,7 +34,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-oder-betreuung-efz/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:31.613Z",
+      "crawledAt": "2026-11-27T21:15:08.434Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -89,9 +89,8 @@
       },
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:17:31.613Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-oder-betreuung-efz"
+      "validThrough": "2026-12-27T21:15:08.434Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sonnweid-c748bd78add4",
@@ -125,7 +124,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-fuer-die-oase/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:29.938Z",
+      "crawledAt": "2026-11-27T21:15:07.736Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -178,9 +177,8 @@
       },
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:17:29.938Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-fuer-die-oase"
+      "validThrough": "2026-12-27T21:15:07.736Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sonnweid-b9f771afc509",
@@ -214,7 +212,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/dipl-pflegefachperson-hf/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:17:27.898Z",
+      "crawledAt": "2026-11-27T21:15:07.019Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -266,9 +264,8 @@
       },
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:17:27.898Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.sonnweid.ch/karriere/job/dipl-pflegefachperson-hf"
+      "validThrough": "2026-12-27T21:15:07.019Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sonnweid-acc9e50d16a2",
@@ -352,7 +349,8 @@
       "validThrough": "2027-02-25T09:17:25.816Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-27T09:17:25.816Z",
-      "sourceIdentity": "url:https://www.sonnweid.ch/karriere/job/pflegehelferin-pflegehelfer-srk"
+      "sourceIdentity": "url:https://www.sonnweid.ch/karriere/job/pflegehelferin-pflegehelfer-srk",
+      "crawlerMissStreak": 1
     }
   ]
 }

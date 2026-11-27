@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pigna",
-  "assembledAt": "2026-11-27T09:41:12.519Z",
-  "runId": "45972626071",
+  "assembledAt": "2026-11-27T21:33:54.325Z",
+  "runId": "46069421847",
   "jobs": [
     {
       "id": "pigna-4607ad5e097f",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/1531/0330/pub/572/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:06.223Z",
+      "crawledAt": "2026-11-27T21:33:46.328Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,9 +83,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:41:06.223Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0330/pub/572/index.html"
+      "validThrough": "2027-02-17T21:33:46.328Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pigna-1a7560e61d56",
@@ -119,7 +118,7 @@
       "url": "https://app.reflinejobs.io/1531/0327/pub/568/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:05.610Z",
+      "crawledAt": "2026-11-27T21:33:45.746Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,9 +167,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:41:05.610Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0327/pub/568/index.html"
+      "validThrough": "2027-02-17T21:33:45.746Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pigna-3122a8ab8e1f",
@@ -204,7 +202,7 @@
       "url": "https://app.reflinejobs.io/1531/0324/pub/565/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:04.987Z",
+      "crawledAt": "2026-11-27T21:33:45.160Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -253,9 +251,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:41:04.987Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0324/pub/565/index.html"
+      "validThrough": "2027-02-09T21:33:45.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pigna-ccdc23f9a6aa",
@@ -289,7 +286,7 @@
       "url": "https://app.reflinejobs.io/1531/0321/pub/561/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:04.392Z",
+      "crawledAt": "2026-11-27T21:33:44.597Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -337,9 +334,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:41:04.392Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0321/pub/561/index.html"
+      "validThrough": "2027-02-07T21:33:44.597Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pigna-b69451455f9b",
@@ -373,7 +369,7 @@
       "url": "https://app.reflinejobs.io/1531/0318/pub/556/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:03.766Z",
+      "crawledAt": "2026-11-27T21:33:44.001Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -422,9 +418,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:41:03.766Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0318/pub/556/index.html"
+      "validThrough": "2027-02-03T21:33:44.001Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pigna-8cd608e912e3",
@@ -457,7 +452,7 @@
       "url": "https://app.reflinejobs.io/1531/0315/pub/548/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:03.141Z",
+      "crawledAt": "2026-11-27T21:33:43.403Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -492,9 +487,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:41:03.141Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0315/pub/548/index.html"
+      "validThrough": "2027-02-01T21:33:43.403Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pigna-9aace9639d35",
@@ -528,7 +522,7 @@
       "url": "https://app.reflinejobs.io/1531/0306/pub/524/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:02.482Z",
+      "crawledAt": "2026-11-27T21:33:42.772Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -577,9 +571,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:41:02.482Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0306/pub/524/index.html"
+      "validThrough": "2027-01-07T21:33:42.772Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pigna-00eea1048e22",
@@ -613,7 +606,7 @@
       "url": "https://app.reflinejobs.io/1531/0297/pub/488/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:01.850Z",
+      "crawledAt": "2026-11-27T21:33:42.162Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -656,9 +649,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:41:01.850Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0297/pub/488/index.html"
+      "validThrough": "2026-12-27T21:33:42.162Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pigna-dfc722ba06ae",
@@ -692,7 +684,7 @@
       "url": "https://app.reflinejobs.io/1531/0216/pub/550/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:01.217Z",
+      "crawledAt": "2026-11-27T21:33:41.550Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -749,9 +741,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:41:01.217Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0216/pub/550/index.html"
+      "validThrough": "2027-02-02T21:33:41.550Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pigna-be50e70cf2eb",
@@ -785,7 +776,7 @@
       "url": "https://app.reflinejobs.io/1531/0201/pub/553/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:41:00.559Z",
+      "crawledAt": "2026-11-27T21:33:40.904Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -836,9 +827,8 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:41:00.559Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/1531/0201/pub/553/index.html"
+      "validThrough": "2027-02-02T21:33:40.904Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

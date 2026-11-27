@@ -1,6 +1,13 @@
 /** Bounded recovery for a dispatch that failed before GitHub received a request. */
 export const DISPATCH_RECOVERY_DELAY_MS = 5 * 60 * 1000;
 export const DISPATCH_RECOVERY_MAX_ATTEMPTS = 1;
+/**
+ * How long a recorded dispatch may stay unconfirmed. The transition that asks for a run is committed BEFORE the
+ * GitHub POST; when the process dies in between (an out-of-memory kill, 27/11) no effect ran and no error is
+ * left to schedule a recovery from. The dispatch therefore carries `confirmBy`, and the sweep re-dispatches
+ * once, through the watchdog claim, when the effect never reported success by then.
+ */
+export const DISPATCH_CONFIRM_WINDOW_MS = 12 * 60 * 1000;
 export const REMOTE_CONFIG_FETCH_TIMEOUT_CODE = 'REMOTE_CONFIG_FETCH_TIMEOUT';
 
 const DISPATCH_STATES = new Set(['drafting', 'regenerating', 'submitting']);

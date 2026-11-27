@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nsn-medical",
-  "assembledAt": "2026-11-27T09:22:35.917Z",
-  "runId": "45972033471",
+  "assembledAt": "2026-11-27T21:23:24.137Z",
+  "runId": "46068949649",
   "jobs": [
     {
       "id": "nsn-medical-75557ee37143",
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/750/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:27.243Z",
+      "crawledAt": "2026-11-27T21:23:19.295Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,9 +79,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:27.243Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/750/description/1"
+      "validThrough": "2026-12-27T21:23:19.295Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-f7893ec37f61",
@@ -115,7 +114,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/788/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:26.609Z",
+      "crawledAt": "2026-11-27T21:23:18.688Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,9 +164,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:26.609Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/788/description/1"
+      "validThrough": "2026-12-27T21:23:18.688Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-85c6a3cf8d30",
@@ -201,7 +199,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/787/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:26.002Z",
+      "crawledAt": "2026-11-27T21:23:18.118Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,9 +255,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:26.002Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/787/description/1"
+      "validThrough": "2026-12-27T21:23:18.118Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-f6ce5f68445e",
@@ -293,7 +290,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/817/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:25.593Z",
+      "crawledAt": "2026-11-27T21:23:17.534Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -337,9 +334,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:25.593Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/817/description/1"
+      "validThrough": "2026-12-27T21:23:17.534Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-a79485ca05f1",
@@ -372,7 +368,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/822/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:25.018Z",
+      "crawledAt": "2026-11-27T21:23:16.936Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -416,9 +412,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:25.018Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/822/description/1"
+      "validThrough": "2026-12-27T21:23:16.936Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-57ec4c5a6ecd",
@@ -451,7 +446,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/828/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:24.372Z",
+      "crawledAt": "2026-11-27T21:23:16.356Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -548,9 +543,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:24.372Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/828/description/1"
+      "validThrough": "2026-12-27T21:23:16.356Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-42b885f0dd7b",
@@ -584,7 +578,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/830/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:23.759Z",
+      "crawledAt": "2026-11-27T21:23:15.707Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -661,9 +655,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:23.759Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/830/description/1"
+      "validThrough": "2026-12-27T21:23:15.707Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-dc64a1cfd5c3",
@@ -696,7 +689,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/836/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:23.348Z",
+      "crawledAt": "2026-11-27T21:23:15.086Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -754,9 +747,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:23.348Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/836/description/1"
+      "validThrough": "2026-12-27T21:23:15.086Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-e0036e41ee60",
@@ -790,7 +782,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/841/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:22.584Z",
+      "crawledAt": "2026-11-27T21:23:14.351Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -836,9 +828,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:22.584Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/841/description/1"
+      "validThrough": "2026-12-27T21:23:14.351Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-ad0a666e3083",
@@ -872,7 +863,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/843/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:22.126Z",
+      "crawledAt": "2026-11-27T21:23:13.705Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -927,9 +918,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:22:22.126Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/843/description/1"
+      "validThrough": "2027-01-28T21:23:13.705Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-1bb16e2ff4dd",
@@ -962,7 +952,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/844/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:21.535Z",
+      "crawledAt": "2026-11-27T21:23:13.274Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1012,9 +1002,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:22:21.535Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/844/description/1"
+      "validThrough": "2027-02-18T21:23:13.274Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-1640834c3ddc",
@@ -1047,7 +1036,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/845/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:20.911Z",
+      "crawledAt": "2026-11-27T21:23:12.638Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1091,9 +1080,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:22:20.911Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/845/description/1"
+      "validThrough": "2027-02-23T21:23:12.638Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-11-27T09:22:24.200Z",
+  "generatedAt": "2026-11-27T21:15:51.270Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3383,
-  "avgDurationMs": 3383,
+  "durationMs": 4107,
+  "avgDurationMs": 4107,
   "durationHistory": [
-    3383
+    4107
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000152841739-head-quality-hse-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:22:11.282Z",
+      "crawledAt": "2026-11-27T21:15:24.725Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -62,7 +62,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:22:11.282Z",
+      "validThrough": "2026-12-30T21:15:24.725Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -73,5 +73,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

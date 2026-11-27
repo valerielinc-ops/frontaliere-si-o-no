@@ -15,6 +15,7 @@ const PROOF_KINDS = new Set([
   'portal_success_page',
   'candidate_handoff_link',
   'employer_acknowledgement',
+  'portal_application_exists',
   'owner_confirmation',
   'candidate_confirmation',
 ]);
@@ -64,6 +65,13 @@ function referenceFor(proofKind, evidence) {
     case 'employer_acknowledgement': {
       const receivedAt = Number(evidence.receivedAt);
       return Number.isSafeInteger(receivedAt) && receivedAt > 0 ? sha256([proofKind, receivedAt]) : null;
+    }
+    case 'portal_application_exists': {
+      // The portal's own «application exists» page for the order's vacancy: host, page route and vacancy id.
+      const host = String(evidence.host || '').trim().toLowerCase();
+      const pagePath = String(evidence.pagePath || '').trim();
+      const vacancyId = String(evidence.vacancyId || '').trim();
+      return host && pagePath.startsWith('/') && /^\d{1,64}$/.test(vacancyId) ? sha256([proofKind, host, pagePath, vacancyId]) : null;
     }
     case 'owner_confirmation': {
       const via = String(evidence.via || '').trim();

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-11-27T09:19:44.104Z",
-  "runId": "45970557697",
+  "assembledAt": "2026-11-27T21:15:16.663Z",
+  "runId": "46067754793",
   "jobs": [
     {
       "id": "arosa-lenzerheide-726881d50d40",
@@ -35,7 +35,7 @@
       "url": "https://app.reflinejobs.io/3316/0051/pub/36/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:19:18.118Z",
+      "crawledAt": "2026-11-27T21:15:07.976Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       },
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:19:18.118Z",
+      "validThrough": "2027-02-03T21:15:07.976Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/37/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:19:17.585Z",
+      "crawledAt": "2026-11-27T21:15:07.393Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -139,7 +139,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0012",
-      "firstSeenAt": "2026-07-12T22:16:25.136Z",
+      "previousSlugs": [
+        "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
@@ -151,9 +153,7 @@
           "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
         ]
       },
-      "previousSlugs": [
-        "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
-      ],
+      "firstSeenAt": "2026-07-12T22:16:25.136Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:19:17.585Z",
+      "validThrough": "2027-02-24T21:15:07.393Z",
       "validThroughSource": "last-observed-window"
     }
   ]

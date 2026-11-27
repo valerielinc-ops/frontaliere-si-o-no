@@ -10,7 +10,6 @@
  *   because the runtime uses ADC.
  */
 
-import { RecaptchaEnterpriseServiceClient } from '@google-cloud/recaptcha-enterprise';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 
 const VALID_ACTIONS = new Set([
@@ -38,8 +37,10 @@ const ACTION_THRESHOLDS = {
 };
 
 let cachedClient = null;
-function getClient() {
+// Loaded on the first assessment: the gRPC client is ~30 MB resident and most functions never assess a token.
+async function getClient() {
   if (!cachedClient) {
+    const { RecaptchaEnterpriseServiceClient } = await import('@google-cloud/recaptcha-enterprise');
     cachedClient = new RecaptchaEnterpriseServiceClient();
   }
   return cachedClient;
@@ -58,7 +59,7 @@ async function getSiteKey() {
  * @returns {Promise<{valid: boolean, score: number|null, reasons: string[], invalidReason?: string, actionMismatch?: boolean}>}
  */
 export async function createAssessment({ token, expectedAction, projectId, siteKey }) {
-  const client = getClient();
+  const client = await getClient();
   const projectPath = client.projectPath(projectId);
 
   const [response] = await client.createAssessment({
