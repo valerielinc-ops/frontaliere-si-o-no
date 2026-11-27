@@ -73,11 +73,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://lsi.wd3.myworkdayjobs.com/en/arxada_careers/job/ch---visp/fachperson-arbeitssicherheit-und-umweltschutz_r54093",
-    "firstSeenAt": "2026-10-23T09:41:56.111Z",
+    "firstSeenAt": "2026-10-22T21:35:36.126Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://lsi.wd3.myworkdayjobs.com/en/arxada_careers/job/ch---visp/fachperson-arbeitssicherheit-und-umweltschutz_r54093",
-        "firstSeenAt": "2026-10-23T09:41:56.111Z",
+        "firstSeenAt": "2026-10-22T21:35:36.126Z",
         "title": "Fachperson Arbeitssicherheit und Umweltschutz"
       },
       {
@@ -258,19 +258,22 @@
         "responsabile-della-produzione-e-ingegneria-di-produzione-arxada-visp": "VS",
         "chemical-manufacturing-manager-production-engineering-arxada-ch": "VS",
         "produktionsingenieur-in-mit-entwicklungsperspektive-fuhrung-gasbetriebe-visp-arxada-ch": "VS",
-        "responsabile-della-produzione-ingegneria-della-produzione-arxada-visp": "VS"
+        "responsabile-della-produzione-ingegneria-della-produzione-arxada-visp": "VS",
+        "responsabile-di-produzione-e-ingegneria-di-produzione-arxada-visp": "VS"
       },
       "en": {
         "manufacturing-manager-production-engineering-arxada-ch": "VS",
         "produktionsingenieur-in-mit-entwicklungsperspektive-fuhrung-gasbetriebe-visp-arxada-visp": "VS"
       },
       "de": {
-        "manufacturing-manager-production-engineering-arxada-ch": "VS"
+        "manufacturing-manager-production-engineering-arxada-ch": "VS",
+        "fertigungsleiter-produktionstechnik-arxada-visp": "VS"
       },
       "fr": {
         "manufacturing-manager-production-engineering-arxada-ch": "VS",
         "directeur-de-fabrication-et-genie-de-production-arxada-visp": "VS",
-        "produktionsingenieur-in-mit-entwicklungsperspektive-fuhrung-gasbetriebe-visp-arxada-visp": "VS"
+        "produktionsingenieur-in-mit-entwicklungsperspektive-fuhrung-gasbetriebe-visp-arxada-visp": "VS",
+        "responsable-de-fabrication-et-ingenierie-de-production-arxada-visp": "VS"
       }
     }
   },
@@ -339,7 +342,8 @@
     "previousSlugCantonByLocale": {
       "it": {
         "elektroinstallateur-automatiker-in-ab-august-2027-arxada-ch": "VS",
-        "lehrstelle-als-elektroinstallateur-in-efz-in-ab-august-2027-arxada-ch": "VS"
+        "lehrstelle-als-elektroinstallateur-in-efz-in-ab-august-2027-arxada-ch": "VS",
+        "elektroinstallateur-automatiker-in-ab-august-2026-arxada-visp": "VS"
       },
       "en": {
         "elektroinstallateur-automatiker-in-ab-august-2027-arxada-visp": "VS",
@@ -465,7 +469,14 @@
     "canton": "VS",
     "previousSlugCantonByLocale": {
       "it": {
-        "laborant-in-online-prozessanalytik-arxada-ch": "VS"
+        "laborant-in-online-prozessanalytik-arxada-ch": "VS",
+        "laborant-in-online-prozessanalytik-arxada-visp": "VS"
+      },
+      "de": {
+        "labor-in-online-prozessanalytik-arxada-visp": "VS"
+      },
+      "fr": {
+        "laborant-in-online-prozessanalytik-arxada-visp": "VS"
       }
     }
   },
