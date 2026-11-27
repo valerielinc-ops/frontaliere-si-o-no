@@ -649,7 +649,21 @@
         "firstSeenAt": "2026-08-28T05:19:23.816Z",
         "title": "Assistant·e médical·e"
       }
-    ]
+    ],
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-medical-e-gmo-ch": "GE",
+        "assistant-e-medical-e-gmo-ch-2": "GE",
+        "assistant-e-medical-e-gmo-1201-geneve-88ab010d": "GE"
+      },
+      "de": {
+        "assistant-e-medical-e-gmo-ch-2": "GE"
+      },
+      "fr": {
+        "assistant-e-medical-e-gmo-ch": "GE"
+      }
+    }
   },
   {
     "slug": "farmaceutici-gmo-1213-onex-69ead8a8",
@@ -692,7 +706,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.arsante.ch/emploi/pharmacien-ne-92",
-    "firstSeenAt": "2026-09-29T21:15:39.482Z"
+    "firstSeenAt": "2026-09-29T21:15:39.482Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pharmacien-ne-gmo-1213-onex-69ead8a8": "GE"
+      }
+    }
   },
   {
     "slug": "specialista-in-medicina-interna-generale-fmh-gmo-1212-grand-lancy",
@@ -746,7 +766,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
-    "firstSeenAt": "2026-09-05T22:49:33.943Z"
+    "firstSeenAt": "2026-09-05T22:49:33.943Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialiste-en-medecine-interne-generale-fmh-gmo-ch": "GE",
+        "specialiste-en-medecine-interne-generale-fmh-gmo-1212-grand-lancy-8e31a9f8": "GE"
+      },
+      "en": {
+        "specialiste-en-medecine-interne-generale-fmh-gmo-ch": "GE"
+      },
+      "de": {
+        "specialiste-en-medecine-interne-generale-fmh-gmo-ch": "GE"
+      },
+      "fr": {
+        "specialiste-en-medecine-interne-generale-fmh-gmo-ch": "GE"
+      }
+    }
   },
   {
     "slug": "un-infermiera-d-emergenza-gmo-1213-onex-45ad69cc",
@@ -789,7 +825,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88",
-    "firstSeenAt": "2026-09-29T21:15:39.482Z"
+    "firstSeenAt": "2026-09-29T21:15:39.482Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-1213-onex-45ad69cc": "GE"
+      }
+    }
   },
   {
     "slug": "coordinatore-gmo-lugano",
@@ -843,7 +885,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.arsante.ch/emploi/coordinateur-rice-99",
-    "firstSeenAt": "2026-08-31T17:06:03.377Z"
+    "firstSeenAt": "2026-08-31T17:06:03.377Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "coordinateur-rice-gmo-ch": "GE",
+        "coordinateur-rice-gmo-1217-meyrin-91ba1140": "GE"
+      },
+      "en": {
+        "coordinateur-rice-gmo-ch": "GE"
+      },
+      "de": {
+        "coordinateur-rice-gmo-ch": "GE"
+      },
+      "fr": {
+        "coordinateur-rice-gmo-ch": "GE"
+      }
+    }
   },
   {
     "slug": "junior-lavoratore-gmo-lugano",
@@ -897,7 +955,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
-    "firstSeenAt": "2026-08-28T05:19:24.134Z"
+    "firstSeenAt": "2026-08-28T05:19:24.134Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conducteur-rice-de-travaux-junior-gmo-ch": "GE",
+        "conducteur-rice-de-travaux-junior-gmo-1213-onex-f1bf9caf": "GE"
+      },
+      "en": {
+        "conducteur-rice-de-travaux-junior-gmo-ch": "GE"
+      },
+      "de": {
+        "conducteur-rice-de-travaux-junior-gmo-ch": "GE"
+      },
+      "fr": {
+        "conducteur-rice-de-travaux-junior-gmo-ch": "GE"
+      }
+    }
   },
   {
     "slug": "farmaceutici-gmo-lugano",
