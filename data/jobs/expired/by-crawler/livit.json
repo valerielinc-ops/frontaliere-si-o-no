@@ -777,16 +777,14 @@
     "slugByLocale": {
       "it": "responsabile-di-team-per-la-gestione-livit-ag-zurich",
       "en": "team-leader-property-management-livit-ag-zurich",
-      "de": "teamleiter-in-bewirtschaftung-livit-zurich",
+      "de": "teamleiter-in-bewirtschaftung-livit-zurich-5189d08f",
       "fr": "responsable-d-equipe-en-gestion-livit-ag-zurich"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-19T10:22:28.114Z",
-    "previousSlugs": [
-      "teamleiter-in-bewirtschaftung-livit-zurich"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "teamleiter-in-bewirtschaftung-livit-zurich-5189d08f",
         "teamleiter-in-bewirtschaftung-livit-zurich"
       ],
       "en": [
@@ -794,6 +792,9 @@
       ],
       "fr": [
         "teamleiter-in-bewirtschaftung-livit-zurich"
+      ],
+      "de": [
+        "teamleiter-in-bewirtschaftung-livit-zurich-5189d08f"
       ]
     },
     "postalCode": "8001",
@@ -819,15 +820,21 @@
     "canton": "ZH",
     "previousSlugCantonByLocale": {
       "it": {
-        "teamleiter-in-bewirtschaftung-livit-zurich": "ZH"
+        "teamleiter-in-bewirtschaftung-livit-zurich-5189d08f": "ZH"
       },
       "en": {
         "teamleiter-in-bewirtschaftung-livit-zurich": "ZH"
       },
       "fr": {
         "teamleiter-in-bewirtschaftung-livit-zurich": "ZH"
+      },
+      "de": {
+        "teamleiter-in-bewirtschaftung-livit-zurich-5189d08f": "ZH"
       }
-    }
+    },
+    "previousSlugs": [
+      "teamleiter-in-bewirtschaftung-livit-zurich"
+    ]
   },
   {
     "slug": "gestore-trice-di-immobili-commerciali-livit-ag-zurich",

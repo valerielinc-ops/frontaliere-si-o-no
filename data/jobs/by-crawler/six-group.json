@@ -1,7 +1,7 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-11-27T09:36:07.091Z",
-  "runId": "45973230963",
+  "assembledAt": "2026-11-27T21:47:34.990Z",
+  "runId": "46069898153",
   "jobs": [
     {
       "id": "six-group-807ea9f09409",
@@ -35,7 +35,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Settlement-%2880%29/1391925233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:59.998Z",
+      "crawledAt": "2026-11-27T21:47:27.859Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -93,9 +93,8 @@
       },
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:35:59.998Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/olten-specialist-settlement-%2880%29/1391925233"
+      "validThrough": "2026-12-30T21:47:27.859Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-c90980c3db3a",
@@ -128,7 +127,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Observability-Engineer-%2880-100%29/1293318201/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:58.974Z",
+      "crawledAt": "2026-11-27T21:47:26.428Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -173,9 +172,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:35:58.974Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-senior-observability-engineer-%2880-100%29/1293318201"
+      "validThrough": "2026-12-31T21:47:26.428Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-a327bb3e8d69",
@@ -208,7 +206,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Index-Customer-Administration-Specialist/1432224333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:58.363Z",
+      "crawledAt": "2026-11-27T21:47:25.784Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -243,9 +241,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:35:58.363Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-index-customer-administration-specialist/1432224333"
+      "validThrough": "2026-12-29T21:47:25.784Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-4a6ec905243c",
@@ -278,7 +275,7 @@
       "url": "https://jobs.six-group.com/job/Geneva-Senior-Sales-&-Account-Managerin-Banking-Romandie-%2880-100%29/1433979833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:56.549Z",
+      "crawledAt": "2026-11-27T21:47:24.382Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -329,9 +326,8 @@
       },
       "streetAddress": "Genf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:35:56.549Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/geneva-senior-sales-&-account-managerin-banking-romandie-%2880-100%29/1433979833"
+      "validThrough": "2027-01-01T21:47:24.382Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-f9e9b0e73a4f",
@@ -365,7 +361,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-PAM-&-Secrets-Management-Engineer-%2880-100%29/1445127533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:52.774Z",
+      "crawledAt": "2026-11-27T21:47:21.032Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -400,9 +396,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:35:52.774Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-senior-pam-&-secrets-management-engineer-%2880-100%29/1445127533"
+      "validThrough": "2027-01-05T21:47:21.032Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-b90716ab71da",
@@ -435,7 +430,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Product-Manager-International-Custody-%2880-100%29/1455165933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:51.385Z",
+      "crawledAt": "2026-11-27T21:47:19.213Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -484,9 +479,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:35:51.385Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-senior-product-manager-international-custody-%2880-100%29/1455165933"
+      "validThrough": "2027-02-04T21:47:19.213Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-3c53f2b232cf",
@@ -520,7 +514,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-%28Senior%29-IAM-Business-Analyst-%2880-100%29/1436066033/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:49.542Z",
+      "crawledAt": "2026-11-27T21:47:17.764Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -573,9 +567,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:35:49.542Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-%28senior%29-iam-business-analyst-%2880-100%29/1436066033"
+      "validThrough": "2026-12-27T21:47:17.764Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-aea7657d2fe4",
@@ -609,7 +602,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Sachbearbeiterin-Registerschuldbriefe-%28100%29/1455594133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:48.914Z",
+      "crawledAt": "2026-11-27T21:47:17.142Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -658,9 +651,8 @@
       },
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:35:48.914Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/olten-sachbearbeiterin-registerschuldbriefe-%28100%29/1455594133"
+      "validThrough": "2027-02-07T21:47:17.142Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-0e2f0652e70c",
@@ -694,7 +686,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Regulatory-Data-Analyst-%2880-100%29/1446600433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:46.332Z",
+      "crawledAt": "2026-11-27T21:47:14.511Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -729,91 +721,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:35:46.332Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-regulatory-data-analyst-%2880-100%29/1446600433"
-    },
-    {
-      "id": "six-group-bfd0e98b8d6d",
-      "slug": "gestione-delle-applicazioni-80-100-six-group-olten",
-      "slugByLocale": {
-        "it": "gestione-delle-applicazioni-80-100-six-group-olten",
-        "en": "application-manager-80-100-six-group-olten",
-        "de": "application-manager-80-100-six-group-olten",
-        "fr": "gestionnaire-des-demandes-80-100-six-group-olten"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Application Manager (80-100%)",
-      "titleByLocale": {
-        "it": "Gestione delle applicazioni (80-100%)",
-        "en": "Application Manager (80-100%)",
-        "de": "Manager für Anwendungen (80-100%)",
-        "fr": "Gestionnaire des demandes (80-100%)"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nApplication Manager (80-100%)\n\nOlten |  Working from home up to 40% | Reference 8292\n\nAre you passionate about application and service management in a business-critical environment? Do you enjoy working with diverse stakeholders, taking ownership, and driving continuous improvement? As part of our application services team located in Olten, you will manage and enhance applications and services that support SIX post-trading activities. Working closely with business stakeholders, IT teams, and external partners, you will help deliver reliable, secure, and scalable solutions, while ensuring stable operations, high service quality, and continuous improvement. This role requires you to work onsite three days per week in our Olten office, with the option of working one day in Zurich office.\n\nWhat You Will Do\n\n• Manage and evolve business-critical applications and services in the SIX post-trading area, primarily covering compliance applications (KYC, AML and sanctions screening), automation (RPA), and additional services, ensuring reliable and efficient IT operations.\n\n• Take ownership of the application and service lifecycle, including operations, maintenance, upgrades, incident resolution, and continuous service improvements to ensure stable and reliable services.\n\n• Ensure adherence to security, compliance, regulatory, and IT guidelines across the responsible applications and services.\n\n• Coordinate releases, technical changes, and cross-functional initiatives, while maintaining application documentation and fostering effective collaboration across business, IT, internal teams, and external partners.\n\nWhat You Bring\n\n• Strong experience in application and service management for business-critical applications, including the integration and management of third-party products.\n\n• Proven ability to manage the full application and service lifecycle, ensuring stable operations, technical roadmaps, maintenance, upgrades, and continuous service improvements in complex enterprise environments.\n\n• Solid operational experience in Java-based enterprise applications, Linux platforms, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka, and Tomcat including Log Analysis & Troubleshooting.\n\n• Strong understanding of security, compliance, vulnerability management, and secure system integration, with the ability to ensure services meet enterprise and regulatory requirements.\n\n• Excellent stakeholder management, ownership, and communication skills, with the ability to coordinate across business, IT teams, and external vendors to drive initiatives and operational excellence.\n\n• Strong proficiency in English; German is a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nGestione delle applicazioni (80-100%)\n\nOlten | Lavorare da casa fino al 40% | Riferimento 8292\n\nSei appassionato di applicazione e gestione dei servizi in un ambiente business-critical? Ti piace lavorare con diversi stakeholder, prendere la proprietà e migliorare continuamente? Nell'ambito del nostro team di servizi applicativi situato a Olten, gestirete e migliorare applicazioni e servizi che supportano le attività post-trading SIX. Lavorando a stretto contatto con gli stakeholder aziendali, i team IT e i partner esterni, vi aiuterà a fornire soluzioni affidabili, sicure e scalabili, garantendo operazioni stabili, alta qualità dei servizi e miglioramento continuo. Questo ruolo richiede di lavorare in loco tre giorni alla settimana nel nostro ufficio Olten, con la possibilità di lavorare un giorno in ufficio di Zurigo.\n\nCosa farai\n\n• Gestire ed evolvere applicazioni e servizi business-critical nell'area post-trading SIX, principalmente coprendo applicazioni di conformità (KYC, AML e screening sanzioni), l'automazione (RPA), e servizi aggiuntivi, garantendo operazioni IT affidabili ed efficienti.\n\n• Assumere la proprietà del ciclo di vita dell'applicazione e del servizio, comprese operazioni, manutenzione, aggiornamenti, risoluzione degli incidenti e miglioramenti continui del servizio per garantire servizi stabili e affidabili.\n\n• Assicurare l'adesione alle linee guida di sicurezza, conformità, regolamentazione e IT nelle applicazioni e nei servizi responsabili.\n\n• Coordinate release, modifiche tecniche e iniziative interfunzionali, mantenendo la documentazione delle applicazioni e promuovendo una collaborazione efficace tra business, IT, team interni e partner esterni.\n\nChe cosa porta\n\n• Forte esperienza nella gestione delle applicazioni e dei servizi per applicazioni business-critical, tra cui l'integrazione e la gestione dei prodotti di terze parti.\n\n• Prova capacità di gestire il ciclo di vita completo dell'applicazione e del servizio, garantendo operazioni stabili, roadmap tecniche, manutenzione, aggiornamenti e miglioramenti continui del servizio in ambienti aziendali complessi.\n\n• Esperienza operativa solida nelle applicazioni aziendali basate su Java, piattaforme Linux, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka e Tomcat tra cui Log Analysis & Troubleshooting.\n\n• Forte comprensione della sicurezza, della conformità, della gestione delle vulnerabilità e dell'integrazione sicura del sistema, con la capacità di garantire i servizi soddisfano i requisiti aziendali e normativi.\n\n• Ottima gestione, proprietà e capacità di comunicazione degli stakeholder, con la capacità di coordinare le aziende, i team IT e i fornitori esterni per guidare iniziative ed eccellenza operativa.\n\n• Forte competenza in inglese; il tedesco è un plus.\n\nSe hai domande, controlla la nostra pagina FAQ o chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nApplication Manager (80-100%)\n\nOlten | Working from home up to 40% | Reference 8292\n\nAre you passionate about application and service management in a business-critical environment? Do you enjoy working with diverse stakeholders, taking ownership, and driving continuous improvement? As part of our application services team located in Olten, you will manage and enhance applications and services that support SIX post-trading activities. Working closely with business stakeholders, IT teams, and external partners, you will help deliver reliable, secure, and scalable solutions, while ensuring stable operations, high service quality, and continuous improvement. This role requires you to work onsite three days per week in our Olten office, with the option of working one day in Zurich office.\n\nWhat You Will Do\n\n• Manage and evolve business-critical applications and services in the SIX post-trading area, primarily covering compliance applications (KYC, AML and sanctions screening), automation (RPA), and additional services, ensuring reliable and efficient IT operations.\n\n• Take ownership of the application and service lifecycle, including operations, maintenance, upgrades, incident resolution, and continuous service improvements to ensure stable and reliable services.\n\n• Ensure adherence to security, compliance, regulatory, and IT guidelines across the responsible applications and services.\n\n• Coordinate releases, technical changes, and cross-functional initiatives, while maintaining application documentation and fostering effective collaboration across business, IT, internal teams, and external partners.\n\nWhat You Bring\n\n• Strong experience in application and service management for business-critical applications, including the integration and management of third-party products.\n\n• Proven ability to manage the full application and service lifecycle, ensuring stable operations, technical roadmaps, maintenance, upgrades, and continuous service improvements in complex enterprise environments.\n\n• Solid operational experience in Java-based enterprise applications, Linux platforms, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka, and Tomcat including Log Analysis & Troubleshooting.\n\n• Strong understanding of security, compliance, vulnerability management, and secure system integration, with the ability to ensure services meet enterprise and regulatory requirements.\n\n• Excellent stakeholder management, ownership, and communication skills, with the ability to coordinate across business, IT teams, and external vendors to drive initiatives and operational excellence.\n\n• Strong proficiency in English; German is a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nApplication Manager (80-100%)\n\nOlten | Arbeiten von zu Hause bis zu 40% | Referenz 8292\n\nSie interessieren sich für Anwendungs- und Servicemanagement in einem geschäftskritischen Umfeld? Arbeiten Sie gerne mit verschiedenen Stakeholdern zusammen, übernehmen Verantwortung und fördern kontinuierliche Verbesserungen? Als Teil unseres Application Services Teams mit Sitz in Olten verwalten und verbessern Sie Anwendungen und Services, die SIX Post-Trading-Aktivitäten unterstützen. In enger Zusammenarbeit mit Geschäftsinteressenten, IT-Teams und externen Partnern helfen Sie, zuverlässige, sichere und skalierbare Lösungen zu liefern und gleichzeitig einen stabilen Betrieb, eine hohe Servicequalität und kontinuierliche Verbesserung zu gewährleisten. Diese Rolle erfordert, dass Sie drei Tage pro Woche in unserem Büro in Olten arbeiten, mit der Option, einen Tag im Büro in Zürich zu arbeiten.\n\nWas Sie tun werden\n\n• Verwalten und entwickeln Sie geschäftskritische Anwendungen und Services im Post-Trading-Bereich von SIX, die hauptsächlich Compliance-Anwendungen (KYC, AML und Sanktions-Screening), Automatisierung (RPA) und zusätzliche Services abdecken, um einen zuverlässigen und effizienten IT-Betrieb zu gewährleisten.\n\n• Übernehmen Sie die Verantwortung für den Anwendungs- und Servicelebenszyklus, einschließlich Betrieb, Wartung, Upgrades, Incident Resolution und kontinuierlichen Serviceverbesserungen, um stabile und zuverlässige Dienste zu gewährleisten.\n\n• Gewährleistung der Einhaltung von Sicherheits-, Compliance-, Regulierungs- und IT-Richtlinien für die verantwortlichen Anwendungen und Dienste.\n\n• Koordinieren Sie Releases, technische Änderungen und funktionsübergreifende Initiativen, während Sie die Anwendungsdokumentation pflegen und eine effektive Zusammenarbeit zwischen Unternehmen, IT, internen Teams und externen Partnern fördern.\n\nWas du mitbringst\n\n• Starke Erfahrung im Anwendungs- und Servicemanagement für geschäftskritische Anwendungen, einschließlich der Integration und Verwaltung von Produkten von Drittanbietern.\n\n• Bewährte Fähigkeit, den gesamten Anwendungs- und Servicelebenszyklus zu verwalten und so stabile Abläufe, technische Roadmaps, Wartung, Upgrades und kontinuierliche Serviceverbesserungen in komplexen Unternehmensumgebungen zu gewährleisten.\n\n• Solide Betriebserfahrung in Java-basierten Unternehmensanwendungen, Linux-Plattformen, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka und Tomcat einschließlich Log Analysis & Troubleshooting.\n\n• Starkes Verständnis von Sicherheit, Compliance, Schwachstellenmanagement und sicherer Systemintegration mit der Fähigkeit, sicherzustellen, dass Services die unternehmensspezifischen und regulatorischen Anforderungen erfüllen.\n\n• Exzellentes Stakeholder-Management, Eigentümerschaft und Kommunikationsfähigkeiten mit der Fähigkeit, sich zwischen Unternehmen, IT-Teams und externen Anbietern zu koordinieren, um Initiativen und operative Exzellenz voranzutreiben.\n\n• Starke Englischkenntnisse; Deutsch ist ein Plus.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nGestionnaire des demandes (80-100%)\n\nOlten.. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n\nÊtes-vous passionné par la gestion des applications et des services dans un environnement critique pour les entreprises? Aimez-vous travailler avec divers intervenants, prendre en main et stimuler l'amélioration continue? Dans le cadre de notre équipe de services d'applications située à Olten, vous gérerez et améliorerez les applications et les services qui soutiennent les activités de SIX post-trading. En étroite collaboration avec les parties prenantes, les équipes informatiques et les partenaires externes, vous aiderez à fournir des solutions fiables, sûres et évolutives, tout en assurant des opérations stables, une qualité de service élevée et une amélioration continue. Ce rôle exige que vous travailliez sur place trois jours par semaine dans notre bureau d'Olten, avec la possibilité de travailler une journée à Zurich.\n\nCe que vous ferez\n\n• Gérer et développer des applications et des services essentiels aux entreprises dans le domaine de la post-trading SIX, principalement en ce qui concerne les applications de conformité (KYC, AML et contrôle des sanctions), l'automatisation (RPA) et des services supplémentaires, en assurant des opérations informatiques fiables et efficaces.\n\n• Prendre en charge le cycle de vie de l'application et du service, y compris les opérations, l'entretien, les mises à niveau, la résolution des incidents et les améliorations continues du service pour assurer des services stables et fiables.\n\n• Assurer le respect des lignes directrices en matière de sécurité, de conformité, de réglementation et de TI dans l'ensemble des applications et services responsables.\n\n• Coordonner les rejets, les changements techniques et les initiatives interfonctionnelles, tout en maintenant la documentation sur les applications et en favorisant une collaboration efficace entre les entreprises, les TI, les équipes internes et les partenaires externes.\n\nCe que vous apportez\n\n• Forte expérience dans la gestion des applications et des services pour les applications critiques pour l'entreprise, y compris l'intégration et la gestion de produits tiers.\n\n• Capacité éprouvée de gérer le cycle de vie complet de l'application et du service, en assurant des opérations stables, des feuilles de route techniques, de la maintenance, des mises à niveau et des améliorations continues du service dans des environnements d'entreprise complexes.\n\n• Solide expérience opérationnelle dans les applications d'entreprise basées sur Java, les plateformes Linux, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka et Tomcat, y compris l'analyse et le dépannage des journaux.\n\n• Une bonne compréhension de la sécurité, de la conformité, de la gestion de la vulnérabilité et de l'intégration sécuritaire des systèmes, avec la capacité d'assurer que les services répondent aux exigences de l'entreprise et de la réglementation.\n\n• Excellente capacité de gestion, d'appropriation et de communication des intervenants, avec la capacité de coordonner les activités, les équipes de TI et les fournisseurs externes pour stimuler les initiatives et l'excellence opérationnelle.\n\n• Forte maîtrise de l'anglais; l'allemand est un plus.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
-      },
-      "needsRetranslation": false,
-      "location": "Olten",
-      "canton": "SO",
-      "url": "https://jobs.six-group.com/job/Olten-Application-Manager-%2880-100%29/1456755333/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:45.292Z",
-      "addressLocality": "Olten",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4600",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-12T00:00:00Z",
-      "postedDate": "2026-11-12T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1456755333/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "application-manager-80-100-six-group-olten"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "application-manager-80-100-six-group-olten"
-        ],
-        "fr": [
-          "application-manager-80-100-six-group-olten"
-        ]
-      },
-      "firstSeenAt": "2026-11-26T10:18:30.240Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Olten",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:35:45.292Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/olten-application-manager-%2880-100%29/1456755333"
+      "validThrough": "2027-01-11T21:47:14.511Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-f3f4e5eac767",
@@ -847,7 +756,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Cyber-Security-%2880-100%29/1456953033/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:44.226Z",
+      "crawledAt": "2026-11-27T21:47:13.126Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -895,9 +804,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:35:44.226Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-head-cyber-security-%2880-100%29/1456953033"
+      "validThrough": "2027-02-10T21:47:13.126Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-9d0d6d03be50",
@@ -931,7 +839,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Cyber-Controls/1456951433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:43.594Z",
+      "crawledAt": "2026-11-27T21:47:12.489Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -977,9 +885,89 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:35:43.594Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-head-cyber-controls/1456951433"
+      "validThrough": "2027-02-10T21:47:12.489Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "six-group-bfd0e98b8d6d",
+      "slug": "gestione-delle-applicazioni-80-100-six-group-olten",
+      "slugByLocale": {
+        "it": "gestione-delle-applicazioni-80-100-six-group-olten",
+        "en": "application-manager-80-100-six-group-olten",
+        "de": "application-manager-80-100-six-group-olten",
+        "fr": "gestionnaire-des-demandes-80-100-six-group-olten"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Application Manager (80-100%)",
+      "titleByLocale": {
+        "it": "Gestione delle applicazioni (80-100%)",
+        "en": "Application Manager (80-100%)",
+        "de": "Manager für Anwendungen (80-100%)",
+        "fr": "Gestionnaire des demandes (80-100%)"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nApplication Manager (80-100%)\n\nOlten |  Working from home up to 40% | Reference 8292\n\nAre you passionate about application and service management in a business-critical environment? Do you enjoy working with diverse stakeholders, taking ownership, and driving continuous improvement? As part of our application services team located in Olten, you will manage and enhance applications and services that support SIX post-trading activities. Working closely with business stakeholders, IT teams, and external partners, you will help deliver reliable, secure, and scalable solutions, while ensuring stable operations, high service quality, and continuous improvement. This role requires you to work onsite three days per week in our Olten office, with the option of working one day in Zurich office.\n\nWhat You Will Do\n\n• Manage and evolve business-critical applications and services in the SIX post-trading area, primarily covering compliance applications (KYC, AML and sanctions screening), automation (RPA), and additional services, ensuring reliable and efficient IT operations.\n\n• Take ownership of the application and service lifecycle, including operations, maintenance, upgrades, incident resolution, and continuous service improvements to ensure stable and reliable services.\n\n• Ensure adherence to security, compliance, regulatory, and IT guidelines across the responsible applications and services.\n\n• Coordinate releases, technical changes, and cross-functional initiatives, while maintaining application documentation and fostering effective collaboration across business, IT, internal teams, and external partners.\n\nWhat You Bring\n\n• Strong experience in application and service management for business-critical applications, including the integration and management of third-party products.\n\n• Proven ability to manage the full application and service lifecycle, ensuring stable operations, technical roadmaps, maintenance, upgrades, and continuous service improvements in complex enterprise environments.\n\n• Solid operational experience in Java-based enterprise applications, Linux platforms, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka, and Tomcat including Log Analysis & Troubleshooting.\n\n• Strong understanding of security, compliance, vulnerability management, and secure system integration, with the ability to ensure services meet enterprise and regulatory requirements.\n\n• Excellent stakeholder management, ownership, and communication skills, with the ability to coordinate across business, IT teams, and external vendors to drive initiatives and operational excellence.\n\n• Strong proficiency in English; German is a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nGestione delle applicazioni (80-100%)\n\nOlten | Lavorare da casa fino al 40% | Riferimento 8292\n\nSei appassionato di applicazione e gestione dei servizi in un ambiente business-critical? Ti piace lavorare con diversi stakeholder, prendere la proprietà e migliorare continuamente? Nell'ambito del nostro team di servizi applicativi situato a Olten, gestirete e migliorare applicazioni e servizi che supportano le attività post-trading SIX. Lavorando a stretto contatto con gli stakeholder aziendali, i team IT e i partner esterni, vi aiuterà a fornire soluzioni affidabili, sicure e scalabili, garantendo operazioni stabili, alta qualità dei servizi e miglioramento continuo. Questo ruolo richiede di lavorare in loco tre giorni alla settimana nel nostro ufficio Olten, con la possibilità di lavorare un giorno in ufficio di Zurigo.\n\nCosa farai\n\n• Gestire ed evolvere applicazioni e servizi business-critical nell'area post-trading SIX, principalmente coprendo applicazioni di conformità (KYC, AML e screening sanzioni), l'automazione (RPA), e servizi aggiuntivi, garantendo operazioni IT affidabili ed efficienti.\n\n• Assumere la proprietà del ciclo di vita dell'applicazione e del servizio, comprese operazioni, manutenzione, aggiornamenti, risoluzione degli incidenti e miglioramenti continui del servizio per garantire servizi stabili e affidabili.\n\n• Assicurare l'adesione alle linee guida di sicurezza, conformità, regolamentazione e IT nelle applicazioni e nei servizi responsabili.\n\n• Coordinate release, modifiche tecniche e iniziative interfunzionali, mantenendo la documentazione delle applicazioni e promuovendo una collaborazione efficace tra business, IT, team interni e partner esterni.\n\nChe cosa porta\n\n• Forte esperienza nella gestione delle applicazioni e dei servizi per applicazioni business-critical, tra cui l'integrazione e la gestione dei prodotti di terze parti.\n\n• Prova capacità di gestire il ciclo di vita completo dell'applicazione e del servizio, garantendo operazioni stabili, roadmap tecniche, manutenzione, aggiornamenti e miglioramenti continui del servizio in ambienti aziendali complessi.\n\n• Esperienza operativa solida nelle applicazioni aziendali basate su Java, piattaforme Linux, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka e Tomcat tra cui Log Analysis & Troubleshooting.\n\n• Forte comprensione della sicurezza, della conformità, della gestione delle vulnerabilità e dell'integrazione sicura del sistema, con la capacità di garantire i servizi soddisfano i requisiti aziendali e normativi.\n\n• Ottima gestione, proprietà e capacità di comunicazione degli stakeholder, con la capacità di coordinare le aziende, i team IT e i fornitori esterni per guidare iniziative ed eccellenza operativa.\n\n• Forte competenza in inglese; il tedesco è un plus.\n\nSe hai domande, controlla la nostra pagina FAQ o chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nApplication Manager (80-100%)\n\nOlten | Working from home up to 40% | Reference 8292\n\nAre you passionate about application and service management in a business-critical environment? Do you enjoy working with diverse stakeholders, taking ownership, and driving continuous improvement? As part of our application services team located in Olten, you will manage and enhance applications and services that support SIX post-trading activities. Working closely with business stakeholders, IT teams, and external partners, you will help deliver reliable, secure, and scalable solutions, while ensuring stable operations, high service quality, and continuous improvement. This role requires you to work onsite three days per week in our Olten office, with the option of working one day in Zurich office.\n\nWhat You Will Do\n\n• Manage and evolve business-critical applications and services in the SIX post-trading area, primarily covering compliance applications (KYC, AML and sanctions screening), automation (RPA), and additional services, ensuring reliable and efficient IT operations.\n\n• Take ownership of the application and service lifecycle, including operations, maintenance, upgrades, incident resolution, and continuous service improvements to ensure stable and reliable services.\n\n• Ensure adherence to security, compliance, regulatory, and IT guidelines across the responsible applications and services.\n\n• Coordinate releases, technical changes, and cross-functional initiatives, while maintaining application documentation and fostering effective collaboration across business, IT, internal teams, and external partners.\n\nWhat You Bring\n\n• Strong experience in application and service management for business-critical applications, including the integration and management of third-party products.\n\n• Proven ability to manage the full application and service lifecycle, ensuring stable operations, technical roadmaps, maintenance, upgrades, and continuous service improvements in complex enterprise environments.\n\n• Solid operational experience in Java-based enterprise applications, Linux platforms, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka, and Tomcat including Log Analysis & Troubleshooting.\n\n• Strong understanding of security, compliance, vulnerability management, and secure system integration, with the ability to ensure services meet enterprise and regulatory requirements.\n\n• Excellent stakeholder management, ownership, and communication skills, with the ability to coordinate across business, IT teams, and external vendors to drive initiatives and operational excellence.\n\n• Strong proficiency in English; German is a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nApplication Manager (80-100%)\n\nOlten | Arbeiten von zu Hause bis zu 40% | Referenz 8292\n\nSie interessieren sich für Anwendungs- und Servicemanagement in einem geschäftskritischen Umfeld? Arbeiten Sie gerne mit verschiedenen Stakeholdern zusammen, übernehmen Verantwortung und fördern kontinuierliche Verbesserungen? Als Teil unseres Application Services Teams mit Sitz in Olten verwalten und verbessern Sie Anwendungen und Services, die SIX Post-Trading-Aktivitäten unterstützen. In enger Zusammenarbeit mit Geschäftsinteressenten, IT-Teams und externen Partnern helfen Sie, zuverlässige, sichere und skalierbare Lösungen zu liefern und gleichzeitig einen stabilen Betrieb, eine hohe Servicequalität und kontinuierliche Verbesserung zu gewährleisten. Diese Rolle erfordert, dass Sie drei Tage pro Woche in unserem Büro in Olten arbeiten, mit der Option, einen Tag im Büro in Zürich zu arbeiten.\n\nWas Sie tun werden\n\n• Verwalten und entwickeln Sie geschäftskritische Anwendungen und Services im Post-Trading-Bereich von SIX, die hauptsächlich Compliance-Anwendungen (KYC, AML und Sanktions-Screening), Automatisierung (RPA) und zusätzliche Services abdecken, um einen zuverlässigen und effizienten IT-Betrieb zu gewährleisten.\n\n• Übernehmen Sie die Verantwortung für den Anwendungs- und Servicelebenszyklus, einschließlich Betrieb, Wartung, Upgrades, Incident Resolution und kontinuierlichen Serviceverbesserungen, um stabile und zuverlässige Dienste zu gewährleisten.\n\n• Gewährleistung der Einhaltung von Sicherheits-, Compliance-, Regulierungs- und IT-Richtlinien für die verantwortlichen Anwendungen und Dienste.\n\n• Koordinieren Sie Releases, technische Änderungen und funktionsübergreifende Initiativen, während Sie die Anwendungsdokumentation pflegen und eine effektive Zusammenarbeit zwischen Unternehmen, IT, internen Teams und externen Partnern fördern.\n\nWas du mitbringst\n\n• Starke Erfahrung im Anwendungs- und Servicemanagement für geschäftskritische Anwendungen, einschließlich der Integration und Verwaltung von Produkten von Drittanbietern.\n\n• Bewährte Fähigkeit, den gesamten Anwendungs- und Servicelebenszyklus zu verwalten und so stabile Abläufe, technische Roadmaps, Wartung, Upgrades und kontinuierliche Serviceverbesserungen in komplexen Unternehmensumgebungen zu gewährleisten.\n\n• Solide Betriebserfahrung in Java-basierten Unternehmensanwendungen, Linux-Plattformen, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka und Tomcat einschließlich Log Analysis & Troubleshooting.\n\n• Starkes Verständnis von Sicherheit, Compliance, Schwachstellenmanagement und sicherer Systemintegration mit der Fähigkeit, sicherzustellen, dass Services die unternehmensspezifischen und regulatorischen Anforderungen erfüllen.\n\n• Exzellentes Stakeholder-Management, Eigentümerschaft und Kommunikationsfähigkeiten mit der Fähigkeit, sich zwischen Unternehmen, IT-Teams und externen Anbietern zu koordinieren, um Initiativen und operative Exzellenz voranzutreiben.\n\n• Starke Englischkenntnisse; Deutsch ist ein Plus.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nGestionnaire des demandes (80-100%)\n\nOlten.. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n\nÊtes-vous passionné par la gestion des applications et des services dans un environnement critique pour les entreprises? Aimez-vous travailler avec divers intervenants, prendre en main et stimuler l'amélioration continue? Dans le cadre de notre équipe de services d'applications située à Olten, vous gérerez et améliorerez les applications et les services qui soutiennent les activités de SIX post-trading. En étroite collaboration avec les parties prenantes, les équipes informatiques et les partenaires externes, vous aiderez à fournir des solutions fiables, sûres et évolutives, tout en assurant des opérations stables, une qualité de service élevée et une amélioration continue. Ce rôle exige que vous travailliez sur place trois jours par semaine dans notre bureau d'Olten, avec la possibilité de travailler une journée à Zurich.\n\nCe que vous ferez\n\n• Gérer et développer des applications et des services essentiels aux entreprises dans le domaine de la post-trading SIX, principalement en ce qui concerne les applications de conformité (KYC, AML et contrôle des sanctions), l'automatisation (RPA) et des services supplémentaires, en assurant des opérations informatiques fiables et efficaces.\n\n• Prendre en charge le cycle de vie de l'application et du service, y compris les opérations, l'entretien, les mises à niveau, la résolution des incidents et les améliorations continues du service pour assurer des services stables et fiables.\n\n• Assurer le respect des lignes directrices en matière de sécurité, de conformité, de réglementation et de TI dans l'ensemble des applications et services responsables.\n\n• Coordonner les rejets, les changements techniques et les initiatives interfonctionnelles, tout en maintenant la documentation sur les applications et en favorisant une collaboration efficace entre les entreprises, les TI, les équipes internes et les partenaires externes.\n\nCe que vous apportez\n\n• Forte expérience dans la gestion des applications et des services pour les applications critiques pour l'entreprise, y compris l'intégration et la gestion de produits tiers.\n\n• Capacité éprouvée de gérer le cycle de vie complet de l'application et du service, en assurant des opérations stables, des feuilles de route techniques, de la maintenance, des mises à niveau et des améliorations continues du service dans des environnements d'entreprise complexes.\n\n• Solide expérience opérationnelle dans les applications d'entreprise basées sur Java, les plateformes Linux, OpenShift, GitLab, Ansible, Oracle Database, MS SQL Server, IBM MQ, Kafka et Tomcat, y compris l'analyse et le dépannage des journaux.\n\n• Une bonne compréhension de la sécurité, de la conformité, de la gestion de la vulnérabilité et de l'intégration sécuritaire des systèmes, avec la capacité d'assurer que les services répondent aux exigences de l'entreprise et de la réglementation.\n\n• Excellente capacité de gestion, d'appropriation et de communication des intervenants, avec la capacité de coordonner les activités, les équipes de TI et les fournisseurs externes pour stimuler les initiatives et l'excellence opérationnelle.\n\n• Forte maîtrise de l'anglais; l'allemand est un plus.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+      },
+      "needsRetranslation": false,
+      "location": "Olten",
+      "canton": "SO",
+      "url": "https://jobs.six-group.com/job/Olten-Application-Manager-%2880-100%29/1456755333/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-27T21:47:11.872Z",
+      "addressLocality": "Olten",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4600",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-12T00:00:00Z",
+      "postedDate": "2026-11-12T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1456755333/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "application-manager-80-100-six-group-olten"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "application-manager-80-100-six-group-olten"
+        ],
+        "fr": [
+          "application-manager-80-100-six-group-olten"
+        ]
+      },
+      "firstSeenAt": "2026-11-26T10:18:30.240Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-10T21:47:11.872Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-fae867266ef0",
@@ -1013,7 +1001,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-CMC-Measurement-&-Insights-Lead/1447481733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:42.550Z",
+      "crawledAt": "2026-11-27T21:47:11.257Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1062,9 +1050,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:35:42.550Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-cmc-measurement-&-insights-lead/1447481733"
+      "validThrough": "2027-01-12T21:47:11.257Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-7a2c122794ec",
@@ -1098,7 +1085,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-%2880-100%29/1437516233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:41.067Z",
+      "crawledAt": "2026-11-27T21:47:08.735Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1153,9 +1140,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:35:41.067Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-senior-software-engineer-%2880-100%29/1437516233"
+      "validThrough": "2026-12-27T21:47:08.735Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-37bc86b93aaf",
@@ -1188,7 +1174,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Second-Level-Support/1438283433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:38.540Z",
+      "crawledAt": "2026-11-27T21:47:06.927Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1237,9 +1223,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:35:38.540Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-specialist-second-level-support/1438283433"
+      "validThrough": "2026-12-27T21:47:06.927Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-9db8b6a91786",
@@ -1272,7 +1257,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Operations-&-Projects-%2860%29/1458466333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:35.092Z",
+      "crawledAt": "2026-11-27T21:47:03.543Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1315,9 +1300,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:35:35.092Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-specialist-operations-&-projects-%2860%29/1458466333"
+      "validThrough": "2027-02-16T21:47:03.543Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-80964e528acc",
@@ -1351,7 +1335,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Market-Data-Sales-Manager-%2880-100%29/1458546933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:34.452Z",
+      "crawledAt": "2026-11-27T21:47:02.883Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1402,9 +1386,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:35:34.452Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-senior-market-data-sales-manager-%2880-100%29/1458546933"
+      "validThrough": "2027-02-16T21:47:02.883Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-9f89fec2cb80",
@@ -1437,7 +1420,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Young-Talents-Manager-KV-&-IT-%2860-80%29/1458309733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:33.829Z",
+      "crawledAt": "2026-11-27T21:47:02.265Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1480,9 +1463,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:35:33.829Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-young-talents-manager-kv-&-it-%2860-80%29/1458309733"
+      "validThrough": "2027-02-16T21:47:02.265Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-05b2fcdf59b6",
@@ -1516,7 +1498,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Customer-Service-Agent-%2880-100%29/1458807633/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:32.846Z",
+      "crawledAt": "2026-11-27T21:47:01.259Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1559,9 +1541,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:35:32.846Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-customer-service-agent-%2880-100%29/1458807633"
+      "validThrough": "2027-02-17T21:47:01.259Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-de01821def22",
@@ -1595,7 +1576,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-DevOps-Software-Engineer-%28Gitlab%29/1411694233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:31.371Z",
+      "crawledAt": "2026-11-27T21:47:00.225Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1629,150 +1610,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:35:31.371Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-devops-software-engineer-%28gitlab%29/1411694233"
-    },
-    {
-      "id": "six-group-856d1af21c8d",
-      "slug": "senior-web-access-management-engineer-80-100-six-group-zurich",
-      "slugByLocale": {
-        "it": "senior-web-access-management-engineer-80-100-six-group-zurich",
-        "en": "senior-web-access-management-engineer-80-100-six-group-zurich",
-        "de": "senior-web-access-management-engineer-80-100-six-group-zurich",
-        "fr": "senior-web-access-management-engineer-80-100-six-group-zurich"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "(Senior) Web Access Management Engineer 80-100%",
-      "titleByLocale": {
-        "it": "Senior Web Access Management Ingegnere 80-100%",
-        "en": "(Senior) Web Access Management Engineer 80-100%",
-        "de": "Senior Web Access Management Ingenieur 80-100%",
-        "fr": "Senior Web Access Management Ingénieur 80-100%"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\n(Senior) Web Access Management Engineer 80-100%\n\nZurich |  Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Web Access Management Engineer 80-100%\n\nZurich | Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41 583 994 236 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.\n\n<d",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\n(Senior) Web Access Management Engineer 80-100%\n\nZurich | Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Web Access Management Engineer 80-100%\n\nZurich | Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41 583 994 236 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.\n\n<d",
-        "fr": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Web Access Management Engineer 80-100%\n\nZurich | Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41 583 994 236 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.\n\n<d"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-%28Senior%29-Web-Access-Management-Engineer-80-100/1429528333/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:27.555Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23T02:00:00Z",
-      "postedDate": "2026-09-23T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1429528333/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-25T10:23:57.922Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:35:27.555Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-%28senior%29-web-access-management-engineer-80-100/1429528333"
-    },
-    {
-      "id": "six-group-5b3fec2bd9db",
-      "slug": "kubernetes-platform-engineer-80-100-six-group-zurich",
-      "slugByLocale": {
-        "it": "kubernetes-platform-engineer-80-100-six-group-zurich",
-        "en": "kubernetes-platform-engineer-80-100-six-group-zurich",
-        "de": "kubernetes-platform-engineer-80-100-six-group-zurich",
-        "fr": "kubernetes-platform-engineer-80-100-six-group-zurich"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Kubernetes Platform Engineer (80-100%)",
-      "titleByLocale": {
-        "it": "Kubernetes Platform Ingegnere (80-100%)",
-        "en": "Kubernetes Platform Engineer (80-100%)",
-        "de": "Kubernetes Platform Ingenieur (80-100%)",
-        "fr": "Kubernetes Platform Ingénieur (80-100%)"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nKubernetes Platform Engineer (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8316\n\nAre you passionate about cloud-native technologies and eager to make an impact at scale? Join our Container Platforms team in Spain and Switzerland, where you'll help drive and innovate global Kubernetes platforms across on-premises and public cloud environments. Working in a collaborative and agile team, you will support critical financial infrastructure, including payment systems, interbank clearing and stock exchange services. Your work will directly contribute to systems relied upon by millions of people every day while leveraging the latest technologies.\n\nWhat You Will Do\n\n• Manage and enhance Kubernetes platforms (OpenShift & AKS), focusing on automation, security, connectivity, and observability.\n\n• Operate and support Kubernetes environments, including customer requests and on-call troubleshooting.\n\n• Contribute to company-wide projects as a Kubernetes and cloud-native technology expert.\n\n• Drive platform automation using Ansible Automation Platform (AAP) and Infrastructure as Code practices.\n\n• Share knowledge and promote best practices to continuously improve platform capabilities.\n\nWhat You Bring\n\n• Completed IT apprenticeship, vocational training, bachelor's degree, or equivalent qualification.\n\n• 3+ years of experience with Kubernetes and cloud-native technologies in public or private cloud environments.\n\n• Hands-on experience with AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus, and Elastic.\n\n• Experience in Kubernetes platform engineering, operations, or related infrastructure roles.\n\n• Strong communication and problem-solving skills, with fluent English; German or Spanish is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nKubernetes Platform Engineer (80-100%)\n\nZurigo | Lavorare da casa fino al 40% | Riferimento 8316\n\nSei appassionato di tecnologie cloud-native e desideroso di fare un impatto su scala? Unisciti al nostro team di Container Platforms in Spagna e Svizzera, dove potrai guidare e innovare piattaforme Kubernetes globali in ambienti cloud on-premise e pubblici. Lavorando in un team collaborativo e agile, supporterete infrastrutture finanziarie critiche, compresi i sistemi di pagamento, la compensazione interbancaria e i servizi di borsa. Il vostro lavoro contribuirà direttamente a sistemi affidati a milioni di persone ogni giorno, sfruttando le ultime tecnologie.\n\nCosa farai\n\n• Gestire e migliorare le piattaforme Kubernetes (OpenShift & AKS), concentrandosi sull'automazione, la sicurezza, la connettività e l'osservabilità.\n\n• Funziona e supporta gli ambienti Kubernetes, comprese le richieste dei clienti e la risoluzione dei problemi di chiamata.\n\n• Contribuisci ai progetti aziendali come un esperto di tecnologia Kubernetes e cloud-native.\n\n• Automazione della piattaforma di trasmissione utilizzando Ansible Automation Platform (AAP) e Infrastructure come pratiche Code.\n\n• Condividere le conoscenze e promuovere le migliori pratiche per migliorare continuamente le capacità della piattaforma.\n\nChe cosa porta\n\n• Apprendistato IT completo, formazione professionale, diploma di laurea o qualifica equivalente.\n\n• 3+ anni di esperienza con Kubernetes e tecnologie cloud-native in ambienti cloud pubblici o privati.\n\n• Esperienza pratica con AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus e Elastico.\n\n• Esperienza in Kubernetes piattaforma ingegneria, operazioni o ruoli infrastrutturali correlati.\n\n• Forte comunicazione e capacità di problem solving, con fluente inglese; tedesco o spagnolo è un vantaggio.\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Julia Schmidt al numero +41583998670 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nKubernetes Platform Engineer (80-100%)\n\nZurich | Working from home up to 40% | Reference 8316\n\nAre you passionate about cloud-native technologies and eager to make an impact at scale? Join our Container Platforms team in Spain and Switzerland, where you'll help drive and innovate global Kubernetes platforms across on-premises and public cloud environments. Working in a collaborative and agile team, you will support critical financial infrastructure, including payment systems, interbank clearing and stock exchange services. Your work will directly contribute to systems relied upon by millions of people every day while leveraging the latest technologies.\n\nWhat You Will Do\n\n• Manage and enhance Kubernetes platforms (OpenShift & AKS), focusing on automation, security, connectivity, and observability.\n\n• Operate and support Kubernetes environments, including customer requests and on-call troubleshooting.\n\n• Contribute to company-wide projects as a Kubernetes and cloud-native technology expert.\n\n• Drive platform automation using Ansible Automation Platform (AAP) and Infrastructure as Code practices.\n\n• Share knowledge and promote best practices to continuously improve platform capabilities.\n\nWhat You Bring\n\n• Completed IT apprenticeship, vocational training, bachelor's degree, or equivalent qualification.\n\n• 3+ years of experience with Kubernetes and cloud-native technologies in public or private cloud environments.\n\n• Hands-on experience with AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus, and Elastic.\n\n• Experience in Kubernetes platform engineering, operations, or related infrastructure roles.\n\n• Strong communication and problem-solving skills, with fluent English; German or Spanish is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nKubernetes Platform Engineer (80-100%)\n\nZürich | Arbeiten von zu Hause bis zu 40% | Referenz 8316\n\nSie interessieren sich für Cloud-native Technologien und sind bestrebt, in großem Maßstab Einfluss zu nehmen? Treten Sie unserem Container Platforms-Team in Spanien und der Schweiz bei, wo Sie dazu beitragen, globale Kubernetes-Plattformen in lokalen und öffentlichen Cloud-Umgebungen voranzutreiben und zu innovieren. In einem kollaborativen und agilen Team unterstützen Sie wichtige Finanzinfrastrukturen, einschließlich Zahlungssysteme, Interbank-Clearing und Börsendienste. Ihre Arbeit wird direkt zu Systemen beitragen, auf die sich täglich Millionen von Menschen verlassen, während Sie die neuesten Technologien nutzen.\n\nWas Sie tun werden\n\n• Verwalten und verbessern Sie Kubernetes-Plattformen (OpenShift & AKS) mit Schwerpunkt auf Automatisierung, Sicherheit, Konnektivität und Beobachtbarkeit.\n\n• Bedienen und unterstützen Sie Kubernetes-Umgebungen, einschließlich Kundenanfragen und On-Call-Fehlerbehebung.\n\n• Tragen Sie zu unternehmensweiten Projekten als Kubernetes und Experte für Cloud-native Technologie bei.\n\n• Plattformautomatisierung mit Ansible Automation Platform (AAP) und Infrastructure as Code-Praktiken.\n\n• Wissen austauschen und Best Practices fördern, um die Plattformfähigkeiten kontinuierlich zu verbessern.\n\nWas du mitbringst\n\n• Abgeschlossene IT-Lehre, Berufsausbildung, Bachelor-Abschluss oder gleichwertige Qualifikation.\n\n• 3+ Jahre Erfahrung mit Kubernetes und Cloud-nativen Technologien in öffentlichen oder privaten Cloud-Umgebungen.\n\n• Praktische Erfahrung mit AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus und Elastic.\n\n• Erfahrung in Kubernetes Platform Engineering, Operations oder verwandten Infrastrukturrollen.\n\n• Starke Kommunikation und Problemlösungsfähigkeiten, mit fließendem Englisch; Deutsch oder Spanisch ist von Vorteil.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Julia Schmidt unter +41583998670 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nKubernetes Ingénieur plate-forme (80-100%)\n\nZurich: travail à domicile jusqu'à 40 % Référence 8316\n\nÊtes-vous passionné par les technologies cloud-natives et désireux de faire un impact à l'échelle? Rejoignez notre équipe Container Platforms en Espagne et en Suisse, où vous pourrez conduire et innover des plateformes mondiales Kubernetes à travers des environnements sur site et cloud public. En travaillant dans une équipe collaborative et agile, vous soutiendrez une infrastructure financière essentielle, y compris des systèmes de paiement, des services de compensation interbancaires et des services boursiers. Votre travail contribuera directement aux systèmes sur lesquels comptent des millions de personnes chaque jour tout en tirant parti des dernières technologies.\n\nCe que vous ferez\n\n• Gérer et améliorer les plateformes Kubernetes (OpenShift & AKS), en mettant l'accent sur l'automatisation, la sécurité, la connectivité et l'observabilité.\n\n• Fonctionnement et prise en charge des environnements Kubernetes, y compris les demandes des clients et le dépannage sur appel.\n\n• Contribuer à des projets à l'échelle de l'entreprise en tant qu'expert en technologie cloud-native Kubernetes.\n\n• Conduire l'automatisation de la plate-forme en utilisant Ansible Automation Platform (AAP) et Infrastructure comme pratiques de code.\n\n• Partager les connaissances et promouvoir les meilleures pratiques pour améliorer continuellement les capacités de la plateforme.\n\nCe que vous apportez\n\n• Apprentissage informatique, formation professionnelle, baccalauréat ou qualification équivalente.\n\n• 3+ ans d'expérience avec Kubernetes et technologies cloud-native dans des environnements cloud publics ou privés.\n\n• Expérience pratique avec AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prométhée et Elastic.\n\n• Expérience dans l'ingénierie de plateforme Kubernetes, les opérations ou les rôles d'infrastructure connexes.\n\n• Une communication forte et des compétences de résolution de problèmes, avec l'anglais couramment; l'allemand ou l'espagnol est un avantage.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Julia Schmidt au +41583998670 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-Kubernetes-Platform-Engineer-%2880-100%29/1450290133/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:26.924Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-22T00:00:00Z",
-      "postedDate": "2026-10-22T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1450290133/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-22T21:36:10.697Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:35:26.924Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-kubernetes-platform-engineer-%2880-100%29/1450290133"
+      "validThrough": "2026-12-27T21:47:00.225Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-1160a9aa14d8",
@@ -1805,7 +1644,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Messaging-Platform-Engineer%2C-Cloud-&-Containers/1419165533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:26.288Z",
+      "crawledAt": "2026-11-27T21:46:56.150Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1840,9 +1679,147 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:35:26.288Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-messaging-platform-engineer%2c-cloud-&-containers/1419165533"
+      "validThrough": "2026-12-27T21:46:56.150Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "six-group-856d1af21c8d",
+      "slug": "senior-web-access-management-engineer-80-100-six-group-zurich",
+      "slugByLocale": {
+        "it": "senior-web-access-management-engineer-80-100-six-group-zurich",
+        "en": "senior-web-access-management-engineer-80-100-six-group-zurich",
+        "de": "senior-web-access-management-engineer-80-100-six-group-zurich",
+        "fr": "senior-web-access-management-engineer-80-100-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "(Senior) Web Access Management Engineer 80-100%",
+      "titleByLocale": {
+        "it": "Senior Web Access Management Ingegnere 80-100%",
+        "en": "(Senior) Web Access Management Engineer 80-100%",
+        "de": "Senior Web Access Management Ingenieur 80-100%",
+        "fr": "Senior Web Access Management Ingénieur 80-100%"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\n(Senior) Web Access Management Engineer 80-100%\n\nZurich |  Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Web Access Management Engineer 80-100%\n\nZurich | Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41 583 994 236 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.\n\n<d",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\n(Senior) Web Access Management Engineer 80-100%\n\nZurich | Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Web Access Management Engineer 80-100%\n\nZurich | Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41 583 994 236 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.\n\n<d",
+        "fr": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Web Access Management Engineer 80-100%\n\nZurich | Working from home up to 40% | Reference 8237\n\nAre you passionate about secure web access, identity, and modern authentication technologies? Then our Web Access Management team wants to hear from you. We are a collaborative and security-focused team responsible for protecting access to business-critical web applications and APIs. Our goal is to provide stable, secure, and continuously improving access services across reverse proxy, web application firewall, and customer identity platforms. In this role, you will work closely with application teams, security architects, platform engineers, and service owners to design, operate, and enhance secure access patterns in a regulated environment.\n\nWhat You Will Do\n\n• Operate and enhance Web Access Management services, including reverse proxy, access gateway, web application firewall, and customer identity components.\n\n• Design, build, and troubleshoot secure authentication and single sign-on flows based on OpenID Connect, OAuth2, and SAML 2.0.\n\n• Configure routing, TLS certificates, access policies, authorization mappings, and upstream integrations for web applications and APIs.\n\n• Tune and maintain web application firewall policies, including OWASP Core Rule Set handling, exceptions, anomaly scoring, and change control.\n\n• Contribute to operational stability, automation, monitoring, incident response, upgrades, disaster recovery readiness, and continuous service improvement.\n\nWhat You Bring\n\n• Strong hands-on knowledge of reverse proxy or access gateway platforms, including TLS handling, routing, header and cookie management, session handling, and high-availability operations.\n\n• Practical experience with web application firewall technologies, ModSecurity, OWASP Core Rule Set, rule tuning, false-positive handling, and secure publishing patterns.\n\n• Solid understanding of customer identity and access management, identity lifecycle, multi-factor authentication, secure account recovery, token validation, and authorization models.\n\n• Good knowledge of federation and access protocols such as OpenID Connect, OAuth2, SAML 2.0, JWT, PKCE, scopes, claims, certificates, metadata, and key rotation.\n\n• Analytical, security-minded, and collaborative working style, with good communication skills; fluent English is required, German is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41 583 994 236 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.\n\n<d"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-%28Senior%29-Web-Access-Management-Engineer-80-100/1429528333/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-27T21:46:55.507Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-23T02:00:00Z",
+      "postedDate": "2026-09-23T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1429528333/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-25T10:23:57.922Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T21:46:55.507Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "six-group-5b3fec2bd9db",
+      "slug": "kubernetes-platform-engineer-80-100-six-group-zurich",
+      "slugByLocale": {
+        "it": "kubernetes-platform-engineer-80-100-six-group-zurich",
+        "en": "kubernetes-platform-engineer-80-100-six-group-zurich",
+        "de": "kubernetes-platform-engineer-80-100-six-group-zurich",
+        "fr": "kubernetes-platform-engineer-80-100-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Kubernetes Platform Engineer (80-100%)",
+      "titleByLocale": {
+        "it": "Kubernetes Platform Ingegnere (80-100%)",
+        "en": "Kubernetes Platform Engineer (80-100%)",
+        "de": "Kubernetes Platform Ingenieur (80-100%)",
+        "fr": "Kubernetes Platform Ingénieur (80-100%)"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nKubernetes Platform Engineer (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8316\n\nAre you passionate about cloud-native technologies and eager to make an impact at scale? Join our Container Platforms team in Spain and Switzerland, where you'll help drive and innovate global Kubernetes platforms across on-premises and public cloud environments. Working in a collaborative and agile team, you will support critical financial infrastructure, including payment systems, interbank clearing and stock exchange services. Your work will directly contribute to systems relied upon by millions of people every day while leveraging the latest technologies.\n\nWhat You Will Do\n\n• Manage and enhance Kubernetes platforms (OpenShift & AKS), focusing on automation, security, connectivity, and observability.\n\n• Operate and support Kubernetes environments, including customer requests and on-call troubleshooting.\n\n• Contribute to company-wide projects as a Kubernetes and cloud-native technology expert.\n\n• Drive platform automation using Ansible Automation Platform (AAP) and Infrastructure as Code practices.\n\n• Share knowledge and promote best practices to continuously improve platform capabilities.\n\nWhat You Bring\n\n• Completed IT apprenticeship, vocational training, bachelor's degree, or equivalent qualification.\n\n• 3+ years of experience with Kubernetes and cloud-native technologies in public or private cloud environments.\n\n• Hands-on experience with AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus, and Elastic.\n\n• Experience in Kubernetes platform engineering, operations, or related infrastructure roles.\n\n• Strong communication and problem-solving skills, with fluent English; German or Spanish is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nKubernetes Platform Engineer (80-100%)\n\nZurigo | Lavorare da casa fino al 40% | Riferimento 8316\n\nSei appassionato di tecnologie cloud-native e desideroso di fare un impatto su scala? Unisciti al nostro team di Container Platforms in Spagna e Svizzera, dove potrai guidare e innovare piattaforme Kubernetes globali in ambienti cloud on-premise e pubblici. Lavorando in un team collaborativo e agile, supporterete infrastrutture finanziarie critiche, compresi i sistemi di pagamento, la compensazione interbancaria e i servizi di borsa. Il vostro lavoro contribuirà direttamente a sistemi affidati a milioni di persone ogni giorno, sfruttando le ultime tecnologie.\n\nCosa farai\n\n• Gestire e migliorare le piattaforme Kubernetes (OpenShift & AKS), concentrandosi sull'automazione, la sicurezza, la connettività e l'osservabilità.\n\n• Funziona e supporta gli ambienti Kubernetes, comprese le richieste dei clienti e la risoluzione dei problemi di chiamata.\n\n• Contribuisci ai progetti aziendali come un esperto di tecnologia Kubernetes e cloud-native.\n\n• Automazione della piattaforma di trasmissione utilizzando Ansible Automation Platform (AAP) e Infrastructure come pratiche Code.\n\n• Condividere le conoscenze e promuovere le migliori pratiche per migliorare continuamente le capacità della piattaforma.\n\nChe cosa porta\n\n• Apprendistato IT completo, formazione professionale, diploma di laurea o qualifica equivalente.\n\n• 3+ anni di esperienza con Kubernetes e tecnologie cloud-native in ambienti cloud pubblici o privati.\n\n• Esperienza pratica con AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus e Elastico.\n\n• Esperienza in Kubernetes piattaforma ingegneria, operazioni o ruoli infrastrutturali correlati.\n\n• Forte comunicazione e capacità di problem solving, con fluente inglese; tedesco o spagnolo è un vantaggio.\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Julia Schmidt al numero +41583998670 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nKubernetes Platform Engineer (80-100%)\n\nZurich | Working from home up to 40% | Reference 8316\n\nAre you passionate about cloud-native technologies and eager to make an impact at scale? Join our Container Platforms team in Spain and Switzerland, where you'll help drive and innovate global Kubernetes platforms across on-premises and public cloud environments. Working in a collaborative and agile team, you will support critical financial infrastructure, including payment systems, interbank clearing and stock exchange services. Your work will directly contribute to systems relied upon by millions of people every day while leveraging the latest technologies.\n\nWhat You Will Do\n\n• Manage and enhance Kubernetes platforms (OpenShift & AKS), focusing on automation, security, connectivity, and observability.\n\n• Operate and support Kubernetes environments, including customer requests and on-call troubleshooting.\n\n• Contribute to company-wide projects as a Kubernetes and cloud-native technology expert.\n\n• Drive platform automation using Ansible Automation Platform (AAP) and Infrastructure as Code practices.\n\n• Share knowledge and promote best practices to continuously improve platform capabilities.\n\nWhat You Bring\n\n• Completed IT apprenticeship, vocational training, bachelor's degree, or equivalent qualification.\n\n• 3+ years of experience with Kubernetes and cloud-native technologies in public or private cloud environments.\n\n• Hands-on experience with AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus, and Elastic.\n\n• Experience in Kubernetes platform engineering, operations, or related infrastructure roles.\n\n• Strong communication and problem-solving skills, with fluent English; German or Spanish is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nKubernetes Platform Engineer (80-100%)\n\nZürich | Arbeiten von zu Hause bis zu 40% | Referenz 8316\n\nSie interessieren sich für Cloud-native Technologien und sind bestrebt, in großem Maßstab Einfluss zu nehmen? Treten Sie unserem Container Platforms-Team in Spanien und der Schweiz bei, wo Sie dazu beitragen, globale Kubernetes-Plattformen in lokalen und öffentlichen Cloud-Umgebungen voranzutreiben und zu innovieren. In einem kollaborativen und agilen Team unterstützen Sie wichtige Finanzinfrastrukturen, einschließlich Zahlungssysteme, Interbank-Clearing und Börsendienste. Ihre Arbeit wird direkt zu Systemen beitragen, auf die sich täglich Millionen von Menschen verlassen, während Sie die neuesten Technologien nutzen.\n\nWas Sie tun werden\n\n• Verwalten und verbessern Sie Kubernetes-Plattformen (OpenShift & AKS) mit Schwerpunkt auf Automatisierung, Sicherheit, Konnektivität und Beobachtbarkeit.\n\n• Bedienen und unterstützen Sie Kubernetes-Umgebungen, einschließlich Kundenanfragen und On-Call-Fehlerbehebung.\n\n• Tragen Sie zu unternehmensweiten Projekten als Kubernetes und Experte für Cloud-native Technologie bei.\n\n• Plattformautomatisierung mit Ansible Automation Platform (AAP) und Infrastructure as Code-Praktiken.\n\n• Wissen austauschen und Best Practices fördern, um die Plattformfähigkeiten kontinuierlich zu verbessern.\n\nWas du mitbringst\n\n• Abgeschlossene IT-Lehre, Berufsausbildung, Bachelor-Abschluss oder gleichwertige Qualifikation.\n\n• 3+ Jahre Erfahrung mit Kubernetes und Cloud-nativen Technologien in öffentlichen oder privaten Cloud-Umgebungen.\n\n• Praktische Erfahrung mit AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus und Elastic.\n\n• Erfahrung in Kubernetes Platform Engineering, Operations oder verwandten Infrastrukturrollen.\n\n• Starke Kommunikation und Problemlösungsfähigkeiten, mit fließendem Englisch; Deutsch oder Spanisch ist von Vorteil.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Julia Schmidt unter +41583998670 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nKubernetes Ingénieur plate-forme (80-100%)\n\nZurich: travail à domicile jusqu'à 40 % Référence 8316\n\nÊtes-vous passionné par les technologies cloud-natives et désireux de faire un impact à l'échelle? Rejoignez notre équipe Container Platforms en Espagne et en Suisse, où vous pourrez conduire et innover des plateformes mondiales Kubernetes à travers des environnements sur site et cloud public. En travaillant dans une équipe collaborative et agile, vous soutiendrez une infrastructure financière essentielle, y compris des systèmes de paiement, des services de compensation interbancaires et des services boursiers. Votre travail contribuera directement aux systèmes sur lesquels comptent des millions de personnes chaque jour tout en tirant parti des dernières technologies.\n\nCe que vous ferez\n\n• Gérer et améliorer les plateformes Kubernetes (OpenShift & AKS), en mettant l'accent sur l'automatisation, la sécurité, la connectivité et l'observabilité.\n\n• Fonctionnement et prise en charge des environnements Kubernetes, y compris les demandes des clients et le dépannage sur appel.\n\n• Contribuer à des projets à l'échelle de l'entreprise en tant qu'expert en technologie cloud-native Kubernetes.\n\n• Conduire l'automatisation de la plate-forme en utilisant Ansible Automation Platform (AAP) et Infrastructure comme pratiques de code.\n\n• Partager les connaissances et promouvoir les meilleures pratiques pour améliorer continuellement les capacités de la plateforme.\n\nCe que vous apportez\n\n• Apprentissage informatique, formation professionnelle, baccalauréat ou qualification équivalente.\n\n• 3+ ans d'expérience avec Kubernetes et technologies cloud-native dans des environnements cloud publics ou privés.\n\n• Expérience pratique avec AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prométhée et Elastic.\n\n• Expérience dans l'ingénierie de plateforme Kubernetes, les opérations ou les rôles d'infrastructure connexes.\n\n• Une communication forte et des compétences de résolution de problèmes, avec l'anglais couramment; l'allemand ou l'espagnol est un avantage.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Julia Schmidt au +41583998670 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-Kubernetes-Platform-Engineer-%2880-100%29/1450290133/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-27T21:46:54.875Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-22T00:00:00Z",
+      "postedDate": "2026-10-22T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1450290133/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-22T21:36:10.697Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T21:46:54.875Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-4f662f001e8f",
@@ -1876,7 +1853,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Application-Engineer/1440812533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:25.220Z",
+      "crawledAt": "2026-11-27T21:46:53.501Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1922,9 +1899,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:35:25.220Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-senior-application-engineer/1440812533"
+      "validThrough": "2026-12-27T21:46:53.501Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-2203cc791722",
@@ -1958,7 +1934,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Incident-&-Problem-Manager-%2880-100%29/1441446133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:24.211Z",
+      "crawledAt": "2026-11-27T21:46:52.869Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2004,9 +1980,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:35:24.211Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-incident-&-problem-manager-%2880-100%29/1441446133"
+      "validThrough": "2026-12-27T21:46:52.869Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-f59426c0f12d",
@@ -2040,7 +2015,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Security-&-Surveillance-%28100%29/1459763633/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:23.551Z",
+      "crawledAt": "2026-11-27T21:46:51.450Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2075,9 +2050,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:35:23.551Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-specialist-security-&-surveillance-%28100%29/1459763633"
+      "validThrough": "2027-02-21T21:46:51.450Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-22b8ade2ff4b",
@@ -2111,7 +2085,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Architect-%2880-100%29/1460165633/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:21.784Z",
+      "crawledAt": "2026-11-27T21:46:50.386Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2162,9 +2136,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:35:21.784Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-senior-architect-%2880-100%29/1460165633"
+      "validThrough": "2027-02-22T21:46:50.386Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-ee3c4a6b816b",
@@ -2198,7 +2171,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-DevOps-Engineer/1451213733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:20.321Z",
+      "crawledAt": "2026-11-27T21:46:48.907Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2247,9 +2220,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:35:20.321Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-devops-engineer/1451213733"
+      "validThrough": "2027-01-24T21:46:48.907Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-f1888824540f",
@@ -2282,7 +2254,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-AI-Operations-Specialist-%2880-100%29/1460756533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:35:19.644Z",
+      "crawledAt": "2026-11-27T21:46:48.295Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2317,9 +2289,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:35:19.644Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-ai-operations-specialist-%2880-100%29/1460756533"
+      "validThrough": "2027-02-23T21:46:48.295Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-2a4d148e8d5b",
@@ -2353,7 +2324,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Teamleiterin-Software-Entwicklung-Cards%2C-ATM-und-TWINT-%2880-100%29/1452001233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:17.824Z",
+      "crawledAt": "2026-11-27T21:46:46.509Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2399,9 +2370,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:35:17.824Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-teamleiterin-software-entwicklung-cards%2c-atm-und-twint-%2880-100%29/1452001233"
+      "validThrough": "2027-01-26T21:46:46.509Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-da3ca199c81f",
@@ -2434,7 +2404,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Test-Manager-Plattformmigrationen-%2880-100%29/1452093233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:35:17.169Z",
+      "crawledAt": "2026-11-27T21:46:45.856Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2480,9 +2450,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:35:17.169Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-senior-test-manager-plattformmigrationen-%2880-100%29/1452093233"
+      "validThrough": "2027-01-26T21:46:45.856Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-957fb3f4021a",
@@ -2554,7 +2523,7 @@
       "validThrough": "2027-01-13T22:02:31.156Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-data-licensing-specialist-%28100%29/1448061833",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "six-group-9ec2626c262a",
@@ -2640,7 +2609,7 @@
       "validThrough": "2027-01-20T22:02:16.811Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.six-group.com/job/zurich-senior-data-acquisition-manager-%2880-100%29/1450317433",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
