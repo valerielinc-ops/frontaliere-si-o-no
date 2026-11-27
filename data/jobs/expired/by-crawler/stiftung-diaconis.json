@@ -487,16 +487,29 @@
       "it": [
         "dipl-infermiera-infermiera-hf-60-100-stiftung-diaconis-bern-1ccb00bc",
         "dipl-pflegefachfrau-pflegefachmann-hf-60-100-stiftung-diaconis-bern-b280f2c5",
+        "dipl-care-specialist-hf-60-100-stiftung-diaconis-bern",
+        "dipl-infirmiere-infirmiere-professionnelle-hf-60-100-stiftung-diaconis-bern",
         "dipl-infermiera-infermiera-hf-60-100-stiftung-diaconis-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-60-100-stiftung-diaconis-bern"
       ],
       "en": [
+        "dipl-care-specialist-hf-60-100-stiftung-diaconis-bern-9d02ef4e",
+        "dipl-infermiera-infermiera-hf-60-100-stiftung-diaconis-bern",
+        "dipl-pflegefachfrau-pflegefachmann-hf-60-100-stiftung-diaconis-bern",
+        "dipl-infirmiere-infirmiere-professionnelle-hf-60-100-stiftung-diaconis-bern",
         "dipl-care-specialist-hf-60-100-stiftung-diaconis-bern"
       ],
       "de": [
+        "dipl-infermiera-infermiera-hf-60-100-stiftung-diaconis-bern",
+        "dipl-care-specialist-hf-60-100-stiftung-diaconis-bern",
+        "dipl-infirmiere-infirmiere-professionnelle-hf-60-100-stiftung-diaconis-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-60-100-stiftung-diaconis-bern"
       ],
       "fr": [
+        "dipl-infirmiere-infirmiere-professionnelle-hf-60-100-stiftung-diaconis-bern-4d56bd9e",
+        "dipl-infermiera-infermiera-hf-60-100-stiftung-diaconis-bern",
+        "dipl-pflegefachfrau-pflegefachmann-hf-60-100-stiftung-diaconis-bern",
+        "dipl-care-specialist-hf-60-100-stiftung-diaconis-bern",
         "dipl-infirmiere-infirmiere-professionnelle-hf-60-100-stiftung-diaconis-bern"
       ]
     },
@@ -510,25 +523,25 @@
     "canton": "BE",
     "previousSlugCantonByLocale": {
       "it": {
-        "dipl-infermiera-infermiera-hf-60-100-stiftung-diaconis-bern": "BE",
-        "dipl-pflegefachfrau-pflegefachmann-hf-60-100-stiftung-diaconis-bern": "BE",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-80-100-stiftung-diaconis-bern": "BE",
-        "dipl-specialiste-des-soins-hf-fh-soins-palliatifs-80-100-stiftung-diaconis-bern": "BE"
+        "dipl-specialiste-des-soins-hf-fh-soins-palliatifs-80-100-stiftung-diaconis-bern": "BE",
+        "dipl-infermiera-infermiera-hf-60-100-stiftung-diaconis-bern-1ccb00bc": "BE",
+        "dipl-pflegefachfrau-pflegefachmann-hf-60-100-stiftung-diaconis-bern-b280f2c5": "BE"
       },
       "en": {
-        "dipl-care-specialist-hf-60-100-stiftung-diaconis-bern": "BE",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-80-100-stiftung-diaconis-bern": "BE",
-        "dipl-specialiste-des-soins-hf-fh-soins-palliatifs-80-100-stiftung-diaconis-bern": "BE"
+        "dipl-specialiste-des-soins-hf-fh-soins-palliatifs-80-100-stiftung-diaconis-bern": "BE",
+        "dipl-care-specialist-hf-60-100-stiftung-diaconis-bern-9d02ef4e": "BE"
       },
       "de": {
-        "dipl-pflegefachfrau-pflegefachmann-hf-60-100-stiftung-diaconis-bern": "BE",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-80-100-stiftung-diaconis-bern": "BE",
-        "dipl-specialiste-des-soins-hf-fh-soins-palliatifs-80-100-stiftung-diaconis-bern": "BE"
+        "dipl-specialiste-des-soins-hf-fh-soins-palliatifs-80-100-stiftung-diaconis-bern": "BE",
+        "dipl-pflegefachfrau-pflegefachmann-hf-60-100-stiftung-diaconis-bern-b280f2c5": "BE"
       },
       "fr": {
-        "dipl-infirmiere-infirmiere-professionnelle-hf-60-100-stiftung-diaconis-bern": "BE",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-80-100-stiftung-diaconis-bern": "BE",
-        "dipl-specialiste-des-soins-hf-fh-soins-palliatifs-80-100-stiftung-diaconis-bern": "BE"
+        "dipl-specialiste-des-soins-hf-fh-soins-palliatifs-80-100-stiftung-diaconis-bern": "BE",
+        "dipl-infirmiere-infirmiere-professionnelle-hf-60-100-stiftung-diaconis-bern-4d56bd9e": "BE"
       }
     }
   },
@@ -1073,10 +1086,12 @@
       ],
       "en": [
         "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
-        "stv-head-head-care-80-100-stiftung-diaconis-bern"
+        "stv-head-head-care-80-100-stiftung-diaconis-bern",
+        "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern"
       ],
       "fr": [
-        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern"
+        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
+        "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern"
       ]
     },
     "postalCode": "3004",
@@ -1090,14 +1105,14 @@
     "previousSlugCantonByLocale": {
       "it": {
         "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern": "BE",
-        "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern": "BE"
+        "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern-f6996675": "BE"
       },
       "en": {
         "stv-head-head-care-80-100-stiftung-diaconis-bern": "BE",
         "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern": "BE"
       },
       "de": {
-        "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern": "BE"
+        "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern-f6996675": "BE"
       },
       "fr": {
         "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern": "BE"
@@ -1267,7 +1282,10 @@
       "cooking-100-stiftung-diaconis-bern-8f1d2d79",
       "cook-cook-100-stiftung-diaconis-bern-154e31aa",
       "cuire-cuire-100-stiftung-diaconis-bern-31e8d92d",
-      "cuisson-100-stiftung-diaconis-bern-a48e80ee"
+      "cuisson-100-stiftung-diaconis-bern-a48e80ee",
+      "cuisiniere-60-100-stiftung-diaconis-bern",
+      "cucina-60-100-stiftung-diaconis-bern",
+      "kochin-koch-60-stiftung-diaconis-bern"
     ],
     "previousSlugsByLocale": {
       "it": [

@@ -1,7 +1,7 @@
 {
   "key": "medtronic",
   "label": "Medtronic",
-  "generatedAt": "2026-11-27T09:26:53.133Z",
+  "generatedAt": "2026-11-27T21:25:00.384Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,5 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee",
+  "workdayRateLimit": {
+    "tenant": "https://medtronic.wd1.myworkdayjobs.com/wday/cxs/medtronic/MedtronicCareers",
+    "firstRateLimitedAt": "2026-11-27T21:25:00.389Z",
+    "lastRateLimitedAt": "2026-11-27T21:25:00.389Z",
+    "consecutiveRuns": 1,
+    "nextAttemptAfter": "2026-11-28T03:25:00.389Z",
+    "outcome": "rate-limited"
+  }
 }
