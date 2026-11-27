@@ -56,7 +56,7 @@ export function applicationExistsProbeEntry(applyUrl) {
 export function applicationExistsProbeNavigation(value, probe) {
   const url = httpsUrl(value);
   if (!url || !probe || url.hash || url.origin !== probe.origin) return false;
-  const match = /^\/vacancies\/(\d{1,64})\/(application\/(?:new|login)|furtherapplication\/applicationexists)\/\d+\/?$/iu.exec(url.pathname);
+  const match = /^\/vacancies\/(\d{1,64})\/(application\/(?:new|login)|furtherapplication\/applicationexists|description)\/\d+\/?$/iu.exec(url.pathname);
   return Boolean(match && match[1] === probe.vacancyId);
 }
 

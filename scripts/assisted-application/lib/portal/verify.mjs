@@ -90,6 +90,8 @@ export function applicationHistoryLinksInPage() {
   return unique.size > 20 ? [] : [...unique.values()];
 }
 
+const routeKey = value => { try { const url = new URL(value); return `${url.origin}${url.pathname.replace(/\/$/, '').toLowerCase()}`; } catch { return ''; } };
+
 /**
  * This result is evidence for human review. A review page being accessible does
  * not prove that the earlier application was unsent, and never releases a claim.
@@ -107,7 +109,18 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
     || Boolean(probe && applicationExistsProbeNavigation(action, probe) && /\/application\/login\/\d+\/?$/i.test(new URL(action).pathname));
   const browser = await launch({ headless: !headedBrowser() });
   let context;
-  const proof = { ...(sourceProtocol ? { sourceProtocol } : {}), kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown' };
+  const proof = { ...(sourceProtocol ? { sourceProtocol } : {}), kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown', trace: [] };
+  // What the inspection saw and refused, without values: host, path and parameter NAMES of every page and of
+  // every blocked request, with the reason. Without it a stop with no page recorded cannot be diagnosed.
+  const note = (kind, value, reason, extra = {}) => {
+    if (proof.trace.length >= 200) return;
+    let where;
+    try {
+      const url = new URL(value);
+      where = { host: url.hostname, path: url.pathname.slice(0, 200), params: [...new Set([...url.searchParams.keys()])].slice(0, 12).map(key => key.slice(0, 40)) };
+    } catch { where = { path: '(unreadable)' }; }
+    proof.trace.push({ kind, ...where, reason, ...extra });
+  };
   try {
     context = await browser.newContext({
       serviceWorkers: 'block',
@@ -140,42 +153,56 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       const request = route.request();
       const url = new URL(request.url());
       const method = request.method();
+      const block = (reason) => {
+        proof.blockedRequests++;
+        note('blocked', request.url(), reason, { method, navigation: request.isNavigationRequest() });
+        return route.abort();
+      };
       if (allowCrossOriginNavigation) {
         let publicHost = false;
         try { publicHost = await isPublicHost(url.href); } catch { /* Uncertain DNS blocks this replay request. */ }
-        if (!publicHost) {
-          proof.blockedRequests++;
-          return route.abort();
-        }
+        if (!publicHost) return block('host_not_public');
       }
       if (['GET', 'HEAD', 'OPTIONS'].includes(method)) {
         const crossOriginNavigation = request.isNavigationRequest() && url.origin !== origin;
-        if (crossOriginNavigation && !allowCrossOriginNavigation) { proof.blockedRequests++; return route.abort(); }
+        if (crossOriginNavigation && !allowCrossOriginNavigation) return block('cross_origin_navigation');
         let pathname;
         try { pathname = decodeURIComponent(url.pathname).replace(/\\/g, '/'); }
-        catch { proof.blockedRequests++; return route.abort(); }
+        catch { return block('undecodable_path'); }
         // Known mutation routes stay forbidden even as XHR/image GETs. Do
         // not let encoding hide one, or confuse save.svg with a Save route.
-        if (/%[0-9a-f]{2}/i.test(pathname)
-          || /(?:submit|finali[sz]e|withdraw|delete|remove|cancelapplication|applicationapply)/i.test(pathname)
-          || /(?:^|\/)(?:application)?save(?:\/|$)/i.test(pathname)
-          || [...url.searchParams.keys()].some(key => /^(?:action|submit|send|withdraw|delete|cancel)$/i.test(key))) { proof.blockedRequests++; return route.abort(); }
+        if (/%[0-9a-f]{2}/i.test(pathname)) return block('encoded_path');
+        if (/(?:submit|finali[sz]e|withdraw|delete|remove|cancelapplication|applicationapply)/i.test(pathname)
+          || /(?:^|\/)(?:application)?save(?:\/|$)/i.test(pathname)) return block('mutation_path');
+        if ([...url.searchParams.keys()].some(key => /^(?:action|submit|send|withdraw|delete|cancel)$/i.test(key))) return block('mutation_parameter');
         if (request.isNavigationRequest() && !crossOriginNavigation && !navigationTargets.has(url.href)
           && !signinOk(url.href)
           && !(probe && applicationExistsProbeNavigation(url.href, probe))
           && !(portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && /(?:^|\/)(?:home|index)\/?$/i.test(url.pathname) && !url.search)
-          && !(!url.search && (url.pathname === '/' || url.pathname === sourceDirectory(new URL(applyUrl), sourceProtocol).replace(/\/$/, '')))) { proof.blockedRequests++; return route.abort(); }
+          && !(!url.search && (url.pathname === '/' || url.pathname === sourceDirectory(new URL(applyUrl), sourceProtocol).replace(/\/$/, '')))) return block('navigation_not_allowed');
+        if (request.isNavigationRequest()) note('navigation', request.url(), 'allowed', { method });
         return route.continue();
       }
-      if (loginArmed && !loginPosted && method === 'POST' && request.url() === loginAction && signinOk(loginAction)) {
+      // The one POST of the armed sign-in. A probe compares the route without its query (the portal may append a
+      // return address); the route must still be the sign-in route of the order's vacancy.
+      const sameLoginRoute = request.url() === loginAction
+        || Boolean(probe && loginAction && `${url.origin}${url.pathname.replace(/\/$/, '').toLowerCase()}` === routeKey(loginAction) && signinOk(request.url()));
+      if (loginArmed && !loginPosted && method === 'POST' && sameLoginRoute && signinOk(loginAction)) {
         loginPosted = true;
+        note('login_post', request.url(), 'allowed', { method });
         return route.continue();
       }
-      proof.blockedRequests++;
-      return route.abort();
+      return block(!loginArmed ? 'mutation_not_armed' : loginPosted ? 'second_mutation' : method !== 'POST' ? 'method_not_allowed' : 'login_route_mismatch');
     });
     const page = await context.newPage();
+    if (typeof page.on === 'function') page.on('framenavigated', frame => { if (frame === page.mainFrame()) note('page', frame.url(), 'navigated'); });
+    const stop = (reason, extra = {}) => {
+      proof.stopReason = reason;
+      note('stop', page.url(), reason, extra);
+      return proof;
+    };
     await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    note('page', page.url(), 'loaded');
     let snapshot = await extractFields(page, { listboxOptions: false });
     // A fresh session can put its cookie manager over the login. Only reject
     // optional cookies in a proved cookie container; never press generic OK,
@@ -187,11 +214,16 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       snapshot = await extractFields(page, { listboxOptions: false });
     }
     if (snapshot.passwordVisible) {
-      if (!signinOk(page.url()) || authPageKind(snapshot) !== 'sign_in') return proof;
-      const { email, password } = loginFields(snapshot);
+      if (!signinOk(page.url())) return stop('login_page_not_trusted');
+      // A sign-in page can carry a registration form next to the sign-in one (two password fields): the sign-in
+      // is judged on the form of its own button, never on the page as a whole.
       const signin = findButton(snapshot.buttons, SIGN_IN_RE);
-      if (!email || !password || !signin || new Set([email.id, password.id, signin.id]).size !== 3 || (signin.frame || 0) !== 0 || (email.frame || 0) !== (signin.frame || 0)
-        || (password.frame || 0) !== (signin.frame || 0)) return proof;
+      if (!signin || (signin.frame || 0) !== 0) return stop('signin_button_unresolved');
+      const scoped = signin.formId != null ? snapshot.fields.filter(field => String(field.formId) === String(signin.formId)) : snapshot.fields;
+      if (authPageKind({ fields: scoped }) !== 'sign_in') return stop('login_form_not_sign_in', { kind: authPageKind({ fields: scoped }), fields: scoped.length });
+      const { email, password } = loginFields({ fields: scoped });
+      if (!email || !password || new Set([email.id, password.id, signin.id]).size !== 3 || (email.frame || 0) !== (signin.frame || 0)
+        || (password.frame || 0) !== (signin.frame || 0)) return stop('login_fields_unresolved', { email: Boolean(email), password: Boolean(password) });
       const owned = await locatorFor(page, signin).evaluate((element, ids) => {
         const form = element.form || element.closest('form');
         return form ? { action: element.hasAttribute('formaction') ? element.formAction : form.action,
@@ -201,9 +233,11 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
             return nodes.length === 1 && nodes[0].form === form;
           }) } : null;
       }, [email.id, password.id]);
-      if (!owned?.credentialsOwned || !signinOk(owned.action) || String(owned.method).toLowerCase() !== 'post') return proof;
+      if (!owned?.credentialsOwned) return stop('login_form_not_owned');
+      if (!signinOk(owned.action)) return stop('login_action_not_trusted', { action: owned.action ? new URL(owned.action, page.url()).pathname.slice(0, 120) : null });
+      if (String(owned.method).toLowerCase() !== 'post') return stop('login_method_not_post', { method: String(owned.method).slice(0, 10) });
       const account = await accounts.load(new URL(page.url()).hostname);
-      if (!account?.email || !account.password) return proof;
+      if (!account?.email || !account.password) return stop('login_account_missing');
       loginAction = owned.action;
       navigationTargets.add(loginAction);
       await applyActions(page, [email, password], [{ fieldId: email.id, action: 'fill', value: account.email }, { fieldId: password.id, action: 'fill', value: account.password }], {});
@@ -212,9 +246,11 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       await page.waitForLoadState('domcontentloaded').catch(() => {});
       await page.waitForTimeout(1500);
       loginArmed = false;
+      note('page', page.url(), 'after_login');
       await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      note('page', page.url(), 'entry_after_login');
       snapshot = await extractFields(page, { listboxOptions: false });
-      if (snapshot.passwordVisible || snapshot.captcha) return proof;
+      if (snapshot.passwordVisible || snapshot.captcha) return stop(snapshot.captcha ? 'captcha_after_login' : 'login_not_accepted');
     }
     const observe = async () => {
       const current = await extractFields(page, { listboxOptions: false });
@@ -227,6 +263,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       return current;
     };
     snapshot = await observe();
+    note('page', page.url(), 'observed');
     if (probe) {
       // What the portal did with the signed-in account on this vacancy: the live URL is the only evidence kept.
       const route = applicationExistsRoute(page.url());
