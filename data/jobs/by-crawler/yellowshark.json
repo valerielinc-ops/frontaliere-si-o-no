@@ -14936,7 +14936,6 @@
           "finanzbuchhalter-m-w-80-100-uzwil-sg-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-15T10:02:18.702Z",
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -16678,7 +16677,6 @@
           "technische-r-einkaufer-in-80-100-frauenfeld-tg-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-17T09:58:46.769Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -25578,12 +25576,22 @@
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-elektro-m-w-100-zug-zg-yellowshark-ch",
-          "servicetechniker-elektro-m-w-d-100-yellowshark-ag-zug"
+          "servicetechniker-elektro-m-w-d-100-yellowshark-ag-zug",
+          "tecnico-di-servizio-elettrico-m-f-100-yellowshark-ag-zug-2594e295ff"
+        ],
+        "en": [
+          "service-technician-electric-m-f-100-yellowshark-ag-zug-zg"
+        ],
+        "fr": [
+          "technicien-de-service-electric-h-f-100-yellowshark-ag-zug-zg"
         ]
       },
       "previousSlugs": [
         "servicetechniker-elektro-m-w-100-zug-zg-yellowshark-ch",
-        "servicetechniker-elektro-m-w-d-100-yellowshark-ag-zug"
+        "servicetechniker-elektro-m-w-d-100-yellowshark-ag-zug",
+        "tecnico-di-servizio-elettrico-m-f-100-yellowshark-ag-zug-2594e295ff",
+        "service-technician-electric-m-f-100-yellowshark-ag-zug-zg",
+        "technicien-de-service-electric-h-f-100-yellowshark-ag-zug-zg"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -31888,7 +31896,23 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T11:51:12.507Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.640Z"
+      "firstSeenAt": "2026-09-28T21:58:25.640Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-schwyz-sz"
+        ],
+        "en": [
+          "sanitary-heating-installer-m-f-yellowshark-ag-schwyz-sz"
+        ],
+        "fr": [
+          "installation-sanitaire-chauffage-h-f-yellowshark-ag-schwyz-sz"
+        ]
+      },
+      "previousSlugs": [
+        "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-schwyz-sz",
+        "sanitary-heating-installer-m-f-yellowshark-ag-schwyz-sz",
+        "installation-sanitaire-chauffage-h-f-yellowshark-ag-schwyz-sz"
+      ]
     },
     {
       "id": "yellowshark-7e2de3bea27b",
@@ -32877,15 +32901,39 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa037300/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "deckenmonteur-m-w-aarau-ag-yellowshark-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "deckenmonteur-m-w-aarau-ag-yellowshark-ch"
+          "deckenmonteur-m-w-aarau-ag-yellowshark-ch",
+          "installatore-di-soffitti-m-f-yellowshark-ag-aarau-ag",
+          "filetto-di-soffitto-m-f-yellowshark-ag-aarau-ag"
+        ],
+        "en": [
+          "deckenmonteur-m-w-aarau-ag-yellowshark-ch",
+          "ceiling-fitter-m-f-yellowshark-ag-aarau-ag",
+          "deckenmonteur-m-w-d-yellowshark-ag-aarau",
+          "ceiling-fitter-m-f-yellowshark-ag-aarau-ag-d34632"
+        ],
+        "de": [
+          "deckenmonteur-m-w-yellowshark-ag-aarau"
+        ],
+        "fr": [
+          "deckenmonteur-m-w-aarau-ag-yellowshark-ch",
+          "deckenmonteur-m-w-d-yellowshark-ag-aarau",
+          "monteur-de-plafond-h-f-yellowshark-ag-aarau-ag",
+          "monteur-de-plafond-h-f-yellowshark-ag-aarau-ag-d34632"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:58:25.621Z",
+      "previousSlugs": [
+        "deckenmonteur-m-w-aarau-ag-yellowshark-ch",
+        "installatore-di-soffitti-m-f-yellowshark-ag-aarau-ag",
+        "filetto-di-soffitto-m-f-yellowshark-ag-aarau-ag",
+        "ceiling-fitter-m-f-yellowshark-ag-aarau-ag",
+        "deckenmonteur-m-w-d-yellowshark-ag-aarau",
+        "ceiling-fitter-m-f-yellowshark-ag-aarau-ag-d34632",
+        "deckenmonteur-m-w-yellowshark-ag-aarau",
+        "monteur-de-plafond-h-f-yellowshark-ag-aarau-ag",
+        "monteur-de-plafond-h-f-yellowshark-ag-aarau-ag-d34632"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -32902,7 +32950,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T11:51:12.501Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-28T21:58:25.621Z"
     },
     {
       "id": "yellowshark-864e4ec0394e",
@@ -35021,7 +35070,33 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T11:51:12.494Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-10T10:05:40.275Z"
+      "firstSeenAt": "2026-10-10T10:05:40.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "giardini-nuovi-m-f-yellowshark-ag-liestal-bl-0349ef",
+          "giardini-nuovi-m-f-yellowshark-ag-liestal"
+        ],
+        "en": [
+          "gardeners-new-m-f-yellowshark-ag-liestal-bl-0349ef",
+          "gardeners-new-m-f-yellowshark-ag-liestal"
+        ],
+        "de": [
+          "gartner-neuanlagen-m-w-liestal-bl-yellowshark-ch-bhx8ug"
+        ],
+        "fr": [
+          "jardiniers-nouveau-h-f-yellowshark-ag-liestal-bl-0349ef",
+          "jardiniers-nouveau-h-f-yellowshark-ag-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "giardini-nuovi-m-f-yellowshark-ag-liestal-bl-0349ef",
+        "giardini-nuovi-m-f-yellowshark-ag-liestal",
+        "gardeners-new-m-f-yellowshark-ag-liestal-bl-0349ef",
+        "gardeners-new-m-f-yellowshark-ag-liestal",
+        "gartner-neuanlagen-m-w-liestal-bl-yellowshark-ch-bhx8ug",
+        "jardiniers-nouveau-h-f-yellowshark-ag-liestal-bl-0349ef",
+        "jardiniers-nouveau-h-f-yellowshark-ag-liestal"
+      ]
     },
     {
       "id": "yellowshark-c2d0f2aedcca",
@@ -37611,11 +37686,22 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-m-w-luzern-lu-yellowshark-ch"
+          "schreiner-m-w-luzern-lu-yellowshark-ch",
+          "carpenter-m-f-yellowshark-ag-luzern"
+        ],
+        "en": [
+          "schreiner-m-w-luzern-lu-yellowshark-ch",
+          "carpenter-m-f-yellowshark-ag-luzern"
+        ],
+        "fr": [
+          "schreiner-m-w-luzern-lu-yellowshark-ch",
+          "charpentier-h-f-yellowshark-ag-luzern"
         ]
       },
       "previousSlugs": [
-        "schreiner-m-w-luzern-lu-yellowshark-ch"
+        "schreiner-m-w-luzern-lu-yellowshark-ch",
+        "carpenter-m-f-yellowshark-ag-luzern",
+        "charpentier-h-f-yellowshark-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -39764,7 +39850,6 @@
           "kranfuhrer-unterdrehkran-m-w-liestal-bl-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.625Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -41965,7 +42050,33 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T11:51:12.460Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.509Z"
+      "firstSeenAt": "2026-09-28T21:58:25.509Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kranfuhrer-oberdrehkran-m-w-yellowshark-ag-zug-fbdb0ab524",
+          "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-7d008a9cd5",
+          "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
+          "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-zg"
+        ],
+        "en": [
+          "crane-operator-upper-rotary-crane-m-f-yellowshark-ag-zug",
+          "crane-operator-upper-rotary-crane-m-f-yellowshark-ag-zug-zg"
+        ],
+        "fr": [
+          "grue-rotative-superieure-operateur-de-grue-h-f-yellowshark-ag-zug",
+          "grue-tournante-superieure-operateur-de-grue-h-f-yellowshark-ag-zug-zg"
+        ]
+      },
+      "previousSlugs": [
+        "kranfuhrer-oberdrehkran-m-w-yellowshark-ag-zug-fbdb0ab524",
+        "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-7d008a9cd5",
+        "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
+        "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-zg",
+        "crane-operator-upper-rotary-crane-m-f-yellowshark-ag-zug",
+        "crane-operator-upper-rotary-crane-m-f-yellowshark-ag-zug-zg",
+        "grue-rotative-superieure-operateur-de-grue-h-f-yellowshark-ag-zug",
+        "grue-tournante-superieure-operateur-de-grue-h-f-yellowshark-ag-zug-zg"
+      ]
     },
     {
       "id": "yellowshark-ef4879d2c883",
@@ -49026,17 +49137,24 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa056935/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "maurer-m-w-aarau-ag-yellowshark-ch",
-        "mason-m-f-yellowshark-ag-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "maurer-m-w-aarau-ag-yellowshark-ch",
-          "mason-m-f-yellowshark-ag-aarau"
+          "mason-m-f-yellowshark-ag-aarau",
+          "mason-m-f-yellowshark-ag-aarau-017a8fed56"
+        ],
+        "en": [
+          "maurer-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "maurer-m-w-aarau-ag-yellowshark-ch"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:58:25.409Z",
+      "previousSlugs": [
+        "maurer-m-w-aarau-ag-yellowshark-ch",
+        "mason-m-f-yellowshark-ag-aarau",
+        "mason-m-f-yellowshark-ag-aarau-017a8fed56"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -49053,7 +49171,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T11:51:12.421Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-28T21:58:25.409Z"
     },
     {
       "id": "yellowshark-9e671740c9a8",
@@ -55066,7 +55185,23 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T11:51:12.381Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.619Z"
+      "firstSeenAt": "2026-09-28T21:58:25.619Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "asciugatrici-m-f-yellowshark-ag-luzern"
+        ],
+        "en": [
+          "dryers-m-f-yellowshark-ag-luzern"
+        ],
+        "fr": [
+          "sechoirs-h-f-yellowshark-ag-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "asciugatrici-m-f-yellowshark-ag-luzern",
+        "dryers-m-f-yellowshark-ag-luzern",
+        "sechoirs-h-f-yellowshark-ag-luzern"
+      ]
     },
     {
       "id": "yellowshark-fd431c2a8a24",
@@ -56383,7 +56518,6 @@
           "it-supporter-80-100-m-w-uetikon-am-see-zh-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-13T22:16:21.989Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -61479,7 +61613,6 @@
           "grutier-de-grue-a-montage-par-le-bas-h-f-yellowshark-ag-schwyz-sz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.533Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -62539,16 +62672,32 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa056863/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-m-w-zug-zg-yellowshark-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "maler-m-w-zug-zg-yellowshark-ch"
+          "maler-m-w-zug-zg-yellowshark-ch",
+          "pittura-m-f-yellowshark-ag-zug"
+        ],
+        "en": [
+          "maler-m-w-zug-zg-yellowshark-ch",
+          "painter-m-f-yellowshark-ag-zug"
+        ],
+        "de": [
+          "maler-m-w-d-yellowshark-ag-zug",
+          "maler-m-w-yellowshark-ag-zug"
+        ],
+        "fr": [
+          "maler-m-w-zug-zg-yellowshark-ch",
+          "peintre-h-f-yellowshark-ag-zug"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.584Z",
+      "previousSlugs": [
+        "maler-m-w-zug-zg-yellowshark-ch",
+        "pittura-m-f-yellowshark-ag-zug",
+        "painter-m-f-yellowshark-ag-zug",
+        "maler-m-w-d-yellowshark-ag-zug",
+        "maler-m-w-yellowshark-ag-zug",
+        "peintre-h-f-yellowshark-ag-zug"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -62565,7 +62714,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T11:51:12.327Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-28T21:58:25.584Z"
     },
     {
       "id": "yellowshark-44c869ca1ed4",
@@ -72694,7 +72844,6 @@
           "sachbearbeiter-in-verkaufsinnendienst-m-w-100-amriswil-tg-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-26T10:01:23.369Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -73407,7 +73556,6 @@
           "sachbearbeiter-finanzen-038-rechnungswesen-m-w-80-aarau-ag-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-14T10:08:31.235Z",
       "salaryMin": 178000,
       "salaryMax": 313000,
