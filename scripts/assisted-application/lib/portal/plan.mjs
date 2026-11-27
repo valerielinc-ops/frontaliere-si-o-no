@@ -2262,6 +2262,18 @@ export function guardPlan(plan, fields, candidate = null) {
   // turn an invalid nationality/permit answer into an unrelated automatic
   // answer instead of keeping the required question.
   const rejectedActionFields = new Set();
+  const hasDocumentMap = Boolean(candidate?.documents && typeof candidate.documents === 'object');
+  const extraDocumentSlots = hasDocumentMap && Array.isArray(candidate.documents.extra)
+    ? new Set(candidate.documents.extra.map((doc) => String(doc?.slot || '').trim()).filter(Boolean))
+    : null;
+  const uploadSlotAvailable = (slot) => {
+    const normalized = String(slot || '').trim();
+    if (!normalized || normalized === 'none') return false;
+    if (!hasDocumentMap) return true;
+    if (normalized === 'cv') return candidate.documents.cv !== false;
+    if (normalized === 'cover_letter') return candidate.documents.cover_letter !== false;
+    return extraDocumentSlots ? extraDocumentSlots.has(normalized) : false;
+  };
   for (const field of fields) if (suppressedAnswerFields.has(field.id)) {
     rejectedActionFields.add(field.id);
     ask(field);
@@ -2332,6 +2344,11 @@ export function guardPlan(plan, fields, candidate = null) {
     // A planner's generic CV choice cannot replace a specifically requested
     // diploma/certificate, even when its label also contains the word CV.
     if (action.action === 'upload' && action.document === 'cv' && isNonCvDocumentLabel(field.label)) {
+      rejectedActionFields.add(field.id);
+      ask(field);
+      continue;
+    }
+    if (action.action === 'upload' && !uploadSlotAvailable(action.document)) {
       rejectedActionFields.add(field.id);
       ask(field);
       continue;

@@ -14382,7 +14382,9 @@ export async function submitViaPortal(ctx) {
               // stops the application below the same fail-closed boundary.
               const optionalCoverLetter = action.document === 'cover_letter'
                 && field?.required === false && !field.invalid;
-              if (optionalCoverLetter) {
+              const optionalUnavailableDocument = result?.error === 'document_unavailable'
+                && field?.required === false && !field.invalid;
+              if (optionalCoverLetter || optionalUnavailableDocument) {
                 // This selection belongs to the current run, even when its
                 // upload receipt is missing. Do not retry it on a redraw or
                 // mistake its still-visible filename for an older upload.

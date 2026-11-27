@@ -85,6 +85,11 @@ const EXISTING_ACCOUNT_NAV_QUESTION_RE = /(?:\balready have an? (?:application )
 const REGISTRATION_SIGN_IN_QUESTION_RE = /\bsei già registrat(?:o(?:\/a)?|a) come utente\s*\?/giu;
 const EXPLICIT_EXISTING_ACCOUNT_RE = new RegExp(String.raw`(?:${EXISTING_ACCOUNT_ERROR_RE.source}|\b(?:an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:esiste già un account|sei già registrato)\b)`, 'iu');
 const REGISTRATION_EMAIL_FIELD_RE = /(?:e[-\s]?mail|emailadresse|mailadresse|benutzer(?:name)?|username|login)/iu;
+const DUPLICATE_VALUE_RE = /\b(?:der eingegebene wert|dieser wert)\b[^.!?\n]{0,40}\bbereits(?:\s+im\s+system)?\s+vorhanden\b/iu;
+const DUPLICATE_VALUE_WITH_IDENTITY_RE = new RegExp(
+  String.raw`(?:${DUPLICATE_VALUE_RE.source}[.!?\s]{0,12}\b(?:e-?mail(?:[-\s]?adresse)?|login|benutzer(?:name)?|account|konto)\b|\b(?:e-?mail(?:[-\s]?adresse)?|login|benutzer(?:name)?|account|konto)\b[^!\n]{0,60}${DUPLICATE_VALUE_RE.source})`,
+  'iu',
+);
 
 function hasRegistrationEmailField(snapshot) {
   return Array.isArray(snapshot.fields)
@@ -93,12 +98,29 @@ function hasRegistrationEmailField(snapshot) {
       && REGISTRATION_EMAIL_FIELD_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
 }
 
+function hasEmailAndPasswordFields(snapshot) {
+  if (!Array.isArray(snapshot.fields)) return false;
+  const hasEmail = snapshot.fields.some((field) => field.inputType !== 'password'
+    && REGISTRATION_EMAIL_FIELD_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+  const hasPassword = snapshot.fields.some((field) => field.inputType === 'password' && !isCodeField(field, snapshot.fields));
+  return hasEmail && hasPassword;
+}
+
 /** The portal says this candidate already has an account; registration must stop. */
 export function hasExistingAccountPrompt(snapshot = {}) {
   // SuccessFactors flattens the registration heading directly before its sign-in
   // question. Remove that navigation copy before matching an account conflict.
   const text = String(snapshot.text ?? '').replace(REGISTRATION_SIGN_IN_QUESTION_RE, '. ');
-  const messages = [text, ...(Array.isArray(snapshot.errors) ? snapshot.errors : [])]
+  const rawErrors = Array.isArray(snapshot.errors)
+    ? snapshot.errors.map((value) => String(value ?? '').trim()).filter(Boolean)
+    : [];
+  const authFormPresent = hasEmailAndPasswordFields(snapshot);
+  if (rawErrors.some((error) => DUPLICATE_VALUE_WITH_IDENTITY_RE.test(error)
+    || (authFormPresent && DUPLICATE_VALUE_RE.test(error)))
+    || DUPLICATE_VALUE_WITH_IDENTITY_RE.test(text)) {
+    return true;
+  }
+  const messages = [text, ...rawErrors]
     .map((value) => String(value ?? '').trim())
     .filter(Boolean)
     .flatMap((message) => message.split(/(?<=[.!?;])\s+|[\r\n]+/u).map((part) => part.trim()).filter(Boolean));
