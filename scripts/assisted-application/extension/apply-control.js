@@ -421,7 +421,12 @@ function isApplicationDataProcessingConsent(value, ...semanticMetadata) {
   const text = String(value || '').replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
   if (!text || hasConsentContradiction(text, ...semanticMetadata)) return false;
-  const asksConsent = /\b(?:consent\w*|acconsent\w*|agree\w*|accept\w*|einwillig\w*|zustimm\w*|akzeptier\w*|accepter\w*|autoris\w*|autoriz\w*)\b/.test(text);
+  const asksConsent = /\b(?:consent\w*|acconsent\w*|accett\w*|agree\w*|accept\w*|einwillig\w*|zustimm\w*|akzeptier\w*|accepter\w*|autoris\w*|autoriz\w*)\b/.test(text);
+  // A declaration is welcome only as «I have read and understood» the notice: «Dichiaro di avere un permesso B.
+  // Accetto…» states a fact the candidate alone can make, in the same box.
+  const declares = /\b(?:dichiaro|dichiara|dichiariamo|declare|declares|erklare|erklaere)\b/;
+  const declaresReading = /\b(?:dichiaro|dichiara|dichiariamo|declare|declares|erklare|erklaere)\b[^.!?]{0,24}\b(?:aver|avere|have|habe|ai|ho)\s+(?:letto|read|gelesen|lu|compreso|preso visione|understood|verstanden|compris)\b/;
+  if (text.split(/[.!?;]+/).some(sentence => declares.test(sentence) && !declaresReading.test(sentence))) return false;
   const processesData = /\b(?:process\w*|tratt\w*|verarbeit\w*|trait\w*)\b/.test(text);
   const personalData = /\b(?:personal data|personal information|dati personali|dati di carattere personale|personenbezogen\w* daten|personliche daten|persoenliche daten|donnees personnelles|donnees a caractere personnel)\b/.test(text);
   return asksConsent && processesData && personalData;

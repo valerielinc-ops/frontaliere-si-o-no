@@ -45,6 +45,7 @@ import {
   permitOptionCode,
   permitStatusFromCandidate,
   permitStatusOf,
+  isResidenceOrPermitCaption,
 } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
@@ -707,7 +708,7 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
     if (status) {
       if (code === status || (swissStatus === status && same(value, candidate.swissStatus?.statement))) return true;
       const yesNo = booleanAnswer(value);
-      if (yesNo !== null) return isYesNoPermitQuestion(label) && yesNo === (status !== 'none');
+      if (yesNo !== null) return (isYesNoPermitQuestion(label) && yesNo === (status !== 'none')) || (yesNo === true && residenceOrPermitYesProved(label, status));
       return false;
     }
     // A CV can establish what was written there, not what the candidate holds today.
@@ -748,6 +749,12 @@ const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|st
 const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|nap|npa)\b/i;
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /(?<![\p{L}\p{N}_])(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)(?![\p{L}\p{N}_])/iu;
+// A present-tense question about where the candidate lives («In welchem Land wohnen Sie?», «In which country do
+// you live?», «In quale Paese risiedi?») names the same residence country as a «Land des Wohnorts» caption; a past
+// tense one («did you live», «hast du gewohnt») names a former one and is not matched.
+const RESIDENCE_VERB = String.raw`(?:wohn(?:en|st|t)|live|living|reside|residing|vivi|vive|risiedi|risiede|abiti|abita|habitez|habites|vivez|r[ée]sidez)`;
+const RESIDENCE_COUNTRY_WORD = String.raw`(?:country|land|pays|paese|nazione|stato)`;
+const RESIDENCE_COUNTRY_QUESTION_RE = new RegExp(String.raw`^\W*(?:in\s+)?(?:which|what|welchem|welches|quale|quel|dans\s+quel)\s+${RESIDENCE_COUNTRY_WORD}\s+(?:(?:do|are)\s+you\s+|(?:tu|sie|du)\s+)?${RESIDENCE_VERB}\b`, 'iu');
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 // A generic personal-data section can also contain unrelated labels such as
 // «Data di nascita». Only these residence-specific words override that noise
@@ -823,7 +830,7 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
     || (STREET_NUMBER_PAIR_RE.test(value) ? 'address' : '')
     || (CANDIDATE_CONTACT_ADDRESS_RE.test(value) ? 'street' : '')
     || (pinpointApplicantCountry ? 'country' : '')
-    || (COUNTRY_RE.test(value) && RESIDENCE_CONTEXT_RE.test(value) && !BIRTH_LOCATION_RE.test(value) ? 'country' : '')
+    || (COUNTRY_RE.test(value) && (RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_COUNTRY_QUESTION_RE.test(value)) && !BIRTH_LOCATION_RE.test(value) ? 'country' : '')
     || (POSTAL_CODE_RE.test(value) && RESIDENCE_CONTEXT_RE.test(value) ? 'postalCode' : '');
   if (!role) return '';
   const surrounding = String(context || '').trim();
@@ -857,7 +864,7 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
     || employmentContext || (nonResidenceContext && !explicitResidenceContext && !candidateContactAddress)) return '';
   const residenceContext = hasOwnership
     ? hasResidencePurpose([...ownership.owners, section], value)
-    : RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
+    : RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_COUNTRY_QUESTION_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
       || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
   // `autocomplete=postal-code` identifies the kind of value, not whose
   // address it belongs to. The field's own label, section, or explicit nearby
@@ -1315,7 +1322,8 @@ function permitAnswerForStatus(field, status) {
   const exact = options.filter((option) => permitOptionCode(labelOf(option)) === status);
   if (exact.length === 1) return labelOf(exact[0]);
   if (!asksHeldStatus(questionFromLabel(field?.label))) return '';
-  if (!isYesNoPermitQuestion(field?.label)) return '';
+  const disjunctive = residenceOrPermitYesProved(field?.label, status);
+  if (!disjunctive && !isYesNoPermitQuestion(field?.label)) return '';
   const yes = options.filter((option) => PERMIT_YES_OPTION_RE.test(labelOf(option)));
   const no = options.filter((option) => PERMIT_NO_OPTION_RE.test(labelOf(option)));
   const booleanOptions = options.every((option) => {
@@ -1323,7 +1331,7 @@ function permitAnswerForStatus(field, status) {
     return PERMIT_YES_OPTION_RE.test(label) || PERMIT_NO_OPTION_RE.test(label) || PLACEHOLDER.test(label);
   });
   if (booleanOptions && yes.length === 1 && status !== 'none') return labelOf(yes[0]);
-  if (booleanOptions && no.length === 1 && status === 'none') return labelOf(no[0]);
+  if (booleanOptions && no.length === 1 && status === 'none' && !isResidenceOrPermitQuestion(field?.label)) return labelOf(no[0]);
   if (!options.length && isYesNoPermitQuestion(field?.label)) {
     return localizedBoolean(status !== 'none', formLanguage(field?.label, null));
   }
@@ -1672,6 +1680,20 @@ const PERMIT_EVIDENCE_QUESTION_PATTERNS = [
   /\bprueba(?:s)?\b/i,
   /\bevidencia(?:s)?\b/i,
 ];
+
+// «Risiedi in Svizzera, o sei in possesso di un regolare permesso di lavoro?»: a yes/no that is true when EITHER clause
+// holds. A permit the candidate holds (any status but «none») proves the second clause, so «yes» is demonstrated; a
+// candidate with no permit may still live in Switzerland, so «no» is never derived from the status and stays a question.
+function isResidenceOrPermitQuestion(label) {
+  const text = permitQuestionText(label);
+  if (isPermitHistoricalQuestion(text) || !asksHeldStatus(text)) return false;
+  if (PERMIT_EVIDENCE_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return false;
+  return isResidenceOrPermitCaption(text);
+}
+/** «yes» to a residence-or-permit question, proved by a held permit status. */
+function residenceOrPermitYesProved(label, status) {
+  return Boolean(status) && status !== 'none' && isResidenceOrPermitQuestion(label);
+}
 
 function isYesNoPermitQuestion(label) {
   // A later "do you hold" can belong to a wh-question asking which permit the
@@ -2214,7 +2236,7 @@ export function guardPlan(plan, fields, candidate = null) {
       const currentValue = selectedOption?.label ?? field.value;
       const currentStatus = permitStatusOf(currentValue) || permitOptionCode(currentValue);
       const matchesConfirmedStatus = currentStatus === status
-        || (isYesNoPermitQuestion(field.label)
+        || ((isYesNoPermitQuestion(field.label) || isResidenceOrPermitQuestion(field.label))
           && ownStatusAnswer(candidate, field.label, currentValue, { option: isChoiceField(field) }) === true);
       if (holdsValue(field) && matchesConfirmedStatus) return false;
       const recorded = recordedAnswerForQuestion(candidate, field.label, field.context, field);

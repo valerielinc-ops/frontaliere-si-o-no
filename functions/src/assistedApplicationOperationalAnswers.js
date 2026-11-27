@@ -29,7 +29,10 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isApplicat
 // waits are read again and receive the localized affirmative consent.
 // v14 (2026-11-24): work-experience birth-year fallback for civil-status deduction, and category B licence
 // deduced from own-car evidence or verified own-car decision.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v14';
+// v15 (2026-11-27): the Italian «Accetto…» consent to the processing of the personal data of this application, and
+// a notice owned by a named employer («dati dell'EOC»); a «Dichiaro…» that states anything but having read the
+// notice is no consent. The waits on them are read again.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v15';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))

@@ -50,7 +50,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef",
-    "firstSeenAt": "2026-10-19T09:59:03.293Z"
+    "firstSeenAt": "2026-10-19T09:59:03.293Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-real-estate-development-60-visionapartments-zurich": "ZH",
+        "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich": "ZH"
+      },
+      "fr": {
+        "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich": "ZH",
+        "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "hr-business-partner-specialista-paghe-100-vision-management-services-gmbh-zurich",
@@ -102,7 +113,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/d14022be-0fb5-48ab-b907-196c83d223a0",
-    "firstSeenAt": "2026-10-15T21:44:52.685Z"
+    "firstSeenAt": "2026-10-15T21:44:52.685Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-business-partner-payroll-spezialist-in-100-visionapartments-zurich": "ZH",
+        "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich": "ZH"
+      },
+      "de": {
+        "hr-business-partner-payroll-spezialist-in-100-visionapartments-zurich": "ZH"
+      },
+      "fr": {
+        "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-real-estate-development-60-vision-management-services-gmbh-zurich-14c929f6",
@@ -274,7 +298,22 @@
         "firstSeenAt": "2026-09-09T13:58:59.184Z",
         "title": "BUILDING SERVICES TECHNICIAN/ALL-ROUNDER (m/f) 100%"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "building-services-technician-all-rounder-m-f-100-visionapartments-zurich": "ZH",
+        "building-services-technician-all-rounder-m-f-100-vision-management-services-gmbh-zurich": "ZH",
+        "haustechniker-allrounder-m-w-100-visionapartments-zurich": "ZH"
+      },
+      "en": {
+        "building-services-technician-all-rounder-m-f-100-vision-management-services-gmbh-zurich": "ZH"
+      },
+      "de": {
+        "building-services-technician-all-rounder-m-f-100-visionapartments-zurich": "ZH",
+        "haustechniker-allrounder-m-w-100-visionapartments-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-della-raccolta-del-debito-in-60-80-vision-management-services-gmbh-zurich",
@@ -347,7 +386,26 @@
         "firstSeenAt": "2026-09-01T14:26:59.054Z",
         "title": "Debt Collection Specialist (60-80%)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "inkasso-spezialist-in-60-80-visionapartments-zurich": "ZH",
+        "inkasso-spezialist-in-60-80-vision-management-services-gmbh-zurich": "ZH",
+        "debt-collection-specialist-60-80-visionapartments-zurich": "ZH"
+      },
+      "en": {
+        "inkasso-spezialist-in-60-80-vision-management-services-gmbh-zurich": "ZH",
+        "debt-collection-specialist-in-60-80-vision-management-services-gmbh-zurich": "ZH",
+        "debt-collection-specialist-60-80-vision-management-services-gmbh-zurich": "ZH"
+      },
+      "de": {
+        "inkasso-spezialist-in-60-80-visionapartments-zurich": "ZH"
+      },
+      "fr": {
+        "inkasso-spezialist-in-60-80-vision-management-services-gmbh-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "coo-chief-operating-officer-100-vision-management-services-gmbh-zurich",
