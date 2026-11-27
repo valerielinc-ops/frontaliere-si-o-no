@@ -557,10 +557,16 @@ function acknowledgesApplication(sentence) {
     && !HYPOTHETICAL_RE.test(sentence.slice(0, receipt.index));
 }
 
+/** A non-hypothetical, non-negated sentence instructing or confirming a password reset/setup request. */
+function asksPasswordResetSentence(sentence) {
+  if (/\?\s*$/.test(sentence) || PASSWORD_CHANGED_RE.test(sentence)) return false;
+  const match = PASSWORD_RESET_REQUEST_RE.exec(sentence);
+  return Boolean(match) && !NEGATED.test(sentence) && !HYPOTHETICAL_RE.test(sentence.slice(0, match.index));
+}
+
 function categoryOfSentences(sentences, topic, body) {
   const any = (purpose) => sentences.some(purpose);
-  if (sentences.some((sentence) => !/\?\s*$/.test(sentence)
-    && PASSWORD_RESET_REQUEST_RE.test(sentence) && !PASSWORD_CHANGED_RE.test(sentence))) return 'verification';
+  if (any(asksPasswordResetSentence)) return 'verification';
   if (any(asksAccountVerification)) return 'verification';
   if (any(changesInterview)) return 'other';
   if (any(rejectsApplication)) return any(proposesInterview) ? 'other' : 'rejection';
@@ -591,8 +597,7 @@ function readByRules({ subject = '', text = '' }) {
     sourceText,
     category: categoryOfSentences(sentences, topic, body),
     verificationAsked: sentences.some(asksAccountVerification),
-    asksPasswordReset: sentences.some((sentence) => !/\?\s*$/.test(sentence)
-      && PASSWORD_RESET_REQUEST_RE.test(sentence) && !PASSWORD_CHANGED_RE.test(sentence)),
+    asksPasswordReset: sentences.some(asksPasswordResetSentence),
     postingWithdrawn: sentences.some(withdrawsPosting),
     linkAsked: sentences.some(requestsVerification) && !sentences.some(acknowledgesApplication) && !sentences.some((sentence) => INTERVIEW_RE.test(sentence)),
   };
