@@ -3724,17 +3724,20 @@
       "en": [
         "giardiniere-pemsa-locarno",
         "warning-pemsa-locarno",
-        "guardines-pemsa-locarno"
+        "guardines-pemsa-locarno",
+        "warning-pemsa-locarno-491b61f8"
       ],
       "fr": [
         "giardiniere-pemsa-locarno",
         "mise-en-garde-pemsa-locarno",
         "guardines-pemsa-locarno",
-        "garantie-pemsa-locarno"
+        "garantie-pemsa-locarno",
+        "mise-en-garde-pemsa-locarno-169a7866"
       ],
       "de": [
         "giardiniere-pemsa-locarno-7zztbj",
-        "warnung-pemsa-locarno"
+        "warnung-pemsa-locarno",
+        "warnung-pemsa-locarno-03269fdb"
       ]
     },
     "previousSlugCantonByLocale": {
@@ -5876,7 +5879,15 @@
         "firstSeenAt": "2026-10-01T21:22:45.297Z",
         "title": "Operatore di macchine M2, M3 e M7 Grand Dumper"
       }
-    ]
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "maschinenbediener-m2-m3-und-m7-grand-dumper-pemsa-sion-97308967"
+      ],
+      "fr": [
+        "operateur-de-machines-m2-m3-et-m7-grand-dumper-pemsa-sion-217cc322"
+      ]
+    }
   },
   {
     "id": "pemsa-c7a1865041cf",

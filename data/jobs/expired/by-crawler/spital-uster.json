@@ -4379,17 +4379,20 @@
         "expert-expert-nds-50-100-emergency-care-spital-uster-uster-1db14bc9",
         "expert-expert-nds-50-100-emergency-care-spital-uster-uster-1f36d3e8",
         "nds-expert-50-100-soins-d-urgence-spital-uster-uster",
-        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster-a056d6df"
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster-a056d6df",
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster"
       ],
       "de": [
         "expert-expert-nds-50-100-emergency-care-spital-uster-uster",
         "nds-expert-50-100-soins-d-urgence-spital-uster-uster",
-        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster-a056d6df"
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster-a056d6df",
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster"
       ],
       "fr": [
         "expert-expert-nds-50-100-emergency-care-spital-uster-uster",
         "nds-expert-50-100-soins-d-urgence-spital-uster-uster",
-        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster-a056d6df"
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster-a056d6df",
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster"
       ]
     },
     "postalCode": "8610",
@@ -4410,7 +4413,18 @@
         "firstSeenAt": "2026-06-26T22:59:53.150Z",
         "title": "Expertin / Experte NDS 50-100% – Notfallpflege"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "en": {
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster": "ZH"
+      },
+      "de": {
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster": "ZH"
+      },
+      "fr": {
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-uster": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-in-events-e-administration-60-spital-uster",
