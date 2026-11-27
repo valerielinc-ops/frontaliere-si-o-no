@@ -133,16 +133,14 @@
     "slugByLocale": {
       "it": "team-management-hand-chief-100-spital-limmattal-schlieren",
       "en": "team-management-hand-chief-100-spital-limmattal-schlieren",
-      "de": "teamleitung-handchirurige-100-spital-limmattal-ch",
+      "de": "teamleitung-handchirurige-100-spital-limmattal-ch-e02a9ac8",
       "fr": "gestion-d-equipe-responsable-100-spital-limmattal-schlieren"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-25T21:19:32.549Z",
-    "previousSlugs": [
-      "teamleitung-handchirurige-100-spital-limmattal-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "teamleitung-handchirurige-100-spital-limmattal-ch-e02a9ac8",
         "teamleitung-handchirurige-100-spital-limmattal-ch"
       ],
       "en": [
@@ -150,6 +148,9 @@
       ],
       "fr": [
         "teamleitung-handchirurige-100-spital-limmattal-ch"
+      ],
+      "de": [
+        "teamleitung-handchirurige-100-spital-limmattal-ch-e02a9ac8"
       ]
     },
     "postalCode": "8952",
@@ -163,15 +164,21 @@
     "canton": "ZH",
     "previousSlugCantonByLocale": {
       "it": {
-        "teamleitung-handchirurige-100-spital-limmattal-ch": "ZH"
+        "teamleitung-handchirurige-100-spital-limmattal-ch-e02a9ac8": "ZH"
       },
       "en": {
         "teamleitung-handchirurige-100-spital-limmattal-ch": "ZH"
       },
       "fr": {
         "teamleitung-handchirurige-100-spital-limmattal-ch": "ZH"
+      },
+      "de": {
+        "teamleitung-handchirurige-100-spital-limmattal-ch-e02a9ac8": "ZH"
       }
-    }
+    },
+    "previousSlugs": [
+      "teamleitung-handchirurige-100-spital-limmattal-ch"
+    ]
   },
   {
     "id": "spital-limmattal-2d2696b89bee",
@@ -1131,18 +1138,21 @@
         "apprenticeship-professional-health-fage-u2013-in-the-nursing-center-spital-limmattal-schlieren": "ZH",
         "lehrstelle-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-ch": "ZH",
         "la-sante-professionnelle-de-l-apprentissage-fage-u2013-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren": "ZH",
-        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch": "ZH"
+        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch-44d2e4f2": "ZH"
       },
       "en": {
         "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch": "ZH",
-        "apprenticeship-professional-health-fage-u2013-in-the-nursing-center-spital-limmattal-schlieren": "ZH"
+        "apprenticeship-professional-health-fage-u2013-in-the-nursing-center-spital-limmattal-schlieren": "ZH",
+        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch-44d2e4f2": "ZH"
       },
       "de": {
-        "lehrstelle-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-ch": "ZH"
+        "lehrstelle-fachfrau-mann-gesundheit-fage-u2013-im-pflegezentrum-spital-limmattal-ch": "ZH",
+        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch-44d2e4f2": "ZH"
       },
       "fr": {
         "lehrstelle-fachfrau-mann-gesundheit-efz-fage-spital-limmattal-ch": "ZH",
-        "la-sante-professionnelle-de-l-apprentissage-fage-u2013-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren": "ZH"
+        "la-sante-professionnelle-de-l-apprentissage-fage-u2013-dans-le-centre-de-soins-infirmiers-spital-limmattal-schlieren": "ZH",
+        "lehrstelle-fachfrau-mann-gesundheit-fage-im-pflegezentrum-spital-limmattal-ch-44d2e4f2": "ZH"
       }
     }
   },

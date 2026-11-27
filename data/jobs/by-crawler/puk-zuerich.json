@@ -1,7 +1,7 @@
 {
   "crawlerKey": "puk-zuerich",
-  "assembledAt": "2026-11-27T09:28:51.667Z",
-  "runId": "45970698995",
+  "assembledAt": "2026-11-27T21:23:09.093Z",
+  "runId": "46067872348",
   "jobs": [
     {
       "id": "puk-zuerich-9946db8a3246",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/163206/1987/pub/10/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:11.445Z",
+      "crawledAt": "2026-11-27T21:22:59.636Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -139,7 +139,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-assistants-psychiatrische-universitatsklinik-zurich-zurich",
           "assistants-juniors-psychiatrische-universitatsklinik-zurich-zurich",
           "diploma-in-nursing-diploma-in-nursing-psychiatrische-universitatsklinik-zurich-zurich",
           "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
@@ -158,7 +157,8 @@
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
-          "assistenti-junior-psychiatrische-universitatsklinik-zurich-zurich"
+          "assistenti-junior-psychiatrische-universitatsklinik-zurich-zurich",
+          "junior-assistants-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich"
@@ -186,9 +186,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:11.445Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/1987/pub/10/index.html"
+      "validThrough": "2026-12-27T21:22:59.636Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-5ead2fd3e3b0",
@@ -222,7 +221,7 @@
       "url": "https://apply.refline.ch/163206/2750/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:10.473Z",
+      "crawledAt": "2026-11-27T21:22:58.792Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -274,9 +273,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:10.473Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2750/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:58.792Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-83af48820fd9",
@@ -310,7 +308,7 @@
       "url": "https://apply.refline.ch/163206/2805/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:09.984Z",
+      "crawledAt": "2026-11-27T21:22:58.370Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -368,9 +366,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:28:09.984Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2805/pub/1/index.html"
+      "validThrough": "2027-01-20T21:22:58.370Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-8de2022ff0bd",
@@ -404,7 +401,7 @@
       "url": "https://apply.refline.ch/163206/2842/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:09.350Z",
+      "crawledAt": "2026-11-27T21:22:57.947Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -450,9 +447,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:28:09.350Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2842/pub/1/index.html"
+      "validThrough": "2027-02-24T21:22:57.947Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-a664cfc6f5ad",
@@ -486,7 +482,7 @@
       "url": "https://apply.refline.ch/163206/2841/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:08.866Z",
+      "crawledAt": "2026-11-27T21:22:57.527Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -539,9 +535,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:28:08.866Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2841/pub/1/index.html"
+      "validThrough": "2027-02-22T21:22:57.527Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-921b86ac5e6c",
@@ -575,7 +570,7 @@
       "url": "https://apply.refline.ch/163206/2837/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:08.381Z",
+      "crawledAt": "2026-11-27T21:22:57.108Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -635,9 +630,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:28:08.381Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2837/pub/1/index.html"
+      "validThrough": "2027-02-17T21:22:57.108Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-bb946090246f",
@@ -670,7 +664,7 @@
       "url": "https://apply.refline.ch/163206/2839/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:07.895Z",
+      "crawledAt": "2026-11-27T21:22:56.687Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -723,9 +717,8 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:28:07.895Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2839/pub/1/index.html"
+      "validThrough": "2027-02-22T21:22:56.687Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-a59747abc6a5",
@@ -758,7 +751,7 @@
       "url": "https://apply.refline.ch/163206/2834/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:07.408Z",
+      "crawledAt": "2026-11-27T21:22:56.269Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -813,9 +806,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:28:07.408Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2834/pub/1/index.html"
+      "validThrough": "2027-02-11T21:22:56.269Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-182541968a9a",
@@ -848,7 +840,7 @@
       "url": "https://apply.refline.ch/163206/2060/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:06.922Z",
+      "crawledAt": "2026-11-27T21:22:55.851Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -905,9 +897,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:06.922Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2060/pub/2/index.html"
+      "validThrough": "2026-12-27T21:22:55.851Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-45f7083384de",
@@ -941,7 +932,7 @@
       "url": "https://apply.refline.ch/163206/2496/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:06.436Z",
+      "crawledAt": "2026-11-27T21:22:55.428Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -994,9 +985,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:06.436Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2496/pub/4/index.html"
+      "validThrough": "2026-12-27T21:22:55.428Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-165e3fc5cdf1",
@@ -1030,7 +1020,7 @@
       "url": "https://apply.refline.ch/163206/2560/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:05.951Z",
+      "crawledAt": "2026-11-27T21:22:53.837Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1110,9 +1100,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:05.951Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2560/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:53.837Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-835c7ec15aeb",
@@ -1145,7 +1134,7 @@
       "url": "https://apply.refline.ch/163206/2769/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:05.451Z",
+      "crawledAt": "2026-11-27T21:22:53.416Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1200,9 +1189,8 @@
       },
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:05.451Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2769/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:53.416Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-c911b401201f",
@@ -1236,7 +1224,7 @@
       "url": "https://apply.refline.ch/163206/2804/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:03.867Z",
+      "crawledAt": "2026-11-27T21:22:52.995Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1295,9 +1283,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:28:03.867Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2804/pub/1/index.html"
+      "validThrough": "2027-01-18T21:22:52.995Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-3082835be2fd",
@@ -1331,7 +1318,7 @@
       "url": "https://apply.refline.ch/163206/2821/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:03.380Z",
+      "crawledAt": "2026-11-27T21:22:52.574Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1390,9 +1377,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:28:03.380Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2821/pub/1/index.html"
+      "validThrough": "2027-02-03T21:22:52.574Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-b3cbd6afde6e",
@@ -1426,7 +1412,7 @@
       "url": "https://apply.refline.ch/163206/2783/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:02.900Z",
+      "crawledAt": "2026-11-27T21:22:52.155Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1482,9 +1468,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:02.900Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2783/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:52.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-7a332534da92",
@@ -1518,7 +1503,7 @@
       "url": "https://apply.refline.ch/163206/2810/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:02.414Z",
+      "crawledAt": "2026-11-27T21:22:51.735Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1580,9 +1565,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:28:02.414Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2810/pub/1/index.html"
+      "validThrough": "2027-01-26T21:22:51.735Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-23f36889566e",
@@ -1616,7 +1600,7 @@
       "url": "https://apply.refline.ch/163206/2720/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:01.927Z",
+      "crawledAt": "2026-11-27T21:22:51.315Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1680,9 +1664,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:01.927Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2720/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:51.315Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-1b6eecfadb2d",
@@ -1716,7 +1699,7 @@
       "url": "https://apply.refline.ch/163206/2809/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:01.441Z",
+      "crawledAt": "2026-11-27T21:22:50.895Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1778,9 +1761,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:28:01.441Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2809/pub/1/index.html"
+      "validThrough": "2027-01-26T21:22:50.895Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-f8ef9c11b21b",
@@ -1814,7 +1796,7 @@
       "url": "https://apply.refline.ch/163206/2658/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:00.839Z",
+      "crawledAt": "2026-11-27T21:22:50.476Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1867,9 +1849,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:00.839Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2658/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:50.476Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-21a7d328f5a1",
@@ -1903,7 +1884,7 @@
       "url": "https://apply.refline.ch/163206/2741/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:28:00.352Z",
+      "crawledAt": "2026-11-27T21:22:50.046Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1950,9 +1931,8 @@
       },
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:28:00.352Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2741/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:50.046Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-9d9183a5d874",
@@ -1986,7 +1966,7 @@
       "url": "https://apply.refline.ch/163206/2692/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:59.866Z",
+      "crawledAt": "2026-11-27T21:22:49.626Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2039,9 +2019,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:59.866Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2692/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:49.626Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-5013691af23e",
@@ -2074,7 +2053,7 @@
       "url": "https://apply.refline.ch/163206/2712/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:58.409Z",
+      "crawledAt": "2026-11-27T21:22:48.354Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2129,9 +2108,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:58.409Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2712/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:48.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-5961399df7a8",
@@ -2165,7 +2143,7 @@
       "url": "https://apply.refline.ch/163206/2516/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:57.922Z",
+      "crawledAt": "2026-11-27T21:22:47.932Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2215,9 +2193,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:57.922Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2516/pub/2/index.html"
+      "validThrough": "2026-12-27T21:22:47.932Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-0668c0ba5b8f",
@@ -2251,7 +2228,7 @@
       "url": "https://apply.refline.ch/163206/2788/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:57.438Z",
+      "crawledAt": "2026-11-27T21:22:47.512Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2307,9 +2284,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:27:57.438Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2788/pub/1/index.html"
+      "validThrough": "2027-01-03T21:22:47.512Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-cc140ff3c1b3",
@@ -2342,7 +2318,7 @@
       "url": "https://apply.refline.ch/163206/2664/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:56.951Z",
+      "crawledAt": "2026-11-27T21:22:47.090Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2404,9 +2380,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:56.951Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2664/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:47.090Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-5de06b84251e",
@@ -2440,7 +2415,7 @@
       "url": "https://apply.refline.ch/163206/2681/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:56.465Z",
+      "crawledAt": "2026-11-27T21:22:46.668Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2490,9 +2465,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:56.465Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2681/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:46.668Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-336a2302cdb6",
@@ -2526,7 +2500,7 @@
       "url": "https://apply.refline.ch/163206/2792/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:55.978Z",
+      "crawledAt": "2026-11-27T21:22:46.248Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2585,9 +2559,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:27:55.978Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2792/pub/1/index.html"
+      "validThrough": "2027-01-10T21:22:46.248Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-02238489d1ca",
@@ -2621,7 +2594,7 @@
       "url": "https://apply.refline.ch/163206/2682/pub/7/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:55.492Z",
+      "crawledAt": "2026-11-27T21:22:45.827Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2674,9 +2647,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:55.492Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2682/pub/7/index.html"
+      "validThrough": "2026-12-27T21:22:45.827Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-9b65b63bd854",
@@ -2710,7 +2682,7 @@
       "url": "https://apply.refline.ch/163206/2828/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:53.727Z",
+      "crawledAt": "2026-11-27T21:22:45.407Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2765,9 +2737,84 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:27:53.727Z",
+      "validThrough": "2027-02-10T21:22:45.407Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "puk-zuerich-78ddaae83d3a",
+      "slug": "logopadin-logopaden-puk-zuerich-mannedorf",
+      "slugByLocale": {
+        "de": "logopadin-logopaden-puk-zuerich-mannedorf",
+        "it": "logopadin-logopaden-puk-zuerich-mannedorf",
+        "en": "logopadin-logopaden-puk-zuerich-mannedorf",
+        "fr": "logopadin-logopaden-puk-zuerich-mannedorf"
+      },
+      "company": "Psychiatrische Universitätsklinik Zürich",
+      "companyKey": "puk-zuerich",
+      "companyDomain": "pukzh.ch",
+      "title": "Logopädin / Logopäden",
+      "titleByLocale": {
+        "de": "Logopädin / Logopäden",
+        "it": "Logopädin / Logopäden",
+        "en": "Logopädin / Logopäden",
+        "fr": "Logopädin / Logopäden"
+      },
+      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n30%\nFür unsere Klinikschule am Zentrum für Kinderpsychiatrie Brüschhalde in Männedorf, suchen wir befristet vom 1. April 2027 bis zum 17. Dezember 2027 als Mutterschaftsvertretung eine/n\nIhre Aufgaben\n• Durchführung spezifischer logopädischer Diagnostik sowie von Therapie- und Förderlektionen\n• Verfassen von Abklärungs- und Verlaufsberichten gemäss definierten Standards\n• Interdisziplinäre Zusammenarbeit mit Medizin, Therapien, Schule und Pflege sowie Teilnahme an Team-sitzungen und Supervisionen\n• Beratung und fachliche Unterstützung von Lehrpersonen, Pflegenden, Sozialpädagoginnen und Sozial-pädagogen sowie Therapeutinnen und Therapeuten\n• Mitwirkung bei der Reintegration der Kinder\nIhr Profil\n• Abschluss als Dipl. Logopädin / Dipl. Logopäde oder Bachelor in Logopädie (bei ausländischen Diplo-men zwingend mit EDK-Anerkennung)\n• Berufserfahrung mit Kindern mit sonderpädagogischem Bedarf\n• Interesse an sonderpädagogischen, kinderpsychiatrischen und psychosozialen Fragestellungen\n• Einfühlungsvermögen, Belastbarkeit, Flexibilität sowie Konflikt- und Teamfähigkeit zeichnen Sie aus\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Ver-sorgung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt:\nTuba Halter\nSchulleiterin\n+41 58 384 72 86\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+      "descriptionByLocale": {
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n30%\nFür unsere Klinikschule am Zentrum für Kinderpsychiatrie Brüschhalde in Männedorf, suchen wir befristet vom 1. April 2027 bis zum 17. Dezember 2027 als Mutterschaftsvertretung eine/n\nIhre Aufgaben\n• Durchführung spezifischer logopädischer Diagnostik sowie von Therapie- und Förderlektionen\n• Verfassen von Abklärungs- und Verlaufsberichten gemäss definierten Standards\n• Interdisziplinäre Zusammenarbeit mit Medizin, Therapien, Schule und Pflege sowie Teilnahme an Team-sitzungen und Supervisionen\n• Beratung und fachliche Unterstützung von Lehrpersonen, Pflegenden, Sozialpädagoginnen und Sozial-pädagogen sowie Therapeutinnen und Therapeuten\n• Mitwirkung bei der Reintegration der Kinder\nIhr Profil\n• Abschluss als Dipl. Logopädin / Dipl. Logopäde oder Bachelor in Logopädie (bei ausländischen Diplo-men zwingend mit EDK-Anerkennung)\n• Berufserfahrung mit Kindern mit sonderpädagogischem Bedarf\n• Interesse an sonderpädagogischen, kinderpsychiatrischen und psychosozialen Fragestellungen\n• Einfühlungsvermögen, Belastbarkeit, Flexibilität sowie Konflikt- und Teamfähigkeit zeichnen Sie aus\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Ver-sorgung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt:\nTuba Halter\nSchulleiterin\n+41 58 384 72 86\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "it": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n30%\nFür unsere Klinikschule am Zentrum für Kinderpsychiatrie Brüschhalde in Männedorf, suchen wir befristet vom 1. April 2027 bis zum 17. Dezember 2027 als Mutterschaftsvertretung eine/n\nIhre Aufgaben\n• Durchführung spezifischer logopädischer Diagnostik sowie von Therapie- und Förderlektionen\n• Verfassen von Abklärungs- und Verlaufsberichten gemäss definierten Standards\n• Interdisziplinäre Zusammenarbeit mit Medizin, Therapien, Schule und Pflege sowie Teilnahme an Team-sitzungen und Supervisionen\n• Beratung und fachliche Unterstützung von Lehrpersonen, Pflegenden, Sozialpädagoginnen und Sozial-pädagogen sowie Therapeutinnen und Therapeuten\n• Mitwirkung bei der Reintegration der Kinder\nIhr Profil\n• Abschluss als Dipl. Logopädin / Dipl. Logopäde oder Bachelor in Logopädie (bei ausländischen Diplo-men zwingend mit EDK-Anerkennung)\n• Berufserfahrung mit Kindern mit sonderpädagogischem Bedarf\n• Interesse an sonderpädagogischen, kinderpsychiatrischen und psychosozialen Fragestellungen\n• Einfühlungsvermögen, Belastbarkeit, Flexibilität sowie Konflikt- und Teamfähigkeit zeichnen Sie aus\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Ver-sorgung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt:\nTuba Halter\nSchulleiterin\n+41 58 384 72 86\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "en": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n30%\nFür unsere Klinikschule am Zentrum für Kinderpsychiatrie Brüschhalde in Männedorf, suchen wir befristet vom 1. April 2027 bis zum 17. Dezember 2027 als Mutterschaftsvertretung eine/n\nIhre Aufgaben\n• Durchführung spezifischer logopädischer Diagnostik sowie von Therapie- und Förderlektionen\n• Verfassen von Abklärungs- und Verlaufsberichten gemäss definierten Standards\n• Interdisziplinäre Zusammenarbeit mit Medizin, Therapien, Schule und Pflege sowie Teilnahme an Team-sitzungen und Supervisionen\n• Beratung und fachliche Unterstützung von Lehrpersonen, Pflegenden, Sozialpädagoginnen und Sozial-pädagogen sowie Therapeutinnen und Therapeuten\n• Mitwirkung bei der Reintegration der Kinder\nIhr Profil\n• Abschluss als Dipl. Logopädin / Dipl. Logopäde oder Bachelor in Logopädie (bei ausländischen Diplo-men zwingend mit EDK-Anerkennung)\n• Berufserfahrung mit Kindern mit sonderpädagogischem Bedarf\n• Interesse an sonderpädagogischen, kinderpsychiatrischen und psychosozialen Fragestellungen\n• Einfühlungsvermögen, Belastbarkeit, Flexibilität sowie Konflikt- und Teamfähigkeit zeichnen Sie aus\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Ver-sorgung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt:\nTuba Halter\nSchulleiterin\n+41 58 384 72 86\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "fr": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n30%\nFür unsere Klinikschule am Zentrum für Kinderpsychiatrie Brüschhalde in Männedorf, suchen wir befristet vom 1. April 2027 bis zum 17. Dezember 2027 als Mutterschaftsvertretung eine/n\nIhre Aufgaben\n• Durchführung spezifischer logopädischer Diagnostik sowie von Therapie- und Förderlektionen\n• Verfassen von Abklärungs- und Verlaufsberichten gemäss definierten Standards\n• Interdisziplinäre Zusammenarbeit mit Medizin, Therapien, Schule und Pflege sowie Teilnahme an Team-sitzungen und Supervisionen\n• Beratung und fachliche Unterstützung von Lehrpersonen, Pflegenden, Sozialpädagoginnen und Sozial-pädagogen sowie Therapeutinnen und Therapeuten\n• Mitwirkung bei der Reintegration der Kinder\nIhr Profil\n• Abschluss als Dipl. Logopädin / Dipl. Logopäde oder Bachelor in Logopädie (bei ausländischen Diplo-men zwingend mit EDK-Anerkennung)\n• Berufserfahrung mit Kindern mit sonderpädagogischem Bedarf\n• Interesse an sonderpädagogischen, kinderpsychiatrischen und psychosozialen Fragestellungen\n• Einfühlungsvermögen, Belastbarkeit, Flexibilität sowie Konflikt- und Teamfähigkeit zeichnen Sie aus\nUnser Angebot\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Ver-sorgung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt:\nTuba Halter\nSchulleiterin\n+41 58 384 72 86\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch"
+      },
+      "needsRetranslation": true,
+      "location": "Männedorf",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/163206/2845/pub/1/index.html",
+      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T21:22:44.964Z",
+      "addressLocality": "Männedorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8708",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-27T14:47:29.453860+00:00",
+      "postedDate": "2026-11-27T14:47:29.453860+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/163206/2845/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "2845",
+      "pensumMin": 30,
+      "pensumMax": 30,
+      "pensum": "30%",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Männedorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T21:22:44.964Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2828/pub/1/index.html"
+      "firstSeenAt": "2026-11-27T21:22:44.964Z"
     },
     {
       "id": "puk-zuerich-e9c1e655507f",
@@ -2801,7 +2848,7 @@
       "url": "https://apply.refline.ch/163206/2800/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:53.241Z",
+      "crawledAt": "2026-11-27T21:22:43.846Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2848,9 +2895,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:27:53.241Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2800/pub/1/index.html"
+      "validThrough": "2027-01-13T21:22:43.846Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-12055d078483",
@@ -2884,7 +2930,7 @@
       "url": "https://apply.refline.ch/163206/2795/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:52.755Z",
+      "crawledAt": "2026-11-27T21:22:43.424Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2937,9 +2983,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:27:52.755Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2795/pub/1/index.html"
+      "validThrough": "2027-01-11T21:22:43.424Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-9ece0abdb74e",
@@ -2973,7 +3018,7 @@
       "url": "https://apply.refline.ch/163206/2817/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:52.268Z",
+      "crawledAt": "2026-11-27T21:22:43.004Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3032,9 +3077,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:27:52.268Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2817/pub/1/index.html"
+      "validThrough": "2027-02-01T21:22:43.004Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-82cfe235a023",
@@ -3068,7 +3112,7 @@
       "url": "https://apply.refline.ch/163206/2807/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:51.783Z",
+      "crawledAt": "2026-11-27T21:22:42.583Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3127,9 +3171,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:27:51.783Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2807/pub/1/index.html"
+      "validThrough": "2027-01-24T21:22:42.583Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-59a2d91eabee",
@@ -3163,7 +3206,7 @@
       "url": "https://apply.refline.ch/163206/2743/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:51.296Z",
+      "crawledAt": "2026-11-27T21:22:42.162Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3210,9 +3253,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:51.296Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2743/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:42.162Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-58732e84895b",
@@ -3245,7 +3287,7 @@
       "url": "https://apply.refline.ch/163206/2742/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:50.810Z",
+      "crawledAt": "2026-11-27T21:22:41.740Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3292,9 +3334,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:50.810Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2742/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:41.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-f7d2dccc8901",
@@ -3328,7 +3369,7 @@
       "url": "https://apply.refline.ch/163206/2796/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:50.319Z",
+      "crawledAt": "2026-11-27T21:22:41.318Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3381,9 +3422,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:27:50.319Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2796/pub/1/index.html"
+      "validThrough": "2027-01-11T21:22:41.318Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-ccfd1996da36",
@@ -3417,7 +3457,7 @@
       "url": "https://apply.refline.ch/163206/2745/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:49.829Z",
+      "crawledAt": "2026-11-27T21:22:40.895Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3464,9 +3504,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:49.829Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2745/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:40.895Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-c5650d759f87",
@@ -3500,7 +3539,7 @@
       "url": "https://apply.refline.ch/163206/2695/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:49.342Z",
+      "crawledAt": "2026-11-27T21:22:40.474Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3554,9 +3593,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:49.342Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2695/pub/2/index.html"
+      "validThrough": "2026-12-27T21:22:40.474Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-b15b6616f226",
@@ -3589,7 +3627,7 @@
       "url": "https://apply.refline.ch/163206/2694/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:48.839Z",
+      "crawledAt": "2026-11-27T21:22:40.054Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3653,9 +3691,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:48.839Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2694/pub/2/index.html"
+      "validThrough": "2026-12-27T21:22:40.054Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-cebbd7d46d3d",
@@ -3688,7 +3725,7 @@
       "url": "https://apply.refline.ch/163206/2744/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:48.353Z",
+      "crawledAt": "2026-11-27T21:22:39.634Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3735,9 +3772,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:48.353Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2744/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:39.634Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-f8750a59febc",
@@ -3770,7 +3806,7 @@
       "url": "https://apply.refline.ch/163206/2797/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:47.869Z",
+      "crawledAt": "2026-11-27T21:22:39.214Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3825,9 +3861,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:27:47.869Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2797/pub/1/index.html"
+      "validThrough": "2027-01-11T21:22:39.214Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-d6105bcb20ea",
@@ -3860,7 +3895,7 @@
       "url": "https://apply.refline.ch/163206/2801/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:47.381Z",
+      "crawledAt": "2026-11-27T21:22:38.792Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3919,9 +3954,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:27:47.381Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2801/pub/1/index.html"
+      "validThrough": "2027-01-13T21:22:38.792Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-0229634943a3",
@@ -3955,7 +3989,7 @@
       "url": "https://apply.refline.ch/163206/2827/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:46.901Z",
+      "crawledAt": "2026-11-27T21:22:38.364Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4010,9 +4044,168 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:27:46.901Z",
+      "validThrough": "2027-02-08T21:22:38.364Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "puk-zuerich-a7d132c854d3",
+      "slug": "ict-system-engineer-puk-zuerich-zurich",
+      "slugByLocale": {
+        "de": "ict-system-engineer-puk-zuerich-zurich",
+        "it": "ict-system-engineer-puk-zuerich-zurich",
+        "en": "ict-system-engineer-puk-zuerich-zurich",
+        "fr": "ict-system-engineer-puk-zuerich-zurich"
+      },
+      "company": "Psychiatrische Universitätsklinik Zürich",
+      "companyKey": "puk-zuerich",
+      "companyDomain": "pukzh.ch",
+      "title": "ICT System Engineer",
+      "titleByLocale": {
+        "de": "ICT System Engineer",
+        "it": "ICT System Ingegnere",
+        "en": "ICT System Engineer",
+        "fr": "ICT System Ingénieur"
+      },
+      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Technologie-Service am Standort Zürich Lenggstrasse suchen wir per sofort oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Planung und Weiterentwicklung der ICT-Infrastruktur, Systemlandschaften und technischen Roadmaps\n• Evaluation und Konzeption von ICT-Infrastrukturlösungen sowie Erarbeitung von Entscheidungsgrundlagen\n• Aufbau, Implementierung und Optimierung von ICT-Plattformen und Systemen\n• Sicherstellung eines stabilen, sicheren und performanten Betriebs der ICT-Infrastruktur\n• Durchführung von Wartungs-, Sicherheits- und Optimierungsmassnahmen sowie Analyse und Behebung von Störungen\n• Gewährleistung der Systemverfügbarkeit, Datensicherung und Wiederherstellbarkeit sowie Pflege der technischen Dokumentationen\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ Fachrichtung Plattformentwicklung oder vergleichbare Qualifikation\n• Weiterbildung auf Stufe HF oder FH im Bereich Informatik von Vorteil\n• Mehrjährige Berufserfahrung im Aufbau und Betrieb von ICT-Infrastrukturen, insbesondere mit Technologien wie Microsoft Active Directory, Exchange, HIN, Citrix, Storage und Virtualisierung, idealerweise im Gesundheitswesen\n• Erfahrung in der Mitarbeit und Umsetzung von ICT-Projekten\n• Analytisches und vernetztes Denkvermögen, hohe Kundenorientierung, ausgeprägte Kommunikationsfähigkeit sowie eine selbständige und strukturierte Arbeitsweise\n• Gute Deutsch- und Englischkenntnisse sowie Bereitschaft zur Mitarbeit im Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeit\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt\nPhilipp Wong\nLeiter ICT Technologie-Service\n+41 58 384 36 08\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+      "descriptionByLocale": {
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Technologie-Service am Standort Zürich Lenggstrasse suchen wir per sofort oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Planung und Weiterentwicklung der ICT-Infrastruktur, Systemlandschaften und technischen Roadmaps\n• Evaluation und Konzeption von ICT-Infrastrukturlösungen sowie Erarbeitung von Entscheidungsgrundlagen\n• Aufbau, Implementierung und Optimierung von ICT-Plattformen und Systemen\n• Sicherstellung eines stabilen, sicheren und performanten Betriebs der ICT-Infrastruktur\n• Durchführung von Wartungs-, Sicherheits- und Optimierungsmassnahmen sowie Analyse und Behebung von Störungen\n• Gewährleistung der Systemverfügbarkeit, Datensicherung und Wiederherstellbarkeit sowie Pflege der technischen Dokumentationen\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ Fachrichtung Plattformentwicklung oder vergleichbare Qualifikation\n• Weiterbildung auf Stufe HF oder FH im Bereich Informatik von Vorteil\n• Mehrjährige Berufserfahrung im Aufbau und Betrieb von ICT-Infrastrukturen, insbesondere mit Technologien wie Microsoft Active Directory, Exchange, HIN, Citrix, Storage und Virtualisierung, idealerweise im Gesundheitswesen\n• Erfahrung in der Mitarbeit und Umsetzung von ICT-Projekten\n• Analytisches und vernetztes Denkvermögen, hohe Kundenorientierung, ausgeprägte Kommunikationsfähigkeit sowie eine selbständige und strukturierte Arbeitsweise\n• Gute Deutsch- und Englischkenntnisse sowie Bereitschaft zur Mitarbeit im Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeit\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt\nPhilipp Wong\nLeiter ICT Technologie-Service\n+41 58 384 36 08\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "it": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Technologie-Service am Standort Zürich Lenggstrasse suchen wir per sofort oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Planung und Weiterentwicklung der ICT-Infrastruktur, Systemlandschaften und technischen Roadmaps\n• Evaluation und Konzeption von ICT-Infrastrukturlösungen sowie Erarbeitung von Entscheidungsgrundlagen\n• Aufbau, Implementierung und Optimierung von ICT-Plattformen und Systemen\n• Sicherstellung eines stabilen, sicheren und performanten Betriebs der ICT-Infrastruktur\n• Durchführung von Wartungs-, Sicherheits- und Optimierungsmassnahmen sowie Analyse und Behebung von Störungen\n• Gewährleistung der Systemverfügbarkeit, Datensicherung und Wiederherstellbarkeit sowie Pflege der technischen Dokumentationen\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ Fachrichtung Plattformentwicklung oder vergleichbare Qualifikation\n• Weiterbildung auf Stufe HF oder FH im Bereich Informatik von Vorteil\n• Mehrjährige Berufserfahrung im Aufbau und Betrieb von ICT-Infrastrukturen, insbesondere mit Technologien wie Microsoft Active Directory, Exchange, HIN, Citrix, Storage und Virtualisierung, idealerweise im Gesundheitswesen\n• Erfahrung in der Mitarbeit und Umsetzung von ICT-Projekten\n• Analytisches und vernetztes Denkvermögen, hohe Kundenorientierung, ausgeprägte Kommunikationsfähigkeit sowie eine selbständige und strukturierte Arbeitsweise\n• Gute Deutsch- und Englischkenntnisse sowie Bereitschaft zur Mitarbeit im Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeit\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt\nPhilipp Wong\nLeiter ICT Technologie-Service\n+41 58 384 36 08\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "en": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Technologie-Service am Standort Zürich Lenggstrasse suchen wir per sofort oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Planung und Weiterentwicklung der ICT-Infrastruktur, Systemlandschaften und technischen Roadmaps\n• Evaluation und Konzeption von ICT-Infrastrukturlösungen sowie Erarbeitung von Entscheidungsgrundlagen\n• Aufbau, Implementierung und Optimierung von ICT-Plattformen und Systemen\n• Sicherstellung eines stabilen, sicheren und performanten Betriebs der ICT-Infrastruktur\n• Durchführung von Wartungs-, Sicherheits- und Optimierungsmassnahmen sowie Analyse und Behebung von Störungen\n• Gewährleistung der Systemverfügbarkeit, Datensicherung und Wiederherstellbarkeit sowie Pflege der technischen Dokumentationen\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ Fachrichtung Plattformentwicklung oder vergleichbare Qualifikation\n• Weiterbildung auf Stufe HF oder FH im Bereich Informatik von Vorteil\n• Mehrjährige Berufserfahrung im Aufbau und Betrieb von ICT-Infrastrukturen, insbesondere mit Technologien wie Microsoft Active Directory, Exchange, HIN, Citrix, Storage und Virtualisierung, idealerweise im Gesundheitswesen\n• Erfahrung in der Mitarbeit und Umsetzung von ICT-Projekten\n• Analytisches und vernetztes Denkvermögen, hohe Kundenorientierung, ausgeprägte Kommunikationsfähigkeit sowie eine selbständige und strukturierte Arbeitsweise\n• Gute Deutsch- und Englischkenntnisse sowie Bereitschaft zur Mitarbeit im Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeit\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt\nPhilipp Wong\nLeiter ICT Technologie-Service\n+41 58 384 36 08\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "fr": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Technologie-Service am Standort Zürich Lenggstrasse suchen wir per sofort oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Planung und Weiterentwicklung der ICT-Infrastruktur, Systemlandschaften und technischen Roadmaps\n• Evaluation und Konzeption von ICT-Infrastrukturlösungen sowie Erarbeitung von Entscheidungsgrundlagen\n• Aufbau, Implementierung und Optimierung von ICT-Plattformen und Systemen\n• Sicherstellung eines stabilen, sicheren und performanten Betriebs der ICT-Infrastruktur\n• Durchführung von Wartungs-, Sicherheits- und Optimierungsmassnahmen sowie Analyse und Behebung von Störungen\n• Gewährleistung der Systemverfügbarkeit, Datensicherung und Wiederherstellbarkeit sowie Pflege der technischen Dokumentationen\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ Fachrichtung Plattformentwicklung oder vergleichbare Qualifikation\n• Weiterbildung auf Stufe HF oder FH im Bereich Informatik von Vorteil\n• Mehrjährige Berufserfahrung im Aufbau und Betrieb von ICT-Infrastrukturen, insbesondere mit Technologien wie Microsoft Active Directory, Exchange, HIN, Citrix, Storage und Virtualisierung, idealerweise im Gesundheitswesen\n• Erfahrung in der Mitarbeit und Umsetzung von ICT-Projekten\n• Analytisches und vernetztes Denkvermögen, hohe Kundenorientierung, ausgeprägte Kommunikationsfähigkeit sowie eine selbständige und strukturierte Arbeitsweise\n• Gute Deutsch- und Englischkenntnisse sowie Bereitschaft zur Mitarbeit im Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeit\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt\nPhilipp Wong\nLeiter ICT Technologie-Service\n+41 58 384 36 08\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/163206/2844/pub/1/index.html",
+      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T21:22:37.939Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-27T13:13:14.738634+00:00",
+      "postedDate": "2026-11-27T13:13:14.738634+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/163206/2844/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "2844",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T21:22:37.939Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2827/pub/1/index.html"
+      "firstSeenAt": "2026-11-27T21:22:37.939Z"
+    },
+    {
+      "id": "puk-zuerich-a041ee9eefa0",
+      "slug": "ict-supporterin-ict-supporter-junior-o-professional-psychiatrische-universitatsklinik-zurich",
+      "slugByLocale": {
+        "de": "ict-supporterin-ict-supporter-junior-oder-professional-puk-zuerich-zurich",
+        "it": "ict-supporterin-ict-supporter-junior-o-professional-psychiatrische-universitatsklinik-zurich",
+        "en": "ict-supporterin-ict-supporter-junior-oder-professional-puk-zuerich-zurich",
+        "fr": "ict-supporterin-ict-supporter-junior-oder-professional-puk-zuerich-zurich"
+      },
+      "company": "Psychiatrische Universitätsklinik Zürich",
+      "companyKey": "puk-zuerich",
+      "companyDomain": "pukzh.ch",
+      "title": "ICT Supporterin / ICT Supporter (Junior oder Professional)",
+      "titleByLocale": {
+        "de": "ICT Supporterin / ICT Supporter (Junior oder Professional)",
+        "it": "ICT Supporterin / ICT Supporter (Junior o Professional)",
+        "en": "ICT Supporterin / ICT Supporter (Junior oder Professional)",
+        "fr": "ICT Supporterin / ICT Supporter (Junior oder Professional)"
+      },
+      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Anwender-Service am Standort Zürich Lenggstrasse suchen wir per 1. Februar 2027 oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Entgegennehmen, Erfassen, Klassifizieren und Bearbeiten von Störungsmeldungen, Serviceanfragen und Änderungswünschen\n• Analysieren und Beheben von Hardware-, Software-, Netzwerk- und Kommunikationsproblemen im First-Level-Support, vor Ort und mittels Fernunterstützung\n• Triage, Weiterleitung und Nachverfolgung komplexerer Anliegen in Zusammenarbeit mit internen ICT-Fachbereichen und externen Partnern\n• Installieren, Konfigurieren und Warten von Arbeitsplatzsystemen, Peripherie- und Mobilgeräten sowie Durchführen von Hardware-Rollouts\n• Mitarbeit in ICT-Projekten, je nach Erfahrung mit eigenständiger Verantwortung, sowie Pflege von Inventaren und Betriebsdokumentationen\n• Turnusmässige Mitarbeit im ICT Service Desk und Bereitschaftsdienst (Pikett) unter Einhaltung der Datenschutz- und Informationssicherheitsvorgaben\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ, ICT-Fachfrau/-mann EFZ oder eine vergleichbare Qualifikation\n• Erste praktische Erfahrung im ICT-Support (Junior) bzw. mehrjährige Berufserfahrung mit fundierten Kenntnissen im Client-, Peripherie- und Druckerumfeld (Professional)\n• Kenntnisse in ITSM-Prozessen und -Tools sowie idealerweise ITIL Foundation und Erfahrung in der Projektarbeit, insbesondere auf Professional-Stufe\n• Gute Deutsch- und Englischkenntnisse sowie analytisches, lösungsorientiertes und vernetztes Denkvermögen\n• Ausgeprägte Kunden- und Serviceorientierung, Kommunikationsstärke, Teamfähigkeit sowie eine selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zum Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\nKontakt\nRafik Nazarian\nLeiter ICT Anwender-Service\n+41 58 384 36 03\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+      "descriptionByLocale": {
+        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Anwender-Service am Standort Zürich Lenggstrasse suchen wir per 1. Februar 2027 oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Entgegennehmen, Erfassen, Klassifizieren und Bearbeiten von Störungsmeldungen, Serviceanfragen und Änderungswünschen\n• Analysieren und Beheben von Hardware-, Software-, Netzwerk- und Kommunikationsproblemen im First-Level-Support, vor Ort und mittels Fernunterstützung\n• Triage, Weiterleitung und Nachverfolgung komplexerer Anliegen in Zusammenarbeit mit internen ICT-Fachbereichen und externen Partnern\n• Installieren, Konfigurieren und Warten von Arbeitsplatzsystemen, Peripherie- und Mobilgeräten sowie Durchführen von Hardware-Rollouts\n• Mitarbeit in ICT-Projekten, je nach Erfahrung mit eigenständiger Verantwortung, sowie Pflege von Inventaren und Betriebsdokumentationen\n• Turnusmässige Mitarbeit im ICT Service Desk und Bereitschaftsdienst (Pikett) unter Einhaltung der Datenschutz- und Informationssicherheitsvorgaben\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ, ICT-Fachfrau/-mann EFZ oder eine vergleichbare Qualifikation\n• Erste praktische Erfahrung im ICT-Support (Junior) bzw. mehrjährige Berufserfahrung mit fundierten Kenntnissen im Client-, Peripherie- und Druckerumfeld (Professional)\n• Kenntnisse in ITSM-Prozessen und -Tools sowie idealerweise ITIL Foundation und Erfahrung in der Projektarbeit, insbesondere auf Professional-Stufe\n• Gute Deutsch- und Englischkenntnisse sowie analytisches, lösungsorientiertes und vernetztes Denkvermögen\n• Ausgeprägte Kunden- und Serviceorientierung, Kommunikationsstärke, Teamfähigkeit sowie eine selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zum Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\nKontakt\nRafik Nazarian\nLeiter ICT Anwender-Service\n+41 58 384 36 03\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "it": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Anwender-Service am Standort Zürich Lenggstrasse suchen wir per 1. Februar 2027 oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Entgegennehmen, Erfassen, Klassifizieren und Bearbeiten von Störungsmeldungen, Serviceanfragen und Änderungswünschen\n• Analysieren und Beheben von Hardware-, Software-, Netzwerk- und Kommunikationsproblemen im First-Level-Support, vor Ort und mittels Fernunterstützung\n• Triage, Weiterleitung und Nachverfolgung komplexerer Anliegen in Zusammenarbeit mit internen ICT-Fachbereichen und externen Partnern\n• Installieren, Konfigurieren und Warten von Arbeitsplatzsystemen, Peripherie- und Mobilgeräten sowie Durchführen von Hardware-Rollouts\n• Mitarbeit in ICT-Projekten, je nach Erfahrung mit eigenständiger Verantwortung, sowie Pflege von Inventaren und Betriebsdokumentationen\n• Turnusmässige Mitarbeit im ICT Service Desk und Bereitschaftsdienst (Pikett) unter Einhaltung der Datenschutz- und Informationssicherheitsvorgaben\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ, ICT-Fachfrau/-mann EFZ oder eine vergleichbare Qualifikation\n• Erste praktische Erfahrung im ICT-Support (Junior) bzw. mehrjährige Berufserfahrung mit fundierten Kenntnissen im Client-, Peripherie- und Druckerumfeld (Professional)\n• Kenntnisse in ITSM-Prozessen und -Tools sowie idealerweise ITIL Foundation und Erfahrung in der Projektarbeit, insbesondere auf Professional-Stufe\n• Gute Deutsch- und Englischkenntnisse sowie analytisches, lösungsorientiertes und vernetztes Denkvermögen\n• Ausgeprägte Kunden- und Serviceorientierung, Kommunikationsstärke, Teamfähigkeit sowie eine selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zum Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\nKontakt\nRafik Nazarian\nLeiter ICT Anwender-Service\n+41 58 384 36 03\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "en": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Anwender-Service am Standort Zürich Lenggstrasse suchen wir per 1. Februar 2027 oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Entgegennehmen, Erfassen, Klassifizieren und Bearbeiten von Störungsmeldungen, Serviceanfragen und Änderungswünschen\n• Analysieren und Beheben von Hardware-, Software-, Netzwerk- und Kommunikationsproblemen im First-Level-Support, vor Ort und mittels Fernunterstützung\n• Triage, Weiterleitung und Nachverfolgung komplexerer Anliegen in Zusammenarbeit mit internen ICT-Fachbereichen und externen Partnern\n• Installieren, Konfigurieren und Warten von Arbeitsplatzsystemen, Peripherie- und Mobilgeräten sowie Durchführen von Hardware-Rollouts\n• Mitarbeit in ICT-Projekten, je nach Erfahrung mit eigenständiger Verantwortung, sowie Pflege von Inventaren und Betriebsdokumentationen\n• Turnusmässige Mitarbeit im ICT Service Desk und Bereitschaftsdienst (Pikett) unter Einhaltung der Datenschutz- und Informationssicherheitsvorgaben\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ, ICT-Fachfrau/-mann EFZ oder eine vergleichbare Qualifikation\n• Erste praktische Erfahrung im ICT-Support (Junior) bzw. mehrjährige Berufserfahrung mit fundierten Kenntnissen im Client-, Peripherie- und Druckerumfeld (Professional)\n• Kenntnisse in ITSM-Prozessen und -Tools sowie idealerweise ITIL Foundation und Erfahrung in der Projektarbeit, insbesondere auf Professional-Stufe\n• Gute Deutsch- und Englischkenntnisse sowie analytisches, lösungsorientiertes und vernetztes Denkvermögen\n• Ausgeprägte Kunden- und Serviceorientierung, Kommunikationsstärke, Teamfähigkeit sowie eine selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zum Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\nKontakt\nRafik Nazarian\nLeiter ICT Anwender-Service\n+41 58 384 36 03\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
+        "fr": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDer Bereich Information & Communication Technology stellt die tägliche Verfügbarkeit aller Systeme sowie sämtliche ICT Serviceleistungen inklusive Service Desk sicher. Er bietet Projektunterstützung oder Beratungen an und wirkt darüber hinaus vielfach interdisziplinär bei diversen Aufgaben mit.\nFür unser Team ICT Anwender-Service am Standort Zürich Lenggstrasse suchen wir per 1. Februar 2027 oder nach Vereinbarung eine/n\nIhre Aufgaben\n• Entgegennehmen, Erfassen, Klassifizieren und Bearbeiten von Störungsmeldungen, Serviceanfragen und Änderungswünschen\n• Analysieren und Beheben von Hardware-, Software-, Netzwerk- und Kommunikationsproblemen im First-Level-Support, vor Ort und mittels Fernunterstützung\n• Triage, Weiterleitung und Nachverfolgung komplexerer Anliegen in Zusammenarbeit mit internen ICT-Fachbereichen und externen Partnern\n• Installieren, Konfigurieren und Warten von Arbeitsplatzsystemen, Peripherie- und Mobilgeräten sowie Durchführen von Hardware-Rollouts\n• Mitarbeit in ICT-Projekten, je nach Erfahrung mit eigenständiger Verantwortung, sowie Pflege von Inventaren und Betriebsdokumentationen\n• Turnusmässige Mitarbeit im ICT Service Desk und Bereitschaftsdienst (Pikett) unter Einhaltung der Datenschutz- und Informationssicherheitsvorgaben\nIhr Profil\n• Abgeschlossene Ausbildung als Informatiker/in EFZ, ICT-Fachfrau/-mann EFZ oder eine vergleichbare Qualifikation\n• Erste praktische Erfahrung im ICT-Support (Junior) bzw. mehrjährige Berufserfahrung mit fundierten Kenntnissen im Client-, Peripherie- und Druckerumfeld (Professional)\n• Kenntnisse in ITSM-Prozessen und -Tools sowie idealerweise ITIL Foundation und Erfahrung in der Projektarbeit, insbesondere auf Professional-Stufe\n• Gute Deutsch- und Englischkenntnisse sowie analytisches, lösungsorientiertes und vernetztes Denkvermögen\n• Ausgeprägte Kunden- und Serviceorientierung, Kommunikationsstärke, Teamfähigkeit sowie eine selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zum Pikettdienst und zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\nUnser Angebot\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\n• Familie und Beruf vereinen: Zugang zur betriebseigenen Kinderkrippe\nKontakt\nRafik Nazarian\nLeiter ICT Anwender-Service\n+41 58 384 36 03\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/163206/2843/pub/1/index.html",
+      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T21:22:37.518Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-27T12:57:16.490329+00:00",
+      "postedDate": "2026-11-27T12:57:16.490329+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/163206/2843/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "2843",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporterin-ict-supporter-junior-oder-professional-puk-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporterin-ict-supporter-junior-oder-professional-puk-zuerich-zurich"
+      ],
+      "salaryMin": 82000,
+      "salaryMax": 114500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82000,
+          "maxValue": 114500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T21:22:37.518Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-27T21:22:37.518Z"
     },
     {
       "id": "puk-zuerich-886a2fee1c8e",
@@ -4046,7 +4239,7 @@
       "url": "https://apply.refline.ch/163206/2825/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:46.414Z",
+      "crawledAt": "2026-11-27T21:22:37.096Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4108,9 +4301,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:27:46.414Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2825/pub/1/index.html"
+      "validThrough": "2027-02-08T21:22:37.096Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-fce19df370bb",
@@ -4144,7 +4336,7 @@
       "url": "https://apply.refline.ch/163206/2838/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:45.929Z",
+      "crawledAt": "2026-11-27T21:22:36.675Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4199,9 +4391,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:27:45.929Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2838/pub/1/index.html"
+      "validThrough": "2027-02-21T21:22:36.675Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-4476e8cd95c2",
@@ -4235,7 +4426,7 @@
       "url": "https://apply.refline.ch/163206/2786/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:45.443Z",
+      "crawledAt": "2026-11-27T21:22:36.255Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4282,9 +4473,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:45.443Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2786/pub/4/index.html"
+      "validThrough": "2026-12-27T21:22:36.255Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-a3e1f82efb90",
@@ -4318,7 +4508,7 @@
       "url": "https://apply.refline.ch/163206/2820/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:43.802Z",
+      "crawledAt": "2026-11-27T21:22:35.832Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4376,9 +4566,8 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:27:43.802Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2820/pub/1/index.html"
+      "validThrough": "2027-02-03T21:22:35.832Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-c819869f95d1",
@@ -4412,7 +4601,7 @@
       "url": "https://apply.refline.ch/163206/2819/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:43.308Z",
+      "crawledAt": "2026-11-27T21:22:35.409Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4470,9 +4659,8 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:27:43.308Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2819/pub/1/index.html"
+      "validThrough": "2027-02-03T21:22:35.409Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-849acd345508",
@@ -4506,7 +4694,7 @@
       "url": "https://apply.refline.ch/163206/2746/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:42.819Z",
+      "crawledAt": "2026-11-27T21:22:34.968Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4553,9 +4741,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:42.819Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2746/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:34.968Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-2c9c5428ea97",
@@ -4589,7 +4776,7 @@
       "url": "https://apply.refline.ch/163206/2802/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:42.332Z",
+      "crawledAt": "2026-11-27T21:22:33.839Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4666,9 +4853,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:27:42.332Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2802/pub/1/index.html"
+      "validThrough": "2027-01-17T21:22:33.839Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-26eca168eea5",
@@ -4702,7 +4888,7 @@
       "url": "https://apply.refline.ch/163206/2728/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:41.842Z",
+      "crawledAt": "2026-11-27T21:22:33.419Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4761,9 +4947,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:41.842Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2728/pub/4/index.html"
+      "validThrough": "2026-12-27T21:22:33.419Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-1b2b8fd68ff9",
@@ -4797,7 +4982,7 @@
       "url": "https://apply.refline.ch/163206/2822/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:41.356Z",
+      "crawledAt": "2026-11-27T21:22:32.996Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4856,9 +5041,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:27:41.356Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2822/pub/1/index.html"
+      "validThrough": "2027-02-04T21:22:32.996Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-41686105e61e",
@@ -4892,7 +5076,7 @@
       "url": "https://apply.refline.ch/163206/2581/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:40.870Z",
+      "crawledAt": "2026-11-27T21:22:32.570Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4950,9 +5134,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:40.870Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2581/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:32.570Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-a11e31b760a9",
@@ -4986,7 +5169,7 @@
       "url": "https://apply.refline.ch/163206/2715/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:40.383Z",
+      "crawledAt": "2026-11-27T21:22:32.149Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5039,9 +5222,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:40.383Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2715/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:32.149Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-f029e2a11613",
@@ -5075,7 +5257,7 @@
       "url": "https://apply.refline.ch/163206/2829/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:39.881Z",
+      "crawledAt": "2026-11-27T21:22:31.722Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5130,9 +5312,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:27:39.881Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2829/pub/1/index.html"
+      "validThrough": "2027-02-10T21:22:31.722Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-508cdee63c31",
@@ -5166,7 +5347,7 @@
       "url": "https://apply.refline.ch/163206/2710/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:39.394Z",
+      "crawledAt": "2026-11-27T21:22:31.302Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5219,9 +5400,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:39.394Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2710/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:31.302Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-8d29a404a0fe",
@@ -5255,7 +5435,7 @@
       "url": "https://apply.refline.ch/163206/2790/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:38.909Z",
+      "crawledAt": "2026-11-27T21:22:30.882Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5313,9 +5493,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:27:38.909Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2790/pub/1/index.html"
+      "validThrough": "2027-01-05T21:22:30.882Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-7b6c5b8697d3",
@@ -5349,7 +5528,7 @@
       "url": "https://apply.refline.ch/163206/1832/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:38.425Z",
+      "crawledAt": "2026-11-27T21:22:30.461Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5407,9 +5586,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:38.425Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/1832/pub/6/index.html"
+      "validThrough": "2026-12-27T21:22:30.461Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-17f0162a0abb",
@@ -5443,7 +5621,7 @@
       "url": "https://apply.refline.ch/163206/2832/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:37.936Z",
+      "crawledAt": "2026-11-27T21:22:30.039Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5498,9 +5676,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:27:37.936Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2832/pub/1/index.html"
+      "validThrough": "2027-02-10T21:22:30.039Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-a3de688424c5",
@@ -5534,7 +5711,7 @@
       "url": "https://apply.refline.ch/163206/2823/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:37.451Z",
+      "crawledAt": "2026-11-27T21:22:29.619Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5583,9 +5760,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:27:37.451Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2823/pub/4/index.html"
+      "validThrough": "2027-02-07T21:22:29.619Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-63c3da2b54a2",
@@ -5619,7 +5795,7 @@
       "url": "https://apply.refline.ch/163206/2831/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:36.966Z",
+      "crawledAt": "2026-11-27T21:22:29.198Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5678,9 +5854,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:27:36.966Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2831/pub/1/index.html"
+      "validThrough": "2027-02-10T21:22:29.198Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-c6886cb5919e",
@@ -5714,7 +5889,7 @@
       "url": "https://apply.refline.ch/163206/2279/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:36.459Z",
+      "crawledAt": "2026-11-27T21:22:28.780Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5775,9 +5950,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:36.459Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2279/pub/6/index.html"
+      "validThrough": "2026-12-27T21:22:28.780Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-d4233c2e23ce",
@@ -5811,7 +5985,7 @@
       "url": "https://apply.refline.ch/163206/2763/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:35.973Z",
+      "crawledAt": "2026-11-27T21:22:28.360Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5870,9 +6044,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:35.973Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2763/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:28.360Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-63954f83adad",
@@ -5906,7 +6079,7 @@
       "url": "https://apply.refline.ch/163206/2626/pub/7/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:35.482Z",
+      "crawledAt": "2026-11-27T21:22:27.938Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5959,9 +6132,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:35.482Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2626/pub/7/index.html"
+      "validThrough": "2026-12-27T21:22:27.938Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-9196ad4333a5",
@@ -5995,7 +6167,7 @@
       "url": "https://apply.refline.ch/163206/2460/pub/5/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:34.996Z",
+      "crawledAt": "2026-11-27T21:22:27.517Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6054,9 +6226,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:34.996Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2460/pub/5/index.html"
+      "validThrough": "2026-12-27T21:22:27.517Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-ec0f69071754",
@@ -6090,7 +6261,7 @@
       "url": "https://apply.refline.ch/163206/2738/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:33.808Z",
+      "crawledAt": "2026-11-27T21:22:27.096Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6148,9 +6319,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:33.808Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2738/pub/6/index.html"
+      "validThrough": "2026-12-27T21:22:27.096Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-d1b7a7eefe6a",
@@ -6184,7 +6354,7 @@
       "url": "https://apply.refline.ch/163206/2811/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:33.320Z",
+      "crawledAt": "2026-11-27T21:22:26.676Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6242,9 +6412,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:27:33.320Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2811/pub/1/index.html"
+      "validThrough": "2027-01-26T21:22:26.676Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-079b60635f5e",
@@ -6278,7 +6447,7 @@
       "url": "https://apply.refline.ch/163206/2799/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:32.835Z",
+      "crawledAt": "2026-11-27T21:22:26.253Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6331,9 +6500,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:27:32.835Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2799/pub/1/index.html"
+      "validThrough": "2027-01-12T21:22:26.253Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-cdbd25982e2c",
@@ -6367,7 +6535,7 @@
       "url": "https://apply.refline.ch/163206/2824/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:32.349Z",
+      "crawledAt": "2026-11-27T21:22:25.832Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6416,9 +6584,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:27:32.349Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2824/pub/4/index.html"
+      "validThrough": "2027-02-07T21:22:25.832Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-76cd9ec3c3f3",
@@ -6452,7 +6619,7 @@
       "url": "https://apply.refline.ch/163206/2139/pub/12/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:31.864Z",
+      "crawledAt": "2026-11-27T21:22:25.410Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6587,9 +6754,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:31.864Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2139/pub/12/index.html"
+      "validThrough": "2026-12-27T21:22:25.410Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-06a1e25856b8",
@@ -6623,7 +6789,7 @@
       "url": "https://apply.refline.ch/163206/2814/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:31.372Z",
+      "crawledAt": "2026-11-27T21:22:23.934Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6678,9 +6844,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:27:31.372Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2814/pub/1/index.html"
+      "validThrough": "2027-01-27T21:22:23.934Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-edaac66b0a44",
@@ -6714,7 +6879,7 @@
       "url": "https://apply.refline.ch/163206/2175/pub/13/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:30.888Z",
+      "crawledAt": "2026-11-27T21:22:23.511Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6778,9 +6943,8 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:30.888Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2175/pub/13/index.html"
+      "validThrough": "2026-12-27T21:22:23.511Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-1ad70c52a016",
@@ -6814,7 +6978,7 @@
       "url": "https://apply.refline.ch/163206/2766/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:30.400Z",
+      "crawledAt": "2026-11-27T21:22:23.088Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6863,9 +7027,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:30.400Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2766/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:23.088Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-0a887191faf2",
@@ -6899,7 +7062,7 @@
       "url": "https://apply.refline.ch/163206/2793/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:29.912Z",
+      "crawledAt": "2026-11-27T21:22:22.667Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6956,9 +7119,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:27:29.912Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2793/pub/1/index.html"
+      "validThrough": "2027-01-10T21:22:22.667Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-ebd754eca72d",
@@ -6992,7 +7154,7 @@
       "url": "https://apply.refline.ch/163206/2806/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:29.425Z",
+      "crawledAt": "2026-11-27T21:22:22.244Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7050,9 +7212,8 @@
       },
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:27:29.425Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2806/pub/1/index.html"
+      "validThrough": "2027-01-21T21:22:22.244Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-0fa52af16fd7",
@@ -7086,7 +7247,7 @@
       "url": "https://apply.refline.ch/163206/2815/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:28.939Z",
+      "crawledAt": "2026-11-27T21:22:21.819Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7139,9 +7300,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:27:28.939Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2815/pub/1/index.html"
+      "validThrough": "2027-02-01T21:22:21.819Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-7520fabeb690",
@@ -7175,7 +7335,7 @@
       "url": "https://apply.refline.ch/163206/0081/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:28.433Z",
+      "crawledAt": "2026-11-27T21:22:21.374Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7235,9 +7395,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:28.433Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/0081/pub/8/index.html"
+      "validThrough": "2026-12-27T21:22:21.374Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-2b3ba1a50d73",
@@ -7270,7 +7429,7 @@
       "url": "https://apply.refline.ch/163206/2816/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:27.944Z",
+      "crawledAt": "2026-11-27T21:22:20.953Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7347,9 +7506,8 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:27:27.944Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2816/pub/1/index.html"
+      "validThrough": "2027-02-01T21:22:20.953Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-0071db77b20d",
@@ -7382,7 +7540,7 @@
       "url": "https://apply.refline.ch/163206/2784/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:27.432Z",
+      "crawledAt": "2026-11-27T21:22:20.507Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7445,9 +7603,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:27.432Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2784/pub/2/index.html"
+      "validThrough": "2026-12-27T21:22:20.507Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-7f9e9d5aa5f1",
@@ -7480,7 +7637,7 @@
       "url": "https://apply.refline.ch/163206/2840/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:26.946Z",
+      "crawledAt": "2026-11-27T21:22:20.085Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7527,9 +7684,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:27:26.946Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2840/pub/1/index.html"
+      "validThrough": "2027-02-22T21:22:20.085Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-d7f19f668dc2",
@@ -7562,7 +7718,7 @@
       "url": "https://apply.refline.ch/163206/2654/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:26.459Z",
+      "crawledAt": "2026-11-27T21:22:19.665Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7620,9 +7776,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:26.459Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2654/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:19.665Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-c19129873389",
@@ -7655,7 +7810,7 @@
       "url": "https://apply.refline.ch/163206/2548/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:25.973Z",
+      "crawledAt": "2026-11-27T21:22:19.242Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7710,9 +7865,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:25.973Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2548/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:19.242Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-2b4f7179f24d",
@@ -7745,7 +7899,7 @@
       "url": "https://apply.refline.ch/163206/2657/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:25.487Z",
+      "crawledAt": "2026-11-27T21:22:18.812Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7798,9 +7952,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:25.487Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2657/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:18.812Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-291a9f4635d0",
@@ -7833,7 +7986,7 @@
       "url": "https://apply.refline.ch/163206/2719/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:23.718Z",
+      "crawledAt": "2026-11-27T21:22:17.965Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7887,9 +8040,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:23.718Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2719/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:17.965Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-7de3d57ae635",
@@ -7922,7 +8074,7 @@
       "url": "https://apply.refline.ch/163206/1385/pub/14/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:23.228Z",
+      "crawledAt": "2026-11-27T21:22:17.540Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7977,9 +8129,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:23.228Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/1385/pub/14/index.html"
+      "validThrough": "2026-12-27T21:22:17.540Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-23f158d232b8",
@@ -8012,7 +8163,7 @@
       "url": "https://apply.refline.ch/163206/2770/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:21.278Z",
+      "crawledAt": "2026-11-27T21:22:15.832Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8065,9 +8216,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:21.278Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2770/pub/1/index.html"
+      "validThrough": "2026-12-27T21:22:15.832Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-c28e079b7d62",
@@ -8101,7 +8251,7 @@
       "url": "https://apply.refline.ch/163206/2808/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:20.792Z",
+      "crawledAt": "2026-11-27T21:22:15.408Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8161,9 +8311,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:27:20.792Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2808/pub/1/index.html"
+      "validThrough": "2027-01-26T21:22:15.408Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-ca00bd91ec8b",
@@ -8196,7 +8345,7 @@
       "url": "https://apply.refline.ch/163206/2794/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:20.304Z",
+      "crawledAt": "2026-11-27T21:22:14.970Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8248,9 +8397,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:27:20.304Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2794/pub/2/index.html"
+      "validThrough": "2027-01-11T21:22:14.970Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "puk-zuerich-fadca51159cb-r986abb11",
@@ -8284,7 +8432,7 @@
       "url": "https://apply.refline.ch/163206/2644/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:27:19.807Z",
+      "crawledAt": "2026-11-27T21:22:14.025Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8432,201 +8580,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:27:19.807Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2644/pub/1/index.html"
-    },
-    {
-      "id": "puk-zuerich-fa366f7ef683",
-      "slug": "posto-di-apprendistato-come-impiegata-impiegato-di-commercio-efz-psychiatrische-universitatsklinik-zurich-zurich",
-      "slugByLocale": {
-        "it": "posto-di-apprendistato-come-impiegata-impiegato-di-commercio-efz-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "apprenticeship-as-a-merchant-merchant-efz-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "lehrstelle-als-kauffrau-kaufmann-efz-puk-zuerich-zurich",
-        "fr": "apprentissage-en-tant-que-marchand-marchand-efz-psychiatrische-universitatsklinik-zurich-zurich"
-      },
-      "company": "Psychiatrische Universitätsklinik Zürich",
-      "companyKey": "puk-zuerich",
-      "companyDomain": "pukzh.ch",
-      "title": "Lehrstelle als Kauffrau / Kaufmann EFZ",
-      "titleByLocale": {
-        "it": "Posto di apprendistato come impiegata / impiegato di commercio EFZ",
-        "en": "Apprenticeship as a merchant / merchant EFZ",
-        "de": "Lehrstelle als Kauffrau / Kaufmann EFZ",
-        "fr": "Apprentissage en tant que marchand / marchand EFZ"
-      },
-      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDie Direktion Pflege, Therapien und Soziale Arbeit vereint verschiedene Berufsgruppen, die unsere Patientinnen und Patienten auf ihrem Weg zur psychischen Gesundheit begleiten und unterstützen. Die Pflege sorgt für eine professionelle Betreuung im Alltag, die Therapien fördern individuelle Fähigkeiten und Ressourcen, und die Soziale Arbeit unterstützt bei persönlichen, familiären und sozialen Herausforderungen. Damit diese vielfältigen Aufgaben Hand in Hand gehen, braucht es eine zuverlässige Administration im Hintergrund.\nFür die dreijährige Ausbildung suchen wir in unserer Direktion Pflege, Therapien und Soziale Arbeit in Zürich per 2. August 2027 motivierte Lernende.\nIhre Aufgaben\n• Erledigen vielseitiger administrativer und organisatorischer Aufgaben in verschiedenen Abteilungen, auch ausserhalb der Direktion Pflege, Therapien und Soziale Arbeit\n• Sitzungsvorbereitung und Organisation von Veranstaltungen und internen Anlässen\n• Erstellen von Präsentationen, Statistiken und weiteren Unterlagen\n• Erfassen, Bearbeiten und Ablegen von Daten und Dokumenten unter Einhaltung der Datenschutzvorgaben\n• Unterstützen bei Terminkoordinationen\nIhr Profil\n• Geschick im Organisieren und Planen\n• Freude am Kontakt mit Menschen und an der Zusammenarbeit im Team\n• Zuverlässige, sorgfältige und selbstständige Arbeitsweise\n• Lernbereitschaft, Eigeninitiative und Offenheit für Neues\n• Gute mündliche und schriftliche Ausdrucksfähigkeit\nUnser Angebot\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Mehr Vorteile für Sie: Vergünstigungen und Rabatte bei zahlreichen Partnerunternehmen\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt:\nVeronika Scharpmann\nAssistentin DPTS\n+41 58 384 35 25\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-      "descriptionByLocale": {
-        "it": "Il Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, siamo impegnati nel trattamento olistico e nella cura di persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n100%\nLa Direzione di Cura, Terapie e Lavoro Sociale riunisce vari gruppi professionali che accompagnano e sostengono i nostri pazienti nel loro cammino verso la salute mentale. La cura fornisce assistenza professionale nella vita di tutti i giorni, le terapie promuovono competenze e risorse individuali, e il lavoro sociale sostiene le sfide personali, familiari e sociali. Affinché questi diversi compiti vadano di pari passo, è necessaria un'amministrazione affidabile in background.\nPer l'apprendistato di tre anni stiamo cercando 2° nel nostro Management Care, Terapie e Lavoro Sociale a Zurigo. agosto 2027 studenti motivati.\nI loro compiti\n• Completa una vasta gamma di compiti amministrativi e organizzativi in vari dipartimenti, anche al di fuori della gestione delle cure, delle terapie e del lavoro sociale\n• Preparazione e organizzazione di incontri ed eventi interni\n• Preparazione di presentazioni, statistiche e altri documenti\n• Registrazione, elaborazione e memorizzazione dei dati e dei documenti in conformità ai requisiti di protezione dei dati\n• Sostegno al coordinamento degli appuntamenti\nIl tuo profilo\n• Capacità di organizzare e pianificare\n• Gioia di contatto con le persone e la cooperazione in un team\n• Lavoro affidabile, attento e indipendente\n• Prontezza per imparare, iniziativa e apertura a nuove cose\n• Buona espressione verbale e scritta\nLa nostra offerta\n• Sviluppo con prospettiva: Diverse percorsi di carriera in una delle più grandi cliniche psichiatriche in Svizzera\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Viaggio sostenibile: partecipazione alla ZVV-BonusPass o abbonamento generale\n• Più vantaggi per voi: sconti e sconti presso numerose aziende partner\n• Ben curato nel lavoro quotidiano: offerte di cibo scontati o assegni pranzo\nContatto:\nVeronika Scharpmann\nAssistente DPTS\n+41 58 384 35 25\nsarà felice di rispondere alle domande.\nAttendiamo con ansia la vostra applicazione!\nOspedale Universitario Psichiatrico di Zurigo\nLenggstrasse 31, PO Box 363\n8032 Zurigo\nwww.pukzh.ch",
-        "en": "The Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n100%\nThe Directorate of Care, Therapies and Social Work brings together various professional groups that accompany and support our patients on their way to mental health. The care provides professional care in everyday life, the therapies promote individual skills and resources, and the social work supports personal, family and social challenges. In order for these diverse tasks to go hand in hand, reliable administration in the background is required.\nFor the three-year apprenticeship we are looking for 2nd in our Management Care, Therapies and Social Work in Zurich. August 2027 motivated learners.\nTheir tasks\n• Complete a wide range of administrative and organizational tasks in various departments, also outside the management of care, therapies and social work\n• Meeting preparation and organisation of events and internal events\n• Preparation of presentations, statistics and other documents\n• Recording, processing and storing data and documents in compliance with data protection requirements\n• Support for appointment coordination\nYour profile\n• Ability to organize and plan\n• Joy of contact with people and cooperation in a team\n• Reliable, careful and independent work\n• Readiness to learn, initiative and openness to new things\n• Good verbal and written expression\nOur offer\n• Development with perspective: Diverse career paths in one of the largest psychiatric clinics in Switzerland\n• Strong in the team: appreciative cooperation and mutual support\n• Sustainable travel: Participation in the ZVV-BonusPass or general subscription\n• More advantages for you: Discounts and discounts at numerous partner companies\n• Well taken care of in everyday work: discounted food offers or lunch checks\nContact:\nVeronika Scharpmann\nAssistant DPTS\n+41 58 384 35 25\nwill be happy to answer questions.\nWe look forward to your application!\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nDie Direktion Pflege, Therapien und Soziale Arbeit vereint verschiedene Berufsgruppen, die unsere Patientinnen und Patienten auf ihrem Weg zur psychischen Gesundheit begleiten und unterstützen. Die Pflege sorgt für eine professionelle Betreuung im Alltag, die Therapien fördern individuelle Fähigkeiten und Ressourcen, und die Soziale Arbeit unterstützt bei persönlichen, familiären und sozialen Herausforderungen. Damit diese vielfältigen Aufgaben Hand in Hand gehen, braucht es eine zuverlässige Administration im Hintergrund.\nFür die dreijährige Ausbildung suchen wir in unserer Direktion Pflege, Therapien und Soziale Arbeit in Zürich per 2. August 2027 motivierte Lernende.\nIhre Aufgaben\n• Erledigen vielseitiger administrativer und organisatorischer Aufgaben in verschiedenen Abteilungen, auch ausserhalb der Direktion Pflege, Therapien und Soziale Arbeit\n• Sitzungsvorbereitung und Organisation von Veranstaltungen und internen Anlässen\n• Erstellen von Präsentationen, Statistiken und weiteren Unterlagen\n• Erfassen, Bearbeiten und Ablegen von Daten und Dokumenten unter Einhaltung der Datenschutzvorgaben\n• Unterstützen bei Terminkoordinationen\nIhr Profil\n• Geschick im Organisieren und Planen\n• Freude am Kontakt mit Menschen und an der Zusammenarbeit im Team\n• Zuverlässige, sorgfältige und selbstständige Arbeitsweise\n• Lernbereitschaft, Eigeninitiative und Offenheit für Neues\n• Gute mündliche und schriftliche Ausdrucksfähigkeit\nUnser Angebot\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\n• Mehr Vorteile für Sie: Vergünstigungen und Rabatte bei zahlreichen Partnerunternehmen\n• Gut versorgt im Arbeitsalltag: Vergünstigte Verpflegungsangebote oder Lunch-Checks\nKontakt:\nVeronika Scharpmann\nAssistentin DPTS\n+41 58 384 35 25\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-        "fr": "L'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner de façon holistique les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n100%\nLa Direction des soins, des thérapies et du travail social réunit divers groupes professionnels qui accompagnent et soutiennent nos patients sur leur chemin vers la santé mentale. Les soins prodigués fournissent des soins professionnels dans la vie quotidienne, les thérapies favorisent les compétences et les ressources individuelles, et le travail social soutient les défis personnels, familiaux et sociaux. Pour que ces diverses tâches aillent de pair, une administration fiable en arrière-plan est nécessaire.\nPour l'apprentissage de trois ans, nous sommes à la recherche de 2ème dans notre Management Care, Therapies et Social Work à Zurich. Août 2027 apprenants motivés.\nLeurs tâches\n• Achèvement d'un large éventail de tâches administratives et organisationnelles dans divers départements, également en dehors de la gestion des soins, des thérapies et du travail social\n• Préparation et organisation des réunions et des manifestations internes\n• Préparation des exposés, statistiques et autres documents\n• Enregistrement, traitement et stockage des données et des documents conformément aux exigences en matière de protection des données\n• Appui à la coordination des nominations\nVotre profil\n• Capacité d'organisation et de planification\n• Joy de contact avec les personnes et de coopération dans une équipe\n• Travail fiable, soigné et indépendant\n• Préparation à l'apprentissage, à l'initiative et à l'ouverture aux nouvelles choses\n• Bonne expression verbale et écrite\nNotre offre\n• Développement avec perspective: Divers parcours de carrière dans l'une des plus grandes cliniques psychiatriques de Suisse\n• Forte au sein de l'équipe : coopération appréciée et soutien mutuel\n• Voyage durable : participation au ZVV-BonusPass ou abonnement général\n• Plus d'avantages pour vous: Réductions et rabais dans de nombreuses entreprises partenaires\n• Bien pris en charge dans le travail quotidien: offres de nourriture à prix réduit ou lunch checks\nPersonne à contacter:\nVeronika Scharpmann\nAssistant DPTS\n+41 58 384 35 25\nsera heureux de répondre aux questions.\nNous attendons avec impatience votre candidature!\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/163206/2830/pub/1/index.html",
-      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:17:35.928Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-12T08:33:34.213712+00:00",
-      "postedDate": "2026-11-12T08:33:34.213712+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/163206/2830/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2830",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-efz-puk-zuerich-zurich",
-        "apprendistato-come-kauffrau-kaufmann-cfc-psychiatrische-universitatsklinik-zurich",
-        "lehrstelle-als-kauffrau-kaufmann-efz-psychiatrische-universitatsklinik-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-puk-zuerich-zurich",
-          "apprendistato-come-kauffrau-kaufmann-cfc-psychiatrische-universitatsklinik-zurich"
-        ],
-        "en": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-psychiatrische-universitatsklinik-zurich-zurich"
-        ],
-        "fr": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-psychiatrische-universitatsklinik-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-11-12T09:21:02.576Z",
-      "salaryMin": 82000,
-      "salaryMax": 114500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82000,
-          "maxValue": 114500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:17:35.928Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2830/pub/1/index.html",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "puk-zuerich-c71b29f09ab1",
-      "slug": "risorse-umane-assistentin-risorse-umane-assistent-psychiatrische-universitatsklinik-zurich-zurich",
-      "slugByLocale": {
-        "it": "risorse-umane-assistentin-risorse-umane-assistent-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "hr-assistant-hr-assistant-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "hr-assistentin-hr-assistent-puk-zuerich-zurich",
-        "fr": "ressources-humaines-assistentin-ressources-humaines-assistent-psychiatrische-universitatsklinik-zurich-zurich"
-      },
-      "company": "Psychiatrische Universitätsklinik Zürich",
-      "companyKey": "puk-zuerich",
-      "companyDomain": "pukzh.ch",
-      "title": "HR Assistentin / HR Assistent",
-      "titleByLocale": {
-        "it": "Risorse Umane Assistentin / Risorse Umane Assistent",
-        "en": "HR Assistant / HR Assistant",
-        "de": "HR Assistentin / HR Assistent",
-        "fr": "Ressources Humaines Assistentin / Ressources Humaines Assistent"
-      },
-      "description": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nZur Verstärkung unseres 7-köpfigen HR Services Teams suchen wir per sofort oder nach Vereinbarung eine engagierte, lösungs- und serviceorientierte Persönlichkeit , die mit Freude anpackt, Verantwortung übernimmt und sich gemeinsam mit uns einsetzt, in der Rolle als:\nIhre Aufgaben\n• Anlaufstelle für administrative Fragen im HR-Bereich\n• Selbstständige administrative Abwicklung von Personalprozessen (Eintritte, Austritte, diverse Anstellungsmutationen etc.)\n• Erstellen der Ein- und Austrittsunterlagen\n• Verwalten und Bewirtschaften der Personaldossiers\n• Erstellen von Zwischen- und Arbeitszeugnissen sowie Arbeitsbestätigungen\n• Mitarbeit bei HR-Projekten\nIhr Profil\n• Kaufmännische Ausbildung mit Weiterbildung im Personalwesen und mindestens 3 Jahren Berufserfahrung in einer vergleichbaren Funktion; idealerweise im Spitalumfeld und/oder in der öffentlichen Verwaltung\n• Gute MS-Office und wenn möglich SAP-HCM Anwenderkenntnisse\n• Lösungs- und kundenorientierte Denkweise\n• Ein ausgeprägtes Qualitätsbewusstsein, welches in der täglichen Arbeit eingesetzt wird\n• Teamorientiert mit einer selbständigen Arbeitsweise\n• Stilsicheres Deutsch\nUnser Angebot\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunft aktiv gestalten: Mitwirkung an Veränderungs- und Entwicklungsprozessen\n• Gesundheit im Fokus: Diverse gesundheitsfördernde Angebote, grüne Oasen sowie ein klinikinternes Care-Team\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\nKontakt\nKesang Tenkyong\nLeiterin HR Services\n+41 58 384 25 71\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-      "descriptionByLocale": {
-        "it": "Il Psychiatric University Hospital di Zurigo (PUK) è una delle principali cliniche psichiatriche in Svizzera. Con più di 2.500 dipendenti, ci impegniamo al trattamento olistico e alla cura delle persone con malattie mentali ogni giorno. Come clinica universitaria, combiniamo competenze cliniche con la ricerca e l'insegnamento – in un ambiente di lavoro caratterizzato da cooperazione interdisciplinare, fiducia e responsabilità personale.\n100%\nAl fine di rafforzare il nostro team di 7 membri HR Services, stiamo cercando una personalità impegnata, orientata alla soluzione e al servizio che sarà felice di assumersi la responsabilità e lavorare con noi, nel ruolo di:\nI loro compiti\n• Punto di contatto per questioni amministrative HR\n• Gestione amministrativa indipendente dei processi del personale (imprese, dimissioni, mutazioni occupazionali, ecc.)\n• Preparazione dei documenti di entrata e uscita\n• Gestione e gestione dei dossier del personale\n• Preparazione dei certificati intermedi e di occupazione e delle conferme di lavoro\n• Partecipazione a progetti HR\nIl tuo profilo\n• Formazione commerciale con ulteriore formazione nelle risorse umane e almeno 3 anni di esperienza professionale in una capacità comparabile; idealmente nell'ambiente ospedaliero e/o nella pubblica amministrazione\n• Buona MS-Office e se possibile la conoscenza dell'utente SAP-HCM\n• Soluzione e pensiero orientato al cliente\n• Una forte consapevolezza di qualità, che viene utilizzata nel lavoro quotidiano\n• Gruppo orientato con un metodo di lavoro indipendente\n• Stylistic tedesco\nLa nostra offerta\n• Spazio per idee: Alta responsabilità personale e possibilità di progettazione\n• Forte nel team: cooperazione apprezzativa e sostegno reciproco\n• Formare attivamente il futuro: partecipazione ai processi di cambiamento e sviluppo\n• Focus sulla salute: Varie offerte per la salute, oasi verdi e un team di assistenza in-house\n• Prestazioni future con valore aggiunto: 60% contributo del datore di lavoro al fondo pensione\n• Viaggi sostenibili: partecipazione a ZVV-BonusPass o abbonamento generale\nInformazioni di contatto\nKesang Tenkyong\nResponsabile Servizi HR\n+41 58 384 25 71\nsarà felice di rispondere alle domande.\nAttendiamo con ansia la vostra applicazione!\nOspedale Universitario Psichiatrico di Zurigo\nLenggstrasse 31, PO Box 363\n8032 Zurigo\nwww.pukzh.ch",
-        "en": "The Psychiatric University Hospital Zurich (PUK) is one of the leading psychiatric clinics in Switzerland. With more than 2,500 employees, we are committed to the holistic treatment and care of people with mental illnesses every day. As a university clinic, we combine clinical expertise with research and teaching – in a working environment characterized by interdisciplinary cooperation, trust and personal responsibility.\n100%\nIn order to strengthen our 7-member HR Services team, we are looking for a committed, solution- and service-oriented personality who will be happy to take on responsibility and work with us, in the role of:\nTheir tasks\n• Contact point for administrative HR issues\n• Independent administrative handling of personnel processes (entries, resignations, various employment mutations, etc.)\n• Preparation of entry and exit documents\n• Managing and managing personnel dossiers\n• Preparation of intermediate and employment certificates and employment confirmations\n• Participation in HR projects\nYour profile\n• Commercial training with further training in human resources and at least 3 years of professional experience in a comparable capacity; ideally in the hospital environment and/or in public administration\n• Good MS-Office and if possible SAP-HCM user knowledge\n• Solution and customer-oriented thinking\n• A strong quality awareness, which is used in daily work\n• Team-oriented with an independent working method\n• Stylistic German\nOur offer\n• Space for ideas: High personal responsibility and design possibilities\n• Strong in the team: appreciative cooperation and mutual support\n• Shaping the future actively: Participation in change and development processes\n• Focus on health: Various health-promoting offers, green oases and an in-house care team\n• Future provision with added value: 60% employer contribution to the pension fund\n• Sustainable travel: participation in the ZVV-BonusPass or general subscription\nContact details\nKesang Tenkyong\nHead of HR Services\n+41 58 384 25 71\nwill be happy to answer questions.\nWe look forward to your application!\nPsychiatric University Hospital Zurich\nLenggstrasse 31, PO Box 363\n8032 Zurich\nwww.pukzh.ch",
-        "de": "Die Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n100%\nZur Verstärkung unseres 7-köpfigen HR Services Teams suchen wir per sofort oder nach Vereinbarung eine engagierte, lösungs- und serviceorientierte Persönlichkeit , die mit Freude anpackt, Verantwortung übernimmt und sich gemeinsam mit uns einsetzt, in der Rolle als:\nIhre Aufgaben\n• Anlaufstelle für administrative Fragen im HR-Bereich\n• Selbstständige administrative Abwicklung von Personalprozessen (Eintritte, Austritte, diverse Anstellungsmutationen etc.)\n• Erstellen der Ein- und Austrittsunterlagen\n• Verwalten und Bewirtschaften der Personaldossiers\n• Erstellen von Zwischen- und Arbeitszeugnissen sowie Arbeitsbestätigungen\n• Mitarbeit bei HR-Projekten\nIhr Profil\n• Kaufmännische Ausbildung mit Weiterbildung im Personalwesen und mindestens 3 Jahren Berufserfahrung in einer vergleichbaren Funktion; idealerweise im Spitalumfeld und/oder in der öffentlichen Verwaltung\n• Gute MS-Office und wenn möglich SAP-HCM Anwenderkenntnisse\n• Lösungs- und kundenorientierte Denkweise\n• Ein ausgeprägtes Qualitätsbewusstsein, welches in der täglichen Arbeit eingesetzt wird\n• Teamorientiert mit einer selbständigen Arbeitsweise\n• Stilsicheres Deutsch\nUnser Angebot\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunft aktiv gestalten: Mitwirkung an Veränderungs- und Entwicklungsprozessen\n• Gesundheit im Fokus: Diverse gesundheitsfördernde Angebote, grüne Oasen sowie ein klinikinternes Care-Team\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement\nKontakt\nKesang Tenkyong\nLeiterin HR Services\n+41 58 384 25 71\nsteht Ihnen bei Fragen gerne zur Verfügung.\nWir freuen uns auf Ihre Bewerbung!\nPsychiatrische Universitätsklinik Zürich\nLenggstrasse 31, Postfach 363\n8032 Zürich\nwww.pukzh.ch",
-        "fr": "L'hôpital universitaire psychiatrique de Zurich (PUK) est l'une des principales cliniques psychiatriques en Suisse. Avec plus de 2 500 employés, nous nous engageons à traiter et à soigner les personnes atteintes de maladies mentales chaque jour. En tant que clinique universitaire, nous combinons expertise clinique avec recherche et enseignement – dans un environnement de travail caractérisé par la coopération interdisciplinaire, la confiance et la responsabilité personnelle.\n100%\nAfin de renforcer notre équipe de 7 membres des Services RH, nous cherchons une personnalité engagée, orientée vers la solution et le service qui sera heureuse d'assumer ses responsabilités et de travailler avec nous, dans le rôle de :\nLeurs tâches\n• Point de contact pour les questions administratives de RH\n• Traitement administratif indépendant des processus de personnel (entrées, démissions, diverses mutations d'emploi, etc.)\n• Préparation des documents d'entrée et de sortie\n• Gestion et gestion des dossiers du personnel\n• Préparation des certificats d'emploi intermédiaires et des confirmations d'emploi\n• Participation à des projets de RH\nVotre profil\n• Formation commerciale avec une formation continue en ressources humaines et au moins 3 ans d'expérience professionnelle à capacité comparable; idéalement dans l'environnement hospitalier et/ou dans l'administration publique\n• Bon MS-Office et si possible connaissance utilisateur SAP-HCM\n• Solution et réflexion axée sur le client\n• Une forte sensibilisation à la qualité, utilisée dans le travail quotidien\n• Orientée par une méthode de travail indépendante\n• Allemand stylistique\nNotre offre\n• Espace d'idées : Haute responsabilité personnelle et possibilités de conception\n• Forte au sein de l'équipe : coopération et soutien mutuel\n• Façonner activement l'avenir : participation aux processus de changement et de développement\n• Focus sur la santé : diverses offres de promotion de la santé, des oasis vertes et une équipe de soins à domicile\n• Provision future avec valeur ajoutée: 60% de cotisation de l'employeur au fonds de pension\n• Voyage durable : participation au ZVV-BonusPass ou abonnement général\nCoordonnées\nKesang Tenkyong\nChef des services RH\n+41 58 384 25 71\nsera heureux de répondre aux questions.\nNous nous réjouissons de votre candidature!\nHôpital universitaire psychiatrique de Zurich\nLenggstrasse 31, case postale 363\n8032 Zurich\nwww.pukzh.ch"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/163206/2772/pub/1/index.html",
-      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:17:32.965Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-11T14:09:30.356291+00:00",
-      "postedDate": "2026-09-11T14:09:30.356291+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/163206/2772/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2772",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "risorse-umane-beraterin-risorse-umane-berater-psychiatrische-universitatsklinik-zurich-zurich",
-        "hr-consultant-hr-consultant-psychiatrische-universitatsklinik-zurich-zurich",
-        "hr-beraterin-hr-berater-puk-zuerich-zurich",
-        "ressources-humaines-beraterin-ressources-humaines-berater-psychiatrische-universitatsklinik-zurich-zurich",
-        "hr-assistentin-hr-assistent-puk-zuerich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "risorse-umane-beraterin-risorse-umane-berater-psychiatrische-universitatsklinik-zurich-zurich",
-          "hr-consultant-hr-consultant-psychiatrische-universitatsklinik-zurich-zurich",
-          "hr-beraterin-hr-berater-puk-zuerich-zurich",
-          "ressources-humaines-beraterin-ressources-humaines-berater-psychiatrische-universitatsklinik-zurich-zurich",
-          "hr-assistentin-hr-assistent-puk-zuerich-zurich"
-        ],
-        "en": [
-          "hr-consultant-hr-consultant-psychiatrische-universitatsklinik-zurich-zurich"
-        ],
-        "de": [
-          "hr-beraterin-hr-berater-puk-zuerich-zurich"
-        ],
-        "fr": [
-          "ressources-humaines-beraterin-ressources-humaines-berater-psychiatrische-universitatsklinik-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T23:06:07.195Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:17:32.965Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/163206/2772/pub/1/index.html",
-      "crawlerMissStreak": 2
+      "validThrough": "2026-12-27T21:22:14.025Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
