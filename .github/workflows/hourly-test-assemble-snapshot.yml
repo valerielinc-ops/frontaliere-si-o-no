@@ -35,19 +35,39 @@ jobs:
     timeout-minutes: 30
     steps:
       # First step, before any checkout: at most one seed an hour. A run that
-      # finds another seed in flight, or a real seed that succeeded in the
-      # last 50 minutes, ends here with success and skips every later step. A
+      # finds another seed in flight, or a trusted snapshot captured in the
+      # last 40 minutes, ends here with success and skips every later step. A
       # failed earlier run never blocks. If the API cannot be read the guard
       # proceeds: the concurrency group still serializes the assembly.
       # "Real" means the run published the manifest artifact: a run that was
       # skipped by this guard is green too, but holds no snapshot, and counting
       # it would let a chain of skipped runs starve the seeding for ever.
+      # The seed is a fallback: it stands down when any trusted producer (a push
+      # run of tests.yml on main, or an earlier seed) captured a snapshot in the
+      # last 40 minutes (the producer run's created_at, not the artifact's
+      # creation). The trust rules live in one module shared with the PR
+      # side; this loads just that file (a few seconds, no blobs but one) before
+      # the full checkout, which is what the capture time must precede. If it
+      # cannot be loaded the guard keeps its other rules.
+      - name: Load the snapshot selector
+        continue-on-error: true
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+          path: .snapshot-selector
+          sparse-checkout: scripts/ci/select-assemble-test-snapshot.mjs
+          sparse-checkout-cone-mode: false
+
       - name: Skip when a recent seed already ran
         id: guard
         uses: actions/github-script@v9
         with:
           script: |
-            const WINDOW_MS = 50 * 60 * 1000;
+            // A snapshot lives 60 minutes from its capture and a seed takes about 17
+            // minutes to publish: standing down for 40 leaves the seed time to start
+            // and publish before the current snapshot expires.
+            const WINDOW_MS = 40 * 60 * 1000;
             const MANIFEST_ARTIFACT = 'assemble-test-snapshot-manifest';
             const proceed = (value, reason) => {
               core.setOutput('proceed', String(value));
@@ -76,6 +96,27 @@ jobs:
                 proceed(false, `seed run ${inFlight.id} is ${inFlight.status}`);
                 return;
               }
+              // Any trusted producer counts, not only this workflow: the push runs
+              // of tests.yml on main publish the same artifact for free.
+              try {
+                const { pathToFileURL } = require('node:url');
+                const selector = await import(pathToFileURL(
+                  `${process.env.GITHUB_WORKSPACE}/.snapshot-selector/scripts/ci/select-assemble-test-snapshot.mjs`,
+                ).href);
+                const trusted = await selector.findRecentTrustedManifest({
+                  github,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  repositoryId: context.payload.repository.id,
+                  withinMs: WINDOW_MS,
+                });
+                if (trusted) {
+                  proceed(false, `trusted producer run ${trusted.run.id} (${trusted.run.event}) captured at ${trusted.run.created_at}, within the last 40 minutes`);
+                  return;
+                }
+              } catch (error) {
+                core.warning(`Could not check trusted manifests: ${error.message}`);
+              }
               const recent = others.filter((run) => run.status === 'completed'
                 && run.conclusion === 'success'
                 && now - Date.parse(run.created_at) <= WINDOW_MS);
@@ -88,11 +129,11 @@ jobs:
                   per_page: 1,
                 });
                 if (artifacts.total_count > 0) {
-                  proceed(false, `seed run ${run.id} succeeded at ${run.created_at}, within the last 50 minutes`);
+                  proceed(false, `seed run ${run.id} succeeded at ${run.created_at}, within the last 40 minutes`);
                   return;
                 }
               }
-              proceed(true, 'no seed in flight and none succeeded in the last 50 minutes');
+              proceed(true, 'no seed in flight and none succeeded in the last 40 minutes');
             } catch (error) {
               core.warning(`Could not inspect earlier seed runs: ${error.message}`);
               proceed(true, 'guard failed open');
@@ -189,51 +230,21 @@ jobs:
           if-no-files-found: error
           retention-days: 3
 
-      # Snapshot caches are immutable. Keep the current content key even when
-      # unchanged inputs reuse an older entry, plus the two newest prior keys.
+      # Snapshot caches are immutable and a manifest names its key for 60
+      # minutes. Several producers save them, so the prune is by age, not by
+      # count: see scripts/ci/prune-assemble-test-snapshots.mjs.
       - name: Prune older hourly test snapshots
         if: ${{ steps.guard.outputs.proceed == 'true' }}
         continue-on-error: true
         uses: actions/github-script@v9
         with:
           script: |
-            const prefix = 'assemble-jobs-test-snapshot-Linux-';
-            const currentKey = process.env.CURRENT_SNAPSHOT_CACHE_KEY;
-            const snapshots = await github.paginate(
-              github.rest.actions.getActionsCacheList,
-              {
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                ref: 'refs/heads/main',
-                key: prefix,
-                sort: 'created_at',
-                direction: 'desc',
-                per_page: 100,
-              },
-              (response) => response.data.actions_caches,
-            );
-            const validCaches = snapshots.filter(
-              (cache) => cache && typeof cache.key === 'string',
-            );
-            if (validCaches.length !== snapshots.length) {
-              core.warning(`Ignored ${snapshots.length - validCaches.length} malformed cache entries while pruning`);
-            }
-            const matchingSnapshots = validCaches.filter((cache) => cache.key.startsWith(prefix));
-            matchingSnapshots.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
-            const keep = new Set([
-              currentKey,
-              ...matchingSnapshots
-                .filter((cache) => cache.key !== currentKey)
-                .slice(0, 2)
-                .map((cache) => cache.key),
-            ]);
-            for (const cache of matchingSnapshots.filter((candidate) => !keep.has(candidate.key))) {
-              await github.rest.actions.deleteActionsCacheById({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                cache_id: cache.id,
-              });
-              core.info(`Deleted old hourly test snapshot cache ${cache.key}`);
-            }
+            const { pathToFileURL } = require('node:url');
+            const { pruneAssembleTestSnapshots } = await import(pathToFileURL(
+              `${process.env.GITHUB_WORKSPACE}/scripts/ci/prune-assemble-test-snapshots.mjs`,
+            ).href);
+            await pruneAssembleTestSnapshots({
+              github, context, core, currentKey: process.env.CURRENT_SNAPSHOT_CACHE_KEY,
+            });
         env:
           CURRENT_SNAPSHOT_CACHE_KEY: ${{ steps.snapshot_cache_key.outputs.key }}
