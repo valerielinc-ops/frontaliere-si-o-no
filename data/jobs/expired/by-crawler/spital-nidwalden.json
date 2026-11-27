@@ -113,7 +113,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/mitarbeiter-in-apotheke/e97c1537-1707-4614-8b6e-969e41879976",
-    "firstSeenAt": "2026-10-26T21:51:38.753Z"
+    "firstSeenAt": "2026-10-26T21:51:38.753Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-apotheke-40-spital-nidwalden-stans": "NW",
+        "collaboratore-trice-apotheke-40-spital-nidwalden-stans": "NW"
+      },
+      "en": {
+        "mitarbeiter-in-apotheke-40-spital-nidwalden-stans": "NW"
+      },
+      "fr": {
+        "mitarbeiter-in-apotheke-40-spital-nidwalden-stans": "NW"
+      }
+    }
   },
   {
     "id": "spital-nidwalden-149f22e5855f",
@@ -164,7 +177,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/dipl-pflegefachperson-hf-endoskopie/4ec1c80a-8f18-4be4-a662-a89ae7853f12",
-    "firstSeenAt": "2026-10-13T21:25:50.460Z"
+    "firstSeenAt": "2026-10-13T21:25:50.460Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans": "NW"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans": "NW"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans": "NW"
+      }
+    }
   },
   {
     "slug": "infermiere-a-diplomato-a-hf-in-oncologia-90-spital-nidwalden-stans",
@@ -214,7 +239,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/pflegefachfrau-mann-hf-onkologie/2f65b06a-3e73-41d7-887b-21cb91d1708c",
-    "firstSeenAt": "2026-10-28T09:42:44.746Z"
+    "firstSeenAt": "2026-10-28T09:42:44.746Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans": "NW"
+      },
+      "en": {
+        "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans": "NW"
+      },
+      "fr": {
+        "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans": "NW"
+      }
+    }
   },
   {
     "slug": "mpa-o-segretaria-medica-in-clinica-di-segreteria-anestesia-terapia-intensiva-e-medicina-del-dolore-50-spital-nidwalden",
@@ -277,7 +314,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/mpa-oder-arztsekretaer-in-sekretariat-klinik-anaesthesie-intensiv-und-schmerzmedizin/3274f595-7e18-4d13-8faf-71ed1170fbd7",
-    "firstSeenAt": "2026-08-23T21:45:26.924Z"
+    "firstSeenAt": "2026-08-23T21:45:26.924Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mpa-o-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-e-schmerzmedizin-50-luzerner-kantonsspital-luks-stans": "NW",
+        "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50-luks": "NW",
+        "mpa-o-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-e-schmerzmedizin-50-spital-nidwalden-stans": "NW",
+        "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50": "NW"
+      },
+      "en": {
+        "mpa-or-medical-secretary-in-secretariat-clinic-anesthesia-intensive-care-and-pain-medicine-50-luzerner-kantonsspital": "NW",
+        "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50-luks": "NW"
+      },
+      "de": {
+        "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50-luks": "NW"
+      },
+      "fr": {
+        "mpa-ou-secretaire-medical-dans-la-clinique-de-secretariat-anesthesie-soins-intensifs-et-medecine-de-la-douleur-50": "NW",
+        "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50-luks": "NW"
+      }
+    }
   },
   {
     "slug": "assistente-sociale-a-consulenza-sociale-e-di-uscita-spital-nidwalden-stans-fd649200",
@@ -383,7 +440,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/stationssekretaer-in-gebaersaal-und-mutter-kind-station/73ce42f0-ba3b-4e0c-98c5-c307fae4ceb9",
-    "firstSeenAt": "2026-09-30T21:21:33.203Z"
+    "firstSeenAt": "2026-09-30T21:21:33.203Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stationssekretar-in-gebarsaal-e-mutter-kind-station-50-spital-nidwalden-stans": "NW",
+        "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans": "NW"
+      },
+      "en": {
+        "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans": "NW"
+      }
+    }
   },
   {
     "slug": "infermieristica-professionale-hf-fh-80-100-per-l-ingresso-in-terapia-intensiva-spital-nidwalden-stans",
@@ -429,7 +496,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/pflegefachperson-hf-fh-fuer-den-einstieg-in-die-intensivmedizin/35fc51ce-162d-4cad-be0c-f3caa8311268",
-    "firstSeenAt": "2026-09-19T23:07:26.582Z"
+    "firstSeenAt": "2026-09-19T23:07:26.582Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegefachperson-hf-fh-80-100-per-den-einstieg-in-la-intensivmedizin-spital-nidwalden-stans": "NW",
+        "pflegefachperson-hf-fh-80-100-fur-den-einstieg-in-die-intensivmedizin-spital-nidwalden": "NW"
+      }
+    }
   },
   {
     "slug": "mpa-o-professionista-della-salute-40-60-spital-nidwalden-stans",
@@ -477,7 +551,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/mpa-oder-fachperson-gesundheit/b312e5a5-b470-44c8-8327-f13e17981840",
-    "firstSeenAt": "2026-09-19T23:07:26.583Z"
+    "firstSeenAt": "2026-09-19T23:07:26.583Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mpa-o-fachperson-gesundheit-40-60-spital-nidwalden-stans": "NW",
+        "mpa-oder-fachperson-gesundheit-40-60-spital-nidwalden-stans": "NW",
+        "mpa-oder-fachperson-gesundheit-30-spital-nidwalden-stans": "NW"
+      }
+    }
   },
   {
     "slug": "infermiera-hf-fh-80-100-spital-nidwalden-stans",
@@ -529,7 +611,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/pflegefachperson-hf-fh/da6abaa5-6eac-4992-aa48-3b1cde894a19",
-    "firstSeenAt": "2026-10-01T21:23:17.007Z"
+    "firstSeenAt": "2026-10-01T21:23:17.007Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegefachperson-hf-fh-80-100-spital-nidwalden-stans": "NW",
+        "professionista-hf-fh-80-100-spital-nidwalden-stans": "NW"
+      },
+      "en": {
+        "care-professional-hf-fh-80-100-spital-nidwalden-stans": "NW",
+        "professionista-hf-fh-80-100-spital-nidwalden-stans": "NW"
+      },
+      "fr": {
+        "soins-professionnels-hf-fh-80-100-spital-nidwalden-stans": "NW",
+        "professionista-hf-fh-80-100-spital-nidwalden-stans": "NW"
+      },
+      "de": {
+        "professionista-hf-fh-80-100-spital-nidwalden-stans": "NW"
+      }
+    }
   },
   {
     "slug": "medico-senior-medico-intensivo-senior-50-100-luzerner-kantonsspital-luks-stans",
@@ -589,7 +689,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/oberaerztin-oberarzt-intensivmedizin-50/4db0abe4-9ba2-4178-9421-2d8d676397d5",
-    "firstSeenAt": "2026-08-17T21:51:41.186Z"
+    "firstSeenAt": "2026-08-17T21:51:41.186Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medico-senior-medico-intensivo-senior-50-100-spital-nidwalden-stans": "NW",
+        "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans": "NW",
+        "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans": "NW"
+      },
+      "en": {
+        "senior-physician-senior-intensive-care-physician-50-100-spital-nidwalden-stans": "NW",
+        "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans": "NW"
+      },
+      "de": {
+        "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans": "NW"
+      },
+      "fr": {
+        "medecin-principal-medecin-principal-en-soins-intensifs-50-100-spital-nidwalden-stans": "NW",
+        "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans": "NW"
+      }
+    }
   },
   {
     "slug": "servizio-domestico-per-dipendenti-80-spital-nidwalden-stans",
@@ -634,7 +753,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/mitarbeiter-mitarbeiterin-hauswirtschaft/0ec436c8-8117-4430-8ae1-d496601ac533",
-    "firstSeenAt": "2026-10-01T09:22:45.689Z"
+    "firstSeenAt": "2026-10-01T09:22:45.689Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans": "NW",
+        "collaboratore-trice-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans": "NW"
+      }
+    }
   },
   {
     "slug": "capo-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans",
@@ -703,7 +829,16 @@
         "firstSeenAt": "2026-08-11T10:38:14.847Z",
         "title": "Leitung Spital Nidwalden 100%"
       }
-    ]
+    ],
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leitung-spital-nidwalden-100-spital-nidwalden-stans": "NW"
+      },
+      "de": {
+        "leitung-spital-nidwalden-100-spital-nidwalden-stans": "NW"
+      }
+    }
   },
   {
     "slug": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-luzerner-kantonsspital-luks-stans",
@@ -758,7 +893,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/mpa-arztsekretaer-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie-adipositaszentrum/e95f0cdb-d12f-40aa-a06e-5a14962fc8e4",
-    "firstSeenAt": "2026-08-17T21:51:41.188Z"
+    "firstSeenAt": "2026-08-17T21:51:41.188Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie": "NW",
+        "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-spital-nidwalden-stans": "NW"
+      },
+      "en": {
+        "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie": "NW",
+        "mpa-doctor-secretary-in-secretariat-clinic-general-and-visceral-surgery-and-obesity-center-80-100-spital-nidwalden-stans": "NW"
+      },
+      "fr": {
+        "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie": "NW",
+        "mpa-doctorat-secretaire-dans-la-clinique-de-secretariat-general-et-centre-de-chirurgie-viscerale-et-d-obesite-80-9dfff6": "NW"
+      }
+    }
   },
   {
     "slug": "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans",
@@ -824,7 +974,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/dipl-pflegefachperson-hf-endoskopie/145804c1-3f2f-46d7-a531-c8d07aade199",
-    "firstSeenAt": "2026-08-17T21:51:41.182Z"
+    "firstSeenAt": "2026-08-17T21:51:41.182Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans": "NW",
+        "pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans": "NW",
+        "hf-endoscopia-40-60-luzerner-kantonsspital-luks-stans": "NW",
+        "dipl-hf-endoscopia-100-spital-nidwalden-stans": "NW",
+        "dipl-pflegefachperson-hf-endoskopie-100-luks-stans": "NW"
+      },
+      "en": {
+        "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans": "NW",
+        "dipl-caregiver-hf-endoscopy-100-spital-nidwalden-stans": "NW",
+        "dipl-pflegefachperson-hf-endoskopie-100-luks-stans": "NW"
+      },
+      "de": {
+        "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans": "NW"
+      },
+      "fr": {
+        "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans": "NW",
+        "dipl-endoscopie-hf-du-soignant-100-spital-nidwalden-stans": "NW",
+        "dipl-pflegefachperson-hf-endoskopie-100-luks-stans": "NW"
+      }
+    }
   },
   {
     "slug": "mutua-hf-fh-50-spital-nidwalden-stans",
@@ -873,7 +1046,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/hebamme-hf-fh/cb8256ef-c9ad-4d7f-bcd4-0f5be78414e2",
-    "firstSeenAt": "2026-09-28T21:23:08.963Z"
+    "firstSeenAt": "2026-09-28T21:23:08.963Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hebamme-hf-fh-50-spital-nidwalden-stans": "NW"
+      },
+      "en": {
+        "hebamme-hf-fh-50-spital-nidwalden-stans": "NW"
+      },
+      "fr": {
+        "hebamme-hf-fh-50-spital-nidwalden-stans": "NW"
+      }
+    }
   },
   {
     "slug": "fachfrau-mann-gesundheit-cfc-100-luzerner-kantonsspital-luks-stans",
