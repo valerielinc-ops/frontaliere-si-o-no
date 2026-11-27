@@ -34,7 +34,7 @@ import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION, ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { currentPendingPortalAccount, currentRecoveringPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice } from './assistedApplicationPortalSites.js';
+import { currentPendingPortalAccount, currentRecoveringPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice, recoveringPortalAccountForReset } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { applyAutomationEvent, AUTOMATION_SUBCOLLECTION, confirmSubmissionByEmployer, FLOW_DOC_ID } from './assistedApplicationAutomation.js';
 import { isUnconfirmedSubmission, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
@@ -1172,7 +1172,7 @@ function extractTemporaryResetPassword(text) {
   TEMPORARY_RESET_PASSWORD_RE.lastIndex = 0;
   let match;
   while ((match = TEMPORARY_RESET_PASSWORD_RE.exec(source)) !== null) {
-    const token = String(match[1] || '').replace(/[.,;!?]+$/u, '');
+    const token = String(match[1] || '');
     if (token.length < 6 || /^https?:\/\//i.test(token) || /^[^\p{L}\p{N}]+$/u.test(token)) continue;
     return token;
   }
@@ -1209,14 +1209,9 @@ async function passwordResetAccount(orderRef, { authenticated, asksPasswordReset
     }
     if (!temporaryPassword) return null;
   }
-  const recovering = Object.values(accounts || {})
-    .map((entry) => entry && typeof entry === 'object' ? currentRecoveringPortalAccount(accounts, entry.host) : null)
-    .filter((entry, index, list) => entry && received > Number(entry.recoveryRequestedAt)
-      && list.findIndex((other) => other?.host === entry.host) === index);
+  const urls = [...new Set(text.match(/\bhttps:\/\/[^\x00-\x20<>"']+/gi) || [])];
   const senderHost = /^[^@\s]+@([^@\s]+)$/i.exec(String(sender || '').trim())?.[1]?.toLowerCase() || '';
-  const senderLabel = senderHost ? senderHost.split('.').slice(-2).join('.') : '';
-  const named = senderLabel ? recovering.filter((entry) => String(entry.host || '').toLowerCase().split('.').slice(-2).join('.') === senderLabel) : [];
-  const account = named.length === 1 ? named[0] : (recovering.length === 1 && named.length === 0 ? recovering[0] : null);
+  const account = recoveringPortalAccountForReset(accounts, { urls, senderHost, receivedAt: received });
   if (!account) return null;
   return {
     host: account.host.toLowerCase(),

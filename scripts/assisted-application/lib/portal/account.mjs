@@ -201,7 +201,8 @@ export function verificationIsPending(after) {
  * SuccessFactors registration is neither a sign-in nor a create form.
  */
 export function authPageKind(snapshot) {
-  const passwords = snapshot.fields.filter((field) => field.inputType === 'password' && !isCodeField(field, snapshot.fields)).length;
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const passwords = fields.filter((field) => field.inputType === 'password' && !isCodeField(field, fields)).length;
   if (passwords >= 2) return 'create';
   if (passwords === 1) return 'sign_in';
   return 'none';

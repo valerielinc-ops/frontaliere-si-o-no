@@ -12,8 +12,14 @@ const SITE_FAMILIES = [
   ['successfactors.eu', 'successfactors.com', 'sapsf.eu', 'sapsf.com'],
 ];
 
+const SECOND_LEVEL_PUBLIC_SUFFIX_RE = /^(?:co|com|org|net|gov|edu|ac|gv|or)\.[a-z]{2}$/i;
+
 function registrable(host) {
-  return String(host || '').toLowerCase().split('.').slice(-2).join('.');
+  const parts = String(host || '').toLowerCase().split('.').filter(Boolean);
+  if (parts.length >= 3 && SECOND_LEVEL_PUBLIC_SUFFIX_RE.test(parts.slice(-2).join('.'))) {
+    return parts.slice(-3).join('.');
+  }
+  return parts.slice(-2).join('.');
 }
 
 // A verification token belongs to the exact account host. Shared ATS families
@@ -62,6 +68,25 @@ export function currentRecoveringPortalAccount(accounts, portalHost) {
     && Boolean(account.recoveryRequestId)
     ? account
     : null;
+}
+
+/** Resolve the active recovering account matching an authenticated reset mail. */
+export function recoveringPortalAccountForReset(accounts, { urls = [], senderHost = '', receivedAt } = {}) {
+  const received = Number(receivedAt);
+  if (!Number.isFinite(received)) return null;
+  const recovering = Object.values(accounts || {})
+    .map((entry) => entry && typeof entry === 'object' ? currentRecoveringPortalAccount(accounts, entry.host) : null)
+    .filter((entry, index, list) => entry && received > Number(entry.recoveryRequestedAt)
+      && list.findIndex((other) => other?.host === entry.host) === index);
+  if (!recovering.length) return null;
+  const urlMatches = recovering.filter((entry) => urls.some((url) => exactPortalVerificationUrl(url, entry.host)));
+  if (urlMatches.length === 1) return urlMatches[0];
+  if (urlMatches.length > 1) return null;
+  const sender = String(senderHost || '').toLowerCase();
+  const named = sender ? recovering.filter((entry) => registrable(entry.host) === registrable(sender)) : [];
+  if (named.length === 1) return named[0];
+  if (named.length > 0 || recovering.length !== 1) return null;
+  return recovering[0];
 }
 
 /**
