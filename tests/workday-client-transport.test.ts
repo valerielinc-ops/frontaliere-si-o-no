@@ -505,6 +505,72 @@ describe('Workday JSON transport', () => {
     }
   });
 
+  it('recovers a rate-limited listing through the browser transport exactly once per tenant', async () => {
+    vi.useFakeTimers();
+    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
+    const browserFallback = vi.fn()
+      .mockResolvedValueOnce({ total: 0, jobPostings: [] })
+      .mockRejectedValue(new Error('browser must not be retried for the same tenant'));
+    vi.stubGlobal('fetch', directFetch);
+    const context = createWorkdayRequestContext(API_BASE, {
+      browserFallback,
+      fallbackCooldownMs: 1_000,
+      rateLimitCircuitThreshold: 2,
+    });
+    const listing = { method: 'POST', body: '{}', retries: 3, retryBaseMs: 0 };
+
+    try {
+      const first = context.request(`${API_BASE}/jobs`, listing);
+      await vi.runAllTimersAsync();
+      await expect(first).resolves.toEqual({ total: 0, jobPostings: [] });
+      expect(directFetch).toHaveBeenCalledTimes(2);
+      expect(browserFallback).toHaveBeenCalledTimes(1);
+      expect(browserFallback).toHaveBeenCalledWith(expect.objectContaining({
+        url: `${API_BASE}/jobs`,
+        method: 'POST',
+        body: '{}',
+      }));
+
+      const second = context.request(`${API_BASE}/jobs`, listing);
+      const rejection = expect(second).rejects.toBeInstanceOf(WorkdayRateLimitError);
+      await vi.runAllTimersAsync();
+      await rejection;
+      expect(browserFallback).toHaveBeenCalledTimes(1);
+    } finally {
+      await context.close();
+      vi.useRealTimers();
+    }
+  });
+
+  it('keeps the typed rate-limit error when the browser cannot recover the listing', async () => {
+    vi.useFakeTimers();
+    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
+    const browserFallback = vi.fn().mockRejectedValue(new Error('browser blocked'));
+    vi.stubGlobal('fetch', directFetch);
+    const context = createWorkdayRequestContext(API_BASE, {
+      browserFallback,
+      fallbackCooldownMs: 1_000,
+      rateLimitCircuitThreshold: 2,
+    });
+
+    try {
+      const pending = context.request(`${API_BASE}/jobs`, {
+        method: 'POST', body: '{}', retries: 3, retryBaseMs: 0,
+      });
+      const rejection = expect(pending).rejects.toMatchObject({
+        name: 'WorkdayRateLimitError',
+        statusCode: 429,
+        circuitOpen: true,
+      });
+      await vi.runAllTimersAsync();
+      await rejection;
+      expect(browserFallback).toHaveBeenCalledTimes(1);
+    } finally {
+      await context.close();
+      vi.useRealTimers();
+    }
+  });
+
   it('opens a bounded circuit for 429 without Retry-After and never repeats via browser egress', async () => {
     vi.useFakeTimers();
     const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
