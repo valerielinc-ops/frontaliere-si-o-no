@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-11-26T21:33:37.873Z",
-  "runId": "45896633414",
+  "assembledAt": "2026-11-27T09:25:45.835Z",
+  "runId": "45971882719",
   "jobs": [
     {
       "id": "klinik-gut-4367-59b216f06dc4",
@@ -35,7 +35,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:33:31.603Z",
+      "crawledAt": "2026-11-27T09:25:35.363Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -89,7 +89,7 @@
       },
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:33:31.603Z",
+      "validThrough": "2026-12-27T09:25:35.363Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-5620",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:33:31.602Z",
+      "crawledAt": "2026-11-27T09:25:35.360Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       },
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:33:31.602Z",
+      "validThrough": "2027-02-19T09:25:35.360Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -207,7 +207,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-5387",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:33:31.599Z",
+      "crawledAt": "2026-11-27T09:25:35.356Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -256,7 +256,7 @@
       },
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:33:31.599Z",
+      "validThrough": "2027-02-10T09:25:35.356Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -291,7 +291,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:33:31.598Z",
+      "crawledAt": "2026-11-27T09:25:35.349Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -342,7 +342,7 @@
       },
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:33:31.598Z",
+      "validThrough": "2026-12-27T09:25:35.349Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -376,7 +376,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:33:31.597Z",
+      "crawledAt": "2026-11-27T09:25:35.342Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -421,7 +421,7 @@
       },
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:33:31.597Z",
+      "validThrough": "2026-12-27T09:25:35.342Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -456,7 +456,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:33:31.588Z",
+      "crawledAt": "2026-11-27T09:25:35.293Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -510,7 +510,7 @@
       },
       "streetAddress": "Via Paracelsus 2a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T21:33:31.588Z",
+      "validThrough": "2026-12-27T09:25:35.293Z",
       "validThroughSource": "last-observed-window"
     }
   ]

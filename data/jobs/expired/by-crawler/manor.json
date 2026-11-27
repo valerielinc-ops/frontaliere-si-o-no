@@ -12146,6 +12146,9 @@
       "fr": [
         "manor-mitarbeiter-in-service-50-emmen-71bf717c",
         "manor-mitarbeiter-in-service-50-emmen"
+      ],
+      "de": [
+        "manor-mitarbeiter-in-service-50-emmen-71bf717c"
       ]
     },
     "postalCode": "6032",
@@ -19722,7 +19725,8 @@
     "previousSlugsByLocale": {
       "it": [
         "manor-mitarbeiter-in-logistik-100-mohlin-1af42cd1",
-        "employe-e-logistique-100-manor-ag-mohlin"
+        "employe-e-logistique-100-manor-ag-mohlin",
+        "addetto-a-alla-logistica-100-manor-ag-mohlin"
       ],
       "en": [
         "manor-mitarbeiter-in-logistik-100-mohlin-1af42cd1",
@@ -19748,7 +19752,8 @@
     "firstSeenAt": "2026-10-22T09:43:26.967Z",
     "previousSlugs": [
       "manor-mitarbeiter-in-logistik-100-mohlin",
-      "employe-e-logistique-100-manor-ag-mohlin"
+      "employe-e-logistique-100-manor-ag-mohlin",
+      "addetto-a-alla-logistica-100-manor-ag-mohlin"
     ],
     "sourceIdentityHistory": [
       {
@@ -19761,7 +19766,12 @@
         "firstSeenAt": "2026-10-22T09:43:26.967Z",
         "title": "Mitarbeiter*in Logistik 100%"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "addetto-a-alla-logistica-100-manor-ag-mohlin": "AG"
+      }
+    }
   },
   {
     "slug": "cucina-manora-20-manor-ag-vevey",
