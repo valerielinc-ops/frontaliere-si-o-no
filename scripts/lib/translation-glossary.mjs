@@ -946,7 +946,7 @@ function scanMarkdownLink(context, start, allowUnclosedDestination = false) {
         continue;
       }
       if (character === ')') {
-        if (depth === 0) return cursor + 1;
+        if (depth === 0) return { end: cursor + 1, stripLabel: true };
         depth -= 1;
         lastClose = cursor;
         cursor += 1;
