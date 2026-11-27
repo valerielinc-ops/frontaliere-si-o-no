@@ -1134,7 +1134,6 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const rateLimitedCooldown =
     rateLimit !== null &&
     abortedRun &&
-    lastObservedJobs === 0 &&
     !summaryMissing &&
     rateLimitSeriesAgeMs <= TRANSPORT_ABORT_STALE_FLOOR_MS;
 

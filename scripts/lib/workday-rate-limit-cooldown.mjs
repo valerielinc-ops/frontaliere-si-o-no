@@ -88,13 +88,15 @@ export function normalizeWorkdayCooldownRecord(raw, nowMs = Date.now()) {
     return null;
   }
   if (parseIso(lastRateLimitedAt) > nowMs + CLOCK_SKEW_MS) return null;
+  if (parseIso(firstRateLimitedAt) > parseIso(lastRateLimitedAt)) return null;
+  if (!OUTCOMES.has(outcome)) return null;
   return {
     tenant,
     firstRateLimitedAt,
     lastRateLimitedAt,
     consecutiveRuns,
     nextAttemptAfter,
-    outcome: OUTCOMES.has(outcome) ? outcome : WORKDAY_RATE_LIMITED_OUTCOME,
+    outcome,
   };
 }
 
