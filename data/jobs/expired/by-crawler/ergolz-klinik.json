@@ -69,7 +69,13 @@
         "firstSeenAt": "2026-07-17T10:56:48.617Z",
         "title": "Dipl. Pflegefachfrau/Pflegefachmann HF, 50-100% Festanstellung"
       }
-    ]
+    ],
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachfrau-pflegefachmann-hf-50-100-festanstellung-ergolz-klinik-liestal": "BL"
+      }
+    }
   },
   {
     "slug": "medizinische-praxisassistentin-per-patientenmanagement-50-60-ergolz-klinik-liestal",
@@ -119,7 +125,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/inserat-mpa-patientenmanagement-50-60.pdf",
-    "firstSeenAt": "2026-09-23T23:39:31.647Z"
+    "firstSeenAt": "2026-09-23T23:39:31.647Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medizinische-praxisassistentin-fur-patientenmanagement-50-60-ergolz-klinik-liestal": "BL"
+      },
+      "en": {
+        "medizinische-praxisassistentin-fur-patientenmanagement-50-60-ergolz-klinik-liestal": "BL"
+      },
+      "fr": {
+        "medizinische-praxisassistentin-fur-patientenmanagement-50-60-ergolz-klinik-liestal": "BL"
+      }
+    }
   },
   {
     "slug": "terapeuta-cardiaca-40-60-ergolz-klinik-liestal",

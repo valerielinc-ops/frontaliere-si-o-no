@@ -52,7 +52,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/mitarbeiterin-mitarbeiter-arealpflege/9980b8ac-06b3-4a01-b07c-758f57d0947a",
-    "firstSeenAt": "2026-10-23T09:17:24.670Z"
+    "firstSeenAt": "2026-10-23T09:17:24.670Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich": "ZH",
+        "collaboratore-trice-arealpflege-a-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "mitarbeiterin-mitarbeiter-arealpflege-epi-stiftung-zurich": "ZH"
+      },
+      "en": {
+        "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "id": "epi-stiftung-19d29dd23046",
@@ -107,7 +121,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst/5b4325e5-66fb-433f-beda-5a69fe4c843f",
-    "firstSeenAt": "2026-10-22T21:15:33.341Z"
+    "firstSeenAt": "2026-10-22T21:15:33.341Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-specializzato-per-infermieri-specialista-in-allattamento-hf-fh-servizio-notturno-schweizerische-epilepsie-stiftung": "ZH",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich": "ZH"
+      },
+      "en": {
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b05918a1b6",
@@ -139,18 +167,23 @@
     "previousSlugsByLocale": {
       "it": [
         "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-930cdaa9",
-        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-e8c73519"
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-e8c73519",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "en": [
         "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
-        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "de": [
-        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
       ],
       "fr": [
         "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
-        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
       ]
     },
     "postalCode": "8001",
@@ -164,7 +197,9 @@
     "previousSlugs": [
       "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-e8c73519",
       "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
-      "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
+      "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+      "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+      "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
     ],
     "sourceIdentityHistory": [
       {
@@ -182,7 +217,23 @@
         "firstSeenAt": "2026-09-17T03:44:49.639Z",
         "title": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich": "ZH",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "en": {
+        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-6100630b22",
@@ -364,7 +415,23 @@
         "firstSeenAt": "2026-05-19T15:48:41.583Z",
         "title": "Studierende Sozialpädagogik HF / FH"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich": "ZH",
+        "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "en": {
+        "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "education-sociale-des-etudiants-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "corso-di-studi-per-infermiere-a-diplomato-a-sss-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-8f5056e341",
@@ -401,7 +468,29 @@
       "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-387e8c07",
       "corso-di-studi-per-infermiere-a-diplomato-a-hf-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
       "nursing-studies-to-become-a-qualified-nurse-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-      "etudes-d-infirmier-ere-diplome-e-es-a-l-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+      "etudes-d-infirmier-ere-diplome-e-es-a-l-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+      "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-1e751b73",
+      "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-a3cc6ef9",
+      "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-ffda8b55",
+      "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-0ed4d201",
+      "dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-51e789d5",
+      "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-e0ef70fe",
+      "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-11427dc6",
+      "infermiere-dipl-infermiere-sss-sup-schweizerische-epilepsie-stiftung-epi-zurich-5a33c354",
+      "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b285d928",
+      "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-bc593f44",
+      "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b2fd29b5",
+      "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-b0318c34",
+      "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-673508",
+      "study-dipl-care-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+      "study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+      "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-879ba7e1",
+      "diploma-in-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+      "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-2",
+      "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-673508",
+      "etude-dipl-specialiste-des-soins-hf-chez-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+      "etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+      "educateur-social-diplome-hes-hf-schweizerische-epilepsie-stiftung-epi-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -409,21 +498,72 @@
         "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
         "corso-di-studi-per-infermiere-a-diplomato-a-sss-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-f8820ff4",
         "corso-di-studi-per-infermiere-a-diplomato-a-hf-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-1e751b73",
+        "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-a3cc6ef9",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-ffda8b55",
+        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-0ed4d201",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-51e789d5",
+        "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-e0ef70fe",
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-11427dc6",
+        "infermiere-dipl-infermiere-sss-sup-schweizerische-epilepsie-stiftung-epi-zurich-5a33c354",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b285d928",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-bc593f44",
+        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b2fd29b5",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-b0318c34",
+        "corso-di-studi-per-infermiere-a-diplomato-a-sss-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "en": [
         "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
         "corso-di-studi-per-infermiere-a-diplomato-a-sss-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-        "nursing-studies-to-become-a-qualified-nurse-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        "nursing-studies-to-become-a-qualified-nurse-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-e0ef70fe",
+        "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-673508",
+        "study-dipl-care-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-879ba7e1",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-ffda8b55",
+        "diploma-in-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-a3cc6ef9",
+        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-0ed4d201",
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-11427dc6",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b285d928",
+        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b2fd29b5",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-b0318c34",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-2"
       ],
       "de": [
         "corso-di-studi-per-infermiere-a-diplomato-a-sss-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-1e751b73",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-b0318c34",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-ffda8b55",
+        "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-a3cc6ef9",
+        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-0ed4d201",
+        "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-e0ef70fe",
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-11427dc6",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b285d928",
+        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b2fd29b5",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-2"
       ],
       "fr": [
         "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
         "corso-di-studi-per-infermiere-a-diplomato-a-sss-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-        "etudes-d-infirmier-ere-diplome-e-es-a-l-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        "etudes-d-infirmier-ere-diplome-e-es-a-l-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-11427dc6",
+        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-0ed4d201",
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-673508",
+        "etude-dipl-specialiste-des-soins-hf-chez-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-879ba7e1",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-ffda8b55",
+        "educateur-social-diplome-hes-hf-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-a3cc6ef9",
+        "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-e0ef70fe",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b285d928",
+        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b2fd29b5",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-b0318c34",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-2"
       ]
     },
     "postalCode": "8001",
@@ -455,7 +595,24 @@
         "firstSeenAt": "2026-09-11T13:36:03.221Z",
         "title": "Studium Dipl. Pflegefachfrau/-mann HF im EPI WohnWerk"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich": "ZH",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "corso-di-studi-per-infermiere-a-diplomato-a-sss-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "en": {
+        "nursing-studies-to-become-a-qualified-nurse-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "etudes-d-infirmier-ere-diplome-e-es-a-l-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "junior-responsabile-di-sala-responsabile-di-sala-epi-park-restaurant-schweizerische-epilepsie-stiftung-epi-f6e6ef20",
@@ -846,7 +1003,24 @@
         "firstSeenAt": "2026-10-09T21:17:18.659Z",
         "title": "Fachfrau / Fachmann Gesundheit EFZ"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich": "ZH"
+      },
+      "en": {
+        "specialist-health-efz-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich": "ZH"
+      },
+      "de": {
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "specialiste-de-la-sante-efz-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich-0b53de27",
@@ -876,11 +1050,50 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-05T21:22:25.594Z",
     "previousSlugs": [
-      "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-9595789f"
+      "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-9595789f",
+      "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich",
+      "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich",
+      "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich-74a920",
+      "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich-74a920",
+      "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-2",
+      "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
+      "interns-for-day-care-centers-schweizerische-epilepsie-stiftung-epi-zurich",
+      "day-care-center-interns-schweizerische-epilepsie-stiftung-epi-zurich",
+      "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich-74a920",
+      "stagiaires-en-centres-de-jour-schweizerische-epilepsie-stiftung-epi-zurich",
+      "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich",
+      "tirocinanti-in-centri-diurni-schweizerische-epilepsie-stiftung-epi-zurich",
+      "stage-per-assistenti-educativi-schweizerische-epilepsie-stiftung-epi-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-9595789f"
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-9595789f",
+        "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich",
+        "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich",
+        "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich-74a920",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-2",
+        "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich",
+        "tirocinanti-in-centri-diurni-schweizerische-epilepsie-stiftung-epi-zurich",
+        "stage-per-assistenti-educativi-schweizerische-epilepsie-stiftung-epi-zurich"
+      ],
+      "en": [
+        "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich-74a920",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-2",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
+        "interns-for-day-care-centers-schweizerische-epilepsie-stiftung-epi-zurich",
+        "day-care-center-interns-schweizerische-epilepsie-stiftung-epi-zurich",
+        "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich"
+      ],
+      "fr": [
+        "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich-74a920",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-2",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
+        "stagiaires-en-centres-de-jour-schweizerische-epilepsie-stiftung-epi-zurich",
+        "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich"
+      ],
+      "de": [
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
       ]
     },
     "postalCode": "8001",
@@ -890,7 +1103,84 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/ea822750-5e98-4317-8f62-d5444af3ff4a",
-    "firstSeenAt": "2026-09-11T13:36:03.229Z"
+    "firstSeenAt": "2026-09-11T13:36:03.229Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/05a2fa23-7b4a-4c72-9bec-70606a95856a",
+        "firstSeenAt": "2026-05-29T12:19:06.426Z",
+        "title": "Praktikantinnen/Praktikanten Tagesstätten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/1c876741-6fee-4743-b026-29e50abed6e9",
+        "firstSeenAt": "2026-08-12T10:20:58.114Z",
+        "title": "Praktikantinnen/Praktikanten Tagesstätten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/2bf16343-7128-4a93-a4a4-5b87d00b0843",
+        "firstSeenAt": "2026-05-19T15:48:41.589Z",
+        "title": "Praktikantinnen/Praktikanten Tagesstätten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/3376a3e1-04de-4772-b9cf-34cb26aae744",
+        "firstSeenAt": "2026-05-19T15:48:41.589Z",
+        "title": "Praktikantinnen/Praktikanten Tagesstätten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/45bc2735-6110-4031-9e15-c4a579dbca1f",
+        "firstSeenAt": "2026-07-17T22:07:13.073Z",
+        "title": "Praktikantinnen/Praktikanten Tagesstätten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/9f601c4a-e336-4426-85f5-80a21aa81919",
+        "firstSeenAt": "2026-09-11T13:36:03.229Z",
+        "title": "Praktikantinnen/Praktikanten Tagesstätten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/b1ac7047-8b99-4f63-a832-13f6c77b3e8e",
+        "firstSeenAt": "2026-06-23T11:26:46.605Z",
+        "title": "Praktikantinnen/Praktikanten Tagesstätten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/d6d12f2a-acb8-44c0-8705-96a773431f10",
+        "firstSeenAt": "2026-09-10T23:07:46.570Z",
+        "title": "Praktikantinnen/Praktikanten Tagesstätten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/ea822750-5e98-4317-8f62-d5444af3ff4a",
+        "firstSeenAt": "2026-09-11T13:36:03.229Z",
+        "title": "Praktikantinnen/Praktikanten Tagesstätten"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich-74a920": "ZH",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich": "ZH",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-2": "ZH",
+        "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "tirocinanti-in-centri-diurni-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "stage-per-assistenti-educativi-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "en": {
+        "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich-74a920": "ZH",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-2": "ZH",
+        "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich": "ZH",
+        "interns-for-day-care-centers-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "day-care-center-interns-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich-74a920": "ZH",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich-2": "ZH",
+        "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich": "ZH",
+        "stagiaires-en-centres-de-jour-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-supporto-professionale-efz-schweizerische-epilepsie-stiftung-epi-zurich-4ad0a2f3",
@@ -920,11 +1210,65 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-05T21:22:25.594Z",
     "previousSlugs": [
-      "fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich-6eb9160f"
+      "fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich-6eb9160f",
+      "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich-ccdf73de",
+      "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-db903a2e",
+      "specialist-health-efz-schweizerische-epilepsie-stiftung-epi-zurich-7d9430ea",
+      "health-care-specialist-efz-schweizerische-epilepsie-stiftung-epi-zurich",
+      "specialist-health-efz-schweizerische-epilepsie-stiftung-epi-zurich-3899b92c",
+      "specialist-health-efz-schweizerische-epilepsie-stiftung-epi-zurich-b1fd2d4d",
+      "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-9a835b20",
+      "specialist-professional-support-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+      "specialiste-soutien-professionnel-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+      "pedagogue-social-pedagogie-sociale-ou-specialiste-supervision-professionnelle-efz-schweizerische-epilepsie-stiftung-epi",
+      "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich-db62ea86",
+      "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-09a51188",
+      "social-pedagogue-social-pedagogue-or-specialist-professional-supervision-efz-schweizerische-epilepsie-stiftung-epi",
+      "specialiste-de-la-sante-efz-schweizerische-epilepsie-stiftung-epi-zurich-b6530df9",
+      "specialiste-de-la-sante-efz-schweizerische-epilepsie-stiftung-epi-zurich-778b3b32"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich-6eb9160f"
+        "fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich-6eb9160f",
+        "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich-ccdf73de",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-db903a2e"
+      ],
+      "en": [
+        "specialist-health-efz-schweizerische-epilepsie-stiftung-epi-zurich-7d9430ea",
+        "health-care-specialist-efz-schweizerische-epilepsie-stiftung-epi-zurich",
+        "specialist-health-efz-schweizerische-epilepsie-stiftung-epi-zurich-3899b92c",
+        "specialist-health-efz-schweizerische-epilepsie-stiftung-epi-zurich-b1fd2d4d",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-db903a2e",
+        "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich-ccdf73de",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-9a835b20",
+        "specialist-professional-support-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+        "specialiste-soutien-professionnel-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+        "pedagogue-social-pedagogie-sociale-ou-specialiste-supervision-professionnelle-efz-schweizerische-epilepsie-stiftung-epi",
+        "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich-db62ea86",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-09a51188"
+      ],
+      "de": [
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-db903a2e",
+        "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich-ccdf73de",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-9a835b20",
+        "specialist-professional-support-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+        "social-pedagogue-social-pedagogue-or-specialist-professional-supervision-efz-schweizerische-epilepsie-stiftung-epi",
+        "specialiste-soutien-professionnel-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+        "pedagogue-social-pedagogie-sociale-ou-specialiste-supervision-professionnelle-efz-schweizerische-epilepsie-stiftung-epi",
+        "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich-db62ea86",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-09a51188"
+      ],
+      "fr": [
+        "specialiste-de-la-sante-efz-schweizerische-epilepsie-stiftung-epi-zurich-b6530df9",
+        "specialiste-de-la-sante-efz-schweizerische-epilepsie-stiftung-epi-zurich-778b3b32",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-db903a2e",
+        "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich-ccdf73de",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-9a835b20",
+        "specialist-professional-support-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+        "social-pedagogue-social-pedagogue-or-specialist-professional-supervision-efz-schweizerische-epilepsie-stiftung-epi",
+        "specialiste-soutien-professionnel-efz-schweizerische-epilepsie-stiftung-epi-zurich-b8119a",
+        "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich-db62ea86",
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich-09a51188"
       ]
     },
     "postalCode": "8001",
@@ -934,7 +1278,551 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-betreuung-efz/a79f16e7-2f7e-4499-9b16-fa462de0cd21",
-    "firstSeenAt": "2026-09-11T13:36:03.233Z"
+    "firstSeenAt": "2026-09-11T13:36:03.233Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-betreuung-efz/95f11f1e-1a4d-46c0-b449-938504194e58",
+        "firstSeenAt": "2026-09-11T13:36:03.233Z",
+        "title": "Fachfrau / Fachmann Betreuung EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-betreuung-efz/a79f16e7-2f7e-4499-9b16-fa462de0cd21",
+        "firstSeenAt": "2026-09-11T13:36:03.233Z",
+        "title": "Fachfrau / Fachmann Betreuung EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-betreuung-efz/b623eea5-fec6-4975-bcc6-a60e0f2682f3",
+        "firstSeenAt": "2026-09-11T13:36:03.233Z",
+        "title": "Fachfrau / Fachmann Betreuung EFZ"
+      }
+    ]
+  },
+  {
+    "slug": "team-leader-gruppi-di-vita-con-un-comportamento-impegnativo-complesso-schweizerische-epilepsie-stiftung-epi-zurich",
+    "title": "Teamleiterin / Teamleiter Wohngruppen mit komplexem herausforderndem Verhalten",
+    "titleByLocale": {
+      "it": "Team Leader Gruppi di vita con un comportamento impegnativo complesso",
+      "en": "Team Leader Living groups with complex challenging behavior",
+      "de": "Teamleiterin / Teamleiter Wohngruppen mit komplexem herausforderndem Verhalten",
+      "fr": "Team Leader Groupes vivants avec un comportement complexe et stimulant"
+    },
+    "company": "Schweizerische Epilepsie-Stiftung (EPI)",
+    "companyKey": "epi-stiftung",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "L'EPI WohnWerk si sta evolvendo – e si può modellare attivamente questo percorso. Allineiamo costantemente le nostre strutture, processi e la nostra collaborazione con il futuro. > > Per i nostri gruppi residenziali per le persone con limitazioni cognitive complesse e comportamenti impegnativi stiamo cercando <b> a causa del pensionamento </b> a partire da ottobre 2026 o per accordo un <b>open, impegnata e direzione di squadra orientata al futuro Si ha la possibilità di modellare attivamente questo processo di cambiamento, portare nuovi impulsi e condurre un team motivato con energia, chiarezza e cuore nel futuro.\n\nCompiti:\n• Prenderai il controllo della gestione di un team interprofessionale motivato (costituito da specialisti Agogik und Pflege, Dipl). Personale infermieristico, assistenza specialistica e salute) e promuovere il loro ulteriore sviluppo e cooperazione al fine di implementare con successo i cambiamenti in azienda e lavorare ca. 50% attivo nella cura / accompagnamento con\n\n• Si assumono la responsabilità di un'organizzazione di gruppo residenziale orientata al futuro, sviluppano continuamente la qualità dell'offerta sul gruppo residenziale e coinvolgono gli specialisti di supporto.\n\n• Creano una cooperazione interprofessionale cooperativa e orientata ai residenti\n\n• Contribuiscono le loro idee a un dipartimento focalizzato sulle esigenze residenziali e attivamente li implementano e sono attivamente coinvolti nel team di gestione del team della zona residenziale e partecipano a gruppi specializzati e di progetto.\n\nRequisiti\n• Hai una formazione nel settore sociale o sanitario a livello terziario HF o FH e hai un'ampia esperienza professionale\n\n• Interessi ed entusiasmo nella progettazione di un ambiente di vita con un'alta qualità di vita per i nostri residenti\n\n• Esperienza di leadership, pensiero concettuale, riflessione e capacità critica\n\n• Personalità innovativa, apparenza vincente e comprensione dei servizi\n\n• Mantengono una cooperazione interprofessionale e non perdono l'umorismo anche in situazioni frenetiche\n\nOffriamo:\n• L'opportunità di contribuire a plasmare lo sviluppo del dipartimento insieme al team di gestione Living\n\n• Un ambiente di vita che si può aiutare a plasmare con le proprie idee\n\n• 5 settimane di vacanza, dal 50 °. Età 6 settimane\n\n• Fondo pensionistico privato con quota di datore di lavoro superiore alla media del 60%\n\n• Ampia offerta di formazione interna e supporto per la formazione esterna\n\n• Parcheggio e sconti presso il ristorante EPI Park, farmacia e abbonamenti di mezza taglia o generici\n\nA volte piuttosto impegnativo, ma mai noioso: A EPI WohnWerk, nessun giorno è come l'altro. Perché le persone che accompagniamo ciascuno e tutti hanno la loro storia di vita unica. Grazie alla collaborazione nel team interprofessionale, siamo ben posizionati per la nostra giornata lavorativa. Vuoi anche far parte di questa squadra?",
+      "en": "The EPI WohnWerk is evolving – and you can actively shape this path. We consistently align our structures, processes and our cooperation with the future. <br/><br/ >For our residential groups for people with complex cognitive limitations and challenging behaviors we are looking for <b> due to retirement</b> as of October 2026 or by agreement an <b>open, committed and future-oriented team leadership</b>.<br/><br/ >You have the chance to actively shape this change process, bring in new impulses and lead a motivated team with energy, clarity and heart into the future.\n\nTasks:\n• You will take over the management of a motivated interprofessional team (consisting of specialists Agogik und Pflege, Dipl). Nursing staff, specialists care and health) and promote their further development and cooperation in order to successfully implement the changes in the company and work approx. 50% active in the care / accompaniment with\n\n• They assume responsibility for a future-oriented residential group organization, continuously develop the quality of the offer on the residential group and involve the supporting specialists.\n\n• They create a cooperative and resident-oriented interprofessional cooperation\n\n• They contribute their ideas to a department focused on residential needs and actively implement them and are actively involved in the team management team of the residential area and participate in specialist and project groups.\n\nRequirements\n• You have an education in the social or health sector at tertiary level HF or FH and have broad professional experience\n\n• Interest and enthusiasm in the design of a living environment with a high quality of life for our residents\n\n• Leadership experience, conceptual thinking, reflection and critical ability\n\n• Innovative personality, winning appearance and understanding of services\n\n• They maintain an interprofessional cooperation and do not lose humor even in hectic situations\n\nWe offer:\n• The opportunity to help shape the development of the department together with the management team Living\n\n• A living environment that you can help shape with your own ideas\n\n• 5 weeks holiday, from the 50th. Age 6 weeks\n\n• Own pension fund with above average employer share of 60%\n\n• Extensive internal training offer and support for external training\n\n• Parking and discounts in the EPI Park restaurant, pharmacy and half-tax or general subscription\n\nSometimes quite challenging, but never boring: At EPI WohnWerk, no day is like the other. Because the people we accompany each and everyone have their unique life story. Thanks to the cooperation in the interprofessional team, we are well positioned for our working day. Do you also want to be part of this team?",
+      "de": "Das EPI WohnWerk entwickelt sich weiter – und Sie können diesen Weg aktiv mitprägen. Wir richten unsere Strukturen, Prozesse und unser Miteinander konsequent auf die Zukunft aus.\nFür unsere Wohngruppen für Menschen mit komplexen kognitiven Einschränkungen und herausfordernden Verhaltensweisen suchen wir aufgrund von Pensionierungen per Oktober 2026 oder nach Vereinbarung eine offene, engagierte und zukunftsorientierte Teamleitung.\nSie haben die Chance, diesen Veränderungsprozess aktiv mitzugestalten, neue Impulse einzubringen und ein motiviertes Team mit Energie, Klarheit und Herz in die Zukunft zu führen.\n\n## Der vielfältige Tag\n• Sie übernehmen die Leitung eines motivierten interprofessionellen Teams (bestehend aus Fachspezialisten Agogik und Pflege, Dipl. Pflegefachpersonal, Fachpersonen Betreuung und Gesundheit) und fördern dessen Weiterentwicklung und Zusammenarbeit, um die Veränderungen im Unternehmen erfolgreich umzusetzen und arbeiten ca. 50% aktiv in der Betreuung/Begleitung mit\n• Sie übernehmen die Verantwortung für eine zukunftsorientierte Wohngruppenorganisation, entwickeln die Angebotsqualität auf der Wohngruppe laufend weiter und beziehen dabei die unterstützenden Fachpersonen mit ein\n• Sie gestalten eine kooperative und auf den Bewohner ausgerichtete interprofessionelle Zusammenarbeit\n• Sie bringen ihre Vorstellungen zu einer auf die Bewohnerbedürfnisse ausgerichtete Abteilung ein und setzen diese aktiv um und engagieren sich aktiv im Teamleitungsteam des Bereichs Wohnen und wirken in Fach- und Projektgruppen mit\n\n## Ihre vielfältigen Talente\n• Sie verfügen über eine Ausbildung im Sozial – oder Gesundheitsbereich auf Tertiärstufe HF oder FH und bringen breite Berufserfahrung mit\n• Interesse und Begeisterung an der Gestaltung eines Wohnumfelds mit hoher Lebensqualität für unsere Bewohnerinnen und Bewohner\n• Führungserfahrung, konzeptionelles Denken, Reflexions– und Kritikfähigkeit\n• Innovative Persönlichkeit, gewinnendes Auftreten und Dienstleitungsverständnis\n• Sie pflegen eine interprofessionelle Zusammenarbeit und verlieren auch in hektischen Situationen nicht den Humor\n• Die Möglichkeit, die Entwicklung der Abteilung zusammen mit dem Leitungsteam Wohnen mitzugestalten\n• Ein lebendiges Umfeld, das man mit eigenen Ideen mitgestalten kann\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Umfangreiches internes Weiterbildungsangebot und Unterstützung bei externen Weiterbildungen\n• Parkplätze und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement\n\n## Wir suchen aufgrund einer Pensionierung per sofort oder nach Vereinbarung eine/einen\nVielfältige Beziehungen\nBeziehungen über lange Zeit, die so vielfältig sind wie unsere Arbeit selbst\nOrganisiert und selbstbestimmt\nGut organisiert zu sein bedeutet auch, seinen Arbeitstag selbst gestalten zu können\nProfis für Profis\nWir blicken über den Tellerrand hinaus - Interprofessionalität, die bereichert\nVon Theorie zu Praxis und zurück\nBei uns fliesst das Wissen in alle Richtungen, und davon profitieren alle\nMehr als nur schön\nEin wunderschöner Arbeitsort - auch dank besten Arbeitsbedingungen\nDer vielfältige Tag\nIhre vielfältigen Talente\nUnser vielfältiges Angebot\n\n## EPI WohnWerk\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?\nGanz schön vielfältig:\nKlicken Sie hier und erfahren Sie mehr unter\njobs.epi-wohnwerk.ch",
+      "fr": "L'EPI WohnWerk évolue – et vous pouvez façonner activement ce chemin. Nous aligneons constamment nos structures, nos processus et notre coopération avec l'avenir. <br/><br/ > Pour nos groupes résidentiels pour les personnes ayant des limites cognitives complexes et des comportements difficiles, nous recherchons <b> en raison de la retraite</b> à compter d'octobre 2026 ou par accord un leadership d'équipe ouvert, engagé et orienté vers l'avenir</b>.<br/><br/ > Vous avez la chance de façonner activement ce processus de changement, d'apporter de nouvelles impulsions et de diriger une équipe motivée avec énergie, clarté et cœur dans l'avenir.\n\nTâches :\n• Vous prendrez la direction d'une équipe interprofessionnelle motivée (composée de spécialistes Agogik und Pflege, Dipl). Le personnel infirmier, les soins spécialisés et la santé) et de promouvoir leur développement et la coopération afin de mettre en œuvre avec succès les changements dans l'entreprise et travailler environ. 50% actif dans les soins / accompagnement avec\n\n• Ils assument la responsabilité d'une organisation de groupes résidentiels orientée vers l'avenir, développent continuellement la qualité de l'offre du groupe résidentiel et font appel aux spécialistes de soutien.\n\n• Ils créent une coopération interprofessionnelle axée sur les coopératives et les résidents\n\n• Ils apportent leurs idées à un ministère axé sur les besoins résidentiels et les mettent en oeuvre activement; ils participent activement à l'équipe de gestion de l'aire résidentielle et participent à des groupes de spécialistes et de projets.\n\nExigences\n• Vous avez une formation dans le secteur social ou de la santé au niveau supérieur HF ou FH et avez une vaste expérience professionnelle\n\n• Intérêt et enthousiasme dans la conception d'un environnement de vie offrant une qualité de vie élevée à nos résidents\n\n• Expérience en leadership, réflexion conceptuelle, réflexion et capacité critique\n\n• Personnalité innovante, apparence gagnante et compréhension des services\n\n• Ils maintiennent une coopération interprofessionnelle et ne perdent pas l'humour même dans des situations mouvementées\n\nNous offrons:\n• La possibilité d'aider à façonner le développement du département avec l'équipe de gestion Living\n\n• Un environnement de vie que vous pouvez aider à façonner avec vos propres idées\n\n• 5 semaines de vacances, à partir du 50ème. Âge 6 semaines\n\n• Fonds de pension propre avec une part de l'employeur supérieure à la moyenne de 60%\n\n• Offre de formation interne étendue et soutien à la formation externe\n\n• Parking et réductions dans le restaurant EPI Park, pharmacie et demi-taxe ou abonnement général\n\nParfois assez difficile, mais jamais ennuyeux: Chez EPI WohnWerk, aucun jour n'est comme l'autre. Parce que les gens que nous accompagnons chacun et chacun ont leur histoire de vie unique. Grâce à la coopération au sein de l'équipe interprofessionnelle, nous sommes bien placés pour notre journée de travail. Voulez-vous aussi faire partie de cette équipe ?"
+    },
+    "slugByLocale": {
+      "it": "team-leader-gruppi-di-vita-con-un-comportamento-impegnativo-complesso-schweizerische-epilepsie-stiftung-epi-zurich",
+      "en": "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-cb7ee0d9",
+      "de": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-127e8e79",
+      "fr": "team-leader-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-11-05T13:08:30.038Z",
+    "previousSlugs": [
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-127e8e79",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9c96c8d",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-3dbd0cf2",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-49bff9ae",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-087b15bd",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ae93bb83",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ece693cf",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-30f46dce",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-bbc66549",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9a9a817",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-1b18dbdc",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-71fdf37a",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-613a9f33",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c4d2b48a",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-6b85ef8a",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-44987637",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-951ecd49",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-52f1efd4",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-8947c7b6",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fd5d079e",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ff02547d",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6fa5d529",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-fa48f498",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cbb5c63d",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-d3db1140",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6dca3bb6",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-5a1e0dc4",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-43145a95",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-f0035dc2",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-f0474799",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-31400da1",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-401870d1",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-3eac43b8",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b96a0432",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ac666205",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-d34cc4cb",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-35fe5f53",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e8ac4357",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-dfba46f0",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cf37a9c8",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-36193a88",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e69e76dd",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-accbceb9",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afc7bb9a",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ff35decc",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-40197e76",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-57ed0e48",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-9ce46d37",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-d8a07f8a",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-392e1046",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-0b869f83",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-87b400f4",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-eddd31eb",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b1d2ff83",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-a1bf69cc",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-438783fb",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-2da82d21",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-46cd250b",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-8bcbffbd",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-541f7174",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-e825a6e0",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-91de4e97",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-e7f538b1",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-07a939c6",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-d670bb2b",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-534165b7",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-0cf43303",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-5b414013",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-70a6f1c9",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c86ef050",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-c1ad8bcc",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ffcee2ad",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-f8f3a3ff",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-219b91d8",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-49cd2047",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-184f0fe4",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-7f800fc7",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6b6a77cb",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-5aac2ed2",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fbe45163",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-0f1ed722",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afa4e580",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-76b54724",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b756c32a",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-cab0c971",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-2a95d7c0",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-2fc9caeb",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-19cb94b1",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-beb5072c",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-59bfca5a",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-b9901de7",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-779d723a",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-8f623f64",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-4ff7d297",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-cec7e101",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-47185f87",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-c500816e",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-7f04674a",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-6033c6a2",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e7b1ab9c",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-a125ade7",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-1660f587",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-0ef85e6a",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e649ce87",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-93eac950",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cdb49e3f",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-730da5c5",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b72e4739",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-83afedf6",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-46cdad0d",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-3fb1b5b1",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c83b86cc",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-f5493b6a",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e0bcedab",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-bc5d51b4",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-9741245c",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-7e5357aa",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-32513320",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-a594e7ca",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-9f4be415",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-33cdfb32",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-f519797f",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ec0d8815",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b681ef25",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-b988f0a4",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-7a3b7612",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-6424a2a6",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
+      "team-leader-gruppi-di-vita-con-un-comportamento-impegnativo-complesso-schweizerische-epilepsie-stiftung-epi-afd6e2",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c3e27201",
+      "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-2",
+      "team-leader-gruppi-di-vita-con-un-comportamento-impegnativo-complesso-schweizerische-epilepsie-stiftung-epi-657d4a07",
+      "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-11a24f9f",
+      "chef-d-equipe-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-zurich",
+      "responsabile-di-gruppo-di-residenza-con-comportamenti-complessi-e-sfidanti-schweizerische-epilepsie-stiftung-epi-zurich",
+      "team-leader-residential-groups-for-individuals-with-complex-cognitive-impairments-and-challenging-behaviors",
+      "team-leader-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-76954575",
+      "responsable-d-equipe-de-groupes-d-habitation-pour-personnes-ayant-des-troubles-cognitifs-complexes-et-des-comportements",
+      "responsable-de-groupe-d-habitation-avec-comportement-complexe-et-defiant-schweizerische-epilepsie-stiftung-epi-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-127e8e79",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9c96c8d",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-3dbd0cf2",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-49bff9ae",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ae93bb83",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-30f46dce",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9a9a817",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-71fdf37a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c4d2b48a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-44987637",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-52f1efd4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fd5d079e",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6fa5d529",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cbb5c63d",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6dca3bb6",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-43145a95",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-f0474799",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-401870d1",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b96a0432",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-d34cc4cb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e8ac4357",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cf37a9c8",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e69e76dd",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afc7bb9a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-40197e76",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-9ce46d37",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-392e1046",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-87b400f4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b1d2ff83",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-438783fb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-46cd250b",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-541f7174",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-91de4e97",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-07a939c6",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-534165b7",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-5b414013",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c86ef050",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ffcee2ad",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-219b91d8",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-184f0fe4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6b6a77cb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fbe45163",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afa4e580",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b756c32a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-2a95d7c0",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-19cb94b1",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-59bfca5a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-779d723a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-4ff7d297",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-47185f87",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-7f04674a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e7b1ab9c",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-1660f587",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e649ce87",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cdb49e3f",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b72e4739",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-46cdad0d",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c83b86cc",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e0bcedab",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-9741245c",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-32513320",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-9f4be415",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-f519797f",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b681ef25",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-7a3b7612",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
+        "team-leader-gruppi-di-vita-con-un-comportamento-impegnativo-complesso-schweizerische-epilepsie-stiftung-epi-afd6e2",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c3e27201",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-2",
+        "team-leader-gruppi-di-vita-con-un-comportamento-impegnativo-complesso-schweizerische-epilepsie-stiftung-epi-657d4a07",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-11a24f9f",
+        "chef-d-equipe-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "responsabile-di-gruppo-di-residenza-con-comportamenti-complessi-e-sfidanti-schweizerische-epilepsie-stiftung-epi-zurich",
+        "team-leader-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-zurich"
+      ],
+      "en": [
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-087b15bd",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ece693cf",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-bbc66549",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-1b18dbdc",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-613a9f33",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-6b85ef8a",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-951ecd49",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-8947c7b6",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ff02547d",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-fa48f498",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-d3db1140",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-5a1e0dc4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-127e8e79",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-f0035dc2",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9c96c8d",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-31400da1",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-3dbd0cf2",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-3eac43b8",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-49bff9ae",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ac666205",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ae93bb83",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-35fe5f53",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-30f46dce",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-dfba46f0",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9a9a817",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-36193a88",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-71fdf37a",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-accbceb9",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c4d2b48a",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ff35decc",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-44987637",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-57ed0e48",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-52f1efd4",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-d8a07f8a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fd5d079e",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-0b869f83",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6fa5d529",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-eddd31eb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cbb5c63d",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-a1bf69cc",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6dca3bb6",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-2da82d21",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-43145a95",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-8bcbffbd",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-f0474799",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-e825a6e0",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-401870d1",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-e7f538b1",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b96a0432",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-d670bb2b",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-d34cc4cb",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-0cf43303",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e8ac4357",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-70a6f1c9",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cf37a9c8",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-c1ad8bcc",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e69e76dd",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-f8f3a3ff",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afc7bb9a",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-49cd2047",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-40197e76",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-7f800fc7",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-9ce46d37",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-5aac2ed2",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-392e1046",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-0f1ed722",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-87b400f4",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-76b54724",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b1d2ff83",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-cab0c971",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-438783fb",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-2fc9caeb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-46cd250b",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-beb5072c",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-541f7174",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-b9901de7",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-91de4e97",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-8f623f64",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-07a939c6",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-cec7e101",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-534165b7",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-c500816e",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-5b414013",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-6033c6a2",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c86ef050",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-a125ade7",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ffcee2ad",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-0ef85e6a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-219b91d8",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-93eac950",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-184f0fe4",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-730da5c5",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6b6a77cb",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-83afedf6",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fbe45163",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-3fb1b5b1",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afa4e580",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-f5493b6a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b756c32a",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-bc5d51b4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-2a95d7c0",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-7e5357aa",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-19cb94b1",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-a594e7ca",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-59bfca5a",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-33cdfb32",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-779d723a",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-ec0d8815",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-4ff7d297",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-b988f0a4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-47185f87",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-6424a2a6",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-2",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-11a24f9f",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c3e27201",
+        "team-leader-residential-groups-for-individuals-with-complex-cognitive-impairments-and-challenging-behaviors",
+        "team-leader-gruppi-di-vita-con-un-comportamento-impegnativo-complesso-schweizerische-epilepsie-stiftung-epi-zurich",
+        "team-leader-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-zurich"
+      ],
+      "de": [
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9c96c8d",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-3dbd0cf2",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-49bff9ae",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ae93bb83",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-30f46dce",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9a9a817",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-71fdf37a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c4d2b48a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-44987637",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-52f1efd4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fd5d079e",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6fa5d529",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cbb5c63d",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6dca3bb6",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-43145a95",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-f0474799",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-401870d1",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b96a0432",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-d34cc4cb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e8ac4357",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cf37a9c8",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e69e76dd",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afc7bb9a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-40197e76",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-9ce46d37",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-392e1046",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-87b400f4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b1d2ff83",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-438783fb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-46cd250b",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-541f7174",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-91de4e97",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-07a939c6",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-534165b7",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-5b414013",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c86ef050",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ffcee2ad",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-219b91d8",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-184f0fe4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6b6a77cb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fbe45163",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afa4e580",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b756c32a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-2a95d7c0",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-19cb94b1",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-59bfca5a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-779d723a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-4ff7d297",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-47185f87",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-7f04674a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c3e27201",
+        "team-leader-gruppi-di-vita-con-un-comportamento-impegnativo-complesso-schweizerische-epilepsie-stiftung-epi-zurich",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-11a24f9f",
+        "team-leader-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-zurich"
+      ],
+      "fr": [
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-127e8e79",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9c96c8d",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-3dbd0cf2",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-49bff9ae",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ae93bb83",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-30f46dce",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c9a9a817",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-71fdf37a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c4d2b48a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-44987637",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-52f1efd4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fd5d079e",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6fa5d529",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cbb5c63d",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6dca3bb6",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-43145a95",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-f0474799",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-401870d1",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b96a0432",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-d34cc4cb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e8ac4357",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-cf37a9c8",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-e69e76dd",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afc7bb9a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-40197e76",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-9ce46d37",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-392e1046",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-87b400f4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b1d2ff83",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-438783fb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-46cd250b",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-541f7174",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-91de4e97",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-07a939c6",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-534165b7",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-5b414013",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c86ef050",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-ffcee2ad",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-219b91d8",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-184f0fe4",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-6b6a77cb",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-fbe45163",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-afa4e580",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-b756c32a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-2a95d7c0",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-19cb94b1",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-59bfca5a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-779d723a",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-4ff7d297",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-47185f87",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
+        "team-leader-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-76954575",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-2",
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung-c3e27201",
+        "responsable-d-equipe-de-groupes-d-habitation-pour-personnes-ayant-des-troubles-cognitifs-complexes-et-des-comportements",
+        "responsable-de-groupe-d-habitation-avec-comportement-complexe-et-defiant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "team-leader-gruppi-di-vita-con-un-comportamento-impegnativo-complesso-schweizerische-epilepsie-stiftung-epi-zurich",
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich-11a24f9f"
+      ]
+    },
+    "postalCode": "8001",
+    "streetAddress": "Bleulerstrasse 60",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten/814c70de-ef5d-4a03-af59-3efa0ed2c6ff",
+    "firstSeenAt": "2026-09-11T13:36:03.238Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten/478831df-4276-4a34-9378-96030cc76730",
+        "firstSeenAt": "2026-09-11T13:36:03.238Z",
+        "title": "Teamleiterin / Teamleiter Wohngruppen mit komplexem herausforderndem Verhalten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten/7a29500e-3f5e-4e8a-9f50-4828204bcbc7",
+        "firstSeenAt": "2026-11-05T21:22:00.356Z",
+        "title": "Teamleiterin / Teamleiter Wohngruppen mit komplexem herausforderndem Verhalten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten/814c70de-ef5d-4a03-af59-3efa0ed2c6ff",
+        "firstSeenAt": "2026-09-11T13:36:03.238Z",
+        "title": "Teamleiterin / Teamleiter Wohngruppen mit komplexem herausforderndem Verhalten"
+      }
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung": "ZH"
+      },
+      "en": {
+        "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung": "ZH"
+      }
+    }
   },
   {
     "slug": "capo-aggiunto-dell-agricoltura-animale-a-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -1277,7 +2165,14 @@
         "firstSeenAt": "2026-10-06T09:13:20.940Z",
         "title": "Stellvertretende Leitung Tierhaltung"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretende-leitung-tierhaltung-a-epi-stiftung-zurich": "ZH",
+        "stellvertretende-leitung-tierhaltung-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "alloggi-esperti-per-agonici-possibile-condivisione-del-lavoro-schweizerische-epilepsie-stiftung-epi-zurich-44e77014",
@@ -2176,7 +3071,25 @@
         "firstSeenAt": "2026-09-09T23:05:25.940Z",
         "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infermiere-dipl-infermiere-sss-sup-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich": "ZH",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "en": {
+        "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-epi-zurich-5ab7664b9e",
@@ -2512,7 +3425,11 @@
       "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich",
       "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-epi-zurich",
       "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
-      "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-zurich"
+      "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
+      "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-fb8685df",
+      "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-ef9c7499",
+      "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-3262b493",
+      "teamleiterin-teamleiter-tagesstatten-kreativatelier-e-seniorenclub-schweizerische-epilepsie-stiftung-epi-zurich-976b11d2"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2672,7 +3589,11 @@
         "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-a117c0c1",
         "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-d3d54860",
         "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich",
-        "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-epi-zurich"
+        "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-epi-zurich",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-fb8685df",
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-ef9c7499",
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-3262b493",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-e-seniorenclub-schweizerische-epilepsie-stiftung-epi-zurich-976b11d2"
       ],
       "en": [
         "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-a43ee24c",
@@ -2753,7 +3674,11 @@
         "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-bf6332a5",
         "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-fb33e028",
         "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-a6e005fc",
-        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-zurich"
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-ef9c7499",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-fb8685df",
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-3262b493",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-e-seniorenclub-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "fr": [
         "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-fb4ddec0",
@@ -2834,7 +3759,11 @@
         "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-a05df67a",
         "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-f4dfd2ac",
         "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-34e05276",
-        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-zurich"
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-3262b493",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-fb8685df",
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-ef9c7499",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-e-seniorenclub-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "de": [
         "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-948cbeaa",
@@ -2890,7 +3819,11 @@
         "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-22b4568f",
         "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-32367f5c",
         "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-c01a1c36",
-        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich"
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-fb8685df",
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-ef9c7499",
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-3262b493",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-e-seniorenclub-schweizerische-epilepsie-stiftung-epi-zurich"
       ]
     },
     "postalCode": "8001",
@@ -2922,7 +3855,24 @@
         "firstSeenAt": "2026-09-02T13:34:25.483Z",
         "title": "Teamleiterin / Teamleiter Tagesstätten Kreativatelier und Seniorenclub"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-e-seniorenclub-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich": "ZH",
+        "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "en": {
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b6a9a73d46-be9c46ee",
@@ -3096,7 +4046,8 @@
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-345245ce",
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-8ef435b9",
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-d56a65ba",
-      "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-4484f492"
+      "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-4484f492",
+      "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3144,7 +4095,8 @@
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-345245ce",
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-8ef435b9",
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-d56a65ba",
-        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-4484f492"
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-4484f492",
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich"
       ],
       "fr": [
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-82ad6f78",
@@ -3190,7 +4142,8 @@
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-345245ce",
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-8ef435b9",
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-d56a65ba",
-        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-4484f492"
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-4484f492",
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich"
       ],
       "en": [
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-82ad6f78",
@@ -3214,7 +4167,8 @@
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-af83fa82",
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-3584030d",
         "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-4c4452e5",
-        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-bf44a6cf"
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-bf44a6cf",
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich"
       ]
     },
     "postalCode": "8001",
@@ -3236,7 +4190,20 @@
         "firstSeenAt": "2026-09-28T21:18:56.897Z",
         "title": "Junior Chefin / Chef de Service EPI Park Restaurant"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich": "ZH",
+        "junior-capo-a-di-sala-epi-park-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "alloggi-esperti-per-agonici-possibile-condivisione-del-lavoro-schweizerische-epilepsie-stiftung-epi-zurich-adaf7144",
@@ -3728,7 +4695,8 @@
         "lehrstelle-als-assistent-in-gesundheit-und-soziales-ags-eba-epi-stiftung-zurich-df1125a2",
         "lehrstelle-als-assistent-in-gesundheit-und-soziales-ags-eba-epi-stiftung-zurich-236b67ae",
         "lehrstelle-als-assistent-in-gesundheit-und-soziales-ags-eba-epi-stiftung-zurich-8c2cd7a3",
-        "lehrstelle-als-assistent-in-gesundheit-und-soziales-ags-eba-epi-stiftung-zurich"
+        "lehrstelle-als-assistent-in-gesundheit-und-soziales-ags-eba-epi-stiftung-zurich",
+        "apprendistato-come-assistent-in-gesundheit-e-soziales-ags-afp-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "en": [
         "assistant-in-health-and-social-affairs-ags-eba-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -3990,7 +4958,20 @@
         "firstSeenAt": "2026-08-18T09:50:35.445Z",
         "title": "Lehrstelle als Assistent/in Gesundheit und Soziales (AGS) EBA"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprendistato-come-assistent-in-gesundheit-e-soziales-ags-afp-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "lehrstelle-als-assistent-in-gesundheit-und-soziales-ags-eba-epi-stiftung-zurich": "ZH"
+      },
+      "en": {
+        "apprenticeship-as-an-assistant-in-health-and-social-care-ags-eba-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "lehrstelle-als-assistent-in-gesundheit-und-soziales-ags-eba-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-specialista-assistenza-fabe-afc-persone-con-disabilita-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -4266,7 +5247,8 @@
         "lehrstelle-als-fachmann-frau-betreuung-fabe-efz-menschen-mit-beeintrachtigung-epi-stiftung-42994dc7",
         "lehrstelle-als-fachmann-frau-betreuung-fabe-efz-menschen-mit-beeintrachtigung-epi-stiftung-3865d1b8",
         "lehrstelle-als-fachmann-frau-betreuung-fabe-efz-menschen-mit-beeintrachtigung-epi-stiftung-61682cb4",
-        "lehrstelle-als-fachmann-frau-betreuung-fabe-efz-menschen-mit-beeintrachtigung-epi-stiftung"
+        "lehrstelle-als-fachmann-frau-betreuung-fabe-efz-menschen-mit-beeintrachtigung-epi-stiftung",
+        "apprendistato-come-fachmann-frau-betreuung-fabe-cfc-menschen-con-beeintrachtigung-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "en": [
         "professional-care-fabe-efz-people-with-disabilities-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -4475,7 +5457,17 @@
         "firstSeenAt": "2026-08-18T09:50:35.455Z",
         "title": "Lehrstelle als Fachmann/-frau Betreuung (FaBe) EFZ Menschen mit Beeinträchtigung"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprendistato-come-fachmann-frau-betreuung-fabe-cfc-menschen-con-beeintrachtigung-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "lehrstelle-als-fachmann-frau-betreuung-fabe-efz-menschen-mit-beeintrachtigung-epi-stiftung": "ZH"
+      },
+      "de": {
+        "lehrstelle-als-fachmann-frau-betreuung-fabe-efz-menschen-mit-beeintrachtigung-epi-stiftung": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-specialista-in-sanita-fage-afc-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -4977,7 +5969,17 @@
         "firstSeenAt": "2026-09-28T21:18:56.954Z",
         "title": "Lehrstelle als Fachmann/-frau Gesundheit (FaGe) EFZ"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "apprendistato-come-fachmann-frau-gesundheit-fage-cfc-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich": "ZH"
+      },
+      "de": {
+        "lehrstelle-als-fachmann-frau-gesundheit-fage-efz-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "co-head-co-head-house-sul-ruti-whr-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -5023,7 +6025,115 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/co-leiterin-co-leiter-wohnhaus-auf-der-rueti-whr/3637e644-ecf4-444b-be00-1805e0650386",
-    "firstSeenAt": "2026-10-05T21:25:21.978Z"
+    "firstSeenAt": "2026-10-05T21:25:21.978Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "co-leiterin-co-leiter-wohnhaus-auf-der-ruti-whr-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "co-leiterin-co-leiter-wohnhaus-auf-der-ruti-whr-epi-stiftung-zurich": "ZH"
+      }
+    }
+  },
+  {
+    "slug": "specialista-specialista-agogik-area-di-lavoro-schweizerische-epilepsie-stiftung-epi-zurich",
+    "title": "Fachmitarbeiterin / Fachmitarbeiter Agogik Bereich Arbeiten",
+    "titleByLocale": {
+      "it": "Specialista / Specialista Agogik Area di lavoro",
+      "en": "Specialist / Specialist Agogik Work area",
+      "de": "Fachmitarbeiterin / Fachmitarbeiter Agogik Bereich Arbeiten",
+      "fr": "Spécialiste / Spécialiste Agogik Domaine d ' activité"
+    },
+    "company": "Schweizerische Epilepsie-Stiftung (EPI)",
+    "companyKey": "epi-stiftung",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "A volte piuttosto impegnativo, ma mai noioso: A EPI WohnWerk, nessun giorno è come l'altro. Perché le persone che accompagniamo ciascuno e tutti hanno la loro storia di vita unica. Grazie alla collaborazione nel team interprofessionale, siamo ben posizionati per la nostra giornata lavorativa. Vuoi anche far parte di questa squadra?\n\n## Il Giorno Multifaccettato\n• Accompagnate, sostenete e promuovete le persone con disturbi cognitivi, psicologici o fisici direttamente nel loro lavoro quotidiano.\n• Praticamente si implementano gli obiettivi di sviluppo dei clienti secondo il nostro concetto Agogik.\n• Hai il magazzino sotto controllo: ti assicuri che tutto nella logistica (buoni ricevuta, merci fuori, gestione del magazzino) funzioni senza intoppi, le regole di sicurezza sono rispettate e supporta il team nell'attuazione dell'ordine di servizio.\n• Pianifichi gli ordini di imballaggio per clienti interni ed esterni e assicurati che tutto sia fatto in tempo e pulito sulla linea di produzione.\n• Si presta attenzione all'ordine, alla sicurezza del lavoro e ad una gestione delicata del materiale.\n• Si assume le attività amministrative e organizzative sul PC e documenta lo sviluppo dei clienti.\n\n## I loro diversi talenti\n• Completato la formazione di base come logistico / logistico EFZ.\n• Formazione supplementare come agonista di lavoro / agonista di lavoro o pedagogogo sociale / insegnante sociale.\n• Porti esperienza nell'accompagnare le persone con disabilità.\n• Siete fisicamente resilienti e piace partecipare al lavoro quotidiano.\n• Siete in possesso di un carrello elevatore valido (e/o della patente di guida Cat. B).\n• Hai familiarità con i programmi PC popolari (Outlook, Word, Excel) e idealmente hanno esperienza con il software di magazzino.\n• Parli e scrivi un tedesco buono e comprensibile.\n• Si lavora con precisione, indipendentemente e si può assolutamente contare su di voi.\n• Sei un giocatore di squadra, divertiti a scambiare idee con gli altri e vuoi fare la differenza insieme a noi\n• Orari 4-6 settimane in anticipo con i fine settimana gratuiti regolamentati\n• 5 settimane di vacanza, dal 50 °. Età 6 settimane\n• Pianificazione annuale e vincolante delle vacanze\n• Fondo pensionistico privato con una quota di datore di lavoro superiore alla media del 60%\n• Riduzione dei dipendenti nel nostro ristorante\n• Buona accessibilità ai trasporti pubblici\n• Staff appartamenti, posti auto e sconti in farmacia e per mezza tassa o abbonamento generale\nDiverse relazioni\nRapporti a lungo termine diversi come il nostro lavoro stesso\nOrganizzata e autodeterminata\nEssere ben organizzato significa anche essere in grado di organizzare la vostra giornata di lavoro da soli\nProfessionisti per professionisti\nGuardiamo oltre la scatola - interprofessionalità che arricchisce\nDalla teoria alla pratica e al ritorno\nCon noi, la conoscenza scorre in tutte le direzioni, e tutti ne beneficiano\nPiù di una bella\nUn bel posto di lavoro - anche grazie alle migliori condizioni di lavoro\nIl Giorno Multifaccettato\nI loro diversi talenti\nLa nostra offerta diversificata\n\n## EPI Wohnwerk\nMolto variegato:\nClicca qui e scopri di più\nlavori.epi-wohnwerk.ch",
+      "en": "Sometimes quite challenging, but never boring: At EPI WohnWerk, no day is like the other. Because the people we accompany each and everyone have their unique life story. Thanks to the cooperation in the interprofessional team, we are well positioned for our working day. Do you also want to be part of this team?\n\n## The Multifaceted Day\n• You accompany, support and promote people with cognitive, psychological or physical impairment directly in their daily work.\n• You practically implement the development goals of the clients according to our Agogik concept.\n• You have the warehouse under control: You ensure that everything in logistics (goods receipt, goods out, warehouse management) runs smoothly, the safety rules are adhered to and supports the team in the implementation of the service order.\n• You plan the packaging orders for internal and external customers and ensure that everything is done on time and cleanly on the production line.\n• You pay attention to order, work safety and a gentle handling of the material.\n• You take over the administrative and organizational tasks on the PC and document the development of the clients.\n\n## Their diverse talents\n• Completed basic training as a logistician / logistician EFZ.\n• Additional training as a work agonist / work agonist or social pedagogue / social teacher.\n• You bring experience in accompanying people with a disability.\n• You are physically resilient and like to take part in everyday work.\n• You are in possession of a valid forklift (and/or driver's license Cat. B).\n• You are familiar with the popular PC programs (Outlook, Word, Excel) and ideally have experience with warehouse software.\n• You speak and write good and understandable German.\n• You work accurately, independently and you can absolutely rely on you.\n• You are a team player, enjoy exchanging ideas with others and want to make a difference together with us\n• Schedules 4-6 weeks in advance with regulated free weekends\n• 5 weeks holiday, from the 50th. Age 6 weeks\n• Annual, binding holiday planning\n• Own pension fund with an above-average employer share of 60%\n• Employee reduction in our restaurant\n• Good accessibility with public transport\n• Staff apartments, parking spaces and discounts in the pharmacy and for half-tax or general subscription\nDiverse relationships\nLong-term relationships as diverse as our work itself\nOrganized and self-determined\nBeing well organized also means being able to organize your working day yourself\nProfessionals for professionals\nWe look beyond the box - interprofessionality that enriches\nFrom theory to practice and back\nWith us, knowledge flows in all directions, and everyone benefits from it\nMore than just beautiful\nA beautiful place to work - also thanks to the best working conditions\nThe Multifaceted Day\nTheir diverse talents\nOur diverse offer\n\n## EPI Wohnwerk\nVery diverse:\nClick here and find out more\njobs.epi-wohnwerk.ch",
+      "de": "Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?\n\n## Der vielfältige Tag\n• Du begleitest, unterstützt und förderst Menschen mit kognitiver, psychischer oder körperlicher Beeinträchtigung direkt bei ihrer täglichen Arbeit.\n• Du setzt die Entwicklungsziele der Klientinnen und Klienten gemäss unserem Agogik-Konzept praktisch um.\n• Du hast das Lager im Griff: Du stellst sicher, dass in der Logistik (Wareneingang, Warenausgang, Lagerbewirtschaftung) alles rund läuft, die Sicherheitsregeln eingehalten werden und unterstützt das Team bei der Umsetzung des Leistungsauftrags.\n• Du planst die Verpackungsaufträge für interne und externe Kunden und sorgst dafür, dass am Produktionsband alles pünktlich und sauber erledigt wird.\n• Du achtest auf Ordnung, Arbeitssicherheit und einen schonenden Umgang mit dem Material.\n• Du übernimmst die anfallenden administrativen und organisatorischen Aufgaben am PC und dokumentierst die Entwicklung der Klientinnen und Klienten.\n\n## Ihre vielfältigen Talente\n• Abgeschlossene Grundbildung als Logistikerin / Logistiker EFZ.\n• Zusätzliche Ausbildung als Arbeitsagogin / Arbeitsagoge oder Sozialpädagogin / Sozialpädagoge.\n• Du bringst Erfahrung in der Begleitung von Menschen mit einer Beeinträchtigung mit.\n• Du bist körperlich belastbar und packst im Arbeitsalltag gerne selbst mit an.\n• Du bist im Besitz eines gültigen Staplerausweises (und/oder Führerausweis Kat. B).\n• Du kennst dich mit den gängigen PC-Programmen (Outlook, Word, Excel) gut aus und hast idealerweise Erfahrung mit Lager-Software.\n• Du sprichst und schreibst gut und verständlich Deutsch.\n• Du arbeitest genau, selbstständig und man kann sich absolut auf dich verlassen.\n• Du bist ein Teamplayer, tauschst dich gerne mit anderen aus und hast Lust, gemeinsam mit uns etwas zu bewegen\n• Dienstpläne 4-6 Wochen im Voraus mit geregelten freien Wochenenden\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Jährliche, verbindliche Ferienplanung\n• Eigene Pensionskasse mit einem überdurchschnittlichen Arbeitgeberanteil von 60 %\n• Mitarbeiterermässigung in unserem Restaurant\n• Gute Erreichbarkeit mit den öffentlichen Verkehrsmitteln\n• Personalwohnungen, Parkplätze und Vergünstigungen in der Apotheke und bei Halbtax- oder Generalabonnement\nVielfältige Beziehungen\nBeziehungen über lange Zeit, die so vielfältig sind wie unsere Arbeit selbst\nOrganisiert und selbstbestimmt\nGut organisiert zu sein bedeutet auch, seinen Arbeitstag selbst gestalten zu können\nProfis für Profis\nWir blicken über den Tellerrand hinaus - Interprofessionalität, die bereichert\nVon Theorie zu Praxis und zurück\nBei uns fliesst das Wissen in alle Richtungen, und davon profitieren alle\nMehr als nur schön\nEin wunderschöner Arbeitsort - auch dank besten Arbeitsbedingungen\nDer vielfältige Tag\nIhre vielfältigen Talente\nUnser vielfältiges Angebot\n\n## EPI WohnWerk\nGanz schön vielfältig:\nKlicken Sie hier und erfahren Sie mehr unter\njobs.epi-wohnwerk.ch",
+      "fr": "Parfois assez difficile, mais jamais ennuyeux: Chez EPI WohnWerk, aucun jour n'est comme l'autre. Parce que les gens que nous accompagnons chacun et chacun ont leur histoire de vie unique. Grâce à la coopération au sein de l'équipe interprofessionnelle, nous sommes bien placés pour notre journée de travail. Voulez-vous aussi faire partie de cette équipe ?\n\n## La journée multiforme\n• Vous accompagnez, soutientz et encouragez les personnes ayant une déficience cognitive, psychologique ou physique directement dans leur travail quotidien.\n• Vous implémentez pratiquement les objectifs de développement des clients selon notre concept Agogik.\n• Vous avez l'entrepôt sous contrôle: Vous assurez que tout en logistique (réception des marchandises, sortie des marchandises, gestion de l'entrepôt) fonctionne bien, les règles de sécurité sont respectées et soutient l'équipe dans la mise en œuvre de la commande de service.\n• Vous planifiez les commandes d'emballage pour les clients internes et externes et assurez-vous que tout est fait à temps et propre sur la ligne de production.\n• Vous faites attention à la commande, la sécurité au travail et une manipulation douce du matériel.\n• Vous prenez en charge les tâches administratives et organisationnelles sur le PC et documentez le développement des clients.\n\n## Leurs talents divers\n• Formation de base terminée en tant que logisticien / logisticien EFZ.\n• Formation supplémentaire comme agoniste du travail / agoniste du travail ou pédagogue sociale / enseignant social.\n• Vous apportez de l'expérience en accompagnant des personnes handicapées.\n• Vous êtes physiquement résilient et aimez participer au travail quotidien.\n• Vous êtes en possession d'un chariot élévateur valide (et/ou permis de conduire Cat. B).\n• Vous connaissez les programmes PC populaires (Outlook, Word, Excel) et avez idéalement de l'expérience avec les logiciels d'entrepôt.\n• Vous parlez et écrivez de l'allemand bon et compréhensible.\n• Vous travaillez avec précision, indépendamment et vous pouvez absolument compter sur vous.\n• Vous êtes un joueur d'équipe, aimez échanger des idées avec les autres et voulez faire une différence avec nous\n• Horaires 4-6 semaines à l'avance avec des week-ends gratuits réglementés\n• 5 semaines de vacances, à partir du 50ème. Âge 6 semaines\n• Planification annuelle et obligatoire des vacances\n• Fonds de pension propre avec une part de l'employeur supérieure à la moyenne de 60 %\n• Réduction des employés dans notre restaurant\n• Bonne accessibilité avec les transports en commun\n• Appartements du personnel, places de parking et réductions en pharmacie et pour demi-taxe ou abonnement général\nRelations diverses\nRelations à long terme aussi diverses que notre travail lui-même\nOrganisation et auto-détermination\nÊtre bien organisé signifie aussi pouvoir organiser votre journée de travail vous-même\nProfessionnels pour professionnels\nNous regardons au-delà de la boîte - interprofessionnelle qui enrichit\nDe la théorie à la pratique et au retour\nAvec nous, la connaissance circule dans toutes les directions, et tout le monde en profite\nPlus que juste beau\nUn bel endroit pour travailler - aussi grâce aux meilleures conditions de travail\nLa journée multiforme\nLeurs talents divers\nNotre offre diversifiée\n\n## EPI Wohnwerk\nTrès divers:\nCliquez ici et en savoir plus\nemplois.epi-wohnwerk.ch"
+    },
+    "slugByLocale": {
+      "it": "specialista-specialista-agogik-area-di-lavoro-schweizerische-epilepsie-stiftung-epi-zurich",
+      "en": "specialist-specialist-agogik-work-area-schweizerische-epilepsie-stiftung-epi-zurich",
+      "de": "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-1b1a5aee",
+      "fr": "specialiste-specialiste-agogik-domaine-d-activite-schweizerische-epilepsie-stiftung-epi-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-28T09:16:39.821Z",
+    "previousSlugs": [
+      "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-1b1a5aee",
+      "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-e8d77ec5",
+      "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-e3ddfed6",
+      "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich",
+      "specialista-specialista-agogik-area-di-lavoro-schweizerische-epilepsie-stiftung-epi-zurich-8cd2ffcd",
+      "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-fd1112ab",
+      "specialist-specialist-agogik-work-area-schweizerische-epilepsie-stiftung-epi-zurich-6aed78f9",
+      "specialiste-specialiste-agogik-domaine-d-activite-schweizerische-epilepsie-stiftung-epi-zurich-21b46605"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-1b1a5aee",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-e8d77ec5",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-e3ddfed6",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich",
+        "specialista-specialista-agogik-area-di-lavoro-schweizerische-epilepsie-stiftung-epi-zurich-8cd2ffcd",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-fd1112ab"
+      ],
+      "en": [
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-1b1a5aee",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-e8d77ec5",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-e3ddfed6",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich",
+        "specialist-specialist-agogik-work-area-schweizerische-epilepsie-stiftung-epi-zurich-6aed78f9",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-fd1112ab"
+      ],
+      "fr": [
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-1b1a5aee",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-e8d77ec5",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-e3ddfed6",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich",
+        "specialiste-specialiste-agogik-domaine-d-activite-schweizerische-epilepsie-stiftung-epi-zurich-21b46605",
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich-fd1112ab"
+      ],
+      "de": [
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "streetAddress": "Bleulerstrasse 60",
+    "salaryMin": 91500,
+    "salaryMax": 128000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten/3e56d79a-7d07-4ed2-96ad-05b326c8c690",
+    "firstSeenAt": "2026-07-16T23:05:27.963Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten/3e56d79a-7d07-4ed2-96ad-05b326c8c690",
+        "firstSeenAt": "2026-07-16T23:05:27.963Z",
+        "title": "Fachmitarbeiterin / Fachmitarbeiter Agogik Bereich Arbeiten"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten/e94b0641-b0b3-4b2c-ba73-675aa5b44879",
+        "firstSeenAt": "2026-10-28T20:47:52.332Z",
+        "title": "Fachmitarbeiterin / Fachmitarbeiter Agogik Bereich Arbeiten"
+      }
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich": "ZH"
+      },
+      "en": {
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich": "ZH"
+      },
+      "de": {
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "principale-principale-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -5067,7 +6177,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/schulleiterin-schulleiter/1b34b7bb-812b-41c5-8c25-674a38388041",
-    "firstSeenAt": "2026-09-30T21:10:35.020Z"
+    "firstSeenAt": "2026-09-30T21:10:35.020Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schulleiterin-schulleiter-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "junior-capo-a-di-sala-epi-park-restaurant-schweizerische-epilepsie-stiftung-epi-zurich-007d8234b9",
@@ -5262,13 +6378,13 @@
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-176029bb",
       "junior-capo-a-di-sala-epi-park-restaurant-schweizerische-epilepsie-stiftung-epi-zurich-0436ecc5",
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-5673281c",
-      "junior-capo-a-di-sala-epi-park-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-3fd2cdbe",
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-e5abffa0",
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-8a2ba767",
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-22fbf82c",
       "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-0cf62d85",
-      "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-e4349ec1"
+      "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-e4349ec1",
+      "junior-capo-a-di-sala-epi-park-restaurant-schweizerische-epilepsie-stiftung-epi-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5495,7 +6611,23 @@
         "firstSeenAt": "2026-09-28T21:18:56.897Z",
         "title": "Junior Chefin / Chef de Service EPI Park Restaurant"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-954b0452": "ZH",
+        "junior-capo-a-di-sala-epi-park-restaurant-schweizerische-epilepsie-stiftung-epi-zurich-715b4ba5": "ZH"
+      },
+      "en": {
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-954b0452": "ZH"
+      },
+      "de": {
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-954b0452": "ZH"
+      },
+      "fr": {
+        "junior-chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich-954b0452": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-epi-zurich-bd635baba2",
@@ -6469,7 +7601,8 @@
         "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-1e87d309",
         "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-c208bd22",
         "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-abd9e0b0",
-        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-961741e4"
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-961741e4",
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-fdcc1497"
       ],
       "fr": [
         "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-d2e61ed1",
@@ -6623,7 +7756,8 @@
         "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-4116f0fd",
         "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-c208bd22",
         "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-abd9e0b0",
-        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-46279e71"
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-46279e71",
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-3cf0c7df"
       ],
       "de": [
         "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-b3f615cb",
@@ -6666,7 +7800,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-tagesstaetten-kreativatelier-und-seniorenclub/3bbeb08b-df7f-491a-a6d6-75bbd8381ddf",
-    "firstSeenAt": "2026-09-02T13:34:25.483Z"
+    "firstSeenAt": "2026-09-02T13:34:25.483Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-53ff9377": "ZH",
+        "responsabile-del-team-centri-diurni-laboratorio-creativo-e-club-per-anziani-schweizerische-epilepsie-stiftung-72a85cd9": "ZH"
+      },
+      "en": {
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-fdcc1497": "ZH"
+      },
+      "de": {
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich-53ff9377": "ZH"
+      },
+      "fr": {
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-3cf0c7df": "ZH"
+      }
+    }
   },
   {
     "slug": "capo-squadra-abitazione-del-team-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -6761,7 +7911,21 @@
         "stv-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich",
         "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich-2",
         "stv-team-leader-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich",
-        "chef-d-equipe-chef-d-equipe-schweizerische-epilepsie-stiftung-epi-zurich-6e25dd"
+        "chef-d-equipe-chef-d-equipe-schweizerische-epilepsie-stiftung-epi-zurich-6e25dd",
+        "head-of-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-ict-operations-epi-stiftung-zurich",
+        "chef-des-operations-tic-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-chef-patissiere-confectioner-confectioner-confectioner-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chefin-chef-patissiere-konditorin-konditor-confiseurin-confiseur-epi-stiftung-zurich",
+        "chef-chef-patissiere-confesseur-confesseur-confesseur-schweizerische-epilepsie-stiftung-epi-zurich",
+        "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-restaurant-epi-stiftung-zurich",
+        "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "stv-team-leader-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "en": [
         "stv-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -6776,11 +7940,39 @@
         "day-care-center-manager-schweizerische-epilepsie-stiftung-epi-zurich",
         "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich",
         "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich-2",
-        "stv-team-leader-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich"
+        "stv-team-leader-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich",
+        "head-of-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-ict-operations-epi-stiftung-zurich",
+        "chef-des-operations-tic-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-chef-patissiere-confectioner-confectioner-confectioner-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chefin-chef-patissiere-konditorin-konditor-confiseurin-confiseur-epi-stiftung-zurich",
+        "chef-chef-patissiere-confesseur-confesseur-confesseur-schweizerische-epilepsie-stiftung-epi-zurich",
+        "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-restaurant-epi-stiftung-zurich",
+        "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "stv-team-leader-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "de": [
         "chef-de-partie-koch-kochin-epi-stiftung-zurich",
-        "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
+        "head-of-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-ict-operations-epi-stiftung-zurich",
+        "chef-des-operations-tic-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-chef-patissiere-confectioner-confectioner-confectioner-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chefin-chef-patissiere-konditorin-konditor-confiseurin-confiseur-epi-stiftung-zurich",
+        "chef-chef-patissiere-confesseur-confesseur-confesseur-schweizerische-epilepsie-stiftung-epi-zurich",
+        "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-restaurant-epi-stiftung-zurich",
+        "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "stv-team-leader-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "fr": [
         "chef-de-partie-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -6794,7 +7986,21 @@
         "responsable-de-centre-de-jour-schweizerische-epilepsie-stiftung-epi-zurich",
         "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich",
         "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich-2",
-        "chef-d-equipe-chef-d-equipe-schweizerische-epilepsie-stiftung-epi-zurich-6e25dd"
+        "chef-d-equipe-chef-d-equipe-schweizerische-epilepsie-stiftung-epi-zurich-6e25dd",
+        "head-of-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-ict-operations-epi-stiftung-zurich",
+        "chef-des-operations-tic-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-chef-patissiere-confectioner-confectioner-confectioner-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chefin-chef-patissiere-konditorin-konditor-confiseurin-confiseur-epi-stiftung-zurich",
+        "chef-chef-patissiere-confesseur-confesseur-confesseur-schweizerische-epilepsie-stiftung-epi-zurich",
+        "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-restaurant-epi-stiftung-zurich",
+        "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "stv-team-leader-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich"
       ]
     },
     "postalCode": "8001",
@@ -6921,7 +8127,88 @@
         "firstSeenAt": "2026-07-17T22:07:13.070Z",
         "title": "Teamleiterin / Teamleiter Tagesstätte"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-ict-operations-epi-stiftung-zurich": "ZH",
+        "chef-des-operations-tic-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chef-chef-patissiere-confectioner-confectioner-confectioner-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chefin-chef-patissiere-konditorin-konditor-confiseurin-confiseur-epi-stiftung-zurich": "ZH",
+        "chef-chef-patissiere-confesseur-confesseur-confesseur-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-restaurant-epi-stiftung-zurich": "ZH",
+        "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "stv-team-leader-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich-2": "ZH",
+        "stv-team-leader-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chef-d-equipe-chef-d-equipe-schweizerische-epilepsie-stiftung-epi-zurich-6e25dd": "ZH",
+        "stv-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich": "ZH",
+        "lieu-de-vie-du-chef-d-equipe-stv-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "capo-delle-operazioni-ict-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "en": {
+        "head-of-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-ict-operations-epi-stiftung-zurich": "ZH",
+        "chef-des-operations-tic-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chef-chef-patissiere-confectioner-confectioner-confectioner-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chefin-chef-patissiere-konditorin-konditor-confiseurin-confiseur-epi-stiftung-zurich": "ZH",
+        "chef-chef-patissiere-confesseur-confesseur-confesseur-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-restaurant-epi-stiftung-zurich": "ZH",
+        "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "stv-team-leader-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "stv-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "lieu-de-vie-du-chef-d-equipe-stv-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "capo-delle-operazioni-ict-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "de": {
+        "head-of-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-ict-operations-epi-stiftung-zurich": "ZH",
+        "chef-des-operations-tic-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chef-chef-patissiere-confectioner-confectioner-confectioner-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chefin-chef-patissiere-konditorin-konditor-confiseurin-confiseur-epi-stiftung-zurich": "ZH",
+        "chef-chef-patissiere-confesseur-confesseur-confesseur-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-restaurant-epi-stiftung-zurich": "ZH",
+        "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "stv-team-leader-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "lieu-de-vie-du-chef-d-equipe-stv-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "capo-delle-operazioni-ict-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "fr": {
+        "head-of-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-ict-operations-epi-stiftung-zurich": "ZH",
+        "chef-des-operations-tic-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chef-chef-patissiere-confectioner-confectioner-confectioner-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chefin-chef-patissiere-konditorin-konditor-confiseurin-confiseur-epi-stiftung-zurich": "ZH",
+        "chef-chef-patissiere-confesseur-confesseur-confesseur-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-restaurant-epi-stiftung-zurich": "ZH",
+        "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "stv-team-leader-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "lieu-de-vie-du-chef-d-equipe-stv-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "capo-delle-operazioni-ict-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "scolastico-lavoratore-sociale-scolastico-schweizerische-epilepsie-stiftung-epi-zurich-5261b2",
@@ -6998,7 +8285,25 @@
         "firstSeenAt": "2026-09-17T03:44:49.628Z",
         "title": "Schulsozialarbeiterin / Schulsozialarbeiter"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schulsozialarbeiterin-schulsozialarbeiter-epi-stiftung-zurich-2": "ZH",
+        "scolastico-lavoratore-sociale-scolastico-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "school-social-worker-school-social-worker-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "travailleur-social-scolaire-travailleur-social-scolaire-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "schulsozialarbeiterin-schulsozialarbeiter-epi-stiftung-zurich": "ZH"
+      },
+      "en": {
+        "schulsozialarbeiterin-schulsozialarbeiter-epi-stiftung-zurich-2": "ZH",
+        "school-social-worker-school-social-worker-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      },
+      "fr": {
+        "schulsozialarbeiterin-schulsozialarbeiter-epi-stiftung-zurich-2": "ZH",
+        "travailleur-social-scolaire-travailleur-social-scolaire-schweizerische-epilepsie-stiftung-epi-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-574a0d",
@@ -7733,10 +9038,10 @@
       "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-04951ec5",
       "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-474f514a",
       "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-f5e0d760",
-      "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-      "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-      "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-      "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+      "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-4b33a08e",
+      "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2a46dd9a",
+      "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-6881d587",
+      "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-f799f752"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -8345,8 +9650,8 @@
         "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-a82fc051",
         "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-2d3b855d",
         "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-04951ec5",
-        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-4b33a08e",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2a46dd9a"
       ],
       "en": [
         "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-52a2384f",
@@ -8545,7 +9850,9 @@
         "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-474f514a",
         "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-849dc678",
         "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-32ae6370",
-        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
+        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-6881d587",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-4b33a08e",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2a46dd9a"
       ],
       "fr": [
         "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-acd28e5b",
@@ -8744,7 +10051,9 @@
         "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-f5e0d760",
         "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-849dc678",
         "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-32ae6370",
-        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
+        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-f799f752",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-4b33a08e",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2a46dd9a"
       ],
       "de": [
         "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-b8dcc7f9",
@@ -8808,7 +10117,8 @@
         "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-a0fa6817",
         "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-e6cfdad7",
         "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-849dc678",
-        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2a46dd9a",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-4b33a08e"
       ]
     },
     "postalCode": "8001",
@@ -8835,7 +10145,33 @@
         "firstSeenAt": "2026-09-17T03:44:49.639Z",
         "title": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2": "ZH",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-4b33a08e": "ZH",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2a46dd9a": "ZH"
+      },
+      "en": {
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2": "ZH",
+        "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-6881d587": "ZH",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-4b33a08e": "ZH",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2a46dd9a": "ZH"
+      },
+      "fr": {
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2": "ZH",
+        "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-f799f752": "ZH",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-4b33a08e": "ZH",
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2a46dd9a": "ZH"
+      },
+      "de": {
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-2a46dd9a": "ZH",
+        "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-4b33a08e": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-2286a7ac",
@@ -8906,7 +10242,10 @@
         "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-1df9ed91",
         "diploma-in-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
         "educateur-social-diplome-hes-hf-schweizerische-epilepsie-stiftung-epi-zurich",
-        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-f858e0e1",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-7ede0d2d",
+        "etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-fa187ee7"
       ],
       "en": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-6a20ae47",
@@ -8939,7 +10278,11 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-2-52faab15",
         "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-1df9ed91",
         "educateur-social-diplome-hes-hf-schweizerische-epilepsie-stiftung-epi-zurich",
-        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-nursing-professional-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-673508-9a2a2900",
+        "study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-b3a313b0",
+        "etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-b4f445d4",
+        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-47e777d2"
       ],
       "de": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-00e0ce4c",
@@ -8969,7 +10312,11 @@
         "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-1df9ed91",
         "diploma-in-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
         "educateur-social-diplome-hes-hf-schweizerische-epilepsie-stiftung-epi-zurich",
-        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich-7ede0d2d",
+        "study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-b3a313b0",
+        "etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-b4f445d4",
+        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-47e777d2"
       ],
       "fr": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-6a20ae47",
@@ -9002,7 +10349,11 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich-2-52faab15",
         "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-1df9ed91",
         "diploma-in-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-673508-b0216fd0",
+        "etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-b4f445d4",
+        "study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-b3a313b0",
+        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich-47e777d2"
       ]
     },
     "postalCode": "8008",
@@ -9600,7 +10951,14 @@
         "firstSeenAt": "2026-08-27T19:53:06.946Z",
         "title": "Chefin / Chef de Service EPI Park Restaurant"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-de-service-epi-park-restaurant-epi-stiftung-zurich": "ZH",
+        "chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "real-estate-manager-a-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -9628,17 +10986,22 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-26T13:58:47.413Z",
     "previousSlugs": [
-      "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich"
+      "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich",
+      "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich-q5nczl"
     ],
     "previousSlugsByLocale": {
       "it": [
         "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich"
       ],
       "en": [
-        "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich"
+        "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich",
+        "real-estate-manager-a-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "fr": [
         "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich"
+      ],
+      "de": [
+        "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich-q5nczl"
       ]
     },
     "postalCode": "8008",
@@ -9660,7 +11023,23 @@
         "firstSeenAt": "2026-08-24T21:38:37.121Z",
         "title": "Immobilienbewirtschafterin / Immobilienbewirtschafter (a)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich": "ZH"
+      },
+      "en": {
+        "real-estate-manager-a-schweizerische-epilepsie-stiftung-epi-zurich": "ZH",
+        "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich": "ZH"
+      },
+      "fr": {
+        "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich": "ZH"
+      },
+      "de": {
+        "immobilienbewirtschafterin-immobilienbewirtschafter-a-epi-stiftung-zurich-q5nczl": "ZH"
+      }
+    }
   },
   {
     "slug": "fachspezialistin-fachspezialist-agogik-befristet-per-mind-4-monate-come-aushilfe-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -10831,6 +12210,70 @@
     ]
   },
   {
+    "slug": "fachfrau-fachmann-gesundheit-cfc-schweizerische-epilepsie-stiftung-epi-zurich",
+    "title": "Fachfrau / Fachmann Gesundheit EFZ",
+    "titleByLocale": {
+      "it": "Fachfrau / Fachmann Gesundheit CFC",
+      "en": "Health Specialist EFZ",
+      "de": "Fachfrau / Fachmann Gesundheit EFZ",
+      "fr": "Spécialiste de la santé EFZ"
+    },
+    "company": "Schweizerische Epilepsie-Stiftung (EPI)",
+    "companyKey": "epi-stiftung",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Insieme ai colleghi accompagnano e si prendono cura di adulti con disturbi cognitivi e psicologici nonché con disabilità multiple, talvolta con comportamenti difficili ed epilessia, nella loro vita quotidiana.\n• Percepiscono i desideri e le risorse degli ospiti e progettano insieme a loro la struttura della giornata e del tempo libero. Utilizzano la loro competenza medica in modo mirato\n• Si assumono la responsabilità della pianificazione e dell'attuazione del processo agogico, infermieristico e medico\n• Sono responsabili della buona organizzazione del reparto e hanno una visione d'insieme del lavoro amministrativo e domestico\n• Supportano gli specialisti dell'apprendimento in ambito assistenziale e sanitario nello sviluppo delle loro competenze Requisiti:\n• Siete uno specialista sanitario EFZ e avete esperienza nel lavoro con persone con disabilità o siete interessati a familiarizzare con questo campo di attività\n• Sono motivati a collaborare con i loro colleghi\n• Hanno un approccio orientato alla soluzione organizzazione del lavoro ed elevata responsabilità personale\n• Con il loro stile comunicativo creativo e trasparente modellano la vita quotidiana in modo proattivo\n• Sono entusiasti di collaborare con gli ospiti per creare una bella casa che soddisfi le loro esigenze Offriamo:\n• perfezionamento mirato su temi agogici e infermieristici e un'ottima offerta formativa interna e supporto per perfezionamento esterno\n• supporto specifico per argomento da parte di specialisti interni\n• 5 settimane di ferie, 6 settimane a partire dai 50 anni\n• diverse prospettive di carriera e supporto nella pianificazione della carriera da parte dei responsabili della formazione professionale\n• Cassa pensione propria con una quota del datore di lavoro superiore alla media del 60%\n• Appartamenti per il personale e sconti nel ristorante EPI Park, in farmacia e con metà prezzo o abbonamento generale A volte piuttosto impegnativo, ma mai noioso: all'EPI WohnWerk non esistono due giorni uguali. Perché le persone che supportiamo hanno ciascuna la propria storia di vita unica. Grazie alla collaborazione nel team interprofessionale siamo nella posizione ideale per la nostra giornata lavorativa. Vorresti far parte anche tu di questa squadra?",
+      "en": "Tasks:\n• Together with their colleagues, they accompany and look after adults with cognitive and psychological impairments as well as multiple disabilities, sometimes with challenging behavior and epilepsy, in their everyday lives\n• They perceive the wishes and resources of the residents and design their daily and leisure time structure together with them. They use their medical expertise in a targeted manner\n• They take responsibility for the planning and implementation of the agogical, nursing and medical care process\n• They are responsible for the smooth department organization and have an overview of the administrative and domestic work\n• They support learning specialists in care and health in the development of their competencies Requirements:\n• You are a health specialist EFZ and have experience in working with people with disabilities or are interested in familiarizing yourself with this field of activity\n• They are motivated to get involved with their counterparts\n• They have a solution-oriented work organization and a high level of personal responsibility\n• With their creative and transparent communicative style, they shape everyday life proactively\n• They are enthusiastic about working with the residents to create a beautiful home that meets their needs We offer:\n• Targeted further training on agogic and nursing topics and a very good internal educational offer and support for external further training\n• Topic-specific support from internal specialists\n• 5 weeks Holidays, 6 weeks from the age of 50\n• Diverse career prospects and support in career planning from those responsible for vocational training\n• Own pension fund with an above-average employer share of 60%\n• Staff apartments, and discounts in the EPI Park restaurant, in the pharmacy and with half-fare or general subscription Sometimes quite challenging, but never boring: At EPI WohnWerk, no two days are the same. Because the people we support each have their own unique life story. Thanks to the collaboration in the interprofessional team, we are ideally positioned for our working day. Would you also like to be part of this team?",
+      "de": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen begleiten und betreuen sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderungen mit teilweise herausfordernde Verhaltensweisen und Epilepsie in ihrem Alltag\n\n• Sie nehmen die Wünsche und Ressourcen der Bewohnerinnen und Bewohner wahr und gestalten gemeinsam mit ihnen ihre Tages- und Freizeitstruktur. Dabei setzen sie ihre medizinischen Fachkenntnisse gezielt ein\n\n• Sie übernehmen die Mitverantwortung für die Planung und Umsetzung des agogischen, pflegerischen und medizinischen Betreuungsprozesses\n\n• Sie sind zuständig für die reibungslose Abteilungsorganisation und haben den Überblick über die administrativen und hauswirtschaftlichen Arbeiten\n\n• Sie unterstützen lernende Fachfrauen und Fachmänner Betreuung und Gesundheit bei der Entwicklung ihrer Kompetenzen\n\nAnforderungen:\n• Sie sind Fachfrau/Fachmann Gesundheit EFZ und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigungen oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n\n• Sie sind motiviert, sich auf ihr Gegenüber einzulassen\n\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten den Alltag proaktiv\n\n• Sie begeistern sich dafür, zusammen mit den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen das ihren Bedürfnissen entspricht\n\nWir bieten:\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen und ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Vielseitige berufliche Perspektiven und Unterstützung in der Laufbahnplanung durch die Berufsbildungsverantwortlichen\n\n• Eigene Pensionskasse mit einem überdurchschnittlichen Arbeitgeberanteil von 60%\n\n• Personalwohnungen, und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement\n\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+      "fr": "Tâches :\n• Avec leurs collègues, ils accompagnent et s'occupent d'adultes atteints de déficiences cognitives et psychologiques ainsi que de handicaps multiples, parfois avec des comportements difficiles et de l'épilepsie, dans leur vie quotidienne.\n• Ils perçoivent les souhaits et les ressources des résidents et conçoivent avec eux leur structure quotidienne et de loisirs. Ils utilisent leur expertise médicale de manière ciblée\n• Ils assument la responsabilité de la planification et de la mise en œuvre du processus de soins agricoles, infirmiers et médicaux\n• Ils sont responsables de la bonne organisation du service et ont une vue d'ensemble du travail administratif et domestique\n• Ils soutiennent les spécialistes de la formation en matière de soins et de santé dans le développement de leurs compétences Conditions :\n• Vous êtes un spécialiste de la santé EFZ et avez de l'expérience dans le travail avec des personnes handicapées ou souhaitez vous familiariser avec ce domaine d'activité\n• Ils sont motivés pour s'impliquer avec leurs homologues\n• Ils ont une organisation de travail orientée vers les solutions et un haut niveau de responsabilité personnelle\n• Avec leur style de communication créatif et transparent, ils façonnent la vie quotidienne de manière proactive\n• Ils sont enthousiastes à l'idée de travailler avec les résidents pour créer une belle maison qui répond à leurs besoins Nous proposons :\n• Une formation continue ciblée sur des sujets d'agogie et de soins ainsi qu'une très bonne offre de formation interne et un soutien pour la formation continue externe\n• Un soutien thématique par des spécialistes internes\n• 5 semaines de vacances, 6 semaines à partir de 50 ans\n• Des perspectives de carrière diverses et un soutien dans la planification de carrière par les responsables de la formation professionnelle\n• Propre caisse de pension avec un part patronale supérieure à la moyenne de 60%\n• Appartements pour le personnel et réductions au restaurant EPI Park, à la pharmacie et avec demi-tarif ou abonnement général Parfois assez exigeant, mais jamais ennuyeux : chez EPI WohnWerk, il n'y a pas deux journées identiques. Parce que les personnes que nous accompagnons ont chacune leur propre histoire de vie. Grâce à la collaboration au sein de l’équipe interprofessionnelle, nous sommes idéalement positionnés pour notre journée de travail. Aimeriez-vous également faire partie de cette équipe?"
+    },
+    "slugByLocale": {
+      "it": "fachfrau-fachmann-gesundheit-cfc-schweizerische-epilepsie-stiftung-epi-zurich",
+      "en": "specialist-health-efz-schweizerische-epilepsie-stiftung-epi-zurich",
+      "de": "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich",
+      "fr": "specialiste-de-la-sante-efz-schweizerische-epilepsie-stiftung-epi-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-15T22:33:21.877Z",
+    "previousSlugs": [
+      "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich",
+      "fachfrau-fachmann-gesundheit-cfc-schweizerische-epilepsie-stiftung-epi-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich",
+        "fachfrau-fachmann-gesundheit-cfc-schweizerische-epilepsie-stiftung-epi-zurich"
+      ],
+      "en": [
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich"
+      ],
+      "fr": [
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich"
+      ]
+    },
+    "postalCode": "8008",
+    "streetAddress": "Bleulerstrasse 60",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/d1b98bfd-ba2a-47c1-b2f5-d547ca35fa41",
+    "firstSeenAt": "2026-10-09T21:17:18.659Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/d1b98bfd-ba2a-47c1-b2f5-d547ca35fa41",
+        "firstSeenAt": "2026-10-09T21:17:18.659Z",
+        "title": "Fachfrau / Fachmann Gesundheit EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/fce3410a-070e-4bc5-a73f-3bcf2e296569",
+        "firstSeenAt": "2026-10-09T21:17:18.659Z",
+        "title": "Fachfrau / Fachmann Gesundheit EFZ"
+      }
+    ]
+  },
+  {
     "slug": "floristin-florist-come-fachspezialistin-fachspezialist-agogik-gartnerei-schweizerische-epilepsie-stiftung-epi-zurich",
     "title": "Floristin / Florist als Fachspezialistin / Fachspezialist Agogik Gärtnerei",
     "titleByLocale": {
@@ -11111,5 +12554,48 @@
         "title": "Fachfrau / Fachmann Betreuung oder Dipl. Sozialpädagogin / Dipl. Sozialpädagoge für die Tagesstätten"
       }
     ]
+  },
+  {
+    "slug": "personale-notturno-schweizerische-epilepsie-stiftung-epi-zurich",
+    "title": "Fachperson Nachtdienst",
+    "titleByLocale": {
+      "it": "Personale Notturno",
+      "en": "Night Shift Care Professional",
+      "de": "Fachperson Nachtdienst",
+      "fr": "Professionnel de soins de nuit"
+    },
+    "company": "Schweizerische Epilepsie-Stiftung (EPI)",
+    "companyKey": "epi-stiftung",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Insieme ai tuoi colleghi accompagnerai e ti prenderai cura di adulti con disturbi cognitivi e psicologici e disabilità multiple, alcuni con comportamenti difficili ed epilessia, nei reparti durante la notte.\n• Garantirete un'assistenza e un sostegno globale e individuale in base al processo di cura durante la notte Accompagnamento e cura di persone con disabilità e comportamenti problema\n• Sicurezza nell'affrontare situazioni di emergenza somatiche\n• Elevata responsabilità personale e modo di lavorare strutturato\n• Empatia, buone capacità di comunicazione e una comprensione positiva del servizio Offriamo:\n• Formazione continua mirata sul tema della gestione della rabbia e della gestione dei comportamenti problema, un ottimo programma di formazione interno e supporto per la formazione continua esterna\n• 5 settimane di ferie, a partire dai 50 anni 6 settimane\n• Cassa pensione propria con contributo del datore di lavoro superiore alla media del 60%\n• Appartamenti per il personale e sconti nel ristorante EPI Park, in farmacia e con abbonamenti a metà prezzo o generali. A volte piuttosto impegnativo, ma mai noioso: all'EPI WohnWerk non esistono due giorni uguali. Perché le persone che supportiamo hanno ciascuna la propria storia di vita unica. Grazie alla collaborazione nel team interprofessionale siamo nella posizione ideale per la nostra giornata lavorativa. Vorresti far parte anche tu di questa squadra?",
+      "en": "Tasks:\n• Together with your colleagues, you will accompany and look after adults with cognitive and psychological impairments and multiple disabilities, some with challenging behavior and epilepsy, in the departments during the night.\n• You will ensure comprehensive and individual care and support based on the care process during the night Accompanying and caring for people with impairments and challenging behavior\n• Safety in dealing with somatic emergency situations\n• High level of personal responsibility and structured way of working\n• Empathy, good communication skills and a positive understanding of service We offer:\n• Targeted further training on the subject of anger management and dealing with challenging behavior, a very good internal training program and support for external further training\n• 5 weeks of vacation, from the age of 50 6 weeks\n• Own pension fund with an above-average employer contribution of 60%\n• Staff apartments and discounts in the EPI Park Restaurant, in the pharmacy and with half-fare or general season tickets. Sometimes quite challenging, but never boring: at EPI WohnWerk, no two days are the same. Because the people we support each have their own unique life story. Thanks to the collaboration in the interprofessional team, we are ideally positioned for our working day. Would you also like to be part of this team?",
+      "de": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen begleiten und betreuen Sie auf den Abteilungen während der Nacht erwachsene Personen mit kognitiven und psychischen Beeinträchtigungen und Mehrfachbehinderungen, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n• Sie gewährleisten eine umfassende und individuelle Pflege und Betreuung auf der Grundlage des Betreuungsprozesses während der Nacht\n• Sie wirken aktiv mit an der Weiterentwicklung des Angebots für die Bewohnenden in den Nachtzeiten Anforderungen:\n• Abgeschlossene pflegerische Ausbildung auf Basis EFZ / HF\n• Erfahrung und Sicherheit in der Begleitung und Pflege von Menschen mit Beeinträchtigungen und herausfordernden Verhaltensweisen\n• Sicherheit im Umgang von somatischen Notfallsituationen\n• Hohe Eigenverantwortung und strukturierte Arbeitsweise\n• Empathie, gute Kommunikationsfähigkeit und ein positives Dienstleistungsverständnis Wir bieten:\n• Gezielte Weiterbildungen zum Thema Aggressionsmanagement und Umgang mit herausforderndem Verhalten, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit einem überdurchschnittlichen Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+      "fr": "Tâches :\n• Avec vos collègues, vous accompagnerez et prendrez en charge des adultes atteints de déficiences cognitives et psychologiques et de polyhandicaps, certains présentant des comportements difficiles et de l'épilepsie, dans les services pendant la nuit.\n• Vous assurez une prise en charge et un soutien complets et individuels basés sur le processus de soins pendant la nuit. Accompagnement et prise en charge des personnes handicapées et aux comportements difficiles.\n• Sécurité dans la gestion des situations d'urgence somatiques.\n• Haut niveau de responsabilité personnelle et méthode de travail structurée. semaines\n• Caisse de pension propre avec une contribution patronale supérieure à la moyenne de 60%\n• Appartements pour le personnel et réductions au restaurant EPI Park, à la pharmacie et avec des abonnements demi-tarif ou généraux. Parfois assez stimulant, mais jamais ennuyeux : chez EPI WohnWerk, il n'y a pas deux journées identiques. Parce que les personnes que nous accompagnons ont chacune leur propre histoire de vie. Grâce à la collaboration au sein de l’équipe interprofessionnelle, nous sommes idéalement positionnés pour notre journée de travail. Aimeriez-vous également faire partie de cette équipe?"
+    },
+    "slugByLocale": {
+      "it": "personale-notturno-schweizerische-epilepsie-stiftung-epi-zurich",
+      "en": "night-shift-care-professional-schweizerische-epilepsie-stiftung-epi-zurich",
+      "de": "fachperson-nachtdienst-epi-stiftung-zurich",
+      "fr": "professionnel-de-soins-de-nuit-schweizerische-epilepsie-stiftung-epi-zurich"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-19T22:10:36.098Z",
+    "previousSlugs": [
+      "fachperson-nachtdienst-epi-stiftung-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachperson-nachtdienst-epi-stiftung-zurich"
+      ]
+    },
+    "postalCode": "8008",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.swissepi.ch/offene-stellen/fachperson-nachtdienst/94f91648-7542-48b5-a16e-b50c2a5bbdce",
+    "firstSeenAt": "2026-11-21T21:24:49.743Z"
   }
 ]
