@@ -42,7 +42,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8069314?gh_jid=8069314",
-    "firstSeenAt": "2026-11-21T21:27:33.240Z"
+    "firstSeenAt": "2026-11-21T21:27:33.240Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "global-merchandising-head-of-lifestyle-special-projects-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "id": "on-running-15fa0effdfb7",
@@ -91,7 +97,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7775612?gh_jid=7775612",
-    "firstSeenAt": "2026-07-04T11:36:27.158Z"
+    "firstSeenAt": "2026-07-04T11:36:27.158Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-apparel-testing-on-running-ch": "ZH"
+      },
+      "fr": {
+        "responsable-tests-de-vetements-on-running-zurich": "ZH"
+      }
+    }
   },
   {
     "id": "on-running-5c1e3920f10a",
@@ -139,7 +154,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8158962?gh_jid=8158962",
-    "firstSeenAt": "2026-08-28T05:26:23.776Z"
+    "firstSeenAt": "2026-08-28T05:26:23.776Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-sample-maker-on-running-ch": "ZH"
+      },
+      "de": {
+        "lead-sample-maker-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "id": "on-running-3b40800b8e4a",
@@ -187,7 +211,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8095893?gh_jid=8095893",
-    "firstSeenAt": "2026-08-31T21:06:17.120Z"
+    "firstSeenAt": "2026-08-31T21:06:17.120Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-responsive-nos-flows-on-running-ch": "ZH"
+      },
+      "de": {
+        "lead-responsive-nos-flows-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "id": "on-running-6691abfcf8aa",
@@ -232,7 +265,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8074415?gh_jid=8074415",
-    "firstSeenAt": "2026-07-27T22:10:40.069Z"
+    "firstSeenAt": "2026-07-27T22:10:40.069Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-global-portfolio-pricing-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-innovation-footwear-sviluppatore-on-running-zurich",
@@ -276,7 +315,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8015208?gh_jid=8015208",
-    "firstSeenAt": "2026-07-27T22:10:40.086Z"
+    "firstSeenAt": "2026-07-27T22:10:40.086Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-innovation-footwear-developer-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-calzature-costing-on-running-zurich",
@@ -338,7 +383,27 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7492423?gh_jid=7492423",
-    "firstSeenAt": "2026-07-27T22:10:40.058Z"
+    "firstSeenAt": "2026-07-27T22:10:40.058Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-footwear-costing-on-running-ch": "ZH",
+        "senior-lead-calzature-materiali-on-running-zurich": "ZH",
+        "senior-lead-footwear-materials-on-running-ch": "ZH",
+        "senior-lead-schuhe-materialien-on-running-zurich": "ZH",
+        "plomb-principal-materiel-de-chaussures-on-running-zurich": "ZH"
+      },
+      "en": {
+        "senior-lead-calzature-materiali-on-running-zurich": "ZH",
+        "senior-lead-footwear-materials-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-lead-schuhe-materialien-on-running-zurich": "ZH"
+      },
+      "fr": {
+        "plomb-principal-materiel-de-chaussures-on-running-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-footwear-developer-on-running-ch-2",
@@ -378,10 +443,12 @@
         "senior-lead-footwear-developpeur-on-running-zurich"
       ],
       "de": [
-        "senior-lead-footwear-entwickler-on-running-zurich"
+        "senior-lead-footwear-entwickler-on-running-zurich",
+        "senior-lead-footwear-developer-on-running-ch-2"
       ],
       "fr": [
-        "senior-lead-footwear-developpeur-on-running-zurich"
+        "senior-lead-footwear-developpeur-on-running-zurich",
+        "senior-lead-footwear-developer-on-running-ch-2"
       ]
     },
     "postalCode": "8001",
@@ -403,7 +470,24 @@
         "firstSeenAt": "2026-07-04T11:36:27.180Z",
         "title": "Senior Lead - Footwear Developer"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-footwear-developer-on-running-ch": "ZH",
+        "senior-lead-footwear-sviluppatore-on-running-zurich": "ZH",
+        "senior-lead-footwear-entwickler-on-running-zurich": "ZH",
+        "senior-lead-footwear-developpeur-on-running-zurich": "ZH"
+      },
+      "de": {
+        "senior-lead-footwear-developer-on-running-ch-2": "ZH",
+        "senior-lead-footwear-entwickler-on-running-zurich": "ZH"
+      },
+      "fr": {
+        "senior-lead-footwear-developer-on-running-ch-2": "ZH",
+        "senior-lead-footwear-developpeur-on-running-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-strategia-e-operazioni-di-vendita-al-dettaglio-del-distributore-on-running-zurich",
@@ -454,7 +538,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8074409?gh_jid=8074409",
-    "firstSeenAt": "2026-07-27T22:10:40.025Z"
+    "firstSeenAt": "2026-07-27T22:10:40.025Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "program-manager-global-distributor-led-store-business-on-running-ch": "ZH",
+        "senior-lead-distributor-retail-strategy-operations-on-running-zurich": "ZH",
+        "senior-lead-distributor-retail-strategy-operations-on-running-ch": "ZH",
+        "senior-lead-strategia-e-operazioni-di-vendita-al-dettaglio-del-distributore-on-running-zurich": "ZH"
+      },
+      "en": {
+        "senior-lead-distributor-retail-strategy-operations-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "global-responsabile-brand-events-on-running-zurich",
@@ -509,7 +605,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7687729?gh_jid=7687729",
-    "firstSeenAt": "2026-07-30T11:28:08.085Z"
+    "firstSeenAt": "2026-07-30T11:28:08.085Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "global-head-of-brand-events-on-running-ch": "ZH",
+        "global-director-of-brand-events-on-running-ch": "ZH"
+      },
+      "en": {
+        "global-director-of-brand-events-on-running-ch": "ZH"
+      },
+      "de": {
+        "global-head-of-brand-events-on-running-ch": "ZH"
+      },
+      "fr": {
+        "global-head-of-brand-events-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-sports-ingegnere-on-running-zurich",
@@ -558,7 +670,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7892990?gh_jid=7892990",
-    "firstSeenAt": "2026-08-28T05:26:23.777Z"
+    "firstSeenAt": "2026-08-28T05:26:23.777Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-sports-engineer-on-running-ch": "ZH",
+        "senior-lead-sports-engineer-on-running-ch": "ZH"
+      },
+      "en": {
+        "lead-sports-engineer-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "lead-accessories-sviluppatore-technical-bags-on-running-zurich",
@@ -608,7 +730,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7984641?gh_jid=7984641",
-    "firstSeenAt": "2026-07-27T22:10:39.957Z"
+    "firstSeenAt": "2026-07-27T22:10:39.957Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-accessories-developer-technical-bags-on-running-ch": "ZH"
+      },
+      "de": {
+        "lead-accessories-developer-technical-bags-on-running-ch": "ZH"
+      },
+      "fr": {
+        "lead-accessories-developer-technical-bags-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "lead-footwear-sviluppatore-pad-young-movers-on-running-zurich",
@@ -658,7 +792,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8054189?gh_jid=8054189",
-    "firstSeenAt": "2026-07-09T22:39:08.701Z"
+    "firstSeenAt": "2026-07-09T22:39:08.701Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-footwear-developer-pad-young-movers-on-running-ch": "ZH"
+      },
+      "de": {
+        "lead-footwear-developer-pad-young-movers-on-running-ch": "ZH"
+      },
+      "fr": {
+        "lead-footwear-developer-pad-young-movers-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-pricing-on-running-zurich",
@@ -708,7 +854,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8144038?gh_jid=8144038",
-    "firstSeenAt": "2026-08-20T21:44:22.903Z"
+    "firstSeenAt": "2026-08-20T21:44:22.903Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-pricing-on-running-ch": "ZH"
+      },
+      "de": {
+        "head-of-pricing-on-running-ch": "ZH"
+      },
+      "fr": {
+        "head-of-pricing-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-tooling-ingegnere-on-running-zurich",
@@ -760,7 +918,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8114421?gh_jid=8114421",
-    "firstSeenAt": "2026-08-07T21:45:10.964Z"
+    "firstSeenAt": "2026-08-07T21:45:10.964Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-tooling-engineer-on-running-ch": "ZH",
+        "senior-lead-footwear-tooling-engineer-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-lead-tooling-engineer-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-lead-tooling-engineer-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-footwear-tooling-ingegnere-on-running-zurich",
@@ -810,7 +981,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8146925?gh_jid=8146925",
-    "firstSeenAt": "2026-08-25T09:55:04.889Z"
+    "firstSeenAt": "2026-08-25T09:55:04.889Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-footwear-tooling-engineer-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-specialist-footwear-tooling-engineer-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-specialist-footwear-tooling-engineer-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-accessories-sviluppatore-technical-bags-on-running-zurich",
@@ -860,7 +1043,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8152795?gh_jid=8152795",
-    "firstSeenAt": "2026-08-24T21:42:55.767Z"
+    "firstSeenAt": "2026-08-24T21:42:55.767Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialist-accessories-developer-technical-bags-on-running-ch": "ZH"
+      },
+      "de": {
+        "specialist-accessories-developer-technical-bags-on-running-ch": "ZH"
+      },
+      "fr": {
+        "specialist-accessories-developer-technical-bags-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "lead-gestione-archivio-on-running-zurich",
@@ -908,7 +1103,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7850385?gh_jid=7850385",
-    "firstSeenAt": "2026-09-11T13:37:55.592Z"
+    "firstSeenAt": "2026-09-11T13:37:55.592Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-archive-management-on-running-ch": "ZH"
+      },
+      "fr": {
+        "lead-archive-management-on-running-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "piombo-apparel-graphic-design-on-running-zurich",
@@ -952,7 +1156,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7721446?gh_jid=7721446",
-    "firstSeenAt": "2026-08-06T11:59:47.862Z"
+    "firstSeenAt": "2026-08-06T11:59:47.862Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-apparel-graphic-design-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-progettazione-e-pianificazione-della-rete-del-centro-di-distribuzione-on-running-zurich",
@@ -1002,7 +1212,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7976404?gh_jid=7976404",
-    "firstSeenAt": "2026-07-27T22:10:40.052Z"
+    "firstSeenAt": "2026-07-27T22:10:40.052Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-distribution-center-network-design-planning-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-lead-distribution-center-network-design-planning-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-lead-distribution-center-network-design-planning-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-bpo-excellence-on-running-zurich",
@@ -1065,7 +1287,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8176553?gh_jid=8176553",
-    "firstSeenAt": "2026-09-03T13:39:25.766Z"
+    "firstSeenAt": "2026-09-03T13:39:25.766Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-bpo-excellence-on-running-ch": "ZH",
+        "senior-specialista-finanza-process-excellence-on-running-zurich": "ZH",
+        "senior-specialist-finance-process-excellence-on-running-ch": "ZH",
+        "senior-spezialist-finanzen-process-excellence-on-running-zurich": "ZH",
+        "senior-specialiste-finance-process-excellence-on-running-zurich": "ZH"
+      },
+      "en": {
+        "senior-specialist-finance-process-excellence-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-specialist-bpo-excellence-on-running-ch": "ZH",
+        "senior-spezialist-finanzen-process-excellence-on-running-zurich": "ZH"
+      },
+      "fr": {
+        "senior-specialist-bpo-excellence-on-running-ch": "ZH",
+        "senior-specialiste-finance-process-excellence-on-running-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-footwear-design-on-running-zurich",
@@ -1109,7 +1352,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7721405?gh_jid=7721405",
-    "firstSeenAt": "2026-07-04T11:36:27.189Z"
+    "firstSeenAt": "2026-07-04T11:36:27.189Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-footwear-design-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-lightspray-footwear-sviluppatore-on-running-zurich",
@@ -1159,7 +1408,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8098307?gh_jid=8098307",
-    "firstSeenAt": "2026-07-31T11:51:54.503Z"
+    "firstSeenAt": "2026-07-31T11:51:54.503Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-lightspray-footwear-developer-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-specialist-lightspray-footwear-developer-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-specialist-lightspray-footwear-developer-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-3d-footwear-modeller-on-running-zurich",
@@ -1209,7 +1470,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8060038?gh_jid=8060038",
-    "firstSeenAt": "2026-07-27T22:10:40.075Z"
+    "firstSeenAt": "2026-07-27T22:10:40.075Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-3d-footwear-modeller-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-specialist-3d-footwear-modeller-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-specialist-3d-footwear-modeller-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "lead-tooling-ingegnere-on-running-zurich",
@@ -1255,7 +1528,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7606445?gh_jid=7606445",
-    "firstSeenAt": "2026-07-04T11:36:27.165Z"
+    "firstSeenAt": "2026-07-04T11:36:27.165Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-tooling-engineer-on-running-ch": "ZH",
+        "lead-footwear-tooling-engineer-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "piombo-operazioni-di-trasporto-in-entrata-on-running-zurich",
@@ -1305,7 +1585,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8046066?gh_jid=8046066",
-    "firstSeenAt": "2026-07-27T22:10:40.006Z"
+    "firstSeenAt": "2026-07-27T22:10:40.006Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-inbound-transportation-operations-on-running-ch": "ZH"
+      },
+      "de": {
+        "lead-inbound-transportation-operations-on-running-ch": "ZH"
+      },
+      "fr": {
+        "lead-inbound-transportation-operations-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-sviluppo-dei-materiali-accessori-on-running-zurich",
@@ -1360,7 +1652,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7988349?gh_jid=7988349",
-    "firstSeenAt": "2026-07-27T22:10:40.041Z"
+    "firstSeenAt": "2026-07-27T22:10:40.041Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-senior-accessoires-developpement-du-materiel-on-running-zurich": "ZH",
+        "senior-lead-accessories-material-development-on-running-ch": "ZH"
+      },
+      "en": {
+        "lead-senior-accessoires-developpement-du-materiel-on-running-zurich": "ZH"
+      },
+      "de": {
+        "senior-lead-accessories-material-development-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-lead-accessories-material-development-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "lead-polymer-process-ingegnere-lightspray-on-running-zurich",
@@ -1410,7 +1718,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8110850?gh_jid=8110850",
-    "firstSeenAt": "2026-08-06T11:59:47.877Z"
+    "firstSeenAt": "2026-08-06T11:59:47.877Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-polymer-process-engineer-lightspray-on-running-ch": "ZH"
+      },
+      "de": {
+        "lead-polymer-process-engineer-lightspray-on-running-ch": "ZH"
+      },
+      "fr": {
+        "lead-polymer-process-engineer-lightspray-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "produttore-di-campioni-on-running-zurich",
@@ -1454,7 +1774,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8044980?gh_jid=8044980",
-    "firstSeenAt": "2026-07-04T11:36:27.168Z"
+    "firstSeenAt": "2026-07-04T11:36:27.168Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sample-maker-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "copywriter-di-piombo-superiore-electrical-on-running-zurich",
@@ -1498,7 +1824,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8156287?gh_jid=8156287",
-    "firstSeenAt": "2026-08-25T21:41:11.847Z"
+    "firstSeenAt": "2026-08-25T21:41:11.847Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-copywriter-apparel-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "piombo-apparel-material-development-performance-on-running-zurich-498a4f15",
@@ -1611,7 +1943,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8079590?gh_jid=8079590",
-    "firstSeenAt": "2026-07-27T22:10:40.015Z"
+    "firstSeenAt": "2026-07-27T22:10:40.015Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-robotics-and-plc-engineer-on-running-ch": "ZH"
+      },
+      "de": {
+        "lead-robotics-and-plc-engineer-on-running-ch": "ZH"
+      },
+      "fr": {
+        "lead-robotics-and-plc-engineer-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-new-store-openings-project-manager-dms-on-running-zurich",
@@ -1661,7 +2005,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8074401?gh_jid=8074401",
-    "firstSeenAt": "2026-07-27T22:10:40.087Z"
+    "firstSeenAt": "2026-07-27T22:10:40.087Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-new-store-openings-project-manager-dms-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-specialist-new-store-openings-project-manager-dms-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-specialist-new-store-openings-project-manager-dms-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-operational-excellence-strategy-transformation-on-running-zurich",
@@ -1704,7 +2060,13 @@
     "salaryMax": 180500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8052185?gh_jid=8052185"
+    "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8052185?gh_jid=8052185",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-operational-excellence-strategy-transformation-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "piombo-copiatore-digitale-on-running-zurich",
@@ -1754,7 +2116,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8144388?gh_jid=8144388",
-    "firstSeenAt": "2026-08-20T21:44:22.922Z"
+    "firstSeenAt": "2026-08-20T21:44:22.922Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-digital-copywriter-on-running-ch": "ZH"
+      },
+      "de": {
+        "lead-digital-copywriter-on-running-ch": "ZH"
+      },
+      "fr": {
+        "lead-digital-copywriter-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-creative-core-brand-design-on-running-zurich",
@@ -1804,7 +2178,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7677225?gh_jid=7677225",
-    "firstSeenAt": "2026-08-04T22:30:14.591Z"
+    "firstSeenAt": "2026-08-04T22:30:14.591Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-creative-core-brand-design-on-running-ch": "ZH"
+      },
+      "de": {
+        "head-of-creative-core-brand-design-on-running-ch": "ZH"
+      },
+      "fr": {
+        "head-of-creative-core-brand-design-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-design-ambienti-di-brand-on-running-zurich",
@@ -1848,7 +2234,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8053064?gh_jid=8053064",
-    "firstSeenAt": "2026-07-09T22:39:08.716Z"
+    "firstSeenAt": "2026-07-09T22:39:08.716Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-brand-environment-design-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-operazioni-di-marketing-e-prontezza-gtm-on-running-zurich",
@@ -1892,7 +2284,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8154293?gh_jid=8154293",
-    "firstSeenAt": "2026-08-24T21:42:55.748Z"
+    "firstSeenAt": "2026-08-24T21:42:55.748Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-marketing-operations-and-gtm-readiness-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-product-manager-ottimizzazione-dell-inventario-ml-allocation-on-running-zurich",
@@ -1942,7 +2340,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8081745?gh_jid=8081745",
-    "firstSeenAt": "2026-09-19T22:57:48.562Z"
+    "firstSeenAt": "2026-09-19T22:57:48.562Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-product-manager-inventory-optimization-ml-allocation-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-product-manager-inventory-optimization-ml-allocation-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-product-manager-inventory-optimization-ml-allocation-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-group-capex-on-running-zurich",
@@ -1988,7 +2398,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7835371?gh_jid=7835371",
-    "firstSeenAt": "2026-07-04T11:36:27.190Z"
+    "firstSeenAt": "2026-07-04T11:36:27.190Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-group-capex-on-running-ch": "ZH",
+        "senior-specialist-group-accounting-capex-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-innovation-concept-design-on-running-zurich",
@@ -2038,7 +2455,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8079080?gh_jid=8079080",
-    "firstSeenAt": "2026-07-27T22:10:40.084Z"
+    "firstSeenAt": "2026-07-27T22:10:40.084Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-innovation-concept-design-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-specialist-innovation-concept-design-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-specialist-innovation-concept-design-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-product-quality-intelligence-on-running-zurich",
@@ -2082,7 +2511,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8119023?gh_jid=8119023",
-    "firstSeenAt": "2026-08-10T10:40:41.459Z"
+    "firstSeenAt": "2026-08-10T10:40:41.459Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-product-quality-intelligence-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "sr-specialista-vm-guideline-designer-on-running-zurich",
@@ -2132,7 +2567,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8147157?gh_jid=8147157",
-    "firstSeenAt": "2026-08-21T21:33:58.115Z"
+    "firstSeenAt": "2026-08-21T21:33:58.115Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sr-specialist-vm-guideline-designer-on-running-ch": "ZH"
+      },
+      "de": {
+        "sr-specialist-vm-guideline-designer-on-running-ch": "ZH"
+      },
+      "fr": {
+        "sr-specialist-vm-guideline-designer-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "piombo-anaplan-model-builder-on-running-zurich",
@@ -2176,7 +2623,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8138581?gh_jid=8138581",
-    "firstSeenAt": "2026-08-18T10:09:34.035Z"
+    "firstSeenAt": "2026-08-18T10:09:34.035Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-anaplan-model-builder-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-product-management-tennis-on-running-zurich",
@@ -2239,7 +2692,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/7831449?gh_jid=7831449",
-    "firstSeenAt": "2026-07-27T22:10:39.930Z"
+    "firstSeenAt": "2026-07-27T22:10:39.930Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-product-management-tennis-on-running-ch": "ZH",
+        "responsabile-product-management-product-r-d-on-running-zurich": "ZH",
+        "head-of-product-management-product-r-d-on-running-ch": "ZH",
+        "leiter-product-management-product-r-d-on-running-zurich": "ZH",
+        "responsable-product-management-product-r-d-on-running-zurich": "ZH"
+      },
+      "en": {
+        "head-of-product-management-product-r-d-on-running-ch": "ZH"
+      },
+      "de": {
+        "head-of-product-management-tennis-on-running-ch": "ZH",
+        "leiter-product-management-product-r-d-on-running-zurich": "ZH"
+      },
+      "fr": {
+        "head-of-product-management-tennis-on-running-ch": "ZH",
+        "responsable-product-management-product-r-d-on-running-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-operazioni-distributori-on-running-zurich",
@@ -2283,7 +2757,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8028097?gh_jid=8028097",
-    "firstSeenAt": "2026-08-25T09:55:04.861Z"
+    "firstSeenAt": "2026-08-25T09:55:04.861Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-distributor-operations-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-testing-calzature-on-running-zurich",
@@ -2330,7 +2810,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8053160?gh_jid=8053160",
-    "firstSeenAt": "2026-07-09T22:39:08.726Z"
+    "firstSeenAt": "2026-07-09T22:39:08.726Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-footwear-testing-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-lead-footwear-testing-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-finanza-systems-on-running-zurich",
@@ -2380,7 +2869,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8064121?gh_jid=8064121",
-    "firstSeenAt": "2026-07-17T22:24:43.319Z"
+    "firstSeenAt": "2026-07-17T22:24:43.319Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-finance-systems-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-specialist-finance-systems-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-specialist-finance-systems-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-specialista-supply-planner-footwear-ftc-sostituzione-maternita-on-running-zurich",
@@ -2435,7 +2936,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8180711?gh_jid=8180711",
-    "firstSeenAt": "2026-09-04T23:00:34.389Z"
+    "firstSeenAt": "2026-09-04T23:00:34.389Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-specialist-supply-planner-footwear-ftc-maternity-cover-on-running-ch": "ZH",
+        "senior-specialist-supply-planner-footwear-ftc-maternity-cover-until-mid-november-2027-on": "ZH"
+      },
+      "en": {
+        "senior-specialist-supply-planner-footwear-ftc-maternity-cover-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-specialist-supply-planner-footwear-ftc-maternity-cover-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-specialist-supply-planner-footwear-ftc-maternity-cover-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "lead-centro-di-distribuzione-eccellenza-operativa-on-running-zurich",
@@ -2482,7 +2999,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8159130?gh_jid=8159130",
-    "firstSeenAt": "2026-08-28T05:26:23.761Z"
+    "firstSeenAt": "2026-08-28T05:26:23.761Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-distribution-center-operational-excellence-on-running-ch": "ZH"
+      },
+      "fr": {
+        "lead-distribution-center-operational-excellence-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "lead-senior-analisi-delle-persone-on-running-zurich",
@@ -2529,7 +3055,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8093901?gh_jid=8093901",
-    "firstSeenAt": "2026-07-29T22:15:30.811Z"
+    "firstSeenAt": "2026-07-29T22:15:30.811Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-people-analytics-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-lead-people-analytics-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "principali-scienziati-di-dati-on-running-zurich",
@@ -2579,7 +3114,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8093827?gh_jid=8093827",
-    "firstSeenAt": "2026-07-29T11:50:18.872Z"
+    "firstSeenAt": "2026-07-29T11:50:18.872Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "principal-data-scientist-on-running-ch": "ZH"
+      },
+      "de": {
+        "principal-data-scientist-on-running-ch": "ZH"
+      },
+      "fr": {
+        "principal-data-scientist-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich",
@@ -2637,7 +3184,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8079396?gh_jid=8079396",
-    "firstSeenAt": "2026-07-22T22:50:30.308Z"
+    "firstSeenAt": "2026-07-22T22:50:30.308Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch": "ZH",
+        "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch": "ZH",
+        "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch": "ZH"
+      },
+      "en": {
+        "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch": "ZH",
+        "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch": "ZH"
+      },
+      "de": {
+        "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch": "ZH"
+      },
+      "fr": {
+        "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "senior-lead-commercialization-ingegnere-on-running-zurich",
@@ -2704,7 +3269,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8090454?gh_jid=8090454",
-    "firstSeenAt": "2026-07-28T11:30:09.799Z"
+    "firstSeenAt": "2026-07-28T11:30:09.799Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-lead-commercialization-engineer-on-running-ch": "ZH",
+        "lead-commercialization-ingegnere-on-running-zurich": "ZH",
+        "lead-commercialization-engineer-on-running-ch": "ZH",
+        "lead-commercialization-ingenieur-on-running-zurich": "ZH",
+        "lead-pattern-ingegnere-on-running-zurich": "ZH",
+        "lead-pattern-engineer-on-running-ch": "ZH",
+        "lead-pattern-ingenieur-on-running-zurich": "ZH"
+      },
+      "en": {
+        "lead-commercialization-engineer-on-running-ch": "ZH",
+        "lead-pattern-engineer-on-running-ch": "ZH"
+      },
+      "de": {
+        "senior-lead-commercialization-engineer-on-running-ch": "ZH"
+      },
+      "fr": {
+        "senior-lead-commercialization-engineer-on-running-ch": "ZH",
+        "lead-commercialization-ingenieur-on-running-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-footwear-testing-performance-on-running-zurich",
@@ -2754,7 +3342,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://boards.greenhouse.io/onrunning/jobs/8184903?gh_jid=8184903",
-    "firstSeenAt": "2026-09-07T15:12:48.519Z"
+    "firstSeenAt": "2026-09-07T15:12:48.519Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialist-footwear-testing-performance-on-running-ch": "ZH"
+      },
+      "de": {
+        "specialist-footwear-testing-performance-on-running-ch": "ZH"
+      },
+      "fr": {
+        "specialist-footwear-testing-performance-on-running-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-senior-copiato-on-running-zurich",
