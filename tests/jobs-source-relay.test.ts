@@ -85,10 +85,15 @@ describe('jobsSourceRelay', () => {
     }
   });
 
-  it('declares private IAM invocation before application authentication', () => {
+  it('declares the CI service account as the only IAM invoker', () => {
     const source = readFileSync('functions/index.js', 'utf8');
+    const generator = readFileSync('scripts/generate-crawler-group-workflows.mjs', 'utf8');
+    const account = /SOURCE_RELAY_SERVICE_ACCOUNT\s*=\s*'([^']+)'/u.exec(generator)?.[1];
 
-    expect(source).toMatch(/export const jobsSourceRelay = onRequest\(\s*\{\s*invoker: 'private',/u);
+    expect(account).toBe('jobs-source-relay-ci@frontaliere-ticino.iam.gserviceaccount.com');
+    expect(source).toContain(`SOURCE_RELAY_INVOKER_SERVICE_ACCOUNT = '${account}'`);
+    // A bare 'private' makes each deploy empty the Cloud Run policy (#20279).
+    expect(source).toMatch(/export const jobsSourceRelay = onRequest\(\s*\{\s*invoker: \[SOURCE_RELAY_INVOKER_SERVICE_ACCOUNT\],/u);
   });
 
   it('returns 403 for a host outside the allowlist', async () => {
