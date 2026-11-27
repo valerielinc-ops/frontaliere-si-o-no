@@ -732,7 +732,15 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     // use it: a 429 storm there is what the circuit exists to stop.
     const rescueListingThroughBrowser = async (terminalError) => {
       const method = String(requestOptions.method || 'GET').toUpperCase();
-      if (method !== 'POST' || !browserFallback || rateLimitState.listingBrowserRescueSpent) {
+      // Only a circuit opened by repeated 429s qualifies: a single terminal 429
+      // (retry budget 0, or a short Retry-After) keeps its typed error and never
+      // launches a browser.
+      if (
+        method !== 'POST'
+        || !browserFallback
+        || rateLimitState.listingBrowserRescueSpent
+        || rateLimitState.consecutiveRateLimits < circuitThreshold
+      ) {
         throw terminalError;
       }
       rateLimitState.listingBrowserRescueSpent = true;
