@@ -1074,6 +1074,32 @@ export function successFactorsEntryReopenTarget({ pageUrl = '', applyUrl = '', p
 }
 
 /**
+ * Re-resolving a SuccessFactors order from its posting can land on the tenant's
+ * generic careers page (`/careers?company=STZH`) that names no requisition,
+ * replacing the module route (`/career?company=…&career_job_req_id=…`) the order
+ * already had. The posting's own requisition is then lost and the session form
+ * (`/portalcareer?_s.crb=…`) can no longer be bound to it. The earlier module
+ * route stays when the new one is on the same host, names
+ * the same `company=` tenant and carries no requisition of its own; any other
+ * change (another tenant, another requisition, a non SuccessFactors route) is
+ * the new resolution's.
+ */
+export function keepsProvenSuccessFactorsModule(previousApplyUrl, resolvedApplyUrl) {
+  try {
+    const previous = successFactorsModuleIdentity(new URL(String(previousApplyUrl || '')));
+    const resolved = new URL(String(resolvedApplyUrl || ''));
+    if (!previous || !isSuccessFactorsCareerPath(resolved.href) || successFactorsModuleIdentity(resolved)) return false;
+    if (resolved.origin !== previous.origin) return false;
+    const values = (key) => [...resolved.searchParams.entries()].filter(([name]) => name.toLowerCase() === key).map(([, value]) => value);
+    const company = values('company');
+    return company.length === 1 && company[0].toLowerCase() === previous.company
+      && values('career_job_req_id').length === 0 && values('jobid').length === 0 && values('job').length === 0;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Derive SuccessFactors route provenance when the resolved application channel
  * reached a SuccessFactors module or Talent Community route directly or through
  * a verified Prospective ATS redirect (`via: 'prospective'`).
@@ -5173,6 +5199,8 @@ const FORM_VOCABULARY = new Set([
   // «Profilinformationen», «Stellenspezifische Informationen»): the tenant's own page words name no
   // employer; a caption exposed as a heading was read as another employer and ended the run.
   'bewerbungsunterlagen', 'unterlagen', 'profilinformationen', 'stellenspezifische', 'informationen', 'profil', 'abmelden',
+  // The tenant's welcome copy can be exposed as a heading too («Wir freuen uns auf Ihre Bewerbung.»).
+  'wir', 'freuen', 'uns', 'auf', 'ihre', 'herzlich',
   'opzioni', 'esplodi', 'comprimi', 'tutte', 'sezioni', 'profilo', 'specifiche', 'visualizza', 'salva', 'lingua', 'appellativo',
   'number', 'numero', 'nummer',
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
@@ -6021,14 +6049,14 @@ export async function postingMainHeading(page) {
 }
 
 /** A «Role (id)» caption of the order's role whose requisition differs from the module route's. */
-function successFactorsCaptionNamesOtherRequisition(captions, job, applyUrl) {
+function successFactorsCaptionNamesOtherRequisition(captions, job, applyUrl, pageUrl) {
   let module;
   try {
     module = successFactorsModuleIdentity(new URL(String(applyUrl || '')));
+    if (!module || new URL(String(pageUrl || '')).origin !== module.origin || !isSuccessFactorsCareerPath(pageUrl)) return false;
   } catch {
     return false;
   }
-  if (!module) return false;
   return captions.some((caption) => {
     const match = /\(\s*(\d{1,20})\s*\)\s*$/.exec(String(caption || '').trim());
     return Boolean(match) && match[1] !== module.requisition
@@ -6471,10 +6499,9 @@ export function formPostingMatch(formText, job = {}, {
   const umantisHeadingConflict = trustedUmantisApplication
     ? umantisApplicationHeadingConflict(heading, job)
     : null;
-  // On the SuccessFactors module the runner entered, a caption that carries the order's role with ANOTHER
-  // requisition id is another vacancy, whatever the address or the employer words say.
-  if (successFactorsRouteBound && successFactorsCaptionNamesOtherRequisition(
-    [...headingCandidates, ...requisitionSections], job, applyUrl)) return 'mismatch';
+  // On the SuccessFactors tenant of the module the order entered (same host, session address included), a caption
+  // that carries the order's role with ANOTHER requisition id is another vacancy, whatever the employer words say.
+  if (successFactorsCaptionNamesOtherRequisition([...headingCandidates, ...requisitionSections], job, applyUrl, pageUrl)) return 'mismatch';
   const explicitRoleConflict = roleHeading === 'unknown'
     && rawDirect === 'mismatch'
     && hasExplicitFormRoleHeading(formText, job);

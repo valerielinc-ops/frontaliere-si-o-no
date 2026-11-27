@@ -38,7 +38,7 @@ import { chromeErrorPageFailure, emailInfrastructureFailure, navigationInfrastru
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { autoAnswersForPortalQuestions, candidateForForm, isPostingDocumentUrl, portalQuestionKey, postingAddressForPortal, submitViaPortal, successFactorsPostingRouteProof, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, isPostingDocumentUrl, portalQuestionKey, postingAddressForPortal, submitViaPortal, successFactorsPostingRouteProof, keepsProvenSuccessFactorsModule, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
@@ -671,8 +671,11 @@ export async function submitApplication(ctx) {
       postingRouteProof = null;
     } else {
       const target = await resolveApplyUrl(routeUrl, { fetchImpl, resolve: ctx.resolve });
-      applyUrl = target.applyUrl || routeUrl;
-      postingRouteProof = successFactorsPostingRouteProof({ via: target.via, applyUrl, postingUrl: routeUrl });
+      // The tenant's generic careers page names no requisition: keep the module route (and its proof) the order had.
+      if (!keepsProvenSuccessFactorsModule(applyUrl, target.applyUrl)) {
+        applyUrl = target.applyUrl || routeUrl;
+        postingRouteProof = successFactorsPostingRouteProof({ via: target.via, applyUrl, postingUrl: routeUrl });
+      }
       if (target.via || channel.type !== 'employer_site') {
         channelType = classifyApplicationChannel({ applyUrl }).type;
       }
