@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-27T19:34:09.275Z",
+  "generatedAt": "2026-11-27T20:31:29.611Z",
   "model": "gpt-6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -42230,6 +42230,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T12:14:44.107Z"
     },
+    "guidle:AeZsndJ::b44ad6b308d4b0ba5947963077d6eb0e649c6567fb97df28a43343010fd76db9": {
+      "id": "guidle:AeZsndJ",
+      "sourceDescriptionHash": "b44ad6b308d4b0ba5947963077d6eb0e649c6567fb97df28a43343010fd76db9",
+      "description": "Luke Burr è protagonista del programma musicale invernale al The Alpina Gstaad. Il cantante britannico combina soul, pop e R&B con una voce soul espressiva.",
+      "descriptionByLocale": {
+        "it": "Luke Burr è protagonista del programma musicale invernale al The Alpina Gstaad. Il cantante britannico combina soul, pop e R&B con una voce soul espressiva.",
+        "en": "Luke Burr is featured in the winter music program at The Alpina Gstaad. The British singer combines soul, pop, and R&B with an expressive soul voice.",
+        "de": "Luke Burr ist Teil des winterlichen Musikprogramms im The Alpina Gstaad. Der britische Sänger verbindet Soul, Pop und R&B mit einer ausdrucksstarken Soul-Stimme.",
+        "fr": "Luke Burr figure au programme musical hivernal du The Alpina Gstaad. Le chanteur britannique mêle soul, pop et R&B, porté par une voix soul expressive."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T20:22:57.621Z"
+    },
     "guidle:AeZy3tR::ce351f0498cefa9301911ca1a23c6976f81a7aeb96f8eae9e23e1ade83fa765f": {
       "id": "guidle:AeZy3tR",
       "sourceDescriptionHash": "ce351f0498cefa9301911ca1a23c6976f81a7aeb96f8eae9e23e1ade83fa765f",
@@ -49579,6 +49593,20 @@
       "model": "gpt-6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-27T17:25:10.670Z"
+    },
+    "guidle:AK12neD::1f78888c57cae70aff2d5b1c9e80ec80669c5c9d8b24763e8abb77f5c0c8e238": {
+      "id": "guidle:AK12neD",
+      "sourceDescriptionHash": "1f78888c57cae70aff2d5b1c9e80ec80669c5c9d8b24763e8abb77f5c0c8e238",
+      "description": "L’incontro ricorda Paulin Nuotclà con un momento conviviale e una mostra. È prevista anche la presentazione di un CD; la partecipazione è gratuita e non occorre iscriversi.",
+      "descriptionByLocale": {
+        "it": "L’incontro ricorda Paulin Nuotclà con un momento conviviale e una mostra. È prevista anche la presentazione di un CD; la partecipazione è gratuita e non occorre iscriversi.",
+        "en": "This gathering pays tribute to Paulin Nuotclà through a social gathering and an exhibition. A CD presentation is also planned; participation is free and advance registration is not required.",
+        "de": "Die Veranstaltung erinnert an Paulin Nuotclà und verbindet ein geselliges Beisammensein mit einer Ausstellung. Zudem wird eine CD präsentiert; die Teilnahme ist kostenlos und eine Anmeldung ist nicht nötig.",
+        "fr": "La rencontre rend hommage à Paulin Nuotclà avec un moment de partage et une exposition. Une présentation de CD est également prévue, sans frais de participation ni inscription préalable."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T20:17:11.514Z"
     },
     "guidle:Ak1j5tK::8ab48ca13b48b16ff3903f2574fa0a1df018d781140a2fd351e4090444add64d": {
       "id": "guidle:Ak1j5tK",
@@ -58428,6 +58456,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T13:15:48.267Z"
     },
+    "guidle:AqW2xWv::16f8be4e12be4a9b9817607e9dbee71c5fcb69ca72fe0558273677ac4ce4c224": {
+      "id": "guidle:AqW2xWv",
+      "sourceDescriptionHash": "16f8be4e12be4a9b9817607e9dbee71c5fcb69ca72fe0558273677ac4ce4c224",
+      "description": "A Basilea, il corso ICDL Base in modalità BYOD offre competenze digitali fondamentali per l’uso quotidiano del computer. Il programma comprende le basi dell’informatica e di Internet, Word ed Excel, la gestione dei file, la posta elettronica, il calendario e la navigazione sicura.",
+      "descriptionByLocale": {
+        "it": "A Basilea, il corso ICDL Base in modalità BYOD offre competenze digitali fondamentali per l’uso quotidiano del computer. Il programma comprende le basi dell’informatica e di Internet, Word ed Excel, la gestione dei file, la posta elettronica, il calendario e la navigazione sicura.",
+        "en": "In Basel, the ICDL Base BYOD course covers foundational skills for everyday computer use. Topics include computer and online basics, Word and Excel, file organization, email, calendar functions, and safer internet use.",
+        "de": "In Basel vermittelt der ICDL-Base-Kurs im BYOD-Format digitale Grundkenntnisse für den praktischen Computereinsatz. Behandelt werden Computer- und Online-Grundlagen, Word und Excel, Dateiverwaltung, E-Mail und Kalender sowie ein sicherer Umgang mit dem Internet.",
+        "fr": "À Bâle, le cours ICDL Base en formule BYOD présente des compétences numériques fondamentales pour l’usage courant de l’ordinateur. Les thèmes abordés comprennent les bases de l’informatique et d’Internet, Word et Excel, le classement des fichiers, le courrier électronique, le calendrier et la navigation sécurisée."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T20:22:06.121Z"
+    },
     "guidle:AQWQJpT::5c0629e0752ffeb3da088ff1ea9c7026a5c2e3f86e739ee7c38206d0ee3ec277": {
       "id": "guidle:AQWQJpT",
       "sourceDescriptionHash": "5c0629e0752ffeb3da088ff1ea9c7026a5c2e3f86e739ee7c38206d0ee3ec277",
@@ -62137,6 +62179,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v2",
       "rewrittenAt": "2026-10-07T20:10:21.945Z"
+    },
+    "guidle:AT3nmjB::585bbc6dcf657ed99add7278b329c1bd9a1cf8665d394f413597e0f274090791": {
+      "id": "guidle:AT3nmjB",
+      "sourceDescriptionHash": "585bbc6dcf657ed99add7278b329c1bd9a1cf8665d394f413597e0f274090791",
+      "description": "Milla Pluton si esibisce nel locale Le Vostok, a La Chaux-de-Fonds. La musicista ginevrina propone sonorità queer, psichedeliche e fiabesche.",
+      "descriptionByLocale": {
+        "it": "Milla Pluton si esibisce nel locale Le Vostok, a La Chaux-de-Fonds. La musicista ginevrina propone sonorità queer, psichedeliche e fiabesche.",
+        "en": "Milla Pluton performs at Le Vostok in La Chaux-de-Fonds. The Geneva musician’s sound draws on queer, psychedelic and fantastical influences.",
+        "de": "Milla Pluton tritt im Le Vostok in La Chaux-de-Fonds auf. Die Genfer Musikerin verbindet queere, psychedelische und märchenhafte Einflüsse.",
+        "fr": "Milla Pluton se produit au Vostok, à La Chaux-de-Fonds. Cette musicienne genevoise explore des sonorités queer, psychédéliques et féeriques."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T20:23:51.972Z"
     },
     "guidle:At59VUb::85b30f164c75429f7a784481f298245108914b5ebe202c10b89009f7d1924cde": {
       "id": "guidle:At59VUb",
@@ -124171,6 +124227,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-16T10:51:03.921Z"
+    },
+    "myswitzerland:720a0bbe2247460ea0c03cd7ec479cd6::52f1d01a8688c8e40177039a8194e23b2588edf7a0b862ecefdf2263e23c69e4": {
+      "id": "myswitzerland:720a0bbe2247460ea0c03cd7ec479cd6",
+      "sourceDescriptionHash": "52f1d01a8688c8e40177039a8194e23b2588edf7a0b862ecefdf2263e23c69e4",
+      "description": "A La Chaux-de-Fonds si tiene una mostra con vendita di opere realizzate da artiste della regione. L’iniziativa è sostenuta da un club Soroptimist locale.",
+      "descriptionByLocale": {
+        "it": "A La Chaux-de-Fonds si tiene una mostra con vendita di opere realizzate da artiste della regione. L’iniziativa è sostenuta da un club Soroptimist locale.",
+        "en": "The event in La Chaux-de-Fonds combines an art exhibition with works offered for sale by women artists from the region. A local Soroptimist club supports the initiative.",
+        "de": "In La Chaux-de-Fonds werden Werke von Künstlerinnen aus der Region ausgestellt und zum Verkauf angeboten. Die Veranstaltung wird von einem örtlichen Soroptimist-Club unterstützt.",
+        "fr": "À La Chaux-de-Fonds, l’événement réunit une exposition d’œuvres proposées à la vente par des artistes de la région. Un club Soroptimist local apporte son soutien à l’initiative."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T20:21:29.454Z"
     },
     "myswitzerland:7225e5a38c2049789822239267e165f6::dc7836e39a198c52c37db55b1d920a4bd9401031bca723c7c5b52fc48542d6d3": {
       "id": "myswitzerland:7225e5a38c2049789822239267e165f6",
@@ -206536,8 +206606,8 @@
       "id": "guidle:A7j69Gi",
       "sourceDescriptionHash": "e44948c2c665c7a6c134411352250c92f6696f89d37d7edf53fd2103091d2ff7",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:26:14.738Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:26:37.969Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206733,9 +206803,9 @@
     "guidle:AbujLsM::9f1f9a49d6371a39b23e8271771c1ec97534da2e8c35321185192448b73d23bf": {
       "id": "guidle:AbujLsM",
       "sourceDescriptionHash": "9f1f9a49d6371a39b23e8271771c1ec97534da2e8c35321185192448b73d23bf",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:31:48.298Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:21:43.969Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207054,21 +207124,12 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AeZsndJ::b44ad6b308d4b0ba5947963077d6eb0e649c6567fb97df28a43343010fd76db9": {
-      "id": "guidle:AeZsndJ",
-      "sourceDescriptionHash": "b44ad6b308d4b0ba5947963077d6eb0e649c6567fb97df28a43343010fd76db9",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:23:15.601Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AF7SBK3::d03289d3b538f37c82ab3a1cd4f32cd89331273e847c65af622322d99da0383c": {
       "id": "guidle:AF7SBK3",
       "sourceDescriptionHash": "d03289d3b538f37c82ab3a1cd4f32cd89331273e847c65af622322d99da0383c",
       "code": "sentence-count",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:29:55.529Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:18:07.198Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207423,15 +207484,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AK12neD::1f78888c57cae70aff2d5b1c9e80ec80669c5c9d8b24763e8abb77f5c0c8e238": {
-      "id": "guidle:AK12neD",
-      "sourceDescriptionHash": "1f78888c57cae70aff2d5b1c9e80ec80669c5c9d8b24763e8abb77f5c0c8e238",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:26:43.825Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:Ak8h8SE::2e87498459e21f79fafe8a2fd34c787498ebb324ab265449e84770751dfdd1b1": {
       "id": "guidle:Ak8h8SE",
       "sourceDescriptionHash": "2e87498459e21f79fafe8a2fd34c787498ebb324ab265449e84770751dfdd1b1",
@@ -207642,9 +207694,9 @@
     "guidle:Am9rZMJ::bf20d9f5e81e4a9e8b1470747d221436b5dfbb7f482b1f52c197c306df1f9cad": {
       "id": "guidle:Am9rZMJ",
       "sourceDescriptionHash": "bf20d9f5e81e4a9e8b1470747d221436b5dfbb7f482b1f52c197c306df1f9cad",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:22:46.370Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:19:42.938Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208012,8 +208064,8 @@
       "id": "guidle:AQaMaFd",
       "sourceDescriptionHash": "df3f32d9ee85cf5b1dd5112f37a11c3914e7bda90bc3b8e8b0414d2e2ce7ed06",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:21:51.002Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:22:24.848Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208089,15 +208141,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AqW2xWv::16f8be4e12be4a9b9817607e9dbee71c5fcb69ca72fe0558273677ac4ce4c224": {
-      "id": "guidle:AqW2xWv",
-      "sourceDescriptionHash": "16f8be4e12be4a9b9817607e9dbee71c5fcb69ca72fe0558273677ac4ce4c224",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:27:21.400Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AqwGft2::e9f6be6c70b8196f27b610baaa304509308a9be21f5691310acc772c8e9611a9": {
       "id": "guidle:AqwGft2",
       "sourceDescriptionHash": "e9f6be6c70b8196f27b610baaa304509308a9be21f5691310acc772c8e9611a9",
@@ -208156,8 +208199,8 @@
       "id": "guidle:ArmhEW3",
       "sourceDescriptionHash": "1fed99503186e54c8231c3f72335c191e13fd0bba4caa7b58b5681285f2a33a6",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:22:48.713Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:23:32.637Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208363,17 +208406,8 @@
       "id": "guidle:AT1fJTQ",
       "sourceDescriptionHash": "59257032489175e4a686b12f05982fdf37fee41afe83f1197dad2643646d2ce7",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:30:54.523Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AT3nmjB::585bbc6dcf657ed99add7278b329c1bd9a1cf8665d394f413597e0f274090791": {
-      "id": "guidle:AT3nmjB",
-      "sourceDescriptionHash": "585bbc6dcf657ed99add7278b329c1bd9a1cf8665d394f413597e0f274090791",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:24:04.439Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:20:42.643Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208480,8 +208514,8 @@
       "id": "guidle:ATVrwUy",
       "sourceDescriptionHash": "955b71d4cb858c8827061a6bc33ce1b70b503833ffef1cf8149720c06a69cb41",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:27:56.555Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:20:08.335Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208633,8 +208667,8 @@
       "id": "guidle:AvCwbFH",
       "sourceDescriptionHash": "1718e496fe832eadff888eadf3c8a88038215202be7233bab144d0d400c8d9c2",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:25:56.856Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:18:57.412Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208741,8 +208775,8 @@
       "id": "guidle:AwD8rqB",
       "sourceDescriptionHash": "aa78943681be7cb6c98476182e53e151150f6aea1f4f5dd525553da3d6f9af3e",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:27:02.424Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:27:25.097Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211041,15 +211075,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:720a0bbe2247460ea0c03cd7ec479cd6::52f1d01a8688c8e40177039a8194e23b2588edf7a0b862ecefdf2263e23c69e4": {
-      "id": "myswitzerland:720a0bbe2247460ea0c03cd7ec479cd6",
-      "sourceDescriptionHash": "52f1d01a8688c8e40177039a8194e23b2588edf7a0b862ecefdf2263e23c69e4",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:32:10.218Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:721012c499084ff9ab8588ff412ef55b::187489b78c3959239ea15c7a188ed183c86d4111b6ed9e95c4c57c5b28a2fe0d": {
       "id": "myswitzerland:721012c499084ff9ab8588ff412ef55b",
       "sourceDescriptionHash": "187489b78c3959239ea15c7a188ed183c86d4111b6ed9e95c4c57c5b28a2fe0d",
@@ -211099,8 +211124,8 @@
       "id": "myswitzerland:7570ab7c49c6468ca3a026915dd84124",
       "sourceDescriptionHash": "2d2ac90eff9eae5e84b2d13537841015a50e856fa66561e4f5a92457f217eb92",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:29:28.949Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:25:43.523Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -211144,8 +211169,8 @@
       "id": "myswitzerland:7666a692a2014beead003a2573beb477",
       "sourceDescriptionHash": "91d8a71893c343386e3feb87bcbf9b76b32e4af6f2e4f24d5728552aa73cc44b",
       "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-27T18:28:44.672Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-27T20:22:12.240Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
