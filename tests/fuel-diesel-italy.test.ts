@@ -20,7 +20,10 @@ import {
   generateFuelItalianCityPages,
   generateFuelItalianStationPages,
   generateFuelItalianStationAvailabilityBridges,
+  buildItalianStationPagesManifest,
 } from '../build-plugins/fuelDailyPagesPlugin';
+import { resolveItalianStationRoute } from '../scripts/lib/fuel-italian-station-routes.mjs';
+import { buildFuelItalianStationPath } from '../build-plugins/fuelDailyData';
 import {
   generateFuelIndexPages,
   buildFuelIndexPath,
@@ -28,7 +31,8 @@ import {
 } from '../build-plugins/fuelStationIndexPages';
 import {
   buildDataset,
-  retiredItalyStationsByMunicipality,
+  buildItalyFirestoreDoc,
+  italyRouteMemoryByMunicipality,
 } from '../scripts/generate-fuel-prices-dataset.mjs';
 
 const TODAY = new Date('2026-05-18T06:00:00Z');
@@ -269,7 +273,7 @@ describe('Italian station pages — a station leaving the MIMIT cut keeps its UR
       italyExtractedAt: TODAY.toISOString().slice(0, 10),
       swissStations: [],
       italyByMunicipality,
-      italyRetiredByMunicipality: retiredItalyStationsByMunicipality(previousDataset, italyByMunicipality),
+      italyRouteMemory: italyRouteMemoryByMunicipality(previousDataset, italyByMunicipality),
       exchangeRate: { chfPerEur: 1, eurPerChf: 1 },
     });
   };
@@ -280,7 +284,7 @@ describe('Italian station pages — a station leaving the MIMIT cut keeps its UR
 
   it.each([
     ['the last namesake', 'b2'],
-    ['the first namesake, whose slug the survivor inherits', 'b1'],
+    ['the first namesake, holding the base slug', 'b1'],
     ['a station priced for both fuels', 'd1'],
   ])('bridges every URL that loses its page when %s disappears', (_label, goneId) => {
     const previousPaths = stationPaths(first);
@@ -306,7 +310,7 @@ describe('Italian station pages — a station leaving the MIMIT cut keeps its UR
         italyExtractedAt: TODAY.toISOString().slice(0, 10),
         swissStations: [],
         italyByMunicipality,
-        italyRetiredByMunicipality: retiredItalyStationsByMunicipality(previousDataset, italyByMunicipality),
+        italyRouteMemory: italyRouteMemoryByMunicipality(previousDataset, italyByMunicipality),
         exchangeRate: { chfPerEur: 1, eurPerChf: 1 },
       });
     };
@@ -316,6 +320,128 @@ describe('Italian station pages — a station leaving the MIMIT cut keeps its UR
 
     expect(previousPaths.length).toBeGreaterThan(0);
     expect(Object.keys(bridges).sort()).toEqual([...previousPaths].sort());
+  });
+
+  const FUELS_AND_LOCALES = [
+    ['it', 'benzina'], ['en', 'benzina'], ['de', 'benzina'], ['fr', 'benzina'],
+    ['it', 'diesel'], ['en', 'diesel'], ['de', 'diesel'], ['fr', 'diesel'],
+  ] as const;
+  // The two namesakes alone, A cheaper: the cut is sorted by price, so today A
+  // holds the base slug and B the `-2` one.
+  const stationA = { ...twin, id: 'a', priceEur: 1.901, dieselPriceEur: 1.801 };
+  const stationB = { ...twin, id: 'b', priceEur: 1.902, dieselPriceEur: 1.802 };
+  const stationC = { ...twin, id: 'c', priceEur: 1.903, dieselPriceEur: 1.803 };
+  const SLUG = 'shell-viale-rosselli';
+  const routeOf = (locale: 'it' | 'en' | 'de' | 'fr', fuel: 'benzina' | 'diesel', slug: string) =>
+    buildFuelItalianStationPath(locale, fuel, 'como', slug);
+  const emitted = (dataset: unknown) => ({
+    pages: generateFuelItalianStationPages({ dataset: dataset as never, today: TODAY }),
+    bridges: generateFuelItalianStationAvailabilityBridges({ dataset: dataset as never }),
+  });
+
+  it('keeps each namesake at its own URL through a retirement, a repeat refresh and a second retirement', () => {
+    const both = refresh(null, [stationA, stationB]);
+    for (const [locale, fuel] of FUELS_AND_LOCALES) {
+      expect(emitted(both).pages[routeOf(locale, fuel, SLUG)]).toBeDefined();
+      expect(emitted(both).pages[routeOf(locale, fuel, `${SLUG}-2`)]).toBeDefined();
+    }
+
+    const withoutA = refresh(both, [stationB]);
+    const repeated = refresh(withoutA, [stationB]);
+    expect(repeated.municipalities[0].italy).toEqual(withoutA.municipalities[0].italy);
+    for (const dataset of [withoutA, repeated]) {
+      const { pages, bridges } = emitted(dataset);
+      for (const [locale, fuel] of FUELS_AND_LOCALES) {
+        expect(pages[routeOf(locale, fuel, `${SLUG}-2`)], `${locale} ${fuel} B`).toBeDefined();
+        expect(pages[routeOf(locale, fuel, SLUG)]).toBeUndefined();
+        expect(bridges[routeOf(locale, fuel, SLUG)], `${locale} ${fuel} A`).toContain('noindex,follow');
+        expect(bridges[routeOf(locale, fuel, `${SLUG}-2`)]).toBeUndefined();
+      }
+    }
+
+    // B retires too and a third namesake opens: it takes neither remembered URL.
+    const onlyC = refresh(repeated, [stationC]);
+    const { pages, bridges } = emitted(onlyC);
+    for (const [locale, fuel] of FUELS_AND_LOCALES) {
+      expect(bridges[routeOf(locale, fuel, SLUG)]).toContain('noindex,follow');
+      expect(bridges[routeOf(locale, fuel, `${SLUG}-2`)]).toContain('noindex,follow');
+      expect(pages[routeOf(locale, fuel, `${SLUG}-3`)]).toBeDefined();
+    }
+    // A comes back to the URL it had.
+    const returned = emitted(refresh(onlyC, [stationC, stationA])).pages;
+    expect(returned[routeOf('it', 'benzina', SLUG)]).toBeDefined();
+    expect(returned[routeOf('it', 'benzina', `${SLUG}-3`)]).toBeDefined();
+  });
+
+  it('keeps homonym comuni of different provinces apart, each with its own retired station', () => {
+    const comuni = ['VA', 'CO'].map((province) => ({ name: 'Comune Di Prova', province, lat: 45.9, lng: 8.6 }));
+    const build = (previousDataset: unknown, byProvince: Record<string, Row[]>) => {
+      const italyByMunicipality = new Map(
+        Object.entries(byProvince).map(([province, list]) => [`Comune Di Prova:${province}`, list]),
+      );
+      return buildDataset({
+        municipalities: comuni,
+        italyExtractedAt: TODAY.toISOString().slice(0, 10),
+        swissStations: [],
+        italyByMunicipality,
+        italyRouteMemory: italyRouteMemoryByMunicipality(previousDataset, italyByMunicipality),
+        exchangeRate: { chfPerEur: 1, eurPerChf: 1 },
+      });
+    };
+    // Two priced homonyms cannot coexist (`buildItalianCityEntries` throws), so
+    // the two rows get there one after the other.
+    const first = build(null, { VA: [rows[0]] });
+    const second = build(first, { CO: [rows[1]] });
+    const third = build(second, {});
+    for (const dataset of [third, build(third, {})]) {
+      const paths = Object.keys(generateFuelItalianStationAvailabilityBridges({ dataset: dataset as never }))
+        .filter((pagePath) => pagePath.startsWith('/prezzi-benzina/italia/'));
+      expect(paths.sort()).toEqual([
+        '/prezzi-benzina/italia/comune-di-prova-co/stazioni/q8-via-varesina/',
+        '/prezzi-benzina/italia/comune-di-prova/stazioni/eni-via-del-dos/',
+      ]);
+    }
+  });
+
+  it('freezes the URLs a snapshot without route memory has, even when prices swap the namesakes', () => {
+    const published = refresh(null, [stationA, stationB]);
+    const legacy = structuredClone(published);
+    delete (legacy.municipalities[0].italy as { stationRoutes?: unknown }).stationRoutes;
+    // B is now cheaper: derived from the current order alone, it would take the base slug.
+    const swapped = refresh(legacy, [{ ...stationB, priceEur: 1.5 }, stationA]);
+    expect(swapped.municipalities[0].italy.stationRoutes).toEqual({ a: SLUG, b: `${SLUG}-2` });
+    expect(swapped.municipalities[0].italy.stationRoutes).toEqual(published.municipalities[0].italy.stationRoutes);
+  });
+
+  it('keeps the route memory out of everything written to Firestore', () => {
+    const dataset = refresh(refresh(null, before), [rows[0]]);
+    expect(dataset.municipalities[0].italy.retiredStations?.length).toBeGreaterThan(0);
+    expect(Object.keys(dataset.municipalities[0].italy.stationRoutes ?? {})).toHaveLength(before.length);
+    // `summary` and `rankings` go to `fuelPrices/metadata` and embed station rows.
+    const written = [buildItalyFirestoreDoc(dataset.municipalities), dataset.summary, dataset.rankings];
+    expect(JSON.stringify(written)).not.toMatch(/stationRoutes|retiredStations/);
+    expect(buildItalyFirestoreDoc(dataset.municipalities).municipalities[0].italy.stationCount).toBe(1);
+  });
+
+  it('publishes station id → page, which the SPA prefers over any slug it derives', () => {
+    const manifest = buildItalianStationPagesManifest(
+      [routeOf('it', 'benzina', `${SLUG}-2`), routeOf('en', 'benzina', `${SLUG}-2`)],
+      [
+        { station: { id: 'b' }, cityEntry: { slug: 'como' }, slug: `${SLUG}-2` },
+        { station: { id: 'skipped' }, cityEntry: { slug: 'como' }, slug: 'not-written' },
+      ],
+    );
+    expect(manifest).toEqual({ stations: [`como/${SLUG}-2`], byStationId: { b: `como/${SLUG}-2` } });
+
+    const loaded = { pages: new Set([`como/${SLUG}`, `como/${SLUG}-2`]), byStationId: manifest.byStationId };
+    // Firestore rows carry no memory, so B alone derives the base slug.
+    const derived = { citySlug: 'como', stationSlug: SLUG };
+    expect(resolveItalianStationRoute('b', derived, loaded)).toEqual({ citySlug: 'como', stationSlug: `${SLUG}-2` });
+    expect(resolveItalianStationRoute('skipped', derived, loaded)).toBeNull();
+    // A manifest published before `byStationId`, and no manifest at all.
+    expect(resolveItalianStationRoute('b', derived, { ...loaded, byStationId: null })).toEqual(derived);
+    expect(resolveItalianStationRoute('b', derived, { pages: new Set(), byStationId: null })).toBeNull();
+    expect(resolveItalianStationRoute('b', derived, null)).toEqual(derived);
   });
 
   it('remembers a retired station across later refreshes, as identity only, and forgets it on return', () => {

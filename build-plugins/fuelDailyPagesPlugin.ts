@@ -80,6 +80,7 @@ import {
   type FuelZone,
   type ItalianCityEntry,
 } from './fuelDailyData';
+import { assignItalianStationSlugs } from '../scripts/lib/fuel-italian-station-routes.mjs';
 import { generateRelatedLinksBlock, JOB_LISTING_ROOT, renderAboveFoldJobCta } from './shared/relatedLinks';
 import {
   generateFuelIndexPages,
@@ -3589,6 +3590,15 @@ function formatFuelObservationDate(value: string | null | undefined, locale: Fue
   }).format(date);
 }
 
+/** A comune is its name AND province: homonyms in two provinces are two comuni. */
+function isSameItalianComune(
+  row: { municipality?: string; province?: string },
+  entry: ItalianCityEntry,
+): boolean {
+  if (row.municipality?.trim().toLowerCase() !== entry.matchKey) return false;
+  return !row.province || !entry.province || row.province.toUpperCase() === entry.province.toUpperCase();
+}
+
 /** Collect Italian stations per curated city.
  *
  * The dataset shape is `municipality.italy.stations` (per
@@ -3603,8 +3613,7 @@ function collectItalianCityStationRows(
 ): ItalianCityStation[] {
   const out: ItalianCityStation[] = [];
   for (const row of dataset.municipalities ?? []) {
-    if (!row.municipality) continue;
-    if (row.municipality.toLowerCase() !== entry.matchKey) continue;
+    if (!isSameItalianComune(row, entry)) continue;
     const raw = (row as unknown as {
       italy?: {
         cheapestStation?: ItalianCityStation;
@@ -4760,32 +4769,16 @@ function collectItalianStationContexts(
   fuel: FuelType = 'benzina',
 ): ItalianStationContext[] {
   const out: ItalianStationContext[] = [];
-  const slugSeen = new Set<string>();
 
   for (const entry of buildItalianCityEntries(dataset)) {
     const byId = groupItalianCityStationRowsById(collectItalianCityStationRows(dataset, entry));
-    for (const rows of byId.values()) {
-      // Keep the route slot stable when this station has temporarily stopped
-      // reporting the selected fuel. Otherwise a later colliding station
-      // inherits its old URL as soon as the first station is filtered out.
+    // Assigned over every known station, whatever the fuel: a station that
+    // stops reporting one, or leaves the cut, keeps its slug.
+    const routes = italianCityStationRoutes(dataset, entry);
+    for (const [id, rows] of byId) {
+      const slug = routes.get(id);
       const selected = cheapestItalianStationForFuel(rows, fuel);
-      const routeStation = selected?.station ?? rows[0];
-      if (!routeStation.brand && !routeStation.stationName) continue;
-      const baseSlug = buildStationSlug({
-        brand: routeStation.brand,
-        name: routeStation.stationName,
-        address: routeStation.address,
-      });
-      if (!baseSlug) continue;
-
-      // Ensure slug uniqueness within this city
-      let slug = baseSlug;
-      let suffix = 2;
-      while (slugSeen.has(`${entry.slug}/${slug}`)) {
-        slug = `${baseSlug}-${suffix++}`;
-      }
-      slugSeen.add(`${entry.slug}/${slug}`);
-      if (!selected) continue;
+      if (!slug || !selected) continue;
 
       // Strip postal-code suffix from address tail to get a clean street label
       const s = selected.station;
@@ -5513,16 +5506,25 @@ export function generateFuelItalianStationPages(opts: {
   return pages;
 }
 
-/** Identity of the stations a data refresh stopped listing (`italy.retiredStations`). */
-function collectRetiredItalianCityStations(
-  dataset: FuelPricesDataset,
-  entry: ItalianCityEntry,
-): ItalianCityStation[] {
-  return (dataset.municipalities ?? [])
-    .filter((row) => row.municipality?.toLowerCase() === entry.matchKey)
-    .flatMap((row) => (row as unknown as {
-      italy?: { retiredStations?: ItalianCityStation[] };
-    }).italy?.retiredStations ?? []);
+/** The route memory of the comune's rows (`italy.stationRoutes`, `italy.retiredStations`). */
+function italianCityRouteMemory(dataset: FuelPricesDataset, entry: ItalianCityEntry) {
+  const memories = (dataset.municipalities ?? [])
+    .filter((row) => isSameItalianComune(row, entry))
+    .map((row) => (row as unknown as {
+      italy?: { stationRoutes?: Record<string, string>; retiredStations?: ItalianCityStation[] };
+    }).italy);
+  return {
+    recordedRoutes: Object.assign({}, ...memories.map((memory) => memory?.stationRoutes)) as Record<string, string>,
+    retiredStations: memories.flatMap((memory) => memory?.retiredStations ?? []),
+  };
+}
+
+/** Station id → page slug, for listed and retired stations of one city. */
+function italianCityStationRoutes(dataset: FuelPricesDataset, entry: ItalianCityEntry): Map<string, string> {
+  const { recordedRoutes, retiredStations } = italianCityRouteMemory(dataset, entry);
+  const listed = [...groupItalianCityStationRowsById(collectItalianCityStationRows(dataset, entry)).values()]
+    .map((rows) => rows[0]);
+  return assignItalianStationSlugs([...listed, ...retiredStations], recordedRoutes);
 }
 
 /**
@@ -5534,19 +5536,27 @@ function withRetiredOnlyCityEntries(
   entries: readonly ItalianCityEntry[],
 ): ItalianCityEntry[] {
   const out = [...entries];
-  const listed = new Set(entries.map((entry) => entry.matchKey));
+  const comuneKey = (matchKey: string, province: string) => `${matchKey}|${province.toUpperCase()}`;
+  const listed = new Set(entries.map((entry) => comuneKey(entry.matchKey, entry.province)));
+  const taken = new Set(entries.map((entry) => entry.slug));
   for (const row of (dataset.municipalities ?? []) as unknown as Array<
     ItalianDatasetRowLite & { italy?: { retiredStations?: ItalianCityStation[] } }
   >) {
     const name = (row.municipality ?? '').trim();
     const matchKey = name.toLowerCase();
-    if (!name || listed.has(matchKey) || !row.italy?.retiredStations?.length) continue;
+    const province = (row.province ?? '').toUpperCase();
+    if (!name || listed.has(comuneKey(matchKey, province)) || !row.italy?.retiredStations?.length) continue;
     const base = slugify(name);
     if (!base) continue;
-    const province = (row.province ?? '').toUpperCase();
     // Same disambiguation as `buildItalianCityEntries`.
-    const slug = out.some((entry) => entry.slug === base) ? `${base}-${province.toLowerCase()}` : base;
-    listed.add(matchKey);
+    let slug = base;
+    if (taken.has(slug)) {
+      const withProvince = `${base}-${province.toLowerCase()}`;
+      slug = withProvince;
+      for (let suffix = 2; taken.has(slug); suffix += 1) slug = `${withProvince}-${suffix}`;
+    }
+    listed.add(comuneKey(matchKey, province));
+    taken.add(slug);
     out.push({ slug, display: titleCase(name), matchKey, province, nearestZone: deriveItalianCityZone(row) });
   }
   return out;
@@ -5565,40 +5575,14 @@ export function generateFuelItalianStationAvailabilityBridges(opts: {
   const pages: Record<string, string> = {};
   const locales = opts.locales ?? FUEL_DAILY_LOCALES;
   const entries = withRetiredOnlyCityEntries(opts.dataset, buildItalianCityEntries(opts.dataset));
-  const rowsByCity = new Map<string, ItalianCityStation[]>();
+
   for (const entry of entries) {
-    rowsByCity.set(entry.slug, collectItalianCityStationRows(opts.dataset, entry));
-  }
-
-  for (const fuel of FUEL_TYPES) {
-    const slugSeen = new Set<string>();
-    for (const entry of entries) {
-      const rowsById = groupItalianCityStationRowsById(rowsByCity.get(entry.slug) ?? []);
-      // Retired stations come last, so they only take a slug no listed station
-      // holds — including the suffixed one a surviving namesake just left.
-      const retired = collectRetiredItalianCityStations(opts.dataset, entry)
-        .filter((station) => station.id && !rowsById.has(station.id))
-        .map((station) => [station]);
-      for (const rows of [...rowsById.values(), ...retired]) {
-        const selected = cheapestItalianStationForFuel(rows, fuel);
-        const routeStation = selected?.station ?? rows[0];
-        if (!routeStation.brand && !routeStation.stationName) continue;
-        const baseSlug = buildStationSlug({
-          brand: routeStation.brand,
-          name: routeStation.stationName,
-          address: routeStation.address,
-        });
-        if (!baseSlug) continue;
-
-        let slug = baseSlug;
-        let suffix = 2;
-        while (slugSeen.has(`${entry.slug}/${slug}`)) {
-          slug = `${baseSlug}-${suffix++}`;
-        }
-        slugSeen.add(`${entry.slug}/${slug}`);
-        // Reserve a route slot for every physical station before deciding
-        // whether this fuel has a price. This mirrors collectItalianStationContexts.
-        if (selected) continue;
+    const byId = groupItalianCityStationRowsById(collectItalianCityStationRows(opts.dataset, entry));
+    const routes = italianCityStationRoutes(opts.dataset, entry);
+    for (const fuel of FUEL_TYPES) {
+      for (const [id, slug] of routes) {
+        // A station with a price for this fuel has a live page at this slug.
+        if (cheapestItalianStationForFuel(byId.get(id) ?? [], fuel)) continue;
 
         for (const locale of locales) {
           const pagePath = buildFuelItalianStationPath(locale, fuel, entry.slug, slug);
@@ -5609,6 +5593,32 @@ export function generateFuelItalianStationAvailabilityBridges(opts: {
   }
 
   return pages;
+}
+
+/**
+ * The cross-border SPA (`FuelPriceStats`) deep-links each Italian station.
+ * Publish the written benzina pages as `{citySlug}/{stationSlug}`
+ * (locale-agnostic) so it never links a page the build skipped (word gate), and
+ * `byStationId` so it never derives a slug of its own: its dataset comes from
+ * Firestore, which carries no route memory, and among namesakes a derived
+ * suffix can name another station.
+ */
+export function buildItalianStationPagesManifest(
+  emittedPaths: readonly string[],
+  contexts: ReadonlyArray<{ station: { id?: string }; cityEntry: { slug: string }; slug: string }>,
+): { stations: string[]; byStationId: Record<string, string> } {
+  const stations = new Set(
+    emittedPaths
+      .map((p) => /^\/prezzi-benzina\/italia\/([^/]+)\/stazioni\/([^/]+)\/$/.exec(p))
+      .filter((m): m is RegExpExecArray => m !== null)
+      .map((m) => `${m[1]}/${m[2]}`),
+  );
+  const byStationId: Record<string, string> = {};
+  for (const context of contexts) {
+    const route = `${context.cityEntry.slug}/${context.slug}`;
+    if (context.station.id && stations.has(route)) byStationId[context.station.id] = route;
+  }
+  return { stations: Array.from(stations).sort(), byStationId };
 }
 
 // ── Plugin ─────────────────────────────────────────────────────
@@ -6154,23 +6164,10 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       }
 
       // ── Manifest of ACTUALLY-emitted Italian station pages ─────
-      // The cross-border SPA (`FuelPriceStats`) deep-links each station by
-      // recomputing `slugify(municipality)` + the per-station slug. That mirror
-      // can diverge from what the build truly wrote (word-gate skip, future
-      // slug collision, whitespace) → 404s from an indexed page. Publish the
-      // authoritative set of written benzina pages as `{citySlug}/{stationSlug}`
-      // (locale-agnostic); the SPA links a station only when it appears here.
-      const italianStationManifest = Array.from(
-        new Set(
-          italianStationSitemapPaths
-            .map((p) => /^\/prezzi-benzina\/italia\/([^/]+)\/stazioni\/([^/]+)\/$/.exec(p))
-            .filter((m): m is RegExpExecArray => m !== null)
-            .map((m) => `${m[1]}/${m[2]}`),
-        ),
-      ).sort();
+      // See `buildItalianStationPagesManifest`.
       collector.add(
         np.join(distDir, 'data', 'fuel-italian-station-pages.json'),
-        JSON.stringify({ stations: italianStationManifest }),
+        JSON.stringify(buildItalianStationPagesManifest(italianStationSitemapPaths, italianContextsByFuel.benzina ?? [])),
       );
 
       // Generate the browseable indexes AFTER the page write loops, gated on the
