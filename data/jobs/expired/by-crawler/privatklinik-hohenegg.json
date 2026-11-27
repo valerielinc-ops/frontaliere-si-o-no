@@ -87,7 +87,30 @@
         "firstSeenAt": "2026-10-22T09:16:15.529Z",
         "title": "Mitarbeitende Hotellerie (auf Abruf)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch": "ZH",
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch-f5a419c3": "ZH",
+        "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d": "ZH",
+        "hotel-staff-on-demand-privatklinik-hohenegg-meilen-78a10d": "ZH",
+        "personnel-de-l-hotel-sur-demande-privatklinik-hohenegg-meilen-78a10d": "ZH",
+        "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-65abc68b": "ZH",
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch-fb0ae3e2": "ZH",
+        "hotel-staff-on-demand-privatklinik-hohenegg-meilen-dadb343f": "ZH",
+        "personnel-de-l-hotel-sur-demande-privatklinik-hohenegg-meilen-86dfaece": "ZH"
+      },
+      "en": {
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch": "ZH"
+      },
+      "de": {
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch-f5a419c3": "ZH"
+      },
+      "fr": {
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "dipendenti-del-settore-alberghiero-80-100-privatklinik-hohenegg-meilen",
@@ -139,7 +162,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/640332/0057/pub/5/index.html",
-    "firstSeenAt": "2026-09-24T14:21:19.429Z"
+    "firstSeenAt": "2026-09-24T14:21:19.429Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-hotellerie-80-100-privatklinik-hohenegg-ch": "ZH",
+        "collaboratore-trice-in-hotellerie-80-100-privatklinik-hohenegg-meilen": "ZH"
+      },
+      "en": {
+        "mitarbeiter-in-hotellerie-80-100-privatklinik-hohenegg-ch": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-in-hotellerie-80-100-privatklinik-hohenegg-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "infermiere-infermiera-hf-con-specializzazione-in-psichiatria-60-100-privatklinik-hohenegg-meilen",
@@ -207,7 +243,19 @@
     "salaryMax": 128000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://apply.refline.ch/640332/0038/pub/15/index.html"
+    "sourceIdentity": "url:https://apply.refline.ch/640332/0038/pub/15/index.html",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch": "ZH"
+      },
+      "en": {
+        "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch": "ZH"
+      },
+      "fr": {
+        "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-in-kuche-80-100-privatklinik-hohenegg-meilen",
@@ -256,7 +304,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/640332/0066/pub/1/index.html",
-    "firstSeenAt": "2026-10-06T21:12:22.988Z"
+    "firstSeenAt": "2026-10-06T21:12:22.988Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-kuche-80-100-privatklinik-hohenegg-ch": "ZH"
+      },
+      "en": {
+        "mitarbeiter-in-kuche-80-100-privatklinik-hohenegg-ch": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-in-kuche-80-100-privatklinik-hohenegg-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "terapista-dello-sport-su-chiamata-privatklinik-hohenegg-meilen",
@@ -305,7 +365,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/640332/0070/pub/1/index.html",
-    "firstSeenAt": "2026-10-14T21:15:27.389Z"
+    "firstSeenAt": "2026-10-14T21:15:27.389Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sporttherapeut-in-auf-abruf-privatklinik-hohenegg-ch": "ZH"
+      },
+      "en": {
+        "sporttherapeut-in-auf-abruf-privatklinik-hohenegg-ch": "ZH"
+      },
+      "fr": {
+        "sporttherapeut-in-auf-abruf-privatklinik-hohenegg-ch": "ZH"
+      }
+    }
   },
   {
     "slug": "dipl-lavoratore-sociale-in-fh-40-60-privatklinik-hohenegg-meilen",
@@ -353,6 +425,55 @@
     "salaryMax": 66900,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen",
+    "title": "Dipl. Pflegefachfrau/-mann HF (in Ausbildung)",
+    "titleByLocale": {
+      "it": "Infermiera Certificata HF (in formazione)",
+      "en": "Certified Nurse HF (in training)",
+      "de": "Dipl. Pflegefachfrau/-mann HF (in Ausbildung)",
+      "fr": "Infirmière certifiée en HF (en formation)"
+    },
+    "company": "Privatklinik Hohenegg",
+    "companyKey": "privatklinik-hohenegg",
+    "location": "Meilen",
+    "addressLocality": "Meilen",
+    "descriptionByLocale": {
+      "it": "Infermiera laureata in HF (in formazione) presso la Clinica Privata Hohenegg a Meilen, Cantone di Zurigo. Privatklinik Hohenegg AG è un moderno centro di eccellenza per psichiatria ospedaliera, psicosomatica e psicoterapia sul Lago di Zurigo. Trattiamo adulti con burnout, depressione, ansia, traumi e crisi di vita in un ambiente tranquillo. Cosa offre Hohenegg:\n• Ambiente ospedaliero moderno con alta qualità professionale\n• Cooperazione interdisciplinare in un team impegnato\n• Condizioni di lavoro interessanti e opportunità di formazione ulteriore\n• Splendida posizione sul Lago di Zurigo a Meilen",
+      "en": "Graduate nurse HF (in training) at the Hohenegg Private Clinic in Meilen, Canton of Zurich. Privatklinik Hohenegg AG is a modern centre of excellence for inpatient psychiatry, psychosomatics and psychotherapy on Lake Zurich. We treat adults with burnout, depression, anxiety, trauma and life crises in a quiet environment. What Hohenegg offers:\n• Modern hospital environment with high professional quality\n• Interdisciplinary cooperation in a committed team\n• Attractive employment conditions and further training opportunities\n• Beautiful location on Lake Zurich in Meilen",
+      "de": "Dipl. Pflegefachfrau/-mann HF (in Ausbildung) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
+      "fr": "Infirmière diplômée en HF (en formation) à la clinique privée Hohenegg à Meilen, canton de Zurich. La Privatklinik Hohenegg AG est un centre d'excellence moderne pour la psychiatrie hospitalière, la psychosomatique et la psychothérapie situées sur le lac de Zurich. Nous traitons les adultes souffrant d'épuisement, de dépression, d'anxiété, de traumatismes et de crises de vie dans un environnement calme. Ce que propose Hohenegg :\n• Environnement hospitalier moderne avec une haute qualité professionnelle\n• Coopération interdisciplinaire au sein d'une équipe engagée\n• Conditions d'emploi attractives et opportunités de formation complémentaire\n• Emplacement magnifique sur le lac Zurich à Meilen"
+    },
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen",
+      "en": "certified-nurse-hf-in-training-privatklinik-hohenegg-meilen",
+      "de": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
+      "fr": "infirmiere-certifiee-en-hf-en-formation-privatklinik-hohenegg-meilen"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-22T22:05:29.516Z",
+    "previousSlugs": [
+      "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+      ],
+      "en": [
+        "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+      ],
+      "fr": [
+        "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+      ]
+    },
+    "postalCode": "8706",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://apply.refline.ch/640332/0052/pub/3/index.html",
+    "firstSeenAt": "2026-08-18T22:11:31.842Z"
   },
   {
     "slug": "specialista-sanita-efa-60-100-privatklinik-hohenegg-meilen",
