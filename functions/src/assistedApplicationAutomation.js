@@ -63,6 +63,7 @@ import {
   APPLICATION_EXISTS_PROOF_KIND, APPLICATION_EXISTS_REASON, applicationExistsEvidenceOf, decideApplicationExistsReconciliation, sendOutcomeUnconfirmed,
 } from './lib/applicationExistsReconciliation.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
+import { readAmbiguousSendOpen } from './assistedApplicationAmbiguousSend.js';
 import { verifySubmissionReceipt } from './lib/submissionReceiptContract.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
@@ -542,6 +543,8 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   // The owner's and the clock's retries read it too: a send that may have left is never sent again on a guess.
   const retryEvent = event.type === 'owner_retry_submit' || event.type === 'portal_auto_retry';
   const submissionRef = closureEvent || retryEvent ? submissionRefFor(db, orderId) : null;
+  // The runner's ambiguous send of the round survives a later attempt's overwrite of the record: read it from its events.
+  const ambiguousSendOpen = retryEvent ? await readAmbiguousSendOpen(db, orderId, expectedRound || (await flowRefFor(db, orderId).get()).data()?.round) : false;
   let outcome = null;
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
@@ -655,6 +658,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const result = transition(flowForTransition, event, {
       order, draft, answers: transitionAnswers, documents: transitionDocuments, postalPacketReady, nowMs,
+      ambiguousSendOpen,
       sendMayHaveLeft: closureEvent || retryEvent ? sendMayHaveLeft({ draft, submission: submissionSnapshot?.data() || {} }) : false,
     });
     // Recovery can be scheduled before a refund or a manual closure. The
@@ -741,6 +745,8 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       fromState: flow.state || null,
       toState: persistedFlow.state,
       round: persistedFlow.round,
+      // The owner's explicit «not sent»: the proof that closes the ambiguity of the events before it.
+      ...(event.type === 'owner_retry_submit' && event.confirmedNotSent === true ? { confirmedNotSent: true } : {}),
       ...(employerWithdrawal || waitExpired ? { withdrawalReason: persistedFlow.withdrawnReason, withdrawalEvidence: persistedFlow.withdrawalEvidence } : {}),
       ...(slotBlocker !== null ? { conciergeSlotReleased, ...(slotBlocker ? { conciergeSlotKept: slotBlocker } : {}) } : {}),
       ...(accountFailure ? { accountFailure } : {}),
