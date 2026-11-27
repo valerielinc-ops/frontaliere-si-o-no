@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -5,6 +6,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import {
   DEFAULT_MANIFEST_PATH,
   assertAdditiveRecovery,
+  main,
   recoverCrawlerRows,
   runRecovery,
 } from '../scripts/recover-backfill-lost-routes.mjs';
@@ -138,6 +140,85 @@ describe('runRecovery on a sharded archive', () => {
       manifest, expiredDir: dir, heldKeys: new Set(keys([...monolith, ...written])), write: true,
     });
     expect(second.added).toEqual([]);
+  });
+});
+
+describe('--write takes ownership evidence from committable files only', () => {
+  const ACTIVE = 'data/jobs/by-crawler/acme.json';
+  const EXPIRED = 'data/jobs/expired/by-crawler/acme.json';
+  const SHARD = 'data/jobs/expired/by-crawler/acme.shard-001.json';
+  const holder = record('attivo-acme', OTHER, { previousSlugsByLocale: { it: ['cuoco-acme-perso'] } });
+  const text = (rows: object[]) => `${JSON.stringify(rows, null, 2)}\n`;
+
+  // A real index: the script decides what is committable by asking git.
+  const repo = () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'recover-routes-git-'));
+    dirs.push(root);
+    const env = Object.fromEntries(Object.entries(process.env).filter(([name]) => !name.startsWith('GIT_')));
+    const git = (...args: string[]) => execFileSync('git', args, { cwd: root, env, stdio: 'pipe' });
+    const put = (file: string, rows: object[]) => {
+      fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true });
+      fs.writeFileSync(path.join(root, file), text(rows));
+    };
+    const read = (file: string) => fs.readFileSync(path.join(root, file), 'utf8');
+    const manifestPath = path.join(root, 'manifest.json');
+    fs.writeFileSync(manifestPath, JSON.stringify({ targets: [target({ it: ['cuoco-acme-perso'] })] }));
+    git('init', '-q');
+    put(EXPIRED, [record('cuoco-acme', OWNER)]);
+    put(ACTIVE, [record('commesso-acme', OTHER)]);
+    git('add', '--', 'data');
+    const run = () => main(['--write'], { rootDir: root, manifestPath });
+    return { root, git, put, read, run, original: read(EXPIRED) };
+  };
+
+  it.each([
+    ['an untracked active slice', 'data/jobs/by-crawler/nuovo.json'],
+    ['an untracked expired slice', 'data/jobs/expired/by-crawler/altro.json'],
+    ['an untracked shard of a target crawler', SHARD],
+  ])('fails before writing when %s serves a manifest route', (_label, file) => {
+    const { put, read, run, original } = repo();
+    put(file, [holder]);
+
+    expect(run).toThrow(`untracked job slice: ${file}`);
+    expect(read(EXPIRED)).toBe(original);
+    expect(read(file)).toBe(text([holder]));
+  });
+
+  it.each([
+    ['an active slice', ACTIVE, [holder]],
+    ['a target slice', EXPIRED, [record('cuoco-acme', OWNER, { title: 'ritoccato' })]],
+    ['a target slice that gained the route by hand', EXPIRED, [record('cuoco-acme', OWNER), holder]],
+  ])('fails before writing when %s has an unstaged edit', (_label, file, rows) => {
+    const { put, read, run } = repo();
+    put(file, rows);
+    const expired = read(EXPIRED);
+
+    expect(run).toThrow(`uncommittable local change: ${file}`);
+    expect(read(EXPIRED)).toBe(expired);
+  });
+
+  it('stays idempotent over its own unstaged output, then over the staged one', () => {
+    const { git, read, run, original } = repo();
+    run();
+    const written = read(EXPIRED);
+    expect(written).not.toBe(original);
+    expect(keys(JSON.parse(written))).toContain('it:cuoco-acme-perso');
+
+    run();
+    expect(read(EXPIRED)).toBe(written);
+    git('add', '--', 'data');
+    run();
+    expect(read(EXPIRED)).toBe(written);
+  });
+
+  it('reads a slice that the checkout left out from the index', () => {
+    const { root, git, put, read, run, original } = repo();
+    put(ACTIVE, [holder]);
+    git('add', '--', ACTIVE);
+    fs.rmSync(path.join(root, ACTIVE));
+    run();
+
+    expect(read(EXPIRED)).toBe(original);
   });
 });
 

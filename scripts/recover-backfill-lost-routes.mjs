@@ -24,6 +24,7 @@
  */
 
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -133,35 +134,24 @@ export function recoverCrawlerRows(rows, targets, heldKeys) {
   return { rows: next, added, skipped };
 }
 
-/**
- * Every route served by any slice. Reads the working tree and, for tracked files
- * a sparse checkout left out, the index blob: a partial population would make
- * served routes look lost.
- */
-export function collectHeldRoutes(rootDir) {
-  const dirs = ['data/jobs/by-crawler', 'data/jobs/expired/by-crawler'];
-  const git = (args) => execFileSync('git', args, { cwd: rootDir, encoding: 'utf8', maxBuffer: 1 << 29 });
-  const tracked = git(['ls-files', '-z', '--', ...dirs]).split('\0').filter((file) => file.endsWith('.json'));
-  const onDisk = dirs.flatMap((dir) => (fs.existsSync(path.join(rootDir, dir))
-    ? fs.readdirSync(path.join(rootDir, dir)).filter((name) => name.endsWith('.json')).map((name) => `${dir}/${name}`)
-    : []));
-  const files = new Set([...tracked, ...onDisk]);
-  if (files.size === 0) throw new Error('no job slice found: refusing to treat every route as lost');
-  const held = new Set();
-  for (const file of files) {
-    const full = path.join(rootDir, file);
-    const parsed = JSON.parse(fs.existsSync(full) ? fs.readFileSync(full, 'utf8') : git(['show', `:${file}`]));
-    const rows = Array.isArray(parsed) ? parsed : parsed.jobs;
-    if (!Array.isArray(rows)) throw new Error(`${file} is not a job slice`);
-    for (const row of rows) for (const key of localeRouteKeys(row)) held.add(key);
-  }
-  return held;
+const gitBlobId = (bytes) => createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
+
+function parseSliceRows(file, text) {
+  const parsed = JSON.parse(text);
+  const rows = Array.isArray(parsed) ? parsed : parsed.jobs;
+  if (!Array.isArray(rows)) throw new Error(`${file} is not a job slice`);
+  return rows;
 }
 
 /**
- * @param {{manifest: {targets: object[]}, expiredDir: string, heldKeys: Set<string>, write?: boolean}} options
+ * Plan the recovery over `readShards(crawlerKey)`: which slices change and how.
+ * Writes nothing.
+ *
+ * @param {{targets: object[]}} manifest
+ * @param {(crawlerKey: string) => {path: string, rows: object[]}[]} readShards
+ * @param {Set<string>} heldKeys
  */
-export function runRecovery({ manifest, expiredDir, heldKeys, write = false }) {
+function planRecovery(manifest, readShards, heldKeys) {
   const byCrawler = new Map();
   for (const target of manifest.targets) {
     if (!byCrawler.has(target.crawlerKey)) byCrawler.set(target.crawlerKey, []);
@@ -173,7 +163,7 @@ export function runRecovery({ manifest, expiredDir, heldKeys, write = false }) {
   const added = [];
   const skipped = [];
   for (const [crawlerKey, targets] of byCrawler) {
-    const shards = readExpiredSliceShards(crawlerKey, { dir: expiredDir });
+    const shards = readShards(crawlerKey);
     const rows = shards.flatMap((shard) => shard.rows);
     const result = recoverCrawlerRows(rows, targets, held);
     skipped.push(...result.skipped);
@@ -193,17 +183,83 @@ export function runRecovery({ manifest, expiredDir, heldKeys, write = false }) {
     }
     crawlers.push(crawlerKey);
   }
+  return { files, crawlers, added, skipped };
+}
+
+/**
+ * Every route served by the slices that a commit would contain, that is by the
+ * git index: a route seen only in a file that never reaches the commit would be
+ * skipped as served and stay lost. A slice the sparse checkout left out is read
+ * from its blob (a partial population would make served routes look lost).
+ *
+ * Throws on an untracked slice, an unmerged entry, and a tracked slice that
+ * differs on disk from the index. The one accepted difference is this script's
+ * own unstaged output: exactly what `manifest` produces from the index rows.
+ */
+export function collectHeldRoutes(rootDir, { manifest = { targets: [] } } = {}) {
+  const dirs = ['data/jobs/by-crawler', 'data/jobs/expired/by-crawler'];
+  const git = (args) => execFileSync('git', args, { cwd: rootDir, encoding: 'utf8', maxBuffer: 1 << 29 });
+  const tracked = new Map();
+  for (const entry of git(['ls-files', '--stage', '-z', '--', ...dirs]).split('\0')) {
+    if (!entry.endsWith('.json')) continue;
+    const [meta, file] = entry.split('\t');
+    const [, oid, stage] = meta.split(' ');
+    if (stage !== '0') throw new Error(`unmerged job slice: ${file}`);
+    tracked.set(file, oid);
+  }
+  for (const dir of dirs) {
+    if (!fs.existsSync(path.join(rootDir, dir))) continue;
+    for (const name of fs.readdirSync(path.join(rootDir, dir))) {
+      const file = `${dir}/${name}`;
+      if (name.endsWith('.json') && !tracked.has(file)) throw new Error(`untracked job slice: ${file}`);
+    }
+  }
+  if (tracked.size === 0) throw new Error('no job slice found: refusing to treat every route as lost');
+  const held = new Set();
+  const modified = new Map();
+  for (const [file, oid] of tracked) {
+    const full = path.join(rootDir, file);
+    const disk = fs.existsSync(full) ? fs.readFileSync(full) : null;
+    const clean = disk !== null && gitBlobId(disk) === oid;
+    const rows = parseSliceRows(file, clean ? disk.toString('utf8') : git(['cat-file', 'blob', oid]));
+    for (const row of rows) for (const key of localeRouteKeys(row)) held.add(key);
+    if (disk !== null && !clean) modified.set(file, { rows, disk: disk.toString('utf8') });
+  }
+  if (modified.size === 0) return held;
+
+  const expiredDir = path.join(rootDir, 'data', 'jobs', 'expired', 'by-crawler');
+  const relative = (file) => path.relative(rootDir, file).split(path.sep).join('/');
+  const plan = planRecovery(manifest, (crawlerKey) => readExpiredSliceShards(crawlerKey, { dir: expiredDir })
+    .map((shard) => ({ ...shard, rows: modified.get(relative(shard.path))?.rows ?? shard.rows })), held);
+  const own = new Map(plan.files.map((file) => [relative(file.path), JSON.stringify(file.rows)]));
+  for (const [file, { disk }] of modified) {
+    if (own.get(file) !== JSON.stringify(parseSliceRows(file, disk))) {
+      throw new Error(`uncommittable local change: ${file} (stage it or restore it)`);
+    }
+  }
+  return held;
+}
+
+/**
+ * @param {{manifest: {targets: object[]}, expiredDir: string, heldKeys: Set<string>, write?: boolean}} options
+ */
+export function runRecovery({ manifest, expiredDir, heldKeys, write = false }) {
+  const { files, crawlers, added, skipped } = planRecovery(
+    manifest,
+    (crawlerKey) => readExpiredSliceShards(crawlerKey, { dir: expiredDir }),
+    heldKeys,
+  );
   // Nothing is written until every crawler passed its checks.
   if (write) for (const file of files) writeJsonAtomic(file.path, file.rows);
   return { added, skipped, crawlers };
 }
 
-function main(argv) {
-  const manifest = JSON.parse(fs.readFileSync(DEFAULT_MANIFEST_PATH, 'utf8'));
-  const expiredDir = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
+export function main(argv, { rootDir = ROOT, manifestPath = DEFAULT_MANIFEST_PATH } = {}) {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  const expiredDir = path.join(rootDir, 'data', 'jobs', 'expired', 'by-crawler');
   if (argv.includes('--list-files')) {
     const keys = [...new Set(manifest.targets.map((target) => target.crawlerKey))];
-    const tracked = execFileSync('git', ['ls-files', '--', 'data/jobs/expired/by-crawler'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 26 });
+    const tracked = execFileSync('git', ['ls-files', '--', 'data/jobs/expired/by-crawler'], { cwd: rootDir, encoding: 'utf8', maxBuffer: 1 << 26 });
     for (const file of tracked.split('\n')) {
       const name = path.basename(file).replace(/(\.shard-\d+)?\.json$/, '');
       if (keys.includes(name)) console.log(file);
@@ -212,12 +268,12 @@ function main(argv) {
   }
   // A slice present in the index but absent on disk would be read as empty.
   for (const key of new Set(manifest.targets.map((target) => target.crawlerKey))) {
-    const tracked = execFileSync('git', ['ls-files', '--', `data/jobs/expired/by-crawler/${key}.json`, `data/jobs/expired/by-crawler/${key}.shard-*.json`], { cwd: ROOT, encoding: 'utf8' });
-    const missing = tracked.split('\n').filter((file) => file && !fs.existsSync(path.join(ROOT, file)));
+    const tracked = execFileSync('git', ['ls-files', '--', `data/jobs/expired/by-crawler/${key}.json`, `data/jobs/expired/by-crawler/${key}.shard-*.json`], { cwd: rootDir, encoding: 'utf8' });
+    const missing = tracked.split('\n').filter((file) => file && !fs.existsSync(path.join(rootDir, file)));
     if (missing.length > 0) throw new Error(`materialise first (--list-files): ${missing.join(', ')}`);
   }
   const write = argv.includes('--write');
-  const result = runRecovery({ manifest, expiredDir, heldKeys: collectHeldRoutes(ROOT), write });
+  const result = runRecovery({ manifest, expiredDir, heldKeys: collectHeldRoutes(rootDir, { manifest }), write });
   const reasons = {};
   for (const { reason } of result.skipped) reasons[reason] = (reasons[reason] || 0) + 1;
   console.log(`${write ? 'written' : 'dry run'}: routes added=${result.added.length} crawlers=${result.crawlers.length} skipped=${JSON.stringify(reasons)}`);
