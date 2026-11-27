@@ -23,6 +23,7 @@ import {
   mergeSwissStationInventories,
 } from './lib/fuel-openstreetmap.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { assignItalianStationSlugs } from './lib/fuel-italian-station-routes.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1207,6 +1208,59 @@ export function readSwissFuelInventory(filePath = SWISS_INVENTORY_PATH) {
   }
 }
 
+/**
+ * What this run must remember about the Italian station routes of earlier
+ * snapshots, per comune (`name:province`):
+ *  - `retiredStations`: identity of the stations listed before and not now.
+ *    MIMIT drops a station from the cut altogether (see `buildItalyStations`),
+ *    but its pages were published: the build needs name and address to keep
+ *    emitting a noindex bridge there. No prices: it is not a listing.
+ *  - `recordedRoutes`: the slug each of them, and each listed station, had. A
+ *    snapshot written before `stationRoutes` existed gets the assignment the
+ *    build made from it, i.e. the URLs published today.
+ */
+export function italyRouteMemoryByMunicipality(previousDataset, italyByMunicipality) {
+  const out = new Map();
+  for (const row of previousDataset?.municipalities ?? []) {
+    const key = `${row.municipality}:${row.province}`;
+    const previous = [...(row.italy?.stations ?? []), ...(row.italy?.retiredStations ?? [])];
+    if (previous.length === 0) continue;
+    const recorded = row.italy?.stationRoutes ?? {};
+    const recordedRoutes = { ...recorded, ...Object.fromEntries(assignItalianStationSlugs(previous, recorded)) };
+    const seen = new Set((italyByMunicipality.get(key) ?? []).map((station) => station.id));
+    const retiredStations = [];
+    for (const station of previous) {
+      if (!station?.id || seen.has(station.id)) continue;
+      seen.add(station.id);
+      retiredStations.push({
+        id: station.id,
+        brand: station.brand,
+        stationName: station.stationName,
+        address: station.address,
+      });
+    }
+    // Sorted so that an unchanged refresh writes an unchanged list.
+    retiredStations.sort((a, b) => String(a.id).localeCompare(String(b.id)));
+    out.set(key, { retiredStations, recordedRoutes });
+  }
+  return out;
+}
+
+/**
+ * The `fuelPrices/italy` Firestore document. The route memory stays out: no
+ * Firestore reader needs it, and the document has a 1 MB ceiling.
+ */
+export function buildItalyFirestoreDoc(municipalityRows) {
+  return {
+    municipalities: municipalityRows
+      .filter((m) => m.italy.stationCount > 0)
+      .map((m) => {
+        const { retiredStations: _retiredStations, stationRoutes: _stationRoutes, ...italy } = m.italy;
+        return { municipality: m.municipality, province: m.province, italy };
+      }),
+  };
+}
+
 export function buildDataset({
   municipalities,
   italyExtractedAt,
@@ -1215,6 +1269,7 @@ export function buildDataset({
   swissCoverage = null,
   swissInventory = null,
   italyByMunicipality,
+  italyRouteMemory = new Map(),
   exchangeRate,
   italyStatus = null,
 }) {
@@ -1252,6 +1307,11 @@ export function buildDataset({
   const municipalityRows = municipalities.map((municipality) => {
     const italyStations = italyByMunicipality.get(`${municipality.name}:${municipality.province}`) || [];
     const italy = summarizeItalyStations(italyStations);
+    const memory = italyRouteMemory.get(`${municipality.name}:${municipality.province}`);
+    const retiredStations = memory?.retiredStations ?? [];
+    if (retiredStations.length > 0) italy.retiredStations = retiredStations;
+    const stationRoutes = assignItalianStationSlugs([...italy.stations, ...retiredStations], memory?.recordedRoutes);
+    if (stationRoutes.size > 0) italy.stationRoutes = Object.fromEntries(stationRoutes);
     const swissCandidates = swissStations
       .map((station) => ({
         ...station,
@@ -1578,11 +1638,7 @@ async function writeToFirestore(payload) {
     })),
   };
 
-  const italyDoc = {
-    municipalities: payload.municipalities
-      .filter((m) => m.italy.stationCount > 0)
-      .map((m) => ({ municipality: m.municipality, province: m.province, italy: m.italy })),
-  };
+  const italyDoc = buildItalyFirestoreDoc(payload.municipalities);
 
   const borderMunicipalities = payload.municipalities
     .filter((m) => m.swiss.optionCount > 0)
@@ -1700,10 +1756,11 @@ async function main() {
     ]);
 
     const exchangeRate = extractEcbRate(ecbXml);
+    const previousDataset = readPreviousDataset();
     const italySource = resolveItalySource({
       italyResult,
       municipalities,
-      previousDataset: readPreviousDataset(),
+      previousDataset,
     });
     if (italySource.status !== 'live') {
       console.warn(`::warning::[fuel] MIMIT unavailable (${italySource.reason}) — Swiss TCS prices refreshed, Italian prices ${italySource.status === 'carried-over' ? `carried over from the ${italySource.extractedAt} snapshot` : 'omitted (no previous snapshot)'}`);
@@ -1784,6 +1841,7 @@ async function main() {
         inventoryOnlyCount: inventoryMerge.inventoryOnlyCount,
       },
       italyByMunicipality,
+      italyRouteMemory: italyRouteMemoryByMunicipality(previousDataset, italyByMunicipality),
       exchangeRate,
       italyStatus: italySource.status === 'live' ? null : { status: italySource.status, reason: italySource.reason },
     });

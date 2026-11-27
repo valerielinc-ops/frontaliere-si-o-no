@@ -6,7 +6,8 @@ import { appendFuelTripShareState, calculateFuelTrip, convertFuelPrice, convertF
 import { buildSwissStationSlug, fetchFuelPrices, type FuelComparisonCountry, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
-import { FUEL_DAILY_LOCALES, buildFuelItalianStationPath, buildStationSlug, slugify, type FuelDailyLocale } from '@/build-plugins/fuelDailyData';
+import { FUEL_DAILY_LOCALES, buildFuelItalianStationPath, slugify, type FuelDailyLocale } from '@/build-plugins/fuelDailyData';
+import { assignItalianStationSlugs, resolveItalianStationRoute, type ItalianStationPagesManifest } from '../../scripts/lib/fuel-italian-station-routes.mjs';
 import { brandLogoSlug } from '@/build-plugins/shared/brandSlug';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
@@ -207,40 +208,15 @@ function italianCitySlugForRow(row: MunicipalityFuelRow): string | null {
 }
 
 /**
- * Map each Italian station id to the slug of its emitted per-station detail
- * page. Mirrors the route-slot order in `collectItalianStationContexts` in
- * build-plugins/fuelDailyPagesPlugin.ts: dedupe by id, reserve slugs for every
- * known station, then map only stations with a benzina price. Reserving the
- * missing-price slots keeps colliding station URLs stable when data changes.
- * Benzina is used because that MIMIT cut covers every border station.
+ * Station id → slug, for a build manifest that has no `byStationId` or has not
+ * loaded. Same rule as the build (`assignItalianStationSlugs`), with the route
+ * memory when the dataset carries it (the static JSON does, Firestore does not).
  */
 function buildItalianStationSlugMap(row: MunicipalityFuelRow): Map<string, string> {
- const byId = new Map<string, FuelStationItaly[]>();
- for (const s of row.italy.stations) {
- if (!s.id) continue;
- const rows = byId.get(s.id) ?? [];
- rows.push(s);
- byId.set(s.id, rows);
- }
- const seen = new Set<string>();
- const out = new Map<string, string>();
- for (const [id, rows] of byId) {
- let selected: FuelStationItaly | undefined;
- for (const s of rows) {
- if (typeof s.priceEur !== 'number' || !Number.isFinite(s.priceEur)) continue;
- if (!selected || selected.priceEur > s.priceEur) selected = s;
- }
- const routeStation = selected ?? rows[0];
- if (!routeStation.brand && !routeStation.stationName) continue;
- const baseSlug = buildStationSlug({ brand: routeStation.brand, name: routeStation.stationName, address: routeStation.address });
- if (!baseSlug) continue;
- let slug = baseSlug;
- let suffix = 2;
- while (seen.has(slug)) slug = `${baseSlug}-${suffix++}`;
- seen.add(slug);
- if (selected) out.set(id, slug);
- }
- return out;
+ return assignItalianStationSlugs(
+  [...row.italy.stations, ...(row.italy.retiredStations ?? [])],
+  row.italy.stationRoutes,
+ );
 }
 
 /**
@@ -305,7 +281,7 @@ function DetailSection({
  view: FuelRowView;
  locale: string;
  tt: (key: string, fallback: string) => string;
- stationPages: Set<string> | null;
+ stationPages: ItalianStationPagesManifest | null;
  fuelType: FuelType;
  exchangeRate: DatedFuelExchangeRate | null;
 }) {
@@ -364,13 +340,12 @@ function DetailSection({
  <div className="mt-3 space-y-3">
  {view.italy.stations.slice(0, 12).map((station) => {
  const key = `${station.id}-${italyStationPrice(station, fuelType)}-${station.isSelf ? 'self' : 'served'}`;
- const slug = italyCitySlug && italyStationSlugs ? italyStationSlugs.get(station.id) : undefined;
- // Link only to a page the build actually emitted. When the manifest is
- // loaded it is authoritative (no 404s); until then fall back to optimistic.
- const pageEmitted = italyCitySlug && slug
- ? (stationPages ? stationPages.has(`${italyCitySlug}/${slug}`) : true)
- : false;
- const href = pageEmitted && italyCitySlug && slug ? buildFuelItalianStationPath(fuelLocale, fuelType, italyCitySlug, slug) : null;
+ const route = resolveItalianStationRoute(
+  station.id,
+  { citySlug: italyCitySlug, stationSlug: italyStationSlugs?.get(station.id) },
+  stationPages,
+ );
+ const href = route ? buildFuelItalianStationPath(fuelLocale, fuelType, route.citySlug, route.stationSlug) : null;
  const content = (
  <div className="flex items-start justify-between gap-3">
  <div className="flex min-w-0 items-start gap-3">
@@ -472,12 +447,10 @@ export default function FuelPriceStats() {
  const tripInputChanged = useRef(false);
  const tripCalculationTracked = useRef(false);
  const manualTripPrices = useRef({ referencePrice: false, alternativePrice: false });
- // Authoritative set of emitted Italian station pages ("{citySlug}/{stationSlug}").
- // Built by the fuel build-plugin; the SPA links a station only when it appears
- // here, so a station card never points at a page the build skipped (word-gate)
- // or wrote under a disambiguated slug → no indexable 404s. null = not loaded
- // yet / fetch failed → optimistic fallback (link if a slug is derivable).
- const [stationPages, setStationPages] = useState<Set<string> | null>(null);
+ // Manifest of the Italian station pages the build wrote (see
+ // `resolveItalianStationRoute`). null = not loaded yet / fetch failed →
+ // optimistic fallback (link if a slug is derivable).
+ const [stationPages, setStationPages] = useState<ItalianStationPagesManifest | null>(null);
 
  const updateTripForm = (field: keyof FuelTripFormState, value: string) => {
   tripInputChanged.current = true;
@@ -544,8 +517,10 @@ export default function FuelPriceStats() {
  });
  fetch(cdnDataUrl('/data/fuel-italian-station-pages.json'))
  .then((r) => (r.ok ? r.json() : null))
- .then((j: { stations?: string[] } | null) => {
- if (!cancelled && Array.isArray(j?.stations)) setStationPages(new Set(j!.stations));
+ .then((j: { stations?: string[]; byStationId?: Record<string, string> } | null) => {
+ if (!cancelled && Array.isArray(j?.stations)) {
+  setStationPages({ pages: new Set(j!.stations), byStationId: j!.byStationId ?? null });
+ }
  })
  .catch(() => {
  /* best-effort: keep optimistic fallback when the manifest is unavailable */

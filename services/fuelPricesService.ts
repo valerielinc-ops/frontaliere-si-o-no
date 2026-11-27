@@ -136,6 +136,9 @@ export interface MunicipalityFuelRow {
   dieselStationCount?: number;
  cheapestStation: FuelStationItaly | null;
  stations: FuelStationItaly[];
+    /** Route memory of the static JSON; the Firestore document omits both. */
+    retiredStations?: Array<Pick<FuelStationItaly, 'id' | 'brand' | 'stationName' | 'address'>>;
+    stationRoutes?: Record<string, string>;
  };
  swiss: {
  searchRadiusKm: number;
