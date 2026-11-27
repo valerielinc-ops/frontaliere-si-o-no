@@ -1,7 +1,7 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-11-27T13:53:53.253Z",
+  "generatedAt": "2026-11-27T19:12:06.937Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,5 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "8dcf3d4a704e6c9825007baae5c5cb393fa9222c"
+  "codeCommit": "a2af482b1aee99bf6918392d41f8832dc43bf2e4",
+  "workdayRateLimit": {
+    "tenant": "https://huntsman.wd1.myworkdayjobs.com/wday/cxs/huntsman/Huntsman",
+    "firstRateLimitedAt": "2026-11-27T19:12:06.942Z",
+    "lastRateLimitedAt": "2026-11-27T19:12:06.942Z",
+    "consecutiveRuns": 1,
+    "nextAttemptAfter": "2026-11-28T01:12:06.942Z",
+    "outcome": "rate-limited"
+  }
 }

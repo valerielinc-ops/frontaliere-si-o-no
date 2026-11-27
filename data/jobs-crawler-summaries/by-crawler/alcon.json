@@ -1,7 +1,7 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-11-27T13:53:53.666Z",
+  "generatedAt": "2026-11-27T19:11:04.626Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,5 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "8dcf3d4a704e6c9825007baae5c5cb393fa9222c"
+  "codeCommit": "a2af482b1aee99bf6918392d41f8832dc43bf2e4",
+  "workdayRateLimit": {
+    "tenant": "https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon",
+    "firstRateLimitedAt": "2026-11-27T19:11:04.632Z",
+    "lastRateLimitedAt": "2026-11-27T19:11:04.632Z",
+    "consecutiveRuns": 1,
+    "nextAttemptAfter": "2026-11-28T01:11:04.632Z",
+    "outcome": "rate-limited"
+  }
 }

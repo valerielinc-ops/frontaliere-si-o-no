@@ -1,7 +1,7 @@
 {
   "key": "klinik-seeschau",
   "label": "Klinik Seeschau",
-  "generatedAt": "2026-11-27T13:47:39.716Z",
+  "generatedAt": "2026-11-27T19:04:51.471Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6008,
-  "avgDurationMs": 6008,
+  "durationMs": 5415,
+  "avgDurationMs": 5415,
   "durationHistory": [
-    6008
+    5415
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#:~:text=Neu%3A%20Ausbildung%20zur%20Dipl.%20Pflegefachperson%20HF%20bei%20uns!",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T13:47:16.141Z",
+      "crawledAt": "2026-11-27T19:04:20.613Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -73,7 +73,7 @@
       },
       "streetAddress": "Bernrainstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T13:47:16.141Z",
+      "validThrough": "2026-12-27T19:04:20.613Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -96,7 +96,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#:~:text=Dipl.%20Pflegefachfrau%2F%2Dmann%20(HF)%20ab%2050%20%25",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T13:47:16.140Z",
+      "crawledAt": "2026-11-27T19:04:20.612Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -130,7 +130,7 @@
       },
       "streetAddress": "Bernrainstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T13:47:16.140Z",
+      "validThrough": "2026-12-27T19:04:20.612Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -153,7 +153,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#:~:text=Stationsleitung%20%2F%20Stellvertretende%20Leitung%20Pflegedienst",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T13:47:16.139Z",
+      "crawledAt": "2026-11-27T19:04:20.611Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       },
       "streetAddress": "Bernrainstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T13:47:16.139Z",
+      "validThrough": "2027-02-08T19:04:20.611Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -210,7 +210,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#:~:text=Fachperson%20Operationslagerung%20mit%20Unterst%C3%BCtzungsaufgaben%20in%20der%20med.%20Materialbeschaffung",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T13:47:16.137Z",
+      "crawledAt": "2026-11-27T19:04:20.610Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -244,7 +244,7 @@
       },
       "streetAddress": "Bernrainstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T13:47:16.137Z",
+      "validThrough": "2027-02-11T19:04:20.610Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -255,5 +255,5 @@
       }
     }
   ],
-  "codeCommit": "8dcf3d4a704e6c9825007baae5c5cb393fa9222c"
+  "codeCommit": "a2af482b1aee99bf6918392d41f8832dc43bf2e4"
 }

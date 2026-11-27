@@ -1,7 +1,7 @@
 {
   "key": "bossard",
   "label": "Bossard Group",
-  "generatedAt": "2026-11-27T13:50:53.006Z",
+  "generatedAt": "2026-11-27T19:10:04.079Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -21,5 +21,13 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "8dcf3d4a704e6c9825007baae5c5cb393fa9222c"
+  "codeCommit": "a2af482b1aee99bf6918392d41f8832dc43bf2e4",
+  "workdayRateLimit": {
+    "tenant": "https://bossard.wd103.myworkdayjobs.com/wday/cxs/bossard/BossardJobs",
+    "firstRateLimitedAt": "2026-11-27T19:10:04.084Z",
+    "lastRateLimitedAt": "2026-11-27T19:10:04.084Z",
+    "consecutiveRuns": 1,
+    "nextAttemptAfter": "2026-11-28T01:10:04.084Z",
+    "outcome": "rate-limited"
+  }
 }
