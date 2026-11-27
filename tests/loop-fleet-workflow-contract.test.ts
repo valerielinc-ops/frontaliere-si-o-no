@@ -270,9 +270,16 @@ function runDownloadRetryClassifier(output: string): boolean {
 }
 
 describe('loop fleet workflow contract', () => {
-  it('records canonical evidence for every loop with a read-only contents token', () => {
+  it('records canonical evidence for executable loops with a read-only contents token', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      if (name === 'loop-l8-revenue-attribution.yml') {
+        expect(source, name).toContain('Upload L8 status');
+        expect(source, name).toContain('retention-days: 90');
+        expect(source, name).not.toContain('record-loop-fleet-evidence.mjs');
+        expect(source, name).not.toMatch(/contents:\s*write/u);
+        continue;
+      }
       expect(source, name).toContain('record-loop-fleet-evidence.mjs');
       expect(source, name).toContain('--registry data/loop-fleet/loop-registry.json');
       expect(source, name).toContain('retention-days: 90');
@@ -325,9 +332,10 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
-  it('starts every loop with explicit operational telemetry declarations', () => {
+  it('starts every executable loop with explicit operational telemetry declarations', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      if (name === 'loop-l8-revenue-attribution.yml') continue;
       expect(source, name).toContain('LOOP_FLEET_STARTED_AT=');
       expect(source, name).toContain('LOOP_FLEET_QUOTA_UNITS=0');
       expect(source, name).toContain('LOOP_FLEET_COLLISIONS=0');
@@ -390,6 +398,10 @@ describe('loop fleet workflow contract', () => {
     for (const name of numberedLoopWorkflows()) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       expect(source, name).not.toMatch(/ga4-custom-dimensions|customDimensions|analytics\.edit/u);
+      if (name === 'loop-l8-revenue-attribution.yml') {
+        expect(source).not.toMatch(/\bnode scripts\/|secrets\./u);
+        continue;
+      }
       const scripts = new Set([...source.matchAll(/\bnode (scripts\/[\w./-]+\.mjs)/gu)].map((match) => match[1]));
       expect(scripts.size, name).toBeGreaterThan(0);
       for (const script of scripts) {
@@ -452,7 +464,6 @@ describe('loop fleet workflow contract', () => {
   it('gates repaired loops on a runner-local fail-closed outcome export', () => {
     const contracts = [
       ['loop-l5-decision-moments.yml', 'l5-outcome.json', 'publishedDataUntouched', 'validate_l5_outcome'],
-      ['loop-l8-revenue-attribution.yml', 'l8-outcome.json', 'externalCommercialStateUntouched', 'validate_l8_outcome'],
       ['loop-l10-fleet-control.yml', 'l10-outcome.json', 'ledgerWriteMode', 'validate_l10_outcome'],
     ];
     for (const [name, outcomeFile, marker, validatorId] of contracts) {
@@ -463,6 +474,16 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain(`id: ${validatorId}`);
       expect(source, name).toContain(`steps.${validatorId}.outcome == 'success'`);
     }
+  });
+
+  it('keeps L8 public workflow status-only while its evidence remains private', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l8-revenue-attribution.yml'), 'utf8');
+    expect(source).toContain('quality: "unmeasurable"');
+    expect(source).toContain('privateEvidence: true');
+    expect(source).toContain('outcome:');
+    expect(source).not.toMatch(/data\/(?:revenue-monitor-history|revenue-authorized-export)/u);
+    expect(source).not.toMatch(/FIREBASE_SERVICE_ACCOUNT_JSON|GH_TOKEN|secrets\.|issues:\s*write/u);
+    expect(source).toContain('path: ${{ runner.temp }}/l8-public/loop-fleet-evidence.json');
   });
 
   it('records L2 and L3 evidence even when their local outcome validator fails', () => {

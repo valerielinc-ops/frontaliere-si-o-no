@@ -13,7 +13,6 @@ const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/batch-faq-articles.yml',
   '.github/workflows/evergreen-pool-snapshot.yml',
   '.github/workflows/fb-events-daily-schedule.yml',
-  '.github/workflows/funnel-metrics-snapshot.yml',
   '.github/workflows/gsc-frontaliere-monitor.yml',
   '.github/workflows/guard-data-integrity.yml',
   '.github/workflows/prospector-loop.yml',

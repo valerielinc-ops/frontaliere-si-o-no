@@ -1,142 +1,15 @@
-name: Funnel Metrics Snapshot (weekly)
-
-# Collects the field metrics the open RPM/CLS tracker issues need so they stop
-# being "blocked on unavailable data":
-#   #886 / #855 — CLS p75 mobile/desktop (GA4 web_vitals, via revenue-monitor)
-#   #888        — GSC avg position + CTR by URL bucket (high-CPC ranking)
-#   #857        — AdSense RPM (content-mix dilution proxy)
-#
-# Reuses the existing fail-soft aggregator `scripts/revenue-monitor.mjs --json`
-# (one source of truth, no duplicated API logic), distils a compact snapshot
-# into the append-only `data/funnel-metrics-history.json`, and posts a one-line
-# status comment to each tracker. ZERO Claude usage — pure node/bash, so it
-# never touches the Max quota.
-#
-# Runs Monday 07:00 UTC (after Revenue Monitor at 06:15) to avoid overlapping
-# AdSense/GSC calls.
+name: Funnel Metrics Snapshot (private migration)
 
 on:
-  schedule:
-    - cron: '0 7 * * 1'
-  workflow_dispatch:
-    inputs:
-      skip_comment:
-        description: 'Collect + commit snapshot but do not comment on tracker issues'
-        required: false
-        type: boolean
-        default: false
-
-concurrency:
-  group: funnel-metrics-snapshot
-  cancel-in-progress: false
+  workflow_dispatch: {}
 
 permissions:
-  contents: write
-  issues: write
+  contents: read
 
 jobs:
-  snapshot:
+  retired:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 1
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 1
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci --ignore-scripts
-
-      - name: Write Service Account credentials
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          else
-            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON not set — metric sources will be skipped (fail-soft)."
-          fi
-
-      - name: Load secrets from Remote Config
-        continue-on-error: true
-        run: |
-          umask 077
-          node scripts/load-rc-env.mjs > "$RUNNER_TEMP/report-config.log" 2>&1
-
-      - name: Collect funnel metrics (revenue-monitor JSON)
-        # revenue-monitor exits 0 even when a source errors; we still want a
-        # (partial) JSON payload, so never let this step fail the run.
-        run: |
-          umask 077
-          node scripts/revenue-monitor.mjs --json > "$RUNNER_TEMP/funnel-revenue.json" 2> "$RUNNER_TEMP/funnel-revenue.err" || true
-          if [ ! -s "$RUNNER_TEMP/funnel-revenue.json" ]; then
-            echo "::warning::revenue-monitor produced no JSON — writing empty payload"
-            echo '{"generatedAt":"","current":{"errors":["revenue-monitor produced no output"],"warnings":[]}}' > "$RUNNER_TEMP/funnel-revenue.json"
-          fi
-
-      - name: Build snapshot and validate history
-        run: |
-          umask 077
-          exec > "$RUNNER_TEMP/funnel-snapshot.log" 2>&1
-          node scripts/funnel-metrics-snapshot.mjs \
-            --in="$RUNNER_TEMP/funnel-revenue.json" \
-            --history=data/funnel-metrics-history.json \
-            --summary-out="$RUNNER_TEMP/funnel-summary.md"
-          node scripts/ci/validate-workflow-data.mjs \
-            --kind funnel-metrics-history \
-            --file data/funnel-metrics-history.json
-      - name: Summarize snapshot status
-        run: echo 'Funnel metrics snapshot completed. Report values are private.' >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Commit snapshot history
-        id: commit
-        run: |
-          umask 077
-          exec > "$RUNNER_TEMP/funnel-history.log" 2>&1
-          node scripts/ci/validate-workflow-data.mjs \
-            --kind funnel-metrics-history \
-            --file data/funnel-metrics-history.json
-          node scripts/ci/validate-generated-data.mjs \
-            --kind funnel \
-            --file data/funnel-metrics-history.json
-          if [ -n "$(git status --porcelain data/funnel-metrics-history.json)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/funnel-metrics-history.json
-            git commit -m "📊 Funnel metrics snapshot $(date -u +%Y-%m-%d)"
-            PUSH_BRANCH="${GITHUB_REF_NAME:-main}"
-            bash scripts/lib/git-push-with-retry.sh \
-              --branch "$PUSH_BRANCH" \
-              --max-attempts 3
-            echo "pushed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "No snapshot changes to commit"
-            echo "pushed=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Comment snapshot on tracker issues
-        if: ${{ inputs.skip_comment != true }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Commenting is allowed for GITHUB_TOKEN (unlike PR creation). Each
-          # tracker gets the same status; fail-soft per issue so one closed/
-          # locked tracker doesn't abort the rest.
-          for issue in 886 855 888 857; do
-            if gh issue comment "$issue" --body 'Funnel metrics snapshot completed. Report values are private.'; then
-              echo "✅ commented on #$issue"
-            else
-              echo "::warning::could not comment on #$issue (closed/locked?) — continuing"
-            fi
-          done
-
-      - name: Cleanup credentials
-        if: always()
-        run: rm -f /tmp/firebase-sa.json
+      - name: Confirm public collection is retired
+        run: echo 'Public funnel history collection is retired; use the private operator report.'

@@ -1,253 +1,49 @@
-name: Loop L8 revenue and attribution reconciliation
+name: Loop L8 private evidence status
 
 on:
   schedule:
     - cron: '41 11 * * *'
-  push:
-    branches: [main]
-    paths:
-      - 'data/revenue-monitor-history.jsonl'
-      - 'data/revenue-authorized-export.json'
-      - 'data/loop-fleet/loop-registry.json'
-      - 'scripts/ci/loop-l8-revenue-attribution.mjs'
-      - 'scripts/ci/export-l8-affiliate-outcomes.mjs'
-      - 'scripts/ci/fetch-authorized-affiliate-export.mjs'
-      - 'scripts/ci/record-loop-fleet-evidence.mjs'
-      - 'scripts/lib/affiliateRevenue.mjs'
-      - 'functions/src/lib/affiliatePartnersRegistry.js'
-      - 'functions/src/lib/exchangePartners.js'
-      - 'scripts/lib/google-service-account-token.mjs'
-      - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/app-error-recency.mjs'
-      - 'scripts/lib/analytics-settled-window.mjs'
-      - 'scripts/lib/loop-fleet-contract.mjs'
-      - 'scripts/lib/loop-fleet-outcome.mjs'
-      - 'scripts/lib/github-issue-creator.mjs'
-      - 'scripts/lib/loop-fleet-issue.mjs'
-      - 'scripts/lib/posthog-client.mjs'
-      - 'scripts/load-rc-env.mjs'
-      - '.github/workflows/loop-l8-revenue-attribution.yml'
-  pull_request:
-    paths:
-      - 'data/revenue-monitor-history.jsonl'
-      - 'data/revenue-authorized-export.json'
-      - 'data/loop-fleet/loop-registry.json'
-      - 'scripts/ci/loop-l8-revenue-attribution.mjs'
-      - 'scripts/ci/export-l8-affiliate-outcomes.mjs'
-      - 'scripts/ci/fetch-authorized-affiliate-export.mjs'
-      - 'scripts/ci/record-loop-fleet-evidence.mjs'
-      - 'scripts/lib/affiliateRevenue.mjs'
-      - 'functions/src/lib/affiliatePartnersRegistry.js'
-      - 'functions/src/lib/exchangePartners.js'
-      - 'scripts/lib/google-service-account-token.mjs'
-      - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/app-error-recency.mjs'
-      - 'scripts/lib/analytics-settled-window.mjs'
-      - 'scripts/lib/loop-fleet-contract.mjs'
-      - 'scripts/lib/loop-fleet-outcome.mjs'
-      - 'scripts/lib/github-issue-creator.mjs'
-      - 'scripts/lib/loop-fleet-issue.mjs'
-      - 'scripts/lib/posthog-client.mjs'
-      - 'scripts/load-rc-env.mjs'
-      - '.github/workflows/loop-l8-revenue-attribution.yml'
-  workflow_dispatch:
-    inputs:
-      issue:
-        description: 'Create/update one deduplicated issue when revenue attribution is not measurable'
-        required: false
-        type: boolean
-        default: true
+  workflow_dispatch: {}
 
 permissions:
   contents: read
-  issues: write
 
 concurrency:
   group: loop-l8-revenue-attribution
   cancel-in-progress: false
 
 jobs:
-  audit:
+  status:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 2
     steps:
-      - name: Checkout revenue inputs
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 1
-          sparse-checkout: |
-            /data/revenue-monitor-history.jsonl
-            /data/revenue-authorized-export.json
-            /data/loop-fleet/loop-registry.json
-            /scripts/ci/loop-l8-revenue-attribution.mjs
-            /scripts/ci/export-l8-affiliate-outcomes.mjs
-            /scripts/ci/fetch-authorized-affiliate-export.mjs
-            /scripts/ci/record-loop-fleet-evidence.mjs
-            /scripts/lib/affiliateRevenue.mjs
-            /functions/src/lib/affiliatePartnersRegistry.js
-            /functions/src/lib/exchangePartners.js
-            /scripts/lib/google-service-account-token.mjs
-            /scripts/lib/ga4-service-account.mjs
-            /scripts/lib/app-error-recency.mjs
-            /scripts/lib/analytics-settled-window.mjs
-            /scripts/lib/loop-fleet-contract.mjs
-            /scripts/lib/loop-fleet-outcome.mjs
-            /scripts/lib/github-issue-creator.mjs
-            /scripts/lib/loop-fleet-issue.mjs
-            /scripts/lib/posthog-client.mjs
-            /scripts/load-rc-env.mjs
-            /scripts/lib/fetch-with-ref-timeout.mjs
-            /scripts/lib/remote-config-template-url.mjs
-            /.github/workflows/loop-l8-revenue-attribution.yml
-          sparse-checkout-cone-mode: false
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-      - name: Start loop operational telemetry
-        run: |
-          {
-            echo "LOOP_FLEET_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)"
-            echo 'LOOP_FLEET_QUOTA_UNITS=0'
-            echo 'LOOP_FLEET_COLLISIONS=0'
-            echo 'LOOP_FLEET_GATE_BYPASS=false'
-          } >> "$GITHUB_ENV"
-      - name: Prepare read-only Firebase credentials
-        if: github.event_name != 'pull_request'
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo 'L8 live attribution unavailable: FIREBASE_SERVICE_ACCOUNT_JSON is not set; continuing as unmeasurable.' | tee -a "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          umask 077
-          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
-          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
-      - name: Load read-only analytics configuration
-        if: github.event_name != 'pull_request'
-        run: |
-          if [ -z "${GOOGLE_APPLICATION_CREDENTIALS:-}" ]; then
-            echo 'L8 Remote Config unavailable; GA4 export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          umask 077
-          set +e
-          node scripts/load-rc-env.mjs > "$RUNNER_TEMP/l8-config.log" 2>&1
-          rc_code=$?
-          set -e
-          if [ "$rc_code" -ne 0 ]; then
-            echo 'L8 Remote Config load failed; GA4 export will use the fail-closed fallback.' | tee -a "$GITHUB_STEP_SUMMARY"
-          fi
-      - name: Export fresh L8 attribution outcome
-        if: github.event_name != 'pull_request'
+      - name: Write status-only L8 artifact
         run: |
           umask 077
-          exec > "$RUNNER_TEMP/l8-export.log" 2>&1
-          set +e
-          node scripts/ci/fetch-authorized-affiliate-export.mjs --out "$RUNNER_TEMP/l8-commercial-export.json"
-          fetch_code=$?
-          set -e
-          if [ "$fetch_code" -ne 0 ]; then
-            echo 'L8 authorised commercial export fetch failed; continuing fail-closed without commercial amounts.' | tee -a "$GITHUB_STEP_SUMMARY"
-          fi
-          if [ -n "${AFFILIATE_REVENUE_EXPORT_URL:-}" ]; then
-            commercial_path="$RUNNER_TEMP/l8-commercial-export.json"
-          else
-            commercial_path='data/revenue-authorized-export.json'
-          fi
-          echo "L8_COMMERCIAL_EXPORT_PATH=$commercial_path" >> "$GITHUB_ENV"
-          set +e
-          node scripts/ci/export-l8-affiliate-outcomes.mjs --days 8 --commercial "$commercial_path" --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
-          export_code=$?
-          set -e
-          if [ "$export_code" -ne 0 ]; then
-            node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --commercial "$commercial_path" --reason 'live GA4 or authorised commercial export unavailable' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
-            echo 'L8 live attribution export failed; continuing with an explicitly unavailable outcome.' | tee -a "$GITHUB_STEP_SUMMARY"
-          fi
-      - name: Build unavailable L8 attribution input for pull requests
-        if: github.event_name == 'pull_request'
-        run: |
-          umask 077
-          node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --reason 'pull_request runs do not access live analytics or commercial credentials' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json" > "$RUNNER_TEMP/l8-pr-export.log" 2>&1
-      - name: Audit revenue attribution
-        id: audit_l8
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
-          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l8
-        run: |
-          umask 077
-          mkdir -p "$REPORT_DIR"
-          affiliate_path="$RUNNER_TEMP/l8-affiliate-outcomes.json"
-          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --history data/revenue-monitor-history.jsonl --affiliate "$affiliate_path")
-          if [ "$ISSUE_ENABLED" = "true" ]; then
-            args+=(--issue --strict)
-          else
-            args+=(--dry-run)
-          fi
-          set +e
-          node scripts/ci/loop-l8-revenue-attribution.mjs "${args[@]}" > "$REPORT_DIR/cli-output.log" 2> "$REPORT_DIR/cli-error.log"
-          run_code=$?
-          set -e
-          if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l8-result.json" >/dev/null 2>&1; then
-            echo 'L8 finding persisted; approved/pending/reversed states remain separate and no commercial mutation was performed.' | tee -a "$GITHUB_STEP_SUMMARY"
-          elif [ "$run_code" -ne 0 ]; then
-            exit "$run_code"
-          else
-            echo 'L8 audit completed. Report values are private.' >> "$GITHUB_STEP_SUMMARY"
-          fi
-      - name: Validate runner-local L8 outcome export
-        id: validate_l8_outcome
-        if: always()
-        env:
-          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l8
-        run: |
-          umask 077
-          exec > "$RUNNER_TEMP/l8-validation.log" 2>&1
-          test -s "$REPORT_DIR/l8-outcome.json"
-          jq -e '(.loopId == "L8" and (.status | type) == "string" and (.independent | type) == "boolean" and (.metrics | type) == "object" and .safeToAct == false and .autoAdsUntouched == true and .externalCommercialStateUntouched == true and .publishedDataUntouched == true and .partnerStateUntouched == true and .pricesUntouched == true and .recipientsUntouched == true)' "$REPORT_DIR/l8-outcome.json" >/dev/null
-      - name: Record canonical L8 evidence
-        id: record_l8
-        if: ${{ always() && steps.validate_l8_outcome.outcome == 'success' }}
-        env:
-          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l8
-        run: |
-          umask 077
-          LOOP_FLEET_LEDGER_DIR='' node scripts/ci/record-loop-fleet-evidence.mjs --loop L8 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json > "$RUNNER_TEMP/l8-evidence.log" 2>&1
-      - name: Write public L8 execution status
-        id: public_l8
-        if: always()
-        env:
-          AUDIT_STATUS: ${{ steps.audit_l8.outcome }}
-          VALIDATION_STATUS: ${{ steps.validate_l8_outcome.outcome }}
-          EVIDENCE_STATUS: ${{ steps.record_l8.outcome }}
-        run: |
-          umask 077
-          mkdir -p "$RUNNER_TEMP/l8-public"
-          jq -n '{
-            schemaVersion: 1,
-            loopId: "L8",
-            run: {
-              runId: env.GITHUB_RUN_ID,
-              runAttempt: env.GITHUB_RUN_ATTEMPT,
-              sha: env.GITHUB_SHA
-            },
-            auditStatus: env.AUDIT_STATUS,
-            validationStatus: env.VALIDATION_STATUS,
-            runnerEvidenceStatus: env.EVIDENCE_STATUS,
-            privateEvidence: true,
-            evidenceComplete: false,
-            quality: "unmeasurable",
-            outcome: {
-              status: "unmeasurable",
-              independent: false,
-              reason: "Economic values and canonical evidence are private and cannot be verified from this artifact."
-            }
-          }' > "$RUNNER_TEMP/l8-public/loop-fleet-evidence.json"
-      - name: Upload L8 execution status
-        if: ${{ always() && steps.public_l8.outcome == 'success' }}
+          output="$RUNNER_TEMP/l8-public"
+          mkdir -p "$output"
+          jq -n \
+            --arg runId "$GITHUB_RUN_ID" \
+            --arg runAttempt "$GITHUB_RUN_ATTEMPT" \
+            --arg sha "$GITHUB_SHA" \
+            '{
+              schemaVersion: 1,
+              loopId: "L8",
+              run: { runId: $runId, runAttempt: $runAttempt, sha: $sha },
+              auditStatus: "skipped",
+              validationStatus: "skipped",
+              runnerEvidenceStatus: "skipped",
+              privateEvidence: true,
+              evidenceComplete: false,
+              quality: "unmeasurable",
+              outcome: {
+                status: "unmeasurable",
+                independent: false,
+                reason: "The public workflow does not inspect private L8 inputs or outcomes."
+              }
+            }' > "$output/loop-fleet-evidence.json"
+          echo 'L8 evidence stays private; the public artifact reports execution status only.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload L8 status
         uses: actions/upload-artifact@v7
         with:
           name: loop-l8-revenue-attribution-${{ github.run_id }}
