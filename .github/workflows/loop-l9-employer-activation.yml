@@ -1,4 +1,4 @@
-name: Loop L9 employer supply to paid activation
+name: Loop L9 private measurement status
 
 on:
   schedule:
@@ -6,198 +6,20 @@ on:
   push:
     branches: [main]
     paths:
-      - 'data/employer-profiles.json'
-      - 'data/loop-fleet/loop-registry.json'
-      - 'scripts/ci/loop-l9-employer-activation.mjs'
-      - 'scripts/ci/export-loop-outcomes.mjs'
-      - 'scripts/lib/l4-alert-delivery-contract.mjs'
-      - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/app-error-recency.mjs'
-      - 'scripts/lib/analytics-settled-window.mjs'
-      - 'scripts/ci/record-loop-fleet-evidence.mjs'
-      - 'scripts/lib/posthog-client.mjs'
-      - 'scripts/build-employer-profiles.mjs'
-      - 'scripts/lib/loop-fleet-contract.mjs'
-      - 'scripts/lib/loop-fleet-outcome.mjs'
-      - 'scripts/lib/github-issue-creator.mjs'
-      - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l9-employer-activation.yml'
-  # The outcome export is current Firestore state, while the profile inventory
-  # is refreshed on a separate cadence. Run after a successful profile refresh
-  # so the two snapshots can satisfy the declared cross-source skew contract.
-  workflow_run:
-    workflows:
-      - Refresh Employer Profiles
-    types: [completed]
-  pull_request:
-    paths:
-      - 'data/employer-profiles.json'
-      - 'data/loop-fleet/loop-registry.json'
-      - 'scripts/ci/loop-l9-employer-activation.mjs'
-      - 'scripts/ci/export-loop-outcomes.mjs'
-      - 'scripts/lib/l4-alert-delivery-contract.mjs'
-      - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/app-error-recency.mjs'
-      - 'scripts/lib/analytics-settled-window.mjs'
-      - 'scripts/ci/record-loop-fleet-evidence.mjs'
-      - 'scripts/lib/posthog-client.mjs'
-      - 'scripts/build-employer-profiles.mjs'
-      - 'scripts/lib/loop-fleet-contract.mjs'
-      - 'scripts/lib/loop-fleet-outcome.mjs'
-      - 'scripts/lib/github-issue-creator.mjs'
-      - 'scripts/lib/loop-fleet-issue.mjs'
-      - '.github/workflows/loop-l9-employer-activation.yml'
-  workflow_dispatch:
-    inputs:
-      issue:
-        description: 'Create/update one deduplicated issue when paid activation is not measurable'
-        required: false
-        type: boolean
-        default: true
+  workflow_dispatch: {}
 
 permissions:
   contents: read
-  issues: write
 
 concurrency:
   group: loop-l9-employer-activation
   cancel-in-progress: false
 
 jobs:
-  audit:
-    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'pull_request')
+  status:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 2
     steps:
-      - name: Checkout employer inputs
-        uses: actions/checkout@v7
-        with:
-          # A refresh workflow commits directly to main after its run starts;
-          # workflow_run.head_sha can therefore predate the refreshed dataset.
-          ref: ${{ github.event_name == 'workflow_run' && 'main' || github.ref }}
-          fetch-depth: 1
-          sparse-checkout: |
-            /data/employer-profiles.json
-            /data/loop-fleet/loop-registry.json
-            /scripts/ci/loop-l9-employer-activation.mjs
-            /scripts/ci/export-loop-outcomes.mjs
-            /scripts/lib/l4-alert-delivery-contract.mjs
-            /scripts/lib/ga4-service-account.mjs
-            /scripts/lib/app-error-recency.mjs
-            /scripts/lib/analytics-settled-window.mjs
-            /scripts/ci/record-loop-fleet-evidence.mjs
-            /scripts/build-employer-profiles.mjs
-            /scripts/lib/loop-fleet-contract.mjs
-            /scripts/lib/loop-fleet-outcome.mjs
-            /scripts/lib/github-issue-creator.mjs
-            /scripts/lib/loop-fleet-issue.mjs
-            /scripts/lib/posthog-client.mjs
-            /.github/workflows/loop-l9-employer-activation.yml
-          sparse-checkout-cone-mode: false
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-      - name: Start loop operational telemetry
-        run: |
-          {
-            echo "LOOP_FLEET_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%S.%3NZ)"
-            echo 'LOOP_FLEET_QUOTA_UNITS=0'
-            echo 'LOOP_FLEET_COLLISIONS=0'
-            echo 'LOOP_FLEET_GATE_BYPASS=false'
-          } >> "$GITHUB_ENV"
-      - name: Prepare read-only Firebase credentials
-        if: github.event_name != 'pull_request'
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          umask 077
-          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo 'L9 Firestore export unavailable: FIREBASE_SERVICE_ACCOUNT_JSON is not set; continuing as unmeasurable.' | tee -a "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
-      - name: Export fresh L9 outcomes
-        if: github.event_name != 'pull_request'
-        run: |
-          umask 077
-          set +e
-          node scripts/ci/export-loop-outcomes.mjs --loop L9 --profiles data/employer-profiles.json --out "$RUNNER_TEMP/employer-funnel-outcomes.json" > "$RUNNER_TEMP/l9-export.log" 2>&1
-          export_code=$?
-          set -e
-          if [ "$export_code" -ne 0 ]; then
-            rm -f "$RUNNER_TEMP/employer-funnel-outcomes.json"
-            echo 'L9 Firestore export failed; continuing with an explicitly unmeasurable outcome.' | tee -a "$GITHUB_STEP_SUMMARY"
-          fi
-      - name: Audit employer activation
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_run' || inputs.issue == true }}
-          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
-        run: |
-          umask 077
-          mkdir -p "$REPORT_DIR"
-          args=(--json --apply --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json --profiles data/employer-profiles.json --outcomes "$RUNNER_TEMP/employer-funnel-outcomes.json")
-          if [ "$ISSUE_ENABLED" = "true" ]; then
-            args+=(--issue --strict)
-          else
-            args+=(--dry-run --strict)
-          fi
-          set +e
-          node scripts/ci/loop-l9-employer-activation.mjs "${args[@]}" > "$RUNNER_TEMP/l9-audit.log" 2>&1
-          run_code=$?
-          set -e
-          if [ "$run_code" -ne 0 ] && jq -e '(.issued == true and .ok == false)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
-            echo 'L9 finding persisted; no outreach, price or inventory mutation was performed.' | tee -a "$GITHUB_STEP_SUMMARY"
-          elif [ "$run_code" -ne 0 ] && jq -e '(.ok == false and .quality == "unmeasurable" and .outcomeLedgerMissing == true and .profileInventoryComplete == true and .issueCount == 1)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
-            echo 'L9 outcome ledger is not published yet; paid activation remains explicitly unmeasurable.' | tee -a "$GITHUB_STEP_SUMMARY"
-          elif [ "$run_code" -ne 0 ] \
-            && jq -e '(.ok == false and (.quality == "partial" or .quality == "stale") and .issued == false and .safeDraftOnly == true and .profileInventoryComplete == true and .realOutreachSent == false and .inventoryUntouched == true and .subscriptionStateUntouched == true and .pricesUntouched == true)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
-            echo 'L9 quality finding persisted; paid activation remains unmeasurable and only the verified safe draft-only contract is active.' | tee -a "$GITHUB_STEP_SUMMARY"
-          elif [ "$run_code" -ne 0 ] \
-            && jq -e '(.ok == false and .quality == "zero" and .issueCount == 0 and .issued == false and .outcomeLedgerMissing == false and .safeDraftOnly == true and .profileInventoryComplete == true and .realOutreachSent == false and .inventoryUntouched == true and .subscriptionStateUntouched == true and .pricesUntouched == true)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
-            echo 'L9 employer sample is still empty; paid activation remains unmeasurable while awaiting the first eligible account.' | tee -a "$GITHUB_STEP_SUMMARY"
-          elif [ "$run_code" -ne 0 ]; then
-            echo '::error::L9 audit failed.'
-            exit "$run_code"
-          fi
-      - name: Validate runner-local L9 outcome export
-        id: validate_l9_outcome
-        if: always()
-        env:
-          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
-        run: |
-          test -s "$REPORT_DIR/l9-outcome.json"
-          jq -e '(.loopId == "L9" and (.status | type) == "string" and (.independent | type) == "boolean" and (.safeToAct == false) and (.realOutreachSent == false) and (.inventoryUntouched == true) and (.subscriptionStateUntouched == true) and (.pricesUntouched == true) and (.recipientsUntouched == true))' "$REPORT_DIR/l9-outcome.json" >/dev/null 2>&1
-      - name: Record canonical L9 evidence
-        if: ${{ always() && steps.validate_l9_outcome.outcome == 'success' }}
-        env:
-          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
-        run: |
-          umask 077
-          LOOP_FLEET_LEDGER_DIR='' node scripts/ci/record-loop-fleet-evidence.mjs --loop L9 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json > "$RUNNER_TEMP/l9-evidence.log" 2>&1 || {
-            record_code=$?
-            echo '::error::L9 canonical evidence recording failed.'
-            exit "$record_code"
-          }
-      - name: Upload L9 observation and actions
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: loop-l9-employer-activation-${{ github.run_id }}
-          path: |
-            ${{ runner.temp }}/loop-fleet-l9/l9-observation.json
-            ${{ runner.temp }}/loop-fleet-l9/l9-decision.json
-            ${{ runner.temp }}/loop-fleet-l9/l9-outcome.json
-            ${{ runner.temp }}/loop-fleet-l9/l9-actions.json
-            ${{ runner.temp }}/loop-fleet-l9/l9-result.json
-            ${{ runner.temp }}/loop-fleet-l9/l9-report.md
-            ${{ runner.temp }}/loop-fleet-l9/loop-fleet-evidence.json
-            ${{ runner.temp }}/loop-fleet-l9/loop-fleet-outcome.json
-            ${{ runner.temp }}/loop-fleet-l9/loop-observations.jsonl
-            ${{ runner.temp }}/loop-fleet-l9/loop-decisions.jsonl
-            ${{ runner.temp }}/loop-fleet-l9/loop-health-history.jsonl
-            ${{ runner.temp }}/loop-fleet-l9/lifecycle-events.jsonl
-          retention-days: 90
-          if-no-files-found: error
+      - name: Write private-measurement status
+        run: echo 'L9 employer-activation measurement is withheld from this public run.' >> "$GITHUB_STEP_SUMMARY"

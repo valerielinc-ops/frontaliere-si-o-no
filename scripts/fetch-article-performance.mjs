@@ -400,6 +400,11 @@ async function writeJournalistAnalyticsBack(output) {
 }
 
 async function main() {
+  if (process.argv.includes('--status-only')) {
+    console.log('[perf] private article performance refresh is withheld from this public workflow.');
+    return;
+  }
+
   console.log(`[perf] window: ${WINDOW_DAYS} days`);
 
   const articleMap = discoverArticles({ rootDir: ROOT });

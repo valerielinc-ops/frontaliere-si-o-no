@@ -139,7 +139,7 @@ describe('economic history migration', () => {
     }
   });
 
-  it('omits legacy L8 outcomes, diagnostics and durable records from fleet status', () => {
+  it('omits private L8 and L9 outcomes, diagnostics and durable records from fleet status', () => {
     const registry = JSON.parse(readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
     const privateEvidence = {
       outcome: { status: 'observed', independent: true, numerator: Number(amount), reason: diagnostic },
@@ -153,26 +153,36 @@ describe('economic history migration', () => {
     assertPrivate(JSON.stringify(l8));
     expect(l8.outcome).toMatchObject({ status: 'unmeasurable', independent: false });
     expect(l8.missingOutcome).toContain('private');
+
+    const [l9] = buildStatusRows(registry, {
+      L9: { run: { databaseId: '456', headSha: 'b'.repeat(40), conclusion: 'success' } },
+    }, { L9: {
+      evidence: privateEvidence,
+      canonicalHealth: privateEvidence,
+      canonicalLifecycle: { available: true, candidateIds: [diagnostic], sla: { nextDeadlineAt: diagnostic } },
+      canonicalError: diagnostic,
+    } }).filter((row: { loopId: string }) => row.loopId === 'L9');
+    assertPrivate(JSON.stringify(l9));
+    expect(l9.outcome).toMatchObject({ status: 'unmeasurable', independent: false });
+    expect(l9.missingOutcome).toContain('private');
   });
 
-  it('audits L9 PR inventory with a missing runner-local outcome export', () => {
+  it('keeps public L9 measurement status-only', () => {
     const source = workflowSource('loop-l9-employer-activation');
-    const { on, jobs } = YAML.parse(source);
-    const steps = jobs.audit.steps as Step[];
-    const checkout = steps.find(step => step.name === 'Checkout employer inputs');
-    const credentials = steps.find(step => step.name === 'Prepare read-only Firebase credentials');
-    const exportStep = steps.find(step => step.name === 'Export fresh L9 outcomes');
-    const audit = steps.find(step => step.name === 'Audit employer activation');
+    const { on, permissions, jobs } = YAML.parse(source);
 
-    expect(source).not.toContain('data/employer-funnel-outcomes.json');
-    expect(on.push.paths).toContain('data/employer-profiles.json');
-    expect(on.pull_request.paths).toContain('data/employer-profiles.json');
-    expect(checkout?.with?.['sparse-checkout']?.split('\n')).toContain('/data/employer-profiles.json');
-    expect(credentials?.if).toBe("github.event_name != 'pull_request'");
-    expect(exportStep?.if).toBe("github.event_name != 'pull_request'");
-    expect(exportStep?.run).toContain('--out "$RUNNER_TEMP/employer-funnel-outcomes.json"');
-    expect(audit?.if).toBeUndefined();
-    expect(audit?.run).toContain('--profiles data/employer-profiles.json --outcomes "$RUNNER_TEMP/employer-funnel-outcomes.json"');
-    expect(audit?.run).toContain('.quality == "unmeasurable" and .outcomeLedgerMissing == true and .profileInventoryComplete == true');
+    expect(on.schedule).toEqual([{ cron: '13 12 * * 1' }]);
+    expect(on.push).toEqual({
+      branches: ['main'],
+      paths: ['.github/workflows/loop-l9-employer-activation.yml'],
+    });
+    expect(on.workflow_dispatch).toEqual({});
+    expect(on.workflow_run).toBeUndefined();
+    expect(permissions).toEqual({ contents: 'read' });
+    expect(Object.keys(jobs)).toEqual(['status']);
+    expect(jobs.status.steps).toHaveLength(1);
+    expect(jobs.status.steps[0].run).toContain('GITHUB_STEP_SUMMARY');
+    expect(jobs.status.steps[0].run).toContain('measurement is withheld');
+    expect(source).not.toMatch(/actions\/checkout|secrets\.|issues:\s*write|upload-artifact|export-loop-outcomes|loop-l9-employer-activation\.mjs|data\/employer-profiles\.json/);
   });
 });
