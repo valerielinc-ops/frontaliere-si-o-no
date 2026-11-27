@@ -1634,7 +1634,8 @@
       "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-st-gallen-sankt-gallen",
       "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-st-gallen",
       "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-st-gallen-sankt-gallen",
-      "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-st-gallen-sankt-gallen"
+      "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-st-gallen-sankt-gallen",
+      "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1652,6 +1653,7 @@
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-zurich",
         "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-st-gallen-sankt-gallen",
         "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-st-gallen-sankt-gallen",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
         "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-st-gallen-sankt-gallen",
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-st-gallen"
       ],
@@ -1679,7 +1681,8 @@
         "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-st-gallen-sankt-gallen",
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-st-gallen",
         "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-st-gallen-sankt-gallen",
-        "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-st-gallen-sankt-gallen"
+        "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-st-gallen-sankt-gallen",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz"
       ],
       "fr": [
         "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-baden-aargau",
@@ -1769,7 +1772,15 @@
         "firstSeenAt": "2026-09-21T16:01:55.267Z",
         "title": "Einstieg ins Financial Consulting – Unabhängige Vermögensberatung"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch": "ZH"
+      },
+      "de": {
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz": "ZH"
+      }
+    }
   },
   {
     "slug": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
