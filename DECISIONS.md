@@ -53,3 +53,4 @@
 | 2026-09-05 | **Obiettivo `crawler-goal` RIATTIVATO** (#727 piano, #728 audit, corpus): rimesse in coda con `agent:fix-queued`; i numeri del 02-09 vanno rimisurati prima di lavorarci | istruzione diretta, sessione 05-09 |
 
 | 2026-11-26 | Migrazione dei workflow Codex Luna a GPT-6 Luna, mantenendo max e i tier di review high esistenti | Istruzione diretta dopo benchmark Frontaliere |
+| 2026-11-27 | Candidature assistite ferme su documenti o risposte del candidato: «Scadenza con chiusura». Dopo l avviso al proprietario un sollecito settimanale al candidato; a 30 giorni senza documenti l ordine si chiude (`withdrawn`, motivo `candidate_requirements_expired`) con un email al candidato, senza invio al datore. Rimborso solo dove il mandato lo prevede (v1/v2); nessun rimborso con v3 e per le figlie concierge. «Invia senza» (rimossa il 2026-10-02) NON si reintroduce | istruzione diretta, sessione 27-11 |

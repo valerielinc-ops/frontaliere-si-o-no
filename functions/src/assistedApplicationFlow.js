@@ -40,6 +40,13 @@ import { codexBrokerInfrastructureFailure } from './assistedApplicationTransport
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
 import { refundEndsAtStart } from './assistedApplicationConstants.js';
+import {
+  CANDIDATE_REQUIREMENTS_EXPIRED_EMAIL_KIND,
+  CANDIDATE_REQUIREMENTS_EXPIRED_REASON,
+  CANDIDATE_REQUIREMENTS_EXPIRED_REFUNDED_EMAIL_KIND,
+  CANDIDATE_WAIT_EXPIRY_AFTER_MS,
+  nextWeeklyReminderAt,
+} from './assistedApplicationCandidateWaitExpiry.js';
 import { isMatcherExperienceQuestion } from './assistedApplicationCvAnswers.js';
 import {
   REGION_UNSUPPORTED_HOLD,
@@ -73,7 +80,8 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
-export const CANDIDATE_STALE_ARCHIVE_AFTER_MS = 30 * 24 * 60 * 60 * 1000;
+// Owner decision 2026-11-27: the wait ends at 30 days (assistedApplicationCandidateWaitExpiry.js); weekly reminders until then.
+export const CANDIDATE_STALE_ARCHIVE_AFTER_MS = CANDIDATE_WAIT_EXPIRY_AFTER_MS;
 // Expedited dispatch for unpredicted ATS screening questions: 4 hours operator escalation
 // instead of 5 days of silent wait, preventing job posting expiration in Switzerland.
 export const URGENT_FIELD_DISPATCH_TIMEOUT_MS = 4 * 60 * 60 * 1000;
@@ -1106,9 +1114,13 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
           next.reminderAt = since + (HELD_REMINDERS_AFTER_MS[nudge] ?? HELD_OWNER_NOTICE_AFTER_MS);
           effects = [{ type: 'email', kind: 'candidate_questions_reminder', nudge, since }];
         } else {
-          // The order keeps waiting (nothing leaves without the answers): Valerie decides.
-          next.reminderAt = null;
-          effects = [{ type: 'email', kind: 'owner_candidate_silent', since, days: Math.max(1, Math.round((nowMs - since) / (24 * 60 * 60 * 1000))), nudges: HELD_REMINDERS_AFTER_MS.length }];
+          // Nothing leaves without the answers. Valerie hears of the silence once (nudge 3); from then on the
+          // candidate is reminded weekly, until the wait turns 30 days old and the sweep closes the order
+          // (candidate_stale_archive, owner decision 2026-11-27). The last reminder is the one before that day.
+          next.reminderAt = nextWeeklyReminderAt(since, nowMs);
+          effects = nudge === HELD_REMINDERS_AFTER_MS.length + 1
+            ? [{ type: 'email', kind: 'owner_candidate_silent', since, days: Math.max(1, Math.round((nowMs - since) / (24 * 60 * 60 * 1000))), nudges: HELD_REMINDERS_AFTER_MS.length }]
+            : [{ type: 'email', kind: 'candidate_questions_reminder', nudge, since }];
         }
         break;
       }
@@ -1284,14 +1296,35 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       effects = [{ type: 'mark_submitted', by: 'candidate' }];
       break;
     case 'candidate_stale_archive': {
-      if (!CANDIDATE_REMINDER_STATES.has(state)) return ignore('not_waiting_for_candidate');
-      if (current.candidateStaleArchivedAt) return ignore('already_archived');
+      // Owner decision 2026-11-27 («Scadenza con chiusura»): a wait for documents or answers only the candidate
+      // can give that reached 30 days closes the order, for every such wait. An order already marked
+      // `candidateStaleArchivedAt` by the earlier archive-only rule closes the same way. A review waiting only
+      // for its 12 h clock, or a portal step handed over (candidate_handoff), is not such a wait.
+      if (!waitsForCandidate(current)) return ignore('not_waiting_for_candidate');
       const since = candidateWaitSince(current);
-      if (!since || nowMs - since < CANDIDATE_STALE_ARCHIVE_AFTER_MS) return ignore('not_stale');
+      if (!since || nowMs - since < CANDIDATE_WAIT_EXPIRY_AFTER_MS) return ignore('not_stale');
+      // The posting's own closure on record closes it as the employer's withdrawal (the sweep applies that).
+      if (employerWithdrawalPending(current, order)) return ignore('employer_withdrawal_pending');
+      // Never close over a send that may have left, nor over holds the candidate has in fact resolved (the
+      // next tick releases those and the flow resumes as today).
+      if (sendMayHaveLeft) return ignore('send_may_have_left');
+      if (candidateHolds(flags).length === 0) return ignore('holds_resolved');
       next.candidateStaleArchivedAt = nowMs;
+      next.state = 'withdrawn';
+      next.withdrawnAt = nowMs;
+      next.withdrawnReason = CANDIDATE_REQUIREMENTS_EXPIRED_REASON;
+      next.withdrawalEvidence = { kind: CANDIDATE_REQUIREMENTS_EXPIRED_REASON, source: 'candidate_wait', at: since, heldBy: current.heldBy.slice(0, 20) };
       next.deadlineAt = null;
       next.reminderAt = null;
-      effects = [];
+      next.heldBy = [];
+      next.portalAutoRetryAt = null;
+      next.draftAutoRetryAt = null;
+      next.dispatchRecoveryAt = null;
+      // Refund only where the Terms the candidate accepted promise it (v1/v2); the existing refund effect
+      // sends the "refunded" e-mail once the refund went through. v3 and concierge children: e-mail only.
+      effects = refundEndsAtStart(order)
+        ? [{ type: 'email', kind: CANDIDATE_REQUIREMENTS_EXPIRED_EMAIL_KIND }]
+        : [{ type: 'refund', reason: CANDIDATE_REQUIREMENTS_EXPIRED_REASON, notify: CANDIDATE_REQUIREMENTS_EXPIRED_REFUNDED_EMAIL_KIND }];
       break;
     }
     case 'posting_closed': {

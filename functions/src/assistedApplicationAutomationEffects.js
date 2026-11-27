@@ -35,8 +35,15 @@ import { candidateWithEdits, questionsForCandidate, requiredPortalConsentAffirme
 import { withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { isPortalNeedsCandidateHold } from './lib/portalStopCodes.js';
 
+import {
+  CANDIDATE_REQUIREMENTS_EXPIRED_EMAIL_KIND,
+  CANDIDATE_REQUIREMENTS_EXPIRED_REFUNDED_EMAIL_KIND,
+} from './assistedApplicationCandidateWaitExpiry.js';
+
 const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
+// The wait for the candidate ran out (owner decision 2026-11-27): the order is closed, nothing left to open.
+const WAIT_EXPIRED_EMAILS = new Set([CANDIDATE_REQUIREMENTS_EXPIRED_EMAIL_KIND, CANDIDATE_REQUIREMENTS_EXPIRED_REFUNDED_EMAIL_KIND]);
 const CANDIDATE_REQUIREMENT_EMAILS = new Set(['candidate_action_needed', 'candidate_questions_reminder', 'owner_candidate_silent']);
 
 function formatPrice(order, locale) {
@@ -81,7 +88,7 @@ export function automationEmailKey(effect, flow) {
   if (effect.kind === 'owner_posting_expired') return `auto_owner_posting_expired_${effect.since}`;
   // One per order: the ad closed and was refunded, or the employer withdrew it (assistedApplicationEmployerWithdrawal.js).
   if (effect.kind === 'candidate_handoff' || effect.kind === 'candidate_handoff_reminder' || effect.kind === 'candidate_posting_closed'
-    || effect.kind === 'candidate_posting_withdrawn') {
+    || effect.kind === 'candidate_posting_withdrawn' || WAIT_EXPIRED_EMAILS.has(effect.kind)) {
     return `auto_${effect.kind}`;
   }
   return `auto_${effect.kind}_r${round}${effect.held ? '_held' : ''}`;
@@ -126,7 +133,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   }
   // Build inside sendOrderNotification's claim (it hands us the fresh order).
   let reviewUrl = '';
-  if (!isOwner && effect.kind !== 'candidate_posting_closed' && effect.kind !== 'candidate_posting_withdrawn') {
+  if (!isOwner && effect.kind !== 'candidate_posting_closed' && effect.kind !== 'candidate_posting_withdrawn'
+    && !WAIT_EXPIRED_EMAILS.has(effect.kind)) {
     reviewUrl = await reviewUrlFor(order, orderId, flow.round || 1, resolveOrderLocale(order), deps);
   }
   // The profile is not a full match: said in the review e-mail too, worded as the page words it
