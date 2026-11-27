@@ -1,0 +1,24 @@
+{
+  "companyKey": "atlascopco-com",
+  "companyName": "Atlas Copco (Schweiz) AG",
+  "companyHost": "atlascopco.com",
+  "verifiedEmployerDomain": "atlascopco.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.atlascopco.com/de-de/jobs?"
+  ],
+  "detailTemplate": "/de-de/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Unsere Werte und Kultur",
+    "Angebote und Wohlbefinden"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-27T14:53:38.131Z",
+  "candidateKey": "atlas-copco@landquart"
+}

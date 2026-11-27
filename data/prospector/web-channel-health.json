@@ -1,13 +1,5 @@
 [
   {
-    "at": "2026-09-29T12:15:30.297Z",
-    "collection": "CC-MAIN-2026-39",
-    "totalPages": 1196,
-    "pagesRead": 20,
-    "employers": 39,
-    "outage": false
-  },
-  {
     "at": "2026-09-30T12:42:40.884Z",
     "collection": "CC-MAIN-2026-39",
     "totalPages": 1196,
@@ -6401,6 +6393,34 @@
       }
     ],
     "coverageRate": 0.0983,
+    "outage": false
+  },
+  {
+    "at": "2026-11-27T12:48:20.407Z",
+    "collection": "CC-MAIN-2026-47",
+    "totalPages": 5981,
+    "pagesRead": 37,
+    "employers": 78,
+    "outcome": "partial",
+    "errorCode": "http_400",
+    "failedPages": [
+      {
+        "page": 1341,
+        "outcome": "unavailable",
+        "errorCode": "http_400"
+      },
+      {
+        "page": 1788,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 3278,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      }
+    ],
+    "coverageRate": 0.0062,
     "outage": false
   }
 ]

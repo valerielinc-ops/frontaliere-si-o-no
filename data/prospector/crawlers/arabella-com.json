@@ -1,0 +1,26 @@
+{
+  "companyKey": "arabella-com",
+  "companyName": "Grand Hotel Locarno",
+  "companyHost": "hotelcareer.de",
+  "verifiedEmployerDomain": "arabella.com",
+  "platform": "hotelcareer.de",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.de/jobs/arabella-alpenhotel-am-spitzingsee-a-tribute-portfolio-hotel-1509"
+  ],
+  "detailTemplate": "/jobs/arabella-alpenhotel-am-spitzingsee-a-tribute-portfolio-hotel-1509/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Auszubildende Hotelfachmann / Hotelfachfrau (m/w/d) Koch / Köchin (m/w/d) und Fachmann/frau für Restaurants und Veranstaltungsgastronomie (m/w/d) (m/w/d)",
+    "Chef de Partie / Mitarbeiter Küche (m/w/d)",
+    "Restaurantleiter (m/w/d)",
+    "Zimmermädchen / Roomboy (m/w/d)"
+  ],
+  "canton": "TI",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-27T14:51:48.902Z",
+  "candidateKey": "grand-hotel-locarno@muralto"
+}
