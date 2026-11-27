@@ -21,6 +21,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const EXPIRED_SLICES_RELATIVE_DIR = path.join('data', 'jobs', 'expired', 'by-crawler');
 const ASSEMBLER = fileURLToPath(new URL('../assemble-jobs-dataset.mjs', import.meta.url));
@@ -89,6 +90,6 @@ export async function runPreservingExpiredSlices({
   }
 }
 
-if (process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   process.exitCode = await runPreservingExpiredSlices({ args: [ASSEMBLER, ...process.argv.slice(2)] });
 }
