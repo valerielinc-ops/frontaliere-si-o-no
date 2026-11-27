@@ -454,6 +454,15 @@ async function fetchJsonWithRetry(url, options = {}) {
     // cannot preserve Workday's POST JSON contract.
     const retryBudgetExhausted = err instanceof WorkdayApiError
       && isRetryBudgetExhaustedError(err);
+    // Contract (#19723, amended): no UNBOUNDED repetition of 429s on the same
+    // egress. A 429 therefore never takes this inline fallback; the only browser
+    // path for a 429 is rescueThroughBrowser in createWorkdayRequestContext,
+    // which is allowed solely with the circuit open, sequential per tenant,
+    // within a finite budget, and stops at the first browser 429. Evidence that
+    // the browser is not throttled whenever the direct stack is: run
+    // 45924044578 (corpus repo), `Workday listing recovered through the browser
+    // transport` for otis/ferring/huntsman/bossard/alcon right after direct 429s
+    // from the same runner IP.
     const rateLimited = Number(err?.statusCode ?? err?.status) === 429;
     if (browserFallback && !rateLimited && (connectionLevelFailure || retryBudgetExhausted)) {
       try {
@@ -593,6 +602,13 @@ async function withRunnerWorkdayEgress(operation, {
   }
 }
 
+// Contract amendment of #19723: the old rule read "no browser fallback after an
+// exhausted 429 on the same egress"; the rule is now "no unbounded repetition of
+// 429s on the same egress". Browser rescue stays admitted only with this circuit
+// open, strictly sequential per tenant, within the finite budgets below, and
+// halted at the first browser 429 (empirical basis: run 45924044578, corpus
+// repo, listings recovered through the browser right after direct 429s from the
+// same runner IP).
 // Two consecutive 429s prove that changing only the Workday URL cannot clear
 // a tenant/egress limit. With the existing two-minute Retry-After cap, this
 // keeps the worst bounded exit below five minutes (2 x 120s).

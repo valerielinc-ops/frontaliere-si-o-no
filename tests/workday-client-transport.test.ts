@@ -611,7 +611,7 @@ describe('Workday JSON transport', () => {
     }
   });
 
-  it('opens a bounded circuit for 429 without Retry-After and never repeats via browser egress', async () => {
+  it('opens a bounded circuit for 429 without Retry-After and gives a caller-supplied transport no unbounded or implicit detail rescue (#19723 amended: no unbounded 429 repetition)', async () => {
     vi.useFakeTimers();
     const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
     const browserFallback = vi.fn().mockResolvedValue({ recovered: true });
