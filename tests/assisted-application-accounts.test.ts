@@ -77,6 +77,25 @@ describe('portal account pages', () => {
     expect(hasExistingAccountPrompt({ text: 'This email is already registered?' })).toBe(true);
   });
 
+  it('recognizes Umantis duplicate value errors on email+password forms without falsely matching unrelated fields', () => {
+    expect(hasExistingAccountPrompt({
+      errors: ['Der eingegebene Wert ist bereits im System vorhanden. E-Mail-Adresse/Login'],
+    })).toBe(true);
+    expect(hasExistingAccountPrompt({
+      errors: ['Der eingegebene Wert ist bereits im System vorhanden.'],
+      fields: [
+        { id: 'f4', kind: 'text', inputType: 'text', label: 'E-Mail-Adresse/Login', name: 'form_data11', autocomplete: '' },
+        { id: 'f5', kind: 'text', inputType: 'password', label: 'Passwort', name: 'form_data14', autocomplete: '' },
+      ],
+    })).toBe(true);
+    expect(hasExistingAccountPrompt({
+      errors: ['Der eingegebene Wert ist bereits im System vorhanden.'],
+      fields: [
+        { id: 'f1', kind: 'text', inputType: 'text', label: 'Referenznummer', name: 'ref_no', autocomplete: '' },
+      ],
+    })).toBe(false);
+  });
+
   it.each([
     'Already have an account? Sign in to continue',
     'Jetzt anmelden',

@@ -1551,6 +1551,28 @@ describe('assisted portal question batching', () => {
       'Dieser Login ist bereits im System vorhanden.',
     ]);
   });
+
+  it('drops unavailable extra upload actions on optional file fields and asks only when required', async () => {
+    const optionalExtra = { id: 'f15', kind: 'file', label: 'form_data25', required: false };
+    const requiredExtra = { id: 'f16', kind: 'file', label: 'Arbeitszeugnisse', required: true };
+    const plan = await planPage({
+      snapshot: { url: 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1', fields: [optionalExtra, requiredExtra], buttons: [] },
+      candidate: {
+        identity: {}, profile: {}, answers: {},
+        documents: { cv: true, cover_letter: true, extra: [{ slot: 'photo', label: 'Foto' }] },
+      },
+      candidateLocale: 'it',
+      codex: async () => ({
+        actions: [
+          { fieldId: 'f15', action: 'upload', value: '', document: 'extra_1', source: 'documents', evidence: '' },
+          { fieldId: 'f16', action: 'upload', value: '', document: 'extra_2', source: 'documents', evidence: '' },
+        ],
+        missingRequired: [],
+      }),
+    });
+    expect(plan.actions.some((a: any) => a.action === 'upload')).toBe(false);
+    expect(plan.missingRequired.map((q: any) => q.fieldId)).toEqual(['f16']);
+  });
 });
 
 function elementValue(window: any, selector: string) {
