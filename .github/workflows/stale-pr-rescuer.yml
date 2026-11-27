@@ -56,6 +56,14 @@ on:
         description: 'Solo log, niente label/commenti'
         type: boolean
         default: false
+      pr:
+        description: 'Limita il dispatch a una sola PR (richiede expected_head_sha)'
+        required: false
+        type: string
+      expected_head_sha:
+        description: 'HEAD esatta della PR; un mismatch termina senza mutazioni'
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -193,6 +201,8 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REPO: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
+          TARGET_PR: ${{ github.event.inputs.pr }}
+          EXPECTED_HEAD_SHA: ${{ github.event.inputs.expected_head_sha }}
           CI_CHECK_NAME: 'vitest (unit + integration)'
           LEGACY_CI_CHECK_NAME: 'vitest execution'
         run: |
@@ -207,11 +217,28 @@ jobs:
           # quelle che questo rescuer deve recuperare. Se una pagina API non
           # è leggibile, il job fallisce e il cron ritenta: non si dichiara
           # verde lasciando una PR invisibile.
-          if ! prs=$("$TRUSTED_GH_BIN" api --paginate "repos/$REPO/pulls?state=open&per_page=100" \
-            --jq '.[] | {number, headRefName: .head.ref, headRefOid: .head.sha, updatedAt: .updated_at, labels: [.labels[] | {name}], isDraft: .draft}' \
-            | jq -s '.'); then
-            echo "::error::Query PR aperte fallita o non valida: scan stale non eseguito." >&2
-            exit 1
+          if [ -n "${TARGET_PR:-}" ] || [ -n "${EXPECTED_HEAD_SHA:-}" ]; then
+            if ! [[ "${TARGET_PR:-}" =~ ^[1-9][0-9]*$ ]] || ! [[ "${EXPECTED_HEAD_SHA:-}" =~ ^[a-f0-9]{40}$ ]]; then
+              echo "::error::Target incompleto o non valida; scan non eseguito." >&2
+              exit 1
+            fi
+            if ! target=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$TARGET_PR" --jq '{number, state, headRefName: .head.ref, headRefOid: .head.sha, updatedAt: .updated_at, labels: [.labels[] | {name}], isDraft: .draft, baseRefName: .base.ref, mergeableState: .mergeable_state}'); then
+              echo "::error::Lettura della PR target fallita; nessuno scan o mutazione." >&2
+              exit 1
+            fi
+            if ! printf '%s' "$target" | jq -e --argjson number "$TARGET_PR" --arg sha "$EXPECTED_HEAD_SHA" \
+              'type == "object" and .number == $number and .state == "open" and .headRefOid == $sha' >/dev/null; then
+              echo "::notice::La PR target e la HEAD non coincidono piu' con la diagnosi; nessuna mutazione."
+              exit 0
+            fi
+            prs=$(printf '%s\n' "$target" | jq -cs '.')
+          else
+            if ! prs=$("$TRUSTED_GH_BIN" api --paginate "repos/$REPO/pulls?state=open&per_page=100" \
+              --jq '.[] | {number, headRefName: .head.ref, headRefOid: .head.sha, updatedAt: .updated_at, labels: [.labels[] | {name}], isDraft: .draft}' \
+              | jq -s '.'); then
+              echo "::error::Query PR aperte fallita o non valida: scan stale non eseguito." >&2
+              exit 1
+            fi
           fi
 
           echo "$prs" | jq -c '.[]' | while read -r pr; do
@@ -458,6 +485,7 @@ jobs:
             # La copia bash deve fallire chiuso se PCRE rifiuta `(*UTF)`: exit 1
             # significa solo «nessun marker», exit >1 è un errore del guard.
             IMPORTANT_MARKER_STATUS=1
+            # shellcheck disable=SC2016 # il PCRE contiene anchor e variabili letterali
             if grep -qP '(*UTF)^(?!(?=(?:[^\x60]*\x60[^\x60]*\x60)*[^\x60]*$)(?:[^\x60«🟡🟢❓]|\x60[^\x60]*\x60|«[^»]*»|«(?![^»]*»))*[🟡🟢❓](?:(?![.!?;])(?:[^\x60«]|\x60[^\x60]*\x60|«[^»]*»|«(?![^»]*»)))*🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-])(?:(?:(?=(?:[^`]*`[^`]*`)*[^`]*`[^`]*$)(?:(?:[^«🟡🟢❓]|«[^»]*»|«(?![^»]*»))*|(?:[^«]|«[^»]*»|«(?![^»]*»))*[🟡🟢❓](?:[^«]|«[^»]*»|«(?![^»]*»))*|(?:[^`«🟡🟢❓]|`[^`]*`|«[^»]*»|«(?![^»]*»))*)|(?:(?:[^«🟡🟢❓]|«[^»]*»|«(?![^»]*»))*|(?:[^`«]|`[^`]*`|«[^»]*»|«(?![^»]*»)|`(?![^`]*`))*[🟡🟢❓](?:[^`«]|`[^`]*`|«[^»]*»|«(?![^»]*»)|`(?![^`]*`))*|(?:[^`«🟡🟢❓]|`[^`]*`|«[^»]*»|«(?![^»]*»))*)(?<!\s`)(?<!^`))🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:(?:[-*+>]|\d+[.)])[ \t]*){0,3}(?:`[^`]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?)(?:[ \t]*[,;][ \t]*(?:`[^`]*:L?\d+(?:[-–]\d+)?`?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?))*:[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=[ \t]+[^ \t\r]))' <<< "$LAST_BODY"; then
               IMPORTANT_MARKER_STATUS=0
             else

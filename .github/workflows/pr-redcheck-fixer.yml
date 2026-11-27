@@ -38,6 +38,9 @@ on:
       run_id:
         description: 'Run tests esatta emessa dal producer trusted (vuoto nel recupero manuale)'
         required: false
+      expected_head_sha:
+        description: 'HEAD esatta osservata dal dispatcher (il mismatch termina senza azione)'
+        required: false
 
 # Serializzato per PR. La cancellazione evita due writer body concorrenti; il
 # wrapper esegue comunque il CAS body+post-read prima di una scrittura.
@@ -76,6 +79,7 @@ jobs:
           REPO: ${{ github.repository }}
           DISPATCH_PR: ${{ github.event.inputs.pr }}
           DISPATCH_RUN_ID: ${{ github.event.inputs.run_id }}
+          DISPATCH_EXPECTED_HEAD_SHA: ${{ github.event.inputs.expected_head_sha }}
         run: |
           set -uo pipefail
           # GitHub API calls are part of the bounded preflight contract. A
@@ -129,6 +133,15 @@ jobs:
           author=$(printf '%s' "$pr" | jq -r '.user.login')
           head_ref=$(printf '%s' "$pr" | jq -r '.head.ref')
           head_sha=$(printf '%s' "$pr" | jq -r '.head.sha')
+          if [ -n "${DISPATCH_EXPECTED_HEAD_SHA:-}" ]; then
+            if ! [[ "$DISPATCH_EXPECTED_HEAD_SHA" =~ ^[a-f0-9]{40}$ ]]; then
+              echo "::error::SHA target non valida; stop fail-closed."
+              exit 1
+            fi
+            if [ "$head_sha" != "$DISPATCH_EXPECTED_HEAD_SHA" ]; then
+              skip "HEAD della PR cambiata dopo la diagnosi; target obsoleto, nessuna azione."
+            fi
+          fi
           review_revision=$(printf '%s' "$pr" | node -e 'const crypto=require("node:crypto");let s="";process.stdin.on("data",c=>s+=c).on("end",()=>{const body=JSON.parse(s).body ?? "";process.stdout.write("body:"+crypto.createHash("sha256").update(body+"\n","utf8").digest("hex"));});')
           has_autofix=$(printf '%s' "$pr" | jq -r 'any(.labels[]?.name; . == "agent:autofix")')
 
