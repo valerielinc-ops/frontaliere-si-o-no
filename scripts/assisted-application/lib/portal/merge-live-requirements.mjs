@@ -92,7 +92,11 @@ const pick = (source, keys) => Object.fromEntries(keys.map(key => [key, source?.
 // flow.documents) do not make a discovered question obsolete.
 const ORDER_CONTEXT_KEYS = ['jobUrl', 'cvStorageKey', 'paymentStatus', 'submissionStatus', 'refundStatus', 'withdrawnAt', 'retentionPurgedAt'];
 const FLOW_CONTEXT_KEYS = ['state', 'round', 'executionId', 'answers', 'questionAnswers', 'questionAnswerSnapshots', 'formOverrides', 'portalRecoveryVersion'];
-const flowContext = flow => ({ ...pick(flow, FLOW_CONTEXT_KEYS), dispatch: pick(flow?.dispatch, ['mode', 'round', 'sourceSha']) });
+// Remote execution claims move these two counters; only an actor that attests its own generation in the
+// transaction (validateExecutionInTransaction) may ignore them, any other writer must see them unchanged.
+const REMOTE_COUNTER_KEYS = ['remoteExecutionRound', 'remoteExecutionAttempts'];
+const flowContext = (flow, withCounters) => ({ ...pick(flow, FLOW_CONTEXT_KEYS), ...(withCounters ? pick(flow, REMOTE_COUNTER_KEYS) : {}),
+  dispatch: pick(flow?.dispatch, ['mode', 'round', 'sourceSha']) });
 const DRAFT_CONTEXT_KEYS = ['status', 'round', 'questions', 'requiredDocuments', 'approval', 'job', 'channel'];
 const documentFileKeys = document => (Array.isArray(document?.files) ? document.files : []).map(file => file?.key ?? JSON.stringify(canon(file)));
 // Files may only be added (by this run); a removed or replaced one is a real change.
@@ -139,7 +143,7 @@ export async function persistLivePortalRequirementsDetailed({ db, orderRef, expe
       && (value?.state === 'sent' || isUnconfirmedSubmission(value)
         || (value?.state === 'sending' && value?.channel === 'email')))) return 'submission_started';
     if (!same(pick(order, ORDER_CONTEXT_KEYS), pick(expected.order, ORDER_CONTEXT_KEYS))) return 'order_changed';
-    if (!same(flowContext(flow), flowContext(expected.flow))
+    if (!same(flowContext(flow, !validateExecutionInTransaction), flowContext(expected.flow, !validateExecutionInTransaction))
       || !documentsStillPresent(expected.flow?.documents, flow?.documents)) return 'flow_changed';
     if (!same(pick(draft, DRAFT_CONTEXT_KEYS), pick(expected.draft, DRAFT_CONTEXT_KEYS))) return 'draft_changed';
     if (Object.keys(patch).length) tx.set(draftRef, patch, { merge: true });
