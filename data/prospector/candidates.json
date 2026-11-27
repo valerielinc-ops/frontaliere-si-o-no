@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-27T15:37:12.565Z",
+  "updatedAt": "2026-11-27T15:38:59.569Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -351199,12 +351199,12 @@
     },
     "cogestim@lausanne": {
       "key": "cogestim@lausanne",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:30:49.607Z",
-      "updatedAt": "2026-11-19T15:02:08.554Z",
+      "updatedAt": "2026-11-27T15:38:59.447Z",
       "name": "COGESTIM SA",
       "city": "Lausanne",
       "zip": "1003",
@@ -351512,11 +351512,11 @@
       "promotionPr": "19361",
       "promotionBranch": "prospector/promote-2026-11-18",
       "promotedAt": "2026-11-18T16:39:19Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-27T09:22:41.487Z",
+      "firstCrawlerJobCount": 1
     },
     "cogestra.ch": {
       "key": "cogestra.ch",
@@ -486940,12 +486940,12 @@
     },
     "eqe@olten": {
       "key": "eqe@olten",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:27:46.957Z",
-      "updatedAt": "2026-11-06T13:39:11.603Z",
+      "updatedAt": "2026-11-27T15:38:59.447Z",
       "name": "eqe AG",
       "city": "Olten",
       "zip": "4600",
@@ -487380,11 +487380,11 @@
       "promotionPr": "16793",
       "promotionBranch": "prospector/promote-2026-11-03",
       "promotedAt": "2026-11-03T21:57:58Z",
-      "firstCrawlerOutputStatus": "missing",
-      "firstCrawlerOutputAttention": true,
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAt": "2026-11-27T09:53:30.260Z",
+      "firstCrawlerJobCount": 1,
       "firstCrawlerOutputAttentionAt": "2026-11-06T13:39:11.572Z"
     },
     "eqipe.ch": {
@@ -581227,12 +581227,12 @@
     },
     "frutiger": {
       "key": "frutiger",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-28T15:29:00.770Z",
-      "updatedAt": "2026-11-20T15:46:28.718Z",
+      "updatedAt": "2026-11-27T15:38:59.449Z",
       "name": "Frutiger AG",
       "city": "",
       "zip": "",
@@ -581679,7 +581679,13 @@
         }
       ],
       "promotionPr": "19641",
-      "promotionBranch": "prospector/promote-2026-11-20"
+      "promotionBranch": "prospector/promote-2026-11-20",
+      "promotedAt": "2026-11-20T17:16:13Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-27T09:56:37.394Z",
+      "firstCrawlerJobCount": 14
     },
     "frutiger-schreinerei.ch": {
       "key": "frutiger-schreinerei.ch",
@@ -1263076,12 +1263082,12 @@
     },
     "restaurant-hotel-vatel@martigny": {
       "key": "restaurant-hotel-vatel@martigny",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-25T09:07:00.491Z",
-      "updatedAt": "2026-11-20T15:43:12.996Z",
+      "updatedAt": "2026-11-27T15:38:59.452Z",
       "name": "Restaurant & Hôtel Vatel",
       "city": "Martigny",
       "zip": "1920",
@@ -1263570,11 +1263576,11 @@
       "promotionPr": "19499",
       "promotionBranch": "prospector/promote-2026-11-19",
       "promotedAt": "2026-11-20T13:36:08Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-27T09:23:08.987Z",
+      "firstCrawlerJobCount": 20
     },
     "restaurant-hotelbrueggli.ch": {
       "key": "restaurant-hotelbrueggli.ch",
@@ -1402658,7 +1402664,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-20T15:43:12.997Z",
+      "updatedAt": "2026-11-27T15:38:59.452Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1402879,7 +1402885,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-19T21:41:18.225Z",
+      "firstCrawlerOutputAt": "2026-11-27T09:53:26.267Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
