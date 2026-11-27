@@ -32,7 +32,8 @@
         "mehr-erfahren-holmes-place-oberrieden"
       ],
       "de": [
-        "mehr-erfahren-holmes-place-oberrieden"
+        "mehr-erfahren-holmes-place-oberrieden",
+        "sich-bewerben-holmes-place-oberrieden"
       ]
     },
     "postalCode": "8942",
@@ -42,6 +43,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.holmesplace.ch/de/karriere",
-    "firstSeenAt": "2026-09-19T23:03:20.355Z"
+    "firstSeenAt": "2026-09-19T23:03:20.355Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mehr-erfahren-holmes-place-oberrieden": "ZH"
+      },
+      "de": {
+        "sich-bewerben-holmes-place-oberrieden": "ZH",
+        "mehr-erfahren-holmes-place-oberrieden": "ZH"
+      }
+    }
   }
 ]

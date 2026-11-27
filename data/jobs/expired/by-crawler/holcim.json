@@ -43,7 +43,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/birsfelden-sachbearbeiterin-customer-&-sales-support-%28birsfelden%29-bl-4127/1374984657",
-    "firstSeenAt": "2026-10-15T21:22:28.696Z"
+    "firstSeenAt": "2026-10-15T21:22:28.696Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-customer-amp-sales-support-birsfelden-holcim-ch": "BL"
+      }
+    }
   },
   {
     "id": "holcim-be91586a04ec",
@@ -99,7 +104,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/m%c3%bclligen-sachbearbeiterin-customer-&-sales-support-%28m%c3%bclligen%29-ag-5243/1374161257",
-    "firstSeenAt": "2026-10-07T09:37:20.491Z"
+    "firstSeenAt": "2026-10-07T09:37:20.491Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiter-in-customer-amp-sales-support-holcim-ch": "AG",
+        "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen": "AG",
+        "sachbearbeiter-in-customer-amp-sales-support-mulligen-holcim-ch": "AG"
+      },
+      "en": {
+        "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen": "AG"
+      },
+      "fr": {
+        "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen": "AG"
+      }
+    }
   },
   {
     "id": "holcim-7d9c9ca87d5e",
@@ -225,7 +243,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/job/zug-head-of-external-communications-6300/1376369457",
-    "firstSeenAt": "2026-10-31T09:36:39.889Z"
+    "firstSeenAt": "2026-10-31T09:36:39.889Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "head-of-external-communications-holcim-ch": "ZG"
+      },
+      "de": {
+        "head-of-external-communications-holcim-ch": "ZG"
+      },
+      "fr": {
+        "head-of-external-communications-holcim-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "electrical-and-automation-ingegnere-holcim-group-zug",
@@ -275,7 +305,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/job/zug-electrical-and-automation-engineer-6300/1372834057",
-    "firstSeenAt": "2026-09-23T23:45:52.692Z"
+    "firstSeenAt": "2026-09-23T23:45:52.692Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "electrical-and-automation-engineer-holcim-ch": "ZG"
+      },
+      "de": {
+        "electrical-and-automation-engineer-holcim-ch": "ZG"
+      },
+      "fr": {
+        "electrical-and-automation-engineer-holcim-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "driver-per-il-dispositivo-holcim-group-eclepens",
@@ -325,7 +367,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/ecl%c3%a9pens-machiniste-conducteur%c2%b7trice-de-dumper-vd-1312/1375857857",
-    "firstSeenAt": "2026-10-26T21:57:12.235Z"
+    "firstSeenAt": "2026-10-26T21:57:12.235Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "machiniste-conducteur-trice-de-dumper-holcim-ch": "VD"
+      },
+      "en": {
+        "machiniste-conducteur-trice-de-dumper-holcim-ch": "VD"
+      },
+      "de": {
+        "machiniste-conducteur-trice-de-dumper-holcim-ch": "VD"
+      }
+    }
   },
   {
     "slug": "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-untervaz",
@@ -407,7 +461,26 @@
         "firstSeenAt": "2026-07-09T22:38:53.396Z",
         "title": "Baumaschinenführer:in im Steinbruch 80-100%"
       }
-    ]
+    ],
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch": "GR",
+        "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz": "GR",
+        "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch": "GR",
+        "construction-machine-operator-in-the-quarry-60-100-holcim-group-untervaz": "GR",
+        "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz": "GR",
+        "baumaschinenfuhrer-in-holcim-ch-2": "GR",
+        "operateur-de-machines-de-construction-en-holcim-group-untervaz-f583ee": "GR",
+        "construction-machinery-operator-in-holcim-group-untervaz-f583ee": "GR",
+        "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz-f583ee": "GR",
+        "baumaschinenfuhrer-in-holcim-group-untervaz": "GR",
+        "operateur-de-machines-de-construction-en-holcim-group-untervaz": "GR",
+        "baumaschinenfuhrer-in-holcim-ch": "GR",
+        "construction-machinery-operator-in-holcim-group-untervaz": "GR",
+        "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz": "GR"
+      }
+    }
   },
   {
     "slug": "operatore-operatrice-di-impianto-di-lavaggio-del-suolo-80-100-holcim-group-niederstetten",
@@ -459,7 +532,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/niederstetten-bodenwaschanlagef%c3%bchrerin-80-100-st_-9249/1375174657",
-    "firstSeenAt": "2026-10-19T09:23:23.180Z"
+    "firstSeenAt": "2026-10-19T09:23:23.180Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bodenwaschanlagefuhrer-in-80-100-holcim-ch": "SG",
+        "bodenwaschanlagefuhrer-in-80-100-holcim-group-niederstetten": "SG"
+      },
+      "en": {
+        "bodenwaschanlagefuhrer-in-80-100-holcim-group-niederstetten": "SG"
+      },
+      "fr": {
+        "bodenwaschanlagefuhrer-in-80-100-holcim-group-niederstetten": "SG"
+      }
+    }
   },
   {
     "slug": "autista-ghiaia-calcestruzzo-e-riciclaggio-80-100-kirchberg-holcim-group-kirchberg-0f12ae88",
@@ -633,12 +719,6 @@
     "expiredAt": "2026-11-10T21:32:33.155Z",
     "previousSlugsByLocale": {
       "it": [
-        "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf-091617d9",
-        "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf-6b7afda9",
-        "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-8b49b1b8",
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e",
-        "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-1234a7f3",
-        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch-4cdb7c6a",
         "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf-5a7ac4c2",
         "h-s-coordinator-in-kies-beton-80-100-holcim-group-oberdorf-0385a63b",
         "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf-5dd874d0",
@@ -654,7 +734,17 @@
         "h-s-coordinator-in-kies-beton-80-100-holcim-group-oberdorf-e0df84cb",
         "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-0fb759bc",
         "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf",
-        "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf"
+        "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf",
+        "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
+        "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf",
+        "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf-091617d9",
+        "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf-6b7afda9",
+        "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-8b49b1b8",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e",
+        "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-1234a7f3",
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch-4cdb7c6a"
       ],
       "en": [
         "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf-cf0884af",
@@ -662,7 +752,6 @@
         "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf-0818aeb6",
         "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf-43746f0f",
         "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf-1ea2d231",
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
         "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
         "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
@@ -672,7 +761,8 @@
         "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-5aec02c8",
         "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
-        "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf"
+        "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e"
       ],
       "fr": [
         "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf-b929b4c7",
@@ -680,7 +770,6 @@
         "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf-72f17ff1",
         "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf-76046665",
         "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf-ac52599f",
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
         "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
         "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
@@ -690,7 +779,8 @@
         "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-5aec02c8",
         "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
-        "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf"
+        "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e"
       ],
       "de": [
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf",
@@ -703,7 +793,8 @@
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch-44a60aad",
         "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
         "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf",
-        "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf"
+        "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch"
       ]
     },
     "postalCode": "6370",
@@ -776,8 +867,44 @@
       "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-4f88d560",
       "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-9cb5093b",
       "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch-f9305e38",
-      "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf-a74d9540"
-    ]
+      "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf-a74d9540",
+      "coordinator-occupational-safety-health-protection-kies-beton-80-100-holcim-group-oberdorf",
+      "coordinateur-rice-de-la-securite-au-travail-protection-de-la-sante-kies-beton-80-100-holcim-group-oberdorf",
+      "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
+      "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
+      "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
+      "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf",
+      "h-s-coordinator-in-kies-beton-80-100-holcim-group-oberdorf",
+      "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
+      "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf",
+      "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf",
+      "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf"
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "coordinatore-nella-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf": "NW",
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch": "NW",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch": "NW",
+        "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf": "NW",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e": "NW"
+      },
+      "en": {
+        "h-s-coordinator-in-kies-beton-80-100-holcim-group-oberdorf": "NW",
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch": "NW",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e": "NW"
+      },
+      "de": {
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch": "NW",
+        "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf": "NW",
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch": "NW",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf": "NW",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e": "NW"
+      },
+      "fr": {
+        "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf": "NW",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf-2612e70e": "NW"
+      }
+    }
   },
   {
     "slug": "impiegato-clienti-e-supporto-vendite-holcim-group-mulligen-b1592925",
@@ -1248,7 +1375,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/job/zug-global-category-manager-production-services-6300/1373697257",
-    "firstSeenAt": "2026-10-01T21:20:03.646Z"
+    "firstSeenAt": "2026-10-01T21:20:03.646Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "global-category-manager-production-services-holcim-ch": "ZG"
+      },
+      "de": {
+        "global-category-manager-produktionsdienstleistungen-holcim-group-zug": "ZG"
+      },
+      "fr": {
+        "global-category-manager-production-services-holcim-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "operazioni-manager-concrete-regione-vallese-holcim-group-sierre-bdcf7bd1",
@@ -2350,7 +2489,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/untervaz-operational-technology-manager-gr-7204/1376520157",
-    "firstSeenAt": "2026-11-04T09:27:08.206Z"
+    "firstSeenAt": "2026-11-04T09:27:08.206Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operational-technology-manager-holcim-ch": "GR"
+      },
+      "fr": {
+        "operational-technology-manager-holcim-ch": "GR"
+      }
+    }
   },
   {
     "slug": "impiegato-clienti-e-supporto-vendite-holcim-group-mulligen-5fcb52ea",
@@ -2768,7 +2916,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/job/zug-operational-technology-engineer-6300/1373113757",
-    "firstSeenAt": "2026-09-25T14:54:07.627Z"
+    "firstSeenAt": "2026-09-25T14:54:07.627Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operational-technology-engineer-holcim-ch": "ZG"
+      },
+      "de": {
+        "operational-technology-engineer-holcim-ch": "ZG"
+      },
+      "fr": {
+        "operational-technology-engineer-holcim-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "ricerca-di-dati-di-processo-holcim-group-zug",
@@ -2818,7 +2978,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/job/zug-process-data-scientist-6300/1373112557",
-    "firstSeenAt": "2026-09-25T14:54:06.129Z"
+    "firstSeenAt": "2026-09-25T14:54:06.129Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "process-data-scientist-holcim-ch": "ZG"
+      },
+      "de": {
+        "process-data-scientist-holcim-ch": "ZG"
+      },
+      "fr": {
+        "process-data-scientist-holcim-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "autista-di-camion-c-e-holcim-group-mulligen",
@@ -2870,7 +3042,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/m%c3%bclligen-lastwagenf%c3%bchrerin-ce-ag-5243/1374984757",
-    "firstSeenAt": "2026-10-15T21:22:27.247Z"
+    "firstSeenAt": "2026-10-15T21:22:27.247Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lastwagenfuhrer-in-c-e-holcim-ch": "AG",
+        "lastwagenfuhrer-in-c-e-holcim-group-mulligen": "AG"
+      },
+      "en": {
+        "lastwagenfuhrer-in-c-e-holcim-group-mulligen": "AG"
+      },
+      "fr": {
+        "lastwagenfuhrer-in-c-e-holcim-group-mulligen": "AG"
+      }
+    }
   },
   {
     "slug": "autista-ghiaia-calcestruzzo-e-riciclaggio-80-100-kirchberg-holcim-group-kirchberg-f99711f4",
@@ -3084,7 +3269,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/ingenbohl-brunnen-allrounderin-sz-6440/1365697857",
-    "firstSeenAt": "2026-07-08T22:25:53.801Z"
+    "firstSeenAt": "2026-07-08T22:25:53.801Z",
+    "canton": "SZ",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "allrounder-in-holcim-ch": "SZ"
+      },
+      "de": {
+        "allrounder-in-holcim-group-ingenbohl-brunnen": "SZ"
+      }
+    }
   },
   {
     "slug": "sachbearbeiter-in-customer-sales-support-birsfelden-holcim-group-birsfelden-1642ed4f",
@@ -4041,13 +4235,16 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "collaborateur-trice-expedition-holcim-ch"
+        "collaborateur-trice-expedition-holcim-ch",
+        "collaborateur-trice-expedition-amp-ensachage-holcim-ch"
       ],
       "en": [
-        "collaborateur-trice-expedition-holcim-group-eclepens"
+        "collaborateur-trice-expedition-holcim-group-eclepens",
+        "collaborateur-trice-expedition-amp-ensachage-holcim-ch"
       ],
       "de": [
-        "collaborateur-trice-expedition-holcim-group-eclepens"
+        "collaborateur-trice-expedition-holcim-group-eclepens",
+        "collaborateur-trice-expedition-amp-ensachage-holcim-ch"
       ],
       "fr": [
         "collaborateur-trice-expedition-holcim-ch",
@@ -4060,7 +4257,26 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/ecl%c3%a9pens-collaborateur%c2%b7trice-exp%c3%a9dition-vd-1312/1371669657",
-    "firstSeenAt": "2026-09-09T13:55:00.719Z"
+    "firstSeenAt": "2026-09-09T13:55:00.719Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-trice-expedition-holcim-ch": "VD",
+        "collaborateur-trice-expedition-amp-ensachage-holcim-ch": "VD"
+      },
+      "en": {
+        "collaborateur-trice-expedition-holcim-group-eclepens": "VD",
+        "collaborateur-trice-expedition-amp-ensachage-holcim-ch": "VD"
+      },
+      "de": {
+        "collaborateur-trice-expedition-holcim-group-eclepens": "VD",
+        "collaborateur-trice-expedition-amp-ensachage-holcim-ch": "VD"
+      },
+      "fr": {
+        "collaborateur-trice-expedition-holcim-ch": "VD",
+        "collaborateur-trice-expedition-ensachage-holcim-group-eclepens": "VD"
+      }
+    }
   },
   {
     "slug": "coordinatore-trice-sicurezza-sul-lavoro-protezione-della-salute-kies-beton-80-100-holcim-group-oberdorf-74e999a7",
@@ -7564,7 +7780,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/ecl%c3%a9pens-collaborateur%c2%b7trice-polyvalent%c2%b7e-entretien-industriel-vd-1312/1373033457",
-    "firstSeenAt": "2026-10-01T09:23:13.251Z"
+    "firstSeenAt": "2026-10-01T09:23:13.251Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch": "VD",
+        "collaboratore-polivalente-manutenzione-industriale-holcim-group-eclepens": "VD",
+        "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens": "VD"
+      },
+      "en": {
+        "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch": "VD"
+      },
+      "de": {
+        "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch": "VD"
+      }
+    }
   },
   {
     "slug": "fornito-in-ingegnere-di-cemento-in-holcim-group-giswil",
@@ -7620,7 +7850,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/luzern-disponentin-6074/1369717057",
-    "firstSeenAt": "2026-08-18T09:54:02.879Z"
+    "firstSeenAt": "2026-08-18T09:54:02.879Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "disponent-in-betonmaschinist-in-holcim-ch": "LU",
+        "disponent-in-betonmaschinist-in-holcim-group-giswil": "LU",
+        "disponent-in-holcim-ch": "LU"
+      },
+      "en": {
+        "disponent-in-betonmaschinist-in-holcim-group-giswil": "LU"
+      },
+      "de": {
+        "disponent-in-holcim-ch": "LU"
+      },
+      "fr": {
+        "disponent-in-betonmaschinist-in-holcim-group-giswil": "LU"
+      }
+    }
   },
   {
     "slug": "project-engineering-manager-grandi-progetti-capex-holcim-group-wurenlingen",
@@ -7663,7 +7910,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/w%c3%bcrenlingen-project-&-engineering-manager-grossprojekte-%28capex%29-ag-5303/1367774957",
-    "firstSeenAt": "2026-10-12T09:24:21.994Z"
+    "firstSeenAt": "2026-10-12T09:24:21.994Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "project-amp-engineering-manager-grossprojekte-capex-holcim-ch": "AG"
+      }
+    }
   },
   {
     "slug": "direttore-del-progetto-salute-e-sicurezza-h-s-80-100-holcim-group-wurenlingen",
@@ -7709,7 +7962,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/w%c3%bcrenlingen-health-&-safety-%28h&s%29-project-manager-80-100-ag-5303/1361727957",
-    "firstSeenAt": "2026-07-08T22:25:42.496Z"
+    "firstSeenAt": "2026-07-08T22:25:42.496Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch": "AG"
+      },
+      "de": {
+        "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch": "AG"
+      }
+    }
   },
   {
     "slug": "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen",
@@ -7763,7 +8025,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/w%c3%bcrenlingen-spezialistin-aufbereitungstechnik-80-100-%28operations-excellence-managerin%29-ag-5303/1357553857",
-    "firstSeenAt": "2026-07-08T22:25:51.964Z"
+    "firstSeenAt": "2026-07-08T22:25:51.964Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operations-excellence-manager-agg-80-100-holcim-ch": "AG",
+        "spezialist-aufbereitungstechnik-80-100-holcim-ch": "AG",
+        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch": "AG"
+      },
+      "de": {
+        "spezialist-aufbereitungstechnik-80-100-holcim-ch": "AG",
+        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch": "AG"
+      },
+      "fr": {
+        "operations-excellence-manager-agg-80-100-holcim-ch": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-dei-trasporti-holcim-group-morges",
@@ -7812,7 +8089,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/morges-agent-de-transport-vd-1110/1371950357",
-    "firstSeenAt": "2026-09-11T13:41:30.502Z"
+    "firstSeenAt": "2026-09-11T13:41:30.502Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "agent-de-transport-holcim-ch": "VD"
+      },
+      "en": {
+        "agent-de-transport-holcim-ch": "VD"
+      },
+      "de": {
+        "agent-de-transport-holcim-ch": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-della-sicurezza-regionale-europa-euce-euw-holcim-group-zug",
@@ -7861,7 +8150,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/job/zug-regional-security-manager-europe-%28euce%2c-euw%29-6300/1355606057",
-    "firstSeenAt": "2026-09-17T06:58:45.320Z"
+    "firstSeenAt": "2026-09-17T06:58:45.320Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "regional-security-manager-europe-euce-euw-holcim-ch": "ZG"
+      },
+      "de": {
+        "regional-security-manager-europe-euce-euw-holcim-ch": "ZG"
+      },
+      "fr": {
+        "regional-security-manager-europe-euce-euw-holcim-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "tirocinante-analista-holcim-group-zug",
@@ -7914,7 +8215,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/job/zug-intern-analyst-6300/1373504257",
-    "firstSeenAt": "2026-09-29T21:24:26.919Z"
+    "firstSeenAt": "2026-09-29T21:24:26.919Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "intern-analyst-holcim-ch": "ZG"
+      },
+      "en": {
+        "intern-analyst-holcim-group-zug": "ZG"
+      },
+      "de": {
+        "intern-analyst-holcim-ch": "ZG"
+      },
+      "fr": {
+        "intern-analyst-holcim-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "driver-empl-pompaman-holcim-group-morges",
@@ -7957,7 +8273,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/morges-chauffeur-malaxeurrempl_-pompiste-vd-1110/1372291457",
-    "firstSeenAt": "2026-09-17T06:58:48.746Z"
+    "firstSeenAt": "2026-09-17T06:58:48.746Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chauffeur-malaxeur-rempl-pompiste-holcim-ch": "VD"
+      }
+    }
   },
   {
     "slug": "partner-delle-persone-in-holcim-group-eclepens",
@@ -8036,7 +8358,20 @@
         "firstSeenAt": "2026-09-08T13:46:48.578Z",
         "title": "People Partner:in 50%"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "people-partner-in-50-holcim-ch": "VD"
+      },
+      "de": {
+        "people-partner-in-50-holcim-ch": "VD"
+      },
+      "fr": {
+        "people-partner-in-50-holcim-group-eclepens": "VD",
+        "people-partner-50-holcim-group-eclepens": "VD"
+      }
+    }
   },
   {
     "slug": "global-responsabile-specification-selling-holcim-group-zug",
@@ -8085,7 +8420,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/job/zug-global-head-of-specification-selling-6300/1367627357",
-    "firstSeenAt": "2026-07-24T22:16:29.770Z"
+    "firstSeenAt": "2026-07-24T22:16:29.770Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "global-head-of-specification-selling-holcim-ch": "ZG"
+      },
+      "de": {
+        "global-head-of-specification-selling-holcim-ch": "ZG"
+      },
+      "fr": {
+        "global-head-of-specification-selling-holcim-ch": "ZG"
+      }
+    }
   },
   {
     "slug": "consigliere-giuridico-80-100-holcim-group-zurich",
@@ -8118,6 +8465,9 @@
     "previousSlugsByLocale": {
       "it": [
         "legal-counsel-80-100-holcim-ch"
+      ],
+      "en": [
+        "consigliere-giuridico-80-100-holcim-group-zurich"
       ]
     },
     "postalCode": "8001",
@@ -8126,7 +8476,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/zurich-legal-counsel-80-100-ch-%c2%ad8050/1364817557",
-    "firstSeenAt": "2026-09-17T06:58:56.891Z"
+    "firstSeenAt": "2026-09-17T06:58:56.891Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "legal-counsel-80-100-holcim-ch": "ZH"
+      },
+      "en": {
+        "consigliere-giuridico-80-100-holcim-group-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "partner-1-1-holcim-group-eclepens",
@@ -8169,7 +8528,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/ecl%c3%a9pens-people-partnerin-1-1-vd-1312/1371554957",
-    "firstSeenAt": "2026-09-08T13:46:49.064Z"
+    "firstSeenAt": "2026-09-08T13:46:49.064Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "people-partner-in-1-1-holcim-ch": "VD"
+      }
+    }
   },
   {
     "slug": "responsabile-legale-e-compliance-80-100-holcim-group-zurich",
@@ -8216,7 +8581,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/zurich-legal-&-compliance-officer-80-100-ch-%c2%ad8050/1372209557",
-    "firstSeenAt": "2026-09-17T06:58:53.248Z"
+    "firstSeenAt": "2026-09-17T06:58:53.248Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "legal-amp-compliance-officer-80-100-holcim-ch": "ZH"
+      },
+      "fr": {
+        "legal-compliance-officer-80-100-holcim-group-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen-12d7ef40",
@@ -8401,7 +8775,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/wil-verkauf-und-stoffstrommanager-region-nordost-st_-9500/1361727757",
-    "firstSeenAt": "2026-07-08T22:25:45.653Z"
+    "firstSeenAt": "2026-07-08T22:25:45.653Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch": "SG"
+      },
+      "en": {
+        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch": "SG",
+        "sales-und-stoffstrommanager-region-nordost-holcim-group-wil": "SG"
+      },
+      "fr": {
+        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch": "SG",
+        "vente-und-stoffstrommanager-region-nordost-holcim-group-wil": "SG"
+      }
+    }
   },
   {
     "slug": "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen",
@@ -8596,7 +8984,8 @@
       "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-e90ff02c",
       "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-925b7ae6",
       "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-42d22fdd",
-      "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+      "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
+      "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-5ac2d2a1"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -8764,7 +9153,8 @@
         "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-4639a354",
         "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-e90ff02c",
         "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-925b7ae6",
-        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-42d22fdd"
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-42d22fdd",
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-5ac2d2a1"
       ],
       "en": [
         "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-f299a16f",
@@ -8931,7 +9321,8 @@
         "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-45c2e7db",
         "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-7154b0bf",
         "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-1fe732ba",
-        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-81012234"
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-81012234",
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-5ac2d2a1"
       ],
       "fr": [
         "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-f299a16f",
@@ -9073,7 +9464,29 @@
         "firstSeenAt": "2026-07-09T22:38:53.396Z",
         "title": "Baumaschinenführer:in im Steinbruch 80-100%"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen": "AG",
+        "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen": "AG",
+        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch": "AG",
+        "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen": "AG",
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-5ac2d2a1": "AG"
+      },
+      "en": {
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch": "AG",
+        "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen": "AG"
+      },
+      "de": {
+        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch": "AG",
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch-5ac2d2a1": "AG"
+      },
+      "fr": {
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch": "AG",
+        "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen": "AG"
+      }
+    }
   },
   {
     "slug": "driver-del-camion-in-holcim-group-mulligen",
@@ -9533,7 +9946,25 @@
         "firstSeenAt": "2026-07-08T22:25:39.818Z",
         "title": "Lastwagenführer:in"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lastwagenfuhrer-in-holcim-ch-2": "AG",
+        "lastwagenfuhrer-in-holcim-ch": "AG",
+        "lastwagenfuhrer-in-holcim-group-mulligen": "AG",
+        "camion-driver-in-holcim-group-mulligen": "AG"
+      },
+      "en": {
+        "lastwagenfuhrer-in-holcim-group-mulligen": "AG"
+      },
+      "de": {
+        "lastwagenfuhrer-in-holcim-ch": "AG"
+      },
+      "fr": {
+        "lastwagenfuhrer-in-holcim-group-mulligen": "AG"
+      }
+    }
   },
   {
     "slug": "betriebselektriker-in-holcim-group-untervaz",
@@ -9565,6 +9996,12 @@
     "previousSlugsByLocale": {
       "it": [
         "betriebselektriker-in-holcim-ch"
+      ],
+      "en": [
+        "betriebselektriker-in-holcim-group-untervaz"
+      ],
+      "fr": [
+        "betriebselektriker-in-holcim-group-untervaz"
       ]
     },
     "salaryMin": 57500,
@@ -9572,7 +10009,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/untervaz-betriebselektrikerin-gr-7204/1369246957",
-    "firstSeenAt": "2026-08-12T10:41:38.849Z"
+    "firstSeenAt": "2026-08-12T10:41:38.849Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebselektriker-in-holcim-ch": "GR"
+      },
+      "en": {
+        "betriebselektriker-in-holcim-group-untervaz": "GR"
+      },
+      "fr": {
+        "betriebselektriker-in-holcim-group-untervaz": "GR"
+      }
+    }
   },
   {
     "slug": "meccanico-di-macchine-da-costruzione-in-holcim-group-wurenlingen",
@@ -9622,7 +10071,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/w%c3%bcrenlingen-baumaschinenmechanikerin-ag-5303/1365325057",
-    "firstSeenAt": "2026-07-08T22:25:42.042Z"
+    "firstSeenAt": "2026-07-08T22:25:42.042Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "baumaschinenmechaniker-in-holcim-ch": "AG",
+        "baumaschinenmechaniker-in-holcim-group-wurenlingen": "AG"
+      },
+      "en": {
+        "baumaschinenmechaniker-in-holcim-group-wurenlingen": "AG"
+      },
+      "fr": {
+        "baumaschinenmechaniker-in-holcim-group-wurenlingen": "AG"
+      }
+    }
   },
   {
     "slug": "stellvertretende-r-responsabile-elektrische-instandhaltung-holcim-group-untervaz",
@@ -9670,7 +10132,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/untervaz-stellvertretender-leiterin-elektrische-instandhaltung-gr-7204/1369947757",
-    "firstSeenAt": "2026-08-20T10:27:32.522Z"
+    "firstSeenAt": "2026-08-20T10:27:32.522Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch": "GR"
+      },
+      "en": {
+        "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch": "GR"
+      },
+      "fr": {
+        "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch": "GR"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-elektrotechnik-automatisierung-80-100-holcim-group-wurenlingen",
@@ -9712,7 +10186,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/w%c3%bcrenlingen-projektleiterin-elektrotechnik-&-automatisierung-80-100-ag-5303/1354026357",
-    "firstSeenAt": "2026-07-08T22:25:44.314Z"
+    "firstSeenAt": "2026-07-08T22:25:44.314Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-elektrotechnik-amp-automatisierung-80-100-holcim-ch": "AG"
+      }
+    }
   },
   {
     "slug": "gestione-dei-turni-r-holcim-group-untervaz",
@@ -9762,7 +10242,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/untervaz-schichtverantwortlicher-gr-7204/1372075157",
-    "firstSeenAt": "2026-09-17T06:58:59.163Z"
+    "firstSeenAt": "2026-09-17T06:58:59.163Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schichtverantwortliche-r-holcim-ch": "GR",
+        "schichtverantwortliche-r-holcim-group-untervaz": "GR"
+      },
+      "en": {
+        "schichtverantwortliche-r-holcim-group-untervaz": "GR"
+      },
+      "fr": {
+        "schichtverantwortliche-r-holcim-group-untervaz": "GR"
+      }
+    }
   },
   {
     "slug": "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen",
@@ -9810,7 +10303,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/w%c3%bcrenlingen-schichtfachmann-schichtfachfrau-in-siggenthal-ag-5303/1366828857",
-    "firstSeenAt": "2026-07-16T11:25:18.606Z"
+    "firstSeenAt": "2026-07-16T11:25:18.606Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch": "AG"
+      },
+      "en": {
+        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch": "AG"
+      },
+      "fr": {
+        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch": "AG"
+      }
+    }
   },
   {
     "slug": "springer-nella-zona-di-deposito-e-di-trasporto-nord-est-holcim-group-niederstetten",
@@ -9860,7 +10365,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/niederstetten-springerin-disposition-und-fahrmischer-region-nordost-st_-9249/1367725457",
-    "firstSeenAt": "2026-07-27T12:54:40.223Z"
+    "firstSeenAt": "2026-07-27T12:54:40.223Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "springer-in-disposition-und-fahrmischer-region-nordost-holcim-ch": "SG",
+        "springer-in-disposition-e-fahrmischer-region-nordost-holcim-group-niederstetten": "SG"
+      },
+      "en": {
+        "springer-in-disposition-und-fahrmischer-region-nordost-holcim-ch": "SG"
+      },
+      "fr": {
+        "springer-in-disposition-und-fahrmischer-region-nordost-holcim-ch": "SG"
+      }
+    }
   },
   {
     "slug": "camion-driver-in-holcim-group-oberdorf-0d7b8a48",
@@ -9990,7 +10508,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/athenaz-%28avusy%29-m%c3%a9canicien%2c-op%c3%a9rateur-d'installation-de-traitement-gene-1285/1370546057",
-    "firstSeenAt": "2026-08-28T05:30:24.536Z"
+    "firstSeenAt": "2026-08-28T05:30:24.536Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mecanicien-operateur-d-installation-de-traitement-holcim-ch": "GE"
+      },
+      "en": {
+        "mecanicien-operateur-d-installation-de-traitement-holcim-ch": "GE"
+      },
+      "de": {
+        "mecanicien-operateur-d-installation-de-traitement-holcim-ch": "GE"
+      }
+    }
   },
   {
     "slug": "interno-in-dipartimento-persone-holcim-group-wurenlingen",
@@ -10035,7 +10565,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/w%c3%bcrenlingen-praktikantin-people-department-ag-5303/1369052157",
-    "firstSeenAt": "2026-08-11T10:17:30.072Z"
+    "firstSeenAt": "2026-08-11T10:17:30.072Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-people-department-holcim-ch": "AG"
+      },
+      "fr": {
+        "praktikant-in-people-department-holcim-ch": "AG"
+      }
+    }
   },
   {
     "slug": "macchinista-multiuso-birra-holcim-group-biere",
@@ -10083,7 +10622,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/bi%c3%a8re-machiniste-polyvalent-bi%c3%a8re-vd-1145/1366311957",
-    "firstSeenAt": "2026-07-10T22:55:02.432Z"
+    "firstSeenAt": "2026-07-10T22:55:02.432Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "machiniste-polyvalent-biere-holcim-ch": "VD"
+      },
+      "en": {
+        "machiniste-polyvalent-biere-holcim-ch": "VD"
+      },
+      "de": {
+        "machiniste-polyvalent-biere-holcim-ch": "VD"
+      }
+    }
   },
   {
     "slug": "project-manager-meccanica-holcim-group-untervaz",
@@ -10599,6 +11150,54 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen",
+    "title": "Laborant:in Bindemitteltechnologie 80-100%",
+    "titleByLocale": {
+      "it": "Laboratorio: nella tecnologia del legante 80-100 %",
+      "en": "Laboratory:in binder technology 80-100 %",
+      "de": "Laborant:in Bindemitteltechnologie 80-100%",
+      "fr": "Laboratoire: technologie de reliure 80-100 %"
+    },
+    "company": "Holcim Group",
+    "companyKey": "holcim",
+    "location": "Würenlingen",
+    "addressLocality": "Würenlingen",
+    "descriptionByLocale": {
+      "it": "Hai un occhio per i dettagli, lavori in modo strutturato e ti senti a tuo agio nell'ambiente di laboratorio? Poi vieni a sostenere il nostro team nella gestione professionale e preparazione di campioni per array di alta qualità.\n\nCosa aspettarsi:\n\n•\nPrendere campioni e registrarli in modo affidabile nel nostro sistema di informazioni di laboratorio (LIMS)\n\n•\nPrepari i campioni professionalmente - questo include essiccazione, omogeneizzazione e divisione in condizioni definite\n\n•\nSi frantumano materiali come materie prime di cemento, clinker o aggregati con frantoi, mulini e altre attrezzature\n\n•\nEffettuare determinazioni fisiche (ad esempio umidità e contenuto di materia secca) e supporto in ulteriori analisi\n\n•\nEffettuate speciali trattamenti di esempio, come l'attivazione termica o la deposizione del vapore del gas\n\n•\nSegui costantemente le linee guida per la sicurezza e la qualità\n\n•\nSi prende cura della cura e pulizia dell'attrezzatura e aiuto con manutenzione e servizio\n\n•\nDocumenti passi di lavoro con attenzione e comprensibile\n\nCosa porti:\n\n•\nHai completato la formazione nel settore tecnico o artigianale\n\n•\nAvete una buona comprensione tecnica e godere di lavorare con le macchine di elaborazione\n\n•\nIdealmente, avrete la prima esperienza nell'utilizzo di attrezzature di laboratorio e metodi di misura\n\n•\nSei fiducioso nell'utilizzo di strumenti per ufficio e hai idealmente già lavorato con un LIMS\n\n•\nLavori con attenzione, strutturato e affidabile\n\n•\nAccuratezza e pulizia sono una questione naturalmente per voi\n\n•\nSei un giocatore di squadra e comunica chiaramente e con rispetto\n\n•\nSei flessibile, mostra la tua iniziativa e promuove la cooperazione costruttiva\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life-Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni vacanze, acquisto vacanza, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che vi sentite a vostro agio e beneficiate di attraenti servizi aggiuntivi",
+      "en": "Do you have an eye for detail, work in a structured way and feel comfortable in the laboratory environment? Then come and support our team in the professional handling and preparation of samples for high-quality arrays.\n\nWhat to expect:\n\n•\nYou take samples and record them reliably in our laboratory information system (LIMS)\n\n•\nYou prepare samples professionally - this includes drying, homogenization and division under defined conditions\n\n•\nYou crush materials such as cement raw materials, clinker or aggregates with crushers, mills and other equipment\n\n•\nYou carry out physical determinations (e.g. moisture and dry matter content) and support in further analyses\n\n•\nYou implement special sample treatments, such as thermal activation or gas vapor deposition\n\n•\nYou consistently adhere to safety and quality guidelines\n\n•\nYou take care of the care and cleaning of the equipment and help with maintenance and service\n\n•\nYou document work steps carefully and comprehensibly\n\nWhat you bring:\n\n•\nYou have completed training in the technical or craft sector\n\n•\nYou have a good technical understanding and enjoy working with processing machines\n\n•\nIdeally, you will have first experience in using laboratory equipment and measuring methods\n\n•\nYou are confident in using office tools and have ideally already worked with a LIMS\n\n•\nYou work carefully, structured and reliable\n\n•\nAccuracy and cleanliness are a matter of course for you\n\n•\nYou are a team player and communicate clearly and respectfully\n\n•\nYou are flexible, show your own initiative and promote constructive cooperation\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life-Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+      "de": "Du begeisterst dich für analytische Laborarbeit, moderne Messtechnik und innovative Baustoffe? Du möchtest mit deiner Expertise zur Entwicklung nachhaltiger Bindemittel beitragen und eng mit Produktion, Technik und Forschung zusammenarbeiten? Dann bist du bei uns genau richtig.\n\nIn dieser vielseitigen Funktion übernimmst du die Planung, Durchführung und Auswertung anspruchsvoller Laboranalysen im Bereich Bindemitteltechnologie.\n\nWas dich erwartet:\n\n• Du analysierst die Hydratation und Phasenentwicklung von Zementen und Bindemitteln mithilfe modernster Analysemethoden wie XRD/Rietveld, isothermer Kalorimetrie, XRF und TGA/DSC\n\n• Du planst, führst und bewertest Performance-Tests zur Reaktivität und Hydratationskinetik von Bindemitteln – mit und ohne Zusatzmittel\n\n• Du unterstützt unsere sechs Werke bei der Interpretation und Auswertung von XRD-Analysen und arbeitest eng mit internen Fachbereichen zusammen\n\n• Du führst material- und zusatzmittelspezifische Analysen durch und entwickelst bestehende Prüf- und Messmethoden kontinuierlich weiter\n\n• Du validierst und optimierst analytische Verfahren für mineralische und pulverförmige Materialien und leitest daraus fundierte technische Auswertungen und Prüfberichte ab\n\n• Du stellst eine lückenlose Dokumentation sicher und sorgst für die Pflege sowie den sicheren Betrieb unserer modernen Laborinfrastruktur\n\n• Du lebst unsere Sicherheits-, Qualitäts- und Umweltstandards und bringst dich aktiv in die kontinuierliche Verbesserung unserer Prozesse ein\n\n•\n\nWas du mitbringst:\n\n• Eine abgeschlossene Ausbildung als Laborant, Baustoffprüfer, Chemielaborant oder eine vergleichbare Ausbildung – idealerweise mit Erfahrung in der Baustoff-, Zement- oder Bindemitteltechnologie\n\n• Erfahrung in einem analytischen Labor sowie im Umgang mit modernen Laborgeräten und Messverfahren\n\n• Technisches Verständnis und Freude daran, mit Labor- und Aufbereitungsanlagen zu arbeiten\n\n• Eine strukturierte, sorgfältige und zuverlässige Arbeitsweise\n\n• Ein hohes Qualitäts- und Sicherheitsbewusstsein\n\n• Analytisches Denkvermögen und Interesse an materialwissenschaftlichen Fragestellungen\n\n• Teamgeist, Kommunikationsstärke und Eigeninitiative\n\n• Belastbarkeit sowie Freude an einer praxisnahen Tätigkeit im Labor.\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+      "fr": "Avez-vous un œil pour le détail, travailler de manière structurée et se sentir à l'aise dans l'environnement de laboratoire? Ensuite venez soutenir notre équipe dans la manipulation professionnelle et la préparation d'échantillons pour des tableaux de haute qualité.\n\nÀ quoi s'attendre :\n\n•\nVous prenez des échantillons et les enregistrez de façon fiable dans notre système d'information de laboratoire (LIMS)\n\n•\nVous préparez des échantillons professionnellement - cela inclut le séchage, l'homogénéisation et la division dans des conditions définies\n\n•\nVous écrasez des matériaux tels que les matières premières de ciment, clinker ou des agrégats avec des concasseurs, des moulins et d'autres équipements\n\n•\nVous effectuez des déterminations physiques (par exemple la teneur en eau et en matière sèche) et vous supportez les analyses ultérieures.\n\n•\nVous appliquez des traitements d'échantillons spéciaux, tels que l'activation thermique ou le dépôt de vapeur de gaz\n\n•\nVous respectez systématiquement les directives de sécurité et de qualité\n\n•\nVous vous occupez des soins et du nettoyage de l'équipement et aidez à l'entretien et au service\n\n•\nVous documentez les étapes du travail avec soin et compréhension\n\nCe que vous apportez:\n\n•\nVous avez suivi une formation technique ou artisanale\n\n•\nVous avez une bonne compréhension technique et aimez travailler avec des machines de traitement\n\n•\nIdéalement, vous aurez une première expérience dans l'utilisation des équipements de laboratoire et des méthodes de mesure\n\n•\nVous êtes confiant dans l'utilisation des outils de bureau et avez idéalement déjà travaillé avec un LIMS\n\n•\nVous travaillez avec soin, structuré et fiable\n\n•\nL'exactitude et la propreté sont une question bien sûr pour vous\n\n•\nVous êtes un joueur d'équipe et communiquez clairement et respectueusement\n\n•\nVous êtes flexible, montrez votre propre initiative et encouragez la coopération constructive\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
+    },
+    "slugByLocale": {
+      "it": "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen",
+      "en": "laboratory-in-binder-technology-80-100-holcim-group-wurenlingen",
+      "de": "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+      "fr": "laboratoire-technologie-de-reliure-80-100-holcim-group-wurenlingen"
+    },
+    "sector": "Materiali da costruzione / Cemento",
+    "expiredAt": "2026-08-20T10:27:38.175Z",
+    "previousSlugs": [
+      "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+      ],
+      "en": [
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+      ],
+      "fr": [
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+      ]
+    },
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/w%c3%bcrenlingen-laborantin-bindemitteltechnologie-80-100-ag-5303/1359795357",
+    "firstSeenAt": "2026-11-21T21:35:04.252Z"
+  },
+  {
     "slug": "corporate-communications-tirocinante-for-6-months-holcim-group-zug",
     "title": "Corporate Communications intern for 6-months",
     "titleByLocale": {
@@ -10774,6 +11373,54 @@
     "salaryMax": 78500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "marinaio-in-holcim-group-birsfelden",
+    "title": "Matrose:in",
+    "titleByLocale": {
+      "it": "Marinaio:in",
+      "en": "Sailor:in",
+      "de": "Matrose:in",
+      "fr": "Voilier:in"
+    },
+    "company": "Holcim Group",
+    "companyKey": "holcim",
+    "location": "Birsfelden",
+    "addressLocality": "Birsfelden",
+    "descriptionByLocale": {
+      "it": "Il tuo posto di lavoro? Proprio sull'acqua, proprio in mezzo all'azione!\n\nCosa aspettarsi:\n\n• -Il carico e lo scarico sicuri e professionali delle navi cargo fanno parte del vostro compito quotidiano\n• -Quando si trasportano materiali con navi da carico, si lavora a stretto contatto con gli skipper e li supporta attivamente\n• Servizio e manutenzione si eseguono in modo affidabile sia sulla nave di trasporto che in fabbrica\n• - Anche nei punti di carico e scarico si sono impegnati in lavori di manutenzione\n• - Le macchine per il processo di carico e scarico che gestisci di routine, responsabilmente e con grande cura\n\nCosa porti:\n\n• - Hai completato la formazione professionale come specialista nautico:\n• -Si ha un forte interesse per il vostro sviluppo professionale e sono pronti a completare l'ulteriore formazione a:r Schiffführer:in\n• L'esperienza nella gestione delle navi da carico sulle vie navigabili interne fa parte della vostra qualifica\n• -Con il carico, lo scarico e il lavoro di manutenzione della nave sapete meglio\n• Esperienza nella spedizione e manutenzione fanno parte della vostra attrezzatura professionale\n• La conoscenza della produzione di ghiaia è un vantaggio\n• Buone competenze tedesche in parola e la scrittura completa il tuo profilo\n\nNon vedo l'ora della sua applicazione! #gerneperdu\n\nIsabelle",
+      "en": "Your workplace? Right on the water, right in the middle of the action!\n\nWhat to expect:\n\n• -The safe and professional loading and unloading of the cargo ships is part of your daily task\n• -When transporting materials with cargo ships, you work closely with the skippers and actively support them\n• Service and maintenance work you perform reliably both on the transport ship and in the factory\n• - Also at the loading and unloading points you are engaged in maintenance work\n• - The machines for the loading and unloading process you operate routinely, responsibly and with great care\n\nWhat you bring:\n\n• -You have completed vocational training as a nautical:r specialist:frau\n• -You have a strong interest in your professional development and are ready to complete the further education to:r Schiffführer:in\n• Experience in handling cargo ships on inland waterways is part of your qualification\n• -With ship loading, unloading and maintenance work you know best\n• Experience in shipping and maintenance are part of your professional equipment\n• Knowledge of gravel production is an advantage\n• Good German skills in word and writing round off your profile\n\nI look forward to your application! #gerneperdu\n\nIsabelle",
+      "de": "Dein Arbeitsplatz? Direkt auf dem Wasser, mittendrin im Geschehen!\n\nWas dich erwartet:\n\n• -Das sichere und fachgerechte Be- und Entladen der Lastschiffe gehört zu deinem täglichen Aufgabenbereich\n• -Beim Materialtransport mit Lastschiffen arbeitest du eng mit den Schiffsführern zusammen und unterstützt sie aktiv\n• -Service- und Unterhaltsarbeiten führst du sowohl auf dem Transportschiff als auch im Werk zuverlässig aus\n• -Auch an den Be- und Entladestellen bringst du dich engagiert bei Unterhaltsarbeiten ein\n• -Die Maschinen für den Be- und Entladeprozess bedienst du routiniert, verantwortungsbewusst und mit hoher Sorgfalt\n\nWas du mitbringst:\n\n• -Du verfügst über eine abgeschlossene Berufsausbildung als nautische:r Fachmann:frau\n• -Du bringst ein starkes Interesse an deiner beruflichen Weiterentwicklung mit und bist bereit, die Weiterbildung zum:r Schiffsführer:in zu absolvieren\n• -Erfahrung im Umgang mit Lastschiffen auf Binnengewässern ist Teil deiner Qualifikation\n• -Mit Schiffsverlad, -entladung und Wartungsarbeiten kennst du dich bestens aus\n• -Erfahrung in Schifffahrt und Instandhaltung gehören zu deinem fachlichen Rüstzeug\n• -Kenntnisse in der Kiesproduktion sind von Vorteil\n• -Gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab\n\nIch freue mich auf deine Bewerbung! #gerneperdu\n\nIsabelle",
+      "fr": "Votre lieu de travail ? Sur l'eau, au milieu de l'action !\n\nÀ quoi s'attendre :\n\n• -Le chargement et déchargement sûrs et professionnels des cargos fait partie de votre tâche quotidienne\n• -Lorsque vous transportez des matériaux avec des cargos, vous travaillez en étroite collaboration avec les skippers et les soutenez activement\n• Service et entretien que vous effectuez de manière fiable sur le navire de transport et dans l'usine\n• - Aussi aux points de chargement et de déchargement que vous êtes engagés dans des travaux d'entretien\n• - Les machines pour le chargement et le déchargement que vous utilisez régulièrement, de manière responsable et avec grand soin\n\nCe que vous apportez:\n\n• -Vous avez suivi une formation professionnelle en tant que spécialiste nautique:frau\n• -Vous avez un fort intérêt pour votre perfectionnement professionnel et êtes prêt à terminer la formation complémentaire à:r Schiffführer:in\n• L'expérience de la manutention des navires à cargaison sur les voies navigables intérieures fait partie de votre qualification\n• -Avec le chargement, le déchargement et l'entretien du navire, vous savez mieux\n• Expérience dans l'expédition et l'entretien font partie de votre équipement professionnel\n• La connaissance de la production de gravier est un avantage\n• Bonnes compétences en allemand en mots et en écriture complètent votre profil\n\nJ'attends avec impatience votre candidature! #gerneperdu\n\nIsabelle"
+    },
+    "slugByLocale": {
+      "it": "marinaio-in-holcim-group-birsfelden",
+      "en": "sailor-in-holcim-group-birsfelden",
+      "de": "matrose-in-holcim-ch",
+      "fr": "voilier-in-holcim-group-birsfelden"
+    },
+    "sector": "Materiali da costruzione / Cemento",
+    "expiredAt": "2026-08-06T12:02:29.242Z",
+    "previousSlugs": [
+      "matrose-in-holcim-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "matrose-in-holcim-ch"
+      ],
+      "en": [
+        "matrose-in-holcim-ch"
+      ],
+      "fr": [
+        "matrose-in-holcim-ch"
+      ]
+    },
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.holcimgroup.com/holcim_switzerland/job/birsfelden-matrosein-bl-4127/1352166957",
+    "firstSeenAt": "2026-11-21T21:34:54.356Z"
   },
   {
     "slug": "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug",
