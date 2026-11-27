@@ -817,6 +817,37 @@ describe('Workday JSON transport', () => {
       }
     });
 
+    it('shares one ledger between URL-equivalent spellings of the tenant base', async () => {
+      vi.useFakeTimers();
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
+      const browserFallback = vi.fn().mockResolvedValue({ total: 0, jobPostings: [] });
+      const first = rescueContext(browserFallback, { listingBrowserBudget: 1 });
+      const second = createWorkdayRequestContext(`${API_BASE.replace('everestre.wd5', 'EVERESTRE.WD5')}/`, {
+        browserFallback,
+        fallbackCooldownMs: 1_000,
+        rateLimitCircuitThreshold: 2,
+        browserBackoffMs: 0,
+        listingBrowserBudget: 1,
+      });
+      const listing = { method: 'POST', body: '{}', retries: 3, retryBaseMs: 0 };
+
+      try {
+        const ok = first.request(`${API_BASE}/jobs`, listing);
+        await vi.runAllTimersAsync();
+        await expect(ok).resolves.toBeTruthy();
+
+        const over = second.request(`${API_BASE}/jobs`, listing);
+        const rejection = expect(over).rejects.toBeInstanceOf(WorkdayRateLimitError);
+        await vi.runAllTimersAsync();
+        await rejection;
+        expect(browserFallback).toHaveBeenCalledTimes(1);
+      } finally {
+        await first.close();
+        await second.close();
+        vi.useRealTimers();
+      }
+    });
+
     it('uses the built-in browser transport for details by default, but not a caller-supplied one', async () => {
       vi.useFakeTimers();
       vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));

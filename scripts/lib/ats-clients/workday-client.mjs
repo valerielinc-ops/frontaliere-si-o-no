@@ -612,8 +612,20 @@ const DEFAULT_DETAIL_BROWSER_BUDGET = 40;
 const DEFAULT_BROWSER_BACKOFF_MS = 2_500;
 const browserRescueLedgers = new Map();
 
+// URL-equivalent spellings of one tenant (host case, default port, trailing
+// slash, fragment) must share one budget ledger and one implicit 429 state.
+function tenantKey(apiBase) {
+  const raw = String(apiBase).trim();
+  try {
+    const url = new URL(raw);
+    return `${url.protocol}//${url.host}${url.pathname.replace(/\/+$/, '')}`;
+  } catch {
+    return raw.replace(/\/+$/, '');
+  }
+}
+
 function browserRescueLedger(apiBase) {
-  const key = String(apiBase).replace(/\/+$/, '');
+  const key = tenantKey(apiBase);
   if (!browserRescueLedgers.has(key)) {
     browserRescueLedgers.set(key, {
       listing: 0, detail: 0, halted: false, lastRequestAt: 0, queue: Promise.resolve(),
@@ -637,7 +649,7 @@ function newRateLimitState(apiBase) {
 }
 
 function implicitRateLimitState(apiBase) {
-  const key = String(apiBase).replace(/\/+$/, '');
+  const key = tenantKey(apiBase);
   if (!implicitRateLimitStates.has(key)) {
     implicitRateLimitStates.set(key, newRateLimitState(key));
   }
