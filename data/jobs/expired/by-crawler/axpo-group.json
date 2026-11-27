@@ -48,7 +48,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8651238-energy-data-manager-w-m-d",
-    "firstSeenAt": "2026-11-02T21:56:22.952Z"
+    "firstSeenAt": "2026-11-02T21:56:22.952Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "energy-data-manager-w-m-d-9922cbea-26b9-4b08-9a1c-277e939088e4": "LU"
+      },
+      "de": {
+        "energy-data-manager-w-m-d-9922cbea-26b9-4b08-9a1c-277e939088e4": "LU"
+      },
+      "fr": {
+        "energy-data-manager-w-m-d-9922cbea-26b9-4b08-9a1c-277e939088e4": "LU"
+      }
+    }
   },
   {
     "id": "axpo-group-e3940a514fdc",
@@ -107,7 +119,14 @@
         "firstSeenAt": "2026-10-15T09:24:50.394Z",
         "title": "Projektleiter/in öffentliche Beleuchtung (w/m/d)"
       }
-    ]
+    ],
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-di-progetto-offentliche-beleuchtung-m-w-d-ckw-luzern": "LU",
+        "projektleiter-in-offentliche-beleuchtung-w-m-d-6cda01b2-13fd-4e58-84ce-24d79e89e5cb": "LU"
+      }
+    }
   },
   {
     "id": "axpo-group-d0a925ba8605",
@@ -223,11 +242,17 @@
         "support-agent-ch-m-w-d-axpo-group-baden-fe13fd3a",
         "support-agent-ch-m-w-d-axpo-group-baden-41584495",
         "support-agent-ch-m-w-d-axpo-group-baden-1240b7cb",
-        "support-agent-ch-f-m-d-dbd9f9eb-2717-4bc0-ac88-41c3ed16c9c4"
+        "support-agent-ch-f-m-d-dbd9f9eb-2717-4bc0-ac88-41c3ed16c9c4",
+        "support-agent-ch-m-w-d-axpo-group-baden-65f1fd52",
+        "support-agent-ch-m-w-d-axpo-group-baden-dcb95d05",
+        "support-agent-ch-f-m-d-0b00630f-e7c3-4650-9481-9a1189babb2e"
       ],
       "fr": [
         "support-agent-ch-m-w-d-axpo-group-baden",
-        "support-agent-ch-f-m-d-dbd9f9eb-2717-4bc0-ac88-41c3ed16c9c4"
+        "support-agent-ch-f-m-d-dbd9f9eb-2717-4bc0-ac88-41c3ed16c9c4",
+        "support-agent-ch-m-w-d-axpo-group-baden-65f1fd52",
+        "support-agent-ch-m-w-d-axpo-group-baden-dcb95d05",
+        "support-agent-ch-f-m-d-0b00630f-e7c3-4650-9481-9a1189babb2e"
       ],
       "it": [
         "support-agent-ch-m-w-d-axpo-group-baden-f327ad24",
@@ -250,10 +275,14 @@
         "support-agent-ch-m-w-d-axpo-group-baden-1240b7cb",
         "support-agent-ch-m-w-d-axpo-group-baden-65f1fd52",
         "support-agent-ch-m-w-d-axpo-group-baden-dcb95d05",
-        "support-agent-ch-f-m-d-dbd9f9eb-2717-4bc0-ac88-41c3ed16c9c4"
+        "support-agent-ch-f-m-d-dbd9f9eb-2717-4bc0-ac88-41c3ed16c9c4",
+        "support-agent-ch-f-m-d-0b00630f-e7c3-4650-9481-9a1189babb2e"
       ],
       "en": [
-        "support-agent-ch-m-w-d-axpo-group-baden"
+        "support-agent-ch-m-w-d-axpo-group-baden",
+        "support-agent-ch-m-w-d-axpo-group-baden-65f1fd52",
+        "support-agent-ch-m-w-d-axpo-group-baden-dcb95d05",
+        "support-agent-ch-f-m-d-0b00630f-e7c3-4650-9481-9a1189babb2e"
       ]
     },
     "postalCode": "5400",
@@ -280,7 +309,216 @@
         "firstSeenAt": "2026-09-03T23:17:04.320Z",
         "title": "Support Agent CH (f/m/d)"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "support-agent-ch-m-w-d-axpo-group-baden-68bb5c49": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-30933b3a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-4b7dc455": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-fe13fd3a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-41584495": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-1240b7cb": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f327ad24": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-dbc31541": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-c9a6cff6": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-d78b978a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-5de825ab": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-c71fc47d": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-760f6f60": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-435f4bfe": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-65f1fd52": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-0be535aa": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-dcb95d05": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-39112d95": "AG",
+        "support-agent-ch-f-m-d-dbd9f9eb-2717-4bc0-ac88-41c3ed16c9c4": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-8e76006c": "AG",
+        "agent-de-soutien-ch-h-f-d-axpo-group-baden-df290f9a": "AG",
+        "support-agent-ch-f-m-d-0b00630f-e7c3-4650-9481-9a1189babb2e": "AG",
+        "support-agent-ch-f-m-d-7d57a78e-307c-4528-85ed-c8bb3af6561c": "AG",
+        "support-agent-ch-f-m-d-axpo-group-baden-8a5efa46": "AG",
+        "agente-di-supporto-ch-m-f-d-axpo-group-baden-f23ee0cd": "AG",
+        "support-agent-ch-f-m-d-axpo-group-baden-61ed97aa": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-196a014c": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-5c92da55": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7620cf10": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-9745d914": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b7c69441": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-16d0f237": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f086251a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b31636d2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-dc940b83": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-0f139494": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b369899a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7a08484a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-21cb3df2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-bcbfc609": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-9dd1832a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7712e973": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f239d7ea": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-1c3676a6": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-d5675ef2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-939bfa55": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7a11e7fb": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f32fbcf1": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-db20dc7b": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-2e752476": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-2be3fd9c": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-037229ad": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-8fe183ca": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-d1c8e6f7": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-063ea916": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-37dd7587": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-cbdbcb16": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-ae66fcf5": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-56983917": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7544afa1": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-a2a74691": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-e4d72da3": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-a883ddfd": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b76dd624": "AG"
+      },
+      "de": {
+        "support-agent-ch-f-m-d-dbd9f9eb-2717-4bc0-ac88-41c3ed16c9c4": "AG",
+        "agent-de-soutien-ch-h-f-d-axpo-group-baden-df290f9a": "AG",
+        "support-agent-ch-f-m-d-0b00630f-e7c3-4650-9481-9a1189babb2e": "AG",
+        "support-agent-ch-f-m-d-7d57a78e-307c-4528-85ed-c8bb3af6561c": "AG",
+        "support-agent-ch-f-m-d-axpo-group-baden-8a5efa46": "AG",
+        "agente-di-supporto-ch-m-f-d-axpo-group-baden-f23ee0cd": "AG",
+        "support-agent-ch-f-m-d-axpo-group-baden-61ed97aa": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-196a014c": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-5c92da55": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7620cf10": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-9745d914": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b7c69441": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-16d0f237": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f086251a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b31636d2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-dc940b83": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-0f139494": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b369899a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7a08484a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-21cb3df2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-bcbfc609": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-9dd1832a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7712e973": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f239d7ea": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-1c3676a6": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-d5675ef2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-939bfa55": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7a11e7fb": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f32fbcf1": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-db20dc7b": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-2e752476": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-2be3fd9c": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-037229ad": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-8fe183ca": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-d1c8e6f7": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-063ea916": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-37dd7587": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-cbdbcb16": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-ae66fcf5": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-56983917": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7544afa1": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-a2a74691": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-e4d72da3": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-a883ddfd": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b76dd624": "AG"
+      },
+      "fr": {
+        "support-agent-ch-f-m-d-dbd9f9eb-2717-4bc0-ac88-41c3ed16c9c4": "AG",
+        "agent-de-soutien-ch-h-f-d-axpo-group-baden-df290f9a": "AG",
+        "support-agent-ch-f-m-d-0b00630f-e7c3-4650-9481-9a1189babb2e": "AG",
+        "support-agent-ch-f-m-d-7d57a78e-307c-4528-85ed-c8bb3af6561c": "AG",
+        "support-agent-ch-f-m-d-axpo-group-baden-8a5efa46": "AG",
+        "agente-di-supporto-ch-m-f-d-axpo-group-baden-f23ee0cd": "AG",
+        "support-agent-ch-f-m-d-axpo-group-baden-61ed97aa": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-196a014c": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-5c92da55": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7620cf10": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-9745d914": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b7c69441": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-16d0f237": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f086251a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b31636d2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-dc940b83": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-0f139494": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b369899a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7a08484a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-21cb3df2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-bcbfc609": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-9dd1832a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7712e973": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f239d7ea": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-1c3676a6": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-d5675ef2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-939bfa55": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7a11e7fb": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f32fbcf1": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-db20dc7b": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-2e752476": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-2be3fd9c": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-037229ad": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-8fe183ca": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-d1c8e6f7": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-063ea916": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-37dd7587": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-cbdbcb16": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-ae66fcf5": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-56983917": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7544afa1": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-a2a74691": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-e4d72da3": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-a883ddfd": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b76dd624": "AG"
+      },
+      "en": {
+        "agent-de-soutien-ch-h-f-d-axpo-group-baden-df290f9a": "AG",
+        "support-agent-ch-f-m-d-0b00630f-e7c3-4650-9481-9a1189babb2e": "AG",
+        "support-agent-ch-f-m-d-7d57a78e-307c-4528-85ed-c8bb3af6561c": "AG",
+        "support-agent-ch-f-m-d-axpo-group-baden-8a5efa46": "AG",
+        "agente-di-supporto-ch-m-f-d-axpo-group-baden-f23ee0cd": "AG",
+        "support-agent-ch-f-m-d-axpo-group-baden-61ed97aa": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-196a014c": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-5c92da55": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7620cf10": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-9745d914": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b7c69441": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-16d0f237": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f086251a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b31636d2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-dc940b83": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-0f139494": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b369899a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7a08484a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-21cb3df2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-bcbfc609": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-9dd1832a": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7712e973": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f239d7ea": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-1c3676a6": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-d5675ef2": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-939bfa55": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7a11e7fb": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-f32fbcf1": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-db20dc7b": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-2e752476": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-2be3fd9c": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-037229ad": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-8fe183ca": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-d1c8e6f7": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-063ea916": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-37dd7587": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-cbdbcb16": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-ae66fcf5": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-56983917": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-7544afa1": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-a2a74691": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-e4d72da3": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-a883ddfd": "AG",
+        "support-agent-ch-m-w-d-axpo-group-baden-b76dd624": "AG"
+      }
+    }
   },
   {
     "id": "axpo-group-ca1a2ad3e8d6",
@@ -383,7 +621,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8518829-netzelektriker-in-w-m-d",
-    "firstSeenAt": "2026-10-09T09:19:31.809Z"
+    "firstSeenAt": "2026-10-09T09:19:31.809Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "netzelektriker-in-w-m-d-2d7d273e-4b5d-462a-b74e-5673816d68d7": "LU"
+      },
+      "en": {
+        "netzelektriker-in-w-m-d-2d7d273e-4b5d-462a-b74e-5673816d68d7": "LU"
+      },
+      "fr": {
+        "netzelektriker-in-w-m-d-2d7d273e-4b5d-462a-b74e-5673816d68d7": "LU"
+      }
+    }
   },
   {
     "slug": "addetto-a-alla-manutenzione-degli-impianti-60-80-ottenbach-m-f-d-axpo-group-ottenbach",
@@ -433,7 +683,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8529614-anlagenwart-in-60-80-ottenbach-w-m-d",
-    "firstSeenAt": "2026-10-12T21:21:02.126Z"
+    "firstSeenAt": "2026-10-12T21:21:02.126Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagenwart-in-60-80-ottenbach-w-m-d-2d3bf8e6-80bf-432f-90b4-5b30cd987599": "ZH"
+      },
+      "en": {
+        "anlagenwart-in-60-80-ottenbach-w-m-d-2d3bf8e6-80bf-432f-90b4-5b30cd987599": "ZH"
+      },
+      "fr": {
+        "anlagenwart-in-60-80-ottenbach-w-m-d-2d3bf8e6-80bf-432f-90b4-5b30cd987599": "ZH"
+      }
+    }
   },
   {
     "slug": "manutentore-trice-degli-impianti-80-uzwil-m-f-d-axpo-group-uzwil",
@@ -483,7 +745,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8521537-anlagenwart-in-80-uzwil-w-m-d",
-    "firstSeenAt": "2026-10-12T09:21:41.201Z"
+    "firstSeenAt": "2026-10-12T09:21:41.201Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "anlagenwart-in-80-uzwil-w-m-d-defefe9b-3edb-421d-a384-184a77bf6188": "SG"
+      },
+      "en": {
+        "anlagenwart-in-80-uzwil-w-m-d-defefe9b-3edb-421d-a384-184a77bf6188": "SG"
+      },
+      "fr": {
+        "anlagenwart-in-80-uzwil-w-m-d-defefe9b-3edb-421d-a384-184a77bf6188": "SG"
+      }
+    }
   },
   {
     "slug": "staff-ai-platform-ingegnere-f-m-d-axpo-group-baden",
@@ -535,7 +809,20 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8534548-staff-ai-platform-engineer-f-m-d",
     "firstSeenAt": "2026-10-15T21:26:23.661Z",
-    "streetAddress": "Baden"
+    "streetAddress": "Baden",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "staff-ai-platform-ingenieur-f-m-d-axpo-group-baden": "AG",
+        "staff-ai-platform-engineer-f-m-d-14e736f0-a2e8-4701-b1cb-2ee8722a2b42": "AG"
+      },
+      "de": {
+        "staff-ai-platform-engineer-f-m-d-14e736f0-a2e8-4701-b1cb-2ee8722a2b42": "AG"
+      },
+      "fr": {
+        "staff-ai-platform-engineer-f-m-d-14e736f0-a2e8-4701-b1cb-2ee8722a2b42": "AG"
+      }
+    }
   },
   {
     "slug": "capo-montatore-trice-realizzazione-m-f-d-ckw-luzern",
@@ -585,7 +872,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8521056-chefmonteur-in-realisierung-w-m-d",
-    "firstSeenAt": "2026-06-30T21:52:06.579Z"
+    "firstSeenAt": "2026-06-30T21:52:06.579Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552": "LU"
+      },
+      "en": {
+        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552": "LU"
+      },
+      "fr": {
+        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552": "LU"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-e-di-portafoglio-m-f-d-axpo-group-baden",
@@ -637,7 +936,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8544086-projekt-portfoliomanager-in-f-m-d",
-    "firstSeenAt": "2026-10-26T09:35:08.277Z"
+    "firstSeenAt": "2026-10-26T09:35:08.277Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projekt-portfoliomanager-in-f-m-d-axpo-group-baden": "AG",
+        "projekt-amp-portfoliomanager-in-f-m-d-95931dcd-babb-4c7f-8700-673095417ea5": "AG"
+      },
+      "en": {
+        "projekt-portfoliomanager-in-f-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "projekt-portfoliomanager-in-f-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "installatore-trice-di-impianti-solari-m-f-d-ckw-egerkingen",
@@ -687,7 +999,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8532421-monteur-in-solar-w-m-d",
-    "firstSeenAt": "2026-10-12T21:21:02.101Z"
+    "firstSeenAt": "2026-10-12T21:21:02.101Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "monteur-in-solar-w-m-d-b568c295-554e-4679-a489-f29611c75054": "SO"
+      },
+      "en": {
+        "monteur-in-solar-w-m-d-b568c295-554e-4679-a489-f29611c75054": "SO"
+      },
+      "fr": {
+        "monteur-in-solar-w-m-d-b568c295-554e-4679-a489-f29611c75054": "SO"
+      }
+    }
   },
   {
     "slug": "specialista-responsabile-formazione-professionale-m-f-d-ckw-luzern",
@@ -739,7 +1063,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8642113-fachverantwortliche-r-berufsbildung-w-m-d",
-    "firstSeenAt": "2026-10-30T21:21:55.945Z"
+    "firstSeenAt": "2026-10-30T21:21:55.945Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachverantwortliche-r-berufsbildung-w-m-d-ckw-luzern": "LU",
+        "fachverantwortliche-r-berufsbildung-w-m-d-1f2b75a9-3111-4d04-a9d1-7b05b8779b2b": "LU"
+      },
+      "en": {
+        "fachverantwortliche-r-berufsbildung-w-m-d-ckw-luzern": "LU"
+      },
+      "fr": {
+        "fachverantwortliche-r-berufsbildung-w-m-d-ckw-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "logisticista-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
@@ -791,7 +1128,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kernkraftwerkleibstadtag.teamtailor.com/jobs/8621175-logistiker-m-w-d",
-    "firstSeenAt": "2026-11-03T09:27:00.287Z"
+    "firstSeenAt": "2026-11-03T09:27:00.287Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "logistiker-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG",
+        "logistiker-m-w-d-102c638a-2d22-4d0a-a599-23487062bea7": "AG"
+      },
+      "en": {
+        "logistiker-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG"
+      },
+      "fr": {
+        "logistiker-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG"
+      }
+    }
   },
   {
     "slug": "product-owner-energy-management-billing-platform-m-f-d-ckw-emmen",
@@ -838,7 +1188,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8587512-product-owner-energy-management-billing-plattform-w-m-d",
-    "firstSeenAt": "2026-10-22T09:26:01.848Z"
+    "firstSeenAt": "2026-10-22T09:26:01.848Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "product-owner-energy-management-amp-billing-plattform-w-m-d-f95b12eb-226b-4edc-981f-1bf84c35e10c": "LU"
+      },
+      "de": {
+        "product-owner-energy-management-amp-billing-plattform-w-m-d-f95b12eb-226b-4edc-981f-1bf84c35e10c": "LU"
+      }
+    }
   },
   {
     "slug": "senior-project-manager-m-f-d-axpo-systems-ag-lupfig",
@@ -885,7 +1244,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://axposystemsag.teamtailor.com/jobs/8519096-senior-project-manager-w-m-d",
-    "firstSeenAt": "2026-10-26T09:35:08.052Z"
+    "firstSeenAt": "2026-10-26T09:35:08.052Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-project-manager-w-m-d-303a7123-f5ac-4e6e-bfe4-178ff78358c9": "AG"
+      },
+      "de": {
+        "senior-project-manager-w-m-d-303a7123-f5ac-4e6e-bfe4-178ff78358c9": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-elektro-hunenberg-m-w-d-ckw-hunenberg",
@@ -941,7 +1309,13 @@
         "firstSeenAt": "2026-10-07T09:37:16.839Z",
         "title": "Projektleiter/in Elektro Hünenberg (w/m/d)"
       }
-    ]
+    ],
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-elektro-hunenberg-w-m-d-998fd516-28c4-4730-b121-a4455b175591": "ZG"
+      }
+    }
   },
   {
     "slug": "tirocinante-procurement-excellence-f-m-d-axpo-group-baden",
@@ -991,7 +1365,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8512788-intern-procurement-excellence-f-m-d",
-    "firstSeenAt": "2026-10-07T21:22:06.816Z"
+    "firstSeenAt": "2026-10-07T21:22:06.816Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "intern-procurement-excellence-f-m-d-5f4e3ac5-bd13-4007-b1dc-7bb83690e063": "AG"
+      },
+      "de": {
+        "intern-procurement-excellence-f-m-d-5f4e3ac5-bd13-4007-b1dc-7bb83690e063": "AG"
+      },
+      "fr": {
+        "intern-procurement-excellence-f-m-d-5f4e3ac5-bd13-4007-b1dc-7bb83690e063": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-unterwerke-m-w-d-axpo-group-baden",
@@ -1041,7 +1427,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8506626-projektleiter-in-unterwerke-w-m-d",
-    "firstSeenAt": "2026-10-06T21:15:36.456Z"
+    "firstSeenAt": "2026-10-06T21:15:36.456Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-unterwerke-w-m-d-85201f7e-14d0-4fda-b311-f937cee3a6c7": "AG"
+      },
+      "en": {
+        "projektleiter-in-unterwerke-w-m-d-85201f7e-14d0-4fda-b311-f937cee3a6c7": "AG"
+      },
+      "fr": {
+        "projektleiter-in-unterwerke-w-m-d-85201f7e-14d0-4fda-b311-f937cee3a6c7": "AG"
+      }
+    }
   },
   {
     "slug": "video-di-vendita-interno-sicurezza-m-f-d-ckw-stansstad",
@@ -1091,7 +1489,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8507056-inside-sales-video-security-w-m-d",
-    "firstSeenAt": "2026-10-08T21:26:57.878Z"
+    "firstSeenAt": "2026-10-08T21:26:57.878Z",
+    "canton": "NW",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "inside-sales-video-security-w-m-d-925efbf9-0b23-4b4d-8c62-c907d6c37302": "NW"
+      },
+      "de": {
+        "inside-sales-video-security-w-m-d-925efbf9-0b23-4b4d-8c62-c907d6c37302": "NW"
+      },
+      "fr": {
+        "inside-sales-video-security-w-m-d-925efbf9-0b23-4b4d-8c62-c907d6c37302": "NW"
+      }
+    }
   },
   {
     "slug": "installatore-trice-di-impianti-solari-m-f-d-ckw-magenwil",
@@ -1141,7 +1551,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8526467-monteur-in-solar-w-m-d",
-    "firstSeenAt": "2026-10-12T21:21:02.140Z"
+    "firstSeenAt": "2026-10-12T21:21:02.140Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "monteur-in-solar-w-m-d-100fcb83-712d-43c8-955d-76665b89bb25": "AG"
+      },
+      "en": {
+        "monteur-in-solar-w-m-d-100fcb83-712d-43c8-955d-76665b89bb25": "AG"
+      },
+      "fr": {
+        "monteur-in-solar-w-m-d-100fcb83-712d-43c8-955d-76665b89bb25": "AG"
+      }
+    }
   },
   {
     "slug": "junior-cyber-security-ingegnere-w-m-d-axpo-systems-ag-lupfig",
@@ -1191,7 +1613,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://axposystemsag.teamtailor.com/jobs/8636743-junior-cyber-security-engineer-w-m-d",
-    "firstSeenAt": "2026-10-30T09:38:36.040Z"
+    "firstSeenAt": "2026-10-30T09:38:36.040Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-cyber-security-engineer-w-m-d-94c21c8f-a34d-461d-a2b3-1d5902dc2852": "AG"
+      },
+      "de": {
+        "junior-cyber-security-engineer-w-m-d-94c21c8f-a34d-461d-a2b3-1d5902dc2852": "AG"
+      },
+      "fr": {
+        "junior-cyber-security-engineer-w-m-d-94c21c8f-a34d-461d-a2b3-1d5902dc2852": "AG"
+      }
+    }
   },
   {
     "slug": "junior-strategy-analista-f-m-d-axpo-group-baden",
@@ -1241,7 +1675,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8641819-junior-strategy-analyst-f-m-d",
-    "firstSeenAt": "2026-10-30T21:21:55.961Z"
+    "firstSeenAt": "2026-10-30T21:21:55.961Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-strategy-analyst-f-m-d-e3c24e96-fcad-4d0b-a6ee-7ba5f4790a7d": "AG"
+      },
+      "de": {
+        "junior-strategy-analyst-f-m-d-e3c24e96-fcad-4d0b-a6ee-7ba5f4790a7d": "AG"
+      },
+      "fr": {
+        "junior-strategy-analyst-f-m-d-e3c24e96-fcad-4d0b-a6ee-7ba5f4790a7d": "AG"
+      }
+    }
   },
   {
     "slug": "energia-per-il-tuo-futuro-axpo-in-house-event-axpo-group-baden",
@@ -1291,7 +1737,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8551805-power-your-energy-future-axpo-in-house-event",
-    "firstSeenAt": "2026-10-16T21:23:27.792Z"
+    "firstSeenAt": "2026-10-16T21:23:27.792Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "power-your-energy-future-axpo-in-house-event-bce8a639-97e9-42b6-bbec-92b7353b9f7e": "AG"
+      },
+      "de": {
+        "power-your-energy-future-axpo-in-house-event-bce8a639-97e9-42b6-bbec-92b7353b9f7e": "AG"
+      },
+      "fr": {
+        "power-your-energy-future-axpo-in-house-event-bce8a639-97e9-42b6-bbec-92b7353b9f7e": "AG"
+      }
+    }
   },
   {
     "slug": "apprendista-electrical-engineering-in-nuclear-axpo-group-dottingen",
@@ -1341,7 +1799,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8484576-trainee-electrical-engineering-in-nuclear",
-    "firstSeenAt": "2026-10-16T09:21:00.144Z"
+    "firstSeenAt": "2026-10-16T09:21:00.144Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "trainee-electrical-engineering-in-nuclear-bf11141a-0a2e-4623-ac15-a9b7aaedaf8c": "AG"
+      },
+      "en": {
+        "trainee-electrical-engineering-in-nuclear-bf11141a-0a2e-4623-ac15-a9b7aaedaf8c": "AG"
+      },
+      "fr": {
+        "trainee-electrical-engineering-in-nuclear-bf11141a-0a2e-4623-ac15-a9b7aaedaf8c": "AG"
+      }
+    }
   },
   {
     "slug": "consulente-assistenza-clienti-m-f-d-ckw-emmen",
@@ -1401,7 +1871,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8493085-berater-in-kundensupport-w-m-d",
-    "firstSeenAt": "2026-07-03T21:26:07.694Z"
+    "firstSeenAt": "2026-07-03T21:26:07.694Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "berater-in-kundensupport-w-m-d-b843ad77-2350-43b1-872f-15d482f51c59": "LU"
+      },
+      "en": {
+        "berater-in-kundensupport-w-m-d-b843ad77-2350-43b1-872f-15d482f51c59": "LU"
+      },
+      "fr": {
+        "berater-in-kundensupport-w-m-d-b843ad77-2350-43b1-872f-15d482f51c59": "LU"
+      }
+    }
   },
   {
     "slug": "vertrags-e-claim-manager-m-w-d-axpo-group-baden",
@@ -1448,7 +1930,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8498028-vertrags-und-claim-manager-w-m-d",
-    "firstSeenAt": "2026-10-05T21:27:01.043Z"
+    "firstSeenAt": "2026-10-05T21:27:01.043Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vertrags-und-claim-manager-w-m-d-2fce88cf-8124-463f-8a28-59aaa19b16ec": "AG"
+      },
+      "fr": {
+        "vertrags-und-claim-manager-w-m-d-2fce88cf-8124-463f-8a28-59aaa19b16ec": "AG"
+      }
+    }
   },
   {
     "slug": "senior-metal-analista-w-m-d-axpo-group-baden",
@@ -1498,7 +1989,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8503876-senior-metal-analyst-w-m-d",
-    "firstSeenAt": "2026-10-07T09:37:16.903Z"
+    "firstSeenAt": "2026-10-07T09:37:16.903Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-metal-analyst-w-m-d-6f248803-c8a2-41b7-94bf-18ddfb27169c": "AG"
+      },
+      "de": {
+        "senior-metal-analyst-w-m-d-6f248803-c8a2-41b7-94bf-18ddfb27169c": "AG"
+      },
+      "fr": {
+        "senior-metal-analyst-w-m-d-6f248803-c8a2-41b7-94bf-18ddfb27169c": "AG"
+      }
+    }
   },
   {
     "slug": "ingegnere-a-di-progetto-tecnica-di-controllo-e-sicurezza-ot-m-f-d-axpo-group-baden",
@@ -1573,7 +2076,20 @@
         "firstSeenAt": "2026-05-27T11:42:00.974Z",
         "title": "Projektingenieur/-in Leittechnik & OT-Security (w/m/d)"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden": "AG",
+        "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-6bcdfc50-526c-43cc-821b-37ef06488195": "AG"
+      },
+      "en": {
+        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "ingegnere-a-per-la-messa-in-servizio-protezione-e-controllo-m-f-d-axpo-group-baden",
@@ -1652,7 +2168,20 @@
         "firstSeenAt": "2026-07-14T22:12:28.891Z",
         "title": "Inbetriebsetzungsingenieur/in Schutz und Steuerung (w/m/d)"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "inbetriebsetzungsingenieur-in-schutz-e-steuerung-m-w-d-axpo-group-baden": "AG",
+        "inbetriebsetzungsingenieur-in-schutz-und-steuerung-w-m-d-869ac686-e401-4024-83ba-6f7d61dbb375": "AG"
+      },
+      "en": {
+        "inbetriebsetzungsingenieur-in-schutz-und-steuerung-w-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "inbetriebsetzungsingenieur-in-schutz-und-steuerung-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "tirocinante-in-digital-construction-infrastrutture-energetiche-m-f-d-axpo-group-baden",
@@ -1718,15 +2247,19 @@
         "digital-construction-intern-infrastruttura-energetica-m-f-d-axpo-group-baden": "AG",
         "digital-construction-praktikant-energieinfrastruktur-w-m-d-ae34bb8d-cc70-458e-af3f-7e2f0e7c1598": "AG",
         "digital-construction-praktikant-energieinfrastruktur-w-m-d-axpo-group-baden": "AG",
-        "digital-construction-praktikant-in-energieinfrastruktur-w-m-d-ae34bb8d-cc70-458e-af3f-7e2f0e7c1598": "AG"
+        "digital-construction-praktikant-in-energieinfrastruktur-w-m-d-ae34bb8d-cc70-458e-af3f-7e2f0e7c1598": "AG",
+        "digital-construction-praktikant-in-energieinfrastruktur-w-m-d-axpo-group-baden": "AG"
       },
       "en": {
-        "digital-construction-praktikant-energieinfrastruktur-w-m-d-axpo-group-baden": "AG"
+        "digital-construction-praktikant-energieinfrastruktur-w-m-d-axpo-group-baden": "AG",
+        "digital-construction-praktikant-in-energieinfrastruktur-w-m-d-axpo-group-baden": "AG"
       },
       "fr": {
-        "digital-construction-praktikant-energieinfrastruktur-w-m-d-axpo-group-baden": "AG"
+        "digital-construction-praktikant-energieinfrastruktur-w-m-d-axpo-group-baden": "AG",
+        "digital-construction-praktikant-in-energieinfrastruktur-w-m-d-axpo-group-baden": "AG"
       }
-    }
+    },
+    "canton": "AG"
   },
   {
     "slug": "responsabile-della-progettazione-m-f-d-ckw-luzern",
@@ -1778,7 +2311,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8570445-leiter-in-projektierung-w-m-d",
-    "firstSeenAt": "2026-10-20T09:20:25.773Z"
+    "firstSeenAt": "2026-10-20T09:20:25.773Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-projektierung-m-w-d-ckw-luzern": "LU",
+        "leiter-in-projektierung-w-m-d-9eac63bd-b108-442d-9fd5-d92033986016": "LU"
+      },
+      "en": {
+        "leiter-in-projektierung-w-m-d-9eac63bd-b108-442d-9fd5-d92033986016": "LU"
+      },
+      "fr": {
+        "leiter-in-projektierung-w-m-d-9eac63bd-b108-442d-9fd5-d92033986016": "LU"
+      }
+    }
   },
   {
     "slug": "installatore-trice-di-servizio-elettrico-horw-m-f-d-ckw-horw",
@@ -1828,7 +2374,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8476536-elektro-serviceinstallateur-in-horw-w-m-d",
-    "firstSeenAt": "2026-09-30T21:19:17.381Z"
+    "firstSeenAt": "2026-09-30T21:19:17.381Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektro-serviceinstallateur-in-horw-w-m-d-efe68860-142e-4470-ae6c-e078e01d8272": "LU"
+      },
+      "en": {
+        "elektro-serviceinstallateur-in-horw-m-w-d-ckw-horw": "LU"
+      },
+      "fr": {
+        "elektro-serviceinstallateur-in-horw-m-w-d-ckw-horw": "LU"
+      }
+    }
   },
   {
     "slug": "digital-construction-specialist-energieinfrastruktur-w-m-d-axpo-group-baden",
@@ -1860,6 +2418,12 @@
     "previousSlugsByLocale": {
       "it": [
         "digital-construction-specialist-energieinfrastruktur-w-m-d-1d33947f-3215-4202-8a9a-5a79f5bd5125"
+      ],
+      "en": [
+        "digital-construction-specialist-energieinfrastruktur-w-m-d-axpo-group-baden"
+      ],
+      "fr": [
+        "digital-construction-specialist-energieinfrastruktur-w-m-d-axpo-group-baden"
       ]
     },
     "postalCode": "5400",
@@ -1868,7 +2432,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8481335-digital-construction-specialist-energieinfrastruktur-w-m-d",
-    "firstSeenAt": "2026-10-06T09:22:21.652Z"
+    "firstSeenAt": "2026-10-06T09:22:21.652Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "digital-construction-specialist-energieinfrastruktur-w-m-d-1d33947f-3215-4202-8a9a-5a79f5bd5125": "AG"
+      },
+      "en": {
+        "digital-construction-specialist-energieinfrastruktur-w-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "digital-construction-specialist-energieinfrastruktur-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "apprendista-mechanical-engineering-axpo-group-baden",
@@ -1917,7 +2493,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8537082-trainee-mechanical-engineering",
-    "firstSeenAt": "2026-10-16T09:20:59.784Z"
+    "firstSeenAt": "2026-10-16T09:20:59.784Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "trainee-mechanical-engineering-6825f767-1755-4137-ac9c-29245b313c0c": "AG"
+      },
+      "en": {
+        "trainee-mechanical-engineering-6825f767-1755-4137-ac9c-29245b313c0c": "AG"
+      },
+      "fr": {
+        "trainee-mechanical-engineering-6825f767-1755-4137-ac9c-29245b313c0c": "AG"
+      }
+    }
   },
   {
     "slug": "ai-adoption-specialista-f-m-d-axpo-group-baden",
@@ -1966,7 +2554,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8566126-ai-adoption-specialist-f-m-d",
-    "firstSeenAt": "2026-10-19T09:25:40.986Z"
+    "firstSeenAt": "2026-10-19T09:25:40.986Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ai-adoption-specialist-f-m-d-b41fa5b8-4620-4388-8b37-8245e32da123": "AG"
+      },
+      "de": {
+        "ai-adoption-specialist-f-m-d-b41fa5b8-4620-4388-8b37-8245e32da123": "AG"
+      },
+      "fr": {
+        "ai-adoption-specialist-f-m-d-b41fa5b8-4620-4388-8b37-8245e32da123": "AG"
+      }
+    }
   },
   {
     "slug": "smaltimento-nucleare-specializzato-m-f-d-axpo-group-dottingen",
@@ -2017,7 +2617,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8498096-fachverantwortlicher-nukleare-entsorgung-w-m-d",
-    "firstSeenAt": "2026-10-08T21:26:57.932Z"
+    "firstSeenAt": "2026-10-08T21:26:57.932Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachverantwortlicher-nukleare-entsorgung-w-m-d-axpo-group-dottingen": "AG",
+        "fachverantwortlicher-nukleare-entsorgung-w-m-d-e67f0765-852f-4d0d-bf4f-64a083d3210b": "AG"
+      },
+      "en": {
+        "fachverantwortlicher-nukleare-entsorgung-w-m-d-axpo-group-dottingen": "AG"
+      },
+      "fr": {
+        "fachverantwortlicher-nukleare-entsorgung-w-m-d-axpo-group-dottingen": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-digital-innovation-grid-m-f-d-axpo-group-baden",
@@ -2063,7 +2676,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8541878-project-manager-digital-innovation-grid-w-m-d",
-    "firstSeenAt": "2026-10-14T09:28:33.326Z"
+    "firstSeenAt": "2026-10-14T09:28:33.326Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "project-manager-digital-amp-innovation-grid-w-m-d-e0d587b4-61a4-4b1b-8d4c-782f62a97df2": "AG"
+      },
+      "fr": {
+        "project-manager-digital-amp-innovation-grid-w-m-d-e0d587b4-61a4-4b1b-8d4c-782f62a97df2": "AG"
+      }
+    }
   },
   {
     "slug": "rettifica-dei-dati-m-f-d-axpo-group-baden",
@@ -2109,7 +2731,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8542224-data-lead-grid-w-m-d",
-    "firstSeenAt": "2026-10-14T09:28:33.310Z"
+    "firstSeenAt": "2026-10-14T09:28:33.310Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "data-lead-grid-w-m-d-a0808b88-86ea-4655-87d4-7848db96accb": "AG"
+      },
+      "fr": {
+        "data-lead-grid-w-m-d-a0808b88-86ea-4655-87d4-7848db96accb": "AG"
+      }
+    }
   },
   {
     "slug": "berufswahltag-kaufmann-kauffrau-cfc-m-w-d-emmen-rathausen-ckw-emmen",
@@ -2167,7 +2798,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8465044-berufswahltag-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen",
-    "firstSeenAt": "2026-09-28T21:18:43.168Z"
+    "firstSeenAt": "2026-09-28T21:18:43.168Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-9165f0a5-bb0f-40f3-ac9b-f8558876b3e0": "LU",
+        "schnuppertag-come-kaufmann-kauffrau-cfc-m-w-d-emmen-rathausen-ckw-emmen": "LU",
+        "berufswahltag-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-9165f0a5-bb0f-40f3-ac9b-f8558876b3e0": "LU"
+      },
+      "en": {
+        "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-ckw-emmen": "LU",
+        "schnuppertag-as-merchant-merchant-efz-m-f-d-emmen-rathausen-ckw-emmen": "LU"
+      },
+      "fr": {
+        "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-ckw-emmen": "LU",
+        "schnuppertag-comme-marchand-marchand-efz-h-f-d-emmen-rathausen-ckw-emmen": "LU"
+      }
+    }
   },
   {
     "slug": "controlling-collaboratore-trice-business-analista-m-w-d-ckw-emmen",
@@ -2214,7 +2861,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8466356-controlling-mitarbeiter-in-business-analyst-w-m-d",
-    "firstSeenAt": "2026-09-28T21:18:43.159Z"
+    "firstSeenAt": "2026-09-28T21:18:43.159Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "controlling-mitarbeiter-in-business-analyst-w-m-d-12faa4ea-e798-4a77-bb82-e5d32d6252ac": "LU"
+      },
+      "fr": {
+        "controlling-employe-analyste-d-affaires-h-f-d-ckw-emmen": "LU"
+      }
+    }
   },
   {
     "slug": "apprendista-sales-marketing-ckw-emmen",
@@ -2263,7 +2919,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8548647-trainee-sales-marketing",
-    "firstSeenAt": "2026-10-15T21:26:23.481Z"
+    "firstSeenAt": "2026-10-15T21:26:23.481Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "trainee-sales-amp-marketing-2911ae5f-a359-4b27-886f-e4c41d0163ea": "LU"
+      },
+      "de": {
+        "trainee-sales-amp-marketing-2911ae5f-a359-4b27-886f-e4c41d0163ea": "LU"
+      },
+      "fr": {
+        "trainee-sales-amp-marketing-2911ae5f-a359-4b27-886f-e4c41d0163ea": "LU"
+      }
+    }
   },
   {
     "slug": "genai-product-manager-m-f-d-axpo-group-baden",
@@ -2309,7 +2977,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8585631-genai-product-manager-f-m-d",
-    "firstSeenAt": "2026-10-22T09:26:01.883Z"
+    "firstSeenAt": "2026-10-22T09:26:01.883Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "genai-product-manager-f-m-d-cf6e089a-d53d-409b-aaf7-b6f45964a684": "AG"
+      },
+      "fr": {
+        "genai-product-manager-f-m-d-cf6e089a-d53d-409b-aaf7-b6f45964a684": "AG"
+      }
+    }
   },
   {
     "slug": "it-demand-manager-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
@@ -2378,7 +3055,13 @@
         "firstSeenAt": "2026-05-10T21:02:07.390Z",
         "title": "IT Demand Manager (m/w/d)"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-demand-manager-m-w-d-156543f9-b1a1-41fd-8353-8e1b84754b66": "AG"
+      }
+    }
   },
   {
     "slug": "junior-responsabile-di-progetto-elektro-abteilung-nord-luzern-m-w-d-ckw-luzern",
@@ -2427,7 +3110,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8456411-junior-projektleiter-in-elektro-abteilung-nord-luzern-w-m-d",
-    "firstSeenAt": "2026-09-25T14:51:30.212Z"
+    "firstSeenAt": "2026-09-25T14:51:30.212Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-projektleiter-in-elektro-abteilung-nord-luzern-w-m-d-7b7aa86d-1c63-40e3-b623-ccebb9b9dc06": "LU"
+      },
+      "en": {
+        "junior-projektleiter-in-elektro-abteilung-nord-luzern-w-m-d-7b7aa86d-1c63-40e3-b623-ccebb9b9dc06": "LU"
+      },
+      "fr": {
+        "junior-projektleiter-in-elektro-abteilung-nord-luzern-w-m-d-7b7aa86d-1c63-40e3-b623-ccebb9b9dc06": "LU"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-elektro-domat-ems-m-w-d-ckw-domat-ems",
@@ -2476,7 +3171,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8456620-projektleiter-in-elektro-domat-ems-w-m-d",
-    "firstSeenAt": "2026-09-25T14:51:30.196Z"
+    "firstSeenAt": "2026-09-25T14:51:30.196Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-elektro-domat-ems-w-m-d-9f998545-1137-46a7-9633-fcf5c2872b6f": "GR"
+      },
+      "en": {
+        "projektleiter-in-elektro-domat-ems-w-m-d-9f998545-1137-46a7-9633-fcf5c2872b6f": "GR"
+      },
+      "fr": {
+        "projektleiter-in-elektro-domat-ems-w-m-d-9f998545-1137-46a7-9633-fcf5c2872b6f": "GR"
+      }
+    }
   },
   {
     "slug": "project-manager-responsabile-installazione-linee-operative-m-f-d-axpo-group-baden",
@@ -2527,7 +3234,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8450093-teilprojektleiter-in-montageleiter-in-freileitungen-w-m-d",
-    "firstSeenAt": "2026-10-07T09:37:17.150Z"
+    "firstSeenAt": "2026-10-07T09:37:17.150Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teilprojektleiter-in-montageleiter-in-freileitungen-w-m-d-axpo-group-baden": "AG",
+        "teilprojektleiter-in-montageleiter-in-freileitungen-w-m-d-b18263e7-4e23-4687-adbf-1465a174d912": "AG"
+      },
+      "en": {
+        "teilprojektleiter-in-montageleiter-in-freileitungen-w-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "teilprojektleiter-in-montageleiter-in-freileitungen-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "gestione-della-consegna-dei-servizi-m-f-d-axpo-systems-ag-lupfig",
@@ -2573,7 +3293,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://axposystemsag.teamtailor.com/jobs/8453292-service-delivery-manager-w-m-d",
-    "firstSeenAt": "2026-09-28T21:18:43.216Z"
+    "firstSeenAt": "2026-09-28T21:18:43.216Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "service-delivery-manager-w-m-d-3f1748a0-6d6a-4742-8072-9821ba682fcc": "AG"
+      },
+      "fr": {
+        "service-delivery-manager-w-m-d-3f1748a0-6d6a-4742-8072-9821ba682fcc": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-elektro-abteilung-nord-luzern-m-w-d-ckw-luzern",
@@ -2622,7 +3351,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8455958-projektleiter-in-elektro-abteilung-nord-luzern-w-m-d",
-    "firstSeenAt": "2026-09-25T14:51:30.228Z"
+    "firstSeenAt": "2026-09-25T14:51:30.228Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-in-elektro-abteilung-nord-luzern-w-m-d-340717ac-9a1e-4c9a-949c-f0b92d784feb": "LU"
+      },
+      "en": {
+        "projektleiter-in-elektro-abteilung-nord-luzern-w-m-d-340717ac-9a1e-4c9a-949c-f0b92d784feb": "LU"
+      },
+      "fr": {
+        "projektleiter-in-elektro-abteilung-nord-luzern-w-m-d-340717ac-9a1e-4c9a-949c-f0b92d784feb": "LU"
+      }
+    }
   },
   {
     "slug": "stazioni-trasformatrici-specialistiche-m-f-d-ckw-luzern",
@@ -2671,7 +3412,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8481098-fachspezialist-trafostationen-w-m-d",
-    "firstSeenAt": "2026-09-30T21:19:17.340Z"
+    "firstSeenAt": "2026-09-30T21:19:17.340Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-trafostationen-w-m-d-5fe5b330-2d62-4f3b-b732-04d9670131c4": "LU"
+      },
+      "en": {
+        "fachspezialist-trafostationen-w-m-d-5fe5b330-2d62-4f3b-b732-04d9670131c4": "LU"
+      },
+      "fr": {
+        "fachspezialist-trafostationen-w-m-d-5fe5b330-2d62-4f3b-b732-04d9670131c4": "LU"
+      }
+    }
   },
   {
     "slug": "apprendista-trading-support-axpo-group-baden",
@@ -2720,7 +3473,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8484237-trainee-trading-support",
-    "firstSeenAt": "2026-10-16T09:21:00.156Z"
+    "firstSeenAt": "2026-10-16T09:21:00.156Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "trainee-trading-support-ebedeeae-6ee6-426b-b682-7ed6a2229115": "AG"
+      },
+      "de": {
+        "trainee-trading-support-ebedeeae-6ee6-426b-b682-7ed6a2229115": "AG"
+      },
+      "fr": {
+        "trainee-trading-support-ebedeeae-6ee6-426b-b682-7ed6a2229115": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-della-manutenzione-delle-condutture-m-f-d-m-f-d-axpo-group-birr",
@@ -2769,7 +3534,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8427583-ressortleiter-in-instandhaltung-leitungen-m-w-d-w-m-d",
-    "firstSeenAt": "2026-10-05T09:20:12.472Z"
+    "firstSeenAt": "2026-10-05T09:20:12.472Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ressortleiter-in-instandhaltung-leitungen-m-w-d-w-m-d-520bd577-d8b3-40cd-8b1c-a0d615c4415d": "AG"
+      },
+      "en": {
+        "ressortleiter-in-instandhaltung-leitungen-m-w-d-w-m-d-520bd577-d8b3-40cd-8b1c-a0d615c4415d": "AG"
+      },
+      "fr": {
+        "ressortleiter-in-instandhaltung-leitungen-m-w-d-w-m-d-520bd577-d8b3-40cd-8b1c-a0d615c4415d": "AG"
+      }
+    }
   },
   {
     "slug": "schnuppertag-come-kaufmann-kauffrau-m-w-d-axpo-group-baden",
@@ -2819,7 +3596,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8436318-schnuppertag-als-kaufmann-kauffrau-w-m-d",
-    "firstSeenAt": "2026-09-23T23:44:59.923Z"
+    "firstSeenAt": "2026-09-23T23:44:59.923Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schnuppertag-als-kaufmann-kauffrau-w-m-d-fda06781-424a-4543-ad2a-bb454c990037": "AG"
+      },
+      "en": {
+        "schnuppertag-als-kaufmann-kauffrau-w-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "schnuppertag-als-kaufmann-kauffrau-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "montatore-di-linee-aeree-m-f-d-axpo-group-nurensdorf",
@@ -2870,7 +3659,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8447366-freileitungsmonteur-in-w-m-d",
-    "firstSeenAt": "2026-10-01T21:20:46.349Z"
+    "firstSeenAt": "2026-10-01T21:20:46.349Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "freileitungsmonteur-in-w-m-d-axpo-group-nurensdorf": "ZH",
+        "freileitungsmonteur-in-w-m-d-2f4ff24a-f0a9-436b-b429-c12b7cea0fb6": "ZH"
+      },
+      "en": {
+        "freileitungsmonteur-in-w-m-d-axpo-group-nurensdorf": "ZH"
+      },
+      "fr": {
+        "freileitungsmonteur-in-w-m-d-axpo-group-nurensdorf": "ZH"
+      }
+    }
   },
   {
     "slug": "stagista-risk-management-m-f-d-axpo-group-dottingen",
@@ -2921,7 +3723,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8448995-praktikant-in-risikomanagement-w-m-d",
-    "firstSeenAt": "2026-09-24T14:27:40.723Z"
+    "firstSeenAt": "2026-09-24T14:27:40.723Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-risikomanagement-w-m-d-axpo-group-dottingen": "AG",
+        "praktikant-in-risikomanagement-w-m-d-5755366d-efa0-483b-838d-dbc5b48de81c": "AG"
+      },
+      "en": {
+        "praktikant-in-risikomanagement-w-m-d-axpo-group-dottingen": "AG"
+      },
+      "fr": {
+        "praktikant-in-risikomanagement-w-m-d-axpo-group-dottingen": "AG"
+      }
+    }
   },
   {
     "slug": "ai-platform-ingegnere-f-m-d-axpo-group-baden",
@@ -2970,7 +3785,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8534551-ai-platform-engineer-f-m-d",
-    "firstSeenAt": "2026-10-15T21:26:23.634Z"
+    "firstSeenAt": "2026-10-15T21:26:23.634Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ai-platform-engineer-f-m-d-f629dac2-b3f0-409a-bf43-2a4593c33ad0": "AG"
+      },
+      "de": {
+        "ai-platform-engineer-f-m-d-f629dac2-b3f0-409a-bf43-2a4593c33ad0": "AG"
+      },
+      "fr": {
+        "ai-platform-engineer-f-m-d-f629dac2-b3f0-409a-bf43-2a4593c33ad0": "AG"
+      }
+    }
   },
   {
     "slug": "scada-leitsystem-ingegnere-w-m-d-axpo-group-baden",
@@ -3016,7 +3843,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8101968-ingenieur-leittechnik-w-m-d",
-    "firstSeenAt": "2026-09-24T14:27:40.786Z"
+    "firstSeenAt": "2026-09-24T14:27:40.786Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ingenieur-leittechnik-w-m-d-1da8efdb-75d7-4a6c-8eaf-6727ddaad6e4": "AG"
+      },
+      "fr": {
+        "ingenieur-leittechnik-w-m-d-1da8efdb-75d7-4a6c-8eaf-6727ddaad6e4": "AG"
+      }
+    }
   },
   {
     "slug": "schnuppertag-ict-professioni-didattiche-axpo-group-baden",
@@ -3059,7 +3895,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8436645-schnuppertag-ict-lehrberufe",
-    "firstSeenAt": "2026-09-23T23:44:59.910Z"
+    "firstSeenAt": "2026-09-23T23:44:59.910Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schnuppertag-ict-lehrberufe-fc848e69-882f-4fea-8c22-cda81b9c0ccd": "AG"
+      }
+    }
   },
   {
     "slug": "regolatore-di-divisione-m-f-d-axpo-group-baden",
@@ -3108,7 +3950,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8534875-division-controller-f-m-d",
-    "firstSeenAt": "2026-10-13T21:20:00.538Z"
+    "firstSeenAt": "2026-10-13T21:20:00.538Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "division-controller-f-m-d-a90b76f4-9189-4b2d-ad2b-d5ae5c686fb7": "AG"
+      },
+      "de": {
+        "division-controller-f-m-d-a90b76f4-9189-4b2d-ad2b-d5ae5c686fb7": "AG"
+      },
+      "fr": {
+        "division-controller-f-m-d-a90b76f4-9189-4b2d-ad2b-d5ae5c686fb7": "AG"
+      }
+    }
   },
   {
     "slug": "ml-ingegnere-praktikant-in-w-m-d-axpo-group-baden",
@@ -3159,7 +4013,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8486886-ml-engineer-praktikant-in-w-m-d",
-    "firstSeenAt": "2026-10-05T21:27:01.139Z"
+    "firstSeenAt": "2026-10-05T21:27:01.139Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ml-engineer-praktikant-in-w-m-d-721b25d6-e950-44f5-9702-7d148ea08b25": "AG"
+      },
+      "de": {
+        "ml-engineer-praktikant-in-w-m-d-721b25d6-e950-44f5-9702-7d148ea08b25": "AG"
+      },
+      "fr": {
+        "ml-ingenieur-praktikant-in-w-m-d-axpo-group-baden": "AG",
+        "ml-engineer-praktikant-in-w-m-d-721b25d6-e950-44f5-9702-7d148ea08b25": "AG"
+      }
+    }
   },
   {
     "slug": "ingegnere-di-progetto-ingegneria-primaria-m-f-d-axpo-group-baden",
@@ -3210,7 +4077,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8403229-projektingenieur-in-primaertechnik-w-m-d",
-    "firstSeenAt": "2026-09-23T23:44:59.956Z"
+    "firstSeenAt": "2026-09-23T23:44:59.956Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektingenieur-in-primartechnik-w-m-d-axpo-group-baden": "AG",
+        "projektingenieur-in-primartechnik-w-m-d-2e8fc930-da24-48cd-9e3e-96a94cb9a6d6": "AG"
+      },
+      "en": {
+        "projektingenieur-in-primartechnik-w-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "projektingenieur-in-primartechnik-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "coordinatore-della-direzione-m-f-d-axpo-group-baden",
@@ -3261,7 +4141,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8521559-koordinatorin-geschaeftsfuehrungen-w-m-d",
-    "firstSeenAt": "2026-10-12T09:21:41.180Z"
+    "firstSeenAt": "2026-10-12T09:21:41.180Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "koordinatorin-geschaftsfuhrungen-w-m-d-axpo-group-baden": "AG",
+        "koordinatorin-geschaftsfuhrungen-w-m-d-e7f1eace-7908-475f-8edd-be5b1078b213": "AG"
+      },
+      "en": {
+        "koordinatorin-geschaftsfuhrungen-w-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "koordinatorin-geschaftsfuhrungen-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "gestione-delle-applicazioni-di-piombo-del-capitolo-m-f-d-ckw-emmen",
@@ -3307,7 +4200,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8360112-chapter-lead-application-management-w-m-d",
-    "firstSeenAt": "2026-09-11T23:11:45.692Z"
+    "firstSeenAt": "2026-09-11T23:11:45.692Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chapter-lead-application-management-w-m-d-41c87938-362c-419a-b7d2-985052cb3f24": "LU"
+      },
+      "fr": {
+        "chapter-lead-application-management-w-m-d-41c87938-362c-419a-b7d2-985052cb3f24": "LU"
+      }
+    }
   },
   {
     "slug": "trade-finanza-manager-f-m-d-axpo-group-baden",
@@ -3356,7 +4258,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8364285-trade-finance-manager-f-m-d",
-    "firstSeenAt": "2026-09-11T13:36:51.304Z"
+    "firstSeenAt": "2026-09-11T13:36:51.304Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "trade-finance-manager-f-m-d-7d1ba85a-6bd4-49eb-a646-92fe298cd73b": "AG"
+      },
+      "de": {
+        "trade-finance-manager-f-m-d-7d1ba85a-6bd4-49eb-a646-92fe298cd73b": "AG"
+      },
+      "fr": {
+        "trade-finance-manager-f-m-d-7d1ba85a-6bd4-49eb-a646-92fe298cd73b": "AG"
+      }
+    }
   },
   {
     "slug": "manutenzione-professionale-techn-housekeeper-m-f-d-ckw-emmen",
@@ -3409,7 +4323,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8364683-instandhaltungsfachmann-frau-techn-hauswart-in-w-m-d",
-    "firstSeenAt": "2026-09-17T03:46:51.340Z"
+    "firstSeenAt": "2026-09-17T03:46:51.340Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "instandhaltungsfachmann-frau-techn-hauswart-in-w-m-d-ckw-emmen": "LU",
+        "instandhaltungsfachmann-frau-techn-hauswart-in-m-w-d-ckw-emmen": "LU",
+        "instandhaltungsfachmann-frau-techn-hauswart-in-w-m-d-3b53634f-afd0-4964-9b09-45fe0858d2a5": "LU"
+      },
+      "en": {
+        "instandhaltungsfachmann-frau-techn-hauswart-in-w-m-d-ckw-emmen": "LU"
+      },
+      "fr": {
+        "instandhaltungsfachmann-frau-techn-hauswart-in-w-m-d-ckw-emmen": "LU"
+      }
+    }
   },
   {
     "slug": "acquirente-strategico-m-f-d-axpo-group-baden",
@@ -3458,7 +4386,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8371126-strategische-r-einkaeufer-in-w-m-d",
-    "firstSeenAt": "2026-09-17T03:46:51.324Z"
+    "firstSeenAt": "2026-09-17T03:46:51.324Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "strategische-r-einkaufer-in-w-m-d-ab863f14-9762-45e4-ad5c-af6e8ed60118": "AG"
+      },
+      "en": {
+        "strategische-r-einkaufer-in-w-m-d-ab863f14-9762-45e4-ad5c-af6e8ed60118": "AG"
+      },
+      "fr": {
+        "strategische-r-einkaufer-in-w-m-d-ab863f14-9762-45e4-ad5c-af6e8ed60118": "AG"
+      }
+    }
   },
   {
     "slug": "ufficiale-tecnico-solar-m-f-d-ckw-luzern",
@@ -3509,7 +4449,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8385471-technische-r-sachbearbeiter-in-solar-w-m-d",
-    "firstSeenAt": "2026-09-19T22:54:55.333Z"
+    "firstSeenAt": "2026-09-19T22:54:55.333Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "technische-r-sachbearbeiter-in-solar-w-m-d-ckw-luzern": "LU",
+        "technische-r-sachbearbeiter-in-solar-w-m-d-c49eafff-3488-4eb8-b843-488d551c19fe": "LU"
+      },
+      "en": {
+        "technische-r-sachbearbeiter-in-solar-w-m-d-ckw-luzern": "LU"
+      },
+      "fr": {
+        "technische-r-sachbearbeiter-in-solar-w-m-d-ckw-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "servizio-postale-interno-dipendente-commerciale-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
@@ -3546,10 +4499,12 @@
     ],
     "previousSlugsByLocale": {
       "en": [
-        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-20-30-kernkraftwerk-leibstadt-ag-leibstadt"
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-20-30-kernkraftwerk-leibstadt-ag-leibstadt",
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
       ],
       "fr": [
-        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-20-30-kernkraftwerk-leibstadt-ag-leibstadt"
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-20-30-kernkraftwerk-leibstadt-ag-leibstadt",
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
       ],
       "it": [
         "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-20-30-0d635fa8-ae85-4683-8450-34a8a77a800f",
@@ -3563,7 +4518,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kernkraftwerkleibstadtag.teamtailor.com/jobs/8385654-kaufmaennischer-mitarbeiter-interner-postdienst-m-w-d-20-30",
-    "firstSeenAt": "2026-09-17T03:46:51.290Z"
+    "firstSeenAt": "2026-09-17T03:46:51.290Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-20-30-0d635fa8-ae85-4683-8450-34a8a77a800f": "AG",
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-0d635fa8-ae85-4683-8450-34a8a77a800f": "AG",
+        "kaufmannischer-collaboratore-trice-interner-postdienst-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG"
+      },
+      "en": {
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-20-30-kernkraftwerk-leibstadt-ag-leibstadt": "AG",
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG"
+      },
+      "fr": {
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-20-30-kernkraftwerk-leibstadt-ag-leibstadt": "AG",
+        "kaufmannischer-mitarbeiter-interner-postdienst-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG"
+      }
+    }
   },
   {
     "slug": "power-operator-w-m-d-axpo-group-baden",
@@ -3616,7 +4587,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8392073-power-operator-w-m-d",
-    "firstSeenAt": "2026-09-29T21:15:01.432Z"
+    "firstSeenAt": "2026-09-29T21:15:01.432Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "centralino-m-f-d-axpo-group-baden": "AG",
+        "operatore-di-energia-m-f-d-axpo-group-baden": "AG",
+        "power-operator-w-m-d-f9fb407f-120c-435c-b449-e9c1c5bf9c34": "AG"
+      },
+      "en": {
+        "power-operator-w-m-d-f9fb407f-120c-435c-b449-e9c1c5bf9c34": "AG"
+      },
+      "fr": {
+        "power-operator-w-m-d-f9fb407f-120c-435c-b449-e9c1c5bf9c34": "AG"
+      }
+    }
   },
   {
     "slug": "manutenzione-meccanica-operativa-m-f-d-axpo-group-augst",
@@ -3667,7 +4652,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8392144-betriebsmechaniker-in-instandhaltung-w-m-d",
-    "firstSeenAt": "2026-09-19T22:54:55.273Z"
+    "firstSeenAt": "2026-09-19T22:54:55.273Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "betriebsmechaniker-in-instandhaltung-w-m-d-axpo-group-augst": "BL",
+        "betriebsmechaniker-in-instandhaltung-w-m-d-086130ec-f992-450c-bc19-5632232682d6": "BL"
+      },
+      "en": {
+        "betriebsmechaniker-in-instandhaltung-w-m-d-axpo-group-augst": "BL"
+      },
+      "fr": {
+        "betriebsmechaniker-in-instandhaltung-w-m-d-axpo-group-augst": "BL"
+      }
+    }
   },
   {
     "slug": "assistant-construction-engineering-nuclear-m-f-d-axpo-group-baden",
@@ -3702,7 +4700,8 @@
         "assistenz-bautechnik-nuclear-w-m-d-28ad3a56-9c07-4ca8-8ec5-bf764f0a0972"
       ],
       "en": [
-        "assistenz-bautechnik-nuclear-w-m-d-28ad3a56-9c07-4ca8-8ec5-bf764f0a0972"
+        "assistenz-bautechnik-nuclear-w-m-d-28ad3a56-9c07-4ca8-8ec5-bf764f0a0972",
+        "assistant-construction-engineering-nuclear-m-f-d-axpo-group-baden"
       ],
       "fr": [
         "assistenz-bautechnik-nuclear-w-m-d-28ad3a56-9c07-4ca8-8ec5-bf764f0a0972"
@@ -3714,7 +4713,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8394030-assistenz-bautechnik-nuclear-w-m-d",
-    "firstSeenAt": "2026-09-25T14:51:30.394Z"
+    "firstSeenAt": "2026-09-25T14:51:30.394Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistenz-bautechnik-nuclear-w-m-d-28ad3a56-9c07-4ca8-8ec5-bf764f0a0972": "AG"
+      },
+      "en": {
+        "assistant-construction-engineering-nuclear-m-f-d-axpo-group-baden": "AG",
+        "assistenz-bautechnik-nuclear-w-m-d-28ad3a56-9c07-4ca8-8ec5-bf764f0a0972": "AG"
+      },
+      "fr": {
+        "assistenz-bautechnik-nuclear-w-m-d-28ad3a56-9c07-4ca8-8ec5-bf764f0a0972": "AG"
+      }
+    }
   },
   {
     "slug": "professional-ingegnere-w-m-d-axpo-systems-ag-lupfig",
@@ -3763,7 +4775,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://axposystemsag.teamtailor.com/jobs/8395455-professional-engineer-w-m-d",
-    "firstSeenAt": "2026-09-23T23:45:00.021Z"
+    "firstSeenAt": "2026-09-23T23:45:00.021Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "professional-engineer-w-m-d-c9d989d6-c454-4f41-9f9e-c5e0ac1d81dd": "AG"
+      },
+      "de": {
+        "professional-engineer-w-m-d-c9d989d6-c454-4f41-9f9e-c5e0ac1d81dd": "AG"
+      },
+      "fr": {
+        "professional-engineer-w-m-d-c9d989d6-c454-4f41-9f9e-c5e0ac1d81dd": "AG"
+      }
+    }
   },
   {
     "slug": "senior-flex-energy-manager-m-f-d-ckw-emmen",
@@ -3809,7 +4833,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8397660-senior-flex-energy-manager-w-m-d",
-    "firstSeenAt": "2026-09-19T22:54:55.240Z"
+    "firstSeenAt": "2026-09-19T22:54:55.240Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-flex-amp-energy-manager-w-m-d-832a6e4c-3690-4d16-a120-bb515d568752": "LU"
+      },
+      "fr": {
+        "senior-flex-amp-energy-manager-w-m-d-832a6e4c-3690-4d16-a120-bb515d568752": "LU"
+      }
+    }
   },
   {
     "slug": "responsabile-della-costruzione-solar-m-f-d-ckw-luzern",
@@ -3856,7 +4889,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8398350-bauleiter-in-solar-w-m-d",
-    "firstSeenAt": "2026-09-19T22:54:55.182Z"
+    "firstSeenAt": "2026-09-19T22:54:55.182Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bauleiter-in-solar-w-m-d-ckw-luzern": "LU",
+        "bauleiter-in-solar-m-w-d-ckw-luzern": "LU",
+        "bauleiter-in-solar-w-m-d-277e7196-9a53-45e1-9e40-6520f2e01713": "LU"
+      }
+    }
   },
   {
     "slug": "acquirente-legale-m-f-d-axpo-group-baden",
@@ -3905,7 +4946,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8401602-rechtserwerber-in-w-m-d",
-    "firstSeenAt": "2026-09-23T23:44:59.975Z"
+    "firstSeenAt": "2026-09-23T23:44:59.975Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "rechtserwerber-in-w-m-d-28d54be4-a646-4c5c-b0e9-a3d2f7c2f118": "AG"
+      },
+      "en": {
+        "rechtserwerber-in-w-m-d-28d54be4-a646-4c5c-b0e9-a3d2f7c2f118": "AG"
+      },
+      "fr": {
+        "rechtserwerber-in-w-m-d-28d54be4-a646-4c5c-b0e9-a3d2f7c2f118": "AG"
+      }
+    }
   },
   {
     "slug": "senior-specialista-di-vendita-nel-settore-solare-m-f-d-ckw-egerkingen",
@@ -3980,12 +5033,19 @@
       "it": {
         "specialista-senior-delle-vendite-nel-settore-solare-m-f-d-ckw-egerkingen": "SO",
         "senior-sales-specialist-solar-m-f-d-ckw-egerkingen": "SO",
-        "senior-verkaufsspezialist-in-solar-w-m-d-82f5a985-2802-49fc-a77f-9a5080a5c44f": "SO"
+        "senior-verkaufsspezialist-in-solar-w-m-d-82f5a985-2802-49fc-a77f-9a5080a5c44f": "SO",
+        "senior-verkaufsspezialist-in-solar-w-m-d-ckw-egerkingen": "SO",
+        "senior-verkaufsspezialist-in-solar-w-m-d-9cc65e06-436f-4ed6-a75b-6de4ed51337c": "SO"
       },
       "en": {
-        "senior-solar-sales-specialist-m-f-d-ckw-egerkingen": "SO"
+        "senior-solar-sales-specialist-m-f-d-ckw-egerkingen": "SO",
+        "senior-verkaufsspezialist-in-solar-w-m-d-ckw-egerkingen": "SO"
+      },
+      "fr": {
+        "senior-verkaufsspezialist-in-solar-w-m-d-ckw-egerkingen": "SO"
       }
-    }
+    },
+    "canton": "SO"
   },
   {
     "slug": "adozione-digitale-requisiti-e-implementazione-m-f-d-axpo-group-baden",
@@ -4035,7 +5095,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8448178-praktikum-digital-adoption-requirements-rollout-m-w-d",
-    "firstSeenAt": "2026-09-30T21:19:17.557Z"
+    "firstSeenAt": "2026-09-30T21:19:17.557Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikum-digital-adoption-requirements-amp-rollout-m-w-d-18c2106e-2966-486d-bcd8-b82d7824069f": "AG"
+      },
+      "en": {
+        "praktikum-digital-adoption-requirements-amp-rollout-m-w-d-18c2106e-2966-486d-bcd8-b82d7824069f": "AG"
+      },
+      "fr": {
+        "stage-adoption-numerique-exigences-et-deploiement-h-f-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "installatore-di-servizio-elettrico-kriens-m-f-d-ckw-kriens",
@@ -4082,7 +5154,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8320946-elektro-serviceinstallateur-in-kriens-w-m-d",
-    "firstSeenAt": "2026-09-04T13:33:53.714Z"
+    "firstSeenAt": "2026-09-04T13:33:53.714Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "installatore-di-servizio-elettrico-in-kriens-m-f-d-ckw-kriens": "LU",
+        "elektro-serviceinstallateur-in-kriens-w-m-d-ckw-kriens": "LU",
+        "elektro-serviceinstallateur-in-kriens-w-m-d-bbdcf8d9-fc3e-4ebd-896e-a2c0125474b8": "LU"
+      }
+    }
   },
   {
     "slug": "direttore-della-costruzione-elettrica-a-kriens-m-f-d-ckw-kriens",
@@ -4135,7 +5215,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8321379-elektro-bauleiter-in-kriens-w-m-d",
-    "firstSeenAt": "2026-09-04T13:33:53.697Z"
+    "firstSeenAt": "2026-09-04T13:33:53.697Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektro-bauleiter-in-kriens-w-m-d-ckw-kriens": "LU",
+        "elektro-bauleiter-in-kriens-m-w-d-ckw-kriens": "LU",
+        "elektro-bauleiter-in-kriens-w-m-d-b40ed5b9-15ef-4cce-9a83-ce8ed2b4b006": "LU"
+      },
+      "en": {
+        "elektro-bauleiter-in-kriens-w-m-d-b40ed5b9-15ef-4cce-9a83-ce8ed2b4b006": "LU"
+      },
+      "fr": {
+        "elektro-bauleiter-in-kriens-w-m-d-b40ed5b9-15ef-4cce-9a83-ce8ed2b4b006": "LU"
+      }
+    }
   },
   {
     "slug": "ot-security-architetto-lead-ingegnere-w-m-d-axpo-systems-ag-lupfig",
@@ -4184,7 +5278,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://axposystemsag.teamtailor.com/jobs/8319659-ot-security-architect-lead-engineer-w-m-d",
-    "firstSeenAt": "2026-09-04T13:33:53.745Z"
+    "firstSeenAt": "2026-09-04T13:33:53.745Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ot-security-architect-amp-lead-engineer-w-m-d-b89b9b8d-59cb-4fe5-99cb-9e38746115dc": "AG"
+      },
+      "de": {
+        "ot-security-architect-amp-lead-engineer-w-m-d-b89b9b8d-59cb-4fe5-99cb-9e38746115dc": "AG"
+      },
+      "fr": {
+        "ot-security-architect-amp-lead-engineer-w-m-d-b89b9b8d-59cb-4fe5-99cb-9e38746115dc": "AG"
+      }
+    }
   },
   {
     "slug": "contabile-energiehandel-w-m-d-axpo-group-baden",
@@ -4235,7 +5341,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8320546-accountant-energiehandel-w-m-d",
-    "firstSeenAt": "2026-09-08T13:40:56.287Z"
+    "firstSeenAt": "2026-09-08T13:40:56.287Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "accountant-m-d-axpo-group-baden": "AG",
+        "accountant-energiehandel-w-m-d-27429b83-f073-42ac-9851-ca46618eb561": "AG"
+      },
+      "en": {
+        "accountant-energiehandel-w-m-d-27429b83-f073-42ac-9851-ca46618eb561": "AG"
+      },
+      "fr": {
+        "accountant-energiehandel-w-m-d-27429b83-f073-42ac-9851-ca46618eb561": "AG"
+      }
+    }
   },
   {
     "slug": "installatore-trice-elettrico-a-in-kriens-m-w-d-ckw-kriens",
@@ -4285,7 +5404,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8320852-elektroinstallateur-in-kriens-w-m-d",
-    "firstSeenAt": "2026-09-04T13:33:53.729Z"
+    "firstSeenAt": "2026-09-04T13:33:53.729Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektroinstallateur-in-kriens-w-m-d-d669559b-d55a-4bbf-a244-0175cc1a5a4f": "LU"
+      },
+      "en": {
+        "elektroinstallateur-in-kriens-w-m-d-ckw-kriens": "LU"
+      },
+      "fr": {
+        "elektroinstallateur-in-kriens-w-m-d-ckw-kriens": "LU"
+      }
+    }
   },
   {
     "slug": "apprendistato-progettista-elettrico-a-in-cfc-m-w-d-axpo-group-baden",
@@ -4334,7 +5465,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8316001-lehrstelle-elektroplaner-in-efz-w-m-d",
-    "firstSeenAt": "2026-09-03T13:40:09.653Z"
+    "firstSeenAt": "2026-09-03T13:40:09.653Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-elektroplaner-in-efz-w-m-d-43baf78e-8ba8-4620-b9e8-631069fb586c": "AG"
+      },
+      "en": {
+        "lehrstelle-elektroplaner-in-efz-w-m-d-43baf78e-8ba8-4620-b9e8-631069fb586c": "AG"
+      },
+      "fr": {
+        "lehrstelle-elektroplaner-in-efz-w-m-d-43baf78e-8ba8-4620-b9e8-631069fb586c": "AG"
+      }
+    }
   },
   {
     "slug": "specialista-responsabile-r-uw-us-kw-tecnologia-di-controllo-m-f-d-ckw-luzern",
@@ -4385,7 +5528,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8311517-fachverantwortliche-r-uw-us-kw-leittechnik-w-m-d",
-    "firstSeenAt": "2026-09-07T15:10:33.945Z"
+    "firstSeenAt": "2026-09-07T15:10:33.945Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachverantwortliche-r-uw-us-kw-leittechnik-w-m-d-ckw-luzern": "LU",
+        "fachverantwortliche-r-uw-us-kw-leittechnik-w-m-d-bc3cbe1c-532c-4883-8cfa-d832aeedcf4b": "LU"
+      },
+      "en": {
+        "fachverantwortliche-r-uw-us-kw-leittechnik-w-m-d-ckw-luzern": "LU"
+      },
+      "fr": {
+        "fachverantwortliche-r-uw-us-kw-leittechnik-w-m-d-ckw-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "internship-in-procurement-hydro-biomass-m-f-d-axpo-group-baden",
@@ -4420,7 +5576,8 @@
         "praktikant-in-procurement-hydro-amp-biomasse-w-m-d-0d07e36e-9bc1-4fd0-bb7d-a7e57b485285"
       ],
       "en": [
-        "praktikant-in-procurement-hydro-amp-biomasse-w-m-d-0d07e36e-9bc1-4fd0-bb7d-a7e57b485285"
+        "praktikant-in-procurement-hydro-amp-biomasse-w-m-d-0d07e36e-9bc1-4fd0-bb7d-a7e57b485285",
+        "internship-in-procurement-hydro-biomass-m-f-d-axpo-group-baden"
       ],
       "fr": [
         "praktikant-in-procurement-hydro-amp-biomasse-w-m-d-0d07e36e-9bc1-4fd0-bb7d-a7e57b485285"
@@ -4432,7 +5589,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8314179-praktikant-in-procurement-hydro-biomasse-w-m-d",
-    "firstSeenAt": "2026-09-07T15:10:33.932Z"
+    "firstSeenAt": "2026-09-07T15:10:33.932Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikant-in-procurement-hydro-amp-biomasse-w-m-d-0d07e36e-9bc1-4fd0-bb7d-a7e57b485285": "AG"
+      },
+      "en": {
+        "internship-in-procurement-hydro-biomass-m-f-d-axpo-group-baden": "AG",
+        "praktikant-in-procurement-hydro-amp-biomasse-w-m-d-0d07e36e-9bc1-4fd0-bb7d-a7e57b485285": "AG"
+      },
+      "fr": {
+        "praktikant-in-procurement-hydro-amp-biomasse-w-m-d-0d07e36e-9bc1-4fd0-bb7d-a7e57b485285": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-vendita-biomasse-m-w-d-axpo-group-baden",
@@ -4485,7 +5655,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8315104-leiter-in-verkauf-biomasse-w-m-d",
-    "firstSeenAt": "2026-09-03T13:40:09.681Z"
+    "firstSeenAt": "2026-09-03T13:40:09.681Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-in-verkauf-biomasse-w-m-d-2dba21cd-3675-4e68-ad97-1693fc7588c5": "AG"
+      },
+      "en": {
+        "leiter-in-sales-biomasse-w-m-d-axpo-group-baden": "AG",
+        "leiter-in-verkauf-biomasse-w-m-d-2dba21cd-3675-4e68-ad97-1693fc7588c5": "AG"
+      },
+      "fr": {
+        "leiter-in-vente-biomasse-w-m-d-axpo-group-baden": "AG",
+        "leiter-in-verkauf-biomasse-w-m-d-2dba21cd-3675-4e68-ad97-1693fc7588c5": "AG"
+      }
+    }
   },
   {
     "slug": "leader-it-business-partner-m-f-d-axpo-group-baden",
@@ -4534,7 +5718,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8486901-lead-it-business-partner-f-m-d",
-    "firstSeenAt": "2026-10-02T21:19:39.360Z"
+    "firstSeenAt": "2026-10-02T21:19:39.360Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-it-business-partner-f-m-d-863e3c45-db1e-4e9a-92a6-720ebd53e51a": "AG"
+      },
+      "de": {
+        "lead-it-business-partner-f-m-d-863e3c45-db1e-4e9a-92a6-720ebd53e51a": "AG"
+      },
+      "fr": {
+        "lead-it-business-partner-f-m-d-863e3c45-db1e-4e9a-92a6-720ebd53e51a": "AG"
+      }
+    }
   },
   {
     "slug": "installatore-di-servizio-elettrico-industrie-sursee-m-f-d-ckw-sursee",
@@ -4581,7 +5777,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8308613-elektro-serviceinstallateur-in-industrie-sursee-w-m-d",
-    "firstSeenAt": "2026-09-02T13:37:57.094Z"
+    "firstSeenAt": "2026-09-02T13:37:57.094Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "installatore-industry-di-servizio-elettrico-sursee-m-f-d-ckw-sursee": "LU",
+        "elektro-serviceinstallateur-in-industrie-sursee-w-m-d-ckw-sursee": "LU",
+        "elektro-serviceinstallateur-in-industrie-sursee-w-m-d-89d997ad-a353-4a42-8f27-d30c1ad143a8": "LU"
+      }
+    }
   },
   {
     "slug": "sap-payroll-and-time-management-consulente-f-m-d-axpo-group-baden",
@@ -4630,7 +5834,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8291969-sap-payroll-and-time-management-consultant-f-m-d",
-    "firstSeenAt": "2026-08-31T17:17:07.757Z"
+    "firstSeenAt": "2026-08-31T17:17:07.757Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sap-payroll-and-time-management-consultant-f-m-d-59de911d-3bb9-48db-af4a-3269c0b19f32": "AG"
+      },
+      "de": {
+        "sap-payroll-and-time-management-consultant-f-m-d-59de911d-3bb9-48db-af4a-3269c0b19f32": "AG"
+      },
+      "fr": {
+        "sap-payroll-and-time-management-consultant-f-m-d-59de911d-3bb9-48db-af4a-3269c0b19f32": "AG"
+      }
+    }
   },
   {
     "slug": "contabilita-finanziaria-in-hydro-biomasse-services-m-f-d-axpo-group-baden",
@@ -4678,7 +5894,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8447816-finanzbuchhalter-in-hydro-biomasse-services-w-m-d",
-    "firstSeenAt": "2026-09-24T14:27:40.751Z"
+    "firstSeenAt": "2026-09-24T14:27:40.751Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "finanzbuchhalter-in-hydro-biomasse-services-w-m-d-axpo-group-baden": "AG",
+        "finanzbuchhalter-in-hydro-biomasse-amp-services-w-m-d-4ca8406c-ec22-48f0-83ae-caf99ec569e1": "AG"
+      },
+      "fr": {
+        "finanzbuchhalter-in-hydro-biomasse-services-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "direttore-della-costruzione-elettrica-hunenberg-m-f-d-ckw-hunenberg",
@@ -4739,7 +5965,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8276417-elektro-bauleiter-in-hunenberg-w-m-d",
-    "firstSeenAt": "2026-08-28T05:26:10.807Z"
+    "firstSeenAt": "2026-08-28T05:26:10.807Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektro-bauleiter-in-hunenberg-m-w-d-ckw-hunenberg": "ZG",
+        "elektro-bauleiter-in-hunenberg-w-m-d-ckw-hunenberg": "ZG",
+        "elektro-bauleiter-hunenberg-m-f-d-ckw-hunenberg": "ZG",
+        "elektro-bauleiter-hunenberg-m-w-d-ckw-hunenberg": "ZG",
+        "elektro-bauleiter-in-hunenberg-w-m-d-84c745f3-7385-487e-b202-14baa9469692": "ZG"
+      },
+      "en": {
+        "elektro-bauleiter-in-hunenberg-m-f-d-ckw-hunenberg": "ZG",
+        "elektro-bauleiter-in-hunenberg-w-m-d-84c745f3-7385-487e-b202-14baa9469692": "ZG"
+      },
+      "fr": {
+        "elektro-bauleiter-dans-hunenberg-h-f-d-ckw-hunenberg": "ZG",
+        "elektro-bauleiter-in-hunenberg-w-m-d-84c745f3-7385-487e-b202-14baa9469692": "ZG"
+      }
+    }
   },
   {
     "slug": "direttore-della-costruzione-elettrica-ebikon-m-f-d-ckw-ebikon",
@@ -4792,7 +6036,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8276422-elektro-bauleiter-in-ebikon-w-m-d",
-    "firstSeenAt": "2026-08-28T05:26:10.785Z"
+    "firstSeenAt": "2026-08-28T05:26:10.785Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektro-bauleiter-in-ebikon-w-m-d-ckw-ebikon": "LU",
+        "elektro-bauleiter-in-ebikon-m-w-d-ckw-ebikon": "LU",
+        "elektro-bauleiter-in-ebikon-w-m-d-92f7802d-08bf-488e-871e-e8dc18780b9a": "LU"
+      },
+      "en": {
+        "elektro-bauleiter-in-ebikon-w-m-d-92f7802d-08bf-488e-871e-e8dc18780b9a": "LU"
+      },
+      "fr": {
+        "elektro-bauleiter-in-ebikon-w-m-d-92f7802d-08bf-488e-871e-e8dc18780b9a": "LU"
+      }
+    }
   },
   {
     "slug": "installatore-di-servizio-elettrico-m-f-d-ckw-ebikon",
@@ -4839,7 +6097,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8276567-elektro-serviceinstallateur-in-w-m-d",
-    "firstSeenAt": "2026-08-28T05:26:10.764Z"
+    "firstSeenAt": "2026-08-28T05:26:10.764Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "installatore-di-servizio-elettrico-in-m-f-d-ckw-ebikon": "LU",
+        "elektro-serviceinstallateur-in-w-m-d-ckw-ebikon": "LU",
+        "elektro-serviceinstallateur-in-w-m-d-43ce53f4-7a00-4114-aa61-f9bc227b5dba": "LU"
+      }
+    }
   },
   {
     "slug": "powerup-il-tuo-ritorno-al-controllo-di-axpo-power-axpo-group-baden",
@@ -4890,7 +6156,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8282276-powerup-dein-wiedereinstieg-im-business-controlling-bei-axpo-power",
-    "firstSeenAt": "2026-09-01T14:14:39.162Z"
+    "firstSeenAt": "2026-09-01T14:14:39.162Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "powerup-dein-wiedereinstieg-im-engineering-bei-axpo-power-4b60139a-abe4-41d1-be63-a39545ae288d": "AG",
+        "business-controller-in-division-distribution-w-m-d-4b60139a-abe4-41d1-be63-a39545ae288d": "AG",
+        "powerup-dein-wiedereinstieg-im-business-controlling-bei-axpo-power-4b60139a-abe4-41d1-be63-a39545ae288d": "AG"
+      },
+      "fr": {
+        "business-controller-in-division-distribution-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "installatore-di-servizio-elettrico-in-hunenberg-m-f-d-ckw-hunenberg",
@@ -4941,7 +6218,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8276264-elektro-serviceinstallateur-in-hunenberg-w-m-d",
-    "firstSeenAt": "2026-08-28T05:26:10.846Z"
+    "firstSeenAt": "2026-08-28T05:26:10.846Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektro-serviceinstallateur-in-hunenberg-w-m-d-ckw-hunenberg": "ZG",
+        "elektro-serviceinstallateur-in-hunenberg-w-m-d-a19da28c-b5f7-41a5-920b-2e9a49f14f46": "ZG"
+      },
+      "en": {
+        "elektro-serviceinstallateur-in-hunenberg-w-m-d-ckw-hunenberg": "ZG"
+      },
+      "fr": {
+        "elektro-serviceinstallateur-in-hunenberg-w-m-d-ckw-hunenberg": "ZG"
+      }
+    }
   },
   {
     "slug": "installatore-trice-elettrico-a-in-hunenberg-m-w-d-ckw-hunenberg",
@@ -4991,7 +6281,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8276266-elektroinstallateur-in-hunenberg-w-m-d",
-    "firstSeenAt": "2026-08-28T05:26:10.826Z"
+    "firstSeenAt": "2026-08-28T05:26:10.826Z",
+    "canton": "ZG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "elektroinstallateur-in-hunenberg-w-m-d-7656edc5-da8a-469f-b115-e7dc8f29a3d5": "ZG"
+      },
+      "en": {
+        "elektroinstallateur-in-hunenberg-w-m-d-ckw-hunenberg": "ZG"
+      },
+      "fr": {
+        "elektroinstallateur-in-hunenberg-w-m-d-ckw-hunenberg": "ZG"
+      }
+    }
   },
   {
     "slug": "progettista-ux-junior-m-f-d-axpo-group-baden",
@@ -5040,7 +6342,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8359681-junior-ux-designer-f-m-d",
-    "firstSeenAt": "2026-09-11T13:36:51.327Z"
+    "firstSeenAt": "2026-09-11T13:36:51.327Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-ux-designer-f-m-d-031cbc59-1920-40b8-b021-f2c7f5ef9486": "AG"
+      },
+      "de": {
+        "junior-ux-designer-f-m-d-031cbc59-1920-40b8-b021-f2c7f5ef9486": "AG"
+      },
+      "fr": {
+        "junior-ux-designer-f-m-d-031cbc59-1920-40b8-b021-f2c7f5ef9486": "AG"
+      }
+    }
   },
   {
     "slug": "sistemi-di-sicurezza-di-manutenzione-del-sistema-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
@@ -5090,7 +6404,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kernkraftwerkleibstadtag.teamtailor.com/jobs/8271171-systembetreuer-sicherungssysteme-m-w-d",
-    "firstSeenAt": "2026-09-02T13:37:57.350Z"
+    "firstSeenAt": "2026-09-02T13:37:57.350Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "systembetreuer-sicherungssysteme-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG",
+        "systembetreuer-sicherungssysteme-m-w-d-ccb92b3a-82fb-435b-9fb4-75fee7a82bdd": "AG"
+      },
+      "en": {
+        "systembetreuer-sicherungssysteme-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG"
+      },
+      "fr": {
+        "systembetreuer-sicherungssysteme-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-del-progetto-m-f-d-axpo-group-dottingen",
@@ -5142,7 +6469,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8271635-projektleiter-w-m-d",
-    "firstSeenAt": "2026-09-17T03:46:51.807Z"
+    "firstSeenAt": "2026-09-17T03:46:51.807Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-w-m-d-axpo-group-dottingen": "AG",
+        "projektleiter-m-w-d-axpo-group-dottingen": "AG",
+        "projektleiter-w-m-d-62306a05-b68b-4e8f-bbac-808e1512f859": "AG"
+      },
+      "en": {
+        "projektleiter-w-m-d-62306a05-b68b-4e8f-bbac-808e1512f859": "AG"
+      },
+      "fr": {
+        "projektleiter-w-m-d-62306a05-b68b-4e8f-bbac-808e1512f859": "AG"
+      }
+    }
   },
   {
     "slug": "gestione-dell-eccellenza-di-processo-m-f-d-axpo-group-baden",
@@ -5189,7 +6530,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8273012-process-excellence-manager-w-m-d",
-    "firstSeenAt": "2026-09-19T22:54:55.987Z"
+    "firstSeenAt": "2026-09-19T22:54:55.987Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "process-manager-m-d-axpo-group-baden": "AG",
+        "process-excellence-manager-w-m-d-78196d2b-c3e7-4776-8317-06cff960a840": "AG"
+      },
+      "fr": {
+        "process-excellence-manager-w-m-d-78196d2b-c3e7-4776-8317-06cff960a840": "AG"
+      }
+    }
   },
   {
     "slug": "laboratorio-chimico-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
@@ -5237,7 +6588,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kernkraftwerkleibstadtag.teamtailor.com/jobs/8273858-chemielaborant-m-w-d",
-    "firstSeenAt": "2026-09-02T13:37:57.342Z"
+    "firstSeenAt": "2026-09-02T13:37:57.342Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chemielaborant-m-w-d-736beee4-ec21-4920-aaad-4ad92cc1b20d": "AG"
+      },
+      "en": {
+        "chemielaborant-m-w-d-736beee4-ec21-4920-aaad-4ad92cc1b20d": "AG"
+      },
+      "fr": {
+        "chemielaborant-m-w-d-736beee4-ec21-4920-aaad-4ad92cc1b20d": "AG"
+      }
+    }
   },
   {
     "slug": "specialista-tecnico-per-test-non-distruttivi-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
@@ -5288,7 +6651,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kernkraftwerkleibstadtag.teamtailor.com/jobs/8266636-fachspezialist-fuer-zerstoerungsfreie-pruefungen-m-w-d",
-    "firstSeenAt": "2026-09-03T13:40:09.933Z"
+    "firstSeenAt": "2026-09-03T13:40:09.933Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-per-zerstorungsfreie-prufungen-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG",
+        "fachspezialist-fur-zerstorungsfreie-prufungen-m-w-d-4cd0f79a-020c-4c90-9025-4743f18e5b66": "AG"
+      },
+      "en": {
+        "fachspezialist-fur-zerstorungsfreie-prufungen-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG"
+      },
+      "fr": {
+        "fachspezialist-fur-zerstorungsfreie-prufungen-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG"
+      }
+    }
   },
   {
     "slug": "staff-plattform-ingegnere-w-m-d-axpo-group-baden",
@@ -5325,6 +6701,13 @@
       "it": [
         "staff-plattform-engineer-w-m-d-f7deb881-c03a-4dc6-bf6c-8e5434bf51a0",
         "staff-platform-engineer-w-m-d-f7deb881-c03a-4dc6-bf6c-8e5434bf51a0"
+      ],
+      "de": [
+        "staff-plattform-engineer-w-m-d-f7deb881-c03a-4dc6-bf6c-8e5434bf51a0"
+      ],
+      "fr": [
+        "staff-plattform-ingenieur-w-m-d-axpo-group-baden",
+        "staff-plattform-engineer-w-m-d-f7deb881-c03a-4dc6-bf6c-8e5434bf51a0"
       ]
     },
     "salaryMin": 64500,
@@ -5332,7 +6715,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8263436-staff-platform-engineer-w-m-d",
-    "firstSeenAt": "2026-08-25T10:20:08.848Z"
+    "firstSeenAt": "2026-08-25T10:20:08.848Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "staff-plattform-engineer-w-m-d-f7deb881-c03a-4dc6-bf6c-8e5434bf51a0": "AG",
+        "staff-platform-engineer-w-m-d-f7deb881-c03a-4dc6-bf6c-8e5434bf51a0": "AG"
+      },
+      "de": {
+        "staff-plattform-engineer-w-m-d-f7deb881-c03a-4dc6-bf6c-8e5434bf51a0": "AG"
+      },
+      "fr": {
+        "staff-plattform-ingenieur-w-m-d-axpo-group-baden": "AG",
+        "staff-plattform-engineer-w-m-d-f7deb881-c03a-4dc6-bf6c-8e5434bf51a0": "AG"
+      }
+    }
   },
   {
     "slug": "apprendistato-polimeccanico-presso-efz-m-f-d-axpo-group-augst",
@@ -5374,7 +6771,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8257487-lehrstelle-polymechaniker-in-efz-w-m-d",
-    "firstSeenAt": "2026-08-24T10:14:38.036Z"
+    "firstSeenAt": "2026-08-24T10:14:38.036Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-polymechaniker-in-efz-w-m-d-e5bf0258-6ac1-407c-bdfd-a6edcd0fa67a": "BL"
+      }
+    }
   },
   {
     "slug": "misuratore-di-prova-come-m-f-d-polimeccanico-axpo-group-augst",
@@ -5416,7 +6819,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8257519-schnupperlehre-als-polymechaniker-in-w-m-d",
-    "firstSeenAt": "2026-08-24T10:14:38.001Z"
+    "firstSeenAt": "2026-08-24T10:14:38.001Z",
+    "canton": "BL",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "schnupperlehre-als-polymechaniker-in-w-m-d-4d9672c2-44fb-4cc2-b0b1-99d5fc2eea73": "BL"
+      }
+    }
   },
   {
     "slug": "senior-manager-metodi-m-f-d-axpo-group-baden",
@@ -5466,7 +6875,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8354304-senior-manager-procurement-excellence-f-m-d",
-    "firstSeenAt": "2026-09-11T13:36:51.350Z"
+    "firstSeenAt": "2026-09-11T13:36:51.350Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-manager-methods-f-m-d-f94ba585-2fa4-4065-952d-9c109dab652a": "AG",
+        "senior-manager-procurement-excellence-f-m-d-f94ba585-2fa4-4065-952d-9c109dab652a": "AG"
+      },
+      "de": {
+        "senior-manager-methods-f-m-d-f94ba585-2fa4-4065-952d-9c109dab652a": "AG"
+      },
+      "fr": {
+        "senior-manager-methods-f-m-d-f94ba585-2fa4-4065-952d-9c109dab652a": "AG"
+      }
+    }
   },
   {
     "slug": "formazione-professionale-junior-center-m-f-d-axpo-group-baden",
@@ -5514,7 +6936,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8332309-berufsbildner-in-junior-center-w-m-d",
-    "firstSeenAt": "2026-09-07T15:10:33.769Z"
+    "firstSeenAt": "2026-09-07T15:10:33.769Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "berufsbildner-in-junior-center-w-m-d-434a6c52-9883-43d0-b0af-1b6129ee3907": "AG"
+      },
+      "en": {
+        "berufsbildner-in-junior-center-w-m-d-434a6c52-9883-43d0-b0af-1b6129ee3907": "AG"
+      },
+      "fr": {
+        "berufsbildner-in-junior-center-w-m-d-434a6c52-9883-43d0-b0af-1b6129ee3907": "AG"
+      }
+    }
   },
   {
     "slug": "tirocinante-technology-monitoring-generation-iv-reactor-systems-f-m-d-axpo-group-baden",
@@ -5562,7 +6996,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8330419-intern-technology-monitoring-generation-iv-reactor-systems-f-m-d",
-    "firstSeenAt": "2026-09-07T15:10:33.810Z"
+    "firstSeenAt": "2026-09-07T15:10:33.810Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "intern-technology-monitoring-generation-iv-reactor-systems-f-m-d-1b9d7e7e-5319-401e-b680-d1813ca14b23": "AG"
+      },
+      "de": {
+        "intern-technology-monitoring-generation-iv-reactor-systems-f-m-d-1b9d7e7e-5319-401e-b680-d1813ca14b23": "AG"
+      },
+      "fr": {
+        "intern-technology-monitoring-generation-iv-reactor-systems-f-m-d-1b9d7e7e-5319-401e-b680-d1813ca14b23": "AG"
+      }
+    }
   },
   {
     "slug": "assistente-nella-divisione-energia-m-f-d-ckw-emmen",
@@ -5612,7 +7058,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8303424-assistent-in-geschaeftsbereich-energie-w-m-d",
-    "firstSeenAt": "2026-09-01T14:14:39.088Z"
+    "firstSeenAt": "2026-09-01T14:14:39.088Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistent-in-geschaftsbereich-energie-w-m-d-ckw-emmen": "LU",
+        "assistent-in-geschaftsbereich-energie-w-m-d-5e44db8f-40c4-4f6e-b463-7e64fee63025": "LU"
+      },
+      "en": {
+        "assistent-in-geschaftsbereich-energie-w-m-d-ckw-emmen": "LU"
+      },
+      "fr": {
+        "assistent-in-geschaftsbereich-energie-w-m-d-ckw-emmen": "LU"
+      }
+    }
   },
   {
     "slug": "tecnologia-di-ingegnere-controllo-del-progetto-ot-security-m-f-d-axpo-group-baden",
@@ -6035,7 +7494,24 @@
         "firstSeenAt": "2026-08-23T09:39:55.015Z",
         "title": "Projektingenieur/-in Leittechnik & OT-Security (w/m/d)"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "project-engineer-in-control-technology-ot-security-f-m-d-axpo-group-baden": "AG",
+        "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-5c57bbab-e151-469c-a6fc-12ce258b1fd1": "AG",
+        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-23683f5b": "AG"
+      },
+      "en": {
+        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-23683f5b": "AG"
+      },
+      "de": {
+        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-23683f5b": "AG"
+      },
+      "fr": {
+        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-23683f5b": "AG"
+      }
+    }
   },
   {
     "slug": "gestione-dei-contratti-m-f-d-axpo-systems-ag-lupfig",
@@ -6100,7 +7576,16 @@
         "firstSeenAt": "2026-08-10T22:24:17.866Z",
         "title": "Contract Manager (w/m/d)"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "contract-manager-w-m-d-98fc25ac-d741-4269-b3c4-d6d9f7e72d2a": "AG"
+      },
+      "fr": {
+        "contract-manager-w-m-d-98fc25ac-d741-4269-b3c4-d6d9f7e72d2a": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-di-progetto-solar-m-w-d-ckw-egerkingen",
@@ -6197,7 +7682,21 @@
         "firstSeenAt": "2026-05-22T10:55:09.138Z",
         "title": "Projektleiter/in Solar (w/m/d)"
       }
-    ]
+    ],
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-project-manager-m-d-ckw-luzern": "SO",
+        "projektleiter-in-solar-w-m-d-439d8803-01d6-4d5e-9ff3-8a058f6b460c": "SO"
+      },
+      "en": {
+        "senior-project-manager-m-d-ckw-luzern": "SO",
+        "projektleiter-in-solar-w-m-d-439d8803-01d6-4d5e-9ff3-8a058f6b460c": "SO"
+      },
+      "fr": {
+        "projektleiter-in-solar-w-m-d-439d8803-01d6-4d5e-9ff3-8a058f6b460c": "SO"
+      }
+    }
   },
   {
     "slug": "sistema-di-manutenzione-porte-e-sistemi-porta-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
@@ -6247,7 +7746,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kernkraftwerkleibstadtag.teamtailor.com/jobs/8245996-systembetreuer-tueren-und-torsysteme-m-w-d",
-    "firstSeenAt": "2026-09-23T23:45:00.526Z"
+    "firstSeenAt": "2026-09-23T23:45:00.526Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "systembetreuer-turen-e-torsysteme-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG",
+        "systembetreuer-turen-und-torsysteme-m-w-d-bb50a348-2e5f-43eb-ac9f-7cf153d2f1ba": "AG"
+      },
+      "en": {
+        "systembetreuer-turen-und-torsysteme-m-w-d-bb50a348-2e5f-43eb-ac9f-7cf153d2f1ba": "AG"
+      },
+      "fr": {
+        "systembetreuer-turen-und-torsysteme-m-w-d-bb50a348-2e5f-43eb-ac9f-7cf153d2f1ba": "AG"
+      }
+    }
   },
   {
     "slug": "testa-di-realizzazione-avor-m-f-d-ckw-luzern",
@@ -6303,7 +7815,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8249398-leiter-in-realisierung-avor-w-m-d",
-    "firstSeenAt": "2026-08-25T10:20:08.975Z"
+    "firstSeenAt": "2026-08-25T10:20:08.975Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-realisierung-avor-w-m-d-3c3f9939-8de9-4792-843e-561ad7056365": "LU",
+        "leiter-realisierung-avor-m-w-d-ckw-luzern": "LU",
+        "leiter-realisierung-avor-w-m-d-ckw-luzern": "LU",
+        "responsabile-realisierung-avor-m-w-d-ckw-luzern": "LU",
+        "leiter-in-realisierung-avor-w-m-d-3c3f9939-8de9-4792-843e-561ad7056365": "LU"
+      },
+      "en": {
+        "leiter-realisierung-avor-w-m-d-3c3f9939-8de9-4792-843e-561ad7056365": "LU"
+      },
+      "fr": {
+        "leiter-realisierung-avor-w-m-d-3c3f9939-8de9-4792-843e-561ad7056365": "LU"
+      }
+    }
   },
   {
     "slug": "specialista-artigiano-installatore-elettrico-efz-m-f-d-axpo-group-dottingen",
@@ -6370,7 +7898,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8205125-spezialhandwerker-in-elektroinstallateur-in-efz-w-m-d",
-    "firstSeenAt": "2026-08-12T10:25:29.825Z"
+    "firstSeenAt": "2026-08-12T10:25:29.825Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spezialhandwerker-in-w-m-d-axpo-group-dottingen": "AG",
+        "spezialhandwerker-in-w-m-d-23f1dd71-7e23-4341-ab59-10c566a4d13c": "AG",
+        "spezialhandwerker-in-elektrische-instandhaltung-w-m-d-23f1dd71-7e23-4341-ab59-10c566a4d13c": "AG",
+        "artigiano-specializzato-in-m-f-d-axpo-group-dottingen": "AG",
+        "spezialhandwerker-in-installatore-trice-elettrico-a-in-cfc-w-m-d-axpo-group-dottingen": "AG",
+        "spezialhandwerker-in-elektroinstallateur-in-efz-w-m-d-23f1dd71-7e23-4341-ab59-10c566a4d13c": "AG"
+      },
+      "en": {
+        "spezialhandwerker-in-w-m-d-axpo-group-dottingen": "AG",
+        "specialist-craftsman-in-m-f-d-axpo-group-dottingen": "AG",
+        "spezialhandwerker-in-electrical-installer-efz-w-m-d-axpo-group-dottingen": "AG"
+      },
+      "de": {
+        "spezialhandwerker-in-w-m-d-23f1dd71-7e23-4341-ab59-10c566a4d13c": "AG",
+        "spezialhandwerker-in-elektrische-instandhaltung-w-m-d-axpo-group-dottingen": "AG"
+      },
+      "fr": {
+        "spezialhandwerker-in-w-m-d-axpo-group-dottingen": "AG"
+      }
+    }
   },
   {
     "slug": "noc-ingegnere-operations-control-center-w-m-d-axpo-systems-ag-lupfig",
@@ -6424,7 +7975,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://axposystemsag.teamtailor.com/jobs/7974807-noc-engineer-operations-control-center-w-m-d",
-    "firstSeenAt": "2026-08-10T10:55:11.168Z"
+    "firstSeenAt": "2026-08-10T10:55:11.168Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "noc-engineer-operations-control-center-occ-w-m-d-axpo-systems-ag-lupfig": "AG",
+        "noc-ingenieur-operations-control-center-occ-w-m-d-axpo-systems-ag-lupfig": "AG",
+        "noc-engineer-operations-control-center-w-m-d-5bf2c929-b208-4205-97c9-d5fae82db8c5": "AG"
+      },
+      "de": {
+        "noc-engineer-operations-control-center-w-m-d-5bf2c929-b208-4205-97c9-d5fae82db8c5": "AG"
+      },
+      "fr": {
+        "noc-engineer-operations-control-center-w-m-d-5bf2c929-b208-4205-97c9-d5fae82db8c5": "AG",
+        "noc-ingenieur-operations-control-center-w-m-d-axpo-systems-ag-lupfig": "AG"
+      }
+    }
   },
   {
     "slug": "project-manager-conductor-construction-m-f-d-axpo-group-baden",
@@ -6482,21 +8048,29 @@
         "responsabile-di-progetto-leitungsbau-m-w-d-axpo-group-baden",
         "projektleiter-in-leitungsbau-w-m-d-c9c53867-ff39-4798-aee2-d5b97972e479",
         "responsabile-category-management-direct-w-m-d-axpo-group-baden",
-        "head-of-category-management-direct-w-m-d-fa8bf529-c03d-447e-ba7d-ddfe102f2df9"
+        "head-of-category-management-direct-w-m-d-fa8bf529-c03d-447e-ba7d-ddfe102f2df9",
+        "projektleiter-m-p-axpo-group-baden",
+        "projektleiter-m-w-axpo-group-baden"
       ],
       "fr": [
         "chef-de-projet-leitungsbau-w-m-d-axpo-group-baden",
         "projektleiter-in-leitungsbau-w-m-d-c9c53867-ff39-4798-aee2-d5b97972e479",
         "chef-de-la-categorie-gestion-directe-m-j-axpo-group-baden",
-        "head-of-category-management-direct-w-m-d-fa8bf529-c03d-447e-ba7d-ddfe102f2df9"
+        "head-of-category-management-direct-w-m-d-fa8bf529-c03d-447e-ba7d-ddfe102f2df9",
+        "projektleiter-m-p-axpo-group-baden",
+        "projektleiter-m-w-axpo-group-baden"
       ],
       "en": [
         "projektleiter-in-leitungsbau-w-m-d-c9c53867-ff39-4798-aee2-d5b97972e479",
-        "head-of-category-management-direct-w-m-d-axpo-group-baden"
+        "head-of-category-management-direct-w-m-d-axpo-group-baden",
+        "projektleiter-m-p-axpo-group-baden",
+        "projektleiter-m-w-axpo-group-baden"
       ],
       "de": [
         "abteilungsleiter-w-m-d-axpo-group-baden",
-        "head-of-category-management-direct-w-m-d-fa8bf529-c03d-447e-ba7d-ddfe102f2df9"
+        "head-of-category-management-direct-w-m-d-fa8bf529-c03d-447e-ba7d-ddfe102f2df9",
+        "projektleiter-m-p-axpo-group-baden",
+        "projektleiter-m-w-axpo-group-baden"
       ]
     },
     "salaryMin": 99500,
@@ -6516,7 +8090,31 @@
         "firstSeenAt": "2026-05-13T21:38:10.102Z",
         "title": "Projektleiter/in Leitungsbau (w/m/d)"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "projektleiter-m-p-axpo-group-baden": "AG",
+        "projektleiter-m-w-axpo-group-baden": "AG",
+        "responsabile-di-progetto-leitungsbau-m-w-d-axpo-group-baden": "AG",
+        "projektleiter-in-leitungsbau-w-m-d-c9c53867-ff39-4798-aee2-d5b97972e479": "AG"
+      },
+      "en": {
+        "projektleiter-m-p-axpo-group-baden": "AG",
+        "projektleiter-m-w-axpo-group-baden": "AG",
+        "projektleiter-in-leitungsbau-w-m-d-c9c53867-ff39-4798-aee2-d5b97972e479": "AG"
+      },
+      "de": {
+        "projektleiter-m-p-axpo-group-baden": "AG",
+        "projektleiter-m-w-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "projektleiter-m-p-axpo-group-baden": "AG",
+        "projektleiter-m-w-axpo-group-baden": "AG",
+        "chef-de-projet-leitungsbau-w-m-d-axpo-group-baden": "AG",
+        "projektleiter-in-leitungsbau-w-m-d-c9c53867-ff39-4798-aee2-d5b97972e479": "AG"
+      }
+    }
   },
   {
     "slug": "direttore-di-costruzione-linea-di-alta-tensione-m-f-d-ckw-luzern",
@@ -6568,7 +8166,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8311432-bauleiter-in-hochspannungsleitungen-w-m-d",
-    "firstSeenAt": "2026-09-07T15:10:33.961Z"
+    "firstSeenAt": "2026-09-07T15:10:33.961Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bauleiter-in-hochspannungsleitungen-w-m-d-ckw-luzern": "LU",
+        "bauleiter-in-hochspannungsleitungen-m-w-d-ckw-luzern": "LU",
+        "bauleiter-in-hochspannungsleitungen-w-m-d-13788d99-6067-4b5d-9dac-436ee498744b": "LU"
+      },
+      "en": {
+        "bauleiter-in-hochspannungsleitungen-w-m-d-ckw-luzern": "LU"
+      },
+      "fr": {
+        "bauleiter-in-hochspannungsleitungen-w-m-d-ckw-luzern": "LU"
+      }
+    }
   },
   {
     "slug": "sistema-di-controllo-degli-accessi-specializzato-in-m-f-d-axpo-group-baden",
@@ -6618,7 +8230,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8255898-fachspezialist-in-zutrittskontrollsystem-w-m-d",
-    "firstSeenAt": "2026-08-23T09:39:55.047Z"
+    "firstSeenAt": "2026-08-23T09:39:55.047Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-zutrittskontrollsystem-w-m-d-axpo-group-baden": "AG",
+        "fachspezialist-in-zutrittskontrollsystem-w-m-d-3cbe327a-8dd1-420b-a1c4-4d172eff86f7": "AG"
+      },
+      "en": {
+        "fachspezialist-in-zutrittskontrollsystem-w-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "fachspezialist-in-zutrittskontrollsystem-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "responsabile-documentazione-e-servizi-generali-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt",
@@ -6668,7 +8293,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kernkraftwerkleibstadtag.teamtailor.com/jobs/8330518-ressortleitung-dokumentation-und-allgemeine-dienste-m-w-d",
-    "firstSeenAt": "2026-09-08T23:25:41.865Z"
+    "firstSeenAt": "2026-09-08T23:25:41.865Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ressortleitung-dokumentation-e-allgemeine-dienste-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt": "AG",
+        "ressortleitung-dokumentation-und-allgemeine-dienste-m-w-d-4c78b276-ec2f-420d-bf54-3bb0e86fb375": "AG"
+      },
+      "en": {
+        "ressortleitung-dokumentation-und-allgemeine-dienste-m-w-d-4c78b276-ec2f-420d-bf54-3bb0e86fb375": "AG"
+      },
+      "fr": {
+        "ressortleitung-dokumentation-und-allgemeine-dienste-m-w-d-4c78b276-ec2f-420d-bf54-3bb0e86fb375": "AG"
+      }
+    }
   },
   {
     "slug": "specialista-in-solar-m-f-d-ckw-luzern",
@@ -6716,7 +8354,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8203306-fachspezialist-in-solar-w-m-d",
-    "firstSeenAt": "2026-08-17T21:55:46.031Z"
+    "firstSeenAt": "2026-08-17T21:55:46.031Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-in-solar-w-m-d-6908591f-609c-4030-a8d9-f4520f21f38a": "LU"
+      },
+      "en": {
+        "fachspezialist-in-solar-w-m-d-6908591f-609c-4030-a8d9-f4520f21f38a": "LU"
+      },
+      "fr": {
+        "fachspezialist-in-solar-w-m-d-6908591f-609c-4030-a8d9-f4520f21f38a": "LU"
+      }
+    }
   },
   {
     "slug": "disposizione-di-case-manager-m-f-d-ckw-emmen",
@@ -6761,7 +8411,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8241708-case-manager-disposition-w-m-d",
-    "firstSeenAt": "2026-08-20T10:02:29.092Z"
+    "firstSeenAt": "2026-08-20T10:02:29.092Z",
+    "canton": "LU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "case-manager-disposition-w-m-d-24b63843-4de7-4838-83b0-2eb4c36f0957": "LU"
+      },
+      "fr": {
+        "case-manager-disposition-w-m-d-24b63843-4de7-4838-83b0-2eb4c36f0957": "LU"
+      }
+    }
   },
   {
     "slug": "collaboratore-trice-interne-logistik-zutrittsservice-m-w-d-axpo-group-baden",
@@ -6810,7 +8469,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.axpo.com/jobs/8290597-mitarbeiter-in-interne-logistik-zutrittsservice-w-m-d",
-    "firstSeenAt": "2026-09-08T13:40:56.424Z"
+    "firstSeenAt": "2026-09-08T13:40:56.424Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-interne-logistik-amp-zutrittsservice-w-m-d-0b937db7-fd10-4c96-97d7-01ad2d9056b7": "AG"
+      },
+      "en": {
+        "mitarbeiter-in-interne-logistik-zutrittsservice-w-m-d-axpo-group-baden": "AG"
+      },
+      "fr": {
+        "mitarbeiter-in-interne-logistik-zutrittsservice-w-m-d-axpo-group-baden": "AG"
+      }
+    }
   },
   {
     "slug": "constructor-law-management-m-f-d-axpo-group-baden",
@@ -10791,6 +12462,90 @@
     "firstSeenAt": "2026-07-01T21:49:16.118Z"
   },
   {
+    "slug": "responsabile-di-progetto-solar-m-w-d-ckw-burgdorf",
+    "title": "Projektleiter/in Solar (w/m/d)",
+    "titleByLocale": {
+      "it": "Responsabile di progetto Solar (w/m/d)",
+      "en": "Project Manager Solar (w/m/d)",
+      "de": "Projektleiter/in Solar (w/m/d)",
+      "fr": "Chef de projet Solar (w/m/d)"
+    },
+    "company": "CKW",
+    "companyKey": "axpo-group",
+    "location": "Burgdorf",
+    "addressLocality": "Burgdorf",
+    "descriptionByLocale": {
+      "it": "## Penso: 80-100 % ## Puoi progettarlo. - Si occupa della pianificazione e dell'implementazione di progetti fotovoltaici e si garantisce un processo regolare. - Sei la persona di contatto per clienti, fornitori, team di assemblaggio e partner specializzati. - Accompagnate le commissioni e assicurate una consegna professionale delle strutture. - Tenere sempre d'occhio le scadenze e i costi e garantire la qualità dei progetti. - Coordinate i compiti amministrativi come le procedure di approvazione e la documentazione. ## Questo è ciò che ti fa - Hai una formazione di base in ingegneria elettrica o busta di costruzione. - Porti esperienza nella tecnologia solare e nella gestione dei progetti. - Sei esperto di IT e sicuro nel trattare con MS Office. - Si lavora indipendentemente, sono orientati al servizio e affidabile. ## Questo è ciò che ci rende Un lavoro emozionante. Un lavoro significativo. E poi numerosi altri vantaggi che CKW offre. Compensazione attraente e benefici sociali completi: Attendi con ansia un pagamento equo e pacchetti pensione completi che garantiranno il tuo futuro. Lavoro e vita privata in armonia: Con orari di lavoro flessibili, modelli part-time e fino al 50% home office (a seconda dell'attività), consentiamo un sano equilibrio tra lavoro e vita privata. 📚 Sviluppo Talento: La vostra crescita personale e professionale è importante per noi. Vi sosteniamo nella formazione o nell'ulteriore istruzione. 🚌 Extra interessanti: Approfitta delle nostre offerte come abbonamenti mobili scontati, assistenza per l'infanzia, shopping o parcheggio gratuito. [Per saperne di più](https://www.ckw.ch/ueber-ckw/career/advantages)",
+      "en": "## Pensum: 80-100 % ## You can design it. - You take over the planning and implementation of photovoltaic projects and ensure a smooth process. - You are the contact person for customers, suppliers, assembly teams and specialist partners. - You accompany commissionings and ensure a professional handover of the facilities. - You always keep an eye on deadlines and costs and ensure the quality of the projects. - You coordinate administrative tasks such as approval procedures and documentation. ## This is what makes you - You have basic training in electrical engineering or building envelope. - You bring experience in solar technology and project management. - You are IT-savvy and secure in dealing with MS Office. - You work independently, are service-oriented and reliable. ## That's what makes us An exciting job. A meaningful work. And then numerous other advantages that CKW offers you. Attractive compensation and comprehensive social benefits: Look forward to fair pay and comprehensive pension packages that will secure your future. Work and private life in harmony: With flexible working hours, part-time models and up to 50% home office (depending on the activity), we enable a healthy balance between work and private life. 📚 Talent development: Your personal and professional growth is important to us. We support you in training or further education. 🚌 Attractive extras: Take advantage of our offers such as discounted mobile subscriptions, child care support, holiday shopping or free parking. [Find out more](https://www.ckw.ch/ueber-ckw/career/advantages)",
+      "de": "## Pensum: 80-100% ## Das kannst du gestalten - Du übernimmst die Planung und Umsetzung von Photovoltaikprojekten und stellst einen reibungslosen Ablauf sicher. - Du bist die Ansprechperson für Kundschaft, Lieferanten, Montageteams und Fachpartner. - Du begleitest Inbetriebnahmen und sorgst für eine fachgerechte Übergabe der Anlagen. - Du behältst Termine und Kosten stets im Blick und sicherst die Qualität der Projekte. - Du koordinierst administrative\n• Aufgaben wie Bewilligungsverfahren und Dokumentationen. ## Das macht dich aus - Du hast eine Grundausbildung im Bereich Elektrotechnik oder Gebäudehülle. - Du bringst Erfahrung in der Solartechnik und im Projektmanagement mit. - Du bist IT-affin und sicher im Umgang mit MS Office. - Du arbeitest selbstständig, bist dienstleistungsorientiert und zuverlässig. ## Das macht uns aus Ein spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet. 💰 Attraktive Vergütung und umfangreiche Sozialleistungen: Freue dich auf faire Bezahlung und umfassende Vorsorgepakete, die deine Zukunft absichern. 📅 Beruf und Privatleben im Einklang: Mit flexiblen Arbeitszeiten, Teilzeitmodellen und bis zu 50% Home-Office (je nach Tätigkeit) ermöglichen wir eine gesunde Balance zwischen Arbeit und Privatleben. 📚 Talentförderung: Dein persönliches und berufliches Wachstum liegt uns am Herzen. Wir unterstützen dich bei Aus- oder Weiterbildungen. 🚌 Attraktive Extras: Profitiere von unseren Angeboten wie vergünstigten Mobile-Abos, Unterstützung bei der Kinderbetreuung, Ferienkauf oder kostenlosen Parkplätzen. [Mehr erfahren](https://www.ckw.ch/ueber-ckw/karriere/vorteile)",
+      "fr": "## Pensum: 80-100 % ## Tu peux le concevoir. - Vous prenez en charge la planification et la mise en œuvre de projets photovoltaïques et assurez un processus en douceur. - Vous êtes la personne de contact pour les clients, les fournisseurs, les équipes d'assemblage et les partenaires spécialisés. - Vous accompagnez les commandes et assurez un transfert professionnel des installations. - Vous gardez toujours un œil sur les délais et les coûts et assurez la qualité des projets. - Vous coordonnez les tâches administratives comme les procédures d'approbation et la documentation. ## C'est ce qui te fait - Vous avez une formation de base en génie électrique ou enveloppe de bâtiment. - Vous apportez de l'expérience dans la technologie solaire et la gestion de projet. - Vous êtes expert en informatique et sécurisé dans les relations avec MS Office. - Vous travaillez de manière indépendante, sont orientés vers le service et fiables. ## C'est ce qui nous fait Un travail passionnant. Un travail significatif. Et puis de nombreux autres avantages que CKW vous offre. Indemnisation attrayante et avantages sociaux globaux : Réjouissez-vous d'un salaire équitable et de régimes de retraite complets qui assureront votre avenir. Travail et vie privée en harmonie: Avec des horaires de travail flexibles, des modèles à temps partiel et jusqu'à 50% de bureaux à domicile (selon l'activité), nous permettons un équilibre sain entre le travail et la vie privée. Développement des talents : Votre croissance personnelle et professionnelle est importante pour nous. Nous vous soutenons dans la formation ou la formation continue. Les avantages: Profitez de nos offres telles que les abonnements mobiles à prix réduit, les services de garde d'enfants, les achats de vacances ou le stationnement gratuit. [En savoir plus](https://www.ckw.ch/ueber-ckw/career/avantages)"
+    },
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-solar-m-w-d-ckw-burgdorf",
+      "en": "project-manager-solar-w-m-d-ckw-burgdorf",
+      "de": "projektleiter-in-solar-w-m-d-ckw-burgdorf",
+      "fr": "chef-de-projet-solar-w-m-d-ckw-burgdorf"
+    },
+    "sector": "Energia & Utilities",
+    "expiredAt": "2026-08-04T11:47:02.655Z",
+    "previousSlugs": [
+      "projektleiter-in-solar-w-m-d-b7305590-eed7-4bab-8998-d65a51ce15d4",
+      "responsabile-di-progetto-solar-m-w-d-ckw-burgdorf-bf887cae",
+      "projektleiter-in-solar-w-m-d-ckw-burgdorf-aee901b1",
+      "responsabile-di-progetto-solar-m-w-d-ckw-burgdorf-bf887cae-a4d076a5",
+      "projektleiter-in-solar-w-m-d-b7305590-eed7-4bab-8998-d65a51ce15d4-4e74566b",
+      "project-manager-solar-w-m-d-ckw-burgdorf-985fd787",
+      "chef-de-projet-solar-w-m-d-ckw-burgdorf-bd0328d8",
+      "chef-de-projet-solar-w-m-d-ckw-burgdorf",
+      "project-manager-solar-w-m-d-ckw-burgdorf"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "projektleiter-in-solar-w-m-d-b7305590-eed7-4bab-8998-d65a51ce15d4",
+        "responsabile-di-progetto-solar-m-w-d-ckw-burgdorf-bf887cae",
+        "responsabile-di-progetto-solar-m-w-d-ckw-burgdorf-bf887cae-a4d076a5",
+        "projektleiter-in-solar-w-m-d-b7305590-eed7-4bab-8998-d65a51ce15d4-4e74566b",
+        "project-manager-solar-w-m-d-ckw-burgdorf-985fd787",
+        "chef-de-projet-solar-w-m-d-ckw-burgdorf-bd0328d8"
+      ],
+      "en": [
+        "projektleiter-in-solar-w-m-d-b7305590-eed7-4bab-8998-d65a51ce15d4",
+        "project-manager-solar-w-m-d-ckw-burgdorf-985fd787",
+        "chef-de-projet-solar-w-m-d-ckw-burgdorf"
+      ],
+      "fr": [
+        "projektleiter-in-solar-w-m-d-b7305590-eed7-4bab-8998-d65a51ce15d4",
+        "chef-de-projet-solar-w-m-d-ckw-burgdorf-bd0328d8",
+        "project-manager-solar-w-m-d-ckw-burgdorf"
+      ],
+      "de": [
+        "projektleiter-in-solar-w-m-d-ckw-burgdorf-aee901b1",
+        "projektleiter-in-solar-w-m-d-b7305590-eed7-4bab-8998-d65a51ce15d4",
+        "project-manager-solar-w-m-d-ckw-burgdorf",
+        "chef-de-projet-solar-w-m-d-ckw-burgdorf"
+      ]
+    },
+    "postalCode": "3400",
+    "salaryMin": 105500,
+    "salaryMax": 160000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8003379-projektleiter-in-solar-w-m-d",
+    "firstSeenAt": "2026-07-03T10:36:31.329Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8003379-projektleiter-in-solar-w-m-d",
+        "firstSeenAt": "2026-07-03T10:36:31.329Z",
+        "title": "Projektleiter/in Solar (w/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://ckw.teamtailor.com/jobs/8763980-projektleiter-in-solar-w-m-d",
+        "firstSeenAt": "2026-07-03T10:36:31.329Z",
+        "title": "Projektleiter/in Solar (w/m/d)"
+      }
+    ]
+  },
+  {
     "slug": "consulente-assistenza-clienti-f-m-d-ckw-emmen",
     "title": "Berater/in Kundensupport (w/m/d)",
     "titleByLocale": {
@@ -14294,6 +16049,61 @@
     "firstSeenAt": "2026-06-08T12:26:43.416Z"
   },
   {
+    "slug": "installatore-trice-elettrico-a-in-per-instandhaltung-m-w-d-axpo-group-st-gallen",
+    "title": "Elektroinstallateur/in für Instandhaltung (w/m/d)",
+    "titleByLocale": {
+      "de": "Elektroinstallateur/in für Instandhaltung (w/m/d)",
+      "it": "Installatore/trice elettrico/a/in per Instandhaltung (w/m/d)",
+      "en": "Electrical Installer für Instandhaltung (w/m/d)",
+      "fr": "Installateur/trice électricien/ne für Instandhaltung (w/m/d)"
+    },
+    "company": "Axpo Group",
+    "companyKey": "axpo-group",
+    "location": "St. Gallen",
+    "addressLocality": "St. Gallen",
+    "descriptionByLocale": {
+      "de": "## Pensum: 80-100%\n\nHast du deine elektrotechnische Ausbildung erfolgreich abgeschlossen oder weist eine vergleichbare Ausbildung vor?\n\nWir freuen wir uns sehr, dich kennenzulernen. Es erwartet dich eine Welt voller abwechslungsreicher Aufgaben und spannender Herausforderungen.\n\n## Deine Aufgaben:\n\n- Verantwortlich für Instandhaltungsarbeiten in Hochspannungs- und Niederspannungsanlagen sowie an den Infrastrukturnebenanlagen, Gebäude und Areal.\n- Mitarbeit bei Neubauten und Anlagenerneuerungen\n- Werkstatt sowie Installationsarbeiten\n- Verantwortlich für die Arbeitssicherheit in den Anlagen\n- Bereitschaft für das Leisten von Pikettdienst\n\nDu bist im wichtigen Thema **«Energieversorgung»** an vorderster Front mit dabei und arbeitest in einer lebendigen Atmosphäre an den obenstehenden Aufgaben. Somit bist du für uns die **perfekte Neuentdeckung!**\n\n#Grid\n\n## Benefits:\n\nIn unserem Unternehmen bemühen wir uns um eine Kultur des kontinuierlichen Lernens, der persönlichen Weiterentwicklung und des Engagements für die Gemeinschaft auf nationaler Ebene. Es liegt uns am Herzen, unseren Mitarbeitern die Werkzeuge und Ressourcen an die Hand zu geben, die sie für ihren Erfolg benötigen, und wir sind sicher, dass Sie gerne Teil unseres Teams sein werden!\n\n- **Grosszügige Altersvorsorge**Wir übernehmen 60% der Beiträge für deine Altersvorsorge – für eine sichere Zukunft.\n\n- **Gesundheit steht an erster Stelle**100% Lohnfortzahlung bei Krankheit oder Unfall und Zugang zu einer exklusiven Mental-Health-Plattform mit fünf kostenlosen Sitzungen bei einem Psychologen.\n\n- **Elternzeit** 16 Wochen Mutterschaftsurlaub (100% Lohnfortzahlung) und 10 Tage Vaterschaftsurlaub (100% Lohnfortzahlung), um wertvolle Zeit mit deiner Familie zu verbringen.\n\n- **Unterstützung für deine Familie**Bis zu 20% Rückerstattung auf Kinderbetreuungskosten (max. CHF 4.800 pro Jahr).\n\n- **Exklusive Rabatte**Attraktive Rabatte auf Benzin, Versicherungen und Mobilfunk bei Partnerunternehmen wie Shell, Avia, Sunrise und Swisscom.\n\n- **Öffentliche Verkehrsmittel**Mit einem kostenlosen Halbtax (max. CHF 190) kommst du günstig von A nach B.\n\n*Bei der Axpo Gruppe setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, die Chancengleichheit lebt, begrüssen wir Bewerbungen unabhängig von ethnischer Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozioökonomischem, kulturellem und religiösem Hintergrund. Wir verpflichten uns zu einem respektvollen und inklusiven Rekrutierungsprozess sowie einem diskriminierungsfreien Arbeitsumfeld für alle.*",
+      "it": "## Pensum: 80-100%\n\nHast du deine elektrotechnische Ausbildung erfolgreich abgeschlossen oder weist eine vergleichbare Ausbildung vor?\n\nWir freuen wir uns sehr, dich kennenzulernen. Es erwartet dich eine Welt voller abwechslungsreicher Aufgaben und spannender Herausforderungen.\n\n## Deine Aufgaben:\n\n- Verantwortlich für Instandhaltungsarbeiten in Hochspannungs- und Niederspannungsanlagen sowie an den Infrastrukturnebenanlagen, Gebäude und Areal.\n- Mitarbeit bei Neubauten und Anlagenerneuerungen\n- Werkstatt sowie Installationsarbeiten\n- Verantwortlich für die Arbeitssicherheit in den Anlagen\n- Bereitschaft für das Leisten von Pikettdienst\n\nDu bist im wichtigen Thema **«Energieversorgung»** an vorderster Front mit dabei und arbeitest in einer lebendigen Atmosphäre an den obenstehenden Aufgaben. Somit bist du für uns die **perfekte Neuentdeckung!**\n\n#Grid\n\n## Benefits:\n\nIn unserem Unternehmen bemühen wir uns um eine Kultur des kontinuierlichen Lernens, der persönlichen Weiterentwicklung und des Engagements für die Gemeinschaft auf nationaler Ebene. Es liegt uns am Herzen, unseren Mitarbeitern die Werkzeuge und Ressourcen an die Hand zu geben, die sie für ihren Erfolg benötigen, und wir sind sicher, dass Sie gerne Teil unseres Teams sein werden!\n\n- **Grosszügige Altersvorsorge**Wir übernehmen 60% der Beiträge für deine Altersvorsorge – für eine sichere Zukunft.\n\n- **Gesundheit steht an erster Stelle**100% Lohnfortzahlung bei Krankheit oder Unfall und Zugang zu einer exklusiven Mental-Health-Plattform mit fünf kostenlosen Sitzungen bei einem Psychologen.\n\n- **Elternzeit** 16 Wochen Mutterschaftsurlaub (100% Lohnfortzahlung) und 10 Tage Vaterschaftsurlaub (100% Lohnfortzahlung), um wertvolle Zeit mit deiner Familie zu verbringen.\n\n- **Unterstützung für deine Familie**Bis zu 20% Rückerstattung auf Kinderbetreuungskosten (max. CHF 4.800 pro Jahr).\n\n- **Exklusive Rabatte**Attraktive Rabatte auf Benzin, Versicherungen und Mobilfunk bei Partnerunternehmen wie Shell, Avia, Sunrise und Swisscom.\n\n- **Öffentliche Verkehrsmittel**Mit einem kostenlosen Halbtax (max. CHF 190) kommst du günstig von A nach B.\n\n*Bei der Axpo Gruppe setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, die Chancengleichheit lebt, begrüssen wir Bewerbungen unabhängig von ethnischer Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozioökonomischem, kulturellem und religiösem Hintergrund. Wir verpflichten uns zu einem respektvollen und inklusiven Rekrutierungsprozess sowie einem diskriminierungsfreien Arbeitsumfeld für alle.*",
+      "en": "## Pensum: 80-100%\n\nHast du deine elektrotechnische Ausbildung erfolgreich abgeschlossen oder weist eine vergleichbare Ausbildung vor?\n\nWir freuen wir uns sehr, dich kennenzulernen. Es erwartet dich eine Welt voller abwechslungsreicher Aufgaben und spannender Herausforderungen.\n\n## Deine Aufgaben:\n\n- Verantwortlich für Instandhaltungsarbeiten in Hochspannungs- und Niederspannungsanlagen sowie an den Infrastrukturnebenanlagen, Gebäude und Areal.\n- Mitarbeit bei Neubauten und Anlagenerneuerungen\n- Werkstatt sowie Installationsarbeiten\n- Verantwortlich für die Arbeitssicherheit in den Anlagen\n- Bereitschaft für das Leisten von Pikettdienst\n\nDu bist im wichtigen Thema **«Energieversorgung»** an vorderster Front mit dabei und arbeitest in einer lebendigen Atmosphäre an den obenstehenden Aufgaben. Somit bist du für uns die **perfekte Neuentdeckung!**\n\n#Grid\n\n## Benefits:\n\nIn unserem Unternehmen bemühen wir uns um eine Kultur des kontinuierlichen Lernens, der persönlichen Weiterentwicklung und des Engagements für die Gemeinschaft auf nationaler Ebene. Es liegt uns am Herzen, unseren Mitarbeitern die Werkzeuge und Ressourcen an die Hand zu geben, die sie für ihren Erfolg benötigen, und wir sind sicher, dass Sie gerne Teil unseres Teams sein werden!\n\n- **Grosszügige Altersvorsorge**Wir übernehmen 60% der Beiträge für deine Altersvorsorge – für eine sichere Zukunft.\n\n- **Gesundheit steht an erster Stelle**100% Lohnfortzahlung bei Krankheit oder Unfall und Zugang zu einer exklusiven Mental-Health-Plattform mit fünf kostenlosen Sitzungen bei einem Psychologen.\n\n- **Elternzeit** 16 Wochen Mutterschaftsurlaub (100% Lohnfortzahlung) und 10 Tage Vaterschaftsurlaub (100% Lohnfortzahlung), um wertvolle Zeit mit deiner Familie zu verbringen.\n\n- **Unterstützung für deine Familie**Bis zu 20% Rückerstattung auf Kinderbetreuungskosten (max. CHF 4.800 pro Jahr).\n\n- **Exklusive Rabatte**Attraktive Rabatte auf Benzin, Versicherungen und Mobilfunk bei Partnerunternehmen wie Shell, Avia, Sunrise und Swisscom.\n\n- **Öffentliche Verkehrsmittel**Mit einem kostenlosen Halbtax (max. CHF 190) kommst du günstig von A nach B.\n\n*Bei der Axpo Gruppe setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, die Chancengleichheit lebt, begrüssen wir Bewerbungen unabhängig von ethnischer Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozioökonomischem, kulturellem und religiösem Hintergrund. Wir verpflichten uns zu einem respektvollen und inklusiven Rekrutierungsprozess sowie einem diskriminierungsfreien Arbeitsumfeld für alle.*",
+      "fr": "## Pensum: 80-100%\n\nHast du deine elektrotechnische Ausbildung erfolgreich abgeschlossen oder weist eine vergleichbare Ausbildung vor?\n\nWir freuen wir uns sehr, dich kennenzulernen. Es erwartet dich eine Welt voller abwechslungsreicher Aufgaben und spannender Herausforderungen.\n\n## Deine Aufgaben:\n\n- Verantwortlich für Instandhaltungsarbeiten in Hochspannungs- und Niederspannungsanlagen sowie an den Infrastrukturnebenanlagen, Gebäude und Areal.\n- Mitarbeit bei Neubauten und Anlagenerneuerungen\n- Werkstatt sowie Installationsarbeiten\n- Verantwortlich für die Arbeitssicherheit in den Anlagen\n- Bereitschaft für das Leisten von Pikettdienst\n\nDu bist im wichtigen Thema **«Energieversorgung»** an vorderster Front mit dabei und arbeitest in einer lebendigen Atmosphäre an den obenstehenden Aufgaben. Somit bist du für uns die **perfekte Neuentdeckung!**\n\n#Grid\n\n## Benefits:\n\nIn unserem Unternehmen bemühen wir uns um eine Kultur des kontinuierlichen Lernens, der persönlichen Weiterentwicklung und des Engagements für die Gemeinschaft auf nationaler Ebene. Es liegt uns am Herzen, unseren Mitarbeitern die Werkzeuge und Ressourcen an die Hand zu geben, die sie für ihren Erfolg benötigen, und wir sind sicher, dass Sie gerne Teil unseres Teams sein werden!\n\n- **Grosszügige Altersvorsorge**Wir übernehmen 60% der Beiträge für deine Altersvorsorge – für eine sichere Zukunft.\n\n- **Gesundheit steht an erster Stelle**100% Lohnfortzahlung bei Krankheit oder Unfall und Zugang zu einer exklusiven Mental-Health-Plattform mit fünf kostenlosen Sitzungen bei einem Psychologen.\n\n- **Elternzeit** 16 Wochen Mutterschaftsurlaub (100% Lohnfortzahlung) und 10 Tage Vaterschaftsurlaub (100% Lohnfortzahlung), um wertvolle Zeit mit deiner Familie zu verbringen.\n\n- **Unterstützung für deine Familie**Bis zu 20% Rückerstattung auf Kinderbetreuungskosten (max. CHF 4.800 pro Jahr).\n\n- **Exklusive Rabatte**Attraktive Rabatte auf Benzin, Versicherungen und Mobilfunk bei Partnerunternehmen wie Shell, Avia, Sunrise und Swisscom.\n\n- **Öffentliche Verkehrsmittel**Mit einem kostenlosen Halbtax (max. CHF 190) kommst du günstig von A nach B.\n\n*Bei der Axpo Gruppe setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, die Chancengleichheit lebt, begrüssen wir Bewerbungen unabhängig von ethnischer Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozioökonomischem, kulturellem und religiösem Hintergrund. Wir verpflichten uns zu einem respektvollen und inklusiven Rekrutierungsprozess sowie einem diskriminierungsfreien Arbeitsumfeld für alle.*"
+    },
+    "slugByLocale": {
+      "it": "installatore-trice-elettrico-a-in-per-instandhaltung-m-w-d-axpo-group-st-gallen",
+      "en": "electrical-installer-fur-instandhaltung-w-m-d-axpo-group-st-gallen",
+      "de": "elektroinstallateur-in-fur-instandhaltung-w-m-d-axpo-group-st-gallen",
+      "fr": "installateur-trice-electricien-ne-fur-instandhaltung-w-m-d-axpo-group-st-gallen"
+    },
+    "sector": "Energia & Utilities",
+    "expiredAt": "2026-06-17T12:20:11.295Z",
+    "previousSlugs": [
+      "elektroinstallateur-in-fur-instandhaltung-w-m-d-74860675-37e3-4cc7-9c8e-ee4181fe938c"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "elektroinstallateur-in-fur-instandhaltung-w-m-d-74860675-37e3-4cc7-9c8e-ee4181fe938c"
+      ]
+    },
+    "postalCode": "9000",
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.axpo.com/jobs/7616482-elektroinstallateur-in-fuer-instandhaltung-w-m-d",
+    "firstSeenAt": "2026-05-17T09:41:02.776Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://careers.axpo.com/jobs/7616482-elektroinstallateur-in-fuer-instandhaltung-w-m-d",
+        "firstSeenAt": "2026-05-17T09:41:02.776Z",
+        "title": "Elektroinstallateur/in für Instandhaltung (w/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://careers.axpo.com/jobs/8785921-elektroinstallateur-in-fuer-instandhaltung-w-m-d",
+        "firstSeenAt": "2026-05-17T09:41:02.776Z",
+        "title": "Elektroinstallateur/in für Instandhaltung (w/m/d)"
+      }
+    ]
+  },
+  {
     "slug": "contabile-w-m-d-axpo-group-baden",
     "title": "Accountant (w/m/d)",
     "titleByLocale": {
@@ -16339,7 +18149,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "stakeholder-asset-manager-hydroenergy-biotechnologie-grigioni-m-d-axpo-group-domat-ems-45af34b9",
+    "slug": "stakeholder-asset-manager-hydroenergy-biotechnologie-grigioni-m-d-axpo-group-domat-ems",
     "title": "Stakeholder & Asset Manager Hydroenergie & Biomasse Graubünden  (w/m/d)",
     "titleByLocale": {
       "it": "Stakeholder & Asset Manager Hydroenergie & Biomasse Graubünden (w/m/d)",
@@ -16358,28 +18168,37 @@
       "fr": "## Pensum: 80% à 100% **Votre chance de façonner activement l'avenir de l'énergie! Votre travail – polyvalent et plein d'énergie.** Vous assumez la responsabilité de la gestion des parties prenantes dans la région des Grisons, en mettant l'accent sur une approche structurée et systématique. Ce faisant, vous identifiez, analysez et priorisez les intervenants pertinents, évaluez leurs intérêts et influencez et planifiez des actions de communication et de relations ciblées. Votre objectif est d'établir des partenariats à long terme et de renforcer la coopération régionale. Tâches et responsabilités : - **Gestion des intervenants :** Identification, analyse et hiérarchisation des acteurs concernés - **Communication et relations :** Maintenir et développer des réseaux, organiser des formats de dialogue et des manifestations - **Surveillance des politiques :** Observer et évaluer les processus politiques et les conditions cadres - **Initiatives et campagnes régionales :** Planification et mise en œuvre de projets visant à promouvoir l'utilisation de l'hydroélectricité et les énergies renouvelables - **Développement stratégique :** Optimisation et développement de la gestion des parties prenantes ## Profil et exigences : - **Formation :** Études en environnement ou en génie, en économie, en communication ou en sciences politiques ou d'une qualification comparable - ** Expérience professionnelle :** Expérience pluriannuelle dans la gestion des parties prenantes ou des projets, idéalement dans le secteur de l'énergie ou des infrastructures - **Savoir-faire polonais:** Connaissance des processus politiques nationaux, cantonaux et municipaux, en particulier dans le contexte de l'utilisation de l'hydroélectricité - **Méthode:** Expérience en analyse systématique des parties prenantes, en gestion de projet et en gestion des conflits - ** Connaissance de la langue :** Allemand et Italien ou Roumantsch (forçage); l'anglais ou le français sont un plus. - **Voyage durable en Suisse, notamment entre Baden et Graubünden Prêt pour votre prochain défi ? Alors nous avons hâte de vous voir! Faites partie de notre équipe et apportez votre énergie là où elle est nécessaire – dans l'avenir de l'hydroélectricité. Roger Hofer attend avec impatience votre candidature. À propos de l'équipe : Une équipe bien connue et expérimentée et un environnement de travail collégial vous attendent dans un environnement professionnel et innovant. Nous ne pouvons pas prendre en compte les demandes des fournisseurs de services personnels, donc seules les demandes directes sont acceptées. Énergie hydraulique --- *Le Groupe Axpo est attaché à une culture de non-discrimination, de tolérance et d'inclusion. En tant qu'employeur qui vit dans l'égalité des chances, nous accueillons favorablement les demandes indépendamment de l'origine ethnique, de l'identité et de l'expression de genre, de l'orientation sexuelle, de l'âge, du handicap et de l'origine socioéconomique, culturelle et religieuse. Nous nous engageons à un processus de recrutement respectueux et inclusif et à un environnement de travail non discriminatoire pour tous *"
     },
     "slugByLocale": {
-      "it": "stakeholder-asset-manager-hydroenergy-biotechnologie-grigioni-m-d-axpo-group-domat-ems-45af34b9",
-      "en": "stakeholder-asset-manager-hydroenergy-biotechnologie-graubunden-m-d-axpo-group-domat-ems-a7d72e7b",
-      "de": "stakeholder-asset-manager-hydroenergie-biomasse-graubunden-w-m-d-axpo-group-domat-ems-14d2f023",
-      "fr": "responsable-des-parties-prenantes-et-des-actifs-hydroenergie-et-biotechnologie-graubunden-m-d-axpo-group-domat-5b47c625"
+      "it": "stakeholder-asset-manager-hydroenergy-biotechnologie-grigioni-m-d-axpo-group-domat-ems",
+      "en": "stakeholder-asset-manager-hydroenergy-biotechnologie-graubunden-m-d-axpo-group-domat-ems",
+      "de": "stakeholder-asset-manager-hydroenergie-biomasse-graubunden-w-m-d-axpo-group-domat-ems",
+      "fr": "responsable-des-parties-prenantes-et-des-actifs-hydroenergie-et-biotechnologie-graubunden-m-d-axpo-group-domat-ems"
     },
     "sector": "Energia & Utilities",
     "expiredAt": "2026-05-04T21:21:32.848Z",
     "previousSlugs": [
+      "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815",
+      "stakeholder-asset-manager-hydroenergy-biotechnologie-grigioni-m-d-axpo-group-domat-ems-45af34b9",
       "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815-ca9cb652",
-      "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815"
+      "stakeholder-asset-manager-hydroenergy-biotechnologie-graubunden-m-d-axpo-group-domat-ems-a7d72e7b",
+      "stakeholder-asset-manager-hydroenergie-biomasse-graubunden-w-m-d-axpo-group-domat-ems-14d2f023",
+      "responsable-des-parties-prenantes-et-des-actifs-hydroenergie-et-biotechnologie-graubunden-m-d-axpo-group-domat-5b47c625"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815",
+        "stakeholder-asset-manager-hydroenergy-biotechnologie-grigioni-m-d-axpo-group-domat-ems-45af34b9",
         "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815-ca9cb652"
       ],
       "en": [
-        "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815"
+        "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815",
+        "stakeholder-asset-manager-hydroenergy-biotechnologie-graubunden-m-d-axpo-group-domat-ems-a7d72e7b"
       ],
       "fr": [
-        "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815"
+        "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815",
+        "responsable-des-parties-prenantes-et-des-actifs-hydroenergie-et-biotechnologie-graubunden-m-d-axpo-group-domat-5b47c625"
       ],
       "de": [
+        "stakeholder-asset-manager-hydroenergie-biomasse-graubunden-w-m-d-axpo-group-domat-ems-14d2f023",
         "stakeholder-amp-asset-manager-hydroenergie-amp-biomasse-graubunden-w-m-d-9bf64e68-4a36-4959-9ccc-03b146cd6815"
       ]
     },
