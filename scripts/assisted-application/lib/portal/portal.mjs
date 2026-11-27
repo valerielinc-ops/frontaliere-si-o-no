@@ -11985,8 +11985,11 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
 
     const addressQuestionId = role === 'houseNumber' ? 'portal_residence_house_number'
       : role === 'street' && separateHouseNumber ? 'portal_residence_street' : 'portal_residence_address';
+    // A single «Address» / «Via» caption (role street) is filled with the street the profile holds, as the fill side does
+    // (topic address_street): a street without a trailing number, or one followed by its CAP and town, is still an answer.
+    // Only an explicit «street and number» pair needs the number to be known.
     const addressValuePresent = role === 'houseNumber' ? houseNumberPresent
-      : role === 'street' && separateHouseNumber ? streetPresent
+      : role === 'street' ? streetPresent
         : streetPresent && houseNumberPresent;
     if (['street', 'address', 'houseNumber'].includes(role) && !addressValuePresent && !hasAnswer(addressQuestionId)) {
       const id = role === 'houseNumber' ? 'portal_residence_house_number'
