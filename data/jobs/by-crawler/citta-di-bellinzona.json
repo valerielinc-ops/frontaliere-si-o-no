@@ -1,7 +1,7 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-11-26T21:21:30.289Z",
-  "runId": "45895741910",
+  "assembledAt": "2026-11-27T09:23:01.316Z",
+  "runId": "45970848150",
   "jobs": [
     {
       "id": "citta-di-bellinzona-governante-presso-l-ente-autonomo-bellinzonaanziani-bellinzona",
@@ -51,7 +51,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=c63f2847-2a77-4dfd-95e3-79a55833ca60,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-26T21:21:23.447Z",
+      "crawledAt": "2026-11-27T09:22:54.811Z",
       "previousSlugs": [
         "governante-presso-l-ente-autonomo-bellinzonaanziani-bellinzona"
       ],
@@ -68,7 +68,7 @@
       },
       "firstSeenAt": "2026-11-20T09:22:26.526Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:21:23.447Z",
+      "validThrough": "2027-02-18T09:22:54.811Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -82,8 +82,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
+      }
     },
     {
       "id": "citta-di-bellinzona-ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona",
@@ -133,7 +132,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6854e5d6-a43d-4166-b0cf-c8239799bdd0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-26T21:21:23.803Z",
+      "crawledAt": "2026-11-27T09:22:55.182Z",
       "previousSlugs": [
         "ricerca-di-pattugliatori-trici-presso-la-polizia-comunale-bellinzona"
       ],
@@ -150,7 +149,7 @@
       },
       "firstSeenAt": "2026-11-20T09:22:26.729Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:21:23.803Z",
+      "validThrough": "2027-02-18T09:22:55.182Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -164,8 +163,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-11-26T21:20:59.808Z",
-  "runId": "45895741910",
+  "assembledAt": "2026-11-27T09:19:12.140Z",
+  "runId": "45970848150",
   "jobs": [
     {
       "id": "faulhaber-e099cf383828",
@@ -50,7 +50,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/52258/Production-Shift-Leader",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T21:20:23.333Z",
+      "crawledAt": "2026-11-27T09:18:25.197Z",
       "previousSlugs": [
         "production-shift-leader-croglio-faulhaber"
       ],
@@ -78,9 +78,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T21:20:23.333Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.faulhaber.com/hpv3.jobs/faulhaber/stellenangebot/52258/production-shift-leader"
+      "validThrough": "2026-12-27T09:18:25.197Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "faulhaber-028f09a2a95b",
@@ -129,8 +128,12 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/59216/Stage",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-26T21:19:59.440Z",
-      "firstSeenAt": "2026-11-25T09:19:38.566Z",
+      "crawledAt": "2026-11-27T09:18:03.569Z",
+      "previousSlugs": [
+        "internship-faulhaber-croglio",
+        "phase-faulhaber-croglio",
+        "etape-faulhaber-croglio"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "internship-faulhaber-croglio"
@@ -142,11 +145,7 @@
           "etape-faulhaber-croglio"
         ]
       },
-      "previousSlugs": [
-        "internship-faulhaber-croglio",
-        "phase-faulhaber-croglio",
-        "etape-faulhaber-croglio"
-      ],
+      "firstSeenAt": "2026-11-25T09:19:38.566Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
@@ -162,9 +161,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:19:59.440Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.faulhaber.com/hpv3.jobs/faulhaber/stellenangebot/59216/stage"
+      "validThrough": "2027-02-22T09:18:03.569Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "faulhaber-f80768c71309",
@@ -247,7 +245,7 @@
       "validThrough": "2027-02-07T21:21:01.774Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.faulhaber.com/hpv3.jobs/faulhaber/stellenangebot/58894/mitarbeiter-in-spedition-lager-100",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
