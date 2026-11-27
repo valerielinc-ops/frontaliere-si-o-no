@@ -154,7 +154,8 @@ describe('crawler groups: WIF auth for the jobs source relay', () => {
       expect(installer.run, file).toContain('slots/${CRAWLER_LAUNCH_RELAY_SLOT:-slot-${slot_index}.lock}');
       for (const step of launches.filter((launch) => !relays.includes(launch))) {
         expect(Object.keys(step.env ?? {}).filter((key) => key.startsWith('JOBS_SOURCE_RELAY_')), `${file} ${step.id}`).toEqual([]);
-        expect(step.run, `${file} ${step.id}`).toContain('CRAWLER_LAUNCH_PARALLEL=4');
+        // Groups 15/16 sit in the three-body resource lane, the rest in the four-body one.
+        expect(step.run, `${file} ${step.id}`).toMatch(/CRAWLER_LAUNCH_PARALLEL=[34]\b/u);
         expect(step.run, `${file} ${step.id}`).not.toContain('CRAWLER_LAUNCH_RELAY_SLOT');
       }
     }
