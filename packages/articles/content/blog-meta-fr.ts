@@ -13762,6 +13762,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.protocollo-lavoro-remoto-2024.title': 'Travailleurs frontaliers, télétravail jusqu’à 25 % à partir du 1er janvier 2024',
     'blog.article.protocollo-lavoro-remoto-2024.excerpt': 'Le Protocole Italie-Suisse autorise le télétravail jusqu’à 25 %.',
     'blog.article.protocollo-lavoro-remoto-2024.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.frontalieri-smart-working-limite-fiscale.title': 'Frontaliers en télétravail : limite fiscale depuis l’Italie',
+    'blog.article.frontalieri-smart-working-limite-fiscale.excerpt': 'Le seuil fiscal du télétravail depuis l’Italie est de 25 %. Le protocole est entré en vigueur le 9 février 2026.',
+    'blog.article.frontalieri-smart-working-limite-fiscale.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

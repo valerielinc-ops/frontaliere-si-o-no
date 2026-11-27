@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1211,
+      "5": 1212,
       "6": 5062
     },
-    "publishedCovers": 7954,
+    "publishedCovers": 7955,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -220103,6 +220103,39 @@
         "provider": "openai-codex",
         "assetId": "article-neuhausen-soppressione-strisce-pedonali",
         "imageUrl": "/images/blog/article-neuhausen-soppressione-strisce-pedonali.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bakery-bakery-apre-friburgo": {
+      "cover": "/images/blog/article-bakery-bakery-apre-friburgo.webp",
+      "hash": "7e487a4398663a54d56188645fe8aa0eb6b4857cbf520bb293159f711c4174d5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "bakery-bakery-apre-friburgo",
+          "category": "novita",
+          "date": "2026-11-27T01:55:31.510Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bakery-bakery-apre-friburgo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bakery-bakery-apre-friburgo",
+        "imageUrl": "/images/blog/article-bakery-bakery-apre-friburgo.webp",
         "evidence": "generated-engine-record"
       }
     }

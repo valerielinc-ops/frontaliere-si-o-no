@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1213,
-  "generatedAt": "2026-11-27T01:06:53.979Z",
+  "assetCount": 1214,
+  "generatedAt": "2026-11-27T05:00:30.834Z",
   "assets": [
     {
       "schema": 1,
@@ -51921,6 +51921,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic street illustration showing a pedestrian crossing near a town center and waterfall; no people, text, signage, logos, or specific event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-bakery-bakery-apre-friburgo",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2",
+      "executorModel": "gpt-6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "238bf862f2c0bbdc1a520597d066e1842d6979f891938e7a5b1bee3becc9c928",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "7e487a4398663a54d56188645fe8aa0eb6b4857cbf520bb293159f711c4174d5",
+      "bytes": 147300,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-27T01:55:11.782Z",
+      "verifiedAt": "2026-11-27T01:55:31.036Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-bakery-bakery-apre-friburgo.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic bakery storefront with bread displays in a Swiss-style street setting; no visible people, logos, or readable signage."
       }
     }
   ],
