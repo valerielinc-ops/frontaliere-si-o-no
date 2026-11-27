@@ -1,7 +1,7 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-11-26T21:25:53.717Z",
-  "runId": "45896122190",
+  "assembledAt": "2026-11-27T09:18:52.669Z",
+  "runId": "45971284308",
   "jobs": [
     {
       "id": "salina-reha-282e4ea67fd3",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:25:45.836Z",
+      "crawledAt": "2026-11-27T09:17:52.990Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -118,9 +118,8 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:25:45.836Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25"
+      "validThrough": "2026-12-27T09:17:52.990Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-faa86d7f81ae",
@@ -153,7 +152,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/msbpp6odv00cqa9il39bv6b9i306zzmlwnkyj4rqrizm0jisf2qded5yco2kcsb8",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:25:44.142Z",
+      "crawledAt": "2026-11-27T09:17:50.994Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -198,9 +197,8 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:25:44.142Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/msbpp6odv00cqa9il39bv6b9i306zzmlwnkyj4rqrizm0jisf2qded5yco2kcsb8"
+      "validThrough": "2027-02-04T09:17:50.994Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-29fb7e41bea4",
@@ -233,7 +231,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-aerztin-dermatologie/ndcmis5jbkwlmmyh6nj6w25ymykch9ut7bmtvh8ezvsqm3lmdqincv7brsfqjadl",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:25:41.179Z",
+      "crawledAt": "2026-11-27T09:17:48.011Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -283,9 +281,8 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:25:41.179Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/facharzt-aerztin-dermatologie/ndcmis5jbkwlmmyh6nj6w25ymykch9ut7bmtvh8ezvsqm3lmdqincv7brsfqjadl"
+      "validThrough": "2027-02-17T09:17:48.011Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-cc6535b31b6f",
@@ -318,7 +315,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-stationaer/g6wckeprdbkl28epaic6dqysaunbxphfh42npqi06nubiz36a5o3eru4h40nujkj",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:25:39.008Z",
+      "crawledAt": "2026-11-27T09:17:45.930Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -368,42 +365,41 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:25:39.008Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/physiotherapeut-in-stationaer/g6wckeprdbkl28epaic6dqysaunbxphfh42npqi06nubiz36a5o3eru4h40nujkj"
+      "validThrough": "2027-01-13T09:17:45.930Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "salina-reha-17170587c45a",
-      "slug": "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden",
+      "slug": "caregiver-hf-inhouse-spitex-pool-salina-rehaklinik-rheinfelden-rheinfelden",
       "slugByLocale": {
+        "it": "caregiver-hf-inhouse-spitex-pool-salina-rehaklinik-rheinfelden-rheinfelden",
+        "en": "caregiver-hf-inhouse-spitex-pool-salina-rehaklinik-rheinfelden-rheinfelden",
         "de": "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden",
-        "it": "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden",
-        "en": "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden",
-        "fr": "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden"
+        "fr": "soins-hf-maison-piscine-spitex-salina-rehaklinik-rheinfelden-rheinfelden"
       },
       "company": "Salina Rehaklinik Rheinfelden",
       "companyKey": "salina-reha",
       "companyDomain": "salina-reha.ch",
       "title": "Pflegefachperson HF Inhouse Spitex Pool",
       "titleByLocale": {
-        "de": "Pflegefachperson HF Inhouse Spitex Pool",
         "it": "Caregiver HF Inhouse Spitex Pool",
         "en": "Caregiver HF Inhouse Spitex Pool",
+        "de": "Pflegefachperson HF Inhouse Spitex Pool",
         "fr": "Soins HF maison piscine Spitex"
       },
       "description": "Salina Rehaklinik\n\nDipl. Pflegefachfrau/-mann\n Inhouse Spitex\n20% im Stundenlohn im Pool\n Nach Vereinbarung\n• Pool\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Die hausinterne Spitex-Organisation der Salina ergänzt das medizinische und therapeutische Angebot durch eine individuelle und professionelle pflegerische Betreuung. Sie richtet sich sowohl an Kurgäste des Park-Hotels am Rhein als auch an Residenzgäste, die auf pflegerische Unterstützung angewiesen sind. Das interdisziplinär arbeitende Pflegeteam ermöglicht eine bedarfsgerechte Versorgung im vertrauten Wohnumfeld und trägt dazu bei, die Selbstständigkeit, Lebensqualität und Sicherheit der betreuten Personen zu erhalten und zu fördern. Dabei stehen eine fachgerechte Pflege, eine persönliche Betreuung sowie die individuellen Bedürfnisse der Gäste im Mittelpunkt.\n\nWas Sie erwartet\n\n• Durchführung einer umfassenden Pflegeplanung unter Berücksichtigung der individuellen Bedürfnisse, Fähigkeiten und Wünsche der Gästen\n\n• Verantwortung für eine vollständige Dokumentation und Leistungserfassung im Perigon\n\n• Enge Zusammenarbeit mit dem interdisziplinären Team, Ärzten, Therapeuten und anderen Pflegekräften, um eine kontinuierliche Pflege zu gewährleisten\n\n• Zwei-Schicht-Betrieb ohne Nachdienst\n\n• Inhouse Spitex ohne Domizilfahrten\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung als dipl. Pflegefachfrau/-mann HF idealerweise mit Spitex-Erfahrung\n\n• Sie haben eine hohe Kundenorientierung und Freude daran, unsere Gäste mit hohen Erwartungen professionell zu betreuen\n\n• Sie sind teamfähig, zuverlässig und arbeiten gerne mit den Team und weiteren Fachpersonen zusammen\n\n• Sie verfügen über gute Deutschkenntnisse in Wort und Schrift und kommunizieren klar, einfühlsam und professionell\n\nInteressiert?\n Jetzt bewerben Kamila Hlobil freut sich auf Ihre Online-Bewerbung.\n\nKamila Hlobil\n Teamleiterin Inhouse Spitex\n+41 61 836 69 49\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 37, CH-4310 Rheinfelden",
       "descriptionByLocale": {
-        "de": "Salina Rehaklinik\n\nDipl. Pflegefachfrau/-mann\n Inhouse Spitex\n20% im Stundenlohn im Pool\n Nach Vereinbarung\n• Pool\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Die hausinterne Spitex-Organisation der Salina ergänzt das medizinische und therapeutische Angebot durch eine individuelle und professionelle pflegerische Betreuung. Sie richtet sich sowohl an Kurgäste des Park-Hotels am Rhein als auch an Residenzgäste, die auf pflegerische Unterstützung angewiesen sind. Das interdisziplinär arbeitende Pflegeteam ermöglicht eine bedarfsgerechte Versorgung im vertrauten Wohnumfeld und trägt dazu bei, die Selbstständigkeit, Lebensqualität und Sicherheit der betreuten Personen zu erhalten und zu fördern. Dabei stehen eine fachgerechte Pflege, eine persönliche Betreuung sowie die individuellen Bedürfnisse der Gäste im Mittelpunkt.\n\nWas Sie erwartet\n\n• Durchführung einer umfassenden Pflegeplanung unter Berücksichtigung der individuellen Bedürfnisse, Fähigkeiten und Wünsche der Gästen\n\n• Verantwortung für eine vollständige Dokumentation und Leistungserfassung im Perigon\n\n• Enge Zusammenarbeit mit dem interdisziplinären Team, Ärzten, Therapeuten und anderen Pflegekräften, um eine kontinuierliche Pflege zu gewährleisten\n\n• Zwei-Schicht-Betrieb ohne Nachdienst\n\n• Inhouse Spitex ohne Domizilfahrten\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung als dipl. Pflegefachfrau/-mann HF idealerweise mit Spitex-Erfahrung\n\n• Sie haben eine hohe Kundenorientierung und Freude daran, unsere Gäste mit hohen Erwartungen professionell zu betreuen\n\n• Sie sind teamfähig, zuverlässig und arbeiten gerne mit den Team und weiteren Fachpersonen zusammen\n\n• Sie verfügen über gute Deutschkenntnisse in Wort und Schrift und kommunizieren klar, einfühlsam und professionell\n\nInteressiert?\n Jetzt bewerben Kamila Hlobil freut sich auf Ihre Online-Bewerbung.\n\nKamila Hlobil\n Teamleiterin Inhouse Spitex\n+41 61 836 69 49\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 37, CH-4310 Rheinfelden",
-        "it": "Clinica di riabilitazione Salina\n\nDipl. Infermieristica professionale\n Spitex interno\n20% del salario orario in piscina\n Accordo\n• Piscina\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik e Park-Hotel am Rhein AG impiegano circa 1.000 persone. Per ottenere la migliore riabilitazione possibile, i team interdisciplinari lavorano insieme, con le competenze e l'esperienza di ogni individuo che contribuiscono al successo. La Salina Rehaklinik (ambulatorio di riabilitazione, specialisti e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento del supporto e del sistema muscolo-scheletrico. Il centro di competenza medica comprende moderne strutture diagnostiche e terapeutiche con un team competente di specialisti, terapisti e personale di cura.\n La tua squadra\n L'organizzazione interna Spitex della Salina completa l'offerta medica e terapeutica di un'assistenza sanitaria individuale e professionale. Si rivolge sia agli ospiti termali del Park Hotel sul Reno e agli ospiti di residenza che dipendono dal supporto per l'allattamento. Il team di assistenza interdisciplinare consente la cura basata sulle esigenze nell'ambiente di vita familiare e contribuisce a mantenere e promuovere l'indipendenza, la qualità della vita e la sicurezza delle persone a cui si interessa. Il focus è sulla cura professionale, la cura personale e le esigenze individuali degli ospiti.\n\nCosa aspettarsi\n\n• Attuazione della pianificazione di assistenza completa tenendo conto delle esigenze individuali, delle competenze e dei desideri degli ospiti\n\n• Responsabilità per la documentazione completa e la registrazione delle prestazioni nel perigon\n\n• Lavorare a stretto contatto con il team interdisciplinare, medici, terapisti e altri caregiver per garantire la cura continua\n\n• Funzionamento a due turni senza post-servizio\n\n• Inhouse Spitex senza viaggi domicili\n\nCosa porti\n\n• Tu sei una persona empatica, amichevole e solidale e hai una formazione completa come dipl. Infermieristica professionale HF ideale con esperienza Spitex\n\n• Hai un alto orientamento al cliente e godere di prendersi cura dei nostri ospiti professionalmente con alte aspettative\n\n• Sono in grado di lavorare di squadra, affidabile e felice di lavorare insieme con il team e altri specialisti\n\n• Hai una buona conoscenza del tedesco nelle parole e nella scrittura e comunicare in modo chiaro, sensibile e professionale\n\nInteressante?\n Applicare ora Kamila Hlobil è impaziente per la vostra applicazione online.\n\nKamila hlobil\n Leader del team Spitex\n+41 61 836 69 49\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 37, CH-4310 Rheinfelden",
-        "en": "Salina rehab clinic\n\nDipl. Nursing professional\n Inhouse Spitex\n20% of the hourly wage in the pool\n By agreement\n• Pool\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik and Park-Hotel am Rhein AG employ around 1,000 people. To achieve the best possible rehabilitation, interdisciplinary teams work together, with each individual’s expertise and experience contributing to success. The Salina Rehaklinik (rehabilitation clinic, specialists and therapies) offers an interdisciplinary concept for the prevention, diagnosis and treatment of the support and musculoskeletal system. The medical competence centre comprises modern diagnostic and therapeutic facilities with a competent team of specialists, therapists and nursing staff.\n Your team\n The in-house Spitex organization of the Salina complements the medical and therapeutic offer by an individual and professional nursing care. It is aimed both at spa guests of the Park Hotel on the Rhine and at residence guests who are dependent on nursing support. The interdisciplinary care team enables needs-based care in the familiar living environment and helps to maintain and promote the independence, quality of life and safety of the persons cared for. The focus is on professional care, personal care and the individual needs of the guests.\n\nWhat to expect\n\n• Implementation of comprehensive care planning taking into account the individual needs, skills and wishes of the guests\n\n• Responsibility for complete documentation and performance recording in the perigon\n\n• Working closely with the interdisciplinary team, doctors, therapists and other caregivers to ensure continuous care\n\n• Two-shift operation without after-service\n\n• Inhouse Spitex without domicile trips\n\nWhat you bring\n\n• You are an empathetic, friendly and upstanding person and have a completed education as a dipl. Nursing professional HF ideally with Spitex experience\n\n• You have a high customer orientation and enjoy looking after our guests professionally with high expectations\n\n• They are capable of teamwork, reliable and happy to work together with the team and other specialists\n\n• You have a good knowledge of German in words and writing and communicate clearly, sensitively and professionally\n\nInterested?\n Apply now Kamila Hlobil is looking forward to your online application.\n\nKamila hlobil\n Team Leader Inhouse Spitex\n+41 61 836 69 49\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 37, CH-4310 Rheinfelden",
-        "fr": "Clinique de désintox de Salina\n\nDipl. Professionnels des soins infirmiers\n Spitex intérieur\n20% du salaire horaire dans le pool\n Par accord\n• Piscine\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik et Park-Hotel am Rhein AG emploient environ 1000 personnes. Pour réaliser la meilleure réhabilitation possible, des équipes interdisciplinaires travaillent ensemble, chaque individu ayant son expertise et son expérience contribuant au succès. La Salina Rehaklinik (clinique de réadaptation, spécialistes et thérapies) offre un concept interdisciplinaire pour la prévention, le diagnostic et le traitement du soutien et du système musculosquelettique. Le centre de compétence médicale comprend des installations modernes de diagnostic et de thérapie avec une équipe compétente de spécialistes, de thérapeutes et de personnel infirmier.\n Votre équipe\n L'organisation interne Spitex de la Salina complète l'offre médicale et thérapeutique par des soins infirmiers individuels et professionnels. Il est destiné à la fois aux clients du spa de l'hôtel Park sur le Rhin et aux clients de la résidence qui dépendent du soutien infirmier. L'équipe interdisciplinaire de soins permet d'offrir des soins fondés sur les besoins dans un milieu de vie familier et contribue à maintenir et à promouvoir l'indépendance, la qualité de vie et la sécurité des personnes qui en ont besoin. L'accent est mis sur les soins professionnels, les soins personnels et les besoins individuels des clients.\n\nÀ quoi s'attendre\n\n• Mise en œuvre d'une planification globale des soins tenant compte des besoins, compétences et souhaits individuels des hôtes\n\n• Responsabilité pour la documentation complète et l'enregistrement des performances dans le périgone\n\n• Travailler en étroite collaboration avec l'équipe interdisciplinaire, les médecins, les thérapeutes et les autres soignants pour assurer des soins continus\n\n• Fonctionnement en deux équipes sans service après-vente\n\n• Inhouse Spitex sans voyages domicile\n\nCe que vous apportez\n\n• Vous êtes une personne empathique, amicale et intègre et avez une éducation terminée comme un dipl. Soins infirmiers professionnels HF idéalement avec l'expérience Spitex\n\n• Vous avez une orientation client élevée et aimez prendre soin de nos clients professionnellement avec des attentes élevées\n\n• Ils sont capables de travailler en équipe, fiables et heureux de travailler avec l'équipe et d'autres spécialistes\n\n• Vous avez une bonne connaissance de l'allemand dans les mots et l'écriture et de communiquer clairement, délicatement et professionnellement\n\nIntéressé ?\n Postulez maintenant Kamila Hlobil attend avec impatience votre candidature en ligne.\n\nKamila hlobil\n Chef d'équipe chez Spitex\n+41 61 836 69 49\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 37, CH-4310 Rheinfelden"
+        "it": "Clinica di riabilitazione Salina\n\nDipl. Infermieristica professionale\nSpitex interno\n20% del salario orario in piscina\nAccordo\n• Piscina\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik e Park-Hotel am Rhein AG impiegano circa 1.000 persone. Per ottenere la migliore riabilitazione possibile, i team interdisciplinari lavorano insieme, con le competenze e l'esperienza di ogni individuo che contribuiscono al successo. La Salina Rehaklinik (ambulatorio di riabilitazione, specialisti e terapie) offre un concetto interdisciplinare per la prevenzione, la diagnosi e il trattamento del supporto e del sistema muscolo-scheletrico. Il centro di competenza medica comprende moderne strutture diagnostiche e terapeutiche con un team competente di specialisti, terapisti e personale di cura.\nLa tua squadra\nL'organizzazione interna Spitex della Salina completa l'offerta medica e terapeutica di un'assistenza sanitaria individuale e professionale. Si rivolge sia agli ospiti termali del Park Hotel sul Reno e agli ospiti di residenza che dipendono dal supporto per l'allattamento. Il team di assistenza interdisciplinare consente la cura basata sulle esigenze nell'ambiente di vita familiare e contribuisce a mantenere e promuovere l'indipendenza, la qualità della vita e la sicurezza delle persone a cui si interessa. Il focus è sulla cura professionale, la cura personale e le esigenze individuali degli ospiti.\n\nCosa aspettarsi\n\n• Attuazione della pianificazione di assistenza completa tenendo conto delle esigenze individuali, delle competenze e dei desideri degli ospiti\n\n• Responsabilità per la documentazione completa e la registrazione delle prestazioni nel perigon\n\n• Lavorare a stretto contatto con il team interdisciplinare, medici, terapisti e altri caregiver per garantire la cura continua\n\n• Funzionamento a due turni senza post-servizio\n\n• Inhouse Spitex senza viaggi domicili\n\nCosa porti\n\n• Tu sei una persona empatica, amichevole e solidale e hai una formazione completa come dipl. Infermieristica professionale HF ideale con esperienza Spitex\n\n• Hai un alto orientamento al cliente e godere di prendersi cura dei nostri ospiti professionalmente con alte aspettative\n\n• Sono in grado di lavorare di squadra, affidabile e felice di lavorare insieme con il team e altri specialisti\n\n• Hai una buona conoscenza del tedesco nelle parole e nella scrittura e comunicare in modo chiaro, sensibile e professionale\n\nInteressante?\nApplicare ora Kamila Hlobil è impaziente per la vostra applicazione online.\n\nKamila hlobil\nLeader del team Spitex\n+41 61 836 69 49\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 37, CH-4310 Rheinfelden",
+        "en": "Salina rehab clinic\n\nDipl. Nursing professional\nInhouse Spitex\n20% of the hourly wage in the pool\nBy agreement\n• Pool\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik and Park-Hotel am Rhein AG employ around 1,000 people. To achieve the best possible rehabilitation, interdisciplinary teams work together, with each individual’s expertise and experience contributing to success. The Salina Rehaklinik (rehabilitation clinic, specialists and therapies) offers an interdisciplinary concept for the prevention, diagnosis and treatment of the support and musculoskeletal system. The medical competence centre comprises modern diagnostic and therapeutic facilities with a competent team of specialists, therapists and nursing staff.\nYour team\nThe in-house Spitex organization of the Salina complements the medical and therapeutic offer by an individual and professional nursing care. It is aimed both at spa guests of the Park Hotel on the Rhine and at residence guests who are dependent on nursing support. The interdisciplinary care team enables needs-based care in the familiar living environment and helps to maintain and promote the independence, quality of life and safety of the persons cared for. The focus is on professional care, personal care and the individual needs of the guests.\n\nWhat to expect\n\n• Implementation of comprehensive care planning taking into account the individual needs, skills and wishes of the guests\n\n• Responsibility for complete documentation and performance recording in the perigon\n\n• Working closely with the interdisciplinary team, doctors, therapists and other caregivers to ensure continuous care\n\n• Two-shift operation without after-service\n\n• Inhouse Spitex without domicile trips\n\nWhat you bring\n\n• You are an empathetic, friendly and upstanding person and have a completed education as a dipl. Nursing professional HF ideally with Spitex experience\n\n• You have a high customer orientation and enjoy looking after our guests professionally with high expectations\n\n• They are capable of teamwork, reliable and happy to work together with the team and other specialists\n\n• You have a good knowledge of German in words and writing and communicate clearly, sensitively and professionally\n\nInterested?\nApply now Kamila Hlobil is looking forward to your online application.\n\nKamila hlobil\nTeam Leader Inhouse Spitex\n+41 61 836 69 49\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 37, CH-4310 Rheinfelden",
+        "de": "Salina Rehaklinik\n\nDipl. Pflegefachfrau/-mann\nInhouse Spitex\n20% im Stundenlohn im Pool\nNach Vereinbarung\n• Pool\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\nIhr Team\nDie hausinterne Spitex-Organisation der Salina ergänzt das medizinische und therapeutische Angebot durch eine individuelle und professionelle pflegerische Betreuung. Sie richtet sich sowohl an Kurgäste des Park-Hotels am Rhein als auch an Residenzgäste, die auf pflegerische Unterstützung angewiesen sind. Das interdisziplinär arbeitende Pflegeteam ermöglicht eine bedarfsgerechte Versorgung im vertrauten Wohnumfeld und trägt dazu bei, die Selbstständigkeit, Lebensqualität und Sicherheit der betreuten Personen zu erhalten und zu fördern. Dabei stehen eine fachgerechte Pflege, eine persönliche Betreuung sowie die individuellen Bedürfnisse der Gäste im Mittelpunkt.\n\nWas Sie erwartet\n\n• Durchführung einer umfassenden Pflegeplanung unter Berücksichtigung der individuellen Bedürfnisse, Fähigkeiten und Wünsche der Gästen\n\n• Verantwortung für eine vollständige Dokumentation und Leistungserfassung im Perigon\n\n• Enge Zusammenarbeit mit dem interdisziplinären Team, Ärzten, Therapeuten und anderen Pflegekräften, um eine kontinuierliche Pflege zu gewährleisten\n\n• Zwei-Schicht-Betrieb ohne Nachdienst\n\n• Inhouse Spitex ohne Domizilfahrten\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung als dipl. Pflegefachfrau/-mann HF idealerweise mit Spitex-Erfahrung\n\n• Sie haben eine hohe Kundenorientierung und Freude daran, unsere Gäste mit hohen Erwartungen professionell zu betreuen\n\n• Sie sind teamfähig, zuverlässig und arbeiten gerne mit den Team und weiteren Fachpersonen zusammen\n\n• Sie verfügen über gute Deutschkenntnisse in Wort und Schrift und kommunizieren klar, einfühlsam und professionell\n\nInteressiert?\nJetzt bewerben Kamila Hlobil freut sich auf Ihre Online-Bewerbung.\n\nKamila Hlobil\nTeamleiterin Inhouse Spitex\n+41 61 836 69 49\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 37, CH-4310 Rheinfelden",
+        "fr": "Clinique de désintox de Salina\n\nDipl. Professionnels des soins infirmiers\nSpitex intérieur\n20% du salaire horaire dans le pool\nPar accord\n• Piscine\n• Rheinfelden\n\nReha Rheinfelden, Salina Rehaklinik et Park-Hotel am Rhein AG emploient environ 1000 personnes. Pour réaliser la meilleure réhabilitation possible, des équipes interdisciplinaires travaillent ensemble, chaque individu ayant son expertise et son expérience contribuant au succès. La Salina Rehaklinik (clinique de réadaptation, spécialistes et thérapies) offre un concept interdisciplinaire pour la prévention, le diagnostic et le traitement du soutien et du système musculosquelettique. Le centre de compétence médicale comprend des installations modernes de diagnostic et de thérapie avec une équipe compétente de spécialistes, de thérapeutes et de personnel infirmier.\nVotre équipe\nL'organisation interne Spitex de la Salina complète l'offre médicale et thérapeutique par des soins infirmiers individuels et professionnels. Il est destiné à la fois aux clients du spa de l'hôtel Park sur le Rhin et aux clients de la résidence qui dépendent du soutien infirmier. L'équipe interdisciplinaire de soins permet d'offrir des soins fondés sur les besoins dans un milieu de vie familier et contribue à maintenir et à promouvoir l'indépendance, la qualité de vie et la sécurité des personnes qui en ont besoin. L'accent est mis sur les soins professionnels, les soins personnels et les besoins individuels des clients.\n\nÀ quoi s'attendre\n\n• Mise en œuvre d'une planification globale des soins tenant compte des besoins, compétences et souhaits individuels des hôtes\n\n• Responsabilité pour la documentation complète et l'enregistrement des performances dans le périgone\n\n• Travailler en étroite collaboration avec l'équipe interdisciplinaire, les médecins, les thérapeutes et les autres soignants pour assurer des soins continus\n\n• Fonctionnement en deux équipes sans service après-vente\n\n• Inhouse Spitex sans voyages domicile\n\nCe que vous apportez\n\n• Vous êtes une personne empathique, amicale et intègre et avez une éducation terminée comme un dipl. Soins infirmiers professionnels HF idéalement avec l'expérience Spitex\n\n• Vous avez une orientation client élevée et aimez prendre soin de nos clients professionnellement avec des attentes élevées\n\n• Ils sont capables de travailler en équipe, fiables et heureux de travailler avec l'équipe et d'autres spécialistes\n\n• Vous avez une bonne connaissance de l'allemand dans les mots et l'écriture et de communiquer clairement, délicatement et professionnellement\n\nIntéressé ?\nPostulez maintenant Kamila Hlobil attend avec impatience votre candidature en ligne.\n\nKamila hlobil\nChef d'équipe chez Spitex\n+41 61 836 69 49\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 37, CH-4310 Rheinfelden"
       },
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://link.ostendis.com/publication/pflegefachperson-hf-inhouse-spitex-pool/l2xrmwc8znoqzxjxlua8ghdt87wxcf02326qktur4ceej3dxse41uwqnut2qelkt",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:25:36.008Z",
+      "crawledAt": "2026-11-27T09:17:43.741Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -421,9 +417,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://link.ostendis.com/publication/pflegefachperson-hf-inhouse-spitex-pool/l2xrmwc8znoqzxjxlua8ghdt87wxcf02326qktur4ceej3dxse41uwqnut2qelkt",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-26T21:25:36.008Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden"
+        ],
+        "en": [
+          "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden"
+        ],
+        "fr": [
+          "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden"
+        ]
       },
+      "previousSlugs": [
+        "pflegefachperson-hf-inhouse-spitex-pool-salina-rheinfelden"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -439,9 +448,80 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T21:25:36.008Z",
+      "validThrough": "2027-02-24T09:17:43.741Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "salina-reha-a5ca4094c6a8",
+      "slug": "mpa-facharztehaus-salina-rheinfelden",
+      "slugByLocale": {
+        "de": "mpa-facharztehaus-salina-rheinfelden",
+        "it": "mpa-facharztehaus-salina-rheinfelden",
+        "en": "mpa-facharztehaus-salina-rheinfelden",
+        "fr": "mpa-facharztehaus-salina-rheinfelden"
+      },
+      "company": "Salina Rehaklinik Rheinfelden",
+      "companyKey": "salina-reha",
+      "companyDomain": "salina-reha.ch",
+      "title": "MPA Fachärztehaus",
+      "titleByLocale": {
+        "de": "MPA Fachärztehaus",
+        "it": "MPA Fachärztehaus",
+        "en": "MPA Fachärztehaus",
+        "fr": "MPA Fachärztehaus"
+      },
+      "description": "Salina Rehaklinik\n\nMed. Praxisassistent/-in mit OP-Assistenz\n Fachärztehaus\n60-80%\n per 1. Januar 2027 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n\nWas Sie erwartet\n\n• OP-Assistenz: Selbstständiges Vorbereiten, Assistieren von kleinen chirurgischen Eingriffen unter sterilen Bedingungen\n\n• Diagnostik & Labor: Durchführen von venösen Punktionen\n\n• Behandlungspflege: Fachgerechtes Verabreichen von subkutanen (s.c.) und intramuskulären (i.m.) Injektionen sowie Legen und Überwachen von Infusionen und Assistieren bei Interventionellen Untersuchungen\n\n• Praxisorganisation: Empfang und Betreuung der Patientinnen und Patienten sowie allgemeine administrative Aufgaben\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung zur MPA oder eine gleichwertige Ausbildung\n\n• Routine und Sicherheit in der Blutentnahme (VP), Injektionstechnik (s.c. / i.m.), Infusionstherapie sowie im sterilen Arbeiten bei Eingriffen\n\n• Ruhige, exakte und hygienisch einwandfreie Arbeitsweise, besonders in chirurgischen Situationen\n\n• Sie haben eine hohe Patientenorientierung und ein ausgeprägtes Organisationsvermögen\n\nInteressiert?\n Jetzt bewerben Claudia Di Bari freut sich auf Ihre Online-Bewerbung.\n\nClaudia Di Bari\n Co-Leiterin Fachärztehaus\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+      "descriptionByLocale": {
+        "de": "Salina Rehaklinik\n\nMed. Praxisassistent/-in mit OP-Assistenz\n Fachärztehaus\n60-80%\n per 1. Januar 2027 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n\nWas Sie erwartet\n\n• OP-Assistenz: Selbstständiges Vorbereiten, Assistieren von kleinen chirurgischen Eingriffen unter sterilen Bedingungen\n\n• Diagnostik & Labor: Durchführen von venösen Punktionen\n\n• Behandlungspflege: Fachgerechtes Verabreichen von subkutanen (s.c.) und intramuskulären (i.m.) Injektionen sowie Legen und Überwachen von Infusionen und Assistieren bei Interventionellen Untersuchungen\n\n• Praxisorganisation: Empfang und Betreuung der Patientinnen und Patienten sowie allgemeine administrative Aufgaben\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung zur MPA oder eine gleichwertige Ausbildung\n\n• Routine und Sicherheit in der Blutentnahme (VP), Injektionstechnik (s.c. / i.m.), Infusionstherapie sowie im sterilen Arbeiten bei Eingriffen\n\n• Ruhige, exakte und hygienisch einwandfreie Arbeitsweise, besonders in chirurgischen Situationen\n\n• Sie haben eine hohe Patientenorientierung und ein ausgeprägtes Organisationsvermögen\n\nInteressiert?\n Jetzt bewerben Claudia Di Bari freut sich auf Ihre Online-Bewerbung.\n\nClaudia Di Bari\n Co-Leiterin Fachärztehaus\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "it": "Salina Rehaklinik\n\nMed. Praxisassistent/-in mit OP-Assistenz\n Fachärztehaus\n60-80%\n per 1. Januar 2027 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n\nWas Sie erwartet\n\n• OP-Assistenz: Selbstständiges Vorbereiten, Assistieren von kleinen chirurgischen Eingriffen unter sterilen Bedingungen\n\n• Diagnostik & Labor: Durchführen von venösen Punktionen\n\n• Behandlungspflege: Fachgerechtes Verabreichen von subkutanen (s.c.) und intramuskulären (i.m.) Injektionen sowie Legen und Überwachen von Infusionen und Assistieren bei Interventionellen Untersuchungen\n\n• Praxisorganisation: Empfang und Betreuung der Patientinnen und Patienten sowie allgemeine administrative Aufgaben\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung zur MPA oder eine gleichwertige Ausbildung\n\n• Routine und Sicherheit in der Blutentnahme (VP), Injektionstechnik (s.c. / i.m.), Infusionstherapie sowie im sterilen Arbeiten bei Eingriffen\n\n• Ruhige, exakte und hygienisch einwandfreie Arbeitsweise, besonders in chirurgischen Situationen\n\n• Sie haben eine hohe Patientenorientierung und ein ausgeprägtes Organisationsvermögen\n\nInteressiert?\n Jetzt bewerben Claudia Di Bari freut sich auf Ihre Online-Bewerbung.\n\nClaudia Di Bari\n Co-Leiterin Fachärztehaus\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "en": "Salina Rehaklinik\n\nMed. Praxisassistent/-in mit OP-Assistenz\n Fachärztehaus\n60-80%\n per 1. Januar 2027 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n\nWas Sie erwartet\n\n• OP-Assistenz: Selbstständiges Vorbereiten, Assistieren von kleinen chirurgischen Eingriffen unter sterilen Bedingungen\n\n• Diagnostik & Labor: Durchführen von venösen Punktionen\n\n• Behandlungspflege: Fachgerechtes Verabreichen von subkutanen (s.c.) und intramuskulären (i.m.) Injektionen sowie Legen und Überwachen von Infusionen und Assistieren bei Interventionellen Untersuchungen\n\n• Praxisorganisation: Empfang und Betreuung der Patientinnen und Patienten sowie allgemeine administrative Aufgaben\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung zur MPA oder eine gleichwertige Ausbildung\n\n• Routine und Sicherheit in der Blutentnahme (VP), Injektionstechnik (s.c. / i.m.), Infusionstherapie sowie im sterilen Arbeiten bei Eingriffen\n\n• Ruhige, exakte und hygienisch einwandfreie Arbeitsweise, besonders in chirurgischen Situationen\n\n• Sie haben eine hohe Patientenorientierung und ein ausgeprägtes Organisationsvermögen\n\nInteressiert?\n Jetzt bewerben Claudia Di Bari freut sich auf Ihre Online-Bewerbung.\n\nClaudia Di Bari\n Co-Leiterin Fachärztehaus\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden",
+        "fr": "Salina Rehaklinik\n\nMed. Praxisassistent/-in mit OP-Assistenz\n Fachärztehaus\n60-80%\n per 1. Januar 2027 oder nach Vereinbarung\n• Festanstellung\n• Rheinfelden\n\nDie Reha Rheinfelden, die Salina Rehaklinik und die Park-Hotel am Rhein AG beschäftigen rund 1'000 Mitarbeitende. Für die Erreichung der bestmöglichen Rehabilitation wird in interdisziplinären Teams zusammengearbeitet, wobei das Fachwissen und die Erfahrung jedes Einzelnen zum Erfolg beiträgt. Die Salina Rehaklinik (Rehaklinik, Fachärzte und Therapien) bietet ein fächerübergreifendes Konzept zur Prävention, Diagnostik und Behandlung des Stütz- und Bewegungsapparates. Das medizinische Kompetenzzentrum umfasst moderne Diagnostik- und Therapieeinrichtungen mit einem kompetenten Team von Fachärzten, Therapeuten und Pflegepersonal.\n Ihr Team\n Unsere ambulante Abteilung im Fachärztehaus zeichnet sich aus durch ein kompetentes interdisziplinäres Team von Fachärzten und Therapeuten für ein vielfältiges Angebot zur Gesundheitsvorsorge, Behandlung und Betreuung. Das Ambulatorium verfügt über Spezialärzte für Rheumatologie und Physikalische Medizin, Sportmedizin, Orthopädie, Eisen-Stoffwechselstörung, Osteoporose, Wirbelsäulenchirurgie, Neurologie, interventionelle Schmerztherapie, Dermatologie, Allgemeinmedizin, Naturheilkunde, Medizinische Gutachten, Übergewicht und Adipositas, Anthroposophische Medizin sowie Akupunktur und Medizinische Hypnose.\n\nWas Sie erwartet\n\n• OP-Assistenz: Selbstständiges Vorbereiten, Assistieren von kleinen chirurgischen Eingriffen unter sterilen Bedingungen\n\n• Diagnostik & Labor: Durchführen von venösen Punktionen\n\n• Behandlungspflege: Fachgerechtes Verabreichen von subkutanen (s.c.) und intramuskulären (i.m.) Injektionen sowie Legen und Überwachen von Infusionen und Assistieren bei Interventionellen Untersuchungen\n\n• Praxisorganisation: Empfang und Betreuung der Patientinnen und Patienten sowie allgemeine administrative Aufgaben\n\nWas Sie mitbringen\n\n• Sie sind eine empathische, freundliche und aufgestellte Person und verfügen über eine abgeschlossene Ausbildung zur MPA oder eine gleichwertige Ausbildung\n\n• Routine und Sicherheit in der Blutentnahme (VP), Injektionstechnik (s.c. / i.m.), Infusionstherapie sowie im sterilen Arbeiten bei Eingriffen\n\n• Ruhige, exakte und hygienisch einwandfreie Arbeitsweise, besonders in chirurgischen Situationen\n\n• Sie haben eine hohe Patientenorientierung und ein ausgeprägtes Organisationsvermögen\n\nInteressiert?\n Jetzt bewerben Claudia Di Bari freut sich auf Ihre Online-Bewerbung.\n\nClaudia Di Bari\n Co-Leiterin Fachärztehaus\n+41 61 836 61 42\n\nSalina Rehaklinik, Reha Rheinfelden, Roberstenstrasse 31, CH-4310 Rheinfelden"
+      },
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://link.ostendis.com/publication/mpa-fachaerztehaus/tvmeqiyi73ovrob3hxq33bqeeg660hg0fqe5wzrl7xsiy11ypdqpsgdxs6oqi6pr",
+      "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T09:17:39.748Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-27",
+      "postedDate": "2026-11-27",
+      "postingDateSource": "reported",
+      "applyUrl": "https://link.ostendis.com/publication/mpa-fachaerztehaus/tvmeqiyi73ovrob3hxq33bqeeg660hg0fqe5wzrl7xsiy11ypdqpsgdxs6oqi6pr",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Rheinfelden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-25T09:17:39.748Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T21:25:36.008Z"
+      "firstSeenAt": "2026-11-27T09:17:39.748Z"
     }
   ]
 }

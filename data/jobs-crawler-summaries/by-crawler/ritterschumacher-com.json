@@ -1,7 +1,7 @@
 {
   "key": "ritterschumacher-com",
   "label": "Ritter Schumacher AG",
-  "generatedAt": "2026-11-26T21:37:03.253Z",
+  "generatedAt": "2026-11-27T09:21:25.443Z",
   "total": 5,
   "discovered": 6,
   "parsed": 5,
@@ -55,6 +55,8 @@
         "url": "https://ritterschumacher.com/menschen/offene-stellen/zeichnerin-technikerin-architektin-fuer-ausfuehrungsplanung"
       }
     ],
+    "listingTerminalStatus": 200,
+    "listingCompletion": "complete",
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": null
@@ -72,10 +74,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 17521,
-  "avgDurationMs": 17521,
+  "durationMs": 15274,
+  "avgDurationMs": 15274,
   "durationHistory": [
-    17521
+    15274
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -93,7 +95,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/gesamtprojektleiterin-hochbau-chur-oder-engadin",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:36:47.553Z",
+      "crawledAt": "2026-11-27T09:21:04.974Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -116,7 +118,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:36:47.553Z",
+      "validThrough": "2027-02-16T09:21:04.974Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -138,7 +140,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/fachspezialistin-bauphysik-und-energie-chur",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:36:47.552Z",
+      "crawledAt": "2026-11-27T09:21:04.972Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -161,7 +163,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:36:47.552Z",
+      "validThrough": "2027-02-16T09:21:04.972Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -183,7 +185,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/projekt-und-bauleiterin-energetische-sanierungen-und-bestandsbauten-chur",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:36:47.551Z",
+      "crawledAt": "2026-11-27T09:21:04.971Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -206,7 +208,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:36:47.551Z",
+      "validThrough": "2027-02-16T09:21:04.971Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -228,7 +230,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/bauleiterin-arosa",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:36:47.550Z",
+      "crawledAt": "2026-11-27T09:21:04.970Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -251,7 +253,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:36:47.550Z",
+      "validThrough": "2027-02-16T09:21:04.970Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -273,7 +275,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/bauleiterin-zuerichzentralschweiz",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T21:36:47.548Z",
+      "crawledAt": "2026-11-27T09:21:04.969Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -296,7 +298,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:36:47.548Z",
+      "validThrough": "2027-02-16T09:21:04.969Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -307,5 +309,5 @@
       }
     }
   ],
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }
