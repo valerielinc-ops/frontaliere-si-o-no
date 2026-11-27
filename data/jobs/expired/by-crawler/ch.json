@@ -950,7 +950,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ch.talent.com/view?id=643709345494929387&trigger_from=related_jobs",
-    "firstSeenAt": "2026-11-22T21:23:04.740Z"
+    "firstSeenAt": "2026-11-22T21:23:04.740Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenberater-vorsorge-amp-sparplane-quereinsteiger-convit-central-gmbh-dietikon": "ZH",
+        "kundenberater-previdenza-sparplane-candidato-a-in-riqualificazione-global-sana-dietikon": "ZH"
+      },
+      "en": {
+        "kundenberater-vorsorge-sparplane-quereinsteiger-global-sana-dietikon": "ZH"
+      },
+      "de": {
+        "kundenberater-vorsorge-amp-sparplane-quereinsteiger-convit-central-gmbh-dietikon": "ZH"
+      },
+      "fr": {
+        "kundenberater-vorsorge-sparplane-quereinsteiger-global-sana-dietikon": "ZH"
+      }
+    }
   },
   {
     "id": "ch-3c6fa59a54ad",
@@ -1063,7 +1079,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ch.talent.com/view?id=586051386055199392&trigger_from=related_jobs",
-    "firstSeenAt": "2026-11-19T09:35:00.936Z"
+    "firstSeenAt": "2026-11-19T09:35:00.936Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenberater-in-kundenbindungsprogramm-m-w-d-adato-zurich-zurich-ch-ch-ch": "ZH",
+        "kundenberater-in-kundenbindungsprogramm-m-w-d-global-sana-zurich": "ZH"
+      },
+      "en": {
+        "kundenberater-in-kundenbindungsprogramm-m-w-d-global-sana-zurich": "ZH"
+      },
+      "de": {
+        "kundenberater-in-kundenbindungsprogramm-m-w-d-adato-zurich-zurich-ch-ch-ch": "ZH"
+      },
+      "fr": {
+        "kundenberater-in-kundenbindungsprogramm-m-w-d-global-sana-zurich": "ZH"
+      }
+    }
   },
   {
     "id": "ch-bbf364092e77",
@@ -1114,7 +1146,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ch.talent.com/view?id=612989830165106339&trigger_from=related_jobs",
-    "firstSeenAt": "2026-11-02T21:58:55.000Z"
+    "firstSeenAt": "2026-11-02T21:58:55.000Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch": "ZH"
+      },
+      "en": {
+        "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch": "ZH"
+      },
+      "fr": {
+        "serviceberater-autobranche-in-4-tage-woche-100-m-w-d-winterthur-canton-of-zurich-ch-ch": "ZH"
+      }
+    }
   },
   {
     "id": "ch-c130346fd255",
@@ -1170,6 +1214,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ch.talent.com/view?id=620345981570851791&trigger_from=related_jobs",
-    "firstSeenAt": "2026-11-02T21:58:55.001Z"
+    "firstSeenAt": "2026-11-02T21:58:55.001Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-winterthur-canton-of-zurich-ch-ch": "ZH",
+        "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur": "ZH"
+      },
+      "en": {
+        "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur": "ZH"
+      },
+      "de": {
+        "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-winterthur-canton-of-zurich-ch-ch": "ZH"
+      },
+      "fr": {
+        "serviceberater-in-automobilgewerbe-m-w-d-100-temporar-global-sana-winterthur": "ZH"
+      }
+    }
   }
 ]

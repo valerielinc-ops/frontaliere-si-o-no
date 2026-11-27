@@ -29,6 +29,12 @@
     "previousSlugsByLocale": {
       "fr": [
         "smd-assembly-operator-production-assistant-cedes-ag-landquart"
+      ],
+      "en": [
+        "smd-assembly-operator-production-assistant-cedes-landquart"
+      ],
+      "de": [
+        "smd-assembly-operator-production-assistant-cedes-landquart"
       ]
     },
     "postalCode": "7302",
@@ -38,7 +44,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.cedes.com/en/career/jobs/production-assistant",
-    "firstSeenAt": "2026-10-27T21:19:40.726Z"
+    "firstSeenAt": "2026-10-27T21:19:40.726Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "en": {
+        "smd-assembly-operator-production-assistant-cedes-landquart": "GR"
+      },
+      "de": {
+        "smd-assembly-operator-production-assistant-cedes-landquart": "GR"
+      },
+      "fr": {
+        "smd-assembly-operator-production-assistant-cedes-ag-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "risorse-umane-tirocinante-60-100-cedes-ag-landquart",
@@ -88,7 +106,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.cedes.com/en/career/jobs/hr-intern-60-100",
-    "firstSeenAt": "2026-10-09T09:13:37.313Z"
+    "firstSeenAt": "2026-10-09T09:13:37.313Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-intern-60-100-cedes-landquart": "GR"
+      },
+      "de": {
+        "hr-intern-60-100-cedes-landquart": "GR"
+      },
+      "fr": {
+        "hr-intern-60-100-cedes-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "elettronica-degli-acquirenti-di-piombo-cedes-ag-landquart",
@@ -131,7 +161,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.cedes.com/en/career/jobs/lead-buyer-electronics",
-    "firstSeenAt": "2026-08-25T09:46:00.183Z"
+    "firstSeenAt": "2026-08-25T09:46:00.183Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-buyer-electronics-cedes-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "operator-in-smd-assembly-cedes-ag-landquart",
@@ -218,7 +254,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1",
-    "firstSeenAt": "2026-07-15T22:20:19.070Z"
+    "firstSeenAt": "2026-07-15T22:20:19.070Z",
+    "canton": "GR",
+    "previousSlugsByLocale": {
+      "en": [
+        "software-test-engineer-80-100-cedes-landquart"
+      ],
+      "de": [
+        "software-test-engineer-80-100-cedes-landquart"
+      ],
+      "fr": [
+        "software-test-engineer-80-100-cedes-landquart"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "software-test-engineer-80-100-cedes-landquart": "GR"
+      },
+      "de": {
+        "software-test-engineer-80-100-cedes-landquart": "GR"
+      },
+      "fr": {
+        "software-test-engineer-80-100-cedes-landquart": "GR"
+      }
+    }
   },
   {
     "slug": "sviluppo-aziendale-ea-rete-professionale-cedes-ag-landquart",
