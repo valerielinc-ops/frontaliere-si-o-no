@@ -332,6 +332,18 @@ describe('source relay auth rejection diagnostics', () => {
     expect(entry.headerNames).toContain('x-serverless-authorization');
   });
 
+  it('verifies a correctly signed token with the default clock (regression: now=Date.now() was a number)', async () => {
+    const { generateKeyPairSync, sign } = await import('node:crypto');
+    const { publicKey, privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
+    const jwk = { ...publicKey.export({ format: 'jwk' }), kid: 'kid-valid' };
+    const fetchImpl = vi.fn(async () => ({ ok: true, status: 200, json: async () => ({ keys: [jwk] }) }));
+    const enc = (value: unknown) => Buffer.from(JSON.stringify(value)).toString('base64url');
+    const signingInput = `${enc({ alg: 'RS256', kid: 'kid-valid' })}.${enc(good)}`;
+    const signature = sign('RSA-SHA256', Buffer.from(signingInput), privateKey).toString('base64url');
+    await expect(verifyGithubOidcToken(`${signingInput}.${signature}`, { fetchImpl }))
+      .resolves.toMatchObject({ repository: 'nanakokyobashi-rgb/frontaliere-articles' });
+  });
+
   it('logs bad_scheme, bad_iss, bad_aud and bad_repository with non-sensitive observed values', async () => {
     expect((await reject('Basic abc')).entry).toMatchObject({ reason: 'bad_scheme', authorizationScheme: 'basic' });
     const iss = await reject(`Bearer ${jwt({ ...good, iss: 'https://evil.example' })}`);

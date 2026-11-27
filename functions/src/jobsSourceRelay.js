@@ -240,7 +240,7 @@ async function fetchGithubJwks(fetchImpl, forceRefresh = false) {
  * and RSA algorithm used by the second-step workflows. No shared secret is
  * kept in Firebase or passed through a crawler environment.
  */
-export async function verifyGithubOidcToken(token, { fetchImpl = globalThis.fetch, now = Date.now() } = {}) {
+export async function verifyGithubOidcToken(token, { fetchImpl = globalThis.fetch, now = Date.now } = {}) {
   const parts = String(token || '').split('.');
   if (parts.length !== 3) throw new Error('invalid_jwt_shape');
 
