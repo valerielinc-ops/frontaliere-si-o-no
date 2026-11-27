@@ -69,7 +69,7 @@ import { isWorkHistoryContext } from './lib/workHistoryContext.js';
 import { isOngoingPeriod, isoDateOf, parseEndpoint } from './lib/cvPeriod.js';
 import { languageCodesIn } from './lib/languageFacts.js';
 import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
-import { asksHeldStatus, isNationalityField, isPermitField, nationalityCodes, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf, RESIDENCE_OR_PERMIT_RE } from './lib/permitStatus.js';
+import { asksHeldStatus, isNationalityField, isPermitField, nationalityCodes, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf, isCompoundResidenceDisjunction, isResidenceOrPermitCaption } from './lib/permitStatus.js';
 import { phoneCountryCode } from './lib/phoneNormalization.js';
 import { isUnknownAnswer } from './lib/unknownAnswer.js';
 import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
@@ -2329,7 +2329,8 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       const status = known.permitStatus;
       // «Risiedi in Svizzera, o sei in possesso di un permesso di lavoro?» is true when either clause holds: a held
       // permit makes it yes, but without one the candidate may still live in Switzerland: no answer is derived.
-      if (isBinary(question) && RESIDENCE_OR_PERMIT_RE.test(label(question)) && (!status || status === 'none')) break;
+      if (isBinary(question) && isCompoundResidenceDisjunction(question?.applicationQuestion, question?.question, question?.label)) break;
+      if (isBinary(question) && isResidenceOrPermitCaption(question?.applicationQuestion, question?.question, question?.label) && (!status || status === 'none')) break;
       if (!status && (isBinary(question) || !options.length || !known.passport)) break;
       if (options.length && !isBinary(question)) value = (status ? pickOption(question, (option) => permitCodeOf(option) === status) : '')
         || permitOptionFallback(question, status, known.passport);

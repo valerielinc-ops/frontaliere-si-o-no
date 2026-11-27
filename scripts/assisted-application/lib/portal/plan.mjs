@@ -45,7 +45,7 @@ import {
   permitOptionCode,
   permitStatusFromCandidate,
   permitStatusOf,
-  RESIDENCE_OR_PERMIT_RE,
+  isResidenceOrPermitCaption,
 } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
@@ -1688,7 +1688,7 @@ function isResidenceOrPermitQuestion(label) {
   const text = permitQuestionText(label);
   if (isPermitHistoricalQuestion(text) || !asksHeldStatus(text)) return false;
   if (PERMIT_EVIDENCE_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return false;
-  return RESIDENCE_OR_PERMIT_RE.test(text.replace(/^[\s*¿¡]+/, ''));
+  return isResidenceOrPermitCaption(text);
 }
 /** «yes» to a residence-or-permit question, proved by a held permit status. */
 function residenceOrPermitYesProved(label, status) {

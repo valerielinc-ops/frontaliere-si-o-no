@@ -71,6 +71,18 @@ describe('work permit and residence yes/no follow the stated permit (case: Succe
     expect(candidateAnswerForField(candidate('permit_g'), select('Risiedi in Svizzera o sei in possesso di un permesso di lavoro? Allega copia del documento'))).toBeNull();
   });
 
+  it.each([
+    'Risiedi in Svizzera, o possiedi un permesso di lavoro e sei disponibile nei weekend?',
+    'Wohnen Sie in der Schweiz oder haben Sie eine Arbeitsbewilligung und sind an Wochenenden verfügbar?',
+    'Do you live in Switzerland, or do you hold a work permit and are you available on weekends?',
+    'Habitez-vous en Suisse ou avez-vous un permis de travail et êtes-vous disponible le week-end ?',
+  ])('leaves a composed question with a further requirement unanswered even with a permit held: «%s»', (label) => {
+    expect(candidateAnswerForField(candidate('permit_g'), select(label))).toBeNull();
+    expect(ownStatusAnswer(candidate('permit_g'), label, 'Sì', { option: true })).toBe(false);
+    const question = { id: 'x', type: 'yes_no', question: label, options: ['Sì', 'No'] };
+    expect(platformDefaultAnswer(question, permitFacts('permit_g'), { locale: 'it' })).toBeNull();
+  });
+
   it('answers the same question on the platform side, yes by a held permit only', () => {
     const question = { id: 'x', type: 'yes_no', question: disjunctive, options: ['Sì', 'No'] };
     expect(platformDefaultAnswer(question, permitFacts('permit_g'), { locale: 'it' })?.value).toBe('Sì');
