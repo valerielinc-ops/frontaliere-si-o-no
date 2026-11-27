@@ -36,7 +36,8 @@
       ],
       "fr": [
         "production-planning-analyst-m-f-d-mikron"
-      ]
+      ],
+      "it": []
     },
     "postalCode": "2017",
     "streetAddress": "Route du Vignoble 17, 2017 Boudry",
@@ -45,7 +46,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.mikron.com/en/production-planning-analyst-mfd",
-    "firstSeenAt": "2026-11-20T21:40:53.738Z"
+    "firstSeenAt": "2026-11-20T21:40:53.738Z",
+    "previousSlugCantonByLocale": {
+      "de": {
+        "production-planning-analyst-m-f-d-mikron": "NE"
+      },
+      "fr": {
+        "production-planning-analyst-m-f-d-mikron": "NE"
+      },
+      "it": {
+        "production-planning-analyst-m-f-d-mikron": "NE"
+      }
+    }
   },
   {
     "slug": "team-leader-dei-reparti-di-supporto-alla-produzione-mikron",
@@ -194,7 +206,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
-    "firstSeenAt": "2026-10-16T21:37:43.804Z"
+    "firstSeenAt": "2026-10-16T21:37:43.804Z",
+    "previousSlugsByLocale": {
+      "it": []
+    }
   },
   {
     "slug": "controllo-ingegnere-specialista-m-f-d-mikron-group-boudry",

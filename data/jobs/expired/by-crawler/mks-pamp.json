@@ -27,7 +27,7 @@
       "fr": "director-pamp-com-mks-pamp-geneve"
     },
     "sector": "Metalli preziosi",
-    "expiredAt": "2026-11-26T14:54:35.530Z",
+    "expiredAt": "2026-11-27T11:45:53.577Z",
     "previousSlugs": [
       "director-pamp-com-mks-pamp-geneve"
     ],
@@ -38,6 +38,14 @@
       "de": [
         "director-pamp-com-mks-pamp-geneve"
       ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "director-pamp-com-mks-pamp-geneve": "TI"
+      },
+      "de": {
+        "director-pamp-com-mks-pamp-geneve": "TI"
+      }
     },
     "salaryMin": 68000,
     "salaryMax": 103000,
@@ -76,7 +84,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
-    "firstSeenAt": "2026-09-29T21:39:07.108Z"
+    "firstSeenAt": "2026-09-29T21:39:07.108Z",
+    "canton": "TI",
+    "previousSlugsByLocale": {
+      "en": [
+        "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro"
+      ],
+      "de": [
+        "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro"
+      ],
+      "fr": [
+        "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro": "TI"
+      },
+      "de": {
+        "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro": "TI"
+      },
+      "fr": {
+        "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro": "TI"
+      }
+    }
   },
   {
     "slug": "operatore-reparto-raffineria-mks-pamp-castel-san-pietro",
@@ -142,7 +173,41 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.mkspamp.com/jobs/7130612-operatore-reparto-raffineria",
-    "firstSeenAt": "2026-04-23T22:07:57.426Z"
+    "firstSeenAt": "2026-04-23T22:07:57.426Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro": "TI",
+        "tecnico-di-laboratorio-mks-pamp-castel-san-pietro": "TI",
+        "laboratory-technician-mks-pamp-castel-san-pietro": "TI",
+        "laboratoriumstechniker-mks-pamp-castel-san-pietro": "TI",
+        "technicien-de-laboratoire-mks-pamp-castel-san-pietro": "TI"
+      },
+      "en": {
+        "operator-treatments-reflui-mks-pamp-castel-san-pietro": "TI",
+        "operator-department-raffineria-mks-pamp-castel-san-pietro": "TI",
+        "tecnico-di-laboratorio-mks-pamp-castel-san-pietro": "TI",
+        "laboratory-technician-mks-pamp-castel-san-pietro": "TI",
+        "laboratoriumstechniker-mks-pamp-castel-san-pietro": "TI",
+        "technicien-de-laboratoire-mks-pamp-castel-san-pietro": "TI"
+      },
+      "de": {
+        "betreiberbehandlungen-reflui-mks-pamp-castel-san-pietro": "TI",
+        "veranstalter-raffineria-mks-pamp-castel-san-pietro": "TI",
+        "tecnico-di-laboratorio-mks-pamp-castel-san-pietro": "TI",
+        "laboratory-technician-mks-pamp-castel-san-pietro": "TI",
+        "laboratoriumstechniker-mks-pamp-castel-san-pietro": "TI",
+        "technicien-de-laboratoire-mks-pamp-castel-san-pietro": "TI"
+      },
+      "fr": {
+        "traitements-de-l-operateur-reflui-mks-pamp-castel-san-pietro": "TI",
+        "service-operateur-raffineria-mks-pamp-castel-san-pietro": "TI",
+        "tecnico-di-laboratorio-mks-pamp-castel-san-pietro": "TI",
+        "laboratory-technician-mks-pamp-castel-san-pietro": "TI",
+        "laboratoriumstechniker-mks-pamp-castel-san-pietro": "TI",
+        "technicien-de-laboratoire-mks-pamp-castel-san-pietro": "TI"
+      }
+    }
   },
   {
     "slug": "technical-drawer-amp-tooling-warehouse-specialist-mks-pamp-castel-san-pietro",
@@ -174,7 +239,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.mkspamp.com/jobs/8207408-technical-drawer-tooling-warehouse-specialist",
-    "firstSeenAt": "2026-08-12T22:07:24.592Z"
+    "firstSeenAt": "2026-08-12T22:07:24.592Z",
+    "canton": "TI",
+    "previousSlugsByLocale": {
+      "de": [
+        "technical-drawer-amp-tooling-warehouse-specialist-mks-pamp-castel-san-pietro"
+      ],
+      "fr": [
+        "technical-drawer-amp-tooling-warehouse-specialist-mks-pamp-castel-san-pietro"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "de": {
+        "technical-drawer-amp-tooling-warehouse-specialist-mks-pamp-castel-san-pietro": "TI"
+      },
+      "fr": {
+        "technical-drawer-amp-tooling-warehouse-specialist-mks-pamp-castel-san-pietro": "TI"
+      }
+    }
   },
   {
     "slug": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro-89e8fef4",

@@ -44,7 +44,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fuer-den-nachtdienst",
-    "firstSeenAt": "2026-09-18T23:10:42.914Z"
+    "firstSeenAt": "2026-09-18T23:10:42.914Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-dn-ii-o-fh-30-per-den-nachtdienst-modellstation-somosa-winterthur": "ZH",
+        "dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fur-den-nachtdienst-modellstation-somosa": "ZH"
+      }
+    }
   },
   {
     "id": "modellstation-somosa-4f354264be7e",
@@ -91,7 +98,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fuer-den-nachtdienst",
-    "firstSeenAt": "2026-09-18T23:10:42.289Z"
+    "firstSeenAt": "2026-09-18T23:10:42.289Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-pflegefachperson-hf-dn-ii-o-fh-come-springer-in-per-den-nachtdienst-modellstation-somosa-winterthur": "ZH",
+        "dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fur-den-nachtdienst-modellstation": "ZH"
+      }
+    }
   },
   {
     "slug": "nessun-posto-vacante-modellstation-somosa-winterthur",
