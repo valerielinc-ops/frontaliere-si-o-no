@@ -1091,4 +1091,49 @@ describe('verification tokens stay in the native sender text', () => {
     expect(inbox.passwordResetHost).toBeUndefined();
     expect(inbox.passwordResetLinkEnc).toBeUndefined();
   });
+
+  it('captures an authenticated Umantis Passwort-setzen email with PasswordResetToken link into passwordResetLinkEnc', async () => {
+    const host = 'recruitingapp-2800.umantis.com';
+    const { store, alias } = await setup('de', host);
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts').set({
+      recruitingapp_2800_umantis_com: {
+        host,
+        email: alias.address,
+        status: 'recovering',
+        verifiedAt: null,
+        passwordEnc: { v: 1, alg: 'aes-256-gcm', iv: 'x', tag: 'y', data: 'z' },
+        recoveryRequestedAt: 900,
+        recoveryRequestId: 'req-umantis-link',
+      },
+    });
+    const resetLink = `https://${host}/?PasswordResetToken=Tok_Abc123&PersID=12345&customer=2800&lang=ger`;
+    const raw = Buffer.from([
+      'From: eRecruiting <DoNotReply@sg.ch>',
+      `Subject: =?utf-8?B?${Buffer.from('Ihr Passwort für den Online-Stellenmarkt', 'utf8').toString('base64')}?=`,
+      'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=sg.ch',
+      'Content-Type: text/plain; charset=utf-8',
+      'Content-Transfer-Encoding: base64',
+      '',
+      Buffer.from(`Sehr geehrte Person\n\nBitte folgen Sie dem Link um Ihr Passwort zu setzen\n\n${resetLink}`, 'utf8').toString('base64'),
+      '',
+    ].join('\r\n'), 'latin1');
+    const bucket = fakeBucket();
+    const accepted = await handleAssistedApplicationInbound(request(raw, alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'stub' }] }));
+    await processAssistedApplicationInbound({
+      db: store.db, bucket, orderId: ORDER, messageId: accepted.body.accepted, runKey: RUN_KEY, nowMs: 1000, sendCascade,
+      classify: async () => ({ category: 'verification', verificationUrl: resetLink }),
+    });
+    const inbox = store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`);
+    expect(inbox).toMatchObject({
+      passwordResetHost: host,
+      passwordResetRequestId: 'req-umantis-link',
+      verificationUrl: '',
+      forwarded: { status: 'skipped', reason: 'portal_password_reset' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
+
+    const { decryptJson, runKeyFrom } = await import('../scripts/assisted-application/lib/secure-run.mjs');
+    expect(decryptJson(inbox.passwordResetLinkEnc, runKeyFrom(RUN_KEY))).toEqual({ url: resetLink });
+  });
 });
