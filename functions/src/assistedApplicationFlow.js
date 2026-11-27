@@ -1469,7 +1469,8 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // the confirmation e-mail. The employer's acknowledgement (or reply) on
       // the alias settles a send of unknown outcome, while the run is still
       // out or once Valerie holds it; the caller checked the submission guard.
-      if (state !== 'submitting' && !(state === 'owner_takeover' && current.heldBy.some((held) => AMBIGUOUS_SUBMIT_HOLDS.has(held)))) {
+      // An unconfirmed hold also covers the portal's «history uncertain» / «already applied» stops and a standing ambiguity marker.
+      if (state !== 'submitting' && !(state === 'owner_takeover' && (current.heldBy.some((held) => AMBIGUOUS_SUBMIT_HOLDS.has(held)) || sendOutcomeUnconfirmed(current)))) {
         return ignore('not_ambiguous_submit');
       }
       next.state = 'submitted';
