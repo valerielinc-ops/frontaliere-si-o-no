@@ -24,7 +24,7 @@ import { contractContentEquals } from '../scripts/lib/crawler-contract-compare.m
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerResultShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, preserveSourceCommitVerification, retrySparseCheckout, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerSharedLauncherShellBody, buildCrawlerResultShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, preserveSourceCommitVerification, retrySparseCheckout, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -153,6 +153,12 @@ function runTranslateQueueGuardFixture(guardRun: string, ghScript: string, runId
 
 function makeCrawlers(n: number, durationFn: (i: number) => number): Crawler[] {
   return Array.from({ length: n }, (_, i) => ({ slug: `crawler-${i}`, durationMs: durationFn(i) }));
+}
+
+// The detached worker/launcher are installed once per workflow by their own
+// step; a behavioural test that runs a member launch body must install them first.
+function launchWithSharedLauncher(crawler: any, groupIndex: number, options?: any) {
+  return `${buildCrawlerSharedLauncherShellBody(groupIndex)}\n${buildCrawlerLaunchShellBody(crawler, groupIndex, options)}`;
 }
 
 describe('packGroups', () => {
@@ -1216,6 +1222,8 @@ describe('crawler generation state cleanup', () => {
 
     expect(body).toContain('env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path"');
     expect(body).toContain('env -u RUNNER_TRACKING_ID nohup bash "$launcher_path"');
+    // Neither the shared worker nor the shared launcher re-enters the tracking id.
+    expect(buildCrawlerSharedLauncherShellBody(1)).not.toContain('RUNNER_TRACKING_ID');
   });
 
   it('bounds active crawler bodies with a per-group semaphore and records a lost worker', () => {
@@ -1225,16 +1233,23 @@ describe('crawler generation state cleanup', () => {
       postSteps: [],
     }, 2);
 
-    expect(body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
-    expect(body).toContain('worker_watchdog_max=330');
-    expect(body).toContain('[ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]');
-    expect(body).toContain('for slot_index in $(seq 1 "$max_parallel"); do');
-    expect(body).toContain('flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
-    expect(body).toContain('timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
-    expect(body).toContain('started_file="$RUNNER_TEMP/crawler-generation/group-02/bounded-crawler.started"');
-    expect(body).toContain('classifyCrawlerTimeoutRace() {');
-    expect(body).toContain('validateGeneratedWorkerScript() {');
-    expect(body).toContain('bash -n "$1"');
+    const shared = buildCrawlerSharedLauncherShellBody(2);
+
+    expect(body).toContain('CRAWLER_LAUNCH_PARALLEL=4');
+    expect(shared).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-$CRAWLER_LAUNCH_PARALLEL}"`);
+    expect(shared).toContain('worker_watchdog_max=330');
+    expect(shared).toContain('[ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]');
+    expect(shared).toContain('for slot_index in $(seq 1 "$max_parallel"); do');
+    expect(shared).toContain('flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
+    expect(shared).toContain('timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
+    expect(shared).toContain('started_file="$state_dir/$s.started"');
+    expect(shared).toContain('state_dir="$RUNNER_TEMP/crawler-generation/group-02"');
+    expect(shared).toContain('classifyCrawlerTimeoutRace() {');
+    expect(shared).toContain('validateGeneratedWorkerScript() {');
+    expect(shared).toContain('bash -n "$1"');
+    // The identical worker/launcher text is not repeated in the member body.
+    expect(body).not.toContain('classifyCrawlerTimeoutRace');
+    expect(body).not.toContain('worker_watchdog_max');
   });
 
   it('splits the host-sensitive groups into a three-worker resource lane without quarantining members', () => {
@@ -1247,8 +1262,8 @@ describe('crawler generation state cleanup', () => {
       runStep: { env: {}, run: 'true' },
       postSteps: [],
     }, 15);
-    expect(group15Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-3}"`);
-    expect(group15Body).not.toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
+    expect(group15Body).toContain('CRAWLER_LAUNCH_PARALLEL=3');
+    expect(group15Body).not.toContain('CRAWLER_LAUNCH_PARALLEL=4');
   });
 
   it('keeps group 24 within the default watchdog budget with its committed roster', async () => {
@@ -1258,7 +1273,7 @@ describe('crawler generation state cleanup', () => {
       runStep: { env: {}, run: 'true' },
       postSteps: [],
     }, 24);
-    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-8}"`);
+    expect(group24Body).toContain('CRAWLER_LAUNCH_PARALLEL=8');
 
     const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
     const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
@@ -1350,7 +1365,7 @@ describe('crawler generation state cleanup', () => {
       { mode: 0o755 },
     );
 
-    const body = buildCrawlerLaunchShellBody({
+    const body = launchWithSharedLauncher({
       slug: 'timeout-race',
       durationMs: 60_000,
       runStep: { env: {}, run: 'sleep 0.2; true' },
@@ -1412,7 +1427,7 @@ describe('crawler generation state cleanup', () => {
       { mode: 0o755 },
     );
 
-    const body = buildCrawlerLaunchShellBody({
+    const body = launchWithSharedLauncher({
       slug: 'missing-status',
       durationMs: 60_000,
       runStep: { env: {}, run: 'true' },
@@ -1478,7 +1493,7 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
     fs.writeFileSync(path.join(lib, 'git-commit-data.sh'), `#!/usr/bin/env bash\nexit ${commitExit}\n`, { mode: 0o755 });
     // Slug and roster id differ on purpose (the group-07 `guess` /
     // `guess-europe` shape): the file must be keyed by the roster id.
-    const body = buildCrawlerLaunchShellBody({
+    const body = launchWithSharedLauncher({
       slug: 'acme',
       durationMs: 60_000,
       runStep: { env: { JOBS_HOUSEKEEPING_SCOPE: 'acme-europe' }, run: runCommand },
@@ -1558,17 +1573,13 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
       const job = doc.jobs[Object.keys(doc.jobs)[0]];
       const finalizer = job.steps.find((step: any) => step.id === 'crawler-generation-finalizer');
       expect(finalizer, file).toBeDefined();
-      const group = finalizer.env.CRAWLER_GENERATION_GROUP;
       const expected = JSON.parse(finalizer.env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)
         .map((entry: any) => entry.crawlerId).sort();
       const exported = crawlerLaunchSteps(job.steps).map((step: any) => {
-        // Tight portable artifacts bind the same group directory to $d to
-        // stay within the workflow size budget; the normal renderer keeps the
-        // full $RUNNER_TEMP/... path. Both forms are generator output for the
-        // same roster-keyed crawl-exit export.
-        const match = String(step.run).match(
-          new RegExp(`export CRAWLER_MEMBER_CRAWL_EXIT_FILE="(?:\\$RUNNER_TEMP/crawler-generation/group-${group}/|\\$d/)([^"/]+)\\.crawl-exit"`),
-        );
+        // The member's roster-keyed crawl-exit file name is passed to the
+        // shared detached worker (installed once per workflow), which exports
+        // it as CRAWLER_MEMBER_CRAWL_EXIT_FILE under the group state dir.
+        const match = String(step.run).match(/export CRAWLER_LAUNCH_CRAWL_EXIT='([^'\/]+)\.crawl-exit'/);
         return match?.[1] ?? null;
       }).sort();
       expect(exported, file).toEqual(expected);
@@ -1702,7 +1713,7 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
       'exit "${FAKE_TIMEOUT_EXIT:-124}"',
       '',
     ].join('\n'), { mode: 0o755 });
-    const body = buildCrawlerLaunchShellBody({
+    const body = launchWithSharedLauncher({
       slug: 'slow-crawler',
       durationMs: 30 * 60 * 1000,
       runStep: { env: {}, run: runCommand },
@@ -2115,7 +2126,10 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
       expect(text.match(/timeout --signal=TERM --kill-after=30s 150m bash -c/g)).toHaveLength(1);
       expect(text).toContain('# ---- fachkraft: 150 minute target wall timeout ----');
       expect(text).toContain('**Causa:** timeout del target dopo 150 minuti (exit 124).');
-      expect(text).toContain('worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-160}"');
+      // The member passes its 160 minute watchdog to the shared launcher, which
+      // keeps the CRAWLER_WORKER_TIMEOUT_MINUTES override.
+      expect(text).toContain('export CRAWLER_LAUNCH_MINUTES=160 ');
+      expect(text).toContain('worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-$CRAWLER_LAUNCH_MINUTES}"');
     }
   });
 });
@@ -2867,21 +2881,16 @@ describe('cross-repo crawler execution artifacts', () => {
     }
   }, 60_000);
 
-  it('compatta solo il crawler shell portabile che supera il budget dopo il wrapper di checkout', () => {
+  it('non ha piu\' bisogno del fallback compatto: il launcher condiviso lascia il rendering leggibile sotto il budget', () => {
     const { outDir, groupResults } = generateArtifacts();
-    const group23 = groupResults.find((group: any) => group.groupIndex === 23);
-    const group23Member = group23.memberSpecs[0].slug;
-    const group23Content = fs.readFileSync(path.join(outDir, 'crawler-group-23.yml'), 'utf8');
-
-    expect(Buffer.byteLength(group23Content, 'utf8')).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(group23Content).not.toContain(`# ---- ${group23Member}: run crawler`);
-
-    const group02 = groupResults.find((group: any) => group.groupIndex === 2);
-    const group02Content = fs.readFileSync(path.join(outDir, 'crawler-group-02.yml'), 'utf8');
-    // L'ultimo wrapper di checkout/retry fa superare il budget anche al gruppo
-    // 02: il generatore deve quindi togliere i commenti del guscio, lasciando
-    // invariati comandi, guardie ed esiti.
-    expect(group02Content).not.toContain(`# ---- ${group02.memberSpecs[0].slug}: run crawler`);
+    for (const index of [23, 2]) {
+      const group = groupResults.find((candidate: any) => candidate.groupIndex === index);
+      const nn = String(index).padStart(2, '0');
+      const content = fs.readFileSync(path.join(outDir, `crawler-group-${nn}.yml`), 'utf8');
+      expect(Buffer.byteLength(content, 'utf8')).toBeLessThanOrEqual(Math.floor(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES * 0.85));
+      // I commenti del guscio restano: nessun rendering compact/tight e' stato necessario.
+      expect(content).toContain(`# ---- ${group.memberSpecs[0].slug}: run crawler`);
+    }
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('rifiuta un ancoraggio commit non osservabile e conserva ref/sha espliciti', () => {
@@ -4676,6 +4685,66 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     );
     expect(violations.map((violation) => formatWorkflowSizeBudgetViolation(violation))).toEqual([]);
   });
+
+  it('keeps every committed generated workflow at least 15% below the budget', () => {
+    const ceiling = Math.floor(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES * 0.85);
+    const tooBig = committedWorkflowFiles()
+      .map((file) => ({ file, bytes: Buffer.byteLength(fs.readFileSync(path.join(ROOT, file), 'utf8'), 'utf8') }))
+      .filter(({ bytes }) => bytes > ceiling)
+      .map(({ file, bytes }) => `${file}: ${bytes} > ${ceiling}`);
+    expect(tooBig, 'the per-member launcher must stay factored (buildCrawlerSharedLauncherShellBody), not unrolled').toEqual([]);
+  });
+
+  it('installs the detached worker and launcher once per workflow, not once per member', () => {
+    for (const file of committedWorkflowFiles().filter((f) => /crawler-group-\d+(?:-logic)?\.yml$/.test(f))) {
+      const text = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      const launches = text.match(/^ {6}- name: Launch /gm) ?? [];
+      if (launches.length === 0) continue;
+      expect(text.match(/classifyCrawlerTimeoutRace\(\) \{/g) ?? [], file).toHaveLength(1);
+      expect(text.match(/- name: Install shared crawler launcher/g) ?? [], file).toHaveLength(1);
+    }
+  });
+
+  it('adding a dozen real-shaped crawlers to the fullest group stays inside the budget with no fallback', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-growth-'));
+    try {
+      const manifestDoc = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-manifest.json'), 'utf8'));
+      const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
+      const sizes = (dir: string, suffix: string) => fs.readdirSync(dir)
+        .filter((f) => new RegExp(`^crawler-group-\\d+${suffix}$`).test(f))
+        .map((f) => ({ f, bytes: fs.statSync(path.join(dir, f)).size }));
+      const fullest = sizes(path.join(ROOT, '.github/workflows'), '-logic\\.yml').sort((a, b) => b.bytes - a.bytes)[0];
+      const groupIndex = Number(/crawler-group-(\d+)/.exec(fullest.f)![1]);
+      const template = manifestDoc.manifest.find((c: any) => c.slug === assignments.groups[groupIndex - 1][0]);
+      // Clone the group's own largest-shaped member: realistic env and body, new identity.
+      const clones = Array.from({ length: 12 }, (_, i) => JSON.parse(
+        JSON.stringify(template).replaceAll(template.slug, `growth-probe-${i}`),
+      ));
+      manifestDoc.manifest.push(...clones);
+      assignments.groups[groupIndex - 1].push(...clones.map((c: any) => c.slug));
+      const manifestPath = path.join(tmp, 'manifest.json');
+      const assignmentsPath = path.join(tmp, 'assignments.json');
+      fs.writeFileSync(manifestPath, JSON.stringify(manifestDoc));
+      fs.writeFileSync(assignmentsPath, JSON.stringify(assignments));
+      fs.mkdirSync(path.join(tmp, 'workflows'));
+
+      const results = generate({
+        manifestPath,
+        assignmentsPath,
+        outDir: path.join(tmp, 'workflows'),
+        write: false,
+      });
+      const grown = results.find((r: any) => r.groupIndex === groupIndex)!;
+      expect(grown.members).toContain('growth-probe-11');
+      expect(workflowSizeBudgetViolations(results.map((r: any) => ({ file: r.fileName, content: r.content })))).toEqual([]);
+      // Within the budget at the readable rendering: neither the compact nor the
+      // tight fallback was needed, so the output keeps its comments.
+      expect(grown.content).toContain('# shellcheck disable=SC2016,SC1003');
+      expect(Buffer.byteLength(grown.content, 'utf8')).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  }, 120_000);
 
   it('names the file and the overshoot in bytes', () => {
     const [violation] = workflowSizeBudgetViolations([{ file: 'x/crawler-group-06.yml', content: 'é'.repeat(5) }], 8);

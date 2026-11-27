@@ -135,16 +135,17 @@ describe('crawler groups: WIF auth for the jobs source relay', () => {
         expect(step['continue-on-error'], `${file} ${step.id}`).toBe(true);
         // The token lives one hour: the member never queues on shared slots.
         const slug = step.id.replace(/^crawler-launch-/u, '');
-        expect(step.run, `${file} ${step.id}`).toContain('max_parallel=1');
-        expect(step.run, `${file} ${step.id}`).toContain(`slots/relay-${slug}.lock`);
-        expect(step.run, `${file} ${step.id}`).not.toContain('slots/slot-${slot_index}.lock');
+        expect(step.run, `${file} ${step.id}`).toContain(`export CRAWLER_LAUNCH_RELAY_SLOT='relay-${slug}.lock'`);
       }
+      // The shared launcher (installed once per group) honours the private slot.
+      const installer = steps.find((step) => step.name === 'Install shared crawler launcher');
+      expect(installer, file).toBeDefined();
+      expect(installer.run, file).toContain('max_parallel=1');
+      expect(installer.run, file).toContain('slots/${CRAWLER_LAUNCH_RELAY_SLOT:-slot-${slot_index}.lock}');
       for (const step of launches.filter((launch) => !relays.includes(launch))) {
         expect(Object.keys(step.env ?? {}).filter((key) => key.startsWith('JOBS_SOURCE_RELAY_')), `${file} ${step.id}`).toEqual([]);
-        expect(step.run, `${file} ${step.id}`).toContain('max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"');
-        expect(step.run, `${file} ${step.id}`).toContain('slots/slot-${slot_index}.lock');
-        expect(step.run, `${file} ${step.id}`).not.toContain('slots/relay-');
-        expect(step.run, `${file} ${step.id}`).not.toContain('max_parallel=1');
+        expect(step.run, `${file} ${step.id}`).toContain('CRAWLER_LAUNCH_PARALLEL=4');
+        expect(step.run, `${file} ${step.id}`).not.toContain('CRAWLER_LAUNCH_RELAY_SLOT');
       }
     }
   });

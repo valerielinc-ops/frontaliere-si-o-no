@@ -364,7 +364,10 @@ describe('member crawl outcomes', () => {
   it('reads from the directory the generated group workflow writes member state to', () => {
     const workflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/crawler-group-23-logic.yml'), 'utf8');
     expect(workflow).toContain('CRAWLER_GENERATION_GROUP: "23"');
-    expect(workflow).toMatch(/status_file="\$RUNNER_TEMP\/crawler-generation\/group-23\/[a-z0-9._-]+\.status"/);
+    // The shared launcher (installed once per workflow) writes `<state_dir>/<slug>.status`
+    // under the group directory the finalizer reads.
+    expect(workflow).toContain('state_dir="$RUNNER_TEMP/crawler-generation/group-23"');
+    expect(workflow).toContain('status_file="$state_dir/$s.status"');
     expect(memberCrawlStateDir('/runner/temp', '23')).toBe('/runner/temp/crawler-generation/group-23');
   });
 

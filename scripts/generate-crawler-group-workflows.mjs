@@ -1438,45 +1438,41 @@ function isCrawlerLaunchStep(step) {
  * acquires one of the group's bounded slots before it starts the crawler body,
  * so a burst cannot exhaust the hosted runner.
  */
-export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = false, tight = false } = {}) {
-  const nn = String(groupIndex).padStart(2, '0');
-  const slug = crawler.slug;
-  const stateDir = `$RUNNER_TEMP/crawler-generation/group-${nn}`;
-  const memberPath = tight
-    ? '$d/$s'
-    : `${stateDir}/${slug}`;
-  const stateDirPath = tight
-    ? '$d'
-    : stateDir;
-  const outerMemberPath = tight
-    ? '$d/$s'
-    : '$state_dir/' + slug;
-  const outerStateDirPath = tight ? '$d' : '$state_dir';
-  // A relay member must use its one-hour Google ID token soon after the auth
-  // step minted it, so it never queues behind the group's shared slots: it
-  // takes a private one-process slot and starts as soon as it is launched.
-  // Launch order (and therefore the pinned member order) stays unchanged.
-  const dedicatedSlot = SOURCE_RELAY_SLUG_SET.has(slug);
-  const body = buildCrawlerShellBody(crawler, { compact, tight });
-  const needsShellcheckUnicodeQuoteDisable = /[“”‘’]/u.test(body);
-  // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
-  // receipts carry), not by the slug: for the step-id overrides the two differ
-  // and a slug-keyed file would read as `unknown`. See MEMBER_CRAWL_EXIT_FILE_ENV.
-  const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE;
-  const crawlExitFileName = memberCrawlExitFileName(crawlerId);
-  const watchdogFileName = memberCrawlWatchdogFileName(crawlerId) ?? `${slug}.watchdog`;
-  const groupMaxParallel = crawlerGroupMaxParallel(groupIndex);
-  const worker = [
+/**
+ * The detached worker and launcher are identical for every member of a group:
+ * only the slug, the state directory and a handful of per-member constants
+ * differ. Emitting them once per workflow (this function) and passing the
+ * constants through `CRAWLER_LAUNCH_*` variables keeps the file from growing
+ * by ~4 KB per member, which is what pushed the largest groups to within 3 KB
+ * of the 480 KB budget. The per-member launch step is therefore only the
+ * crawler body plus a few lines that start `launcher.sh`.
+ */
+export const CRAWLER_LAUNCH_ENV = Object.freeze({
+  dir: 'CRAWLER_LAUNCH_DIR',
+  slug: 'CRAWLER_LAUNCH_SLUG',
+  minutes: 'CRAWLER_LAUNCH_MINUTES',
+  parallel: 'CRAWLER_LAUNCH_PARALLEL',
+  relaySlot: 'CRAWLER_LAUNCH_RELAY_SLOT',
+  watchdogFile: 'CRAWLER_LAUNCH_WATCHDOG_FILE',
+  crawlExit: 'CRAWLER_LAUNCH_CRAWL_EXIT',
+});
+
+function buildSharedCrawlerWorkerScript() {
+  const e = CRAWLER_LAUNCH_ENV;
+  return [
     'set +e',
-    ...(tight ? [`s=${shellQuote(slug)}`, `d="${stateDir}"`] : []),
-    `script_path="${memberPath}.sh"`,
-    `worker_status_file="${memberPath}.worker.status"`,
-    `worker_status_tmp="${memberPath}.worker.status.tmp.$$"`,
-    `started_file="${memberPath}.started"`,
-    crawlExitFileName === null
-      ? `unset ${MEMBER_CRAWL_EXIT_FILE_ENV}`
-      : `export ${MEMBER_CRAWL_EXIT_FILE_ENV}="${stateDirPath}/${crawlExitFileName}"`,
-    `export ${MEMBER_LOG_FILE_ENV}="${memberPath}.log"`,
+    `d="$${e.dir}"`,
+    `s="$${e.slug}"`,
+    'script_path="$d/$s.sh"',
+    'worker_status_file="$d/$s.worker.status"',
+    'worker_status_tmp="$d/$s.worker.status.tmp.$$"',
+    'started_file="$d/$s.started"',
+    `if [ -n "\${${e.crawlExit}:-}" ]; then`,
+    `  export ${MEMBER_CRAWL_EXIT_FILE_ENV}="$d/$${e.crawlExit}"`,
+    'else',
+    `  unset ${MEMBER_CRAWL_EXIT_FILE_ENV}`,
+    'fi',
+    `export ${MEMBER_LOG_FILE_ENV}="$d/$s.log"`,
     ': > "$started_file"',
     'bash "$script_path"',
     'crawler_exit=$?',
@@ -1484,7 +1480,10 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     'mv -f "$worker_status_tmp" "$worker_status_file"',
     'exit "$crawler_exit"',
   ].join('\n');
-  const watchdogMinutes = crawlerWorkerWatchdogMinutes(crawler);
+}
+
+function buildSharedCrawlerLauncherScript() {
+  const e = CRAWLER_LAUNCH_ENV;
   const timeoutRaceClassifier = [
     'classifyCrawlerTimeoutRace() {',
     `  if [ "$1" = ${TARGET_TIMEOUT_EXIT} ] || [ "$1" = ${WATCHDOG_KILL_EXIT} ]; then`,
@@ -1523,29 +1522,31 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     '  printf \'%s\\n\' "$terminal_exit"',
     '}',
   ].join('\n');
-  const launcher = [
+  return [
     'set +e',
-    ...(tight ? [`s=${shellQuote(slug)}`, `d="${stateDir}"`] : [`state_dir="${stateDir}"`]),
-    `worker_path="${memberPath}.worker.sh"`,
-    `status_file="${memberPath}.status"`,
-    `status_tmp="${memberPath}.status.tmp.$$"`,
-    `worker_status_file="${memberPath}.worker.status"`,
-    `started_file="${memberPath}.started"`,
-    `watchdog_file="${stateDirPath}/${watchdogFileName}"`,
+    `state_dir="$${e.dir}"`,
+    `s="$${e.slug}"`,
+    'worker_path="$state_dir/worker.sh"',
+    'status_file="$state_dir/$s.status"',
+    'status_tmp="$state_dir/$s.status.tmp.$$"',
+    'worker_status_file="$state_dir/$s.worker.status"',
+    'started_file="$state_dir/$s.started"',
+    `watchdog_file="$state_dir/$${e.watchdogFile}"`,
     `worker_watchdog_max=${CRAWLER_WORKER_WATCHDOG_MAX_MINUTES}`,
-    `worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-${watchdogMinutes}}"`,
+    `worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-$${e.minutes}}"`,
     'if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then',
-    `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default ${watchdogMinutes})"`,
-    `  worker_watchdog_minutes=${watchdogMinutes}`,
+    `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default $${e.minutes})"`,
+    `  worker_watchdog_minutes=$${e.minutes}`,
     'fi',
     timeoutRaceClassifier,
     terminalStatusResolver,
-    ...(dedicatedSlot
-      ? ['# Private relay slot for this member only; non-relay siblings use the group slot pool.']
-      : []),
-    dedicatedSlot
-      ? 'max_parallel=1'
-      : `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${groupMaxParallel}}"`,
+    '# A relay member takes a private one-process slot and starts as soon as it is',
+    '# launched; its non-relay siblings use the group slot pool.',
+    `if [ -n "\${${e.relaySlot}:-}" ]; then`,
+    '  max_parallel=1',
+    'else',
+    `  max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-$${e.parallel}}"`,
+    'fi',
     'if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then',
     '  echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"',
     '  terminal_exit="$(resolveCrawlerTerminalStatus 1)"',
@@ -1565,9 +1566,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     'fi',
     'while :; do',
     '  for slot_index in $(seq 1 "$max_parallel"); do',
-    dedicatedSlot
-      ? `    slot_path="${tight ? '$d' : '$state_dir'}/slots/relay-${tight ? '$s' : slug}.lock"`
-      : `    slot_path="${tight ? '$d' : '$state_dir'}/slots/slot-\${slot_index}.lock"`,
+    `    slot_path="$state_dir/slots/\${${e.relaySlot}:-slot-\${slot_index}.lock}"`,
     '    flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"',
     '    flock_exit=$?',
     '    if [ "$flock_exit" -eq 0 ]; then',
@@ -1579,12 +1578,10 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     '      exit "$terminal_exit"',
     '    fi',
     '    if [ -e "$started_file" ]; then',
-    ...(compact ? [] : [
-      '      # A worker that acquired a slot but disappeared before its atomic',
-      '      # status write must not be retried or waited on for the full budget.',
-      '      # Preserve the child status when available; 143 is the conventional',
-      '      # fallback for a SIGTERM from the runner/host.',
-    ]),
+    '      # A worker that acquired a slot but disappeared before its atomic',
+    '      # status write must not be retried or waited on for the full budget.',
+    '      # Preserve the child status when available; 143 is the conventional',
+    '      # fallback for a SIGTERM from the runner/host.',
     '      terminal_exit="$(resolveCrawlerTerminalStatus "$flock_exit")"',
     '      exit "$terminal_exit"',
     '    fi',
@@ -1596,28 +1593,76 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     '  sleep 1',
     'done',
   ].join('\n');
+}
+
+/**
+ * Body of the once-per-group step that installs the shared worker/launcher in
+ * the group's state directory. Runs before the sentinel step, so a failure
+ * here keeps every member launcher from starting (same rule as any other
+ * shared-setup failure).
+ */
+export function buildCrawlerSharedLauncherShellBody(groupIndex) {
+  const nn = String(groupIndex).padStart(2, '0');
+  return [
+    '# shellcheck disable=SC2016,SC1003',
+    'set -euo pipefail',
+    `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
+    'mkdir -p "$state_dir/slots"',
+    'rm -f "$state_dir/worker.sh" "$state_dir/launcher.sh"',
+    `printf '%s\\n' ${shellQuote(buildSharedCrawlerWorkerScript())} > "$state_dir/worker.sh"`,
+    `printf '%s\\n' ${shellQuote(buildSharedCrawlerLauncherScript())} > "$state_dir/launcher.sh"`,
+    'validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }',
+    'validateGeneratedWorkerScript "$state_dir/worker.sh" || exit 1',
+    'validateGeneratedWorkerScript "$state_dir/launcher.sh" || exit 1',
+  ].join('\n');
+}
+
+export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = false, tight = false } = {}) {
+  const nn = String(groupIndex).padStart(2, '0');
+  const slug = crawler.slug;
+  const stateDir = `$RUNNER_TEMP/crawler-generation/group-${nn}`;
+  const outerMemberPath = tight
+    ? '$d/$s'
+    : '$state_dir/' + slug;
+  const outerStateDirPath = tight ? '$d' : '$state_dir';
+  // A relay member must use its one-hour Google ID token soon after the auth
+  // step minted it, so it never queues behind the group's shared slots: it
+  // takes a private one-process slot and starts as soon as it is launched.
+  // Launch order (and therefore the pinned member order) stays unchanged.
+  const dedicatedSlot = SOURCE_RELAY_SLUG_SET.has(slug);
+  const body = buildCrawlerShellBody(crawler, { compact, tight });
+  const needsShellcheckUnicodeQuoteDisable = /[“”‘’]/u.test(body);
+  // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
+  // receipts carry), not by the slug: for the step-id overrides the two differ
+  // and a slug-keyed file would read as `unknown`. See MEMBER_CRAWL_EXIT_FILE_ENV.
+  const crawlerId = buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE;
+  const crawlExitFileName = memberCrawlExitFileName(crawlerId);
+  const watchdogFileName = memberCrawlWatchdogFileName(crawlerId) ?? `${slug}.watchdog`;
+  const e = CRAWLER_LAUNCH_ENV;
   return [
     ...(compact ? [] : ['# shellcheck disable=SC2016,SC1003']),
     'set -euo pipefail',
-    ...(tight ? [`s=${shellQuote(slug)}`, `d="${stateDir}"`] : [`state_dir="${stateDirPath}"`]),
+    ...(tight ? [`s=${shellQuote(slug)}`, `d="${stateDir}"`] : [`state_dir="${stateDir}"`]),
     `mkdir -p "${outerStateDirPath}/slots"`,
     `script_path="${outerMemberPath}.sh"`,
-    `launcher_path="${outerMemberPath}.launcher.sh"`,
-    `worker_path="${outerMemberPath}.worker.sh"`,
+    `launcher_path="${outerStateDirPath}/launcher.sh"`,
     `log_path="${outerMemberPath}.log"`,
     `pid_path="${outerMemberPath}.pid"`,
     `status_path="${outerMemberPath}.status"`,
     `started_path="${outerMemberPath}.started"`,
     `watchdog_path="${outerStateDirPath}/${watchdogFileName}"`,
-    'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
+    'rm -f "$script_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
     // A leftover crawl-exit would be positive proof this launch never gave.
     ...(crawlExitFileName === null ? [] : [`rm -f "${outerStateDirPath}/${crawlExitFileName}"`]),
     ...(needsShellcheckUnicodeQuoteDisable ? ['# shellcheck disable=SC1112'] : []),
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
-    `printf '%s\\n' ${shellQuote(worker)} > "$worker_path"`,
-    'validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }',
-    'validateGeneratedWorkerScript "$worker_path" || exit 1',
-    `printf '%s\\n' ${shellQuote(launcher)} > "$launcher_path"`,
+    // Member constants for the shared launcher/worker installed once per group
+    // (buildCrawlerSharedLauncherShellBody).
+    `export ${e.dir}="${outerStateDirPath}" ${e.slug}=${shellQuote(slug)}`,
+    `export ${e.minutes}=${crawlerWorkerWatchdogMinutes(crawler)} ${e.parallel}=${crawlerGroupMaxParallel(groupIndex)}`,
+    `export ${e.watchdogFile}=${shellQuote(watchdogFileName)}`,
+    ...(crawlExitFileName === null ? [] : [`export ${e.crawlExit}=${shellQuote(crawlExitFileName)}`]),
+    ...(dedicatedSlot ? [`export ${e.relaySlot}=${shellQuote(`relay-${slug}.lock`)}`] : []),
     'if command -v setsid >/dev/null 2>&1; then',
     '  env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',
     'else',
@@ -2496,6 +2541,15 @@ function buildGroupWorkflowObject(
     // keeps it in a bounded broker and exposes only a socket output to the
     // individual crawler AI steps; no raw secret enters any crawler step.
     with: { codex_auth_json: '${{ secrets.CODEX_AUTH_JSON }}' },
+  });
+
+  // The detached worker/launcher are the same for every member: install them
+  // once here instead of unrolling ~4 KB of identical shell into each launch
+  // step (see buildCrawlerSharedLauncherShellBody). Placed before the sentinel
+  // so a failure keeps every member launcher from starting.
+  steps.push({
+    name: 'Install shared crawler launcher',
+    run: buildCrawlerSharedLauncherShellBody(groupIndex),
   });
 
   // This sentinel separates a shared bootstrap failure from an individual
