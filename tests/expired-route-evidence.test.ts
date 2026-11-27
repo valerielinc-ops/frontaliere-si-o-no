@@ -5,6 +5,7 @@ import {
   buildExpiredEntry,
   localeRouteKeys,
   mergeExpiredRouteEvidence,
+  transferSlugHistory,
 } from '../scripts/lib/expired-jobs-archive.mjs';
 import { LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { resolveExpiredRouteCanton } from '../scripts/lib/expired-route-canton.mjs';
@@ -244,5 +245,21 @@ describe('expired route evidence', () => {
     expect(mergeExpiredRouteEvidence(survivor, historical)).toBe(true);
     expect(survivor.previousSlugs).toHaveLength(LEGACY_PREV_SLUGS_CAP + 1);
     expect(survivor.previousSlugs).toContain('historical-only-route');
+  });
+});
+
+describe('transferSlugHistory flat-only attribution', () => {
+  it.each([false, true])('transfers a flat slug whose only bucket is unsupported (preserveAll=%s)', (preserveAllExpiredRoutes) => {
+    const survivor: Record<string, unknown> = { slug: 'ruolo-superstite' };
+    transferSlugHistory(survivor, {
+      slug: 'ruolo-rimosso',
+      previousSlugs: ['ruolo-storico'],
+      previousSlugsByLocale: { es: ['ruolo-storico'] },
+    }, 'unsupported-locale-test', { preserveAllExpiredRoutes });
+
+    const routes = localeRouteKeys(survivor);
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      expect([...routes]).toContain(`${locale}:ruolo-storico`);
+    }
   });
 });

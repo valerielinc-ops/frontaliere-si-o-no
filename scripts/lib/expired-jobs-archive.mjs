@@ -1299,7 +1299,8 @@ export function transferSlugHistory(
   // would silently remove the existing EN/DE/FR routes. Keep those entries
   // flat while locale-attributed history stays in its exact bucket.
   const attributed = new Set();
-  for (const slugs of Object.values(removed.previousSlugsByLocale || {})) {
+  for (const locale of LOCALES) {
+    const slugs = removed.previousSlugsByLocale?.[locale];
     if (Array.isArray(slugs)) for (const slug of slugs) attributed.add(slug);
   }
   const flatOnly = new Set(
@@ -1311,8 +1312,8 @@ export function transferSlugHistory(
       // it only to the flat list would make getPreviousSlugsForLocale treat it
       // as attributed and hide it from the other locale routes. Widen those
       // existing entries explicitly while retaining their known attribution.
-      const alreadyAttributed = Object.values(survivor.previousSlugsByLocale || {})
-        .some((routes) => Array.isArray(routes) && routes.includes(slug));
+      const alreadyAttributed = LOCALES
+        .some((locale) => survivor.previousSlugsByLocale?.[locale]?.includes(slug));
       if (alreadyAttributed) {
         for (const locale of LOCALES) {
           add(locale, slug, resolveExpiredRouteCanton(removed, locale, slug));
