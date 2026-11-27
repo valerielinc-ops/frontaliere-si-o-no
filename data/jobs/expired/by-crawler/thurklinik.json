@@ -41,7 +41,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://thurklinik.ch/wp-content/uploads/2026/03/lagerungspflege-springer-m_w_d-20-80_thurklinik.pdf",
-    "firstSeenAt": "2026-05-21T13:37:27.758Z"
+    "firstSeenAt": "2026-05-21T13:37:27.758Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lagerungspflege-springer-20-80-thurklinik-niederuzwil": "SG"
+      }
+    }
   },
   {
     "slug": "all-rounder-tecnico-responsabilita-giardino-e-ambiente-80-100-thurklinik-niederuzwil",
@@ -86,7 +92,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://thurklinik.ch/wp-content/uploads/2026/08/technischer-allrounder-%e2%80%93-verantwortung-garten-umgebung-80-100.pdf",
-    "firstSeenAt": "2026-08-19T21:36:15.498Z"
+    "firstSeenAt": "2026-08-19T21:36:15.498Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "all-rounder-tecnico-responsabilita-giardino-e-ambiente-80-100-thurklinik-st-gallen": "SG",
+        "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil": "SG"
+      }
+    }
   },
   {
     "slug": "facility-management-allrounder-responsibility-cleaning-management-80-100-thurklinik-niederuzwil",
@@ -133,7 +146,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://thurklinik.ch/wp-content/uploads/2026/08/facility-management-allrounder-%e2%80%93-verantwortung-reinigungsmanagement-80-100.pdf",
-    "firstSeenAt": "2026-08-19T21:36:11.165Z"
+    "firstSeenAt": "2026-08-19T21:36:11.165Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "facility-management-allrounder-verantwortung-reinigungsmanagement-80-100-thurklinik": "SG"
+      },
+      "en": {
+        "facility-management-all-rounder-responsibility-for-cleaning-management-80-100-thurklinik-niederuzwil": "SG"
+      }
+    }
   },
   {
     "slug": "apprendistato-come-fachperson-gesundheit-cfc-ab-08-2027-thurklinik-niederuzwil",
