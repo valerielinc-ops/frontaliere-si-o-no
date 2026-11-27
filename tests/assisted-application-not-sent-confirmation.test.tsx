@@ -25,7 +25,8 @@ const order: any = {
   paymentStatus: 'paid', submissionStatus: 'in_progress', hasCv: true,
   automation: {
     flow: { state: 'owner_takeover', round: 1, heldBy: ['portal:account_sign_in_failed'], roundSent: true, sendOutcomeUnconfirmed: true, history: [], feedback: [], answers: {} },
-    draft: { round: 1, status: 'ready', channel: { type: 'portal' } },
+    // The admin view always sends the arrays the panel maps over (loadAutomationForAdmin): checksIt, questions, documents.
+    draft: { round: 1, status: 'ready', channel: { type: 'portal' }, checksIt: [], requirements: [], matches: [], questions: [], requiredDocuments: [], factCheck: { ok: true, unsupported: [], advisories: [] } },
   },
 };
 
