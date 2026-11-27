@@ -56,10 +56,12 @@
         "assistant-chief-medical-officer-80-100-angiologie-reseau-hospitalier-neuchatelois-rhne-neuchatel-ffa9cfee"
       ],
       "en": [
-        "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
+        "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+        "assistant-chief-medical-officer-80-100-angiology-reseau-hospitalier-neuchatelois-rhne-neuchatel-a77f7afc"
       ],
       "de": [
-        "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
+        "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+        "assistant-chief-medical-officer-80-100-angiologie-reseau-hospitalier-neuchatelois-rhne-neuchatel-ffa9cfee"
       ],
       "fr": [
         "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois-da6d98a6"
@@ -96,7 +98,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=085f248b-0f1b-40ff-808d-c6e8bb831c73&cat=all",
-    "firstSeenAt": "2026-09-03T13:43:49.657Z"
+    "firstSeenAt": "2026-09-03T13:43:49.657Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=085f248b-0f1b-40ff-808d-c6e8bb831c73&cat=all",
+        "firstSeenAt": "2026-09-03T13:43:49.657Z",
+        "title": "Médecin chef·fe adjoint·e Angiologie à 80-100%"
+      },
+      {
+        "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=9a57e6a7-3ea3-45bb-bd24-c01c38e6d3df&cat=all",
+        "firstSeenAt": "2026-09-03T13:43:49.657Z",
+        "title": "Médecin chef·fe adjoint·e Angiologie à 80-100%"
+      }
+    ]
   },
   {
     "id": "rhne-reseau-hospitalier-neuchatelois-a67d4d96c44e",
@@ -147,7 +161,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=9da6c8dd-a7b3-47a7-9eb5-fb2e6ada9fa1&cat=all",
-    "firstSeenAt": "2026-11-02T21:55:24.678Z"
+    "firstSeenAt": "2026-11-02T21:55:24.678Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de": "NE"
+      },
+      "en": {
+        "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de": "NE"
+      },
+      "de": {
+        "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-la-chaux-de": "NE"
+      }
+    }
   },
   {
     "id": "rhne-reseau-hospitalier-neuchatelois-72c40bab4ad1",
@@ -198,7 +224,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=1f983382-91e2-441a-8a34-dd05156619a1&cat=all",
-    "firstSeenAt": "2026-11-06T09:21:44.545Z"
+    "firstSeenAt": "2026-11-06T09:21:44.545Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-chef-fe-d-unite-bloc-operatoire-a-80-100-rhne-reseau-hospitalier": "NE"
+      },
+      "en": {
+        "infirmier-ere-chef-fe-d-unite-bloc-operatoire-a-80-100-rhne-reseau-hospitalier": "NE"
+      },
+      "de": {
+        "infirmier-ere-chef-fe-d-unite-bloc-operatoire-a-80-100-rhne-reseau-hospitalier": "NE"
+      }
+    }
   },
   {
     "slug": "100-ergoterapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
@@ -248,7 +286,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=8760f13a-662a-463f-93c4-5a45b9349952&cat=all",
-    "firstSeenAt": "2026-11-15T09:28:43.403Z"
+    "firstSeenAt": "2026-11-15T09:28:43.403Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE"
+      },
+      "en": {
+        "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE"
+      },
+      "de": {
+        "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE"
+      }
+    }
   },
   {
     "slug": "ergoterapista-al-90-100-reseau-hospitalier-neuchatelois-rhne-fontaines-ne",
@@ -298,7 +348,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=4e7ea050-8368-48a4-b910-0cd953a962ef&cat=all",
-    "firstSeenAt": "2026-10-22T21:23:53.273Z"
+    "firstSeenAt": "2026-10-22T21:23:53.273Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ergotherapeute-a-90-100-rhne-reseau-hospitalier-neuchatelois-fontaines-ne": "NE"
+      },
+      "en": {
+        "ergotherapeute-a-90-100-rhne-reseau-hospitalier-neuchatelois-fontaines-ne": "NE"
+      },
+      "de": {
+        "ergotherapeute-a-90-100-rhne-reseau-hospitalier-neuchatelois-fontaines-ne": "NE"
+      }
+    }
   },
   {
     "slug": "vice-chief-medical-officer-dello-schema-di-riabilitazione-geriatrica-dell-80-100-possibilita-di-condivisione-del-lavoro",
@@ -358,7 +420,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=2d51ebb7-5339-4287-9ce2-925fa72c4c7e&cat=all",
-    "firstSeenAt": "2026-09-04T13:33:18.483Z"
+    "firstSeenAt": "2026-09-04T13:33:18.483Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vice-direttore-medico-80-100-riabilitazione-geriatrica-possibilita-di-condivisione-del-lavoro-reseau-hospitalier": "NE",
+        "deputy-chief-medical-officer-80-100-geriatric-rehabilitation-possibility-of-job-sharing-reseau-hospitalier-neuchatelois": "NE",
+        "stellvertretender-chief-medical-officer-80-100-geriatrische-rehabilitation-moglichkeit-des-jobsharing-reseau-hospitalier": "NE",
+        "medecin-chef-fe-adjoint-e-repondant-de-la-filiere-de-readaptation-geriatrique-a-80-100-possibilite-de-job-sharing-reseau-hospitalier-neuchatelois-rhne-neuchatel": "NE",
+        "medecin-chef-fe-adjoint-e-repondant-de-la-filiere-de-readaptation-geriatrique-a-80-100-possibilite-de-job-sharing-reseau-hospitalier-neuchatelois-rhne-le-locle": "NE",
+        "medecin-chef-fe-adjoint-e-repondant-de-la-filiere-de-readaptation-geriatrique-a-80-100": "NE"
+      },
+      "en": {
+        "deputy-chief-medical-officer-80-100-geriatric-rehabilitation-possibility-of-job-sharing-reseau-hospitalier-neuchatelois": "NE"
+      },
+      "de": {
+        "stellvertretender-chief-medical-officer-80-100-geriatrische-rehabilitation-moglichkeit-des-jobsharing-reseau-hospitalier": "NE"
+      }
+    }
   },
   {
     "slug": "un-lavoratore-medico-amministrativo-al-70-reseau-hospitalier-neuchatelois-rhne-neuchatel",
@@ -408,7 +487,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=0fc6c7c2-3378-4000-a58e-2b697b8bdee1&cat=all",
-    "firstSeenAt": "2026-10-22T21:23:51.079Z"
+    "firstSeenAt": "2026-10-22T21:23:51.079Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "un-e-collaborateur-trice-medico-administratif-ve-a-70-rhne-reseau-hospitalier-neuchatelois": "NE"
+      },
+      "en": {
+        "un-e-collaborateur-trice-medico-administratif-ve-a-70-rhne-reseau-hospitalier-neuchatelois": "NE"
+      },
+      "de": {
+        "un-e-collaborateur-trice-medico-administratif-ve-a-70-rhne-reseau-hospitalier-neuchatelois": "NE"
+      }
+    }
   },
   {
     "slug": "70-100-assistente-di-gestione-della-cura-reseau-hospitalier-neuchatelois-rhne-neuchatel",
@@ -454,7 +545,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=8c8ba202-e5cc-4615-bd4c-c2b473aaf354&cat=all",
-    "firstSeenAt": "2026-10-20T21:24:15.293Z"
+    "firstSeenAt": "2026-10-20T21:24:15.293Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE"
+      },
+      "en": {
+        "assistant-e-de-direction-des-soins-a-70-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE"
+      }
+    }
   },
   {
     "slug": "infermiera-capo-unita-di-cura-a-80-100-reseau-hospitalier-neuchatelois-rhne-le-locle",
@@ -503,7 +603,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=35dc4618-a615-4940-bfec-5c2b31558bcb&cat=all",
-    "firstSeenAt": "2026-10-05T21:35:54.740Z"
+    "firstSeenAt": "2026-10-05T21:35:54.740Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-rhne-reseau-hospitalier-neuchatelois-le": "NE"
+      },
+      "de": {
+        "nurse-head-of-care-unit-bei-80-100-reseau-hospitalier-neuchatelois-rhne-le-locle": "NE",
+        "infirmier-ere-chef-fe-d-unite-de-soins-a-80-100-reseau-hospitalier-neuchatelois-rhne-le-locle": "NE"
+      }
+    }
   },
   {
     "slug": "responsabile-clinica-in-ent-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
@@ -571,7 +681,31 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=96e27249-3ca0-495e-81e9-6fdc9f66b634&cat=all",
-    "firstSeenAt": "2026-09-03T13:43:51.926Z"
+    "firstSeenAt": "2026-09-03T13:43:51.926Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE",
+        "responsabile-del-sito-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel": "NE",
+        "site-manager-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel": "NE",
+        "directeur-trice-de-site-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE",
+        "infermiera-responsabile-del-coordinamento-delle-risorse-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel": "NE",
+        "nurse-responsible-for-coordinating-resources-at-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel": "NE",
+        "krankenschwester-verantwortlich-fur-die-koordination-der-ressourcen-bei-80-100-reseau-hospitalier-neuchatelois-rhne": "NE",
+        "infirmier-ere-responsable-de-la-coordination-des-ressources-a-80-100-rhne-reseau": "NE"
+      },
+      "en": {
+        "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE",
+        "site-manager-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel": "NE"
+      },
+      "de": {
+        "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE"
+      },
+      "fr": {
+        "directeur-trice-de-site-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel": "NE",
+        "infirmier-ere-responsable-de-la-coordination-des-ressources-a-80-100-rhne-reseau": "NE"
+      }
+    }
   },
   {
     "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-all-80-reseau-hospitalier-neuchatelois-rhne-le-locle",
@@ -625,7 +759,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=52313827-7b9f-472c-99e1-4980105797c1&cat=all",
-    "firstSeenAt": "2026-09-08T23:29:41.914Z"
+    "firstSeenAt": "2026-09-08T23:29:41.914Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistant-e-en-soins-et-sante-communautaire-assc-a-80-rhne-reseau-hospitalier-neuchatelois": "NE",
+        "assistant-e-en-soins-et-sante-communautaire-assc-ou-aide-soignant-e-asa-a-80-rhne-reseau": "NE"
+      },
+      "en": {
+        "assistant-e-en-soins-et-sante-communautaire-assc-a-80-rhne-reseau-hospitalier-neuchatelois": "NE"
+      },
+      "de": {
+        "assistant-e-en-soins-et-sante-communautaire-assc-a-80-rhne-reseau-hospitalier-neuchatelois": "NE"
+      },
+      "fr": {
+        "assistant-e-en-soins-et-sante-communautaire-assc-a-80-rhne-reseau-hospitalier-neuchatelois": "NE"
+      }
+    }
   },
   {
     "slug": "un-lavoratore-medico-e-amministrativo-al-90-reseau-hospitalier-neuchatelois-rhne-neuchatel",
@@ -678,7 +828,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobid=801abc05-1685-4680-9b63-2fc39de70f3c&cat=all",
-    "firstSeenAt": "2026-09-03T13:43:45.219Z"
+    "firstSeenAt": "2026-09-03T13:43:45.219Z",
+    "canton": "NE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois": "NE",
+        "70-lavoratore-medico-e-amministrativo-reseau-hospitalier-neuchatelois-rhne-neuchatel": "NE",
+        "70-medical-and-administrative-worker-reseau-hospitalier-neuchatelois-rhne-neuchatel": "NE"
+      },
+      "en": {
+        "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois": "NE"
+      },
+      "de": {
+        "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois": "NE"
+      }
+    }
   },
   {
     "slug": "infermiera-capo-unita-a-80-100-reseau-hospitalier-neuchatelois-rhne-la-chaux-de-fonds",

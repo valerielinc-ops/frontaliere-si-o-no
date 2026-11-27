@@ -41,7 +41,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/mendrisio-receptionist-ti-6850/1435381533?feedid=null&utm_source=j2wrss&utm_medium=rss&utm_campaign=j2w_rss",
-    "firstSeenAt": "2026-09-09T23:09:36.396Z"
+    "firstSeenAt": "2026-09-09T23:09:36.396Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "receptionist-mendrisio-riri": "TI"
+      }
+    }
   },
   {
     "slug": "servizio-clienti-specialista-riri-zippers-riri-group-mendrisio",
@@ -92,6 +98,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.oerlikon.com/job/mendrisio-customer-service-specialist-riri-zippers-wm-ti-6850/1398158033?feedid=null&utm_source=j2wrss&utm_medium=rss&utm_campaign=j2w_rss",
-    "firstSeenAt": "2026-07-08T11:41:22.541Z"
+    "firstSeenAt": "2026-07-08T11:41:22.541Z",
+    "canton": "TI",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "customer-service-specialist-riri-zippers-mendrisio-riri": "TI",
+        "customer-service-specialist-riri-zippers-w-m-mendrisio-riri": "TI"
+      },
+      "de": {
+        "customer-service-specialist-riri-zippers-mendrisio-riri": "TI"
+      },
+      "fr": {
+        "customer-service-specialist-riri-zippers-mendrisio-riri": "TI"
+      }
+    }
   }
 ]
