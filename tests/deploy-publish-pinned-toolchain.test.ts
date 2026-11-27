@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import ts from 'typescript';
 import YAML from 'yaml';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 import { simulateWorkflow } from './helpers/workflowNeedsSimulator';
@@ -118,6 +119,29 @@ describe('publisher toolchain pin (F0.2)', () => {
     },
   ];
 
+  // A hand-written entrypoint list cannot see a script the job runs but nobody
+  // listed: build-sitemap-family-bridge-evidence.mjs gained an import in #20085
+  // and the publish died with ERR_MODULE_NOT_FOUND while this test was green. So
+  // every `node scripts/...` a validate-dist job executes is read from its YAML.
+  const executedScripts = (job: string) => [...new Set(jobSteps(validateDist, job).flatMap((step) =>
+    [...String(step.run ?? '').matchAll(/\bnode\s+(?:--\S+\s+)*["']?(scripts\/[\w./-]+\.(?:mjs|cjs|js))/gu)]
+      .map((match) => match[1])))].sort();
+
+  // Repo files a module reads by literal path, e.g. readJson('data/x.json').
+  const literalRuntimeReads = (file: string) => {
+    const found: string[] = [];
+    const sourceFile = ts.createSourceFile(file, read(file), ts.ScriptTarget.Latest, true);
+    const visit = (node: ts.Node, insideRead: boolean) => {
+      const reading = insideRead || (ts.isCallExpression(node)
+        && /(?:^|\.)(?:readJson|readFileSync|readFile)$/u.test(node.expression.getText(sourceFile)));
+      if (reading && ts.isStringLiteralLike(node)
+        && /^(?:data|scripts|services|infra|build-plugins)\/[\w./-]+\.\w+$/u.test(node.text)) found.push(node.text);
+      ts.forEachChild(node, (child) => visit(child, reading));
+    };
+    visit(sourceFile, false);
+    return found;
+  };
+
   const sparseIncludes = (patterns: string[], file: string) => patterns.some((raw) => {
     const pattern = raw.replace(/^\/+/, '');
     if (!pattern || pattern.startsWith('!')) return false;
@@ -132,6 +156,30 @@ describe('publisher toolchain pin (F0.2)', () => {
     const closure = new Set(entrypoints.flatMap((entry) => collectRelativeImportClosure(root, entry)));
     const missing = [...closure].filter((file) => !sparseIncludes(patterns, file));
     expect(missing).toEqual([]);
+  });
+
+  it.each([
+    ['fast-gate', 'Checkout publisher gate toolchain'],
+    ['validate-dist-report', 'Checkout source-side issue reporter'],
+  ])('validate-dist %s / %s covers every script the job executes, with its imports and literal reads', (job, step) => {
+    const patterns = String(namedStep(validateDist, job, step).with['sparse-checkout'])
+      .split('\n').map((line) => line.trim()).filter(Boolean);
+    const entrypoints = executedScripts(job);
+    expect(entrypoints.length).toBeGreaterThan(0);
+    const closure = [...new Set(entrypoints.flatMap((entry) => collectRelativeImportClosure(root, entry)))];
+    const required = [...new Set([...closure, ...closure.flatMap(literalRuntimeReads)])].sort();
+    expect(required.filter((file) => !sparseIncludes(patterns, file))).toEqual([]);
+  });
+
+  it('checks every checkout of the validate-dist workflow for closure', () => {
+    expect(checkoutRefs(validateDist).map((row) => `${row.job} / ${row.step}`)).toEqual([
+      'fast-gate / Checkout publisher gate toolchain',
+      'validate-dist-report / Checkout source-side issue reporter',
+    ]);
+    expect(executedScripts('fast-gate')).toEqual([
+      'scripts/ci/build-sitemap-family-bridge-evidence.mjs',
+      'scripts/ci/publisher-fast-gate.mjs',
+    ]);
   });
 });
 
