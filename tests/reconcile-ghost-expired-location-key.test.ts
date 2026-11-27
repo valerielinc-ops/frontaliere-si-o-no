@@ -6,8 +6,16 @@
  * WRONG job's previousSlugs (669 misattributed slugs across 24 slices,
  * 441 in coop-ticino.json alone). Location is now part of the match key.
  */
-import { describe, it, expect } from 'vitest';
+import { afterAll, describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { reconcileGhostExpired } from '../scripts/assemble-jobs-dataset.mjs';
+
+// A found ghost makes reconcileGhostExpired scan and rewrite `sliceDir`, by
+// default the whole tracked expired archive. These fixtures live in memory.
+const sliceDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ghost-location-slices-'));
+afterAll(() => fs.rmSync(sliceDir, { recursive: true, force: true }));
 
 describe('reconcileGhostExpired — title+company+location match key', () => {
   it('does NOT merge an expired job onto an active job at a DIFFERENT location sharing the same generic title+company', () => {
@@ -30,7 +38,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
       },
     ];
 
-    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs);
+    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(ghostCount).toBe(0);
     expect(mergedSlugs).toBe(0);
@@ -64,7 +72,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
       },
     ];
 
-    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs);
+    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(ghostCount).toBe(1);
     expect(mergedSlugs).toBe(1);
@@ -97,7 +105,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
       },
     }];
 
-    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs);
+    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(ghostCount).toBe(0);
     expect(mergedSlugs).toBe(0);
@@ -128,7 +136,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
     }];
     const before = JSON.stringify(activeJobs);
 
-    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+    const result = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(result.ghostCount).toBe(0);
     expect(result.mergedSlugs).toBe(0);
@@ -160,7 +168,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
       previousSlugs: ['store-manager-zurich-old-alias'],
     }];
 
-    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+    const result = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(result.ghostCount).toBe(1);
     expect(result.cleanedExpired).toEqual([]);
@@ -188,7 +196,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
     }];
     const before = JSON.stringify(activeJobs);
 
-    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+    const result = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(result.ghostCount).toBe(0);
     expect(result.mergedSlugs).toBe(0);
@@ -218,7 +226,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
       slugByLocale: { de: 'foreign-owner-slug' },
     }];
 
-    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+    const result = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(result.ghostCount).toBe(0);
     expect(result.mergedSlugs).toBe(0);
@@ -241,7 +249,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
       slugByLocale: { de: {}, fr: 'expired-slug' },
     }];
 
-    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+    const result = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(result.ghostCount).toBe(0);
     expect(result.cleanedExpired).toEqual(expiredJobs);
@@ -274,7 +282,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
       },
     ];
 
-    const { ghostCount, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs);
+    const { ghostCount, cleanedExpired } = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(ghostCount).toBe(0);
     expect(cleanedExpired).toEqual(expiredJobs);
@@ -294,7 +302,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
       slug: 'store-manager-zurich',
     }];
 
-    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+    const result = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(result.ghostCount).toBe(1);
     expect(result.cleanedExpired).toEqual([]);
@@ -313,7 +321,7 @@ describe('reconcileGhostExpired — title+company+location match key', () => {
       description: 'legacy record',
     }];
 
-    const result = reconcileGhostExpired(activeJobs, expiredJobs);
+    const result = reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir });
 
     expect(result.ghostCount).toBe(0);
     expect(result.cleanedExpired).toEqual(expiredJobs);

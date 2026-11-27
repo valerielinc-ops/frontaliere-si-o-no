@@ -20,11 +20,21 @@
  * a source identity and they disagree, the archive entry is a different
  * posting and must not be merged.
  */
-import { describe, it, expect } from 'vitest';
+import { afterAll, describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { reconcileGhostExpired } from '../scripts/assemble-jobs-dataset.mjs';
 import { reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
 import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { archiveRecordNamesPosting, archiveRecordSourceIdentities } from '../scripts/lib/job-identity.mjs';
+
+// Once a ghost is found, reconcileGhostExpired scans and rewrites `sliceDir`,
+// by default the tracked expired archive. These fixtures live in memory: with
+// that default every such call parsed the whole archive (more than 1 GB), so
+// the two-call case outgrew the test timeout as the data grew.
+const sliceDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ghost-identity-slices-'));
+afterAll(() => fs.rmSync(sliceDir, { recursive: true, force: true }));
 
 const BASE = 'https://careers.example-hospital.test/jobs/sub-assistant-medicine';
 const ACTIVE_URL = `${BASE}/11111111-1111-4111-8111-111111111111`;
@@ -75,7 +85,7 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     const before = JSON.stringify([active.previousSlugs, active.previousSlugsByLocale]);
     const expired = [archivedDuplicate()];
 
-    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired([active], expired);
+    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired([active], expired, { sliceDir });
 
     expect(ghostCount).toBe(0);
     expect(mergedSlugs).toBe(0);
@@ -90,7 +100,7 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
       sourceIdentityHistory: [{ sourceIdentity: `url:${ARCHIVED_URL}` }],
     })];
 
-    const { ghostCount, mergedSlugs } = reconcileGhostExpired([active], expired);
+    const { ghostCount, mergedSlugs } = reconcileGhostExpired([active], expired, { sliceDir });
 
     expect(ghostCount).toBe(0);
     expect(mergedSlugs).toBe(0);
@@ -101,7 +111,7 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     const active = activeSibling();
     const expired = [archivedDuplicate({ sourceIdentity: `url:${ACTIVE_URL}` })];
 
-    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired([active], expired);
+    const { ghostCount, mergedSlugs, cleanedExpired } = reconcileGhostExpired([active], expired, { sliceDir });
 
     expect(ghostCount).toBe(1);
     expect(mergedSlugs).toBeGreaterThan(0);
@@ -118,7 +128,7 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
       ],
     })];
 
-    const { ghostCount } = reconcileGhostExpired([active], expired);
+    const { ghostCount } = reconcileGhostExpired([active], expired, { sliceDir });
 
     expect(ghostCount).toBe(1);
   });
@@ -127,7 +137,7 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     const active = activeSibling();
     const expired = [archivedDuplicate({ sourceIdentity: undefined, dedupArchive: undefined })];
 
-    const { ghostCount } = reconcileGhostExpired([active], expired);
+    const { ghostCount } = reconcileGhostExpired([active], expired, { sliceDir });
 
     expect(ghostCount).toBe(0);
     expect(active.previousSlugs).not.toContain('medicina-subassista-a-example-hospital-liestal-s9bict');
@@ -139,7 +149,7 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     delete active.id;
     const expired = [archivedDuplicate({ sourceIdentity: undefined, dedupArchive: undefined })];
 
-    const { ghostCount } = reconcileGhostExpired([active], expired);
+    const { ghostCount } = reconcileGhostExpired([active], expired, { sliceDir });
 
     expect(ghostCount).toBe(1);
   });
@@ -195,7 +205,7 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
       previousSlugsByLocale: { it: [foreignBridge] },
     })];
 
-    const first = reconcileGhostExpired([active, foreignOwner], expired);
+    const first = reconcileGhostExpired([active, foreignOwner], expired, { sliceDir });
 
     expect(first.ghostCount).toBe(1);
     expect(active.previousSlugs).not.toContain(foreignBridge);
@@ -203,7 +213,7 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     expect(foreignOwner.previousSlugs).toContain(foreignBridge);
 
     const beforeRerun = JSON.stringify([active, foreignOwner]);
-    const second = reconcileGhostExpired([active, foreignOwner], expired);
+    const second = reconcileGhostExpired([active, foreignOwner], expired, { sliceDir });
     expect(second.ghostCount).toBe(1);
     expect(JSON.stringify([active, foreignOwner])).toBe(beforeRerun);
   });
