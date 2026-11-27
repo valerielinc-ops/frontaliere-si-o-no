@@ -1,5 +1,56 @@
 [
   {
+    "id": "sonova-755bb818c5fe",
+    "slug": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
+    "title": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
+    "titleByLocale": {
+      "it": "Apprendistato Kunststofftechnologe/-login CFC (m/w/d)",
+      "en": "Apprenticeship of plastics technologist/login EFZ (m/f/d)",
+      "de": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
+      "fr": "Apprentissage de technologue/login en matière plastique EFZ (m/f/d)"
+    },
+    "company": "Sonova",
+    "companyKey": "sonova",
+    "location": "Staefa, Switzerland",
+    "canton": "ZH",
+    "addressLocality": "Staefa",
+    "descriptionByLocale": {
+      "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione sonora con un'alta rilevanza pratica, perché sono nostri specialisti e manager di domani.\n\nUlteriori informazioni sul vostro lavoro da sogno come un technologist plastics/login EFZ e le condizioni necessarie possono essere trovate a:\n\nPlastics technologist/login EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+      "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners sound training with a high practical relevance, because they are our specialists and managers of tomorrow.\n\nFurther information about your dream job as a plastics technologist/login EFZ as well as the necessary conditions can be found at:\n\nPlastics technologist/login EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une bonne formation avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain.\n\nDe plus amples informations sur votre travail de rêve en tant que technologue/login en plastique EFZ ainsi que les conditions nécessaires peuvent être trouvées à:\n\nTechnologue/logiciel en plastique EFZ-Sonova International\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+    },
+    "slugByLocale": {
+      "it": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
+      "en": "apprenticeship-of-plastics-technologist-login-efz-m-f-d-sonova-staefa-switzerland",
+      "de": "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+      "fr": "apprentissage-de-technologue-login-en-matiere-plastique-efz-m-f-d-sonova-staefa-switzerland"
+    },
+    "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+    "expiredAt": "2026-11-27T21:14:46.746Z",
+    "previousSlugs": [
+      "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch": "ZH"
+      }
+    },
+    "postalCode": "8001",
+    "streetAddress": "Staefa",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-lehrstelle-kunststofftechnologe-login-efz-%28mwd%29/1421323633",
+    "firstSeenAt": "2026-07-31T22:06:52.246Z"
+  },
+  {
     "id": "sonova-f52f1ea1d2a3",
     "slug": "software-ingegnere-embedded-ai-m-f-d-sonova-staefa",
     "title": "Software Engineer Embedded AI (m/f/d)",
@@ -3989,17 +4040,23 @@
     "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
     "expiredAt": "2026-07-08T11:21:00.764Z",
     "previousSlugs": [
-      "senior-project-manager-m-f-d-sonova-ch"
+      "senior-project-manager-m-f-d-sonova-ch",
+      "responsabile-progetto-senior-m-f-d-sonova-staefa-switzerland",
+      "responsabile-senior-di-progetto-m-f-d-sonova-staefa-switzerland",
+      "directeur-principal-de-projet-h-f-d-sonova-staefa-switzerland"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "senior-project-manager-m-f-d-sonova-ch"
+        "senior-project-manager-m-f-d-sonova-ch",
+        "responsabile-progetto-senior-m-f-d-sonova-staefa-switzerland",
+        "responsabile-senior-di-progetto-m-f-d-sonova-staefa-switzerland"
       ],
       "de": [
         "senior-project-manager-m-f-d-sonova-ch"
       ],
       "fr": [
-        "senior-project-manager-m-f-d-sonova-ch"
+        "senior-project-manager-m-f-d-sonova-ch",
+        "directeur-principal-de-projet-h-f-d-sonova-staefa-switzerland"
       ]
     },
     "postalCode": "8001",
@@ -4007,7 +4064,16 @@
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-project-manager-%28mfd%29/1458877233"
+    "sourceIdentity": "url:https://jobs.sonova.com/job/staefa-senior-project-manager-%28mfd%29/1458877233",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-progetto-senior-m-f-d-sonova-staefa-switzerland": "ZH",
+        "responsabile-senior-di-progetto-m-f-d-sonova-staefa-switzerland": "ZH"
+      },
+      "fr": {
+        "directeur-principal-de-projet-h-f-d-sonova-staefa-switzerland": "ZH"
+      }
+    }
   },
   {
     "slug": "soluzioni-di-dati-e-ia-per-tirocini-sonova-staefa-switzerland",
