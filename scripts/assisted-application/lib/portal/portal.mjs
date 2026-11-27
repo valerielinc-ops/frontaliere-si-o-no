@@ -5323,6 +5323,17 @@ const FILLER_WORDS = new Set([
   'chez', 'avec', 'aux', 'une',
 ]);
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
+// Grammatical words (prepositions, articles, pronouns, conjunctions, the verbs of a call to apply) in the four
+// languages of the portals. A title line made of the order's own words and these names nobody: «Karrierechancen:
+// Für <role> (52113) bewerben». A name is a word that is none of them; this is a closed class of the grammar,
+// not a growing list of the page's vocabulary. Words that are also a name are left out («Via», «Bei»).
+const FUNCTION_WORDS = new Set([
+  'fur', 'fuer', 'zur', 'zum', 'auf', 'aus', 'nach', 'uber', 'ueber', 'wir', 'sie', 'ihre', 'ihr', 'ihren', 'ihrer', 'ihrem', 'sich', 'sind', 'ist', 'wird', 'werden', 'oder', 'als',
+  'bewerben', 'bewirb', 'bewerbt', 'postulez', 'postuler', 'candidarti', 'candidatevi', 'applying', 'apply',
+  'for', 'to', 'of', 'on', 'in', 'by', 'from', 'into', 'your', 'you', 'are', 'is', 'will', 'can',
+  'pour', 'sur', 'par', 'dans', 'votre', 'vos', 'vous', 'est', 'sont',
+  'per', 'sul', 'sulla', 'nel', 'nella', 'tuo', 'tua', 'sei', 'sono',
+]);
 // What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
 const PHRASE_END_RE = /[\n\r—–|·•:;,.!?()\/]|\s-\s/;
 const GENERIC_APPLICATION_HEADING_WORDS = new Set([
@@ -5513,7 +5524,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   if (titleNamesOwnEmployer(titleLine)) {
     const titleSegments = titleLine.split(EMPLOYER_TITLE_SEPARATOR_RE).map((segment) => normalizeWords(segment).split(' ').filter(Boolean));
     if (titleSegments.some((words) => !titleNamesOwnEmployer(words.join(' '))
-      && words.some((word) => !neutral.has(word) && !filler(word)))) return true;
+      && words.some((word) => !neutral.has(word) && !filler(word) && !FUNCTION_WORDS.has(word)))) return true;
   }
   // Page chrome may precede the posting's own heading. Ignore only known
   // navigation labels as a title candidate; the employer check below still
@@ -5521,7 +5532,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const title = normalizeWords(titleLine).split(' ').filter(Boolean);
   if (!isFormDateFieldLabel(titleLine) && !titleNamesOwnEmployer(titleLine)
     && !titleLooksLikeSentenceCopy
-    && title.some((word, index) => !filler(word) && !neutral.has(word)
+    && title.some((word, index) => !filler(word) && !FUNCTION_WORDS.has(word) && !neutral.has(word)
     && !FORM_TITLE_FIELD_WORDS.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
@@ -6064,6 +6075,19 @@ function successFactorsCaptionNamesOtherRequisition(captions, job, applyUrl, pag
     return Boolean(match) && match[1] !== module.requisition
       && titleMatchesJob(String(caption).replace(/\(\s*\d{1,20}\s*\)\s*$/, ' '), job);
   });
+}
+
+/** The page address names no requisition other than the one of the order's module route (a session address names none). */
+function successFactorsAddressKeepsRequisition(pageUrl, applyUrl) {
+  try {
+    const module = successFactorsModuleIdentity(new URL(String(applyUrl || '')));
+    const page = new URL(String(pageUrl || ''));
+    if (!module || page.origin !== module.origin) return false;
+    const requisitions = [...page.searchParams.entries()].filter(([name]) => name.toLowerCase() === 'career_job_req_id').map(([, value]) => value);
+    return requisitions.length <= 1 && requisitions.every((value) => value === module.requisition);
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -6613,7 +6637,11 @@ export function formPostingMatch(formText, job = {}, {
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
-  if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return decide('successfactors_route_unbound');
+  // The proven route can be unbound only because the run opened the module itself (the entry page is then the
+  // module, not the posting the proof names). The requisition shown with the order's role on the tenant of the
+  // order's own module route is the identity then; without it the route stays a conflict.
+  if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound
+    && !(successFactorsBound && successFactorsAddressKeepsRequisition(pageUrl, applyUrl))) return decide('successfactors_route_unbound');
   if (isUmantisApplicationRoute(formApplicationUrl) && hasConflictingUmantisVacancyRoute(formApplicationUrl, [postingUrl])) return decide('umantis_vacancy_route_conflict');
   // A witnessed application entry can also carry the published posting's id
   // across hosts (for example a canonical job slug ending in the same id).
