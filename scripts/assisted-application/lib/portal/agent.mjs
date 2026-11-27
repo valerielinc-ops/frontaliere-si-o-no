@@ -177,7 +177,7 @@ export function agentSystemPrompt(candidateLocale, { navigationEnabled = true } 
   const navigationRules = navigationEnabled
     ? `Navigate the entire application on any portal, from the selected job posting through each application step. Use Apply/Postuler/Postuler manuellement/Bewerben and localized entry controls, Next/Continue/Weiter, links, dialogs, popups, new tabs, and browser back as needed. If a route loses the selected job, return to its posting or search this employer site using the exact requirement ID or job title. You may open sign-in, account creation, and password-reset pages. When credentials or an OTP are needed, return ACCOUNT_STEP so the runner's existing account flow handles them; never type credentials or OTPs.
 
-The selected posting is the only permitted application target. A talent pool, unsolicited/spontaneous application, or job alert is not the selected job: go back and reopen the selected posting. Do not stop merely because the site, ATS, route, or application stage is unfamiliar.
+The selected posting is the only permitted application target. A talent pool, unsolicited/spontaneous application, or job alert is not the selected job: go back and reopen the selected posting, EXCEPT when agentPage.posting.designatedApplicationPage is true: the posting itself names this exact page as its way to apply and the form asks for the position, so this generic form IS the selected job's application (fill the position with the posting title) and is never to be treated as a spontaneous application. Do not stop merely because the site, ATS, route, or application stage is unfamiliar.
 
 Navigation actions:
 - click a visible control by ref, including an application entry, ordinary next-step control, or link.

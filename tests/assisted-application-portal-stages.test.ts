@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, isApplicationRouteBound, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
+import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, isDesignatedGenericApplicationForm, isApplicationRouteBound, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { applicationEntryControls, hasApplicationSurface, isVerifiedPostingEntry, openVerifiedPasswordResetNavigation, pageControls, urlConfirms, workdayRestoreNeedsManualNavigation } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
@@ -1213,5 +1213,50 @@ describe('Workday account route stages', () => {
     await expect(openVerifiedPasswordResetNavigation(page as any, snapshot as any)).resolves.toBe(true);
     expect(click).toHaveBeenCalledOnce();
     expect(goto).not.toHaveBeenCalled();
+  });
+});
+
+
+describe('a generic employer form designated by the posting itself', () => {
+  const page = 'https://employer.example/it/lavora-con-noi/';
+  const generic = {
+    url: page,
+    title: 'Lavora con noi',
+    text: 'Posizioni aperte. Non sono al momento disponibili posizioni aperte.\nCandidatura Spontanea\nNome\nCognome\nPosizione\nInvia candidatura',
+    fields: [
+      { kind: 'text', label: 'Nome *' }, { kind: 'text', label: 'Cognome *' },
+      { kind: 'text', label: 'Posizione *' }, { kind: 'file', label: 'Carica il tuo CV *' },
+    ],
+  };
+
+  it('is the posting\'s form on the declared apply URL, and a generic one with a position field is no spontaneous application', () => {
+    expect(applicationDestinationDiversionHint(generic)).toBe('talent_pool_or_job_alert');
+    expect(applicationDiversionHint(generic)).toBe('talent_pool_or_job_alert');
+    expect(isDesignatedGenericApplicationForm(generic, [page])).toBe(true);
+    expect(applicationDestinationDiversionHint(generic, { designatedUrls: [page] })).toBe('');
+    expect(applicationDiversionHint(generic, { designatedUrls: [page] })).toBe('');
+    // the same page, written with another trailing slash, is the same address
+    expect(applicationDestinationDiversionHint(generic, { designatedUrls: [page.replace(/\/$/, '')] })).toBe('');
+  });
+
+  it('keeps today\'s behaviour on any other URL, without a position field or with no declared URL', () => {
+    expect(applicationDestinationDiversionHint(generic, { designatedUrls: ['https://employer.example/it/altra-pagina/'] })).toBe('talent_pool_or_job_alert');
+    expect(applicationDestinationDiversionHint(generic, { designatedUrls: ['https://other.example/it/lavora-con-noi/'] })).toBe('talent_pool_or_job_alert');
+    expect(applicationDestinationDiversionHint(generic, { designatedUrls: [`${page}?x=1`] })).toBe('talent_pool_or_job_alert');
+    expect(applicationDestinationDiversionHint(generic, { designatedUrls: [] })).toBe('talent_pool_or_job_alert');
+    const noPosition = { ...generic, fields: generic.fields.filter((field) => field.label !== 'Posizione *') };
+    expect(isDesignatedGenericApplicationForm(noPosition, [page])).toBe(false);
+    expect(applicationDestinationDiversionHint(noPosition, { designatedUrls: [page] })).toBe('talent_pool_or_job_alert');
+    // a checkbox or file labelled like a role does not make the form the posting's
+    expect(isDesignatedGenericApplicationForm({ ...generic, fields: [{ kind: 'checkbox', label: 'Ruolo' }] }, [page])).toBe(false);
+  });
+
+  it('reads the position label in the other site languages', () => {
+    for (const label of ['Stelle *', 'Poste', 'Position *', 'Ruolo', 'Gewünschte Stelle:']) {
+      expect(isDesignatedGenericApplicationForm({ url: page, fields: [{ kind: 'text', label }] }, [page])).toBe(true);
+    }
+    for (const label of ['Posizione di residenza', 'Nome', 'Position of your last employer']) {
+      expect(isDesignatedGenericApplicationForm({ url: page, fields: [{ kind: 'text', label }] }, [page])).toBe(false);
+    }
   });
 });

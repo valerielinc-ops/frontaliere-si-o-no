@@ -1658,6 +1658,31 @@ function nativeQuestionText(value, counter = null) {
     }
     return false;
   };
+  // A candidate form whose send control is not a button (delapaix.ch: `<div class="send-candidatura-submit btn
+  // btn-primary">Invia candidatura</div>` driven by a script). It counts as the form's submit only when it sits
+  // INSIDE a form, is the innermost clickable thing there, looks like a control (button class, click handler,
+  // tab stop) and says explicitly that it sends the application. A bare «Invia»/«Senden»/«Submit» is explicit
+  // only in a form that holds the CV upload; a newsletter, search or booking control never reads as one.
+  const SUBMIT_DIV_STRONG_RE = /^(?:invia(?:re)?(?: la)?(?: (?:tua|sua|vostra))? candidatura(?: ora)?|invia(?:re)? (?:il )?modulo di candidatura|(?:meine |ihre )?bewerbung (?:jetzt )?(?:absenden|senden|abschicken|einreichen)|bewerbung versenden|envoyer (?:ma |votre |la )?candidature|submit (?:your |my |the )?application|send (?:your |my |the )?application|enviar (?:mi |la |su )?(?:candidatura|solicitud))$/iu;
+  const SUBMIT_DIV_BARE_RE = /^(?:invia(?:re)?|senden|absenden|envoyer|submit|send|enviar)$/iu;
+  const SUBMIT_DIV_CLASS_RE = /(?:^|[\s_-])(?:btn|button|submit|send|invia)(?:$|[\s_-])/i;
+  const submitControlTag = (element) => ['DIV', 'SPAN', 'P', 'LI', 'A', 'LABEL'].includes(element.tagName)
+    && !(element.tagName === 'A' && element.getAttribute('href') !== null && !element.getAttribute('role'));
+  const looksClickable = (element) => SUBMIT_DIV_CLASS_RE.test(String(element.getAttribute('class') || ''))
+    || element.hasAttribute('onclick') || element.hasAttribute('tabindex');
+  const submitControlText = (element) => {
+    const name = clean(element.innerText || element.textContent);
+    if (!name || name.length > 60) return false;
+    if (SUBMIT_DIV_STRONG_RE.test(name)) return true;
+    const form = element.closest('form');
+    return SUBMIT_DIV_BARE_RE.test(name) && Boolean(form?.querySelector('input[type="file"]'));
+  };
+  const submitControlShape = (element) => submitControlTag(element) && !element.matches(BUTTONS)
+    && Boolean(element.closest('form')) && looksClickable(element) && submitControlText(element);
+  const submitControlCandidate = (element) => submitControlShape(element)
+    // The innermost control: a wrapper that holds a real button/input or another candidate is not the control.
+    && !element.querySelector(BUTTONS)
+    && ![...element.querySelectorAll('div, span, p, li, a')].some(submitControlShape);
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element)
     || openedMenuItem(element);
   const buttonName = (element) => [
@@ -1751,9 +1776,10 @@ function nativeQuestionText(value, counter = null) {
   };
   const openModal = [...document.querySelectorAll('[aria-modal="true"]')].find(visible) || null;
   const behindModal = (element) => Boolean(openModal) && !openModal.contains(element) && hiddenFromPeople(element);
-  const candidateButtons = [...document.querySelectorAll(BUTTONS)]
+  const candidateButtons = [...new Set([...document.querySelectorAll(`${BUTTONS}, form div, form span, form p, form li, form a`)]
+    .filter((element) => element.matches(BUTTONS) || submitControlCandidate(element)))]
     .filter((element) => (visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
-      && actionControl(element))
+      && (actionControl(element) || !element.matches(BUTTONS)))
     .map((element) => ({
       ...(() => {
         const cookieSurface = cookieSurfaceFor(element);

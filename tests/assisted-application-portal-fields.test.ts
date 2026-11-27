@@ -2080,8 +2080,9 @@ describe('portal field extraction', () => {
 
   it('says which <form> a control is sent with', () => {
     const page = extract('<form><label for="p">Password</label><input id="p" type="password"><label for="cv">Resume</label><input id="cv" type="file"></form>'
-      + '<form><label for="q">Suche</label><input id="q"></form><label for="alone">Notiz</label><input id="alone">');
-    expect(page.fields.map((field: any) => [field.label, field.form])).toEqual([['Password', 0], ['Resume', 0], ['Suche', 1], ['Notiz', -1]]);
+      // Both forms hold an upload, so both are the application's (a form without one beside it is left out of the snapshot).
+      + '<form><label for="q">Suche</label><input id="q"><label for="att">Anhang</label><input id="att" type="file"></form><label for="alone">Notiz</label><input id="alone">');
+    expect(page.fields.map((field: any) => [field.label, field.form])).toEqual([['Password', 0], ['Resume', 0], ['Suche', 1], ['Anhang', 1], ['Notiz', -1]]);
   });
 
   // Coop's SuccessFactors form, mapped on 2026-10-03.
@@ -2628,6 +2629,52 @@ describe('portal field extraction', () => {
     expect(page.fields.find((field: any) => field.domId === 'newsletter-email')).toMatchObject({ chrome: true });
     expect(page.buttons.find((button: any) => button.text === 'Subscribe')).toMatchObject({ chrome: true });
     expect(page.fields.find((field: any) => field.domId === 'first')).not.toHaveProperty('chrome');
+  });
+});
+
+
+describe('a send control that is not a button', () => {
+  const employerPage = (submit: string, newsletter = `<form id="newsletter"><input type="email" name="nl_email"><div class="btn btn-secondary">Iscriviti</div></form>`) => `
+    <main><form id="send-candidatura">
+      <label for="n">Nome *</label><input id="n" name="candidature_nome" required>
+      <label for="c">Cognome *</label><input id="c" name="candidature_cognome" required>
+      <label for="p">Posizione *</label><input id="p" name="candidature_posizione" required>
+      <label for="f">Carica il tuo CV *</label><input id="f" type="file" name="candidature_file">
+      <div class="custom-control custom-checkbox"><input id="k" type="checkbox" class="custom-control-input" name="candidature_privacy"><label for="k">Accetto la privacy</label></div>
+      ${submit}
+    </form></main>${newsletter}`;
+
+  it('reads the div that sends the application inside its form as the form submit', () => {
+    const page = extract(employerPage(`<div class='send-candidatura-submit btn btn-primary'> Invia candidatura <i class="fas fa-spinner fa-spin"></i> </div>`), 'https://employer.example/it/lavora-con-noi/');
+    const submit = findButton(page.buttons, /invia( la)? candidatura/i);
+    expect(submit).toMatchObject({ text: 'Invia candidatura' });
+    expect(submit.formId).toBeTruthy();
+    // the newsletter form is not the application's: its control is out of the snapshot, whatever it says
+    expect(page.buttons.some((button: any) => /iscriviti/i.test(button.text))).toBe(false);
+  });
+
+  it('reads a span with a click handler and a German or English label, and a bare label only next to the CV upload', () => {
+    expect(findButton(extract(employerPage(`<span onclick="send()">Bewerbung senden</span>`, '')).buttons, /bewerbung senden/i)).toBeTruthy();
+    expect(findButton(extract(employerPage(`<div class="btn">Submit application</div>`, '')).buttons, /submit application/i)).toBeTruthy();
+    expect(findButton(extract(employerPage(`<div class="btn">Envoyer</div>`, '')).buttons, /envoyer/i)).toBeTruthy();
+    // a bare «Invia» in a form with no CV upload (search, booking, contact) is not an application send
+    const contact = extract(`<form><input name="q"><div class="btn">Invia</div></form>`);
+    expect(contact.buttons).toEqual([]);
+  });
+
+  it('never picks a control that does not say it sends the application, or one outside a form', () => {
+    const page = extract(employerPage(`<div class="btn btn-primary">Iscriviti</div><div class="btn">Prenota</div><div class="btn">Cerca</div>`, ''));
+    expect(page.buttons).toEqual([]);
+    const outside = extract(`<div class="btn">Invia candidatura</div><form><input name="q"></form>`);
+    expect(outside.buttons).toEqual([]);
+    // plain text in a form, with no control look, is no control either
+    expect(extract(employerPage(`<p>Invia candidatura</p>`, '')).buttons).toEqual([]);
+  });
+
+  it('keeps real buttons as they were and does not double a wrapper around one', () => {
+    const page = extract(employerPage(`<div class="btn"><button type="submit">Invia candidatura</button></div>`, ''));
+    expect(page.buttons.filter((button: any) => /invia candidatura/i.test(button.text))).toHaveLength(1);
+    expect(page.buttons[0]).toMatchObject({ text: 'Invia candidatura' });
   });
 });
 
