@@ -90,6 +90,26 @@ export function applicationHistoryLinksInPage() {
   return unique.size > 20 ? [] : [...unique.values()];
 }
 
+const MUTATION_QUERY_KEY_RE = /^(?:action|submit|send|withdraw|delete|cancel)$/i;
+const MUTATION_PATH_RE = /(?:submit|finali[sz]e|withdraw|delete|remove|cancelapplication|applicationapply)/i;
+const RETURN_QUERY_KEY_RE = /^(?:returnurl|redirect|redirecturl|return)$/i;
+
+/**
+ * The query a sign-in POST may carry: only a return address, and only one of this origin that names no mutation
+ * route. Any other key (or a return address elsewhere) is refused: the POST then does not proceed.
+ */
+export function signinQueryAllowed(url, origin) {
+  for (const [key, value] of url.searchParams.entries()) {
+    if (!RETURN_QUERY_KEY_RE.test(key)) return false;
+    let target;
+    let decoded;
+    try { target = new URL(value, origin); decoded = decodeURIComponent(target.pathname); } catch { return false; }
+    if (target.origin !== origin || /\\/.test(value) || value.startsWith('//') || MUTATION_PATH_RE.test(decoded)
+      || [...target.searchParams.keys()].some(name => MUTATION_QUERY_KEY_RE.test(name))) return false;
+  }
+  return true;
+}
+
 const routeKey = value => { try { const url = new URL(value); return `${url.origin}${url.pathname.replace(/\/$/, '').toLowerCase()}`; } catch { return ''; } };
 
 /**
@@ -185,8 +205,11 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       }
       // The one POST of the armed sign-in. A probe compares the route without its query (the portal may append a
       // return address); the route must still be the sign-in route of the order's vacancy.
+      // A mutation key in the query of any non-read request is refused before anything else.
+      if ([...url.searchParams.keys()].some(key => MUTATION_QUERY_KEY_RE.test(key))) return block('mutation_parameter');
       const sameLoginRoute = request.url() === loginAction
-        || Boolean(probe && loginAction && `${url.origin}${url.pathname.replace(/\/$/, '').toLowerCase()}` === routeKey(loginAction) && signinOk(request.url()));
+        || Boolean(probe && loginAction && `${url.origin}${url.pathname.replace(/\/$/, '').toLowerCase()}` === routeKey(loginAction) && signinOk(request.url())
+          && signinQueryAllowed(url, origin));
       if (loginArmed && !loginPosted && method === 'POST' && sameLoginRoute && signinOk(loginAction)) {
         loginPosted = true;
         note('login_post', request.url(), 'allowed', { method });

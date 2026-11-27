@@ -56,6 +56,8 @@ export function applicationExistsProbeEntry(applyUrl) {
 export function applicationExistsProbeNavigation(value, probe) {
   const url = httpsUrl(value);
   if (!url || !probe || url.hash || url.origin !== probe.origin) return false;
+  // A mutation key in the query never passes, whatever the route (same list as the inspection's GET fence).
+  if ([...url.searchParams.keys()].some((key) => /^(?:action|submit|send|withdraw|delete|cancel)$/iu.test(key))) return false;
   const match = /^\/vacancies\/(\d{1,64})\/(application\/(?:new|login)|furtherapplication\/applicationexists|description)\/\d+\/?$/iu.exec(url.pathname);
   return Boolean(match && match[1] === probe.vacancyId);
 }

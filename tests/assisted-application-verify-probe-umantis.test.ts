@@ -81,6 +81,27 @@ describe('probe of an ATS sign-in with a registration form beside it (entry -> L
     expect(((await run()) as any).applicationExists).not.toBeNull();
   });
 
+  it.each([
+    [`${loginUrl}?action=submit`, 'mutation_parameter'],
+    [`${loginUrl}?Submit=1`, 'mutation_parameter'],
+    [`${loginUrl}?ReturnUrl=https://evil.example/x`, 'login_route_mismatch'],
+    [`${loginUrl}?ReturnUrl=//evil.example/x`, 'login_route_mismatch'],
+    [`${loginUrl}?ReturnUrl=/Vacancies/6604/Application/Submit/1`, 'login_route_mismatch'],
+    [`${loginUrl}?ReturnUrl=/ok&other=1`, 'login_route_mismatch'],
+  ])('never proceeds with a sign-in POST carrying %s', async (postTo, reason) => {
+    const { run, log } = harness({ postTo, formAction: loginUrl });
+    const proof: any = await run();
+    expect(log.find(entryLog => entryLog.method === 'POST')?.allowed).toBe(false);
+    expect(proof.trace).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'blocked', method: 'POST', reason })]));
+    expect(proof.applicationExists ?? null).toBeNull();
+    expect(proof.trace.some((item: any) => item.kind === 'login_post')).toBe(false);
+  });
+
+  it('an action with a mutation key is not a trusted sign-in action, nor an allowed navigation', () => {
+    expect(applicationExistsProbeNavigation(`${loginUrl}?action=submit`, probe)).toBe(false);
+    expect(applicationExistsProbeNavigation(`${loginUrl}?ReturnUrl=%2Fok`, probe)).toBe(true);
+  });
+
   it('records the refusal of a POST to any other route, with its reason, and never reads the page as proof', async () => {
     const { run, log } = harness({ postTo: `https://${HOST}/Vacancies/6604/Application/Submit/1`, formAction: loginUrl });
     const proof: any = await run();
