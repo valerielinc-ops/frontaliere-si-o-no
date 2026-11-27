@@ -70,7 +70,26 @@
         "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/mitarbeiterin-mitarbeiter-gastronomie/bd74b3ca-29c3-4c59-a1df-0e67957ae7aa",
         "title": "Mitarbeiterin / Mitarbeiter Gastronomie"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon": "AG",
+        "addetto-a-alla-ristorazione-rehaklinik-bellikon-bellikon": "AG",
+        "food-service-staff-rehaklinik-bellikon-bellikon": "AG",
+        "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "en": {
+        "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon": "AG",
+        "food-service-staff-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "de": {
+        "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "fr": {
+        "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon": "AG",
+        "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon": "AG"
+      }
+    }
   },
   {
     "slug": "specialista-hr-specialista-hr-rehaklinik-bellikon-bellikon-08282588a9",
@@ -140,7 +159,17 @@
         "firstSeenAt": "2026-10-12T09:37:41.612Z",
         "title": "HR Fachfrau / HR Fachmann"
       }
-    ]
+    ],
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hr-fachfrau-hr-fachmann-reha-bellikon-bellikon": "AG",
+        "specialista-hr-specialista-hr-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "de": {
+        "hr-fachfrau-hr-fachmann-rehaklinik-bellikon-bellikon": "AG"
+      }
+    }
   },
   {
     "slug": "ict-senior-security-ingegnere-rehaklinik-bellikon-bellikon",
@@ -184,7 +213,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/ict-senior-security-engineer/d51ccbc3-549a-491d-86d9-a91917fc926a",
-    "firstSeenAt": "2026-10-01T09:29:02.069Z"
+    "firstSeenAt": "2026-10-01T09:29:02.069Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "ict-senior-security-engineer-reha-bellikon-bellikon": "AG"
+      }
+    }
   },
   {
     "slug": "capogruppo-integrazione-professionale-coira-rehaklinik-bellikon-chur",
@@ -241,7 +276,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/standortleiterin-standortleiter-berufliche-eingliederung-chur/79c9f6f0-e25d-4998-b551-716f25476e0d",
-    "firstSeenAt": "2026-09-25T15:04:27.060Z"
+    "firstSeenAt": "2026-09-25T15:04:27.060Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "gruppenleiter-in-berufliche-eingliederung-chur-reha-bellikon-bellikon": "GR",
+        "gruppenleiter-in-berufliche-eingliederung-chur-reha-bellikon-chur": "GR",
+        "standortleiterin-standortleiter-berufliche-eingliederung-chur-reha-bellikon-chur": "GR"
+      },
+      "en": {
+        "gruppenleiter-in-berufliche-eingliederung-chur-reha-bellikon-bellikon": "GR"
+      },
+      "de": {
+        "gruppenleiter-in-berufliche-eingliederung-chur-reha-bellikon-chur": "GR"
+      },
+      "fr": {
+        "gruppenleiter-in-berufliche-eingliederung-chur-reha-bellikon-bellikon": "GR"
+      }
+    }
   },
   {
     "slug": "gastronomia-per-dipendenti-rehaklinik-bellikon-bellikon",
@@ -465,14 +517,14 @@
       "addetto-a-alla-ristorazione-rehaklinik-bellikon-bellikon-a3582fbc",
       "food-service-staff-rehaklinik-bellikon-bellikon-21870afc",
       "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon-89f28488",
+      "addetto-a-alla-ristorazione-rehaklinik-bellikon-bellikon",
+      "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon",
+      "food-service-staff-rehaklinik-bellikon-bellikon",
       "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon",
       "employee-employee-gastronomy-rehaklinik-bellikon-bellikon",
       "gastronomie-des-employes-rehaklinik-bellikon-bellikon",
       "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon",
-      "mitarbeiterin-collaboratore-trice-gastronomie-rehaklinik-bellikon",
-      "addetto-a-alla-ristorazione-rehaklinik-bellikon-bellikon",
-      "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon",
-      "food-service-staff-rehaklinik-bellikon-bellikon"
+      "mitarbeiterin-collaboratore-trice-gastronomie-rehaklinik-bellikon"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -644,7 +696,8 @@
         "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon-d87c1e04",
         "employee-employee-gastronomy-rehaklinik-bellikon-bellikon-8e85934b",
         "addetto-a-alla-ristorazione-rehaklinik-bellikon-bellikon",
-        "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon"
+        "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon",
+        "employee-employee-gastronomy-rehaklinik-bellikon-bellikon-a1d982bb"
       ],
       "de": [
         "mitarbeiterin-collaboratore-trice-gastronomie-rehaklinik-bellikon",
@@ -691,7 +744,8 @@
         "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon-02ac5925",
         "addetto-a-alla-ristorazione-rehaklinik-bellikon-bellikon",
         "food-service-staff-rehaklinik-bellikon-bellikon",
-        "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon"
+        "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon",
+        "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon-9159f2c5"
       ],
       "fr": [
         "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon-a4d751b1",
@@ -775,7 +829,8 @@
         "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon-d87c1e04",
         "gastronomie-des-employes-rehaklinik-bellikon-bellikon-510b0765",
         "addetto-a-alla-ristorazione-rehaklinik-bellikon-bellikon",
-        "food-service-staff-rehaklinik-bellikon-bellikon"
+        "food-service-staff-rehaklinik-bellikon-bellikon",
+        "gastronomie-des-employes-rehaklinik-bellikon-bellikon-14019aab"
       ]
     },
     "postalCode": "5454",
@@ -797,9 +852,24 @@
     "previousSlugCantonByLocale": {
       "it": {
         "food-service-staff-rehaklinik-bellikon-bellikon-21870afc": "AG",
-        "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon-89f28488": "AG"
+        "employe-e-de-la-restauration-rehaklinik-bellikon-bellikon-89f28488": "AG",
+        "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon-9159f2c5": "AG",
+        "mitarbeiterin-collaboratore-trice-gastronomie-rehaklinik-bellikon-9b31c5f8": "AG"
+      },
+      "en": {
+        "employee-employee-gastronomy-rehaklinik-bellikon-bellikon-a1d982bb": "AG",
+        "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon-a4d751b1": "AG"
+      },
+      "de": {
+        "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon-9159f2c5": "AG",
+        "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon-a4d751b1": "AG"
+      },
+      "fr": {
+        "gastronomie-des-employes-rehaklinik-bellikon-bellikon-14019aab": "AG",
+        "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon-a4d751b1": "AG"
       }
-    }
+    },
+    "canton": "AG"
   },
   {
     "slug": "studi-medici-prepratici-prepratici-rehaklinik-bellikon-bellikon",
@@ -862,7 +932,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/vorpraktikantin-vorpraktikant-medizinstudium/3a3eef5d-a7fd-431c-84d6-919da2968109",
-    "firstSeenAt": "2026-08-19T21:38:14.869Z"
+    "firstSeenAt": "2026-08-19T21:38:14.869Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon": "AG",
+        "vorpraktikantin-vorpraktikant-medizinstudium-reha-bellikon-bellikon": "AG"
+      },
+      "en": {
+        "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "fr": {
+        "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon": "AG",
+        "etudes-medicales-prepratiques-prepratiques-rehaklinik-bellikon-bellikon": "AG",
+        "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon": "AG"
+      }
+    }
   },
   {
     "slug": "intern-internship-care-rehaklinik-bellikon-bellikon",
@@ -894,7 +979,8 @@
       "praktikantin-praktikant-pflege-reha-bellikon-bellikon",
       "tirocinante-assistenza-rehaklinik-bellikon-bellikon",
       "intern-care-assistant-rehaklinik-bellikon-bellikon",
-      "stagiaire-en-soins-rehaklinik-bellikon-bellikon"
+      "stagiaire-en-soins-rehaklinik-bellikon-bellikon",
+      "intern-internship-care-rehaklinik-bellikon-bellikon"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -905,7 +991,8 @@
         "praktikantin-praktikant-pflege-rehaklinik-bellikon-bellikon"
       ],
       "en": [
-        "intern-care-assistant-rehaklinik-bellikon-bellikon"
+        "intern-care-assistant-rehaklinik-bellikon-bellikon",
+        "intern-internship-care-rehaklinik-bellikon-bellikon"
       ],
       "fr": [
         "stagiaire-en-soins-rehaklinik-bellikon-bellikon"
@@ -917,7 +1004,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/praktikantin-praktikant-pflege/78273bdd-a6be-4651-a038-1f4f91b96d3a",
-    "firstSeenAt": "2026-08-19T21:38:15.392Z"
+    "firstSeenAt": "2026-08-19T21:38:15.392Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "praktikantin-praktikant-pflege-reha-bellikon-bellikon": "AG"
+      },
+      "en": {
+        "intern-internship-care-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "de": {
+        "praktikantin-praktikant-pflege-rehaklinik-bellikon-bellikon": "AG"
+      }
+    }
   },
   {
     "slug": "capogruppo-integrazione-professionale-coira-rehaklinik-bellikon-chur-7cf16b8a",
@@ -1027,7 +1126,90 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/sicherheitsbeauftragte-sicherheitsbeauftragter/b1ec1a7b-3cf5-40a0-a6aa-9ae77a7556fc",
-    "firstSeenAt": "2026-09-10T23:21:57.742Z"
+    "firstSeenAt": "2026-09-10T23:21:57.742Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sicherheitsbeauftragte-sicherheitsbeauftragter-reha-bellikon-bellikon": "AG",
+        "sicherheitsbeauftragte-sicherheitsbeauftragter-rehaklinik-bellikon-bellikon": "AG",
+        "agente-di-sicurezza-agente-di-sicurezza-rehaklinik-bellikon-bellikon": "AG",
+        "security-officer-security-officer-rehaklinik-bellikon-bellikon": "AG",
+        "agent-de-securite-agent-de-securite-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "en": {
+        "sicherheitsbeauftragte-sicherheitsbeauftragter-rehaklinik-bellikon-bellikon": "AG",
+        "security-officer-security-officer-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "fr": {
+        "sicherheitsbeauftragte-sicherheitsbeauftragter-rehaklinik-bellikon-bellikon": "AG",
+        "agent-de-securite-agent-de-securite-rehaklinik-bellikon-bellikon": "AG"
+      }
+    }
+  },
+  {
+    "slug": "assistente-assistente-gestione-della-qualita-e-del-processo-rehaklinik-bellikon-oin8op",
+    "title": "Assistentin / Assistent Qualitäts- und Prozessmanagement",
+    "titleByLocale": {
+      "it": "Assistente/Assistente Gestione della Qualità e del Processo",
+      "en": "Assistant / Assistant Quality and Process Management",
+      "de": "Assistentin / Assistent Qualitäts- und Prozessmanagement",
+      "fr": "Assistant / Assistant Gestion de la qualité et des processus"
+    },
+    "company": "Rehaklinik Bellikon",
+    "companyKey": "reha-bellikon",
+    "location": "Bellikon",
+    "addressLocality": "Bellikon",
+    "descriptionByLocale": {
+      "it": "Affidabilità, significato e competenza Con un team esperto, accompagniamo i pazienti attraverso alti e bassi e li aiutiamo a trovare il loro modo di tornare alla vita o lavorare dopo un incidente o una malattia.\n\nIl nostro lavoro di squadra si basa su buona volontà, fiducia, impegno e orientamento di servizio. Se questi valori sono anche importanti per voi e si desidera essere impegnati a sviluppare ulteriormente cliniche Suva così come la loro qualità e processi, quindi non vediamo l'ora della vostra applicazione.\n\nCompiti\n\n• Movimentazione dei materiali:\n• Manutenzione e controllo dei documenti\n• Gestione e documentazione del miglioramento trasversale e delle misure correttive\n• Organizzazione delle misurazioni di soddisfazione (pazienti, assegnanti) e audit interni ed esterni\n• Supporto di controllo del rischio ERM\n• Gestione e valutazione delle statistiche\n• Partecipazione al progetto nella trasformazione nel sistema di gestione integrato (IMS) delle cliniche Suva in entrambe le sedi – ad esempio:\n• Istituzione di una domanda di documentazione dello SME\n• Modellazione e migrazione dei documenti\n• Formazione dei dipendenti\n• Assistenza nello sviluppo e nell'attuazione di concetti di qualità e misure di miglioramento della qualità con le aree specializzate (ad esempio sul contratto di qualità secondo KVG 58a)\n• Assistenza nell'attuazione e nel controllo delle specifiche/standard di qualità interna ed esterna (ad esempio ANQ, Hplus)\n• Collaborazione in progetti (ad esempio Lean Management, Records Management)\n\nProfilo\n\n• Istruzione commerciale di base e/o professione sanitaria\n• Corsi come Quality Manager/in Healthcare, Quality and Process Manager/in ecc.\n• Esperienza nella gestione della qualità, idealmente nel settore sanitario\n• L'esperienza nella gestione del progetto, magra e record è un vantaggio\n• pensiero e azione in rete combinati con la capacità di lavorare insieme a persone di diversi gruppi professionali / stakeholders\n• Capacità di comunicare livello- e indirizzo-orientato e orientato al servizio nella parola e nella scrittura\n• Ottima conoscenza nell'applicazione di prodotti e applicazioni MS Office per sistemi di gestione integrati\n• Compulsory: conoscenza del tedesco a livello di madrelingua e conoscenza molto buona del francese (minimo C1-C2) e disponibilità a viaggiare (Sion, Berna)\n\nPensum: 60%\n\nOccupazione: indefinito\n\nIngresso: 2026-07-01",
+      "en": "Membership, meaningfulness and competence With an experienced team, we accompany patients through ups and downs and help them to find their way back to life or work after an accident or illness.\n\nOur teamwork is based on goodwill, trust, commitment and service orientation. If these values are also important to you and you want to be committed to further developing Suva clinics as well as their quality and processes, then we look forward to your application.\n\nTasks\n\n• Material handling:\n• Document maintenance and control\n• Management and documentation of cross-clinical improvement and corrective measures\n• Organization of satisfaction measurements (patients, assignees) and internal and external audits\n• ERM risk control support\n• Management and evaluation of statistics\n• Participation in the project in the transformation into the integrated management system (IMS) of Suva clinics at both locations – e.g.:\n• Establishment of an application for the documentation of the IMS\n• Process modelling and migration of documents\n• Training of employees\n• Assistance in the development and implementation of quality concepts and quality improvement measures with the specialist areas (e.g. on the quality contract according to KVG 58a)\n• Assistance in the implementation and controlling of internal and external quality specifications/standards (e.g. ANQ, Hplus)\n• Collaboration in projects (e.g. Lean Management, Records Management)\n\nProfile\n\n• Basic commercial education and/or health profession\n• Courses such as Quality Manager/in Healthcare, Quality and Process Manager/in etc.\n• Experience in quality management, ideally in healthcare\n• Experience in project, lean and record management is an advantage\n• Networked thinking and action combined with the ability to work together with people from different professional groups / stakeholders\n• Ability to communicate level- and address-oriented as well as service-oriented in word and writing\n• Very good knowledge in the application of MS Office products and applications for integrated management systems\n• Compulsory: knowledge of German at the level of mother tongue as well as very good knowledge of French (minimum C1-C2) and willingness to travel (Sion, Bern)\n\nPensum: 60%\n\nEmployment: indefinite\n\nEntrance: 2026-07-01",
+      "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nUnsere Zusammenarbeit im Team basiert auf Wohlwollen, Vertrauen, Verbindlichkeit und Dienstleistungsorientierung. Wenn diese Werte auch Ihnen wichtig sind und Sie sich engagieren möchten, die Suva-Kliniken sowie deren Qualität und Prozesse weiterzuentwickeln, dann freuen wir uns auf Ihre Bewerbung.\n\nAufgaben\n\n• Sachbearbeitung:\n• Dokumentenpflege und -lenkung\n• Management und Dokumentation von klinikübergreifenden Verbesserungs- und Korrekturmassnahmen\n• Organisation von Zufriedenheitsmessungen (Patienten, Zuweisende) sowie internen und externen Audits\n• Support bei den Risikokontrollen im Rahmen des ERM\n• Führung und Auswertung von Statistiken\n• Mitarbeit im Projekt bei der Transformation ins integrierte Managementsystem (IMS) der Suva-Kliniken an beiden Standorten – z.B.:\n• Aufbau einer Applikation zur Dokumentation des IMS\n• Prozessmodellierung und Migration von Dokumenten\n• Schulung von Mitarbeitenden\n• Mithilfe bei Erarbeitung und Umsetzung von Qualitätskonzepten und Qualitätsverbesserungsmassnahmen mit den Fachbereichen (z.B. zum Qualitätsvertrag nach KVG 58a)\n• Mithilfe bei Umsetzung und Controlling der internen und externen Qualitätsvorgaben/-standards (z.B. ANQ, Hplus)\n• Mitarbeit in Projekten (z.B. Lean-Management, Recordsmanagement)\n\nProfil\n\n• Kaufmännische Grundausbildung und/oder Gesundheitsberuf\n• Lehrgänge wie Qualitätsmanager/in Gesundheitswesen, Qualitäts- und Prozessmanager/in o.ä.\n• Erfahrung im Qualitätsmanagement, optimalerweise im Gesundheitswesen\n• Erfahrung in Projekt-, Lean- und Recordsmanagement von Vorteil\n• Vernetztes Denken und Handeln verbunden mit der Fähigkeit mit Personen aus verschiedenen Berufsgruppen / Anspruchsgruppen zusammen zu arbeiten\n• Fähigkeit stufen- und adressatengerecht sowie dienstleistungsorientiert zu kommunizieren in Wort und Schrift\n• Sehr gute Kenntnisse in der Anwendung von MS Office Produkten und Applikationen für integrierte Managementsysteme\n• Zwingend: Deutschkenntnisse auf Niveau Muttersprache sowie sehr gute Französischkenntnisse (mind. C1-C2) sowie Reisebereitschaft (Sion, Bern)\n\nPensum: 60%\n\nAnstellung: unbefristet\n\nEintritt: 2026-07-01",
+      "fr": "Adhésion, sens et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauts et des bas et les aidons à retrouver leur chemin vers la vie ou le travail après un accident ou une maladie.\n\nNotre travail d'équipe repose sur la bonne volonté, la confiance, l'engagement et l'orientation du service. Si ces valeurs sont également importantes pour vous et que vous voulez vous engager à développer davantage les cliniques Suva ainsi que leur qualité et leurs processus, alors nous attendons avec impatience votre application.\n\nTâche\n\n• Manipulation des matériaux:\n• Entretien et contrôle des documents\n• Gestion et documentation des améliorations intercliniques et des mesures correctives\n• Organisation des mesures de satisfaction (patients, cessionnaires) et des audits internes et externes\n• Appui à la maîtrise des risques liés à la MCE\n• Gestion et évaluation des statistiques\n• Participation au projet de transformation en système de gestion intégrée (SGI) des cliniques Suva aux deux endroits – p. ex. :\n• Établissement d'une demande de documentation du SGI\n• Modélisation des processus et migration des documents\n• Formation des salariés\n• Assistance à l ' élaboration et à la mise en œuvre de concepts de qualité et de mesures d ' amélioration de la qualité dans les domaines spécialisés (par exemple sur le contrat de qualité conformément à la KVG 58a)\n• Assistance à la mise en œuvre et au contrôle des spécifications et normes de qualité internes et externes (par exemple ANQ, Hplus)\n• Collaboration à des projets (p. ex., gestion des fonds, gestion des dossiers)\n\nProfil\n\n• Éducation commerciale de base et/ou profession de la santé\n• Cours tels que Gestionnaire de la qualité/dans les soins de santé, Gestionnaire de la qualité et des processus/dans etc.\n• Expérience dans la gestion de la qualité, idéalement dans les soins de santé\n• L'expérience de la gestion de projet, maigre et record est un avantage\n• Réflexion et action en réseau associées à la capacité de travailler avec des personnes de différents groupes professionnels / parties prenantes\n• Aptitude à communiquer des mots et des écrits axés sur le niveau et l'adresse ainsi que sur le service\n• Très bonne connaissance de l'application des produits MS Office et des applications des systèmes de gestion intégrés\n• Obligatoire : connaissance de l'allemand au niveau de la langue maternelle ainsi que très bonne connaissance du français (minimum C1-C2) et volonté de voyager (Sion, Berne)\n\nPensum: 60%\n\nEmploi: indéfini\n\nEntrée : 2026-07-01"
+    },
+    "slugByLocale": {
+      "it": "assistente-assistente-gestione-della-qualita-e-del-processo-rehaklinik-bellikon-oin8op",
+      "en": "assistant-assistant-quality-and-process-management-rehaklinik-bellikon-bellikon",
+      "de": "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon",
+      "fr": "assistant-assistant-gestion-de-la-qualite-et-des-processus-rehaklinik-bellikon-bellikon"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-06T09:44:56.390Z",
+    "previousSlugs": [
+      "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon",
+      "assistentin-assistent-qualitats-e-prozessmanagement-rehaklinik-bellikon",
+      "assistente-assistente-gestione-della-qualita-e-del-processo-rehaklinik-bellikon-bellikon"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon",
+        "assistentin-assistent-qualitats-e-prozessmanagement-rehaklinik-bellikon"
+      ],
+      "en": [
+        "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon"
+      ],
+      "fr": [
+        "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon"
+      ]
+    },
+    "postalCode": "5454",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true,
+    "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/assistentin-assistent-qualitaets-und-prozessmanagement/d944ae88-2989-452a-8ab4-867a8f6c1e1a",
+    "firstSeenAt": "2026-09-09T14:03:40.919Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/assistentin-assistent-qualitaets-und-prozessmanagement/373db8f6-c31b-49fd-be68-814effdbe306",
+        "firstSeenAt": "2026-09-09T14:03:40.919Z",
+        "title": "Assistentin / Assistent Qualitäts- und Prozessmanagement"
+      },
+      {
+        "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/assistentin-assistent-qualitaets-und-prozessmanagement/d944ae88-2989-452a-8ab4-867a8f6c1e1a",
+        "firstSeenAt": "2026-09-09T14:03:40.919Z",
+        "title": "Assistentin / Assistent Qualitäts- und Prozessmanagement"
+      }
+    ]
   },
   {
     "slug": "lavoratore-sociale-lavoratore-sociale-rehaklinik-bellikon-bellikon",
@@ -1078,7 +1260,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/sozialarbeiterin-sozialarbeiter/202b7ffd-6111-46fc-854f-6d98d50f195b",
-    "firstSeenAt": "2026-09-09T14:03:39.811Z"
+    "firstSeenAt": "2026-09-09T14:03:39.811Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sozialarbeiterin-sozialarbeiter-reha-bellikon-bellikon": "AG",
+        "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "en": {
+        "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon": "AG"
+      },
+      "fr": {
+        "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon": "AG"
+      }
+    }
   },
   {
     "slug": "medico-di-discorso-medico-di-discorso-rehaklinik-bellikon-bellikon-c012fc",
@@ -1127,7 +1322,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/logopaedin-logopaede/1def9f12-4fa8-4ec7-b664-6836e8bdc2f2",
-    "firstSeenAt": "2026-09-09T14:03:40.373Z"
+    "firstSeenAt": "2026-09-09T14:03:40.373Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "logopadin-logopade-reha-bellikon-bellikon": "AG"
+      },
+      "en": {
+        "logopadin-logopade-reha-bellikon-bellikon": "AG"
+      },
+      "fr": {
+        "logopadin-logopade-reha-bellikon-bellikon": "AG"
+      }
+    }
   },
   {
     "slug": "applicazioni-spontanee-per-professioni-di-cura-rehaklinik-bellikon-bellikon",
@@ -1183,7 +1390,25 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.rehabellikon.ch/",
-    "firstSeenAt": "2026-09-19T23:11:13.923Z"
+    "firstSeenAt": "2026-09-19T23:11:13.923Z",
+    "canton": "AG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "spontanbewerbung-als-assistenzarztin-arzt-reha-bellikon-bellikon": "AG",
+        "spontanbewerbungen-fur-pflegeberufe-reha-bellikon-bellikon": "AG",
+        "spontanbewerbungen-fur-pflegeberufe-rehaklinik-bellikon-bellikon": "AG",
+        "spontanbewerbungen-per-pflegeberufe-rehaklinik-bellikon": "AG"
+      },
+      "en": {
+        "spontanbewerbungen-fur-pflegeberufe-rehaklinik-bellikon": "AG"
+      },
+      "de": {
+        "spontanbewerbung-als-assistenzarztin-arzt-reha-bellikon-bellikon": "AG"
+      },
+      "fr": {
+        "spontanbewerbungen-fur-pflegeberufe-rehaklinik-bellikon": "AG"
+      }
+    }
   },
   {
     "slug": "apprendista-r-fachfrau-fachmann-reinigungstechnik-cfc-rehaklinik-bellikon-bellikon",
@@ -1712,6 +1937,53 @@
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "stage-in-diagnostica-delle-prestazioni-rehaklinik-bellikon-bellikon",
+    "title": "Praktikantin / Praktikant Leistungsdiagnostik",
+    "titleByLocale": {
+      "it": "Stage in Diagnostica delle Prestazioni",
+      "en": "Performance Diagnostics Intern",
+      "de": "Praktikantin / Praktikant Leistungsdiagnostik",
+      "fr": "Stagiaire en Diagnostic des Performances"
+    },
+    "company": "Rehaklinik Bellikon",
+    "companyKey": "reha-bellikon",
+    "location": "Bellikon",
+    "addressLocality": "Bellikon",
+    "descriptionByLocale": {
+      "it": "Descrizione Appartenenza, significato e competenza Con un team affiatato, accompagniamo i pazienti attraverso alti e bassi e li aiutiamo a tornare alla vita o al lavoro dopo un incidente o una malattia. Per il settore della medicina dello sport e della riabilitazione cerchiamo dal 1° Agosto 2026 per 6 - 12 mesi un/una tirocinante. Sarai seguito dai nostri diagnostici delle prestazioni e accuratamente introdotto nei tuoi compiti. Mansioni - Assistenza in test diagnostici delle prestazioni, se necessario esecuzione indipendente - Assistenza e introduzione di pazienti della medicina dello sport nella sala pesi - Allenamenti individuali con pazienti - Attività amministrative - Assistenza in vari progetti interni\n• Requisiti - Laurea triennale in scienze della salute o dello sport - Interesse nel lavoro con pazienti e atleti, incl. Atlete/Atleti PluSport - Iniziativa, autonomia e disponibilità a svolgere diversi compiti - Lavoro diligente secondo gli standard scientifici - Capacità di lavorare in team - Buona conoscenza del PC a vantaggio di\n• Cosa offriamo - Lavoro: 80-100% - Impiego: a tempo determinato - Ingresso: 2026-08-01",
+      "en": "Descrizione Belonging, Meaningfulness and Competence With a well-rehearsed team, we accompany patients through ups and downs and help them find their way back to life or work after an accident or illness. For the area of sports medicine and rehabilitation, we are looking for August 2026 for 6 - 12 months. You will be supervised by our performance diagnosticians and carefully introduced to your tasks. Mansioni - Assistance with performance diagnostic tests, possibly independent implementation - Support and introduction of patients in sports medicine in the weight room - Individual training with patients - Administrative activities - Assistance with various internal projects\n• Requisiti - Completed bachelor's degree in health or sports sciences - Interest in working with patients and athletes, incl. PluSport athletes - Initiative, independence and willingness to perform various tasks - Careful work according to scientific standards - Ability to work in a team - Good PC knowledge is an advantage\n• Cosa offriamo - Workload: 80-100% - Employment: temporary - Admission: 2026-08-01",
+      "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden. Für den Bereich Sportmedizin und Rehabilitation suchen wir vom 1. August 2026 für 6 - 12 Monate eine/n Praktikantin / Praktikanten. Du wirst von unseren Leistungsdiagnostikerinnen/-diagnostikern betreut und sorgfältig in deine Aufgaben eingeführt. Aufgaben\n• Mithilfe bei leistungsdiagnostischen Tests, ggf. selbstständige Durchführung\n• Betreuung und Einführung von Patientinnen und Patienten der Sportmedizin im Kraftraum\n• Einzeltrainings mit Patientinnen und Patienten\n• Administrative Tätigkeiten\n• Mithilfe bei diversen internen Projekten Profil\n• Abgeschlossenes Bachelorstudium in Gesundheits- oder Sportwissenschaften\n• Interesse an der Arbeit mit Patientinnen/Patienten und Athletinnen/Athleten, inkl. PluSport-Athletinnen/Athleten\n• Initiative, Selbstständigkeit und Bereitschaft zur Ausführung von verschiedenen Aufgaben\n• Sorgfältiges Arbeiten nach wissenschaftlichen Standards\n• Teamfähigkeit\n• Gute PC-Kenntnisse von Vorteil Pensum: 80-100% Anstellung: befristet Eintritt: 2026-08-01",
+      "fr": "Descrizione Appartenance, pertinence et compétence Avec une équipe bien rodée, nous accompagnons les patients à travers les hauts et les bas et les aidons à retrouver la vie ou le travail après un accident ou une maladie. Pour le domaine de la médecine du sport et de la rééducation, nous recherchons du 1er Août 2026 pour 6 à 12 mois un/une stagiaire. Tu seras supervisé (e) par nos diagnostiqueurs de performance et soigneusement initié (e) s à tes tâches. Mansioni - Aide pour les tests de diagnostic de performance, le cas échéant mise en œuvre indépendante - Prise en charge et introduction des patients en médecine du sport dans la salle de musculation - Entraînements individuels avec les patients - Activités administratives - Aide pour divers projets internes\n• Requisiti - Diplôme de baccalauréat en sciences de la santé ou du sport - Intérêt pour le travail avec les patients et les athlètes, y compris Athlètes PluSport - Initiative, autonomie et volonté d'effectuer diverses tâches - Travail minutieux selon les normes scientifiques - Capacité à travailler en équipe - Bonnes connaissances en informatique, un avantage\n• Cosa offriamo - Taux d'occupation : 80-100% - Emploi : temporaire - Entrée : 2026-08-01"
+    },
+    "slugByLocale": {
+      "it": "stage-in-diagnostica-delle-prestazioni-rehaklinik-bellikon-bellikon",
+      "en": "performance-diagnostics-intern-rehaklinik-bellikon-bellikon",
+      "de": "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon",
+      "fr": "stagiaire-en-diagnostic-des-performances-rehaklinik-bellikon-bellikon"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-08T11:14:32.028Z",
+    "previousSlugs": [
+      "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon",
+      "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon"
+      ],
+      "de": [
+        "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon"
+      ]
+    },
+    "postalCode": "5454",
+    "salaryMin": 52000,
+    "salaryMax": 78500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://job.rehabellikon.ch/job/rehaklinik-bellikon/praktikantin-praktikant-leistungsdiagnostik/e87f8644-a99c-4cf1-92f5-d8cf2ed3b65c",
+    "firstSeenAt": "2026-11-27T00:03:27.574Z"
   },
   {
     "slug": "kreativ-koordinatorin-koordinator-rehaklinik-bellikon-bellikon",

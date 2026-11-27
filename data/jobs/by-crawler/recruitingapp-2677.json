@@ -84,7 +84,8 @@
       "streetAddress": "Vaduz oder Uznach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:20:03.971Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2677.umantis.com/vacancies/2013/description/1"
     },
     {
       "id": "recruitingapp-2677-9091ecfa79c7",
@@ -153,7 +154,8 @@
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:20:03.668Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2677.umantis.com/vacancies/2022/description/1"
     },
     {
       "id": "recruitingapp-2677-b1e84cb2af91",
@@ -230,7 +232,8 @@
       "streetAddress": "Vaduz oder Uznach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:20:03.366Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2677.umantis.com/vacancies/2024/description/1"
     },
     {
       "id": "recruitingapp-2677-964bf0b0da88",
@@ -302,7 +305,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-25T09:20:03.061Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T09:20:03.061Z"
+      "firstSeenAt": "2026-11-27T09:20:03.061Z",
+      "sourceIdentity": "url:https://recruitingapp-2677.umantis.com/vacancies/2025/description/1"
     }
   ]
 }
