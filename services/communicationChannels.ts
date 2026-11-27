@@ -184,6 +184,15 @@ export interface CommunicationChannel {
    */
   readonly cron: string | null;
   /**
+   * A slot that the workflow does NOT schedule itself because an external
+   * scheduler dispatches it (Cloud Scheduler -> `workflow_dispatch`), as UTC
+   * `HH:MM`. Optional and `undefined` for every channel but job-alerts. The
+   * test pins it to the constant the dispatcher really uses and requires the
+   * cadence sentence to state it, so the page cannot promise a time the
+   * scheduler does not carry.
+   */
+  readonly externalSlotUtc?: string;
+  /**
    * Does it ship today? `suspended` requires the marker in the workflow file —
    * the one half of this that a test can verify from disk.
    */
@@ -258,7 +267,8 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     id: 'job-alerts',
     sender: 'scripts/send-job-alerts.mjs',
     workflow: '.github/workflows/send-job-alerts.yml',
-    cron: '33 0 * * *',
+    cron: '7 12 * * *',
+    externalSlotUtc: '05:00',
     status: 'live',
     consentCategory: 'jobs',
     name: {
@@ -274,10 +284,10 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
       fr: 'Les nouvelles annonces correspondant aux critères définis : métier, canton, type de contrat.',
     },
     cadence: {
-      it: 'Ogni giorno alle 00:33 UTC, e solo se ci sono annunci nuovi che corrispondono.',
-      en: 'Every day at 00:33 UTC, and only when there are new matching listings.',
-      de: 'Täglich um 00:33 UTC, und nur wenn es neue passende Inserate gibt.',
-      fr: 'Chaque jour à 00:33 UTC, et seulement s’il y a de nouvelles annonces correspondantes.',
+      it: 'Ogni giorno, con l’invio principale alle 05:00 UTC e una ripresa di sicurezza dalle 12:07 UTC (può slittare di ore), e solo se ci sono annunci nuovi che corrispondono.',
+      en: 'Every day, with the main send at 05:00 UTC and a safety pass from 12:07 UTC (it can run hours late), and only when there are new matching listings.',
+      de: 'Täglich, mit dem Hauptversand um 05:00 UTC und einem Sicherheitslauf ab 12:07 UTC (kann sich um Stunden verzögern), und nur wenn es neue passende Inserate gibt.',
+      fr: 'Chaque jour, avec l’envoi principal à 05:00 UTC et un passage de sécurité à partir de 12:07 UTC (il peut avoir des heures de retard), et seulement s’il y a de nouvelles annonces correspondantes.',
     },
   }),
   Object.freeze({
