@@ -49,7 +49,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch",
-    "firstSeenAt": "2026-07-04T10:22:03.133Z"
+    "firstSeenAt": "2026-07-04T10:22:03.133Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "salesforce-business-consultant-agentforce-contact-center-service-cloud-ch-bucher-suter": "BE",
+        "salesforce-business-consultant-salesforce-contact-center-service-cloud-ch-bucher-suter": "BE"
+      },
+      "de": {
+        "salesforce-business-consultant-agentforce-contact-center-service-cloud-ch-bucher-suter": "BE"
+      },
+      "fr": {
+        "salesforce-business-consultant-agentforce-contact-center-service-cloud-ch-bucher-suter": "BE"
+      }
+    }
   },
   {
     "slug": "capo-squadra-operations-people-process-business-applications-bucher-suter-ag-bern",
