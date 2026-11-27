@@ -1,6 +1,10 @@
-import sharp from 'sharp';
-import { PDFDocument } from 'pdf-lib';
 import { detectCvFileType } from '../assistedApplicationCvCheck.js';
+
+// sharp and pdf-lib are loaded on first use: static imports put ~20 MB resident in every function of the
+// codebase, the 256 MiB assisted-application functions among them (functions/tests/functions-import-weight.test.ts).
+async function loadSharp() {
+  return (await import('sharp')).default;
+}
 
 export const MAX_CV_OUTPUT_BYTES = 5 * 1024 * 1024;
 export const MAX_CV_IMAGE_INPUT_BYTES = 8 * 1024 * 1024;
@@ -58,6 +62,8 @@ export async function convertCvImagesToPdf(buffers, { maxOutputBytes = MAX_CV_OU
     .map((item) => (Buffer.isBuffer(item) ? item : Buffer.from(item)));
   if (!inputs.length) return null;
 
+  const sharp = await loadSharp();
+  const { PDFDocument } = await import('pdf-lib');
   for (const step of IMAGE_COMPRESSION_LADDER) {
     const doc = await PDFDocument.create();
     for (const input of inputs) {
@@ -90,6 +96,7 @@ export async function convertCvImagesToPdf(buffers, { maxOutputBytes = MAX_CV_OU
 
 async function isQualifyingCvImage(buffer) {
   try {
+    const sharp = await loadSharp();
     const meta = await sharp(buffer, { limitInputPixels: MAX_INPUT_PIXELS }).metadata();
     const width = Number(meta?.width) || 0;
     const height = Number(meta?.height) || 0;

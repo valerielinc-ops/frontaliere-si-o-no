@@ -3596,8 +3596,10 @@ export const refreshConciergeMatchesAfterLetterProof = onDocumentWritten(
 
 // The agent reports each outcome (draft ready, sent, handoff, closed ad…) as
 // one document; this applies it to the flow exactly once.
+// 512 MiB: 256 MiB ran out ("Memory limit of 256 MiB exceeded with 265 MiB used", 26-27/11) and an OOM here loses the
+// runner's event or a dispatch the sweep had just recorded. Loading index.js alone is ~120 MiB resident.
 export const applyAssistedApplicationRunnerEvent = onDocumentCreated(
-  { region: 'europe-west6', memory: '256MiB', document: 'assisted_applications/{orderId}/automation_events/{eventId}' },
+  { region: 'europe-west6', memory: '512MiB', document: 'assisted_applications/{orderId}/automation_events/{eventId}' },
   async (event) => {
     const snapshot = event.data;
     if (!snapshot) return;
@@ -3620,7 +3622,7 @@ export const applyAssistedApplicationRunnerEvent = onDocumentCreated(
 // and the watchdog of runs that never reported back.
 export const sweepAssistedApplicationAutomation = onSchedule(
   // 120 s: before a reminder to a candidate the sweep looks at the ad (up to POSTING_LOOK_MS for each).
-  { region: 'europe-west6', schedule: 'every 5 minutes', timeZone: 'Europe/Zurich', memory: '256MiB', timeoutSeconds: 120 },
+  { region: 'europe-west6', schedule: 'every 5 minutes', timeZone: 'Europe/Zurich', memory: '512MiB', timeoutSeconds: 120 },
   async () => {
     try {
       const summary = await runAutomationSweep({
