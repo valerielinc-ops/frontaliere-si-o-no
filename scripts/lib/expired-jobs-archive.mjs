@@ -881,6 +881,34 @@ export function createSameIdentityArchiveIndex(records, { activeJobs, isAmbiguou
 }
 
 /**
+ * Add locale-qualified routes (`it:slug`) to an archived record's history
+ * through `mergeExpiredRouteEvidence`: nothing is trimmed or replaced, and a
+ * caller never assembles the slug history fields itself (#5157).
+ *
+ * @param {object} record archived record (mutated)
+ * @param {string[]} routeKeys
+ * @param {{cantons?: Record<string, Record<string, string>>, source?: string}} [options]
+ *   `cantons` maps locale -> slug -> the canton that served that route.
+ * @returns {boolean} whether the record changed
+ */
+export function addExpiredRoutes(record, routeKeys, { cantons = {}, source = 'addExpiredRoutes' } = {}) {
+  const routesByLocale = {};
+  const cantonsByLocale = {};
+  for (const routeKey of routeKeys) {
+    const locale = localeFromRouteKey(routeKey);
+    const slug = rawRouteFromLocaleKey(routeKey);
+    (routesByLocale[locale] ||= []).push(slug);
+    const canton = cantons[locale]?.[slug];
+    if (canton) (cantonsByLocale[locale] ||= {})[slug] = canton;
+  }
+  return mergeExpiredRouteEvidence(
+    record,
+    { previousSlugsByLocale: routesByLocale, previousSlugCantonByLocale: cantonsByLocale },
+    source,
+  );
+}
+
+/**
  * Archive removed jobs to a per-crawler expired slice file.
  *
  * Merges with any existing entries by `slug`, keeping the most-recently
