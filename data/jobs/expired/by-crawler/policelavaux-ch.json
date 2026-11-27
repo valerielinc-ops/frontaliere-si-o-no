@@ -47,7 +47,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.policelavaux.ch/emplois/offres-demploi/secretaire-de-police-du-commerce",
-    "firstSeenAt": "2026-10-29T21:51:24.460Z"
+    "firstSeenAt": "2026-10-29T21:51:24.460Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "secretaire-de-police-du-commerce-cdd-pour-etudiant-lutry-policelavaux-ch-ch": "VD"
+      },
+      "en": {
+        "secretaire-de-police-du-commerce-cdd-pour-etudiant-lutry-policelavaux-ch-ch": "VD"
+      },
+      "de": {
+        "secretaire-de-police-du-commerce-cdd-pour-etudiant-lutry-policelavaux-ch-ch": "VD"
+      }
+    }
   },
   {
     "slug": "segretario-per-affari-porti-cdd-per-studenti-police-lavaux-lutry",
@@ -97,6 +109,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.policelavaux.ch/emplois/offres-demploi/secretaire-en-charge-des-affaires-portuaires",
-    "firstSeenAt": "2026-10-29T21:51:24.462Z"
+    "firstSeenAt": "2026-10-29T21:51:24.462Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "secretaire-en-charge-des-affaires-portuaires-cdd-pour-etudiant-lutry-policelavaux-ch-ch": "VD"
+      },
+      "en": {
+        "secretaire-en-charge-des-affaires-portuaires-cdd-pour-etudiant-lutry-policelavaux-ch-ch": "VD"
+      },
+      "de": {
+        "secretaire-en-charge-des-affaires-portuaires-cdd-pour-etudiant-lutry-policelavaux-ch-ch": "VD"
+      }
+    }
   }
 ]
