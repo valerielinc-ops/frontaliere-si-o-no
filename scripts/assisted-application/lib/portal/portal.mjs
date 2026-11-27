@@ -6451,6 +6451,17 @@ export function formPostingMatch(formText, job = {}, {
   const umantisHeadingConflict = trustedUmantisApplication
     ? umantisApplicationHeadingConflict(heading, job)
     : null;
+  // A SuccessFactors application page on the route proven for this posting
+  // (same tenant, same requisition id as the source module) that shows the
+  // order's role with that exact requisition is the posting's own form. The
+  // requisition id is the identity: a tenant hosts many employers and titles
+  // its pages with its own portal name, which the employer/role heading guards
+  // below read as «another employer» or «another role» on the right form
+  // (Stadt Zürich, 2026-11-27: `posting_unbound`, `formMatch: mismatch`). A page
+  // with another requisition, another role, a different route or no proof never
+  // takes this path.
+  if (successFactorsRouteBound
+    && (successFactorsBound || successFactorsRequisitionShown(formText, job, successFactorsRoute))) return 'match';
   const explicitRoleConflict = roleHeading === 'unknown'
     && rawDirect === 'mismatch'
     && hasExplicitFormRoleHeading(formText, job);
