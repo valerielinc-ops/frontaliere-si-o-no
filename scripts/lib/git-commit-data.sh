@@ -1453,10 +1453,10 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
   // stands BEFORE any addition below: a slug the result does not hold at all
   // is not in this set, so its incoming bucket is still banked back.
   const bucketed = new Set();
-  if (isPlainObject(merged.previousSlugsByLocale)) {
-    for (const arr of Object.values(merged.previousSlugsByLocale)) {
-      if (Array.isArray(arr)) for (const v of arr) if (typeof v === 'string') bucketed.add(v.trim());
-    }
+  // Only a supported locale attributes a slug; a stray key serves no route.
+  for (const locale of LOCALE_TRANSLATION_KEYS) {
+    const arr = merged.previousSlugsByLocale?.[locale];
+    if (Array.isArray(arr)) for (const v of arr) if (typeof v === 'string') bucketed.add(v.trim());
   }
   const flatOnly = new Set(
     (Array.isArray(merged.previousSlugs) ? merged.previousSlugs : [])

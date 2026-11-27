@@ -319,10 +319,8 @@ export function reachableSlugs(job) {
  * localized route for that slug; bucketing it would narrow it to one.
  */
 function flatOnlySlugs(job) {
-  const bucketed = new Set(
-    Object.values(job?.previousSlugsByLocale || {})
-      .flatMap((arr) => (Array.isArray(arr) ? arr.map(normalize) : [])),
-  );
+  // Only a supported locale attributes a slug; a stray key serves no route.
+  const bucketed = new Set(LOCALES.flatMap((locale) => priorBucket(job, locale)));
   const flat = Array.isArray(job?.previousSlugs) ? job.previousSlugs.map(normalize) : [];
   return new Set(flat.filter((slug) => slug && !bucketed.has(slug)));
 }

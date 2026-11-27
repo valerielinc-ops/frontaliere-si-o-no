@@ -13,7 +13,7 @@ import {
   _resetGscIndexedSlugsCache,
 } from '../scripts/lib/slug-preservation-guard.mjs';
 import { clear, getEvents } from '../scripts/lib/slug-history-journal.mjs';
-import { restoreLocaleSlug, mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { restoreLocaleSlug, mergePreserveLocaleData, getPreviousSlugsForLocale } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from '../scripts/lib/atomic-write-json.mjs';
 
 /**
@@ -744,6 +744,16 @@ describe('slug-preservation-guard never narrows a flat-only route', () => {
     expect(next.jobs[0].previousSlugsByLocale).toEqual({});
     expect(next.jobs[0].previousSlugs).toEqual([OLD]);
     expect(result.restored).toBe(0);
+  });
+
+  it('does not count a bucket for an unsupported locale as attribution', () => {
+    const next = record({ previousSlugs: [OLD], previousSlugsByLocale: { es: [OLD] } });
+    guard(record({ previousSlugs: [OLD], previousSlugsByLocale: { en: [OLD] } }), next);
+
+    expect(next.jobs[0].previousSlugsByLocale).toEqual({ es: [OLD] });
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      expect(getPreviousSlugsForLocale(next.jobs[0], locale)).toContain(OLD);
+    }
   });
 
   it('keeps that flat entry when another recapture pressures the full mirror', () => {
