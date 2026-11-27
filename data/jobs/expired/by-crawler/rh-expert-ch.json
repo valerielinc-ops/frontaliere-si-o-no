@@ -32,7 +32,8 @@
         "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf"
       ],
       "en": [
-        "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf"
+        "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf",
+        "hostesses-rh-expert-geneve-debaefbf"
       ],
       "de": [
         "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf"
@@ -44,6 +45,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://rh-expert.ch/fr/offres-demploi/hotes-et-hotesses-daccueil",
-    "firstSeenAt": "2026-10-23T21:38:06.681Z"
+    "firstSeenAt": "2026-10-23T21:38:06.681Z",
+    "canton": "GE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf": "GE"
+      },
+      "en": {
+        "hostesses-rh-expert-geneve-debaefbf": "GE",
+        "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf": "GE"
+      },
+      "de": {
+        "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf": "GE"
+      }
+    }
   }
 ]
