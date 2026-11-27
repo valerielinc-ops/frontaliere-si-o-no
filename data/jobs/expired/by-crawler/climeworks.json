@@ -34,7 +34,8 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://climeworks.recruitee.com/o/intern-in-sorbent-structures-80-100-104",
-    "firstSeenAt": "2026-10-28T20:04:12.974Z"
+    "firstSeenAt": "2026-10-28T20:04:12.974Z",
+    "canton": "ZH"
   },
   {
     "slug": "avviso-legale-100-climeworks-zurich",
@@ -77,7 +78,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://climeworks.recruitee.com/o/legal-counsel-100-101",
-    "firstSeenAt": "2026-09-30T21:11:56.184Z"
+    "firstSeenAt": "2026-09-30T21:11:56.184Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "legal-counsel-100-climeworks-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich",
@@ -128,7 +135,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
-    "firstSeenAt": "2026-07-08T22:24:43.541Z"
+    "firstSeenAt": "2026-07-08T22:24:43.541Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich": "ZH",
+        "sorbent-module-product-owner-80-100-climeworks-zurich": "ZH"
+      },
+      "en": {
+        "sorbent-module-product-owner-80-100-climeworks-zurich": "ZH"
+      },
+      "de": {
+        "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich",
@@ -279,7 +299,8 @@
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-c0945a18",
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-bccb9e3b",
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-7be9c384",
-        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich"
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich",
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich"
       ],
       "de": [
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-0ceb98b6",
@@ -320,7 +341,8 @@
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-76f66640",
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-c0945a18",
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-bccb9e3b",
-        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich"
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich",
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich"
       ],
       "fr": [
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-0ceb98b6",
@@ -361,7 +383,8 @@
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-76f66640",
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-c0945a18",
         "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich-bccb9e3b",
-        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich"
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich",
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich"
       ]
     },
     "postalCode": "8001",
@@ -382,7 +405,24 @@
         "firstSeenAt": "2026-07-03T21:37:32.367Z",
         "title": "Principal Design Engineer - Mechanical Equipment (80-100%)"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "principal-design-ingenieur-mechanical-equipment-80-100-climeworks-opfikon": "ZH",
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich": "ZH"
+      },
+      "en": {
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich": "ZH",
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich": "ZH"
+      },
+      "de": {
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich": "ZH"
+      },
+      "fr": {
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "lead-eic-ingegnere-100-climeworks-zurich",
@@ -436,7 +476,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
-    "firstSeenAt": "2026-07-03T21:37:32.360Z"
+    "firstSeenAt": "2026-07-03T21:37:32.360Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lead-eic-engineer-100-climeworks-zurich": "ZH",
+        "lead-eic-engineer-100-climeworks-opfikon-zurich": "ZH"
+      },
+      "en": {
+        "lead-eic-engineer-100-climeworks-zurich": "ZH"
+      },
+      "de": {
+        "lead-eic-engineer-100-climeworks-opfikon-zurich": "ZH"
+      },
+      "fr": {
+        "lead-eic-engineer-100-climeworks-opfikon-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "gestione-delle-operazioni-commerciali-100-climeworks-opfikon-zurich",
@@ -490,7 +546,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://climeworks.recruitee.com/o/commercial-operations-manager-100",
-    "firstSeenAt": "2026-09-18T13:44:03.542Z"
+    "firstSeenAt": "2026-09-18T13:44:03.542Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "commercial-operations-manager-100-climeworks-opfikon-zurich": "ZH",
+        "commercial-operations-manager-100-climeworks-zurich": "ZH"
+      },
+      "en": {
+        "commercial-operations-manager-100-climeworks-zurich": "ZH"
+      },
+      "de": {
+        "commercial-operations-manager-100-climeworks-opfikon-zurich": "ZH"
+      },
+      "fr": {
+        "commercial-operations-manager-100-climeworks-opfikon-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "hse-facility-senior-manager-100-climeworks-opfikon-zurich",
@@ -524,7 +596,11 @@
         "hse-facility-senior-manager-100-climeworks-zurich"
       ],
       "en": [
-        "hse-facility-senior-manager-100-climeworks-zurich"
+        "hse-facility-senior-manager-100-climeworks-zurich",
+        "hse-facility-senior-manager-100-climeworks-opfikon-zurich"
+      ],
+      "de": [
+        "hse-facility-senior-manager-100-climeworks-opfikon-zurich"
       ]
     },
     "salaryMin": 134000,
@@ -532,7 +608,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
-    "firstSeenAt": "2026-07-03T21:37:32.354Z"
+    "firstSeenAt": "2026-07-03T21:37:32.354Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "hse-facility-senior-manager-100-climeworks-zurich": "ZH"
+      },
+      "en": {
+        "hse-facility-senior-manager-100-climeworks-opfikon-zurich": "ZH",
+        "hse-facility-senior-manager-100-climeworks-zurich": "ZH"
+      },
+      "de": {
+        "hse-facility-senior-manager-100-climeworks-opfikon-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "commercial-business-operations-specialist-100-climeworks-opfikon-zurich",

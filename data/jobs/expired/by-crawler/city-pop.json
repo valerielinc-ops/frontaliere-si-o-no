@@ -48,7 +48,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/21e69afe-9b32-4875-b679-5278ef8d2e9b",
-    "firstSeenAt": "2026-11-09T21:20:14.395Z"
+    "firstSeenAt": "2026-11-09T21:20:14.395Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "techniker-allrounder-city-pop-zurich": "ZH"
+      },
+      "en": {
+        "techniker-allrounder-city-pop-zurich": "ZH"
+      },
+      "fr": {
+        "techniker-allrounder-city-pop-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "esecutivo-delle-pulizie-100-city-pop-zurich",
@@ -95,6 +107,15 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/2b348b1e-a516-4a1f-87f6-748275ef32cf",
-    "firstSeenAt": "2026-09-01T14:17:57.850Z"
+    "firstSeenAt": "2026-09-01T14:17:57.850Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "housekeeping-executive-100-city-pop-zurich": "ZH"
+      },
+      "de": {
+        "housekeeping-executive-100-city-pop-zurich": "ZH"
+      }
+    }
   }
 ]
