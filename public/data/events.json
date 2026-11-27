@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-27T20:38:29.864Z",
+  "generatedAt": "2026-11-27T22:39:36.494Z",
   "totalEvents": 18661,
   "events": [
     {
@@ -595570,7 +595570,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Consiglio comunale di Ginevra si riunisce in sessioni plenarie dedicate al voto sul bilancio. La votazione riguarda il bilancio dell’anno legislativo successivo.",
+      "descriptionByLocale": {
+        "it": "Il Consiglio comunale di Ginevra si riunisce in sessioni plenarie dedicate al voto sul bilancio. La votazione riguarda il bilancio dell’anno legislativo successivo.",
+        "en": "Geneva’s municipal council holds plenary meetings focused on the budget vote. The vote concerns the budget for the following legislative year.",
+        "de": "Der Gemeinderat von Genf kommt zu Plenarsitzungen zusammen, bei denen über den Haushalt abgestimmt wird. Die Abstimmung betrifft den Haushalt des folgenden Legislaturjahres.",
+        "fr": "Le Conseil municipal de Genève tient des séances plénières autour du vote du budget. Celui-ci concerne l’année législative suivante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:330c1d3b4e0a4ecbbccb85c6b2509568",
@@ -606917,7 +606925,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento prevede un pasto per le persone anziane. Si svolge all’Espace de quartier Eaux-Vives, a Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’evento prevede un pasto per le persone anziane. Si svolge all’Espace de quartier Eaux-Vives, a Ginevra.",
+        "en": "The event is a meal for older adults. It takes place at Espace de quartier Eaux-Vives in Geneva.",
+        "de": "Die Veranstaltung ist ein gemeinsames Essen für ältere Menschen. Sie findet im Espace de quartier Eaux-Vives in Genf statt.",
+        "fr": "L’événement consiste en un repas destiné aux personnes âgées. Il se tient à l’Espace de quartier Eaux-Vives, à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:repas-entre-seniors-vendredi-15-decembre",
@@ -612138,7 +612154,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La sessione informativa online illustra i contenuti dei moduli di project management e i requisiti per parteciparvi. È gratuita, permette di porre domande agli esperti e richiede una connessione Internet.",
+      "descriptionByLocale": {
+        "it": "La sessione informativa online illustra i contenuti dei moduli di project management e i requisiti per parteciparvi. È gratuita, permette di porre domande agli esperti e richiede una connessione Internet.",
+        "en": "The online information session outlines the content of project-management modules and the requirements for taking part. It is free, offers an opportunity to ask specialists questions, and requires internet access.",
+        "de": "In der digitalen Informationsrunde werden Inhalte von Projektmanagement-Modulen und die Teilnahmebedingungen vorgestellt. Sie ist kostenfrei; Fragen an Fachleute sind möglich, und ein Internetzugang wird vorausgesetzt.",
+        "fr": "La séance d’information en ligne présente les thèmes des modules de gestion de projet ainsi que les conditions de participation. Elle est gratuite, permet de poser des questions à des spécialistes et nécessite un accès à Internet."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AwttaV4",
