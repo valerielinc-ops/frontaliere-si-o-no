@@ -13760,6 +13760,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.protocollo-lavoro-remoto-2024.title': 'Cross-border workers, teleworking up to 25% from January 1, 2024',
     'blog.article.protocollo-lavoro-remoto-2024.excerpt': 'The Italy-Switzerland Protocol allows teleworking up to 25%.',
     'blog.article.protocollo-lavoro-remoto-2024.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.frontalieri-smart-working-limite-fiscale.title': 'Cross-border commuters working remotely: tax limit from Italy',
+    'blog.article.frontalieri-smart-working-limite-fiscale.excerpt': 'The tax threshold for teleworking from Italy is 25%. The protocol entered into force on February 9, 2026.',
+    'blog.article.frontalieri-smart-working-limite-fiscale.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

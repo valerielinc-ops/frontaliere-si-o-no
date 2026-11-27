@@ -48843,6 +48843,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-smart-working-limite-fiscale',
+ category: 'fiscale',
+ date: '2026-11-27T04:38:15.174Z',
+ image: '/images/blog/article-frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

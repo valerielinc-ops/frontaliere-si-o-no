@@ -13759,6 +13759,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.protocollo-lavoro-remoto-2024.title': 'Grenzgänger, Telearbeit bis zu 25% ab dem 1. Januar 2024',
     'blog.article.protocollo-lavoro-remoto-2024.excerpt': 'Das Protokoll Italien-Schweiz erlaubt Telearbeit bis zu 25%.',
     'blog.article.protocollo-lavoro-remoto-2024.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.frontalieri-smart-working-limite-fiscale.title': 'Grenzgänger im Homeoffice: steuerliche Grenze aus Italien',
+    'blog.article.frontalieri-smart-working-limite-fiscale.excerpt': 'Die steuerliche Schwelle für Telearbeit aus Italien beträgt 25%.',
+    'blog.article.frontalieri-smart-working-limite-fiscale.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
