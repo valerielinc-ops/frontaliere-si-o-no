@@ -89,9 +89,11 @@ jobs:
           ENABLE_URL_INSPECTION: ${{ inputs.enable_url_inspection == true && '1' || '0' }}
           ENABLE_WAYBACK: ${{ inputs.enable_wayback == true && '1' || '0' }}
 
+      # The wrapper discards what assembly rewrites in the tracked expired
+      # slices, which the commit below would otherwise publish.
       - name: Assemble jobs dataset (needed by reconcile)
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/ci/assemble-preserving-expired-slices.mjs
         env:
           # The next step performs this full reconciliation pass once, after assembly.
           JOBS_SKIP_RECONCILIATION: '1'

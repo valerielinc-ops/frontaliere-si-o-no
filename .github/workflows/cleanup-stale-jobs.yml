@@ -106,8 +106,11 @@ jobs:
         id: phase1_commit
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired job listings"
 
+      # Phase 2 only needs data/jobs.json. The wrapper discards what assembly
+      # rewrites in the tracked expired slices, which the next commit would
+      # otherwise publish without the active records that absorbed their routes.
       - name: "Phase 2: Assemble dataset for cross-crawler dedup"
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/ci/assemble-preserving-expired-slices.mjs
 
       - name: "Phase 2: Monolithic cross-crawler dedup pass"
         env:

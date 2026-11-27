@@ -67,19 +67,23 @@ function fixture(sliceCount: number) {
 set -euo pipefail
 state="$CLEANUP_TEST_STATE"
 lock="$state.lock"
-while ! mkdir "$lock" 2>/dev/null; do sleep 0.002; done
+# Not \`mkdir\`: uutils up to 0.8.0 (Ubuntu runners) swallows EEXIST without -p
+# when the directory appears between its own check and mkdir(2), so two workers
+# can both take the lock (fixed upstream in bf423f388). noclobber is the shell's
+# own O_CREAT|O_EXCL open and runs no external binary.
+until (set -C; : > "$lock") 2>/dev/null; do sleep 0.002; done
 active=$(cat "$state/active")
 active=$((active + 1))
 max=$(cat "$state/max")
 if [ "$active" -gt "$max" ]; then printf '%s' "$active" > "$state/max"; fi
 printf '%s' "$active" > "$state/active"
 printf '%s\n' "$JOBS_SLICE_FILE" >> "$state/processed"
-rmdir "$lock"
+rm "$lock"
 sleep 0.08
-while ! mkdir "$lock" 2>/dev/null; do sleep 0.002; done
+until (set -C; : > "$lock") 2>/dev/null; do sleep 0.002; done
 active=$(cat "$state/active")
 printf '%s' "$((active - 1))" > "$state/active"
-rmdir "$lock"
+rm "$lock"
 if [ "$(basename "$JOBS_SLICE_FILE")" = "\${CLEANUP_TEST_FAIL:-}" ]; then exit 7; fi
 `);
   chmodSync(nodeStub, 0o755);

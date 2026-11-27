@@ -818,3 +818,51 @@ describe('jobsSourceRelay: Workday CXS (#20279)', () => {
     expect(new URL(String(call[0])).searchParams.get('url')).toBe(WD_LISTING);
   });
 });
+
+describe('source relay client: GitHub OIDC request host (#20279)', () => {
+  const REAL_HOST_URL = 'https://pipelinesghubeus22.actions.githubusercontent.com/abc123/_apis/distributedtask/hubs/Actions/plans/p/jobs/j/idtoken?api-version=2.0';
+  const WORKDAY_LISTING = 'https://alcon.wd5.myworkdayjobs.com/wday/cxs/alcon/careers_alcon/jobs';
+
+  it('accepts the regional runtime host of a hosted runner', async () => {
+    const fetchImpl = vi.fn(async (input: URL | string) => (
+      String(input).startsWith('https://pipelinesghubeus22.')
+        ? new Response(JSON.stringify({ value: 'oidc' }), { status: 200 })
+        : new Response('{"ok":1}', { status: 200, headers: { 'x-relay-source': 'upstream' } })
+    ));
+    const result = await fetchSourceViaRelay(WORKDAY_LISTING, {
+      relayUrl: 'https://relay.example.run.app',
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      env: { ACTIONS_ID_TOKEN_REQUEST_URL: REAL_HOST_URL, ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'request-token' },
+      method: 'POST',
+      body: '{}',
+      maxAttempts: 1,
+    });
+    expect(result).toMatchObject({ status: 200, upstream: true });
+  });
+
+  it.each([
+    'https://evil.example/idtoken',
+    'https://actions.githubusercontent.com.evil.example/idtoken',
+    'http://pipelinesghubeus22.actions.githubusercontent.com/idtoken',
+    'https://user@pipelinesghubeus22.actions.githubusercontent.com/idtoken',
+    'https://pipelinesghubeus22.actions.githubusercontent.com:8443/idtoken',
+    'https://actions.githubusercontent.com/idtoken',
+    'https://evil.pipelinesghubeus22.actions.githubusercontent.com/idtoken',
+  ])('still refuses %s without sending the request token', async (requestUrl) => {
+    const fetchImpl = vi.fn();
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const result = await fetchSourceViaRelay(WORKDAY_LISTING, {
+        relayUrl: 'https://relay.example.run.app',
+        fetchImpl: fetchImpl as unknown as typeof fetch,
+        env: { ACTIONS_ID_TOKEN_REQUEST_URL: requestUrl, ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'request-token' },
+        method: 'POST',
+        body: '{}',
+      });
+      expect(result).toBeNull();
+    } finally {
+      warn.mockRestore();
+    }
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+});

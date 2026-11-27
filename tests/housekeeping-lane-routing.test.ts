@@ -141,19 +141,23 @@ describe('housekeeping lane routing', () => {
 set -eu
 state="$HOUSEKEEPING_TEST_STATE"
 lock="$state.lock"
-while ! mkdir "$lock" 2>/dev/null; do sleep 0.001; done
+# Not \`mkdir\`: uutils up to 0.8.0 (Ubuntu runners) swallows EEXIST without -p
+# when the directory appears between its own check and mkdir(2), so two workers
+# can both take the lock (fixed upstream in bf423f388). noclobber is the shell's
+# own O_CREAT|O_EXCL open and runs no external binary.
+until (set -C; : > "$lock") 2>/dev/null; do sleep 0.001; done
 active=$(cat "$state/active")
 active=$((active + 1))
 max=$(cat "$state/max")
 if [ "$active" -gt "$max" ]; then printf '%s' "$active" > "$state/max"; fi
 printf '%s' "$active" > "$state/active"
-rmdir "$lock"
+rm "$lock"
 printf '%s\\n' "$JOBS_SLICE_FILE" >> "$HOUSEKEEPING_TEST_LOG"
 sleep 0.03
-while ! mkdir "$lock" 2>/dev/null; do sleep 0.001; done
+until (set -C; : > "$lock") 2>/dev/null; do sleep 0.001; done
 active=$(cat "$state/active")
 printf '%s' "$((active - 1))" > "$state/active"
-rmdir "$lock"
+rm "$lock"
 `,
       );
       chmodSync(join(fixture.bin, 'node'), 0o755);

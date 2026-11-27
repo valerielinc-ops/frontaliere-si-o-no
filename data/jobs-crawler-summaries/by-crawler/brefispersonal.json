@@ -4,7 +4,7 @@
   "detailRejected": 0,
   "key": "brefispersonal",
   "label": "brefis personal ag",
-  "generatedAt": "2026-11-26T22:05:24.501Z",
+  "generatedAt": "2026-11-27T09:58:29.891Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -27,6 +27,8 @@
         "proxiedBy": "jina"
       }
     ],
+    "listingTerminalStatus": 200,
+    "listingCompletion": "incomplete",
     "proxiedBy": [
       "jina"
     ],
@@ -47,5 +49,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
+  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
 }

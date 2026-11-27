@@ -49,7 +49,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://mcm-group.ch/jobs/med-praxisassistenz-in-mpa-80-100-allgemeinmedizin-1-1-1",
-    "firstSeenAt": "2026-10-13T21:16:31.611Z"
+    "firstSeenAt": "2026-10-13T21:16:31.611Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "med-praxisassistentin-80-100-rebstein-rebstein-mcm-group-ch": "SG",
+        "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein": "SG"
+      },
+      "en": {
+        "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein": "SG"
+      },
+      "fr": {
+        "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein": "SG"
+      }
+    }
   },
   {
     "slug": "assistente-di-pratica-mpa-al-100-malans-gr-medizinisches-center-bonaduz-malans",
@@ -96,6 +109,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://mcm-group.ch/jobs/med-praxisassistent-in-mpa-80-100-allg-medizin-1-1-1",
-    "firstSeenAt": "2026-09-19T22:50:18.025Z"
+    "firstSeenAt": "2026-09-19T22:50:18.025Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "med-praxisassistent-in-mpa-100-malans-gr-malans-mcm-group-ch": "GR",
+        "med-praxisassistent-in-mpa-100-malans-gr-medizinisches-center-bonaduz-malans": "GR",
+        "med-praxisassistent-in-mpa-100-allg-medizin-malans-gr-malans-mcm-group-ch": "GR"
+      }
+    }
   }
 ]
