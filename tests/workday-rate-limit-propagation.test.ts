@@ -1,4 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
+
+// A listing whose 429 circuit opens gets one browser rescue attempt per tenant.
+// Keep that attempt inert here: these cases assert the typed error survives
+// when the browser cannot recover, never a real Chromium launch.
+vi.mock('../scripts/lib/stealth-browser.mjs', () => ({
+  chromeUserAgent: () => 'Mozilla/5.0 Chrome/140.0.0.0',
+  isStealthBrowser: () => false,
+  launchStealthOrChromium: vi.fn().mockRejectedValue(new Error('browser unavailable in test')),
+}));
+
 import { fetchAllArxadaJobs } from '../scripts/lib/arxada-job-parser.mjs';
 import { fetchAllFielmannJobs } from '../scripts/lib/fielmann-job-parser.mjs';
 import { fetchAllHuntsmanJobs } from '../scripts/lib/huntsman-job-parser.mjs';
