@@ -119,7 +119,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-kundenbetreuerin-antragsverarbeitung-%28a%29-80-100/1377417133",
-    "firstSeenAt": "2026-06-23T11:42:44.224Z"
+    "firstSeenAt": "2026-06-23T11:42:44.224Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice": "BE",
+        "fornitore-di-servizi-clienti-elaborazione-di-applicazioni-a-80-100-helsana-ticino": "BE",
+        "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen": "BE"
+      },
+      "en": {
+        "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice": "BE",
+        "customer-service-provider-application-processing-a-80-100-helsana-ticino": "BE"
+      },
+      "fr": {
+        "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice": "BE",
+        "fournisseur-de-services-a-la-clientele-traitement-des-demandes-a-80-100-helsana-ticino": "BE"
+      }
+    }
   },
   {
     "id": "helsana-c4dfcec6a5c7",
@@ -170,7 +186,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-werkstudentin-legal-tech-%28a%29-40/1455151933",
-    "firstSeenAt": "2026-11-06T21:43:41.170Z"
+    "firstSeenAt": "2026-11-06T21:43:41.170Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "werkstudentin-legal-tech-a-40-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "werkstudentin-legal-tech-a-40-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "werkstudentin-legal-tech-a-40-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "id": "helsana-e1ffdf7c80ac",
@@ -269,7 +297,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuer-kundenservice-international-deen-%28a%29-80-100/1454786033",
-    "firstSeenAt": "2026-11-05T21:38:39.669Z"
+    "firstSeenAt": "2026-11-05T21:38:39.669Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "kundenbetreuer-kundenservice-international-de-en-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "id": "helsana-3bead0b12e9e",
@@ -337,20 +377,29 @@
       "it": {
         "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach-ffa3ce78": "ZH",
         "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach-00225fd5": "ZH",
-        "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach-homeoff-2d4082cc": "ZH"
+        "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach-homeoff-2d4082cc": "ZH",
+        "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
       },
       "en": {
         "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach-eac130f7": "ZH",
         "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach-00225fd5": "ZH",
-        "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach-homeoff-4234bf0e": "ZH"
+        "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach-homeoff-4234bf0e": "ZH",
+        "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
       },
       "de": {
-        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach-00225fd5": "ZH"
+        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach-00225fd5": "ZH",
+        "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
       },
       "fr": {
         "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach-6a3e855d": "ZH",
         "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach-00225fd5": "ZH",
-        "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach-homeoff-9705bafe": "ZH"
+        "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach-homeoff-9705bafe": "ZH",
+        "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
       }
     },
     "previousSlugs": [
@@ -360,6 +409,18 @@
       "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach-homeoff-4234bf0e",
       "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach-homeoff-9705bafe"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuerin-mutationen-&-antragsverarbeitung-%28a%29-80-100/1434502133",
+        "firstSeenAt": "2026-09-07T15:13:19.579Z",
+        "title": "Kundenbetreuerin Mutationen & Antragsverarbeitung (a) 80-100%"
+      },
+      {
+        "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuerin-mutationen-&-antragsverarbeitung-%28a%29-80-100/1449240733",
+        "firstSeenAt": "2026-09-07T15:13:19.579Z",
+        "title": "Kundenbetreuerin Mutationen & Antragsverarbeitung (a) 80-100%"
+      }
     ]
   },
   {
@@ -412,7 +473,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-tempor%c3%a4rer-kundenbetreuer-kundenservice-international-deenit-%28a%29-80-100-befristet-bis-28_2_27/1453804933",
-    "firstSeenAt": "2026-11-03T21:52:01.130Z"
+    "firstSeenAt": "2026-11-03T21:52:01.130Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2": "ZH",
+        "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2-27-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2": "ZH"
+      },
+      "fr": {
+        "temporarer-kundenbetreuer-kundenservice-international-de-en-it-a-80-100-befristet-bis-28-2": "ZH"
+      }
+    }
   },
   {
     "slug": "team-leader-health-consulting-e-case-management-a-80-100-helsana-vaud",
@@ -469,7 +543,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/lausanne-&-homeoffice-teamleiter-gesundheitsberatung-und-case-management-%28a%29-80-100/1437657733",
-    "firstSeenAt": "2026-09-19T23:03:32.245Z"
+    "firstSeenAt": "2026-09-19T23:03:32.245Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-gesundheitsberatung-und-case-management-a-80-100-helsana-lausanne-homeoffice": "VD",
+        "teamleiter-gesundheitsberatung-e-case-management-a-80-100-helsana-lausanne-homeoffice": "VD",
+        "teamleiter-gesundheitsberatung-und-case-management-a-80-100-helsana-lausanne": "VD"
+      },
+      "en": {
+        "teamleiter-gesundheitsberatung-und-case-management-a-80-100-helsana-lausanne-homeoffice": "VD"
+      },
+      "de": {
+        "teamleiter-gesundheitsberatung-und-case-management-a-80-100-helsana-lausanne-homeoffice": "VD"
+      },
+      "fr": {
+        "teamleiter-gesundheitsberatung-und-case-management-a-80-100-helsana-lausanne-homeoffice": "VD"
+      }
+    }
   },
   {
     "slug": "assistenza-it-management-a-80-helsana-dubendorf-stettbach-homeoff",
@@ -513,7 +604,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-it-management-assistenz-%28a%29-80/1426391333",
-    "firstSeenAt": "2026-08-14T10:54:33.084Z"
+    "firstSeenAt": "2026-08-14T10:54:33.084Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-management-assistenz-a-80-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-per-august-2027-helsana-worblaufen-homeoffice",
@@ -545,16 +642,54 @@
     "previousSlugs": [
       "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2",
       "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-3",
-      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-utjfds"
+      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-utjfds",
+      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027",
+      "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice",
+      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc",
+      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-3-d6183e69",
+      "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf-stettbach-homeoff",
+      "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
+      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august",
+      "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
+      "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2027-helsana-dubendorf",
+      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-a2d39f44",
+      "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice",
+      "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice"
     ],
     "previousSlugsByLocale": {
       "it": [
         "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2",
         "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-3",
-        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-utjfds"
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-utjfds",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027",
+        "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-3-d6183e69",
+        "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf-stettbach-homeoff",
+        "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august",
+        "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
+        "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2027-helsana-dubendorf",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-a2d39f44"
       ],
       "de": [
-        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-utjfds"
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-utjfds",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-a2d39f44",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august"
+      ],
+      "en": [
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027",
+        "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc",
+        "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2"
+      ],
+      "fr": [
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027",
+        "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc",
+        "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2"
       ]
     },
     "postalCode": "3048",
@@ -576,7 +711,40 @@
         "firstSeenAt": "2026-07-27T22:17:13.951Z",
         "title": "Lernende (a) Kauffrau/Kaufmann EFZ in Kranken- und Sozialversicherungen per August 2027"
       }
-    ]
+    ],
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027": "SG",
+        "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-3-d6183e69": "SG",
+        "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf-stettbach-homeoff": "SG",
+        "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august": "SG",
+        "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf": "SG",
+        "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2027-helsana-dubendorf": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-a2d39f44": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-3": "SG"
+      },
+      "en": {
+        "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc": "SG",
+        "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2": "SG"
+      },
+      "de": {
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-a2d39f44": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august": "SG"
+      },
+      "fr": {
+        "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc": "SG",
+        "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf": "SG",
+        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2": "SG"
+      }
+    }
   },
   {
     "slug": "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach",
@@ -609,7 +777,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-senior-ausbildnerin-%28a%29-80-100/1452216133",
-    "firstSeenAt": "2026-10-28T20:14:51.124Z"
+    "firstSeenAt": "2026-10-28T20:14:51.124Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach"
+      ],
+      "de": [
+        "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "de": {
+        "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "fornitore-del-servizio-clienti-a-80-100-helsana-worblaufen",
@@ -659,7 +844,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-kundenbetreuerin-%28a%29-80-100/1452443733",
-    "firstSeenAt": "2026-10-29T21:19:27.853Z"
+    "firstSeenAt": "2026-10-29T21:19:27.853Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuerin-a-80-100-helsana-worblaufen": "BE"
+      },
+      "en": {
+        "kundenbetreuerin-a-80-100-helsana-worblaufen": "BE"
+      },
+      "fr": {
+        "kundenbetreuerin-a-80-100-helsana-worblaufen": "BE"
+      }
+    }
   },
   {
     "slug": "iscrittura-medica-temporanea-dei-dipendenti-a-80-100-da-ora-fino-alla-fine-di-gennaio-2028-helsana-dubendorf-stettbach",
@@ -759,7 +956,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-fachspezialist-leistungen-%28a%29-80/1455486833",
-    "firstSeenAt": "2026-11-09T09:42:09.295Z"
+    "firstSeenAt": "2026-11-09T09:42:09.295Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "assistenza-della-persona-salute-giorno-benefit-uvg-a-80-100-helsana-dubendorf-stettbach",
@@ -809,7 +1018,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-sachbearbeiterin-support-krankentaggeld-&-uvg-%28a%29-80-100/1455149333",
-    "firstSeenAt": "2026-11-06T21:43:40.576Z"
+    "firstSeenAt": "2026-11-06T21:43:40.576Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "sachbearbeiterin-support-krankentaggeld-uvg-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "sachbearbeiterin-support-krankentaggeld-uvg-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "sachbearbeiterin-support-krankentaggeld-uvg-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "codificatore-medico-a-60-80-temporaneo-fino-al-marzo-2027-helsana-zurich",
@@ -853,7 +1074,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/z%c3%bcrich-&-homeoffice-medizinischer-codierer-%28a%29-60-80-befristet-bis-m%c3%a4rz-2027/1446748533",
-    "firstSeenAt": "2026-10-14T09:33:23.309Z"
+    "firstSeenAt": "2026-10-14T09:33:23.309Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "indennita-giornaliera-di-malattia-a-10-20-helsana-zurigo",
@@ -909,7 +1136,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-beratende-%c3%84rztin-krankentaggeld-%28a%29-10-20/1429174233",
-    "firstSeenAt": "2026-08-24T21:44:50.963Z"
+    "firstSeenAt": "2026-08-24T21:44:50.963Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice": "BE",
+        "beratende-arztin-krankentaggeld-a-10-20-helsana-zurigo": "BE",
+        "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen": "BE"
+      },
+      "en": {
+        "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice": "BE"
+      },
+      "fr": {
+        "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice": "BE",
+        "indemnite-de-jour-de-maladie-pour-medecin-consultant-a-10-20-helsana-zurigo": "BE"
+      }
+    }
   },
   {
     "slug": "servizi-del-fornitore-del-servizio-clienti-ambulant-a-80-100-helsana-worblaufen",
@@ -959,7 +1201,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-kundenbetreuerin-leistungen-ambulant-%28a%29-80-100/1452786533",
-    "firstSeenAt": "2026-10-30T09:32:48.435Z"
+    "firstSeenAt": "2026-10-30T09:32:48.435Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-worblaufen": "BE"
+      },
+      "en": {
+        "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-worblaufen": "BE"
+      },
+      "fr": {
+        "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-worblaufen": "BE"
+      }
+    }
   },
   {
     "slug": "servizi-di-assistenza-clienti-agguanti-a-80-100-helsana-dubendorf-stettbach",
@@ -1009,7 +1263,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuerin-leistungen-ambulant-%28a%29-80-100/1452644333",
-    "firstSeenAt": "2026-10-29T21:19:28.487Z"
+    "firstSeenAt": "2026-10-29T21:19:28.487Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "consulente-del-servizio-clienti-internazionale-fr-de-t-80-100-helsana-dubendorf-stettbach",
@@ -1049,7 +1315,10 @@
       "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-b693ca10",
       "consulente-internazionale-del-servizio-clienti-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-98d3ec4d",
       "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-702ad1a1",
-      "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-83cbc6e8"
+      "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-83cbc6e8",
+      "consulente-internazionale-del-servizio-clienti-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-48e315d1",
+      "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-1bb3cc11",
+      "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-85bbf542"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1059,14 +1328,17 @@
         "consulente-internazionale-del-servizio-clienti-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-f2dc2d48",
         "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-84868ca8",
         "consulente-internazionale-del-servizio-clienti-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-98d3ec4d",
-        "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-702ad1a1"
+        "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-702ad1a1",
+        "consulente-internazionale-del-servizio-clienti-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-48e315d1",
+        "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-1bb3cc11"
       ],
       "en": [
         "conseiller-service-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach",
         "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-8e31fedb",
         "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff",
         "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-b693ca10",
-        "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-83cbc6e8"
+        "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-83cbc6e8",
+        "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff-85bbf542"
       ],
       "de": [
         "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -1082,7 +1354,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-conseiller-service-client%c3%a8le-international-frde-%28t%29-80-100/1445654133",
-    "firstSeenAt": "2026-10-08T21:25:20.474Z"
+    "firstSeenAt": "2026-10-08T21:25:20.474Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "conseiller-service-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "conseiller-service-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "ritiro-temporaneo-del-debito-dei-dipendenti-a-80-100-temporaneo-fino-al-febbraio-2027-helsana-dubendorf-stettbach",
@@ -1134,7 +1415,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-tempor%c3%a4re-mitarbeiterin-inkasso-%28a%29-80-100-befristet-bis-februar-2027/1454303633",
-    "firstSeenAt": "2026-11-04T21:27:20.136Z"
+    "firstSeenAt": "2026-11-04T21:27:20.136Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf": "ZH",
+        "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf": "ZH"
+      },
+      "fr": {
+        "temporare-mitarbeiterin-inkasso-a-80-100-befristet-bis-februar-2027-helsana-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach",
@@ -1165,7 +1459,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-digital-content-specialist-%28a%29-80-100/1451959033",
-    "firstSeenAt": "2026-10-28T09:49:34.568Z"
+    "firstSeenAt": "2026-10-28T09:49:34.568Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach"
+      ],
+      "de": [
+        "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach"
+      ],
+      "fr": [
+        "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "de": {
+        "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-del-caso-a-80-100-helsana-vaud",
@@ -1211,7 +1528,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/lausanne-&-homeoffice-case-manager-%28a%29-80-100/1418638133",
-    "firstSeenAt": "2026-07-24T11:28:14.896Z"
+    "firstSeenAt": "2026-07-24T11:28:14.896Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "case-manager-a-80-100-helsana-lausanne-homeoffice": "VD",
+        "case-manager-a-80-100-helsana-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice",
@@ -1239,14 +1563,16 @@
     "sector": "Assicurazioni",
     "expiredAt": "2026-11-05T21:39:04.639Z",
     "previousSlugs": [
-      "responsable-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne"
+      "responsable-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne",
+      "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice"
     ],
     "previousSlugsByLocale": {
       "it": [
         "responsable-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne"
       ],
       "en": [
-        "responsable-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne"
+        "responsable-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne",
+        "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice"
       ]
     },
     "postalCode": "1003",
@@ -1268,7 +1594,16 @@
         "firstSeenAt": "2026-09-19T23:03:31.650Z",
         "title": "Responsable d'équipe Conseils de santé et Case Management (t) 80-100%"
       }
-    ]
+    ],
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsable-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne": "VD"
+      },
+      "en": {
+        "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice": "VD"
+      }
+    }
   },
   {
     "slug": "gruppo-leader-uvg-danno-normale-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -1323,7 +1658,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-teamleiter-uvg-normalschaden-%28a%29-80-100/1436697833",
-    "firstSeenAt": "2026-09-19T23:03:35.203Z"
+    "firstSeenAt": "2026-09-19T23:03:35.203Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "teamleiter-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "teamleiter-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "teamleiter-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "teamleiter-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "violazione-degli-obblighi-di-segnalazione-specialistica-a-60-80-helsana-dubendorf-stettbach",
@@ -1511,7 +1862,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/st_-gallen-&-homeoffice-kundenbetreuer-leistungen-spitalpflege-%28a%29-80-100-befristet-vom-1_-februar-bis-31_-mai-2027/1449908933",
-    "firstSeenAt": "2026-10-22T09:43:09.665Z"
+    "firstSeenAt": "2026-10-22T09:43:09.665Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-leistungen-spital-pflege-a-80-100-befristet-vom-1-februar-bis-31-mai-2027": "SG",
+        "kundenbetreuer-leistungen-spital-pflege-a-80-100-befristet-vom-1-februar-bis-31-mai-2027-helsana-st-gallen": "SG"
+      },
+      "en": {
+        "kundenbetreuer-leistungen-spital-pflege-a-80-100-befristet-vom-1-februar-bis-31-mai-2027": "SG"
+      },
+      "fr": {
+        "kundenbetreuer-leistungen-spital-pflege-a-80-100-befristet-vom-1-februar-bis-31-mai-2027": "SG"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-234c6d8a",
@@ -1757,7 +2121,8 @@
         "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach"
       ],
       "en": [
-        "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "customer-manager-uvg-normal-damage-a-80-100-helsana-dubendorf-stettbach-homeoff"
       ],
       "de": [
         "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -1772,7 +2137,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuerin-uvg-normalschaden-%28a%29-80-100/1436772133",
-    "firstSeenAt": "2026-09-19T23:03:35.657Z"
+    "firstSeenAt": "2026-09-19T23:03:35.657Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "customer-manager-uvg-normal-damage-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "indennita-di-malattia-a-80-100-helsana-dubendorf-stettbach",
@@ -1826,7 +2208,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuer-leistungen-krankentaggeld-%28a%29-80-100/1449850233",
-    "firstSeenAt": "2026-10-26T21:46:16.804Z"
+    "firstSeenAt": "2026-10-26T21:46:16.804Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretender-kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf": "ZH",
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "stellvertretender-kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf": "ZH"
+      },
+      "de": {
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "stellvertretender-kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-1ded21e5",
@@ -1899,7 +2297,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-senior-crm-&-journey-manager-%28a%29-80-100/1448940833",
-    "firstSeenAt": "2026-10-19T21:23:55.400Z"
+    "firstSeenAt": "2026-10-19T21:23:55.400Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "senior-crm-journey-manager-a-80-100-helsana-dubendorf-stettbach"
+      ],
+      "de": [
+        "senior-crm-journey-manager-a-80-100-helsana-dubendorf-stettbach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "senior-crm-journey-manager-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "de": {
+        "senior-crm-journey-manager-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-4b215720",
@@ -1983,7 +2398,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/solothurn-&-homeoffice-versicherungsberater-im-aussendienst-%28a%29-80-100-solothurn/1445073933",
-    "firstSeenAt": "2026-10-07T09:42:38.971Z"
+    "firstSeenAt": "2026-10-07T09:42:38.971Z",
+    "canton": "SO",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "versicherungsberater-im-aussendienst-a-80-100-solothurn-helsana-solothurn": "SO"
+      }
+    }
   },
   {
     "slug": "parametrizzazione-degli-analisti-aziendali-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -2046,7 +2467,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-business-analyst-parametrierung-%28a%29-80-100/1431964433",
-    "firstSeenAt": "2026-08-31T17:13:38.638Z"
+    "firstSeenAt": "2026-08-31T17:13:38.638Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "business-analyst-parametrierung-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "team-leader-business-analysis-parametria-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "team-leader-business-analysis-parametry-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "teamleiter-business-analyse-parametrierung-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "chef-d-equipe-analyse-des-affaires-et-parametrie-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "business-analyst-parametrierung-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "team-leader-business-analysis-parametry-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "teamleiter-business-analyse-parametrierung-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "business-analyst-parametrierung-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "chef-d-equipe-analyse-des-affaires-et-parametrie-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-3e6f1e50",
@@ -2136,7 +2578,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-tempor%c3%a4re-mitarbeiterin-leistungen-ambulant-%28a%29-80-100-befristet-1_-januar-bis-31_-m%c3%a4rz-2027/1450776133",
-    "firstSeenAt": "2026-10-23T21:17:14.164Z"
+    "firstSeenAt": "2026-10-23T21:17:14.164Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027": "BE"
+      },
+      "en": {
+        "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027": "BE"
+      },
+      "fr": {
+        "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027": "BE"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-5a2c6156",
@@ -2351,7 +2805,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-stellvertretende-teamleiterin-contact-center-%28a%29-80-100/1411835533",
-    "firstSeenAt": "2026-07-06T13:44:21.686Z"
+    "firstSeenAt": "2026-07-06T13:44:21.686Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-9644a715",
@@ -2435,7 +2902,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-kundenbetreuer-leistungen-krankentaggeld-%28a%29-80-100/1444318633",
-    "firstSeenAt": "2026-10-05T21:28:00.235Z"
+    "firstSeenAt": "2026-10-05T21:28:00.235Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen": "BE"
+      }
+    }
   },
   {
     "slug": "studente-di-lavoro-data-scientist-a-40-70-da-ora-fino-a-agosto-2028-helsana-dubendorf-stettbach-homeoff",
@@ -2478,7 +2951,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-werkstudentin-data-scientist-%28a%29-40-70-ab-sofort-bis-august-2028/1440995333",
-    "firstSeenAt": "2026-09-24T14:24:15.917Z"
+    "firstSeenAt": "2026-09-24T14:24:15.917Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "werkstudentin-data-scientist-a-40-70-ab-sofort-bis-august-2028-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027-helsana-dubendorf-stettbach",
@@ -2532,7 +3011,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-tempor%c3%a4re-kundenbetreuerin-fachsupport-defr-%28a%29-80-100-befristet-bis-30_-september-2027/1444650933",
-    "firstSeenAt": "2026-10-06T09:22:33.830Z"
+    "firstSeenAt": "2026-10-06T09:22:33.830Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027": "ZH",
+        "temporare-kundenbetreuerin-fachsupport-de-fr-a-80-100-befristet-bis-30-september-2027": "ZH"
+      },
+      "en": {
+        "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027": "ZH"
+      },
+      "de": {
+        "temporare-kundenbetreuerin-fachsupport-de-fr-a-80-100-befristet-bis-30-september-2027": "ZH"
+      },
+      "fr": {
+        "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027": "ZH"
+      }
+    }
   },
   {
     "slug": "dineria-medica-t-60-100-helsana-zurigo",
@@ -2577,7 +3072,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/z%c3%bcrich-&-homeoffice-medico-specialista-%28t%29-60-100/1435839933",
-    "firstSeenAt": "2026-09-10T19:18:19.936Z"
+    "firstSeenAt": "2026-09-10T19:18:19.936Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medico-specialista-t-60-100-helsana-zurich-homeoffice": "ZH",
+        "medico-specialista-t-60-100-helsana-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino",
@@ -2628,7 +3130,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/z%c3%bcrich-&-homeoffice-fach%c3%a4rztin-allgemeine-innere-medizin-%28a%29-80-100/1286296501",
-    "firstSeenAt": "2026-06-23T11:43:21.469Z"
+    "firstSeenAt": "2026-06-23T11:43:21.469Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice": "ZH",
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich": "ZH"
+      },
+      "en": {
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice": "ZH"
+      },
+      "fr": {
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice": "ZH"
+      }
+    }
   },
   {
     "slug": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino-882bb5",
@@ -2679,7 +3194,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/bern-&-homeoffice-fach%c3%a4rztin-allgemeine-innere-medizin-%28a%29-80-100/1286311701",
-    "firstSeenAt": "2026-06-23T11:43:20.847Z"
+    "firstSeenAt": "2026-06-23T11:43:20.847Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice": "BE",
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern": "BE"
+      },
+      "en": {
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice": "BE"
+      },
+      "fr": {
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice": "BE"
+      }
+    }
   },
   {
     "slug": "supporto-specialistico-internazionale-de-fr-a-80-100-helsana-dubendorf-stettbach",
@@ -2722,7 +3250,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-fachspezialistin-support-international-defr-%28a%29-80-100/1445140433",
-    "firstSeenAt": "2026-10-07T21:29:28.642Z"
+    "firstSeenAt": "2026-10-07T21:29:28.642Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialistin-support-international-de-fr-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "medico-specialista-t-60-100-helsana-berna",
@@ -2770,7 +3304,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/bern-&-homeoffice-m%c3%a9decin-sp%c3%a9cialiste-%28t%29-60-100/1434436533",
-    "firstSeenAt": "2026-09-07T15:13:18.951Z"
+    "firstSeenAt": "2026-09-07T15:13:18.951Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "medecin-specialiste-t-60-100-helsana-bern-homeoffice": "BE",
+        "medecin-specialiste-t-60-100-helsana-bern": "BE"
+      },
+      "en": {
+        "medecin-specialiste-t-60-100-helsana-bern-homeoffice": "BE"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-866af82b",
@@ -3243,7 +3787,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/z%c3%bcrich-&-homeoffice-versicherungsberater-im-aussendienst-%28a%29-80-100/1414621433",
-    "firstSeenAt": "2026-07-14T12:32:27.564Z"
+    "firstSeenAt": "2026-07-14T12:32:27.564Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-zurich-homeoffice": "ZH",
+        "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-884e27": "ZH",
+        "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-1773bb": "ZH",
+        "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-b6161b": "ZH",
+        "insurance-consultant-in-the-field-a-80-100-helsana-ticino-b6161b": "ZH",
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-zurich": "ZH"
+      },
+      "en": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-zurich-homeoffice": "ZH"
+      },
+      "fr": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-zurich-homeoffice": "ZH"
+      }
+    }
   },
   {
     "slug": "fachspezialist-entschadigungen-e-projekte-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -3297,7 +3858,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-fachspezialist-prozessmanagement-und-entsch%c3%a4digungen-%28a%29-80-100/1421344533",
-    "firstSeenAt": "2026-07-31T22:28:43.677Z"
+    "firstSeenAt": "2026-07-31T22:28:43.677Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-entschadigungen-und-projekte-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "fachspezialist-prozessmanagement-und-entschadigungen-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "fachspezialist-entschadigungen-und-projekte-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "fachspezialist-prozessmanagement-und-entschadigungen-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "fachspezialist-entschadigungen-und-projekte-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-bd290e10",
@@ -3339,74 +3916,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/lausanne-&-homeoffice-responsable-d'%c3%a9quipe-conseils-de-sant%c3%a9-et-case-management-%28t%29-80-100/1437657133",
     "firstSeenAt": "2026-09-19T23:03:31.650Z"
-  },
-  {
-    "slug": "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice",
-    "title": "Lernende (a) Kauffrau/Kaufmann EFZ in Kranken- und Sozialversicherungen per August 2027",
-    "titleByLocale": {
-      "it": "Apprendimento (a) Imprenditore/Caufmann EFZ nei regimi sanitari e di sicurezza sociale al 2027",
-      "en": "Learning (a) Businesswoman/Caufmann EFZ in health and social security schemes as per August 2027",
-      "de": "Lernende (a) Kauffrau/Kaufmann EFZ in Kranken- und Sozialversicherungen per August 2027",
-      "fr": "Apprentissage a) Entreprise/Caufmann EFZ dans les régimes de santé et de sécurité sociale au mois d'août 2027"
-    },
-    "company": "Helsana",
-    "companyKey": "helsana",
-    "location": "St. Gallen",
-    "addressLocality": "St. Gallen",
-    "descriptionByLocale": {
-      "it": "Posizione: Apprendista (a) Amministratore Aziendale EFZ in Salute e Assicurazione Sociale ad agosto 2027 - Sede: St. Gallen e sede centrale, Cantone di SG - Datore di lavoro: Helsana San Gallo Ottieni punti con la tua motivazione e il tuo interesse e vorresti usare la tua energia in un ambiente vario? Allora sei nel posto giusto.\n• Cerchiamo giovani talenti che non vogliano solo scappare, ma vogliano fare la differenza. - Le opportunità di sviluppo dopo aver completato il tuo apprendistato sono varie. Sei pronto a iniziare la tua carriera nel mondo assicurativo? Allora non esitare e inviaci oggi la tua candidatura online con il tuo CV, tutti i certificati di scuola superiore e i risultati del Multicheck Business and Administration. Sentitevi liberi di contattarmi: Evelyn Garcia 058 340 75 23",
-      "en": "Position: apprentice (a) Kauffrau/Kaufmann EFZ in health and social insurance as of August 2027\n- Location: St. Gallen, Canton of SG\n- Employer: Helsana\n\nSt. Gallen\n\nYou score through your motivation and interest and want to use your energy in a varied environment? Then you are in the right place with us. We are looking for young talents who not only want to run, but also want to make a difference.\n-\n\nThe development opportunities after the completed vocational apprenticeship are varied. Are you ready to start your career in the insurance world? Then do not hesitate and send us your online application today with CV, all upper school certificates and the results of the Multicheck Economics and Administration.\n\nPlease contact me:\n\nEvelyn Garcia\n\n058 340 75 23",
-      "de": "Position: Lernende (a) Kauffrau/Kaufmann EFZ in Kranken- und Sozialversicherungen per August 2027\n- Standort: St. Gallen, Kanton SG\n- Arbeitgeber: Helsana\n\nSt. Gallen\n\nDu punktest durch deine Motivation und dein Interesse und möchtest deine Energie in einem abwechslungsreichen Umfeld einsetzen? Dann bist du bei uns am richtigen Ort. Wir suchen junge Talente, die nicht nur mitlaufen, sondern etwas bewegen möchten.\n-\n\nDie Entwicklungsmöglichkeiten nach der abgeschlossenen Berufslehre sind vielfältig. Bist du bereit, deine Karriere in der Versicherungswelt zu starten? Dann zögere nicht und sende uns noch heute deine Online-Bewerbung mit Lebenslauf , allen Oberstufenzeugnissen und den Ergebnissen zum Multicheck Wirtschaft und Administration.\n\nMelde dich gerne bei mir:\n\nEvelyn Garcia\n\n058 340 75 23",
-      "fr": "Fonction: apprenti (a) Kauffrau/Kaufmann EFZ en assurance maladie et sociale en août 2027\n- Lieu: St. Gallen, Canton de SG\n- Employeur: Helsana\n\nSaint-Gall\n\nVous marquez par votre motivation et votre intérêt et souhaitez utiliser votre énergie dans un environnement varié? Alors tu es au bon endroit avec nous. Nous cherchons de jeunes talents qui veulent non seulement courir, mais aussi faire une différence.\n-\n\nLes possibilités de développement après l'apprentissage professionnel terminé sont variées. Êtes-vous prêt à commencer votre carrière dans le monde de l'assurance? Alors n'hésitez pas et envoyez-nous votre candidature en ligne aujourd'hui avec CV, tous les certificats d'études supérieures et les résultats de la Multicheck Economie et Administration.\n\nVeuillez me contacter:\n\nEvelyn Garcia\n\n058 340 75 23"
-    },
-    "slugByLocale": {
-      "it": "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice",
-      "en": "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice",
-      "de": "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-a2d39f44",
-      "fr": "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-helsana-st-gallen-homeoffice"
-    },
-    "sector": "Assicurazioni",
-    "expiredAt": "2026-10-24T09:30:58.992Z",
-    "previousSlugs": [
-      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc",
-      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-3-d6183e69",
-      "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf-stettbach-homeoff",
-      "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
-      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august",
-      "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
-      "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2027-helsana-dubendorf",
-      "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-a2d39f44"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc",
-        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-3-d6183e69",
-        "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf-stettbach-homeoff",
-        "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
-        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august",
-        "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf",
-        "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2027-helsana-dubendorf",
-        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-a2d39f44"
-      ],
-      "en": [
-        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc",
-        "apprentice-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf"
-      ],
-      "de": [
-        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august"
-      ],
-      "fr": [
-        "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027-2-864f29fc",
-        "apprenti-e-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf"
-      ]
-    },
-    "postalCode": "9000",
-    "salaryMin": 48500,
-    "salaryMax": 89500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.helsana.ch/job/st_-gallen-&-homeoffice-lernende-%28a%29-kauffraukaufmann-efz-in-kranken-und-sozialversicherungen-per-august-2027/1419303233",
-    "firstSeenAt": "2026-07-27T22:17:13.951Z"
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-39ace157",
@@ -3548,7 +4057,60 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuerin-retention-%28a%29-80-100/1392844533",
-    "firstSeenAt": "2026-06-23T11:43:03.497Z"
+    "firstSeenAt": "2026-06-23T11:43:03.497Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "services-a-la-clientele-indemnite-de-jour-pour-soins-medicaux-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "customer-service-per-prestazioni-malattia-a-80-100-helsana-ticino": "ZH",
+        "customer-service-for-sick-pay-benefits-a-80-100-helsana-ticino": "ZH",
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice": "ZH",
+        "service-client-pour-prestations-maladie-a-80-100-helsana-ticino": "ZH",
+        "servizio-di-assistenza-medica-a-80-100-helsana-ticino": "ZH",
+        "customer-care-services-medical-day-allowance-a-80-100-helsana-ticino": "ZH",
+        "services-a-la-clientele-indemnite-de-jour-pour-soins-medicaux-a-80-100-helsana-ticino": "ZH",
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-ticino": "ZH",
+        "servizi-di-assistenza-clienti-agguanti-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "gestione-dei-casi-a-80-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "account-manager-case-management-a-80-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "gestionnaire-de-comptes-gestion-des-cas-a-80-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach": "ZH",
+        "servizio-di-assistenza-medica-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach": "ZH",
+        "servizi-di-assistenza-clienti-per-la-sicurezza-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "social-security-customer-support-services-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "services-de-soutien-a-la-clientele-de-la-securite-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "customer-care-services-medical-day-allowance-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "en": {
+        "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "customer-service-provider-services-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "servizi-di-assistenza-clienti-per-la-sicurezza-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "social-security-customer-support-services-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "services-de-soutien-a-la-clientele-de-la-securite-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "customer-care-services-medical-day-allowance-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "case-manager-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "servizi-di-assistenza-clienti-per-la-sicurezza-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "social-security-customer-support-services-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "services-de-soutien-a-la-clientele-de-la-securite-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "customer-care-services-medical-day-allowance-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "services-a-la-clientele-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "gestionnaire-de-cas-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "servizi-di-assistenza-clienti-per-la-sicurezza-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "social-security-customer-support-services-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "services-de-soutien-a-la-clientele-de-la-securite-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "customer-care-services-medical-day-allowance-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice-7de29eb1",
@@ -3632,7 +4194,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-leiter-people-service-center-%28a%29-80-100/1443914433",
-    "firstSeenAt": "2026-10-05T06:25:19.873Z"
+    "firstSeenAt": "2026-10-05T06:25:19.873Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-people-service-center-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "id": "helsana-b6c2e27cba23",
@@ -3688,18 +4256,27 @@
     "previousSlugCantonByLocale": {
       "it": {
         "fachspezialistin-anzeigepflichtverletzung-a-60-80-helsana-dubendorf-stettbach-44ea7598": "ZH",
-        "violazione-degli-obblighi-di-segnalazione-specialistica-a-60-80-helsana-dubendorf-stettbach-5ac66e2e": "ZH"
+        "violazione-degli-obblighi-di-segnalazione-specialistica-a-60-80-helsana-dubendorf-stettbach-5ac66e2e": "ZH",
+        "specialist-reporting-obligation-violation-a-60-80-helsana-dubendorf-stettbach": "ZH",
+        "defaut-d-obligation-de-signalement-de-specialistes-a-60-80-helsana-dubendorf-stettbach": "ZH"
       },
       "en": {
         "fachspezialistin-anzeigepflichtverletzung-a-60-80-helsana-dubendorf-stettbach-44ea7598": "ZH",
-        "specialist-reporting-obligation-violation-a-60-80-helsana-dubendorf-stettbach-beb15cb3": "ZH"
+        "specialist-reporting-obligation-violation-a-60-80-helsana-dubendorf-stettbach-beb15cb3": "ZH",
+        "violazione-degli-obblighi-di-segnalazione-specialistica-a-60-80-helsana-dubendorf-stettbach": "ZH",
+        "defaut-d-obligation-de-signalement-de-specialistes-a-60-80-helsana-dubendorf-stettbach": "ZH"
       },
       "de": {
-        "fachspezialistin-anzeigepflichtverletzung-a-60-80-helsana-dubendorf-stettbach-44ea7598": "ZH"
+        "fachspezialistin-anzeigepflichtverletzung-a-60-80-helsana-dubendorf-stettbach-44ea7598": "ZH",
+        "violazione-degli-obblighi-di-segnalazione-specialistica-a-60-80-helsana-dubendorf-stettbach": "ZH",
+        "specialist-reporting-obligation-violation-a-60-80-helsana-dubendorf-stettbach": "ZH",
+        "defaut-d-obligation-de-signalement-de-specialistes-a-60-80-helsana-dubendorf-stettbach": "ZH"
       },
       "fr": {
         "fachspezialistin-anzeigepflichtverletzung-a-60-80-helsana-dubendorf-stettbach-44ea7598": "ZH",
-        "defaut-d-obligation-de-signalement-de-specialistes-a-60-80-helsana-dubendorf-stettbach-29d4519a": "ZH"
+        "defaut-d-obligation-de-signalement-de-specialistes-a-60-80-helsana-dubendorf-stettbach-29d4519a": "ZH",
+        "violazione-degli-obblighi-di-segnalazione-specialistica-a-60-80-helsana-dubendorf-stettbach": "ZH",
+        "specialist-reporting-obligation-violation-a-60-80-helsana-dubendorf-stettbach": "ZH"
       }
     },
     "postalCode": "8600",
@@ -3708,7 +4285,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-fachspezialistin-anzeigepflichtverletzung-%28a%29-60-80/1450342433",
-    "firstSeenAt": "2026-10-23T09:18:00.152Z",
+    "firstSeenAt": "2026-10-22T21:27:13.748Z",
     "previousSlugs": [
       "violazione-degli-obblighi-di-segnalazione-specialistica-a-60-80-helsana-dubendorf-stettbach-5ac66e2e",
       "specialist-reporting-obligation-violation-a-60-80-helsana-dubendorf-stettbach",
@@ -3759,7 +4336,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuerin-mutationen-international-&-antragsverarbeitung-%28a%29-80-100/1436515033",
-    "firstSeenAt": "2026-09-19T23:03:36.385Z"
+    "firstSeenAt": "2026-09-19T23:03:36.385Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuerin-mutationen-international-antragsverarbeitung-a-80-100-helsana-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "guida-tecnica-specialistica-customer-market-a-80-100-helsana-dubendorf-stettbach",
@@ -3802,7 +4385,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-fachspezialist-fachf%c3%bchrung-kunde-&-markt-%28a%29-80-100/1443927533",
-    "firstSeenAt": "2026-10-02T21:18:15.216Z"
+    "firstSeenAt": "2026-10-02T21:18:15.216Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-fachfuhrung-kunde-markt-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-st-gallen",
@@ -3937,7 +4526,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/st_-gallen-&-homeoffice-fachspezialist-komplement%c3%a4rmedizin-%28a%29-40-60/1429267133",
-    "firstSeenAt": "2026-08-24T21:44:51.570Z"
+    "firstSeenAt": "2026-08-24T21:44:51.570Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice": "SG",
+        "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen": "SG"
+      },
+      "en": {
+        "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice": "SG"
+      },
+      "fr": {
+        "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice": "SG"
+      }
+    }
   },
   {
     "slug": "junior-net-entwickler-a-80-100-helsana-dubendorf-stettbach",
@@ -3967,7 +4569,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-junior-_net-entwickler-%28a%29-80-100/1442466733",
-    "firstSeenAt": "2026-09-29T21:22:12.089Z"
+    "firstSeenAt": "2026-09-29T21:22:12.089Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "junior-net-entwickler-a-80-100-helsana-dubendorf-stettbach"
+      ],
+      "de": [
+        "junior-net-entwickler-a-80-100-helsana-dubendorf-stettbach"
+      ],
+      "fr": [
+        "junior-net-entwickler-a-80-100-helsana-dubendorf-stettbach"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "junior-net-entwickler-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "de": {
+        "junior-net-entwickler-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "junior-net-entwickler-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "temporaire-au-service-clientele-international-f-d-t-80-100-12-octobre-2026-a-10-janvier-2027-helsana-dubendorf-stettbach",
@@ -4022,7 +4647,13 @@
         "firstSeenAt": "2026-09-28T21:19:47.530Z",
         "title": "Temporaire au Service Clientèle International FR/DE (t) 80-100% - 12 octobre 2026 à 10 janvier 2027"
       }
-    ]
+    ],
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "temporaire-au-service-clientele-international-f-d-t-80-100-12-octobre-2026-a-10-janvier": "ZH"
+      }
+    }
   },
   {
     "slug": "consulente-assicurativo-sul-campo-a-80-100-helsana-ticino",
@@ -4081,7 +4712,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/biel-&-homeoffice-versicherungsberater-im-aussendienst-%28a%29-80-100/1372733633",
-    "firstSeenAt": "2026-06-23T11:43:07.795Z"
+    "firstSeenAt": "2026-06-23T11:43:07.795Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice": "BE",
+        "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-936116": "BE",
+        "insurance-advisor-field-sales-a-80-100-helsana-ticino": "BE",
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-biel": "BE"
+      },
+      "en": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice": "BE",
+        "insurance-consultant-in-the-field-a-80-100-helsana-ticino-936116": "BE"
+      },
+      "fr": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice": "BE",
+        "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-936116": "BE"
+      }
+    }
   },
   {
     "slug": "it-security-architetto-communication-security-e-iam-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -4124,7 +4772,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-it-security-architect-communication-security-und-iam-%28a%29-80-100/1440967533",
-    "firstSeenAt": "2026-09-24T14:24:16.417Z"
+    "firstSeenAt": "2026-09-24T14:24:16.417Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "it-security-architect-communication-security-und-iam-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      }
+    }
   },
   {
     "slug": "pianificazione-specialistica-e-qualita-a-50-70-helsana-zurigo",
@@ -4178,7 +4832,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-fachspezialistin-planung-&-qualit%c3%a4t-%28a%29-50-70/1440019333",
-    "firstSeenAt": "2026-09-24T14:24:20.249Z"
+    "firstSeenAt": "2026-09-24T14:24:20.249Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialistin-planung-qualitat-a-50-70-helsana-worblaufen-homeoffice": "BE",
+        "fachspezialistin-planung-qualitat-a-50-70-helsana-worblaufen": "BE"
+      },
+      "en": {
+        "fachspezialistin-planung-qualitat-a-50-70-helsana-worblaufen-homeoffice": "BE"
+      },
+      "de": {
+        "fachspezialistin-planung-qualitat-a-50-70-helsana-worblaufen-homeoffice": "BE"
+      },
+      "fr": {
+        "fachspezialistin-planung-qualitat-a-50-70-helsana-worblaufen-homeoffice": "BE"
+      }
+    }
   },
   {
     "slug": "analista-di-business-a-80-100-helsana-dubendorf-stettbach",
@@ -4244,7 +4914,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-business-analyst-%28a%29-80-100/1414920133",
-    "firstSeenAt": "2026-07-14T22:55:50.150Z"
+    "firstSeenAt": "2026-07-14T22:55:50.150Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "business-analyst-syrius-parametrierung-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "business-analyst-asem-inkasso-avsm-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "business-analista-kunde-e-markt-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "business-analyst-customer-and-market-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "business-analyst-kunde-und-markt-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "business-analyst-a-80-100-helsana-dubendorf-stettbach": "ZH",
+        "business-analyst-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "en": {
+        "business-analyst-customer-and-market-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "business-analyst-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "business-analyst-syrius-parametrierung-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "business-analyst-asem-inkasso-avsm-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "business-analyst-kunde-und-markt-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "pianificazione-e-controllo-specialistici-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -4298,7 +4991,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-fachspezialist-data-analytics-&-reporting-%28a%29-80-100/1431744533",
-    "firstSeenAt": "2026-08-31T17:13:38.042Z"
+    "firstSeenAt": "2026-08-31T17:13:38.042Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialist-planung-steuerung-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "fachspezialist-data-analytics-reporting-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "en": {
+        "fachspezialist-planung-steuerung-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "fachspezialist-data-analytics-reporting-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "fachspezialist-planung-steuerung-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027-helsana-dubendorf-1b855b48",
@@ -4401,7 +5110,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-business-analyst-telefoniemanagement-%28a%29-80-100/1439613433",
-    "firstSeenAt": "2026-09-21T16:02:18.718Z"
+    "firstSeenAt": "2026-09-21T16:02:18.718Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach": "ZH",
+        "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "en": {
+        "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "business-analyst-telefoniemanagement-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino",
@@ -4446,7 +5171,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/horgen-&-homeoffice-versicherungsberater-im-aussendienst-%28a%29-80-100/1283467901",
-    "firstSeenAt": "2026-06-23T11:43:22.076Z"
+    "firstSeenAt": "2026-06-23T11:43:22.076Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen": "ZH"
+      },
+      "de": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen": "ZH"
+      }
+    }
   },
   {
     "slug": "assistente-amministratore-delegato-health-medical-service-ag-a-80-100-helsana-zurich",
@@ -4494,7 +5228,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/z%c3%bcrich-&-homeoffice-assistentin-gesch%c3%a4ftsf%c3%bchrung-health-&-medical-service-ag-%28a%29-80-100/1441972033",
-    "firstSeenAt": "2026-09-28T21:19:46.677Z"
+    "firstSeenAt": "2026-09-28T21:19:46.677Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "assistentin-geschaftsfuhrung-health-medical-service-ag-a-80-100-helsana-zurich": "ZH"
+      },
+      "en": {
+        "assistentin-geschaftsfuhrung-health-medical-service-ag-a-80-100-helsana-zurich": "ZH"
+      },
+      "fr": {
+        "assistentin-geschaftsfuhrung-health-medical-service-ag-a-80-100-helsana-zurich": "ZH"
+      }
+    }
   },
   {
     "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-190b68",
@@ -4549,7 +5295,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/chur-&-homeoffice-versicherungsberater-im-aussendienst-%28a%29-80-100/1410914233",
-    "firstSeenAt": "2026-07-02T21:57:25.727Z"
+    "firstSeenAt": "2026-07-02T21:57:25.727Z",
+    "canton": "GR",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice": "GR",
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-chur": "GR"
+      },
+      "en": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice": "GR"
+      },
+      "de": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-ticino": "GR",
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-chur": "GR"
+      },
+      "fr": {
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice": "GR"
+      }
+    }
   },
   {
     "slug": "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-san-gallo",
@@ -4602,7 +5365,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/st_-gallen-&-homeoffice-kundenbetreuerin-mutationen-&-antragsverarbeitung-%28a%29-80-100/1433951533",
-    "firstSeenAt": "2026-09-04T13:39:14.937Z"
+    "firstSeenAt": "2026-09-04T13:39:14.937Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-st-gallen-homeoffice": "SG",
+        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-st-gallen": "SG"
+      },
+      "en": {
+        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-st-gallen-homeoffice": "SG"
+      },
+      "de": {
+        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-st-gallen": "SG"
+      },
+      "fr": {
+        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-st-gallen-homeoffice": "SG"
+      }
+    }
   },
   {
     "slug": "responsabile-servizio-clienti-e-servizi-azienda-ktg-accident-a-80-100-helsana-ticino",
@@ -4650,7 +5429,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-bereichsleiterin-kundenservice-&-leistungen-unternehmen-ktgunfall-%28a%29-80-100/1418127433",
-    "firstSeenAt": "2026-07-23T12:01:43.139Z"
+    "firstSeenAt": "2026-07-23T12:01:43.139Z",
+    "canton": "BE",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "bereichsleiterin-kundenservice-leistungen-unternehmen-ktg-unfall-a-80-100-helsana": "BE"
+      },
+      "en": {
+        "bereichsleiterin-kundenservice-leistungen-unternehmen-ktg-unfall-a-80-100-helsana": "BE"
+      },
+      "fr": {
+        "bereichsleiterin-kundenservice-leistungen-unternehmen-ktg-unfall-a-80-100-helsana": "BE"
+      }
+    }
   },
   {
     "slug": "junior-it-security-architetto-a-secure-development-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -4704,7 +5495,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-junior-it-security-architect-secure-development-%28a%29-80-100/1419913533",
-    "firstSeenAt": "2026-07-28T22:46:32.199Z"
+    "firstSeenAt": "2026-07-28T22:46:32.199Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "junior-it-security-architect-a-secure-development-80-100-helsana-dubendorf-stettbach": "ZH",
+        "junior-it-security-architect-secure-development-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "de": {
+        "junior-it-security-architect-secure-development-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "fr": {
+        "junior-it-security-architect-a-secure-development-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "junior-it-security-architect-a-developpement-securise-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "case-manager-servizi-corporate-business-zurigo-central-svizzera-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -4766,7 +5571,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-case-manager-leistungen-unternehmensgesch%c3%a4ft-z%c3%bcrichzentralschweiz-%28a%29-80-100/1418220833",
-    "firstSeenAt": "2026-07-23T12:01:43.751Z"
+    "firstSeenAt": "2026-07-23T12:01:43.751Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "case-manager-leistungen-unternehmensgeschaft-zurich-zentralschweiz-a-80-100-helsana": "ZH",
+        "capo-della-corporate-business-region-zurigo-svizzera-centrale-e-orientale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "head-of-corporate-business-region-zurich-central-eastern-switzerland-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana": "ZH",
+        "responsable-des-entreprises-region-zurich-suisse-centrale-et-orientale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "en": {
+        "case-manager-leistungen-unternehmensgeschaft-zurich-zentralschweiz-a-80-100-helsana": "ZH",
+        "head-of-corporate-business-region-zurich-central-eastern-switzerland-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana": "ZH"
+      },
+      "fr": {
+        "case-manager-leistungen-unternehmensgeschaft-zurich-zentralschweiz-a-80-100-helsana": "ZH",
+        "responsable-des-entreprises-region-zurich-suisse-centrale-et-orientale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "supporto-specialistico-de-it-internazionale-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -4817,7 +5643,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-fachspezialistin-support-international-deit-%28a%29-80-100/1437602733",
-    "firstSeenAt": "2026-09-19T23:03:32.758Z"
+    "firstSeenAt": "2026-09-19T23:03:32.758Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialistin-support-international-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "fachspezialistin-support-international-de-it-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "de": {
+        "fachspezialistin-support-international-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "fachspezialistin-support-international-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "ingegnere-di-prova-senior-a-80-100-helsana-dubendorf",
@@ -4863,7 +5702,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/senior-test-engineer-%28a%29-80-100/961278101",
-    "firstSeenAt": "2026-06-23T11:42:56.646Z"
+    "firstSeenAt": "2026-06-23T11:42:56.646Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "senior-test-engineer-a-80-100-helsana-dubendorf": "ZH"
+      },
+      "fr": {
+        "senior-test-engineer-a-80-100-helsana-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "inhouse-consultant-sap-hcm-success-factors-a-80-100-helsana-dubendorf",
@@ -4895,7 +5743,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/inhouse-consultant-sap-hcm-&-success-factors-%28a%29-80-100/990259401",
-    "firstSeenAt": "2026-06-23T11:42:42.362Z"
+    "firstSeenAt": "2026-06-23T11:42:42.362Z",
+    "canton": "ZH",
+    "previousSlugsByLocale": {
+      "en": [
+        "inhouse-consultant-sap-hcm-success-factors-a-80-100-helsana-dubendorf"
+      ],
+      "de": [
+        "inhouse-consultant-sap-hcm-success-factors-a-80-100-helsana-dubendorf"
+      ]
+    },
+    "previousSlugCantonByLocale": {
+      "en": {
+        "inhouse-consultant-sap-hcm-success-factors-a-80-100-helsana-dubendorf": "ZH"
+      },
+      "de": {
+        "inhouse-consultant-sap-hcm-success-factors-a-80-100-helsana-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "regolatore-di-gruppo-a-80-100-helsana-dubendorf",
@@ -4941,7 +5806,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/group-controller-%28a%29-80-100/970403401",
-    "firstSeenAt": "2026-06-23T11:42:58.513Z"
+    "firstSeenAt": "2026-06-23T11:42:58.513Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "group-controller-a-80-100-helsana-dubendorf": "ZH"
+      },
+      "fr": {
+        "group-controller-a-80-100-helsana-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "release-e-test-ingegnere-a-80-100-helsana-dubendorf",
@@ -4987,7 +5861,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/release-und-test-engineer-%28a%29-80-100/956343301",
-    "firstSeenAt": "2026-06-23T11:42:42.976Z"
+    "firstSeenAt": "2026-06-23T11:42:42.976Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "release-und-test-engineer-a-80-100-helsana-dubendorf": "ZH"
+      },
+      "fr": {
+        "release-und-test-engineer-a-80-100-helsana-dubendorf": "ZH"
+      }
+    }
   },
   {
     "slug": "teamleiter-gesundheitsberatung-e-case-management-de-fr-a-80-100-helsana-lausanne-homeoffice",
@@ -5038,7 +5921,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/lausanne-&-homeoffice-teamleiter-gesundheitsberatung-und-case-management-defr-%28a%29-80-100/1415218633",
-    "firstSeenAt": "2026-07-15T12:22:23.734Z"
+    "firstSeenAt": "2026-07-15T12:22:23.734Z",
+    "canton": "VD",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-gesundheitsberatung-und-case-management-de-fr-a-80-100-helsana-lausanne": "VD",
+        "teamleiter-gesundheitsberatung-e-case-management-de-fr-a-80-100-helsana-ticino": "VD"
+      },
+      "en": {
+        "teamleiter-gesundheitsberatung-und-case-management-de-fr-a-80-100-helsana-lausanne": "VD"
+      },
+      "fr": {
+        "teamleiter-gesundheitsberatung-und-case-management-de-fr-a-80-100-helsana-lausanne": "VD"
+      }
+    }
   },
   {
     "slug": "forms-services-ge-a-70-temporaneo-fino-al-31-dicembre-2026-helsana-dubendorf-stettbach-homeoff",
@@ -5089,7 +5985,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-tempor%c3%a4re-kundenbetreuerin-formulare-&-leistungen-ge-%28a%29-70-befristet-bis-31_-dezember-2026/1438984033",
-    "firstSeenAt": "2026-09-19T23:03:30.289Z"
+    "firstSeenAt": "2026-09-19T23:03:30.289Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "temporare-kundenbetreuerin-formulare-leistungen-ge-a-70-befristet-bis-31-dezember-2026": "ZH",
+        "temporare-kundenbetreuerin-formulare-leistungen-ge-a-70-befristet-bis-31-dezember-2026-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "en": {
+        "temporare-kundenbetreuerin-formulare-leistungen-ge-a-70-befristet-bis-31-dezember-2026": "ZH"
+      },
+      "fr": {
+        "temporare-kundenbetreuerin-formulare-leistungen-ge-a-70-befristet-bis-31-dezember-2026": "ZH"
+      }
+    }
   },
   {
     "slug": "fornitore-del-servizio-clienti-a-80-100-helsana-zurigo",
@@ -5138,7 +6047,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-kundenbetreuerin-%28a%29-80-100/1435697133",
-    "firstSeenAt": "2026-09-10T19:18:19.292Z"
+    "firstSeenAt": "2026-09-10T19:18:19.292Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuerin-a-80-100-helsana-worblaufen-homeoffice": "ZH"
+      },
+      "en": {
+        "kundenbetreuerin-a-80-100-helsana-worblaufen-homeoffice": "ZH"
+      },
+      "fr": {
+        "kundenbetreuerin-a-80-100-helsana-worblaufen-homeoffice": "ZH"
+      }
+    }
   },
   {
     "slug": "responsabile-portal-data-solutions-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -5181,7 +6102,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-leiter-portal-&-data-solutions-%28a%29-80-100/1408168833",
-    "firstSeenAt": "2026-06-25T11:13:50.098Z"
+    "firstSeenAt": "2026-06-25T11:13:50.098Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "leiter-portal-data-solutions-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "specialista-di-gestione-delle-denunce-de-fr-a-80-helsana-dubendorf-stettbach-homeoff",
@@ -5234,7 +6161,22 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-fachspezialistin-beschwerdemanagement-%28a%29-80/1413859033",
-    "firstSeenAt": "2026-09-07T15:13:54.876Z"
+    "firstSeenAt": "2026-09-07T15:13:54.876Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "fachspezialistin-beschwerdemanagement-a-80-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "en": {
+        "fachspezialistin-beschwerdemanagement-a-80-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "de": {
+        "fachspezialistin-beschwerdemanagement-a-80-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "specialiste-de-la-gestion-des-plaintes-a-80-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "supporto-per-le-vendite-dei-dipendenti-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -5285,7 +6227,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-mitarbeiter-verkaufssupport-%28a%29-80-100/1431425333",
-    "firstSeenAt": "2026-08-31T17:13:43.606Z"
+    "firstSeenAt": "2026-08-31T17:13:43.606Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-verkaufssupport-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "collaboratore-trice-verkaufssupport-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "en": {
+        "mitarbeiter-verkaufssupport-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "mitarbeiter-verkaufssupport-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "supporto-clienti-internazionale-de-en-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -5356,7 +6311,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuer-kundenservice-international-deenit-%28a%29-80-100/1396541033",
-    "firstSeenAt": "2026-06-23T11:42:45.441Z"
+    "firstSeenAt": "2026-06-23T11:42:45.441Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach": "ZH",
+        "assistenza-clienti-internazionale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "kundenbetreuer-support-international-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "aide-a-la-clientele-internationale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "consulente-internazionale-del-servizio-clienti-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "international-customer-service-advisor-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "conseiller-service-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-96f2c7a8": "ZH"
+      },
+      "en": {
+        "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach": "ZH"
+      },
+      "de": {
+        "kundenbetreuer-support-international-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach": "ZH",
+        "aide-a-la-clientele-internationale-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "apprendista-a-informatikerin-informatiker-cfc-plattformentwicklung-per-august-2026-1-helsana-dubendorf-stettbach-homeoff",
@@ -5410,7 +6388,23 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-lernende-%28a%29-informatikerininformatiker-efz-plattformentwicklung-per-august-2027/1421260933",
-    "firstSeenAt": "2026-07-31T12:07:44.981Z"
+    "firstSeenAt": "2026-07-31T12:07:44.981Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "lernende-a-informatikerin-informatiker-efz-plattformentwicklung-per-august-2026-1-helsana": "ZH",
+        "lernende-a-informatikerin-informatiker-efz-plattformentwicklung-per-august-2027-helsana": "ZH"
+      },
+      "en": {
+        "lernende-a-informatikerin-informatiker-efz-plattformentwicklung-per-august-2026-1-helsana": "ZH"
+      },
+      "de": {
+        "lernende-a-informatikerin-informatiker-efz-plattformentwicklung-per-august-2026-1-helsana": "ZH"
+      },
+      "fr": {
+        "lernende-a-informatikerin-informatiker-efz-plattformentwicklung-per-august-2026-1-helsana": "ZH"
+      }
+    }
   },
   {
     "slug": "assistenza-clienti-ktg-uvg-a-80-100-helsana-san-gallo",
@@ -5459,7 +6453,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/st_-gallen-&-homeoffice-kundenbetreuerin-leistungen-support-ktg-&-uvg-%28a%29-80-100/1434019633",
-    "firstSeenAt": "2026-09-04T13:39:16.193Z"
+    "firstSeenAt": "2026-09-04T13:39:16.193Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuerin-leistungen-support-ktg-uvg-a-80-100-helsana-st-gallen-homeoffice": "SG"
+      },
+      "en": {
+        "kundenbetreuerin-leistungen-support-ktg-uvg-a-80-100-helsana-st-gallen-homeoffice": "SG"
+      },
+      "fr": {
+        "kundenbetreuerin-leistungen-support-ktg-uvg-a-80-100-helsana-st-gallen-homeoffice": "SG"
+      }
+    }
   },
   {
     "slug": "full-stack-software-ingegnere-c-net-react-a-80-100-helsana-ticino",
@@ -5511,7 +6517,20 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/z%c3%bcrich-&-homeoffice-full-stack-software-engineer-c-_net-react-%28a%29-80-100/1382641433",
-    "firstSeenAt": "2026-06-23T11:43:10.314Z"
+    "firstSeenAt": "2026-06-23T11:43:10.314Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "full-stack-software-engineer-c-net-react-a-80-100-helsana-zurich-homeoffice": "ZH",
+        "ingegnere-software-full-stack-c-net-react-a-80-100-helsana-ticino": "ZH"
+      },
+      "en": {
+        "full-stack-software-engineer-c-net-react-a-80-100-helsana-zurich-homeoffice": "ZH"
+      },
+      "de": {
+        "full-stack-software-ingenieur-c-net-react-a-80-100-helsana-ticino": "ZH"
+      }
+    }
   },
   {
     "slug": "servizi-di-assistenza-clienti-ambulant-a-80-100-helsana-ticino",
@@ -5554,7 +6573,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/worblaufen-&-homeoffice-kundenbetreuer-leistungen-ambulant-%28a%29-80-100/1422213733",
-    "firstSeenAt": "2026-09-03T13:40:21.891Z"
+    "firstSeenAt": "2026-09-03T13:40:21.891Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice": "ZH"
+      }
+    }
   },
   {
     "slug": "servizio-assistenza-clienti-indennita-giornaliera-medica-a-80-100-helsana-san-gallo",
@@ -5603,7 +6628,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/st_-gallen-&-homeoffice-kundenbetreuer-leistungen-krankentaggeld-%28a%29-80-100/1433984433",
-    "firstSeenAt": "2026-09-04T13:39:15.553Z"
+    "firstSeenAt": "2026-09-04T13:39:15.553Z",
+    "canton": "SG",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-st-gallen-homeoffice": "SG"
+      },
+      "en": {
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-st-gallen-homeoffice": "SG"
+      },
+      "fr": {
+        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-st-gallen-homeoffice": "SG"
+      }
+    }
   },
   {
     "slug": "team-leader-requisiti-e-test-engineering-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -5651,7 +6688,17 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-teamleiter-requirements-und-test-engineering-%28a%29-80-100/1433542533",
-    "firstSeenAt": "2026-09-03T23:15:39.742Z"
+    "firstSeenAt": "2026-09-03T23:15:39.742Z",
+    "canton": "ZH",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "teamleiter-requirements-und-test-engineering-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH",
+        "teamleiter-requirements-e-test-engineering-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      },
+      "fr": {
+        "teamleiter-requirements-und-test-engineering-a-80-100-helsana-dubendorf-stettbach-homeoff": "ZH"
+      }
+    }
   },
   {
     "slug": "it-security-architetto-a-secure-development-threat-vulnerability-management-80-100-helsana-dubendorf-stettbach-homeoff",
