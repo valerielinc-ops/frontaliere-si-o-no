@@ -37,6 +37,29 @@ function httpsUrl(value) {
   }
 }
 
+/**
+ * The vacancy entry a read-only inspection starts from: the order's apply URL names the vacancy (Description or
+ * Application/New), and Application/New/<step> of that same vacancy is where a signed-in account that already
+ * applied is sent to the «application exists» page. Only ATSes in the route table above have one.
+ */
+export function applicationExistsProbeEntry(applyUrl) {
+  const url = httpsUrl(applyUrl);
+  if (!url || !APPLICATION_EXISTS_ROUTES.umantis_application_exists.hostRe.test(url.hostname)) return null;
+  const match = /^\/vacancies\/(\d{1,64})\/(?:description|application\/new)\/(\d+)\/?$/iu.exec(url.pathname);
+  if (!match) return null;
+  const host = url.hostname.toLowerCase();
+  return { routeKind: 'umantis_application_exists', host, origin: url.origin, vacancyId: match[1],
+    entryUrl: `${url.origin}/Vacancies/${match[1]}/Application/New/${match[2]}` };
+}
+
+/** The only pages of the order's own vacancy a read-only inspection may navigate to or sign in on. */
+export function applicationExistsProbeNavigation(value, probe) {
+  const url = httpsUrl(value);
+  if (!url || !probe || url.hash || url.origin !== probe.origin) return false;
+  const match = /^\/vacancies\/(\d{1,64})\/(application\/(?:new|login)|furtherapplication\/applicationexists)\/\d+\/?$/iu.exec(url.pathname);
+  return Boolean(match && match[1] === probe.vacancyId);
+}
+
 /** Which «application exists» route a page URL is, or null. */
 export function applicationExistsRoute(pageUrl) {
   const url = httpsUrl(pageUrl);

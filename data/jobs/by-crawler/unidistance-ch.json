@@ -1,7 +1,7 @@
 {
   "crawlerKey": "unidistance-ch",
-  "assembledAt": "2026-11-27T09:55:01.706Z",
-  "runId": "45973680225",
+  "assembledAt": "2026-11-27T21:48:42.954Z",
+  "runId": "46070253957",
   "jobs": [
     {
       "id": "unidistance-ch-589b7e149684",
@@ -34,7 +34,7 @@
       "url": "https://fernuni.ch/jobs/mehr/professuren-oeffentliches-recht",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:54:48.704Z",
+      "crawledAt": "2026-11-27T21:48:29.267Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -90,9 +90,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:54:48.704Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fernuni.ch/jobs/mehr/professuren-oeffentliches-recht"
+      "validThrough": "2027-02-07T21:48:29.267Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "unidistance-ch-4b4eae97638d",
@@ -125,7 +124,7 @@
       "url": "https://fernuni.ch/jobs/mehr/doctoral-student-business-economics",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:54:48.702Z",
+      "crawledAt": "2026-11-27T21:48:29.262Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -178,9 +177,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:54:48.702Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fernuni.ch/jobs/mehr/doctoral-student-business-economics"
+      "validThrough": "2027-02-14T21:48:29.262Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "unidistance-ch-e52d67238a4b",
@@ -213,7 +211,7 @@
       "url": "https://fernuni.ch/jobs/mehr/postdoc-in-experimental-and-behavioral-economics-80-100",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-27T09:54:48.690Z",
+      "crawledAt": "2026-11-27T21:48:29.259Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -266,9 +264,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:54:48.690Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fernuni.ch/jobs/mehr/postdoc-in-experimental-and-behavioral-economics-80-100"
+      "validThrough": "2027-02-14T21:48:29.259Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "unidistance-ch-9003edea65ec",
@@ -301,7 +298,7 @@
       "url": "https://fernuni.ch/jobs/mehr/spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:54:48.689Z",
+      "crawledAt": "2026-11-27T21:48:29.255Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -357,9 +354,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:54:48.689Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fernuni.ch/jobs/mehr/spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services"
+      "validThrough": "2027-02-07T21:48:29.255Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "unidistance-ch-a0fe6cb42cc1",
@@ -392,7 +388,7 @@
       "url": "https://fernuni.ch/jobs/mehr/faculty-manager-geschichte-befristet",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:54:48.672Z",
+      "crawledAt": "2026-11-27T21:48:29.243Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -447,9 +443,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:54:48.672Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fernuni.ch/jobs/mehr/faculty-manager-geschichte-befristet"
+      "validThrough": "2027-02-07T21:48:29.243Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

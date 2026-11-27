@@ -1120,12 +1120,20 @@ jobs:
           echo "::error::Timed out waiting for $BUNDLE_ARTIFACT_NAME"
           exit 1
 
+      # `github-token` + `run-id` make the action look the artifact up through
+      # the REST API, the view the wait step above has just confirmed. Without
+      # them it asks the runner's internal results service, which in run
+      # 45446025312 still answered "Artifact not found" 0.8 s (en) and 3.9 s
+      # (de) after the upload was finalized and REST already listed it.
       - name: Download IT Rollup bundle artifact
         if: matrix.locale != 'it'
         uses: actions/download-artifact@v8
         with:
           name: it-rollup-bundle-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/it-rollup-bundle-download
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ github.run_id }}
 
       - name: Restore IT Rollup bundle and staged handoff
         if: matrix.locale != 'it'

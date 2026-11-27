@@ -1,7 +1,7 @@
 {
   "key": "apleona-schweiz-ag",
   "label": "Apleona Schweiz AG",
-  "generatedAt": "2026-11-27T09:59:48.722Z",
+  "generatedAt": "2026-11-27T21:37:03.303Z",
   "total": 11,
   "discovered": null,
   "parsed": 10,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 40240,
-  "avgDurationMs": 40240,
+  "durationMs": 51257,
+  "avgDurationMs": 51257,
   "durationHistory": [
-    40240
+    51257
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "apleona-schweiz-ag-a1c59e5b22e5",
       "slug": "objektleiter-igm-m-w-d-apleona-schweiz-ag-basel",
@@ -35,7 +36,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2610/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:09.886Z",
+      "crawledAt": "2026-11-27T21:36:07.966Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -51,21 +52,20 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2610/Description/1",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T09:59:09.886Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:59:09.886Z",
+      "validThrough": "2027-02-25T21:36:07.966Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T09:59:09.886Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -81,7 +81,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2419/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:09.584Z",
+      "crawledAt": "2026-11-27T21:36:07.665Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -97,26 +97,24 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2419/Description/1",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-27T09:59:09.584Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-25T09:59:09.584Z",
+      "validThrough": "2027-02-25T21:36:07.665Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-27T09:59:09.584Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -131,7 +129,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2604/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:12.303Z",
+      "crawledAt": "2026-11-27T21:36:10.382Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -154,7 +152,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:59:12.303Z",
+      "validThrough": "2027-02-24T21:36:10.382Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -176,7 +174,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2522/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:12.001Z",
+      "crawledAt": "2026-11-27T21:36:10.081Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -210,7 +208,7 @@
       },
       "streetAddress": "Ebnatstrasse 91a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-24T09:59:12.001Z",
+      "validThrough": "2027-02-24T21:36:10.081Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -232,7 +230,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2525/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:11.700Z",
+      "crawledAt": "2026-11-27T21:36:09.779Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -255,7 +253,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:59:11.700Z",
+      "validThrough": "2026-12-28T21:36:09.779Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -277,7 +275,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2606/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:11.399Z",
+      "crawledAt": "2026-11-27T21:36:09.478Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -300,7 +298,7 @@
       "postalCode": "8304",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:59:11.399Z",
+      "validThrough": "2027-02-24T21:36:09.478Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -322,7 +320,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2608/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:11.097Z",
+      "crawledAt": "2026-11-27T21:36:09.176Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -356,7 +354,7 @@
       },
       "streetAddress": "Ebnatstrasse 91a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-24T09:59:11.097Z",
+      "validThrough": "2027-02-24T21:36:09.176Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -378,7 +376,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2593/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:10.796Z",
+      "crawledAt": "2026-11-27T21:36:08.875Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -401,7 +399,7 @@
       "postalCode": "8304",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:59:10.796Z",
+      "validThrough": "2027-01-29T21:36:08.875Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -423,7 +421,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2578/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:10.494Z",
+      "crawledAt": "2026-11-27T21:36:08.574Z",
       "addressLocality": "Basel oder Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -446,7 +444,7 @@
       "postalCode": "3001",
       "streetAddress": "Basel oder Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:59:10.494Z",
+      "validThrough": "2027-01-05T21:36:08.574Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -468,7 +466,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2609/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:59:10.189Z",
+      "crawledAt": "2026-11-27T21:36:08.270Z",
       "addressLocality": "Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -491,7 +489,7 @@
       "postalCode": "8001",
       "streetAddress": "Oerlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:59:10.189Z",
+      "validThrough": "2027-02-24T21:36:08.270Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -539,7 +537,7 @@
       "validThrough": "2027-02-23T21:45:26.493Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2599/description/1",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -549,5 +547,5 @@
       }
     }
   ],
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

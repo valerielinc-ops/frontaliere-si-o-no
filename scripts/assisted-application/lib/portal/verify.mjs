@@ -7,6 +7,7 @@ import { applyActions, findButton, locatorFor } from './fill.mjs';
 import { applicationReceipt, applicationStage, portalJobKey, routeDirectory } from './stages.mjs';
 import { avaturePortalDirectory } from './protocol.mjs';
 import { resolvesToPublicHost } from '../../../../functions/src/assistedApplicationAiJob.js';
+import { applicationExistsProbeNavigation, applicationExistsRoute } from '../../../../functions/src/lib/applicationExistsReconciliation.js';
 
 const portalDirectory = url => routeDirectory(url.pathname);
 // /job?jobId=42 does not attest a sibling /application/ namespace. Only
@@ -25,6 +26,8 @@ const launchAssistedVerificationBrowser = ({ headless = !headedBrowser() } = {})
     fallbackOptions: { headless, args },
   });
 };
+
+export { applicationExistsProbeNavigation };
 
 export function verificationTarget({ applyUrl, evidence, sourceProtocol = null }) {
   try {
@@ -92,8 +95,16 @@ export function applicationHistoryLinksInPage() {
  * not prove that the earlier application was unsent, and never releases a claim.
  */
 export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrls = [], sourceProtocol = null, job, accounts, launch = launchAssistedVerificationBrowser,
-  allowCrossOriginNavigation = false, isPublicHost = resolvesToPublicHost }) {
-  if (verificationTarget({ applyUrl, evidence: { finalUrl: targetUrl }, sourceProtocol }) !== targetUrl) throw new Error('unsafe_verification_target');
+  allowCrossOriginNavigation = false, isPublicHost = resolvesToPublicHost, probe = null }) {
+  // `probe` ({origin, vacancyId, entryUrl}): the order's own vacancy entry, signed in with the order's alias
+  // account, to see whether the portal answers with its «application exists» page. The fence below is the same;
+  // it only also admits Application/New|Login and ApplicationExists of THAT vacancy. No other click than the
+  // sign-in and a bounded cookie rejection exists in this function, so nothing here can press a submit control.
+  if (probe) {
+    if (targetUrl !== probe.entryUrl || !applicationExistsProbeNavigation(targetUrl, probe)) throw new Error('unsafe_verification_target');
+  } else if (verificationTarget({ applyUrl, evidence: { finalUrl: targetUrl }, sourceProtocol }) !== targetUrl) throw new Error('unsafe_verification_target');
+  const signinOk = (action) => safeSigninAction(action, applyUrl, sourceProtocol)
+    || Boolean(probe && applicationExistsProbeNavigation(action, probe) && /\/application\/login\/\d+\/?$/i.test(new URL(action).pathname));
   const browser = await launch({ headless: !headedBrowser() });
   let context;
   const proof = { ...(sourceProtocol ? { sourceProtocol } : {}), kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown' };
@@ -150,12 +161,13 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           || /(?:^|\/)(?:application)?save(?:\/|$)/i.test(pathname)
           || [...url.searchParams.keys()].some(key => /^(?:action|submit|send|withdraw|delete|cancel)$/i.test(key))) { proof.blockedRequests++; return route.abort(); }
         if (request.isNavigationRequest() && !crossOriginNavigation && !navigationTargets.has(url.href)
-          && !safeSigninAction(url.href, applyUrl, sourceProtocol)
+          && !signinOk(url.href)
+          && !(probe && applicationExistsProbeNavigation(url.href, probe))
           && !(portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && /(?:^|\/)(?:home|index)\/?$/i.test(url.pathname) && !url.search)
           && !(!url.search && (url.pathname === '/' || url.pathname === sourceDirectory(new URL(applyUrl), sourceProtocol).replace(/\/$/, '')))) { proof.blockedRequests++; return route.abort(); }
         return route.continue();
       }
-      if (loginArmed && !loginPosted && method === 'POST' && request.url() === loginAction && safeSigninAction(loginAction, applyUrl, sourceProtocol)) {
+      if (loginArmed && !loginPosted && method === 'POST' && request.url() === loginAction && signinOk(loginAction)) {
         loginPosted = true;
         return route.continue();
       }
@@ -175,7 +187,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       snapshot = await extractFields(page, { listboxOptions: false });
     }
     if (snapshot.passwordVisible) {
-      if (!safeSigninAction(page.url(), applyUrl, sourceProtocol) || authPageKind(snapshot) !== 'sign_in') return proof;
+      if (!signinOk(page.url()) || authPageKind(snapshot) !== 'sign_in') return proof;
       const { email, password } = loginFields(snapshot);
       const signin = findButton(snapshot.buttons, SIGN_IN_RE);
       if (!email || !password || !signin || new Set([email.id, password.id, signin.id]).size !== 3 || (signin.frame || 0) !== 0 || (email.frame || 0) !== (signin.frame || 0)
@@ -189,7 +201,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
             return nodes.length === 1 && nodes[0].form === form;
           }) } : null;
       }, [email.id, password.id]);
-      if (!owned?.credentialsOwned || !safeSigninAction(owned.action, applyUrl, sourceProtocol) || String(owned.method).toLowerCase() !== 'post') return proof;
+      if (!owned?.credentialsOwned || !signinOk(owned.action) || String(owned.method).toLowerCase() !== 'post') return proof;
       const account = await accounts.load(new URL(page.url()).hostname);
       if (!account?.email || !account.password) return proof;
       loginAction = owned.action;
@@ -215,6 +227,11 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       return current;
     };
     snapshot = await observe();
+    if (probe) {
+      // What the portal did with the signed-in account on this vacancy: the live URL is the only evidence kept.
+      const route = applicationExistsRoute(page.url());
+      proof.applicationExists = route ? { routeKind: route.routeKind, host: route.host, vacancyId: route.vacancyId, pagePath: route.pagePath } : null;
+    }
     // An explicitly named application-history link is a read, never Apply or
     // an inferred route. Preserve its exact rows for a job/status review.
     const links = await page.evaluate(applicationHistoryLinksInPage).catch(() => []);

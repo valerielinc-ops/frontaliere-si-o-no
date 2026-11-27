@@ -1,10 +1,10 @@
 {
   "detailCandidates": 18,
-  "detailGone": 10,
+  "detailGone": 18,
   "detailRejected": 0,
   "key": "michaelpage",
   "label": "Michael Page",
-  "generatedAt": "2026-11-27T09:35:43.138Z",
+  "generatedAt": "2026-11-27T21:49:59.588Z",
   "total": 0,
   "discovered": 18,
   "parsed": 0,
@@ -15,7 +15,7 @@
       "https://www.pageexecutive.com/jobs/switzerland"
     ],
     "phase": "detail",
-    "pages": 27,
+    "pages": 19,
     "httpStatuses": [
       {
         "status": 200,
@@ -28,11 +28,6 @@
       {
         "status": 403,
         "url": "https://www.pageexecutive.com/job-detail/managing-director/ref/jn-112026-7144871"
-      },
-      {
-        "status": 200,
-        "url": "https://www.pageexecutive.com/job-detail/head-private-banking-switzerland-benelux-markets/ref/jn-102026-7132672",
-        "proxiedBy": "jina"
       },
       {
         "status": 403,
@@ -55,11 +50,6 @@
         "url": "https://www.pageexecutive.com/job-detail/finance-director-finance-business-partner/ref/jn-112026-7146093"
       },
       {
-        "status": 200,
-        "url": "https://www.pageexecutive.com/job-detail/head-private-banking-zurich/ref/jn-102026-7126910",
-        "proxiedBy": "jina"
-      },
-      {
         "status": 403,
         "url": "https://www.pageexecutive.com/job-detail/vp-strategic-ventures-ai/ref/jn-102026-7136619"
       },
@@ -72,11 +62,6 @@
         "url": "https://www.pageexecutive.com/job-detail/senior-private-bankers-swiss-private-bank/ref/jn-082026-7087025"
       },
       {
-        "status": 200,
-        "url": "https://www.pageexecutive.com/job-detail/finance-director-finance-business-partner/ref/jn-112026-7146093",
-        "proxiedBy": "jina"
-      },
-      {
         "status": 403,
         "url": "https://www.pageexecutive.com/job-detail/directeurice-comptabilit%C3%A9-reporting-consolidation/ref/jn-052026-7014706"
       },
@@ -85,22 +70,12 @@
         "url": "https://www.pageexecutive.com/job-detail/directeur-trice-des-ressources-humaines-ad-int%C3%A9rim-6-12-mois/ref/jn-102026-7132349"
       },
       {
-        "status": 200,
-        "url": "https://www.pageexecutive.com/job-detail/vp-strategic-ventures-ai/ref/jn-102026-7136619",
-        "proxiedBy": "jina"
-      },
-      {
         "status": 403,
         "url": "https://www.pageexecutive.com/job-detail/directeur-ou-directrice-des-soins/ref/jn-032026-6980934"
       },
       {
         "status": 403,
         "url": "https://www.pageexecutive.com/job-detail/director-rooms-luxury-5-star-hotel-lake-geneva-region/ref/jn-092026-7109181"
-      },
-      {
-        "status": 200,
-        "url": "https://www.pageexecutive.com/job-detail/senior-private-bankers-swiss-private-bank/ref/jn-082026-7087025",
-        "proxiedBy": "jina"
       },
       {
         "status": 403,
@@ -115,32 +90,15 @@
         "url": "https://www.pageexecutive.com/job-detail/directeur-finance-administration-80-100/ref/jn-092026-7106408"
       },
       {
-        "status": 200,
-        "url": "https://www.pageexecutive.com/job-detail/directeur-trice-des-ressources-humaines-ad-int%C3%A9rim-6-12-mois/ref/jn-102026-7132349",
-        "proxiedBy": "jina"
-      },
-      {
         "status": 403,
         "url": "https://www.pageexecutive.com/job-detail/directeurice-administratifve-financiere/ref/jn-072026-7062316"
-      },
-      {
-        "status": 200,
-        "url": "https://www.pageexecutive.com/job-detail/directeurice-administratifve-financiere/ref/jn-072026-7062316",
-        "proxiedBy": "jina"
-      },
-      {
-        "status": 200,
-        "url": "https://www.pageexecutive.com/job-detail/directeur-finance-administration-80-100/ref/jn-092026-7106408",
-        "proxiedBy": "jina"
       }
     ],
     "listingTerminalStatus": 200,
     "listingCompletion": "complete",
-    "proxiedBy": [
-      "jina"
-    ],
+    "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": "[prospector:michaelpage] detail snapshot incompleto: 10/18 detail page(s) dropped (56% > 15%); refusing partial publication"
+    "fetchDetail": "[prospector:michaelpage] detail snapshot incompleto: 18/18 detail page(s) dropped (100% > 15%); refusing partial publication"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -156,5 +114,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "bb49a1aa5b14f108ad84c3fb5bf29260c08d16d3"
+  "codeCommit": "129a2cc157fa2ed445748fe4b56e64bf42a9b0ee"
 }

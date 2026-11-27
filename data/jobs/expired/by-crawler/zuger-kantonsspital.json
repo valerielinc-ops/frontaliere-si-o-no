@@ -485,11 +485,11 @@
       "pflegefachperson-hf-chirurgie-80-100-m-w-zuger-kantonsspital-baar",
       "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar-07a2ed8f",
       "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar-0a1a7764",
-      "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar",
       "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar-6217f728",
       "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar-1b862531",
       "fachperson-operationstechnik-hf-80-100-zuger-kantonsspital-baar-575148c3",
       "tecnologia-chirurgica-specialistica-hf-80-100-zuger-kantonsspital-baar-228236e6",
+      "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar",
       "tecnologia-chirurgica-specialistica-hf-80-100-zuger-kantonsspital-baar",
       "fachperson-operationstechnik-hf-80-100-zuger-kantonsspital-baar",
       "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar"
@@ -558,22 +558,32 @@
     "previousSlugCantonByLocale": {
       "it": {
         "nurse-hf-surgery-80-100-m-f-zuger-kantonsspital-baar": "ZG",
-        "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar": "ZG",
         "radiology-specialist-hf-80-100-zuger-kantonsspital-baar": "ZG",
-        "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar": "ZG",
         "specialiste-de-radiologie-hf-80-100-zuger-kantonsspital-baar": "ZG",
         "specialista-hf-cardiologia-40-50-zuger-kantonsspital-baar": "ZG",
-        "tecnologia-chirurgica-specialistica-hf-80-100-zuger-kantonsspital-baar": "ZG",
         "specialist-surgical-technology-hf-80-100-zuger-kantonsspital-baar": "ZG",
-        "fachperson-operationstechnik-hf-80-100-zuger-kantonsspital-baar": "ZG",
         "technologie-chirurgicale-specialisee-hf-80-100-zuger-kantonsspital-baar": "ZG",
         "tecnico-di-radiologia-hf-80-100-zuger-kantonsspital-baar": "ZG",
         "fachperson-fur-radiologie-hf-80-100-zuger-kantonsspital-baar": "ZG",
         "technicien-ne-en-radiologie-hf-80-100-zuger-kantonsspital-baar": "ZG",
-        "pflegefachperson-hf-chirurgie-80-100-m-w-zuger-kantonsspital-baar": "ZG"
+        "pflegefachperson-hf-chirurgie-80-100-m-w-zuger-kantonsspital-baar": "ZG",
+        "tecnologia-chirurgica-specialistica-hf-80-100-zuger-kantonsspital-baar-228236e6": "ZG",
+        "fachperson-operationstechnik-hf-80-100-zuger-kantonsspital-baar-575148c3": "ZG",
+        "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar-0a1a7764": "ZG",
+        "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar-07a2ed8f": "ZG"
       },
       "en": {
-        "pflegefachperson-hf-chirurgie-80-100-m-w-zuger-kantonsspital-baar": "ZG"
+        "pflegefachperson-hf-chirurgie-80-100-m-w-zuger-kantonsspital-baar": "ZG",
+        "fachperson-operationstechnik-hf-80-100-zuger-kantonsspital-baar-575148c3": "ZG",
+        "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar-0a1a7764": "ZG"
+      },
+      "de": {
+        "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar-0a1a7764": "ZG",
+        "fachperson-operationstechnik-hf-80-100-zuger-kantonsspital-baar-575148c3": "ZG"
+      },
+      "fr": {
+        "fachperson-operationstechnik-hf-80-100-zuger-kantonsspital-baar-575148c3": "ZG",
+        "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar-0a1a7764": "ZG"
       }
     }
   },

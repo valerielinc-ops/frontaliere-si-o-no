@@ -1,7 +1,7 @@
 {
   "crawlerKey": "livit",
-  "assembledAt": "2026-11-27T09:43:57.416Z",
-  "runId": "45973230963",
+  "assembledAt": "2026-11-27T21:51:39.929Z",
+  "runId": "46069898153",
   "jobs": [
     {
       "id": "livit-590aeebd3eab",
@@ -35,7 +35,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/abteilungsleiter-in-technology-enabling-services/ba89e88c-76ba-421a-b806-96c703932397",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.603Z",
+      "crawledAt": "2026-11-27T21:50:39.904Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,9 +84,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:43:24.603Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/abteilungsleiter-in-technology-enabling-services/ba89e88c-76ba-421a-b806-96c703932397"
+      "validThrough": "2027-01-31T21:50:39.904Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-95696e54f74a",
@@ -120,7 +119,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/b2a3b952-adf3-401c-9a8d-c4e4642a6746",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.601Z",
+      "crawledAt": "2026-11-27T21:50:39.902Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -169,9 +168,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:43:24.601Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/b2a3b952-adf3-401c-9a8d-c4e4642a6746"
+      "validThrough": "2027-01-31T21:50:39.902Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-9c52e9b3dae4",
@@ -205,7 +203,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/f8e13c5c-89a3-4d63-a6cd-15210cf39761",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.600Z",
+      "crawledAt": "2026-11-27T21:50:39.901Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -254,9 +252,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:43:24.600Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/f8e13c5c-89a3-4d63-a6cd-15210cf39761"
+      "validThrough": "2027-02-01T21:50:39.901Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-d04f755188f3",
@@ -290,7 +287,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/teamleiter-in-administration-bewirtschaftung-geschaeftsflaechen/d4d115d1-0ad4-4b14-9fba-e4756d21f8c5",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.599Z",
+      "crawledAt": "2026-11-27T21:50:39.900Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -339,9 +336,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:43:24.599Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/teamleiter-in-administration-bewirtschaftung-geschaeftsflaechen/d4d115d1-0ad4-4b14-9fba-e4756d21f8c5"
+      "validThrough": "2027-02-02T21:50:39.900Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-c8ad94054ed2",
@@ -374,7 +370,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/juniorbewirtschafter/a6511e29-56ab-44e0-8ae9-30b0403a291b",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.597Z",
+      "crawledAt": "2026-11-27T21:50:39.898Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -434,9 +430,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:43:24.597Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/juniorbewirtschafter/a6511e29-56ab-44e0-8ae9-30b0403a291b"
+      "validThrough": "2027-02-02T21:50:39.898Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-7fdf2d51cc1d",
@@ -470,7 +465,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/projektleiter-in-baumanagement-bauherrenvertretung/32353116-f4c0-44d0-a4bb-169b761d4e05",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.596Z",
+      "crawledAt": "2026-11-27T21:50:39.897Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -551,9 +546,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:43:24.596Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/projektleiter-in-baumanagement-bauherrenvertretung/32353116-f4c0-44d0-a4bb-169b761d4e05"
+      "validThrough": "2027-02-04T21:50:39.897Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-d3cbf55680be",
@@ -587,7 +581,7 @@
       "url": "https://jobs.livit.ch/postes-vacantes/gerant-e-d-immeubles-commerciaux/d87c163c-ad31-44d4-bd31-1f8a95feac0d",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:43:24.594Z",
+      "crawledAt": "2026-11-27T21:50:39.896Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -638,9 +632,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:43:24.594Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/postes-vacantes/gerant-e-d-immeubles-commerciaux/d87c163c-ad31-44d4-bd31-1f8a95feac0d"
+      "validThrough": "2027-02-07T21:50:39.896Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-8a23298e4f50",
@@ -674,7 +667,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/1a199e75-141a-49ab-89c5-2473e8fdf858",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.591Z",
+      "crawledAt": "2026-11-27T21:50:39.894Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -756,9 +749,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:43:24.591Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/1a199e75-141a-49ab-89c5-2473e8fdf858"
+      "validThrough": "2027-02-08T21:50:39.894Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-9f310e21c1ec",
@@ -792,7 +784,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/mitarbeiter-in-gebaeudeservice-glatt/8dfb6728-3a7f-47b3-b92b-cc07ed052de6",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.590Z",
+      "crawledAt": "2026-11-27T21:50:39.893Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -837,9 +829,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:43:24.590Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/mitarbeiter-in-gebaeudeservice-glatt/8dfb6728-3a7f-47b3-b92b-cc07ed052de6"
+      "validThrough": "2027-02-09T21:50:39.893Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-baad221d8a1c",
@@ -873,7 +864,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/fc3df783-e661-4d2e-a67b-5a3d586c6eaf",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.584Z",
+      "crawledAt": "2026-11-27T21:50:39.888Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -933,9 +924,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:43:24.584Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/fc3df783-e661-4d2e-a67b-5a3d586c6eaf"
+      "validThrough": "2027-02-10T21:50:39.888Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-e0f568cd9043",
@@ -968,7 +958,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/fd4320bc-81c1-484b-a346-04ce490058c9",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.583Z",
+      "crawledAt": "2026-11-27T21:50:39.884Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1020,7 +1010,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-02088148",
           "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-7eb44920",
           "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-03d677c9",
           "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-c6f29ce1",
@@ -1039,7 +1028,8 @@
           "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-a2c3e61a",
           "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-d59c6032",
           "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-3d938f65",
-          "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-e58f139c"
+          "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-e58f139c",
+          "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen-02088148"
         ],
         "en": [
           "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
@@ -1078,9 +1068,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:43:24.583Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/fd4320bc-81c1-484b-a346-04ce490058c9"
+      "validThrough": "2027-02-10T21:50:39.884Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-2e9c68da96b9",
@@ -1114,7 +1103,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/teamleiter-in-bewirtschaftung-geschaeftsliegenschaften-mit-regionalverantwortung/271cc56b-d180-4291-a93b-24b2620f705e",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.582Z",
+      "crawledAt": "2026-11-27T21:50:39.883Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1159,9 +1148,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:43:24.582Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/teamleiter-in-bewirtschaftung-geschaeftsliegenschaften-mit-regionalverantwortung/271cc56b-d180-4291-a93b-24b2620f705e"
+      "validThrough": "2027-02-10T21:50:39.883Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-d3db0e51ee4b",
@@ -1195,7 +1183,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/kaufmaennisches-praktikum-ab-sommer-2027-wms-oder-hms/350564d1-7bdc-48ef-b61d-2c2c996d79fd",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.580Z",
+      "crawledAt": "2026-11-27T21:50:39.881Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1240,9 +1228,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:43:24.580Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/kaufmaennisches-praktikum-ab-sommer-2027-wms-oder-hms/350564d1-7bdc-48ef-b61d-2c2c996d79fd"
+      "validThrough": "2027-02-10T21:50:39.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-fa836d5fcbd2",
@@ -1276,7 +1263,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/werkstudent-in-ict-support-hardware-management-befristet-auf-1-jahr/c02509a8-7b15-4515-9d18-dd93be8cb8bb",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.578Z",
+      "crawledAt": "2026-11-27T21:50:39.880Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1324,9 +1311,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:43:24.578Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/werkstudent-in-ict-support-hardware-management-befristet-auf-1-jahr/c02509a8-7b15-4515-9d18-dd93be8cb8bb"
+      "validThrough": "2027-01-27T21:50:39.880Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-27019d5b1711",
@@ -1360,7 +1346,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/sachbearbeiter-in-team-bewirtschaftung/87e3f6bd-b4d5-4ab4-9aee-81db2c46c6fa",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.576Z",
+      "crawledAt": "2026-11-27T21:50:39.878Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1409,9 +1395,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:43:24.576Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/sachbearbeiter-in-team-bewirtschaftung/87e3f6bd-b4d5-4ab4-9aee-81db2c46c6fa"
+      "validThrough": "2027-02-11T21:50:39.878Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-c5412dbdeffb",
@@ -1445,7 +1430,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/junior-bewirtschafter-in/18840a5b-6e05-4dd5-aedf-a63870405bfe",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.575Z",
+      "crawledAt": "2026-11-27T21:50:39.876Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1505,9 +1490,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T09:43:24.575Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/junior-bewirtschafter-in/18840a5b-6e05-4dd5-aedf-a63870405bfe"
+      "validThrough": "2027-02-14T21:50:39.876Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-1a206cef5e4f",
@@ -1540,7 +1524,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/d4fd910e-2980-4c69-a88a-e0e5210f6f60",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.573Z",
+      "crawledAt": "2026-11-27T21:50:39.875Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1605,9 +1589,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:43:24.573Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/d4fd910e-2980-4c69-a88a-e0e5210f6f60"
+      "validThrough": "2027-02-15T21:50:39.875Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-b1e8e256006f",
@@ -1641,7 +1624,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/8c07c745-f6b2-4331-b53b-f2cc81a425b3",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.572Z",
+      "crawledAt": "2026-11-27T21:50:39.874Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1701,9 +1684,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T09:43:24.572Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/8c07c745-f6b2-4331-b53b-f2cc81a425b3"
+      "validThrough": "2027-02-16T21:50:39.874Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-e1fdb4ae9bb9",
@@ -1737,7 +1719,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in-deutschschweiz/cfda0223-848b-4d32-abf0-0673e18e6b64",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.571Z",
+      "crawledAt": "2026-11-27T21:50:39.873Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1780,9 +1762,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:43:24.571Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in-deutschschweiz/cfda0223-848b-4d32-abf0-0673e18e6b64"
+      "validThrough": "2027-02-22T21:50:39.873Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-cba4d0a2c4cf",
@@ -1816,7 +1797,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/technische-r-objektmanager-in/e9cf25bb-586e-4e41-97f4-8c75caccb87c",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.563Z",
+      "crawledAt": "2026-11-27T21:50:39.871Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1870,9 +1851,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:43:24.563Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/technische-r-objektmanager-in/e9cf25bb-586e-4e41-97f4-8c75caccb87c"
+      "validThrough": "2027-02-14T21:50:39.871Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-effa2056f604",
@@ -1906,7 +1886,7 @@
       "url": "https://jobs.livit.ch/postes-vacantes/chef-fe-de-groupe-team-administration/df3e3195-11c4-4ea0-bb07-1efad496882d",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:43:24.553Z",
+      "crawledAt": "2026-11-27T21:50:39.863Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1966,9 +1946,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-23T09:43:24.553Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/postes-vacantes/chef-fe-de-groupe-team-administration/df3e3195-11c4-4ea0-bb07-1efad496882d"
+      "validThrough": "2027-02-23T21:50:39.863Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-57ae58e3907c",
@@ -2002,7 +1981,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/senior-vermarkter-in/8406e2e1-9474-49d3-a150-9ef314a23004",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.551Z",
+      "crawledAt": "2026-11-27T21:50:39.861Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2060,9 +2039,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T09:43:24.551Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/senior-vermarkter-in/8406e2e1-9474-49d3-a150-9ef314a23004"
+      "validThrough": "2027-01-27T21:50:39.861Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "livit-22580fb9deab",
@@ -2095,7 +2073,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/sachbearbeiter-in-bewirtschaftung/deb97f9f-98bb-4322-a332-1ac49a6c3f04",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:43:24.540Z",
+      "crawledAt": "2026-11-27T21:50:39.859Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2155,9 +2133,80 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-24T09:43:24.540Z",
+      "validThrough": "2027-02-24T21:50:39.859Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "livit-054f34a105e6",
+      "slug": "teamleiter-in-bewirtschaftung-livit-zurich",
+      "slugByLocale": {
+        "de": "teamleiter-in-bewirtschaftung-livit-zurich",
+        "it": "teamleiter-in-bewirtschaftung-livit-zurich",
+        "en": "teamleiter-in-bewirtschaftung-livit-zurich",
+        "fr": "teamleiter-in-bewirtschaftung-livit-zurich"
+      },
+      "company": "Livit AG",
+      "companyKey": "livit",
+      "companyDomain": "livit.ch",
+      "title": "Teamleiter:in Bewirtschaftung",
+      "titleByLocale": {
+        "de": "Teamleiter:in Bewirtschaftung",
+        "it": "Teamleiter:in Bewirtschaftung",
+        "en": "Teamleiter:in Bewirtschaftung",
+        "fr": "Teamleiter:in Bewirtschaftung"
+      },
+      "description": "## Bewirtschaftung Zürich | Pensum: 100%\nDu bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Bei Livit setzt du dich mit einer vorbildlichen Kundenorientierung für die Anliegen von Eigentümer:innen und Mieter:innen ein und trägst so massgeblich zu einer vertrauensvollen, langlebigen Kundenbeziehung und einem positiven Unternehmensimage bei. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\n## Deine Aufgaben\n• Du bist verantwortlich für die zielorientierte Führung des Teams, für die Sicherstellung der Qualität sowie für die Personalplanung und Förderung der Mitarbeitenden\n• Du bist zuständig für die marktkonforme Bewirtschaftung sowie die Sicherstellung des Unterhalts des Immobilienportfolios bestehend aus Wohnen und Geschäftsflächen\n• Du berätst Eigentümer und Mieter, erstellst und verhandelst anspruchsvolle Verträge und steuerst die Facility Manager\n• Du bist verantwortlich für die Sicherstellung, Ausführung und Begleitung des Unterhalts sowie für periodische Zustandsbeurteilungen inkl. Berichterstellung\n• Du erarbeitest und steuerst das Jahresbudget inkl. Prognosen und kontrollierst die Kontierung der Kreditoren\n• Du erteilst Reparatur- und Sanierungsaufträge und überwachst deren Ausführung\n• Du überwachst die aktuelle Mietzinspolitik und berätst Hauseigentümer bei der Festlegung der Mietzinsgestaltung\n• Du führst Mietvertragsänderungen, Mietzinsänderungen sowie indexierte Mietzinsanpassungen durch\n\n## Dein Profil\n• Du verfügst über einen Eidg. Fachausweis Immobilienbewirtschaftung oder ein Eidg. Diplom Immobilientreuhand\n• Du bringst langjährige Berufserfahrung in der Immobilienbranche mit, hast Spezialkenntnisse in Mietrecht sowie Bau- und Vermarktungskenntnisse\n• Deine Muttersprache ist Deutsch und du kannst von Vorteil in weiteren Sprachen mündlich und schriftlich kommunizieren\n• Du verfügst über Empathie und die Fähigkeit, gemeinsam als Team Höchstleistungen zu erbringen\n• Du denkst und handelst unternehmerisch und hast Freude, die Livit mitzugestalten\n• Du lebst die Werte der Kundenorientierung, kommunizierst professionell und hast Freude im Umgang mit Menschen\n• Du verfügst über eine hohe Sozial- und Selbstkompetenz mit der Fähigkeit der Selbststeuerung\n• Du bist digital affin, verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen weiterzugeben\n\n## Benefits\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n• individuelle Karriereplanung und Entwicklungsperspektiven\n• Home- / Mobile Office\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• 14 Tage Vaterschaftsurlaub\n\n## Benefits\nLivit Akademie\n• Individuelles Einführungsprogramm für neue Mitarbeitende\n• Zugang zu elektronischen Lernplattformen (LinkedIn Learning und online Sprachkursen)\nKarriere und Entwicklungsperspektive\n• Individuelle Karriereplanung\n• Executive Talent Programm\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen (auf Antrag)\nArbeitszeitgestaltung\n• Jobsharing und Teilzeitarbeit möglich\nEntlöhnung / Vergütung\n• Marktorientiertes Basissalär\n• Grosszügige Dienstjubiläums Geschenke (bis zu 4 Wochen zusätzliche Ferien oder 1 Monatslohn)\n• Prämien für Vermittlung von neuen Mitarbeitenden\nFerien\n• Zwischen 5 und 7 Wochen Ferien\n• Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\nÜberdurchschnittliche Vorsorgeleistungen\n• Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• In der beruflichen Vorsorge (BVG) ist der volle Lohn versichert (kein Koordinationsabzug)\n• Im Unfall weltweit privat versichert\nFamilie und Gesundheit\n• 100% Lohnfortzahlung bei Mutterschaftsurlaub ab 2. Dienstjahr\n• Kostenloser Zugang zu Movis - einer externen und anonymen Beratungsstelle für gesundheitliche, persönliche, finanzielle und betriebliche Fragestellungen der Mitarbeitenden\n• Individuelle Beratung zur finanziellen Vorsorge\nVergünstigungen\n• Zugang zu Corporate Benefits Plattformen mit diversen Rabatten und Vergünstigungen namhafter Anbieter in den Bereichen Reisen, Freizeit, Mode, Wohnen und mehr\n• Bezug eines SBB-Gutscheins oder Vergünstigung auf den ZVV-BonusPass\n• Attraktive Flottenrabatte und Rabatte auf Services und Tankfüllungen\n• Spezielle Konditionen bei Hypotheken (Swiss Life) und Rabatte für Umzugsservices\n• Vergünstigungen bei diversen Versicherungen (Zusatzversicherung Krankenkasse, Hausrat, etc.)\n\n## Livit Family\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.\nMehr über Livit erfahren",
+      "descriptionByLocale": {
+        "de": "## Bewirtschaftung Zürich | Pensum: 100%\nDu bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Bei Livit setzt du dich mit einer vorbildlichen Kundenorientierung für die Anliegen von Eigentümer:innen und Mieter:innen ein und trägst so massgeblich zu einer vertrauensvollen, langlebigen Kundenbeziehung und einem positiven Unternehmensimage bei. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\n## Deine Aufgaben\n• Du bist verantwortlich für die zielorientierte Führung des Teams, für die Sicherstellung der Qualität sowie für die Personalplanung und Förderung der Mitarbeitenden\n• Du bist zuständig für die marktkonforme Bewirtschaftung sowie die Sicherstellung des Unterhalts des Immobilienportfolios bestehend aus Wohnen und Geschäftsflächen\n• Du berätst Eigentümer und Mieter, erstellst und verhandelst anspruchsvolle Verträge und steuerst die Facility Manager\n• Du bist verantwortlich für die Sicherstellung, Ausführung und Begleitung des Unterhalts sowie für periodische Zustandsbeurteilungen inkl. Berichterstellung\n• Du erarbeitest und steuerst das Jahresbudget inkl. Prognosen und kontrollierst die Kontierung der Kreditoren\n• Du erteilst Reparatur- und Sanierungsaufträge und überwachst deren Ausführung\n• Du überwachst die aktuelle Mietzinspolitik und berätst Hauseigentümer bei der Festlegung der Mietzinsgestaltung\n• Du führst Mietvertragsänderungen, Mietzinsänderungen sowie indexierte Mietzinsanpassungen durch\n\n## Dein Profil\n• Du verfügst über einen Eidg. Fachausweis Immobilienbewirtschaftung oder ein Eidg. Diplom Immobilientreuhand\n• Du bringst langjährige Berufserfahrung in der Immobilienbranche mit, hast Spezialkenntnisse in Mietrecht sowie Bau- und Vermarktungskenntnisse\n• Deine Muttersprache ist Deutsch und du kannst von Vorteil in weiteren Sprachen mündlich und schriftlich kommunizieren\n• Du verfügst über Empathie und die Fähigkeit, gemeinsam als Team Höchstleistungen zu erbringen\n• Du denkst und handelst unternehmerisch und hast Freude, die Livit mitzugestalten\n• Du lebst die Werte der Kundenorientierung, kommunizierst professionell und hast Freude im Umgang mit Menschen\n• Du verfügst über eine hohe Sozial- und Selbstkompetenz mit der Fähigkeit der Selbststeuerung\n• Du bist digital affin, verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen weiterzugeben\n\n## Benefits\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n• individuelle Karriereplanung und Entwicklungsperspektiven\n• Home- / Mobile Office\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• 14 Tage Vaterschaftsurlaub\n\n## Benefits\nLivit Akademie\n• Individuelles Einführungsprogramm für neue Mitarbeitende\n• Zugang zu elektronischen Lernplattformen (LinkedIn Learning und online Sprachkursen)\nKarriere und Entwicklungsperspektive\n• Individuelle Karriereplanung\n• Executive Talent Programm\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen (auf Antrag)\nArbeitszeitgestaltung\n• Jobsharing und Teilzeitarbeit möglich\nEntlöhnung / Vergütung\n• Marktorientiertes Basissalär\n• Grosszügige Dienstjubiläums Geschenke (bis zu 4 Wochen zusätzliche Ferien oder 1 Monatslohn)\n• Prämien für Vermittlung von neuen Mitarbeitenden\nFerien\n• Zwischen 5 und 7 Wochen Ferien\n• Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\nÜberdurchschnittliche Vorsorgeleistungen\n• Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• In der beruflichen Vorsorge (BVG) ist der volle Lohn versichert (kein Koordinationsabzug)\n• Im Unfall weltweit privat versichert\nFamilie und Gesundheit\n• 100% Lohnfortzahlung bei Mutterschaftsurlaub ab 2. Dienstjahr\n• Kostenloser Zugang zu Movis - einer externen und anonymen Beratungsstelle für gesundheitliche, persönliche, finanzielle und betriebliche Fragestellungen der Mitarbeitenden\n• Individuelle Beratung zur finanziellen Vorsorge\nVergünstigungen\n• Zugang zu Corporate Benefits Plattformen mit diversen Rabatten und Vergünstigungen namhafter Anbieter in den Bereichen Reisen, Freizeit, Mode, Wohnen und mehr\n• Bezug eines SBB-Gutscheins oder Vergünstigung auf den ZVV-BonusPass\n• Attraktive Flottenrabatte und Rabatte auf Services und Tankfüllungen\n• Spezielle Konditionen bei Hypotheken (Swiss Life) und Rabatte für Umzugsservices\n• Vergünstigungen bei diversen Versicherungen (Zusatzversicherung Krankenkasse, Hausrat, etc.)\n\n## Livit Family\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.\nMehr über Livit erfahren",
+        "it": "## Bewirtschaftung Zürich | Pensum: 100%\nDu bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Bei Livit setzt du dich mit einer vorbildlichen Kundenorientierung für die Anliegen von Eigentümer:innen und Mieter:innen ein und trägst so massgeblich zu einer vertrauensvollen, langlebigen Kundenbeziehung und einem positiven Unternehmensimage bei. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\n## Deine Aufgaben\n• Du bist verantwortlich für die zielorientierte Führung des Teams, für die Sicherstellung der Qualität sowie für die Personalplanung und Förderung der Mitarbeitenden\n• Du bist zuständig für die marktkonforme Bewirtschaftung sowie die Sicherstellung des Unterhalts des Immobilienportfolios bestehend aus Wohnen und Geschäftsflächen\n• Du berätst Eigentümer und Mieter, erstellst und verhandelst anspruchsvolle Verträge und steuerst die Facility Manager\n• Du bist verantwortlich für die Sicherstellung, Ausführung und Begleitung des Unterhalts sowie für periodische Zustandsbeurteilungen inkl. Berichterstellung\n• Du erarbeitest und steuerst das Jahresbudget inkl. Prognosen und kontrollierst die Kontierung der Kreditoren\n• Du erteilst Reparatur- und Sanierungsaufträge und überwachst deren Ausführung\n• Du überwachst die aktuelle Mietzinspolitik und berätst Hauseigentümer bei der Festlegung der Mietzinsgestaltung\n• Du führst Mietvertragsänderungen, Mietzinsänderungen sowie indexierte Mietzinsanpassungen durch\n\n## Dein Profil\n• Du verfügst über einen Eidg. Fachausweis Immobilienbewirtschaftung oder ein Eidg. Diplom Immobilientreuhand\n• Du bringst langjährige Berufserfahrung in der Immobilienbranche mit, hast Spezialkenntnisse in Mietrecht sowie Bau- und Vermarktungskenntnisse\n• Deine Muttersprache ist Deutsch und du kannst von Vorteil in weiteren Sprachen mündlich und schriftlich kommunizieren\n• Du verfügst über Empathie und die Fähigkeit, gemeinsam als Team Höchstleistungen zu erbringen\n• Du denkst und handelst unternehmerisch und hast Freude, die Livit mitzugestalten\n• Du lebst die Werte der Kundenorientierung, kommunizierst professionell und hast Freude im Umgang mit Menschen\n• Du verfügst über eine hohe Sozial- und Selbstkompetenz mit der Fähigkeit der Selbststeuerung\n• Du bist digital affin, verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen weiterzugeben\n\n## Benefits\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n• individuelle Karriereplanung und Entwicklungsperspektiven\n• Home- / Mobile Office\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• 14 Tage Vaterschaftsurlaub\n\n## Benefits\nLivit Akademie\n• Individuelles Einführungsprogramm für neue Mitarbeitende\n• Zugang zu elektronischen Lernplattformen (LinkedIn Learning und online Sprachkursen)\nKarriere und Entwicklungsperspektive\n• Individuelle Karriereplanung\n• Executive Talent Programm\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen (auf Antrag)\nArbeitszeitgestaltung\n• Jobsharing und Teilzeitarbeit möglich\nEntlöhnung / Vergütung\n• Marktorientiertes Basissalär\n• Grosszügige Dienstjubiläums Geschenke (bis zu 4 Wochen zusätzliche Ferien oder 1 Monatslohn)\n• Prämien für Vermittlung von neuen Mitarbeitenden\nFerien\n• Zwischen 5 und 7 Wochen Ferien\n• Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\nÜberdurchschnittliche Vorsorgeleistungen\n• Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• In der beruflichen Vorsorge (BVG) ist der volle Lohn versichert (kein Koordinationsabzug)\n• Im Unfall weltweit privat versichert\nFamilie und Gesundheit\n• 100% Lohnfortzahlung bei Mutterschaftsurlaub ab 2. Dienstjahr\n• Kostenloser Zugang zu Movis - einer externen und anonymen Beratungsstelle für gesundheitliche, persönliche, finanzielle und betriebliche Fragestellungen der Mitarbeitenden\n• Individuelle Beratung zur finanziellen Vorsorge\nVergünstigungen\n• Zugang zu Corporate Benefits Plattformen mit diversen Rabatten und Vergünstigungen namhafter Anbieter in den Bereichen Reisen, Freizeit, Mode, Wohnen und mehr\n• Bezug eines SBB-Gutscheins oder Vergünstigung auf den ZVV-BonusPass\n• Attraktive Flottenrabatte und Rabatte auf Services und Tankfüllungen\n• Spezielle Konditionen bei Hypotheken (Swiss Life) und Rabatte für Umzugsservices\n• Vergünstigungen bei diversen Versicherungen (Zusatzversicherung Krankenkasse, Hausrat, etc.)\n\n## Livit Family\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.\nMehr über Livit erfahren",
+        "en": "## Bewirtschaftung Zürich | Pensum: 100%\nDu bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Bei Livit setzt du dich mit einer vorbildlichen Kundenorientierung für die Anliegen von Eigentümer:innen und Mieter:innen ein und trägst so massgeblich zu einer vertrauensvollen, langlebigen Kundenbeziehung und einem positiven Unternehmensimage bei. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\n## Deine Aufgaben\n• Du bist verantwortlich für die zielorientierte Führung des Teams, für die Sicherstellung der Qualität sowie für die Personalplanung und Förderung der Mitarbeitenden\n• Du bist zuständig für die marktkonforme Bewirtschaftung sowie die Sicherstellung des Unterhalts des Immobilienportfolios bestehend aus Wohnen und Geschäftsflächen\n• Du berätst Eigentümer und Mieter, erstellst und verhandelst anspruchsvolle Verträge und steuerst die Facility Manager\n• Du bist verantwortlich für die Sicherstellung, Ausführung und Begleitung des Unterhalts sowie für periodische Zustandsbeurteilungen inkl. Berichterstellung\n• Du erarbeitest und steuerst das Jahresbudget inkl. Prognosen und kontrollierst die Kontierung der Kreditoren\n• Du erteilst Reparatur- und Sanierungsaufträge und überwachst deren Ausführung\n• Du überwachst die aktuelle Mietzinspolitik und berätst Hauseigentümer bei der Festlegung der Mietzinsgestaltung\n• Du führst Mietvertragsänderungen, Mietzinsänderungen sowie indexierte Mietzinsanpassungen durch\n\n## Dein Profil\n• Du verfügst über einen Eidg. Fachausweis Immobilienbewirtschaftung oder ein Eidg. Diplom Immobilientreuhand\n• Du bringst langjährige Berufserfahrung in der Immobilienbranche mit, hast Spezialkenntnisse in Mietrecht sowie Bau- und Vermarktungskenntnisse\n• Deine Muttersprache ist Deutsch und du kannst von Vorteil in weiteren Sprachen mündlich und schriftlich kommunizieren\n• Du verfügst über Empathie und die Fähigkeit, gemeinsam als Team Höchstleistungen zu erbringen\n• Du denkst und handelst unternehmerisch und hast Freude, die Livit mitzugestalten\n• Du lebst die Werte der Kundenorientierung, kommunizierst professionell und hast Freude im Umgang mit Menschen\n• Du verfügst über eine hohe Sozial- und Selbstkompetenz mit der Fähigkeit der Selbststeuerung\n• Du bist digital affin, verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen weiterzugeben\n\n## Benefits\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n• individuelle Karriereplanung und Entwicklungsperspektiven\n• Home- / Mobile Office\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• 14 Tage Vaterschaftsurlaub\n\n## Benefits\nLivit Akademie\n• Individuelles Einführungsprogramm für neue Mitarbeitende\n• Zugang zu elektronischen Lernplattformen (LinkedIn Learning und online Sprachkursen)\nKarriere und Entwicklungsperspektive\n• Individuelle Karriereplanung\n• Executive Talent Programm\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen (auf Antrag)\nArbeitszeitgestaltung\n• Jobsharing und Teilzeitarbeit möglich\nEntlöhnung / Vergütung\n• Marktorientiertes Basissalär\n• Grosszügige Dienstjubiläums Geschenke (bis zu 4 Wochen zusätzliche Ferien oder 1 Monatslohn)\n• Prämien für Vermittlung von neuen Mitarbeitenden\nFerien\n• Zwischen 5 und 7 Wochen Ferien\n• Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\nÜberdurchschnittliche Vorsorgeleistungen\n• Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• In der beruflichen Vorsorge (BVG) ist der volle Lohn versichert (kein Koordinationsabzug)\n• Im Unfall weltweit privat versichert\nFamilie und Gesundheit\n• 100% Lohnfortzahlung bei Mutterschaftsurlaub ab 2. Dienstjahr\n• Kostenloser Zugang zu Movis - einer externen und anonymen Beratungsstelle für gesundheitliche, persönliche, finanzielle und betriebliche Fragestellungen der Mitarbeitenden\n• Individuelle Beratung zur finanziellen Vorsorge\nVergünstigungen\n• Zugang zu Corporate Benefits Plattformen mit diversen Rabatten und Vergünstigungen namhafter Anbieter in den Bereichen Reisen, Freizeit, Mode, Wohnen und mehr\n• Bezug eines SBB-Gutscheins oder Vergünstigung auf den ZVV-BonusPass\n• Attraktive Flottenrabatte und Rabatte auf Services und Tankfüllungen\n• Spezielle Konditionen bei Hypotheken (Swiss Life) und Rabatte für Umzugsservices\n• Vergünstigungen bei diversen Versicherungen (Zusatzversicherung Krankenkasse, Hausrat, etc.)\n\n## Livit Family\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.\nMehr über Livit erfahren",
+        "fr": "## Bewirtschaftung Zürich | Pensum: 100%\nDu bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Bei Livit setzt du dich mit einer vorbildlichen Kundenorientierung für die Anliegen von Eigentümer:innen und Mieter:innen ein und trägst so massgeblich zu einer vertrauensvollen, langlebigen Kundenbeziehung und einem positiven Unternehmensimage bei. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\n## Deine Aufgaben\n• Du bist verantwortlich für die zielorientierte Führung des Teams, für die Sicherstellung der Qualität sowie für die Personalplanung und Förderung der Mitarbeitenden\n• Du bist zuständig für die marktkonforme Bewirtschaftung sowie die Sicherstellung des Unterhalts des Immobilienportfolios bestehend aus Wohnen und Geschäftsflächen\n• Du berätst Eigentümer und Mieter, erstellst und verhandelst anspruchsvolle Verträge und steuerst die Facility Manager\n• Du bist verantwortlich für die Sicherstellung, Ausführung und Begleitung des Unterhalts sowie für periodische Zustandsbeurteilungen inkl. Berichterstellung\n• Du erarbeitest und steuerst das Jahresbudget inkl. Prognosen und kontrollierst die Kontierung der Kreditoren\n• Du erteilst Reparatur- und Sanierungsaufträge und überwachst deren Ausführung\n• Du überwachst die aktuelle Mietzinspolitik und berätst Hauseigentümer bei der Festlegung der Mietzinsgestaltung\n• Du führst Mietvertragsänderungen, Mietzinsänderungen sowie indexierte Mietzinsanpassungen durch\n\n## Dein Profil\n• Du verfügst über einen Eidg. Fachausweis Immobilienbewirtschaftung oder ein Eidg. Diplom Immobilientreuhand\n• Du bringst langjährige Berufserfahrung in der Immobilienbranche mit, hast Spezialkenntnisse in Mietrecht sowie Bau- und Vermarktungskenntnisse\n• Deine Muttersprache ist Deutsch und du kannst von Vorteil in weiteren Sprachen mündlich und schriftlich kommunizieren\n• Du verfügst über Empathie und die Fähigkeit, gemeinsam als Team Höchstleistungen zu erbringen\n• Du denkst und handelst unternehmerisch und hast Freude, die Livit mitzugestalten\n• Du lebst die Werte der Kundenorientierung, kommunizierst professionell und hast Freude im Umgang mit Menschen\n• Du verfügst über eine hohe Sozial- und Selbstkompetenz mit der Fähigkeit der Selbststeuerung\n• Du bist digital affin, verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen weiterzugeben\n\n## Benefits\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n• individuelle Karriereplanung und Entwicklungsperspektiven\n• Home- / Mobile Office\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• 14 Tage Vaterschaftsurlaub\n\n## Benefits\nLivit Akademie\n• Individuelles Einführungsprogramm für neue Mitarbeitende\n• Zugang zu elektronischen Lernplattformen (LinkedIn Learning und online Sprachkursen)\nKarriere und Entwicklungsperspektive\n• Individuelle Karriereplanung\n• Executive Talent Programm\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen (auf Antrag)\nArbeitszeitgestaltung\n• Jobsharing und Teilzeitarbeit möglich\nEntlöhnung / Vergütung\n• Marktorientiertes Basissalär\n• Grosszügige Dienstjubiläums Geschenke (bis zu 4 Wochen zusätzliche Ferien oder 1 Monatslohn)\n• Prämien für Vermittlung von neuen Mitarbeitenden\nFerien\n• Zwischen 5 und 7 Wochen Ferien\n• Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\nÜberdurchschnittliche Vorsorgeleistungen\n• Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n• In der beruflichen Vorsorge (BVG) ist der volle Lohn versichert (kein Koordinationsabzug)\n• Im Unfall weltweit privat versichert\nFamilie und Gesundheit\n• 100% Lohnfortzahlung bei Mutterschaftsurlaub ab 2. Dienstjahr\n• Kostenloser Zugang zu Movis - einer externen und anonymen Beratungsstelle für gesundheitliche, persönliche, finanzielle und betriebliche Fragestellungen der Mitarbeitenden\n• Individuelle Beratung zur finanziellen Vorsorge\nVergünstigungen\n• Zugang zu Corporate Benefits Plattformen mit diversen Rabatten und Vergünstigungen namhafter Anbieter in den Bereichen Reisen, Freizeit, Mode, Wohnen und mehr\n• Bezug eines SBB-Gutscheins oder Vergünstigung auf den ZVV-BonusPass\n• Attraktive Flottenrabatte und Rabatte auf Services und Tankfüllungen\n• Spezielle Konditionen bei Hypotheken (Swiss Life) und Rabatte für Umzugsservices\n• Vergünstigungen bei diversen Versicherungen (Zusatzversicherung Krankenkasse, Hausrat, etc.)\n\n## Livit Family\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.\nMehr über Livit erfahren"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.livit.ch/offene-stellen/teamleiter-in-bewirtschaftung/b8c2abe6-edd9-4317-8479-192c50eca5b0",
+      "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-27T21:50:39.849Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Altstetterstrasse 124",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-27",
+      "postedDate": "2026-11-27",
+      "postingDateSource": "reported",
+      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/livit-ag-career-stellenboerse/job/Zrich/Teamleiter-in-Bewirtschaftung_R13536/apply",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-25T21:50:39.849Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.livit.ch/offene-stellen/sachbearbeiter-in-bewirtschaftung/deb97f9f-98bb-4322-a332-1ac49a6c3f04"
+      "firstSeenAt": "2026-10-01T21:27:18.048Z"
     },
     {
       "id": "livit-0cc9172179b4",
@@ -2244,7 +2293,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:59:32.392Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://jobs.livit.ch/postes-vacantes/gerant-e-d-immeubles/a850f04f-6101-47bc-83ff-cedab2bedf1f"
     }
   ]
