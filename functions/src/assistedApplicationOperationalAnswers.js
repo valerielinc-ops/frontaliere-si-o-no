@@ -79,12 +79,22 @@ const negativeConsentOption = (option, question) => NEGATIVE_CONSENT.test(norm(o
   || NEGATIVE_CONSENT.test(norm(option.value))
   || hasConsentContradiction(`${option.label} ${option.value}`, question);
 
+// A closed, explicit list of «pick one» placeholders (norm(): no accents, lower case, words only), never a pattern:
+// a real option that merely starts with such a word is still an option. An empty norm is a bare dash or ellipsis.
+const PLACEHOLDER_OPTIONS = new Set([
+  'seleziona', 'selezionare', 'seleziona un opzione', 'seleziona una opzione', 'scegli', 'scegliere', 'scegli un opzione',
+  'select', 'select one', 'select an option', 'please select', 'please select one', 'please choose', 'choose', 'choose one', 'choose an option',
+  'bitte wahlen', 'bitte wahlen sie', 'bitte auswahlen', 'bitte auswahlen sie', 'bitte waehlen', 'bitte auswaehlen', 'wahlen', 'wahlen sie', 'auswahlen', 'auswahlen sie', 'auswaehlen',
+  'selectionner', 'selectionnez', 'veuillez selectionner', 'selectionnez une option', 'choisir', 'choisissez', 'veuillez choisir', 'choisir une option',
+]);
+const isPlaceholderOption = label => { const folded = norm(String(label ?? '').normalize('NFC')); return !folded || PLACEHOLDER_OPTIONS.has(folded); };
+
 function applicationPrivacyNoticeAnswerShape(question) {
   const types = [question?.type, question?.kind, question?.inputType]
     .map(type => String(type || '').toLowerCase()).filter(Boolean);
   if (types.includes('checkbox')) return 'checkbox';
-  // A «Seleziona»/«Select…» placeholder is no answer: it neither offers nor refuses the consent.
-  const options = optionsOf(question).filter(option => !/^(?:-+|seleziona\w*|select\w*|please select|bitte (?:wahlen|waehlen)|choisir|choose)\b/i.test(norm(option.label) || '-'));
+  // A placeholder neither offers nor refuses the consent.
+  const options = optionsOf(question).filter(option => !isPlaceholderOption(option.label));
   if (types.some(type => ['yes_no', 'boolean'].includes(type)) && options.length === 0) return 'binary';
   if (options.length < 2 || options.length > 3) return null;
   const affirmative = options.filter(option => affirmativeConsentOption(option, question));

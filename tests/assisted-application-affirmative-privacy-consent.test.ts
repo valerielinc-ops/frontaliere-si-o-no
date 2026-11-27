@@ -56,3 +56,17 @@ describe('optional purposes stay unanswered and never block', () => {
     expect(asked(field)).toEqual(['portal_privacy_consent']);
   });
 });
+
+describe('placeholders are a closed multilingual list', () => {
+  it('answers Yes past dash, German and French placeholders', () => {
+    expect(operationalDefaultAnswer({ question: 'I have read the privacy notice', type: 'select', options: ['-', 'Bitte auswählen', 'Sélectionner', 'Yes', 'No'] })?.value).toBe('Yes');
+    for (const placeholder of ['Bitte wählen', 'Auswählen', 'Veuillez sélectionner', 'Choisir', '—', '...']) {
+      expect(operationalDefaultAnswer({ question: 'I have read the privacy notice', type: 'select', options: [placeholder, 'Yes', 'No'] })?.value).toBe('Yes');
+    }
+  });
+
+  it('a real option other than Yes/No still blocks the default', () => {
+    expect(operationalDefaultAnswer({ question: 'I have read the privacy notice', type: 'select', options: ['Bitte auswählen', 'Yes', 'No', 'Only the short version'] })).toBeNull();
+    expect(operationalDefaultAnswer({ question: 'I have read the privacy notice', type: 'select', options: ['Selection of documents', 'Yes', 'No'] })).toBeNull();
+  });
+});
