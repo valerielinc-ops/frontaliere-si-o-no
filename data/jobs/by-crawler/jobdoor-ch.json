@@ -1,7 +1,7 @@
 {
   "crawlerKey": "jobdoor-ch",
-  "assembledAt": "2026-11-27T09:53:57.554Z",
-  "runId": "45973680225",
+  "assembledAt": "2026-11-27T21:47:20.362Z",
+  "runId": "46070253957",
   "jobs": [
     {
       "id": "jobdoor-ch-7bc38f16351f",
@@ -34,7 +34,7 @@
       "url": "https://jobdoor.ch/job/fage-efz-100",
       "source": "Jobdoor AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-27T09:53:51.742Z",
+      "crawledAt": "2026-11-27T21:47:04.631Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -77,9 +77,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:53:51.742Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobdoor.ch/job/fage-efz-100"
+      "validThrough": "2027-02-03T21:47:04.631Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

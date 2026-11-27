@@ -1,7 +1,7 @@
 {
   "crawlerKey": "assura-ch",
-  "assembledAt": "2026-11-27T09:54:17.606Z",
-  "runId": "45973680225",
+  "assembledAt": "2026-11-27T21:49:25.487Z",
+  "runId": "46070253957",
   "jobs": [
     {
       "id": "assura-ch-3bbdf9f3a33f",
@@ -34,7 +34,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/business-anali-lausanne",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:54:05.270Z",
+      "crawledAt": "2026-11-27T21:49:15.876Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:54:05.270Z",
+      "validThrough": "2027-02-06T21:49:15.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/infirmier-conseil-psy-ma",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:54:05.269Z",
+      "crawledAt": "2026-11-27T21:49:15.873Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:54:05.269Z",
+      "validThrough": "2027-02-06T21:49:15.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -195,7 +195,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/gestionnaire-admin-pu-de-fr",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-27T09:54:05.259Z",
+      "crawledAt": "2026-11-27T21:49:15.868Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -244,7 +244,7 @@
       "postalCode": "1009",
       "streetAddress": "Pully",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:54:05.259Z",
+      "validThrough": "2027-02-06T21:49:15.868Z",
       "validThroughSource": "last-observed-window"
     }
   ]
