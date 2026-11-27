@@ -61,7 +61,20 @@
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/5e404baa-b2f6-4200-9737-2837b9fcf049"
+    "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/5e404baa-b2f6-4200-9737-2837b9fcf049",
+    "canton": "JU",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "dipl-architekt-in-gim-gim-architekten-bern": "JU",
+        "dipl-architekt-in-gim-gim-architekten-courtedoux": "JU"
+      },
+      "en": {
+        "dipl-architekt-in-gim-gim-architekten-bern": "JU"
+      },
+      "fr": {
+        "dipl-architekt-in-gim-gim-architekten-bern": "JU"
+      }
+    }
   },
   {
     "slug": "capo-dell-amministrazione-risorse-umane-e-contabilita-finanziaria-gim-architekten-ag-bern",
