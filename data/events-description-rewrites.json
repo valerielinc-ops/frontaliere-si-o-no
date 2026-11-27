@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-27T20:31:29.611Z",
+  "generatedAt": "2026-11-27T22:29:49.241Z",
   "model": "gpt-6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -20796,6 +20796,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-26T00:00:23.818Z"
     },
+    "ge-agenda:repas-entre-seniors-5::7189e4cf93759e0575027899af3c02f959c8861f547528bbdd70e0ae2d02ea0e": {
+      "id": "ge-agenda:repas-entre-seniors-5",
+      "sourceDescriptionHash": "7189e4cf93759e0575027899af3c02f959c8861f547528bbdd70e0ae2d02ea0e",
+      "description": "L’evento prevede un pasto per le persone anziane. Si svolge all’Espace de quartier Eaux-Vives, a Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’evento prevede un pasto per le persone anziane. Si svolge all’Espace de quartier Eaux-Vives, a Ginevra.",
+        "en": "The event is a meal for older adults. It takes place at Espace de quartier Eaux-Vives in Geneva.",
+        "de": "Die Veranstaltung ist ein gemeinsames Essen für ältere Menschen. Sie findet im Espace de quartier Eaux-Vives in Genf statt.",
+        "fr": "L’événement consiste en un repas destiné aux personnes âgées. Il se tient à l’Espace de quartier Eaux-Vives, à Genève."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T22:23:23.724Z"
+    },
     "ge-agenda:repas-entre-seniors-6::92d6738e1fa8735e197ed0f9b8d431285c2ebd02431e8dbeb6b8a731ce12c2b4": {
       "id": "ge-agenda:repas-entre-seniors-6",
       "sourceDescriptionHash": "92d6738e1fa8735e197ed0f9b8d431285c2ebd02431e8dbeb6b8a731ce12c2b4",
@@ -21677,6 +21691,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-17T22:16:31.750Z"
+    },
+    "ge-agenda:seances-plenieres-conseil-municipal-consacrees-vote-budget::3ffcb3dd6157038bf9f404915ddb44f2dd676ca0e36688b8fdf7021416a01c61": {
+      "id": "ge-agenda:seances-plenieres-conseil-municipal-consacrees-vote-budget",
+      "sourceDescriptionHash": "3ffcb3dd6157038bf9f404915ddb44f2dd676ca0e36688b8fdf7021416a01c61",
+      "description": "Il Consiglio comunale di Ginevra si riunisce in sessioni plenarie dedicate al voto sul bilancio. La votazione riguarda il bilancio dell’anno legislativo successivo.",
+      "descriptionByLocale": {
+        "it": "Il Consiglio comunale di Ginevra si riunisce in sessioni plenarie dedicate al voto sul bilancio. La votazione riguarda il bilancio dell’anno legislativo successivo.",
+        "en": "Geneva’s municipal council holds plenary meetings focused on the budget vote. The vote concerns the budget for the following legislative year.",
+        "de": "Der Gemeinderat von Genf kommt zu Plenarsitzungen zusammen, bei denen über den Haushalt abgestimmt wird. Die Abstimmung betrifft den Haushalt des folgenden Legislaturjahres.",
+        "fr": "Le Conseil municipal de Genève tient des séances plénières autour du vote du budget. Celui-ci concerne l’année législative suivante."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T22:18:51.057Z"
     },
     "ge-agenda:seances-plenieres-ordinaires-conseil-municipal::f263b2d5a8382c85b36eacd4def53c3f7501f92b484c678653e55150181b13af": {
       "id": "ge-agenda:seances-plenieres-ordinaires-conseil-municipal",
@@ -56411,6 +56439,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T13:35:06.692Z"
+    },
+    "guidle:APjiTwA::b309eb30a2822271a044e78e5b437f98d2641eaaa7e4cf0af10d88897ce6afab": {
+      "id": "guidle:APjiTwA",
+      "sourceDescriptionHash": "b309eb30a2822271a044e78e5b437f98d2641eaaa7e4cf0af10d88897ce6afab",
+      "description": "La sessione informativa online illustra i contenuti dei moduli di project management e i requisiti per parteciparvi. È gratuita, permette di porre domande agli esperti e richiede una connessione Internet.",
+      "descriptionByLocale": {
+        "it": "La sessione informativa online illustra i contenuti dei moduli di project management e i requisiti per parteciparvi. È gratuita, permette di porre domande agli esperti e richiede una connessione Internet.",
+        "en": "The online information session outlines the content of project-management modules and the requirements for taking part. It is free, offers an opportunity to ask specialists questions, and requires internet access.",
+        "de": "In der digitalen Informationsrunde werden Inhalte von Projektmanagement-Modulen und die Teilnahmebedingungen vorgestellt. Sie ist kostenfrei; Fragen an Fachleute sind möglich, und ein Internetzugang wird vorausgesetzt.",
+        "fr": "La séance d’information en ligne présente les thèmes des modules de gestion de projet ainsi que les conditions de participation. Elle est gratuite, permet de poser des questions à des spécialistes et nécessite un accès à Internet."
+      },
+      "model": "gpt-6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-27T22:23:23.760Z"
     },
     "guidle:APjQK2h::0ecbaeaba06b9609d638f404c4664fe499d7471421ba29f15d4278721a299f7f": {
       "id": "guidle:APjQK2h",
@@ -205895,8 +205937,8 @@
       "id": "ge-agenda:herbiers-lacustres-secrets-plantes-leman",
       "sourceDescriptionHash": "084e0b6b475207378147282ee203dece129cdae5ba8a4d8303848dc2e8eb43e4",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:24:48.133Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:24:08.884Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206125,21 +206167,12 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:repas-entre-seniors-5::7189e4cf93759e0575027899af3c02f959c8861f547528bbdd70e0ae2d02ea0e": {
-      "id": "ge-agenda:repas-entre-seniors-5",
-      "sourceDescriptionHash": "7189e4cf93759e0575027899af3c02f959c8861f547528bbdd70e0ae2d02ea0e",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:25:14.525Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:repetition-publique-ballet-junior-geneve::fd45ac37de97d6c194ce128b93e76a41617833617e809a5a5b1d8791bcbeb7fb": {
       "id": "ge-agenda:repetition-publique-ballet-junior-geneve",
       "sourceDescriptionHash": "fd45ac37de97d6c194ce128b93e76a41617833617e809a5a5b1d8791bcbeb7fb",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:22:23.854Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:20:42.209Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206176,15 +206209,6 @@
       "code": "new-number",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-11-21T15:26:17.206Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:seances-plenieres-conseil-municipal-consacrees-vote-budget::3ffcb3dd6157038bf9f404915ddb44f2dd676ca0e36688b8fdf7021416a01c61": {
-      "id": "ge-agenda:seances-plenieres-conseil-municipal-consacrees-vote-budget",
-      "sourceDescriptionHash": "3ffcb3dd6157038bf9f404915ddb44f2dd676ca0e36688b8fdf7021416a01c61",
-      "code": "promotional-language",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:27:35.326Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206795,8 +206819,8 @@
       "id": "guidle:ABTD4nS",
       "sourceDescriptionHash": "76a6957273284dcc876923e2971fcd0b42b114617fd781e5f2f1a4f0be9cf498",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:21:29.651Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:19:47.583Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -206939,8 +206963,8 @@
       "id": "guidle:AdBFp1y",
       "sourceDescriptionHash": "2612eee6b526264cb014b6240a9175769c442db55a53e0a1b2a7ce70d8b92559",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:29:59.971Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:23:14.385Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207290,8 +207314,8 @@
       "id": "guidle:Ah7trkY",
       "sourceDescriptionHash": "0d027120342d06ce166bacb28b7c33fb7bb2a7950bd64f0ad2ce70d444b51673",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:26:09.973Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:25:09.340Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207884,8 +207908,8 @@
       "id": "guidle:ANifY4i",
       "sourceDescriptionHash": "141fd680448e14d9c2a4a3040e29c2cff045c2f659153b8e32980a567d2a6c27",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:24:13.052Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:22:33.437Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -207994,15 +208018,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-11-21T16:00:25.821Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:APjiTwA::b309eb30a2822271a044e78e5b437f98d2641eaaa7e4cf0af10d88897ce6afab": {
-      "id": "guidle:APjiTwA",
-      "sourceDescriptionHash": "b309eb30a2822271a044e78e5b437f98d2641eaaa7e4cf0af10d88897ce6afab",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:28:58.304Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208271,8 +208286,8 @@
       "id": "guidle:As2Qdkw",
       "sourceDescriptionHash": "c841a8d9c38eb96fe5ee14f84d84cd2003b1a83eb834a7c1ce04fe60975e5278",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:20:34.671Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:19:54.559Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208298,8 +208313,8 @@
       "id": "guidle:ASGM3Bi",
       "sourceDescriptionHash": "10b79f4f3a045dc0ff39041011bbad843d7ed14d5b5014b08f2a94039dee993b",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:29:51.973Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:24:19.076Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208361,8 +208376,8 @@
       "id": "guidle:AsRBdG8",
       "sourceDescriptionHash": "fa520eeb0e18a5adaf9e9afb3064a29eccd19ef815bece54fee0dd6c796608ed",
       "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:19:25.700Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:18:36.603Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -208784,8 +208799,8 @@
       "id": "guidle:AwdZNQi",
       "sourceDescriptionHash": "1decc857478ad357b500d0950ba18d8eedca50f804084caa772dceaf4e9e47ac",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:25:04.267Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:17:58.610Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209198,8 +209213,8 @@
       "id": "lu-stadt-agenda:7694125",
       "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:21:59.898Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:20:47.823Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -209207,8 +209222,8 @@
       "id": "lu-stadt-agenda:7694314",
       "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-27T19:23:17.430Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-27T22:21:34.666Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
