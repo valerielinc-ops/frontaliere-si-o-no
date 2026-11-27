@@ -28,7 +28,7 @@ import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { platformAnswerProvenance, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { sendOutcomeUnconfirmed } from './lib/applicationExistsReconciliation.js';
+import { sendOutcomeUnconfirmedFor } from './lib/applicationExistsReconciliation.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
   AUTOMATION_SUBCOLLECTION,
@@ -44,7 +44,7 @@ import { ensureOrderAlias } from './assistedApplicationAlias.js';
 import { factCheckTokens, roundWasSent, transition } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, documentFilesOf, extraDocumentsToSend, requiredDocumentsFor, requiredDocumentsOf } from './assistedApplicationExtraDocuments.js';
-import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
+import { submissionGuard, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { portalApplicationContractView } from './lib/portalApplicationContract.js';
@@ -113,7 +113,7 @@ async function sentView(sent, sign) {
 
 /** Flow + draft as the owner queue shows them (no raw CV text). */
 export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
-  const [flowSnapshot, draftSnapshot, inboxSnapshot, pendingReviewSnapshot, accountsSnapshot, followupSnapshot, orderSnapshot] = await Promise.all([
+  const [flowSnapshot, draftSnapshot, inboxSnapshot, pendingReviewSnapshot, accountsSnapshot, followupSnapshot, orderSnapshot, submissionSnapshot] = await Promise.all([
     flowRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
     // Only the latest ten, from the database: an order may collect many messages.
@@ -123,6 +123,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
     orderRefFor(db, orderId).collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID).get(),
     followupRefFor(db, orderId).get(),
     orderRefFor(db, orderId).get(),
+    submissionRefFor(db, orderId).get(),
   ]);
   // Extras: the follow-ups of an e-mail application and the interview prep pack.
   const followupDoc = followupSnapshot.exists ? followupSnapshot.data() || {} : null;
@@ -228,7 +229,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       // that approval as `submittedVia: postal` because it never dispatches the electronic submit runner.
       roundSent: roundWasSent(flow) || flow.submittedVia === 'postal',
       // A send of unknown outcome: the retry needs the owner's explicit «it was NOT sent» (automationRetrySubmit.confirmedNotSent).
-      sendOutcomeUnconfirmed: sendOutcomeUnconfirmed(flow),
+      sendOutcomeUnconfirmed: sendOutcomeUnconfirmedFor({ flow, draft, submission: submissionSnapshot.data() || {} }),
       history: (flow.history || []).slice(-12),
     } : null,
     draft: draft ? {

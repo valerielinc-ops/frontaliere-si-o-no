@@ -16,7 +16,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 }));
 
 const { default: AssistedApplicationAutomationPanel } = await import('../components/pages/AssistedApplicationAutomationPanel');
-const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+const { handleAutomationAdminAction, loadAutomationForAdmin } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 
 afterEach(() => { cleanup(); mocks.run.mockClear(); });
 
@@ -63,5 +63,26 @@ describe('owner confirmation «not sent» (panel to admin handler)', () => {
     const result: any = await handleAutomationAdminAction(store.db, { action: 'automationRetrySubmit', orderId: 'order_panel_test', confirmedNotSent: true }, 'owner@example.test', { runEffect });
     expect(result).toMatchObject({ ok: true, state: 'submitting' });
     expect(store.read(`${root}/automation/flow`)).toMatchObject({ state: 'submitting', ambiguousSubmit: null });
+  });
+
+  it('admin view: a click on the submission record raises the flag although the flow holds nothing about it, and the panel then asks for the checkbox', async () => {
+    const root = 'assisted_applications/order_panel_test';
+    const flow = { state: 'owner_takeover', round: 1, heldBy: ['portal:some_later_stop'], dispatch: { mode: 'submit', round: 1, attempts: 1 }, answers: {} };
+    const base = {
+      [root]: { paymentStatus: 'paid', submissionStatus: 'in_progress' },
+      [`${root}/automation/flow`]: flow,
+      [`${root}/ai_drafts/current`]: { round: 1, status: 'ready', questions: [] },
+    };
+    const clicked = createMemoryFirestore({ ...base, [`${root}/automation/submission`]: { r1: { state: 'sending', channel: 'portal', clickedAt: 5 } } });
+    const view: any = await loadAutomationForAdmin(clicked.db, 'order_panel_test', {});
+    expect(view.flow.sendOutcomeUnconfirmed).toBe(true);
+    const released = createMemoryFirestore({ ...base, [`${root}/automation/submission`]: { r1: { state: 'failed', channel: 'portal', clickedAt: 5, confirmedNotSent: true } } });
+    expect(((await loadAutomationForAdmin(released.db, 'order_panel_test', {})) as any).flow.sendOutcomeUnconfirmed).toBe(false);
+
+    const held = { ...order, automation: { ...order.automation, flow: { ...order.automation.flow, ...view.flow, heldBy: ['portal:some_later_stop'] } } };
+    render(<AssistedApplicationAutomationPanel order={held} user={{ getIdToken: async () => 'token' }} onChanged={vi.fn()} />);
+    fireEvent.click(screen.getByRole('checkbox', { hidden: true }));
+    fireEvent.click(screen.getByRole('button', { name: /Riprova l’invio automatico/, hidden: true }));
+    await waitFor(() => expect(mocks.run).toHaveBeenCalledWith(expect.anything(), 'order_panel_test', 'automationRetrySubmit', { confirmedNotSent: true }));
   });
 });

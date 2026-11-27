@@ -7,6 +7,7 @@
  * the page also appears for an account the candidate used before, or after an application nobody here sent.
  */
 import { aliasLocalPart } from '../assistedApplicationAlias.js';
+import { sendMayHaveLeft } from '../assistedApplicationEmployerWithdrawal.js';
 
 /**
  * One entry per ATS that names this page in its route. A route is recognised only by its exact shape on the
@@ -90,6 +91,16 @@ export function sendOutcomeUnconfirmed(flow) {
   if ((Array.isArray(flow?.heldBy) ? flow.heldBy : []).some((held) => SEND_OUTCOME_HOLDS.has(String(held)))) return true;
   const marker = flow?.ambiguousSubmit;
   return Boolean(marker && typeof marker === 'object' && Number(marker.round) === (Number(flow?.round) || 1) && !marker.clearedAt);
+}
+
+/**
+ * The one answer to «may the send of this order have left, unconfirmed?», for the retry's gate and the owner
+ * panel alike: the flow's own evidence (holds, marker) or the submission record and draft
+ * (assistedApplicationEmployerWithdrawal.js sendMayHaveLeft). Whatever it says, the panel asks for the owner's
+ * «not sent» and the backend refuses a retry without it.
+ */
+export function sendOutcomeUnconfirmedFor({ flow, draft = null, submission = {} } = {}) {
+  return sendOutcomeUnconfirmed(flow) || sendMayHaveLeft({ draft, submission });
 }
 
 /** A click on the round's record: the live one, or the one a later claim overwrote (`priorClickedAt`). */
