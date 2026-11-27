@@ -71,14 +71,19 @@ describe('SuccessFactors activation link landing', () => {
     text,
   });
 
+  it('does not take the button as proof without a proven SuccessFactors landing', () => {
+    expect(verificationOutcome({ text: '', fields: [], buttons: [{ text: 'Continue applying' }], errors: [] })).toBe('unconfirmed');
+    expect(verificationOutcome(landing('Account ready.', [{ text: 'Continue applying' }]), { successFactorsLanding: false })).toBe('unconfirmed');
+  });
+
   it('takes «Continuer à postuler» with nothing to fill as the activated account', () => {
-    expect(verificationOutcome(landing('Votre compte est prêt.', [{ text: 'Retour à la liste des postes' }, { text: 'Continuer à postuler' }]))).toBe('accepted');
-    expect(verificationOutcome(landing('Account ready.', [{ text: 'Continue applying' }]))).toBe('accepted');
+    expect(verificationOutcome(landing('Votre compte est prêt.', [{ text: 'Retour à la liste des postes' }, { text: 'Continuer à postuler' }]), { successFactorsLanding: true })).toBe('accepted');
+    expect(verificationOutcome(landing('Account ready.', [{ text: 'Continue applying' }]), { successFactorsLanding: true })).toBe('accepted');
   });
 
   it('keeps the pending notice, the resend page and a disabled control unconfirmed', () => {
-    expect(verificationOutcome(landing('E-mail d’activation envoyé. Votre compte n’a pas encore été activé.', [{ text: 'Renvoyer' }, { text: 'Continuer à postuler' }]))).toBe('unconfirmed');
-    expect(verificationOutcome(landing('Page', [{ text: 'Retour à la liste des postes' }, { text: 'Renvoyer' }]))).toBe('unconfirmed');
-    expect(verificationOutcome(landing('Page', [{ text: 'Continuer à postuler', disabled: true }]))).toBe('unconfirmed');
+    expect(verificationOutcome(landing('E-mail d’activation envoyé. Votre compte n’a pas encore été activé.', [{ text: 'Renvoyer' }, { text: 'Continuer à postuler' }]), { successFactorsLanding: true })).toBe('unconfirmed');
+    expect(verificationOutcome(landing('Page', [{ text: 'Retour à la liste des postes' }, { text: 'Renvoyer' }]), { successFactorsLanding: true })).toBe('unconfirmed');
+    expect(verificationOutcome(landing('Page', [{ text: 'Continuer à postuler', disabled: true }]), { successFactorsLanding: true })).toBe('unconfirmed');
   });
 });

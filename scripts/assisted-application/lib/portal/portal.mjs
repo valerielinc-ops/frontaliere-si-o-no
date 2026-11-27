@@ -7881,23 +7881,25 @@ async function waitForVerificationOutcome(page) {
   // (`/career`, then `/portalcareer`) and draws the application form in its
   // UI5 shell (2026-11-10): a read can fail between them, and a page with
   // nothing to act on is still drawing, not an unconfirmed verification.
+  // Proof the landing is a SuccessFactors tenant route (host + career path), judged on the live address.
+  const outcomeProof = () => ({ successFactorsLanding: isSuccessFactorsCareerPath(page.url()) });
   const read = () => extractFields(page).catch(() => null);
   const actionable = (view) => Boolean(view?.fields?.length) || (view?.buttons || []).some((button) => !button.disabled);
   const unsettled = (view, result) => !view || result === 'pending' || verificationIsPending(view)
     || (result === 'unconfirmed' && !actionable(view));
   let after = await read();
-  let outcome = after ? verificationOutcome(after) : 'pending';
+  let outcome = after ? verificationOutcome(after, outcomeProof()) : 'pending';
   const deadline = Date.now() + OUTCOME_TIMEOUT_MS;
   while (unsettled(after, outcome) && Date.now() < deadline) {
     await page.waitForTimeout(Math.min(1000, deadline - Date.now()));
     after = await read();
-    outcome = after ? verificationOutcome(after) : 'pending';
+    outcome = after ? verificationOutcome(after, outcomeProof()) : 'pending';
   }
   // The same non-throwing read: a page still unreadable at the deadline is a
   // pending outcome, answered by a bounded handoff, never an uncaught rejection.
   after ||= await read();
   if (!after) return { after: null, outcome: 'pending' };
-  return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after) : outcome };
+  return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after, outcomeProof()) : outcome };
 }
 
 /**

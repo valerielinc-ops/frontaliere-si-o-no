@@ -157,7 +157,7 @@ const withoutNegatedStates = (text) => String(text || '').replace(NOT_YET_RE, ' 
 // «Continuer à postuler», «Continue applying», «Weiter bewerben», «Continua a candidarti».
 const CONTINUE_APPLYING_RE = /^(?:continuer\s+(?:à|a)\s+postuler|continue\s+(?:to\s+)?appl(?:y|ying)|weiter\s+(?:zur\s+)?bewerb(?:en|ung)|continua\s+(?:a\s+)?candidarti|continua\s+con\s+la\s+candidatura)\W*$/iu;
 
-function verifiedLanding(after) {
+function verifiedLanding(after, { successFactorsLanding = false } = {}) {
   const text = String(after?.text || '').normalize('NFC').trim();
   // A verification/instructions page may expose a generic sign-in control as
   // well; it is not proof that the OTP was accepted. A create form is also
@@ -168,11 +168,12 @@ function verifiedLanding(after) {
   if (signIn) return true;
   // SuccessFactors, once the activation link is followed, shows its own
   // «Continuer à postuler» / «Continue applying» control and nothing to fill:
-  // it is offered only to an activated account. A page that still talks about
+  // it is offered only to an activated account. Only a landing the caller proved
+  // to be a SuccessFactors tenant route counts; another portal's button says nothing. A page that still talks about
   // an activation mail or offers to resend it («pas encore été activé» even
   // contains «activé») never counts.
   const hasResend = (after.buttons || []).some((button) => [button.text, button.label].some((value) => RESEND_VERIFICATION_RE.test(String(value ?? ''))));
-  return !VERIFY_PAGE_RE.test(text) && !hasResend && !(after.errors || []).length
+  return successFactorsLanding === true && !VERIFY_PAGE_RE.test(text) && !hasResend && !(after.errors || []).length
     && (after.buttons || []).some((button) => !button.disabled
       && [button.text, button.label].some((value) => CONTINUE_APPLYING_RE.test(String(value ?? '').trim())));
 }
@@ -199,7 +200,7 @@ export function registrationOutcome(after) {
  * portal's bounded loading state after an OTP click; anything else is
  * `unconfirmed`, and neither is recorded as verified.
  */
-export function verificationOutcome(after) {
+export function verificationOutcome(after, { successFactorsLanding = false } = {}) {
   const text = String(after?.text || '').normalize('NFC').trim();
   const errors = (after.errors || []).map((error) => String(error).trim()).filter(Boolean);
   const loading = errors.some((error) => VERIFY_LOADING_RE.test(error));
@@ -214,7 +215,7 @@ export function verificationOutcome(after) {
   // unconfirmed verification.
   if (VERIFY_OK_RE.test(positiveText) || authPageKind(after) === 'sign_in') return 'accepted';
   if (codeField(after)) return 'rejected';
-  if (verifiedLanding(after)) return 'accepted';
+  if (verifiedLanding(after, { successFactorsLanding })) return 'accepted';
   const form = after.fields.filter((field) => field.inputType !== 'password');
   return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';
 }
